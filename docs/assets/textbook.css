@@ -56,7 +56,7 @@ ul, ol { padding-left: 1.5rem; }
 .check label { display: flex; align-items: flex-start; gap: .6rem; cursor: pointer; }
 input[type="checkbox"] { width: 1.2rem; height: 1.2rem; flex: 0 0 auto; margin-top: .4rem; accent-color: #24714f; }
 .file { display: block; color: var(--muted); overflow-wrap: anywhere; font-size: .8rem; padding: .5rem 0; }
-code, pre, kbd { font-family: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace; }
+code, pre, kbd { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
 code { background: #eef1f3; border-radius: 3px; padding: .13em .3em; font-size: .88em; overflow-wrap: anywhere; }
 pre { background: #192635; color: #edf4fc; border-radius: 0 0 9px 9px; padding: 1.2rem; margin: 0 0 1.2rem; overflow-x: auto; line-height: 1.65; font-size: .82rem; tab-size: 4; }
 pre code { padding: 0; background: transparent; color: inherit; font-size: inherit; overflow-wrap: normal; }

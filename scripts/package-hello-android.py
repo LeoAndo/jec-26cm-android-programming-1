@@ -1,6 +1,7 @@
 """教員用：学生に配布するHelloAndroidの完成プロジェクトを作成する。"""
 
 from pathlib import Path
+from shutil import which
 import subprocess
 from zipfile import ZIP_DEFLATED, ZipFile, ZipInfo
 
@@ -8,11 +9,31 @@ from zipfile import ZIP_DEFLATED, ZipFile, ZipInfo
 root = Path(__file__).resolve().parents[1]
 project = "A01HelloAndroid"
 output = root / "docs/hello-android/downloads/A01HelloAndroid.zip"
-tracked = subprocess.check_output(
-    ["git", "ls-files", "-z", "--", project], cwd=root
-).decode().split("\0")
+git = which("git")
+if git is None:
+    raise SystemExit("Gitが見つかりません。Gitをインストールしてから再実行してください。")
+
+try:
+    git_root = subprocess.check_output(
+        [git, "rev-parse", "--show-toplevel"], cwd=root, stderr=subprocess.PIPE
+    ).decode().strip()
+    if Path(git_root).resolve() != root:
+        raise SystemExit(
+            "このフォルダはGitリポジトリのルートではありません。"
+            "READMEの手順でgit cloneした教材を使ってください。"
+        )
+    tracked = subprocess.check_output(
+        [git, "ls-files", "-z", "--", project], cwd=root, stderr=subprocess.PIPE
+    ).decode().split("\0")
+except (OSError, subprocess.CalledProcessError):
+    raise SystemExit(
+        "Git管理情報を読み取れません。"
+        "ZIPの再生成には、READMEの手順でgit cloneした教材が必要です。"
+    ) from None
 excluded = {".idea", ".gradle", ".kotlin", "build", "local.properties"}
-files = [name for name in tracked if name and not excluded.intersection(Path(name).parts)]
+files = [
+    name for name in tracked if name and not excluded.intersection(Path(name).parts)
+]
 if not files:
     raise SystemExit("配布対象のプロジェクトが見つかりません。")
 

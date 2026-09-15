@@ -33,7 +33,22 @@
 
 教員用ガイドとステップごとの照合用コードは `teacher/hello-android` にまとめています。完成版の見本は `Documents/Android1/samples/A01HelloAndroid`、授業で作るプロジェクトは `Documents/Android1/A01HelloAndroid` に置きます。
 
-完成コードを変更したときは、リポジトリ直下で `python3 scripts/package-hello-android.py` を実行し、配布用ZIPも更新します。ZIPにはGitで管理しているプロジェクトのファイルを収録し、IDE設定・ローカルSDK設定・ビルド出力を除外します。
+### 完成プロジェクトのZIPを更新する（教員用）
+
+ZIPの再生成には、GitとPython 3、および **`git clone` で取得したリポジトリ** が必要です。GitHubの「Download ZIP」で取得したフォルダにはGit管理情報がないため、再生成には使えません。教材の閲覧と、同梱済みの完成プロジェクトZIPの利用は「Download ZIP」でも可能です。
+
+```sh
+git clone https://github.com/LeoAndo/jec-26cm-android-programming-1.git
+cd jec-26cm-android-programming-1
+```
+
+完成コードを変更したときは、このリポジトリ直下で次を実行し、配布用ZIPも更新します。
+
+```sh
+python3 scripts/package-hello-android.py
+```
+
+ZIPにはGitで管理しているプロジェクトのファイルを収録し、IDE設定・ローカルSDK設定・ビルド出力を除外します。既存ファイルの編集内容も反映します。ファイルを新しく追加した場合は、配布対象であることを確認して、そのファイルを `git add` してから再生成してください。
 
 ---
 
