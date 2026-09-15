@@ -114,6 +114,8 @@ def publish(repo, metadata):
            "--title", f"Androidプログラミング1 教材 {version}", "--draft", "--notes-file", str(notes))
     # 添付が揃ってから公開する。失敗時は下書きに留まり、同じrunの再実行で再開できる。
     gh("release", "upload", version, *(str(DIST / name) for name in ASSETS), "--repo", repo, "--clobber")
+    if api(f"repos/{repo}/commits/main")["sha"] != revision:
+        raise ValueError("実行中にmainが更新されています。下書きの公開を中止しました。mainから新しくRun workflowを実行してください。")
     gh("release", "edit", version, "--repo", repo, "--draft=false", "--latest")
     summary(f"## 学生向けに公開しました\n\nhttps://github.com/{repo}/releases/tag/{version}")
 

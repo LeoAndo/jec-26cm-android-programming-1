@@ -157,6 +157,16 @@ class StudentReleaseTest(unittest.TestCase):
             release.publish(self.repo, self.metadata)
         self.gh.assert_not_called()
 
+    def test_main_changed_during_upload_keeps_release_as_draft(self):
+        def execute(*args, **kwargs):
+            if args[:2] == ("release", "upload"):
+                self.api.side_effect = lambda *args: {"sha": "updated during upload"}
+            return ""
+        self.gh.side_effect = execute
+        with self.assertRaisesRegex(ValueError, "下書きの公開を中止"):
+            release.publish(self.repo, self.metadata)
+        self.assertEqual([call.args[:2] for call in self.gh.call_args_list], [("release", "create"), ("release", "upload")])
+
     def test_automatic_event_cannot_publish(self):
         with patch.dict(os.environ, {"GITHUB_EVENT_NAME": "push"}):
             with self.assertRaisesRegex(ValueError, "Run workflow"):
