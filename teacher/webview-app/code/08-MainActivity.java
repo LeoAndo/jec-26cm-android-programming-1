@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
         var checkBox = (CheckBox) findViewById(R.id.checkBox);
 
         // 戻る操作で前のページに戻る処理。前のページがあるときだけ有効にする
-        // Android 16以降はonKeyDownで戻るキーを受け取れないため、OnBackPressedCallbackを使う
+        // Android 16以降（targetSdk 36以上）はonKeyDownで戻るキーを受け取れないため、OnBackPressedCallbackを使う
         var backCallback = new OnBackPressedCallback(false) {
             @Override
             public void handleOnBackPressed() {

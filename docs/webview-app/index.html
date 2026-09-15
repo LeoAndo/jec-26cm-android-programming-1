@@ -19,7 +19,7 @@
 <li><a href="#step-9">09　ミニ練習</a></li>
 <li><a href="#step-10">10　完成とふり返り</a></li></ol></nav>
 <div class="progress"><span data-progress-label>0 / 11 ステップ確認済み</span><progress value="0" max="11" aria-label="学習の進み具合"></progress><span class="muted">自分用のチェックです。</span></div>
-<div class="resources"><a href="#help">困ったとき</a><a href="#back-android16">解説：Android 16以降の戻る操作</a><a href="#sample-project">完成プロジェクトを開く</a><a href="../hello-android/index.html">A01：HelloAndroid</a><a href="../calc-game/index.html">A02：CalcGame</a><a href="../common/emulator.html">共通：エミュレータ</a><a href="../common/auto-import.html">共通：Auto Import</a><a href="../common/logcat.html">共通：Logcat</a><a href="../common/apk.html">共通：APKの提出</a></div>
+<div class="resources"><a href="#help">困ったとき</a><a href="#enum-why">解説：enumを使うメリット</a><a href="#back-android16">解説：Android 16以降の戻る操作</a><a href="#sample-project">完成プロジェクトを開く</a><a href="../hello-android/index.html">A01：HelloAndroid</a><a href="../calc-game/index.html">A02：CalcGame</a><a href="../common/emulator.html">共通：エミュレータ</a><a href="../common/auto-import.html">共通：Auto Import</a><a href="../common/logcat.html">共通：Logcat</a><a href="../common/apk.html">共通：APKの提出</a></div>
 </div></aside><main id="main"><div class="hero"><span class="unit">04</span><p class="eyebrow">WEBVIEW APP</p>
 <h1>アプリの中で<br>Webページを表示しよう</h1><p class="lede">ページを開く。メニューで切り替える。前のページに戻る。<br>WebViewを使って、小さなブラウザアプリへ。</p>
 <div class="tags"><span>Java / XML</span><span>A03の次の単元</span><span>90分 × 2コマ目安</span><span>Macで学ぶ</span><span>インターネット接続が必要</span></div></div>
@@ -48,7 +48,7 @@
 <tr><td>⋮ → サイト名</td><td>そのサイトをアプリの中に表示する。</td></tr>
 <tr><td>ページ内のリンク</td><td>Chromeは開かず、アプリの中で移動する。</td></tr>
 <tr><td>「javaScript ON」を切り替える</td><td>JavaScriptの有効・無効を変えて、今のページを読み込み直す。</td></tr>
-<tr><td>戻る操作</td><td>前のページがあれば戻る。なければアプリを閉じる。</td></tr>
+<tr><td>戻る操作</td><td>前のページがあれば戻る。なければホーム画面に戻る。</td></tr>
 </tbody></table>
 
 <div class="note"><p class="box-title">画面回転について</p><p>各単元では画面回転時のデータ保持を扱いません。回転などでActivityが作り直されると、表示中のページと戻るための履歴は初期状態に戻ります。縦向きで使います。この観点は別単元の演習アプリで検証します。</p></div>
@@ -114,7 +114,7 @@
 
     &lt;style name=&quot;Theme.A04WebViewApp&quot; parent=&quot;Base.Theme.A04WebViewApp&quot; /&gt;
 &lt;/resources&gt;</code></pre>
-<p>次に <code>app/src/main/res/values-night/themes.xml</code> も開き、同じように <code>.NoActionBar</code> を消します。<code>values-night</code> は、端末がダークテーマのときに使う設定です。片方だけ変えると、ダークテーマのときにActionBarが出ません。</p>
+<p>次に <code>app/src/main/res/values-night/themes.xml</code> も開き、同じように <code>.NoActionBar</code> を消します。テーマの設定は2つのファイルにあるので、<strong>両方とも</strong>変更します。</p>
 <details><summary>values-night/themes.xmlの変更後の全体で照合する</summary><div class="code-head">values-night/themes.xml · 変更後の全体（照合用）</div>
 <pre id="code-theme-night" tabindex="0"><code>&lt;resources xmlns:tools=&quot;http://schemas.android.com/tools&quot;&gt;
     &lt;!-- Base application theme. --&gt;
@@ -236,12 +236,12 @@ webView.loadUrl(&quot;https://news.yahoo.co.jp/&quot;); // 表示の確認用。
 <div class="note"><p class="box-title">loadUrlの行は確認用です</p><p>行の後ろのコメントのとおり、この1行は表示を確かめるための仮の行です。STEP 6でメニューから開く形に変えるときに削除します。</p></div>
 <h3>Runで確かめる</h3><p>起動するとYahoo!ニュースが表示されます。上部に「現在JavaScriptが無効になっています」と出るのは、WebViewの初期設定でJavaScriptが無効だからです。STEP 7で切り替えられるようにします。</p>
 <figure class="phone"><a href="images/app-js-off.png"><img src="images/app-js-off.png" width="1080" height="2424" loading="lazy" alt="javaScript ONはチェックなし。Yahoo!ニュースの上部に、現在JavaScriptが無効になっていますという案内が表示されている"></a><figcaption>JavaScriptが無効のため、サイトの案内が出ます。 <a href="images/app-js-off.png">画像を大きく開く</a></figcaption></figure>
-<div class="note"><p class="box-title">「ウェブページへのアクセス不可」と出たとき</p><p><code>net::ERR_CACHE_MISS</code> と表示される場合は、STEP 2のINTERNETの許可がないか、書く場所が違います。<code>AndroidManifest.xml</code> を確認して保存し、もう一度Runします。別のエラー名のときは、Macがインターネットにつながっているかを確認します。</p></div>
+<div class="note"><p class="box-title">「ウェブページへのアクセス不可」と出たとき</p><p><code>net::ERR_CACHE_MISS</code> と表示される場合は、STEP 2のINTERNETの許可の行がないか、つづりが違うか、保存されていません。<code>AndroidManifest.xml</code> を確認して保存し、もう一度Runします。別のエラー名のときは、Macがインターネットにつながっているかを確認します。</p><p>許可の行を <code>&lt;application&gt;</code> の中に書いた場合は、ページの表示までは進まず、ビルドの時点で <code>unexpected element &lt;uses-permission&gt; found in &lt;manifest&gt;&lt;application&gt;</code> というエラーになります。行を <code>&lt;application</code> の上に移動します。</p></div>
 <div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-4"><span>Yahoo!ニュースがアプリの中に表示され、JavaScriptが無効という案内を確認した。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
 <div class="next"><a href="#step-5">次へ：メニューの項目をenumで作る →</a></div>
 </section>
 <section id="step-5" aria-labelledby="title-5">
-<p class="step-meta">STEP 05 · 目安 15分</p><h2 id="title-5">メニューの項目をenumで作る</h2>
+<p class="step-meta">STEP 05 · 目安 20分</p><h2 id="title-5">メニューの項目をenumで作る</h2>
 
 <p class="file">新しく作るファイル：app/src/main/java/jp/ac/jec/a04webviewapp/AppMenuItem.java</p>
 <p>メニューに出す4つのサイトを用意します。1つのサイトには「URL」と「メニューに表示する名前」の2つの情報があります。これを <strong>enum（イーナム、列挙型）</strong> でまとめます。</p>
@@ -298,8 +298,51 @@ enum AppMenuItem {
 </tbody></table>
 
 <h3>Runで確かめる</h3><p>まだどこからも使っていないので、画面は変わりません。エラーなくRunでき、STEP 4と同じくYahoo!ニュースが表示されれば成功です。</p>
-<div class="note"><p class="box-title">1コマ目はここまで</p><p>保存してからもう一度Runします。先生に、enumの4つの値と番号（ordinal）の対応を説明しましょう。次回も自分の <code>Documents/Android1/A04WebViewApp</code> を開きます。</p></div>
-<div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-5"><span>MainActivityと同じ場所にAppMenuItem.javaを作り、4つの値と番号の対応を表で確認した。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
+<h3 id="enum-why">解説：enumを使わないと、何に困る？</h3>
+<p>A03のじゃんけんで手を番号（0:グー 1:チョキ 2:パー）で表したように、enumを使わず、番号と配列でメニューを作ることもできます。</p>
+<p>次のコードは、MainActivityに書いた場合の比べるための例で、<strong>入力しません</strong>。AppMenuItemの <code>url</code>・<code>title</code> とは別のものです。文字列（String）の配列2つに、URLと表示名を分けて入れます。</p>
+<pre tabindex="0"><code>private String[] urls = new String[]{
+        &quot;https://news.yahoo.co.jp/&quot;,
+        &quot;https://github.com/features/copilot/&quot;,
+        &quot;https://slamdunk-movie.jp/&quot;,
+        &quot;https://openai.com/ja-JP/chatgpt/overview/&quot;
+};
+private String[] titles = new String[]{
+        &quot;Yahoo!ニュース&quot;,
+        &quot;GitHub Copilot&quot;,
+        &quot;映画「SLAM DUNK」公式サイト&quot;,
+        &quot;OpenAI ChatGPT&quot;
+};</code></pre>
+<p>⋮ のメニューには、<code>titles</code> を上から順に並べます。押したときは、上から何番目か（0から数える）を調べ、同じ番号の <code>urls[番号]</code> を開きます。2つの配列は、番号だけでつながっています。</p>
+<table><thead><tr><th>困る場面</th><th>起きること</th></tr></thead><tbody>
+<tr><td>サイトを増やすとき、<code>titles</code> には先頭、<code>urls</code> には最後に足した</td><td>1つずれたサイトが開く。例えば「日本電子専門学校」を押すと、Yahoo!ニュースが開く。赤いエラーは出ない。</td></tr>
+<tr><td><code>titles</code> には足したが、<code>urls</code> に足し忘れた</td><td>5つ目を押すと、<code>urls[4]</code> がないので実行中にエラー（ArrayIndexOutOfBoundsException）になり、アプリが閉じる。押すまで気付けない。</td></tr>
+</tbody></table>
+
+<h3 id="enum-merits">enumを使うメリット</h3>
+<p>enum（列挙型）は、<strong>選べる値を決めて、1つずつ名前を付けた型</strong>です。自動販売機のボタンのように、決めた値の中からしか選べません。</p>
+<table><thead><tr><th>メリット</th><th>配列を2つ使うと</th><th>enum（AppMenuItem）なら</th></tr></thead><tbody>
+<tr><td>① 打ち間違いに気付ける</td><td><code>urls[7]</code> のように、ない番号を書いても赤いエラーにならない。</td><td><code>AppMenuItem.</code> まで入力すると候補が出る。<code>AppMenuItem.YAHO</code> のような打ち間違いは、Runの前に赤いエラーになる。</td></tr>
+<tr><td>② 情報が1か所にまとまる</td><td>別々の配列に足すので、位置がずれることがある（上の表）。</td><td><code>YAHOO(...)</code> の1行に、URLと表示名を並べて書くので、組がずれない。</td></tr>
+<tr><td>③ 追加がenumだけで済む</td><td>2つの配列の、同じ番号の位置に1つずつ足す。</td><td><code>values()</code> で全部の値を順に取り出すので、enumに値を1行足すだけ（前の行の <code>;</code> は <code>,</code> に変える）。MainActivityは変えない（STEP 9 練習1）。</td></tr>
+<tr><td>④ 名前で意味が読める</td><td><code>urls[2]</code> が何のサイトか、数えないと分からない。</td><td><code>AppMenuItem.SLAM_DUNK_MOVIE</code> と書けば、どのサイトか読める。</td></tr>
+</tbody></table>
+<p>ただし、URLの文字の打ち間違いは、enumでもエラーになりません。直すのは <code>AppMenuItem.java</code> の1か所です。</p>
+
+<h3 id="enum-usage">enumの値の使い方</h3>
+<p>enumの値は <code>型の名前.値の名前</code> で書きます。<code>.</code>（ドット）は「〜の」と読みます。例えば <code>AppMenuItem.YAHOO.getUrl()</code> は、「AppMenuItemのYAHOOの、URLを取り出す」という意味です。</p>
+<details><summary>ほかの書き方と結果を表で確かめる</summary>
+<table><thead><tr><th>書き方</th><th>意味</th><th>結果</th></tr></thead><tbody>
+<tr><td>AppMenuItem.YAHOO</td><td>4つの値から、YAHOOを選ぶ。</td><td>YAHOO（Yahoo!ニュースのURLと表示名を持つ値）</td></tr>
+<tr><td>AppMenuItem.YAHOO.getUrl()</td><td>YAHOOの、URLを取り出す。</td><td><code>&quot;https://news.yahoo.co.jp/&quot;</code></td></tr>
+<tr><td>AppMenuItem.SLAM_DUNK_MOVIE.ordinal()</td><td>SLAM_DUNK_MOVIEの、番号を取り出す（上の「値の番号」の表）。</td><td>2</td></tr>
+<tr><td>AppMenuItem.values()[2]</td><td>値を書いた順に入れた配列から、2番を取り出す。</td><td>SLAM_DUNK_MOVIE</td></tr>
+</tbody></table>
+<p>STEP 6の <code>menuItem.getTitle()</code> のように、値を入れた変数からもメソッドを呼べます。</p>
+</details>
+<div class="note"><p class="box-title">enumでも番号を使う場面</p><p>STEP 6では、押した項目の番号を使い、<code>values()[番号]</code> で値を取り出します。この番号は自分で書きません。メニューを作るときも押したときも、enumが値を書いた順に付けた同じ番号（「値の番号」の表）を使うので、項目を増やしてもずれません。ただし <code>values()[7]</code> のように、ない番号を自分で書くと、enumでも実行中のエラーになります。</p></div>
+<div class="note"><p class="box-title">1コマ目はここまで</p><p>保存してからもう一度Runします。隣の人か先生に、enumの4つの値と番号（ordinal）の対応と、enumを使うメリットを1つ説明しましょう。次回も自分の <code>Documents/Android1/A04WebViewApp</code> を開きます。</p></div>
+<div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-5"><span>MainActivityと同じ場所にAppMenuItem.javaを作り、4つの値と番号の対応を表で確認した。配列を2つ使う書き方と比べて、enumのメリットを1つ説明できた。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
 <div class="next"><a href="#step-6">次へ：メニューでページを切り替える →</a></div>
 </section>
 <section id="step-6" aria-labelledby="title-6">
@@ -341,6 +384,7 @@ public boolean onOptionsItemSelected(@NonNull MenuItem item) {
 </tbody></table>
 
 <div class="flow" aria-label="メニューを押したときの流れ"><strong>「映画「SLAM DUNK」公式サイト」を押す</strong><span>→</span><strong>item.getItemId() は 2</strong><span>→</span><strong>AppMenuItem.values()[2] は SLAM_DUNK_MOVIE</strong><span>→</span><strong>そのURLをloadUrl</strong></div>
+<p><code>values()</code>・<code>ordinal()</code>・<code>getUrl()</code> の読み方は、<a href="#enum-usage">STEP 5の「enumの値の使い方」</a>で確かめられます。</p>
 <p><code>@Override</code> は、親クラス（AppCompatActivity）のメソッドを上書きする印です。名前を打ち間違えると赤いエラーで気付けます。<code>@NonNull</code> は「<code>item</code> にnullは来ない」ことを示す印です。</p>
 <h3>Runで確かめる</h3>
 <ol><li>起動直後は白い画面です（確認用のloadUrlを削除したため）。</li><li>右上の <strong>⋮</strong> を押すと、4つのサイト名が表示されます。</li><li>「映画「SLAM DUNK」公式サイト」を押すと、そのページが表示されます。ほかの項目も試します。</li></ol>
@@ -388,7 +432,7 @@ webView.getSettings().setBuiltInZoomControls(true);</code></pre>
 <figure><a href="images/app-yahoo.png"><img src="images/app-yahoo.png" width="1080" height="2424" loading="lazy" alt="チェックあり。Yahoo!ニュースの案内が消え、タブと記事の一覧が表示されている"></a><figcaption>チェックあり：案内が消えます。 <a href="images/app-yahoo.png">画像を大きく開く</a></figcaption></figure>
 </div>
 <p>余裕があれば、ページを拡大してみます。エミュレータでは <kbd>⌘</kbd> を押しながら画面をドラッグすると、2本指の操作になります。サイト側で拡大を制限している場合は、拡大できないこともあります。</p>
-<div class="note"><p class="box-title">JavaScriptを有効にするときの注意</p><p>JavaScriptを有効にすると、表示したページのプログラムがアプリの中で動きます。どんなURLでも開けるアプリでは、有効にするかを慎重に決めるのが基本です。今回のアプリは、メニューにある決まったサイトを開きます。</p></div>
+<div class="note"><p class="box-title">JavaScriptを有効にするときの注意</p><p>JavaScriptを有効にすると、表示したページのプログラムがアプリの中で動きます。どんなURLでも開けるアプリでは、有効にするかを慎重に決めるのが基本です。今回のアプリはメニューにある決まったサイトを開きますが、ページ内のリンクをたどると、ほかのサイトもJavaScriptが有効なままアプリの中で開きます。</p></div>
 <p class="muted">仕様の確認：<a href="https://developer.android.com/reference/android/webkit/WebSettings">WebSettings（Android公式）</a>。</p>
 <div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-7"><span>チェックの切り替えでページが読み込み直され、JavaScriptの案内が消える・出ることを確認した。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
 <div class="next"><a href="#step-8">次へ：戻る操作で前のページへ →</a></div>
@@ -399,12 +443,12 @@ webView.getSettings().setBuiltInZoomControls(true);</code></pre>
 <p class="file">変更するファイル：MainActivity.java</p>
 <p>リンクで別のページに移動したあと、戻る操作をしたら前のページに戻るようにします。<strong>戻る操作</strong>とは、画面の左端（または右端）から内側へのスワイプや、エミュレータのツールバーの戻るボタン（◁）のことです。</p>
 <h3>まず、今の動きを確かめる</h3>
-<ol><li>Runして、⋮ → Yahoo!ニュースを開き、記事のリンクを1つ押します。</li><li>戻る操作をします。前のページがあるのに、<strong>アプリが閉じてホーム画面に戻ります</strong>。</li></ol>
+<ol><li>Runして、⋮ → Yahoo!ニュースを開き、記事のリンクを1つ押します。</li><li>戻る操作をします。前のページがあるのに、<strong>ホーム画面に戻ってしまいます</strong>。</li></ol>
 <h3>① 戻る処理を登録する</h3>
 <p><code>onCreate</code> の <code>webView.setWebViewClient(new WebViewClient());</code> の行の<strong>上</strong>に追加します。<code>var checkBox = ...;</code> より下です。</p>
 <div class="code-head">追加 · setWebViewClientの行の上</div>
 <pre id="code-back-callback" tabindex="0"><code>// 戻る操作で前のページに戻る処理。前のページがあるときだけ有効にする
-// Android 16以降はonKeyDownで戻るキーを受け取れないため、OnBackPressedCallbackを使う
+// Android 16以降（targetSdk 36以上）はonKeyDownで戻るキーを受け取れないため、OnBackPressedCallbackを使う
 var backCallback = new OnBackPressedCallback(false) {
     @Override
     public void handleOnBackPressed() {
@@ -434,14 +478,14 @@ getOnBackPressedDispatcher().addCallback(this, backCallback);</code></pre>
 </tbody></table>
 
 <table><thead><tr><th>状態</th><th>backCallback</th><th>戻る操作の結果</th></tr></thead><tbody>
-<tr><td>起動直後・最初のページだけ</td><td>無効</td><td>Androidの通常の戻る操作になり、アプリを閉じる。</td></tr>
+<tr><td>起動直後・最初のページだけ</td><td>無効</td><td>Androidの通常の戻る操作になり、ホーム画面に戻る。</td></tr>
 <tr><td>リンクやメニューで次のページを開いた後</td><td>有効</td><td><code>handleOnBackPressed</code> が呼ばれ、前のページに戻る。</td></tr>
-<tr><td>最初のページまで戻った後</td><td>無効（戻ったときに更新）</td><td>次の戻る操作でアプリを閉じる。</td></tr>
+<tr><td>最初のページまで戻った後</td><td>無効（戻ったときに更新）</td><td>次の戻る操作でホーム画面に戻る。</td></tr>
 </tbody></table>
 
 <div class="note"><p class="box-title">new クラス名() { ... } の書き方</p><p>これまでの <code>v -&gt; { ... }</code>（ラムダ式）は、書く処理が1つだけの型に使える省略形です。<code>OnBackPressedCallback</code> と <code>WebViewClient</code> はクラスなので、<code>new クラス名() { ... }</code> の形で、その場で中身を書き換えます。<code>@Override</code> の付いたメソッドが、書き換えた部分です。</p></div>
 <h3>Runで確かめる</h3>
-<ol><li>⋮ → Yahoo!ニュースを開き、記事のリンクを押します。</li><li>戻る操作をします。Yahoo!ニュースのトップに戻ります。</li><li>もう一度戻る操作をします。前のページがないので、アプリが閉じてホーム画面に戻ります。</li><li>もう一度起動し、⋮ で2つのサイトを続けて開いてから戻る操作をします。1つ前のサイトに戻ります。</li></ol>
+<ol><li>⋮ → Yahoo!ニュースを開き、記事のリンクを押します。</li><li>戻る操作をします。Yahoo!ニュースのトップに戻ります。</li><li>もう一度戻る操作をします。前のページがないので、ホーム画面に戻ります。</li><li>もう一度起動し、⋮ で2つのサイトを続けて開いてから戻る操作をします。1つ前のサイトに戻ります。</li></ol>
 
 <h3 id="back-android16">解説：Android 16から「戻る」の受け取り方が変わった</h3>
 <p>インターネットの記事や以前の教材では、WebViewで前のページに戻る処理を、次のように <code>onKeyDown</code> で書く例がよく見られます。Android公式のWebViewの資料にも、この書き方が載っています。</p>
@@ -454,13 +498,13 @@ public boolean onKeyDown(int keyCode, KeyEvent event) {
     }
     return super.onKeyDown(keyCode, event);
 }</code></pre>
-<p>この書き方は、<strong>targetSdkが36（Android 16）以上のアプリを、Android 16以降の端末で動かすと働きません</strong>。戻る操作をしても <code>onKeyDown</code> に <code>KeyEvent.KEYCODE_BACK</code> が届かず、<code>onBackPressed</code> も呼ばれません。そのため、前のページがあってもアプリが閉じます。</p>
+<p>この書き方は、<strong>targetSdkが36（Android 16）以上のアプリを、Android 16以降の端末で動かすと働きません</strong>。戻る操作をしても <code>onKeyDown</code> に <code>KeyEvent.KEYCODE_BACK</code> が届かず、<code>onBackPressed</code> も呼ばれません。そのため、前のページがあってもホーム画面に戻ります。</p>
 <table><thead><tr><th>アプリのtargetSdk</th><th>端末のAndroid</th><th>onKeyDownでKEYCODE_BACKを受け取る</th><th>OnBackPressedCallback</th></tr></thead><tbody>
-<tr><td>35以下</td><td>どのバージョンでも</td><td>受け取れる（※）</td><td>動く</td></tr>
-<tr><td>36以上</td><td>Android 15以前</td><td>受け取れる</td><td>動く</td></tr>
-<tr><td>36以上</td><td>Android 16以降</td><td><strong>受け取れない</strong></td><td>動く</td></tr>
+<tr><td>35以下</td><td>どのバージョンでも</td><td>受け取れる（※1）</td><td>動く</td></tr>
+<tr><td>36以上</td><td>Android 15以前</td><td>受け取れる（※1）</td><td>動く</td></tr>
+<tr><td>36以上</td><td>Android 16以降</td><td><strong>受け取れない</strong>（※2）</td><td>動く</td></tr>
 </tbody></table>
-<p class="muted">※ AndroidManifest.xmlで予測型「戻る」を自分で有効にした（<code>android:enableOnBackInvokedCallback="true"</code>）アプリを除きます。</p>
+<p class="muted">※1 AndroidManifest.xmlで予測型「戻る」を自分で有効にした（<code>android:enableOnBackInvokedCallback="true"</code>）アプリを除きます。<br>※2 下の「以前の動きに戻す設定」（<code>android:enableOnBackInvokedCallback="false"</code>）を書いたアプリを除きます。</p>
 <p>授業のプロジェクトは <code>app/build.gradle.kts</code> で <code>targetSdk = 36</code> です。教材撮影用の <strong>jec_26cm_android1_Pixel 9a</strong> はAndroid 17です。このため、<code>onKeyDown</code> の方法では前のページに戻れません。<code>OnBackPressedCallback</code> は、Android 15以前の端末でもそのまま動きます。</p>
 <h3>なぜ変わったのか：予測型「戻る」</h3>
 <p>Androidには、Android 13から <strong>予測型「戻る」（Predictive Back）</strong> という仕組みが段階的に入っています。戻るジェスチャーを始めると、指を離す前に「戻った先」（ホーム画面や前の画面）をプレビューで見せる仕組みです。</p>
@@ -468,16 +512,16 @@ public boolean onKeyDown(int keyCode, KeyEvent event) {
 <p>この単元で <code>doUpdateVisitedHistory</code> を使い、前のページがあるときだけ <code>backCallback</code> を有効にしたのはこのためです。前のページがないときに無効にしておくと、Androidは「ホーム画面に戻る」ことを前もって知り、プレビューを表示できます。</p>
 <div class="note"><p class="box-title">以前の動きに戻す設定もあるが、使わない</p><p>AndroidManifest.xmlの <code>&lt;application&gt;</code> や <code>&lt;activity&gt;</code> に <code>android:enableOnBackInvokedCallback="false"</code> を書くと、一時的に以前の動きに戻せます。公式資料でも「一時的な回避策」とされているため、この授業では使いません。ネットの記事を参考にするときは、記事の書かれた時期と、対象のAndroidバージョンを確認しましょう。</p></div>
 <p class="muted">仕様の確認：<a href="https://developer.android.com/about/versions/16/behavior-changes-16">Android 16の動作変更（Android公式）</a>、<a href="https://developer.android.com/guide/navigation/custom-back/predictive-back-gesture">予測型「戻る」ジェスチャーのサポート（Android公式）</a>、<a href="https://developer.android.com/reference/androidx/activity/OnBackPressedCallback">OnBackPressedCallback（Android公式）</a>。</p>
-<div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-8"><span>リンク先から戻る操作で前のページに戻り、最初のページではアプリが閉じることを確認した。onKeyDownが使えない理由を説明できた。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
+<div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-8"><span>リンク先から戻る操作で前のページに戻り、最初のページではホーム画面に戻ることを確認した。onKeyDownが使えない理由を説明できた。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
 <div class="next"><a href="#step-9">次へ：ミニ練習 →</a></div>
 </section>
 <section id="step-9" aria-labelledby="title-9">
 <p class="step-meta">STEP 09 · 目安 20分</p><h2 id="title-9">ミニ練習</h2>
 
 <p>まず戻る操作まで完成させます。そのあと、次の小変更を1つずつ試します。<strong>予想 → 変更 → Run → 説明 → 元に戻す</strong>の順で行います。</p>
-<div class="task"><p class="box-title">練習1：メニューにサイトを1つ増やす</p><p><code>AppMenuItem.java</code> の <code>CHAT_GPT(...)</code> の行の最後の <code>;</code> を <code>,</code> に変え、その下に <code>JEC("https://www.jec.ac.jp/", "日本電子専門学校");</code> を追加します。MainActivityは変えません。メニューはどうなるでしょうか。</p><details><summary>試したあとに答えを見る</summary><p>⋮ の5つ目に「日本電子専門学校」が出て、押すと学校のサイトが表示されます。<code>onCreateOptionsMenu</code> は <code>AppMenuItem.values()</code> をfor文で回すため、enumの値を増やすだけで項目が増えます。idは <code>ordinal()</code> の4になり、<code>values()[4]</code> でJECを取り出せます。確認後は元に戻します。</p></details></div>
-<div class="task"><p class="box-title">練習2：WebViewClientを外すと？</p><p><code>webView.setWebViewClient(new WebViewClient() {</code> から <code>});</code> までの7行を選び、<kbd>⌘ /</kbd> でコメントにします。⋮ → Yahoo!ニュースを開き、記事のリンクを押すとどうなるか、予想してから試します。</p><details><summary>試したあとに答えを見る</summary><p>メニューから開いたページはアプリの中に表示されますが、ページ内のリンクを押すと <strong>Chrome</strong> が開きます。初めてChromeを開くときは、Chromeの初期設定の画面が出ることがあります。サイトによっては、メニューから開いた最初のページでもChromeが開きます。WebViewClientを設定すると、リンクをWebViewの中で開きます。また、戻る処理を有効にする <code>doUpdateVisitedHistory</code> も動かないため、戻る操作でアプリが閉じます。確認後は同じ7行を選んで <kbd>⌘ /</kbd> を押し、コメントを外します。</p></details></div>
-<div class="task"><p class="box-title">練習3：以前の書き方（onKeyDown）を試す</p><p>STEP 8の解説にある <code>onKeyDown</code> のメソッドを、<code>onCreateOptionsMenu</code> の上（onCreateの外、MainActivityの中）に追加します。importは <code>android.view.KeyEvent</code> です。さらに、<code>getOnBackPressedDispatcher().addCallback(this, backCallback);</code> の行を <kbd>⌘ /</kbd> でコメントにします。⋮ でYahoo!ニュースを開き、記事のリンクを押してから戻る操作をすると、どうなるでしょうか。</p><details><summary>試したあとに答えを見る</summary><p>前のページがあっても、アプリが閉じます。targetSdk 36のアプリをAndroid 16以降のエミュレータで動かしているため、<code>onKeyDown</code> に <code>KEYCODE_BACK</code> が届きません。確認後は <code>onKeyDown</code> のメソッドを削除し、<code>addCallback</code> の行のコメントを外します。使わなくなった <code>KeyEvent</code> のimportが残っていたら削除します。</p></details></div>
+<div class="task"><p class="box-title">練習1：メニューにサイトを1つ増やす</p><p><code>AppMenuItem.java</code> の <code>CHAT_GPT(...)</code> の行の最後の <code>;</code> を <code>,</code> に変え、その下に <code>JEC("https://www.jec.ac.jp/", "日本電子専門学校");</code> を追加します。MainActivityは変えません。メニューはどうなるでしょうか。</p><details><summary>試したあとに答えを見る</summary><p>⋮ の5つ目に「日本電子専門学校」が出て、押すと学校のサイトが表示されます。<code>onCreateOptionsMenu</code> は <code>AppMenuItem.values()</code> をfor文で回すため、enumの値を増やすだけで項目が増えます。idは <code>ordinal()</code> の4になり、<code>values()[4]</code> でJECを取り出せます。URLと表示名を同じ1行に書くので、配列を2つ使う書き方のように「2つの配列の、同じ番号の位置に1つずつ足す」必要もありません（<a href="#enum-merits">enumを使うメリット</a>の②③）。確認後は元に戻します。</p></details></div>
+<div class="task"><p class="box-title">練習2：WebViewClientを外すと？</p><p><code>webView.setWebViewClient(new WebViewClient() {</code> から <code>});</code> までの7行を選び、<kbd>⌘ /</kbd> でコメントにします。⋮ → Yahoo!ニュースを開き、記事のリンクを押すとどうなるか、予想してから試します。</p><details><summary>試したあとに答えを見る</summary><p>メニューから開いたページはアプリの中に表示されますが、ページ内のリンクを押すと <strong>Chrome</strong> が開きます。初めてChromeを開くときは、Chromeの初期設定の画面が出ることがあります。サイトによっては、メニューから開いた最初のページでもChromeが開きます。WebViewClientを設定すると、リンクをWebViewの中で開きます。また、戻る処理を有効にする <code>doUpdateVisitedHistory</code> も動かないため、戻る操作でホーム画面に戻ります。確認後は同じ7行を選んで <kbd>⌘ /</kbd> を押し、コメントを外します。</p></details></div>
+<div class="task"><p class="box-title">練習3：以前の書き方（onKeyDown）を試す</p><p>STEP 8の解説にある <code>onKeyDown</code> のメソッドを、<code>onCreateOptionsMenu</code> の上（onCreateの外、MainActivityの中）に追加します。importは <code>android.view.KeyEvent</code> です。さらに、<code>getOnBackPressedDispatcher().addCallback(this, backCallback);</code> の行を <kbd>⌘ /</kbd> でコメントにします。⋮ でYahoo!ニュースを開き、記事のリンクを押してから戻る操作をすると、どうなるでしょうか。</p><details><summary>試したあとに答えを見る</summary><p>前のページがあっても、ホーム画面に戻ります。targetSdk 36のアプリをAndroid 16以降のエミュレータで動かしているため、<code>onKeyDown</code> に <code>KEYCODE_BACK</code> が届きません。先生の指示でAndroid 15以前のエミュレータを使っている場合は、<code>onKeyDown</code> でも前のページに戻れます。結果が違う理由を、STEP 8の表で確かめましょう。確認後は <code>onKeyDown</code> のメソッドを削除し、<code>addCallback</code> の行のコメントを外します。使わなくなった <code>KeyEvent</code> のimportが残っていたら削除します。</p></details></div>
 <div class="note"><p class="box-title">完成版に戻してから確認</p><p>練習1のJECの行（<code>CHAT_GPT(...)</code> の最後は <code>;</code> に戻す）、練習2のコメント、練習3の <code>onKeyDown</code> とコメントを元に戻します。メニューが4項目で、リンク先から戻る操作で前のページに戻ることをRunで確かめます。</p></div>
 <div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-9"><span>3つの練習を試して結果の理由を説明し、完成版のコードに戻した。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
 <div class="next"><a href="#step-10">次へ：完成とふり返り →</a></div>
@@ -493,17 +537,18 @@ public boolean onKeyDown(int keyCode, KeyEvent event) {
 <tr><td>ページ内のリンクを押す</td><td>Chromeは開かず、アプリの中で移動する。</td></tr>
 <tr><td>「javaScript ON」を付ける・外す</td><td>ページが読み込み直される。Yahoo!ニュースでは、JavaScriptが無効という案内が消える・出る。</td></tr>
 <tr><td>リンク先で戻る操作</td><td>前のページに戻る。</td></tr>
-<tr><td>最初のページで戻る操作</td><td>アプリが閉じる。</td></tr>
+<tr><td>最初のページで戻る操作</td><td>ホーム画面に戻る。</td></tr>
 </tbody></table>
 
-<h3>自分の言葉でふり返る</h3><ol><li>INTERNETの許可は、どのファイルに書きましたか。書かないとどうなりましたか。</li><li>メニューの項目を増やすとき、変更するのはどのファイルですか。</li><li>JavaScriptの設定を変えたあと、<code>reload()</code> を呼ぶのはなぜですか。</li><li>Android 16以降で、<code>onKeyDown</code> ではなく <code>OnBackPressedCallback</code> を使うのはなぜですか。</li></ol>
+<h3>自分の言葉でふり返る</h3><ol><li>INTERNETの許可は、どのファイルに書きましたか。書かないとどうなりましたか。</li><li>メニューの項目を増やすとき、変更するのはどのファイルですか。</li><li>URLと表示名を2つの配列で持つ書き方と比べて、enumを使うと何がよいですか。1つ挙げましょう。</li><li>JavaScriptの設定を変えたあと、<code>reload()</code> を呼ぶのはなぜですか。</li><li>Android 16以降で、<code>onKeyDown</code> ではなく <code>OnBackPressedCallback</code> を使うのはなぜですか。</li></ol>
 <h3>保存と提出</h3><p>自分の <code>Documents/Android1/A04WebViewApp</code> を保存します。先生からAPK提出の指示がある場合は、<a href="../common/apk.html">共通資料：提出用APKの作り方</a>に進みます。ファイル名は <code>学籍番号_A04WebViewApp.apk</code> です。提出先は先生の案内に従います。</p>
 <p>教材のチェックは自分用です。先生への送信はしません。印刷は <kbd>⌘ P</kbd> で行えます。</p>
 <div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-10"><span>完成チェックを終え、許可・WebView・enumとメニュー・JavaScript・戻る操作を説明できた。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
 </section>
 <section id="help"><h2>困ったとき</h2><table><thead><tr><th>困ったこと</th><th>最初に確認する場所</th></tr></thead><tbody>
 <tr><td>ActionBarや ⋮ が出ない</td><td>STEP 2で、2つのthemes.xmlの両方から <code>.NoActionBar</code> を消したか。STEP 6の <code>onCreateOptionsMenu</code> がonCreateの外にあり、<code>return true</code> か。</td></tr>
-<tr><td>「ウェブページへのアクセス不可」「net::ERR_CACHE_MISS」</td><td>AndroidManifest.xmlのINTERNETの許可。<code>&lt;application</code> の上に書いたか、つづりが <code>android.permission.INTERNET</code> か。保存してRunし直す。</td></tr>
+<tr><td>「ウェブページへのアクセス不可」「net::ERR_CACHE_MISS」</td><td>AndroidManifest.xmlのINTERNETの許可の行があるか、つづりが <code>android.permission.INTERNET</code> か。保存してRunし直す。</td></tr>
+<tr><td>ビルドで「unexpected element &lt;uses-permission&gt; found in &lt;manifest&gt;&lt;application&gt;」</td><td>許可の行が <code>&lt;application&gt;</code> の中にある。<code>&lt;application</code> の上に移動する。</td></tr>
 <tr><td>「ウェブページへのアクセス不可」で別のエラー名</td><td>Macがインターネットにつながっているか。URLのつづりを確認する。</td></tr>
 <tr><td>R.id.webView / R.id.checkBox が赤い</td><td>XMLのid。<code>webView</code>・<code>checkBox</code> の大文字・小文字まで一致するか。最初のXMLエラーを直してビルドする。</td></tr>
 <tr><td>AppMenuItem が赤い</td><td>STEP 5のファイル名が <code>AppMenuItem.java</code> か。<code>app/src/main/java</code> の、MainActivityと同じ場所に作ったか。</td></tr>
@@ -511,7 +556,7 @@ public boolean onKeyDown(int keyCode, KeyEvent event) {
 <tr><td>リンクを押すとChromeが開く</td><td><code>setWebViewClient</code> の行があるか（STEP 4・STEP 8）。コメントにしたままになっていないか。</td></tr>
 <tr><td>JavaScriptの案内が消えない</td><td>STEP 7の③がonCreateの中にあるか。<code>webView.reload()</code> があるか。</td></tr>
 <tr><td>backCallback が赤い</td><td>STEP 8の①のコードが、②の <code>setWebViewClient</code> より上にあるか。</td></tr>
-<tr><td>戻る操作でアプリが閉じる</td><td>リンクなどで2ページ目を開いてから試しているか。<code>addCallback</code> の行と、<code>doUpdateVisitedHistory</code> の <code>setEnabled</code> を確認する。</td></tr>
+<tr><td>戻る操作でホーム画面に戻ってしまう</td><td>リンクなどで2ページ目を開いてから試しているか。<code>addCallback</code> の行と、<code>doUpdateVisitedHistory</code> の <code>setEnabled</code> を確認する。</td></tr>
 <tr><td>起動時に終了する</td><td>setContentViewがfindViewByIdより先か、id/mainを残したかを確認。Logcatで最初の例外を見る。</td></tr>
 <tr><td>起動すると白い画面のまま</td><td>STEP 6以降は、起動直後の白い画面が正常。⋮ からサイトを選ぶ。</td></tr>
 <tr><td>ページの表示が崩れる・一部が出ない</td><td>JavaScriptが必要なページのことがある。「javaScript ON」にしてみる。サイト側の更新で見た目が変わることもある。</td></tr>
@@ -559,7 +604,7 @@ public class MainActivity extends AppCompatActivity {
         var checkBox = (CheckBox) findViewById(R.id.checkBox);
 
         // 戻る操作で前のページに戻る処理。前のページがあるときだけ有効にする
-        // Android 16以降はonKeyDownで戻るキーを受け取れないため、OnBackPressedCallbackを使う
+        // Android 16以降（targetSdk 36以上）はonKeyDownで戻るキーを受け取れないため、OnBackPressedCallbackを使う
         var backCallback = new OnBackPressedCallback(false) {
             @Override
             public void handleOnBackPressed() {
