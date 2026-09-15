@@ -50,7 +50,12 @@ def package(project, output):
             info.external_attr = mode << 16
             info.compress_type = ZIP_DEFLATED
             archive.writestr(info, source.read_bytes())
-    print(f"作成しました：{output.relative_to(root)}（{len(files)}ファイル）")
+    try:
+        shown = output.relative_to(root)
+    except ValueError:
+        # リポジトリの外へ出力したときは、絶対パスのまま表示する。
+        shown = output
+    print(f"作成しました：{shown}（{len(files)}ファイル）")
 
 
 def main():
