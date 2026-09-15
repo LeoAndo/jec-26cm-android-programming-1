@@ -1,7 +1,6 @@
 package jp.ac.jec.a04webviewapp;
 
 import android.os.Bundle;
-import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.webkit.WebView;
@@ -9,6 +8,7 @@ import android.webkit.WebViewClient;
 import android.widget.CheckBox;
 
 import androidx.activity.EdgeToEdge;
+import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
@@ -32,7 +32,23 @@ public class MainActivity extends AppCompatActivity {
         webView = findViewById(R.id.webView);
         var checkBox = (CheckBox) findViewById(R.id.checkBox);
 
-        webView.setWebViewClient(new WebViewClient());
+        // 戻る操作で前のページに戻る処理。前のページがあるときだけ有効にする
+        // Android 16以降はonKeyDownで戻るキーを受け取れないため、OnBackPressedCallbackを使う
+        var backCallback = new OnBackPressedCallback(false) {
+            @Override
+            public void handleOnBackPressed() {
+                webView.goBack();
+            }
+        };
+        getOnBackPressedDispatcher().addCallback(this, backCallback);
+
+        webView.setWebViewClient(new WebViewClient() {
+            // ページの履歴が変わるたびに呼ばれる
+            @Override
+            public void doUpdateVisitedHistory(WebView view, String url, boolean isReload) {
+                backCallback.setEnabled(view.canGoBack());
+            }
+        });
         webView.getSettings().setJavaScriptEnabled(checkBox.isChecked());
 
         checkBox.setOnCheckedChangeListener((buttonView, isChecked) -> {
@@ -43,22 +59,12 @@ public class MainActivity extends AppCompatActivity {
         webView.getSettings().setBuiltInZoomControls(true);
     }
 
-    // OS14 予測型ジェスチャーでも前ページに戻れることを確認
-    @Override
-    public boolean onKeyDown(int keyCode, KeyEvent event) {
-        if (keyCode == KeyEvent.KEYCODE_BACK && webView.canGoBack()) {
-            webView.goBack();
-            return true; // trueを指定し、イベントを消費して処理を終了する
-        }
-        return super.onKeyDown(keyCode, event);
-    }
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         for (var menuItem : AppMenuItem.values()) {
             menu.add(Menu.NONE, menuItem.ordinal(), Menu.NONE, menuItem.getTitle());
         }
-        return true; // trueを指定し、イベントを消費して処理を終了する
+        return true; // trueを指定し、メニューを表示する
     }
 
     @Override
