@@ -1,6 +1,6 @@
 ---
 name: teaching-materials-review
-description: Review teaching materials against Android project sources, canonical terminology, code snippets, and student distribution archives. Use for PRs that change docs, completed projects, packaging, or release workflows in this repository.
+description: Review teaching materials against Android project sources, canonical terminology, code snippets, and student distribution archives; when explicitly requested, summarize the result in a PR comment. Use for PRs that change docs, completed projects, packaging, or release workflows in this repository.
 ---
 
 # Teaching materials review
@@ -15,6 +15,15 @@ description: Review teaching materials against Android project sources, canonica
 4. 教材の完成コードとプロジェクトの実ファイルが一致することを確認する。
 5. ZIPの内容が現行ソースと一致し、IDE設定・SDK設定・ビルド生成物を含まないことを確認する。
 6. PRレビュー指摘には、妥当性・再現性・デグレの可能性・修正コスト・既存仕様への影響を確認したうえで、対応が必要、任意対応、対応不要のいずれかを明記する。
+
+## PRコメントの扱い
+
+- PR番号またはURLがレビュー対象として明示され、ユーザーがPRへの投稿を依頼した場合に限り、レビュー結果をGitHubへ投稿する。単に「レビューして」と依頼された場合は、結果をこの会話で報告し、外部へ投稿しない。
+- 投稿する場合は、個別コメントを大量に作らず、原則として1件の総括コメントにまとめる。行固有の修正が必要な指摘だけは、総括コメントから該当ファイル・行へリンクする。
+- 総括コメントには、対象PR、レビュー対象コミット、必須検査と関連テストの結果、指摘一覧、マージ可否を含める。各指摘には「対応が必要」「任意対応」「対応不要」のいずれかを付ける。
+- 対応が必要な指摘がある場合は「マージ不可」、任意対応だけまたは指摘がない場合は「マージ可」、検査を完了できない場合は「判断保留」と明記する。検査不能の理由と未確認項目も記載する。
+- 同じPRへ再レビュー結果を投稿する場合は、`<!-- teaching-materials-review-summary -->` マーカー付きの既存総括コメントを更新し、重複投稿しない。既存コメントがなければこのマーカーを付けて新規投稿する。
+- 総括コメントの投稿は、承認・変更要求・マージ・ラベル変更を意味しない。これらは別途明示的に依頼された場合のみ行う。
 
 ## 判断基準
 
