@@ -39,6 +39,8 @@ def text_files(root: Path, scan_roots: list[str]):
     seen = set()
     for item in scan_roots:
         path = root / item
+        if not path.exists():
+            continue
         candidates = [path] if path.is_file() else path.rglob("*")
         for candidate in candidates:
             if not candidate.is_file() or candidate.suffix.lower() not in TEXT_SUFFIXES:
@@ -69,6 +71,9 @@ def add(errors: list[str], root: Path, path: Path | str, line: int, message: str
 
 
 def check_terms(root: Path, config: dict, errors: list[str]) -> None:
+    for item in config["scan_roots"]:
+        if not (root / item).exists():
+            add(errors, root, item, 1, "表記揺れ検査対象のパスがありません")
     files = list(text_files(root, config["scan_roots"]))
     contents = {path: read(path) for path in files}
     for term in config["terms"]:
@@ -158,8 +163,13 @@ def check_project(root: Path, project: dict, errors: list[str]) -> None:
             for name in sorted(actual_names - expected_names):
                 add(errors, root, archive_path, 1, f"ZIPに配布対象外ファイルがあります: {name}")
             for name in sorted(expected_names & actual_names):
-                if archive.read(name) != (root / name).read_bytes():
+                source = root / name
+                if archive.read(name) != source.read_bytes():
                     add(errors, root, archive_path, 1, f"ZIPとソースの内容が一致しません: {name}")
+                source_executable = bool(source.stat().st_mode & 0o100)
+                archive_executable = bool((archive.getinfo(name).external_attr >> 16) & 0o100)
+                if archive_executable != source_executable:
+                    add(errors, root, archive_path, 1, f"ZIPとソースの実行権限が一致しません: {name}")
     except (BadZipFile, OSError) as error:
         add(errors, root, archive_path, 1, f"ZIPを読み込めません: {error}")
 
