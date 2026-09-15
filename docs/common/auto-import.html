@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Auto Importの設定 | Androidプログラミング1</title>
+<link rel="stylesheet" href="../assets/textbook.css">
+<script src="../assets/textbook.js" defer></script>
+</head>
+<body class="plain">
+<a class="skip" href="#main">本文へ移動</a>
+<header class="topbar"><span class="brand">JEC / Androidプログラミング1</span><a href="../hello-android/index.html#step-1">HelloAndroidの教科書へ戻る</a></header>
+<main id="main">
+<div class="hero"><p class="eyebrow">ANDROID PROGRAMMING 1 / 共通資料</p><h1>Auto Importの設定</h1><p class="lede">Javaを書く前に、必要なimport文をAndroid Studioが自動で追加するように設定します。</p></div>
+
+<section id="settings">
+<h2>1. Settingsを開く</h2>
+<p><strong>import</strong>（インポート）は、コードで使うクラスがどこにあるかを知らせる文です。授業では、Android Studioの <strong>Auto Import</strong>（自動インポート）を使います。</p>
+<ol>
+<li>Android Studioで授業のプロジェクトを開きます。</li>
+<li>画面上部の <strong>Android Studio → Settings…</strong> をクリックします。</li>
+</ol>
+<figure><a href="images/android-studio-settings.png"><img src="images/android-studio-settings.png" width="558" height="434" alt="MacのAndroid Studioメニューを開き、Settingsを選択している"></a><figcaption>Android StudioメニューからSettingsを開きます。 <a href="images/android-studio-settings.png">画像を大きく開く</a></figcaption></figure>
+</section>
+
+<section id="java">
+<h2>2. JavaのAuto Importを設定する</h2>
+<ol>
+<li>Settingsの左側で <strong>Editor → General → Auto Import</strong> を選びます。</li>
+<li>右側をスクロールし、<strong>Java</strong> の見出しを探します。</li>
+<li>Java欄を、次の表の設定にします。</li>
+</ol>
+<table><thead><tr><th>Java欄の項目</th><th>設定</th><th>何をする？</th></tr></thead><tbody>
+<tr><td>Insert imports on paste</td><td><strong>Always</strong></td><td>コードを貼り付けたときに、必要なimport文を追加する。</td></tr>
+<tr><td>Add unambiguous imports on the fly</td><td><strong>チェックを入れる</strong></td><td>候補が1つに決まるimport文を、入力に合わせて自動で追加する。</td></tr>
+<tr><td>Optimize imports on the fly</td><td><strong>チェックを入れる</strong></td><td>使っていないimport文を削除するなど、自動で整理する。</td></tr>
+</tbody></table>
+<figure><a href="images/auto-import-java.png"><img src="images/auto-import-java.png" width="1956" height="1430" alt="Editor、General、Auto Importの設定画面。Java欄でInsert imports on pasteはAlways、Add unambiguous imports on the flyとOptimize imports on the flyにチェックが入っている"></a><figcaption>赤い枠のJava欄を確認します。Insert imports on pasteは、その少し上にあります。 <a href="images/auto-import-java.png">画像を大きく開く</a></figcaption></figure>
+<ol start="4"><li><strong>OK</strong> をクリックして、設定画面を閉じます。</li></ol>
+<div class="check"><p class="box-title">成功の目印</p><p>Java欄で「Always」と2つのチェックを確認できた。これで教科書のJavaを入力する準備ができました。</p></div>
+</section>
+
+<section id="use">
+<h2>3. 教科書のコードを入力する</h2>
+<p>教科書に戻り、そのステップのJavaを入力します。たとえば <code>TextView</code> や <code>Button</code> を使うと、必要なimport文がファイル上部へ追加されます。</p>
+<p>import文は折りたたまれて見える場合があります。使わなくなったものは自動で整理されるので、行数が教材の見本と同じでなくても構いません。</p>
+<p><a class="button-link" href="../hello-android/index.html#step-1">HelloAndroidのSTEP 1へ戻る →</a></p>
+</section>
+
+<section id="trouble">
+<h2>4. 自動で追加されないとき</h2>
+<p>同じ名前のクラスが複数あると、自動では1つに決められません。名前に赤い下線が残った場合は、次の順に確認します。</p>
+<ol>
+<li>JavaのAuto Importが、上の表と同じ設定か確認します。</li>
+<li>赤い下線のある名前にカーソルを置き、<kbd>⌥ Option</kbd> + <kbd>Enter</kbd> を押します。</li>
+<li><strong>Import class</strong> が表示されたら選び、次の表にあるクラスを選びます。</li>
+</ol>
+<table><thead><tr><th>教科書の名前</th><th>選ぶクラス</th></tr></thead><tbody>
+<tr><td>TextView</td><td><code>android.widget.TextView</code></td></tr>
+<tr><td>Button</td><td><code>android.widget.Button</code></td></tr>
+<tr><td>Log</td><td><code>android.util.Log</code></td></tr>
+<tr><td>Toast</td><td><code>android.widget.Toast</code></td></tr>
+<tr><td>Snackbar</td><td><code>com.google.android.material.snackbar.Snackbar</code></td></tr>
+</tbody></table>
+<p>候補が出ない場合や、表と同じクラスが見つからない場合は、先生に名前と画面を見せてください。</p>
+</section>
+
+<section><h2>公式資料</h2><p><a href="https://www.jetbrains.com/help/idea/creating-and-optimizing-imports.html">JetBrains：Auto import</a>（Android Studioの基盤となるIDEの説明）</p></section>
+<footer class="footer"><p>対象：macOS / Android Studio Panda 2 | 2025.3.2 · 画像：教員提供 · 確認日：2026年9月15日</p><p><a href="../hello-android/index.html#step-1">← HelloAndroidの教科書へ戻る</a></p></footer>
+</main>
+<p class="sr-only" role="status" aria-live="polite" data-copy-status></p>
+</body>
+</html>
