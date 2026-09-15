@@ -8,12 +8,15 @@
 - [完成プロジェクト（初回から参照可能）](docs/hello-android/downloads/A01HelloAndroid.zip)
 - [CalcGame：計算ゲームを作ろう](docs/calc-game/index.html)
 - [完成プロジェクト（A02CalcGame）](docs/calc-game/downloads/A02CalcGame.zip)
+- [RockPaperScissorsGame：じゃんけんゲームを作ろう](docs/rock-paper-scissors-game/index.html)
+- [完成プロジェクト（A03RockPaperScissorsGame）](docs/rock-paper-scissors-game/downloads/A03RockPaperScissorsGame.zip)
 - [共通資料：エミュレータの準備とアプリの実行](docs/common/emulator.html)
 - [共通資料：Auto Importの設定](docs/common/auto-import.html)
 - [共通資料：Logcatの使い方](docs/common/logcat.html)
 - [共通資料：提出用APKの作り方](docs/common/apk.html)
 - [教員用：HelloAndroidの授業の進め方・確認項目](teacher/hello-android/index.html)
 - [教員用：CalcGameの授業の進め方・確認項目](teacher/calc-game/index.html)
+- [教員用：RockPaperScissorsGameの授業の進め方・確認項目](teacher/rock-paper-scissors-game/index.html)
 
 ### 開き方
 
@@ -23,13 +26,13 @@
 
 ### 学生への配布
 
-学生には [最新の教材リリース](https://github.com/LeoAndo/jec-26cm-android-programming-1/releases/latest) の Assets にある **android1-student-materials.zip** を案内します（初回公開後から利用可能）。展開後、`docs/hello-android/index.html` または `docs/calc-game/index.html` をブラウザで開きます。各教科書から完成プロジェクトのZIPをダウンロードでき、初回から参考資料として使えます。
+学生には [最新の教材リリース](https://github.com/LeoAndo/jec-26cm-android-programming-1/releases/latest) の Assets にある **android1-student-materials.zip** を案内します（初回公開後から利用可能）。展開後、授業で使う単元の `docs/hello-android/index.html`、`docs/calc-game/index.html`、`docs/rock-paper-scissors-game/index.html` のいずれかをブラウザで開きます。各教科書から完成プロジェクトのZIPをダウンロードでき、初回から参考資料として使えます。
 
 学生用ZIPには `docs` 一式と開き方・版情報を収録します。`teacher` フォルダと `Panda2JavaEmptyViewActivity` は収録しません。GitHubが自動で表示する **Source code (zip)** はリポジトリ全体のため、学生用ZIPには使いません。なお、このリポジトリ自体はPublicなので、教員用ファイルもGitHub上では閲覧できます。
 
 授業中は教員が指定した版を使います。授業ごとの案内には、内容が固定された個別リリースのURLを使ってください。更新版は別フォルダに展開し、学生自身のAndroid Studioプロジェクトは上書きしません。
 
-各単元で、学生自身が毎回Android Studioからプロジェクトを新規作成します。完成版は動作確認とコード比較の参考資料として使います。作成先は `/Users/ユーザ名/Documents/Android1/プロジェクト名` です。HelloAndroidは `A01HelloAndroid`、CalcGameは `A02CalcGame` として保存します。
+各単元で、学生自身が毎回Android Studioからプロジェクトを新規作成します。完成版は動作確認とコード比較の参考資料として使います。作成先は `/Users/ユーザ名/Documents/Android1/プロジェクト名` です。HelloAndroidは `A01HelloAndroid`、CalcGameは `A02CalcGame`、RockPaperScissorsGameは `A03RockPaperScissorsGame` として保存します。
 
 ### 教員が確認に使うプロジェクト
 
@@ -38,8 +41,9 @@
 | `Panda2JavaEmptyViewActivity` | 教員が出発点を確認するためのJava / Empty Views Activityのひな形（学生には非公開） |
 | `A01HelloAndroid` | 完成プロジェクト。配布用ZIPを教科書に同梱し、初回から学生も参照可能 |
 | `A02CalcGame` | 完成プロジェクト。配布用ZIPを教科書に同梱し、初回から学生も参照可能 |
+| `A03RockPaperScissorsGame` | 完成プロジェクト。配布用ZIPを教科書に同梱し、初回から学生も参照可能。STEP 2の画像もこのZIPから取り出す |
 
-教員用ガイドとステップごとの照合用コードは `teacher/hello-android` と `teacher/calc-game` にまとめています。完成版の見本は `Documents/Android1/samples/A01HelloAndroid` / `A02CalcGame`、授業で作るプロジェクトは `Documents/Android1/A01HelloAndroid` / `A02CalcGame` に置きます。
+教員用ガイドとステップごとの照合用コードは `teacher/hello-android`、`teacher/calc-game`、`teacher/rock-paper-scissors-game` にまとめています。完成版の見本は `Documents/Android1/samples/A01HelloAndroid` / `A02CalcGame` / `A03RockPaperScissorsGame`、授業で作るプロジェクトは `Documents/Android1/A01HelloAndroid` / `A02CalcGame` / `A03RockPaperScissorsGame` に置きます。
 
 ### 完成プロジェクトのZIPを更新する（教員用）
 
@@ -55,9 +59,10 @@ cd jec-26cm-android-programming-1
 ```sh
 python3 scripts/package-hello-android.py
 python3 scripts/package-hello-android.py --project A02CalcGame --output docs/calc-game/downloads/A02CalcGame.zip
+python3 scripts/package-hello-android.py --project A03RockPaperScissorsGame --output docs/rock-paper-scissors-game/downloads/A03RockPaperScissorsGame.zip
 ```
 
-学生用ZIPを作成するときは、A01とA02の完成版ZIPを再生成し、HTMLのリンク確認も行います。
+学生用ZIPを作成するときは、A01〜A03の完成版ZIPを再生成し、HTMLのリンク確認も行います。
 
 ```sh
 python3 scripts/package-student-materials.py
@@ -114,7 +119,7 @@ python3 scripts/package-student-materials.py
 
 `dist/android1-student-materials.zip` が生成されます。対象はGit管理された `docs` のファイルで、完成版ZIPはソースから再生成します。新しい教材・画像は `git add` 後に実行してください。ローカルの編集内容も含むため、正式な配布版はGitHub Actionsから公開します。
 
-単元を追加するときは、完成プロジェクトのZIP生成処理を `scripts/package-student-materials.py` に追加してください。HTML・画像・共通資料は `docs` 配下のGit管理ファイルが自動で含まれます。
+単元を追加するときは、完成プロジェクトのZIP生成処理と `はじめに.txt` の単元一覧を `scripts/package-student-materials.py` に、リリースノートの単元一覧を `scripts/release-student-materials.py` に追加してください。あわせて `config/teaching-materials.json`（`scan_roots`、指定AVD名の `required_in`、`projects`）とREADMEのリンク・表も更新します。HTML・画像・共通資料は `docs` 配下のGit管理ファイルが自動で含まれます。
 
 参考：[GitHubのリリースノート自動生成](https://docs.github.com/en/repositories/releasing-projects-on-github/automatically-generated-release-notes)、[ワークフローの手動実行](https://docs.github.com/en/actions/how-tos/manage-workflow-runs/manually-run-a-workflow)。
 

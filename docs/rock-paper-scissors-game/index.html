@@ -1,0 +1,709 @@
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="JavaとXMLで作るA03RockPaperScissorsGame。画像の追加、配列とfor文、乱数、switch文による勝敗判定、連勝数を小さなSTEPで学ぶ授業用教科書。">
+<title>RockPaperScissorsGame — じゃんけんゲームを作ろう | Androidプログラミング1</title>
+<link rel="stylesheet" href="../assets/textbook.css"><script src="../assets/textbook.js" defer></script></head>
+<body data-progress-key="jec-android1-rockpaperscissorsgame-v1">
+<a class="skip" href="#main">本文へ移動</a>
+<header class="topbar"><span class="brand">JEC / Androidプログラミング1</span><a href="../calc-game/index.html">A02 CalcGame</a></header>
+<div class="shell"><aside class="sidebar"><div class="sidebar-inner"><p class="eyebrow">CONTENTS / 学習の順番</p>
+<nav aria-label="学習ステップ"><ol><li><a href="#step-0">00　今日のゴール</a></li>
+<li><a href="#step-1">01　プロジェクトを作って実行</a></li>
+<li><a href="#step-2">02　画像をdrawableに追加</a></li>
+<li><a href="#step-3">03　タイトルと3つの手を並べる</a></li>
+<li><a href="#step-4">04　ボタンとCPUの手の場所</a></li>
+<li><a href="#step-5">05　手を選ぶ（配列とfor文）</a></li>
+<li><a href="#step-6">06　CPUの手を出す</a></li>
+<li><a href="#step-7">07　次の戦いへ戻す</a></li>
+<li><a href="#step-8">08　勝ち負けと連勝数</a></li>
+<li><a href="#step-9">09　ミニ練習</a></li>
+<li><a href="#step-10">10　完成とふり返り</a></li></ol></nav>
+<div class="progress"><span data-progress-label>0 / 11 ステップ確認済み</span><progress value="0" max="11" aria-label="学習の進み具合"></progress><span class="muted">自分用のチェックです。</span></div>
+<div class="resources"><a href="#help">困ったとき</a><a href="#sample-project">完成プロジェクトを開く</a><a href="../hello-android/index.html">A01：HelloAndroid</a><a href="../calc-game/index.html">A02：CalcGame</a><a href="../common/emulator.html">共通：エミュレータ</a><a href="../common/auto-import.html">共通：Auto Import</a><a href="../common/logcat.html">共通：Logcat</a><a href="../common/apk.html">共通：APKの提出</a></div>
+</div></aside><main id="main"><div class="hero"><span class="unit">03</span><p class="eyebrow">ROCK PAPER SCISSORS GAME</p>
+<h1>じゃんけんゲームを<br>作ろう</h1><p class="lede">手を選ぶ。CPUと勝負する。勝ちを数える。<br>画像と配列を使って、何度も遊べるゲームへ。</p>
+<div class="tags"><span>Java / XML</span><span>A02の次の単元</span><span>90分 × 3コマ目安</span><span>Macで学ぶ</span></div></div>
+<section id="step-0" aria-labelledby="title-0">
+<p class="step-meta">STEP 00 · 目安 5分</p><h2 id="title-0">今日のゴール</h2>
+
+<p>A01・A02で学んだ「XMLで画面を作る」「Javaでクリックを処理する」「フィールドで値を覚える」を使い、<strong>CPUとじゃんけんをするゲーム</strong>を作ります。手の画像を押して選び、「勝負！」で結果を表示します。勝ち続けると連勝数が増えます。</p>
+<div class="flow" aria-label="ゲームの流れ"><strong>手の画像を押す</strong><span>→</span><strong>勝負！</strong><span>→</span><strong>結果を見る</strong><span>→</span><strong>次の戦いへ</strong></div>
+<div class="phones"><figure><a href="images/app-initial.png"><img src="images/app-initial.png" width="1080" height="2424" loading="lazy" alt="起動直後。タイトル画像、じゃんけんの手を選んでください、グー・チョキ・パーの画像、押せない勝負！と次の戦いへ、CPUの手の見出し"></a><figcaption>① 起動直後。勝負！と次の戦いへはまだ押せません。 <a href="images/app-initial.png">画像を大きく開く</a></figcaption></figure>
+<figure><a href="images/app-result.png"><img src="images/app-result.png" width="1080" height="2424" loading="lazy" alt="グーを選んで勝負した結果。グーの背景が赤、あなたの勝ち 1連勝中！、CPUの手はチョキ、次の戦いへだけが有効"></a><figcaption>② グーで勝負！。CPUはチョキで、あなたの勝ちです。 <a href="images/app-result.png">画像を大きく開く</a></figcaption></figure>
+</div>
+<h3>できるようになること</h3>
+<ol><li>画像をプロジェクトに追加し、ImageViewで表示する。</li><li>配列とfor文で3つの画像に同じクリック処理を付け、選んだ手の番号を覚える。</li><li>乱数でCPUの手を決め、計算式とswitch文で勝ち・負け・引き分けと連勝数を表示する。</li></ol>
+<p>手の番号は <strong>0：グー、1：チョキ、2：パー</strong> です。CPUの手は毎回ランダムに決まるため、画像と違う結果になっても構いません。</p>
+<h3>90分×3コマで進めます</h3>
+<table><thead><tr><th>授業</th><th>範囲</th><th>終了時にできること</th></tr></thead><tbody>
+<tr><td>1コマ目</td><td>STEP 0〜4</td><td>画像を追加し、ゲームの画面を作る。</td></tr>
+<tr><td>2コマ目</td><td>STEP 5〜7</td><td>手を選び、CPUの手を出し、次の戦いへ戻せることを確かめる。</td></tr>
+<tr><td>3コマ目</td><td>STEP 8〜10</td><td>勝敗と連勝数を表示し、ミニ練習・動作確認・提出を行う。</td></tr>
+</tbody></table>
+
+<p>各コマに再実行と個別確認の時間を含みます。予習は不要です。</p>
+<div class="note"><p class="box-title">毎回、自分で新規作成します</p><p>作る場所は <code>Documents/Android1/A03RockPaperScissorsGame</code> です。<a href="#sample-project">完成プロジェクト</a>は初回から開けます。STEP 2で使う画像も、完成プロジェクトのZIPから取り出します。</p></div>
+
+<h3>完成アプリの操作</h3><table><thead><tr><th>状態</th><th>手の画像</th><th>勝負！</th><th>次の戦いへ</th><th>CPUの手</th></tr></thead><tbody>
+<tr><td>起動直後・次の戦いへの後</td><td>押せる</td><td>押せない</td><td>押せない</td><td>表示しない</td></tr>
+<tr><td>手を選んだ後</td><td>押せる（選び直せる）</td><td>押せる</td><td>押せない</td><td>表示しない</td></tr>
+<tr><td>勝負！の後</td><td>押しても変わらない</td><td>押せない</td><td>押せる</td><td>表示する</td></tr>
+</tbody></table>
+
+<p>選んだ手は背景が赤くなります。次の戦いへを押すと、連勝数を覚えたまま、起動直後と同じ表示に戻ります。</p>
+<div class="note"><p class="box-title">画面回転について</p><p>各単元では画面回転時のデータ保持と横画面のレイアウトを扱いません。回転などでActivityが作り直されると、選んだ手と連勝数は初期状態に戻ります。横向きでは画面の下の部分が見えなくなる場合があるため、縦向きで使います。この観点は別単元の演習アプリで検証します。</p></div>
+<div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-0"><span>手の画像、勝負！、次の戦いへの役割と、押せる・押せない状態を画像と表で説明できた。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
+<div class="next"><a href="#step-1">次へ：プロジェクトを作って実行 →</a></div>
+</section>
+<section id="step-1" aria-labelledby="title-1">
+<p class="step-meta">STEP 01 · 目安 15分</p><h2 id="title-1">プロジェクトを作って実行</h2>
+
+<p>授業環境はMacと <strong>Android Studio Panda 2 | 2025.3.2</strong> です。A01・A02とは別のプロジェクトを作ります。</p>
+<ol><li>Android Studioの <strong>New Project</strong> をクリックします。別のプロジェクトを開いているときは <strong>File → New → New Project</strong> を選びます。</li></ol>
+<figure><a href="images/new-project.png"><img src="images/new-project.png" width="1598" height="266" loading="lazy" alt="Android StudioのWelcome画面。右上にNew Projectボタン"></a><figcaption>右上のNew Projectをクリック。 <a href="images/new-project.png">画像を大きく開く</a></figcaption></figure>
+
+<ol start="2"><li><strong>Phone and Tablet → Empty Views Activity → Next</strong> の順に選びます。名前に <strong>Views</strong> があることを確認します。</li></ol>
+<figure><a href="images/empty-views-activity.png"><img src="images/empty-views-activity.png" width="1780" height="1340" loading="lazy" alt="テンプレート一覧でEmpty Views Activityが選択されている"></a><figcaption>Empty Views Activityを選択。 <a href="images/empty-views-activity.png">画像を大きく開く</a></figcaption></figure>
+<table><thead><tr><th>項目</th><th>入力・選択する内容</th></tr></thead><tbody>
+<tr><td>Name</td><td><code>A03RockPaperScissorsGame</code></td></tr>
+<tr><td>Package name</td><td><code>jp.ac.jec.a03rockpaperscissorsgame</code>（すべて小文字）</td></tr>
+<tr><td>Save location</td><td><code>/Users/ユーザ名/Documents/Android1/A03RockPaperScissorsGame</code></td></tr>
+<tr><td>Language</td><td><strong>Java</strong></td></tr>
+<tr><td>Minimum SDK</td><td><strong>API 31（Android 12.0）</strong></td></tr>
+<tr><td>Build configuration language</td><td><strong>Kotlin DSL（build.gradle.kts）</strong></td></tr>
+</tbody></table>
+<figure><a href="images/project-settings.png"><img src="images/project-settings.png" width="1722" height="1044" loading="lazy" alt="A03RockPaperScissorsGameの新規設定。パッケージjp.ac.jec.a03rockpaperscissorsgame、Java、API 31"></a><figcaption>画像の保存先は先生の例です。自分のDocuments/Android1/A03RockPaperScissorsGameに読み替えます。 <a href="images/project-settings.png">画像を大きく開く</a></figcaption></figure>
+
+<ol start="3"><li>Finderの <strong>移動 → ホーム</strong> で自分のユーザ名を確認します。書類（Documents）に <code>Android1</code> フォルダがなければ作ります。</li><li>表の値と保存先を確認し、<strong>Finish</strong> をクリックします。<code>ユーザ名</code> は自分の名前に置き換えます。</li><li><strong>Gradle Sync</strong> が完了するまで待ちます。</li><li><a href="../common/auto-import.html">共通資料：Auto Import</a>のJava設定を確認します。</li></ol>
+<h3>この単元で使う場所</h3>
+<table><thead><tr><th>役割</th><th>Project表示で開く場所</th></tr></thead><tbody>
+<tr><td>画像</td><td><code>app/src/main/res/drawable</code></td></tr>
+<tr><td>画面（XML）</td><td><code>app/src/main/res/layout/activity_main.xml</code></td></tr>
+<tr><td>動き（Java）</td><td><code>app/src/main/java/jp/ac/jec/a03rockpaperscissorsgame/MainActivity.java</code></td></tr>
+</tbody></table>
+
+<p>左の一覧が見えないときは <strong>View → Tool Windows → Project</strong> を開きます。一覧の上の表示名が <strong>Project</strong> になっていることを確認します。パッケージのフォルダが <code>jp.ac.jec.a03rockpaperscissorsgame</code> とまとめて表示される場合もあります。</p>
+<h3>変更前に1回Runする</h3>
+<ol><li><a href="../common/emulator.html">共通資料：エミュレータ</a>に従って端末を起動します。</li><li>上部で <strong>app</strong> と <strong>jec_26cm_android1_Pixel 9a</strong> を選び、<strong>Run ▶</strong> を押します。</li><li><strong>Hello World!</strong> が表示されれば成功です。</li></ol>
+<div class="note"><p class="box-title">MainActivity.ktができたとき</p><p>先生に画面を見せ、Empty Views Activity / Javaの選択を確認します。</p></div>
+<div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-1"><span>自分の保存先にA03RockPaperScissorsGameを作り、Hello World!を表示できた。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
+<div class="next"><a href="#step-2">次へ：画像をdrawableに追加 →</a></div>
+</section>
+<section id="step-2" aria-labelledby="title-2">
+<p class="step-meta">STEP 02 · 目安 15分</p><h2 id="title-2">画像をdrawableに追加</h2>
+
+<p class="file">追加する場所：app/src/main/res/drawable</p>
+<p>ゲームで使う4つの画像を、自分のプロジェクトに入れます。<code>res/drawable</code> は、アプリで表示する画像を置くフォルダです。</p>
+<table><thead><tr><th>ファイル名</th><th>使う場所</th><th>XMLでの名前</th><th>Javaでの名前</th></tr></thead><tbody>
+<tr><td>title_image.png</td><td>画面上部のタイトル</td><td><code>@drawable/title_image</code></td><td>（使わない）</td></tr>
+<tr><td>rock.png</td><td>グー</td><td><code>@drawable/rock</code></td><td><code>R.drawable.rock</code></td></tr>
+<tr><td>scissors.png</td><td>チョキ</td><td><code>@drawable/scissors</code></td><td><code>R.drawable.scissors</code></td></tr>
+<tr><td>paper.png</td><td>パー</td><td><code>@drawable/paper</code></td><td><code>R.drawable.paper</code></td></tr>
+</tbody></table>
+
+<p>名前はファイル名から <code>.png</code> を取ったものです。drawableのファイル名には、<strong>小文字の英字・数字・_（アンダースコア）</strong> だけを使います。</p>
+<h3>① 完成プロジェクトのZIPから画像を取り出す</h3>
+<ol><li><a class="button-link" href="downloads/A03RockPaperScissorsGame.zip" download>完成プロジェクト A03RockPaperScissorsGame.zip</a> をダウンロードし、展開します。</li><li>できた <code>A03RockPaperScissorsGame</code> フォルダを、見本の置き場所 <code>/Users/ユーザ名/Documents/Android1/samples</code> に移動します。<code>samples</code> フォルダがなければ作ります。</li><li>Finderで <code>samples/A03RockPaperScissorsGame/app/src/main/res/drawable</code> を開きます。</li><li><kbd>⌘</kbd> を押しながら、<code>paper.png</code>・<code>rock.png</code>・<code>scissors.png</code>・<code>title_image.png</code> の4つをクリックして選び、<kbd>⌘ C</kbd> でコピーします。<code>ic_launcher</code> で始まるファイルは選びません。</li></ol>
+<h3>② 自分のプロジェクトに貼り付ける</h3>
+<ol><li>Android Studioに戻り、自分の <code>A03RockPaperScissorsGame</code> を開いていることを確認します。</li><li>Project表示で <code>app/src/main/res/drawable</code> フォルダをクリックして選び、<kbd>⌘ V</kbd> で貼り付けます。</li><li><strong>Copy</strong> の画面が出たら、<strong>To directory</strong> を確認します。末尾が <code>A03RockPaperScissorsGame/app/src/main/res/drawable</code> で、途中に <code>samples</code> がなければ <strong>OK</strong> を押します。</li></ol>
+<figure><a href="images/drawable-copy.png"><img src="images/drawable-copy.png" width="1970" height="928" loading="lazy" alt="Project表示でdrawableフォルダを選び、Copyダイアログが開いている。To directoryの末尾はapp/src/main/res/drawable"></a><figcaption>To directoryの末尾が A03RockPaperScissorsGame/app/src/main/res/drawable で、samples が入っていなければOK。画像のパスは先生の保存先の例です。 <a href="images/drawable-copy.png">画像を大きく開く</a></figcaption></figure>
+<figure><a href="images/drawable-files.png"><img src="images/drawable-files.png" width="1096" height="1082" loading="lazy" alt="drawableフォルダにpaper.png、rock.png、scissors.png、title_image.pngの4つが追加されている"></a><figcaption>drawableに4つのPNGが並べば成功。 <a href="images/drawable-files.png">画像を大きく開く</a></figcaption></figure>
+
+<div class="note"><p class="box-title">貼り付けた場所を間違えたとき</p><p><code>layout</code> や <code>mipmap</code> など別のフォルダに入った画像は、Project表示で選んで <kbd>⌘ Delete</kbd> で削除し、もう一度 <code>drawable</code> に貼り付けます。見本の <code>samples</code> 側のプロジェクトには貼り付けません。</p></div>
+<h3>Runで確かめる</h3><p>画像を追加しただけでは、画面は変わりません。Runして <strong>Hello World!</strong> が表示され、ビルドエラーが出なければ成功です。</p>
+<div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-2"><span>自分のプロジェクトのdrawableに4つのPNGを追加し、Runしてもエラーが出ないことを確認した。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
+<div class="next"><a href="#step-3">次へ：タイトルと3つの手を並べる →</a></div>
+</section>
+<section id="step-3" aria-labelledby="title-3">
+<p class="step-meta">STEP 03 · 目安 20分</p><h2 id="title-3">タイトルと3つの手を並べる</h2>
+
+<p class="file">変更するファイル：app/src/main/res/layout/activity_main.xml</p>
+<p>まず上半分を作ります。<strong>Code</strong> 表示に切り替え、XMLの中で <kbd>⌘ A</kbd> → 貼り付けを行い、<strong>ファイル全体を置き換えます</strong>。</p>
+<div class="code-head">activity_main.xml · 全体を置き換える</div>
+<pre id="code-layout-top" tabindex="0"><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;LinearLayout xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
+    xmlns:tools=&quot;http://schemas.android.com/tools&quot;
+    android:id=&quot;@+id/main&quot;
+    android:layout_width=&quot;match_parent&quot;
+    android:layout_height=&quot;match_parent&quot;
+    android:gravity=&quot;center_horizontal&quot;
+    android:orientation=&quot;vertical&quot;
+    android:padding=&quot;12dp&quot;
+    tools:context=&quot;.MainActivity&quot;&gt;
+
+    &lt;ImageView
+        android:layout_width=&quot;wrap_content&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:contentDescription=&quot;@null&quot;
+        android:src=&quot;@drawable/title_image&quot; /&gt;
+
+    &lt;TextView
+        android:id=&quot;@+id/txt_message&quot;
+        style=&quot;@style/TextAppearance.Material3.BodyLarge&quot;
+        android:layout_width=&quot;wrap_content&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:text=&quot;じゃんけんの手を選んでください&quot; /&gt;
+
+    &lt;LinearLayout
+        android:layout_width=&quot;match_parent&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:orientation=&quot;horizontal&quot;&gt;
+
+        &lt;ImageView
+            android:id=&quot;@+id/img_rock&quot;
+            android:layout_width=&quot;0dp&quot;
+            android:layout_height=&quot;wrap_content&quot;
+            android:layout_weight=&quot;1&quot;
+            android:contentDescription=&quot;@null&quot;
+            android:src=&quot;@drawable/rock&quot; /&gt;
+
+        &lt;ImageView
+            android:id=&quot;@+id/img_scissors&quot;
+            android:layout_width=&quot;0dp&quot;
+            android:layout_height=&quot;wrap_content&quot;
+            android:layout_weight=&quot;1&quot;
+            android:contentDescription=&quot;@null&quot;
+            android:src=&quot;@drawable/scissors&quot; /&gt;
+
+        &lt;ImageView
+            android:id=&quot;@+id/img_paper&quot;
+            android:layout_width=&quot;0dp&quot;
+            android:layout_height=&quot;wrap_content&quot;
+            android:layout_weight=&quot;1&quot;
+            android:contentDescription=&quot;@null&quot;
+            android:src=&quot;@drawable/paper&quot; /&gt;
+    &lt;/LinearLayout&gt;
+
+&lt;/LinearLayout&gt;</code></pre>
+<table><thead><tr><th>新しい指定</th><th>意味</th></tr></thead><tbody>
+<tr><td>ImageView（イメージビュー）</td><td>画像を表示する部品。</td></tr>
+<tr><td>android:src="@drawable/rock"</td><td>STEP 2で追加した <code>rock.png</code> を表示する。<code>.png</code> は書かない。</td></tr>
+<tr><td>android:contentDescription="@null"</td><td>画面読み上げ用の説明文。この単元では説明文を付けない指定にして、警告を出さないようにする。</td></tr>
+<tr><td>style="@style/TextAppearance.Material3.BodyLarge"</td><td>Material 3の「大きめの本文」の文字スタイルを使う。</td></tr>
+<tr><td>android:layout_width="0dp" と android:layout_weight="1"</td><td>横幅を比率で分ける。3つとも1なので、横幅を3等分する。</td></tr>
+</tbody></table>
+
+<p>親の <code>orientation="vertical"</code> がタイトル・メッセージ・手の行を縦に並べ、手の行の <code>orientation="horizontal"</code> が3つの画像を横に並べます。A02の数字ボタンと同じ入れ子の形です。</p>
+<p>3つの手のidは <code>img_rock</code>・<code>img_scissors</code>・<code>img_paper</code> です。この <strong>グー → チョキ → パー</strong> の順番を、あとのJavaでも使います。<code>android:id="@+id/main"</code> はJavaのひな形でも使うため残します。</p>
+<div class="note"><p class="box-title">12dpの余白について</p><p>このXMLには <code>padding="12dp"</code> があります。ひな形のJavaにある <code>v.setPadding(...)</code> が実行時の余白を上書きするため、手の画像が画面の端まで表示されることがあります。教材では、このひな形をそのまま使います。</p></div>
+
+<h3>Runで確かめる</h3><p>タイトル画像、「じゃんけんの手を選んでください」、グー・チョキ・パーの画像が上から表示されれば成功です。まだ画像を押しても何も起きません。</p>
+<p><code>@drawable/rock</code> などが赤いときは、STEP 2の画像の場所とファイル名を確認します。文字を直接書いたことによる <code>Hardcoded text</code> の警告は、A01・A02と同様に授業ではそのまま進めます。</p>
+<div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-3"><span>タイトル・メッセージ・3つの手が表示され、layout_weightで横幅を3等分していることを確認した。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
+<div class="next"><a href="#step-4">次へ：ボタンとCPUの手の場所 →</a></div>
+</section>
+<section id="step-4" aria-labelledby="title-4">
+<p class="step-meta">STEP 04 · 目安 15分</p><h2 id="title-4">ボタンとCPUの手の場所</h2>
+
+<p class="file">変更するファイル：activity_main.xml</p>
+<p>下半分に、2つのボタンとCPUの手を表示する場所を作ります。XMLの<strong>最後の <code>&lt;/LinearLayout&gt;</code> の直前</strong>に追加します。STEP 3のタイトルや手の画像は残します。</p>
+<div class="code-head">追加 · 最後の閉じタグの直前</div>
+<pre id="code-layout-bottom" tabindex="0"><code>&lt;LinearLayout
+    android:layout_width=&quot;match_parent&quot;
+    android:layout_height=&quot;wrap_content&quot;
+    android:orientation=&quot;horizontal&quot;&gt;
+
+    &lt;Button
+        android:id=&quot;@+id/btn_start&quot;
+        android:layout_width=&quot;0dp&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:layout_marginEnd=&quot;12dp&quot;
+        android:layout_weight=&quot;1&quot;
+        android:enabled=&quot;false&quot;
+        android:text=&quot;勝負！&quot;
+        tools:ignore=&quot;ButtonStyle&quot; /&gt;
+
+    &lt;Button
+        android:id=&quot;@+id/btn_next&quot;
+        android:layout_width=&quot;0dp&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:layout_weight=&quot;1&quot;
+        android:enabled=&quot;false&quot;
+        android:text=&quot;次の戦いへ&quot;
+        tools:ignore=&quot;ButtonStyle&quot; /&gt;
+&lt;/LinearLayout&gt;
+
+&lt;TextView
+    style=&quot;@style/TextAppearance.Material3.BodyLarge&quot;
+    android:layout_width=&quot;wrap_content&quot;
+    android:layout_height=&quot;wrap_content&quot;
+    android:layout_marginTop=&quot;12dp&quot;
+    android:text=&quot;CPUの手&quot; /&gt;
+
+&lt;ImageView
+    android:id=&quot;@+id/img_cpu&quot;
+    android:layout_width=&quot;wrap_content&quot;
+    android:layout_height=&quot;wrap_content&quot;
+    android:contentDescription=&quot;@null&quot; /&gt;</code></pre>
+<table><thead><tr><th>指定</th><th>意味</th></tr></thead><tbody>
+<tr><td>btn_start / btn_next</td><td>「勝負！」と「次の戦いへ」のボタン。Javaから探すための名前。</td></tr>
+<tr><td>android:enabled="false"</td><td>最初はボタンを押せないようにする。</td></tr>
+<tr><td>android:layout_marginEnd="12dp"</td><td>勝負！の右側に12dpのすき間を作る。2つのボタンの幅は <code>layout_weight</code> で半分ずつ。</td></tr>
+<tr><td>img_cpu</td><td>CPUの手を表示する場所。<code>android:src</code> がないので、最初は何も見えない。画像はJavaで設定する。</td></tr>
+</tbody></table>
+
+<p><code>tools:ignore="ButtonStyle"</code> はエディタの警告を抑える指定で、クリックの処理ではありません。「CPUの手」の文字はJavaで変えないため、idを付けていません。</p>
+<h3>Runで確かめる</h3><p>画面の下に「勝負！」「次の戦いへ」と「CPUの手」が表示されます。2つのボタンは灰色で押せません。</p>
+<figure class="phone"><a href="images/app-initial.png"><img src="images/app-initial.png" width="1080" height="2424" loading="lazy" alt="タイトル、メッセージ、3つの手、灰色の勝負！と次の戦いへ、CPUの手の見出しが並ぶ"></a><figcaption>このSTEPの画面。CPUの手の下はまだ空欄です。 <a href="images/app-initial.png">画像を大きく開く</a></figcaption></figure>
+<div class="note"><p class="box-title">1コマ目はここまで</p><p>保存してからもう一度Runします。画面の部品のidを、先生に1つずつ指さして説明しましょう。次回も自分の <code>Documents/Android1/A03RockPaperScissorsGame</code> を開きます。</p></div>
+<div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-4"><span>2つのボタンが押せない状態で表示されることをRunで確認し、XMLでimg_cpuが「CPUの手」のTextViewの下にあることを確認した（画面ではまだ見えない）。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
+<div class="next"><a href="#step-5">次へ：手を選ぶ（配列とfor文） →</a></div>
+</section>
+<section id="step-5" aria-labelledby="title-5">
+<p class="step-meta">STEP 05 · 目安 30分</p><h2 id="title-5">手を選ぶ（配列とfor文）</h2>
+
+<p class="file">変更するファイル：MainActivity.java</p>
+<p>前回の画面をRunして確認してから始めます。押した手の背景を赤くし、<strong>何番の手を選んだか</strong>をフィールドに覚えます。</p>
+<h3>① クラスの中、onCreateの外に1行追加</h3>
+<p><code>public class MainActivity extends AppCompatActivity {</code> のすぐ下、<code>@Override</code> より上に追加します。</p>
+<div class="code-head">追加 · MainActivityのフィールド</div>
+<pre id="code-field-hand" tabindex="0"><code>private int selectedHand = -1; // -1:未選択 0:グー 1:チョキ 2:パー</code></pre>
+
+<p><code>selectedHand</code> は、選んだ手の番号を覚えるフィールドです。<code>-1</code> は「まだ選んでいない」という意味です。この値は、クリックの処理（<code>v -&gt; { ... }</code>）の中で書き換えます。<code>onCreate</code> の中で作ったローカル変数は、クリックの処理の中で変更できないため、フィールドにします。A02の <code>correctNo</code> などと同じ理由です。あとで出てくる <code>imageViews</code> や <code>btnStart</code> は、クリックの処理の中で読むだけなので、ローカル変数のままで構いません。</p>
+<h3>② 画面の部品を取得する</h3>
+<p><code>onCreate</code> の中で、ひな形の <code>return insets;</code> に続く <code>});</code> の下、<code>onCreate</code> を閉じる <code>}</code> より上に追加します。</p>
+<div class="code-head">追加 · onCreateの中</div>
+<pre id="code-views" tabindex="0"><code>var txtMessage = (TextView) findViewById(R.id.txt_message);
+var imgCpu = (ImageView) findViewById(R.id.img_cpu);
+var btnStart = findViewById(R.id.btn_start);
+var btnNext = findViewById(R.id.btn_next);
+
+var imageViews = new ImageView[]{
+        findViewById(R.id.img_rock),
+        findViewById(R.id.img_scissors),
+        findViewById(R.id.img_paper)
+};</code></pre>
+<table><thead><tr><th>コード</th><th>意味</th></tr></thead><tbody>
+<tr><td>(ImageView) findViewById(R.id.img_cpu)</td><td>表示する画像を変えるため、ImageViewとして扱う。</td></tr>
+<tr><td>btnStart / btnNext</td><td>クリック登録と有効・無効の切り替えだけを使うため、A02と同じくキャストしない。</td></tr>
+<tr><td>new ImageView[]{ ... }</td><td>3つの手の画像を、ImageViewの配列にまとめる。</td></tr>
+</tbody></table>
+
+<p>配列の番号は0から始まります。<code>{ }</code> に書いた順番で、<code>imageViews[0]</code> がグー、<code>imageViews[1]</code> がチョキ、<code>imageViews[2]</code> がパーです。この番号が、そのまま手の番号になります。</p>
+<p>Auto Importで <code>android.widget.ImageView</code> と <code>android.widget.TextView</code> を追加します。赤字が残るときは名前にカーソルを置いて <kbd>⌥ Enter</kbd> で候補を確認します。<code>txtMessage</code> などが灰色で表示されるのは、まだ使っていないためです。</p>
+<h3>③ 3つの画像にクリック処理を付ける</h3>
+<p>②で追加した配列の <code>};</code> の下に追加します。</p>
+<div class="code-head">追加 · 配列imageViewsの下</div>
+<pre id="code-select" tabindex="0"><code>for (var imageView : imageViews) {
+    imageView.setOnClickListener(v -&gt; {
+        btnStart.setEnabled(true);
+        for (var i = 0; i &lt; imageViews.length; i++) {
+            if (imageViews[i] == v) {
+                v.setBackgroundColor(Color.RED);
+                // 選択状態を保持
+                selectedHand = i;
+            } else {
+                imageViews[i].setBackground(null);
+            }
+        }
+    });
+}</code></pre>
+<p><code>Color</code> のimportは <code>android.graphics.Color</code> です。</p>
+<table><thead><tr><th>コード</th><th>意味</th></tr></thead><tbody>
+<tr><td>for (var imageView : imageViews)</td><td>配列から画像を1つずつ取り出し、クリック処理を登録する。A02の数字ボタンと同じ拡張for文。</td></tr>
+<tr><td>v</td><td>押された画像。</td></tr>
+<tr><td>btnStart.setEnabled(true)</td><td>手を選んだので、勝負！を押せるようにする。</td></tr>
+<tr><td>for (var i = 0; i &lt; imageViews.length; i++)</td><td><code>i</code> を0・1・2と変えながら繰り返す。<code>imageViews.length</code> は配列の数（3）。</td></tr>
+<tr><td>imageViews[i] == v</td><td>i番目の画像が、押された画像と同じ部品かを比べる。</td></tr>
+<tr><td>v.setBackgroundColor(Color.RED)</td><td>押された画像の背景を赤にする。</td></tr>
+<tr><td>selectedHand = i</td><td>押された画像の番号をフィールドに覚える。</td></tr>
+<tr><td>imageViews[i].setBackground(null)</td><td>押されていない画像の背景を消す。前に選んだ赤もここで消える。</td></tr>
+</tbody></table>
+
+<h3>番号付きのfor文を読む</h3>
+<div class="flow"><strong>var i = 0（最初に1回）</strong><span>→</span><strong>i &lt; 3 なら中を実行</strong><span>→</span><strong>i++（1増やす）</strong><span>→</span><strong>条件に戻る</strong></div>
+<table><thead><tr><th>チョキを押したとき</th><th>imageViews[i] == v</th><th>実行すること</th></tr></thead><tbody>
+<tr><td>i = 0（グー）</td><td>false</td><td>グーの背景を消す。</td></tr>
+<tr><td>i = 1（チョキ）</td><td>true</td><td>チョキの背景を赤にし、<code>selectedHand</code> を1にする。</td></tr>
+<tr><td>i = 2（パー）</td><td>false</td><td>パーの背景を消す。</td></tr>
+<tr><td>i = 3</td><td>（条件 3 &lt; 3 がfalse）</td><td>繰り返しを終える。</td></tr>
+</tbody></table>
+
+<p>外側の拡張for文は画面を作るときに3回実行され、3つの画像に同じ処理を登録します。内側の番号付きfor文は、<strong>画像を押したとき</strong>に実行されます。</p>
+<h3>Runで確かめる</h3><ol><li>グーを押すと、グーの背景が赤になり、勝負！が押せるようになります。</li><li>続けてパーを押すと、赤がパーに移ります。赤い手はいつも1つだけです。</li><li>勝負！を押しても、まだ何も起きません。</li></ol>
+<figure class="phone"><a href="images/app-selected.png"><img src="images/app-selected.png" width="1080" height="2424" loading="lazy" alt="グーの背景が赤くなり、勝負！だけが押せる状態"></a><figcaption>グーを選んだ画面。勝負！が押せるようになります。 <a href="images/app-selected.png">画像を大きく開く</a></figcaption></figure>
+<div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-5"><span>押した手だけが赤くなり、別の手を押すと赤が移ることを確認した。selectedHand = i の行を指させた。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
+<div class="next"><a href="#step-6">次へ：CPUの手を出す →</a></div>
+</section>
+<section id="step-6" aria-labelledby="title-6">
+<p class="step-meta">STEP 06 · 目安 20分</p><h2 id="title-6">CPUの手を出す</h2>
+
+<p class="file">変更するファイル：MainActivity.java</p>
+<p>勝負！を押したら、手を選べないようにしてから、CPUの手をランダムに決めて表示します。勝ち負けの判定はSTEP 8で追加します。</p>
+<p>STEP 5の3つの画像の処理を閉じる、<strong>拡張for文の最後の <code>}</code></strong> の下に追加します。<code>onCreate</code> を閉じる <code>}</code> より上です。</p>
+<div class="code-head">追加 · 画像のfor文の下</div>
+<pre id="code-start" tabindex="0"><code>btnStart.setOnClickListener(v -&gt; {
+    for (var item : imageViews) {
+        item.setClickable(false);
+    }
+    btnStart.setEnabled(false);
+    btnNext.setEnabled(true);
+
+    var cpu = ThreadLocalRandom.current().nextInt(3);// CPUの手 0:グー 1:チョキ 2:パー
+    var item = new int[]{R.drawable.rock, R.drawable.scissors, R.drawable.paper};
+    imgCpu.setVisibility(View.VISIBLE);
+    imgCpu.setImageResource(item[cpu]);
+});</code></pre>
+<p>importは <code>android.view.View</code> と <code>java.util.concurrent.ThreadLocalRandom</code> です。</p>
+<table><thead><tr><th>コード</th><th>意味</th></tr></thead><tbody>
+<tr><td>item.setClickable(false)</td><td>3つの画像を押せないようにする。勝負のあとに手を選び直せない。</td></tr>
+<tr><td>btnStart.setEnabled(false) / btnNext.setEnabled(true)</td><td>勝負！を押せなくし、次の戦いへを押せるようにする。</td></tr>
+<tr><td>ThreadLocalRandom.current().nextInt(3)</td><td><strong>0以上、3未満</strong>の整数を選ぶ。CPUの手は0・1・2のどれか。</td></tr>
+<tr><td>new int[]{R.drawable.rock, R.drawable.scissors, R.drawable.paper}</td><td>3つの画像のidを配列にまとめる。[0]グー、[1]チョキ、[2]パー。</td></tr>
+<tr><td>imgCpu.setVisibility(View.VISIBLE)</td><td>CPUの手の画像を見える状態にする。</td></tr>
+<tr><td>imgCpu.setImageResource(item[cpu])</td><td>選ばれた番号の画像を表示する。<code>cpu</code> が1なら <code>scissors.png</code>。</td></tr>
+</tbody></table>
+
+<p>A02の <code>nextInt(1, 10)</code> は1〜9でした。今回の <code>nextInt(3)</code> は0から始まるので、配列の番号にそのまま使えます。画像idの配列も、STEP 5の <code>imageViews</code> と同じ <strong>グー → チョキ → パー</strong> の順番です。</p>
+<div class="note"><p class="box-title">2つのitemは別の変数</p><p>for文の <code>(var item : imageViews)</code> の <code>item</code> は、for文の <code>{ }</code> の中だけで使える名前です。for文の下の <code>var item = new int[]{...}</code> は、画像idの配列を入れる別の変数です。</p></div>
+<h3>Runで確かめる</h3><ol><li>手を選んで勝負！を押すと、「CPUの手」の下に画像が出ます。</li><li>勝負！は押せなくなり、次の戦いへが押せるようになります。</li><li>手の画像を押しても、赤い背景は動きません。</li><li>メッセージはまだ変わりません。次の戦いへを押しても、まだ何も起きません。</li></ol>
+<p>もう一度試すときは、<strong>Run ▶</strong> でアプリを起動し直します。何回か試し、CPUの手が変わることを確認します。</p>
+<p class="muted">仕様の確認：<a href="https://developer.android.com/reference/java/util/concurrent/ThreadLocalRandom#nextInt(int)">ThreadLocalRandom.nextInt</a>、<a href="https://developer.android.com/reference/android/widget/ImageView#setImageResource(int)">ImageView.setImageResource</a>、<a href="https://developer.android.com/reference/android/view/View#setVisibility(int)">View.setVisibility（Android公式）</a>。</p>
+<div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-6"><span>勝負！でCPUの手が表示され、そのあと手を選び直せないことを確認した。nextInt(3)で出る数を言えた。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
+<div class="next"><a href="#step-7">次へ：次の戦いへ戻す →</a></div>
+</section>
+<section id="step-7" aria-labelledby="title-7">
+<p class="step-meta">STEP 07 · 目安 15分</p><h2 id="title-7">次の戦いへ戻す</h2>
+
+<p class="file">変更するファイル：MainActivity.java</p>
+<p>次の戦いへを押したら、起動直後と同じ表示に戻し、もう一度手を選べるようにします。</p>
+<p>STEP 5の画像のfor文の最後の <code>}</code> の下、STEP 6で追加した <code>btnStart.setOnClickListener(v -&gt; {</code> の行の<strong>上</strong>に追加します。完成版と同じ順番にするためです。</p>
+<div class="code-head">追加 · 勝負！の処理の上</div>
+<pre id="code-next" tabindex="0"><code>btnNext.setOnClickListener(v -&gt; {
+    for (var imageView : imageViews) {
+        imageView.setBackground(null);
+        imageView.setClickable(true);
+    }
+    btnStart.setEnabled(false);
+    btnNext.setEnabled(false);
+    imgCpu.setVisibility(View.INVISIBLE);
+    txtMessage.setText(&quot;じゃんけんの手を選んでください&quot;);
+});</code></pre>
+<table><thead><tr><th>コード</th><th>元に戻すもの</th></tr></thead><tbody>
+<tr><td>imageView.setBackground(null)</td><td>選んだ手の赤い背景を消す。</td></tr>
+<tr><td>imageView.setClickable(true)</td><td>勝負！で押せなくした画像を、また押せるようにする。</td></tr>
+<tr><td>btnStart.setEnabled(false) / btnNext.setEnabled(false)</td><td>手を選ぶまで、2つのボタンを押せない状態にする。</td></tr>
+<tr><td>imgCpu.setVisibility(View.INVISIBLE)</td><td>CPUの手を見えなくする。表示する場所は残る。</td></tr>
+<tr><td>txtMessage.setText("じゃんけんの手を選んでください")</td><td>メッセージを最初の文に戻す。</td></tr>
+</tbody></table>
+
+<p>ここでは <code>selectedHand</code> を-1に戻していません。手を選ぶまで勝負！を押せないため、前の番号が勝負に使われることはありません。</p>
+<h3>Runで確かめる</h3><ol><li>手を選ぶ → 勝負！ → 次の戦いへ の順に押します。</li><li>赤い背景とCPUの手が消え、2つのボタンが押せない状態に戻ります。</li><li>もう一度、別の手を選んで勝負！できます。2〜3回くり返します。</li></ol>
+<div class="note"><p class="box-title">2コマ目はここまで</p><p>保存してからもう一度Runします。次回はRunして、選ぶ → 勝負！ → 次の戦いへ をくり返せることを確かめてからSTEP 8へ進みます。</p></div>
+<div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-7"><span>次の戦いへで起動直後と同じ表示に戻り、何度も勝負できることを確認した。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
+<div class="next"><a href="#step-8">次へ：勝ち負けと連勝数 →</a></div>
+</section>
+<section id="step-8" aria-labelledby="title-8">
+<p class="step-meta">STEP 08 · 目安 25分</p><h2 id="title-8">勝ち負けと連勝数</h2>
+
+<p class="file">変更するファイル：MainActivity.java</p>
+<p>最後に、選んだ手とCPUの手を比べて結果を表示します。勝ち続けた回数も数えます。</p>
+<h3>① 連勝数のフィールドを追加</h3>
+<p>STEP 5で追加した <code>private int selectedHand = -1; ...</code> の<strong>すぐ下</strong>に追加します。</p>
+<div class="code-head">追加 · selectedHandの下</div>
+<pre id="code-field-win" tabindex="0"><code>private int winCount;</code></pre>
+
+<p><code>winCount</code> は連続で勝った回数です。初期値を書かないので0から始まります。次の戦いへを押しても、このフィールドは0に戻しません。</p>
+<h3>② 結果を判定して表示する</h3>
+<p>勝負！の処理の中で、<code>imgCpu.setImageResource(item[cpu]);</code> の下、勝負！の処理を閉じる <code>});</code> より上に追加します。</p>
+<div class="code-head">追加 · 勝負！のsetImageResourceの下</div>
+<pre id="code-judge" tabindex="0"><code>var result = (selectedHand - cpu + 3) % 3; // 結果は必ず 0, 1, 2 のいずれかになる
+Log.d(&quot;MainActivity&quot;, &quot;selectedHandIndex: &quot; + selectedHand + &quot;, cpu: &quot; + cpu + &quot;, result: &quot; + result);
+switch (result) {
+    case 0: // 引き分け
+        winCount = 0;
+        txtMessage.setText(&quot;引き分け&quot;);
+        break;
+    case 1: // プレイヤーの負け
+        winCount = 0;
+        txtMessage.setText(&quot;あなたの負け&quot;);
+        break;
+    case 2: // プレイヤーの勝ち
+        winCount++;
+        txtMessage.setText(&quot;あなたの勝ち &quot; + winCount + &quot;連勝中！&quot;);
+        break;
+}</code></pre>
+<p>追加のimportは <code>android.util.Log</code> です。</p>
+<h3>計算式で勝ち負けを決める</h3>
+<p>グーはチョキに、チョキはパーに、パーはグーに勝ちます。番号で見ると <strong>0 → 1 → 2 → 0</strong> の順に、左の手が右の手に勝ちます。<code>%</code> は割り算の<strong>余り</strong>を求める記号です。たとえば <code>5 % 3</code> は2です。</p>
+<table><thead><tr><th>あなた ＼ CPU</th><th>0：グー</th><th>1：チョキ</th><th>2：パー</th></tr></thead><tbody>
+<tr><td>0：グー</td><td>(0 − 0 + 3) % 3 = 0<br>引き分け</td><td>(0 − 1 + 3) % 3 = 2<br>勝ち</td><td>(0 − 2 + 3) % 3 = 1<br>負け</td></tr>
+<tr><td>1：チョキ</td><td>(1 − 0 + 3) % 3 = 1<br>負け</td><td>(1 − 1 + 3) % 3 = 0<br>引き分け</td><td>(1 − 2 + 3) % 3 = 2<br>勝ち</td></tr>
+<tr><td>2：パー</td><td>(2 − 0 + 3) % 3 = 2<br>勝ち</td><td>(2 − 1 + 3) % 3 = 1<br>負け</td><td>(2 − 2 + 3) % 3 = 0<br>引き分け</td></tr>
+</tbody></table>
+
+<p>結果は <strong>0：引き分け、1：負け、2：勝ち</strong> の3つだけです。<code>selectedHand - cpu</code> は −2〜2 になります。Javaでは <code>-1 % 3</code> が −1 になるため、先に3を足してから余りを求めます。</p>
+<h3>switch文で表示を分ける</h3>
+<table><thead><tr><th>コード</th><th>意味</th></tr></thead><tbody>
+<tr><td>switch (result)</td><td><code>result</code> の値によって、実行する場所を選ぶ。</td></tr>
+<tr><td>case 0:</td><td><code>result</code> が0のときに、ここから実行する。</td></tr>
+<tr><td>break;</td><td>そのcaseの処理を終え、switch文を抜ける。書き忘れると下のcaseも実行される。</td></tr>
+<tr><td>winCount = 0</td><td>引き分け・負けのとき、連勝数を0に戻す。</td></tr>
+<tr><td>winCount++</td><td>勝ったとき、連勝数を1増やしてから表示する。</td></tr>
+<tr><td>Log.d("MainActivity", ...)</td><td>選んだ手・CPUの手・結果の番号をLogcatに出す。A01で使ったログと同じ。</td></tr>
+</tbody></table>
+
+<p>A02のif文は「条件がtrueかfalseか」で分けました。switch文は「1つの値が0か1か2か」で分けるときに読みやすくなります。</p>
+<div class="phones"><figure><a href="images/app-result.png"><img src="images/app-result.png" width="1080" height="2424" loading="lazy" alt="グーとチョキで勝ち。あなたの勝ち 1連勝中！と表示され、次の戦いへだけが有効"></a><figcaption>1回目の勝ち。グー（0）とチョキ（1）で結果は2。 <a href="images/app-result.png">画像を大きく開く</a></figcaption></figure>
+<figure><a href="images/app-streak.png"><img src="images/app-streak.png" width="1080" height="2424" loading="lazy" alt="次の戦いへのあと、チョキでパーに勝ち、あなたの勝ち 2連勝中！と表示されている"></a><figcaption>次の戦いへのあと、チョキでパーに勝つと2連勝。 <a href="images/app-streak.png">画像を大きく開く</a></figcaption></figure>
+</div>
+<h3>Runで確かめる</h3>
+<ol><li><a href="../common/logcat.html">共通資料：Logcat</a>に従ってLogcatを開き、検索欄を次の文字にします。</li></ol>
+<div class="code-head">Logcatの検索欄 · RockPaperScissorsGame用</div><pre tabindex="0"><code>package:jp.ac.jec.a03rockpaperscissorsgame tag:MainActivity level:DEBUG</code></pre>
+<ol start="2"><li>何回か勝負します。画面の結果と、ログの番号が上の表と同じか確かめます。</li><li>勝ったあとに次の戦いへを押し、もう一度勝つと「2連勝中！」になります。</li><li>引き分けか負けのあとに勝つと、「1連勝中！」から数え直します。</li></ol>
+<div class="code-head">読むところの例 · グーでCPUがチョキのとき</div><pre tabindex="0"><code>MainActivity  D  selectedHandIndex: 0, cpu: 1, result: 2</code></pre>
+<div class="note"><p class="box-title">連勝は運で決まります</p><p>CPUの手はランダムなので、すぐに2連勝できるとは限りません。確実に確かめる方法はSTEP 9の練習1で試します。</p></div>
+<div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-8"><span>勝ち・負け・引き分けの表示とログの番号が表と一致し、勝つたびに連勝数が増えることを確認した。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
+<div class="next"><a href="#step-9">次へ：ミニ練習 →</a></div>
+</section>
+<section id="step-9" aria-labelledby="title-9">
+<p class="step-meta">STEP 09 · 目安 20分</p><h2 id="title-9">ミニ練習</h2>
+
+<p>まず勝敗が表示されるところまで完成させます。そのあと、次の小変更を1つずつ試します。<strong>予想 → 変更 → Run → 説明 → 元に戻す</strong>の順で行います。</p>
+<div class="task"><p class="box-title">練習1：CPUの手を固定して表を確かめる</p><p>勝負！の処理の <code>var cpu = ThreadLocalRandom.current().nextInt(3);</code> の行を <code>var cpu = 0;</code> に変えます。CPUはいつもグーです。グー・チョキ・パーで勝負すると、それぞれどの結果になるか予想してから試します。最後に、<strong>Run ▶ で起動し直してから</strong>（連勝数0から）、パーで勝負！ → 結果を見る → 次の戦いへ を3回くり返します。3回目の勝負！のあと、何連勝中と表示されるでしょうか。</p><details><summary>試したあとに答えを見る</summary><p>グーは引き分け、チョキは負け、パーは勝ちです。起動し直してからパーで3回続けて勝つと、3回目の勝負！のあとに「3連勝中！」と表示されます。起動し直さずに続けると、直前の勝ちも数に入ります。途中でグーかチョキを選ぶと0に戻ります。確認後は <code>ThreadLocalRandom.current().nextInt(3)</code> に戻します。</p></details></div>
+<div class="task"><p class="box-title">練習2：「+ 3」を消すとどうなる？</p><p>練習1の行を <code>var cpu = 2;</code>（CPUはいつもパー）にし、計算式を <code>(selectedHand - cpu) % 3</code> に変えます。グーで勝負すると、画面とLogcatの <code>result</code> はどうなるでしょうか。</p><details><summary>試したあとに答えを見る</summary><p><code>(0 - 2) % 3</code> は −2 です。0・1・2のどのcaseにも当てはまらないため、メッセージは「じゃんけんの手を選んでください」のまま変わりません。Logcatには <code>result: -2</code> と出ます。マイナスにならないよう3を足している、と説明できれば十分です。確認後は <code>+ 3</code> と乱数の行を元に戻します。</p></details></div>
+<div class="task"><p class="box-title">練習3：状態を説明する</p><p>勝負！のあとに手の画像を押しても選び直せないのは、どの行のおかげですか。次の戦いへのあとに、また選べるようになるのはどの行ですか。連勝数が0に戻る行も指さしましょう。</p><details><summary>説明したあとに答えを見る</summary><p>勝負！の処理の <code>item.setClickable(false)</code> で押せなくし、次の戦いへの処理の <code>imageView.setClickable(true)</code> で戻します。連勝数は、switch文の <code>case 0</code> と <code>case 1</code> にある <code>winCount = 0</code> で0に戻ります。</p></details></div>
+<div class="note"><p class="box-title">完成版に戻してから確認</p><p>練習1・2の乱数の行と <code>+ 3</code> を元に戻します。Auto Importの設定により、使わなくなった <code>ThreadLocalRandom</code> のimportが消えることがあります。戻したあとに赤字になったら、<kbd>⌥ Enter</kbd> でimportを追加します。</p></div>
+<div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-9"><span>CPUの手を固定して表の結果と連勝数を確かめ、+ 3の理由を説明してから完成版に戻した。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
+<div class="next"><a href="#step-10">次へ：完成とふり返り →</a></div>
+</section>
+<section id="step-10" aria-labelledby="title-10">
+<p class="step-meta">STEP 10 · 目安 15分</p><h2 id="title-10">完成とふり返り</h2>
+
+<h3>完成チェック</h3>
+<table><thead><tr><th>操作</th><th>確認する結果</th></tr></thead><tbody>
+<tr><td>起動直後</td><td>タイトル、「じゃんけんの手を選んでください」、3つの手。勝負！と次の戦いへは押せない。CPUの手は空欄。</td></tr>
+<tr><td>手を押す</td><td>押した手だけ背景が赤い。別の手を押すと赤が移る。勝負！が押せる。</td></tr>
+<tr><td>勝負！</td><td>CPUの手と結果が出る。勝負！は押せず、次の戦いへが押せる。手の画像を押しても選び直せない。</td></tr>
+<tr><td>勝ち → 次の戦いへ → 勝ち</td><td>「2連勝中！」になる。</td></tr>
+<tr><td>引き分け・負けのあとに勝つ</td><td>「1連勝中！」から数え直す。</td></tr>
+<tr><td>次の戦いへ</td><td>赤い背景・CPUの手が消え、メッセージが最初の文に戻る。2つのボタンは押せない。</td></tr>
+<tr><td>Logcat</td><td>勝負！のたびに、選んだ手・CPUの手・結果の番号が出る。</td></tr>
+</tbody></table>
+
+<h3>自分の言葉でふり返る</h3><ol><li><code>selectedHand</code> と <code>winCount</code> は、それぞれ何を覚えていますか。</li><li>押した画像の番号 <code>i</code> は、どの比較で決まりましたか。</li><li><code>(selectedHand - cpu + 3) % 3</code> の <code>+ 3</code> は何のためですか。</li><li>勝負！のあとに手を選び直せないのはなぜですか。</li></ol>
+<h3>保存と提出</h3><p>自分の <code>Documents/Android1/A03RockPaperScissorsGame</code> を保存します。先生からAPK提出の指示がある場合は、<a href="../common/apk.html">共通資料：提出用APKの作り方</a>に進みます。ファイル名は <code>学籍番号_A03RockPaperScissorsGame.apk</code> です。提出先は先生の案内に従います。</p>
+<p>教材のチェックは自分用です。先生への送信はしません。印刷は <kbd>⌘ P</kbd> で行えます。</p>
+<div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-10"><span>完成チェックを終え、配列・for文・乱数・switch文・連勝数のフィールドを説明できた。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
+</section>
+<section id="help"><h2>困ったとき</h2><table><thead><tr><th>困ったこと</th><th>最初に確認する場所</th></tr></thead><tbody>
+<tr><td>@drawable/rock や R.drawable.rock が赤い</td><td>drawableに4つのPNGがあるか確認。ファイル名は小文字で、<code>rock.png.png</code> のように拡張子が重なっていないか見る。</td></tr>
+<tr><td>画像の名前でビルドエラーになる</td><td>drawableのファイル名に大文字・ハイフン・空白がないか確認。見本のファイル名と同じにする。</td></tr>
+<tr><td>貼り付けたのに画像が見つからない</td><td>Copy画面のTo directoryを確認。<code>samples</code> 側や別のフォルダに貼っていないか、Project表示で探す。</td></tr>
+<tr><td>R.idが赤い</td><td>XMLのidが一致するか確認。img_rock、btn_start、img_cpuなど。最初のXMLエラーを直してビルドする。</td></tr>
+<tr><td>起動時に終了する</td><td>setContentViewがfindViewByIdより先か、id/mainを残したかを確認。Logcatで最初の例外を見る。</td></tr>
+<tr><td>Colorが赤字になる</td><td><code>android.graphics.Color</code> をimportする。<kbd>⌥ Enter</kbd> で候補を確認する。</td></tr>
+<tr><td>手を押しても赤くならない</td><td>STEP 5の外側のfor文でsetOnClickListenerしているか確認。<code>v.setBackgroundColor(Color.RED)</code> がifの中、<code>setBackground(null)</code> がelseの中にあり、入れ替わっていないか確認。</td></tr>
+<tr><td>赤い手が2つになる</td><td>内側のfor文のelseにある <code>setBackground(null)</code> を確認。</td></tr>
+<tr><td>勝負！が押せない</td><td>手を選んだか確認。STEP 5の <code>btnStart.setEnabled(true)</code> を確認。</td></tr>
+<tr><td>CPUの手が出ない</td><td>STEP 6の <code>setVisibility(View.VISIBLE)</code> と <code>setImageResource</code> を確認。</td></tr>
+<tr><td>勝ち負けが逆になる</td><td>imageViewsと画像idの配列が、どちらもグー・チョキ・パーの順か確認。計算式が <code>selectedHand - cpu</code> の順か確認。</td></tr>
+<tr><td>メッセージが変わらない</td><td>計算式の <code>+ 3</code>、caseの番号、STEP 8のコードが勝負！の処理の中にあるかを確認。</td></tr>
+<tr><td>連勝数が増えない・変数をlambdaで変更できない</td><td>selectedHand（STEP 5）とwinCount（STEP 8）をonCreate内で宣言していないか確認。どちらもonCreateの外のフィールドにする。</td></tr>
+<tr><td>次の戦いへのあと手を選べない</td><td>STEP 7の <code>setClickable(true)</code> を確認。</td></tr>
+<tr><td>画面の下が見えない</td><td>エミュレータを縦向きにする。この単元では横向きの表示を扱わない。</td></tr>
+</tbody></table>
+
+<p><a href="../common/logcat.html">共通資料：Logcat</a>を使います。今回のパッケージは <code>jp.ac.jec.a03rockpaperscissorsgame</code> です。エラーを見るときは、STEP 8で入れた <code>tag:MainActivity</code> と <code>level:DEBUG</code> を消して、<code>package:jp.ac.jec.a03rockpaperscissorsgame level:ERROR</code> に置き換えます。A01・A02用のパッケージ名も残さないようにします。</p>
+<p>質問では「STEP番号・編集したファイル・最初の赤い行・押した順番」を伝えます。</p></section>
+<section id="sample-project"><h2>完成プロジェクトを開く</h2>
+<p>完成版は最初の授業から使える見本です。STEP 2の画像も、このZIPから取り出します。<a class="button-link" href="downloads/A03RockPaperScissorsGame.zip" download>完成プロジェクト A03RockPaperScissorsGame.zip</a></p>
+<ol><li>ZIPを展開します。中に <code>A03RockPaperScissorsGame</code> フォルダができます。</li><li>見本は <code>/Users/ユーザ名/Documents/Android1/samples/A03RockPaperScissorsGame</code> に置きます。</li><li>Android Studioの <strong>Open</strong> で、<code>settings.gradle.kts</code> と <code>app</code> が入った <code>A03RockPaperScissorsGame</code> フォルダを選びます。</li><li>Sync後にRunして動きを確認します。授業の入力に戻るときは自分の <code>Documents/Android1/A03RockPaperScissorsGame</code> を開きます。</li></ol>
+<p>両方とも同じプロジェクト名なので、ウィンドウの保存先を確認しましょう。見本と自分のアプリは同じパッケージ名のため、端末上では同じアプリを更新します。切り替えるときは、確認したい方のプロジェクトからRunします。</p>
+<details><summary>完成したMainActivity.javaで照合する</summary><div class="code-head">完成版 · MainActivity.java</div>
+<pre id="code-complete-java" tabindex="0"><code>package jp.ac.jec.a03rockpaperscissorsgame;
+
+import android.graphics.Color;
+import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
+
+import androidx.activity.EdgeToEdge;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.graphics.Insets;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowInsetsCompat;
+
+import java.util.concurrent.ThreadLocalRandom;
+
+public class MainActivity extends AppCompatActivity {
+
+    private int selectedHand = -1; // -1:未選択 0:グー 1:チョキ 2:パー
+    private int winCount;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        EdgeToEdge.enable(this);
+        setContentView(R.layout.activity_main);
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -&gt; {
+            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
+            return insets;
+        });
+
+        var txtMessage = (TextView) findViewById(R.id.txt_message);
+        var imgCpu = (ImageView) findViewById(R.id.img_cpu);
+        var btnStart = findViewById(R.id.btn_start);
+        var btnNext = findViewById(R.id.btn_next);
+
+        var imageViews = new ImageView[]{
+                findViewById(R.id.img_rock),
+                findViewById(R.id.img_scissors),
+                findViewById(R.id.img_paper)
+        };
+        for (var imageView : imageViews) {
+            imageView.setOnClickListener(v -&gt; {
+                btnStart.setEnabled(true);
+                for (var i = 0; i &lt; imageViews.length; i++) {
+                    if (imageViews[i] == v) {
+                        v.setBackgroundColor(Color.RED);
+                        // 選択状態を保持
+                        selectedHand = i;
+                    } else {
+                        imageViews[i].setBackground(null);
+                    }
+                }
+            });
+        }
+
+        btnNext.setOnClickListener(v -&gt; {
+            for (var imageView : imageViews) {
+                imageView.setBackground(null);
+                imageView.setClickable(true);
+            }
+            btnStart.setEnabled(false);
+            btnNext.setEnabled(false);
+            imgCpu.setVisibility(View.INVISIBLE);
+            txtMessage.setText(&quot;じゃんけんの手を選んでください&quot;);
+        });
+
+        btnStart.setOnClickListener(v -&gt; {
+            for (var item : imageViews) {
+                item.setClickable(false);
+            }
+            btnStart.setEnabled(false);
+            btnNext.setEnabled(true);
+
+            var cpu = ThreadLocalRandom.current().nextInt(3);// CPUの手 0:グー 1:チョキ 2:パー
+            var item = new int[]{R.drawable.rock, R.drawable.scissors, R.drawable.paper};
+            imgCpu.setVisibility(View.VISIBLE);
+            imgCpu.setImageResource(item[cpu]);
+            var result = (selectedHand - cpu + 3) % 3; // 結果は必ず 0, 1, 2 のいずれかになる
+            Log.d(&quot;MainActivity&quot;, &quot;selectedHandIndex: &quot; + selectedHand + &quot;, cpu: &quot; + cpu + &quot;, result: &quot; + result);
+            switch (result) {
+                case 0: // 引き分け
+                    winCount = 0;
+                    txtMessage.setText(&quot;引き分け&quot;);
+                    break;
+                case 1: // プレイヤーの負け
+                    winCount = 0;
+                    txtMessage.setText(&quot;あなたの負け&quot;);
+                    break;
+                case 2: // プレイヤーの勝ち
+                    winCount++;
+                    txtMessage.setText(&quot;あなたの勝ち &quot; + winCount + &quot;連勝中！&quot;);
+                    break;
+            }
+        });
+    }
+}</code></pre>
+</details>
+<details><summary>完成したactivity_main.xmlで照合する</summary><div class="code-head">完成版 · activity_main.xml</div>
+<pre id="code-complete-xml" tabindex="0"><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;LinearLayout xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
+    xmlns:tools=&quot;http://schemas.android.com/tools&quot;
+    android:id=&quot;@+id/main&quot;
+    android:layout_width=&quot;match_parent&quot;
+    android:layout_height=&quot;match_parent&quot;
+    android:gravity=&quot;center_horizontal&quot;
+    android:orientation=&quot;vertical&quot;
+    android:padding=&quot;12dp&quot;
+    tools:context=&quot;.MainActivity&quot;&gt;
+
+    &lt;ImageView
+        android:layout_width=&quot;wrap_content&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:contentDescription=&quot;@null&quot;
+        android:src=&quot;@drawable/title_image&quot; /&gt;
+
+    &lt;TextView
+        android:id=&quot;@+id/txt_message&quot;
+        style=&quot;@style/TextAppearance.Material3.BodyLarge&quot;
+        android:layout_width=&quot;wrap_content&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:text=&quot;じゃんけんの手を選んでください&quot; /&gt;
+
+    &lt;LinearLayout
+        android:layout_width=&quot;match_parent&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:orientation=&quot;horizontal&quot;&gt;
+
+        &lt;ImageView
+            android:id=&quot;@+id/img_rock&quot;
+            android:layout_width=&quot;0dp&quot;
+            android:layout_height=&quot;wrap_content&quot;
+            android:layout_weight=&quot;1&quot;
+            android:contentDescription=&quot;@null&quot;
+            android:src=&quot;@drawable/rock&quot; /&gt;
+
+        &lt;ImageView
+            android:id=&quot;@+id/img_scissors&quot;
+            android:layout_width=&quot;0dp&quot;
+            android:layout_height=&quot;wrap_content&quot;
+            android:layout_weight=&quot;1&quot;
+            android:contentDescription=&quot;@null&quot;
+            android:src=&quot;@drawable/scissors&quot; /&gt;
+
+        &lt;ImageView
+            android:id=&quot;@+id/img_paper&quot;
+            android:layout_width=&quot;0dp&quot;
+            android:layout_height=&quot;wrap_content&quot;
+            android:layout_weight=&quot;1&quot;
+            android:contentDescription=&quot;@null&quot;
+            android:src=&quot;@drawable/paper&quot; /&gt;
+    &lt;/LinearLayout&gt;
+
+    &lt;LinearLayout
+        android:layout_width=&quot;match_parent&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:orientation=&quot;horizontal&quot;&gt;
+
+        &lt;Button
+            android:id=&quot;@+id/btn_start&quot;
+            android:layout_width=&quot;0dp&quot;
+            android:layout_height=&quot;wrap_content&quot;
+            android:layout_marginEnd=&quot;12dp&quot;
+            android:layout_weight=&quot;1&quot;
+            android:enabled=&quot;false&quot;
+            android:text=&quot;勝負！&quot;
+            tools:ignore=&quot;ButtonStyle&quot; /&gt;
+
+        &lt;Button
+            android:id=&quot;@+id/btn_next&quot;
+            android:layout_width=&quot;0dp&quot;
+            android:layout_height=&quot;wrap_content&quot;
+            android:layout_weight=&quot;1&quot;
+            android:enabled=&quot;false&quot;
+            android:text=&quot;次の戦いへ&quot;
+            tools:ignore=&quot;ButtonStyle&quot; /&gt;
+    &lt;/LinearLayout&gt;
+
+    &lt;TextView
+        style=&quot;@style/TextAppearance.Material3.BodyLarge&quot;
+        android:layout_width=&quot;wrap_content&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:layout_marginTop=&quot;12dp&quot;
+        android:text=&quot;CPUの手&quot; /&gt;
+
+    &lt;ImageView
+        android:id=&quot;@+id/img_cpu&quot;
+        android:layout_width=&quot;wrap_content&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:contentDescription=&quot;@null&quot; /&gt;
+&lt;/LinearLayout&gt;</code></pre>
+</details></section>
+<footer class="footer"><p>Androidプログラミング1 · A03RockPaperScissorsGame / 本文・画像・操作機能はオフラインで利用できます。Android Studioの初回準備・ビルドと公式資料の閲覧にはネット接続が必要です。</p><p>画像は授業用の提供資料を使用。CPUの手・勝敗・連勝数は操作によって変わります。</p></footer>
+<div class="sr-only" role="status" aria-live="polite" data-copy-status></div></main></div></body></html>
