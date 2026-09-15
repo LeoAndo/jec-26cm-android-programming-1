@@ -58,6 +58,8 @@ def build(output_dir):
             "A03RockPaperScissorsGame",
             "docs/rock-paper-scissors-game/downloads/A03RockPaperScissorsGame.zip",
         ))
+    if (ROOT / "A04WebViewApp").exists():
+        projects.append(("A04WebViewApp", "docs/webview-app/downloads/A04WebViewApp.zip"))
     if (ROOT / "A05BombGame").exists():
         projects.append(("A05BombGame", "docs/bomb-game/downloads/A05BombGame.zip"))
     for project, output in projects:
@@ -87,6 +89,8 @@ def build(output_dir):
     if ("docs/rock-paper-scissors-game/index.html" in files
             and "docs/rock-paper-scissors-game/downloads/A03RockPaperScissorsGame.zip" not in files):
         raise ValueError("RockPaperScissorsGameの完成プロジェクトが見つかりません。")
+    if "docs/webview-app/index.html" in files and "docs/webview-app/downloads/A04WebViewApp.zip" not in files:
+        raise ValueError("WebViewAppの完成プロジェクトが見つかりません。")
     if "docs/bomb-game/index.html" in files and "docs/bomb-game/downloads/A05BombGame.zip" not in files:
         raise ValueError("BombGameの完成プロジェクトが見つかりません。")
     check_links(files)
@@ -102,6 +106,7 @@ def build(output_dir):
         "   A01 HelloAndroid：docs/hello-android/index.html\n"
         "   A02 CalcGame：docs/calc-game/index.html\n"
         "   A03 RockPaperScissorsGame：docs/rock-paper-scissors-game/index.html\n"
+        "   A04 WebViewApp：docs/webview-app/index.html\n"
         "   A05 BombGame：docs/bomb-game/index.html\n"
         "3. 完成プロジェクトは教科書内のリンクから開けます。\n\n"
         "教科書・画像はオフラインで利用できます。Android Studioの準備やビルドにはネット接続が必要です。\n"
