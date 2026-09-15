@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.A6ScreenTransitionSample">
         <activity
+            android:name=".TestActivity"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
