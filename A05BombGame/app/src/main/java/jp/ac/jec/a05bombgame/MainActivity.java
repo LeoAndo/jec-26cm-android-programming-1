@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
     private static final int STATE_IGNITED = 2; // 導火線点火
     private static final int STATE_EXPLODED = 3; // 爆発
     private int nowState = STATE_INITIAL; // 爆弾の状態
-    private int[] randomIgnitionNumbers = new int[2];
+    private int[] randomIgnitionNumbers; // 導火線スイッチの数字
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,8 +63,9 @@ public class MainActivity extends AppCompatActivity {
                 if (match) nowState++;
 
                 var disableButtonCount = Arrays.stream(numberButtons).filter(b -> !b.isEnabled()).count();
-                if (nowState == STATE_INITIAL && disableButtonCount == 7 ||
-                        nowState == STATE_IGNITED && disableButtonCount == 8) { // ゲームクリアの場合
+                // 導火線スイッチ(2個)以外の7個をすべて押したらクリア。着火済みなら押したボタンは8個になる
+                if ((nowState == STATE_INITIAL && disableButtonCount == 7) ||
+                        (nowState == STATE_IGNITED && disableButtonCount == 8)) { // ゲームクリアの場合
                     txtMessage.setText("クリア！");
                     btnRetry.setVisibility(View.VISIBLE);
                     Arrays.stream(numberButtons).forEach(b -> b.setEnabled(false));
@@ -87,17 +88,14 @@ public class MainActivity extends AppCompatActivity {
      * 導火線スイッチの数字をランダムに2つ生成する.
      */
     private void generateIgnitionNumbers() {
-        var randomIgnitionNumbers = new int[2];
         do {
-            // 1から9まで範囲のランダムな数値を返す.ランダムに生成した値が、他と被ったら再度ランダム値を作り直す.
-            randomIgnitionNumbers =
-                    ThreadLocalRandom.current().ints(2, 1, 10).toArray();
+            // 1から9まで範囲のランダムな数値を2つ作る.同じ値が含まれていたら作り直す.
+            randomIgnitionNumbers = ThreadLocalRandom.current().ints(2, 1, 10).toArray();
         } while (Arrays.stream(randomIgnitionNumbers).distinct().count() != 2);
 
         // debug
         for (var randomIgnitionNumber : randomIgnitionNumbers) {
-            Log.i("MainActivity", "randomIgnitionNumber = " + randomIgnitionNumber);
+            Log.d("MainActivity", "randomIgnitionNumber = " + randomIgnitionNumber);
         }
-        this.randomIgnitionNumbers = randomIgnitionNumbers;
     }
 }
