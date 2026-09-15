@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="ja">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Logcatの使い方 | Androidプログラミング1</title>
+<link rel="stylesheet" href="../assets/textbook.css"><script src="../assets/textbook.js" defer></script></head>
+<body class="plain"><a class="skip" href="#main">本文へ移動</a>
+<header class="topbar"><span class="brand">JEC / Androidプログラミング1</span><a href="../hello-android/index.html">HelloAndroidの教科書へ戻る</a></header>
+<main id="main"><div class="hero"><p class="eyebrow">ANDROID PROGRAMMING 1 / 共通資料・授業サポート</p><h1>Logcatの使い方</h1><p class="lede">アプリの中で何が起きたか、文字の記録で確かめます。</p></div>
+
+<section><h2>1. Logcatを開く</h2>
+<p><strong>ログ</strong>は動作の記録です。<strong>Logcat</strong>（ログキャット）は、その記録をAndroid Studioで読むための画面です。ここではHelloAndroidを例にします。</p>
+<ol><li>授業のプロジェクトを開き、エミュレータでアプリをRunします。</li><li>上のメニューから <strong>View → Tool Windows → Logcat</strong> を選びます。</li><li>Logcatの端末欄で、アプリを動かしている <strong>jec_26cm_android1_Pixel 9a</strong> を選びます。</li></ol></section>
+<section><h2>2. 見たいログだけを表示する</h2>
+<p>Logcatの検索欄の内容を全部選び、次の文字に置き換えます。</p>
+<div class="code-head">Logcatの検索欄 · HelloAndroid用</div><pre tabindex="0"><code>package:jp.ac.jec.a01helloandroid tag:MainActivity level:DEBUG</code></pre>
+<table><thead><tr><th>検索の部分</th><th>意味</th></tr></thead><tbody><tr><td><code>package:jp.ac.jec.a01helloandroid</code></td><td>このアプリのログを選ぶ。</td></tr><tr><td><code>tag:MainActivity</code></td><td>MainActivityという目印を付けたログを選ぶ。</td></tr><tr><td><code>level:DEBUG</code></td><td>Debug以上の重要度のログを表示する。<code>Log.d</code> の記録を含む。</td></tr></tbody></table>
+<p>別の授業で使う場合は、packageとtagを、そのプロジェクトのものに変えます。</p></section>
+<section><h2>3. 操作の前後を比べる</h2>
+<ol><li>Logcatにログの表示を一時停止するボタンがある場合は、停止していないことを確認します。</li><li>アプリをStopしてからRunし、<strong>Hello World!</strong> の行を探します。</li><li>アプリの変更ボタンを押し、<strong>Hello, Android!</strong> の行を探します。</li><li>メッセージの前後を比べます。時刻や数字は、自分の実行時の値で構いません。</li></ol>
+<div class="code-head">読むところの例 · 時刻などを省いた説明用の表示</div><pre tabindex="0"><code>MainActivity  D  Hello World!
+MainActivity  D  Hello, Android!</code></pre>
+<div class="check"><p class="box-title">成功の目印</p><p>起動時とクリック後で、ログの文字が違う。画面の表示文字とログのメッセージが一致する。</p></div>
+<p>ログが流れて見えないときは一時停止して読みます。確認後は再開します。</p></section>
+<section id="trouble"><h2>4. ログが出ないとき</h2>
+<ol><li>授業の端末を選んでいるか確認します。</li><li>検索欄をコピーし直します。日本語の全角スペースや、packageの打ち間違いを確認します。</li><li>ログの一時停止を解除し、末尾へ移動します。</li><li>Javaに <code>Log.d</code> を追加した後、保存してRunしたか確認します。</li><li>起動時のログを探すなら、アプリをStopしてからRunします。クリック後のログなら、ボタンをもう一度押します。</li></ol>
+<p>アプリがすぐ閉じるときは、検索欄を <code>package:jp.ac.jec.a01helloandroid level:ERROR</code> に変え、赤いエラーの最初の行を先生に見せます。MainActivityのtagで絞ったままだと、別のtagのエラーは見えません。</p></section>
+<section><h2>公式資料</h2><p><a href="https://developer.android.com/studio/debug/logcat?hl=ja">Android Developers：Logcatでログを表示する</a></p></section>
+
+<footer class="footer"><p><a href="../hello-android/index.html">← HelloAndroidの教科書へ戻る</a></p><p>対象：macOS / Android Studio Panda 2 | 2025.3.2 · 確認日：2026年9月15日</p></footer></main>
+<p class="sr-only" role="status" aria-live="polite" data-copy-status></p></body></html>

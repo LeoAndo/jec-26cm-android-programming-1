@@ -1,3 +1,32 @@
+# Androidプログラミング1 — 授業用教材
+
+## HelloAndroidの教科書
+
+1コマ90分、全2コマを目安にした、JavaとXMLの入門教材です。予習なしで授業内の操作・確認・ミニ練習まで進められる構成です。
+
+- [HelloAndroid：はじめてのアプリ作り](docs/hello-android/index.html)
+- [共通資料：エミュレータの準備とアプリの実行](docs/common/emulator.html)
+- [共通資料：Logcatの使い方](docs/common/logcat.html)
+- [共通資料：提出用APKの作り方](docs/common/apk.html)
+- [教員用：授業の進め方・確認項目](docs/hello-android/teacher.html)
+
+### 開き方
+
+このリポジトリをダウンロードした後、Finderで `docs/hello-android/index.html` をダブルクリックし、ブラウザで開きます。GitHub上のHTMLファイルはソース表示になるため、ローカルで開いてください。教材の本文・画像・操作機能は外部ライブラリを使わず、オフラインで利用できます。Android Studioの初回準備・ビルドと公式資料の閲覧にはインターネット接続が必要です。
+
+ブラウザの印刷（macOS：`⌘ P`）で、教材を紙やPDFに出力できます。チェック欄は自分の進み具合を確認するためのものです。教員への提出・送信は行いません。
+
+### この教材で使うプロジェクト
+
+| フォルダ | 役割 |
+| --- | --- |
+| `Panda2JavaEmptyViewActivity` | 授業の出発点となるJava / Empty Views Activityのひな形 |
+| `A01HelloAndroid` | 教材を最後まで進めた完成コード |
+
+学生は同じひな形から `A01HelloAndroid` を新規作成して進めます。完成済みのフォルダを開いた場合の開始方法も教材内に記載しています。
+
+---
+
 # 開発環境：教員
 ```
 Android Studio Panda 2 | 2025.3.2

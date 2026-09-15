@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="ja">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>提出用APKの作り方 | Androidプログラミング1</title>
+<link rel="stylesheet" href="../assets/textbook.css"><script src="../assets/textbook.js" defer></script></head>
+<body class="plain"><a class="skip" href="#main">本文へ移動</a>
+<header class="topbar"><span class="brand">JEC / Androidプログラミング1</span><a href="../hello-android/index.html">HelloAndroidの教科書へ戻る</a></header>
+<main id="main"><div class="hero"><p class="eyebrow">ANDROID PROGRAMMING 1 / 共通資料・授業サポート</p><h1>提出用APKの作り方</h1><p class="lede">先生からAPKの提出を指示されたときに使います。授業で作ったアプリを、1つのファイルにまとめます。</p></div>
+
+<section><h2>1. APKとは</h2>
+<p><strong>APK</strong>（エーピーケー）は、Androidにアプリをインストールするためのファイルです。今回は授業内で動作を確認する <strong>debug版</strong> を作ります。</p>
+<div class="goal"><p class="box-title">用意するもの</p><p>授業のプロジェクト、動作確認が終わったコード、先生が指定した提出先。</p></div>
+<ol><li>プロジェクト名が、提出するアプリのものになっているか確認します。</li><li>コードを保存してRunし、その教材の完成チェックを行います。</li><li><strong>View → Tool Windows → Build Variants</strong> を開き、appの <strong>Active Build Variant</strong> が <strong>debug</strong> になっているか確認します。</li></ol></section>
+<section><h2>2. APKを生成（せいせい）する</h2>
+<ol><li>上の <strong>Build</strong> メニューを開きます。</li><li><strong>Generate App Bundles or APKs → Generate APKs</strong> を選びます。表示が異なるバージョンでは、<strong>Build App Bundle(s) / APK(s) → Build APK(s)</strong> という名前の場合があります。</li><li>処理が終わるまで待ちます。</li><li>完了通知に <strong>locate</strong>（場所を開く）があればクリックします。</li></ol>
+<div class="note"><p class="box-title">Runを押す操作とは別です</p><p>提出するときは、このメニューからAPKを作ります。項目が見つからない場合は、メニューを開いたまま先生に見せてください。</p></div>
+<details><summary>教員と一緒に：メニューが見つからない場合</summary><p>プロジェクト直下のTerminalで、次のコマンドでもdebug APKを作れます。実行する場所に <code>gradlew</code> があることを確認します。</p><div class="code-head">Terminal · プロジェクト直下</div><pre tabindex="0"><code>./gradlew :app:assembleDebug</code></pre><p><code>BUILD SUCCESSFUL</code> を確認します。</p></details></section>
+<section><h2>3. ファイルを見つける</h2>
+<p>Finderでプロジェクトのフォルダを開き、<strong>app → build → outputs → apk → debug</strong> の順に進みます。</p>
+<div class="code-head">HelloAndroidの場合の保存場所</div><pre tabindex="0"><code>A01HelloAndroid/app/build/outputs/apk/debug/app-debug.apk</code></pre>
+<ol><li><code>app-debug.apk</code> があることを確認します。</li><li>Finderの更新日時を見て、今作ったファイルか確認します。</li><li>提出用のフォルダにコピーします。元の場所のファイルは残します。</li><li>先生がファイル名を指定している場合は、その名前に変えます。例：<code>学籍番号_A01HelloAndroid.apk</code>。<code>.apk</code> の部分は残します。</li></ol>
+</section>
+<section><h2>4. 提出を確認する</h2>
+<ol><li>先生が指定した提出先にAPKをアップロードします。</li><li>提出先で、ファイル名と提出完了の表示を確認します。</li><li>修正したときは、保存 → 動作確認 → APK生成 → コピー → 再提出の順でやり直します。</li></ol>
+<div class="check"><p class="box-title">成功の目印</p><p>今日作った <code>.apk</code> が提出先に表示され、先生が指定した名前になっている。</p></div>
+<p>このHTML教材のチェック欄だけでは、提出は完了しません。</p></section>
+<section><h2>公式資料</h2><p><a href="https://developer.android.com/studio/run?hl=ja">Android Developers：アプリのビルドと実行</a></p><p><a href="https://developer.android.com/build/building-cmdline?hl=ja">Android Developers：コマンドラインでAPKを作る</a></p></section>
+
+<footer class="footer"><p><a href="../hello-android/index.html">← HelloAndroidの教科書へ戻る</a></p><p>対象：macOS / Android Studio Panda 2 | 2025.3.2 · 確認日：2026年9月15日</p></footer></main>
+<p class="sr-only" role="status" aria-live="polite" data-copy-status></p></body></html>

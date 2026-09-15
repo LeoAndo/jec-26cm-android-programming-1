@@ -1,0 +1,531 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="JavaとXMLで作るHelloAndroid。操作する場所と成功の確認を、小さいステップで学ぶ授業用教科書。">
+<title>HelloAndroid — はじめてのアプリ作り | Androidプログラミング1</title>
+<link rel="stylesheet" href="../assets/textbook.css">
+<script src="../assets/textbook.js" defer></script>
+</head>
+<body>
+<a class="skip" href="#main">本文へ移動</a>
+<header class="topbar"><span class="brand">JEC / Androidプログラミング1</span><span>授業用教科書 · Java + XML</span></header>
+<div class="shell">
+<aside class="sidebar"><div class="sidebar-inner">
+<p class="eyebrow">CONTENTS / 学習の順番</p>
+<nav aria-label="学習ステップ"><ol><li><a href="#step-0">00　今日のゴール</a></li>
+<li><a href="#step-1">01　プロジェクトを作る</a></li>
+<li><a href="#step-2">02　ファイルと実行</a></li>
+<li><a href="#step-3">03　文字とボタン</a></li>
+<li><a href="#step-4">04　クリックで文字を変える</a></li>
+<li><a href="#step-5">05　Logcatで確認</a></li>
+<li><a href="#step-6">06　横に並べる</a></li>
+<li><a href="#step-7">07　SnackbarとToast</a></li>
+<li><a href="#step-8">08　ミニ練習</a></li>
+<li><a href="#step-9">09　完成とふり返り</a></li></ol></nav>
+<div class="progress"><span data-progress-label>0 / 10 ステップ確認済み</span><progress value="0" max="10" aria-label="学習の進み具合"></progress><span class="muted">自分用のチェックです。</span></div>
+<div class="resources"><a href="#help">困ったとき</a><a href="../common/emulator.html">共通：エミュレータ</a><a href="../common/logcat.html">共通：Logcat</a><a href="../common/apk.html">共通：APKの提出</a><a href="teacher.html">教員用ガイド</a></div>
+</div></aside>
+<main id="main">
+<div class="hero"><span class="unit">01</span><p class="eyebrow">HELLO ANDROID</p><h1>はじめての<br>アプリ作り</h1><p class="lede">ボタンを押す。文字が変わる。<br>小さい「できた」を、ひとつずつ。</p><div class="tags"><span>Java / XML</span><span>Macで学ぶ</span><span>90分 × 2コマ目安</span><span>予習なしで始められる</span></div></div>
+<section id="step-0" aria-labelledby="title-0">
+<p class="step-meta">STEP 00 · 目安 5分</p>
+<h2 id="title-0">今日できるようになること</h2>
+
+<p>スマートフォンのアプリは、<strong>画面</strong>と<strong>動き</strong>を組み合わせて作ります。今日は、ボタンを押すと文字が変わるアプリを作ります。</p>
+<div class="flow" aria-label="XMLで画面を作り、Javaで動きを付け、エミュレータで確かめる"><strong>XML：画面を作る</strong><span>→</span><strong>Java：動きを付ける</strong><span>→</span><strong>動かして確かめる</strong></div>
+<div class="phones">
+<figure><a href="images/app-initial.png"><img src="images/app-initial.png" width="1080" height="2424" alt="完成アプリの起動直後。Hello World!の下にテキストを変更するボタンと1、2、3のボタンがある"></a><figcaption>① 完成アプリを起動したとき：<strong>Hello World!</strong> <a href="images/app-initial.png">画像を大きく開く</a></figcaption></figure>
+<figure><a href="images/app-updated.png"><img src="images/app-updated.png" width="1080" height="2424" alt="テキストを変更するボタンを押した後、Hello, Android!と表示されている"></a><figcaption>② 変更ボタンを押したあと：<strong>Hello, Android!</strong> <a href="images/app-updated.png">画像を大きく開く</a></figcaption></figure>
+</div>
+<h3>ゴールは3つ</h3>
+<ol><li>自分のMacでアプリを起動（きどう）できる。</li><li>ボタンを押して、画面の文字を変えられる。</li><li>「1」でSnackbar、「2」でToastを表示できる。</li></ol>
+<p>「3」は、ボタンの見た目を比べるために置きます。押してもメッセージは出ません。</p>
+<h3>2コマで進めます（1コマ90分）</h3>
+<table><thead><tr><th>授業</th><th>進めるところ</th><th>できるようになること</th></tr></thead><tbody><tr><td>1コマ目</td><td>STEP 0〜4</td><td>プロジェクトを作り、ボタンで文字を変える。</td></tr><tr><td>2コマ目</td><td>STEP 5〜9</td><td>ログと短いメッセージを確認し、自分で少し変える。</td></tr></tbody></table>
+<p>各コマに、操作をやり直す時間と、先生と一緒に確認する時間があります。</p>
+<div class="note"><p class="box-title">この教科書の進め方</p><p>先生の説明を聞く → 小さい範囲を入力する → Runで動かす → チェックする。この順で進めます。家で予習していなくても始められます。</p><p>分からない言葉に印を付けましょう。「STEP 4の、varが分かりません」のように、ステップ番号と言葉だけでも質問できます。</p></div>
+<h3>まず使う言葉</h3>
+<table><thead><tr><th>言葉・読み方</th><th>この授業での意味</th></tr></thead><tbody>
+<tr><td>プロジェクト</td><td>1つのアプリを作るためのファイルの集まり。</td></tr>
+<tr><td>コード</td><td>コンピュータへの指示を書いた文。</td></tr>
+<tr><td>XML（エックスエムエル）</td><td>文字やボタンの位置・見た目を書くファイル。</td></tr>
+<tr><td>Java（ジャバ）</td><td>ボタンを押したときの動きなどを書く言語。</td></tr>
+<tr><td>実行（じっこう） / Run（ラン）</td><td>作ったアプリを動かすこと。</td></tr>
+<tr><td>エミュレータ</td><td>Macの中で動く、練習用のAndroid端末。</td></tr>
+</tbody></table>
+<div class="check"><p class="box-title">ここで止まって、確認（かくにん）</p><label><input type="checkbox" data-check="step-0"><span>今日作るアプリの「文字を変えるボタン」を、上の画像で指させた。</span></label><p>できたらチェックします。できないときは、この画面を先生に見せましょう。</p></div>
+<div class="next"><a href="#step-1">次へ：プロジェクトを作る →</a></div>
+
+</section><section id="step-1" aria-labelledby="title-1">
+<p class="step-meta">STEP 01 · 目安 15分</p>
+<h2 id="title-1">プロジェクトを作る</h2>
+
+<div class="goal"><p class="box-title">このステップのゴール</p><p><code>A01HelloAndroid</code> をAndroid Studioで開きます。</p></div>
+<p>授業では <strong>Android Studio Panda 2 | 2025.3.2</strong> とMacを使います。最初の準備にはインターネット接続が必要です。</p>
+<p>出発点は、先生の <code>Panda2JavaEmptyViewActivity</code> と同じ「Java / Empty Views Activity」のひな形です。次の手順で、同じひな形から新しいアプリを作ります。</p>
+<ol><li>Android Studioを開き、<strong>New Project</strong>（新しいプロジェクト）をクリックします。別のプロジェクトが開いていたら、上のメニューから <strong>File → New → New Project</strong> を選びます。</li></ol>
+<figure><a href="images/new-project.png"><img src="images/new-project.png" width="1614" height="662" alt="Android Studioの最初の画面。右上のNew Projectが赤い枠で示されている"></a><figcaption>New Projectをクリックします。赤い枠が目印です。 <a href="images/new-project.png">画像を大きく開く</a></figcaption></figure>
+<ol start="2"><li><strong>Phone and Tablet → Empty Views Activity → Next</strong> の順に選びます。<strong>Views</strong> の文字を確認してください。</li></ol>
+<figure><a href="images/empty-views-activity.png"><img src="images/empty-views-activity.png" width="1794" height="1350" alt="Phone and Tabletの一覧で、中央にあるEmpty Views Activityを選択している"></a><figcaption>選ぶ名前は「Empty Views Activity」です。 <a href="images/empty-views-activity.png">画像を大きく開く</a></figcaption></figure>
+<ol start="3"><li>次の表と同じように入力します。</li></ol>
+<table><thead><tr><th>画面の項目</th><th>入力・選択する内容</th></tr></thead><tbody>
+<tr><td>Name（名前）</td><td><code>A01HelloAndroid</code></td></tr>
+<tr><td>Package name（アプリを区別する名前）</td><td><code>jp.ac.jec.a01helloandroid</code>（すべて小文字）</td></tr>
+<tr><td>Save location（保存する場所）</td><td>先生が指定した授業フォルダの中の <code>A01HelloAndroid</code>。すでに同名のフォルダがある場合は、空いている別の授業フォルダを選びます。</td></tr>
+<tr><td>Language（言語）</td><td><strong>Java</strong></td></tr>
+<tr><td>Minimum SDK（動作するAndroidの下限）</td><td><strong>API 31（Android 12.0）</strong></td></tr>
+<tr><td>Build configuration language</td><td><strong>Kotlin DSL（build.gradle.kts）</strong>。アプリを書く言語のJavaとは別の設定です。</td></tr>
+</tbody></table>
+<figure><a href="images/project-settings.png"><img src="images/project-settings.png" width="1794" height="1352" alt="プロジェクト設定。名前A01HelloAndroid、パッケージjp.ac.jec.a01helloandroid、言語Java、Minimum SDKはAPI 31"></a><figcaption>保存先の <code>/Users/ando/…</code> は先生の例です。自分の保存先を使います。 <a href="images/project-settings.png">画像を大きく開く</a></figcaption></figure>
+<ol start="4"><li><strong>Finish</strong>（完了）をクリックします。</li><li><strong>Gradle Sync</strong>（必要な設定や部品をそろえる処理）が終わるまで待ちます。下の進行表示が終わり、失敗を示す赤い表示がなければ次へ進みます。</li></ol>
+<div class="note"><p class="box-title">MainActivity.ktができたとき</p><p>この授業で開くのは <code>MainActivity.java</code> です。<code>.kt</code> しか見つからない場合は、先生に画面を見せてください。Empty Views Activity / Javaの選択を確認します。</p></div>
+<details><summary>配布された完成プロジェクトを、すでに開いている場合</summary>
+<p>最初からボタンが4つある場合は完成版です。新規作成する場合は上の手順を使います。配布版から練習する場合は、まずFinderでプロジェクトフォルダを複製し、練習用の方をAndroid Studioの <strong>Open</strong> で開きます。</p>
+<p>先生と一緒に、練習用の次の2ファイルだけを出発点へ戻します。下のコードファイルを開き、中身を対応するファイル全体に貼り付けます。ファイル名は <code>MainActivity.java</code> と <code>activity_main.xml</code> のままです。</p>
+<ul><li><a href="code/01-MainActivity.java">出発点のMainActivity.java</a> → <code>app/src/main/java/jp/ac/jec/a01helloandroid/MainActivity.java</code></li><li><a href="code/01-activity_main.xml">出発点のactivity_main.xml</a> → <code>app/src/main/res/layout/activity_main.xml</code></li></ul>
+<p>この出発点は <code>Panda2JavaEmptyViewActivity</code> のコードを使い、Javaの先頭のpackage名だけを <code>jp.ac.jec.a01helloandroid</code> に合わせたものです。</p>
+</details>
+<div class="check"><p class="box-title">ここで止まって、確認（かくにん）</p><label><input type="checkbox" data-check="step-1"><span>プロジェクト名がA01HelloAndroidで、MainActivity.javaが開いた。</span></label><p>できたらチェックします。できないときは、この画面を先生に見せましょう。</p></div>
+<div class="next"><a href="#step-2">次へ：ファイルを見つけて動かす →</a></div>
+
+</section><section id="step-2" aria-labelledby="title-2">
+<p class="step-meta">STEP 02 · 目安 10分</p>
+<h2 id="title-2">ファイルを見つけて動かす</h2>
+
+<p>まず、何も変えずに実行します。最初の画面を確かめてから、コードを変えます。</p>
+<h3>① 使うファイルを2つ見つける</h3>
+<ol><li>左のフォルダ一覧を開きます。見えないときは <strong>View → Tool Windows → Project</strong>。</li><li>一覧の上で表示方法を <strong>Android</strong> にします。</li><li><code>app → res → layout → activity_main.xml</code> をダブルクリックします。</li><li><code>app → java → jp.ac.jec.a01helloandroid → MainActivity</code> を開きます。<code>java</code> が <code>kotlin+java</code> と表示される場合もあります。<code>(test)</code> と <code>(androidTest)</code> が付いた場所は使いません。</li></ol>
+<table><thead><tr><th>ファイル</th><th>何を書く？</th></tr></thead><tbody><tr><td><code>activity_main.xml</code></td><td>文字やボタンを、どこに置くか。</td></tr><tr><td><code>MainActivity.java</code></td><td>ボタンを押したら、何をするか。</td></tr></tbody></table>
+<p>Project表示を使う場合の場所は、<code>app/src/main/res/layout/activity_main.xml</code> と <code>app/src/main/java/jp/ac/jec/a01helloandroid/MainActivity.java</code> です。</p>
+<h3>② Runで動かす</h3>
+<ol><li><a href="../common/emulator.html">共通資料：エミュレータの準備とアプリの実行</a> を開き、端末を起動します。</li><li>Android Studioの上部で実行するものを <strong>app</strong>、端末を <strong>jec_26cm_android1_Pixel 9a</strong> にします。</li><li>三角形の <strong>Run ▶</strong> をクリックします。</li><li>端末画面に <strong>Hello World!</strong> だけが出れば成功です。最初の起動は時間がかかることがあります。</li></ol>
+<figure class="phone"><a href="images/app-starter.png"><img src="images/app-starter.png" width="1080" height="2424" loading="lazy" alt="出発点の画面。中央にHello World!だけが表示されている"></a><figcaption>STEP 2の成功画面：まだボタンはありません。 <a href="images/app-starter.png">画像を大きく開く</a></figcaption></figure>
+<div class="task"><p class="box-title">30秒で話そう</p><p>隣の人に「画面を作るファイルは＿＿です」と説明しましょう。ファイル名を画面で指しても大丈夫です。</p></div>
+<div class="check"><p class="box-title">ここで止まって、確認（かくにん）</p><label><input type="checkbox" data-check="step-2"><span>変更前のアプリで、Hello World!だけを表示できた。</span></label><p>できたらチェックします。できないときは、この画面を先生に見せましょう。</p></div>
+<div class="next"><a href="#step-3">次へ：画面を作る →</a></div>
+
+</section><section id="step-3" aria-labelledby="title-3">
+<p class="step-meta">STEP 03 · 目安 20分</p>
+<h2 id="title-3">文字とボタンを置く</h2>
+
+<div class="goal"><p class="box-title">このステップのゴール</p><p>画面の中央に、文字と「テキストを変更する」ボタンを縦に並べます。</p></div>
+<p class="file">変更するファイル：app/src/main/res/layout/activity_main.xml</p>
+<h3>① XMLを文字で表示する</h3>
+<p><code>activity_main.xml</code> を開き、エディタ右上の <strong>Code</strong> を選びます。Codeは文字で編集する表示、Designは見た目で編集する表示です。アイコンだけの場合は、マウスを重ねて名前を確認します。</p>
+<h3>② ファイル全体を、次の内容に置き換える</h3>
+<p>XMLの中をクリックし、<kbd>⌘ A</kbd> で全部選びます。下のコードをコピーし、<kbd>⌘ V</kbd> で貼り付けます。</p>
+<p>ここでは、ひな形の <code>ConstraintLayout</code> を、縦に並べやすい <code>LinearLayout</code> に変えます。古いXMLに追加せず、<strong>全体を置き換えます</strong>。</p>
+<div class="code-head">activity_main.xml · 全体を置き換える</div>
+<pre id="code-screen" tabindex="0"><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;LinearLayout xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
+    xmlns:tools=&quot;http://schemas.android.com/tools&quot;
+    android:id=&quot;@+id/main&quot;
+    android:layout_width=&quot;match_parent&quot;
+    android:layout_height=&quot;match_parent&quot;
+    android:gravity=&quot;center&quot;
+    android:orientation=&quot;vertical&quot;
+    tools:context=&quot;.MainActivity&quot;&gt;
+
+    &lt;TextView
+        android:id=&quot;@+id/text&quot;
+        style=&quot;@style/TextAppearance.Material3.BodyLarge&quot;
+        android:layout_width=&quot;wrap_content&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:text=&quot;Hello World!&quot; /&gt;
+
+    &lt;Button
+        android:id=&quot;@+id/button&quot;
+        android:layout_width=&quot;wrap_content&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:layout_marginTop=&quot;12dp&quot;
+        android:text=&quot;テキストを変更する&quot; /&gt;
+
+&lt;/LinearLayout&gt;</code></pre>
+<p><a href="code/03-activity_main.xml">STEP 3のXMLを別ファイルで開く</a></p>
+<h3>③ 変えたところを読む</h3>
+<table><thead><tr><th>コード</th><th>意味</th></tr></thead><tbody>
+<tr><td><code>LinearLayout</code>（リニアレイアウト）</td><td>部品を一列に並べる入れ物。</td></tr>
+<tr><td><code>orientation="vertical"</code></td><td>中の部品を縦に並べる。</td></tr>
+<tr><td><code>gravity="center"</code></td><td>中の部品を中央に置く。</td></tr>
+<tr><td><code>TextView</code> / <code>Button</code></td><td>文字を表示する部品 / 押せる部品。</td></tr>
+<tr><td><code>android:id="@+id/text"</code></td><td>部品に <code>text</code> という名前を付ける。あとでJavaから探すための目印。</td></tr>
+<tr><td><code>android:text</code></td><td>画面に表示する文字。部品のidとは別。</td></tr>
+<tr><td><code>match_parent</code></td><td>親の入れ物の大きさに合わせる。</td></tr>
+<tr><td><code>wrap_content</code></td><td>中身に必要な大きさにする。</td></tr>
+<tr><td><code>layout_marginTop="12dp"</code></td><td>上にすき間を作る。<code>dp</code> は画面上の大きさを指定する単位。</td></tr>
+<tr><td><code>style</code></td><td>用意された見た目の設定を使う。</td></tr>
+</tbody></table>
+<p><code>&lt;LinearLayout&gt;</code> で入れ物を始め、<code>&lt;/LinearLayout&gt;</code> で閉じます。<code>&lt;TextView … /&gt;</code> の <code>/&gt;</code> は、その部品の終わりです。</p>
+<div class="note"><p class="box-title">入力のポイント</p><p><code>id/main</code> は、ひな形のJavaでも使っています。消さずに残します。記号は半角の <code>"</code>、<code>&lt;</code>、<code>&gt;</code> を使います。</p><p>文字を直接書くと <code>Hardcoded string</code> という警告が出る場合があります。この単元では完成コードに合わせて直接書きます。赤いエラーで実行できない場合は、警告と分けて先生に見せてください。</p></div>
+<h3>④ Runで確かめる</h3>
+<p>保存（<kbd>⌘ S</kbd>）して <strong>Run ▶</strong>。Hello World!の下にボタンが出ます。今は押しても文字が変わりません。動きは次のステップで付けます。</p>
+<figure class="phone"><a href="images/app-screen.png"><img src="images/app-screen.png" width="1080" height="2424" loading="lazy" alt="STEP 3の画面。中央にHello World!とテキストを変更するボタンが縦に並んでいる"></a><figcaption>STEP 3の成功画面：文字とボタンの2つが並びます。 <a href="images/app-screen.png">画像を大きく開く</a></figcaption></figure>
+<div class="check"><p class="box-title">ここで止まって、確認（かくにん）</p><label><input type="checkbox" data-check="step-3"><span>Hello World!と、その下の「テキストを変更する」ボタンが中央に出た。</span></label><p>できたらチェックします。できないときは、この画面を先生に見せましょう。</p></div>
+<div class="next"><a href="#step-4">次へ：ボタンに動きを付ける →</a></div>
+
+</section><section id="step-4" aria-labelledby="title-4">
+<p class="step-meta">STEP 04 · 目安 20分</p>
+<h2 id="title-4">ボタンを押して文字を変える</h2>
+
+<p class="file">変更するファイル：app/src/main/java/jp/ac/jec/a01helloandroid/MainActivity.java</p>
+<p><code>MainActivity</code> は、このアプリの画面を担当します。<code>onCreate</code>（オン・クリエイト）は、その画面を作るときに呼ばれる<strong>メソッド</strong>です。メソッドは、いくつかの処理に名前を付けたまとまりです。</p>
+<h3>① importを2行追加する</h3>
+<p>ファイル上部の <code>import android.os.Bundle;</code> の次に追加します。<code>import</code> は、使う部品がどこにあるかを知らせる行です。同じ行がすでにある場合は、もう一度追加しません。</p>
+<div class="code-head">追加 · importの場所</div>
+<pre tabindex="0"><code>import android.widget.Button;
+import android.widget.TextView;</code></pre>
+<h3>② 追加する場所を見つける</h3>
+<p>ひな形の <code>ViewCompat.setOnApplyWindowInsetsListener</code> から始まる部分を見つけます。その末尾の <code>return insets;</code> と <code>});</code> の<strong>下</strong>に追加します。<code>onCreate</code> の最後の <code>}</code> より<strong>上</strong>です。</p>
+<div class="code-head">場所の目印 · この枠は入力しません</div>
+<pre tabindex="0"><code>ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -&gt; {
+            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
+            return insets;
+        });
+
+        // この位置に、次のコードを追加します。
+    }
+}</code></pre>
+<p>上のひな形の部分は、画面の端の余白を調整します。今日はそのまま使います。</p>
+<h3>③ 次のコードを追加する</h3>
+<div class="code-head">追加 · onCreateの中</div>
+<pre id="code-click" tabindex="0"><code>var text = (TextView) findViewById(R.id.text);
+var button = (Button) findViewById(R.id.button);
+
+button.setOnClickListener(v -&gt; {
+    text.setText(&quot;Hello, Android!&quot;);
+});</code></pre>
+<p><a href="code/04-MainActivity.java">追加する場所が分からないとき：STEP 4のJava全体</a></p>
+<h3>④ 1行ずつ意味を確かめる</h3>
+<table><thead><tr><th>コード</th><th>意味</th></tr></thead><tbody>
+<tr><td><code>findViewById(R.id.text)</code></td><td>XMLで <code>@+id/text</code> と名前を付けた部品を探す。<code>R</code> はAndroidが用意する資源の一覧。自分でRファイルは作りません。</td></tr>
+<tr><td><code>(TextView)</code></td><td>見つけた部品を、文字の部品として扱う指定（キャスト）。</td></tr>
+<tr><td><code>var text = …;</code></td><td>見つけた部品を <code>text</code> という名前で使えるようにする。この名前を<strong>変数（へんすう）</strong>といいます。<code>var</code> は、右側から変数の型を決めます。</td></tr>
+<tr><td><code>setOnClickListener</code></td><td>ボタンが押されたときに行う処理を登録する。</td></tr>
+<tr><td><code>v -&gt; { … }</code></td><td>クリックされたら、波かっこの中を実行する書き方。<code>v</code> は押された部品です。この処理では使いません。</td></tr>
+<tr><td><code>text.setText("Hello, Android!");</code></td><td><code>text</code> の表示文字を変える。<code>" "</code> の中が文字です。</td></tr>
+</tbody></table>
+<p><code>=</code> は右側の結果を左側の名前に入れる記号です。<code>;</code> は文の終わり。<code>( )</code> には必要な情報を渡し、<code>{ }</code> で処理の範囲を囲みます。</p>
+<div class="task"><p class="box-title">押す前に予想する</p><p>アプリを起動しただけでHello, Android!に変わるでしょうか。隣の人と予想してから、Runで確かめましょう。</p><details><summary>確かめたあとに答えを見る</summary><p>起動したときはHello World!。変更ボタンを押すとHello, Android!になります。<code>setText</code> がクリックの処理の中にあるからです。</p></details></div>
+<h3>⑤ Runで確かめる</h3>
+<ol><li>保存してRunします。</li><li>最初は <strong>Hello World!</strong> と表示されることを確認します。</li><li><strong>テキストを変更する</strong> を1回押します。</li><li><strong>Hello, Android!</strong> に変われば成功です。もう1回押しても、同じ文字が表示されます。</li></ol>
+<div class="check"><p class="box-title">ここで止まって、確認（かくにん）</p><label><input type="checkbox" data-check="step-4"><span>変更ボタンを押して、Hello World!をHello, Android!に変えられた。</span></label><p>できたらチェックします。できないときは、この画面を先生に見せましょう。</p></div>
+<div class="note"><p class="box-title">1コマ目はここまで</p><p>残りの時間で、Stop → Run → 変更ボタンを押す操作をもう一度行います。先生に「文字を変える行」を見せましょう。保存し、できたステップと困ったところをメモします。</p><p>2コマ目はこのプロジェクトを開き、文字変更を確認してからSTEP 5へ進みます。家での予習は必要ありません。</p></div>
+<div class="next"><a href="#step-5">2コマ目へ：Logcatで文字を確認する →</a></div>
+
+</section><section id="step-5" aria-labelledby="title-5">
+<p class="step-meta">STEP 05 · 目安 10分</p>
+<h2 id="title-5">Logcatで動きを見る</h2>
+
+<p><strong>ログ</strong>は、開発者が動きを確認するための記録です。アプリの画面に出る文字とは別に、Android Studioの <strong>Logcat</strong>（ログキャット）で読みます。</p>
+<p class="file">変更するファイル：MainActivity.java</p>
+<h3>① importを1行追加する</h3>
+<p>ほかの <code>import</code> と同じ場所に追加します。</p>
+<div class="code-head">追加 · importの場所</div>
+<pre tabindex="0"><code>import android.util.Log;</code></pre>
+<h3>② STEP 4で追加した部分を置き換える</h3>
+<p><code>var text = …</code> から、変更ボタンの処理の最後の <code>});</code> までを、次のコードに置き換えます。上のひな形と、下の2つの <code>}</code> は残します。</p>
+<div class="code-head">置き換え · STEP 4で追加した部分</div>
+<pre id="code-log" tabindex="0"><code>var text = (TextView) findViewById(R.id.text);
+var button = (Button) findViewById(R.id.button);
+
+var string = text.getText().toString();
+Log.d(&quot;MainActivity&quot;, string);
+
+button.setOnClickListener(v -&gt; {
+    text.setText(&quot;Hello, Android!&quot;);
+    var updateString = text.getText().toString();
+    Log.d(&quot;MainActivity&quot;, updateString);
+});</code></pre>
+<p><a href="code/05-MainActivity.java">STEP 5のJava全体を開く</a></p>
+<h3>③ 新しい4行の意味</h3>
+<ul><li><code>getText()</code>：今表示されている文字を取り出す。</li><li><code>toString()</code>：取り出した値を <code>String</code>（文字列）の形にする。</li><li><code>var string = …</code> / <code>var updateString = …</code>：取り出した文字に名前を付ける。<code>text</code> は画面の部品、<code>string</code> は取り出した文字です。</li><li><code>Log.d("MainActivity", string)</code>：目印 <code>MainActivity</code> を付けて、<code>string</code> の内容をログに出す。<code>d</code> はDebug（動作確認用）です。</li></ul>
+<h3>④ Logcatを開いてRunする</h3>
+<ol><li><a href="../common/logcat.html">共通資料：Logcatの使い方</a> に従ってLogcatを開きます。</li><li>検索欄に <code>package:jp.ac.jec.a01helloandroid tag:MainActivity level:DEBUG</code> と入力します。</li><li>保存してRunします。ログに <code>Hello World!</code> が出ます。</li><li>変更ボタンを押します。新しい行に <code>Hello, Android!</code> が出ます。</li></ol>
+<p>時刻や行の数は同じでなくて構いません。<strong>メッセージの文字</strong>を比べます。</p>
+<div class="check"><p class="box-title">ここで止まって、確認（かくにん）</p><label><input type="checkbox" data-check="step-5"><span>Logcatで、起動時とクリック後の2種類の文字を見つけた。</span></label><p>できたらチェックします。できないときは、この画面を先生に見せましょう。</p></div>
+<div class="next"><a href="#step-6">次へ：ボタンを横に並べる →</a></div>
+
+</section><section id="step-6" aria-labelledby="title-6">
+<p class="step-meta">STEP 06 · 目安 15分</p>
+<h2 id="title-6">3つのボタンを横に並べる</h2>
+
+<p class="file">変更するファイル：activity_main.xml</p>
+<p>縦に並ぶ入れ物の中に、横に並ぶ小さい入れ物を追加します。</p>
+<div class="code-head">画面の組み立て図 · 入力しません</div>
+<pre tabindex="0"><code>LinearLayout（縦）
+├─ TextView「Hello World!」
+├─ Button「テキストを変更する」
+└─ LinearLayout（横） ← ここを追加
+   ├─ Button「1」
+   ├─ Button「2」
+   └─ Button「3」</code></pre>
+<h3>① ファイルの最後に追加する</h3>
+<p>最後の <code>&lt;/LinearLayout&gt;</code> の<strong>直前</strong>に、次のコードを追加します。「テキストを変更する」ボタンの <code>/&gt;</code> より下です。</p>
+<div class="code-head">追加 · 外側のLinearLayoutを閉じる直前</div>
+<pre id="code-row" tabindex="0"><code>&lt;LinearLayout
+        android:layout_width=&quot;wrap_content&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:layout_marginTop=&quot;12dp&quot;
+        android:orientation=&quot;horizontal&quot;&gt;
+
+        &lt;Button
+            android:id=&quot;@+id/btn1&quot;
+            style=&quot;@style/Widget.Material3.Button.OutlinedButton&quot;
+            android:layout_width=&quot;wrap_content&quot;
+            android:layout_height=&quot;wrap_content&quot;
+            android:text=&quot;1&quot; /&gt;
+
+        &lt;Button
+            android:id=&quot;@+id/btn2&quot;
+            style=&quot;@style/Widget.Material3Expressive.Button.TonalButton&quot;
+            android:layout_width=&quot;wrap_content&quot;
+            android:layout_height=&quot;wrap_content&quot;
+            android:layout_marginHorizontal=&quot;12dp&quot;
+            android:text=&quot;2&quot; /&gt;
+
+        &lt;Button
+            style=&quot;@style/Widget.Material3.Button.ElevatedButton&quot;
+            android:layout_width=&quot;wrap_content&quot;
+            android:layout_height=&quot;wrap_content&quot;
+            android:text=&quot;3&quot; /&gt;
+    &lt;/LinearLayout&gt;</code></pre>
+<p>追加後は、ファイルの下に <code>&lt;/LinearLayout&gt;</code> が2つあります。1つは横の入れ物、もう1つは外側の縦の入れ物を閉じます。</p>
+<h3>② 縦と横の違いを読む</h3>
+<table><thead><tr><th>設定</th><th>意味</th></tr></thead><tbody><tr><td><code>orientation="horizontal"</code></td><td>この入れ物の中の部品を横に並べる。</td></tr><tr><td><code>layout_marginHorizontal="12dp"</code></td><td>「2」のボタンの左右にすき間を作る。</td></tr><tr><td><code>OutlinedButton</code></td><td>枠線のあるボタン。</td></tr><tr><td><code>TonalButton</code></td><td>背景に色が付くボタン。</td></tr><tr><td><code>ElevatedButton</code></td><td>影が付くボタン。</td></tr></tbody></table>
+<p><code>style</code> の長い名前は、用意された見た目の名前です。今日は暗記せず、正しくコピーして見た目を比べます。</p>
+<details><summary>追加する場所が分からない：この時点のXML全体</summary>
+<p>下の内容でXML全体を置き換えられます。<a href="code/06-activity_main.xml">別ファイルで開く</a></p>
+<div class="code-head">activity_main.xml · STEP 6の全体</div>
+<pre id="code-final-xml" tabindex="0"><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;LinearLayout xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
+    xmlns:tools=&quot;http://schemas.android.com/tools&quot;
+    android:id=&quot;@+id/main&quot;
+    android:layout_width=&quot;match_parent&quot;
+    android:layout_height=&quot;match_parent&quot;
+    android:gravity=&quot;center&quot;
+    android:orientation=&quot;vertical&quot;
+    tools:context=&quot;.MainActivity&quot;&gt;
+
+    &lt;TextView
+        android:id=&quot;@+id/text&quot;
+        style=&quot;@style/TextAppearance.Material3.BodyLarge&quot;
+        android:layout_width=&quot;wrap_content&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:text=&quot;Hello World!&quot; /&gt;
+
+    &lt;Button
+        android:id=&quot;@+id/button&quot;
+        android:layout_width=&quot;wrap_content&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:layout_marginTop=&quot;12dp&quot;
+        android:text=&quot;テキストを変更する&quot; /&gt;
+
+    &lt;LinearLayout
+        android:layout_width=&quot;wrap_content&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:layout_marginTop=&quot;12dp&quot;
+        android:orientation=&quot;horizontal&quot;&gt;
+
+        &lt;Button
+            android:id=&quot;@+id/btn1&quot;
+            style=&quot;@style/Widget.Material3.Button.OutlinedButton&quot;
+            android:layout_width=&quot;wrap_content&quot;
+            android:layout_height=&quot;wrap_content&quot;
+            android:text=&quot;1&quot; /&gt;
+
+        &lt;Button
+            android:id=&quot;@+id/btn2&quot;
+            style=&quot;@style/Widget.Material3Expressive.Button.TonalButton&quot;
+            android:layout_width=&quot;wrap_content&quot;
+            android:layout_height=&quot;wrap_content&quot;
+            android:layout_marginHorizontal=&quot;12dp&quot;
+            android:text=&quot;2&quot; /&gt;
+
+        &lt;Button
+            style=&quot;@style/Widget.Material3.Button.ElevatedButton&quot;
+            android:layout_width=&quot;wrap_content&quot;
+            android:layout_height=&quot;wrap_content&quot;
+            android:text=&quot;3&quot; /&gt;
+    &lt;/LinearLayout&gt;
+
+&lt;/LinearLayout&gt;</code></pre>
+</details>
+<h3>③ Runで確かめる</h3>
+<p>変更ボタンの下に、<strong>1・2・3</strong> が左から右へ並びます。この時点では、数字のボタンを押してもメッセージは出ません。</p>
+<div class="check"><p class="box-title">ここで止まって、確認（かくにん）</p><label><input type="checkbox" data-check="step-6"><span>1・2・3のボタンを横に並べ、見た目の違いを確認できた。</span></label><p>できたらチェックします。できないときは、この画面を先生に見せましょう。</p></div>
+<div class="next"><a href="#step-7">次へ：短いメッセージを出す →</a></div>
+
+</section><section id="step-7" aria-labelledby="title-7">
+<p class="step-meta">STEP 07 · 目安 15分</p>
+<h2 id="title-7">SnackbarとToastを表示する</h2>
+
+<p>数字のボタンを押したら、その数字を短いメッセージとして表示します。</p>
+<table><thead><tr><th>押すボタン</th><th>使うもの・読み方</th><th>今回の見え方</th></tr></thead><tbody><tr><td>1</td><td>Snackbar（スナックバー）</td><td>アプリの下に「1」の帯が出て、しばらくすると消える。</td></tr><tr><td>2</td><td>Toast（トースト）</td><td>画面の下の方に、アプリのアイコンと「2」が出て消える。</td></tr><tr><td>3</td><td>処理を追加しない</td><td>メッセージは出ない。見た目を比べるためのボタン。</td></tr></tbody></table>
+<p class="file">変更するファイル：MainActivity.java</p>
+<h3>① importを2行追加する</h3>
+<div class="code-head">追加 · importの場所</div>
+<pre tabindex="0"><code>import android.widget.Toast;
+import com.google.android.material.snackbar.Snackbar;</code></pre>
+<h3>② 数字のボタンを探す2行を追加する</h3>
+<p><code>var button = (Button) findViewById(R.id.button);</code> のすぐ下に追加します。</p>
+<div class="code-head">追加 · var buttonの次</div>
+<pre tabindex="0"><code>var btn1 = (Button) findViewById(R.id.btn1);
+var btn2 = (Button) findViewById(R.id.btn2);</code></pre>
+<h3>③ 数字のボタンの動きを追加する</h3>
+<p>変更ボタンの <code>button.setOnClickListener</code> の閉じる <code>});</code> の<strong>下</strong>、<code>onCreate</code> の最後の <code>}</code> より<strong>上</strong>に追加します。変更ボタンの処理は残します。</p>
+<div class="code-head">追加 · 変更ボタンの処理の下</div>
+<pre id="code-feedback" tabindex="0"><code>btn1.setOnClickListener(v -&gt; {
+    var btn1Str = btn1.getText().toString();
+    Snackbar.make(findViewById(R.id.main), btn1Str, Snackbar.LENGTH_SHORT).show();
+});
+btn2.setOnClickListener(v -&gt; {
+    var btn2Str = btn2.getText().toString();
+    Toast.makeText(this, btn2Str, Toast.LENGTH_SHORT).show();
+});</code></pre>
+<p><code>btn1.getText()</code> と <code>btn2.getText()</code> で、ボタンに書かれた文字を取り出しています。数字の計算はしていません。</p>
+<table><thead><tr><th>部分</th><th>役割</th></tr></thead><tbody>
+<tr><td><code>Snackbar.make(…)</code></td><td>表示するSnackbarを作る。</td></tr>
+<tr><td><code>findViewById(R.id.main)</code></td><td>Snackbarの表示先を探すため、画面の部品を渡す。</td></tr>
+<tr><td><code>Toast.makeText(this, …)</code></td><td>表示するToastを作る。ここでの <code>this</code> は、今の画面を担当するMainActivity。</td></tr>
+<tr><td><code>btn1Str</code> / <code>btn2Str</code></td><td>メッセージとして表示する文字。</td></tr>
+<tr><td><code>LENGTH_SHORT</code></td><td>短い時間だけ表示する設定。</td></tr>
+<tr><td><code>.show()</code></td><td>作ったメッセージを実際に表示する。忘れると表示されない。</td></tr>
+</tbody></table>
+<h3>④ 1つずつ押して確かめる</h3>
+<ol><li>保存してRunします。</li><li>「1」を押します。下の帯に「1」が出たら、消えるまで待ちます。</li><li>「2」を押します。小さな表示に「2」が出たら、消えるまで待ちます。</li><li>「3」を押します。メッセージが出ないことを確かめます。</li></ol>
+<div class="phones"><figure><a href="images/app-snackbar.png"><img src="images/app-snackbar.png" width="1080" height="2424" loading="lazy" alt="数字1を押すと画面の下に黒い帯のSnackbarが現れ、1と表示される"></a><figcaption>「1」→ Snackbar <a href="images/app-snackbar.png">画像を大きく開く</a></figcaption></figure><figure><a href="images/app-toast.png"><img src="images/app-toast.png" width="1080" height="2424" loading="lazy" alt="数字2を押すと下の方にアプリアイコン付きのToastが現れ、2と表示される"></a><figcaption>「2」→ Toast <a href="images/app-toast.png">画像を大きく開く</a></figcaption></figure></div>
+<p>画像は変更ボタンを押した後に撮影しています。上の文字がHello World!のままでも、数字のメッセージが出ればこのステップは成功です。色やアイコンの形は、端末の設定で少し違うことがあります。</p>
+<div class="check"><p class="box-title">ここで止まって、確認（かくにん）</p><label><input type="checkbox" data-check="step-7"><span>1でSnackbar、2でToastを表示できた。3ではメッセージが出ないことも確認した。</span></label><p>できたらチェックします。できないときは、この画面を先生に見せましょう。</p></div>
+<div class="next"><a href="#step-8">次へ：授業内のミニ練習 →</a></div>
+
+</section><section id="step-8" aria-labelledby="title-8">
+<p class="step-meta">STEP 08 · 目安 15分</p>
+<h2 id="title-8">少し変えて、確かめる</h2>
+
+<p>ここからは、自分で小さい変更をします。<strong>1つ変える → 予想する → Runする</strong>の順です。答えは、試してから開きましょう。</p>
+<h3>練習A · 自分の言葉に変える（必須・5分）</h3>
+<div class="task"><p class="box-title">やること</p><p>変更ボタンを押したら <strong>こんにちは、Android!</strong> と表示されるようにします。どのファイルの、どの文字を変えますか。</p></div>
+<details><summary>ヒント</summary><p>クリックしたときの処理にある <code>setText</code> を探します。<code>" "</code> の中を変えます。</p></details>
+<details><summary>試したあと：答えと理由</summary><div class="code-head">練習A · 変更する1行</div>
+<pre tabindex="0"><code>text.setText(&quot;こんにちは、Android!&quot;);</code></pre><p>Javaのクリック処理を変えます。XMLのHello World!は、起動時の文字です。Runしてボタンを押し、画面とLogcatの両方で確かめましょう。</p></details>
+<h3>練習B · 文字を取り出すしくみ（必須・5分）</h3>
+<div class="task"><p class="box-title">やること</p><p>XMLの <code>id/btn1</code> のボタンだけ、<code>android:text="1"</code> を <code>android:text="できた"</code> に変えます。JavaはそのままでRunします。ボタンを押すと、Snackbarに何が出るでしょうか。</p></div>
+<details><summary>試したあと：答えと理由</summary><p>ボタンもSnackbarも「できた」になります。Javaが <code>btn1.getText().toString()</code> で、ボタンに表示されている文字を取り出しているからです。</p></details>
+<h3>練習C · 余白を比べる（時間が余ったら）</h3>
+<p>変更ボタンの <code>layout_marginTop</code> を <code>12dp</code> から <code>24dp</code> に変えます。Runして、文字とボタンのすき間を比べてください。</p>
+<h3>最後の5分 · 元に戻し、説明する</h3>
+<ol><li>練習Aの文字を <code>Hello, Android!</code> に戻します。</li><li>練習Bのボタンを <code>1</code> に戻します。</li><li>練習Cをした人は余白を <code>12dp</code> に戻します。</li><li>保存してRunし、隣の人に「＿＿を変えたので、＿＿が変わりました」と1つ説明します。</li></ol>
+<div class="check"><p class="box-title">ここで止まって、確認（かくにん）</p><label><input type="checkbox" data-check="step-8"><span>練習A・Bを動かし、変更した場所を1つ説明できた。最後に元の表示へ戻した。</span></label><p>できたらチェックします。できないときは、この画面を先生に見せましょう。</p></div>
+<div class="next"><a href="#step-9">次へ：完成を確認する →</a></div>
+
+</section><section id="step-9" aria-labelledby="title-9">
+<p class="step-meta">STEP 09 · 目安 10分</p>
+<h2 id="title-9">完成を確認して、記録する</h2>
+
+<h3>① 完成チェック</h3>
+<p>保存してRunし、上から順に操作します。最初の文字に戻したいときは、Android Studioの <strong>Stop ■</strong> を押してから <strong>Run ▶</strong> を押します。</p>
+<table><thead><tr><th>操作</th><th>成功したとき</th></tr></thead><tbody>
+<tr><td>起動する</td><td>Hello World!、変更ボタン、1・2・3が出る。LogcatにHello World!が出る。</td></tr>
+<tr><td>変更ボタンを押す</td><td>画面がHello, Android!になり、Logcatにも同じ文字が出る。</td></tr>
+<tr><td>1を押す</td><td>Snackbarに1が出て、しばらくすると消える。</td></tr>
+<tr><td>2を押す</td><td>Toastに2が出て、しばらくすると消える。</td></tr>
+<tr><td>3を押す</td><td>メッセージは出ない。</td></tr>
+</tbody></table>
+<h3>② 3問でふり返る</h3>
+<ol><li>部品の位置を書くファイルは、XMLとJavaのどちらですか。</li><li><code>setText</code> と <code>getText</code> は、それぞれ何をしますか。</li><li>ボタンの処理は、起動時とクリック時のどちらに実行されますか。</li></ol>
+<details><summary>自分で答えてから確認する</summary><ol><li>XML（activity_main.xml）。</li><li>setTextは文字を変える。getTextは今の文字を取り出す。</li><li>クリック時。起動時にsetOnClickListenerでその処理を登録します。</li></ol></details>
+<h3>③ 授業の記録を残す</h3>
+<p>次の4項目を、先生が指定する用紙や提出先に書きます。このページのチェックは自分用で、先生には送信されません。</p>
+<ul><li>学籍番号・氏名</li><li>できたステップ：STEP ＿＿まで</li><li>説明できること：「＿＿を変えると、＿＿になる」</li><li>まだ困っていること：「STEP ＿＿の＿＿」／困っていなければ「なし」</li></ul>
+<p>先生に画面を見せ、変更ボタン・1・2を順番に押します。APKの提出を指示された場合は、<a href="../common/apk.html">共通資料：提出用APKの作り方</a>を使います。</p>
+<details><summary>完成したJava全体を確認する</summary>
+<p><a href="code/07-MainActivity.java">完成したMainActivity.javaを別ファイルで開く</a>。XMLの全体は<a href="#code-final-xml">STEP 6の完成XML</a>です。package名は <code>jp.ac.jec.a01helloandroid</code> を使います。</p>
+<div class="code-head">MainActivity.java · 完成コード</div>
+<pre id="code-final-java" tabindex="0"><code>package jp.ac.jec.a01helloandroid;
+
+import android.os.Bundle;
+import android.util.Log;
+import android.widget.Button;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import androidx.activity.EdgeToEdge;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.graphics.Insets;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowInsetsCompat;
+
+import com.google.android.material.snackbar.Snackbar;
+
+public class MainActivity extends AppCompatActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        EdgeToEdge.enable(this);
+        setContentView(R.layout.activity_main);
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -&gt; {
+            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
+            return insets;
+        });
+
+        var text = (TextView) findViewById(R.id.text);
+        var button = (Button) findViewById(R.id.button);
+        var btn1 = (Button) findViewById(R.id.btn1);
+        var btn2 = (Button) findViewById(R.id.btn2);
+
+        var string = text.getText().toString();
+        Log.d(&quot;MainActivity&quot;, string);
+
+        button.setOnClickListener(v -&gt; {
+            text.setText(&quot;Hello, Android!&quot;);
+            var updateString = text.getText().toString();
+            Log.d(&quot;MainActivity&quot;, updateString);
+        });
+
+        btn1.setOnClickListener(v -&gt; {
+            var btn1Str = btn1.getText().toString();
+            Snackbar.make(findViewById(R.id.main), btn1Str, Snackbar.LENGTH_SHORT).show();
+        });
+        btn2.setOnClickListener(v -&gt; {
+            var btn2Str = btn2.getText().toString();
+            Toast.makeText(this, btn2Str, Toast.LENGTH_SHORT).show();
+        });
+    }
+}</code></pre>
+</details>
+<div class="check"><p class="box-title">ここで止まって、確認（かくにん）</p><label><input type="checkbox" data-check="step-9"><span>完成チェックを行い、授業の記録を残した。</span></label><p>できたらチェックします。できないときは、この画面を先生に見せましょう。</p></div>
+<div class="goal"><p class="box-title">今日のまとめ</p><p><strong>XMLで部品を置く → idで探す → クリックの処理を書く。</strong><br>この3つを使って、自分で動かせるアプリを作りました。</p></div>
+
+</section>
+<section id="help" aria-labelledby="help-title"><p class="step-meta">HELP · 困ったらここ</p><h2 id="help-title">止まった場所から、一緒に直す</h2>
+<p>まず保存し、赤くなっている最初の行を見ます。<strong>2分考えても分からなければ</strong>、先生に「ステップ番号・ファイル名・画面」を見せましょう。</p>
+<table><thead><tr><th>困ったこと</th><th>最初に確認すること</th></tr></thead><tbody>
+<tr><td>ファイルが見つからない</td><td>左上のプロジェクト名と、Project一覧の表示方法を確認。STEP 2の場所をたどる。</td></tr>
+<tr><td>XMLが赤い</td><td><code>"</code> の閉じ忘れ、<code>/&gt;</code>、<code>&lt;/LinearLayout&gt;</code> を確認。Code表示で、最初の赤い場所を先生に見せる。</td></tr>
+<tr><td>TextView / Button / Log / Toast / Snackbarが赤い</td><td>ファイル上部のimportを確認。授業の各ステップと同じimportを追加する。</td></tr>
+<tr><td>R.id.text / btn1 / btn2が赤い</td><td>XMLのidとJavaの名前を一文字ずつ比較する。大文字と小文字も区別する。XMLのエラーを先に直す。</td></tr>
+<tr><td>R全体が赤い</td><td>XMLの最初のエラーを確認。<code>import android.R;</code> があれば、その行を削除する。package名も確認する。</td></tr>
+<tr><td>波かっこやセミコロンのエラー</td><td>追加コードがonCreateの中にあるか確認する。ステップごとの完成コードと、前後の <code>});</code> と <code>}</code> を比べる。</td></tr>
+<tr><td>アプリがすぐ閉じる</td><td><code>setContentView</code> より下で部品を探しているか、XMLに必要なidがあるか確認。Logcatの赤いエラーを先生に見せる。</td></tr>
+<tr><td>押しても文字が変わらない</td><td>保存してRunしたか、正しいアプリを見ているか確認。XMLのid/buttonとJavaのR.id.buttonを比べる。</td></tr>
+<tr><td>Snackbar / Toastが出ない</td><td>1か2を押したか、最後に <code>.show()</code> があるか確認。短時間で消えるので押した直後を見る。</td></tr>
+<tr><td>styleが見つからない</td><td>名前をコピーし直す。直らなければ先生に見せる。教員用資料のMaterialのバージョン確認が必要。</td></tr>
+<tr><td>ログが見つからない</td><td><a href="../common/logcat.html#trouble">共通資料の「ログが出ないとき」</a>へ。</td></tr>
+<tr><td>Runできない・端末がない</td><td><a href="../common/emulator.html#trouble">共通資料の「動かないとき」</a>へ。エラー文を消さずに先生に見せる。</td></tr>
+</tbody></table>
+<p>一度にいくつも直すと、何が変わったか分かりにくくなります。1か所直して、もう一度Runしましょう。</p></section>
+<section id="references"><h2>もっと知りたいとき</h2><p>授業はこの教科書だけで進められます。次の公式資料は、あとから調べたい人向けです。</p><ul>
+<li><a href="https://developer.android.com/studio/projects/create-project?hl=ja">Android Developers：プロジェクトを作成する</a></li>
+<li><a href="https://developer.android.com/develop/ui/views/layout/linear?hl=ja">Android Developers：LinearLayout</a></li>
+<li><a href="https://developer.android.com/develop/ui/views/notifications/snackbar/showing?hl=ja">Android Developers：Snackbarを表示する</a></li>
+<li><a href="https://developer.android.com/guide/topics/ui/notifiers/toasts?hl=ja">Android Developers：Toast</a></li>
+</ul></section>
+<footer class="footer"><p>教材の対象：A01HelloAndroid / Android Studio Panda 2 | 2025.3.2<br>アプリ画像：教員の jec_26cm_android1_Pixel 9a エミュレータで撮影。プロジェクト作成の画像：教員提供。確認日：2026年9月15日。</p><p>チェックの保存はブラウザの設定により使えない場合があります。JavaScriptを無効にしても本文とコードは読めます。印刷する場合は ⌘ P。補足・解答も展開して印刷されます（JavaScript無効時は手動で開いてください）。</p></footer>
+</main></div>
+<p class="sr-only" role="status" aria-live="polite" data-copy-status></p>
+</body></html>
