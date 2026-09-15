@@ -1,0 +1,77 @@
+{
+  "scan_roots": [
+    "README.md",
+    "docs",
+    "teacher",
+    "A01HelloAndroid",
+    "A02CalcGame"
+  ],
+  "terms": [
+    {
+      "name": "指定AVD名",
+      "canonical": "jec_26cm_android1_Pixel 9a",
+      "forbidden": [
+        "jec_26cm_android1_Pixel_9a"
+      ],
+      "required_in": [
+        "README.md",
+        "docs/common/emulator.html",
+        "docs/common/logcat.html",
+        "docs/hello-android/index.html",
+        "docs/calc-game/index.html",
+        "teacher/hello-android/index.html",
+        "teacher/calc-game/index.html"
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "name": "A01HelloAndroid",
+      "package": "jp.ac.jec.a01helloandroid",
+      "root": "A01HelloAndroid",
+      "docs": [
+        "docs/hello-android/index.html",
+        "teacher/hello-android/index.html"
+      ],
+      "source_java": "A01HelloAndroid/app/src/main/java/jp/ac/jec/a01helloandroid/MainActivity.java",
+      "source_xml": "A01HelloAndroid/app/src/main/res/layout/activity_main.xml",
+      "snippets": [
+        {
+          "html": "docs/hello-android/index.html",
+          "id": "code-final-java",
+          "source": "A01HelloAndroid/app/src/main/java/jp/ac/jec/a01helloandroid/MainActivity.java"
+        },
+        {
+          "html": "docs/hello-android/index.html",
+          "id": "code-final-xml",
+          "source": "A01HelloAndroid/app/src/main/res/layout/activity_main.xml"
+        }
+      ],
+      "archive": "docs/hello-android/downloads/A01HelloAndroid.zip"
+    },
+    {
+      "name": "A02CalcGame",
+      "package": "jp.ac.jec.a02calcgame",
+      "root": "A02CalcGame",
+      "docs": [
+        "docs/calc-game/index.html",
+        "teacher/calc-game/index.html"
+      ],
+      "source_java": "A02CalcGame/app/src/main/java/jp/ac/jec/a02calcgame/MainActivity.java",
+      "source_xml": "A02CalcGame/app/src/main/res/layout/activity_main.xml",
+      "snippets": [
+        {
+          "html": "docs/calc-game/index.html",
+          "id": "code-complete-java",
+          "source": "A02CalcGame/app/src/main/java/jp/ac/jec/a02calcgame/MainActivity.java"
+        },
+        {
+          "html": "docs/calc-game/index.html",
+          "id": "code-complete-xml",
+          "source": "A02CalcGame/app/src/main/res/layout/activity_main.xml"
+        }
+      ],
+      "archive": "docs/calc-game/downloads/A02CalcGame.zip"
+    }
+  ]
+}

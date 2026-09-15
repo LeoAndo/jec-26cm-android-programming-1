@@ -59,6 +59,11 @@ def build(output_dir):
              "--project", project, "--output", str(ROOT / output)],
             cwd=ROOT, check=True,
         )
+    subprocess.run(
+        [sys.executable, str(ROOT / "scripts/check-teaching-materials.py")],
+        cwd=ROOT,
+        check=True,
+    )
     tracked = subprocess.check_output(["git", "ls-files", "-z", "--", "docs"], cwd=ROOT).decode().split("\0")
     files = {}
     for name in sorted(filter(None, tracked)):

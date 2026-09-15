@@ -27,8 +27,12 @@ class PackageStudentMaterialsTest(unittest.TestCase):
         self.addCleanup(temporary.cleanup)
         self.root = Path(temporary.name)
         (self.root / "scripts").mkdir()
-        for script in ("package-hello-android.py", "package-student-materials.py"):
+        for script in ("check-teaching-materials.py", "package-hello-android.py", "package-student-materials.py"):
             copy2(SCRIPTS / script, self.root / "scripts" / script)
+        (self.root / "config").mkdir()
+        (self.root / "config/teaching-materials.json").write_text(
+            json.dumps({"scan_roots": [], "terms": [], "projects": []}), encoding="utf-8"
+        )
         for name, text in {
             "docs/hello-android/index.html": '<a href="downloads/A01HelloAndroid.zip">完成版</a><img src="images/test.png">',
             "docs/hello-android/downloads/A01HelloAndroid.zip": "stale ZIP",
