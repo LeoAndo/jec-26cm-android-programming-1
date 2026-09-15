@@ -1,0 +1,847 @@
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="JavaとXMLで作るA02CalcGame。タイマー、状態管理、配列、乱数、採点を小さなSTEPで学ぶ授業用教科書。">
+<title>CalcGame — 計算ゲームを作ろう | Androidプログラミング1</title>
+<link rel="stylesheet" href="../assets/textbook.css"><script src="../assets/textbook.js" defer></script></head>
+<body data-progress-key="jec-android1-calcgame-v1">
+<a class="skip" href="#main">本文へ移動</a>
+<header class="topbar"><span class="brand">JEC / Androidプログラミング1</span><a href="../hello-android/index.html">A01 HelloAndroid</a></header>
+<div class="shell"><aside class="sidebar"><div class="sidebar-inner"><p class="eyebrow">CONTENTS / 学習の順番</p>
+<nav aria-label="学習ステップ"><ol><li><a href="#step-0">00　今日のゴール</a></li>
+<li><a href="#step-1">01　プロジェクトを作って実行</a></li>
+<li><a href="#step-2">02　タイマーと操作ボタン</a></li>
+<li><a href="#step-3">03　数字を3列に並べる</a></li>
+<li><a href="#step-4">04　状態を覚えるフィールド</a></li>
+<li><a href="#step-5">05　開始・停止・リセット</a></li>
+<li><a href="#step-6">06　ランダムな問題を作る</a></li>
+<li><a href="#step-7">07　9個のボタンに共通の処理</a></li>
+<li><a href="#step-8">08　答え合わせと次の問題</a></li>
+<li><a href="#step-9">09　10問で終了して結果を表示</a></li>
+<li><a href="#step-10">10　ミニ練習</a></li>
+<li><a href="#step-11">11　完成とふり返り</a></li></ol></nav>
+<div class="progress"><span data-progress-label>0 / 12 ステップ確認済み</span><progress value="0" max="12" aria-label="学習の進み具合"></progress><span class="muted">自分用のチェックです。</span></div>
+<div class="resources"><a href="#help">困ったとき</a><a href="#sample-project">完成プロジェクトを開く</a><a href="../hello-android/index.html">A01：HelloAndroid</a><a href="../common/emulator.html">共通：エミュレータ</a><a href="../common/auto-import.html">共通：Auto Import</a><a href="../common/logcat.html">共通：Logcat</a><a href="../common/apk.html">共通：APKの提出</a></div>
+</div></aside><main id="main"><div class="hero"><span class="unit">02</span><p class="eyebrow">CALC GAME</p>
+<h1>計算ゲームを<br>作ろう</h1><p class="lede">時間を計る。問題を出す。答えを比べる。<br>ボタンの処理をつなげて、10問のゲームへ。</p>
+<div class="tags"><span>Java / XML</span><span>A01の次の単元</span><span>90分 × 3コマ目安</span><span>Macで学ぶ</span></div></div>
+<section id="step-0" aria-labelledby="title-0">
+<p class="step-meta">STEP 00 · 目安 5分</p><h2 id="title-0">今日のゴール</h2>
+
+<p>A01で学んだ「XMLで画面を作る」「Javaでクリックを処理する」を使い、<strong>10から引く計算を10問解くゲーム</strong>を作ります。問題に答えると次へ進み、最後に正解数と時間を表示します。</p>
+<div class="flow" aria-label="ゲームの流れ"><strong>START</strong><span>→</span><strong>答えの数字を押す</strong><span>→ 10問回答 →</span><strong>結果を見る</strong><span>→</span><strong>RESET</strong></div>
+<div class="phones"><figure><a href="images/app-initial.png"><img src="images/app-initial.png" width="1080" height="2424" loading="lazy" alt="起動直後。00:00、START、無効なSTOPとRESET、1から9の数字ボタン"></a><figcaption>① 起動直後。問題はまだ表示されません。 <a href="images/app-initial.png">画像を大きく開く</a></figcaption></figure>
+<figure><a href="images/app-playing.png"><img src="images/app-playing.png" width="1080" height="2424" loading="lazy" alt="ゲーム中。1問目: 10 - 4 = と表示され、STOPだけが有効"></a><figcaption>② START後。10 − 4なら「6」を押します。 <a href="images/app-playing.png">画像を大きく開く</a></figcaption></figure>
+</div>
+<h3>できるようになること</h3>
+<ol><li>タイマーを開始・停止・リセットする。</li><li>変数で問題番号・正解数・ゲーム中かどうかを覚える。</li><li>1〜9のボタンで答えを判定し、10問目のあとに結果を出す。</li></ol>
+<p>問題に使う数字は1〜9です。同じ数字が続く場合もあります。正解・不正解にかかわらず、1回押すと1問の回答になります。</p>
+<h3>90分×3コマで進めます</h3>
+<table><thead><tr><th>授業</th><th>範囲</th><th>終了時にできること</th></tr></thead><tbody>
+<tr><td>1コマ目</td><td>STEP 0〜4</td><td>画面を作り、5つのフィールドの役割を読む。</td></tr>
+<tr><td>2コマ目</td><td>STEP 5〜8</td><td>タイマーを動かし、答え合わせと次の出題を確かめる。</td></tr>
+<tr><td>3コマ目</td><td>STEP 9〜11</td><td>10問で終了させ、ミニ練習・動作確認・提出を行う。</td></tr>
+</tbody></table>
+
+<p>各コマに再実行と個別確認の時間を含みます。A01のボタン処理を授業内で思い出してから始めます。予習は不要です。</p>
+<div class="note"><p class="box-title">毎回、自分で新規作成します</p><p>作る場所は <code>Documents/Android1/A02CalcGame</code> です。<a href="#sample-project">完成プロジェクト</a>は初回から開けます。自分のコードを比べるときに使いましょう。</p></div>
+
+<h3>完成アプリの操作</h3><table><thead><tr><th>状態</th><th>START</th><th>STOP</th><th>RESET</th><th>数字ボタン</th></tr></thead><tbody>
+<tr><td>起動直後・RESET後</td><td>押せる</td><td>押せない</td><td>押せない</td><td>案内だけ表示</td></tr>
+<tr><td>ゲーム中</td><td>押せない</td><td>押せる</td><td>押せない</td><td>回答する</td></tr>
+<tr><td>STOP後</td><td>押せる</td><td>押せない</td><td>押せる</td><td>案内だけ表示</td></tr>
+<tr><td>10問回答後</td><td>押せない</td><td>押せない</td><td>押せる</td><td>案内だけ表示</td></tr>
+</tbody></table>
+
+<p>数字ボタンはいつでも押せる見た目です。ゲーム中以外は「ゲーム中のみボタンを押せます」と表示し、採点しません。</p>
+<div class="note"><p class="box-title">画面回転について</p><p>各単元では画面回転時のデータ保持を扱いません。回転などでActivityが作り直されるとゲームは初期状態に戻ります。この観点は別単元の演習アプリで検証します。</p></div>
+<div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-0"><span>START、答えの数字、STOP、RESETの役割を画像で説明できた。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
+<div class="next"><a href="#step-1">次へ：プロジェクトを作って実行 →</a></div>
+</section>
+<section id="step-1" aria-labelledby="title-1">
+<p class="step-meta">STEP 01 · 目安 15分</p><h2 id="title-1">プロジェクトを作って実行</h2>
+
+<p>授業環境はMacと <strong>Android Studio Panda 2 | 2025.3.2</strong> です。A01とは別のプロジェクトを作ります。</p>
+<ol><li>Android Studioの <strong>New Project</strong> をクリックします。別のプロジェクトを開いているときは <strong>File → New → New Project</strong> を選びます。</li></ol>
+<figure><a href="images/new-project.png"><img src="images/new-project.png" width="1600" height="484" loading="lazy" alt="Android StudioのWelcome画面。右上にNew Projectボタン"></a><figcaption>右上のNew Projectをクリック。 <a href="images/new-project.png">画像を大きく開く</a></figcaption></figure>
+
+<ol start="2"><li><strong>Phone and Tablet → Empty Views Activity → Next</strong> の順に選びます。名前に <strong>Views</strong> があることを確認します。</li></ol>
+<figure><a href="images/empty-views-activity.png"><img src="images/empty-views-activity.png" width="1780" height="1340" loading="lazy" alt="テンプレート一覧でEmpty Views Activityが選択されている"></a><figcaption>Empty Views Activityを選択。 <a href="images/empty-views-activity.png">画像を大きく開く</a></figcaption></figure>
+<table><thead><tr><th>項目</th><th>入力・選択する内容</th></tr></thead><tbody>
+<tr><td>Name</td><td><code>A02CalcGame</code></td></tr>
+<tr><td>Package name</td><td><code>jp.ac.jec.a02calcgame</code>（すべて小文字）</td></tr>
+<tr><td>Save location</td><td><code>/Users/ユーザ名/Documents/Android1/A02CalcGame</code></td></tr>
+<tr><td>Language</td><td><strong>Java</strong></td></tr>
+<tr><td>Minimum SDK</td><td><strong>API 31（Android 12.0）</strong></td></tr>
+<tr><td>Build configuration language</td><td><strong>Kotlin DSL（build.gradle.kts）</strong></td></tr>
+</tbody></table>
+<figure><a href="images/project-settings.png"><img src="images/project-settings.png" width="1790" height="1348" loading="lazy" alt="A02CalcGameの新規設定。パッケージjp.ac.jec.a02calcgame、Java、API 31"></a><figcaption>画像の保存先は先生の例です。自分のDocuments/Android1/A02CalcGameに読み替えます。 <a href="images/project-settings.png">画像を大きく開く</a></figcaption></figure>
+
+<ol start="3"><li>Finderの <strong>移動 → ホーム</strong> で自分のユーザ名を確認します。書類（Documents）に <code>Android1</code> フォルダがなければ作ります。</li><li>表の値と保存先を確認し、<strong>Finish</strong> をクリックします。<code>ユーザ名</code> は自分の名前に置き換えます。</li><li><strong>Gradle Sync</strong> が完了するまで待ちます。</li><li><a href="../common/auto-import.html">共通資料：Auto Import</a>のJava設定を確認します。</li></ol>
+<h3>編集する2つのファイル</h3>
+<table><thead><tr><th>役割</th><th>Project表示で開く場所</th></tr></thead><tbody>
+<tr><td>画面（XML）</td><td><code>app/src/main/res/layout/activity_main.xml</code></td></tr>
+<tr><td>動き（Java）</td><td><code>app/src/main/java/jp/ac/jec/a02calcgame/MainActivity.java</code></td></tr>
+</tbody></table>
+
+<p>左の一覧が見えないときは <strong>View → Tool Windows → Project</strong> を開きます。パッケージのフォルダが <code>jp.ac.jec.a02calcgame</code> とまとめて表示される場合もあります。</p>
+<h3>変更前に1回Runする</h3>
+<ol><li><a href="../common/emulator.html">共通資料：エミュレータ</a>に従って端末を起動します。</li><li>上部で <strong>app</strong> と <strong>jec_26cm_android1_Pixel 9a</strong> を選び、<strong>Run ▶</strong> を押します。</li><li><strong>Hello World!</strong> が表示されれば成功です。</li></ol>
+<div class="note"><p class="box-title">MainActivity.ktができたとき</p><p>先生に画面を見せ、Empty Views Activity / Javaの選択を確認します。</p></div>
+<div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-1"><span>自分の保存先にA02CalcGameを作り、Hello World!を表示できた。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
+<div class="next"><a href="#step-2">次へ：タイマーと操作ボタン →</a></div>
+</section>
+<section id="step-2" aria-labelledby="title-2">
+<p class="step-meta">STEP 02 · 目安 20分</p><h2 id="title-2">タイマーと操作ボタン</h2>
+
+<p class="file">変更するファイル：app/src/main/res/layout/activity_main.xml</p>
+<p>まず上半分だけを作ります。<strong>Code</strong> 表示に切り替え、XMLの中で <kbd>⌘ A</kbd> → 貼り付けを行い、<strong>ファイル全体を置き換えます</strong>。</p>
+<div class="code-head">activity_main.xml · 全体を置き換える</div>
+<pre id="code-layout-top" tabindex="0"><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;LinearLayout xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
+    xmlns:tools=&quot;http://schemas.android.com/tools&quot;
+    android:id=&quot;@+id/main&quot;
+    android:layout_width=&quot;match_parent&quot;
+    android:layout_height=&quot;match_parent&quot;
+    android:gravity=&quot;center_horizontal&quot;
+    android:orientation=&quot;vertical&quot;
+    tools:context=&quot;.MainActivity&quot;&gt;
+
+    &lt;Chronometer
+        android:id=&quot;@+id/chronometer&quot;
+        android:layout_width=&quot;wrap_content&quot;
+        android:layout_height=&quot;wrap_content&quot; /&gt;
+
+    &lt;Button
+        android:id=&quot;@+id/btn_start&quot;
+        android:layout_width=&quot;match_parent&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:layout_marginTop=&quot;12dp&quot;
+        android:text=&quot;START&quot;
+        android:textSize=&quot;16sp&quot; /&gt;
+
+    &lt;Button
+        android:id=&quot;@+id/btn_stop&quot;
+        android:layout_width=&quot;match_parent&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:layout_marginTop=&quot;12dp&quot;
+        android:enabled=&quot;false&quot;
+        android:text=&quot;STOP&quot; /&gt;
+
+    &lt;Button
+        android:id=&quot;@+id/btn_reset&quot;
+        android:layout_width=&quot;match_parent&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:layout_marginTop=&quot;12dp&quot;
+        android:enabled=&quot;false&quot;
+        android:text=&quot;RESET&quot; /&gt;
+
+    &lt;TextView
+        android:id=&quot;@+id/txt_message&quot;
+        android:layout_width=&quot;wrap_content&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:layout_marginTop=&quot;12dp&quot;
+        tools:text=&quot;1問目: 10 - 3 =&quot; /&gt;
+
+&lt;/LinearLayout&gt;</code></pre>
+<table><thead><tr><th>新しい指定</th><th>意味</th></tr></thead><tbody>
+<tr><td>Chronometer（クロノメーター）</td><td>経過時間を表示する部品。開始などの処理はJavaで書く。</td></tr>
+<tr><td>gravity="center_horizontal"</td><td>中の部品を左右の中央に配置する。上下方向は上から並ぶ。</td></tr>
+<tr><td>android:enabled="false"</td><td>最初はボタンを押せないようにする。</td></tr>
+<tr><td>tools:text</td><td>Android Studioのプレビューだけに表示する文字。実行画面には出ない。</td></tr>
+</tbody></table>
+
+<p><code>android:id="@+id/main"</code> はJavaのひな形でも使うため残します。各ボタンの <code>btn_start</code> などは、次にJavaから探すための名前です。</p>
+<div class="note"><p class="box-title">12dpの余白について</p><p>このXMLには <code>padding="12dp"</code> があります。ひな形のJavaにある <code>v.setPadding(...)</code> が実行時の余白を上書きするため、操作ボタンが横いっぱいに表示されることがあります。教材では、このひな形をそのまま使います。</p></div>
+
+<h3>Runで確かめる</h3><p>タイマーと3つの操作ボタンが縦に表示されます。STOPとRESETは灰色です。STARTを押してもまだ時間は動きません。問題文も空欄です。</p>
+<p>文字を直接書いたことによる <code>Hardcoded text</code> の警告は、A01と同様に授業ではそのまま進めます。赤いエラーでビルドできない場合は先に直します。</p>
+<div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-2"><span>タイマーと3つのボタンが表示され、STOPとRESETが押せないことを確認した。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
+<div class="next"><a href="#step-3">次へ：数字を3列に並べる →</a></div>
+</section>
+<section id="step-3" aria-labelledby="title-3">
+<p class="step-meta">STEP 03 · 目安 20分</p><h2 id="title-3">数字を3列に並べる</h2>
+
+<p class="file">変更するファイル：activity_main.xml</p>
+<p>数字ボタンを、横向きの入れ物3つに分けます。A01で作った「横に3つ並べる」を、縦に3段重ねます。</p>
+<div class="flow"><strong>1行目：1　2　3</strong><strong>2行目：4　5　6</strong><strong>3行目：7　8　9</strong></div>
+<p>XMLの<strong>最後の <code>&lt;/LinearLayout&gt;</code> の直前</strong>に、次の3つの入れ物を追加します。上のChronometerや操作ボタンは残します。</p>
+<div class="code-head">追加 · 最後の閉じタグの直前</div>
+<pre id="code-number-layout" tabindex="0"><code>&lt;LinearLayout
+    android:layout_width=&quot;wrap_content&quot;
+    android:layout_height=&quot;wrap_content&quot;
+    android:layout_marginTop=&quot;12dp&quot;
+    android:orientation=&quot;horizontal&quot;&gt;
+
+    &lt;Button
+        android:id=&quot;@+id/btn1&quot;
+        android:layout_width=&quot;wrap_content&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:text=&quot;1&quot;
+        tools:ignore=&quot;ButtonStyle&quot; /&gt;
+
+    &lt;Button
+        android:id=&quot;@+id/btn2&quot;
+        android:layout_width=&quot;wrap_content&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:layout_marginHorizontal=&quot;8dp&quot;
+        android:text=&quot;2&quot;
+        tools:ignore=&quot;ButtonStyle&quot; /&gt;
+
+    &lt;Button
+        android:id=&quot;@+id/btn3&quot;
+        android:layout_width=&quot;wrap_content&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:text=&quot;3&quot;
+        tools:ignore=&quot;ButtonStyle&quot; /&gt;
+
+&lt;/LinearLayout&gt;
+
+&lt;LinearLayout
+    android:layout_width=&quot;wrap_content&quot;
+    android:layout_height=&quot;wrap_content&quot;
+    android:layout_marginTop=&quot;12dp&quot;
+    android:orientation=&quot;horizontal&quot;&gt;
+
+    &lt;Button
+        android:id=&quot;@+id/btn4&quot;
+        android:layout_width=&quot;wrap_content&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:text=&quot;4&quot;
+        tools:ignore=&quot;ButtonStyle&quot; /&gt;
+
+    &lt;Button
+        android:id=&quot;@+id/btn5&quot;
+        android:layout_width=&quot;wrap_content&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:layout_marginHorizontal=&quot;8dp&quot;
+        android:text=&quot;5&quot;
+        tools:ignore=&quot;ButtonStyle&quot; /&gt;
+
+    &lt;Button
+        android:id=&quot;@+id/btn6&quot;
+        android:layout_width=&quot;wrap_content&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:text=&quot;6&quot;
+        tools:ignore=&quot;ButtonStyle&quot; /&gt;
+
+&lt;/LinearLayout&gt;
+
+&lt;LinearLayout
+    android:layout_width=&quot;wrap_content&quot;
+    android:layout_height=&quot;wrap_content&quot;
+    android:layout_marginTop=&quot;12dp&quot;
+    android:orientation=&quot;horizontal&quot;&gt;
+
+    &lt;Button
+        android:id=&quot;@+id/btn7&quot;
+        android:layout_width=&quot;wrap_content&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:text=&quot;7&quot;
+        tools:ignore=&quot;ButtonStyle&quot; /&gt;
+
+    &lt;Button
+        android:id=&quot;@+id/btn8&quot;
+        android:layout_width=&quot;wrap_content&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:layout_marginHorizontal=&quot;8dp&quot;
+        android:text=&quot;8&quot;
+        tools:ignore=&quot;ButtonStyle&quot; /&gt;
+
+    &lt;Button
+        android:id=&quot;@+id/btn9&quot;
+        android:layout_width=&quot;wrap_content&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:text=&quot;9&quot;
+        tools:ignore=&quot;ButtonStyle&quot; /&gt;
+
+&lt;/LinearLayout&gt;</code></pre>
+
+<p>親の <code>orientation="vertical"</code> が行を縦に並べ、子の <code>orientation="horizontal"</code> が数字を横に並べます。中央のボタンだけに <code>layout_marginHorizontal="8dp"</code> を付け、左右にすき間を作っています。</p>
+<p><code>btn1</code> 〜 <code>btn9</code> はそれぞれ別のidです。ボタンに表示する <code>android:text</code> も「1」〜「9」にします。<code>tools:ignore="ButtonStyle"</code> はエディタの警告を抑える指定で、クリックの処理ではありません。</p>
+<h3>Runで確かめる</h3><p>1〜9が3列×3行で表示されれば成功です。まだ数字を押しても動きません。</p>
+<figure class="phone"><a href="images/app-initial.png"><img src="images/app-initial.png" width="1080" height="2424" loading="lazy" alt="00:00の下に操作ボタン3個と数字ボタン9個が並ぶ"></a><figcaption>このSTEPの画面。問題文は空欄です。 <a href="images/app-initial.png">画像を大きく開く</a></figcaption></figure>
+<div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-3"><span>1〜9のボタンを3列×3行に並べ、idの重複がないことを確認した。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
+<div class="next"><a href="#step-4">次へ：状態を覚えるフィールド →</a></div>
+</section>
+<section id="step-4" aria-labelledby="title-4">
+<p class="step-meta">STEP 04 · 目安 15分</p><h2 id="title-4">状態を覚えるフィールド</h2>
+
+<p class="file">変更するファイル：MainActivity.java</p>
+<p>ゲームでは、ボタンを押していない間も「今は何問目か」を覚えておきます。<strong>フィールド</strong>は、クラスの中で値を覚えておく変数です。</p>
+<h3>① クラスの中、onCreateの外に5行追加</h3>
+<p><code>public class MainActivity extends AppCompatActivity {</code> のすぐ下、<code>@Override</code> より上に追加します。</p>
+<div class="code-head">追加 · MainActivityのフィールド</div>
+<pre id="code-fields" tabindex="0"><code>private int nowNo = 1; // 今の問題が何問目かのカウント数
+private int correctNo; // 正解数
+private int answer; // 計算結果の答え
+private long elapsedTimeMillis; // タイマーの経過時間(ms)
+private boolean isPlaying = false; // ゲーム中かどうかのフラグ (Chronometer#mStartedフラグを取得できないため用意)</code></pre>
+<table><thead><tr><th>名前</th><th>初期値</th><th>覚えるもの</th></tr></thead><tbody>
+<tr><td>nowNo</td><td>1</td><td>今の問題番号。1問目から始める。</td></tr>
+<tr><td>correctNo</td><td>0</td><td>正解した回数。</td></tr>
+<tr><td>answer</td><td>0</td><td>今表示している問題の答え。出題時に更新する。</td></tr>
+<tr><td>elapsedTimeMillis</td><td>0</td><td>停止した時点までの時間（ミリ秒）。</td></tr>
+<tr><td>isPlaying</td><td>false</td><td>回答を受け付けるか。trueはゲーム中、falseはそれ以外。</td></tr>
+</tbody></table>
+
+<p><code>int</code> は整数、<code>long</code> は時間などの大きな整数、<code>boolean</code> は <code>true</code> / <code>false</code> を入れる型です。数値のフィールドは初期値を書かないと0になります。<code>private</code> は、このクラスの中で使う指定です。</p>
+<p>フィールドには <code>var</code> を使えません。A01で使った <code>var</code> は、メソッド内などのローカル変数に使います。</p>
+<h3>② 画面の部品を取得する</h3>
+<p><code>onCreate</code> の中で、ひな形の <code>return insets;</code> に続く <code>});</code> の下、<code>onCreate</code> を閉じる <code>}</code> より上に追加します。</p>
+<div class="code-head">追加 · onCreateの中</div>
+<pre id="code-views" tabindex="0"><code>var chronometer = (Chronometer) findViewById(R.id.chronometer);
+var txtMessage = (TextView) findViewById(R.id.txt_message);
+var btnStart = findViewById(R.id.btn_start);
+var btnStop = findViewById(R.id.btn_stop);
+var btnReset = findViewById(R.id.btn_reset);</code></pre>
+
+<p><code>(Chronometer)</code> と <code>(TextView)</code> は、それぞれの部品の機能を使う指定です。操作ボタンは、Viewが持つクリック登録と有効・無効の切り替えだけを使うため、ここではキャストしていません。</p>
+<p>Auto Importで <code>android.widget.Chronometer</code> と <code>android.widget.TextView</code> を追加します。赤字が残るときは名前にカーソルを置いて <kbd>⌥ Enter</kbd> で候補を確認します。</p>
+<div class="note"><p class="box-title">追加場所を指さして確認</p><p>5つのフィールドは <strong>onCreateの外</strong>、5つの部品を取得する行は <strong>onCreateの中</strong> です。Runして画面が変わらなくても成功です。</p></div>
+<div class="note"><p class="box-title">1コマ目はここまで</p><p>保存してからもう一度Runします。先生に <code>nowNo</code> と <code>correctNo</code> の役割を説明しましょう。次回も自分の <code>Documents/Android1/A02CalcGame</code> を開きます。</p></div>
+<div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-4"><span>フィールドとローカル変数の場所を区別し、5つの値の役割を表で確認した。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
+<div class="next"><a href="#step-5">次へ：開始・停止・リセット →</a></div>
+</section>
+<section id="step-5" aria-labelledby="title-5">
+<p class="step-meta">STEP 05 · 目安 25分</p><h2 id="title-5">開始・停止・リセット</h2>
+
+<p class="file">変更するファイル：MainActivity.java</p>
+<p>前回の画面をRunして確認してから始めます。<code>onCreate</code> の <code>var btnReset = ...;</code> の下に、次の3つの処理を<strong>順番に</strong>追加します。</p>
+<p><code>SystemClock</code> のimportは <code>android.os.SystemClock</code> です。</p>
+<h3>① START：開始する</h3>
+<div class="code-head">追加 · onCreateの中</div>
+<pre id="code-start" tabindex="0"><code>// Startボタンを押下した時の処理
+btnStart.setOnClickListener(v -&gt; {
+    chronometer.setBase(SystemClock.elapsedRealtime() - elapsedTimeMillis);
+    chronometer.start();
+    btnStop.setEnabled(true);
+    btnStart.setEnabled(false);
+    btnReset.setEnabled(false);
+    // 初回開始時だけ問題を作る。STOP後のSTARTでは現在の問題をそのまま再開する
+    if (answer == 0) {
+        startQuestion();
+    }
+    isPlaying = true;
+});</code></pre>
+
+<h3>② STOP：時間を覚えて止める</h3>
+<div class="code-head">追加 · STARTの処理の下</div>
+<pre id="code-stop" tabindex="0"><code>// Stopボタンを押下した時の処理
+btnStop.setOnClickListener(v -&gt; {
+    chronometer.stop();
+    elapsedTimeMillis = SystemClock.elapsedRealtime() - chronometer.getBase();
+    btnStop.setEnabled(false);
+    btnStart.setEnabled(true);
+    btnReset.setEnabled(true);
+    isPlaying = false;
+});</code></pre>
+
+<h3>③ RESET：最初の状態に戻す</h3>
+<div class="code-head">追加 · STOPの処理の下</div>
+<pre id="code-reset" tabindex="0"><code>// Resetボタンを押下した時の処理
+btnReset.setOnClickListener(v -&gt; {
+    chronometer.stop();
+    chronometer.setBase(SystemClock.elapsedRealtime());
+    btnStop.setEnabled(false);
+    btnStart.setEnabled(true);
+    btnReset.setEnabled(false);
+    txtMessage.setText(&quot;&quot;);
+    elapsedTimeMillis = 0;
+    nowNo = 1;
+    correctNo = 0;
+    answer = 0;
+    isPlaying = false;
+});</code></pre>
+
+<h3>時間をどう計算している？</h3>
+<p><code>SystemClock.elapsedRealtime()</code> は端末起動後の経過時間をミリ秒で返します。<code>Chronometer</code> は「現在の値 − 基準の値（base）」を表示します。<code>stop()</code> は表示の更新を止めるので、止めた時点の時間を自分で覚えます。</p>
+<div class="flow"><strong>停止時：経過時間 ＝ 現在 − base</strong><strong>再開時：base ＝ 現在 − 保存した経過時間</strong></div>
+<table><thead><tr><th>例（すべてミリ秒）</th><th>計算</th><th>結果</th></tr></thead><tbody>
+<tr><td>基準100,000で開始し、106,000でSTOP</td><td>106,000 − 100,000</td><td>6,000ミリ秒（6秒）を保存</td></tr>
+<tr><td>しばらく待ち、120,000でSTART</td><td>120,000 − 6,000</td><td>baseを114,000に変更し、6秒から再開</td></tr>
+</tbody></table>
+
+<p>1,000ミリ秒が1秒です。<code>setEnabled(true)</code> は押せる状態、<code>setEnabled(false)</code> は押せない状態にします。</p>
+<h3>Runで確かめる</h3>
+<ol><li>START → 数秒待つ → STOP。時間が止まります。</li><li>数秒待ってSTART。0からではなく、停止した時間から続きます。</li><li>STOP → RESET。表示が00:00に戻ります。</li></ol>
+<div class="note"><p class="box-title">ここではタイマーだけ</p><p>問題文の表示と数字の採点は、このあと追加します。ゲーム中はRESETが押せないので、先にSTOPを押します。</p></div>
+
+<p class="muted">仕様の確認：<a href="https://developer.android.com/reference/android/widget/Chronometer">Chronometer</a>、<a href="https://developer.android.com/reference/android/os/SystemClock">SystemClock（Android公式）</a>。</p>
+<div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-5"><span>START・STOP・再開・RESETを試し、停止していた時間が加算されないことを確認した。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
+<div class="next"><a href="#step-6">次へ：ランダムな問題を作る →</a></div>
+</section>
+<section id="step-6" aria-labelledby="title-6">
+<p class="step-meta">STEP 06 · 目安 15分</p><h2 id="title-6">ランダムな問題を作る</h2>
+
+<p class="file">変更するファイル：MainActivity.java</p>
+<p>出題の処理に <code>startQuestion</code> という名前を付けます。<strong>メソッド</strong>にすると、STARTしたときと回答したあとから、同じ処理を呼び出せます。</p>
+<h3>① onCreateの外にメソッドを追加</h3>
+<p>ファイルの末尾にある2つの <code>}</code> を見つけます。上は <code>onCreate</code>、下は <code>MainActivity</code> を閉じています。<strong>その2つの間</strong>に追加します。</p>
+<div class="code-head">追加 · onCreateの外、MainActivityの中</div>
+<pre id="code-question" tabindex="0"><code>/**
+ * 問題を開始する
+ */
+private void startQuestion() {
+    var randomNumber = ThreadLocalRandom.current().nextInt(1, 10);
+    // var randomNumber = RandomGenerator.getDefault().nextInt(1, 10); // API Level 35から利用可能. OSバージョンの分岐は使わない
+    answer = 10 - randomNumber;
+    var message = nowNo + &quot;問目: 10 - &quot; + randomNumber + &quot; =&quot;;
+    ((TextView) findViewById(R.id.txt_message)).setText(message);
+}</code></pre>
+
+<p><code>java.util.concurrent.ThreadLocalRandom</code> をimportします。<code>nextInt(1, 10)</code> は <strong>1以上、10未満</strong>の整数を選ぶので、1〜9が出ます。<code>answer = 10 - randomNumber;</code> で答えも1〜9になります。</p>
+<p><code>randomNumber</code> と <code>message</code> は、このメソッド内で使うローカル変数です。<code>answer</code> はあとでクリック処理からも読むためフィールドに保存します。</p>
+<h3>② STARTから呼び出す</h3>
+<p>STARTのクリック処理の末尾にある <code>isPlaying = true;</code> の<strong>直前</strong>に、次の1行を追加します。他のSTARTの行は残します。</p>
+<div class="code-head">追加 · STARTのisPlaying = true;の直前</div>
+<pre id="code-call-question" tabindex="0"><code>startQuestion();</code></pre>
+
+<h3>Runで確かめる</h3><p>STARTを押すと「1問目: 10 - 数字 =」が出ます。数字は画像と違って構いません。</p>
+<figure class="phone"><a href="images/app-playing.png"><img src="images/app-playing.png" width="1080" height="2424" loading="lazy" alt="ゲーム中のタイマーと1問目: 10 - 4 ="></a><figcaption>STARTで問題を表示。 <a href="images/app-playing.png">画像を大きく開く</a></figcaption></figure>
+<div class="note"><p class="box-title">STOPからの再開について</p><p>STOPでは問題文を残します。STARTを押すと <code>answer</code> が残っているため、<strong>現在の問題を変えずにタイマーだけ再開します</strong>。問題番号・正解数・計測時間も引き継ぎます。RESET後のSTARTでは <code>answer == 0</code> なので、新しい問題を出します。</p></div>
+<figure class="phone"><a href="images/app-paused.png"><img src="images/app-paused.png" width="1080" height="2424" loading="lazy" alt="STOP後。00:06と1問目が残り、STARTとRESETが有効"></a><figcaption>STOP後はSTARTとRESETが押せます。 <a href="images/app-paused.png">画像を大きく開く</a></figcaption></figure>
+
+<p class="muted">仕様の確認：<a href="https://developer.android.com/reference/java/util/concurrent/ThreadLocalRandom#nextInt(int,int)">ThreadLocalRandom.nextInt（Android公式）</a>。</p>
+<div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-6"><span>STARTで問題が出て、RESETで空欄に戻ることを確認した。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
+<div class="next"><a href="#step-7">次へ：9個のボタンに共通の処理 →</a></div>
+</section>
+<section id="step-7" aria-labelledby="title-7">
+<p class="step-meta">STEP 07 · 目安 15分</p><h2 id="title-7">9個のボタンに共通の処理</h2>
+
+<p class="file">変更するファイル：MainActivity.java</p>
+<p>9個のボタンに同じ処理を付けます。<strong>配列</strong>は、複数の値を順番にまとめたものです。<strong>拡張for文</strong>でidを1つずつ取り出します。</p>
+<p><code>onCreate</code> 内のRESETの処理を閉じる <code>});</code> の下に追加します。<code>startQuestion</code> メソッドの中には書きません。</p>
+<div class="code-head">追加 · onCreateの中、RESETの処理の下</div>
+<pre id="code-number-input" tabindex="0"><code>// 数字ボタンを押下した時の処理
+var numberButtonIds = new int[]{
+        R.id.btn1, R.id.btn2, R.id.btn3, R.id.btn4,
+        R.id.btn5, R.id.btn6, R.id.btn7, R.id.btn8, R.id.btn9
+};
+for (var id : numberButtonIds) {
+    var btn = (Button) findViewById(id);
+    btn.setOnClickListener(v -&gt; {
+        if (!isPlaying) {
+            Snackbar.make(v, &quot;ゲーム中のみボタンを押せます&quot;, Snackbar.LENGTH_SHORT).show();
+            return;
+        }
+        var number = Integer.parseInt(btn.getText().toString());
+        Snackbar.make(v, &quot;押した数字: &quot; + number, Snackbar.LENGTH_SHORT).show();
+    });
+}</code></pre>
+
+<p>importは <code>android.widget.Button</code> と <code>com.google.android.material.snackbar.Snackbar</code> です。</p>
+<table><thead><tr><th>コード</th><th>意味</th></tr></thead><tbody>
+<tr><td>new int[]{ ... }</td><td>9個のボタンのidを配列にまとめる。</td></tr>
+<tr><td>for (var id : numberButtonIds)</td><td>配列からidを順に取り出し、各ボタンにクリック処理を登録する。</td></tr>
+<tr><td>(Button) findViewById(id)</td><td>表示文字を読むため、Buttonとして扱う。</td></tr>
+<tr><td>!isPlaying</td><td>ゲーム中ではない、という条件。「!」は条件を反対にする。</td></tr>
+<tr><td>return;</td><td>このクリック処理をここで終え、下の行を実行しない。</td></tr>
+<tr><td>Integer.parseInt(btn.getText().toString())</td><td>押したボタンの文字、たとえば "6" を、整数の6に変える。</td></tr>
+</tbody></table>
+
+<p>for文は画面を作るときに実行されます。中のクリック処理は、<strong>実際にボタンを押したとき</strong>に実行されます。9個のボタンにはそれぞれ別の <code>btn</code> が対応します。</p>
+<h3>Runで確かめる</h3><ol><li>START前に数字を押すと「ゲーム中のみボタンを押せます」と出ます。</li><li>START後に「6」を押すと「押した数字: 6」と出ます。</li><li>STOP後にも案内が出て、回答を受け付けません。</li></ol>
+<div class="note"><p class="box-title">今のメッセージは入力確認用</p><p>このSTEPではまだ採点しません。「押した数字」のSnackbarは、次のSTEPで答え合わせに置き換えます。</p></div>
+<div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-7"><span>ゲーム中だけ数字を読み取れた。!isPlayingとreturnの役割を指させた。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
+<div class="next"><a href="#step-8">次へ：答え合わせと次の問題 →</a></div>
+</section>
+<section id="step-8" aria-labelledby="title-8">
+<p class="step-meta">STEP 08 · 目安 20分</p><h2 id="title-8">答え合わせと次の問題</h2>
+
+<p class="file">変更するファイル：MainActivity.java</p>
+<p>数字のクリック処理の中で、<code>var number = ...;</code> から「押した数字」を表示するSnackbarの行までを、次のコードに<strong>置き換えます</strong>。上の <code>if (!isPlaying)</code> と、下の <code>});</code> は残します。</p>
+<div class="code-head">置き換え · 数字のクリック処理の後半</div>
+<pre id="code-score" tabindex="0"><code>var number = Integer.parseInt(btn.getText().toString());
+if (number == answer) {
+    correctNo++;
+}
+Snackbar.make(v, &quot;正解数: &quot; + correctNo, Snackbar.LENGTH_SHORT).show();
+nowNo++;
+startQuestion();</code></pre>
+
+<p><code>==</code> は「等しいか比べる」記号です。<code>=</code> は代入です。<code>correctNo++</code> は正解数を1増やし、<code>nowNo++</code> は問題番号を1増やします。</p>
+<div class="flow"><strong>入力とanswerを比較</strong><span>→</span><strong>正解ならcorrectNo++</strong><span>→</span><strong>nowNo++</strong><span>→</span><strong>次の出題</strong></div>
+<p>問題番号を増やす行は <code>if (number == answer)</code> の<strong>外</strong>です。不正解でも次の問題へ進みます。正誤を比べてから <code>startQuestion()</code> を呼ぶ順番を守ります。</p>
+<h3>Runで確かめる</h3><ol><li>STARTし、正しい答えを1回押します。「正解数: 1」が出て2問目になります。</li><li>2問目で間違った数字を押します。「正解数: 1」のままで3問目になります。</li><li>STOP → RESETで問題文を消します。STARTして、再び1問目から始まることを確認します。</li></ol>
+<div class="note"><p class="box-title">このSTEPは採点の途中確認</p><p>この段階では問題数の上限がなく、回答するたびに次の問題になります。確認は2〜3問で止めましょう。次のSTEPで10問終了の処理を入れ、確認用Snackbarを取り除きます。</p></div>
+<div class="note"><p class="box-title">2コマ目はここまで</p><p>STOPして保存します。次回はRunして、正解数と問題番号の増え方を確かめてからSTEP 9へ進みます。</p></div>
+<div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-8"><span>正解なら正解数が増え、不正解でも問題番号が進むことを確認した。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
+<div class="next"><a href="#step-9">次へ：10問で終了して結果を表示 →</a></div>
+</section>
+<section id="step-9" aria-labelledby="title-9">
+<p class="step-meta">STEP 09 · 目安 25分</p><h2 id="title-9">10問で終了して結果を表示</h2>
+
+<p class="file">変更するファイル：MainActivity.java</p>
+<p>最後に、10問目を答えたらタイマーを止めて結果を表示します。変更範囲を間違えないよう、<strong>「数字ボタンを押下した時の処理」のコメントからfor文の最後の <code>}</code> まで</strong>を、次のコードに置き換えます。START・STOP・RESETと、onCreateの閉じかっこは残します。</p>
+<div class="code-head">置き換え · 数字ボタンの登録処理全体</div>
+<pre id="code-number-final" tabindex="0"><code>// 数字ボタンを押下した時の処理
+var numberButtonIds = new int[]{
+        R.id.btn1, R.id.btn2, R.id.btn3, R.id.btn4,
+        R.id.btn5, R.id.btn6, R.id.btn7, R.id.btn8, R.id.btn9
+};
+for (var id : numberButtonIds) {
+    var btn = (Button) findViewById(id);
+    btn.setOnClickListener(v -&gt; {
+        if (!isPlaying) {
+            Snackbar.make(v, &quot;ゲーム中のみボタンを押せます&quot;, Snackbar.LENGTH_SHORT).show();
+            return;
+        }
+        var number = Integer.parseInt(btn.getText().toString());
+        if (number == answer) {
+            correctNo++;
+        }
+        if (nowNo &lt;= 9) {
+            nowNo++;
+            startQuestion();
+        } else {
+            chronometer.stop();
+            elapsedTimeMillis = SystemClock.elapsedRealtime() - chronometer.getBase();
+            var timeSec = TimeUnit.MILLISECONDS.toSeconds(elapsedTimeMillis);
+            var message = correctNo + &quot;問正解しました！時間は&quot; + timeSec + &quot;秒です&quot;;
+            txtMessage.setText(message);
+            btnReset.setEnabled(true);
+            btnStart.setEnabled(false);
+            btnStop.setEnabled(false);
+            isPlaying = false;
+        }
+    });
+}</code></pre>
+
+<p>追加のimportは <code>java.util.concurrent.TimeUnit</code> です。</p>
+<h3>「nowNo &lt;= 9」でも10問ある理由</h3>
+<table><thead><tr><th>回答した問題</th><th>条件の結果</th><th>次の処理</th></tr></thead><tbody>
+<tr><td>1〜8問目</td><td>true</td><td>番号を増やして次の問題を出す。</td></tr>
+<tr><td>9問目</td><td>true（9 &lt;= 9）</td><td>nowNoを10にし、10問目を出す。</td></tr>
+<tr><td>10問目</td><td>false（10 &lt;= 9ではない）</td><td>elseに入り、結果を出す。</td></tr>
+</tbody></table>
+
+<p>最初が1問目なので、合計<strong>10問</strong>です。正解数を増やす処理はこの条件より前にあるため、10問目の正解も数えます。結果の正解数は0〜10です。</p>
+<p><code>TimeUnit.MILLISECONDS.toSeconds(elapsedTimeMillis)</code> はミリ秒を秒に変えます。たとえば3,999ミリ秒は3秒です。結果の表示後は <code>isPlaying = false</code> にし、RESETだけを押せる状態にします。</p>
+<div class="phones"><figure><a href="images/app-result.png"><img src="images/app-result.png" width="1080" height="2424" loading="lazy" alt="ゲーム終了。0問正解しました！時間は3秒ですと表示され、RESETだけ有効"></a><figcaption>結果の例。正解数と時間はプレイごとに変わります。 <a href="images/app-result.png">画像を大きく開く</a></figcaption></figure>
+<figure><a href="images/app-snackbar.png"><img src="images/app-snackbar.png" width="1080" height="2424" loading="lazy" alt="終了後に数字を押し、画面下部にゲーム中のみボタンを押せますというSnackbarが出ている"></a><figcaption>終了後の数字入力は案内だけ表示します。 <a href="images/app-snackbar.png">画像を大きく開く</a></figcaption></figure>
+</div>
+<h3>Runで確かめる</h3><ol><li>STARTし、問題番号を見ながら9回答します。まだ結果にはならず「10問目」が出ます。</li><li>10回目の回答で、正解数と時間が出ます。</li><li>数字をもう一度押します。案内が出て、結果は変わりません。</li><li>RESET → STARTで、1問目と00:00から始まります。</li></ol>
+<div class="note"><p class="box-title">結果と停止を区別する</p><p>STOPは再開できます。10問回答後はSTARTが無効です。もう一度遊ぶときはRESETを押します。</p></div>
+<div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-9"><span>9問目のあとに10問目が出て、10回答で結果になり、RESETして遊び直せた。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
+<div class="next"><a href="#step-10">次へ：ミニ練習 →</a></div>
+</section>
+<section id="step-10" aria-labelledby="title-10">
+<p class="step-meta">STEP 10 · 目安 20分</p><h2 id="title-10">ミニ練習</h2>
+
+<p>まず結果が出るところまで完成させます。そのあと、次の小変更を1つずつ試します。<strong>予想 → 変更 → Run → 説明 → 元に戻す</strong>の順で行います。</p>
+<div class="task"><p class="box-title">練習1：5問で終わらせる</p><p>終了判定の <code>nowNo &lt;= 9</code> を、どの値に変えると5問で終わるでしょうか。4回目の回答後と5回目の回答後を確かめます。</p><details><summary>試したあとに答えを見る</summary><p><code>nowNo &lt;= 4</code> にします。4問目のあとに5問目を出し、5問目を答えるとelseへ進みます。確認後は9に戻します。</p></details></div>
+<div class="task"><p class="box-title">練習2：問題を固定して採点を調べる</p><p><code>startQuestion</code> の乱数を作る1行を <code>var randomNumber = 4;</code> に変えます。答えは毎回6です。10回とも6なら10問正解、10回とも1なら0問正解になるか確認します。</p><details><summary>試したあとに確認する</summary><p>6を3回、そのあと1を7回押すと、3問正解になります。各回の間にはRESET → STARTが必要です。確認後は <code>ThreadLocalRandom.current().nextInt(1, 10)</code> に戻します。</p></details></div>
+<div class="task"><p class="box-title">練習3：状態を説明する</p><p>STOP後に数字を押したとき、正解数を増やさないのはどの行ですか。「押したら無効」になるまでの流れを指さしましょう。</p><details><summary>説明したあとに答えを見る</summary><p>STOPで <code>isPlaying = false</code> にします。数字の処理は <code>if (!isPlaying)</code> に入り、Snackbarを出し、<code>return</code> で終了します。採点の行には進みません。</p></details></div>
+<div class="note"><p class="box-title">完成版に戻してから確認</p><p>練習1の9、練習2の乱数の行を元に戻します。数字ボタンの <code>android:text</code> は1〜9のままにします。文字に変えると <code>Integer.parseInt</code> で数値に変換できなくなります。</p></div>
+<div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-10"><span>5問版と固定問題を試し、変更理由を説明してから完成版の値に戻した。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
+<div class="next"><a href="#step-11">次へ：完成とふり返り →</a></div>
+</section>
+<section id="step-11" aria-labelledby="title-11">
+<p class="step-meta">STEP 11 · 目安 15分</p><h2 id="title-11">完成とふり返り</h2>
+
+<h3>完成チェック</h3>
+<table><thead><tr><th>操作</th><th>確認する結果</th></tr></thead><tbody>
+<tr><td>起動直後</td><td>00:00、問題文は空欄、STARTだけ有効（数字以外）。</td></tr>
+<tr><td>START</td><td>1問目が出て時間が動く。STOPだけ有効。</td></tr>
+<tr><td>正解・不正解</td><td>いずれも次の問題へ。正解したときだけ得点が増える。</td></tr>
+<tr><td>STOP → 待つ → START</td><td>時間・正解数・問題番号を引き継ぐ。停止中の時間は加算しない。同じ番号で再出題。</td></tr>
+<tr><td>STOP → RESET</td><td>00:00、空欄、1問目・正解数0の状態に戻る。</td></tr>
+<tr><td>9回答 → 10回答</td><td>9回答後に10問目。10回答後に結果。11問目は出ない。</td></tr>
+<tr><td>終了後に数字を押す</td><td>案内が出て、正解数と時間が変わらない。</td></tr>
+<tr><td>結果 → RESET → START</td><td>もう一度最初から遊べる。</td></tr>
+</tbody></table>
+
+<h3>自分の言葉でふり返る</h3><ol><li><code>nowNo</code> と <code>correctNo</code> は何が違いますか。</li><li>STOPの時間から続けるために、どの値を保存しましたか。</li><li>9個の数字ボタンに同じ処理を付けたのはどこですか。</li><li>なぜ <code>nowNo &lt;= 9</code> で10問になるのでしょうか。</li></ol>
+<h3>保存と提出</h3><p>自分の <code>Documents/Android1/A02CalcGame</code> を保存します。先生からAPK提出の指示がある場合は、<a href="../common/apk.html">共通資料：提出用APKの作り方</a>に進みます。ファイル名は <code>学籍番号_A02CalcGame.apk</code> です。提出先は先生の案内に従います。</p>
+<p>教材のチェックは自分用です。先生への送信はしません。印刷は <kbd>⌘ P</kbd> で行えます。</p>
+<div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-11"><span>完成チェックを終え、フィールド・タイマー・繰り返し・終了判定を説明できた。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
+</section>
+<section id="help"><h2>困ったとき</h2><table><thead><tr><th>困ったこと</th><th>最初に確認する場所</th></tr></thead><tbody>
+<tr><td>R.idが赤い</td><td>XMLのidが一致するか確認。btn1とbtn_1を混ぜない。最初のXMLエラーを直してビルドする。</td></tr>
+<tr><td>起動時に終了する</td><td>setContentViewがfindViewByIdより先か、id/mainを残したかを確認。Logcatで最初の例外を見る。</td></tr>
+<tr><td>cannot find symbol</td><td>importの選択と、変数の宣言位置を確認。startQuestionはonCreateの外、MainActivityの中。</td></tr>
+<tr><td>変数をlambdaで変更できない</td><td>correctNoなどをonCreate内で宣言していないか確認。STEP 4の5つはフィールドにする。</td></tr>
+<tr><td>STOP後も数字を採点する</td><td>STOPのisPlaying = falseと、数字の処理の!isPlaying / returnを確認。</td></tr>
+<tr><td>最初から問題文が見えない</td><td>tools:textはプレビュー専用。STEP 6以降でSTARTを押すと表示する。</td></tr>
+<tr><td>問題が終わらない</td><td>STEP 8までは途中段階。STEP 9で数字の処理全体を置き換える。</td></tr>
+<tr><td>10問目より前に終わる</td><td>問題番号が1から始まるか、nowNo &lt;= 9か、1タップで1回だけ増やしているかを確認。</td></tr>
+<tr><td>同じ問題が続く</td><td>乱数なので同じ数字が続くこともある。</td></tr>
+<tr><td>Snackbarが出ない</td><td>show()とimportを確認。ゲーム中は完成版の確認メッセージは出ない。</td></tr>
+</tbody></table>
+
+<p><a href="../common/logcat.html">共通資料：Logcat</a>を使います。今回のパッケージは <code>jp.ac.jec.a02calcgame</code> です。エラーを見るときは <code>package:jp.ac.jec.a02calcgame level:ERROR</code> にします。A01用のパッケージ名や <code>tag:MainActivity</code> を残さないようにします。</p>
+<p>質問では「STEP番号・編集したファイル・最初の赤い行・押した順番」を伝えます。</p></section>
+<section id="sample-project"><h2>完成プロジェクトを開く</h2>
+<p>完成版は最初の授業から使える見本です。<a class="button-link" href="downloads/A02CalcGame.zip" download>完成プロジェクト A02CalcGame.zip</a></p>
+<ol><li>ZIPを展開します。中に <code>A02CalcGame</code> フォルダができます。</li><li>見本は <code>/Users/ユーザ名/Documents/Android1/samples/A02CalcGame</code> に置きます。</li><li>Android Studioの <strong>Open</strong> で、<code>settings.gradle.kts</code> と <code>app</code> が入った <code>A02CalcGame</code> フォルダを選びます。</li><li>Sync後にRunして動きを確認します。授業の入力に戻るときは自分の <code>Documents/Android1/A02CalcGame</code> を開きます。</li></ol>
+<p>両方とも同じプロジェクト名なので、ウィンドウの保存先を確認しましょう。見本と自分のアプリは同じパッケージ名のため、端末上では同じアプリを更新します。切り替えるときは、確認したい方のプロジェクトからRunします。</p>
+<details><summary>完成したMainActivity.javaで照合する</summary><div class="code-head">完成版 · MainActivity.java</div>
+<pre id="code-complete-java" tabindex="0"><code>package jp.ac.jec.a02calcgame;
+
+import android.os.Bundle;
+import android.os.SystemClock;
+import android.widget.Button;
+import android.widget.Chronometer;
+import android.widget.TextView;
+
+import androidx.activity.EdgeToEdge;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.graphics.Insets;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowInsetsCompat;
+
+import com.google.android.material.snackbar.Snackbar;
+
+import java.util.concurrent.ThreadLocalRandom;
+import java.util.concurrent.TimeUnit;
+
+public class MainActivity extends AppCompatActivity {
+    private int nowNo = 1; // 今の問題が何問目かのカウント数
+    private int correctNo; // 正解数
+    private int answer; // 計算結果の答え
+    private long elapsedTimeMillis; // タイマーの経過時間(ms)
+    private boolean isPlaying = false; // ゲーム中かどうかのフラグ (Chronometer#mStartedフラグを取得できないため用意)
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        EdgeToEdge.enable(this);
+        setContentView(R.layout.activity_main);
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -&gt; {
+            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
+            return insets;
+        });
+
+        // Viewのインスタンスを取得する
+        var chronometer = (Chronometer) findViewById(R.id.chronometer);
+        var txtMessage = (TextView) findViewById(R.id.txt_message);
+        var btnStart = findViewById(R.id.btn_start);
+        var btnStop = findViewById(R.id.btn_stop);
+        var btnReset = findViewById(R.id.btn_reset);
+
+        // Startボタンを押下した時の処理
+        btnStart.setOnClickListener(v -&gt; {
+            chronometer.setBase(SystemClock.elapsedRealtime() - elapsedTimeMillis);
+            chronometer.start();
+            btnStop.setEnabled(true);
+            btnStart.setEnabled(false);
+            btnReset.setEnabled(false);
+            // 初回開始時だけ問題を作る。STOP後のSTARTでは現在の問題をそのまま再開する
+            if (answer == 0) {
+                startQuestion();
+            }
+            isPlaying = true;
+        });
+
+        // Stopボタンを押下した時の処理
+        btnStop.setOnClickListener(v -&gt; {
+            chronometer.stop();
+            elapsedTimeMillis = SystemClock.elapsedRealtime() - chronometer.getBase();
+            btnStop.setEnabled(false);
+            btnStart.setEnabled(true);
+            btnReset.setEnabled(true);
+            isPlaying = false;
+        });
+
+        // Resetボタンを押下した時の処理
+        btnReset.setOnClickListener(v -&gt; {
+            chronometer.stop();
+            chronometer.setBase(SystemClock.elapsedRealtime());
+            btnStop.setEnabled(false);
+            btnStart.setEnabled(true);
+            btnReset.setEnabled(false);
+            txtMessage.setText(&quot;&quot;);
+            elapsedTimeMillis = 0;
+            nowNo = 1;
+            correctNo = 0;
+            answer = 0;
+            isPlaying = false;
+        });
+
+        // 数字ボタンを押下した時の処理
+        var numberButtonIds = new int[]{
+                R.id.btn1, R.id.btn2, R.id.btn3, R.id.btn4,
+                R.id.btn5, R.id.btn6, R.id.btn7, R.id.btn8, R.id.btn9
+        };
+        for (var id : numberButtonIds) {
+            var btn = (Button) findViewById(id);
+            btn.setOnClickListener(v -&gt; {
+                if (!isPlaying) {
+                    Snackbar.make(v, &quot;ゲーム中のみボタンを押せます&quot;, Snackbar.LENGTH_SHORT).show();
+                    return;
+                }
+                var number = Integer.parseInt(btn.getText().toString());
+                if (number == answer) {
+                    correctNo++;
+                }
+                if (nowNo &lt;= 9) {
+                    nowNo++;
+                    startQuestion();
+                } else {
+                    chronometer.stop();
+                    elapsedTimeMillis = SystemClock.elapsedRealtime() - chronometer.getBase();
+                    var timeSec = TimeUnit.MILLISECONDS.toSeconds(elapsedTimeMillis);
+                    var message = correctNo + &quot;問正解しました！時間は&quot; + timeSec + &quot;秒です&quot;;
+                    txtMessage.setText(message);
+                    btnReset.setEnabled(true);
+                    btnStart.setEnabled(false);
+                    btnStop.setEnabled(false);
+                    isPlaying = false;
+                }
+            });
+        }
+    }
+
+    /**
+     * 問題を開始する
+     */
+    private void startQuestion() {
+        var randomNumber = ThreadLocalRandom.current().nextInt(1, 10);
+        // var randomNumber = RandomGenerator.getDefault().nextInt(1, 10); // API Level 35から利用可能. OSバージョンの分岐は使わない
+        answer = 10 - randomNumber;
+        var message = nowNo + &quot;問目: 10 - &quot; + randomNumber + &quot; =&quot;;
+        ((TextView) findViewById(R.id.txt_message)).setText(message);
+    }
+}</code></pre>
+</details>
+<details><summary>完成したactivity_main.xmlで照合する</summary><div class="code-head">完成版 · activity_main.xml</div>
+<pre id="code-complete-xml" tabindex="0"><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;LinearLayout xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
+    xmlns:tools=&quot;http://schemas.android.com/tools&quot;
+    android:id=&quot;@+id/main&quot;
+    android:layout_width=&quot;match_parent&quot;
+    android:layout_height=&quot;match_parent&quot;
+    android:gravity=&quot;center_horizontal&quot;
+    android:orientation=&quot;vertical&quot;
+    tools:context=&quot;.MainActivity&quot;&gt;
+
+    &lt;Chronometer
+        android:id=&quot;@+id/chronometer&quot;
+        android:layout_width=&quot;wrap_content&quot;
+        android:layout_height=&quot;wrap_content&quot; /&gt;
+
+    &lt;Button
+        android:id=&quot;@+id/btn_start&quot;
+        android:layout_width=&quot;match_parent&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:layout_marginTop=&quot;12dp&quot;
+        android:text=&quot;START&quot;
+        android:textSize=&quot;16sp&quot; /&gt;
+
+    &lt;Button
+        android:id=&quot;@+id/btn_stop&quot;
+        android:layout_width=&quot;match_parent&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:layout_marginTop=&quot;12dp&quot;
+        android:enabled=&quot;false&quot;
+        android:text=&quot;STOP&quot; /&gt;
+
+    &lt;Button
+        android:id=&quot;@+id/btn_reset&quot;
+        android:layout_width=&quot;match_parent&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:layout_marginTop=&quot;12dp&quot;
+        android:enabled=&quot;false&quot;
+        android:text=&quot;RESET&quot; /&gt;
+
+    &lt;TextView
+        android:id=&quot;@+id/txt_message&quot;
+        android:layout_width=&quot;wrap_content&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:layout_marginTop=&quot;12dp&quot;
+        tools:text=&quot;1問目: 10 - 3 =&quot; /&gt;
+
+    &lt;LinearLayout
+        android:layout_width=&quot;wrap_content&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:layout_marginTop=&quot;12dp&quot;
+        android:orientation=&quot;horizontal&quot;&gt;
+
+        &lt;Button
+            android:id=&quot;@+id/btn1&quot;
+            android:layout_width=&quot;wrap_content&quot;
+            android:layout_height=&quot;wrap_content&quot;
+            android:text=&quot;1&quot;
+            tools:ignore=&quot;ButtonStyle&quot; /&gt;
+
+        &lt;Button
+            android:id=&quot;@+id/btn2&quot;
+            android:layout_width=&quot;wrap_content&quot;
+            android:layout_height=&quot;wrap_content&quot;
+            android:layout_marginHorizontal=&quot;8dp&quot;
+            android:text=&quot;2&quot;
+            tools:ignore=&quot;ButtonStyle&quot; /&gt;
+
+        &lt;Button
+            android:id=&quot;@+id/btn3&quot;
+            android:layout_width=&quot;wrap_content&quot;
+            android:layout_height=&quot;wrap_content&quot;
+            android:text=&quot;3&quot;
+            tools:ignore=&quot;ButtonStyle&quot; /&gt;
+
+    &lt;/LinearLayout&gt;
+
+    &lt;LinearLayout
+        android:layout_width=&quot;wrap_content&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:layout_marginTop=&quot;12dp&quot;
+        android:orientation=&quot;horizontal&quot;&gt;
+
+        &lt;Button
+            android:id=&quot;@+id/btn4&quot;
+            android:layout_width=&quot;wrap_content&quot;
+            android:layout_height=&quot;wrap_content&quot;
+            android:text=&quot;4&quot;
+            tools:ignore=&quot;ButtonStyle&quot; /&gt;
+
+        &lt;Button
+            android:id=&quot;@+id/btn5&quot;
+            android:layout_width=&quot;wrap_content&quot;
+            android:layout_height=&quot;wrap_content&quot;
+            android:layout_marginHorizontal=&quot;8dp&quot;
+            android:text=&quot;5&quot;
+            tools:ignore=&quot;ButtonStyle&quot; /&gt;
+
+        &lt;Button
+            android:id=&quot;@+id/btn6&quot;
+            android:layout_width=&quot;wrap_content&quot;
+            android:layout_height=&quot;wrap_content&quot;
+            android:text=&quot;6&quot;
+            tools:ignore=&quot;ButtonStyle&quot; /&gt;
+
+    &lt;/LinearLayout&gt;
+
+    &lt;LinearLayout
+        android:layout_width=&quot;wrap_content&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:layout_marginTop=&quot;12dp&quot;
+        android:orientation=&quot;horizontal&quot;&gt;
+
+        &lt;Button
+            android:id=&quot;@+id/btn7&quot;
+            android:layout_width=&quot;wrap_content&quot;
+            android:layout_height=&quot;wrap_content&quot;
+            android:text=&quot;7&quot;
+            tools:ignore=&quot;ButtonStyle&quot; /&gt;
+
+        &lt;Button
+            android:id=&quot;@+id/btn8&quot;
+            android:layout_width=&quot;wrap_content&quot;
+            android:layout_height=&quot;wrap_content&quot;
+            android:layout_marginHorizontal=&quot;8dp&quot;
+            android:text=&quot;8&quot;
+            tools:ignore=&quot;ButtonStyle&quot; /&gt;
+
+        &lt;Button
+            android:id=&quot;@+id/btn9&quot;
+            android:layout_width=&quot;wrap_content&quot;
+            android:layout_height=&quot;wrap_content&quot;
+            android:text=&quot;9&quot;
+            tools:ignore=&quot;ButtonStyle&quot; /&gt;
+
+    &lt;/LinearLayout&gt;
+&lt;/LinearLayout&gt;</code></pre>
+</details></section>
+<footer class="footer"><p>Androidプログラミング1 · A02CalcGame / 本文・画像・操作機能はオフラインで利用できます。Android Studioの初回準備・ビルドと公式資料の閲覧にはネット接続が必要です。</p><p>画像は授業用の提供資料を使用。問題の数字・時間・正解数は操作によって変わります。</p></footer>
+<div class="sr-only" role="status" aria-live="polite" data-copy-status></div></main></div></body></html>

@@ -2,7 +2,7 @@ package jp.ac.jec.a02calcgame;
 
 import android.os.Bundle;
 import android.os.SystemClock;
-import android.widget.Button;
+import java.util.concurrent.ThreadLocalRandom;
 import android.widget.Chronometer;
 import android.widget.TextView;
 
@@ -12,17 +12,13 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-import com.google.android.material.snackbar.Snackbar;
-
-import java.util.concurrent.ThreadLocalRandom;
-import java.util.concurrent.TimeUnit;
-
 public class MainActivity extends AppCompatActivity {
     private int nowNo = 1; // 今の問題が何問目かのカウント数
     private int correctNo; // 正解数
     private int answer; // 計算結果の答え
     private long elapsedTimeMillis; // タイマーの経過時間(ms)
     private boolean isPlaying = false; // ゲーム中かどうかのフラグ (Chronometer#mStartedフラグを取得できないため用意)
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,7 +31,6 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
 
-        // Viewのインスタンスを取得する
         var chronometer = (Chronometer) findViewById(R.id.chronometer);
         var txtMessage = (TextView) findViewById(R.id.txt_message);
         var btnStart = findViewById(R.id.btn_start);
@@ -80,39 +75,6 @@ public class MainActivity extends AppCompatActivity {
             answer = 0;
             isPlaying = false;
         });
-
-        // 数字ボタンを押下した時の処理
-        var numberButtonIds = new int[]{
-                R.id.btn1, R.id.btn2, R.id.btn3, R.id.btn4,
-                R.id.btn5, R.id.btn6, R.id.btn7, R.id.btn8, R.id.btn9
-        };
-        for (var id : numberButtonIds) {
-            var btn = (Button) findViewById(id);
-            btn.setOnClickListener(v -> {
-                if (!isPlaying) {
-                    Snackbar.make(v, "ゲーム中のみボタンを押せます", Snackbar.LENGTH_SHORT).show();
-                    return;
-                }
-                var number = Integer.parseInt(btn.getText().toString());
-                if (number == answer) {
-                    correctNo++;
-                }
-                if (nowNo <= 9) {
-                    nowNo++;
-                    startQuestion();
-                } else {
-                    chronometer.stop();
-                    elapsedTimeMillis = SystemClock.elapsedRealtime() - chronometer.getBase();
-                    var timeSec = TimeUnit.MILLISECONDS.toSeconds(elapsedTimeMillis);
-                    var message = correctNo + "問正解しました！時間は" + timeSec + "秒です";
-                    txtMessage.setText(message);
-                    btnReset.setEnabled(true);
-                    btnStart.setEnabled(false);
-                    btnStop.setEnabled(false);
-                    isPlaying = false;
-                }
-            });
-        }
     }
 
     /**

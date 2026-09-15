@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="ja">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>教員用ガイド CalcGame | Androidプログラミング1</title>
+<link rel="stylesheet" href="../../docs/assets/textbook.css"><script src="../../docs/assets/textbook.js" defer></script></head>
+<body class="plain"><a class="skip" href="#main">本文へ移動</a>
+<header class="topbar"><span class="brand">JEC / Androidプログラミング1</span><a href="../../docs/calc-game/index.html">CalcGameの教科書へ戻る</a></header>
+<main id="main">
+<div class="hero"><p class="eyebrow">ANDROID PROGRAMMING 1 / 授業サポート</p><h1>教員用ガイド<br>CalcGame</h1><p class="lede">タイマー、フィールド、乱数、配列、採点を、学生が動作確認しながら積み上げる進行案です。90分×3コマを目安に調整します。</p></div>
+<section><h2>1. 授業前の準備</h2>
+<ul><li>学生用の入口は <code>docs/calc-game/index.html</code> です。完成版ZIPと画像を含む教材を、構成を保って配布します。</li><li>Android Studio Panda 2 | 2025.3.2、Java / Empty Views Activity、Minimum SDK API 31を確認します。作成先は <code>Documents/Android1/A02CalcGame</code> です。</li><li>指定エミュレータ <strong>jec_26cm_android1_Pixel 9a</strong> を縦向きで使います。横向きでは画面下部が隠れるため、今回の保証範囲に含めません。</li><li>完成版は <code>Documents/Android1/samples/A02CalcGame</code> に置きます。学生の作成先と混同しないよう、Run前に保存先を確認します。</li><li>教員用の途中コードは <code>teacher/calc-game/code</code> にあります。学生には配布せず、現在のSTEPの照合に使います。</li></ul>
+<div class="note"><p class="box-title">今回の仕様上の制約</p><p>STOP後のSTARTは、現在の問題・問題番号・正解数を保ったままタイマーだけを再開します。各単元では画面回転時のデータ保持を扱いません。回転などでActivityが再生成された場合はゲームをやり直します。この観点は別単元の演習アプリで検証します。</p></div>
+</section>
+<section><h2>2. 90分×3コマの進行</h2>
+<table><thead><tr><th>コマ</th><th>時間配分</th><th>終了時の確認</th></tr></thead><tbody>
+<tr><td>1コマ目</td><td>STEP 0：5分、STEP 1：15分、STEP 2：20分、STEP 3：20分、STEP 4：15分、再実行：10分、ふり返り：5分</td><td>画面を作り、5フィールドの場所と役割を説明できる。</td></tr>
+<tr><td>2コマ目</td><td>再開：5分、STEP 5：25分、STEP 6：15分、STEP 7：15分、STEP 8：20分、確認：10分</td><td>STOP/START、乱数、配列、正解数の変化を実演できる。</td></tr>
+<tr><td>3コマ目</td><td>STEP 9：25分、STEP 10：20分、STEP 11：15分、APK・個別支援：30分</td><td>10問で終了し、変更を元に戻して完成版を説明できる。</td></tr>
+</tbody></table>
+<p>最初の2コマは、各STEPの緑の確認欄で全員を待ちます。遅れた学生には該当する参照コードを見せ、修正後に必ずRunまで行います。</p>
+</section>
+<section><h2>3. STEPごとの照合コード</h2>
+<table><thead><tr><th>到達地点</th><th>参照ファイル</th><th>教員の確認ポイント</th></tr></thead><tbody>
+<tr><td>出発点</td><td><a href="code/01-MainActivity.java">01-MainActivity.java</a> / <a href="code/01-activity_main.xml">01-activity_main.xml</a></td><td>Hello World!をRunできる。</td></tr>
+<tr><td>上半分の画面</td><td><a href="code/02-activity_main.xml">02-activity_main.xml</a></td><td>Chronometer、START/STOP/RESET、txt_messageがある。</td></tr>
+<tr><td>数字の配置</td><td><a href="code/03-activity_main.xml">03-activity_main.xml</a></td><td>btn1〜btn9が3列×3行。</td></tr>
+<tr><td>フィールド・View取得</td><td><a href="code/04-MainActivity.java">04-MainActivity.java</a></td><td>フィールドはonCreateの外、View取得は中。</td></tr>
+<tr><td>タイマー</td><td><a href="code/05-MainActivity.java">05-MainActivity.java</a></td><td>elapsedTimeMillisでSTOP時点を保持する。</td></tr>
+<tr><td>問題出題</td><td><a href="code/06-MainActivity.java">06-MainActivity.java</a></td><td>1〜9の乱数とanswerをstartQuestionで設定する。</td></tr>
+<tr><td>入力受付</td><td><a href="code/07-MainActivity.java">07-MainActivity.java</a></td><td>配列とfor文で9個に登録し、ゲーム外はreturnする。</td></tr>
+<tr><td>採点途中</td><td><a href="code/08-MainActivity.java">08-MainActivity.java</a></td><td>answer比較、correctNo++、nowNo++の順。</td></tr>
+<tr><td>完成</td><td><a href="code/09-MainActivity.java">09-MainActivity.java</a></td><td>10問目で停止・結果表示・isPlaying=false。</td></tr>
+</tbody></table>
+</section>
+<section><h2>4. 理解確認と支援</h2>
+<table><thead><tr><th>問い</th><th>期待する行動・答え</th></tr></thead><tbody>
+<tr><td>STOP後にSTARTすると問題が変わらないのはなぜ？</td><td>START処理の <code>if (answer == 0)</code> を示し、answerが残っていると出題しないと説明する。</td></tr>
+<tr><td>なぜ数字ボタンを配列にした？</td><td>9個に同じリスナーをfor文で登録するため、と答える。</td></tr>
+<tr><td>10問目はどの分岐？</td><td><code>nowNo &lt;= 9</code> がfalseになりelseで結果を表示すると示す。</td></tr>
+<tr><td>回転したら？</td><td>この単元では状態を保存しないためゲームをやり直す、と理解している。</td></tr>
+</tbody></table>
+<p>エラー時は「STEP番号・ファイル・最初の赤い行・操作順」を聞きます。A02のLogcat検索は <code>package:jp.ac.jec.a02calcgame level:ERROR</code> です。</p>
+</section>
+<section><h2>5. 到達度と提出</h2>
+<ul><li>学生自身がSTARTから10問回答し、結果を表示できる。</li><li>正解数・問題番号・経過時間のフィールドを1つずつ指させる。</li><li>STOP/STARTで現問題を維持し、RESETで初期状態へ戻ることを実演できる。</li><li>STEP 10の変更を試したあと、完成版の値に戻してRunする。</li><li>提出する場合は <a href="../../docs/common/apk.html">共通資料：APKの作り方</a>に従い、先生が指定した場所へ <code>学籍番号_A02CalcGame.apk</code> を提出する。</li></ul>
+</section>
+</main></body></html>
