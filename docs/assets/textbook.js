@@ -1,7 +1,7 @@
 // 本文はJavaScriptなしでも読めます。記録はこのブラウザ内だけに保存します。
 (() => {
   const checks = [...document.querySelectorAll('[data-check]')];
-  const key = 'jec-android1-helloandroid-v1';
+  const key = document.body.dataset.progressKey || 'jec-android1-helloandroid-v1';
   let saved = {};
   try { saved = JSON.parse(localStorage.getItem(key) || '{}') || {}; } catch { /* 保存できない環境でも利用可能 */ }
   const update = () => {
