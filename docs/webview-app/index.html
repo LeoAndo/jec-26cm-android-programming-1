@@ -28,8 +28,8 @@
 
 <p>これまでの単元では、ボタンや画像など、アプリの中に用意した部品を表示しました。今回は <strong>WebView（ウェブビュー）</strong> を使い、<strong>インターネットのWebページをアプリの中に表示する</strong>アプリを作ります。右上のメニューでサイトを切り替え、チェックボックスでJavaScriptのON/OFFを切り替えます。</p>
 <div class="flow" aria-label="アプリの使い方"><strong>⋮ でサイトを選ぶ</strong><span>→</span><strong>ページを表示</strong><span>→</span><strong>リンクで移動</strong><span>→</span><strong>戻る操作で前のページへ</strong></div>
-<div class="phones"><figure><a href="images/app-initial.png"><img src="images/app-initial.png" width="1080" height="2424" loading="lazy" alt="起動直後。ActionBarにA04WebViewAppと縦に3つの点のメニュー、チェックなしのjavaScript ON、その下は白い画面"></a><figcaption>① 起動直後。まだページは表示しません。 <a href="images/app-initial.png">画像を大きく開く</a></figcaption></figure>
-<figure><a href="images/app-yahoo.png"><img src="images/app-yahoo.png" width="1080" height="2424" loading="lazy" alt="javaScript ONにチェックがあり、WebViewにYahoo!ニュースのトップページが表示されている"></a><figcaption>② メニューからYahoo!ニュースを表示（javaScript ON）。 <a href="images/app-yahoo.png">画像を大きく開く</a></figcaption></figure>
+<div class="phones"><figure><a href="images/app-initial.png"><img src="images/app-initial.png" width="1080" height="2424" loading="lazy" alt="起動直後。ActionBarにA04WebViewAppと縦に3つの点のメニュー、チェックなしのJavaScript ON、その下は白い画面"></a><figcaption>① 起動直後。まだページは表示しません。 <a href="images/app-initial.png">画像を大きく開く</a></figcaption></figure>
+<figure><a href="images/app-yahoo.png"><img src="images/app-yahoo.png" width="1080" height="2424" loading="lazy" alt="JavaScript ONにチェックがあり、WebViewにYahoo!ニュースのトップページが表示されている"></a><figcaption>② メニューからYahoo!ニュースを表示（JavaScript ON）。 <a href="images/app-yahoo.png">画像を大きく開く</a></figcaption></figure>
 </div>
 <h3>できるようになること</h3>
 <ol><li>インターネットの許可を追加し、WebViewでWebページを表示する。</li><li>enumでメニューの項目をまとめ、オプションメニューからページを切り替える。</li><li>JavaScriptのON/OFFを切り替え、Android 16以降でも動く方法で、戻る操作を前のページへの移動にする。</li></ol>
@@ -44,15 +44,15 @@
 <div class="note"><p class="box-title">インターネット接続が必要です</p><p>このアプリは、実行中にインターネットのページを読み込みます。Macがネットにつながっていることを確認します。ニュースの見出しなどのページの内容は、画像と違って構いません。サイト側の更新で、見た目が変わることもあります。</p></div>
 
 <h3>完成アプリの操作</h3><table><thead><tr><th>操作</th><th>結果</th></tr></thead><tbody>
-<tr><td>起動直後</td><td>ActionBarに「A04WebViewApp」と <strong>⋮</strong>。「javaScript ON」はチェックなし。下は白い画面。</td></tr>
+<tr><td>起動直後</td><td>ActionBarに「A04WebViewApp」と <strong>⋮</strong>。「JavaScript ON」はチェックなし。下は白い画面。</td></tr>
 <tr><td>⋮ → サイト名</td><td>そのサイトをアプリの中に表示する。</td></tr>
 <tr><td>ページ内のリンク</td><td>Chromeは開かず、アプリの中で移動する。</td></tr>
-<tr><td>「javaScript ON」を切り替える</td><td>JavaScriptの有効・無効を変えて、今のページを読み込み直す。</td></tr>
+<tr><td>「JavaScript ON」を切り替える</td><td>JavaScriptの有効・無効を変えて、今のページを読み込み直す。</td></tr>
 <tr><td>戻る操作</td><td>前のページがあれば戻る。なければホーム画面に戻る。</td></tr>
 </tbody></table>
 
 <div class="note"><p class="box-title">画面回転について</p><p>各単元では画面回転時のデータ保持を扱いません。回転などでActivityが作り直されると、表示中のページと戻るための履歴は初期状態に戻ります。縦向きで使います。この観点は別単元の演習アプリで検証します。</p></div>
-<div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-0"><span>⋮ のメニュー、「javaScript ON」、戻る操作の役割を画像と表で説明できた。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
+<div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-0"><span>⋮ のメニュー、「JavaScript ON」、戻る操作の役割を画像と表で説明できた。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
 <div class="next"><a href="#step-1">次へ：プロジェクトを作って実行 →</a></div>
 </section>
 <section id="step-1" aria-labelledby="title-1">
@@ -188,7 +188,7 @@
         android:id=&quot;@+id/checkBox&quot;
         android:layout_width=&quot;wrap_content&quot;
         android:layout_height=&quot;wrap_content&quot;
-        android:text=&quot;javaScript ON&quot; /&gt;
+        android:text=&quot;JavaScript ON&quot; /&gt;
 
     &lt;WebView
         android:id=&quot;@+id/webView&quot;
@@ -203,9 +203,9 @@
 </tbody></table>
 
 <p><code>android:id="@+id/main"</code> はJavaのひな形でも使うため残します。<code>checkBox</code> と <code>webView</code> は、次にJavaから探すための名前です。大文字・小文字も区別します。</p>
-<p>チェックボックスの文字 <code>javaScript ON</code> は完成版に合わせています。文字を直接書いたことによる <code>Hardcoded text</code> の警告は、これまでの単元と同様にそのまま進めます。</p>
-<h3>Runで確かめる</h3><p>ActionBarの下に「javaScript ON」のチェックボックスが表示され、その下は白い画面です。チェックは付けたり外したりできますが、まだ何も起きません。</p>
-<figure class="phone"><a href="images/app-initial.png"><img src="images/app-initial.png" width="1080" height="2424" loading="lazy" alt="ActionBarの下にjavaScript ONのチェックボックスがあり、その下は白い画面"></a><figcaption>このSTEPの画面。白い部分がWebViewです。 <a href="images/app-initial.png">画像を大きく開く</a></figcaption></figure>
+<p>文字を直接書いたことによる <code>Hardcoded text</code> の警告は、これまでの単元と同様にそのまま進めます。</p>
+<h3>Runで確かめる</h3><p>ActionBarの下に「JavaScript ON」のチェックボックスが表示され、その下は白い画面です。チェックは付けたり外したりできますが、まだ何も起きません。</p>
+<figure class="phone"><a href="images/app-initial.png"><img src="images/app-initial.png" width="1080" height="2424" loading="lazy" alt="ActionBarの下にJavaScript ONのチェックボックスがあり、その下は白い画面"></a><figcaption>このSTEPの画面。白い部分がWebViewです。 <a href="images/app-initial.png">画像を大きく開く</a></figcaption></figure>
 <div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-3"><span>チェックボックスと白いWebViewが表示され、checkBoxとwebViewのidを確認した。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
 <div class="next"><a href="#step-4">次へ：WebViewでページを表示 →</a></div>
 </section>
@@ -235,7 +235,7 @@ webView.loadUrl(&quot;https://news.yahoo.co.jp/&quot;); // 表示の確認用。
 
 <div class="note"><p class="box-title">loadUrlの行は確認用です</p><p>行の後ろのコメントのとおり、この1行は表示を確かめるための仮の行です。STEP 6でメニューから開く形に変えるときに削除します。</p></div>
 <h3>Runで確かめる</h3><p>起動するとYahoo!ニュースが表示されます。上部に「現在JavaScriptが無効になっています」と出るのは、WebViewの初期設定でJavaScriptが無効だからです。STEP 7で切り替えられるようにします。</p>
-<figure class="phone"><a href="images/app-js-off.png"><img src="images/app-js-off.png" width="1080" height="2424" loading="lazy" alt="javaScript ONはチェックなし。Yahoo!ニュースの上部に、現在JavaScriptが無効になっていますという案内が表示されている"></a><figcaption>JavaScriptが無効のため、サイトの案内が出ます。 <a href="images/app-js-off.png">画像を大きく開く</a></figcaption></figure>
+<figure class="phone"><a href="images/app-js-off.png"><img src="images/app-js-off.png" width="1080" height="2424" loading="lazy" alt="JavaScript ONはチェックなし。Yahoo!ニュースの上部に、現在JavaScriptが無効になっていますという案内が表示されている"></a><figcaption>JavaScriptが無効のため、サイトの案内が出ます。 <a href="images/app-js-off.png">画像を大きく開く</a></figcaption></figure>
 <div class="note"><p class="box-title">「ウェブページへのアクセス不可」と出たとき</p><p><code>net::ERR_CACHE_MISS</code> と表示される場合は、STEP 2のINTERNETの許可の行がないか、つづりが違うか、保存されていません。<code>AndroidManifest.xml</code> を確認して保存し、もう一度Runします。別のエラー名のときは、Macがインターネットにつながっているかを確認します。</p><p>許可の行を <code>&lt;application&gt;</code> の中に書いた場合は、ページの表示までは進まず、ビルドの時点で <code>unexpected element &lt;uses-permission&gt; found in &lt;manifest&gt;&lt;application&gt;</code> というエラーになります。行を <code>&lt;application</code> の上に移動します。</p></div>
 <div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-4"><span>Yahoo!ニュースがアプリの中に表示され、JavaScriptが無効という案内を確認した。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
 <div class="next"><a href="#step-5">次へ：メニューの項目をenumで作る →</a></div>
@@ -389,7 +389,7 @@ public boolean onOptionsItemSelected(@NonNull MenuItem item) {
 <h3>Runで確かめる</h3>
 <ol><li>起動直後は白い画面です（確認用のloadUrlを削除したため）。</li><li>右上の <strong>⋮</strong> を押すと、4つのサイト名が表示されます。</li><li>「映画「SLAM DUNK」公式サイト」を押すと、そのページが表示されます。ほかの項目も試します。</li></ol>
 <div class="phones"><figure><a href="images/app-menu.png"><img src="images/app-menu.png" width="1080" height="2424" loading="lazy" alt="右上のメニューが開き、Yahoo!ニュース、GitHub Copilot、映画「SLAM DUNK」公式サイト、OpenAI ChatGPTの4項目が並んでいる"></a><figcaption>⋮ を押したところ。enumに書いた順に並びます。 <a href="images/app-menu.png">画像を大きく開く</a></figcaption></figure>
-<figure><a href="images/app-slamdunk.png"><img src="images/app-slamdunk.png" width="1080" height="2424" loading="lazy" alt="WebViewに映画「SLAM DUNK」公式サイトが表示されている"></a><figcaption>SLAM DUNKのサイトを表示。画像は完成版でチェックを付けた状態です。 <a href="images/app-slamdunk.png">画像を大きく開く</a></figcaption></figure>
+<figure><a href="images/app-slamdunk.png"><img src="images/app-slamdunk.png" width="1080" height="2424" loading="lazy" alt="WebViewに映画「SLAM DUNK」公式サイトが表示されている"></a><figcaption>SLAM DUNKのサイトを表示。 <a href="images/app-slamdunk.png">画像を大きく開く</a></figcaption></figure>
 </div>
 <div class="note"><p class="box-title">⋮ が表示されないとき</p><p>STEP 2で2つのthemes.xmlから <code>.NoActionBar</code> を消したかを確認します。ActionBarがないと、オプションメニューも表示されません。</p></div>
 <div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-6"><span>⋮ に4つのサイト名が出て、押したサイトが表示された。押した項目とordinalの関係を説明できた。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
@@ -427,10 +427,11 @@ webView.getSettings().setBuiltInZoomControls(true);</code></pre>
 </tbody></table>
 
 <h3>Runで確かめる</h3>
-<ol><li>⋮ → Yahoo!ニュースを開きます。チェックなしでは「現在JavaScriptが無効になっています」が出ます。</li><li>「javaScript ON」にチェックを付けます。ページが読み込み直され、案内が消えます。</li><li>チェックを外すと、もう一度読み込み直され、案内が出ます。</li></ol>
+<ol><li>⋮ → Yahoo!ニュースを開きます。チェックなしでは「現在JavaScriptが無効になっています」が出ます。</li><li>「JavaScript ON」にチェックを付けます。ページが読み込み直され、案内が消えます。</li><li>チェックを外すと、もう一度読み込み直され、案内が出ます。</li></ol>
 <div class="phones"><figure><a href="images/app-js-off.png"><img src="images/app-js-off.png" width="1080" height="2424" loading="lazy" alt="チェックなし。Yahoo!ニュースにJavaScriptが無効という案内が出ている"></a><figcaption>チェックなし：JavaScriptが無効。 <a href="images/app-js-off.png">画像を大きく開く</a></figcaption></figure>
 <figure><a href="images/app-yahoo.png"><img src="images/app-yahoo.png" width="1080" height="2424" loading="lazy" alt="チェックあり。Yahoo!ニュースの案内が消え、タブと記事の一覧が表示されている"></a><figcaption>チェックあり：案内が消えます。 <a href="images/app-yahoo.png">画像を大きく開く</a></figcaption></figure>
 </div>
+<div class="note"><p class="box-title">「Cookie」の確認画面が出たとき</p><p>JavaScriptを有効にすると、サイトによっては、Cookie（クッキー）の使い方を確認する画面がページの上に表示されます。映画「SLAM DUNK」公式サイトなどで表示されます。授業での確認では「拒否」を押して閉じて構いません。</p></div>
 <p>余裕があれば、ページを拡大してみます。エミュレータでは <kbd>⌘</kbd> を押しながら画面をドラッグすると、2本指の操作になります。サイト側で拡大を制限している場合は、拡大できないこともあります。</p>
 <div class="note"><p class="box-title">JavaScriptを有効にするときの注意</p><p>JavaScriptを有効にすると、表示したページのプログラムがアプリの中で動きます。どんなURLでも開けるアプリでは、有効にするかを慎重に決めるのが基本です。今回のアプリはメニューにある決まったサイトを開きますが、ページ内のリンクをたどると、ほかのサイトもJavaScriptが有効なままアプリの中で開きます。</p></div>
 <p class="muted">仕様の確認：<a href="https://developer.android.com/reference/android/webkit/WebSettings">WebSettings（Android公式）</a>。</p>
@@ -531,11 +532,11 @@ public boolean onKeyDown(int keyCode, KeyEvent event) {
 
 <h3>完成チェック</h3>
 <table><thead><tr><th>操作</th><th>確認する結果</th></tr></thead><tbody>
-<tr><td>起動直後</td><td>ActionBarに「A04WebViewApp」と ⋮。「javaScript ON」はチェックなし。下は白い画面。</td></tr>
+<tr><td>起動直後</td><td>ActionBarに「A04WebViewApp」と ⋮。「JavaScript ON」はチェックなし。下は白い画面。</td></tr>
 <tr><td>⋮ を押す</td><td>Yahoo!ニュース、GitHub Copilot、映画「SLAM DUNK」公式サイト、OpenAI ChatGPTの4項目が出る。</td></tr>
 <tr><td>各項目を押す</td><td>そのサイトがアプリの中に表示される。</td></tr>
 <tr><td>ページ内のリンクを押す</td><td>Chromeは開かず、アプリの中で移動する。</td></tr>
-<tr><td>「javaScript ON」を付ける・外す</td><td>ページが読み込み直される。Yahoo!ニュースでは、JavaScriptが無効という案内が消える・出る。</td></tr>
+<tr><td>「JavaScript ON」を付ける・外す</td><td>ページが読み込み直される。Yahoo!ニュースでは、JavaScriptが無効という案内が消える・出る。</td></tr>
 <tr><td>リンク先で戻る操作</td><td>前のページに戻る。</td></tr>
 <tr><td>最初のページで戻る操作</td><td>ホーム画面に戻る。</td></tr>
 </tbody></table>
@@ -559,7 +560,7 @@ public boolean onKeyDown(int keyCode, KeyEvent event) {
 <tr><td>戻る操作でホーム画面に戻ってしまう</td><td>リンクなどで2ページ目を開いてから試しているか。<code>addCallback</code> の行と、<code>doUpdateVisitedHistory</code> の <code>setEnabled</code> を確認する。</td></tr>
 <tr><td>起動時に終了する</td><td>setContentViewがfindViewByIdより先か、id/mainを残したかを確認。Logcatで最初の例外を見る。</td></tr>
 <tr><td>起動すると白い画面のまま</td><td>STEP 6以降は、起動直後の白い画面が正常。⋮ からサイトを選ぶ。</td></tr>
-<tr><td>ページの表示が崩れる・一部が出ない</td><td>JavaScriptが必要なページのことがある。「javaScript ON」にしてみる。サイト側の更新で見た目が変わることもある。</td></tr>
+<tr><td>ページの表示が崩れる・一部が出ない</td><td>JavaScriptが必要なページのことがある。「JavaScript ON」にしてみる。サイト側の更新で見た目が変わることもある。</td></tr>
 </tbody></table>
 
 <p><a href="../common/logcat.html">共通資料：Logcat</a>を使います。今回のパッケージは <code>jp.ac.jec.a04webviewapp</code> です。エラーを見るときは <code>package:jp.ac.jec.a04webviewapp level:ERROR</code> にします。これまでの単元のパッケージ名や <code>tag:MainActivity</code> を残さないようにします。</p>
@@ -689,7 +690,7 @@ enum AppMenuItem {
         android:id=&quot;@+id/checkBox&quot;
         android:layout_width=&quot;wrap_content&quot;
         android:layout_height=&quot;wrap_content&quot;
-        android:text=&quot;javaScript ON&quot; /&gt;
+        android:text=&quot;JavaScript ON&quot; /&gt;
 
     &lt;WebView
         android:id=&quot;@+id/webView&quot;
