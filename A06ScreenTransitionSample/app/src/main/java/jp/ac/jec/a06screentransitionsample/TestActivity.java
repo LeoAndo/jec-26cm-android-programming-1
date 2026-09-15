@@ -7,6 +7,7 @@ import android.util.Log;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.IntentCompat;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
@@ -52,7 +53,7 @@ public class TestActivity extends AppCompatActivity {
         var floatValue = getIntent().getFloatExtra(EXTRA_KEY_FLOAT_VALUE, 0);
         var doubleValue = getIntent().getDoubleExtra(EXTRA_KEY_DOUBLE_VALUE, 0);
         var booleanValue = getIntent().getBooleanExtra(EXTRA_KEY_BOOLEAN_VALUE, false);
-        var charValue = getIntent().getCharExtra(EXTRA_KEY_CHAR_VALUE, '0');
+        var charValue = getIntent().getCharExtra(EXTRA_KEY_CHAR_VALUE, ' ');
         var stringValue = getIntent().getStringExtra(EXTRA_KEY_STRING_VALUE);
         Log.d("TestActivity", "intValue: " + intValue);
         Log.d("TestActivity", "longValue: " + longValue);
@@ -82,7 +83,7 @@ public class TestActivity extends AppCompatActivity {
         Log.d("TestActivity", "integerArrayListValue: " + integerArrayListValue);
         Log.d("TestActivity", "stringArrayListValue: " + stringArrayListValue);
 
-        var person = getIntent().getSerializableExtra(EXTRA_KEY_PERSON);
+        var person = IntentCompat.getSerializableExtra(getIntent(), EXTRA_KEY_PERSON, Person.class);
         Log.d("TestActivity", "person: " + person);
     }
 
