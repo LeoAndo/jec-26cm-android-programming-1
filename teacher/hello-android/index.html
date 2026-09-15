@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="ja">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>教員用ガイド HelloAndroid | Androidプログラミング1</title>
+<link rel="stylesheet" href="../../docs/assets/textbook.css"><script src="../../docs/assets/textbook.js" defer></script></head>
+<body class="plain"><a class="skip" href="#main">本文へ移動</a>
+<header class="topbar"><span class="brand">JEC / Androidプログラミング1</span><a href="../../docs/hello-android/index.html">HelloAndroidの教科書へ戻る</a></header>
+<main id="main"><div class="hero"><p class="eyebrow">ANDROID PROGRAMMING 1 / 共通資料・授業サポート</p><h1>教員用ガイド<br>HelloAndroid</h1><p class="lede">授業内で「操作・確認・言語化」まで終えるための進行案です。1コマ90分、全2コマを目安に、クラスの進み具合に合わせて調整します。</p></div>
+
+<section><h2>1. 授業前の準備</h2>
+<ul><li>学生には、完成プロジェクトのZIPを含む <code>docs</code> フォルダを、構成を保って配布します。完成版は初回から自由に参照できます。<code>teacher</code> フォルダと教員のひな形プロジェクトは配布しません。</li><li>学生のMacで <code>docs/hello-android/index.html</code> をブラウザで開けることを確認します。公式資料以外にCDN・Webフォント・オンライン実行環境は使いません。</li><li>Android Studio Panda 2 | 2025.3.2、必要なSDK・System Image・Gradle依存関係を事前にそろえます。初回ダウンロードは下表の授業時間に含めません。</li><li><code>Panda2JavaEmptyViewActivity</code> は、教員が出発点を確認するために使います。学生はAndroid StudioのJava / Empty Views Activityから <code>A01HelloAndroid</code> を新規作成します。</li><li>学生の作成先を <code>/Users/ユーザ名/Documents/Android1/プロジェクト名</code> に統一します。画像の教員のパスを写さないよう、本人のユーザ名と末尾のフォルダを確認します。</li><li>Project表示でファイルを開きます。<a href="../../docs/common/auto-import.html">Auto Importの共通資料</a>に従って、授業前にJava欄の設定を確認します。</li><li>指定エミュレータ <strong>jec_26cm_android1_Pixel 9a</strong> で完成版をRunし、文字変更・Snackbar・Toast・Logcatを確認します。</li><li>本日の停止位置、APK提出の有無、提出先を板書します。提出ファイル名は <code>学籍番号_プロジェクト名.apk</code> に統一します。</li></ul>
+<h3>完成版を公開して進める</h3>
+<p><strong>各単元で、学生自身が毎回Android Studioからプロジェクトを新規作成することを固定方針とします。</strong>完成版は、動く状態の確認と、自分のコードとの比較に使います。見本を読むときは今のステップの部分を指定します。理解は、STEP 8の小変更と、結果の実演・指さし・短い説明で確認します。</p>
+<p>見本の置き場所は <code>Documents/Android1/samples/A01HelloAndroid</code>、学生が作る場所は <code>Documents/Android1/A01HelloAndroid</code> です。<a href="../../docs/hello-android/index.html#sample-project">学生向けの完成版の開き方</a>を初回に案内します。</p>
+<h3>教材コードの基準となる環境</h3>
+<p>以下はこのリポジトリの設定値です。「最新バージョン」の指定ではありません。新規作成した環境と差がある場合は、授業前に教員が確認します。特にExpressiveのボタンスタイルを確認してください。</p>
+<table><thead><tr><th>項目</th><th>値・確認先</th></tr></thead><tbody>
+<tr><td>プロジェクト</td><td>A01HelloAndroid / jp.ac.jec.a01helloandroid</td></tr>
+<tr><td>Android Gradle Plugin / Gradle</td><td>9.1.1 / 9.3.1</td></tr>
+<tr><td>Gradleを動かすJDK</td><td>21（gradle/gradle-daemon-jvm.properties）</td></tr>
+<tr><td>Javaのソース設定</td><td>Java 11。<code>var</code> を利用可能。JDK実行環境の21とは別の設定。</td></tr>
+<tr><td>compileSdk / targetSdk / minSdk</td><td>36.1 / 36 / 31</td></tr>
+<tr><td>主な依存関係</td><td>AppCompat 1.8.0、Material 1.14.0、Activity 1.13.0、ConstraintLayout 2.2.2</td></tr>
+<tr><td>テーマ</td><td>Theme.Material3.DayNight.NoActionBar（プロジェクトに設定済み）</td></tr>
+<tr><td>教材撮影用AVD</td><td>jec_26cm_android1_Pixel_9a / Android 17 / API 37.1 / arm64 / Google APIs PlayStore、16KBページサイズ</td></tr>
+</tbody></table>
+<p>設定の確認先：<a href="../../A01HelloAndroid/app/build.gradle.kts">app/build.gradle.kts</a>、<a href="../../A01HelloAndroid/gradle/libs.versions.toml">gradle/libs.versions.toml</a>、<a href="../../A01HelloAndroid/gradle/wrapper/gradle-wrapper.properties">gradle-wrapper.properties</a>。</p>
+<p>新規テンプレートでMaterialのstyleが解決できない場合は、既存の <code>material</code> 依存関係のバージョンを上記と照合し、教員が設定を合わせてSyncします。この教材では、完成版にないライブラリを学生に追加させる工程は設けません。</p>
+</section>
+<section><h2>2. 90分×2コマの進行案</h2>
+<table><thead><tr><th>コマ</th><th>時間配分</th><th>終了時の確認</th></tr></thead><tbody>
+<tr><td>1コマ目<br>合計90分</td><td>STEP 0：5分<br>STEP 1：15分<br>STEP 2：10分<br>STEP 3：20分<br>STEP 4：20分<br>再実行・個別支援：15分<br>ふり返り：5分</td><td>ボタンで文字を変更できる。XMLの役割とJavaの変更する行を指させる。</td></tr>
+<tr><td>2コマ目<br>合計90分</td><td>再開・文字変更の確認：5分<br>STEP 5：10分<br>STEP 6：15分<br>STEP 7：15分<br>STEP 8：15分<br>STEP 9：10分<br>提出・個別支援：20分</td><td>ログ・Snackbar・Toastを確認し、小変更の理由を説明できる。</td></tr>
+</tbody></table>
+<p>1コマ目はSTEP 4で区切り、保存先と再開するプロジェクト名を確認します。2コマ目の最初に、全員が前回の文字変更を再現します。進みが速い学生は、変更する行と実行結果を自分で確認します。</p>
+<p>2コマ目の最後の20分は、APK生成・提出と個別支援に使います。APK提出がない回は再実行と口頭確認に充てます。ダウンロードや設定の調整が残った場合は、この時間を使い、終わらない学生の再開地点を記録します。</p>
+</section>
+<section><h2>3. 留学生・初心者への進め方</h2>
+<ul><li><strong>最初に完成動作を見せる。</strong> 1回の実演は「起動 → 変更 → 1 → 消えるのを待つ → 2」の順。操作と結果を同じ短い文で繰り返します。</li><li><strong>1回の指示は1つ。</strong> 「MainActivity.javaを開く」「追加する場所を見る」「2行追加する」と分けます。複数のファイルを同時に修正させません。</li><li><strong>コード入力と意味の説明を分ける。</strong> コピー後に、id・変数・処理の場所を指さして確認します。書き写しだけで完了とせず、予想と小変更で理解を見ます。</li><li><strong>英語のUI名を残す。</strong> 実画面と同じ表記を読み、日本語の短い意味を添えます。日本語の長い説明を暗記させません。</li><li><strong>止まれる場所を共有する。</strong> 各ステップの緑の確認欄で全員を待ちます。確認を終えた学生は、そのステップをもう一度自分で動かします。</li><li><strong>質問を定型にする。</strong> 「STEP __」「ファイル名」「赤い最初の行」。日本語で長く話せない場合は指さしや母語のメモから始められます。</li><li><strong>復習を授業内に置く。</strong> STEP 8・9を必須とし、予習や自宅でのやり直しを前提にしません。</li></ul>
+<h3>理解確認に使う短い問い</h3>
+<table><thead><tr><th>問い</th><th>見たい答え・行動</th></tr></thead><tbody>
+<tr><td>画面を作るファイルは？</td><td>activity_main.xmlを開く、または指さす。</td></tr>
+<tr><td>textという名前はどこで付けた？</td><td>XMLの <code>@+id/text</code> とJavaの <code>R.id.text</code> を対応付ける。</td></tr>
+<tr><td>変更前の文字が出るのはいつ？</td><td>起動したとき。</td></tr>
+<tr><td>btn1の文字だけを変えたら？</td><td>Snackbarの文字も変わる。getTextを示せれば十分。</td></tr>
+</tbody></table>
+</section>
+<section><h2>4. 遅れた学生の再開地点</h2>
+<p>下記は教員の照合用コードです。途中段階の参照ファイルは教員が使い、学生には公開済みの完成プロジェクトと本人のコードを比べて、直す場所を案内します。修正後は実行してから次へ進みます。</p>
+<table><thead><tr><th>確認するステップ</th><th>XMLの内容</th><th>Javaの内容</th></tr></thead><tbody>
+<tr><td>出発点（STEP 1・2）</td><td><a href="code/01-activity_main.xml">01-activity_main.xml</a></td><td><a href="code/01-MainActivity.java">01-MainActivity.java</a></td></tr>
+<tr><td>STEP 3完了</td><td><a href="code/03-activity_main.xml">03-activity_main.xml</a></td><td>出発点のJava</td></tr>
+<tr><td>STEP 4完了</td><td>STEP 3のXML</td><td><a href="code/04-MainActivity.java">04-MainActivity.java</a></td></tr>
+<tr><td>STEP 5完了</td><td>STEP 3のXML</td><td><a href="code/05-MainActivity.java">05-MainActivity.java</a></td></tr>
+<tr><td>STEP 6完了</td><td><a href="code/06-activity_main.xml">06-activity_main.xml</a></td><td>STEP 5のJava</td></tr>
+<tr><td>STEP 7完了（完成）</td><td>STEP 6のXML</td><td><a href="code/07-MainActivity.java">07-MainActivity.java</a></td></tr>
+</tbody></table>
+<p>教員が下記の参照コードを開き、学生が現在のステップで書く部分を確認します。</p>
+<p>完成コードは <a href="../../A01HelloAndroid/app/src/main/java/jp/ac/jec/a01helloandroid/MainActivity.java">プロジェクトのJava</a> と <a href="../../A01HelloAndroid/app/src/main/res/layout/activity_main.xml">プロジェクトのXML</a> に対応します。</p>
+</section>
+<section><h2>5. 到達度の確認</h2>
+<table><thead><tr><th>観点</th><th>授業内で確認する証拠</th></tr></thead><tbody>
+<tr><td>操作できる</td><td>学生自身がRunし、変更ボタン・1・2を押して見せる。</td></tr>
+<tr><td>場所が分かる</td><td>XMLのidとJavaのfindViewByIdの対応を1つ示す。</td></tr>
+<tr><td>変更の意味が分かる</td><td>STEP 8の変更で何が変わったか、短い文か指さしで説明する。</td></tr>
+<tr><td>次に再開できる</td><td>できたSTEPと困っている場所を記録する。</td></tr>
+</tbody></table>
+<p>3のボタンに処理がないのは完成版の仕様です。画面再作成後の文字の保存はこの単元の対象に含めません。起動状態を確認するときはStop → Runで条件をそろえます。</p>
+<p>チェックの保存はブラウザのlocalStorageを使い、送信はしません。ブラウザ・ファイルの移動・保存設定で記録が消える場合があるため、成績や提出の記録には使わず、STEP 9の記録を回収してください。</p>
+</section>
+<section><h2>6. 教材の保守と確認</h2>
+<ul><li>アプリを変更したら、本文の部分コード、完成コード、再開用コード、画像、練習の答えをまとめて確認します。<code>python3 scripts/package-hello-android.py</code> で配布用ZIPを再作成し、展開したプロジェクトも動作確認します。</li><li>アプリ画像は教員の <code>jec_26cm_android1_Pixel 9a</code> で撮影します。画像は出発点、STEP 3、完成版の起動直後、変更後、Snackbar、Toastの6状態です。</li><li>新規プロジェクト作成の3画像は教員提供資料を使用しています。</li><li>印刷時は補足・解答も展開されます。解答を配布したくない場合は、ブラウザで授業中に開く方式を使ってください。</li></ul>
+<p><a href="../../docs/common/auto-import.html">Auto Import</a> / <a href="../../docs/common/emulator.html">エミュレータ</a> / <a href="../../docs/common/logcat.html">Logcat</a> / <a href="../../docs/common/apk.html">APK生成</a> は次の単元でも使う共通資料です。</p>
+</section>
+
+<footer class="footer"><p><a href="../../docs/hello-android/index.html">← HelloAndroidの教科書へ戻る</a></p><p>対象：macOS / Android Studio Panda 2 | 2025.3.2 · 確認日：2026年9月15日</p></footer></main>
+<p class="sr-only" role="status" aria-live="polite" data-copy-status></p></body></html>

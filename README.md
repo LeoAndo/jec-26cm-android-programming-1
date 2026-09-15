@@ -1,3 +1,57 @@
+# Androidプログラミング1 — 授業用教材
+
+## HelloAndroidの教科書
+
+1コマ90分、全2コマを目安にした、JavaとXMLの入門教材です。予習なしで授業内の操作・確認・ミニ練習まで進められる構成です。
+
+- [HelloAndroid：はじめてのアプリ作り](docs/hello-android/index.html)
+- [完成プロジェクト（初回から参照可能）](docs/hello-android/downloads/A01HelloAndroid.zip)
+- [共通資料：エミュレータの準備とアプリの実行](docs/common/emulator.html)
+- [共通資料：Auto Importの設定](docs/common/auto-import.html)
+- [共通資料：Logcatの使い方](docs/common/logcat.html)
+- [共通資料：提出用APKの作り方](docs/common/apk.html)
+- [教員用：授業の進め方・確認項目](teacher/hello-android/index.html)
+
+### 開き方
+
+教員はこのリポジトリをダウンロードした後、Finderで `docs/hello-android/index.html` をダブルクリックし、ブラウザで開きます。GitHub上のHTMLファイルはソース表示になるため、ローカルで開いてください。教材の本文・画像・操作機能は外部ライブラリを使わず、オフラインで利用できます。Android Studioの初回準備・ビルドと公式資料の閲覧にはインターネット接続が必要です。
+
+ブラウザの印刷（macOS：`⌘ P`）で、教材を紙やPDFに出力できます。チェック欄は自分の進み具合を確認するためのものです。教員への提出・送信は行いません。
+
+### 学生への配布
+
+学生には `docs` フォルダを配布します。教科書から完成プロジェクトのZIPをダウンロードでき、初回から参考資料として使えます。`teacher` フォルダと `Panda2JavaEmptyViewActivity` は配布しません。
+
+各単元で、学生自身が毎回Android Studioからプロジェクトを新規作成します。完成版は動作確認とコード比較の参考資料として使います。作成先は `/Users/ユーザ名/Documents/Android1/プロジェクト名` です。HelloAndroidの保存先は `/Users/ユーザ名/Documents/Android1/A01HelloAndroid` です。
+
+### 教員が確認に使うプロジェクト
+
+| フォルダ | 役割 |
+| --- | --- |
+| `Panda2JavaEmptyViewActivity` | 教員が出発点を確認するためのJava / Empty Views Activityのひな形（学生には非公開） |
+| `A01HelloAndroid` | 完成プロジェクト。配布用ZIPを教科書に同梱し、初回から学生も参照可能 |
+
+教員用ガイドとステップごとの照合用コードは `teacher/hello-android` にまとめています。完成版の見本は `Documents/Android1/samples/A01HelloAndroid`、授業で作るプロジェクトは `Documents/Android1/A01HelloAndroid` に置きます。
+
+### 完成プロジェクトのZIPを更新する（教員用）
+
+ZIPの再生成には、GitとPython 3、および **`git clone` で取得したリポジトリ** が必要です。GitHubの「Download ZIP」で取得したフォルダにはGit管理情報がないため、再生成には使えません。教材の閲覧と、同梱済みの完成プロジェクトZIPの利用は「Download ZIP」でも可能です。
+
+```sh
+git clone https://github.com/LeoAndo/jec-26cm-android-programming-1.git
+cd jec-26cm-android-programming-1
+```
+
+完成コードを変更したときは、このリポジトリ直下で次を実行し、配布用ZIPも更新します。
+
+```sh
+python3 scripts/package-hello-android.py
+```
+
+ZIPにはGitで管理しているプロジェクトのファイルを収録し、IDE設定・ローカルSDK設定・ビルド出力を除外します。既存ファイルの編集内容も反映します。ファイルを新しく追加した場合は、配布対象であることを確認して、そのファイルを `git add` してから再生成してください。
+
+---
+
 # 開発環境：教員
 ```
 Android Studio Panda 2 | 2025.3.2
@@ -206,7 +260,7 @@ windowsは利用していない
 
 
 # 授業用教科書の基本方針
-1. Panda2JavaEmptyViewActivityプロジェクトを起点に修正箇所を見せながら、ハンズオン形式で進める。
+1. 各単元で、学生自身が毎回Android StudioのJava / Empty Views Activityからプロジェクトを新規作成し、修正箇所を確認しながらハンズオン形式で進める。公開する完成版は動作確認・コード比較の参考資料とする。Panda2JavaEmptyViewActivityは教員の確認用とし、学生には公開しない。
 2. 教科書はGoogle Codelabなどを参考にした構成にしたい。
 3. 教科書はhtml形式とする
 4. 各単元で利用する教科書で共有部分が発生したらベット共通資料という形で別htmlファイル化する。具体例：apkファイルの作成方法、エミュレータの設定手順など
