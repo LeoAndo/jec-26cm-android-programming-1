@@ -81,7 +81,8 @@ class PackageHelloAndroidTest(unittest.TestCase):
             path = project / name
             path.parent.mkdir(parents=True, exist_ok=True)
             path.write_text("original")
-        (project / "gradlew").chmod(0o755)
+        (project / "gradlew").chmod(0o744)
+        (project / "app/src/main/MainActivity.java").chmod(0o600)
         self.git("add", "A01HelloAndroid")
         (project / "app/src/main/MainActivity.java").write_text("edited")
         (project / "untracked.txt").write_text("not for distribution")
@@ -94,7 +95,9 @@ class PackageHelloAndroidTest(unittest.TestCase):
             ])
             self.assertEqual(archive.read(archive.namelist()[0]), b"edited")
             mode = archive.getinfo("A01HelloAndroid/gradlew").external_attr >> 16
-            self.assertTrue(mode & 0o111)
+            self.assertEqual(mode, 0o100755)
+            source_mode = archive.getinfo(archive.namelist()[0]).external_attr >> 16
+            self.assertEqual(source_mode, 0o100644)
         first = self.output.read_bytes()
         self.assertEqual(self.run_package().returncode, 0)
         self.assertEqual(self.output.read_bytes(), first)

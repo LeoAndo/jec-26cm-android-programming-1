@@ -43,7 +43,9 @@ with ZipFile(output, "w", compression=ZIP_DEFLATED) as archive:
         source = root / name
         info = ZipInfo(name, date_time=(1980, 1, 1, 0, 0, 0))
         info.create_system = 3
-        info.external_attr = (source.stat().st_mode & 0xFFFF) << 16
+        # Gitで保持されないグループ・他ユーザーの権限差をZIPへ持ち込まない。
+        mode = 0o100755 if source.stat().st_mode & 0o100 else 0o100644
+        info.external_attr = mode << 16
         info.compress_type = ZIP_DEFLATED
         archive.writestr(info, source.read_bytes())
 
