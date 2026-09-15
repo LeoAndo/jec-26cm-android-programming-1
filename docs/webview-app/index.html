@@ -1,0 +1,656 @@
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="JavaとXMLで作るA04WebViewApp。WebView、インターネットの許可、enumとオプションメニュー、JavaScriptの設定、Android 16以降の戻る操作を小さなSTEPで学ぶ授業用教科書。">
+<title>WebViewApp — アプリの中でWebページを表示しよう | Androidプログラミング1</title>
+<link rel="stylesheet" href="../assets/textbook.css"><script src="../assets/textbook.js" defer></script></head>
+<body data-progress-key="jec-android1-webviewapp-v1">
+<a class="skip" href="#main">本文へ移動</a>
+<header class="topbar"><span class="brand">JEC / Androidプログラミング1</span><a href="../calc-game/index.html">A02 CalcGame</a></header>
+<div class="shell"><aside class="sidebar"><div class="sidebar-inner"><p class="eyebrow">CONTENTS / 学習の順番</p>
+<nav aria-label="学習ステップ"><ol><li><a href="#step-0">00　今日のゴール</a></li>
+<li><a href="#step-1">01　プロジェクトを作って実行</a></li>
+<li><a href="#step-2">02　ActionBarとインターネットの許可</a></li>
+<li><a href="#step-3">03　CheckBoxとWebViewを置く</a></li>
+<li><a href="#step-4">04　WebViewでページを表示</a></li>
+<li><a href="#step-5">05　メニューの項目をenumで作る</a></li>
+<li><a href="#step-6">06　メニューでページを切り替える</a></li>
+<li><a href="#step-7">07　JavaScriptのON/OFFとズーム</a></li>
+<li><a href="#step-8">08　戻る操作で前のページへ</a></li>
+<li><a href="#step-9">09　ミニ練習</a></li>
+<li><a href="#step-10">10　完成とふり返り</a></li></ol></nav>
+<div class="progress"><span data-progress-label>0 / 11 ステップ確認済み</span><progress value="0" max="11" aria-label="学習の進み具合"></progress><span class="muted">自分用のチェックです。</span></div>
+<div class="resources"><a href="#help">困ったとき</a><a href="#back-android16">解説：Android 16以降の戻る操作</a><a href="#sample-project">完成プロジェクトを開く</a><a href="../hello-android/index.html">A01：HelloAndroid</a><a href="../calc-game/index.html">A02：CalcGame</a><a href="../common/emulator.html">共通：エミュレータ</a><a href="../common/auto-import.html">共通：Auto Import</a><a href="../common/logcat.html">共通：Logcat</a><a href="../common/apk.html">共通：APKの提出</a></div>
+</div></aside><main id="main"><div class="hero"><span class="unit">04</span><p class="eyebrow">WEBVIEW APP</p>
+<h1>アプリの中で<br>Webページを表示しよう</h1><p class="lede">ページを開く。メニューで切り替える。前のページに戻る。<br>WebViewを使って、小さなブラウザアプリへ。</p>
+<div class="tags"><span>Java / XML</span><span>A03の次の単元</span><span>90分 × 2コマ目安</span><span>Macで学ぶ</span><span>インターネット接続が必要</span></div></div>
+<section id="step-0" aria-labelledby="title-0">
+<p class="step-meta">STEP 00 · 目安 5分</p><h2 id="title-0">今日のゴール</h2>
+
+<p>これまでの単元では、ボタンや画像など、アプリの中に用意した部品を表示しました。今回は <strong>WebView（ウェブビュー）</strong> を使い、<strong>インターネットのWebページをアプリの中に表示する</strong>アプリを作ります。右上のメニューでサイトを切り替え、チェックボックスでJavaScriptのON/OFFを切り替えます。</p>
+<div class="flow" aria-label="アプリの使い方"><strong>⋮ でサイトを選ぶ</strong><span>→</span><strong>ページを表示</strong><span>→</span><strong>リンクで移動</strong><span>→</span><strong>戻る操作で前のページへ</strong></div>
+<div class="phones"><figure><a href="images/app-initial.png"><img src="images/app-initial.png" width="1080" height="2424" loading="lazy" alt="起動直後。ActionBarにA04WebViewAppと縦に3つの点のメニュー、チェックなしのjavaScript ON、その下は白い画面"></a><figcaption>① 起動直後。まだページは表示しません。 <a href="images/app-initial.png">画像を大きく開く</a></figcaption></figure>
+<figure><a href="images/app-yahoo.png"><img src="images/app-yahoo.png" width="1080" height="2424" loading="lazy" alt="javaScript ONにチェックがあり、WebViewにYahoo!ニュースのトップページが表示されている"></a><figcaption>② メニューからYahoo!ニュースを表示（javaScript ON）。 <a href="images/app-yahoo.png">画像を大きく開く</a></figcaption></figure>
+</div>
+<h3>できるようになること</h3>
+<ol><li>インターネットの許可を追加し、WebViewでWebページを表示する。</li><li>enumでメニューの項目をまとめ、オプションメニューからページを切り替える。</li><li>JavaScriptのON/OFFを切り替え、Android 16以降でも動く方法で、戻る操作を前のページへの移動にする。</li></ol>
+<h3>90分×2コマで進めます</h3>
+<table><thead><tr><th>授業</th><th>範囲</th><th>終了時にできること</th></tr></thead><tbody>
+<tr><td>1コマ目</td><td>STEP 0〜5</td><td>アプリの設定と画面を作り、WebViewでページを表示し、メニューの項目を用意する。</td></tr>
+<tr><td>2コマ目</td><td>STEP 6〜10</td><td>メニュー・JavaScript・戻る操作を追加し、ミニ練習・動作確認・提出を行う。</td></tr>
+</tbody></table>
+
+<p>各コマに再実行と個別確認の時間を含みます。予習は不要です。</p>
+<div class="note"><p class="box-title">毎回、自分で新規作成します</p><p>作る場所は <code>Documents/Android1/A04WebViewApp</code> です。<a href="#sample-project">完成プロジェクト</a>は初回から開けます。自分のコードを比べるときに使いましょう。</p></div>
+<div class="note"><p class="box-title">インターネット接続が必要です</p><p>このアプリは、実行中にインターネットのページを読み込みます。Macがネットにつながっていることを確認します。ニュースの見出しなどのページの内容は、画像と違って構いません。サイト側の更新で、見た目が変わることもあります。</p></div>
+
+<h3>完成アプリの操作</h3><table><thead><tr><th>操作</th><th>結果</th></tr></thead><tbody>
+<tr><td>起動直後</td><td>ActionBarに「A04WebViewApp」と <strong>⋮</strong>。「javaScript ON」はチェックなし。下は白い画面。</td></tr>
+<tr><td>⋮ → サイト名</td><td>そのサイトをアプリの中に表示する。</td></tr>
+<tr><td>ページ内のリンク</td><td>Chromeは開かず、アプリの中で移動する。</td></tr>
+<tr><td>「javaScript ON」を切り替える</td><td>JavaScriptの有効・無効を変えて、今のページを読み込み直す。</td></tr>
+<tr><td>戻る操作</td><td>前のページがあれば戻る。なければアプリを閉じる。</td></tr>
+</tbody></table>
+
+<div class="note"><p class="box-title">画面回転について</p><p>各単元では画面回転時のデータ保持を扱いません。回転などでActivityが作り直されると、表示中のページと戻るための履歴は初期状態に戻ります。縦向きで使います。この観点は別単元の演習アプリで検証します。</p></div>
+<div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-0"><span>⋮ のメニュー、「javaScript ON」、戻る操作の役割を画像と表で説明できた。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
+<div class="next"><a href="#step-1">次へ：プロジェクトを作って実行 →</a></div>
+</section>
+<section id="step-1" aria-labelledby="title-1">
+<p class="step-meta">STEP 01 · 目安 15分</p><h2 id="title-1">プロジェクトを作って実行</h2>
+
+<p>授業環境はMacと <strong>Android Studio Panda 2 | 2025.3.2</strong> です。これまでの単元とは別のプロジェクトを作ります。</p>
+<ol><li>Android Studioの <strong>New Project</strong> をクリックします。別のプロジェクトを開いているときは <strong>File → New → New Project</strong> を選びます。</li></ol>
+<figure><a href="images/new-project.png"><img src="images/new-project.png" width="1594" height="270" loading="lazy" alt="Android StudioのWelcome画面。右上にNew Projectボタン"></a><figcaption>右上のNew Projectをクリック。 <a href="images/new-project.png">画像を大きく開く</a></figcaption></figure>
+
+<ol start="2"><li><strong>Phone and Tablet → Empty Views Activity → Next</strong> の順に選びます。名前に <strong>Views</strong> があることを確認します。</li></ol>
+<figure><a href="images/empty-views-activity.png"><img src="images/empty-views-activity.png" width="1802" height="1354" loading="lazy" alt="テンプレート一覧でEmpty Views Activityが選択されている"></a><figcaption>Empty Views Activityを選択。 <a href="images/empty-views-activity.png">画像を大きく開く</a></figcaption></figure>
+<table><thead><tr><th>項目</th><th>入力・選択する内容</th></tr></thead><tbody>
+<tr><td>Name</td><td><code>A04WebViewApp</code></td></tr>
+<tr><td>Package name</td><td><code>jp.ac.jec.a04webviewapp</code>（すべて小文字）</td></tr>
+<tr><td>Save location</td><td><code>/Users/ユーザ名/Documents/Android1/A04WebViewApp</code></td></tr>
+<tr><td>Language</td><td><strong>Java</strong></td></tr>
+<tr><td>Minimum SDK</td><td><strong>API 31（Android 12.0）</strong></td></tr>
+<tr><td>Build configuration language</td><td><strong>Kotlin DSL（build.gradle.kts）</strong></td></tr>
+</tbody></table>
+<figure><a href="images/project-settings.png"><img src="images/project-settings.png" width="1784" height="1350" loading="lazy" alt="A04WebViewAppの新規設定。パッケージjp.ac.jec.a04webviewapp、Java、API 31"></a><figcaption>画像の保存先は先生の例です。自分のDocuments/Android1/A04WebViewAppに読み替えます。 <a href="images/project-settings.png">画像を大きく開く</a></figcaption></figure>
+
+<ol start="3"><li>Finderの <strong>移動 → ホーム</strong> で自分のユーザ名を確認します。書類（Documents）に <code>Android1</code> フォルダがなければ作ります。</li><li>表の値と保存先を確認し、<strong>Finish</strong> をクリックします。<code>ユーザ名</code> は自分の名前に置き換えます。</li><li><strong>Gradle Sync</strong> が完了するまで待ちます。</li><li><a href="../common/auto-import.html">共通資料：Auto Import</a>のJava設定を確認します。</li></ol>
+<h3>この単元で使う場所</h3>
+<table><thead><tr><th>役割</th><th>Project表示で開く場所</th></tr></thead><tbody>
+<tr><td>見た目の設定（テーマ）</td><td><code>app/src/main/res/values/themes.xml</code> と <code>app/src/main/res/values-night/themes.xml</code></td></tr>
+<tr><td>アプリの設定（許可）</td><td><code>app/src/main/AndroidManifest.xml</code></td></tr>
+<tr><td>画面（XML）</td><td><code>app/src/main/res/layout/activity_main.xml</code></td></tr>
+<tr><td>動き（Java）</td><td><code>app/src/main/java/jp/ac/jec/a04webviewapp/MainActivity.java</code></td></tr>
+<tr><td>メニューの項目（Java）</td><td><code>app/src/main/java/jp/ac/jec/a04webviewapp/AppMenuItem.java</code>（STEP 5で作る）</td></tr>
+</tbody></table>
+
+<p>左の一覧が見えないときは <strong>View → Tool Windows → Project</strong> を開きます。一覧の上の表示名が <strong>Project</strong> になっていることを確認します。パッケージのフォルダが <code>jp.ac.jec.a04webviewapp</code> とまとめて表示される場合もあります。</p>
+<h3>変更前に1回Runする</h3>
+<ol><li><a href="../common/emulator.html">共通資料：エミュレータ</a>に従って端末を起動します。</li><li>上部で <strong>app</strong> と <strong>jec_26cm_android1_Pixel 9a</strong> を選び、<strong>Run ▶</strong> を押します。</li><li><strong>Hello World!</strong> が表示されれば成功です。</li></ol>
+<div class="note"><p class="box-title">MainActivity.ktができたとき</p><p>先生に画面を見せ、Empty Views Activity / Javaの選択を確認します。</p></div>
+<div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-1"><span>自分の保存先にA04WebViewAppを作り、Hello World!を表示できた。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
+<div class="next"><a href="#step-2">次へ：ActionBarとインターネットの許可 →</a></div>
+</section>
+<section id="step-2" aria-labelledby="title-2">
+<p class="step-meta">STEP 02 · 目安 15分</p><h2 id="title-2">ActionBarとインターネットの許可</h2>
+
+<p class="file">変更するファイル：res/values/themes.xml、res/values-night/themes.xml、AndroidManifest.xml</p>
+<p>Javaを書く前に、アプリの設定を2つ変えます。</p>
+<table><thead><tr><th>変更</th><th>理由</th></tr></thead><tbody>
+<tr><td>テーマから <code>NoActionBar</code> を外す</td><td>画面上部に <strong>ActionBar（アクションバー）</strong> を表示する。STEP 6で作るメニュー（⋮）はActionBarに出る。</td></tr>
+<tr><td>インターネットの許可を追加する</td><td>アプリがインターネットに接続できるようにする。WebViewでページを読み込むために必要。</td></tr>
+</tbody></table>
+
+<h3>① テーマのNoActionBarを外す（2つのファイル）</h3>
+<p>Project表示で <code>app/src/main/res/values/themes.xml</code> を開きます。<code>parent</code> の値の末尾にある <strong><code>.NoActionBar</code> だけを消します</strong>。ほかの文字は変えません。</p>
+<div class="flow"><strong>変更前：Theme.Material3.DayNight.NoActionBar</strong><span>→</span><strong>変更後：Theme.Material3.DayNight</strong></div>
+<div class="code-head">values/themes.xml · 変更後の全体（照合用）</div>
+<pre id="code-theme" tabindex="0"><code>&lt;resources xmlns:tools=&quot;http://schemas.android.com/tools&quot;&gt;
+    &lt;!-- Base application theme. --&gt;
+    &lt;style name=&quot;Base.Theme.A04WebViewApp&quot; parent=&quot;Theme.Material3.DayNight&quot;&gt;
+        &lt;!-- Customize your light theme here. --&gt;
+        &lt;!-- &lt;item name=&quot;colorPrimary&quot;&gt;@color/my_light_primary&lt;/item&gt; --&gt;
+    &lt;/style&gt;
+
+    &lt;style name=&quot;Theme.A04WebViewApp&quot; parent=&quot;Base.Theme.A04WebViewApp&quot; /&gt;
+&lt;/resources&gt;</code></pre>
+<p>次に <code>app/src/main/res/values-night/themes.xml</code> も開き、同じように <code>.NoActionBar</code> を消します。<code>values-night</code> は、端末がダークテーマのときに使う設定です。片方だけ変えると、ダークテーマのときにActionBarが出ません。</p>
+<details><summary>values-night/themes.xmlの変更後の全体で照合する</summary><div class="code-head">values-night/themes.xml · 変更後の全体（照合用）</div>
+<pre id="code-theme-night" tabindex="0"><code>&lt;resources xmlns:tools=&quot;http://schemas.android.com/tools&quot;&gt;
+    &lt;!-- Base application theme. --&gt;
+    &lt;style name=&quot;Base.Theme.A04WebViewApp&quot; parent=&quot;Theme.Material3.DayNight&quot;&gt;
+        &lt;!-- Customize your dark theme here. --&gt;
+        &lt;!-- &lt;item name=&quot;colorPrimary&quot;&gt;@color/my_dark_primary&lt;/item&gt; --&gt;
+    &lt;/style&gt;
+&lt;/resources&gt;</code></pre>
+</details>
+<p><code>Base.Theme.A04WebViewApp</code> の部分はプロジェクト名から作られます。ファイル全体を貼り付けるのではなく、<code>.NoActionBar</code> を消す方法で変更しましょう。</p>
+
+<h3>② インターネットの許可を追加する</h3>
+<p><code>app/src/main/AndroidManifest.xml</code> を開きます。<code>&lt;manifest</code> の開始タグ（<code>xmlns:tools=...&gt;</code> で終わる部分）の下、<code>&lt;application</code> の<strong>上</strong>に1行追加します。</p>
+<div class="code-head">追加 · &lt;application の上</div>
+<pre id="code-permission" tabindex="0"><code>&lt;uses-permission android:name=&quot;android.permission.INTERNET&quot; /&gt;</code></pre>
+<table><thead><tr><th>コード</th><th>意味</th></tr></thead><tbody>
+<tr><td>AndroidManifest.xml</td><td>アプリの名前・アイコン・画面・必要な機能などを、Androidに伝える設定ファイル。</td></tr>
+<tr><td>uses-permission</td><td>アプリが使う機能（権限）を宣言する。</td></tr>
+<tr><td>android.permission.INTERNET</td><td>インターネットへの接続。インストール時に自動で許可され、確認の画面は出ない。</td></tr>
+</tbody></table>
+<details><summary>変更後のAndroidManifest.xml全体で照合する</summary><div class="code-head">AndroidManifest.xml · 変更後の全体（照合用）</div>
+<pre id="code-manifest" tabindex="0"><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;manifest xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
+    xmlns:tools=&quot;http://schemas.android.com/tools&quot;&gt;
+
+    &lt;uses-permission android:name=&quot;android.permission.INTERNET&quot; /&gt;
+    &lt;application
+        android:allowBackup=&quot;true&quot;
+        android:dataExtractionRules=&quot;@xml/data_extraction_rules&quot;
+        android:fullBackupContent=&quot;@xml/backup_rules&quot;
+        android:icon=&quot;@mipmap/ic_launcher&quot;
+        android:label=&quot;@string/app_name&quot;
+        android:roundIcon=&quot;@mipmap/ic_launcher_round&quot;
+        android:supportsRtl=&quot;true&quot;
+        android:theme=&quot;@style/Theme.A04WebViewApp&quot;&gt;
+        &lt;activity
+            android:name=&quot;.MainActivity&quot;
+            android:exported=&quot;true&quot;&gt;
+            &lt;intent-filter&gt;
+                &lt;action android:name=&quot;android.intent.action.MAIN&quot; /&gt;
+
+                &lt;category android:name=&quot;android.intent.category.LAUNCHER&quot; /&gt;
+            &lt;/intent-filter&gt;
+        &lt;/activity&gt;
+    &lt;/application&gt;
+
+&lt;/manifest&gt;</code></pre>
+</details>
+
+<h3>Runで確かめる</h3><p>画面上部に「A04WebViewApp」と書かれたActionBarが表示されます。Hello World!はまだ残っています。インターネットの許可の効果は、STEP 4でページを表示するときに確かめます。</p>
+<div class="note"><p class="box-title">ActionBarが出ないとき</p><p>2つのthemes.xmlの両方で <code>.NoActionBar</code> を消したか、保存したかを確認します。<code>Theme.Material3.DayNight</code> の後ろに <code>.</code> だけが残っていないかも見ます。</p></div>
+<div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-2"><span>ActionBarが表示され、AndroidManifest.xmlにINTERNETの許可を1行追加した。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
+<div class="next"><a href="#step-3">次へ：CheckBoxとWebViewを置く →</a></div>
+</section>
+<section id="step-3" aria-labelledby="title-3">
+<p class="step-meta">STEP 03 · 目安 15分</p><h2 id="title-3">CheckBoxとWebViewを置く</h2>
+
+<p class="file">変更するファイル：app/src/main/res/layout/activity_main.xml</p>
+<p>画面は、上にチェックボックス、その下にWebViewを置くだけです。<strong>Code</strong> 表示に切り替え、XMLの中で <kbd>⌘ A</kbd> → 貼り付けを行い、<strong>ファイル全体を置き換えます</strong>。</p>
+<div class="code-head">activity_main.xml · 全体を置き換える</div>
+<pre id="code-layout" tabindex="0"><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;LinearLayout xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
+    xmlns:tools=&quot;http://schemas.android.com/tools&quot;
+    android:id=&quot;@+id/main&quot;
+    android:layout_width=&quot;match_parent&quot;
+    android:layout_height=&quot;match_parent&quot;
+    android:orientation=&quot;vertical&quot;
+    tools:context=&quot;.MainActivity&quot;&gt;
+
+    &lt;CheckBox
+        android:id=&quot;@+id/checkBox&quot;
+        android:layout_width=&quot;wrap_content&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:text=&quot;javaScript ON&quot; /&gt;
+
+    &lt;WebView
+        android:id=&quot;@+id/webView&quot;
+        android:layout_width=&quot;match_parent&quot;
+        android:layout_height=&quot;match_parent&quot; /&gt;
+&lt;/LinearLayout&gt;</code></pre>
+<table><thead><tr><th>新しい部品・指定</th><th>意味</th></tr></thead><tbody>
+<tr><td>CheckBox（チェックボックス）</td><td>チェックのあり・なしを切り替える部品。STEP 7でJavaScriptの設定に使う。</td></tr>
+<tr><td>WebView（ウェブビュー）</td><td>Webページを表示する部品。アプリの中に小さなブラウザを置くイメージ。</td></tr>
+<tr><td>orientation="vertical"</td><td>中の部品を、上からCheckBox → WebViewの順に縦に並べる。</td></tr>
+<tr><td>WebViewの layout_height="match_parent"</td><td>CheckBoxの下の、残りの高さいっぱいに広げる。</td></tr>
+</tbody></table>
+
+<p><code>android:id="@+id/main"</code> はJavaのひな形でも使うため残します。<code>checkBox</code> と <code>webView</code> は、次にJavaから探すための名前です。大文字・小文字も区別します。</p>
+<p>チェックボックスの文字 <code>javaScript ON</code> は完成版に合わせています。文字を直接書いたことによる <code>Hardcoded text</code> の警告は、これまでの単元と同様にそのまま進めます。</p>
+<h3>Runで確かめる</h3><p>ActionBarの下に「javaScript ON」のチェックボックスが表示され、その下は白い画面です。チェックは付けたり外したりできますが、まだ何も起きません。</p>
+<figure class="phone"><a href="images/app-initial.png"><img src="images/app-initial.png" width="1080" height="2424" loading="lazy" alt="ActionBarの下にjavaScript ONのチェックボックスがあり、その下は白い画面"></a><figcaption>このSTEPの画面。白い部分がWebViewです。 <a href="images/app-initial.png">画像を大きく開く</a></figcaption></figure>
+<div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-3"><span>チェックボックスと白いWebViewが表示され、checkBoxとwebViewのidを確認した。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
+<div class="next"><a href="#step-4">次へ：WebViewでページを表示 →</a></div>
+</section>
+<section id="step-4" aria-labelledby="title-4">
+<p class="step-meta">STEP 04 · 目安 15分</p><h2 id="title-4">WebViewでページを表示</h2>
+
+<p class="file">変更するファイル：MainActivity.java</p>
+<p>まず、決まったURLのページを1つ表示して、WebViewとインターネットの許可が動くことを確かめます。</p>
+<h3>① フィールドを追加する</h3>
+<p><code>public class MainActivity extends AppCompatActivity {</code> のすぐ下の空行に追加します。<code>@Override</code> より上です。</p>
+<div class="code-head">追加 · MainActivityのフィールド</div>
+<pre id="code-field" tabindex="0"><code>private WebView webView;</code></pre>
+<p>importは <code>android.webkit.WebView</code> です。<code>webView</code> は、STEP 6で作るメニューのメソッドからも使うため、onCreateの外の<strong>フィールド</strong>にします。</p>
+<h3>② onCreateの中でページを読み込む</h3>
+<p><code>onCreate</code> の中で、ひな形の <code>return insets;</code> に続く <code>});</code> の下、<code>onCreate</code> を閉じる <code>}</code> より上に追加します。</p>
+<div class="code-head">追加 · onCreateの中</div>
+<pre id="code-load" tabindex="0"><code>webView = findViewById(R.id.webView);
+
+webView.setWebViewClient(new WebViewClient());
+webView.loadUrl(&quot;https://news.yahoo.co.jp/&quot;); // 表示の確認用。STEP 6で削除する</code></pre>
+<p>importは <code>android.webkit.WebViewClient</code> です。</p>
+<table><thead><tr><th>コード</th><th>意味</th></tr></thead><tbody>
+<tr><td>webView = findViewById(R.id.webView);</td><td>XMLのWebViewを取得し、フィールドに入れる。フィールドの型がWebViewなので、varやキャストは書かない。</td></tr>
+<tr><td>setWebViewClient(new WebViewClient())</td><td>ページ内のリンクを、Chromeなど別のアプリではなく、このWebViewの中で開くようにする。</td></tr>
+<tr><td>loadUrl("https://...")</td><td>指定したURLのページを読み込んで表示する。</td></tr>
+</tbody></table>
+
+<div class="note"><p class="box-title">loadUrlの行は確認用です</p><p>行の後ろのコメントのとおり、この1行は表示を確かめるための仮の行です。STEP 6でメニューから開く形に変えるときに削除します。</p></div>
+<h3>Runで確かめる</h3><p>起動するとYahoo!ニュースが表示されます。上部に「現在JavaScriptが無効になっています」と出るのは、WebViewの初期設定でJavaScriptが無効だからです。STEP 7で切り替えられるようにします。</p>
+<figure class="phone"><a href="images/app-js-off.png"><img src="images/app-js-off.png" width="1080" height="2424" loading="lazy" alt="javaScript ONはチェックなし。Yahoo!ニュースの上部に、現在JavaScriptが無効になっていますという案内が表示されている"></a><figcaption>JavaScriptが無効のため、サイトの案内が出ます。 <a href="images/app-js-off.png">画像を大きく開く</a></figcaption></figure>
+<div class="note"><p class="box-title">「ウェブページへのアクセス不可」と出たとき</p><p><code>net::ERR_CACHE_MISS</code> と表示される場合は、STEP 2のINTERNETの許可がないか、書く場所が違います。<code>AndroidManifest.xml</code> を確認して保存し、もう一度Runします。別のエラー名のときは、Macがインターネットにつながっているかを確認します。</p></div>
+<div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-4"><span>Yahoo!ニュースがアプリの中に表示され、JavaScriptが無効という案内を確認した。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
+<div class="next"><a href="#step-5">次へ：メニューの項目をenumで作る →</a></div>
+</section>
+<section id="step-5" aria-labelledby="title-5">
+<p class="step-meta">STEP 05 · 目安 15分</p><h2 id="title-5">メニューの項目をenumで作る</h2>
+
+<p class="file">新しく作るファイル：app/src/main/java/jp/ac/jec/a04webviewapp/AppMenuItem.java</p>
+<p>メニューに出す4つのサイトを用意します。1つのサイトには「URL」と「メニューに表示する名前」の2つの情報があります。これを <strong>enum（イーナム、列挙型）</strong> でまとめます。</p>
+<h3>① ファイルを作る</h3>
+<ol><li>Project表示で <code>app/src/main/java/jp/ac/jec/a04webviewapp</code>（<code>MainActivity</code> がある場所）を右クリックします。</li><li><strong>New → Java Class</strong> を選びます。</li><li>名前の欄に <code>AppMenuItem</code> と入力し、下の一覧から <strong>Enum</strong> を選んで <kbd>Enter</kbd> を押します。</li><li><code>AppMenuItem.java</code> が開きます。</li></ol>
+<div class="note"><p class="box-title">作る場所に注意</p><p><code>app/src/test</code> や <code>app/src/androidTest</code> の中にも同じ名前のパッケージがあります。必ず <code>app/src/main/java</code> の中の、<code>MainActivity</code> と同じ場所に作ります。</p></div>
+<h3>② 中身を置き換える</h3>
+<p>開いた <code>AppMenuItem.java</code> の中で <kbd>⌘ A</kbd> → 貼り付けを行い、<strong>ファイル全体を置き換えます</strong>。</p>
+<div class="code-head">AppMenuItem.java · 全体を置き換える</div>
+<pre id="code-app-menu-item" tabindex="0"><code>package jp.ac.jec.a04webviewapp;
+
+/**
+ * MenuやMenuItemだと、android.view.Menuやandroid.view.MenuItemと被るためAppMenuItemとして定義した
+ */
+enum AppMenuItem {
+    YAHOO(&quot;https://news.yahoo.co.jp/&quot;, &quot;Yahoo!ニュース&quot;),
+    GITHUB_COPILOT(&quot;https://github.com/features/copilot/&quot;, &quot;GitHub Copilot&quot;),
+    SLAM_DUNK_MOVIE(&quot;https://slamdunk-movie.jp/&quot;, &quot;映画「SLAM DUNK」公式サイト&quot;),
+    CHAT_GPT(&quot;https://openai.com/ja-JP/chatgpt/overview/&quot;, &quot;OpenAI ChatGPT&quot;);
+
+    private final String url;
+    private final String title;
+
+    AppMenuItem(String url, String title) {
+        this.url = url;
+        this.title = title;
+    }
+
+    String getUrl() {
+        return url;
+    }
+
+    String getTitle() {
+        return title;
+    }
+}</code></pre>
+<table><thead><tr><th>コード</th><th>意味</th></tr></thead><tbody>
+<tr><td>enum AppMenuItem</td><td>決まった種類だけを並べる型。今回はメニューの4項目。</td></tr>
+<tr><td>YAHOO(...)、GITHUB_COPILOT(...) など</td><td>enumの値。値ごとに、URLと表示する名前を持つ。</td></tr>
+<tr><td>private final String url;</td><td>値ごとに覚えておくURL。<code>final</code> は、一度入れたら変えないという指定。</td></tr>
+<tr><td>AppMenuItem(String url, String title)</td><td>コンストラクタ。値を作るときに <code>( )</code> の中のURLと名前を受け取り、フィールドに入れる。</td></tr>
+<tr><td>this.url = url;</td><td>左の <code>this.url</code> はフィールド、右の <code>url</code> は受け取った値。</td></tr>
+<tr><td>getUrl() / getTitle()</td><td>覚えたURL・名前を、MainActivityから読むためのメソッド。</td></tr>
+</tbody></table>
+
+<p>値と値の間は <code>,</code>（カンマ）で区切り、最後の <code>CHAT_GPT(...)</code> の後ろだけ <code>;</code>（セミコロン）にします。コメントにあるとおり、<code>Menu</code> や <code>MenuItem</code> という名前はAndroidのクラスと重なるため、<code>AppMenuItem</code> という名前にしています。</p>
+<h3>値の番号（ordinal）</h3>
+<p>enumの値には、書いた順に0から番号が付きます。この番号は <code>ordinal()</code> で取り出せます。<code>AppMenuItem.values()</code> は、4つの値を書いた順に入れた配列を返します。どちらもSTEP 6で使います。</p>
+<table><thead><tr><th>値</th><th>ordinal()</th><th>getTitle()</th></tr></thead><tbody>
+<tr><td>YAHOO</td><td>0</td><td>Yahoo!ニュース</td></tr>
+<tr><td>GITHUB_COPILOT</td><td>1</td><td>GitHub Copilot</td></tr>
+<tr><td>SLAM_DUNK_MOVIE</td><td>2</td><td>映画「SLAM DUNK」公式サイト</td></tr>
+<tr><td>CHAT_GPT</td><td>3</td><td>OpenAI ChatGPT</td></tr>
+</tbody></table>
+
+<h3>Runで確かめる</h3><p>まだどこからも使っていないので、画面は変わりません。エラーなくRunでき、STEP 4と同じくYahoo!ニュースが表示されれば成功です。</p>
+<div class="note"><p class="box-title">1コマ目はここまで</p><p>保存してからもう一度Runします。先生に、enumの4つの値と番号（ordinal）の対応を説明しましょう。次回も自分の <code>Documents/Android1/A04WebViewApp</code> を開きます。</p></div>
+<div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-5"><span>MainActivityと同じ場所にAppMenuItem.javaを作り、4つの値と番号の対応を表で確認した。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
+<div class="next"><a href="#step-6">次へ：メニューでページを切り替える →</a></div>
+</section>
+<section id="step-6" aria-labelledby="title-6">
+<p class="step-meta">STEP 06 · 目安 15分</p><h2 id="title-6">メニューでページを切り替える</h2>
+
+<p class="file">変更するファイル：MainActivity.java</p>
+<p>前回の画面をRunして確認してから始めます。ActionBarの右上の <strong>⋮</strong>（オプションメニュー）に、STEP 5の4つのサイトを出します。</p>
+<h3>① 確認用の1行を削除する</h3>
+<p><code>onCreate</code> の中の、次の1行を削除します。すぐ上の <code>setWebViewClient</code> の行は残します。</p>
+<div class="flow"><strong>削除：webView.loadUrl("https://news.yahoo.co.jp/"); // 表示の確認用。STEP 6で削除する</strong></div>
+<h3>② メニューのメソッドを2つ追加する</h3>
+<p>ファイルの末尾にある2つの <code>}</code> を見つけます。上は <code>onCreate</code>、下は <code>MainActivity</code> を閉じています。<strong>その2つの間</strong>に追加します。</p>
+<div class="code-head">追加 · onCreateの外、MainActivityの中</div>
+<pre id="code-menu" tabindex="0"><code>@Override
+public boolean onCreateOptionsMenu(Menu menu) {
+    for (var menuItem : AppMenuItem.values()) {
+        menu.add(Menu.NONE, menuItem.ordinal(), Menu.NONE, menuItem.getTitle());
+    }
+    return true; // trueを指定し、メニューを表示する
+}
+
+@Override
+public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+    var appMenuItem = AppMenuItem.values()[item.getItemId()];
+    webView.loadUrl(appMenuItem.getUrl());
+    return true; // trueを指定し、イベントを消費して処理を終了する
+}</code></pre>
+<p>importは <code>android.view.Menu</code>、<code>android.view.MenuItem</code>、<code>androidx.annotation.NonNull</code> です。<code>MenuItem</code> の候補が複数出たときは <code>android.view.MenuItem</code> を選びます。</p>
+<table><thead><tr><th>メソッド</th><th>呼ばれるとき</th><th>していること</th></tr></thead><tbody>
+<tr><td>onCreateOptionsMenu</td><td>メニューを用意するとき</td><td>enumの値を順に取り出し、メニューに1項目ずつ追加する。<code>true</code> を返すとメニューが表示される。</td></tr>
+<tr><td>onOptionsItemSelected</td><td>メニューの項目を押したとき</td><td>押した項目のidからenumの値を取り出し、そのURLを読み込む。<code>true</code> は「この処理で終わり」という意味。</td></tr>
+</tbody></table>
+
+<table><thead><tr><th>menu.add( ) の引数</th><th>意味</th></tr></thead><tbody>
+<tr><td>1つ目　Menu.NONE</td><td>グループ。今回は使わない。</td></tr>
+<tr><td>2つ目　menuItem.ordinal()</td><td>項目のid。押したときに、どの項目かを見分ける番号（0〜3）。</td></tr>
+<tr><td>3つ目　Menu.NONE</td><td>並び順の指定。今回は使わず、追加した順に並ぶ。</td></tr>
+<tr><td>4つ目　menuItem.getTitle()</td><td>メニューに表示する文字。</td></tr>
+</tbody></table>
+
+<div class="flow" aria-label="メニューを押したときの流れ"><strong>「映画「SLAM DUNK」公式サイト」を押す</strong><span>→</span><strong>item.getItemId() は 2</strong><span>→</span><strong>AppMenuItem.values()[2] は SLAM_DUNK_MOVIE</strong><span>→</span><strong>そのURLをloadUrl</strong></div>
+<p><code>@Override</code> は、親クラス（AppCompatActivity）のメソッドを上書きする印です。名前を打ち間違えると赤いエラーで気付けます。<code>@NonNull</code> は「<code>item</code> にnullは来ない」ことを示す印です。</p>
+<h3>Runで確かめる</h3>
+<ol><li>起動直後は白い画面です（確認用のloadUrlを削除したため）。</li><li>右上の <strong>⋮</strong> を押すと、4つのサイト名が表示されます。</li><li>「映画「SLAM DUNK」公式サイト」を押すと、そのページが表示されます。ほかの項目も試します。</li></ol>
+<div class="phones"><figure><a href="images/app-menu.png"><img src="images/app-menu.png" width="1080" height="2424" loading="lazy" alt="右上のメニューが開き、Yahoo!ニュース、GitHub Copilot、映画「SLAM DUNK」公式サイト、OpenAI ChatGPTの4項目が並んでいる"></a><figcaption>⋮ を押したところ。enumに書いた順に並びます。 <a href="images/app-menu.png">画像を大きく開く</a></figcaption></figure>
+<figure><a href="images/app-slamdunk.png"><img src="images/app-slamdunk.png" width="1080" height="2424" loading="lazy" alt="WebViewに映画「SLAM DUNK」公式サイトが表示されている"></a><figcaption>SLAM DUNKのサイトを表示。画像は完成版でチェックを付けた状態です。 <a href="images/app-slamdunk.png">画像を大きく開く</a></figcaption></figure>
+</div>
+<div class="note"><p class="box-title">⋮ が表示されないとき</p><p>STEP 2で2つのthemes.xmlから <code>.NoActionBar</code> を消したかを確認します。ActionBarがないと、オプションメニューも表示されません。</p></div>
+<div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-6"><span>⋮ に4つのサイト名が出て、押したサイトが表示された。押した項目とordinalの関係を説明できた。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
+<div class="next"><a href="#step-7">次へ：JavaScriptのON/OFFとズーム →</a></div>
+</section>
+<section id="step-7" aria-labelledby="title-7">
+<p class="step-meta">STEP 07 · 目安 15分</p><h2 id="title-7">JavaScriptのON/OFFとズーム</h2>
+
+<p class="file">変更するファイル：MainActivity.java</p>
+<p><strong>JavaScript</strong> は、Webページの中で動くプログラミング言語です。多くのサイトは、メニューの開閉や表示の切り替えなどにJavaScriptを使います。WebViewは初期設定でJavaScriptが<strong>無効</strong>なので、チェックボックスで切り替えられるようにします。</p>
+<h3>① CheckBoxを取得する</h3>
+<p><code>onCreate</code> の <code>webView = findViewById(R.id.webView);</code> の<strong>すぐ下</strong>に追加します。</p>
+<div class="code-head">追加 · webView = findViewById(...); の下</div>
+<pre id="code-checkbox" tabindex="0"><code>var checkBox = (CheckBox) findViewById(R.id.checkBox);</code></pre>
+<p>importは <code>android.widget.CheckBox</code> です。<code>(CheckBox)</code> は、チェックの状態を読むためにCheckBoxとして扱う指定です。</p>
+<h3>② 起動時の設定をそろえる</h3>
+<p><code>webView.setWebViewClient(new WebViewClient());</code> の<strong>すぐ下</strong>に追加します。</p>
+<div class="code-head">追加 · setWebViewClientの行の下</div>
+<pre id="code-js-initial" tabindex="0"><code>webView.getSettings().setJavaScriptEnabled(checkBox.isChecked());</code></pre>
+<h3>③ チェックを切り替えたときの処理とズーム</h3>
+<p><code>onCreate</code> の最後、<code>onCreate</code> を閉じる <code>}</code> の直前に追加します。</p>
+<div class="code-head">追加 · onCreateの最後</div>
+<pre id="code-js-listener" tabindex="0"><code>checkBox.setOnCheckedChangeListener((buttonView, isChecked) -&gt; {
+    webView.getSettings().setJavaScriptEnabled(isChecked);
+    webView.reload();
+});
+
+webView.getSettings().setBuiltInZoomControls(true);</code></pre>
+<table><thead><tr><th>コード</th><th>意味</th></tr></thead><tbody>
+<tr><td>webView.getSettings()</td><td>WebViewの設定を取り出す。</td></tr>
+<tr><td>setJavaScriptEnabled(checkBox.isChecked())</td><td>起動時のチェックの状態に合わせる。最初はチェックなしなので無効。</td></tr>
+<tr><td>setOnCheckedChangeListener((buttonView, isChecked) -&gt; { ... })</td><td>チェックが切り替わったときの処理。<code>isChecked</code> は切り替えた後の状態（true：チェックあり）。<code>buttonView</code> は押されたCheckBoxで、今回は使わない。</td></tr>
+<tr><td>webView.reload()</td><td>今のページを読み込み直し、変えた設定をページに反映する。</td></tr>
+<tr><td>setBuiltInZoomControls(true)</td><td>2本指で広げる・つまむ操作（ピンチ）で、ページを拡大・縮小できるようにする。</td></tr>
+</tbody></table>
+
+<h3>Runで確かめる</h3>
+<ol><li>⋮ → Yahoo!ニュースを開きます。チェックなしでは「現在JavaScriptが無効になっています」が出ます。</li><li>「javaScript ON」にチェックを付けます。ページが読み込み直され、案内が消えます。</li><li>チェックを外すと、もう一度読み込み直され、案内が出ます。</li></ol>
+<div class="phones"><figure><a href="images/app-js-off.png"><img src="images/app-js-off.png" width="1080" height="2424" loading="lazy" alt="チェックなし。Yahoo!ニュースにJavaScriptが無効という案内が出ている"></a><figcaption>チェックなし：JavaScriptが無効。 <a href="images/app-js-off.png">画像を大きく開く</a></figcaption></figure>
+<figure><a href="images/app-yahoo.png"><img src="images/app-yahoo.png" width="1080" height="2424" loading="lazy" alt="チェックあり。Yahoo!ニュースの案内が消え、タブと記事の一覧が表示されている"></a><figcaption>チェックあり：案内が消えます。 <a href="images/app-yahoo.png">画像を大きく開く</a></figcaption></figure>
+</div>
+<p>余裕があれば、ページを拡大してみます。エミュレータでは <kbd>⌘</kbd> を押しながら画面をドラッグすると、2本指の操作になります。サイト側で拡大を制限している場合は、拡大できないこともあります。</p>
+<div class="note"><p class="box-title">JavaScriptを有効にするときの注意</p><p>JavaScriptを有効にすると、表示したページのプログラムがアプリの中で動きます。どんなURLでも開けるアプリでは、有効にするかを慎重に決めるのが基本です。今回のアプリは、メニューにある決まったサイトを開きます。</p></div>
+<p class="muted">仕様の確認：<a href="https://developer.android.com/reference/android/webkit/WebSettings">WebSettings（Android公式）</a>。</p>
+<div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-7"><span>チェックの切り替えでページが読み込み直され、JavaScriptの案内が消える・出ることを確認した。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
+<div class="next"><a href="#step-8">次へ：戻る操作で前のページへ →</a></div>
+</section>
+<section id="step-8" aria-labelledby="title-8">
+<p class="step-meta">STEP 08 · 目安 20分</p><h2 id="title-8">戻る操作で前のページへ</h2>
+
+<p class="file">変更するファイル：MainActivity.java</p>
+<p>リンクで別のページに移動したあと、戻る操作をしたら前のページに戻るようにします。<strong>戻る操作</strong>とは、画面の左端（または右端）から内側へのスワイプや、エミュレータのツールバーの戻るボタン（◁）のことです。</p>
+<h3>まず、今の動きを確かめる</h3>
+<ol><li>Runして、⋮ → Yahoo!ニュースを開き、記事のリンクを1つ押します。</li><li>戻る操作をします。前のページがあるのに、<strong>アプリが閉じてホーム画面に戻ります</strong>。</li></ol>
+<h3>① 戻る処理を登録する</h3>
+<p><code>onCreate</code> の <code>webView.setWebViewClient(new WebViewClient());</code> の行の<strong>上</strong>に追加します。<code>var checkBox = ...;</code> より下です。</p>
+<div class="code-head">追加 · setWebViewClientの行の上</div>
+<pre id="code-back-callback" tabindex="0"><code>// 戻る操作で前のページに戻る処理。前のページがあるときだけ有効にする
+// Android 16以降はonKeyDownで戻るキーを受け取れないため、OnBackPressedCallbackを使う
+var backCallback = new OnBackPressedCallback(false) {
+    @Override
+    public void handleOnBackPressed() {
+        webView.goBack();
+    }
+};
+getOnBackPressedDispatcher().addCallback(this, backCallback);</code></pre>
+<p>importは <code>androidx.activity.OnBackPressedCallback</code> です。</p>
+<h3>② WebViewClientを置き換える</h3>
+<p><code>webView.setWebViewClient(new WebViewClient());</code> の1行を、次のコードに<strong>置き換えます</strong>。すぐ下の <code>setJavaScriptEnabled</code> の行は残します。</p>
+<div class="code-head">置き換え · setWebViewClientの行</div>
+<pre id="code-webview-client" tabindex="0"><code>webView.setWebViewClient(new WebViewClient() {
+    // ページの履歴が変わるたびに呼ばれる
+    @Override
+    public void doUpdateVisitedHistory(WebView view, String url, boolean isReload) {
+        backCallback.setEnabled(view.canGoBack());
+    }
+});</code></pre>
+<h3>しくみ</h3>
+<table><thead><tr><th>コード</th><th>意味</th></tr></thead><tbody>
+<tr><td>new OnBackPressedCallback(false) { ... }</td><td>戻る操作のときに行う処理。<code>(false)</code> は「最初は無効」という意味。</td></tr>
+<tr><td>handleOnBackPressed()</td><td>有効なときに戻る操作をすると呼ばれる。<code>webView.goBack()</code> で前のページに戻る。</td></tr>
+<tr><td>getOnBackPressedDispatcher().addCallback(this, backCallback)</td><td>この画面（Activity）に、戻る処理を登録する。</td></tr>
+<tr><td>new WebViewClient() { ... }</td><td>STEP 4のWebViewClientに、履歴が変わったときの処理を足したもの。リンクをWebViewの中で開く働きはそのまま。</td></tr>
+<tr><td>doUpdateVisitedHistory(...)</td><td>ページを開いた・戻ったなど、閲覧の履歴が変わるたびに呼ばれる。</td></tr>
+<tr><td>backCallback.setEnabled(view.canGoBack())</td><td>前のページがあれば（<code>canGoBack()</code> がtrue）戻る処理を有効に、なければ無効にする。</td></tr>
+</tbody></table>
+
+<table><thead><tr><th>状態</th><th>backCallback</th><th>戻る操作の結果</th></tr></thead><tbody>
+<tr><td>起動直後・最初のページだけ</td><td>無効</td><td>Androidの通常の戻る操作になり、アプリを閉じる。</td></tr>
+<tr><td>リンクやメニューで次のページを開いた後</td><td>有効</td><td><code>handleOnBackPressed</code> が呼ばれ、前のページに戻る。</td></tr>
+<tr><td>最初のページまで戻った後</td><td>無効（戻ったときに更新）</td><td>次の戻る操作でアプリを閉じる。</td></tr>
+</tbody></table>
+
+<div class="note"><p class="box-title">new クラス名() { ... } の書き方</p><p>これまでの <code>v -&gt; { ... }</code>（ラムダ式）は、書く処理が1つだけの型に使える省略形です。<code>OnBackPressedCallback</code> と <code>WebViewClient</code> はクラスなので、<code>new クラス名() { ... }</code> の形で、その場で中身を書き換えます。<code>@Override</code> の付いたメソッドが、書き換えた部分です。</p></div>
+<h3>Runで確かめる</h3>
+<ol><li>⋮ → Yahoo!ニュースを開き、記事のリンクを押します。</li><li>戻る操作をします。Yahoo!ニュースのトップに戻ります。</li><li>もう一度戻る操作をします。前のページがないので、アプリが閉じてホーム画面に戻ります。</li><li>もう一度起動し、⋮ で2つのサイトを続けて開いてから戻る操作をします。1つ前のサイトに戻ります。</li></ol>
+
+<h3 id="back-android16">解説：Android 16から「戻る」の受け取り方が変わった</h3>
+<p>インターネットの記事や以前の教材では、WebViewで前のページに戻る処理を、次のように <code>onKeyDown</code> で書く例がよく見られます。Android公式のWebViewの資料にも、この書き方が載っています。</p>
+<div class="code-head">参考 · 以前の書き方（STEP 9 練習3で試す）</div>
+<pre id="code-old-onkeydown" tabindex="0"><code>@Override
+public boolean onKeyDown(int keyCode, KeyEvent event) {
+    if (keyCode == KeyEvent.KEYCODE_BACK &amp;&amp; webView.canGoBack()) {
+        webView.goBack();
+        return true;
+    }
+    return super.onKeyDown(keyCode, event);
+}</code></pre>
+<p>この書き方は、<strong>targetSdkが36（Android 16）以上のアプリを、Android 16以降の端末で動かすと働きません</strong>。戻る操作をしても <code>onKeyDown</code> に <code>KeyEvent.KEYCODE_BACK</code> が届かず、<code>onBackPressed</code> も呼ばれません。そのため、前のページがあってもアプリが閉じます。</p>
+<table><thead><tr><th>アプリのtargetSdk</th><th>端末のAndroid</th><th>onKeyDownでKEYCODE_BACKを受け取る</th><th>OnBackPressedCallback</th></tr></thead><tbody>
+<tr><td>35以下</td><td>どのバージョンでも</td><td>受け取れる（※）</td><td>動く</td></tr>
+<tr><td>36以上</td><td>Android 15以前</td><td>受け取れる</td><td>動く</td></tr>
+<tr><td>36以上</td><td>Android 16以降</td><td><strong>受け取れない</strong></td><td>動く</td></tr>
+</tbody></table>
+<p class="muted">※ AndroidManifest.xmlで予測型「戻る」を自分で有効にした（<code>android:enableOnBackInvokedCallback="true"</code>）アプリを除きます。</p>
+<p>授業のプロジェクトは <code>app/build.gradle.kts</code> で <code>targetSdk = 36</code> です。教材撮影用の <strong>jec_26cm_android1_Pixel 9a</strong> はAndroid 17です。このため、<code>onKeyDown</code> の方法では前のページに戻れません。<code>OnBackPressedCallback</code> は、Android 15以前の端末でもそのまま動きます。</p>
+<h3>なぜ変わったのか：予測型「戻る」</h3>
+<p>Androidには、Android 13から <strong>予測型「戻る」（Predictive Back）</strong> という仕組みが段階的に入っています。戻るジェスチャーを始めると、指を離す前に「戻った先」（ホーム画面や前の画面）をプレビューで見せる仕組みです。</p>
+<p>プレビューを出すには、<strong>アプリが戻る操作を自分で処理するかどうかを、操作が始まる前に</strong>Androidが知っている必要があります。<code>onKeyDown</code> は、戻る操作が起きてから「処理するか」をアプリが決める方法なので、先にプレビューを出せません。そこでAndroid 16からは、targetSdk 36以上のアプリに対してこの受け取り方をやめ、<code>OnBackPressedCallback</code> のように<strong>「戻る処理が今有効かどうか」を先に登録しておく方法</strong>を使うことになりました。</p>
+<p>この単元で <code>doUpdateVisitedHistory</code> を使い、前のページがあるときだけ <code>backCallback</code> を有効にしたのはこのためです。前のページがないときに無効にしておくと、Androidは「ホーム画面に戻る」ことを前もって知り、プレビューを表示できます。</p>
+<div class="note"><p class="box-title">以前の動きに戻す設定もあるが、使わない</p><p>AndroidManifest.xmlの <code>&lt;application&gt;</code> や <code>&lt;activity&gt;</code> に <code>android:enableOnBackInvokedCallback="false"</code> を書くと、一時的に以前の動きに戻せます。公式資料でも「一時的な回避策」とされているため、この授業では使いません。ネットの記事を参考にするときは、記事の書かれた時期と、対象のAndroidバージョンを確認しましょう。</p></div>
+<p class="muted">仕様の確認：<a href="https://developer.android.com/about/versions/16/behavior-changes-16">Android 16の動作変更（Android公式）</a>、<a href="https://developer.android.com/guide/navigation/custom-back/predictive-back-gesture">予測型「戻る」ジェスチャーのサポート（Android公式）</a>、<a href="https://developer.android.com/reference/androidx/activity/OnBackPressedCallback">OnBackPressedCallback（Android公式）</a>。</p>
+<div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-8"><span>リンク先から戻る操作で前のページに戻り、最初のページではアプリが閉じることを確認した。onKeyDownが使えない理由を説明できた。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
+<div class="next"><a href="#step-9">次へ：ミニ練習 →</a></div>
+</section>
+<section id="step-9" aria-labelledby="title-9">
+<p class="step-meta">STEP 09 · 目安 20分</p><h2 id="title-9">ミニ練習</h2>
+
+<p>まず戻る操作まで完成させます。そのあと、次の小変更を1つずつ試します。<strong>予想 → 変更 → Run → 説明 → 元に戻す</strong>の順で行います。</p>
+<div class="task"><p class="box-title">練習1：メニューにサイトを1つ増やす</p><p><code>AppMenuItem.java</code> の <code>CHAT_GPT(...)</code> の行の最後の <code>;</code> を <code>,</code> に変え、その下に <code>JEC("https://www.jec.ac.jp/", "日本電子専門学校");</code> を追加します。MainActivityは変えません。メニューはどうなるでしょうか。</p><details><summary>試したあとに答えを見る</summary><p>⋮ の5つ目に「日本電子専門学校」が出て、押すと学校のサイトが表示されます。<code>onCreateOptionsMenu</code> は <code>AppMenuItem.values()</code> をfor文で回すため、enumの値を増やすだけで項目が増えます。idは <code>ordinal()</code> の4になり、<code>values()[4]</code> でJECを取り出せます。確認後は元に戻します。</p></details></div>
+<div class="task"><p class="box-title">練習2：WebViewClientを外すと？</p><p><code>webView.setWebViewClient(new WebViewClient() {</code> から <code>});</code> までの7行を選び、<kbd>⌘ /</kbd> でコメントにします。⋮ → Yahoo!ニュースを開き、記事のリンクを押すとどうなるか、予想してから試します。</p><details><summary>試したあとに答えを見る</summary><p>メニューから開いたページはアプリの中に表示されますが、ページ内のリンクを押すと <strong>Chrome</strong> が開きます。初めてChromeを開くときは、Chromeの初期設定の画面が出ることがあります。サイトによっては、メニューから開いた最初のページでもChromeが開きます。WebViewClientを設定すると、リンクをWebViewの中で開きます。また、戻る処理を有効にする <code>doUpdateVisitedHistory</code> も動かないため、戻る操作でアプリが閉じます。確認後は同じ7行を選んで <kbd>⌘ /</kbd> を押し、コメントを外します。</p></details></div>
+<div class="task"><p class="box-title">練習3：以前の書き方（onKeyDown）を試す</p><p>STEP 8の解説にある <code>onKeyDown</code> のメソッドを、<code>onCreateOptionsMenu</code> の上（onCreateの外、MainActivityの中）に追加します。importは <code>android.view.KeyEvent</code> です。さらに、<code>getOnBackPressedDispatcher().addCallback(this, backCallback);</code> の行を <kbd>⌘ /</kbd> でコメントにします。⋮ でYahoo!ニュースを開き、記事のリンクを押してから戻る操作をすると、どうなるでしょうか。</p><details><summary>試したあとに答えを見る</summary><p>前のページがあっても、アプリが閉じます。targetSdk 36のアプリをAndroid 16以降のエミュレータで動かしているため、<code>onKeyDown</code> に <code>KEYCODE_BACK</code> が届きません。確認後は <code>onKeyDown</code> のメソッドを削除し、<code>addCallback</code> の行のコメントを外します。使わなくなった <code>KeyEvent</code> のimportが残っていたら削除します。</p></details></div>
+<div class="note"><p class="box-title">完成版に戻してから確認</p><p>練習1のJECの行（<code>CHAT_GPT(...)</code> の最後は <code>;</code> に戻す）、練習2のコメント、練習3の <code>onKeyDown</code> とコメントを元に戻します。メニューが4項目で、リンク先から戻る操作で前のページに戻ることをRunで確かめます。</p></div>
+<div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-9"><span>3つの練習を試して結果の理由を説明し、完成版のコードに戻した。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
+<div class="next"><a href="#step-10">次へ：完成とふり返り →</a></div>
+</section>
+<section id="step-10" aria-labelledby="title-10">
+<p class="step-meta">STEP 10 · 目安 10分</p><h2 id="title-10">完成とふり返り</h2>
+
+<h3>完成チェック</h3>
+<table><thead><tr><th>操作</th><th>確認する結果</th></tr></thead><tbody>
+<tr><td>起動直後</td><td>ActionBarに「A04WebViewApp」と ⋮。「javaScript ON」はチェックなし。下は白い画面。</td></tr>
+<tr><td>⋮ を押す</td><td>Yahoo!ニュース、GitHub Copilot、映画「SLAM DUNK」公式サイト、OpenAI ChatGPTの4項目が出る。</td></tr>
+<tr><td>各項目を押す</td><td>そのサイトがアプリの中に表示される。</td></tr>
+<tr><td>ページ内のリンクを押す</td><td>Chromeは開かず、アプリの中で移動する。</td></tr>
+<tr><td>「javaScript ON」を付ける・外す</td><td>ページが読み込み直される。Yahoo!ニュースでは、JavaScriptが無効という案内が消える・出る。</td></tr>
+<tr><td>リンク先で戻る操作</td><td>前のページに戻る。</td></tr>
+<tr><td>最初のページで戻る操作</td><td>アプリが閉じる。</td></tr>
+</tbody></table>
+
+<h3>自分の言葉でふり返る</h3><ol><li>INTERNETの許可は、どのファイルに書きましたか。書かないとどうなりましたか。</li><li>メニューの項目を増やすとき、変更するのはどのファイルですか。</li><li>JavaScriptの設定を変えたあと、<code>reload()</code> を呼ぶのはなぜですか。</li><li>Android 16以降で、<code>onKeyDown</code> ではなく <code>OnBackPressedCallback</code> を使うのはなぜですか。</li></ol>
+<h3>保存と提出</h3><p>自分の <code>Documents/Android1/A04WebViewApp</code> を保存します。先生からAPK提出の指示がある場合は、<a href="../common/apk.html">共通資料：提出用APKの作り方</a>に進みます。ファイル名は <code>学籍番号_A04WebViewApp.apk</code> です。提出先は先生の案内に従います。</p>
+<p>教材のチェックは自分用です。先生への送信はしません。印刷は <kbd>⌘ P</kbd> で行えます。</p>
+<div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-10"><span>完成チェックを終え、許可・WebView・enumとメニュー・JavaScript・戻る操作を説明できた。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
+</section>
+<section id="help"><h2>困ったとき</h2><table><thead><tr><th>困ったこと</th><th>最初に確認する場所</th></tr></thead><tbody>
+<tr><td>ActionBarや ⋮ が出ない</td><td>STEP 2で、2つのthemes.xmlの両方から <code>.NoActionBar</code> を消したか。STEP 6の <code>onCreateOptionsMenu</code> がonCreateの外にあり、<code>return true</code> か。</td></tr>
+<tr><td>「ウェブページへのアクセス不可」「net::ERR_CACHE_MISS」</td><td>AndroidManifest.xmlのINTERNETの許可。<code>&lt;application</code> の上に書いたか、つづりが <code>android.permission.INTERNET</code> か。保存してRunし直す。</td></tr>
+<tr><td>「ウェブページへのアクセス不可」で別のエラー名</td><td>Macがインターネットにつながっているか。URLのつづりを確認する。</td></tr>
+<tr><td>R.id.webView / R.id.checkBox が赤い</td><td>XMLのid。<code>webView</code>・<code>checkBox</code> の大文字・小文字まで一致するか。最初のXMLエラーを直してビルドする。</td></tr>
+<tr><td>AppMenuItem が赤い</td><td>STEP 5のファイル名が <code>AppMenuItem.java</code> か。<code>app/src/main/java</code> の、MainActivityと同じ場所に作ったか。</td></tr>
+<tr><td>Menu・MenuItemが赤い</td><td><code>android.view.Menu</code> と <code>android.view.MenuItem</code> をimportする。<kbd>⌥ Enter</kbd> で候補を確認する。</td></tr>
+<tr><td>リンクを押すとChromeが開く</td><td><code>setWebViewClient</code> の行があるか（STEP 4・STEP 8）。コメントにしたままになっていないか。</td></tr>
+<tr><td>JavaScriptの案内が消えない</td><td>STEP 7の③がonCreateの中にあるか。<code>webView.reload()</code> があるか。</td></tr>
+<tr><td>backCallback が赤い</td><td>STEP 8の①のコードが、②の <code>setWebViewClient</code> より上にあるか。</td></tr>
+<tr><td>戻る操作でアプリが閉じる</td><td>リンクなどで2ページ目を開いてから試しているか。<code>addCallback</code> の行と、<code>doUpdateVisitedHistory</code> の <code>setEnabled</code> を確認する。</td></tr>
+<tr><td>起動時に終了する</td><td>setContentViewがfindViewByIdより先か、id/mainを残したかを確認。Logcatで最初の例外を見る。</td></tr>
+<tr><td>起動すると白い画面のまま</td><td>STEP 6以降は、起動直後の白い画面が正常。⋮ からサイトを選ぶ。</td></tr>
+<tr><td>ページの表示が崩れる・一部が出ない</td><td>JavaScriptが必要なページのことがある。「javaScript ON」にしてみる。サイト側の更新で見た目が変わることもある。</td></tr>
+</tbody></table>
+
+<p><a href="../common/logcat.html">共通資料：Logcat</a>を使います。今回のパッケージは <code>jp.ac.jec.a04webviewapp</code> です。エラーを見るときは <code>package:jp.ac.jec.a04webviewapp level:ERROR</code> にします。これまでの単元のパッケージ名や <code>tag:MainActivity</code> を残さないようにします。</p>
+<p>質問では「STEP番号・編集したファイル・最初の赤い行・押した順番」を伝えます。</p></section>
+<section id="sample-project"><h2>完成プロジェクトを開く</h2>
+<p>完成版は最初の授業から使える見本です。<a class="button-link" href="downloads/A04WebViewApp.zip" download>完成プロジェクト A04WebViewApp.zip</a></p>
+<ol><li>ZIPを展開します。中に <code>A04WebViewApp</code> フォルダができます。</li><li>見本は <code>/Users/ユーザ名/Documents/Android1/samples/A04WebViewApp</code> に置きます。</li><li>Android Studioの <strong>Open</strong> で、<code>settings.gradle.kts</code> と <code>app</code> が入った <code>A04WebViewApp</code> フォルダを選びます。</li><li>Sync後にRunして動きを確認します。授業の入力に戻るときは自分の <code>Documents/Android1/A04WebViewApp</code> を開きます。</li></ol>
+<p>両方とも同じプロジェクト名なので、ウィンドウの保存先を確認しましょう。見本と自分のアプリは同じパッケージ名のため、端末上では同じアプリを更新します。切り替えるときは、確認したい方のプロジェクトからRunします。</p>
+<details><summary>完成したMainActivity.javaで照合する</summary><div class="code-head">完成版 · MainActivity.java</div>
+<pre id="code-complete-java" tabindex="0"><code>package jp.ac.jec.a04webviewapp;
+
+import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
+import android.widget.CheckBox;
+
+import androidx.activity.EdgeToEdge;
+import androidx.activity.OnBackPressedCallback;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.graphics.Insets;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowInsetsCompat;
+
+public class MainActivity extends AppCompatActivity {
+    private WebView webView;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        EdgeToEdge.enable(this);
+        setContentView(R.layout.activity_main);
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -&gt; {
+            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
+            return insets;
+        });
+
+        webView = findViewById(R.id.webView);
+        var checkBox = (CheckBox) findViewById(R.id.checkBox);
+
+        // 戻る操作で前のページに戻る処理。前のページがあるときだけ有効にする
+        // Android 16以降はonKeyDownで戻るキーを受け取れないため、OnBackPressedCallbackを使う
+        var backCallback = new OnBackPressedCallback(false) {
+            @Override
+            public void handleOnBackPressed() {
+                webView.goBack();
+            }
+        };
+        getOnBackPressedDispatcher().addCallback(this, backCallback);
+
+        webView.setWebViewClient(new WebViewClient() {
+            // ページの履歴が変わるたびに呼ばれる
+            @Override
+            public void doUpdateVisitedHistory(WebView view, String url, boolean isReload) {
+                backCallback.setEnabled(view.canGoBack());
+            }
+        });
+        webView.getSettings().setJavaScriptEnabled(checkBox.isChecked());
+
+        checkBox.setOnCheckedChangeListener((buttonView, isChecked) -&gt; {
+            webView.getSettings().setJavaScriptEnabled(isChecked);
+            webView.reload();
+        });
+
+        webView.getSettings().setBuiltInZoomControls(true);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        for (var menuItem : AppMenuItem.values()) {
+            menu.add(Menu.NONE, menuItem.ordinal(), Menu.NONE, menuItem.getTitle());
+        }
+        return true; // trueを指定し、メニューを表示する
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        var appMenuItem = AppMenuItem.values()[item.getItemId()];
+        webView.loadUrl(appMenuItem.getUrl());
+        return true; // trueを指定し、イベントを消費して処理を終了する
+    }
+}</code></pre>
+</details>
+<details><summary>完成したAppMenuItem.javaで照合する</summary><div class="code-head">完成版 · AppMenuItem.java</div>
+<pre id="code-complete-enum" tabindex="0"><code>package jp.ac.jec.a04webviewapp;
+
+/**
+ * MenuやMenuItemだと、android.view.Menuやandroid.view.MenuItemと被るためAppMenuItemとして定義した
+ */
+enum AppMenuItem {
+    YAHOO(&quot;https://news.yahoo.co.jp/&quot;, &quot;Yahoo!ニュース&quot;),
+    GITHUB_COPILOT(&quot;https://github.com/features/copilot/&quot;, &quot;GitHub Copilot&quot;),
+    SLAM_DUNK_MOVIE(&quot;https://slamdunk-movie.jp/&quot;, &quot;映画「SLAM DUNK」公式サイト&quot;),
+    CHAT_GPT(&quot;https://openai.com/ja-JP/chatgpt/overview/&quot;, &quot;OpenAI ChatGPT&quot;);
+
+    private final String url;
+    private final String title;
+
+    AppMenuItem(String url, String title) {
+        this.url = url;
+        this.title = title;
+    }
+
+    String getUrl() {
+        return url;
+    }
+
+    String getTitle() {
+        return title;
+    }
+}</code></pre>
+</details>
+<details><summary>完成したactivity_main.xmlで照合する</summary><div class="code-head">完成版 · activity_main.xml</div>
+<pre id="code-complete-xml" tabindex="0"><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;LinearLayout xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
+    xmlns:tools=&quot;http://schemas.android.com/tools&quot;
+    android:id=&quot;@+id/main&quot;
+    android:layout_width=&quot;match_parent&quot;
+    android:layout_height=&quot;match_parent&quot;
+    android:orientation=&quot;vertical&quot;
+    tools:context=&quot;.MainActivity&quot;&gt;
+
+    &lt;CheckBox
+        android:id=&quot;@+id/checkBox&quot;
+        android:layout_width=&quot;wrap_content&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:text=&quot;javaScript ON&quot; /&gt;
+
+    &lt;WebView
+        android:id=&quot;@+id/webView&quot;
+        android:layout_width=&quot;match_parent&quot;
+        android:layout_height=&quot;match_parent&quot; /&gt;
+&lt;/LinearLayout&gt;</code></pre>
+</details></section>
+<footer class="footer"><p>Androidプログラミング1 · A04WebViewApp / 本文・画像・操作機能はオフラインで利用できます。Android Studioの初回準備・ビルド、公式資料の閲覧、アプリでのページ表示にはネット接続が必要です。</p><p>画像は授業用の提供資料と、教材撮影用のエミュレータで撮影した画面を使用。Webページの内容は撮影時点のもので、各サイトの更新によって変わります。各サイトの名称・内容の権利は、それぞれの権利者に帰属します。</p></footer>
+<div class="sr-only" role="status" aria-live="polite" data-copy-status></div></main></div></body></html>

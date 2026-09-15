@@ -53,6 +53,8 @@ def build(output_dir):
     projects = [("A01HelloAndroid", "docs/hello-android/downloads/A01HelloAndroid.zip")]
     if (ROOT / "A02CalcGame").exists():
         projects.append(("A02CalcGame", "docs/calc-game/downloads/A02CalcGame.zip"))
+    if (ROOT / "A04WebViewApp").exists():
+        projects.append(("A04WebViewApp", "docs/webview-app/downloads/A04WebViewApp.zip"))
     for project, output in projects:
         subprocess.run(
             [sys.executable, str(ROOT / "scripts/package-hello-android.py"),
@@ -77,6 +79,8 @@ def build(output_dir):
         raise ValueError("HelloAndroidの教科書が見つかりません。")
     if "docs/calc-game/index.html" in files and "docs/calc-game/downloads/A02CalcGame.zip" not in files:
         raise ValueError("CalcGameの完成プロジェクトが見つかりません。")
+    if "docs/webview-app/index.html" in files and "docs/webview-app/downloads/A04WebViewApp.zip" not in files:
+        raise ValueError("WebViewAppの完成プロジェクトが見つかりません。")
     check_links(files)
 
     metadata = {"version": version, "revision": revision, "asset": ASSET_NAME}
@@ -86,7 +90,10 @@ def build(output_dir):
         "Androidプログラミング1 学生用教材\n\n"
         f"教材の版：{version}\n\n"
         "1. ZIPを展開します。\n"
-        "2. docs/hello-android/index.html または docs/calc-game/index.html をブラウザで開きます。\n"
+        "2. 授業で使う単元の教科書をブラウザで開きます。\n"
+        "   A01 HelloAndroid：docs/hello-android/index.html\n"
+        "   A02 CalcGame：docs/calc-game/index.html\n"
+        "   A04 WebViewApp：docs/webview-app/index.html\n"
         "3. 完成プロジェクトは教科書内のリンクから開けます。\n\n"
         "教科書・画像はオフラインで利用できます。Android Studioの準備やビルドにはネット接続が必要です。\n"
         "教材を更新するときは別のフォルダに展開し、自分で作ったAndroid Studioプロジェクトを上書きしないでください。\n"

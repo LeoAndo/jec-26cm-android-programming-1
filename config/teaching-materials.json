@@ -4,7 +4,8 @@
     "docs",
     "teacher",
     "A01HelloAndroid",
-    "A02CalcGame"
+    "A02CalcGame",
+    "A04WebViewApp"
   ],
   "terms": [
     {
@@ -19,8 +20,10 @@
         "docs/common/logcat.html",
         "docs/hello-android/index.html",
         "docs/calc-game/index.html",
+        "docs/webview-app/index.html",
         "teacher/hello-android/index.html",
-        "teacher/calc-game/index.html"
+        "teacher/calc-game/index.html",
+        "teacher/webview-app/index.html"
       ]
     }
   ],
@@ -72,6 +75,60 @@
         }
       ],
       "archive": "docs/calc-game/downloads/A02CalcGame.zip"
+    },
+    {
+      "name": "A04WebViewApp",
+      "package": "jp.ac.jec.a04webviewapp",
+      "root": "A04WebViewApp",
+      "docs": [
+        "docs/webview-app/index.html",
+        "teacher/webview-app/index.html"
+      ],
+      "source_java": "A04WebViewApp/app/src/main/java/jp/ac/jec/a04webviewapp/MainActivity.java",
+      "source_xml": "A04WebViewApp/app/src/main/res/layout/activity_main.xml",
+      "snippets": [
+        {
+          "html": "docs/webview-app/index.html",
+          "id": "code-complete-java",
+          "source": "A04WebViewApp/app/src/main/java/jp/ac/jec/a04webviewapp/MainActivity.java"
+        },
+        {
+          "html": "docs/webview-app/index.html",
+          "id": "code-complete-enum",
+          "source": "A04WebViewApp/app/src/main/java/jp/ac/jec/a04webviewapp/AppMenuItem.java"
+        },
+        {
+          "html": "docs/webview-app/index.html",
+          "id": "code-complete-xml",
+          "source": "A04WebViewApp/app/src/main/res/layout/activity_main.xml"
+        },
+        {
+          "html": "docs/webview-app/index.html",
+          "id": "code-app-menu-item",
+          "source": "A04WebViewApp/app/src/main/java/jp/ac/jec/a04webviewapp/AppMenuItem.java"
+        },
+        {
+          "html": "docs/webview-app/index.html",
+          "id": "code-layout",
+          "source": "A04WebViewApp/app/src/main/res/layout/activity_main.xml"
+        },
+        {
+          "html": "docs/webview-app/index.html",
+          "id": "code-theme",
+          "source": "A04WebViewApp/app/src/main/res/values/themes.xml"
+        },
+        {
+          "html": "docs/webview-app/index.html",
+          "id": "code-theme-night",
+          "source": "A04WebViewApp/app/src/main/res/values-night/themes.xml"
+        },
+        {
+          "html": "docs/webview-app/index.html",
+          "id": "code-manifest",
+          "source": "A04WebViewApp/app/src/main/AndroidManifest.xml"
+        }
+      ],
+      "archive": "docs/webview-app/downloads/A04WebViewApp.zip"
     }
   ]
 }
