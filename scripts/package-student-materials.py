@@ -1,0 +1,107 @@
+"""学生向けdocs一式を、完成プロジェクトを再生成してZIPにまとめる。"""
+
+import argparse
+from datetime import datetime, timedelta, timezone
+import hashlib
+from html.parser import HTMLParser
+import json
+from pathlib import Path
+import posixpath
+import subprocess
+import sys
+from urllib.parse import unquote, urlsplit
+from zipfile import ZIP_DEFLATED, ZipFile, ZipInfo
+
+
+ROOT = Path(__file__).resolve().parents[1]
+ASSET_NAME = "android1-student-materials.zip"
+EXCLUDED = {".git", ".idea", ".gradle", ".kotlin", "build", "local.properties", ".DS_Store", "__pycache__"}
+
+
+class LocalLinks(HTMLParser):
+    def __init__(self):
+        super().__init__()
+        self.links = []
+
+    def handle_starttag(self, tag, attrs):
+        self.links.extend(value for key, value in attrs if key in {"href", "src"} and value)
+
+
+def check_links(files):
+    """収録したHTMLの相対リンク先が、配布物の中にも存在するか確認する。"""
+    for name, data in files.items():
+        if not name.endswith(".html"):
+            continue
+        parser = LocalLinks()
+        parser.feed(data.decode("utf-8"))
+        for link in parser.links:
+            url = urlsplit(link)
+            if url.scheme or url.netloc or not url.path:
+                continue
+            target = posixpath.normpath(posixpath.join(posixpath.dirname(name), unquote(url.path)))
+            if target not in files:
+                raise ValueError(f"配布物内にリンク先がありません：{name} → {link}")
+
+
+def build(output_dir):
+    revision = subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=ROOT, text=True).strip()
+    timestamp = subprocess.check_output(["git", "show", "-s", "--format=%ct", "HEAD"], cwd=ROOT, text=True).strip()
+    date = datetime.fromtimestamp(int(timestamp), timezone(timedelta(hours=9))).strftime("%Y.%m.%d")
+    version = f"materials-{date}-{revision[:12]}"
+
+    # リポジトリ内の古いZIPをそのまま配布せず、現在の完成コードを反映する。
+    subprocess.run([sys.executable, str(ROOT / "scripts/package-hello-android.py")], cwd=ROOT, check=True)
+    tracked = subprocess.check_output(["git", "ls-files", "-z", "--", "docs"], cwd=ROOT).decode().split("\0")
+    files = {}
+    for name in sorted(filter(None, tracked)):
+        source = ROOT / name
+        if EXCLUDED.intersection(Path(name).parts):
+            continue
+        if source.is_symlink() or not source.resolve().is_relative_to(ROOT / "docs"):
+            raise ValueError(f"配布対象にシンボリックリンクは使えません：{name}")
+        files[name] = source.read_bytes()
+    if "docs/hello-android/index.html" not in files:
+        raise ValueError("HelloAndroidの教科書が見つかりません。")
+    check_links(files)
+
+    metadata = {"version": version, "revision": revision, "asset": ASSET_NAME}
+    metadata_text = json.dumps(metadata, ensure_ascii=False, indent=2) + "\n"
+    files["VERSION.json"] = metadata_text.encode()
+    files["はじめに.txt"] = (
+        "Androidプログラミング1 学生用教材\n\n"
+        f"教材の版：{version}\n\n"
+        "1. ZIPを展開します。\n"
+        "2. docs/hello-android/index.html をブラウザで開きます。\n"
+        "3. 完成プロジェクトは教科書内のリンクから開けます。\n\n"
+        "教科書・画像はオフラインで利用できます。Android Studioの準備やビルドにはネット接続が必要です。\n"
+        "教材を更新するときは別のフォルダに展開し、自分で作ったAndroid Studioプロジェクトを上書きしないでください。\n"
+        "授業中は先生が指定した版を使ってください。質問時には教材の版とSTEP番号を伝えてください。\n"
+    ).encode()
+
+    output_dir.mkdir(parents=True, exist_ok=True)
+    archive_path = output_dir / ASSET_NAME
+    with ZipFile(archive_path, "w", compression=ZIP_DEFLATED) as archive:
+        for name, data in sorted(files.items()):
+            info = ZipInfo(f"android1-student-materials/{name}", date_time=(1980, 1, 1, 0, 0, 0))
+            info.create_system = 3
+            info.external_attr = 0o100644 << 16
+            info.compress_type = ZIP_DEFLATED
+            archive.writestr(info, data)
+    digest = hashlib.sha256(archive_path.read_bytes()).hexdigest()
+    (output_dir / "SHA256SUMS.txt").write_text(f"{digest}  {ASSET_NAME}\n", encoding="utf-8")
+    (output_dir / "release-metadata.json").write_text(metadata_text, encoding="utf-8")
+    print(f"作成しました：{archive_path}（{len(files)}ファイル、{version}）")
+
+
+def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--output-dir", type=Path, default=ROOT / "dist")
+    args = parser.parse_args()
+    try:
+        build(args.output_dir.resolve())
+    except (OSError, ValueError, subprocess.CalledProcessError) as error:
+        raise SystemExit(f"教材のパッケージ化に失敗しました：{error}") from None
+
+
+if __name__ == "__main__":
+    main()

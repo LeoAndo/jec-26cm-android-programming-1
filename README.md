@@ -20,7 +20,11 @@
 
 ### 学生への配布
 
-学生には `docs` フォルダを配布します。教科書から完成プロジェクトのZIPをダウンロードでき、初回から参考資料として使えます。`teacher` フォルダと `Panda2JavaEmptyViewActivity` は配布しません。
+学生には [最新の教材リリース](https://github.com/LeoAndo/jec-26cm-android-programming-1/releases/latest) の Assets にある **android1-student-materials.zip** を案内します（初回公開後から利用可能）。展開後、`docs/hello-android/index.html` をブラウザで開きます。教科書から完成プロジェクトのZIPをダウンロードでき、初回から参考資料として使えます。
+
+学生用ZIPには `docs` 一式と開き方・版情報を収録します。`teacher` フォルダと `Panda2JavaEmptyViewActivity` は収録しません。GitHubが自動で表示する **Source code (zip)** はリポジトリ全体のため、学生用ZIPには使いません。なお、このリポジトリ自体はPublicなので、教員用ファイルもGitHub上では閲覧できます。
+
+授業中は教員が指定した版を使います。授業ごとの案内には、内容が固定された個別リリースのURLを使ってください。更新版は別フォルダに展開し、学生自身のAndroid Studioプロジェクトは上書きしません。
 
 各単元で、学生自身が毎回Android Studioからプロジェクトを新規作成します。完成版は動作確認とコード比較の参考資料として使います。作成先は `/Users/ユーザ名/Documents/Android1/プロジェクト名` です。HelloAndroidの保存先は `/Users/ユーザ名/Documents/Android1/A01HelloAndroid` です。
 
@@ -49,6 +53,59 @@ python3 scripts/package-hello-android.py
 ```
 
 ZIPにはGitで管理しているプロジェクトのファイルを収録し、IDE設定・ローカルSDK設定・ビルド出力を除外します。既存ファイルの編集内容も反映します。ファイルを新しく追加した場合は、配布対象であることを確認して、そのファイルを `git add` してから再生成してください。
+
+### GitHub Actionsでパッケージ化・リリースする（教員用）
+
+**main更新時に自動準備し、学生向けの公開は手動で行います。** 学生からのフィードバックは随時mainへ反映し、授業前や修正がまとまったタイミングで公開します。
+
+| 操作 | 自動で行う処理 | 学生向け公開 |
+| --- | --- | --- |
+| mainへのpush・PRマージ | テスト、完成版ZIPの再生成、教材ZIP生成、HTMLの相対リンク確認、リリースノート生成 | しない |
+| main向けのPR | テスト、教材ZIP生成、相対リンク確認 | しない |
+| Run workflow（publishオフ） | mainの教材とリリースノートを再生成 | しない |
+| Run workflow（publishオン） | mainの教材とリリースノートを再生成し、GitHub Releasesへ添付 | する |
+
+#### 初回の導入
+
+1. `.github/workflows/student-materials.yml` を含む変更をmainへマージします。
+2. GitHubの **Actions → Student materials** で実行結果を確認します。
+3. `student-materials-ready-…` の成果物をダウンロードし、教材ZIPと `release-notes.md` を確認します。成果物の保存期間は30日です。GitHub Releasesの下書きはこの時点では作りません。
+4. 公開したいタイミングで、以下の手動公開を実行します。
+
+追加のSecretは不要です。リポジトリのGitHub Actionsが有効で、ワークフローの `contents: write` を許可するポリシーになっている必要があります。教材のパッケージ化にAndroid SDKは不要です。このワークフローではAndroidアプリのビルド・実機動作までは検証しません。
+
+#### 手動公開
+
+1. **Actions → Student materials → Run workflow** を開きます。
+2. ブランチに **main** を選び、**publish** にチェックを入れます。
+3. **student_notes** に学生向けの案内を入力します。例：`HelloAndroid STEP 4の説明を修正。すでに完成している人はやり直し不要。`
+4. **Run workflow** を押します。成功すると、Releasesに教材ZIP・チェックサム・リリースノートが掲載されます。
+5. 公開された個別リリースURLを授業で案内します。
+
+手動実行の開始時点のmainをパッケージ化します。以前の自動実行の成果物をそのまま昇格する方式ではないため、自動準備後にmainが変わっている場合は新しい内容になります。公開直前にもmainを確認し、実行中に更新されていた場合は公開を中止します。その場合は最新のmainで新しく実行してください。main以外を選ぶと、パッケージの検証のみ行い、ノート生成・公開は行いません。
+
+版名は `materials-日付-コミットID`（例：`materials-2026.09.15-796cc2d12345`）です。日付はコミット日時の日本時間で、同じコミットは同じ版になります。公開済みの版は再実行しても上書きしません。添付中に失敗した場合は下書きに留まり、mainが変わっていなければ同じ実行の **Re-run failed jobs** で再開できます。mainが更新された場合は新しく実行し、不要になった下書きはGitHubから削除してください。
+
+#### リリースノートとフィードバックの扱い
+
+- GitHubの自動生成ノートに、前回公開した教材からのPR一覧を載せます。初回は過去の変更を含みます。直接mainへコミットした変更も、折りたたみのコミット一覧で確認できます。
+- PRタイトルは学生が読んで分かる日本語にします。例：`HelloAndroid：STEP 4のボタン処理の説明を修正`。
+- PRに `enhancement` を付けると「教材の追加」、`bug` は「誤記・不具合の修正」、それ以外は「その他の更新」に分類されます。`skip-release-notes` はPR一覧から除外しますが、コミット一覧には残ります。
+- 自動生成はPRタイトルなどをまとめる機能です。修正内容をAIが解釈して学生への影響ややり直しの要否を書く機能ではないため、その案内は公開時の `student_notes` に記入します。
+- フィードバックは「教材の版・単元/STEP・起きたこと」で集めます。授業を進められない不具合は修正後すぐに手動公開し、誤字や説明の補足はまとめて公開する運用がおすすめです。
+
+#### ローカルで配布ZIPを確認する
+
+```sh
+python3 -m unittest discover -s scripts -p 'test_*.py' -v
+python3 scripts/package-student-materials.py
+```
+
+`dist/android1-student-materials.zip` が生成されます。対象はGit管理された `docs` のファイルで、完成版ZIPはソースから再生成します。新しい教材・画像は `git add` 後に実行してください。ローカルの編集内容も含むため、正式な配布版はGitHub Actionsから公開します。
+
+単元を追加するときは、完成プロジェクトのZIP生成処理を `scripts/package-student-materials.py` に追加してください。HTML・画像・共通資料は `docs` 配下のGit管理ファイルが自動で含まれます。
+
+参考：[GitHubのリリースノート自動生成](https://docs.github.com/en/repositories/releasing-projects-on-github/automatically-generated-release-notes)、[ワークフローの手動実行](https://docs.github.com/en/actions/how-tos/manage-workflow-runs/manually-run-a-workflow)。
 
 ---
 
