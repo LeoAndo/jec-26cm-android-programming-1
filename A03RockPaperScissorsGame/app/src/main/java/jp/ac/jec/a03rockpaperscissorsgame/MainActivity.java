@@ -64,6 +64,7 @@ public class MainActivity extends AppCompatActivity {
             btnStart.setEnabled(false);
             btnNext.setEnabled(false);
             imgCpu.setVisibility(View.INVISIBLE);
+            txtMessage.setText("じゃんけんの手を選んでください");
         });
 
         btnStart.setOnClickListener(v -> {
