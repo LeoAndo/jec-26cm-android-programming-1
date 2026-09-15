@@ -9,9 +9,9 @@ on:
     inputs:
       publish:
         description: 学生向けにGitHub Releasesへ公開する
-      required: true
-      type: boolean
-      default: false
+        required: true
+        type: boolean
+        default: false
       student_notes:
         description: 学生向けの補足（対象単元・変更点・やり直しの要否）
         required: false
