@@ -5,7 +5,9 @@
     "teacher",
     "A01HelloAndroid",
     "A02CalcGame",
-    "A04WebViewApp"
+    "A03RockPaperScissorsGame",
+    "A04WebViewApp",
+    "A05BombGame"
   ],
   "terms": [
     {
@@ -20,10 +22,14 @@
         "docs/common/logcat.html",
         "docs/hello-android/index.html",
         "docs/calc-game/index.html",
+        "docs/rock-paper-scissors-game/index.html",
         "docs/webview-app/index.html",
+        "docs/bomb-game/index.html",
         "teacher/hello-android/index.html",
         "teacher/calc-game/index.html",
-        "teacher/webview-app/index.html"
+        "teacher/rock-paper-scissors-game/index.html",
+        "teacher/webview-app/index.html",
+        "teacher/bomb-game/index.html"
       ]
     }
   ],
@@ -75,6 +81,30 @@
         }
       ],
       "archive": "docs/calc-game/downloads/A02CalcGame.zip"
+    },
+    {
+      "name": "A03RockPaperScissorsGame",
+      "package": "jp.ac.jec.a03rockpaperscissorsgame",
+      "root": "A03RockPaperScissorsGame",
+      "docs": [
+        "docs/rock-paper-scissors-game/index.html",
+        "teacher/rock-paper-scissors-game/index.html"
+      ],
+      "source_java": "A03RockPaperScissorsGame/app/src/main/java/jp/ac/jec/a03rockpaperscissorsgame/MainActivity.java",
+      "source_xml": "A03RockPaperScissorsGame/app/src/main/res/layout/activity_main.xml",
+      "snippets": [
+        {
+          "html": "docs/rock-paper-scissors-game/index.html",
+          "id": "code-complete-java",
+          "source": "A03RockPaperScissorsGame/app/src/main/java/jp/ac/jec/a03rockpaperscissorsgame/MainActivity.java"
+        },
+        {
+          "html": "docs/rock-paper-scissors-game/index.html",
+          "id": "code-complete-xml",
+          "source": "A03RockPaperScissorsGame/app/src/main/res/layout/activity_main.xml"
+        }
+      ],
+      "archive": "docs/rock-paper-scissors-game/downloads/A03RockPaperScissorsGame.zip"
     },
     {
       "name": "A04WebViewApp",
@@ -129,6 +159,30 @@
         }
       ],
       "archive": "docs/webview-app/downloads/A04WebViewApp.zip"
+    },
+    {
+      "name": "A05BombGame",
+      "package": "jp.ac.jec.a05bombgame",
+      "root": "A05BombGame",
+      "docs": [
+        "docs/bomb-game/index.html",
+        "teacher/bomb-game/index.html"
+      ],
+      "source_java": "A05BombGame/app/src/main/java/jp/ac/jec/a05bombgame/MainActivity.java",
+      "source_xml": "A05BombGame/app/src/main/res/layout/activity_main.xml",
+      "snippets": [
+        {
+          "html": "docs/bomb-game/index.html",
+          "id": "code-complete-java",
+          "source": "A05BombGame/app/src/main/java/jp/ac/jec/a05bombgame/MainActivity.java"
+        },
+        {
+          "html": "docs/bomb-game/index.html",
+          "id": "code-complete-xml",
+          "source": "A05BombGame/app/src/main/res/layout/activity_main.xml"
+        }
+      ],
+      "archive": "docs/bomb-game/downloads/A05BombGame.zip"
     }
   ]
 }

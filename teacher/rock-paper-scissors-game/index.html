@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="ja">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>教員用ガイド RockPaperScissorsGame | Androidプログラミング1</title>
+<link rel="stylesheet" href="../../docs/assets/textbook.css"><script src="../../docs/assets/textbook.js" defer></script></head>
+<body class="plain"><a class="skip" href="#main">本文へ移動</a>
+<header class="topbar"><span class="brand">JEC / Androidプログラミング1</span><a href="../../docs/rock-paper-scissors-game/index.html">RockPaperScissorsGameの教科書へ戻る</a></header>
+<main id="main">
+<div class="hero"><p class="eyebrow">ANDROID PROGRAMMING 1 / 授業サポート</p><h1>教員用ガイド<br>RockPaperScissorsGame</h1><p class="lede">画像リソース、配列とfor文、乱数、switch文による勝敗判定、連勝数を、学生が動作確認しながら積み上げる進行案です。90分×3コマを目安に調整します。</p></div>
+<section><h2>1. 授業前の準備</h2>
+<ul><li>学生用の入口は <code>docs/rock-paper-scissors-game/index.html</code> です。完成版ZIPと画像を含む教材を、構成を保って配布します。</li><li>Android Studio Panda 2 | 2025.3.2、Java / Empty Views Activity、Minimum SDK API 31を確認します。作成先は <code>Documents/Android1/A03RockPaperScissorsGame</code>、パッケージは <code>jp.ac.jec.a03rockpaperscissorsgame</code> です。</li><li>STEP 2で使う <code>title_image.png</code>・<code>rock.png</code>・<code>scissors.png</code>・<code>paper.png</code> は、完成版ZIPの <code>app/src/main/res/drawable</code> から学生自身がコピーします。別の画像配布は行いません。</li><li>完成版は <code>Documents/Android1/samples/A03RockPaperScissorsGame</code> に置きます。画像の貼り付け先とRunするプロジェクトが <code>samples</code> 側になっていないか、保存先で確認します。</li><li>指定エミュレータ <strong>jec_26cm_android1_Pixel 9a</strong> を縦向きで使います。横向きではボタンやCPUの手が画面外に出るため、今回の保証範囲に含めません。</li><li>教員用の途中コードは <code>teacher/rock-paper-scissors-game/code</code> にあります。学生には配布せず、現在のSTEPの照合に使います。</li></ul>
+<div class="note"><p class="box-title">今回の仕様上の制約</p><p>勝負！のあとは手の画像を <code>setClickable(false)</code> で押せなくし、次の戦いへで戻します。連勝数 <code>winCount</code> は次の戦いへでは保持し、引き分け・負けで0に戻します。各単元では画面回転時のデータ保持を扱いません。回転などでActivityが再生成された場合は、選択と連勝数が初期状態に戻ります。この観点は別単元の演習アプリで検証します。</p></div>
+</section>
+<section><h2>2. 90分×3コマの進行</h2>
+<table><thead><tr><th>コマ</th><th>時間配分</th><th>終了時の確認</th></tr></thead><tbody>
+<tr><td>1コマ目</td><td>STEP 0：5分、STEP 1：15分、STEP 2：15分、STEP 3：20分、STEP 4：15分、再実行・個別支援：15分、ふり返り：5分</td><td>drawableに4画像があり、完成版と同じ画面をRunできる。idを指させる。</td></tr>
+<tr><td>2コマ目</td><td>再開：5分、STEP 5：30分、STEP 6：20分、STEP 7：15分、再実行・確認：15分、ふり返り：5分</td><td>手の選択、勝負！でのCPUの手の表示、次の戦いへでの初期化を実演できる。</td></tr>
+<tr><td>3コマ目</td><td>再開：5分、STEP 8：25分、STEP 9：20分、STEP 10：15分、APK・個別支援：25分</td><td>勝敗と連勝数を表示し、変更を元に戻して完成版を説明できる。</td></tr>
+</tbody></table>
+<p>STEP 2は、ZIPの展開先と貼り付け先を取り違えやすい工程です。Copy画面の <strong>To directory</strong> を全員で確認してからOKを押させます。STEP 5は外側の拡張for文と内側の番号付きfor文が重なるため、コード入力後に「チョキを押したときのi」の表を読み合わせます。</p>
+</section>
+<section><h2>3. STEPごとの照合コード</h2>
+<table><thead><tr><th>到達地点</th><th>参照ファイル</th><th>教員の確認ポイント</th></tr></thead><tbody>
+<tr><td>出発点（STEP 1）</td><td><a href="code/01-MainActivity.java">01-MainActivity.java</a> / <a href="code/01-activity_main.xml">01-activity_main.xml</a></td><td>Hello World!をRunできる。</td></tr>
+<tr><td>画像の追加（STEP 2）</td><td>出発点のまま</td><td><code>app/src/main/res/drawable</code> に4つのPNGがあり、ビルドが通る。</td></tr>
+<tr><td>上半分の画面（STEP 3）</td><td><a href="code/03-activity_main.xml">03-activity_main.xml</a></td><td>タイトル、txt_message、img_rock / img_scissors / img_paperの順。</td></tr>
+<tr><td>画面の完成（STEP 4）</td><td><a href="code/04-activity_main.xml">04-activity_main.xml</a></td><td>btn_start / btn_nextが無効、img_cpuにsrcがない。</td></tr>
+<tr><td>手の選択（STEP 5）</td><td><a href="code/05-MainActivity.java">05-MainActivity.java</a></td><td>selectedHandはonCreateの外。imageViewsの順番と <code>selectedHand = i</code>。</td></tr>
+<tr><td>CPUの手（STEP 6）</td><td><a href="code/06-MainActivity.java">06-MainActivity.java</a></td><td>setClickable(false)、nextInt(3)、画像idの配列の順番。</td></tr>
+<tr><td>次の戦いへ（STEP 7）</td><td><a href="code/07-MainActivity.java">07-MainActivity.java</a></td><td>btnStartの処理より上。背景・クリック可否・ボタン・CPUの手・メッセージを戻す。</td></tr>
+<tr><td>完成（STEP 8）</td><td><a href="code/08-MainActivity.java">08-MainActivity.java</a></td><td>winCountはフィールド。<code>(selectedHand - cpu + 3) % 3</code> とswitchのbreak。</td></tr>
+</tbody></table>
+<p>STEP 4のXMLとSTEP 8のJavaは、完成プロジェクトの <a href="../../A03RockPaperScissorsGame/app/src/main/res/layout/activity_main.xml">activity_main.xml</a> と <a href="../../A03RockPaperScissorsGame/app/src/main/java/jp/ac/jec/a03rockpaperscissorsgame/MainActivity.java">MainActivity.java</a> と同じ内容です。</p>
+</section>
+<section><h2>4. 理解確認と支援</h2>
+<table><thead><tr><th>問い</th><th>期待する行動・答え</th></tr></thead><tbody>
+<tr><td>押した手の番号はどこで決まる？</td><td>内側のfor文の <code>imageViews[i] == v</code> がtrueのときに <code>selectedHand = i</code> を実行する、と示す。</td></tr>
+<tr><td>CPUの画像の配列とimageViewsの順番をそろえる理由は？</td><td>同じ番号が同じ手を表さないと、勝敗の計算が合わなくなる、と答える。</td></tr>
+<tr><td>+ 3 がないと？</td><td>自分の番号がCPUより小さいとマイナスになり、どのcaseにも入らない。STEP 9練習2の結果で説明する。</td></tr>
+<tr><td>勝負！のあとに選び直せないのは？</td><td>勝負！の処理の <code>setClickable(false)</code> を示し、次の戦いへの <code>setClickable(true)</code> と対応付ける。</td></tr>
+<tr><td>回転したら？</td><td>この単元では状態を保存しないため、選択と連勝数が初期状態に戻る、と理解している。</td></tr>
+</tbody></table>
+<p>エラー時は「STEP番号・ファイル・最初の赤い行・操作順」を聞きます。A03のLogcat検索は、エラーが <code>package:jp.ac.jec.a03rockpaperscissorsgame level:ERROR</code>、STEP 8の判定ログが <code>package:jp.ac.jec.a03rockpaperscissorsgame tag:MainActivity level:DEBUG</code> です。</p>
+<p>画像関係のエラーは、drawable以外への貼り付け、<code>samples</code> 側への貼り付け、ファイル名の変更（大文字・拡張子の重複）が主な原因です。Project表示で <code>app/src/main/res/drawable</code> を開いて確認します。</p>
+</section>
+<section><h2>5. 到達度と提出</h2>
+<ul><li>学生自身が手を選んで勝負！し、次の戦いへで何度も遊べる。</li><li><code>selectedHand</code> と <code>winCount</code> の役割と、フィールドにした理由を説明できる。</li><li>CPUの手を固定したSTEP 9練習1で、3通りの結果と連勝数の増え方を確認できる。</li><li>STEP 9の変更を試したあと、完成版の値に戻してRunする。</li><li>提出する場合は <a href="../../docs/common/apk.html">共通資料：APKの作り方</a>に従い、先生が指定した場所へ <code>学籍番号_A03RockPaperScissorsGame.apk</code> を提出する。</li></ul>
+</section>
+<section><h2>6. 教材の保守と確認</h2>
+<ul><li>完成コードを変更したら、教科書の部分コード、完成コード、<code>teacher/rock-paper-scissors-game/code</code>、画像、練習の答えをまとめて確認し、<code>python3 scripts/package-hello-android.py --project A03RockPaperScissorsGame --output docs/rock-paper-scissors-game/downloads/A03RockPaperScissorsGame.zip</code> で配布用ZIPを再作成します。</li><li>アプリ画像は教員の <code>jec_26cm_android1_Pixel 9a</code> で撮影した、起動直後・グー選択・1連勝・2連勝の4状態です。次の戦いへの後は起動直後と同じ表示のため、起動直後の画像を使います。</li><li>新規プロジェクト作成とdrawableへの画像追加の画像は教員提供資料を使用しています。</li><li>印刷時は補足・解答も展開されます。解答を配布したくない場合は、ブラウザで授業中に開く方式を使ってください。</li></ul>
+</section>
+<footer class="footer"><p><a href="../../docs/rock-paper-scissors-game/index.html">← RockPaperScissorsGameの教科書へ戻る</a></p><p>対象：macOS / Android Studio Panda 2 | 2025.3.2 · 確認日：2026年9月15日</p></footer>
+</main></body></html>

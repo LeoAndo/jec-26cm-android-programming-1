@@ -1,0 +1,837 @@
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="JavaとXMLで作るA05BombGame。ボタンの配列、乱数とdo-while文、定数による状態の管理、配列を調べる判定、クリア条件を小さなSTEPで学ぶ授業用教科書。">
+<title>BombGame — 爆弾ゲームを作ろう | Androidプログラミング1</title>
+<link rel="stylesheet" href="../assets/textbook.css"><script src="../assets/textbook.js" defer></script></head>
+<body data-progress-key="jec-android1-bombgame-v1">
+<a class="skip" href="#main">本文へ移動</a>
+<header class="topbar"><span class="brand">JEC / Androidプログラミング1</span><a href="../rock-paper-scissors-game/index.html">A03 RockPaperScissorsGame</a></header>
+<div class="shell"><aside class="sidebar"><div class="sidebar-inner"><p class="eyebrow">CONTENTS / 学習の順番</p>
+<nav aria-label="学習ステップ"><ol><li><a href="#step-0">00　今日のゴール</a></li>
+<li><a href="#step-1">01　プロジェクトを作って実行</a></li>
+<li><a href="#step-2">02　画像をdrawableに追加</a></li>
+<li><a href="#step-3">03　爆弾と数字ボタンを並べる</a></li>
+<li><a href="#step-4">04　メッセージと再挑戦ボタン</a></li>
+<li><a href="#step-5">05　導火線スイッチの数字を決める</a></li>
+<li><a href="#step-6">06　押したボタンを押せなくする</a></li>
+<li><a href="#step-7">07　着火と爆発</a></li>
+<li><a href="#step-8">08　再挑戦で最初に戻す</a></li>
+<li><a href="#step-9">09　クリアを判定する</a></li>
+<li><a href="#step-10">10　ミニ練習</a></li>
+<li><a href="#step-11">11　完成とふり返り</a></li></ol></nav>
+<div class="progress"><span data-progress-label>0 / 12 ステップ確認済み</span><progress value="0" max="12" aria-label="学習の進み具合"></progress><span class="muted">自分用のチェックです。</span></div>
+<div class="resources"><a href="#help">困ったとき</a><a href="#sample-project">完成プロジェクトを開く</a><a href="../hello-android/index.html">A01：HelloAndroid</a><a href="../calc-game/index.html">A02：CalcGame</a><a href="../rock-paper-scissors-game/index.html">A03：RockPaperScissorsGame</a><a href="../common/emulator.html">共通：エミュレータ</a><a href="../common/auto-import.html">共通：Auto Import</a><a href="../common/logcat.html">共通：Logcat</a><a href="../common/apk.html">共通：APKの提出</a></div>
+</div></aside><main id="main"><div class="hero"><span class="unit">05</span><p class="eyebrow">BOMB GAME</p>
+<h1>爆弾ゲームを<br>作ろう</h1><p class="lede">数字を押す。導火線に火がつく。2つ目で爆発。<br>爆弾の状態を数字で覚えて、ドキドキするゲームへ。</p>
+<div class="tags"><span>Java / XML</span><span>A01〜A03の内容を使う</span><span>90分 × 3コマ目安</span><span>Macで学ぶ</span></div></div>
+<section id="step-0" aria-labelledby="title-0">
+<p class="step-meta">STEP 00 · 目安 5分</p><h2 id="title-0">今日のゴール</h2>
+
+<p>A01〜A03で学んだ「XMLで画面を作る」「配列とfor文で同じ処理を付ける」「乱数」「フィールドで値を覚える」を使い、<strong>爆弾ゲーム</strong>を作ります。1〜9の数字ボタンのうち、2つが<strong>導火線スイッチ</strong>です。どれがスイッチかは、画面を見てもわかりません。</p>
+<div class="flow" aria-label="ゲームの流れ"><strong>数字を押す</strong><span>→</span><strong>スイッチなら着火！</strong><span>→</span><strong>2つ目のスイッチで爆発</strong><span>／</span><strong>スイッチ以外を7個押せばクリア</strong></div>
+<div class="phones"><figure><a href="images/app-initial.png"><img src="images/app-initial.png" width="1080" height="2424" loading="lazy" alt="起動直後。導火線に火のない爆弾の画像、1から9の数字ボタン、どれか押してみよう"></a><figcaption>① 起動直後。好きな数字から押します。 <a href="images/app-initial.png">画像を大きく開く</a></figcaption></figure>
+<figure><a href="images/app-ignited.png"><img src="images/app-ignited.png" width="1080" height="2424" loading="lazy" alt="2と5を押した画面。導火線に火がついた爆弾、着火！の文字。2と5のボタンは灰色"></a><figcaption>② 2と5を押した例。どちらか1つがスイッチだったので、導火線に火がつきました。押した2つは灰色になります。 <a href="images/app-ignited.png">画像を大きく開く</a></figcaption></figure>
+<figure><a href="images/app-exploded.png"><img src="images/app-exploded.png" width="1080" height="2424" loading="lazy" alt="爆発の画像、爆発した！ゲームオーバー！の文字。数字ボタンはすべて灰色で、再挑戦ボタンが表示されている"></a><figcaption>③ 2つ目のスイッチを押すと爆発。ゲームオーバーです。 <a href="images/app-exploded.png">画像を大きく開く</a></figcaption></figure>
+<figure><a href="images/app-clear.png"><img src="images/app-clear.png" width="1080" height="2424" loading="lazy" alt="火のない爆弾、クリア！の文字。数字ボタンはすべて灰色で、再挑戦ボタンが表示されている"></a><figcaption>④ スイッチ以外の7個をすべて押すとクリア。 <a href="images/app-clear.png">画像を大きく開く</a></figcaption></figure>
+</div>
+<h3>できるようになること</h3>
+<ol><li>画像をプロジェクトに追加し、爆弾の画像と3行×3列の数字ボタンを並べる。</li><li>メソッドとdo-while文で、重ならない2つの乱数を作り、Logcatで確かめる。</li><li>定数とフィールドで爆弾の状態を覚え、押した数字とクリアの条件で表示を切り替える。</li></ol>
+<p>スイッチの数字は毎回ランダムに決まるため、画像と同じ操作をしても結果は変わります。</p>
+<h3>90分×3コマで進めます</h3>
+<table><thead><tr><th>授業</th><th>範囲</th><th>終了時にできること</th></tr></thead><tbody>
+<tr><td>1コマ目</td><td>STEP 0〜4</td><td>画像を追加し、ゲームの画面を作る。</td></tr>
+<tr><td>2コマ目</td><td>STEP 5〜7</td><td>スイッチの数字を決め、押した数字で着火・爆発することを確かめる。</td></tr>
+<tr><td>3コマ目</td><td>STEP 8〜11</td><td>再挑戦とクリアを作り、ミニ練習・動作確認・提出を行う。</td></tr>
+</tbody></table>
+
+<p>各コマに再実行と個別確認の時間を含みます。予習は不要です。</p>
+<div class="note"><p class="box-title">毎回、自分で新規作成します</p><p>作る場所は <code>Documents/Android1/A05BombGame</code> です。<a href="#sample-project">完成プロジェクト</a>は初回から開けます。STEP 2で使う画像も、完成プロジェクトのZIPから取り出します。</p></div>
+
+<h3>完成アプリの状態</h3><table><thead><tr><th>状態</th><th>爆弾の画像</th><th>メッセージ</th><th>数字ボタン</th><th>再挑戦</th></tr></thead><tbody>
+<tr><td>起動直後・再挑戦の後</td><td>火のない爆弾</td><td>どれか押してみよう</td><td>すべて押せる</td><td>見えない</td></tr>
+<tr><td>スイッチ以外を押した</td><td>変わらない</td><td>変わらない</td><td>押したボタンだけ押せない</td><td>見えない</td></tr>
+<tr><td>スイッチを1つ押した（着火）</td><td>導火線に火がつく</td><td>着火！</td><td>押したボタンだけ押せない</td><td>見えない</td></tr>
+<tr><td>スイッチを2つとも押した（爆発）</td><td>爆発の画像</td><td>爆発した！ゲームオーバー！</td><td>すべて押せない</td><td>表示する</td></tr>
+<tr><td>スイッチ以外の7個をすべて押した（クリア）</td><td>そのまま</td><td>クリア！</td><td>すべて押せない</td><td>表示する</td></tr>
+</tbody></table>
+
+<p>1度押した数字は、もう押せません。着火したあとでも、残りのスイッチを押さずにスイッチ以外の7個を押し終えればクリアです。このとき爆弾は火がついた画像のままです。再挑戦を押すと、スイッチの数字を選び直して最初の表示に戻ります。</p>
+<div class="note"><p class="box-title">画面回転について</p><p>各単元では画面回転時のデータ保持と横画面のレイアウトを扱いません。回転などでActivityが作り直されると、押したボタンと爆弾の状態は初期状態に戻り、スイッチの数字も選び直されます。横向きではメッセージや再挑戦ボタンが見えなくなる場合があるため、縦向きで使います。この観点は別単元の演習アプリで検証します。</p></div>
+<div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-0"><span>導火線スイッチ・着火・爆発・クリアの意味と、それぞれの状態で押せるボタンを、画像と表で説明できた。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
+<div class="next"><a href="#step-1">次へ：プロジェクトを作って実行 →</a></div>
+</section>
+<section id="step-1" aria-labelledby="title-1">
+<p class="step-meta">STEP 01 · 目安 15分</p><h2 id="title-1">プロジェクトを作って実行</h2>
+
+<p>授業環境はMacと <strong>Android Studio Panda 2 | 2025.3.2</strong> です。これまでの単元とは別のプロジェクトを作ります。</p>
+<ol><li>Android Studioの <strong>New Project</strong> をクリックします。別のプロジェクトを開いているときは <strong>File → New → New Project</strong> を選びます。</li></ol>
+<figure><a href="images/new-project.png"><img src="images/new-project.png" width="1592" height="316" loading="lazy" alt="Android StudioのWelcome画面。右上にNew Projectボタン"></a><figcaption>右上のNew Projectをクリック。 <a href="images/new-project.png">画像を大きく開く</a></figcaption></figure>
+
+<ol start="2"><li><strong>Phone and Tablet → Empty Views Activity → Next</strong> の順に選びます。名前に <strong>Views</strong> があることを確認します。</li></ol>
+<figure><a href="images/empty-views-activity.png"><img src="images/empty-views-activity.png" width="1792" height="1346" loading="lazy" alt="テンプレート一覧でEmpty Views Activityが選択されている"></a><figcaption>Empty Views Activityを選択。 <a href="images/empty-views-activity.png">画像を大きく開く</a></figcaption></figure>
+<table><thead><tr><th>項目</th><th>入力・選択する内容</th></tr></thead><tbody>
+<tr><td>Name</td><td><code>A05BombGame</code></td></tr>
+<tr><td>Package name</td><td><code>jp.ac.jec.a05bombgame</code>（すべて小文字）</td></tr>
+<tr><td>Save location</td><td><code>/Users/ユーザ名/Documents/Android1/A05BombGame</code></td></tr>
+<tr><td>Language</td><td><strong>Java</strong></td></tr>
+<tr><td>Minimum SDK</td><td><strong>API 31（Android 12.0）</strong></td></tr>
+<tr><td>Build configuration language</td><td><strong>Kotlin DSL（build.gradle.kts）</strong></td></tr>
+</tbody></table>
+<figure><a href="images/project-settings.png"><img src="images/project-settings.png" width="1798" height="1350" loading="lazy" alt="A05BombGameの新規設定。パッケージjp.ac.jec.a05bombgame、Java、API 31、Kotlin DSL"></a><figcaption>画像の保存先は先生の例です。自分のDocuments/Android1/A05BombGameに読み替えます。 <a href="images/project-settings.png">画像を大きく開く</a></figcaption></figure>
+
+<ol start="3"><li>Finderの <strong>移動 → ホーム</strong> で自分のユーザ名を確認します。書類（Documents）に <code>Android1</code> フォルダがなければ作ります。</li><li>表の値と保存先を確認し、<strong>Finish</strong> をクリックします。<code>ユーザ名</code> は自分の名前に置き換えます。</li><li><strong>Gradle Sync</strong> が完了するまで待ちます。</li><li><a href="../common/auto-import.html">共通資料：Auto Import</a>のJava設定を確認します。</li></ol>
+<h3>この単元で使う場所</h3>
+<table><thead><tr><th>役割</th><th>Project表示で開く場所</th></tr></thead><tbody>
+<tr><td>画像</td><td><code>app/src/main/res/drawable</code></td></tr>
+<tr><td>画面（XML）</td><td><code>app/src/main/res/layout/activity_main.xml</code></td></tr>
+<tr><td>動き（Java）</td><td><code>app/src/main/java/jp/ac/jec/a05bombgame/MainActivity.java</code></td></tr>
+</tbody></table>
+
+<p>左の一覧が見えないときは <strong>View → Tool Windows → Project</strong> を開きます。一覧の上の表示名が <strong>Project</strong> になっていることを確認します。パッケージのフォルダが <code>jp.ac.jec.a05bombgame</code> とまとめて表示される場合もあります。</p>
+<h3>変更前に1回Runする</h3>
+<ol><li><a href="../common/emulator.html">共通資料：エミュレータ</a>に従って端末を起動します。</li><li>上部で <strong>app</strong> と <strong>jec_26cm_android1_Pixel 9a</strong> を選び、<strong>Run ▶</strong> を押します。</li><li><strong>Hello World!</strong> が表示されれば成功です。</li></ol>
+<div class="note"><p class="box-title">MainActivity.ktができたとき</p><p>先生に画面を見せ、Empty Views Activity / Javaの選択を確認します。</p></div>
+<div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-1"><span>自分の保存先にA05BombGameを作り、Hello World!を表示できた。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
+<div class="next"><a href="#step-2">次へ：画像をdrawableに追加 →</a></div>
+</section>
+<section id="step-2" aria-labelledby="title-2">
+<p class="step-meta">STEP 02 · 目安 15分</p><h2 id="title-2">画像をdrawableに追加</h2>
+
+<p class="file">追加する場所：app/src/main/res/drawable</p>
+<p>爆弾の3つの画像を、自分のプロジェクトに入れます。<code>res/drawable</code> は、アプリで表示する画像を置くフォルダです。A03と同じ手順です。</p>
+<table><thead><tr><th>ファイル名</th><th>表す状態</th><th>XMLでの名前</th><th>Javaでの名前</th></tr></thead><tbody>
+<tr><td>bomb_initial.png</td><td>火のない爆弾（起動直後）</td><td><code>@drawable/bomb_initial</code></td><td><code>R.drawable.bomb_initial</code></td></tr>
+<tr><td>bomb_ignited.png</td><td>導火線に火がついた爆弾（着火）</td><td>（使わない）</td><td><code>R.drawable.bomb_ignited</code></td></tr>
+<tr><td>bomb_exploded.png</td><td>爆発</td><td>（使わない）</td><td><code>R.drawable.bomb_exploded</code></td></tr>
+</tbody></table>
+
+<p>名前はファイル名から <code>.png</code> を取ったものです。drawableのファイル名には、<strong>小文字の英字・数字・_（アンダースコア）</strong> だけを使います。</p>
+<h3>① 完成プロジェクトのZIPから画像を取り出す</h3>
+<ol><li><a class="button-link" href="downloads/A05BombGame.zip" download>完成プロジェクト A05BombGame.zip</a> をダウンロードし、展開します。</li><li>できた <code>A05BombGame</code> フォルダを、見本の置き場所 <code>/Users/ユーザ名/Documents/Android1/samples</code> に移動します。<code>samples</code> フォルダがなければ作ります。</li><li>Finderで <code>samples/A05BombGame/app/src/main/res/drawable</code> を開きます。</li><li><kbd>⌘</kbd> を押しながら、<code>bomb_exploded.png</code>・<code>bomb_ignited.png</code>・<code>bomb_initial.png</code> の3つをクリックして選び、<kbd>⌘ C</kbd> でコピーします。<code>ic_launcher</code> で始まるファイルは選びません。</li></ol>
+<h3>② 自分のプロジェクトに貼り付ける</h3>
+<ol><li>Android Studioに戻り、自分の <code>A05BombGame</code> を開いていることを確認します。</li><li>Project表示で <code>app/src/main/res/drawable</code> フォルダをクリックして選び、<kbd>⌘ V</kbd> で貼り付けます。</li><li><strong>Copy</strong> の画面が出たら、<strong>To directory</strong> を確認します。末尾が <code>A05BombGame/app/src/main/res/drawable</code> で、途中に <code>samples</code> がなければ <strong>OK</strong> を押します。</li></ol>
+<figure><a href="images/drawable-copy.png"><img src="images/drawable-copy.png" width="2072" height="1090" loading="lazy" alt="Project表示でdrawableフォルダを選び、Copyダイアログが開いている。To directoryの末尾はA05BombGame/app/src/main/res/drawable"></a><figcaption>To directoryの末尾が A05BombGame/app/src/main/res/drawable で、samples が入っていなければOK。画像のパスは先生の保存先の例です。 <a href="images/drawable-copy.png">画像を大きく開く</a></figcaption></figure>
+<figure><a href="images/drawable-files.png"><img src="images/drawable-files.png" width="970" height="1024" loading="lazy" alt="drawableフォルダにbomb_exploded.png、bomb_ignited.png、bomb_initial.pngの3つが追加されている"></a><figcaption>drawableに3つのPNGが並べば成功。 <a href="images/drawable-files.png">画像を大きく開く</a></figcaption></figure>
+
+<div class="note"><p class="box-title">貼り付けた場所を間違えたとき</p><p><code>layout</code> や <code>mipmap</code> など別のフォルダに入った画像は、Project表示で選んで <kbd>⌘ Delete</kbd> で削除し、もう一度 <code>drawable</code> に貼り付けます。見本の <code>samples</code> 側のプロジェクトには貼り付けません。</p></div>
+<h3>Runで確かめる</h3><p>画像を追加しただけでは、画面は変わりません。Runして <strong>Hello World!</strong> が表示され、ビルドエラーが出なければ成功です。</p>
+<div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-2"><span>自分のプロジェクトのdrawableに3つのPNGを追加し、Runしてもエラーが出ないことを確認した。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
+<div class="next"><a href="#step-3">次へ：爆弾と数字ボタンを並べる →</a></div>
+</section>
+<section id="step-3" aria-labelledby="title-3">
+<p class="step-meta">STEP 03 · 目安 20分</p><h2 id="title-3">爆弾と数字ボタンを並べる</h2>
+
+<p class="file">変更するファイル：app/src/main/res/layout/activity_main.xml</p>
+<p>まず、爆弾の画像と1〜9の数字ボタンを作ります。<strong>Code</strong> 表示に切り替え、XMLの中で <kbd>⌘ A</kbd> → 貼り付けを行い、<strong>ファイル全体を置き換えます</strong>。</p>
+<div class="flow"><strong>爆弾の画像</strong><strong>1行目：1　2　3</strong><strong>2行目：4　5　6</strong><strong>3行目：7　8　9</strong></div>
+<div class="code-head">activity_main.xml · 全体を置き換える</div>
+<pre id="code-layout-top" tabindex="0"><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;LinearLayout xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
+    xmlns:tools=&quot;http://schemas.android.com/tools&quot;
+    android:id=&quot;@+id/main&quot;
+    android:layout_width=&quot;match_parent&quot;
+    android:layout_height=&quot;match_parent&quot;
+    android:gravity=&quot;center_horizontal&quot;
+    android:orientation=&quot;vertical&quot;
+    tools:context=&quot;.MainActivity&quot;&gt;
+
+    &lt;ImageView
+        android:id=&quot;@+id/img_bomb&quot;
+        android:layout_width=&quot;wrap_content&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:contentDescription=&quot;@null&quot;
+        android:src=&quot;@drawable/bomb_initial&quot; /&gt;
+
+    &lt;LinearLayout
+        android:layout_width=&quot;wrap_content&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:orientation=&quot;horizontal&quot;&gt;
+
+        &lt;Button
+            android:id=&quot;@+id/btn1&quot;
+            android:layout_width=&quot;wrap_content&quot;
+            android:layout_height=&quot;wrap_content&quot;
+            android:text=&quot;1&quot;
+            tools:ignore=&quot;ButtonStyle&quot; /&gt;
+
+        &lt;Button
+            android:id=&quot;@+id/btn2&quot;
+            android:layout_width=&quot;wrap_content&quot;
+            android:layout_height=&quot;wrap_content&quot;
+            android:layout_marginHorizontal=&quot;8dp&quot;
+            android:text=&quot;2&quot;
+            tools:ignore=&quot;ButtonStyle&quot; /&gt;
+
+        &lt;Button
+            android:id=&quot;@+id/btn3&quot;
+            android:layout_width=&quot;wrap_content&quot;
+            android:layout_height=&quot;wrap_content&quot;
+            android:text=&quot;3&quot;
+            tools:ignore=&quot;ButtonStyle&quot; /&gt;
+    &lt;/LinearLayout&gt;
+
+    &lt;LinearLayout
+        android:layout_width=&quot;wrap_content&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:orientation=&quot;horizontal&quot;&gt;
+
+        &lt;Button
+            android:id=&quot;@+id/btn4&quot;
+            android:layout_width=&quot;wrap_content&quot;
+            android:layout_height=&quot;wrap_content&quot;
+            android:text=&quot;4&quot;
+            tools:ignore=&quot;ButtonStyle&quot; /&gt;
+
+        &lt;Button
+            android:id=&quot;@+id/btn5&quot;
+            android:layout_width=&quot;wrap_content&quot;
+            android:layout_height=&quot;wrap_content&quot;
+            android:layout_marginHorizontal=&quot;8dp&quot;
+            android:text=&quot;5&quot;
+            tools:ignore=&quot;ButtonStyle&quot; /&gt;
+
+        &lt;Button
+            android:id=&quot;@+id/btn6&quot;
+            android:layout_width=&quot;wrap_content&quot;
+            android:layout_height=&quot;wrap_content&quot;
+            android:text=&quot;6&quot;
+            tools:ignore=&quot;ButtonStyle&quot; /&gt;
+    &lt;/LinearLayout&gt;
+
+    &lt;LinearLayout
+        android:layout_width=&quot;wrap_content&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:orientation=&quot;horizontal&quot;&gt;
+
+        &lt;Button
+            android:id=&quot;@+id/btn7&quot;
+            android:layout_width=&quot;wrap_content&quot;
+            android:layout_height=&quot;wrap_content&quot;
+            android:text=&quot;7&quot;
+            tools:ignore=&quot;ButtonStyle&quot; /&gt;
+
+        &lt;Button
+            android:id=&quot;@+id/btn8&quot;
+            android:layout_width=&quot;wrap_content&quot;
+            android:layout_height=&quot;wrap_content&quot;
+            android:layout_marginHorizontal=&quot;8dp&quot;
+            android:text=&quot;8&quot;
+            tools:ignore=&quot;ButtonStyle&quot; /&gt;
+
+        &lt;Button
+            android:id=&quot;@+id/btn9&quot;
+            android:layout_width=&quot;wrap_content&quot;
+            android:layout_height=&quot;wrap_content&quot;
+            android:text=&quot;9&quot;
+            tools:ignore=&quot;ButtonStyle&quot; /&gt;
+    &lt;/LinearLayout&gt;
+
+&lt;/LinearLayout&gt;</code></pre>
+<table><thead><tr><th>指定</th><th>意味</th></tr></thead><tbody>
+<tr><td>android:id="@+id/img_bomb"</td><td>爆弾の画像を表示するImageView。Javaから画像を切り替えるため、idを付ける。</td></tr>
+<tr><td>android:src="@drawable/bomb_initial"</td><td>起動直後は、STEP 2で追加した火のない爆弾を表示する。</td></tr>
+<tr><td>android:contentDescription="@null"</td><td>画面読み上げ用の説明文。この単元では説明文を付けない指定にして、警告を出さないようにする。</td></tr>
+<tr><td>android:gravity="center_horizontal"</td><td>親の中の部品を、横方向の中央にそろえる。</td></tr>
+<tr><td>btn1 〜 btn9</td><td>数字ボタンのid。<code>android:text</code> の1〜9は、あとでJavaが数字として読み取る。</td></tr>
+<tr><td>android:layout_marginHorizontal="8dp"</td><td>中央のボタンの左右に8dpのすき間を作る。</td></tr>
+</tbody></table>
+
+<p>親の <code>orientation="vertical"</code> が画像と3つの行を縦に並べ、行の <code>orientation="horizontal"</code> が3つのボタンを横に並べます。A02CalcGameの数字ボタンと同じ入れ子の形です。<code>android:id="@+id/main"</code> はJavaのひな形でも使うため残します。<code>tools:ignore="ButtonStyle"</code> はエディタの警告を抑える指定で、クリックの処理ではありません。</p>
+<h3>Runで確かめる</h3><p>火のない爆弾の画像と、1〜9が3行×3列で表示されれば成功です。まだ数字を押しても何も起きません。</p>
+<p><code>@drawable/bomb_initial</code> が赤いときは、STEP 2の画像の場所とファイル名を確認します。文字を直接書いたことによる <code>Hardcoded text</code> の警告は、これまでの単元と同様に授業ではそのまま進めます。</p>
+<div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-3"><span>爆弾の画像と1〜9のボタンが3行×3列で表示され、img_bomb・btn1〜btn9のidを確認した。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
+<div class="next"><a href="#step-4">次へ：メッセージと再挑戦ボタン →</a></div>
+</section>
+<section id="step-4" aria-labelledby="title-4">
+<p class="step-meta">STEP 04 · 目安 10分</p><h2 id="title-4">メッセージと再挑戦ボタン</h2>
+
+<p class="file">変更するファイル：activity_main.xml</p>
+<p>数字ボタンの下に、メッセージと再挑戦ボタンを作ります。XMLの<strong>最後の <code>&lt;/LinearLayout&gt;</code> の直前</strong>に追加します。STEP 3の画像や数字ボタンは残します。</p>
+<div class="code-head">追加 · 最後の閉じタグの直前</div>
+<pre id="code-layout-bottom" tabindex="0"><code>&lt;TextView
+    android:id=&quot;@+id/txt_message&quot;
+    style=&quot;@style/TextAppearance.Material3.HeadlineSmall&quot;
+    android:layout_width=&quot;wrap_content&quot;
+    android:layout_height=&quot;wrap_content&quot;
+    android:text=&quot;どれか押してみよう&quot; /&gt;
+
+&lt;Button
+    android:id=&quot;@+id/btn_retry&quot;
+    android:layout_width=&quot;match_parent&quot;
+    android:layout_height=&quot;wrap_content&quot;
+    android:text=&quot;再挑戦&quot;
+    android:visibility=&quot;invisible&quot; /&gt;</code></pre>
+<table><thead><tr><th>指定</th><th>意味</th></tr></thead><tbody>
+<tr><td>txt_message</td><td>「どれか押してみよう」「着火！」などを表示するTextView。</td></tr>
+<tr><td>style="@style/TextAppearance.Material3.HeadlineSmall"</td><td>Material 3の「小さめの見出し」の文字スタイルを使う。A03のBodyLargeより大きい文字になる。</td></tr>
+<tr><td>btn_retry</td><td>再挑戦ボタン。<code>android:layout_width="match_parent"</code> で横幅いっぱいに広げる。</td></tr>
+<tr><td>android:visibility="invisible"</td><td>最初はボタンを<strong>見えない</strong>状態にする。見えなくても、表示する場所は残る。ゲームが終わったらJavaで表示する。</td></tr>
+</tbody></table>
+
+<h3>Runで確かめる</h3><p>数字ボタンの下に「どれか押してみよう」が表示されます。再挑戦ボタンは見えません。</p>
+<figure class="phone"><a href="images/app-initial.png"><img src="images/app-initial.png" width="1080" height="2424" loading="lazy" alt="火のない爆弾、1から9の数字ボタン、どれか押してみよう。再挑戦ボタンは見えない"></a><figcaption>このSTEPの画面。再挑戦ボタンはまだ見えません。 <a href="images/app-initial.png">画像を大きく開く</a></figcaption></figure>
+<div class="note"><p class="box-title">1コマ目はここまで</p><p>保存してからもう一度Runします。画面の部品のidを、先生に1つずつ指さして説明しましょう。見えない再挑戦ボタンも、XMLのどこにあるかを指さします。次回も自分の <code>Documents/Android1/A05BombGame</code> を開きます。</p></div>
+<div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-4"><span>メッセージが表示され、XMLでbtn_retryがinvisibleになっていることを確認した（画面ではまだ見えない）。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
+<div class="next"><a href="#step-5">次へ：導火線スイッチの数字を決める →</a></div>
+</section>
+<section id="step-5" aria-labelledby="title-5">
+<p class="step-meta">STEP 05 · 目安 25分</p><h2 id="title-5">導火線スイッチの数字を決める</h2>
+
+<p class="file">変更するファイル：MainActivity.java</p>
+<p>前回の画面をRunして確認してから始めます。1〜9の中から、<strong>重ならない2つの数字</strong>をランダムに選び、導火線スイッチにします。選んだ数字はLogcatで確かめます。</p>
+<h3>① クラスの中、onCreateの外に1行追加</h3>
+<p><code>public class MainActivity extends AppCompatActivity {</code> のすぐ下、<code>@Override</code> より上に追加します。</p>
+<div class="code-head">追加 · MainActivityのフィールド</div>
+<pre id="code-field-numbers" tabindex="0"><code>private int[] randomIgnitionNumbers; // 導火線スイッチの数字</code></pre>
+
+<p><code>int[]</code> は「intの配列」という型です。ここでは名前と型だけを決め、中に入れる2つの数字は、このあと作るメソッドで決めます。スイッチの数字はメソッドで作り、STEP 7でクリックの処理から読むため、フィールドにします。A02の <code>answer</code> も、メソッドで作ってクリックの処理で読むフィールドでした。</p>
+<h3>② onCreateの外にメソッドを追加</h3>
+<p><code>onCreate</code> を閉じる <code>}</code> の下に1行空けて、MainActivityを閉じる最後の <code>}</code> より上に追加します。A02の <code>startQuestion</code> と同じ場所です。</p>
+<div class="code-head">追加 · onCreateの下</div>
+<pre id="code-method" tabindex="0"><code>/**
+ * 導火線スイッチの数字をランダムに2つ生成する.
+ */
+private void generateIgnitionNumbers() {
+    do {
+        // 1から9まで範囲のランダムな数値を2つ作る.同じ値が含まれていたら作り直す.
+        randomIgnitionNumbers = ThreadLocalRandom.current().ints(2, 1, 10).toArray();
+    } while (Arrays.stream(randomIgnitionNumbers).distinct().count() != 2);
+
+    // debug
+    for (var randomIgnitionNumber : randomIgnitionNumbers) {
+        Log.d(&quot;MainActivity&quot;, &quot;randomIgnitionNumber = &quot; + randomIgnitionNumber);
+    }
+}</code></pre>
+<p>importは <code>android.util.Log</code>、<code>java.util.Arrays</code>、<code>java.util.concurrent.ThreadLocalRandom</code> です。<code>Arrays</code> に候補が出たら <code>java.util.Arrays</code> を選びます。</p>
+<table><thead><tr><th>コード</th><th>意味</th></tr></thead><tbody>
+<tr><td>/** ... */</td><td>メソッドの説明を書くコメント。</td></tr>
+<tr><td>private void generateIgnitionNumbers()</td><td>「スイッチの数字を作る」処理に名前を付けたメソッド。STEP 8の再挑戦からも呼び出す。</td></tr>
+<tr><td>ThreadLocalRandom.current().ints(2, 1, 10).toArray()</td><td><strong>1以上、10未満</strong>（1〜9）の整数を<strong>2個</strong>作り、intの配列にする。A02の <code>nextInt(1, 10)</code> を2回分まとめて作るイメージ。</td></tr>
+<tr><td>randomIgnitionNumbers = ...;</td><td>作った配列を、①のフィールドに入れる。メソッドの中から、フィールドに直接入れている。</td></tr>
+<tr><td>Arrays.stream(randomIgnitionNumbers).distinct().count()</td><td>配列から重なりを取り除いた数字の個数。<code>{3, 7}</code> なら2、<code>{5, 5}</code> なら1。</td></tr>
+<tr><td>do { ... } while (条件);</td><td>中を<strong>必ず1回</strong>実行し、条件がtrueの間くり返す。</td></tr>
+<tr><td>!= 2</td><td>「2ではない」。同じ数字が2つ出たときにtrueになり、もう一度作り直す。</td></tr>
+<tr><td>for (var randomIgnitionNumber : randomIgnitionNumbers)</td><td>2つの数字を1つずつ取り出す拡張for文。<code>randomIgnitionNumber</code>（最後にsがない）は取り出した1つの数字。</td></tr>
+<tr><td>Log.d("MainActivity", ...)</td><td>数字をLogcatに出す。A01・A03と同じログ。</td></tr>
+</tbody></table>
+<p><code>Arrays.stream(配列)</code> は、配列の中身を順番に調べる道具です。この単元では、このあと <code>anyMatch</code>（STEP 7）、<code>forEach</code>（STEP 7）、<code>filter</code> と <code>count</code>（STEP 9）も使います。</p>
+
+<h3>do-while文を読む</h3>
+<div class="flow"><strong>乱数を2個作る（最初に必ず1回）</strong><span>→</span><strong>重なりを除いた個数 != 2 ？</strong><span>→</span><strong>trueなら作り直す／falseなら終わる</strong></div>
+<table><thead><tr><th>くり返し</th><th>できた配列</th><th>distinct().count()</th><th>!= 2</th><th>次にすること</th></tr></thead><tbody>
+<tr><td>1回目</td><td>{5, 5}</td><td>1</td><td>true</td><td>同じ数字なので、もう一度作る（フィールドの配列は作り直した配列に置き換わる）。</td></tr>
+<tr><td>2回目</td><td>{5, 8}</td><td>2</td><td>false</td><td>くり返しを終え、フィールドに入った {5, 8} をログに出す。</td></tr>
+</tbody></table>
+
+<p>A03の番号付きfor文は、中を実行する前に条件を調べました。do-while文は、まず中を1回実行してから条件を調べます。「乱数を作ってから、重なっていないか確かめる」処理に合っています。1回目で重ならなければ、くり返しは1回で終わります。</p>
+<p class="muted">仕様の確認：<a href="https://developer.android.com/reference/java/util/concurrent/ThreadLocalRandom#ints(long,%20int,%20int)">ThreadLocalRandom.ints</a>、<a href="https://developer.android.com/reference/java/util/Arrays#stream(int[])">Arrays.stream</a>、<a href="https://developer.android.com/reference/java/util/stream/IntStream#distinct()">IntStream.distinct（Android公式）</a>。</p>
+<h3>③ onCreateから呼び出す</h3>
+<p><code>onCreate</code> の中で、ひな形の <code>return insets;</code> に続く <code>});</code> の下に、1行空けて追加します。</p>
+<div class="code-head">追加 · onCreateの中、ひな形の下</div>
+<pre id="code-call" tabindex="0"><code>generateIgnitionNumbers();</code></pre>
+<p>画面を作るときに1回だけ、スイッチの数字を決めます。メソッドの中身は、呼び出したときに実行されます。</p>
+<h3>Runで確かめる</h3>
+<ol><li><a href="../common/logcat.html">共通資料：Logcat</a>に従ってLogcatを開き、検索欄を次の文字にします。</li></ol>
+<div class="code-head">Logcatの検索欄 · BombGame用</div><pre tabindex="0"><code>package:jp.ac.jec.a05bombgame tag:MainActivity level:DEBUG</code></pre>
+<ol start="2"><li>Runします。起動したときに、<code>randomIgnitionNumber</code> の行が2行出ます。</li><li>アプリをStopしてからRunし直すと、数字が選び直されます（1つだけ変わる回や、たまたま同じ組み合わせになる回もあります）。3〜4回くり返し、どの回でも2つの数字が違うことを確かめます。</li><li>画面はまだ変わりません。数字を押しても何も起きません。</li></ol>
+<div class="code-head">読むところの例 · スイッチが6と8のとき</div><pre tabindex="0"><code>MainActivity  D  randomIgnitionNumber = 6
+MainActivity  D  randomIgnitionNumber = 8</code></pre>
+<div class="note"><p class="box-title">Logcatはスイッチの確認用</p><p>このログを見ると、どれがスイッチかわかります。STEP 7・9では、このログを見ながら着火・爆発・クリアを確実に試します。友達と遊ぶときは、Logcatを隠しておきましょう。</p></div>
+<div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-5"><span>Logcatに違う2つの数字が出て、Runし直すと数字が選び直されることを確認した。do-while文で作り直す条件を説明できた。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
+<div class="next"><a href="#step-6">次へ：押したボタンを押せなくする →</a></div>
+</section>
+<section id="step-6" aria-labelledby="title-6">
+<p class="step-meta">STEP 06 · 目安 15分</p><h2 id="title-6">押したボタンを押せなくする</h2>
+
+<p class="file">変更するファイル：MainActivity.java</p>
+<p>画面の部品を取得し、9個の数字ボタンに同じクリックの処理を付けます。まずは「押したボタンを押せなくする」だけを作ります。</p>
+<h3>① 画面の部品を取得する</h3>
+<p>STEP 5で追加した <code>generateIgnitionNumbers();</code> の下に、1行空けて追加します。</p>
+<div class="code-head">追加 · generateIgnitionNumbers();の下</div>
+<pre id="code-views" tabindex="0"><code>var txtMessage = (TextView) findViewById(R.id.txt_message);
+var imgBomb = (ImageView) findViewById(R.id.img_bomb);
+var btnRetry = findViewById(R.id.btn_retry);
+var numberButtons = new Button[]{
+        findViewById(R.id.btn1), findViewById(R.id.btn2), findViewById(R.id.btn3),
+        findViewById(R.id.btn4), findViewById(R.id.btn5), findViewById(R.id.btn6),
+        findViewById(R.id.btn7), findViewById(R.id.btn8), findViewById(R.id.btn9)
+};</code></pre>
+<table><thead><tr><th>コード</th><th>意味</th></tr></thead><tbody>
+<tr><td>(TextView) findViewById(R.id.txt_message)</td><td>表示する文字を変えるため、TextViewとして扱う。</td></tr>
+<tr><td>(ImageView) findViewById(R.id.img_bomb)</td><td>表示する画像を変えるため、ImageViewとして扱う。</td></tr>
+<tr><td>btnRetry</td><td>クリック登録と表示の切り替えだけを使うため、A03と同じくキャストしない。</td></tr>
+<tr><td>new Button[]{ ... }</td><td>9個の数字ボタンを、Buttonの配列にまとめる。A03の <code>imageViews</code> と同じ書き方。</td></tr>
+</tbody></table>
+
+<p>importは <code>android.widget.Button</code>、<code>android.widget.ImageView</code>、<code>android.widget.TextView</code> です。<code>txtMessage</code> などが灰色で表示されるのは、まだ使っていないためです。</p>
+<h3>② 9個のボタンにクリックの処理を付ける</h3>
+<p>①で追加した配列の <code>};</code> の下に、1行空けて追加します。</p>
+<div class="code-head">追加 · 配列numberButtonsの下</div>
+<pre id="code-loop" tabindex="0"><code>for (var button : numberButtons) {
+    button.setOnClickListener(v -&gt; {
+        button.setEnabled(false);
+    });
+}</code></pre>
+<table><thead><tr><th>コード</th><th>意味</th></tr></thead><tbody>
+<tr><td>for (var button : numberButtons)</td><td>配列からボタンを1つずつ取り出し、クリックの処理を登録する。</td></tr>
+<tr><td>button.setEnabled(false)</td><td>押されたボタンを、押せない状態（灰色）にする。同じ数字を2回押せなくなる。</td></tr>
+</tbody></table>
+
+<p>for文は画面を作るときに9回実行され、9個のボタンに同じ処理を登録します。クリックの処理の中の <code>button</code> は、そのボタン自身を指します。1を押せば1のボタン、5を押せば5のボタンが灰色になります。</p>
+<h3>Runで確かめる</h3><ol><li>1を押すと、1のボタンだけが灰色になり、押せなくなります。</li><li>別の数字を押すと、そのボタンも灰色になります。</li><li>メッセージと爆弾の画像は、まだ変わりません。</li></ol>
+<figure class="phone"><a href="images/app-pressed.png"><img src="images/app-pressed.png" width="1080" height="2424" loading="lazy" alt="1のボタンだけが灰色になり、ほかのボタンは押せる。メッセージはどれか押してみようのまま"></a><figcaption>1を押した画面。押したボタンだけが灰色になります。 <a href="images/app-pressed.png">画像を大きく開く</a></figcaption></figure>
+<div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-6"><span>押した数字ボタンだけが灰色になり、もう押せないことを確認した。button.setEnabled(false)の行を指させた。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
+<div class="next"><a href="#step-7">次へ：着火と爆発 →</a></div>
+</section>
+<section id="step-7" aria-labelledby="title-7">
+<p class="step-meta">STEP 07 · 目安 30分</p><h2 id="title-7">着火と爆発</h2>
+
+<p class="file">変更するファイル：MainActivity.java</p>
+<p>押した数字がスイッチかどうかを調べ、スイッチなら爆弾の状態を1つ進めます。状態に合わせて、画像とメッセージを変えます。</p>
+<h3>① 爆弾の状態を表す定数とフィールド</h3>
+<p><code>public class MainActivity extends AppCompatActivity {</code> のすぐ下、STEP 5の <code>private int[] randomIgnitionNumbers</code> の<strong>上</strong>に追加します。</p>
+<div class="code-head">追加 · randomIgnitionNumbersの上</div>
+<pre id="code-fields-state" tabindex="0"><code>private static final int STATE_INITIAL = 1; // 着火前の初期状態
+private static final int STATE_IGNITED = 2; // 導火線点火
+private static final int STATE_EXPLODED = 3; // 爆発
+private int nowState = STATE_INITIAL; // 爆弾の状態</code></pre>
+<table><thead><tr><th>コード</th><th>意味</th></tr></thead><tbody>
+<tr><td>private static final int STATE_INITIAL = 1;</td><td>「着火前」を1とする<strong>定数</strong>。<code>final</code> は値を変えられない、<code>static</code> はクラスで1つだけ持つ、という意味。定数は大文字と_で名前を付ける。</td></tr>
+<tr><td>STATE_IGNITED = 2 / STATE_EXPLODED = 3</td><td>「着火」を2、「爆発」を3とする定数。</td></tr>
+<tr><td>private int nowState = STATE_INITIAL;</td><td>今の爆弾の状態を覚えるフィールド。最初は定数 STATE_INITIAL の値（1）が入る。あとで変わるのは <code>nowState</code> だけで、定数は1のまま。</td></tr>
+</tbody></table>
+
+<div class="flow" aria-label="爆弾の状態"><strong>1：STATE_INITIAL（着火前）</strong><span>→ スイッチ →</span><strong>2：STATE_IGNITED（着火）</strong><span>→ スイッチ →</span><strong>3：STATE_EXPLODED（爆発）</strong></div>
+<p>状態は1 → 2 → 3の順に並んでいるので、スイッチを押すたびに <code>nowState</code> を1増やせば次の状態になります。<code>nowState == 2</code> と書くより、<code>nowState == STATE_IGNITED</code> と書くほうが「着火しているか」を調べていると読み取れます。<code>nowState</code> はクリックの処理の中で書き換えるため、A03の <code>selectedHand</code> と同じくフィールドにします。</p>
+<h3>② スイッチか調べて、画像とメッセージを変える</h3>
+<p>STEP 6のクリックの処理の中で、<code>button.setEnabled(false);</code> の下に、1行空けて追加します。</p>
+<div class="code-head">追加 · button.setEnabled(false);の下</div>
+<pre id="code-ignite" tabindex="0"><code>var number = Integer.parseInt(button.getText().toString());
+var match = Arrays.stream(randomIgnitionNumbers).anyMatch(num -&gt; num == number);
+if (match) nowState++;
+
+if (nowState == STATE_IGNITED) {
+    imgBomb.setImageResource(R.drawable.bomb_ignited);
+    txtMessage.setText(&quot;着火！&quot;);
+} else if (nowState == STATE_EXPLODED) {
+    imgBomb.setImageResource(R.drawable.bomb_exploded);
+    txtMessage.setText(&quot;爆発した！ゲームオーバー！&quot;);
+    btnRetry.setVisibility(View.VISIBLE);
+    Arrays.stream(numberButtons).forEach(b -&gt; b.setEnabled(false));
+}</code></pre>
+<p>追加のimportは <code>android.view.View</code> です。</p>
+<table><thead><tr><th>コード</th><th>意味</th></tr></thead><tbody>
+<tr><td>Integer.parseInt(button.getText().toString())</td><td>押したボタンの文字、たとえば "7" を、整数の7に変える。A02と同じ。</td></tr>
+<tr><td>Arrays.stream(randomIgnitionNumbers).anyMatch(num -&gt; num == number)</td><td>スイッチの配列の中に、押した数字と同じ値が<strong>1つでもあれば</strong>true。</td></tr>
+<tr><td>num -&gt; num == number</td><td>配列の値を1つずつ <code>num</code> として受け取り、押した数字と比べる短い書き方。クリックの処理の <code>v -&gt; { }</code> と同じ矢印を使う。</td></tr>
+<tr><td>if (match) nowState++;</td><td>スイッチなら状態を1つ進める。中が1行だけなので <code>{ }</code> を省略している。</td></tr>
+<tr><td>if ... else if ...</td><td>状態が着火（2）なら着火の表示、爆発（3）なら爆発の表示。どちらでもなければ何もしない。</td></tr>
+<tr><td>imgBomb.setImageResource(R.drawable.bomb_ignited)</td><td>爆弾の画像を、火がついた画像に変える。A03のCPUの手と同じ方法。</td></tr>
+<tr><td>btnRetry.setVisibility(View.VISIBLE)</td><td>見えなかった再挑戦ボタンを表示する。</td></tr>
+<tr><td>Arrays.stream(numberButtons).forEach(b -&gt; b.setEnabled(false))</td><td>9個のボタンを<strong>すべて</strong>押せなくする。<code>for (var b : numberButtons) { b.setEnabled(false); }</code> と同じ動き。</td></tr>
+</tbody></table>
+
+<h3>anyMatchを読む</h3>
+<table><thead><tr><th>スイッチが {3, 7} のとき</th><th>num = 3</th><th>num = 7</th><th>match</th></tr></thead><tbody>
+<tr><td>7を押した（number = 7）</td><td>3 == 7 → false</td><td>7 == 7 → true</td><td>true（スイッチ）</td></tr>
+<tr><td>5を押した（number = 5）</td><td>3 == 5 → false</td><td>7 == 5 → false</td><td>false（スイッチではない）</td></tr>
+</tbody></table>
+
+<p>クリックの処理は、上から <strong>押せなくする → スイッチか調べる → 状態を進める → 状態に合わせて表示する</strong> の順に実行されます。1つのボタンは1回しか押せないため、同じスイッチで状態が2回進むことはありません。</p>
+<p class="muted">仕様の確認：<a href="https://developer.android.com/reference/java/util/stream/IntStream#anyMatch(java.util.function.IntPredicate)">IntStream.anyMatch</a>、<a href="https://developer.android.com/reference/java/util/stream/Stream">Stream（forEach・filter・count）</a>、<a href="https://developer.android.com/reference/android/view/View#setVisibility(int)">View.setVisibility（Android公式）</a>。</p>
+<div class="phones"><figure><a href="images/app-ignited.png"><img src="images/app-ignited.png" width="1080" height="2424" loading="lazy" alt="導火線に火がついた爆弾と着火！の文字。押した2と5のボタンは灰色"></a><figcaption>スイッチを1つ押すと、画像とメッセージが変わります。 <a href="images/app-ignited.png">画像を大きく開く</a></figcaption></figure>
+<figure><a href="images/app-exploded.png"><img src="images/app-exploded.png" width="1080" height="2424" loading="lazy" alt="爆発の画像と爆発した！ゲームオーバー！の文字。数字はすべて灰色で、再挑戦ボタンが見える"></a><figcaption>2つ目のスイッチで爆発。再挑戦が表示されます。 <a href="images/app-exploded.png">画像を大きく開く</a></figcaption></figure>
+</div>
+<h3>Runで確かめる</h3><ol><li>Logcatでスイッチの2つの数字を確認します（STEP 5の検索欄）。</li><li>スイッチ<strong>ではない</strong>数字を押します。そのボタンが灰色になるだけで、表示は変わりません。</li><li>スイッチの1つを押します。導火線に火がついた画像と「着火！」になります。</li><li>もう1つのスイッチを押します。爆発の画像と「爆発した！ゲームオーバー！」になり、数字はすべて押せなくなり、再挑戦ボタンが表示されます。</li><li>再挑戦を押しても、まだ何も起きません（STEP 8で作ります）。もう一度遊ぶときは <strong>Run ▶</strong> で起動し直します。</li></ol>
+<div class="note"><p class="box-title">まだクリアにはなりません</p><p>スイッチ以外の7個をすべて押しても、このSTEPでは何も表示されません。クリアの判定はSTEP 9で追加します。</p></div>
+<div class="note"><p class="box-title">2コマ目はここまで</p><p>保存してからもう一度Runします。次回はRunして、Logcatの数字を見ながら着火と爆発を確かめてからSTEP 8へ進みます。</p></div>
+<div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-7"><span>Logcatの数字を見ながら、スイッチ以外・1つ目のスイッチ・2つ目のスイッチを押して、表示の変化を確認した。nowState++の行を指させた。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
+<div class="next"><a href="#step-8">次へ：再挑戦で最初に戻す →</a></div>
+</section>
+<section id="step-8" aria-labelledby="title-8">
+<p class="step-meta">STEP 08 · 目安 15分</p><h2 id="title-8">再挑戦で最初に戻す</h2>
+
+<p class="file">変更するファイル：MainActivity.java</p>
+<p>再挑戦を押したら、起動直後と同じ表示に戻し、スイッチの数字を選び直します。</p>
+<p>STEP 6の配列 <code>numberButtons</code> の <code>};</code> と、<code>for (var button : numberButtons) {</code> の行の<strong>間</strong>に追加します。追加したコードの上と下に、1行ずつ空けます。完成版と同じ順番にするためです。</p>
+<div class="code-head">追加 · 数字ボタンのfor文の上</div>
+<pre id="code-retry" tabindex="0"><code>btnRetry.setOnClickListener(v -&gt; {
+    nowState = STATE_INITIAL;
+    txtMessage.setText(&quot;どれか押してみよう&quot;);
+    imgBomb.setImageResource(R.drawable.bomb_initial);
+    v.setVisibility(View.INVISIBLE);
+    generateIgnitionNumbers();
+    Arrays.stream(numberButtons).forEach(b -&gt; b.setEnabled(true));
+});</code></pre>
+<table><thead><tr><th>コード</th><th>元に戻すもの</th></tr></thead><tbody>
+<tr><td>nowState = STATE_INITIAL</td><td>爆弾の状態を着火前（1）に戻す。</td></tr>
+<tr><td>txtMessage.setText("どれか押してみよう")</td><td>メッセージを最初の文に戻す。</td></tr>
+<tr><td>imgBomb.setImageResource(R.drawable.bomb_initial)</td><td>爆弾の画像を、火のない画像に戻す。</td></tr>
+<tr><td>v.setVisibility(View.INVISIBLE)</td><td><code>v</code> は押された再挑戦ボタン自身。ボタンを見えなくする。</td></tr>
+<tr><td>generateIgnitionNumbers()</td><td>STEP 5のメソッドを呼び、スイッチの数字を選び直す。</td></tr>
+<tr><td>Arrays.stream(numberButtons).forEach(b -&gt; b.setEnabled(true))</td><td>9個のボタンをすべて押せる状態に戻す。</td></tr>
+</tbody></table>
+
+<p>スイッチの数字を作る処理をメソッドにしたので、起動時（<code>onCreate</code>）と再挑戦の2か所から、同じ処理を1行で呼び出せます。A02の <code>startQuestion</code> と同じ考え方です。</p>
+<h3>Runで確かめる</h3><ol><li>Logcatでスイッチを確認し、2つとも押して爆発させます。</li><li>再挑戦を押します。火のない爆弾・「どれか押してみよう」・すべて押せる数字ボタンに戻り、再挑戦ボタンが見えなくなります。</li><li>Logcatに、選び直した2つの数字が出ます（前と同じ数字になることもあります）。2〜3回くり返します。</li></ol>
+<div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-8"><span>爆発のあとに再挑戦で最初の表示に戻り、Logcatに選び直したスイッチの数字が出ることを確認した。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
+<div class="next"><a href="#step-9">次へ：クリアを判定する →</a></div>
+</section>
+<section id="step-9" aria-labelledby="title-9">
+<p class="step-meta">STEP 09 · 目安 25分</p><h2 id="title-9">クリアを判定する</h2>
+
+<p class="file">変更するファイル：MainActivity.java</p>
+<p>最後に、スイッチ以外の7個をすべて押したら「クリア！」にします。STEP 7の表示の処理を、クリアの判定で包みます。</p>
+<h3>① 置き換える範囲を選ぶ</h3>
+<p>数字ボタンのクリックの処理の中で、<code>if (nowState == STATE_IGNITED) {</code> の行から、<code>else if (nowState == STATE_EXPLODED) { ... }</code> を閉じる <code>}</code> の行までを選びます。その下の <code>});</code> は選びません。<code>var number</code>・<code>var match</code>・<code>if (match) nowState++;</code> の3行も残します。</p>
+<h3>② 次のコードに置き換える</h3>
+<div class="code-head">置き換え · if (nowState == STATE_IGNITED) から else if の閉じ括弧まで</div>
+<pre id="code-clear" tabindex="0"><code>var disableButtonCount = Arrays.stream(numberButtons).filter(b -&gt; !b.isEnabled()).count();
+// 導火線スイッチ(2個)以外の7個をすべて押したらクリア。着火済みなら押したボタンは8個になる
+if ((nowState == STATE_INITIAL &amp;&amp; disableButtonCount == 7) ||
+        (nowState == STATE_IGNITED &amp;&amp; disableButtonCount == 8)) { // ゲームクリアの場合
+    txtMessage.setText(&quot;クリア！&quot;);
+    btnRetry.setVisibility(View.VISIBLE);
+    Arrays.stream(numberButtons).forEach(b -&gt; b.setEnabled(false));
+} else { // ゲーム続行
+    if (nowState == STATE_IGNITED) {
+        imgBomb.setImageResource(R.drawable.bomb_ignited);
+        txtMessage.setText(&quot;着火！&quot;);
+    } else if (nowState == STATE_EXPLODED) {
+        imgBomb.setImageResource(R.drawable.bomb_exploded);
+        txtMessage.setText(&quot;爆発した！ゲームオーバー！&quot;);
+        btnRetry.setVisibility(View.VISIBLE);
+        Arrays.stream(numberButtons).forEach(b -&gt; b.setEnabled(false));
+    }
+}</code></pre>
+<p>貼り付けたあと、字下げがずれていたら <strong>Code → Reformat Code</strong>（<kbd>⌥ ⌘ L</kbd>）でそろえます。<code>else { ... }</code> の中は、STEP 7で書いた着火・爆発の処理と同じです。</p>
+<table><thead><tr><th>コード</th><th>意味</th></tr></thead><tbody>
+<tr><td>Arrays.stream(numberButtons).filter(b -&gt; !b.isEnabled()).count()</td><td>押せないボタンだけを残して、その数を数える。<code>!</code> は反対。今押したボタンも数に入る。</td></tr>
+<tr><td>&amp;&amp;</td><td>「かつ」。両方の条件がtrueのときtrue。</td></tr>
+<tr><td>||</td><td>「または」。どちらかの条件がtrueならtrue。</td></tr>
+<tr><td>( ... ) || ( ... )</td><td>括弧の中を1つのまとまりとして先に調べ、どちらかのまとまりがtrueならクリア。</td></tr>
+<tr><td>// ゲームクリアの場合</td><td>クリアなら、メッセージを出し、再挑戦を表示し、数字をすべて押せなくする。</td></tr>
+<tr><td>else { // ゲーム続行</td><td>クリアではないとき。STEP 7の着火・爆発の判定を行う。爆発した場合は、ここでゲームオーバーになる。</td></tr>
+</tbody></table>
+
+<h3>クリアの条件を読む</h3>
+<p>条件は <strong>（着火前 かつ 7個押せない）または（着火 かつ 8個押せない）</strong> という意味です。上の行のコメントも、同じことを説明しています。Javaでは <code>&amp;&amp;</code> を <code>||</code> より先に計算するため、括弧がなくても結果は同じです（掛け算を足し算より先に計算するのと同じ）。読み間違えないように、まとまりを括弧で囲んでいます。</p>
+<table><thead><tr><th>状態</th><th>押せないボタンの数</th><th>意味</th></tr></thead><tbody>
+<tr><td>STATE_INITIAL（着火前）</td><td>7</td><td>スイッチ以外の7個をすべて押した。残りの2個はどちらもスイッチ。</td></tr>
+<tr><td>STATE_IGNITED（着火）</td><td>8</td><td>スイッチ1個と、スイッチ以外の7個を押した。残りの1個はスイッチ。</td></tr>
+<tr><td>STATE_EXPLODED（爆発）</td><td>—</td><td>クリアにはならない。elseの中で爆発を表示する。</td></tr>
+</tbody></table>
+
+<p>数を数える行は、<code>button.setEnabled(false)</code> と <code>nowState++</code> のあとにあります。そのため、今押したボタンと、今の押し方で進んだ状態を使って判定できます。</p>
+<details><summary>置き換えたあとの、数字ボタンの処理全体で照合する</summary><div class="code-head">照合用 · 数字ボタンのfor文</div>
+<pre id="code-loop-final" tabindex="0"><code>for (var button : numberButtons) {
+    button.setOnClickListener(v -&gt; {
+        button.setEnabled(false);
+
+        var number = Integer.parseInt(button.getText().toString());
+        var match = Arrays.stream(randomIgnitionNumbers).anyMatch(num -&gt; num == number);
+        if (match) nowState++;
+
+        var disableButtonCount = Arrays.stream(numberButtons).filter(b -&gt; !b.isEnabled()).count();
+        // 導火線スイッチ(2個)以外の7個をすべて押したらクリア。着火済みなら押したボタンは8個になる
+        if ((nowState == STATE_INITIAL &amp;&amp; disableButtonCount == 7) ||
+                (nowState == STATE_IGNITED &amp;&amp; disableButtonCount == 8)) { // ゲームクリアの場合
+            txtMessage.setText(&quot;クリア！&quot;);
+            btnRetry.setVisibility(View.VISIBLE);
+            Arrays.stream(numberButtons).forEach(b -&gt; b.setEnabled(false));
+        } else { // ゲーム続行
+            if (nowState == STATE_IGNITED) {
+                imgBomb.setImageResource(R.drawable.bomb_ignited);
+                txtMessage.setText(&quot;着火！&quot;);
+            } else if (nowState == STATE_EXPLODED) {
+                imgBomb.setImageResource(R.drawable.bomb_exploded);
+                txtMessage.setText(&quot;爆発した！ゲームオーバー！&quot;);
+                btnRetry.setVisibility(View.VISIBLE);
+                Arrays.stream(numberButtons).forEach(b -&gt; b.setEnabled(false));
+            }
+        }
+    });
+}</code></pre></details>
+<h3>Runで確かめる</h3><ol><li>Logcatでスイッチを確認し、スイッチ以外の7個をすべて押します。7個目で「クリア！」になり、数字はすべて押せなくなり、再挑戦が表示されます。爆弾は火のない画像のままです。</li><li>再挑戦を押し、新しいスイッチを確認します。スイッチを1つ押して着火させてから、スイッチ以外の7個を押します。7個目で「クリア！」になり、爆弾は火がついた画像のままです。</li><li>再挑戦を押し、スイッチを2つとも押すと、これまでどおり爆発します。</li></ol>
+<figure class="phone"><a href="images/app-clear.png"><img src="images/app-clear.png" width="1080" height="2424" loading="lazy" alt="火のない爆弾、クリア！の文字。数字ボタンはすべて灰色で、再挑戦ボタンが表示されている"></a><figcaption>着火前に、スイッチ以外の7個を押してクリアした画面（確認1）。着火後にクリアしたときは、火がついた画像のままです。 <a href="images/app-clear.png">画像を大きく開く</a></figcaption></figure>
+<div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-9"><span>着火前と着火後の両方でクリアになり、爆発もこれまでどおり動くことを確認した。7と8の違いを説明できた。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
+<div class="next"><a href="#step-10">次へ：ミニ練習 →</a></div>
+</section>
+<section id="step-10" aria-labelledby="title-10">
+<p class="step-meta">STEP 10 · 目安 20分</p><h2 id="title-10">ミニ練習</h2>
+
+<p>まずクリアまで完成させます。そのあと、次の小変更を1つずつ試します。<strong>予想 → 変更 → Run → 説明 → 元に戻す</strong>の順で行います。</p>
+<div class="task"><p class="box-title">練習1：スイッチを固定して表を確かめる</p><p><code>generateIgnitionNumbers</code> メソッドの <code>randomIgnitionNumbers = ThreadLocalRandom.current().ints(2, 1, 10).toArray();</code> の行で、<code>=</code> の右側だけを <code>new int[]{1, 9}</code> に変えます。変更後の行は次のとおりです。</p><div class="code-head">練習1 · 変更後の行</div>
+<pre id="code-practice-fixed" tabindex="0"><code>randomIgnitionNumbers = new int[]{1, 9};</code></pre><p>スイッチはいつも1と9です。Runして、Logcatに1と9が出ることを確かめます。次の操作の結果を予想してから試します。</p><ol><li>5を押す → 1を押す → 9を押す</li><li>再挑戦 → 2・3・4・5・6・7・8を順に押す</li><li>再挑戦 → 1を押す → 2・3・4・5・6・7・8を順に押す</li></ol><details><summary>試したあとに答えを見る</summary><p>1：5はボタンが灰色になるだけです。1で「着火！」、9で「爆発した！ゲームオーバー！」になります。2：8を押した時点（7個目）で「クリア！」になり、爆弾は火のない画像のままです。3：1で「着火！」になり、8を押した時点（押せないボタンが8個）で「クリア！」になります。爆弾は火がついた画像のままです。スイッチは固定しているので、再挑戦しても1と9のままです。練習2でもこの変更を使うため、まだ戻しません。</p></details></div>
+<div class="task"><p class="box-title">練習2：「8」を「7」にするとどうなる？</p><p>練習1の変更を残したまま、クリアの条件の <code>nowState == STATE_IGNITED &amp;&amp; disableButtonCount == 8</code> の <code>8</code> を <code>7</code> に変えます。Runして、1を押してから、2・3・4・5・6・7を順に押します。7を押したとき、何が起きるでしょうか。</p><details><summary>試したあとに答えを見る</summary><p>7を押した時点で「クリア！」になります。スイッチ以外のボタンは6個しか押しておらず、8がまだ残っていたのにクリアです。着火しているときは、押したスイッチ1個も押せないボタンに数えるので、スイッチ以外の7個を押し終えたときは8個になります。だから8と比べる、と説明できれば十分です。確認後は <code>8</code> に戻し、練習1の行の右側も <code>ThreadLocalRandom.current().ints(2, 1, 10).toArray()</code> に戻します。</p></details></div>
+<div class="task"><p class="box-title">練習3：状態を説明する</p><p>同じ数字を2回押せないのは、どの行のおかげですか。爆発したあとに数字を押せなくなるのは、どの行ですか。再挑戦でスイッチの数字が変わるのは、どの行ですか。</p><details><summary>説明したあとに答えを見る</summary><p>クリックの処理の最初の <code>button.setEnabled(false)</code> で、押したボタンを押せなくします。爆発したときは、<code>else if (nowState == STATE_EXPLODED)</code> の中の <code>Arrays.stream(numberButtons).forEach(b -&gt; b.setEnabled(false))</code> ですべて押せなくします。再挑戦の処理の <code>generateIgnitionNumbers()</code> が、乱数で新しいスイッチを作ります。</p></details></div>
+<div class="note"><p class="box-title">完成版に戻してから確認</p><p>練習1の乱数の行と、練習2の <code>8</code> を元に戻します。Auto Importの設定により、使わなくなった <code>ThreadLocalRandom</code> のimportが消えることがあります。戻したあとに赤字になったら、<kbd>⌥ Enter</kbd> でimportを追加します。</p></div>
+<div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-10"><span>スイッチを固定して着火・爆発・クリアを確かめ、8と比べる理由を説明してから完成版に戻した。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
+<div class="next"><a href="#step-11">次へ：完成とふり返り →</a></div>
+</section>
+<section id="step-11" aria-labelledby="title-11">
+<p class="step-meta">STEP 11 · 目安 15分</p><h2 id="title-11">完成とふり返り</h2>
+
+<h3>完成チェック</h3>
+<table><thead><tr><th>操作</th><th>確認する結果</th></tr></thead><tbody>
+<tr><td>起動直後</td><td>火のない爆弾、1〜9のボタン、「どれか押してみよう」。再挑戦は見えない。Logcatにスイッチの数字が2つ出る。</td></tr>
+<tr><td>スイッチ以外を押す</td><td>押したボタンだけが灰色になる。画像とメッセージは変わらない。</td></tr>
+<tr><td>スイッチを1つ押す</td><td>導火線に火がついた画像と「着火！」。</td></tr>
+<tr><td>スイッチを2つとも押す</td><td>爆発の画像と「爆発した！ゲームオーバー！」。数字はすべて押せず、再挑戦が表示される。</td></tr>
+<tr><td>スイッチ以外の7個をすべて押す</td><td>着火前でも着火後でも「クリア！」。数字はすべて押せず、再挑戦が表示される。</td></tr>
+<tr><td>再挑戦</td><td>最初の表示に戻り、再挑戦が見えなくなる。Logcatに新しい2つの数字が出る。</td></tr>
+</tbody></table>
+
+<h3>自分の言葉でふり返る</h3><ol><li><code>nowState</code> は何を覚えていて、いつ1増えますか。</li><li>do-while文で乱数を作り直すのは、どんなときですか。</li><li>クリアの条件で、着火前は7、着火後は8と比べるのはなぜですか。</li><li><code>2</code> と書く代わりに定数 <code>STATE_IGNITED</code> を使うと、何がよいですか。</li></ol>
+<h3>保存と提出</h3><p>自分の <code>Documents/Android1/A05BombGame</code> を保存します。先生からAPK提出の指示がある場合は、<a href="../common/apk.html">共通資料：提出用APKの作り方</a>に進みます。ファイル名は <code>学籍番号_A05BombGame.apk</code> です。提出先は先生の案内に従います。</p>
+<p>教材のチェックは自分用です。先生への送信はしません。印刷は <kbd>⌘ P</kbd> で行えます。</p>
+<div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-11"><span>完成チェックを終え、メソッド・do-while文・定数と状態・anyMatch・クリアの条件を説明できた。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
+</section>
+<section id="help"><h2>困ったとき</h2><table><thead><tr><th>困ったこと</th><th>最初に確認する場所</th></tr></thead><tbody>
+<tr><td>@drawable/bomb_initial や R.drawable.bomb_ignited が赤い</td><td>drawableに3つのPNGがあるか確認。ファイル名は小文字で、<code>bomb_initial.png.png</code> のように拡張子が重なっていないか見る。</td></tr>
+<tr><td>画像の名前でビルドエラーになる</td><td>drawableのファイル名に大文字・ハイフン・空白がないか確認。見本のファイル名と同じにする。</td></tr>
+<tr><td>貼り付けたのに画像が見つからない</td><td>Copy画面のTo directoryを確認。<code>samples</code> 側や別のフォルダに貼っていないか、Project表示で探す。</td></tr>
+<tr><td>R.idが赤い</td><td>XMLのidが一致するか確認。main、img_bomb、btn1〜btn9、txt_message、btn_retry。<code>android:id="@+id/main"</code> を消していないかも見る。最初のXMLエラーを直してビルドする。</td></tr>
+<tr><td>起動時に終了する</td><td>setContentViewがfindViewByIdより先か確認。Logcatで最初の例外を見る。</td></tr>
+<tr><td>Arrays や ThreadLocalRandom が赤字になる</td><td><code>java.util.Arrays</code> と <code>java.util.concurrent.ThreadLocalRandom</code> をimportする。<kbd>⌥ Enter</kbd> で候補を確認する。</td></tr>
+<tr><td>Logcatにスイッチの数字が出ない</td><td>STEP 5の <code>generateIgnitionNumbers();</code> をonCreateで呼んでいるか確認。検索欄のpackageが <code>jp.ac.jec.a05bombgame</code> か確認。</td></tr>
+<tr><td>変数をlambdaで変更できない</td><td>nowState（STEP 7）をonCreate内で宣言していないか確認。onCreateの外のフィールドにする。</td></tr>
+<tr><td>押したボタンが灰色にならない</td><td>STEP 6のfor文でsetOnClickListenerしているか、処理の中に <code>button.setEnabled(false)</code> があるか確認。</td></tr>
+<tr><td>スイッチを押しても着火しない</td><td>Logcatの数字と押した数字が同じか確認。<code>anyMatch</code> の比較と <code>if (match) nowState++;</code> を確認。</td></tr>
+<tr><td>1つ目のスイッチで爆発する・何も起きない</td><td>定数が STATE_INITIAL = 1、STATE_IGNITED = 2、STATE_EXPLODED = 3 か、<code>nowState</code> の初期値が STATE_INITIAL か確認。</td></tr>
+<tr><td>爆発のあとも数字を押せる</td><td>else ifの中の <code>forEach(b -&gt; b.setEnabled(false))</code> を確認。</td></tr>
+<tr><td>再挑戦が表示されない・押しても戻らない</td><td>STEP 7の <code>setVisibility(View.VISIBLE)</code> と、STEP 8の再挑戦の処理を確認。</td></tr>
+<tr><td>クリアにならない</td><td>STEP 9の7と8、<code>&amp;&amp;</code> と <code>||</code>、数を数える行が <code>nowState++</code> の下にあるかを確認。</td></tr>
+<tr><td>起動したまま画面が固まる</td><td>do-while文の条件が <code>!= 2</code> か、<code>ints(2, 1, 10)</code> の数字を変えていないか確認。</td></tr>
+<tr><td>NumberFormatExceptionで終了する</td><td>数字ボタンの <code>android:text</code> が1〜9のままか確認。文字に変えると数値に変換できない。</td></tr>
+<tr><td>画面の下が見えない</td><td>エミュレータを縦向きにする。この単元では横向きの表示を扱わない。</td></tr>
+</tbody></table>
+
+<p><a href="../common/logcat.html">共通資料：Logcat</a>を使います。今回のパッケージは <code>jp.ac.jec.a05bombgame</code> です。エラーを見るときは、STEP 5で入れた <code>tag:MainActivity</code> と <code>level:DEBUG</code> を消して、<code>package:jp.ac.jec.a05bombgame level:ERROR</code> に置き換えます。前の単元のパッケージ名も残さないようにします。</p>
+<p>質問では「STEP番号・編集したファイル・最初の赤い行・押した順番」を伝えます。</p></section>
+<section id="sample-project"><h2>完成プロジェクトを開く</h2>
+<p>完成版は最初の授業から使える見本です。STEP 2の画像も、このZIPから取り出します。<a class="button-link" href="downloads/A05BombGame.zip" download>完成プロジェクト A05BombGame.zip</a></p>
+<ol><li>ZIPを展開します。中に <code>A05BombGame</code> フォルダができます。</li><li>見本は <code>/Users/ユーザ名/Documents/Android1/samples/A05BombGame</code> に置きます。</li><li>Android Studioの <strong>Open</strong> で、<code>settings.gradle.kts</code> と <code>app</code> が入った <code>A05BombGame</code> フォルダを選びます。</li><li>Sync後にRunして動きを確認します。授業の入力に戻るときは自分の <code>Documents/Android1/A05BombGame</code> を開きます。</li></ol>
+<p>両方とも同じプロジェクト名なので、ウィンドウの保存先を確認しましょう。見本と自分のアプリは同じパッケージ名のため、端末上では同じアプリを更新します。切り替えるときは、確認したい方のプロジェクトからRunします。</p>
+<details><summary>完成したMainActivity.javaで照合する</summary><div class="code-head">完成版 · MainActivity.java</div>
+<pre id="code-complete-java" tabindex="0"><code>package jp.ac.jec.a05bombgame;
+
+import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
+
+import androidx.activity.EdgeToEdge;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.graphics.Insets;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowInsetsCompat;
+
+import java.util.Arrays;
+import java.util.concurrent.ThreadLocalRandom;
+
+public class MainActivity extends AppCompatActivity {
+    private static final int STATE_INITIAL = 1; // 着火前の初期状態
+    private static final int STATE_IGNITED = 2; // 導火線点火
+    private static final int STATE_EXPLODED = 3; // 爆発
+    private int nowState = STATE_INITIAL; // 爆弾の状態
+    private int[] randomIgnitionNumbers; // 導火線スイッチの数字
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        EdgeToEdge.enable(this);
+        setContentView(R.layout.activity_main);
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -&gt; {
+            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
+            return insets;
+        });
+
+        generateIgnitionNumbers();
+
+        var txtMessage = (TextView) findViewById(R.id.txt_message);
+        var imgBomb = (ImageView) findViewById(R.id.img_bomb);
+        var btnRetry = findViewById(R.id.btn_retry);
+        var numberButtons = new Button[]{
+                findViewById(R.id.btn1), findViewById(R.id.btn2), findViewById(R.id.btn3),
+                findViewById(R.id.btn4), findViewById(R.id.btn5), findViewById(R.id.btn6),
+                findViewById(R.id.btn7), findViewById(R.id.btn8), findViewById(R.id.btn9)
+        };
+
+        btnRetry.setOnClickListener(v -&gt; {
+            nowState = STATE_INITIAL;
+            txtMessage.setText(&quot;どれか押してみよう&quot;);
+            imgBomb.setImageResource(R.drawable.bomb_initial);
+            v.setVisibility(View.INVISIBLE);
+            generateIgnitionNumbers();
+            Arrays.stream(numberButtons).forEach(b -&gt; b.setEnabled(true));
+        });
+
+        for (var button : numberButtons) {
+            button.setOnClickListener(v -&gt; {
+                button.setEnabled(false);
+
+                var number = Integer.parseInt(button.getText().toString());
+                var match = Arrays.stream(randomIgnitionNumbers).anyMatch(num -&gt; num == number);
+                if (match) nowState++;
+
+                var disableButtonCount = Arrays.stream(numberButtons).filter(b -&gt; !b.isEnabled()).count();
+                // 導火線スイッチ(2個)以外の7個をすべて押したらクリア。着火済みなら押したボタンは8個になる
+                if ((nowState == STATE_INITIAL &amp;&amp; disableButtonCount == 7) ||
+                        (nowState == STATE_IGNITED &amp;&amp; disableButtonCount == 8)) { // ゲームクリアの場合
+                    txtMessage.setText(&quot;クリア！&quot;);
+                    btnRetry.setVisibility(View.VISIBLE);
+                    Arrays.stream(numberButtons).forEach(b -&gt; b.setEnabled(false));
+                } else { // ゲーム続行
+                    if (nowState == STATE_IGNITED) {
+                        imgBomb.setImageResource(R.drawable.bomb_ignited);
+                        txtMessage.setText(&quot;着火！&quot;);
+                    } else if (nowState == STATE_EXPLODED) {
+                        imgBomb.setImageResource(R.drawable.bomb_exploded);
+                        txtMessage.setText(&quot;爆発した！ゲームオーバー！&quot;);
+                        btnRetry.setVisibility(View.VISIBLE);
+                        Arrays.stream(numberButtons).forEach(b -&gt; b.setEnabled(false));
+                    }
+                }
+            });
+        }
+    }
+
+    /**
+     * 導火線スイッチの数字をランダムに2つ生成する.
+     */
+    private void generateIgnitionNumbers() {
+        do {
+            // 1から9まで範囲のランダムな数値を2つ作る.同じ値が含まれていたら作り直す.
+            randomIgnitionNumbers = ThreadLocalRandom.current().ints(2, 1, 10).toArray();
+        } while (Arrays.stream(randomIgnitionNumbers).distinct().count() != 2);
+
+        // debug
+        for (var randomIgnitionNumber : randomIgnitionNumbers) {
+            Log.d(&quot;MainActivity&quot;, &quot;randomIgnitionNumber = &quot; + randomIgnitionNumber);
+        }
+    }
+}</code></pre>
+</details>
+<details><summary>完成したactivity_main.xmlで照合する</summary><div class="code-head">完成版 · activity_main.xml</div>
+<pre id="code-complete-xml" tabindex="0"><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;LinearLayout xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
+    xmlns:tools=&quot;http://schemas.android.com/tools&quot;
+    android:id=&quot;@+id/main&quot;
+    android:layout_width=&quot;match_parent&quot;
+    android:layout_height=&quot;match_parent&quot;
+    android:gravity=&quot;center_horizontal&quot;
+    android:orientation=&quot;vertical&quot;
+    tools:context=&quot;.MainActivity&quot;&gt;
+
+    &lt;ImageView
+        android:id=&quot;@+id/img_bomb&quot;
+        android:layout_width=&quot;wrap_content&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:contentDescription=&quot;@null&quot;
+        android:src=&quot;@drawable/bomb_initial&quot; /&gt;
+
+    &lt;LinearLayout
+        android:layout_width=&quot;wrap_content&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:orientation=&quot;horizontal&quot;&gt;
+
+        &lt;Button
+            android:id=&quot;@+id/btn1&quot;
+            android:layout_width=&quot;wrap_content&quot;
+            android:layout_height=&quot;wrap_content&quot;
+            android:text=&quot;1&quot;
+            tools:ignore=&quot;ButtonStyle&quot; /&gt;
+
+        &lt;Button
+            android:id=&quot;@+id/btn2&quot;
+            android:layout_width=&quot;wrap_content&quot;
+            android:layout_height=&quot;wrap_content&quot;
+            android:layout_marginHorizontal=&quot;8dp&quot;
+            android:text=&quot;2&quot;
+            tools:ignore=&quot;ButtonStyle&quot; /&gt;
+
+        &lt;Button
+            android:id=&quot;@+id/btn3&quot;
+            android:layout_width=&quot;wrap_content&quot;
+            android:layout_height=&quot;wrap_content&quot;
+            android:text=&quot;3&quot;
+            tools:ignore=&quot;ButtonStyle&quot; /&gt;
+    &lt;/LinearLayout&gt;
+
+    &lt;LinearLayout
+        android:layout_width=&quot;wrap_content&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:orientation=&quot;horizontal&quot;&gt;
+
+        &lt;Button
+            android:id=&quot;@+id/btn4&quot;
+            android:layout_width=&quot;wrap_content&quot;
+            android:layout_height=&quot;wrap_content&quot;
+            android:text=&quot;4&quot;
+            tools:ignore=&quot;ButtonStyle&quot; /&gt;
+
+        &lt;Button
+            android:id=&quot;@+id/btn5&quot;
+            android:layout_width=&quot;wrap_content&quot;
+            android:layout_height=&quot;wrap_content&quot;
+            android:layout_marginHorizontal=&quot;8dp&quot;
+            android:text=&quot;5&quot;
+            tools:ignore=&quot;ButtonStyle&quot; /&gt;
+
+        &lt;Button
+            android:id=&quot;@+id/btn6&quot;
+            android:layout_width=&quot;wrap_content&quot;
+            android:layout_height=&quot;wrap_content&quot;
+            android:text=&quot;6&quot;
+            tools:ignore=&quot;ButtonStyle&quot; /&gt;
+    &lt;/LinearLayout&gt;
+
+    &lt;LinearLayout
+        android:layout_width=&quot;wrap_content&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:orientation=&quot;horizontal&quot;&gt;
+
+        &lt;Button
+            android:id=&quot;@+id/btn7&quot;
+            android:layout_width=&quot;wrap_content&quot;
+            android:layout_height=&quot;wrap_content&quot;
+            android:text=&quot;7&quot;
+            tools:ignore=&quot;ButtonStyle&quot; /&gt;
+
+        &lt;Button
+            android:id=&quot;@+id/btn8&quot;
+            android:layout_width=&quot;wrap_content&quot;
+            android:layout_height=&quot;wrap_content&quot;
+            android:layout_marginHorizontal=&quot;8dp&quot;
+            android:text=&quot;8&quot;
+            tools:ignore=&quot;ButtonStyle&quot; /&gt;
+
+        &lt;Button
+            android:id=&quot;@+id/btn9&quot;
+            android:layout_width=&quot;wrap_content&quot;
+            android:layout_height=&quot;wrap_content&quot;
+            android:text=&quot;9&quot;
+            tools:ignore=&quot;ButtonStyle&quot; /&gt;
+    &lt;/LinearLayout&gt;
+
+    &lt;TextView
+        android:id=&quot;@+id/txt_message&quot;
+        style=&quot;@style/TextAppearance.Material3.HeadlineSmall&quot;
+        android:layout_width=&quot;wrap_content&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:text=&quot;どれか押してみよう&quot; /&gt;
+
+    &lt;Button
+        android:id=&quot;@+id/btn_retry&quot;
+        android:layout_width=&quot;match_parent&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:text=&quot;再挑戦&quot;
+        android:visibility=&quot;invisible&quot; /&gt;
+&lt;/LinearLayout&gt;</code></pre>
+</details></section>
+<footer class="footer"><p>Androidプログラミング1 · A05BombGame / 本文・画像・操作機能はオフラインで利用できます。Android Studioの初回準備・ビルドと公式資料の閲覧にはネット接続が必要です。</p><p>画像は授業用の提供資料を使用。導火線スイッチの数字と結果は操作によって変わります。</p></footer>
+<div class="sr-only" role="status" aria-live="polite" data-copy-status></div></main></div></body></html>
