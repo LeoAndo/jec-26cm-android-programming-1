@@ -1,0 +1,666 @@
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="JavaとXMLで作るA10RoomSample。Roomを使って、アプリを終了しても消えないデータを、あとから書き換えたり消したりできるようにする授業用教科書。">
+<title>RoomSample — データベースに保存しよう | Androidプログラミング1</title>
+<link rel="stylesheet" href="../assets/textbook.css"><script src="../assets/textbook.js" defer></script></head>
+<body data-progress-key="jec-android1-roomsample-v1">
+<a class="skip" href="#main">本文へ移動</a>
+<header class="topbar"><span class="brand">JEC / Androidプログラミング1</span><a href="../memo-app/index.html">A09 MemoApp</a></header>
+<div class="shell"><aside class="sidebar"><div class="sidebar-inner"><p class="eyebrow">CONTENTS / 学習の順番</p>
+<nav aria-label="学習ステップ"><ol><li><a href="#step-0">00　今日のゴール</a></li>
+<li><a href="#step-1">01　プロジェクトを作って実行</a></li>
+<li><a href="#step-2">02　Roomを使えるようにする</a></li>
+<li><a href="#step-3">03　画面を作る</a></li>
+<li><a href="#step-4">04　保存するデータの形を決める</a></li>
+<li><a href="#step-5">05　読み書きの命令を書く</a></li>
+<li><a href="#step-6">06　データベース本体を作る</a></li>
+<li><a href="#step-7">07　画面とつないで完成</a></li>
+</ol></nav>
+<div class="progress"><span data-progress-label>0 / 8 ステップ確認済み</span><progress value="0" max="8" aria-label="学習の進み具合"></progress><span class="muted">自分用のチェックです。</span></div>
+<div class="resources"><a href="#help">困ったとき</a><a href="#why-room">解説：SharedPreferencesとの違い</a><a href="#sample-project">完成プロジェクトを開く</a><a href="../hello-android/index.html">A01：HelloAndroid</a><a href="../calc-game/index.html">A02：CalcGame</a><a href="../rock-paper-scissors-game/index.html">A03：RockPaperScissorsGame</a><a href="../webview-app/index.html">A04：WebViewApp</a><a href="../bomb-game/index.html">A05：BombGame</a><a href="../screen-transition-sample/index.html">A06：ScreenTransitionSample</a><a href="../bill-splitter/index.html">A07：BillSplitter</a><a href="../shared-preferences-sample/index.html">A08：SharedPreferencesSample</a><a href="../memo-app/index.html">A09：MemoApp</a><a href="../common/emulator.html?from=room-sample">共通：エミュレータ</a><a href="../common/auto-import.html?from=room-sample">共通：Auto Import</a><a href="../common/apk.html?from=room-sample">共通：APKの提出</a><a href="../common/dev-tips.html?from=room-sample">共通：開発Tips</a><a href="../common/other-versions.html?from=room-sample">共通：ちがうバージョン</a></div>
+</div></aside><main id="main"><div class="hero"><span class="unit">10</span><p class="eyebrow">ROOM SAMPLE</p>
+<h1>データベースに<br>保存しよう</h1><p class="lede">A09では「メモをぜんぶまとめて1つの文字列」で保存しました。<br>今回は1件ずつ番号を付けて保存し、あとから<strong>書き換え・削除</strong>ができるようにします。</p>
+<div class="tags"><span>Java / XML</span><span>A09の次の単元</span><span>90分 × 1コマ目安</span><span>Macで学ぶ</span></div></div>
+
+<section id="step-0" aria-labelledby="title-0">
+<p class="step-meta">STEP 00 · 目安 5分</p><h2 id="title-0">今日のゴール</h2>
+<p>データを1件ずつ保存して、一覧に表示するアプリを作ります。保存したデータには <strong>id</strong> という番号が自動で付きます。その番号を指定すると、あとから<strong>書き換え</strong>たり<strong>削除</strong>したりできます。</p>
+<div class="phones">
+<figure><a href="images/app-initial.png"><img src="images/app-initial.png" width="1080" height="2424" loading="lazy" alt="id入力欄、タイトル入力欄、保存と削除のボタン、保存されているデータの見出しが並んだ画面。一覧は空"></a><figcaption>起動したところ。まだデータはありません。 <a href="images/app-initial.png">画像を大きく開く</a></figcaption></figure>
+<figure><a href="images/app-saved.png"><img src="images/app-saved.png" width="1080" height="2424" loading="lazy" alt="保存されているデータに、internalId=1 title=CAR、internalId=2 title=BIKE、internalId=3 title=TRAINの3行が表示されている画面"></a><figcaption>3件保存したところ。idが1・2・3と自動で増えます。 <a href="images/app-saved.png">画像を大きく開く</a></figcaption></figure>
+<figure><a href="images/app-updated.png"><img src="images/app-updated.png" width="1080" height="2424" loading="lazy" alt="id欄に2を入れてタイトルをBICYCLEにして保存したあと、2行目がinternalId=2 title=BICYCLEに変わっている画面"></a><figcaption>id 2 を指定して保存すると、その1件だけ書き換わります。 <a href="images/app-updated.png">画像を大きく開く</a></figcaption></figure>
+<figure><a href="images/app-deleted.png"><img src="images/app-deleted.png" width="1080" height="2424" loading="lazy" alt="id 3を削除したあと、一覧がinternalId=1とinternalId=2の2行になっている画面"></a><figcaption>id 3 を削除したところ。1件だけ消せます。 <a href="images/app-deleted.png">画像を大きく開く</a></figcaption></figure>
+</div>
+<h3>できるようになること</h3>
+<ul><li>入力したタイトルを、1件ずつ保存できる。</li><li>保存したデータに自動で付く <code>id</code> の意味を説明できる。</li><li><code>id</code> を指定して、1件だけ書き換えられる。</li><li><code>id</code> を指定して、1件だけ消せる。</li></ul>
+<h3>今日の道具</h3>
+<table><thead><tr><th>道具</th><th>どこで使うか</th><th>学んだ単元</th></tr></thead><tbody>
+<tr><td><code>EditText</code> と <code>Button</code></td><td>タイトルとidを入力して、保存・削除する。</td><td>A07</td></tr>
+<tr><td><code>Snackbar</code></td><td>入力が空のときに知らせる。</td><td>A07</td></tr>
+<tr><td><code>ScrollView</code></td><td>データが増えても一覧を見られるようにする。</td><td>A09</td></tr>
+<tr><td><strong>Room</strong></td><td>データを1件ずつ保存する。<strong>今回の新顔です。</strong></td><td>—</td></tr>
+</tbody></table>
+<p>新しく覚えることは <strong>Room</strong> だけです。残りはA07とA09で使ったものを組み合わせます。</p>
+<div class="note" id="why-room"><p class="box-title">解説：A09のSharedPreferencesと何が違うのか</p>
+<p>A09では、メモの一覧を<strong>まとめて1つの文字列</strong>にして保存しました。この方法だと「3件目だけ書き換える」「2件目だけ消す」ができません。全部を読み出して、自分で切り分けて、また全部を書き戻すことになります。</p>
+<p>Roomは、データを<strong>1件ずつ、表の1行として</strong>保存します。1行ごとに番号（id）が付くので、番号を指定して1件だけ書き換え・削除ができます。データが増えても、必要な1行だけを触れます。</p>
+<table><thead><tr><th></th><th>SharedPreferences（A09）</th><th>Room（今回）</th></tr></thead><tbody>
+<tr><td>保存の形</td><td>名前と値の組。値は1つの文字列</td><td>表。1件が1行</td></tr>
+<tr><td>1件だけ書き換え</td><td>できない</td><td>できる</td></tr>
+<tr><td>1件だけ削除</td><td>できない</td><td>できる</td></tr>
+<tr><td>向いているもの</td><td>設定値、ログイン状態など少ないデータ</td><td>件数が増えるデータ</td></tr>
+</tbody></table></div>
+<div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-0"><span>今日作るアプリの画面と、A09のSharedPreferencesとの違いを説明できた。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
+<div class="next"><a href="#step-1">次へ：プロジェクトを作って実行 →</a></div></section>
+
+<section id="step-1" aria-labelledby="title-1">
+<p class="step-meta">STEP 01 · 目安 10分</p><h2 id="title-1">プロジェクトを作って実行</h2>
+<p>授業環境はMacと <strong>Android Studio Panda 2 | 2025.3.2</strong> です。A09までとは別のプロジェクトを作ります。</p>
+<div class="note"><p class="box-title">毎回、自分で新規作成します</p><p>作る場所は <code>Documents/Android1/A10RoomSample</code> です。<a href="#sample-project">完成プロジェクト</a>は答え合わせ用で、授業の入力は自分で作ったプロジェクトに書きます。</p></div>
+<ol><li>Android Studioの <strong>New Project</strong> をクリックします。別のプロジェクトを開いているときは <strong>File → New → New Project</strong> を選びます。</li>
+<li><strong>Phone and Tablet → Empty Views Activity → Next</strong> の順に選びます。名前に <strong>Views</strong> があることを確認します。</li></ol>
+<figure><a href="images/empty-views-activity.png"><img src="images/empty-views-activity.png" width="1798" height="1352" loading="lazy" alt="テンプレート一覧でEmpty Views Activityが選択されている"></a><figcaption>Empty Views Activityを選択。Empty Activityとは別です。 <a href="images/empty-views-activity.png">画像を大きく開く</a></figcaption></figure>
+<ol start="3"><li>次の表のとおりに入力・選択して <strong>Finish</strong> を押します。</li></ol>
+<table><thead><tr><th>項目</th><th>入力・選択する内容</th></tr></thead><tbody>
+<tr><td>Name</td><td><code>A10RoomSample</code></td></tr>
+<tr><td>Package name</td><td><code>jp.ac.jec.a10roomsample</code>（すべて小文字）</td></tr>
+<tr><td>Save location</td><td><code>/Users/ユーザ名/Documents/Android1/A10RoomSample</code></td></tr>
+<tr><td>Language</td><td>Java</td></tr>
+<tr><td>Minimum SDK</td><td>API 31 ("S"; Android 12.0)</td></tr>
+<tr><td>Build configuration language</td><td>Kotlin DSL (build.gradle.kts) [Recommended]</td></tr>
+</tbody></table>
+<figure><a href="images/project-settings.png"><img src="images/project-settings.png" width="1796" height="1362" loading="lazy" alt="A10RoomSampleの新規設定。パッケージjp.ac.jec.a10roomsample、Java、API 31、Kotlin DSL"></a><figcaption>入力後の画面。画像の保存先は先生の例です。自分の <code>Documents/Android1/A10RoomSample</code> に読み替えます。 <a href="images/project-settings.png">画像を大きく開く</a></figcaption></figure>
+<ol start="4"><li>Sync（歯車の読み込み）が終わるまで待ちます。</li><li>端末欄で <strong>jec_26cm_android1_Pixel 9a</strong> を選び、<strong>Run</strong>（▶）を押します。白い画面に <strong>Hello World!</strong> が出れば成功です。</li></ol>
+<p>エミュレータが出てこないときは<a href="../common/emulator.html?from=room-sample">共通資料：エミュレータ</a>を見ます。</p>
+<div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-1"><span>自分の保存先にA10RoomSampleを作り、Hello World!を表示できた。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
+<div class="next"><a href="#step-2">次へ：Roomを使えるようにする →</a></div></section>
+
+<section id="step-2" aria-labelledby="title-2">
+<p class="step-meta">STEP 02 · 目安 10分</p><h2 id="title-2">Roomを使えるようにする</h2>
+<p>Roomは、Android Studioに最初から入っている部品ではありません。<strong>使うと宣言してから</strong>使います。この宣言を2つのファイルに分けて書きます。</p>
+<h3>① バージョンを書く場所</h3>
+<p><code>gradle/libs.versions.toml</code> を開きます。ここは<strong>どの部品をどのバージョンで使うか</strong>を一覧にしておくファイルです。Android Studioがひな形として用意しています。</p>
+<p>3か所に追記します。<strong>行を足す場所を間違えないように</strong>、見出し（<code>[versions]</code> など）をよく見てください。</p>
+<details open><summary><code>libs.versions.toml</code>（全体）</summary>
+<pre id="code-toml"><code>[versions]
+agp = &quot;9.1.1&quot;
+junit = &quot;4.13.2&quot;
+junitVersion = &quot;1.3.0&quot;
+espressoCore = &quot;3.7.0&quot;
+appcompat = &quot;1.8.0&quot;
+material = &quot;1.14.0&quot;
+activity = &quot;1.13.0&quot;
+constraintlayout = &quot;2.2.2&quot;
+room = &quot;2.6.1&quot;
+
+[libraries]
+junit = { group = &quot;junit&quot;, name = &quot;junit&quot;, version.ref = &quot;junit&quot; }
+ext-junit = { group = &quot;androidx.test.ext&quot;, name = &quot;junit&quot;, version.ref = &quot;junitVersion&quot; }
+espresso-core = { group = &quot;androidx.test.espresso&quot;, name = &quot;espresso-core&quot;, version.ref = &quot;espressoCore&quot; }
+appcompat = { group = &quot;androidx.appcompat&quot;, name = &quot;appcompat&quot;, version.ref = &quot;appcompat&quot; }
+material = { group = &quot;com.google.android.material&quot;, name = &quot;material&quot;, version.ref = &quot;material&quot; }
+activity = { group = &quot;androidx.activity&quot;, name = &quot;activity&quot;, version.ref = &quot;activity&quot; }
+constraintlayout = { group = &quot;androidx.constraintlayout&quot;, name = &quot;constraintlayout&quot;, version.ref = &quot;constraintlayout&quot; }
+room-runtime = { group = &quot;androidx.room&quot;, name = &quot;room-runtime&quot;, version.ref = &quot;room&quot; }
+room-compiler = { group = &quot;androidx.room&quot;, name = &quot;room-compiler&quot;, version.ref = &quot;room&quot; }
+
+[plugins]
+android-application = { id = &quot;com.android.application&quot;, version.ref = &quot;agp&quot; }</code></pre></details>
+<table><thead><tr><th>追記する場所</th><th>追記する行</th><th>意味</th></tr></thead><tbody>
+<tr><td><code>[versions]</code> の中</td><td><code>room = "2.6.1"</code></td><td>Roomのバージョンに <code>room</code> という名前を付ける</td></tr>
+<tr><td><code>[libraries]</code> の中</td><td><code>room-runtime = ...</code></td><td>アプリが動くときに使う本体</td></tr>
+<tr><td><code>[libraries]</code> の中</td><td><code>room-compiler = ...</code></td><td>ビルドのときに、書いた命令からコードを自動で作る部品</td></tr>
+</tbody></table>
+<div class="note"><p class="box-title"><code>[plugins]</code> に書かないこと</p><p><code>[libraries]</code> と <code>[plugins]</code> は見た目が似ています。<code>[plugins]</code> のほうに書くと <code>expected to find any of 'id' or 'version'</code> というエラーでビルドが止まります。<strong>追記した行のすぐ上に <code>[libraries]</code> があるか</strong>を確かめてください。</p></div>
+<h3>② 使うと宣言する場所</h3>
+<p><code>app/build.gradle.kts</code> を開き、<code>dependencies { }</code> の中に2行を追加します。</p>
+<pre id="code-gradle"><code>    implementation(libs.room.runtime)
+    annotationProcessor(libs.room.compiler)</code></pre>
+<p><code>libs.room.runtime</code> の <code>libs.</code> は、①で書いた <code>libs.versions.toml</code> のことです。<code>room-runtime</code> のハイフンは、ここでは <strong>ドット</strong>（<code>room.runtime</code>）に変わります。</p>
+<h3>Syncする</h3>
+<p>画面の上に <strong>Sync Now</strong> というリンクが出ます。押して、読み込みが終わるまで待ちます。エラーが出なければ成功です。</p>
+<div class="note"><p class="box-title">ここではまだ画面は変わりません</p><p>部品を用意しただけなので、Runしても <strong>Hello World!</strong> のままです。エラーなくSyncできていればSTEP 02は合格です。</p></div>
+<div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-2"><span>libs.versions.tomlとbuild.gradle.ktsに追記して、エラーなくSyncできた。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
+<div class="next"><a href="#step-3">次へ：画面を作る →</a></div></section>
+
+<section id="step-3" aria-labelledby="title-3">
+<p class="step-meta">STEP 03 · 目安 10分</p><h2 id="title-3">画面を作る</h2>
+<p>入力欄2つ、ボタン2つ、一覧の表示欄を並べます。<code>app/src/main/res/layout/activity_main.xml</code> を開き、中身をすべて次のコードに置き換えます。</p>
+<pre id="code-layout"><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;ScrollView xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
+    xmlns:tools=&quot;http://schemas.android.com/tools&quot;
+    android:id=&quot;@+id/main&quot;
+    android:layout_width=&quot;match_parent&quot;
+    android:layout_height=&quot;match_parent&quot;
+    tools:context=&quot;.MainActivity&quot;&gt;
+
+    &lt;LinearLayout
+        android:layout_width=&quot;match_parent&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:orientation=&quot;vertical&quot;
+        android:padding=&quot;12dp&quot;&gt;
+
+        &lt;EditText
+            android:id=&quot;@+id/edt_id&quot;
+            android:layout_width=&quot;match_parent&quot;
+            android:layout_height=&quot;wrap_content&quot;
+            android:hint=&quot;idを入力してください（空なら新規追加）&quot;
+            android:importantForAutofill=&quot;no&quot;
+            android:inputType=&quot;number&quot;
+            android:maxLength=&quot;9&quot;
+            android:minHeight=&quot;48dp&quot; /&gt;
+
+        &lt;EditText
+            android:id=&quot;@+id/edt_title&quot;
+            android:layout_width=&quot;match_parent&quot;
+            android:layout_height=&quot;wrap_content&quot;
+            android:hint=&quot;タイトルを入力してください&quot;
+            android:importantForAutofill=&quot;no&quot;
+            android:inputType=&quot;text&quot;
+            android:minHeight=&quot;48dp&quot; /&gt;
+
+        &lt;LinearLayout
+            android:layout_width=&quot;match_parent&quot;
+            android:layout_height=&quot;wrap_content&quot;
+            android:layout_marginTop=&quot;12dp&quot;
+            android:orientation=&quot;horizontal&quot;&gt;
+
+            &lt;Button
+                android:id=&quot;@+id/btn_upsert&quot;
+                android:layout_width=&quot;0dp&quot;
+                android:layout_height=&quot;wrap_content&quot;
+                android:layout_weight=&quot;1&quot;
+                android:text=&quot;保存&quot; /&gt;
+
+            &lt;Button
+                android:id=&quot;@+id/btn_delete&quot;
+                android:layout_width=&quot;0dp&quot;
+                android:layout_height=&quot;wrap_content&quot;
+                android:layout_weight=&quot;1&quot;
+                android:text=&quot;削除&quot; /&gt;
+        &lt;/LinearLayout&gt;
+
+        &lt;TextView
+            style=&quot;@style/TextAppearance.Material3.TitleMedium&quot;
+            android:layout_width=&quot;wrap_content&quot;
+            android:layout_height=&quot;wrap_content&quot;
+            android:layout_marginTop=&quot;12dp&quot;
+            android:text=&quot;保存されているデータ&quot; /&gt;
+
+        &lt;TextView
+            android:id=&quot;@+id/txt_item_list&quot;
+            android:layout_width=&quot;match_parent&quot;
+            android:layout_height=&quot;wrap_content&quot;
+            tools:text=&quot;Item{internalId=1, title=&#x27;ロボット1号&#x27;}&quot; /&gt;
+    &lt;/LinearLayout&gt;
+
+&lt;/ScrollView&gt;</code></pre>
+<table><thead><tr><th>部品</th><th>id</th><th>役割</th></tr></thead><tbody>
+<tr><td>EditText</td><td><code>edt_id</code></td><td>書き換え・削除したいデータの番号を入れる。空なら新規追加</td></tr>
+<tr><td>EditText</td><td><code>edt_title</code></td><td>保存するタイトルを入れる</td></tr>
+<tr><td>Button</td><td><code>btn_upsert</code></td><td>保存する</td></tr>
+<tr><td>Button</td><td><code>btn_delete</code></td><td>削除する</td></tr>
+<tr><td>TextView</td><td><code>txt_item_list</code></td><td>保存されているデータを表示する</td></tr>
+</tbody></table>
+<h3>気をつけるところ</h3>
+<ul>
+<li>いちばん外側が <code>ScrollView</code> です。データが増えても下まで見られるようにするためです（A09と同じ考え方）。</li>
+<li><code>edt_id</code> には <code>android:inputType="number"</code> を付けます。数字だけのキーボードが出て、文字を入れられなくなります。</li>
+<li>ボタン2つは <code>layout_width="0dp"</code> と <code>layout_weight="1"</code> で横に半分ずつ並びます。</li>
+</ul>
+<h3>Runで確かめる</h3>
+<p>入力欄2つとボタン2つ、「保存されているデータ」の見出しが出れば成功です。ボタンを押してもまだ何も起きません。</p>
+<div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-3"><span>画面の部品を並べて、Runで表示できた。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
+<div class="next"><a href="#step-4">次へ：保存するデータの形を決める →</a></div></section>
+
+<section id="step-4" aria-labelledby="title-4">
+<p class="step-meta">STEP 04 · 目安 15分</p><h2 id="title-4">保存するデータの形を決める</h2>
+<p>Roomは、データを<strong>表</strong>の形で保存します。まず「1行にどんな項目があるか」を決めます。これを書くのが <code>Item</code> クラスです。</p>
+<h3>① クラスを作る</h3>
+<p>プロジェクト画面で <code>app/src/main/java/jp/ac/jec/a10roomsample</code> を右クリックし、<strong>New → Java Class</strong> を選びます。</p>
+<figure><a href="images/new-java-class-menu.png"><img src="images/new-java-class-menu.png" width="1538" height="822" loading="lazy" alt="パッケージを右クリックしてNewを開き、Java Classが選択されているメニュー"></a><figcaption>MainActivityと同じフォルダ（パッケージ）を右クリックします。 <a href="images/new-java-class-menu.png">画像を大きく開く</a></figcaption></figure>
+<p>名前に <code>Item</code> と入力し、下の一覧で <strong>Class</strong> を選んで <kbd>return</kbd> を押します。</p>
+<figure><a href="images/new-class-item.png"><img src="images/new-class-item.png" width="746" height="428" loading="lazy" alt="New Java Classのダイアログ。名前はItem、種類はClassが選択されている"></a><figcaption>種類は <strong>Class</strong> です。 <a href="images/new-class-item.png">画像を大きく開く</a></figcaption></figure>
+<h3>② 中身を書く</h3>
+<p>できた <code>Item.java</code> の中身を、すべて次のコードに置き換えます。</p>
+<pre id="code-item"><code>package jp.ac.jec.a10roomsample;
+
+import androidx.annotation.NonNull;
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
+
+@Entity
+public class Item {
+    @PrimaryKey(autoGenerate = true)
+    private int internalId;
+
+    @NonNull
+    private String title;
+
+    public Item(@NonNull String title) {
+        this.title = title;
+    }
+
+    public int getInternalId() {
+        return internalId;
+    }
+
+    public void setInternalId(int internalId) {
+        this.internalId = internalId;
+    }
+
+    @NonNull
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(@NonNull String title) {
+        this.title = title;
+    }
+
+    @Override
+    public String toString() {
+        return &quot;Item{&quot; +
+                &quot;internalId=&quot; + internalId +
+                &quot;, title=&#x27;&quot; + title + &#x27;\&#x27;&#x27; +
+                &#x27;}&#x27;;
+    }
+}</code></pre>
+<table><thead><tr><th>書いたもの</th><th>意味</th></tr></thead><tbody>
+<tr><td><code>@Entity</code></td><td>このクラスが<strong>表1つ分</strong>であるという印。クラス名 <code>Item</code> がそのまま表の名前になる</td></tr>
+<tr><td><code>@PrimaryKey(autoGenerate = true)</code></td><td>この項目が<strong>行を見分ける番号</strong>。<code>autoGenerate = true</code> で、保存するたびに1・2・3…と自動で増える</td></tr>
+<tr><td><code>internalId</code></td><td>自動で付く番号。画面の <code>edt_id</code> に入れるのはこの番号</td></tr>
+<tr><td><code>title</code></td><td>保存したい文字。表の項目はこの2つだけ</td></tr>
+</tbody></table>
+<div class="note"><p class="box-title"><code>@NonNull</code> はここだけ書きます</p><p>この授業では <code>@NonNull</code> を自分で書きません。ただし <code>@Entity</code> のフィールドに付けた <code>@NonNull</code> は、Javaの注意書きではなく<strong>「この列は空にできない」という表の決まりそのもの</strong>です。外すと表の形が変わってしまうので、ここだけは書きます。</p></div>
+<div class="note"><p class="box-title"><code>toString()</code> は表示のために使います</p><p>STEP 07で一覧を表示するときに、<code>Item</code> をそのまま文字にして並べます。画面に出ている <code>Item{internalId=1, title='CAR'}</code> という表示は、このメソッドが作っています。</p></div>
+<div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-4"><span>Itemクラスを作り、@Entityと@PrimaryKeyが何を表すか説明できた。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
+<div class="next"><a href="#step-5">次へ：読み書きの命令を書く →</a></div></section>
+
+<section id="step-5" aria-labelledby="title-5">
+<p class="step-meta">STEP 05 · 目安 15分</p><h2 id="title-5">読み書きの命令を書く</h2>
+<p>次に「どう読み書きするか」を書きます。これが <code>ItemDao</code> です。<strong>Dao</strong> は Data Access Object の略で、データベースへの<strong>窓口</strong>です。</p>
+<h3>① インタフェースを作る</h3>
+<p>STEP 04と同じ手順で <strong>New → Java Class</strong> を開き、名前に <code>ItemDao</code> と入力します。<strong>ここだけは一覧で <code>Interface</code> を選びます。</strong></p>
+<figure><a href="images/new-class-itemdao.png"><img src="images/new-class-itemdao.png" width="698" height="404" loading="lazy" alt="New Java Classのダイアログ。名前はItemDao、種類はInterfaceが選択されている"></a><figcaption><strong>Class ではなく Interface</strong> を選びます。間違えると中身を書いたときに赤いエラーになります。 <a href="images/new-class-itemdao.png">画像を大きく開く</a></figcaption></figure>
+<h3>② 中身を書く</h3>
+<pre id="code-dao"><code>package jp.ac.jec.a10roomsample;
+
+import androidx.annotation.Nullable;
+import androidx.room.Dao;
+import androidx.room.Delete;
+import androidx.room.Query;
+import androidx.room.Upsert;
+
+import java.util.List;
+
+@Dao
+public interface ItemDao {
+    @Query(&quot;SELECT * FROM item&quot;)
+    List&lt;Item&gt; getAll();
+
+    @Nullable
+    @Query(&quot;SELECT * FROM item WHERE internalId = :internalId&quot;)
+    Item findByInternalId(int internalId);
+
+    @Upsert
+    void upsert(Item item);
+
+    @Delete
+    void delete(Item item);
+}</code></pre>
+<table><thead><tr><th>書いたもの</th><th>意味</th></tr></thead><tbody>
+<tr><td><code>@Dao</code></td><td>このインタフェースがデータベースへの窓口であるという印</td></tr>
+<tr><td><code>@Query("SELECT * FROM item")</code></td><td>表の中身を全部取り出す。<code>item</code> は <code>Item</code> クラスから作られた表の名前</td></tr>
+<tr><td><code>@Query("... WHERE internalId = :internalId")</code></td><td>番号を1つ指定して、その1件を取り出す。<code>:internalId</code> はメソッドの引数のこと</td></tr>
+<tr><td><code>@Upsert</code></td><td><strong>あれば書き換え、なければ追加</strong>。upsert は update と insert を合わせた言葉</td></tr>
+<tr><td><code>@Delete</code></td><td>渡した1件を消す</td></tr>
+</tbody></table>
+<div class="note"><p class="box-title">中身（処理）を書かなくてよい理由</p><p>メソッドに <code>{ }</code> がありません。<strong>ビルドするときにRoomが自動で中身を作ります。</strong>STEP 02で追加した <code>room-compiler</code> がその仕事をしています。私たちが書くのは「何をしたいか」だけです。</p></div>
+<div class="note"><p class="box-title">なぜ <code>@Upsert</code> だけなのか</p><p>Roomには <code>@Insert</code>（追加）と <code>@Update</code>（書き換え）もあります。この授業では、2つを使い分ける判断を増やさないために <code>@Upsert</code> 1つにまとめています。idが空なら追加、idを入れたら書き換え、という<strong>画面の動きがそのままメソッド1つに対応</strong>します。</p></div>
+<div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-5"><span>ItemDaoをInterfaceで作り、@Upsertが「あれば書き換え、なければ追加」だと説明できた。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
+<div class="next"><a href="#step-6">次へ：データベース本体を作る →</a></div></section>
+
+<section id="step-6" aria-labelledby="title-6">
+<p class="step-meta">STEP 06 · 目安 10分</p><h2 id="title-6">データベース本体を作る</h2>
+<p>表（<code>Item</code>）と窓口（<code>ItemDao</code>）ができました。最後に、それをまとめる<strong>データベース本体</strong>を作ります。</p>
+<h3>① クラスを作る</h3>
+<p>STEP 04と同じ手順で <strong>New → Java Class</strong> を開き、名前に <code>AppDatabase</code> と入力します。種類は <strong>Class</strong> です。</p>
+<figure><a href="images/new-class-appdatabase.png"><img src="images/new-class-appdatabase.png" width="686" height="410" loading="lazy" alt="New Java Classのダイアログ。名前はAppDatabase、種類はClassが選択されている"></a><figcaption>種類は <strong>Class</strong> です。 <a href="images/new-class-appdatabase.png">画像を大きく開く</a></figcaption></figure>
+<h3>② 中身を書く</h3>
+<pre id="code-database"><code>package jp.ac.jec.a10roomsample;
+
+import android.content.Context;
+
+import androidx.room.Database;
+import androidx.room.Room;
+import androidx.room.RoomDatabase;
+
+@Database(entities = {Item.class}, version = 1, exportSchema = false)
+public abstract class AppDatabase extends RoomDatabase {
+    private static AppDatabase instance;
+
+    public abstract ItemDao itemDao();
+
+    /**
+     * データベースを取得する.
+     * 1つだけ作って使い回す書き方をシングルトンという.
+     * allowMainThreadQueries()は、読み書きを画面と同じスレッドで行うための指定.
+     * 本来は別スレッドで行うが、この授業では扱わない.
+     */
+    public static AppDatabase getInstance(Context context) {
+        if (instance == null) {
+            instance = Room.databaseBuilder(context.getApplicationContext(), AppDatabase.class, &quot;app.db&quot;)
+                    .allowMainThreadQueries()
+                    .build();
+        }
+        return instance;
+    }
+}</code></pre>
+<table><thead><tr><th>書いたもの</th><th>意味</th></tr></thead><tbody>
+<tr><td><code>@Database(entities = {Item.class}, version = 1)</code></td><td>このデータベースが <code>Item</code> の表を持つという宣言。<code>version</code> は表の形を変えたときに増やす番号</td></tr>
+<tr><td><code>abstract class</code> / <code>abstract ItemDao itemDao()</code></td><td>中身はRoomが自動で作るので <code>abstract</code>（中身を書かない）にする</td></tr>
+<tr><td><code>getInstance(Context context)</code></td><td>データベースを取り出すメソッド。<strong>1つだけ作って使い回します</strong></td></tr>
+<tr><td><code>"app.db"</code></td><td>端末に作られるファイルの名前</td></tr>
+<tr><td><code>allowMainThreadQueries()</code></td><td>読み書きを画面と同じ流れで行う指定。<strong>この授業ではこれを付けます</strong></td></tr>
+</tbody></table>
+<div class="note"><p class="box-title">なぜ1つだけ作って使い回すのか</p><p>データベースを開く準備には時間がかかります。ボタンを押すたびに作り直すと、そのたびに待たされます。そこで<strong>最初の1回だけ作って、あとは同じものを返す</strong>書き方にします。この書き方を<strong>シングルトン</strong>といい、Roomの公式資料でもこの形がすすめられています。</p></div>
+<div class="note"><p class="box-title"><code>context.getApplicationContext()</code> を忘れない</p><p><code>getInstance</code> に渡しているのは <code>context.getApplicationContext()</code> です。ここを <code>context</code> のままにすると、画面を回すたびに<strong>古い画面が消えずに残り続けます</strong>。作ったデータベースはアプリが終わるまで残るため、画面ではなく<strong>アプリ全体</strong>を渡します。</p></div>
+<div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-6"><span>AppDatabaseを作り、1つだけ作って使い回す理由を説明できた。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
+<div class="next"><a href="#step-7">次へ：画面とつないで完成 →</a></div></section>
+
+<section id="step-7" aria-labelledby="title-7">
+<p class="step-meta">STEP 07 · 目安 25分</p><h2 id="title-7">画面とつないで完成</h2>
+<p>部品がそろいました。<code>MainActivity.java</code> の中身を、すべて次のコードに置き換えます。</p>
+<pre id="code-complete-java"><code>package jp.ac.jec.a10roomsample;
+
+import android.os.Bundle;
+import android.widget.EditText;
+import android.widget.TextView;
+
+import androidx.activity.EdgeToEdge;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.graphics.Insets;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowInsetsCompat;
+
+import com.google.android.material.snackbar.Snackbar;
+
+public class MainActivity extends AppCompatActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        EdgeToEdge.enable(this);
+        setContentView(R.layout.activity_main);
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -&gt; {
+            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
+            return insets;
+        });
+
+        var edtId = (EditText) findViewById(R.id.edt_id);
+        var edtTitle = (EditText) findViewById(R.id.edt_title);
+        var txtItemList = (TextView) findViewById(R.id.txt_item_list);
+
+        // データベースを取得する.
+        var itemDao = AppDatabase.getInstance(this).itemDao();
+
+        txtItemList.setText(itemList(itemDao));
+
+        findViewById(R.id.btn_upsert).setOnClickListener(v -&gt; {
+            var title = edtTitle.getText().toString();
+            if (title.isEmpty()) {
+                Snackbar.make(v, &quot;タイトルを入力してください&quot;, Snackbar.LENGTH_SHORT).show();
+                return;
+            }
+            // idが空なら新規追加、入っていればそのidのデータを書き換える.
+            var item = new Item(title);
+            var idStr = edtId.getText().toString();
+            if (!idStr.isEmpty()) {
+                item.setInternalId(Integer.parseInt(idStr));
+            }
+            itemDao.upsert(item);
+            txtItemList.setText(itemList(itemDao));
+            edtId.setText(&quot;&quot;);
+            edtTitle.setText(&quot;&quot;);
+        });
+
+        findViewById(R.id.btn_delete).setOnClickListener(v -&gt; {
+            var idStr = edtId.getText().toString();
+            if (idStr.isEmpty()) {
+                Snackbar.make(v, &quot;削除するidを入力してください&quot;, Snackbar.LENGTH_SHORT).show();
+                return;
+            }
+            var item = itemDao.findByInternalId(Integer.parseInt(idStr));
+            if (item == null) {
+                Snackbar.make(v, &quot;そのidのデータはありません&quot;, Snackbar.LENGTH_SHORT).show();
+                return;
+            }
+            itemDao.delete(item);
+            txtItemList.setText(itemList(itemDao));
+            edtId.setText(&quot;&quot;);
+        });
+    }
+
+    /**
+     * 保存されているデータをまとめて1つの文字列にする.
+     */
+    private String itemList(ItemDao itemDao) {
+        var text = new StringBuilder();
+        for (var item : itemDao.getAll()) {
+            text.append(item).append(&quot;\n&quot;);
+        }
+        return text.toString();
+    }
+}</code></pre>
+<h3>読むときの順番</h3>
+<table><thead><tr><th>行のあたり</th><th>やっていること</th></tr></thead><tbody>
+<tr><td><code>var itemDao = AppDatabase.getInstance(this).itemDao();</code></td><td>データベースを取り出して、窓口（Dao）を受け取る</td></tr>
+<tr><td><code>txtItemList.setText(itemList(itemDao));</code></td><td>起動したときに、保存されているデータを一覧に出す</td></tr>
+<tr><td><code>btn_upsert</code> のリスナ</td><td>タイトルが空なら止める → <code>Item</code> を作る → idが入っていれば <code>setInternalId</code> → <code>upsert</code> → 一覧を出し直す</td></tr>
+<tr><td><code>btn_delete</code> のリスナ</td><td>idが空なら止める → その番号のデータを探す → 見つからなければ止める → <code>delete</code> → 一覧を出し直す</td></tr>
+<tr><td><code>itemList(ItemDao)</code></td><td>全部のデータを1行ずつつなげて、1つの文字列にする</td></tr>
+</tbody></table>
+<div class="note"><p class="box-title">保存したあとに毎回 <code>setText</code> し直しています</p><p>データベースに書いても、画面は自動では変わりません。<strong>「書いた」と「画面に出す」は別の仕事</strong>です。A09で「保存と表示は別物」と学んだのと同じです。</p></div>
+<h3>Runで確かめる</h3>
+<ol>
+<li>タイトルに <code>CAR</code> と入れて <strong>保存</strong>。一覧に <code>Item{internalId=1, title='CAR'}</code> が出ます。</li>
+<li>続けて <code>BIKE</code>、<code>TRAIN</code> を保存。idが2・3と増えます。</li>
+<li>id欄に <code>2</code>、タイトルに <code>BICYCLE</code> を入れて <strong>保存</strong>。<strong>2行目だけ</strong>書き換わります。</li>
+<li>id欄に <code>3</code> を入れて <strong>削除</strong>。<strong>3行目だけ</strong>消えます。</li>
+<li>アプリを終了して開き直します。残っていれば成功です。</li>
+</ol>
+<figure class="phone"><a href="images/app-error-empty.png"><img src="images/app-error-empty.png" width="1080" height="2424" loading="lazy" alt="タイトルを空にして保存を押したときに、画面下にタイトルを入力してくださいのメッセージが出ている画面"></a><figcaption>タイトルを空のまま保存すると、メッセージが出て保存されません。 <a href="images/app-error-empty.png">画像を大きく開く</a></figcaption></figure>
+<h3>ふり返り</h3>
+<ol>
+<li><code>@Entity</code>、<code>@Dao</code>、<code>@Database</code> は、それぞれ何を表す印か。</li>
+<li><code>internalId</code> はどこで決まるか。自分で入力しなくても付くのはなぜか。</li>
+<li><code>@Upsert</code> が「追加」になるときと「書き換え」になるときの違いは何か。</li>
+<li>保存したあとに <code>setText</code> し直しているのはなぜか。消すとどうなるか。</li>
+<li>A09のSharedPreferencesではできなくて、Roomならできることは何か。</li>
+</ol>
+<h3>練習</h3>
+<ol>
+<li>存在しないid（例：<code>99</code>）を入れて <strong>削除</strong> を押すとどうなるか、試して理由を説明する。</li>
+<li>id欄に <code>1</code> を入れ、タイトルを空にして <strong>保存</strong> を押すとどうなるか、試して理由を説明する。</li>
+<li><code>btn_upsert</code> のリスナから <code>txtItemList.setText(itemList(itemDao));</code> の1行を消してRunする。保存したデータはどうなっているか、アプリを開き直して確かめる。</li>
+</ol>
+<div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-7"><span>保存・書き換え・削除ができ、アプリを終了しても残ることを確認した。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
+</section>
+
+<section id="help" aria-labelledby="title-help">
+<h2 id="title-help">困ったとき</h2>
+<table><thead><tr><th>症状</th><th>見るところ</th></tr></thead><tbody>
+<tr><td><code>expected to find any of 'id' or 'version'</code> でビルドが止まる</td><td>STEP 02①。<code>room-runtime</code> と <code>room-compiler</code> を <code>[plugins]</code> ではなく <code>[libraries]</code> に書いているか</td></tr>
+<tr><td><code>Cannot resolve symbol 'Room'</code> などの赤い波線</td><td>STEP 02。Syncが終わっているか。<code>Sync Now</code> を押したか</td></tr>
+<tr><td><code>ItemDao</code> の中で赤いエラーが出る</td><td>STEP 05①。<strong>Class ではなく Interface</strong> で作ったか</td></tr>
+<tr><td><code>Entities and Pojos must have a usable public constructor</code></td><td>STEP 04②。<code>Item</code> のコンストラクタが <code>public</code> か。<code>title</code> のゲッターとセッターがあるか</td></tr>
+<tr><td>保存しても一覧が変わらない</td><td>STEP 07。<code>setText(itemList(itemDao))</code> をリスナの中に書いたか</td></tr>
+<tr><td>importの赤い波線が消えない</td><td><a href="../common/auto-import.html?from=room-sample">共通資料：Auto Import</a></td></tr>
+<tr><td>エミュレータが出てこない</td><td><a href="../common/emulator.html?from=room-sample">共通資料：エミュレータ</a></td></tr>
+<tr><td>画面を回すと入力した文字が消える</td><td><a href="../common/dev-tips.html?from=room-sample">共通資料：開発Tips</a> のC章。保存したデータは消えません</td></tr>
+</tbody></table>
+</section>
+
+<section id="sample-project" aria-labelledby="title-sample">
+<h2 id="title-sample">完成プロジェクト</h2>
+<p>答え合わせ用です。<a href="downloads/A10RoomSample.zip">A10RoomSample.zip</a> を展開し、Android Studioの <strong>File → Open</strong> で開きます。授業の入力は自分で作ったプロジェクトに書きます。</p>
+<details><summary>完成した <code>MainActivity.java</code></summary>
+<pre id="code-complete-java-2"><code>package jp.ac.jec.a10roomsample;
+
+import android.os.Bundle;
+import android.widget.EditText;
+import android.widget.TextView;
+
+import androidx.activity.EdgeToEdge;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.graphics.Insets;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowInsetsCompat;
+
+import com.google.android.material.snackbar.Snackbar;
+
+public class MainActivity extends AppCompatActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        EdgeToEdge.enable(this);
+        setContentView(R.layout.activity_main);
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -&gt; {
+            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
+            return insets;
+        });
+
+        var edtId = (EditText) findViewById(R.id.edt_id);
+        var edtTitle = (EditText) findViewById(R.id.edt_title);
+        var txtItemList = (TextView) findViewById(R.id.txt_item_list);
+
+        // データベースを取得する.
+        var itemDao = AppDatabase.getInstance(this).itemDao();
+
+        txtItemList.setText(itemList(itemDao));
+
+        findViewById(R.id.btn_upsert).setOnClickListener(v -&gt; {
+            var title = edtTitle.getText().toString();
+            if (title.isEmpty()) {
+                Snackbar.make(v, &quot;タイトルを入力してください&quot;, Snackbar.LENGTH_SHORT).show();
+                return;
+            }
+            // idが空なら新規追加、入っていればそのidのデータを書き換える.
+            var item = new Item(title);
+            var idStr = edtId.getText().toString();
+            if (!idStr.isEmpty()) {
+                item.setInternalId(Integer.parseInt(idStr));
+            }
+            itemDao.upsert(item);
+            txtItemList.setText(itemList(itemDao));
+            edtId.setText(&quot;&quot;);
+            edtTitle.setText(&quot;&quot;);
+        });
+
+        findViewById(R.id.btn_delete).setOnClickListener(v -&gt; {
+            var idStr = edtId.getText().toString();
+            if (idStr.isEmpty()) {
+                Snackbar.make(v, &quot;削除するidを入力してください&quot;, Snackbar.LENGTH_SHORT).show();
+                return;
+            }
+            var item = itemDao.findByInternalId(Integer.parseInt(idStr));
+            if (item == null) {
+                Snackbar.make(v, &quot;そのidのデータはありません&quot;, Snackbar.LENGTH_SHORT).show();
+                return;
+            }
+            itemDao.delete(item);
+            txtItemList.setText(itemList(itemDao));
+            edtId.setText(&quot;&quot;);
+        });
+    }
+
+    /**
+     * 保存されているデータをまとめて1つの文字列にする.
+     */
+    private String itemList(ItemDao itemDao) {
+        var text = new StringBuilder();
+        for (var item : itemDao.getAll()) {
+            text.append(item).append(&quot;\n&quot;);
+        }
+        return text.toString();
+    }
+}</code></pre></details>
+<details><summary>完成した <code>activity_main.xml</code></summary>
+<pre id="code-complete-xml"><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;ScrollView xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
+    xmlns:tools=&quot;http://schemas.android.com/tools&quot;
+    android:id=&quot;@+id/main&quot;
+    android:layout_width=&quot;match_parent&quot;
+    android:layout_height=&quot;match_parent&quot;
+    tools:context=&quot;.MainActivity&quot;&gt;
+
+    &lt;LinearLayout
+        android:layout_width=&quot;match_parent&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:orientation=&quot;vertical&quot;
+        android:padding=&quot;12dp&quot;&gt;
+
+        &lt;EditText
+            android:id=&quot;@+id/edt_id&quot;
+            android:layout_width=&quot;match_parent&quot;
+            android:layout_height=&quot;wrap_content&quot;
+            android:hint=&quot;idを入力してください（空なら新規追加）&quot;
+            android:importantForAutofill=&quot;no&quot;
+            android:inputType=&quot;number&quot;
+            android:maxLength=&quot;9&quot;
+            android:minHeight=&quot;48dp&quot; /&gt;
+
+        &lt;EditText
+            android:id=&quot;@+id/edt_title&quot;
+            android:layout_width=&quot;match_parent&quot;
+            android:layout_height=&quot;wrap_content&quot;
+            android:hint=&quot;タイトルを入力してください&quot;
+            android:importantForAutofill=&quot;no&quot;
+            android:inputType=&quot;text&quot;
+            android:minHeight=&quot;48dp&quot; /&gt;
+
+        &lt;LinearLayout
+            android:layout_width=&quot;match_parent&quot;
+            android:layout_height=&quot;wrap_content&quot;
+            android:layout_marginTop=&quot;12dp&quot;
+            android:orientation=&quot;horizontal&quot;&gt;
+
+            &lt;Button
+                android:id=&quot;@+id/btn_upsert&quot;
+                android:layout_width=&quot;0dp&quot;
+                android:layout_height=&quot;wrap_content&quot;
+                android:layout_weight=&quot;1&quot;
+                android:text=&quot;保存&quot; /&gt;
+
+            &lt;Button
+                android:id=&quot;@+id/btn_delete&quot;
+                android:layout_width=&quot;0dp&quot;
+                android:layout_height=&quot;wrap_content&quot;
+                android:layout_weight=&quot;1&quot;
+                android:text=&quot;削除&quot; /&gt;
+        &lt;/LinearLayout&gt;
+
+        &lt;TextView
+            style=&quot;@style/TextAppearance.Material3.TitleMedium&quot;
+            android:layout_width=&quot;wrap_content&quot;
+            android:layout_height=&quot;wrap_content&quot;
+            android:layout_marginTop=&quot;12dp&quot;
+            android:text=&quot;保存されているデータ&quot; /&gt;
+
+        &lt;TextView
+            android:id=&quot;@+id/txt_item_list&quot;
+            android:layout_width=&quot;match_parent&quot;
+            android:layout_height=&quot;wrap_content&quot;
+            tools:text=&quot;Item{internalId=1, title=&#x27;ロボット1号&#x27;}&quot; /&gt;
+    &lt;/LinearLayout&gt;
+
+&lt;/ScrollView&gt;</code></pre></details>
+</section>
+
+<footer class="footer"><p>Androidプログラミング1 · A10RoomSample / 本文・画像・操作機能はオフラインで利用できます。Android Studioの初回準備・ビルドと公式資料の閲覧にはネット接続が必要です。</p><p>スクリーンショットのデータは例です。</p></footer>
+</main></div>
+<p class="sr-only" role="status" aria-live="polite" data-copy-status></p></body></html>

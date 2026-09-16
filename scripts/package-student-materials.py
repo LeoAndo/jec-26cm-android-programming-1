@@ -76,6 +76,8 @@ def build(output_dir):
         ))
     if (ROOT / "A09MemoApp").exists():
         projects.append(("A09MemoApp", "docs/memo-app/downloads/A09MemoApp.zip"))
+    if (ROOT / "A10RoomSample").exists():
+        projects.append(("A10RoomSample", "docs/room-sample/downloads/A10RoomSample.zip"))
     for project, output in projects:
         subprocess.run(
             [sys.executable, str(ROOT / "scripts/package-hello-android.py"),
@@ -119,6 +121,9 @@ def build(output_dir):
     if ("docs/memo-app/index.html" in files
             and "docs/memo-app/downloads/A09MemoApp.zip" not in files):
         raise ValueError("MemoAppの完成プロジェクトが見つかりません。")
+    if ("docs/room-sample/index.html" in files
+            and "docs/room-sample/downloads/A10RoomSample.zip" not in files):
+        raise ValueError("RoomSampleの完成プロジェクトが見つかりません。")
     check_links(files)
 
     metadata = {"version": version, "revision": revision, "asset": ASSET_NAME}
@@ -138,6 +143,7 @@ def build(output_dir):
         "   A07 BillSplitter：docs/bill-splitter/index.html\n"
         "   A08 SharedPreferencesSample：docs/shared-preferences-sample/index.html\n"
         "   A09 MemoApp：docs/memo-app/index.html\n"
+        "   A10 RoomSample：docs/room-sample/index.html\n"
         "3. 完成プロジェクトは教科書内のリンクから開けます。\n\n"
         "教科書・画像はオフラインで利用できます。Android Studioの準備やビルドにはネット接続が必要です。\n"
         "教材を更新するときは別のフォルダに展開し、自分で作ったAndroid Studioプロジェクトを上書きしないでください。\n"
