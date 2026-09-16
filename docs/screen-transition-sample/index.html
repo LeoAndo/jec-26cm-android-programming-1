@@ -1,0 +1,1432 @@
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="JavaとXMLで作るA06ScreenTransitionSample。2つ目の画面の追加、Intentによる画面の切り替え、putExtraとキーの定数、配列・ArrayList・自分で作ったクラスの受け渡しを小さなSTEPで学ぶ授業用教科書。">
+<title>ScreenTransitionSample — 画面を切り替えて値を渡そう | Androidプログラミング1</title>
+<link rel="stylesheet" href="../assets/textbook.css"><script src="../assets/textbook.js" defer></script></head>
+<body data-progress-key="jec-android1-screentransitionsample-v1">
+<a class="skip" href="#main">本文へ移動</a>
+<header class="topbar"><span class="brand">JEC / Androidプログラミング1</span><a href="../bomb-game/index.html">A05 BombGame</a></header>
+<div class="shell"><aside class="sidebar"><div class="sidebar-inner"><p class="eyebrow">CONTENTS / 学習の順番</p>
+<nav aria-label="学習ステップ"><ol><li><a href="#step-0">00　今日のゴール</a></li>
+<li><a href="#step-1">01　プロジェクトを作って実行</a></li>
+<li><a href="#step-2">02　ボタンを5つ並べる</a></li>
+<li><a href="#step-3">03　2つ目の画面TestActivityを作る</a></li>
+<li><a href="#step-4">04　Test 1で画面を切り替える</a></li>
+<li><a href="#step-5">05　受け取る側を作る（キーと既定値）</a></li>
+<li><a href="#step-6">06　startメソッドで値を渡す</a></li>
+<li><a href="#step-7">07　配列を渡す</a></li>
+<li><a href="#step-8">08　ArrayListを渡す</a></li>
+<li><a href="#step-9">09　自分で作ったPersonを渡す</a></li>
+<li><a href="#step-10">10　ミニ練習</a></li>
+<li><a href="#step-11">11　完成とふり返り</a></li></ol></nav>
+<div class="progress"><span data-progress-label>0 / 12 ステップ確認済み</span><progress value="0" max="12" aria-label="学習の進み具合"></progress><span class="muted">自分用のチェックです。</span></div>
+<div class="resources"><a href="#help">困ったとき</a><a href="#key-in-test-activity">解説：キーの定数が、なぜ受け取る側のTestActivityにある？</a><a href="#common-way">解説：実際によく使う渡し方は？</a><a href="#sample-project">完成プロジェクトを開く</a><a href="../hello-android/index.html">A01：HelloAndroid</a><a href="../calc-game/index.html">A02：CalcGame</a><a href="../rock-paper-scissors-game/index.html">A03：RockPaperScissorsGame</a><a href="../webview-app/index.html">A04：WebViewApp</a><a href="../bomb-game/index.html">A05：BombGame</a><a href="../common/emulator.html">共通：エミュレータ</a><a href="../common/auto-import.html">共通：Auto Import</a><a href="../common/logcat.html">共通：Logcat</a><a href="../common/apk.html">共通：APKの提出</a></div>
+</div></aside><main id="main"><div class="hero"><span class="unit">06</span><p class="eyebrow">SCREEN TRANSITION SAMPLE</p>
+<h1>画面を切り替えて<br>値を渡そう</h1><p class="lede">ボタンを押す。次の画面が開く。渡した値をLogcatで見る。<br>Intentで、画面と画面をつなぐアプリへ。</p>
+<div class="tags"><span>Java / XML</span><span>A01〜A05の内容を使う</span><span>90分 × 2コマ目安</span><span>Macで学ぶ</span></div></div>
+<section id="step-0" aria-labelledby="title-0">
+<p class="step-meta">STEP 00 · 目安 5分</p><h2 id="title-0">今日のゴール</h2>
+
+<p>A01〜A05では、1つの画面（MainActivity）の中でアプリを作りました。今回は2つ目の画面 <strong>TestActivity</strong> を追加し、ボタンで画面を切り替えます。そのとき、次の画面へ値を渡します。受け取った値は画面には表示せず、A03・A05でも使った <strong>Logcat</strong> で確かめます。</p>
+<div class="flow" aria-label="アプリの流れ"><strong>Test 1〜Test 5を押す</strong><span>→</span><strong>TestActivityが開く</strong><span>→</span><strong>受け取った値をLogcatで見る</strong><span>→ 戻る →</span><strong>5つのボタンの画面</strong></div>
+<div class="phones"><figure><a href="images/app-main.png"><img src="images/app-main.png" width="1080" height="2424" loading="lazy" alt="起動直後のMainActivity。画面の中央にTest 1からTest 5のボタンが縦に並んでいる"></a><figcaption>① 起動直後。Test 1〜Test 5のボタンが並びます。 <a href="images/app-main.png">画像を大きく開く</a></figcaption></figure>
+<figure><a href="images/app-test.png"><img src="images/app-test.png" width="1080" height="2424" loading="lazy" alt="ボタンを押すと開くTestActivity。何も表示されていない画面"></a><figcaption>② ボタンを押すと開くTestActivity。何も置いていない画面です。受け取った値はLogcatで見ます。 <a href="images/app-test.png">画像を大きく開く</a></figcaption></figure>
+</div>
+<div class="code-head">読むところの例 · 完成版でTest 2を押したとき（最初の7行）</div><pre tabindex="0"><code>TestActivity  D  intValue: 1
+TestActivity  D  longValue: 2
+TestActivity  D  floatValue: 3.0
+TestActivity  D  doubleValue: 4.0
+TestActivity  D  booleanValue: true
+TestActivity  D  charValue: 5
+TestActivity  D  stringValue: 6</code></pre>
+<p>このあとに、配列などの10行が続きます。</p>
+<h3>できるようになること</h3>
+<ol><li>2つ目の画面（Activity）を追加し、Intentで画面を切り替える。</li><li>putExtraで値を入れ、開いた画面でgetXxxExtraで取り出し、Logcatで確かめる。</li><li>キーの定数を受け取る側に置く理由と、実際によく使う渡し方を説明する。</li></ol>
+<h3>90分×2コマで進めます</h3>
+<table><thead><tr><th>授業</th><th>範囲</th><th>終了時にできること</th></tr></thead><tbody>
+<tr><td>1コマ目</td><td>STEP 0〜5</td><td>ボタンを並べて2つ目の画面を追加し、Test 1で切り替える。受け取った値をLogcatで見る。</td></tr>
+<tr><td>2コマ目</td><td>STEP 6〜11</td><td>startメソッドで値・配列・ArrayList・Personを渡し、ミニ練習・完成チェック・提出を行う。</td></tr>
+</tbody></table>
+<p>各コマに再実行と個別確認の時間を含みます。予習は不要です。</p>
+<div class="note"><p class="box-title">毎回、自分で新規作成します</p><p>作る場所は <code>Documents/Android1/A06ScreenTransitionSample</code> です。<a href="#sample-project">完成プロジェクト</a>は初回から開けます。動きの確認とコードの見比べに使います。</p></div>
+<h3>完成アプリの操作</h3>
+<table><thead><tr><th>操作</th><th>開く画面</th><th>渡すもの（Logcatに値が出る行）</th></tr></thead><tbody>
+<tr><td>起動</td><td>MainActivity</td><td>—</td></tr>
+<tr><td>Test 1</td><td>TestActivity</td><td>何も渡さない。17行がすべて既定値かnull。</td></tr>
+<tr><td>Test 2</td><td>TestActivity</td><td>1、2、3.0、4.0、true、5、6 を1つずつ。intValue〜stringValue。</td></tr>
+<tr><td>Test 3</td><td>TestActivity</td><td>7種類の配列。intArrayValue〜stringArrayValue。</td></tr>
+<tr><td>Test 4</td><td>TestActivity</td><td>2つのArrayList。integerArrayListValue、stringArrayListValue。</td></tr>
+<tr><td>Test 5</td><td>TestActivity</td><td>Person（名前John、年齢20）。person。</td></tr>
+<tr><td>戻る操作</td><td>MainActivity</td><td>—</td></tr>
+</tbody></table>
+<div class="note"><p class="box-title">画面回転について</p><p>各単元では画面回転時のデータ保持と横画面のレイアウトを扱いません。縦向きで使います。この観点は別単元の演習アプリで検証します。</p></div>
+<div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-0"><span>Test 1〜Test 5を押すとTestActivityが開き、受け取った値をLogcatで見るアプリだと、画像と表で説明できた。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
+<div class="next"><a href="#step-1">次へ：プロジェクトを作って実行 →</a></div>
+</section>
+<section id="step-1" aria-labelledby="title-1">
+<p class="step-meta">STEP 01 · 目安 15分</p><h2 id="title-1">プロジェクトを作って実行</h2>
+
+<p>Android Studioで新しいプロジェクトを作ります。A01〜A05と同じ手順です。作る場所と名前だけが違います。</p>
+<ol><li>Android Studioを起動します。プロジェクトが開いている場合は <strong>File → New → New Project</strong> を選びます。</li></ol>
+<figure><a href="images/new-project.png"><img src="images/new-project.png" width="1598" height="316" loading="lazy" alt="Android StudioのWelcome画面。右上にNew Projectボタン"></a><figcaption>Welcome画面では、右上の <strong>New Project</strong> をクリックします。 <a href="images/new-project.png">画像を大きく開く</a></figcaption></figure>
+<ol start="2"><li><strong>Phone and Tablet → Empty Views Activity → Next</strong> の順に選びます。</li></ol>
+<figure><a href="images/empty-views-activity.png"><img src="images/empty-views-activity.png" width="1798" height="1350" loading="lazy" alt="テンプレート一覧でEmpty Views Activityが選択されている"></a><figcaption>Empty Views Activityを選びます。Empty Activity（Compose用）ではありません。 <a href="images/empty-views-activity.png">画像を大きく開く</a></figcaption></figure>
+<ol start="3"><li>次の表のとおりに入力・選択します。</li></ol>
+<table><thead><tr><th>項目</th><th>入力・選択する内容</th></tr></thead><tbody>
+<tr><td>Name</td><td><code>A06ScreenTransitionSample</code></td></tr>
+<tr><td>Package name</td><td><code>jp.ac.jec.a06screentransitionsample</code>（すべて小文字）</td></tr>
+<tr><td>Save location</td><td><code>/Users/ユーザ名/Documents/Android1/A06ScreenTransitionSample</code></td></tr>
+<tr><td>Language</td><td><strong>Java</strong>（Kotlinではありません）</td></tr>
+<tr><td>Minimum SDK</td><td><strong>API 31（Android 12.0）</strong></td></tr>
+<tr><td>Build configuration language</td><td><strong>Kotlin DSL（build.gradle.kts）</strong></td></tr>
+</tbody></table>
+<figure><a href="images/project-settings.png"><img src="images/project-settings.png" width="1792" height="1354" loading="lazy" alt="A06ScreenTransitionSampleの新規設定。パッケージjp.ac.jec.a06screentransitionsample、Language Java、Minimum SDK API 31、Kotlin DSL"></a><figcaption>Nameを入力すると、Package nameは自動で決まります。画像の保存先は先生の例です。自分の <code>Documents/Android1/A06ScreenTransitionSample</code> に読み替えます。 <a href="images/project-settings.png">画像を大きく開く</a></figcaption></figure>
+<ol start="4"><li>Finderの <strong>移動 → ホーム</strong> で自分のユーザ名を確認します。書類（Documents）に <code>Android1</code> フォルダがなければ作ります。</li><li>表の値と保存先を確認し、<strong>Finish</strong> をクリックします。Save locationの最後が <code>Documents/Android1/A06ScreenTransitionSample</code> になっていることを確かめます。<code>ユーザ名</code> は自分の名前に置き換えます。</li><li><strong>Gradle Sync</strong> が完了するまで待ちます（初回は数分かかります）。</li><li><a href="../common/auto-import.html">共通資料：Auto Import</a>のJava設定を確認します。</li></ol>
+<h3>この単元で使う場所</h3>
+<table><thead><tr><th>役割</th><th>Project表示で開く場所</th></tr></thead><tbody>
+<tr><td>画面（XML）</td><td><code>app/src/main/res/layout/activity_main.xml</code></td></tr>
+<tr><td>動き（Java）</td><td><code>app/src/main/java/jp/ac/jec/a06screentransitionsample/MainActivity.java</code></td></tr>
+<tr><td>画面の登録</td><td><code>app/src/main/AndroidManifest.xml</code></td></tr>
+<tr><td>STEP 3・9で増えるファイル</td><td><code>TestActivity.java</code>・<code>Person.java</code>（MainActivityと同じ場所）、<code>activity_test.xml</code>（layout）</td></tr>
+</tbody></table>
+<p>左の一覧が見えないときは <strong>View → Tool Windows → Project</strong> を開きます。一覧の上の表示名が <strong>Project</strong> になっていることを確認します。パッケージのフォルダが <code>jp.ac.jec.a06screentransitionsample</code> とまとめて表示される場合もあります。</p>
+<h3>変更前に1回Runする</h3>
+<p>エミュレータ <strong>jec_26cm_android1_Pixel 9a</strong> を選び、<strong>Run ▶</strong> を押します。準備は <a href="../common/emulator.html">共通資料：エミュレータの準備とアプリの実行</a>のとおりです。画面の中央に「Hello World!」が表示されれば成功です。</p>
+<div class="note"><p class="box-title">MainActivity.ktができたとき</p><p>Languageの選択がKotlinになっています。プロジェクトを作り直し、Javaを選びます。</p></div>
+<div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-1"><span>自分の保存先にA06ScreenTransitionSampleを作り、Hello World!を表示できた。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
+<div class="next"><a href="#step-2">次へ：ボタンを5つ並べる →</a></div>
+</section>
+<section id="step-2" aria-labelledby="title-2">
+<p class="step-meta">STEP 02 · 目安 10分</p><h2 id="title-2">ボタンを5つ並べる</h2>
+
+<p class="file">変更するファイル：app/src/main/res/layout/activity_main.xml</p>
+<p>画面にボタンを5つ並べます。ファイルを開いて <strong>Code</strong> 表示にし、<kbd>⌘ A</kbd> → 貼り付けを行い、<strong>ファイル全体を置き換えます</strong>。</p>
+<div class="code-head">activity_main.xml · 全体を置き換える</div>
+<pre id="code-layout" tabindex="0"><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;LinearLayout xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
+    xmlns:tools=&quot;http://schemas.android.com/tools&quot;
+    android:id=&quot;@+id/main&quot;
+    android:layout_width=&quot;match_parent&quot;
+    android:layout_height=&quot;match_parent&quot;
+    android:gravity=&quot;center&quot;
+    android:orientation=&quot;vertical&quot;
+    tools:context=&quot;.MainActivity&quot;&gt;
+
+    &lt;Button
+        android:id=&quot;@+id/btn1&quot;
+        android:layout_width=&quot;wrap_content&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:text=&quot;Test 1&quot; /&gt;
+
+    &lt;Button
+        android:id=&quot;@+id/btn2&quot;
+        android:layout_width=&quot;wrap_content&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:text=&quot;Test 2&quot; /&gt;
+
+    &lt;Button
+        android:id=&quot;@+id/btn3&quot;
+        android:layout_width=&quot;wrap_content&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:text=&quot;Test 3&quot; /&gt;
+
+    &lt;Button
+        android:id=&quot;@+id/btn4&quot;
+        android:layout_width=&quot;wrap_content&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:text=&quot;Test 4&quot; /&gt;
+
+    &lt;Button
+        android:id=&quot;@+id/btn5&quot;
+        android:layout_width=&quot;wrap_content&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:text=&quot;Test 5&quot; /&gt;
+
+&lt;/LinearLayout&gt;</code></pre>
+<table><thead><tr><th>指定</th><th>意味</th></tr></thead><tbody>
+<tr><td>LinearLayout</td><td>中の部品を1列に並べる入れ物。A01 STEP 3と同じ。</td></tr>
+<tr><td>android:orientation="vertical"</td><td>縦に並べる。</td></tr>
+<tr><td>android:gravity="center"</td><td>中の部品を画面の中央に集める。</td></tr>
+<tr><td>android:id="@+id/btn1"</td><td>Javaから見つけるための名前。btn1〜btn5をSTEP 4以降で使う。</td></tr>
+<tr><td>android:text="Test 1"</td><td>ボタンに表示する文字。</td></tr>
+<tr><td>android:layout_width="wrap_content"</td><td>文字に合わせた大きさにする。</td></tr>
+</tbody></table>
+<p><code>android:id="@+id/main"</code> は消しません。ひな形のJavaが <code>findViewById(R.id.main)</code> で使っています（A01と同じ）。文字を直接書いたことによる <code>Hardcoded text</code> の警告は、これまでの単元と同様にそのまま進めます。</p>
+<h3>Runで確かめる</h3><p>Test 1〜Test 5が画面の中央に縦に並べば成功です。まだボタンを押しても何も起きません。</p>
+<figure class="phone"><a href="images/app-main.png"><img src="images/app-main.png" width="1080" height="2424" loading="lazy" alt="起動直後のMainActivity。画面の中央にTest 1からTest 5のボタンが縦に並んでいる"></a><figcaption>5つのボタンが縦に並びます。 <a href="images/app-main.png">画像を大きく開く</a></figcaption></figure>
+<div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-2"><span>Test 1〜Test 5のボタンが画面の中央に縦に並び、idがbtn1〜btn5であることを確認した。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
+<div class="next"><a href="#step-3">次へ：2つ目の画面TestActivityを作る →</a></div>
+</section>
+<section id="step-3" aria-labelledby="title-3">
+<p class="step-meta">STEP 03 · 目安 15分</p><h2 id="title-3">2つ目の画面TestActivityを作る</h2>
+
+<p class="file">新しく作るファイル：app/src/main/java/jp/ac/jec/a06screentransitionsample/TestActivity.java、app/src/main/res/layout/activity_test.xml</p>
+<p class="file">自動で変わるファイル：app/src/main/AndroidManifest.xml</p>
+<p>アプリの1つの画面を担当するクラスを <strong>Activity（アクティビティ）</strong> と呼びます。A01から使っている MainActivity も Activity です。今回は、2つ目の Activity を Android Studio の機能で作ります。</p>
+<h3>① New → Activityで作る</h3>
+<ol><li>Project表示で <code>app</code> を右クリックします。</li><li><strong>New → Activity → Empty Views Activity</strong> を選びます。</li></ol>
+<figure><a href="images/new-activity-menu.png"><img src="images/new-activity-menu.png" width="2048" height="1148" loading="lazy" alt="Project表示でappを右クリックし、New、Activity、Empty Views Activityの順に選んでいる"></a><figcaption>appを右クリックして、<strong>New → Activity → Empty Views Activity</strong>。 <a href="images/new-activity-menu.png">画像を大きく開く</a></figcaption></figure>
+<ol start="3"><li>次の表のとおりに入力・選択して、<strong>Finish</strong> を押します。</li></ol>
+<table><thead><tr><th>項目</th><th>入力・選択する内容</th></tr></thead><tbody>
+<tr><td>Activity Name</td><td>TestActivity</td></tr>
+<tr><td>Generate a Layout File</td><td>チェックを入れる</td></tr>
+<tr><td>Layout Name</td><td>activity_test（Activity Nameから自動で入る）</td></tr>
+<tr><td>Launcher Activity</td><td><strong>チェックを入れない</strong></td></tr>
+<tr><td>Package name</td><td>jp.ac.jec.a06screentransitionsample</td></tr>
+<tr><td>Source Language</td><td><strong>Java</strong></td></tr>
+<tr><td>Target Source Set</td><td><strong>main</strong></td></tr>
+</tbody></table>
+<figure><a href="images/new-activity-settings.png"><img src="images/new-activity-settings.png" width="1806" height="1362" loading="lazy" alt="New Android Activityの設定。Activity NameにTestActivity、Generate a Layout Fileにチェック、Layout Nameにactivity_test、Launcher Activityはチェックなし、Package nameにjp.ac.jec.a06screentransitionsample、Source LanguageにJava、Target Source Setにmain"></a><figcaption>Launcher Activityにはチェックを入れません。 <a href="images/new-activity-settings.png">画像を大きく開く</a></figcaption></figure>
+<div class="note"><p class="box-title">New → Java Classでは作りません</p><p>Java Classで作ると、画面のXMLと、次に見るAndroidManifest.xmlへの登録が作られません。登録がないと、STEP 4でTest 1を押したときにアプリが終了します。このSTEPでは必ず <strong>New → Activity</strong> を使います。</p></div>
+<h3>② 自動で作られた・変わった3つのファイルを見る</h3>
+<table><thead><tr><th>ファイル</th><th>できたこと</th></tr></thead><tbody>
+<tr><td>TestActivity.java</td><td>新しい画面を担当するクラス。中身はMainActivityのひな形と同じ形で、<code>setContentView(R.layout.activity_test)</code> でこの画面のXMLを指定している。</td></tr>
+<tr><td>activity_test.xml</td><td>何も置いていない画面。<code>android:id="@+id/main"</code> がある。今回はこのまま使う。</td></tr>
+<tr><td>AndroidManifest.xml</td><td>TestActivityを登録する <code>&lt;activity&gt;</code> が追加された。</td></tr>
+</tbody></table>
+<p>AndroidManifest.xmlを開くと、次の3行が増えています。自動で追加されているので、<strong>入力しません</strong>。</p>
+<pre tabindex="0"><code>&lt;activity
+    android:name=&quot;.TestActivity&quot;
+    android:exported=&quot;false&quot; /&gt;</code></pre>
+<table><thead><tr><th>指定</th><th>意味</th></tr></thead><tbody>
+<tr><td>&lt;activity&gt;</td><td>アプリの画面をAndroidに知らせる。A04 STEP 2で、インターネットの許可を書いたファイルと同じファイル。</td></tr>
+<tr><td>android:name=".TestActivity"</td><td>登録するクラス。先頭の <code>.</code> は、パッケージ名 <code>jp.ac.jec.a06screentransitionsample</code> を省いた書き方。</td></tr>
+<tr><td>android:exported="false"</td><td>ほかのアプリからこの画面を開けないようにする。TestActivityは自分のアプリのMainActivityからだけ開く。</td></tr>
+<tr><td>MainActivityの &lt;intent-filter&gt;（MAINとLAUNCHER）</td><td>アプリ一覧のアイコンから最初に開く画面の印。Launcher Activityにチェックを入れなかったので、TestActivityには付かない。MainActivityはアイコンから開くため <code>exported="true"</code>。</td></tr>
+</tbody></table>
+<details><summary>追加されたAndroidManifest.xml全体で照合する</summary><div class="code-head">照合用 · AndroidManifest.xml</div>
+<pre id="code-manifest" tabindex="0"><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;manifest xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
+    xmlns:tools=&quot;http://schemas.android.com/tools&quot;&gt;
+
+    &lt;application
+        android:allowBackup=&quot;true&quot;
+        android:dataExtractionRules=&quot;@xml/data_extraction_rules&quot;
+        android:fullBackupContent=&quot;@xml/backup_rules&quot;
+        android:icon=&quot;@mipmap/ic_launcher&quot;
+        android:label=&quot;@string/app_name&quot;
+        android:roundIcon=&quot;@mipmap/ic_launcher_round&quot;
+        android:supportsRtl=&quot;true&quot;
+        android:theme=&quot;@style/Theme.A06ScreenTransitionSample&quot;&gt;
+        &lt;activity
+            android:name=&quot;.TestActivity&quot;
+            android:exported=&quot;false&quot; /&gt;
+        &lt;activity
+            android:name=&quot;.MainActivity&quot;
+            android:exported=&quot;true&quot;&gt;
+            &lt;intent-filter&gt;
+                &lt;action android:name=&quot;android.intent.action.MAIN&quot; /&gt;
+
+                &lt;category android:name=&quot;android.intent.category.LAUNCHER&quot; /&gt;
+            &lt;/intent-filter&gt;
+        &lt;/activity&gt;
+    &lt;/application&gt;
+
+&lt;/manifest&gt;</code></pre></details>
+<details><summary>作られたactivity_test.xmlで照合する</summary><div class="code-head">照合用 · activity_test.xml</div>
+<pre id="code-activity-test" tabindex="0"><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;androidx.constraintlayout.widget.ConstraintLayout xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
+    xmlns:app=&quot;http://schemas.android.com/apk/res-auto&quot;
+    xmlns:tools=&quot;http://schemas.android.com/tools&quot;
+    android:id=&quot;@+id/main&quot;
+    android:layout_width=&quot;match_parent&quot;
+    android:layout_height=&quot;match_parent&quot;
+    tools:context=&quot;.TestActivity&quot;&gt;
+
+&lt;/androidx.constraintlayout.widget.ConstraintLayout&gt;</code></pre></details>
+<h3>Runで確かめる</h3><p>まだどこからもTestActivityを開いていないので、画面は変わりません。エラーなくRunでき、Test 1〜Test 5が表示されれば成功です。</p>
+<div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-3"><span>TestActivity.javaとactivity_test.xmlを作り、AndroidManifest.xmlにTestActivityの &lt;activity&gt; が追加されたことを確認した。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
+<div class="next"><a href="#step-4">次へ：Test 1で画面を切り替える →</a></div>
+</section>
+<section id="step-4" aria-labelledby="title-4">
+<p class="step-meta">STEP 04 · 目安 15分</p><h2 id="title-4">Test 1で画面を切り替える</h2>
+
+<p class="file">変更するファイル：MainActivity.java</p>
+<p><strong>Intent（インテント）</strong> は、「この画面を開きたい」というお願いをAndroidに伝える入れ物です。まずTest 1で、値を入れずに画面を切り替えます。STEP 5からは、この入れ物に値も入れて渡します。</p>
+<h3>① onCreateの中に追加</h3>
+<p>ひな形の <code>});</code>（<code>return insets;</code> の下）の下に、1行空けて追加します。</p>
+<div class="code-head">追加 · onCreateの中、ひな形の });の下</div>
+<pre id="code-btn1" tabindex="0"><code>findViewById(R.id.btn1).setOnClickListener(v -&gt; {
+    var intent = new Intent(this, TestActivity.class);
+    startActivity(intent);
+});</code></pre>
+<p>importは <code>android.content.Intent</code> です。</p>
+<table><thead><tr><th>コード</th><th>意味</th></tr></thead><tbody>
+<tr><td>findViewById(R.id.btn1).setOnClickListener(v -&gt; { … })</td><td>btn1を見つけて、押されたときの処理を登録する。あとで使わないので変数には入れず、見つけた部品に続けて書く。A02 STEP 4の <code>btnStart = findViewById(R.id.btn_start);</code> と同じで、<code>(Button)</code> のようなキャストはいらない。</td></tr>
+<tr><td>var intent = new Intent(this, TestActivity.class)</td><td>今の画面からTestActivityを開くためのIntentを作る。varは右側から型が決まる（A01 STEP 4）。</td></tr>
+<tr><td>this</td><td>今の画面のMainActivity。A01 STEP 7の <code>Toast.makeText(this, …)</code> と同じ。</td></tr>
+<tr><td>TestActivity.class</td><td>TestActivityというクラスそのものを表す書き方。どの画面を開くかを指定する。</td></tr>
+<tr><td>startActivity(intent)</td><td>IntentをAndroidに渡して、画面を開いてもらう。</td></tr>
+</tbody></table>
+<h3>戻る操作で戻れるのはなぜ？</h3>
+<p>開いたTestActivityは、MainActivityの上に重なって表示されます。戻る操作をすると上のTestActivityが閉じ、下にあるMainActivityがまた見えます。</p>
+<p>A04 STEP 8では、WebViewの中のページを戻す処理を自分で書きました。画面（Activity）を戻す動きはAndroidが行うので、今回はコードを書きません。</p>
+<p class="muted">仕様の確認：<a href="https://developer.android.com/guide/components/intents-filters">Intents and intent filters</a>、<a href="https://developer.android.com/guide/components/activities/tasks-and-back-stack">Tasks and the back stack</a>（Android公式）。</p>
+<h3>Runで確かめる</h3><ol><li>Test 1を押します。何もない画面に切り替われば成功です。</li><li>戻る操作（画面の端から内側へのスワイプ、またはエミュレータの ◁）をします。5つのボタンの画面に戻ります。</li><li>Test 1をもう一度押すと、また開きます。Test 2〜Test 5はまだ何も起きません。</li></ol>
+<figure class="phone"><a href="images/app-test.png"><img src="images/app-test.png" width="1080" height="2424" loading="lazy" alt="Test 1で開いたTestActivity。何も表示されていない画面"></a><figcaption>Test 1で開いたTestActivity。何も置いていない画面です。 <a href="images/app-test.png">画像を大きく開く</a></figcaption></figure>
+<div class="note"><p class="box-title">Test 1でアプリが終了したとき</p><p>STEP 3を <strong>New → Java Class</strong> で作ると、AndroidManifest.xmlに登録されず、Test 1で終了します。<a href="#help">困ったとき</a>を見ます。</p></div>
+<details><summary>STEP 4のMainActivity.java全体で照合する</summary><div class="code-head">照合用 · MainActivity.java</div>
+<pre id="code-step4-main" tabindex="0"><code>package jp.ac.jec.a06screentransitionsample;
+
+import android.content.Intent;
+import android.os.Bundle;
+
+import androidx.activity.EdgeToEdge;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.graphics.Insets;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowInsetsCompat;
+
+public class MainActivity extends AppCompatActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        EdgeToEdge.enable(this);
+        setContentView(R.layout.activity_main);
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -&gt; {
+            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
+            return insets;
+        });
+
+        findViewById(R.id.btn1).setOnClickListener(v -&gt; {
+            var intent = new Intent(this, TestActivity.class);
+            startActivity(intent);
+        });
+    }
+}</code></pre></details>
+<div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-4"><span>Test 1で何もない画面に切り替わり、戻る操作で5つのボタンの画面に戻ることを確認した。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
+<div class="next"><a href="#step-5">次へ：受け取る側を作る（キーと既定値） →</a></div>
+</section>
+<section id="step-5" aria-labelledby="title-5">
+<p class="step-meta">STEP 05 · 目安 20分</p><h2 id="title-5">受け取る側を作る（キーと既定値）</h2>
+
+<p class="file">変更するファイル：TestActivity.java</p>
+<p>Intentに値を入れるときは、<strong>キー（名前）と値の組</strong>で入れます。取り出すときは、同じキーを指定します。Intentに追加で入れる値は extra（エクストラ）と呼びます。</p>
+<p>このSTEPでは、受け取る側を先に作ります。Test 1は値を何も入れていないので、何も入っていないときに何が出るかを確かめます。</p>
+<p>TestActivity.javaの追加場所は、次の3か所です。この枠は<strong>入力しません</strong>。</p>
+<pre tabindex="0"><code>public class TestActivity extends AppCompatActivity {
+    （A）キーの定数：STEP 5・7・8・9で、ここに追加する
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        …ひな形…
+        });
+
+        （B）受け取ってLogに出す：STEP 5・7・8・9で、ここに追加する
+    }
+
+    （C）startメソッド：STEP 6・7・8・9で、ここに追加する
+}</code></pre>
+<h3>① キーの定数を追加する（Aの場所）</h3>
+<p><code>public class TestActivity extends AppCompatActivity {</code> の行のすぐ下（その下の空行より上）に追加します。</p>
+<div class="code-head">追加 · public class TestActivity … { の下</div>
+<pre id="code-keys-single" tabindex="0"><code>private static final String EXTRA_KEY_INT_VALUE = &quot;intValue&quot;;
+private static final String EXTRA_KEY_LONG_VALUE = &quot;longValue&quot;;
+private static final String EXTRA_KEY_FLOAT_VALUE = &quot;floatValue&quot;;
+private static final String EXTRA_KEY_DOUBLE_VALUE = &quot;doubleValue&quot;;
+private static final String EXTRA_KEY_BOOLEAN_VALUE = &quot;booleanValue&quot;;
+private static final String EXTRA_KEY_CHAR_VALUE = &quot;charValue&quot;;
+private static final String EXTRA_KEY_STRING_VALUE = &quot;stringValue&quot;;</code></pre>
+<p>A05 STEP 7の <code>STATE_IGNITED</code> と同じ <code>private static final</code> の定数です。今回は数字ではなく、キーの文字列（String）を入れます。</p>
+<p>キーの定数は、値を受け取るTestActivityに書きます。値を取り出す <code>getIntExtra</code> などはTestActivityで使います。STEP 6で書く「値を入れる処理（startメソッド）」も、TestActivityに書きます。キーを使うのがTestActivityの中だけなので、A02 STEP 4で学んだ <code>private</code> を付けます。理由の続きは、<a href="#key-in-test-activity">STEP 6の解説</a>で確かめます。</p>
+<h3>② 受け取ってLogに出す（Bの場所）</h3>
+<p>onCreateの中の、ひな形の <code>});</code> の下に、1行空けて追加します。</p>
+<div class="code-head">追加 · onCreateの中、ひな形の });の下</div>
+<pre id="code-receive-single" tabindex="0"><code>var intValue = getIntent().getIntExtra(EXTRA_KEY_INT_VALUE, 0);
+var longValue = getIntent().getLongExtra(EXTRA_KEY_LONG_VALUE, 0);
+var floatValue = getIntent().getFloatExtra(EXTRA_KEY_FLOAT_VALUE, 0);
+var doubleValue = getIntent().getDoubleExtra(EXTRA_KEY_DOUBLE_VALUE, 0);
+var booleanValue = getIntent().getBooleanExtra(EXTRA_KEY_BOOLEAN_VALUE, false);
+var charValue = getIntent().getCharExtra(EXTRA_KEY_CHAR_VALUE, ' ');
+var stringValue = getIntent().getStringExtra(EXTRA_KEY_STRING_VALUE);
+Log.d(&quot;TestActivity&quot;, &quot;intValue: &quot; + intValue);
+Log.d(&quot;TestActivity&quot;, &quot;longValue: &quot; + longValue);
+Log.d(&quot;TestActivity&quot;, &quot;floatValue: &quot; + floatValue);
+Log.d(&quot;TestActivity&quot;, &quot;doubleValue: &quot; + doubleValue);
+Log.d(&quot;TestActivity&quot;, &quot;booleanValue: &quot; + booleanValue);
+Log.d(&quot;TestActivity&quot;, &quot;charValue: &quot; + charValue);
+Log.d(&quot;TestActivity&quot;, &quot;stringValue: &quot; + stringValue);</code></pre>
+<p>importは <code>android.util.Log</code> です。</p>
+<table><thead><tr><th>コード</th><th>意味</th></tr></thead><tbody>
+<tr><td>getIntent()</td><td>この画面を開いたときのIntentを取り出す。Test 1なら、STEP 4でMainActivityが作ったIntent。</td></tr>
+<tr><td>getIntExtra(EXTRA_KEY_INT_VALUE, 0)</td><td>キー "intValue" のintを取り出す。入っていなければ、2つ目に書いた0を返す。</td></tr>
+<tr><td>getLongExtra(EXTRA_KEY_LONG_VALUE, 0)</td><td>longを取り出す。0と書いてもlongの0として使われる。</td></tr>
+<tr><td>getFloatExtra / getDoubleExtra(…, 0)</td><td>小数を取り出す。入っていなければ0で、Logには 0.0 と出る。</td></tr>
+<tr><td>getBooleanExtra(EXTRA_KEY_BOOLEAN_VALUE, false)</td><td>trueかfalseを取り出す。入っていなければfalse。</td></tr>
+<tr><td>getCharExtra(EXTRA_KEY_CHAR_VALUE, ' ')</td><td>1文字を取り出す。入っていなければ ' '（半角スペース1文字）。</td></tr>
+<tr><td>getStringExtra(EXTRA_KEY_STRING_VALUE)</td><td>文字列を取り出す。既定値は書かず、入っていなければ null。</td></tr>
+<tr><td>Log.d("TestActivity", "intValue: " + intValue)</td><td>名前と値をつなげてLogcatに出す。A03 STEP 8・A05 STEP 5と同じ。タグはTestActivity。</td></tr>
+</tbody></table>
+<p>2つ目に書いた値を <strong>既定値（きていち）</strong> と呼びます。キーが入っていないときに返る値です。<strong>null（ヌル）</strong> は、何も入っていないことを表す値です。</p>
+<table><thead><tr><th>型</th><th>入る値</th><th>STEP 6で送る値</th><th>入っていないとき</th></tr></thead><tbody>
+<tr><td>int</td><td>整数（A02）</td><td>1</td><td>0</td></tr>
+<tr><td>long</td><td>大きな整数</td><td>2L</td><td>0</td></tr>
+<tr><td>float</td><td>小数</td><td>3.0f</td><td>0.0</td></tr>
+<tr><td>double</td><td>小数</td><td>4.0</td><td>0.0</td></tr>
+<tr><td>boolean</td><td>true・false（A02）</td><td>true</td><td>false</td></tr>
+<tr><td>char</td><td>1文字</td><td>'5'</td><td>半角スペース</td></tr>
+<tr><td>String</td><td>文字列（A01）</td><td>"6"</td><td>null</td></tr>
+</tbody></table>
+<p><code>var</code> は右側から型が決まります（A01 STEP 4）。<code>getIntExtra</code> なら intValue は int、<code>getStringExtra</code> なら stringValue は String です。</p>
+<h3>Runで確かめる</h3>
+<ol><li><a href="../common/logcat.html">共通資料：Logcat</a>に従ってLogcatを開き、検索欄を次の文字にします。</li></ol>
+<div class="code-head">Logcatの検索欄 · ScreenTransitionSample用</div><pre tabindex="0"><code>package:jp.ac.jec.a06screentransitionsample tag:TestActivity level:DEBUG</code></pre>
+<ol start="2"><li>Runして、Test 1を押します。7行が出れば成功です。</li></ol>
+<div class="code-head">読むところの例 · Test 1を押したとき</div><pre tabindex="0"><code>TestActivity  D  intValue: 0
+TestActivity  D  longValue: 0
+TestActivity  D  floatValue: 0.0
+TestActivity  D  doubleValue: 0.0
+TestActivity  D  booleanValue: false
+TestActivity  D  charValue:
+TestActivity  D  stringValue: null</code></pre>
+<p>Test 1はIntentに値を何も入れていません。そのため、7行とも既定値かnullになります。入っていなくてもエラーにはなりません。<code>charValue:</code> のあとには何も見えませんが、既定値の半角スペースが出ています。</p>
+<div class="note"><p class="box-title">VRI[TestActivity]の行が混ざるとき</p><p>検索欄の <code>tag:TestActivity</code> は、TestActivityを含むタグも表示します。そのため <code>VRI[TestActivity]</code> の行が混ざることがあります。読み飛ばして構いません。</p></div>
+<details><summary>STEP 5のTestActivity.java全体で照合する</summary><div class="code-head">照合用 · TestActivity.java</div>
+<pre id="code-step5-test" tabindex="0"><code>package jp.ac.jec.a06screentransitionsample;
+
+import android.os.Bundle;
+import android.util.Log;
+
+import androidx.activity.EdgeToEdge;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.graphics.Insets;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowInsetsCompat;
+
+public class TestActivity extends AppCompatActivity {
+    private static final String EXTRA_KEY_INT_VALUE = &quot;intValue&quot;;
+    private static final String EXTRA_KEY_LONG_VALUE = &quot;longValue&quot;;
+    private static final String EXTRA_KEY_FLOAT_VALUE = &quot;floatValue&quot;;
+    private static final String EXTRA_KEY_DOUBLE_VALUE = &quot;doubleValue&quot;;
+    private static final String EXTRA_KEY_BOOLEAN_VALUE = &quot;booleanValue&quot;;
+    private static final String EXTRA_KEY_CHAR_VALUE = &quot;charValue&quot;;
+    private static final String EXTRA_KEY_STRING_VALUE = &quot;stringValue&quot;;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        EdgeToEdge.enable(this);
+        setContentView(R.layout.activity_test);
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -&gt; {
+            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
+            return insets;
+        });
+
+        var intValue = getIntent().getIntExtra(EXTRA_KEY_INT_VALUE, 0);
+        var longValue = getIntent().getLongExtra(EXTRA_KEY_LONG_VALUE, 0);
+        var floatValue = getIntent().getFloatExtra(EXTRA_KEY_FLOAT_VALUE, 0);
+        var doubleValue = getIntent().getDoubleExtra(EXTRA_KEY_DOUBLE_VALUE, 0);
+        var booleanValue = getIntent().getBooleanExtra(EXTRA_KEY_BOOLEAN_VALUE, false);
+        var charValue = getIntent().getCharExtra(EXTRA_KEY_CHAR_VALUE, ' ');
+        var stringValue = getIntent().getStringExtra(EXTRA_KEY_STRING_VALUE);
+        Log.d(&quot;TestActivity&quot;, &quot;intValue: &quot; + intValue);
+        Log.d(&quot;TestActivity&quot;, &quot;longValue: &quot; + longValue);
+        Log.d(&quot;TestActivity&quot;, &quot;floatValue: &quot; + floatValue);
+        Log.d(&quot;TestActivity&quot;, &quot;doubleValue: &quot; + doubleValue);
+        Log.d(&quot;TestActivity&quot;, &quot;booleanValue: &quot; + booleanValue);
+        Log.d(&quot;TestActivity&quot;, &quot;charValue: &quot; + charValue);
+        Log.d(&quot;TestActivity&quot;, &quot;stringValue: &quot; + stringValue);
+    }
+}</code></pre></details>
+<div class="note"><p class="box-title">1コマ目はここまで</p><p>保存してからもう一度Runし、Test 1のLogcatを確かめます。隣の人か先生に、キーと既定値の意味を説明しましょう。次回も自分の <code>Documents/Android1/A06ScreenTransitionSample</code> を開きます。</p></div>
+<div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-5"><span>Test 1でLogcatに既定値の7行が出ることを確認した。キーと既定値の意味を説明できた。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
+<div class="next"><a href="#step-6">次へ：startメソッドで値を渡す →</a></div>
+</section>
+<section id="step-6" aria-labelledby="title-6">
+<p class="step-meta">STEP 06 · 目安 20分</p><h2 id="title-6">startメソッドで値を渡す</h2>
+
+<p class="file">変更するファイル：TestActivity.java、MainActivity.java</p>
+<p>前回のアプリをRunして、Test 1のLogcatを確認してから始めます。このSTEPでは、値をIntentに入れて画面を開くメソッドを、開かれる側のTestActivityに作ります。</p>
+<h3>① starterテンプレートで形を作る（Cの場所）</h3>
+<ol><li>TestActivity.javaで、onCreateを閉じる <code>}</code>（クラスの最後の <code>}</code> の1つ上の行。①の図の（C）の場所）の行末をクリックし、<kbd>Enter</kbd> を2回押します。</li><li><code>starter</code> と入力します。候補に <strong>starter</strong>（Creates a static start(...) helper method to start an Activity）が出たら <kbd>Enter</kbd> を押します。</li><li>入力欄に色が付いた状態でコードができます。<kbd>Esc</kbd> を押して入力を終わります。</li></ol>
+<figure><a href="images/starter-template.png"><img src="images/starter-template.png" width="1724" height="1144" loading="lazy" alt="TestActivity.javaのonCreateの下でstarteと入力し、候補の先頭にstarterのテンプレートが表示されている"></a><figcaption>onCreateの外で <code>starter</code> と入力します。途中まで打つと候補が出ます。画像はテンプレートの候補だけを示すため、STEP 5で追加したキーの定数は写っていません。行番号は自分の画面と違って構いません。 <a href="images/starter-template.png">画像を大きく開く</a></figcaption></figure>
+<p>次のコードができます。この枠は<strong>入力しません</strong>。</p>
+<pre tabindex="0"><code>public static void start(Context context) {
+    Intent starter = new Intent(context, TestActivity.class);
+    starter.putExtra();
+    context.startActivity(starter);
+}</code></pre>
+<p><code>putExtra()</code> が赤いのは、まだ中身がないためです。すぐに②で置き換えます。候補が出ない場合は、onCreateの最後の <code>}</code> の下に1行空けて、②のコードを貼り付けても同じ結果になります。</p>
+<h3>② 教科書のコードで置き換える</h3>
+<p>できた5行（<code>public static void start</code> から、その <code>}</code> まで）を選び、貼り付けて置き換えます。</p>
+<div class="code-head">置き換え · starterで作ったstartメソッド</div>
+<pre id="code-start-single" tabindex="0"><code>// startメソッドはAndroid Studioのコードテンプレートを利用して作成できる！
+static void start(Context context, int intValue, long longValue, float floatValue,
+                  double doubleValue, boolean booleanValue, char charValue, String stringValue) {
+    var intent = new Intent(context, TestActivity.class);
+    intent.putExtra(EXTRA_KEY_INT_VALUE, intValue);
+    intent.putExtra(EXTRA_KEY_LONG_VALUE, longValue);
+    intent.putExtra(EXTRA_KEY_FLOAT_VALUE, floatValue);
+    intent.putExtra(EXTRA_KEY_DOUBLE_VALUE, doubleValue);
+    intent.putExtra(EXTRA_KEY_BOOLEAN_VALUE, booleanValue);
+    intent.putExtra(EXTRA_KEY_CHAR_VALUE, charValue);
+    intent.putExtra(EXTRA_KEY_STRING_VALUE, stringValue);
+    context.startActivity(intent);
+}</code></pre>
+<p>importは <code>android.content.Context</code>、<code>android.content.Intent</code> です（テンプレートを使った場合は、もう入っています）。</p>
+<table><thead><tr><th>テンプレート</th><th>教科書</th><th>理由</th></tr></thead><tbody>
+<tr><td>public static void start</td><td>static void start</td><td>publicを付けなくても、同じ場所（パッケージ）のMainActivityから呼べる。</td></tr>
+<tr><td>(Context context)</td><td>(Context context, int intValue, … String stringValue)</td><td>渡したい7つの値を受け取れるようにする。</td></tr>
+<tr><td>Intent starter =</td><td>var intent =</td><td>varはA01 STEP 4で学んだ書き方。変数の名前をintentにした。</td></tr>
+<tr><td>starter.putExtra();</td><td>intent.putExtra(EXTRA_KEY_INT_VALUE, intValue); など7行</td><td>キーと値の組で入れる。</td></tr>
+<tr><td>context.startActivity(starter);</td><td>context.startActivity(intent);</td><td>変数の名前だけが違う。</td></tr>
+</tbody></table>
+<table><thead><tr><th>コード</th><th>意味</th></tr></thead><tbody>
+<tr><td>static void start(…)</td><td>クラス名を付けて <code>TestActivity.start(…)</code> と呼べるメソッド。staticはA05 STEP 7の定数と同じで「クラスで1つ」の意味。<code>Log.d(…)</code>（A01 STEP 5）も同じ呼び方。</td></tr>
+<tr><td>Context context</td><td>画面（Activity）などを受け取るための型。MainActivityから <code>this</code> を渡すと、ここに入る。</td></tr>
+<tr><td>int intValue など</td><td><strong>引数（ひきすう）</strong>。メソッドを呼ぶときに ( ) の中で渡した値を、順番に受け取る変数。</td></tr>
+<tr><td>new Intent(context, TestActivity.class)</td><td>STEP 4と同じ。<code>this</code> の代わりに、受け取ったcontextを使う。</td></tr>
+<tr><td>intent.putExtra(EXTRA_KEY_INT_VALUE, intValue)</td><td>キーと値の組をIntentに入れる。STEP 5のgetIntExtraと同じキーで取り出せる。</td></tr>
+<tr><td>context.startActivity(intent)</td><td>渡された画面（MainActivity）からTestActivityを開く。</td></tr>
+</tbody></table>
+<h3>③ MainActivityで呼び出す</h3>
+<p>MainActivity.javaの、btn1の処理の <code>});</code> の下に、1行空けて追加します。</p>
+<div class="code-head">追加 · btn1の処理の });の下</div>
+<pre id="code-btn2" tabindex="0"><code>findViewById(R.id.btn2).setOnClickListener(v -&gt; {
+    TestActivity.start(this, 1, 2L, 3.0f,
+            4.0, true, '5', &quot;6&quot;);
+});</code></pre>
+<p>長い行は、<code>,</code> のあとで改行しても1つの命令として続きます。</p>
+<table><thead><tr><th>渡す値</th><th>受け取る引数</th><th>型</th><th>書き方のポイント</th></tr></thead><tbody>
+<tr><td>this</td><td>context</td><td>Context</td><td>今の画面のMainActivity。</td></tr>
+<tr><td>1</td><td>intValue</td><td>int</td><td>整数。</td></tr>
+<tr><td>2L</td><td>longValue</td><td>long</td><td>最後のLでlongを表す。</td></tr>
+<tr><td>3.0f</td><td>floatValue</td><td>float</td><td>最後のfが必要。fがないとdoubleになり、赤いエラーになる（STEP 10 練習3）。</td></tr>
+<tr><td>4.0</td><td>doubleValue</td><td>double</td><td>何も付けない小数はdouble。</td></tr>
+<tr><td>true</td><td>booleanValue</td><td>boolean</td><td>—</td></tr>
+<tr><td>'5'</td><td>charValue</td><td>char</td><td>1文字は ' ' で囲む。</td></tr>
+<tr><td>"6"</td><td>stringValue</td><td>String</td><td>文字列は " " で囲む。数字でも文字として扱う。</td></tr>
+</tbody></table>
+<p>MainActivityには、キーの文字が1つも出てきません。値を順番に渡すだけです。</p>
+<h3>Runで確かめる</h3><p>Test 2を押します。送った7つの値が出れば成功です。</p>
+<div class="code-head">読むところの例 · Test 2を押したとき</div><pre tabindex="0"><code>TestActivity  D  intValue: 1
+TestActivity  D  longValue: 2
+TestActivity  D  floatValue: 3.0
+TestActivity  D  doubleValue: 4.0
+TestActivity  D  booleanValue: true
+TestActivity  D  charValue: 5
+TestActivity  D  stringValue: 6</code></pre>
+<p><code>2L</code> の <code>L</code>、<code>3.0f</code> の <code>f</code>、<code>'5'</code> と <code>"6"</code> の囲みの記号は、Logには出ません。戻ってTest 1を押すと、今までどおり既定値の7行です。</p>
+<h3 id="key-in-test-activity">解説：キーの定数が、なぜ受け取る側のTestActivityにある？</h3>
+<div class="flow" aria-label="値が渡る道すじ"><strong>MainActivity：TestActivity.start(this, 1, …)</strong><span>→</span><strong>TestActivity.start：putExtra(EXTRA_KEY_INT_VALUE, intValue)</strong><span>→ Intent →</span><strong>TestActivity.onCreate：getIntExtra(EXTRA_KEY_INT_VALUE, 0)</strong></div>
+<table><thead><tr><th>理由</th><th>説明</th></tr></thead><tbody>
+<tr><td>① キーを使うのはTestActivityの中だけ</td><td>入れるputExtra（start）と、取り出すgetXxxExtra（onCreate）が、どちらもTestActivityにある。だからprivateでTestActivityの中に置ける。</td></tr>
+<tr><td>② キーの文字を書くのは1か所</td><td>"intValue" と書くのは定数の行だけ。入れる側と取り出す側で綴りがずれない。A04 STEP 5の「enumを使うメリット」と同じ考え方。</td></tr>
+<tr><td>③ 開く側はキーを知らなくてよい</td><td>MainActivityはstartに値を渡すだけ。どんなキーで入れるかは、受け取るTestActivityが決める。</td></tr>
+<tr><td>④ 渡す値の型と順番をstartが決める</td><td>型や数が違うと、Runの前に赤いエラーで気付ける（STEP 10 練習3）。</td></tr>
+</tbody></table>
+<p>もしキーを定数にせず、送る側と受け取る側に直接書くと、次のようになります。この枠は<strong>入力しません</strong>。</p>
+<pre tabindex="0"><code>// MainActivity（送る側）
+intent.putExtra(&quot;intValue&quot;, 1);
+// TestActivity（受け取る側）
+var intValue = getIntent().getIntExtra(&quot;intvalue&quot;, 0);</code></pre>
+<p>受け取る側の <code>v</code> が小文字になっていても、赤いエラーにはなりません。<code>intValue: 0</code> と出るだけで、間違いに気付きにくくなります（STEP 10 練習2で試します）。A05 STEP 11のふり返り「数字を直接書く代わりに定数を使うと何がよいか」も思い出しましょう。Android Studioのstarterテンプレートも、開かれる側のクラスの中にstartを作ります。</p>
+<details><summary>STEP 6のTestActivity.java全体で照合する</summary><div class="code-head">照合用 · TestActivity.java</div>
+<pre id="code-step6-test" tabindex="0"><code>package jp.ac.jec.a06screentransitionsample;
+
+import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
+import android.util.Log;
+
+import androidx.activity.EdgeToEdge;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.graphics.Insets;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowInsetsCompat;
+
+public class TestActivity extends AppCompatActivity {
+    private static final String EXTRA_KEY_INT_VALUE = &quot;intValue&quot;;
+    private static final String EXTRA_KEY_LONG_VALUE = &quot;longValue&quot;;
+    private static final String EXTRA_KEY_FLOAT_VALUE = &quot;floatValue&quot;;
+    private static final String EXTRA_KEY_DOUBLE_VALUE = &quot;doubleValue&quot;;
+    private static final String EXTRA_KEY_BOOLEAN_VALUE = &quot;booleanValue&quot;;
+    private static final String EXTRA_KEY_CHAR_VALUE = &quot;charValue&quot;;
+    private static final String EXTRA_KEY_STRING_VALUE = &quot;stringValue&quot;;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        EdgeToEdge.enable(this);
+        setContentView(R.layout.activity_test);
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -&gt; {
+            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
+            return insets;
+        });
+
+        var intValue = getIntent().getIntExtra(EXTRA_KEY_INT_VALUE, 0);
+        var longValue = getIntent().getLongExtra(EXTRA_KEY_LONG_VALUE, 0);
+        var floatValue = getIntent().getFloatExtra(EXTRA_KEY_FLOAT_VALUE, 0);
+        var doubleValue = getIntent().getDoubleExtra(EXTRA_KEY_DOUBLE_VALUE, 0);
+        var booleanValue = getIntent().getBooleanExtra(EXTRA_KEY_BOOLEAN_VALUE, false);
+        var charValue = getIntent().getCharExtra(EXTRA_KEY_CHAR_VALUE, ' ');
+        var stringValue = getIntent().getStringExtra(EXTRA_KEY_STRING_VALUE);
+        Log.d(&quot;TestActivity&quot;, &quot;intValue: &quot; + intValue);
+        Log.d(&quot;TestActivity&quot;, &quot;longValue: &quot; + longValue);
+        Log.d(&quot;TestActivity&quot;, &quot;floatValue: &quot; + floatValue);
+        Log.d(&quot;TestActivity&quot;, &quot;doubleValue: &quot; + doubleValue);
+        Log.d(&quot;TestActivity&quot;, &quot;booleanValue: &quot; + booleanValue);
+        Log.d(&quot;TestActivity&quot;, &quot;charValue: &quot; + charValue);
+        Log.d(&quot;TestActivity&quot;, &quot;stringValue: &quot; + stringValue);
+    }
+
+    // startメソッドはAndroid Studioのコードテンプレートを利用して作成できる！
+    static void start(Context context, int intValue, long longValue, float floatValue,
+                      double doubleValue, boolean booleanValue, char charValue, String stringValue) {
+        var intent = new Intent(context, TestActivity.class);
+        intent.putExtra(EXTRA_KEY_INT_VALUE, intValue);
+        intent.putExtra(EXTRA_KEY_LONG_VALUE, longValue);
+        intent.putExtra(EXTRA_KEY_FLOAT_VALUE, floatValue);
+        intent.putExtra(EXTRA_KEY_DOUBLE_VALUE, doubleValue);
+        intent.putExtra(EXTRA_KEY_BOOLEAN_VALUE, booleanValue);
+        intent.putExtra(EXTRA_KEY_CHAR_VALUE, charValue);
+        intent.putExtra(EXTRA_KEY_STRING_VALUE, stringValue);
+        context.startActivity(intent);
+    }
+}</code></pre></details>
+<div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-6"><span>Test 2で 1・2・3.0・4.0・true・5・6 がLogcatに出ることを確認した。キーの定数をTestActivityに置く理由を説明できた。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
+<div class="next"><a href="#step-7">次へ：配列を渡す →</a></div>
+</section>
+<section id="step-7" aria-labelledby="title-7">
+<p class="step-meta">STEP 07 · 目安 10分</p><h2 id="title-7">配列を渡す</h2>
+
+<p class="file">変更するファイル：TestActivity.java、MainActivity.java</p>
+<p>STEP 5・6と同じ流れです。<strong>定数 → 受け取り → start → ボタン</strong>の順に追加します。</p>
+<h3>① キーの定数を追加する（Aの場所）</h3>
+<p><code>EXTRA_KEY_STRING_VALUE</code> の行の下に、1行空けて追加します。</p>
+<div class="code-head">追加 · EXTRA_KEY_STRING_VALUE の行の下</div>
+<pre id="code-keys-array" tabindex="0"><code>private static final String EXTRA_KEY_INT_ARRAY_VALUE = &quot;intArrayValue&quot;;
+private static final String EXTRA_KEY_LONG_ARRAY_VALUE = &quot;longArrayValue&quot;;
+private static final String EXTRA_KEY_FLOAT_ARRAY_VALUE = &quot;floatArrayValue&quot;;
+private static final String EXTRA_KEY_DOUBLE_ARRAY_VALUE = &quot;doubleArrayValue&quot;;
+private static final String EXTRA_KEY_BOOLEAN_ARRAY_VALUE = &quot;booleanArrayValue&quot;;
+private static final String EXTRA_KEY_CHAR_ARRAY_VALUE = &quot;charArrayValue&quot;;
+private static final String EXTRA_KEY_STRING_ARRAY_VALUE = &quot;stringArrayValue&quot;;</code></pre>
+<h3>② 受け取ってLogに出す（Bの場所）</h3>
+<p><code>Log.d("TestActivity", "stringValue: " + stringValue);</code> の下に、1行空けて追加します。</p>
+<div class="code-head">追加 · stringValueのLog.dの下</div>
+<pre id="code-receive-array" tabindex="0"><code>var intArrayValue = getIntent().getIntArrayExtra(EXTRA_KEY_INT_ARRAY_VALUE);
+var longArrayValue = getIntent().getLongArrayExtra(EXTRA_KEY_LONG_ARRAY_VALUE);
+var floatArrayValue = getIntent().getFloatArrayExtra(EXTRA_KEY_FLOAT_ARRAY_VALUE);
+var doubleArrayValue = getIntent().getDoubleArrayExtra(EXTRA_KEY_DOUBLE_ARRAY_VALUE);
+var booleanArrayValue = getIntent().getBooleanArrayExtra(EXTRA_KEY_BOOLEAN_ARRAY_VALUE);
+var charArrayValue = getIntent().getCharArrayExtra(EXTRA_KEY_CHAR_ARRAY_VALUE);
+var stringArrayValue = getIntent().getStringArrayExtra(EXTRA_KEY_STRING_ARRAY_VALUE);
+Log.d(&quot;TestActivity&quot;, &quot;intArrayValue: &quot; + Arrays.toString(intArrayValue));
+Log.d(&quot;TestActivity&quot;, &quot;longArrayValue: &quot; + Arrays.toString(longArrayValue));
+Log.d(&quot;TestActivity&quot;, &quot;floatArrayValue: &quot; + Arrays.toString(floatArrayValue));
+Log.d(&quot;TestActivity&quot;, &quot;doubleArrayValue: &quot; + Arrays.toString(doubleArrayValue));
+Log.d(&quot;TestActivity&quot;, &quot;booleanArrayValue: &quot; + Arrays.toString(booleanArrayValue));
+Log.d(&quot;TestActivity&quot;, &quot;charArrayValue: &quot; + Arrays.toString(charArrayValue));
+Log.d(&quot;TestActivity&quot;, &quot;stringArrayValue: &quot; + Arrays.toString(stringArrayValue));</code></pre>
+<p>importは <code>java.util.Arrays</code> です（A05 STEP 5と同じ）。</p>
+<h3>③ 2つ目のstartを追加する（Cの場所）</h3>
+<p>1つ目のstartの最後の <code>}</code> の下（クラスの最後の <code>}</code> の上）に、1行空けて追加します。</p>
+<div class="code-head">追加 · 1つ目のstartの } の下</div>
+<pre id="code-start-array" tabindex="0"><code>static void start(Context context, int[] intArrayValue, long[] longArrayValue,
+                  float[] floatArrayValue, double[] doubleArrayValue,
+                  boolean[] booleanArrayValue, char[] charArrayValue, String[] stringArrayValue) {
+    var intent = new Intent(context, TestActivity.class);
+    intent.putExtra(EXTRA_KEY_INT_ARRAY_VALUE, intArrayValue);
+    intent.putExtra(EXTRA_KEY_LONG_ARRAY_VALUE, longArrayValue);
+    intent.putExtra(EXTRA_KEY_FLOAT_ARRAY_VALUE, floatArrayValue);
+    intent.putExtra(EXTRA_KEY_DOUBLE_ARRAY_VALUE, doubleArrayValue);
+    intent.putExtra(EXTRA_KEY_BOOLEAN_ARRAY_VALUE, booleanArrayValue);
+    intent.putExtra(EXTRA_KEY_CHAR_ARRAY_VALUE, charArrayValue);
+    intent.putExtra(EXTRA_KEY_STRING_ARRAY_VALUE, stringArrayValue);
+    context.startActivity(intent);
+}</code></pre>
+<h3>④ MainActivityで呼び出す</h3>
+<p>btn2の処理の <code>});</code> の下に、1行空けて追加します。</p>
+<div class="code-head">追加 · btn2の処理の });の下</div>
+<pre id="code-btn3" tabindex="0"><code>findViewById(R.id.btn3).setOnClickListener(v -&gt; {
+    TestActivity.start(this, new int[]{1, 2, 3},
+            new long[]{4, 5, 6}, new float[]{7.0f, 8.0f, 9.0f},
+            new double[]{10.0, 11.0, 12.0}, new boolean[]{true, false, true},
+            new char[]{'a', 'b', 'c'}, new String[]{&quot;7&quot;, &quot;8&quot;, &quot;9&quot;});
+});</code></pre>
+<table><thead><tr><th>コード</th><th>意味</th></tr></thead><tbody>
+<tr><td>int[] intArrayValue</td><td>intの配列（A05 STEP 5）。long[] や char[] も、中に入る型が違うだけで同じ書き方。</td></tr>
+<tr><td>new long[]{4, 5, 6}</td><td>longの配列。{ } の中はlongとして入るのでLはいらない。</td></tr>
+<tr><td>new float[]{7.0f, 8.0f, 9.0f}</td><td>floatの配列。STEP 6と同じくfが必要。</td></tr>
+<tr><td>getIntArrayExtra(EXTRA_KEY_INT_ARRAY_VALUE)</td><td>配列を取り出す。既定値は書かず、入っていなければ null。</td></tr>
+<tr><td>Arrays.toString(intArrayValue)</td><td>配列の中身を [1, 2, 3] の形の文字にする。nullなら null と出す。</td></tr>
+</tbody></table>
+<h3>同じ名前のstartが2つあっても動くのは？</h3>
+<p>同じ名前のメソッドを、引数の型や数を変えて複数作ることを <strong>オーバーロード</strong> と言います。呼び出すときに渡した値の型から、Javaがどちらのstartを使うかを決めます。Test 2はintなどを渡すので1つ目、Test 3は配列を渡すので2つ目です。<code>putExtra</code> がintでもStringでも配列でも同じ名前で使えるのも、同じ仕組みです。</p>
+<h3>Runで確かめる</h3><p>Test 3を押します。配列の7行に値が出れば成功です。</p>
+<div class="code-head">読むところの例 · Test 3を押したとき</div><pre tabindex="0"><code>TestActivity  D  intValue: 0
+TestActivity  D  longValue: 0
+TestActivity  D  floatValue: 0.0
+TestActivity  D  doubleValue: 0.0
+TestActivity  D  booleanValue: false
+TestActivity  D  charValue:
+TestActivity  D  stringValue: null
+TestActivity  D  intArrayValue: [1, 2, 3]
+TestActivity  D  longArrayValue: [4, 5, 6]
+TestActivity  D  floatArrayValue: [7.0, 8.0, 9.0]
+TestActivity  D  doubleArrayValue: [10.0, 11.0, 12.0]
+TestActivity  D  booleanArrayValue: [true, false, true]
+TestActivity  D  charArrayValue: [a, b, c]
+TestActivity  D  stringArrayValue: [7, 8, 9]</code></pre>
+<p>前半の7行は、Test 3では送っていないので既定値です。Test 1とTest 2では、配列の7行が null になります。</p>
+<details><summary>STEP 7のTestActivity.java全体で照合する</summary><div class="code-head">照合用 · TestActivity.java</div>
+<pre id="code-step7-test" tabindex="0"><code>package jp.ac.jec.a06screentransitionsample;
+
+import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
+import android.util.Log;
+
+import androidx.activity.EdgeToEdge;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.graphics.Insets;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowInsetsCompat;
+
+import java.util.Arrays;
+
+public class TestActivity extends AppCompatActivity {
+    private static final String EXTRA_KEY_INT_VALUE = &quot;intValue&quot;;
+    private static final String EXTRA_KEY_LONG_VALUE = &quot;longValue&quot;;
+    private static final String EXTRA_KEY_FLOAT_VALUE = &quot;floatValue&quot;;
+    private static final String EXTRA_KEY_DOUBLE_VALUE = &quot;doubleValue&quot;;
+    private static final String EXTRA_KEY_BOOLEAN_VALUE = &quot;booleanValue&quot;;
+    private static final String EXTRA_KEY_CHAR_VALUE = &quot;charValue&quot;;
+    private static final String EXTRA_KEY_STRING_VALUE = &quot;stringValue&quot;;
+
+    private static final String EXTRA_KEY_INT_ARRAY_VALUE = &quot;intArrayValue&quot;;
+    private static final String EXTRA_KEY_LONG_ARRAY_VALUE = &quot;longArrayValue&quot;;
+    private static final String EXTRA_KEY_FLOAT_ARRAY_VALUE = &quot;floatArrayValue&quot;;
+    private static final String EXTRA_KEY_DOUBLE_ARRAY_VALUE = &quot;doubleArrayValue&quot;;
+    private static final String EXTRA_KEY_BOOLEAN_ARRAY_VALUE = &quot;booleanArrayValue&quot;;
+    private static final String EXTRA_KEY_CHAR_ARRAY_VALUE = &quot;charArrayValue&quot;;
+    private static final String EXTRA_KEY_STRING_ARRAY_VALUE = &quot;stringArrayValue&quot;;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        EdgeToEdge.enable(this);
+        setContentView(R.layout.activity_test);
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -&gt; {
+            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
+            return insets;
+        });
+
+        var intValue = getIntent().getIntExtra(EXTRA_KEY_INT_VALUE, 0);
+        var longValue = getIntent().getLongExtra(EXTRA_KEY_LONG_VALUE, 0);
+        var floatValue = getIntent().getFloatExtra(EXTRA_KEY_FLOAT_VALUE, 0);
+        var doubleValue = getIntent().getDoubleExtra(EXTRA_KEY_DOUBLE_VALUE, 0);
+        var booleanValue = getIntent().getBooleanExtra(EXTRA_KEY_BOOLEAN_VALUE, false);
+        var charValue = getIntent().getCharExtra(EXTRA_KEY_CHAR_VALUE, ' ');
+        var stringValue = getIntent().getStringExtra(EXTRA_KEY_STRING_VALUE);
+        Log.d(&quot;TestActivity&quot;, &quot;intValue: &quot; + intValue);
+        Log.d(&quot;TestActivity&quot;, &quot;longValue: &quot; + longValue);
+        Log.d(&quot;TestActivity&quot;, &quot;floatValue: &quot; + floatValue);
+        Log.d(&quot;TestActivity&quot;, &quot;doubleValue: &quot; + doubleValue);
+        Log.d(&quot;TestActivity&quot;, &quot;booleanValue: &quot; + booleanValue);
+        Log.d(&quot;TestActivity&quot;, &quot;charValue: &quot; + charValue);
+        Log.d(&quot;TestActivity&quot;, &quot;stringValue: &quot; + stringValue);
+
+        var intArrayValue = getIntent().getIntArrayExtra(EXTRA_KEY_INT_ARRAY_VALUE);
+        var longArrayValue = getIntent().getLongArrayExtra(EXTRA_KEY_LONG_ARRAY_VALUE);
+        var floatArrayValue = getIntent().getFloatArrayExtra(EXTRA_KEY_FLOAT_ARRAY_VALUE);
+        var doubleArrayValue = getIntent().getDoubleArrayExtra(EXTRA_KEY_DOUBLE_ARRAY_VALUE);
+        var booleanArrayValue = getIntent().getBooleanArrayExtra(EXTRA_KEY_BOOLEAN_ARRAY_VALUE);
+        var charArrayValue = getIntent().getCharArrayExtra(EXTRA_KEY_CHAR_ARRAY_VALUE);
+        var stringArrayValue = getIntent().getStringArrayExtra(EXTRA_KEY_STRING_ARRAY_VALUE);
+        Log.d(&quot;TestActivity&quot;, &quot;intArrayValue: &quot; + Arrays.toString(intArrayValue));
+        Log.d(&quot;TestActivity&quot;, &quot;longArrayValue: &quot; + Arrays.toString(longArrayValue));
+        Log.d(&quot;TestActivity&quot;, &quot;floatArrayValue: &quot; + Arrays.toString(floatArrayValue));
+        Log.d(&quot;TestActivity&quot;, &quot;doubleArrayValue: &quot; + Arrays.toString(doubleArrayValue));
+        Log.d(&quot;TestActivity&quot;, &quot;booleanArrayValue: &quot; + Arrays.toString(booleanArrayValue));
+        Log.d(&quot;TestActivity&quot;, &quot;charArrayValue: &quot; + Arrays.toString(charArrayValue));
+        Log.d(&quot;TestActivity&quot;, &quot;stringArrayValue: &quot; + Arrays.toString(stringArrayValue));
+    }
+
+    // startメソッドはAndroid Studioのコードテンプレートを利用して作成できる！
+    static void start(Context context, int intValue, long longValue, float floatValue,
+                      double doubleValue, boolean booleanValue, char charValue, String stringValue) {
+        var intent = new Intent(context, TestActivity.class);
+        intent.putExtra(EXTRA_KEY_INT_VALUE, intValue);
+        intent.putExtra(EXTRA_KEY_LONG_VALUE, longValue);
+        intent.putExtra(EXTRA_KEY_FLOAT_VALUE, floatValue);
+        intent.putExtra(EXTRA_KEY_DOUBLE_VALUE, doubleValue);
+        intent.putExtra(EXTRA_KEY_BOOLEAN_VALUE, booleanValue);
+        intent.putExtra(EXTRA_KEY_CHAR_VALUE, charValue);
+        intent.putExtra(EXTRA_KEY_STRING_VALUE, stringValue);
+        context.startActivity(intent);
+    }
+
+    static void start(Context context, int[] intArrayValue, long[] longArrayValue,
+                      float[] floatArrayValue, double[] doubleArrayValue,
+                      boolean[] booleanArrayValue, char[] charArrayValue, String[] stringArrayValue) {
+        var intent = new Intent(context, TestActivity.class);
+        intent.putExtra(EXTRA_KEY_INT_ARRAY_VALUE, intArrayValue);
+        intent.putExtra(EXTRA_KEY_LONG_ARRAY_VALUE, longArrayValue);
+        intent.putExtra(EXTRA_KEY_FLOAT_ARRAY_VALUE, floatArrayValue);
+        intent.putExtra(EXTRA_KEY_DOUBLE_ARRAY_VALUE, doubleArrayValue);
+        intent.putExtra(EXTRA_KEY_BOOLEAN_ARRAY_VALUE, booleanArrayValue);
+        intent.putExtra(EXTRA_KEY_CHAR_ARRAY_VALUE, charArrayValue);
+        intent.putExtra(EXTRA_KEY_STRING_ARRAY_VALUE, stringArrayValue);
+        context.startActivity(intent);
+    }
+}</code></pre></details>
+<div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-7"><span>Test 3で7つの配列の中身がLogcatに出ることを確認した。同じ名前のstartが2つあっても動く理由を説明できた。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
+<div class="next"><a href="#step-8">次へ：ArrayListを渡す →</a></div>
+</section>
+<section id="step-8" aria-labelledby="title-8">
+<p class="step-meta">STEP 08 · 目安 10分</p><h2 id="title-8">ArrayListを渡す</h2>
+
+<p class="file">変更するファイル：TestActivity.java、MainActivity.java</p>
+<p>STEP 7と同じ流れです。今度は <strong>ArrayList（アレイリスト）</strong> を渡します。ArrayListは、値を順番に並べて持つ入れ物です。</p>
+<h3>① キーの定数を追加する（Aの場所）</h3>
+<p><code>EXTRA_KEY_STRING_ARRAY_VALUE</code> の行の下に、1行空けて追加します。</p>
+<div class="code-head">追加 · EXTRA_KEY_STRING_ARRAY_VALUE の行の下</div>
+<pre id="code-keys-list" tabindex="0"><code>private static final String EXTRA_KEY_INTEGER_ARRAY_LIST_VALUE = &quot;integerArrayListValue&quot;;
+private static final String EXTRA_KEY_STRING_ARRAY_LIST_VALUE = &quot;stringArrayListValue&quot;;</code></pre>
+<h3>② 受け取ってLogに出す（Bの場所）</h3>
+<p><code>Log.d("TestActivity", "stringArrayValue: " + Arrays.toString(stringArrayValue));</code> の下に、1行空けて追加します。</p>
+<div class="code-head">追加 · stringArrayValueのLog.dの下</div>
+<pre id="code-receive-list" tabindex="0"><code>var integerArrayListValue = getIntent().getIntegerArrayListExtra(EXTRA_KEY_INTEGER_ARRAY_LIST_VALUE);
+var stringArrayListValue = getIntent().getStringArrayListExtra(EXTRA_KEY_STRING_ARRAY_LIST_VALUE);
+Log.d(&quot;TestActivity&quot;, &quot;integerArrayListValue: &quot; + integerArrayListValue);
+Log.d(&quot;TestActivity&quot;, &quot;stringArrayListValue: &quot; + stringArrayListValue);</code></pre>
+<h3>③ 3つ目のstartを追加する（Cの場所）</h3>
+<p>2つ目のstartの <code>}</code> の下に、1行空けて追加します。</p>
+<div class="code-head">追加 · 2つ目のstartの } の下</div>
+<pre id="code-start-list" tabindex="0"><code>static void start(Context context, ArrayList&lt;Integer&gt; integerArrayListValue, ArrayList&lt;String&gt; stringArrayListValue) {
+    var intent = new Intent(context, TestActivity.class);
+    intent.putIntegerArrayListExtra(EXTRA_KEY_INTEGER_ARRAY_LIST_VALUE, integerArrayListValue);
+    intent.putStringArrayListExtra(EXTRA_KEY_STRING_ARRAY_LIST_VALUE, stringArrayListValue);
+    context.startActivity(intent);
+}</code></pre>
+<p>TestActivityのimportは <code>java.util.ArrayList</code> です。</p>
+<h3>④ MainActivityで呼び出す</h3>
+<p>btn3の処理の <code>});</code> の下に、1行空けて追加します。</p>
+<div class="code-head">追加 · btn3の処理の });の下</div>
+<pre id="code-btn4" tabindex="0"><code>findViewById(R.id.btn4).setOnClickListener(v -&gt; {
+    TestActivity.start(this, new ArrayList&lt;&gt;(List.of(1, 2, 3)),
+            new ArrayList&lt;&gt;(List.of(&quot;4&quot;, &quot;5&quot;, &quot;6&quot;)));
+});</code></pre>
+<p>MainActivityのimportは <code>java.util.ArrayList</code>、<code>java.util.List</code> です。Listの候補が出たら <code>java.util.List</code> を選びます。</p>
+<table><thead><tr><th>コード</th><th>意味</th></tr></thead><tbody>
+<tr><td>ArrayList&lt;Integer&gt;</td><td>整数を順番に並べて持つ入れ物。&lt; &gt; の中は、入る値の型。整数はintではなくIntegerと書く決まり。</td></tr>
+<tr><td>ArrayList&lt;String&gt;</td><td>文字列を並べて持つArrayList。</td></tr>
+<tr><td>List.of(1, 2, 3)</td><td>値を並べたリストを作る。</td></tr>
+<tr><td>new ArrayList&lt;&gt;(List.of(1, 2, 3))</td><td>そのリストの中身でArrayListを作る。&lt; &gt; の中は、受け取る引数の型から決まるので省略できる。</td></tr>
+<tr><td>putIntegerArrayListExtra / putStringArrayListExtra</td><td>ArrayListを入れる。putExtraとは名前が違う。</td></tr>
+<tr><td>getIntegerArrayListExtra(…)</td><td>ArrayListを取り出す。入っていなければ null。</td></tr>
+</tbody></table>
+<p><code>putIntegerArrayListExtra</code> はArrayListを受け取るので、<code>List.of(1, 2, 3)</code> だけを渡すと赤いエラーになります。<code>new ArrayList&lt;&gt;( )</code> でArrayListにしてから渡します。ArrayListは、<code>Arrays.toString</code> を使わなくても [1, 2, 3] の形でLogに出ます。</p>
+<h3>Runで確かめる</h3><p>Test 4を押します。最後の2行に値が出れば成功です。</p>
+<div class="code-head">読むところの例 · Test 4を押したとき（最後の4行）</div><pre tabindex="0"><code>TestActivity  D  charArrayValue: null
+TestActivity  D  stringArrayValue: null
+TestActivity  D  integerArrayListValue: [1, 2, 3]
+TestActivity  D  stringArrayListValue: [4, 5, 6]</code></pre>
+<p>"4" などは文字列ですが、Logには " " なしで出ます。前の14行は、Test 4では送っていないので既定値か null です。</p>
+<details><summary>STEP 8のTestActivity.java全体で照合する</summary><div class="code-head">照合用 · TestActivity.java</div>
+<pre id="code-step8-test" tabindex="0"><code>package jp.ac.jec.a06screentransitionsample;
+
+import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
+import android.util.Log;
+
+import androidx.activity.EdgeToEdge;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.graphics.Insets;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowInsetsCompat;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+
+public class TestActivity extends AppCompatActivity {
+    private static final String EXTRA_KEY_INT_VALUE = &quot;intValue&quot;;
+    private static final String EXTRA_KEY_LONG_VALUE = &quot;longValue&quot;;
+    private static final String EXTRA_KEY_FLOAT_VALUE = &quot;floatValue&quot;;
+    private static final String EXTRA_KEY_DOUBLE_VALUE = &quot;doubleValue&quot;;
+    private static final String EXTRA_KEY_BOOLEAN_VALUE = &quot;booleanValue&quot;;
+    private static final String EXTRA_KEY_CHAR_VALUE = &quot;charValue&quot;;
+    private static final String EXTRA_KEY_STRING_VALUE = &quot;stringValue&quot;;
+
+    private static final String EXTRA_KEY_INT_ARRAY_VALUE = &quot;intArrayValue&quot;;
+    private static final String EXTRA_KEY_LONG_ARRAY_VALUE = &quot;longArrayValue&quot;;
+    private static final String EXTRA_KEY_FLOAT_ARRAY_VALUE = &quot;floatArrayValue&quot;;
+    private static final String EXTRA_KEY_DOUBLE_ARRAY_VALUE = &quot;doubleArrayValue&quot;;
+    private static final String EXTRA_KEY_BOOLEAN_ARRAY_VALUE = &quot;booleanArrayValue&quot;;
+    private static final String EXTRA_KEY_CHAR_ARRAY_VALUE = &quot;charArrayValue&quot;;
+    private static final String EXTRA_KEY_STRING_ARRAY_VALUE = &quot;stringArrayValue&quot;;
+
+    private static final String EXTRA_KEY_INTEGER_ARRAY_LIST_VALUE = &quot;integerArrayListValue&quot;;
+    private static final String EXTRA_KEY_STRING_ARRAY_LIST_VALUE = &quot;stringArrayListValue&quot;;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        EdgeToEdge.enable(this);
+        setContentView(R.layout.activity_test);
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -&gt; {
+            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
+            return insets;
+        });
+
+        var intValue = getIntent().getIntExtra(EXTRA_KEY_INT_VALUE, 0);
+        var longValue = getIntent().getLongExtra(EXTRA_KEY_LONG_VALUE, 0);
+        var floatValue = getIntent().getFloatExtra(EXTRA_KEY_FLOAT_VALUE, 0);
+        var doubleValue = getIntent().getDoubleExtra(EXTRA_KEY_DOUBLE_VALUE, 0);
+        var booleanValue = getIntent().getBooleanExtra(EXTRA_KEY_BOOLEAN_VALUE, false);
+        var charValue = getIntent().getCharExtra(EXTRA_KEY_CHAR_VALUE, ' ');
+        var stringValue = getIntent().getStringExtra(EXTRA_KEY_STRING_VALUE);
+        Log.d(&quot;TestActivity&quot;, &quot;intValue: &quot; + intValue);
+        Log.d(&quot;TestActivity&quot;, &quot;longValue: &quot; + longValue);
+        Log.d(&quot;TestActivity&quot;, &quot;floatValue: &quot; + floatValue);
+        Log.d(&quot;TestActivity&quot;, &quot;doubleValue: &quot; + doubleValue);
+        Log.d(&quot;TestActivity&quot;, &quot;booleanValue: &quot; + booleanValue);
+        Log.d(&quot;TestActivity&quot;, &quot;charValue: &quot; + charValue);
+        Log.d(&quot;TestActivity&quot;, &quot;stringValue: &quot; + stringValue);
+
+        var intArrayValue = getIntent().getIntArrayExtra(EXTRA_KEY_INT_ARRAY_VALUE);
+        var longArrayValue = getIntent().getLongArrayExtra(EXTRA_KEY_LONG_ARRAY_VALUE);
+        var floatArrayValue = getIntent().getFloatArrayExtra(EXTRA_KEY_FLOAT_ARRAY_VALUE);
+        var doubleArrayValue = getIntent().getDoubleArrayExtra(EXTRA_KEY_DOUBLE_ARRAY_VALUE);
+        var booleanArrayValue = getIntent().getBooleanArrayExtra(EXTRA_KEY_BOOLEAN_ARRAY_VALUE);
+        var charArrayValue = getIntent().getCharArrayExtra(EXTRA_KEY_CHAR_ARRAY_VALUE);
+        var stringArrayValue = getIntent().getStringArrayExtra(EXTRA_KEY_STRING_ARRAY_VALUE);
+        Log.d(&quot;TestActivity&quot;, &quot;intArrayValue: &quot; + Arrays.toString(intArrayValue));
+        Log.d(&quot;TestActivity&quot;, &quot;longArrayValue: &quot; + Arrays.toString(longArrayValue));
+        Log.d(&quot;TestActivity&quot;, &quot;floatArrayValue: &quot; + Arrays.toString(floatArrayValue));
+        Log.d(&quot;TestActivity&quot;, &quot;doubleArrayValue: &quot; + Arrays.toString(doubleArrayValue));
+        Log.d(&quot;TestActivity&quot;, &quot;booleanArrayValue: &quot; + Arrays.toString(booleanArrayValue));
+        Log.d(&quot;TestActivity&quot;, &quot;charArrayValue: &quot; + Arrays.toString(charArrayValue));
+        Log.d(&quot;TestActivity&quot;, &quot;stringArrayValue: &quot; + Arrays.toString(stringArrayValue));
+
+        var integerArrayListValue = getIntent().getIntegerArrayListExtra(EXTRA_KEY_INTEGER_ARRAY_LIST_VALUE);
+        var stringArrayListValue = getIntent().getStringArrayListExtra(EXTRA_KEY_STRING_ARRAY_LIST_VALUE);
+        Log.d(&quot;TestActivity&quot;, &quot;integerArrayListValue: &quot; + integerArrayListValue);
+        Log.d(&quot;TestActivity&quot;, &quot;stringArrayListValue: &quot; + stringArrayListValue);
+    }
+
+    // startメソッドはAndroid Studioのコードテンプレートを利用して作成できる！
+    static void start(Context context, int intValue, long longValue, float floatValue,
+                      double doubleValue, boolean booleanValue, char charValue, String stringValue) {
+        var intent = new Intent(context, TestActivity.class);
+        intent.putExtra(EXTRA_KEY_INT_VALUE, intValue);
+        intent.putExtra(EXTRA_KEY_LONG_VALUE, longValue);
+        intent.putExtra(EXTRA_KEY_FLOAT_VALUE, floatValue);
+        intent.putExtra(EXTRA_KEY_DOUBLE_VALUE, doubleValue);
+        intent.putExtra(EXTRA_KEY_BOOLEAN_VALUE, booleanValue);
+        intent.putExtra(EXTRA_KEY_CHAR_VALUE, charValue);
+        intent.putExtra(EXTRA_KEY_STRING_VALUE, stringValue);
+        context.startActivity(intent);
+    }
+
+    static void start(Context context, int[] intArrayValue, long[] longArrayValue,
+                      float[] floatArrayValue, double[] doubleArrayValue,
+                      boolean[] booleanArrayValue, char[] charArrayValue, String[] stringArrayValue) {
+        var intent = new Intent(context, TestActivity.class);
+        intent.putExtra(EXTRA_KEY_INT_ARRAY_VALUE, intArrayValue);
+        intent.putExtra(EXTRA_KEY_LONG_ARRAY_VALUE, longArrayValue);
+        intent.putExtra(EXTRA_KEY_FLOAT_ARRAY_VALUE, floatArrayValue);
+        intent.putExtra(EXTRA_KEY_DOUBLE_ARRAY_VALUE, doubleArrayValue);
+        intent.putExtra(EXTRA_KEY_BOOLEAN_ARRAY_VALUE, booleanArrayValue);
+        intent.putExtra(EXTRA_KEY_CHAR_ARRAY_VALUE, charArrayValue);
+        intent.putExtra(EXTRA_KEY_STRING_ARRAY_VALUE, stringArrayValue);
+        context.startActivity(intent);
+    }
+
+    static void start(Context context, ArrayList&lt;Integer&gt; integerArrayListValue, ArrayList&lt;String&gt; stringArrayListValue) {
+        var intent = new Intent(context, TestActivity.class);
+        intent.putIntegerArrayListExtra(EXTRA_KEY_INTEGER_ARRAY_LIST_VALUE, integerArrayListValue);
+        intent.putStringArrayListExtra(EXTRA_KEY_STRING_ARRAY_LIST_VALUE, stringArrayListValue);
+        context.startActivity(intent);
+    }
+}</code></pre></details>
+<div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-8"><span>Test 4で [1, 2, 3] と [4, 5, 6] がLogcatに出ることを確認した。new ArrayList&lt;&gt;(List.of(…)) にする理由を説明できた。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
+<div class="next"><a href="#step-9">次へ：自分で作ったPersonを渡す →</a></div>
+</section>
+<section id="step-9" aria-labelledby="title-9">
+<p class="step-meta">STEP 09 · 目安 15分</p><h2 id="title-9">自分で作ったPersonを渡す</h2>
+
+<p class="file">新しく作るファイル：app/src/main/java/jp/ac/jec/a06screentransitionsample/Person.java</p>
+<p class="file">変更するファイル：TestActivity.java、MainActivity.java</p>
+<p>名前と年齢をまとめて持つ <strong>Person</strong> クラスを作り、丸ごと渡します。<strong>Person.javaを先に作ってから</strong>、TestActivityとMainActivityを変更します。</p>
+<h3>① Person.javaを作る</h3>
+<p>STEP 3では画面を作るので <strong>New → Activity</strong> を使いました。Personは画面ではなく、データをまとめるクラスです。ここは <strong>New → Java Class</strong> で作ります。</p>
+<ol><li>Project表示で <code>app/src/main/java/jp.ac.jec.a06screentransitionsample</code>（MainActivityがある場所）を右クリックします。</li><li><strong>New → Java Class</strong> を選びます。</li><li>名前に <code>Person</code> と入力し、一覧から <strong>Class</strong> を選んで <kbd>Enter</kbd> を押します。</li><li>できたファイルで <kbd>⌘ A</kbd> → 貼り付けを行い、<strong>ファイル全体を置き換えます</strong>。</li></ol>
+<div class="note"><p class="box-title">作る場所に注意</p><p><code>app/src/test</code> や <code>app/src/androidTest</code> の下に作ると、アプリから使えません。MainActivity.javaと同じ場所に作ります。</p></div>
+<div class="code-head">Person.java · 全体を置き換える</div>
+<pre id="code-person" tabindex="0"><code>package jp.ac.jec.a06screentransitionsample;
+
+import androidx.annotation.NonNull;
+
+import java.io.Serializable;
+
+class Person implements Serializable {
+    private String name;
+    private int age;
+
+    public Person(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    @NonNull
+    @Override
+    public String toString() {
+        return &quot;Person{&quot; +
+                &quot;name='&quot; + name + '\'' +
+                &quot;, age=&quot; + age +
+                '}';
+    }
+}</code></pre>
+<table><thead><tr><th>コード</th><th>意味</th></tr></thead><tbody>
+<tr><td>class Person implements Serializable</td><td>名前と年齢をまとめて持つクラス。<code>implements Serializable</code> は「Intentに入れて渡せる形にする印」。付け忘れると、putExtraと受け取りの行が赤いエラーになる。</td></tr>
+<tr><td>private String name; / private int age;</td><td>名前と年齢を覚えるフィールド（A02 STEP 4）。</td></tr>
+<tr><td>public Person(String name, int age)</td><td>コンストラクタ。受け取った名前と年齢をフィールドに入れる。A04 STEP 5のAppMenuItemと同じ形。</td></tr>
+<tr><td>getName() / getAge()</td><td>名前と年齢を読み出すメソッド（A04のgetUrlと同じ）。今回のアプリでは使っていない。</td></tr>
+<tr><td>@NonNull @Override public String toString()</td><td><code>"person: " + person</code> のように文字につなげたとき、<code>Person{name='John', age=20}</code> という文字にするメソッド。@Overrideと@NonNullはA04 STEP 6で見た印。中の記号の書き方は覚えなくてよい。</td></tr>
+</tbody></table>
+<h3>② キーの定数を追加する（Aの場所）</h3>
+<p><code>EXTRA_KEY_STRING_ARRAY_LIST_VALUE</code> の行の下に、1行空けて追加します。</p>
+<div class="code-head">追加 · EXTRA_KEY_STRING_ARRAY_LIST_VALUE の行の下</div>
+<pre id="code-key-person" tabindex="0"><code>private static final String EXTRA_KEY_PERSON = &quot;person&quot;;</code></pre>
+<h3>③ 受け取ってLogに出す（Bの場所）</h3>
+<p><code>Log.d("TestActivity", "stringArrayListValue: " + stringArrayListValue);</code> の下に、1行空けて追加します。</p>
+<div class="code-head">追加 · stringArrayListValueのLog.dの下</div>
+<pre id="code-receive-person" tabindex="0"><code>var person = IntentCompat.getSerializableExtra(getIntent(), EXTRA_KEY_PERSON, Person.class);
+Log.d(&quot;TestActivity&quot;, &quot;person: &quot; + person);</code></pre>
+<p>importは <code>androidx.core.content.IntentCompat</code> です。</p>
+<h3>④ 4つ目のstartを追加する（Cの場所）</h3>
+<p>3つ目のstartの <code>}</code> の下に、1行空けて追加します。</p>
+<div class="code-head">追加 · 3つ目のstartの } の下</div>
+<pre id="code-start-person" tabindex="0"><code>static void start(Context context, Person person) {
+    var intent = new Intent(context, TestActivity.class);
+    intent.putExtra(EXTRA_KEY_PERSON, person);
+    context.startActivity(intent);
+}</code></pre>
+<h3>⑤ MainActivityで呼び出す</h3>
+<p>btn4の処理の <code>});</code> の下に、1行空けて追加します。</p>
+<div class="code-head">追加 · btn4の処理の });の下</div>
+<pre id="code-btn5" tabindex="0"><code>findViewById(R.id.btn5).setOnClickListener(v -&gt; {
+    TestActivity.start(this, new Person(&quot;John&quot;, 20));
+});</code></pre>
+<table><thead><tr><th>コード</th><th>意味</th></tr></thead><tbody>
+<tr><td>new Person("John", 20)</td><td>コンストラクタに名前と年齢を渡して、Personを作る。enum（A04）ではnewを書かなかった。</td></tr>
+<tr><td>IntentCompat.getSerializableExtra(getIntent(), EXTRA_KEY_PERSON, Person.class)</td><td>Intentからキー "person" の値を、Personとして取り出す。入っていなければ null。</td></tr>
+</tbody></table>
+<p>3つ目の <code>Person.class</code> で「Personとして受け取りたい」と伝えます。以前の書き方 <code>getIntent().getSerializableExtra(キー)</code> は、Android 13（API 33）から<strong>非推奨</strong>（これから新しく使わないほうがよい、という印）になりました。そこで <code>IntentCompat</code> を使います。ひな形の <code>ViewCompat</code> と同じで、名前に <code>Compat</code> が付くクラスは、古いAndroidでも新しいAndroidでも同じ書き方で使えます。</p>
+<div class="note"><p class="box-title">Personのimport</p><p>PersonはMainActivity・TestActivityと同じ場所にあるので、importはいりません。<code>import android.app.Person;</code> や <code>import androidx.core.app.Person;</code> が追加されたら、その行を削除します。同じ名前の別のクラスです。</p></div>
+<h3>Runで確かめる</h3><p>Test 5を押します。最後の行にPersonの中身が出れば完成です。</p>
+<div class="code-head">読むところの例 · Test 5を押したとき（最後の3行）</div><pre tabindex="0"><code>TestActivity  D  integerArrayListValue: null
+TestActivity  D  stringArrayListValue: null
+TestActivity  D  person: Person{name='John', age=20}</code></pre>
+<figure><a href="images/logcat-test5.png"><img src="images/logcat-test5.png" width="2678" height="1052" loading="lazy" alt="Test 5を押したあとのLogcat。tag:TestActivityで絞り込み、最後の行にperson: Person{name='John', age=20}が出ている"></a><figcaption>Test 5のLogcat。画像の検索欄は <code>package:mine tag:TestActivity</code> です。<code>package:mine</code> は、今開いているプロジェクトのアプリを表す書き方で、教科書の検索欄でも同じ行が表示されます。 <a href="images/logcat-test5.png">画像を大きく開く</a></figcaption></figure>
+<p>これで完成です。Test 1〜Test 4を押しても、最後に <code>person: null</code> が付いた17行になります。コード全体は<a href="#sample-project">完成プロジェクトを開く</a>で照合できます。</p>
+<div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-9"><span>Test 5で person: Person{name='John', age=20} がLogcatに出ることを確認した。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
+<div class="next"><a href="#step-10">次へ：ミニ練習 →</a></div>
+</section>
+<section id="step-10" aria-labelledby="title-10">
+<p class="step-meta">STEP 10 · 目安 10分</p><h2 id="title-10">ミニ練習</h2>
+
+<p>まずTest 5まで完成させます。そのあと、次の小変更を1つずつ試します。<strong>予想 → 変更 → Run → 説明 → 元に戻す</strong>の順で行います。</p>
+<div class="task"><p class="box-title">練習1：Test 2で渡す値を変える</p><p>MainActivityのbtn2の処理で、<code>1</code> を <code>100</code> に、<code>"6"</code> を <code>"Android"</code> に変えます。</p>
+<div class="code-head">練習1 · 変更後の2行</div>
+<pre id="code-practice-values" tabindex="0"><code>TestActivity.start(this, 100, 2L, 3.0f,
+        4.0, true, '5', &quot;Android&quot;);</code></pre>
+<p>Test 2のLogcatで、どの行が変わるかを予想してから試します。</p>
+<details><summary>試したあとに答えを見る</summary><p><code>intValue: 100</code> と <code>stringValue: Android</code> の2行が変わり、ほかの5行は同じです。MainActivityで渡す値を変えるだけでよく、キーは変えなくてよいと説明できれば十分です。確認後は <code>1</code> と <code>"6"</code> に戻します。</p></details></div>
+<div class="task"><p class="box-title">練習2：キーを直接書いて、打ち間違える</p><p>TestActivityのonCreateで、<code>getIntExtra(EXTRA_KEY_INT_VALUE, 0)</code> を次のように変えます（<code>v</code> が小文字です）。</p>
+<div class="code-head">練習2 · 変更後の行</div>
+<pre id="code-practice-key" tabindex="0"><code>var intValue = getIntent().getIntExtra(&quot;intvalue&quot;, 0);</code></pre>
+<p>赤いエラーは出るでしょうか。Test 2を押すと、intValueは何と出るでしょうか。予想してから試します。</p>
+<details><summary>試したあとに答えを見る</summary><p>赤いエラーは出ません。Test 2でも <code>intValue: 0</code> になります（ほかの6行は送った値のままです）。送ったキーは "intValue"、探したキーは "intvalue" で、見つからないため既定値の0が返るからです。定数の名前を <code>EXTRA_KEY_INT_VALU</code> のように打ち間違えた場合は、すぐ赤いエラーになります。キーを定数にしてTestActivityの1か所で使う理由を説明できれば十分です。確認後は <code>EXTRA_KEY_INT_VALUE</code> に戻します。</p></details></div>
+<div class="task"><p class="box-title">練習3：3.0fのfを消すとどうなる？</p><p>MainActivityのbtn2の <code>3.0f</code> を <code>3.0</code> に変えます。Runする前に、何が起きるか予想します。</p>
+<details><summary>試したあとに答えを見る</summary><p><code>start</code> に赤い波線が出て、Runするとビルドエラーになります。<code>3.0</code> はdoubleで、1つ目のstartの3つ目の引数はfloatなので、渡した値に合うstartがないからです。Runの前に間違いに気付けることを説明できれば十分です。確認後は <code>3.0f</code> に戻します。</p></details></div>
+<div class="note"><p class="box-title">完成版に戻してから確認</p><p>練習1の <code>1</code> と <code>"6"</code>、練習2の <code>EXTRA_KEY_INT_VALUE</code>、練習3の <code>3.0f</code> を元に戻します。Runして、Test 2が 1・2・3.0・4.0・true・5・6 に戻ることを確かめます。</p></div>
+<div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-10"><span>3つの練習を予想してから試し、完成版に戻してTest 2の結果が元に戻ったことを確認した。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
+<div class="next"><a href="#step-11">次へ：完成とふり返り →</a></div>
+</section>
+<section id="step-11" aria-labelledby="title-11">
+<p class="step-meta">STEP 11 · 目安 15分</p><h2 id="title-11">完成とふり返り</h2>
+
+<h3>Test 1〜Test 5の結果を比べる</h3>
+<table><thead><tr><th>ボタン</th><th>呼び出し</th><th>渡したもの</th><th>値が出る行</th></tr></thead><tbody>
+<tr><td>Test 1</td><td>new Intent + startActivity</td><td>何も入れない</td><td>なし（17行すべて既定値かnull）</td></tr>
+<tr><td>Test 2</td><td>start（1つずつの値）</td><td>7つの値を1つずつ</td><td>intValue〜stringValue</td></tr>
+<tr><td>Test 3</td><td>start（配列）</td><td>7種類の配列</td><td>intArrayValue〜stringArrayValue</td></tr>
+<tr><td>Test 4</td><td>start（ArrayList）</td><td>2つのArrayList</td><td>integerArrayListValue、stringArrayListValue</td></tr>
+<tr><td>Test 5</td><td>start（Person）</td><td>Person 1つ</td><td>person</td></tr>
+</tbody></table>
+<details><summary>完成版でTest 1〜Test 4を押したときのLogcat画面を見る</summary>
+<figure><a href="images/logcat-test1.png"><img src="images/logcat-test1.png" width="2652" height="1078" loading="lazy" alt="Test 1を押したあとのLogcat。intValue: 0からperson: nullまでの17行が、すべて既定値かnull"></a><figcaption>Test 1。すべて既定値かnullです。<code>charValue:</code> のあとは空白に見えます。 <a href="images/logcat-test1.png">画像を大きく開く</a></figcaption></figure>
+<figure><a href="images/logcat-test2.png"><img src="images/logcat-test2.png" width="2716" height="1074" loading="lazy" alt="Test 2を押したあとのLogcat。intValue: 1からstringValue: 6までの7行に値が出て、配列やpersonはnull"></a><figcaption>Test 2。前半の7行に値が出ます。 <a href="images/logcat-test2.png">画像を大きく開く</a></figcaption></figure>
+<figure><a href="images/logcat-test3.png"><img src="images/logcat-test3.png" width="2648" height="1002" loading="lazy" alt="Test 3を押したあとのLogcat。intArrayValue: [1, 2, 3]からstringArrayValue: [7, 8, 9]までの7行に値が出ている"></a><figcaption>Test 3。配列の7行に値が出ます。 <a href="images/logcat-test3.png">画像を大きく開く</a></figcaption></figure>
+<figure><a href="images/logcat-test4.png"><img src="images/logcat-test4.png" width="2684" height="996" loading="lazy" alt="Test 4を押したあとのLogcat。integerArrayListValue: [1, 2, 3]とstringArrayListValue: [4, 5, 6]に値が出ている"></a><figcaption>Test 4。ArrayListの2行に値が出ます。 <a href="images/logcat-test4.png">画像を大きく開く</a></figcaption></figure>
+</details>
+<h3 id="common-way">解説：実際によく使う渡し方は？</h3>
+<p>実際のアプリでよく使うのは <strong>Test 2の形</strong> です。<code>putExtra</code> で、数値や短い文字列を1つずつ渡します。とくに「どのデータを表示するか」を表す番号（ID）を渡す使い方が多くあります。</p>
+<div class="flow" aria-label="よくある使い方"><strong>一覧の画面：押した商品の番号（例：12）を渡す</strong><span>→</span><strong>詳しい画面：番号12の商品を表示する</strong></div>
+<table><thead><tr><th>渡し方</th><th>実際の使い方</th></tr></thead><tbody>
+<tr><td>Test 1：何も渡さない</td><td>画面を開くだけでよいときに使う。</td></tr>
+<tr><td>Test 2：値を1つずつ渡す</td><td>よく使う。IDや名前など、小さな値を渡す。</td></tr>
+<tr><td>Test 3・Test 4：配列・ArrayList</td><td>少しの値をまとめて渡すときに使うことがある。</td></tr>
+<tr><td>Test 5：自分で作ったクラスを渡す</td><td>渡せることを今回確かめた。実際には、丸ごと渡すより、見分けるための番号（ID）を渡し、開いた画面でデータを用意することが多い。</td></tr>
+</tbody></table>
+<p>Intentで渡すデータは小さくします。大きなデータを渡すと、アプリが落ちることがあります。</p>
+<p class="muted">仕様の確認：<a href="https://developer.android.com/guide/components/activities/parcelables-and-bundles">Parcelables and bundles</a>、<a href="https://developer.android.com/guide/components/intents-filters">Intents and intent filters</a>（Android公式）。</p>
+<h3>完成チェック</h3>
+<table><thead><tr><th>操作</th><th>確認する結果</th></tr></thead><tbody>
+<tr><td>起動直後</td><td>Test 1〜Test 5が画面の中央に縦に並ぶ。</td></tr>
+<tr><td>Test 1</td><td>何もない画面に切り替わる。Logcatの17行がすべて既定値かnullで、<code>charValue:</code> のあとは空白。</td></tr>
+<tr><td>戻る操作</td><td>5つのボタンの画面に戻る。</td></tr>
+<tr><td>Test 2</td><td>intValue: 1〜stringValue: 6。配列・ArrayList・personは null。</td></tr>
+<tr><td>Test 3</td><td>配列の7行が [1, 2, 3]〜[7, 8, 9]。</td></tr>
+<tr><td>Test 4</td><td>integerArrayListValue: [1, 2, 3]、stringArrayListValue: [4, 5, 6]。</td></tr>
+<tr><td>Test 5</td><td>person: Person{name='John', age=20}。</td></tr>
+</tbody></table>
+<h3>自分の言葉でふり返る</h3>
+<ol><li>キーの定数が、値を送るMainActivityではなくTestActivityにあるのはなぜですか。</li><li>Test 1で intValue が0、stringValue が null になるのはなぜですか。</li><li>同じ名前のstartが4つあっても、どれが呼ばれるかが決まるのはなぜですか。</li><li>実際のアプリでよく使う渡し方はどれですか。Personを丸ごと渡す代わりに、何を渡すとよいですか。</li><li>TestActivityからMainActivityに戻るコードを書いていないのに、戻れるのはなぜですか。</li></ol>
+<h3>保存と提出</h3>
+<p>自分の <code>Documents/Android1/A06ScreenTransitionSample</code> を保存します。先生からAPK提出の指示がある場合は、<a href="../common/apk.html">共通資料：提出用APKの作り方</a>に進みます。ファイル名は <code>学籍番号_A06ScreenTransitionSample.apk</code> です。提出先は先生の案内に従います。</p>
+<p>教材のチェックは自分用です。先生への送信はしません。印刷は <kbd>⌘ P</kbd> で行えます。</p>
+<div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-11"><span>完成チェックを終え、画面の追加・Intent・キーと既定値・キーの定数をTestActivityに置く理由・実際によく使う渡し方を説明できた。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
+</section>
+<section id="help"><h2>困ったとき</h2><table><thead><tr><th>困ったこと</th><th>最初に確認する場所</th></tr></thead><tbody>
+<tr><td>R.id.btn1などが赤い</td><td>activity_main.xmlのidがbtn1〜btn5か確認。<code>android:id="@+id/main"</code> を消していないかも見る。</td></tr>
+<tr><td>MainActivityのTestActivityが赤い</td><td>STEP 3でTestActivityを作ったか、綴りと場所（MainActivity.javaと同じ場所）を確認。</td></tr>
+<tr><td>start(…)が赤い（MainActivity）</td><td>そのSTEPのstartをTestActivityに追加したか確認。値の順番と型（3.0fのf、'5' と "6" の囲み方）を見比べる。</td></tr>
+<tr><td>startを追加したら、赤いエラーがたくさん出る</td><td>startをonCreateの中に入れていないか確認。onCreateの最後の } の下、クラスの最後の } の上に置く。</td></tr>
+<tr><td>List.of(…)の行が赤い</td><td><code>new ArrayList&lt;&gt;(List.of(…))</code> になっているか確認。ArrayListを受け取るstartに、List.ofだけは渡せない。</td></tr>
+<tr><td>Personを渡すputExtraや受け取りの行が赤い</td><td>Person.javaに <code>implements Serializable</code> があるか確認。</td></tr>
+<tr><td>Personが赤い、またはimport android.app.Personが入った</td><td>そのimport行を削除する。Person.javaがMainActivityと同じ場所にあるか確認する。</td></tr>
+<tr><td>Log、Arrays、ArrayList、List、IntentCompatが赤い</td><td><kbd>⌥ Enter</kbd> で android.util.Log、java.util.Arrays、java.util.ArrayList、java.util.List、androidx.core.content.IntentCompat を選ぶ。</td></tr>
+<tr><td>starterの候補が出ない</td><td>onCreateの中ではなく、メソッドの外で入力しているか確認。出なくても、STEP 6②のコードを貼り付ければ同じ。</td></tr>
+<tr><td>Test 1を押すとアプリが終了する</td><td>Logcatを <code>level:ERROR</code> にして ActivityNotFoundException か確認。AndroidManifest.xmlに <code>android:name=".TestActivity"</code> の &lt;activity&gt; があるか確認する。New → Java Classで作ると登録されない。</td></tr>
+<tr><td>アプリ一覧のアイコンが2つある（Runすると何もない画面から始まることがある）</td><td>STEP 3でLauncher Activityにチェックを入れた可能性がある。TestActivityの &lt;activity&gt; から &lt;intent-filter&gt; を消し、exportedをfalseにする（STEP 3の照合用Manifestと同じ形）。</td></tr>
+<tr><td>Testボタンを押しても何も起きない</td><td>そのボタンの処理を追加したか、R.idの番号（btn3にbtn2と書いていないか）を確認。</td></tr>
+<tr><td>Logcatに何も出ない</td><td>検索欄のtagがTestActivityか確認（tag:MainActivityのままでは出ない）。ログはTestActivityが開いたときに出るので、Testボタンを押す。</td></tr>
+<tr><td>送ったはずの値が 0・null・空白になる</td><td>startのputExtraとonCreateのgetXxxExtraが、同じ EXTRA_KEY_… を使っているか確認。押したボタンも確認する。</td></tr>
+<tr><td>charValue: のあとに何も出ない</td><td>Test 1・3・4・5では正常。既定値の半角スペースが出ている。</td></tr>
+<tr><td>VRI[TestActivity]の行が混ざる</td><td>tag:TestActivityは、TestActivityを含むタグも表示する。読み飛ばしてよい。</td></tr>
+<tr><td>直したのに動きが変わらない</td><td>ウィンドウの保存先が Documents/Android1/A06ScreenTransitionSample か確認。samples側を開いていないか見る。</td></tr>
+</tbody></table>
+
+<p><a href="../common/logcat.html">共通資料：Logcat</a>を使います。今回のパッケージは <code>jp.ac.jec.a06screentransitionsample</code> です。受け取った値は <code>package:jp.ac.jec.a06screentransitionsample tag:TestActivity level:DEBUG</code> で見ます。エラーを見るときは、<code>tag:TestActivity</code> と <code>level:DEBUG</code> を消して、<code>package:jp.ac.jec.a06screentransitionsample level:ERROR</code> に置き換えます。前の単元のパッケージ名も残さないようにします。</p>
+<p>質問では「STEP番号・編集したファイル・最初の赤い行・押した順番」を伝えます。</p></section>
+<section id="sample-project"><h2>完成プロジェクトを開く</h2>
+<p>完成版は最初の授業から使える見本です。<a class="button-link" href="downloads/A06ScreenTransitionSample.zip" download>完成プロジェクト A06ScreenTransitionSample.zip</a></p>
+<ol><li>ZIPを展開します。中に <code>A06ScreenTransitionSample</code> フォルダができます。</li><li>見本は <code>/Users/ユーザ名/Documents/Android1/samples/A06ScreenTransitionSample</code> に置きます。</li><li>Android Studioの <strong>Open</strong> で、<code>settings.gradle.kts</code> と <code>app</code> が入った <code>A06ScreenTransitionSample</code> フォルダを選びます。</li><li>Sync後にRunして動きを確認します。授業の入力に戻るときは自分の <code>Documents/Android1/A06ScreenTransitionSample</code> を開きます。</li></ol>
+<p>両方とも同じプロジェクト名なので、ウィンドウの保存先を確認しましょう。見本と自分のアプリは同じパッケージ名のため、端末上では同じアプリを更新します。切り替えるときは、確認したい方のプロジェクトからRunします。</p>
+<details><summary>完成したMainActivity.javaで照合する</summary><div class="code-head">完成版 · MainActivity.java</div>
+<pre id="code-complete-main-java" tabindex="0"><code>package jp.ac.jec.a06screentransitionsample;
+
+import android.content.Intent;
+import android.os.Bundle;
+
+import androidx.activity.EdgeToEdge;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.graphics.Insets;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowInsetsCompat;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class MainActivity extends AppCompatActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        EdgeToEdge.enable(this);
+        setContentView(R.layout.activity_main);
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -&gt; {
+            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
+            return insets;
+        });
+
+        findViewById(R.id.btn1).setOnClickListener(v -&gt; {
+            var intent = new Intent(this, TestActivity.class);
+            startActivity(intent);
+        });
+
+        findViewById(R.id.btn2).setOnClickListener(v -&gt; {
+            TestActivity.start(this, 1, 2L, 3.0f,
+                    4.0, true, '5', &quot;6&quot;);
+        });
+
+        findViewById(R.id.btn3).setOnClickListener(v -&gt; {
+            TestActivity.start(this, new int[]{1, 2, 3},
+                    new long[]{4, 5, 6}, new float[]{7.0f, 8.0f, 9.0f},
+                    new double[]{10.0, 11.0, 12.0}, new boolean[]{true, false, true},
+                    new char[]{'a', 'b', 'c'}, new String[]{&quot;7&quot;, &quot;8&quot;, &quot;9&quot;});
+        });
+
+        findViewById(R.id.btn4).setOnClickListener(v -&gt; {
+            TestActivity.start(this, new ArrayList&lt;&gt;(List.of(1, 2, 3)),
+                    new ArrayList&lt;&gt;(List.of(&quot;4&quot;, &quot;5&quot;, &quot;6&quot;)));
+        });
+
+        findViewById(R.id.btn5).setOnClickListener(v -&gt; {
+            TestActivity.start(this, new Person(&quot;John&quot;, 20));
+        });
+    }
+}</code></pre>
+</details>
+<details><summary>完成したTestActivity.javaで照合する</summary><div class="code-head">完成版 · TestActivity.java</div>
+<pre id="code-complete-test-java" tabindex="0"><code>package jp.ac.jec.a06screentransitionsample;
+
+import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
+import android.util.Log;
+
+import androidx.activity.EdgeToEdge;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.IntentCompat;
+import androidx.core.graphics.Insets;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowInsetsCompat;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+
+public class TestActivity extends AppCompatActivity {
+    private static final String EXTRA_KEY_INT_VALUE = &quot;intValue&quot;;
+    private static final String EXTRA_KEY_LONG_VALUE = &quot;longValue&quot;;
+    private static final String EXTRA_KEY_FLOAT_VALUE = &quot;floatValue&quot;;
+    private static final String EXTRA_KEY_DOUBLE_VALUE = &quot;doubleValue&quot;;
+    private static final String EXTRA_KEY_BOOLEAN_VALUE = &quot;booleanValue&quot;;
+    private static final String EXTRA_KEY_CHAR_VALUE = &quot;charValue&quot;;
+    private static final String EXTRA_KEY_STRING_VALUE = &quot;stringValue&quot;;
+
+    private static final String EXTRA_KEY_INT_ARRAY_VALUE = &quot;intArrayValue&quot;;
+    private static final String EXTRA_KEY_LONG_ARRAY_VALUE = &quot;longArrayValue&quot;;
+    private static final String EXTRA_KEY_FLOAT_ARRAY_VALUE = &quot;floatArrayValue&quot;;
+    private static final String EXTRA_KEY_DOUBLE_ARRAY_VALUE = &quot;doubleArrayValue&quot;;
+    private static final String EXTRA_KEY_BOOLEAN_ARRAY_VALUE = &quot;booleanArrayValue&quot;;
+    private static final String EXTRA_KEY_CHAR_ARRAY_VALUE = &quot;charArrayValue&quot;;
+    private static final String EXTRA_KEY_STRING_ARRAY_VALUE = &quot;stringArrayValue&quot;;
+
+    private static final String EXTRA_KEY_INTEGER_ARRAY_LIST_VALUE = &quot;integerArrayListValue&quot;;
+    private static final String EXTRA_KEY_STRING_ARRAY_LIST_VALUE = &quot;stringArrayListValue&quot;;
+
+    private static final String EXTRA_KEY_PERSON = &quot;person&quot;;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        EdgeToEdge.enable(this);
+        setContentView(R.layout.activity_test);
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -&gt; {
+            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
+            return insets;
+        });
+
+        var intValue = getIntent().getIntExtra(EXTRA_KEY_INT_VALUE, 0);
+        var longValue = getIntent().getLongExtra(EXTRA_KEY_LONG_VALUE, 0);
+        var floatValue = getIntent().getFloatExtra(EXTRA_KEY_FLOAT_VALUE, 0);
+        var doubleValue = getIntent().getDoubleExtra(EXTRA_KEY_DOUBLE_VALUE, 0);
+        var booleanValue = getIntent().getBooleanExtra(EXTRA_KEY_BOOLEAN_VALUE, false);
+        var charValue = getIntent().getCharExtra(EXTRA_KEY_CHAR_VALUE, ' ');
+        var stringValue = getIntent().getStringExtra(EXTRA_KEY_STRING_VALUE);
+        Log.d(&quot;TestActivity&quot;, &quot;intValue: &quot; + intValue);
+        Log.d(&quot;TestActivity&quot;, &quot;longValue: &quot; + longValue);
+        Log.d(&quot;TestActivity&quot;, &quot;floatValue: &quot; + floatValue);
+        Log.d(&quot;TestActivity&quot;, &quot;doubleValue: &quot; + doubleValue);
+        Log.d(&quot;TestActivity&quot;, &quot;booleanValue: &quot; + booleanValue);
+        Log.d(&quot;TestActivity&quot;, &quot;charValue: &quot; + charValue);
+        Log.d(&quot;TestActivity&quot;, &quot;stringValue: &quot; + stringValue);
+
+        var intArrayValue = getIntent().getIntArrayExtra(EXTRA_KEY_INT_ARRAY_VALUE);
+        var longArrayValue = getIntent().getLongArrayExtra(EXTRA_KEY_LONG_ARRAY_VALUE);
+        var floatArrayValue = getIntent().getFloatArrayExtra(EXTRA_KEY_FLOAT_ARRAY_VALUE);
+        var doubleArrayValue = getIntent().getDoubleArrayExtra(EXTRA_KEY_DOUBLE_ARRAY_VALUE);
+        var booleanArrayValue = getIntent().getBooleanArrayExtra(EXTRA_KEY_BOOLEAN_ARRAY_VALUE);
+        var charArrayValue = getIntent().getCharArrayExtra(EXTRA_KEY_CHAR_ARRAY_VALUE);
+        var stringArrayValue = getIntent().getStringArrayExtra(EXTRA_KEY_STRING_ARRAY_VALUE);
+        Log.d(&quot;TestActivity&quot;, &quot;intArrayValue: &quot; + Arrays.toString(intArrayValue));
+        Log.d(&quot;TestActivity&quot;, &quot;longArrayValue: &quot; + Arrays.toString(longArrayValue));
+        Log.d(&quot;TestActivity&quot;, &quot;floatArrayValue: &quot; + Arrays.toString(floatArrayValue));
+        Log.d(&quot;TestActivity&quot;, &quot;doubleArrayValue: &quot; + Arrays.toString(doubleArrayValue));
+        Log.d(&quot;TestActivity&quot;, &quot;booleanArrayValue: &quot; + Arrays.toString(booleanArrayValue));
+        Log.d(&quot;TestActivity&quot;, &quot;charArrayValue: &quot; + Arrays.toString(charArrayValue));
+        Log.d(&quot;TestActivity&quot;, &quot;stringArrayValue: &quot; + Arrays.toString(stringArrayValue));
+
+        var integerArrayListValue = getIntent().getIntegerArrayListExtra(EXTRA_KEY_INTEGER_ARRAY_LIST_VALUE);
+        var stringArrayListValue = getIntent().getStringArrayListExtra(EXTRA_KEY_STRING_ARRAY_LIST_VALUE);
+        Log.d(&quot;TestActivity&quot;, &quot;integerArrayListValue: &quot; + integerArrayListValue);
+        Log.d(&quot;TestActivity&quot;, &quot;stringArrayListValue: &quot; + stringArrayListValue);
+
+        var person = IntentCompat.getSerializableExtra(getIntent(), EXTRA_KEY_PERSON, Person.class);
+        Log.d(&quot;TestActivity&quot;, &quot;person: &quot; + person);
+    }
+
+    // startメソッドはAndroid Studioのコードテンプレートを利用して作成できる！
+    static void start(Context context, int intValue, long longValue, float floatValue,
+                      double doubleValue, boolean booleanValue, char charValue, String stringValue) {
+        var intent = new Intent(context, TestActivity.class);
+        intent.putExtra(EXTRA_KEY_INT_VALUE, intValue);
+        intent.putExtra(EXTRA_KEY_LONG_VALUE, longValue);
+        intent.putExtra(EXTRA_KEY_FLOAT_VALUE, floatValue);
+        intent.putExtra(EXTRA_KEY_DOUBLE_VALUE, doubleValue);
+        intent.putExtra(EXTRA_KEY_BOOLEAN_VALUE, booleanValue);
+        intent.putExtra(EXTRA_KEY_CHAR_VALUE, charValue);
+        intent.putExtra(EXTRA_KEY_STRING_VALUE, stringValue);
+        context.startActivity(intent);
+    }
+
+    static void start(Context context, int[] intArrayValue, long[] longArrayValue,
+                      float[] floatArrayValue, double[] doubleArrayValue,
+                      boolean[] booleanArrayValue, char[] charArrayValue, String[] stringArrayValue) {
+        var intent = new Intent(context, TestActivity.class);
+        intent.putExtra(EXTRA_KEY_INT_ARRAY_VALUE, intArrayValue);
+        intent.putExtra(EXTRA_KEY_LONG_ARRAY_VALUE, longArrayValue);
+        intent.putExtra(EXTRA_KEY_FLOAT_ARRAY_VALUE, floatArrayValue);
+        intent.putExtra(EXTRA_KEY_DOUBLE_ARRAY_VALUE, doubleArrayValue);
+        intent.putExtra(EXTRA_KEY_BOOLEAN_ARRAY_VALUE, booleanArrayValue);
+        intent.putExtra(EXTRA_KEY_CHAR_ARRAY_VALUE, charArrayValue);
+        intent.putExtra(EXTRA_KEY_STRING_ARRAY_VALUE, stringArrayValue);
+        context.startActivity(intent);
+    }
+
+    static void start(Context context, ArrayList&lt;Integer&gt; integerArrayListValue, ArrayList&lt;String&gt; stringArrayListValue) {
+        var intent = new Intent(context, TestActivity.class);
+        intent.putIntegerArrayListExtra(EXTRA_KEY_INTEGER_ARRAY_LIST_VALUE, integerArrayListValue);
+        intent.putStringArrayListExtra(EXTRA_KEY_STRING_ARRAY_LIST_VALUE, stringArrayListValue);
+        context.startActivity(intent);
+    }
+
+    static void start(Context context, Person person) {
+        var intent = new Intent(context, TestActivity.class);
+        intent.putExtra(EXTRA_KEY_PERSON, person);
+        context.startActivity(intent);
+    }
+}</code></pre>
+</details>
+<details><summary>完成したPerson.javaで照合する</summary><div class="code-head">完成版 · Person.java</div>
+<pre id="code-complete-person-java" tabindex="0"><code>package jp.ac.jec.a06screentransitionsample;
+
+import androidx.annotation.NonNull;
+
+import java.io.Serializable;
+
+class Person implements Serializable {
+    private String name;
+    private int age;
+
+    public Person(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    @NonNull
+    @Override
+    public String toString() {
+        return &quot;Person{&quot; +
+                &quot;name='&quot; + name + '\'' +
+                &quot;, age=&quot; + age +
+                '}';
+    }
+}</code></pre>
+</details>
+<details><summary>完成したactivity_main.xmlで照合する</summary><div class="code-head">完成版 · activity_main.xml</div>
+<pre id="code-complete-main-xml" tabindex="0"><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;LinearLayout xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
+    xmlns:tools=&quot;http://schemas.android.com/tools&quot;
+    android:id=&quot;@+id/main&quot;
+    android:layout_width=&quot;match_parent&quot;
+    android:layout_height=&quot;match_parent&quot;
+    android:gravity=&quot;center&quot;
+    android:orientation=&quot;vertical&quot;
+    tools:context=&quot;.MainActivity&quot;&gt;
+
+    &lt;Button
+        android:id=&quot;@+id/btn1&quot;
+        android:layout_width=&quot;wrap_content&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:text=&quot;Test 1&quot; /&gt;
+
+    &lt;Button
+        android:id=&quot;@+id/btn2&quot;
+        android:layout_width=&quot;wrap_content&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:text=&quot;Test 2&quot; /&gt;
+
+    &lt;Button
+        android:id=&quot;@+id/btn3&quot;
+        android:layout_width=&quot;wrap_content&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:text=&quot;Test 3&quot; /&gt;
+
+    &lt;Button
+        android:id=&quot;@+id/btn4&quot;
+        android:layout_width=&quot;wrap_content&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:text=&quot;Test 4&quot; /&gt;
+
+    &lt;Button
+        android:id=&quot;@+id/btn5&quot;
+        android:layout_width=&quot;wrap_content&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:text=&quot;Test 5&quot; /&gt;
+
+&lt;/LinearLayout&gt;</code></pre>
+</details>
+<details><summary>完成したAndroidManifest.xmlで照合する</summary><div class="code-head">完成版 · AndroidManifest.xml</div>
+<pre id="code-complete-manifest" tabindex="0"><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;manifest xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
+    xmlns:tools=&quot;http://schemas.android.com/tools&quot;&gt;
+
+    &lt;application
+        android:allowBackup=&quot;true&quot;
+        android:dataExtractionRules=&quot;@xml/data_extraction_rules&quot;
+        android:fullBackupContent=&quot;@xml/backup_rules&quot;
+        android:icon=&quot;@mipmap/ic_launcher&quot;
+        android:label=&quot;@string/app_name&quot;
+        android:roundIcon=&quot;@mipmap/ic_launcher_round&quot;
+        android:supportsRtl=&quot;true&quot;
+        android:theme=&quot;@style/Theme.A06ScreenTransitionSample&quot;&gt;
+        &lt;activity
+            android:name=&quot;.TestActivity&quot;
+            android:exported=&quot;false&quot; /&gt;
+        &lt;activity
+            android:name=&quot;.MainActivity&quot;
+            android:exported=&quot;true&quot;&gt;
+            &lt;intent-filter&gt;
+                &lt;action android:name=&quot;android.intent.action.MAIN&quot; /&gt;
+
+                &lt;category android:name=&quot;android.intent.category.LAUNCHER&quot; /&gt;
+            &lt;/intent-filter&gt;
+        &lt;/activity&gt;
+    &lt;/application&gt;
+
+&lt;/manifest&gt;</code></pre>
+</details></section>
+<footer class="footer"><p>Androidプログラミング1 · A06ScreenTransitionSample / 本文・画像・操作機能はオフラインで利用できます。Android Studioの初回準備・ビルドと公式資料の閲覧にはネット接続が必要です。</p><p>画像は授業用の提供資料を使用。Logcatの時刻や番号は実行ごとに変わります。</p></footer>
+<div class="sr-only" role="status" aria-live="polite" data-copy-status></div></main></div></body></html>
