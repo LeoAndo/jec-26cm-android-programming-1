@@ -187,11 +187,11 @@ var btnBillSplit = findViewById(R.id.btn_bill_split);</code></pre>
 <p><code>"\n"</code> は改行です。1人1行で並びます。</p>
 <h3>③ Runで確かめる</h3>
 <ol><li>何も入力せずに <strong>登録</strong> を押します。</li></ol>
-<figure><a href="images/app-top-error-empty-name.png"><img src="images/app-top-error-empty-name.png" width="1080" height="2424" loading="lazy" alt="名前を入れずに登録を押したところ。画面下に参加者名を入力してくださいと表示されている"></a><figcaption>空のときは登録されず、下にメッセージが出ます。 <a href="images/app-top-error-empty-name.png">画像を大きく開く</a></figcaption></figure>
+<figure class="phone"><a href="images/app-top-error-empty-name.png"><img src="images/app-top-error-empty-name.png" width="1080" height="2424" loading="lazy" alt="名前を入れずに登録を押したところ。画面下に参加者名を入力してくださいと表示されている"></a><figcaption>空のときは登録されず、下にメッセージが出ます。 <a href="images/app-top-error-empty-name.png">画像を大きく開く</a></figcaption></figure>
 <ol start="2"><li><code>Sato</code>・<code>Suzuki</code>・<code>Tanaka</code> の順に登録します。</li></ol>
-<figure><a href="images/app-top-three-members.png"><img src="images/app-top-three-members.png" width="1080" height="2424" loading="lazy" alt="参加者一覧にSato、Suzuki、Tanakaの3人が縦に並んでいる"></a><figcaption>登録した順に1行ずつ増えます。 <a href="images/app-top-three-members.png">画像を大きく開く</a></figcaption></figure>
+<figure class="phone"><a href="images/app-top-three-members.png"><img src="images/app-top-three-members.png" width="1080" height="2424" loading="lazy" alt="参加者一覧にSato、Suzuki、Tanakaの3人が縦に並んでいる"></a><figcaption>登録した順に1行ずつ増えます。 <a href="images/app-top-three-members.png">画像を大きく開く</a></figcaption></figure>
 <ol start="3"><li>もう一度 <code>Sato</code> を登録します。</li></ol>
-<figure><a href="images/app-top-error-duplicate.png"><img src="images/app-top-error-duplicate.png" width="1080" height="2424" loading="lazy" alt="すでに登録済みのSatoをもう一度登録しようとして、参加者名が重複していますと表示されている"></a><figcaption>同じ名前は登録されません。一覧も増えません。 <a href="images/app-top-error-duplicate.png">画像を大きく開く</a></figcaption></figure>
+<figure class="phone"><a href="images/app-top-error-duplicate.png"><img src="images/app-top-error-duplicate.png" width="1080" height="2424" loading="lazy" alt="すでに登録済みのSatoをもう一度登録しようとして、参加者名が重複していますと表示されている"></a><figcaption>同じ名前は登録されません。一覧も増えません。 <a href="images/app-top-error-duplicate.png">画像を大きく開く</a></figcaption></figure>
 <div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-4"><span>参加者を登録でき、空のときと同じ名前のときにメッセージが出ることを確かめられた。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
 <div class="next"><a href="#step-5">次へ：ワリカン画面を作る →</a></div></section>
 
@@ -328,9 +328,9 @@ txtNumberOfPeople.setText("参加者は" + numberOfPeople + "人");</code></pre>
 <p>1人では割り勘になりません。2人未満のときは画面を切り替えずにメッセージを出します。</p>
 <h3>④ Runで確かめる</h3>
 <ol><li>参加者を1人だけ登録して <strong>ワリカン画面へ</strong> を押します。</li></ol>
-<figure><a href="images/app-top-error-less-than-two.png"><img src="images/app-top-error-less-than-two.png" width="1080" height="2424" loading="lazy" alt="参加者が1人のときにワリカン画面へを押して、参加者を2人以上追加してくださいと表示されている"></a><figcaption>1人のときは画面が切り替わりません。 <a href="images/app-top-error-less-than-two.png">画像を大きく開く</a></figcaption></figure>
+<figure class="phone"><a href="images/app-top-error-less-than-two.png"><img src="images/app-top-error-less-than-two.png" width="1080" height="2424" loading="lazy" alt="参加者が1人のときにワリカン画面へを押して、参加者を2人以上追加してくださいと表示されている"></a><figcaption>1人のときは画面が切り替わりません。 <a href="images/app-top-error-less-than-two.png">画像を大きく開く</a></figcaption></figure>
 <ol start="2"><li>3人登録してから <strong>ワリカン画面へ</strong> を押します。</li></ol>
-<figure><a href="images/app-split-initial.png"><img src="images/app-split-initial.png" width="1080" height="2424" loading="lazy" alt="ワリカン画面。上に参加者は3人、その下に支払額（￥）のラベルと金額の入力欄、計算実行ボタン、計算結果の見出しがある"></a><figcaption>渡した人数が <strong>参加者は3人</strong> と表示されます。 <a href="images/app-split-initial.png">画像を大きく開く</a></figcaption></figure>
+<figure class="phone"><a href="images/app-split-initial.png"><img src="images/app-split-initial.png" width="1080" height="2424" loading="lazy" alt="ワリカン画面。上に参加者は3人、その下に支払額（￥）のラベルと金額の入力欄、計算実行ボタン、計算結果の見出しがある"></a><figcaption>渡した人数が <strong>参加者は3人</strong> と表示されます。 <a href="images/app-split-initial.png">画像を大きく開く</a></figcaption></figure>
 <div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-6"><span>2人以上のときだけワリカン画面が開き、渡した人数を表示できた。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
 <div class="next"><a href="#step-7">次へ：割り勘の計算クラスを使う →</a></div></section>
 
@@ -520,9 +520,9 @@ final class BillSplitter {
 <p><code>BillSplitter</code> は計算だけを担当し、画面に出すメッセージを持っていません。<strong>ユーザーの入力ミスは画面側で止める</strong>、という分け方です。こうすると、計算の部分は他のアプリでもそのまま使えます。</p>
 <h3>Runで確かめる</h3>
 <ol><li>何も入力せずに <strong>計算実行</strong> を押します。</li></ol>
-<figure><a href="images/app-split-error-empty-amount.png"><img src="images/app-split-error-empty-amount.png" width="1080" height="2424" loading="lazy" alt="金額を入れずに計算実行を押して、支払い金額を入力してくださいと表示されている"></a><figcaption>空のときのメッセージ。 <a href="images/app-split-error-empty-amount.png">画像を大きく開く</a></figcaption></figure>
+<figure class="phone"><a href="images/app-split-error-empty-amount.png"><img src="images/app-split-error-empty-amount.png" width="1080" height="2424" loading="lazy" alt="金額を入れずに計算実行を押して、支払い金額を入力してくださいと表示されている"></a><figcaption>空のときのメッセージ。 <a href="images/app-split-error-empty-amount.png">画像を大きく開く</a></figcaption></figure>
 <ol start="2"><li>3人のときに <code>2</code> と入れて <strong>計算実行</strong> を押します。</li></ol>
-<figure><a href="images/app-split-error-too-small.png"><img src="images/app-split-error-too-small.png" width="1080" height="2424" loading="lazy" alt="3人のときに2円と入力して計算実行を押し、3人で割るには3円以上を入力してくださいと表示されている"></a><figcaption>人数より少ない金額は計算しません。 <a href="images/app-split-error-too-small.png">画像を大きく開く</a></figcaption></figure>
+<figure class="phone"><a href="images/app-split-error-too-small.png"><img src="images/app-split-error-too-small.png" width="1080" height="2424" loading="lazy" alt="3人のときに2円と入力して計算実行を押し、3人で割るには3円以上を入力してくださいと表示されている"></a><figcaption>人数より少ない金額は計算しません。 <a href="images/app-split-error-too-small.png">画像を大きく開く</a></figcaption></figure>
 <div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-8"><span>3つの入力チェックを書き、それぞれのメッセージが出ることを確かめられた。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
 <div class="next"><a href="#step-9">次へ：計算結果を表示する →</a></div></section>
 
@@ -535,9 +535,9 @@ var result = BillSplitter.calculateAndFormat(totalAmount, participants);
 txtParticipantList.setText(result);</code></pre>
 <h3>Runで確かめる</h3>
 <ol><li>3人のときに <code>1234</code> と入れて <strong>計算実行</strong> を押します。</li></ol>
-<figure><a href="images/app-split-result.png"><img src="images/app-split-result.png" width="1080" height="2424" loading="lazy" alt="1234円を3人で割った結果。Sato 411円、Suzuki 412円、Tanaka 411円、合計1234円"></a><figcaption>411円・412円・411円。合計は入力した1234円に戻ります。 <a href="images/app-split-result.png">画像を大きく開く</a></figcaption></figure>
+<figure class="phone"><a href="images/app-split-result.png"><img src="images/app-split-result.png" width="1080" height="2424" loading="lazy" alt="1234円を3人で割った結果。Sato 411円、Suzuki 412円、Tanaka 411円、合計1234円"></a><figcaption>411円・412円・411円。合計は入力した1234円に戻ります。 <a href="images/app-split-result.png">画像を大きく開く</a></figcaption></figure>
 <ol start="2"><li>もう一度 <strong>計算実行</strong> を押します。412円の人が変わることを確かめます。</li><li>金額を <code>999999999</code>（9桁）にして押します。</li></ol>
-<figure><a href="images/app-split-result-max.png"><img src="images/app-split-result-max.png" width="1080" height="2424" loading="lazy" alt="999999999円を3人で割った結果。3人とも333,333,333円、合計999,999,999円"></a><figcaption>3で割り切れるので、3人とも同じ金額です。 <a href="images/app-split-result-max.png">画像を大きく開く</a></figcaption></figure>
+<figure class="phone"><a href="images/app-split-result-max.png"><img src="images/app-split-result-max.png" width="1080" height="2424" loading="lazy" alt="999999999円を3人で割った結果。3人とも333,333,333円、合計999,999,999円"></a><figcaption>3で割り切れるので、3人とも同じ金額です。 <a href="images/app-split-result-max.png">画像を大きく開く</a></figcaption></figure>
 <p>金額に <code>,</code> が入るのは、<code>BillSplitter</code> が日本円の表示に整えているためです。</p>
 <div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-9"><span>計算結果と合計を表示でき、合計が入力した金額と一致することを確かめられた。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
 <div class="next"><a href="#step-10">次へ：ミニ練習 →</a></div></section>
@@ -546,7 +546,7 @@ txtParticipantList.setText(result);</code></pre>
 <p class="step-meta">STEP 10 · 目安 15分</p><h2 id="title-10">ミニ練習</h2>
 <p>できた人は試してみましょう。コードは変えません。</p>
 <ol><li><strong>割り切れる金額</strong>を入れます。3人で <code>1200</code> 円のとき、全員いくらになりますか。</li><li><strong>端数が2円出る金額</strong>を入れます。3人で <code>1235</code> 円のとき、412円の人は何人になりますか。</li><li>参加者を<strong>15人</strong>登録して、<code>123456</code> 円を計算します。合計の行を確かめます。</li></ol>
-<figure><a href="images/app-split-result-15members.png"><img src="images/app-split-result-15members.png" width="1080" height="2424" loading="lazy" alt="15人で123456円を割った結果。8230円と8231円が並び、合計123,456円と表示されている"></a><figcaption>15人でも、差は1円までです。 <a href="images/app-split-result-15members.png">画像を大きく開く</a></figcaption></figure>
+<figure class="phone"><a href="images/app-split-result-15members.png"><img src="images/app-split-result-15members.png" width="1080" height="2424" loading="lazy" alt="15人で123456円を割った結果。8230円と8231円が並び、合計123,456円と表示されている"></a><figcaption>15人でも、差は1円までです。 <a href="images/app-split-result-15members.png">画像を大きく開く</a></figcaption></figure>
 <ol start="4"><li>参加者名に<strong>同じ名前</strong>を入れようとするとどうなりますか。STEP 04のチェックを思い出します。</li></ol>
 <div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-10"><span>ミニ練習を試し、どの金額でも支払額の合計が入力した金額に戻ることを確かめられた。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
 <div class="next"><a href="#step-11">次へ：完成とふり返り →</a></div></section>
