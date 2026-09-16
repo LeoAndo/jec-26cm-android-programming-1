@@ -26,8 +26,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         findViewById(R.id.btn2).setOnClickListener(v -> {
-            TestActivity.start(this, 1, 2L, 3.0f,
-                    4.0, true, '5', "6");
+            TestActivity.start(this, 1, "2");
         });
     }
 }
