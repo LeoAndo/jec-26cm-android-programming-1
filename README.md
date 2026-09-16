@@ -22,6 +22,7 @@
 - [共通資料：Auto Importの設定](docs/common/auto-import.html)
 - [共通資料：Logcatの使い方](docs/common/logcat.html)
 - [共通資料：提出用APKの作り方](docs/common/apk.html)
+- [共通資料：開発Tips（画面の余白）](docs/common/dev-tips.html)
 - [教員用：HelloAndroidの授業の進め方・確認項目](teacher/hello-android/index.html)
 - [教員用：CalcGameの授業の進め方・確認項目](teacher/calc-game/index.html)
 - [教員用：RockPaperScissorsGameの授業の進め方・確認項目](teacher/rock-paper-scissors-game/index.html)
@@ -359,3 +360,18 @@ windowsは利用していない
 3. 教科書はhtml形式とする
 4. 各単元で利用する教科書で共有部分が発生したらベット共通資料という形で別htmlファイル化する。具体例：apkファイルの作成方法、エミュレータの設定手順など
 6. 教科書に掲載するスクリーンショットは教員の開発マシン内にある「jec_26cm_android1_Pixel 9a」エミュレータを利用する
+
+# 完成コードの書き方（全単元共通）
+完成プロジェクトのコードは、単元をまたいで同じ書き方にそろえる。教科書に掲載するコードと `teacher/<単元>/code` の照合コードも同じ形にする。
+
+## Viewの取得（findViewById）
+1. `findViewById` は `onCreate` の冒頭（インセットのリスナ設定の直後）でまとめて呼び、`var` のローカル変数に入れる。命名は `txtXxx` / `edtXxx` / `btnXxx` / `imgXxx`。
+2. `onCreate` 以外のメソッドからも使うViewはフィールドにする（A02CalcGameの `txtMessage`、A04WebViewAppの `webView`）。同じidに対して `findViewById` を2回呼ばない。
+3. リスナの中では `findViewById` を呼ばない。押すたびに探し直すことになり、リスナの中身も読みにくくなる。
+4. 次の3つは例外として認める。
+   - ループでidを動的に引く場合（A02CalcGameの数字ボタン9個）。
+   - 配列の初期化子の中でまとめて取得する場合（A03RockPaperScissorsGame、A05BombGame）。`onCreate` の冒頭で取得していれば準拠とみなす。
+   - 取得したViewをその場でリスナを付けるためだけに使い、以後参照しない場合（A06ScreenTransitionSampleの `btn1`〜`btn5`）。変数に入れず直接つないでよい。
+
+## レイアウトの余白
+5. 一番外側（`@+id/main` を付けた部品）に `android:padding` を書かない。ひな形の `setPadding` が実行時に置き換えるため指定は効かず、Android Studioのプレビューと実機で見た目が食い違う。余白が必要なときは、中の部品の `android:layout_margin` を使うか、内側にもう1つ入れ物を置いてそちらに `padding` を書く。学生向けの説明は[共通資料：開発Tips](docs/common/dev-tips.html)にある。
