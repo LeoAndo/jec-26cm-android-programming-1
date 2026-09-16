@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="ja">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>教員用ガイド RoomSample | Androidプログラミング1</title>
+<link rel="stylesheet" href="../../docs/assets/textbook.css"><script src="../../docs/assets/textbook.js" defer></script></head>
+<body class="plain"><a class="skip" href="#main">本文へ移動</a>
+<header class="topbar"><span class="brand">JEC / Androidプログラミング1</span><a href="../../docs/room-sample/index.html">RoomSampleの教科書へ戻る</a></header>
+<main id="main">
+<div class="hero"><p class="eyebrow">ANDROID PROGRAMMING 1 / 授業サポート</p><h1>教員用ガイド<br>RoomSample</h1><p class="lede">A09の <code>SharedPreferences</code> ではできなかった「1件だけ書き換え・1件だけ削除」を、Roomで実現する単元です。新出概念は <strong>Room</strong> だけ。90分×1コマを目安に調整します。</p></div>
+
+<section><h2>1. 授業前の準備</h2>
+<ul>
+<li>学生用の入口は <code>docs/room-sample/index.html</code> です。完成版ZIPと画像を含む教材を、構成を保って配布します。</li>
+<li>Android Studio Panda 2 | 2025.3.2、Java / Empty Views Activity、Minimum SDK API 31を確認します。作成先は <code>Documents/Android1/A10RoomSample</code>、パッケージは <code>jp.ac.jec.a10roomsample</code> です。</li>
+<li><strong>配布物はありません。</strong>画像も外部ファイルも使いません。</li>
+<li>完成版は <code>Documents/Android1/samples/A10RoomSample</code> に置きます。見本と学生のアプリは同じパッケージ名のため、端末上では同じアプリを上書きします。<strong>保存したデータも共有されます。</strong>見本でデータを入れたあとに学生のアプリをRunすると、学生側の初回起動で一覧にデータが入った状態になります。STEP 07の「一覧が空から始まる」を見せる前に、学生の端末でアプリのデータを消去させてください。</li>
+<li>指定エミュレータ <strong>jec_26cm_android1_Pixel 9a</strong> を縦向きで使います。</li>
+<li><strong>STEP 02で初めてライブラリを追加します。</strong>Syncにネット接続が必要です。授業前に一度、教員機でSyncを通してキャッシュを作っておくと、全員が同時にダウンロードする事態を避けられます。</li>
+<li>アプリの実行にインターネット接続は不要です。この単元ではLogcatを使いません。</li>
+</ul>
+<div class="note"><p class="box-title">今回の仕様上の制約</p><p>一覧は <code>TextView</code> に <code>toString()</code> の結果を並べただけです。行をタップして選ぶことはできません。行の選択には <code>RecyclerView</code> が必要で、README 基本方針7によりAndroidプログラミング1では扱いません。画面回転時の入力欄の保持も扱いません（<a href="../../docs/common/dev-tips.html">共通資料：開発Tips</a>のC章）。<strong>保存したデータは画面を回しても消えません。</strong>ここはA09との違いとして説明に使えます。</p></div>
+</section>
+
+<section><h2>2. この単元の教材方針</h2>
+<p>README「単元の範囲の決め方（全単元共通）」に沿って範囲を絞っています。新概念は <strong>Room</strong> 1つだけです。次の表は、Roomの一般的な入門コードから<strong>意図的に外したもの</strong>と、その理由です。学生から「ネットで見た書き方と違う」と質問が出たときの答えになります。</p>
+<table><thead><tr><th>外したもの</th><th>理由</th><th>授業での扱い</th></tr></thead><tbody>
+<tr><td><code>synchronized</code> によるDouble-checked locking</td><td>この単元は <code>allowMainThreadQueries()</code> で読み書きを画面と同じ流れに寄せており、<strong>競合する相手のスレッドが存在しない</strong>。ロックを入れても画面上は何も変わらず、基準2（利点を画面で体感できる形にする）を満たせない。</td><td>STEP 06の解説では「1つだけ作って使い回す」だけを扱う。質問が出たら「複数の流れから同時に触るときに必要になる」とだけ答える。</td></tr>
+<tr><td><code>@Insert</code> と <code>@Update</code></td><td>2つを使い分ける判断が増えるだけで、画面の動きは <code>@Upsert</code> 1つで説明しきれる。「idが空なら追加、入れたら書き換え」という画面の動きが、メソッド1つに対応する。</td><td>STEP 05の解説で、Roomには3つあることと、この授業では1つに絞っていることを明示する。</td></tr>
+<tr><td><code>LiveData</code></td><td>単一画面では、書いたあとに <code>setText</code> し直すのと見た目が変わらず、利点を体感できない。</td><td>A11VocabularyBookで、<strong>複数画面の同期</strong>という体感できる形にして導入する。</td></tr>
+<tr><td><code>@ColumnInfo(name = "...")</code></td><td>列名を別名にする必要がない。フィールド名がそのまま列名になるほうが、<code>@Query</code> のSQLとJavaのフィールドが1対1で読める。</td><td>扱わない。</td></tr>
+<tr><td>可変長引数（<code>insert(Item... items)</code>）</td><td>画面から渡すのは常に1件。可変長引数の記法を説明する必要が生じるだけ。</td><td>扱わない。</td></tr>
+<tr><td><code>description</code> などの追加フィールド</td><td>項目を増やしても、覚えることは増えず入力の手間だけ増える（基準3）。</td><td><code>internalId</code> と <code>title</code> の2つだけにする。</td></tr>
+</tbody></table>
+
+<div class="note"><p class="box-title">方針の例外：<code>@NonNull</code> を学生に書かせます</p>
+<p>READMEの全単元共通ルールでは、<code>@NonNull</code> / <code>@Nullable</code> を学生自身が書く実装では扱いません。<strong>この単元の <code>Item.java</code> だけは例外です。</strong></p>
+<p><code>@Entity</code> のフィールドに付けた <code>@NonNull</code> は、Javaの注意書きではなく<strong>「この列は NOT NULL である」という表の定義そのもの</strong>です。外すと表の形が変わり、Roomが生成するSQLも変わります。「書かなくてよい注釈」ではないため、ここだけは書かせます。</p>
+<p>STEP 04の解説にこの説明を入れています。<strong>この説明を飛ばすと、他単元で「書かなくてよい」と言ったこととの矛盾だけが残ります。</strong>あわせて、<code>ItemDao</code> の <code>@Nullable</code>（見つからないことがある、の意味）も同じ枠で扱ってください。</p></div>
+
+<div class="note"><p class="box-title">完成コードを説明するときの注意</p><p><code>var</code>、ラムダ式、<code>findViewById</code> の明示キャスト、<code>Snackbar</code> の書き方は変えません。単元をまたいで同じ形にそろえるためです（READMEの「完成コードの書き方（全単元共通）」）。</p></div>
+</section>
+
+<section><h2>3. 90分×1コマの進行</h2>
+<table><thead><tr><th>時間配分</th><th>終了時の確認</th></tr></thead><tbody>
+<tr><td>STEP 00：5分、STEP 01：10分、STEP 02：10分、STEP 03：10分、STEP 04：15分、STEP 05：15分、STEP 06：10分、STEP 07：25分</td><td>保存・書き換え・削除ができ、アプリを終了して開き直してもデータが残る。</td></tr>
+</tbody></table>
+<p><strong>STEP 02が最初の関門です。</strong><code>libs.versions.toml</code> の <code>[libraries]</code> と <code>[plugins]</code> を取り違える間違いが必ず出ます。<code>[plugins]</code> 側に書くと <code>expected to find any of 'id' or 'version'</code> でビルドが止まります。教科書に注意書きを入れていますが、机間指導では<strong>追記した行のすぐ上の見出し</strong>を指差して確認させてください。</p>
+<p><strong>STEP 05でInterfaceを選び間違える学生が出ます。</strong><code>ItemDao</code> だけ <code>Interface</code>、<code>Item</code> と <code>AppDatabase</code> は <code>Class</code> です。Classで作ってしまうと、中身を貼り付けた瞬間に赤いエラーが並びます。作り直させるのがいちばん早いです。</p>
+<p>STEP 04〜06は「書いて、Syncして、まだ画面は変わらない」が3回続きます。<strong>学生の手応えが途切れる区間</strong>です。STEP 03の終わりで「ここから3つ部品を作る。画面が動くのはSTEP 07」と先に伝えておくと、迷子になりません。</p>
+<p>時間が余ったら、STEP 07の練習1〜3とふり返り5問を回します。練習3（<code>setText</code> を消す）は「データベースには書けているが画面に出ていない」という状態を作れるので、A09の「保存と表示は別物」の再確認になります。</p>
+</section>
+
+<section><h2>4. STEPごとの照合コード</h2>
+<table><thead><tr><th>到達地点</th><th>参照ファイル</th><th>教員の確認ポイント</th></tr></thead><tbody>
+<tr><td>出発点（STEP 01）</td><td><a href="code/01-MainActivity.java">01-MainActivity.java</a> / <a href="code/01-activity_main.xml">01-activity_main.xml</a></td><td>Hello World!をRunできる。ひな形のまま。</td></tr>
+<tr><td>画面のレイアウト（STEP 03）</td><td><a href="code/03-activity_main.xml">03-activity_main.xml</a></td><td>ルートが <code>ScrollView</code>（id/main）。中は縦のLinearLayout。edt_id（<code>inputType="number"</code>）、edt_title、横向きLinearLayout（btn_upsert→btn_delete）、見出しTextView、txt_item_listの順。</td></tr>
+<tr><td>表の定義（STEP 04）</td><td><a href="code/04-Item.java">04-Item.java</a></td><td><code>@Entity</code>、<code>@PrimaryKey(autoGenerate = true)</code>、フィールドは <code>internalId</code> と <code>title</code> の2つだけ。<code>@ColumnInfo</code> は付けない。コンストラクタが <code>public</code>。<code>title</code> にゲッターとセッターの両方がある（セッターがないとRoomが生成に失敗します）。</td></tr>
+<tr><td>読み書きの窓口（STEP 05）</td><td><a href="code/05-ItemDao.java">05-ItemDao.java</a></td><td><strong><code>interface</code> であること。</strong><code>@Dao</code>、<code>getAll()</code>、<code>findByInternalId</code>（<code>=</code> であって <code>LIKE</code> ではない）、<code>@Upsert</code>、<code>@Delete</code> の4つ。メソッドに中身（<code>{ }</code>）がない。</td></tr>
+<tr><td>データベース本体（STEP 06）</td><td><a href="code/06-AppDatabase.java">06-AppDatabase.java</a></td><td><code>abstract class</code> であること。<code>@Database(entities = {Item.class}, version = 1, exportSchema = false)</code>。<code>getInstance</code> に <strong><code>context.getApplicationContext()</code></strong> を渡している。<code>allowMainThreadQueries()</code> がある。</td></tr>
+<tr><td>完成（STEP 07）</td><td><a href="code/07-MainActivity.java">07-MainActivity.java</a></td><td><code>itemDao</code> の取得が2つのリスナより上にある。両方のリスナの最後に <code>txtItemList.setText(itemList(itemDao));</code> がある。削除では <code>findByInternalId</code> の戻り値を <code>null</code> チェックしている。</td></tr>
+</tbody></table>
+<p>STEP 00は入力がないため照合コードはありません。STEP 02はビルド設定の追記のみで、対象は <code>gradle/libs.versions.toml</code> と <code>app/build.gradle.kts</code> です（完成プロジェクトの<a href="../../A10RoomSample/gradle/libs.versions.toml">libs.versions.toml</a>、<a href="../../A10RoomSample/app/build.gradle.kts">build.gradle.kts</a>を参照）。STEP 03〜07のファイルは完成プロジェクトと同じ内容です。<code>AndroidManifest.xml</code> は最初から最後までひな形のままなので、照合コードはありません。</p>
+</section>
+
+<section><h2>5. つまずきやすいエラーと対応</h2>
+<table><thead><tr><th>エラー・症状</th><th>原因</th><th>対応</th></tr></thead><tbody>
+<tr><td><code>expected to find any of 'id' or 'version'</code></td><td><code>room-runtime</code> / <code>room-compiler</code> を <code>[plugins]</code> に書いた</td><td><code>[libraries]</code> へ移す（STEP 02①）</td></tr>
+<tr><td><code>Cannot resolve symbol 'Room'</code></td><td>Syncしていない</td><td><code>Sync Now</code> を押す（STEP 02）</td></tr>
+<tr><td><code>Entities and Pojos must have a usable public constructor</code></td><td><code>Item</code> のコンストラクタが <code>public</code> でない、またはセッターがない</td><td>04-Item.javaと見比べさせる</td></tr>
+<tr><td><code>ItemDao</code> の全行が赤い</td><td><code>Interface</code> ではなく <code>Class</code> で作った</td><td>ファイルを削除して作り直す（STEP 05①）</td></tr>
+<tr><td>保存しても一覧が変わらない</td><td><code>setText(itemList(itemDao))</code> をリスナに書いていない</td><td>07-MainActivity.javaと見比べさせる</td></tr>
+<tr><td>一覧に前回のデータが入っている</td><td>完成版の見本アプリが同じパッケージ名で同じ <code>app.db</code> を使っている</td><td>端末でアプリのデータを消去させる（本ガイド1章）</td></tr>
+</tbody></table>
+</section>
+
+<footer class="footer"><p>Androidプログラミング1 · 教員用ガイド A10RoomSample</p></footer>
+</main>
+<p class="sr-only" role="status" aria-live="polite" data-copy-status></p></body></html>

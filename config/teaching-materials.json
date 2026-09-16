@@ -11,7 +11,8 @@
     "A06ScreenTransitionSample",
     "A07BillSplitter",
     "A08SharedPreferencesSample",
-    "A09MemoApp"
+    "A09MemoApp",
+    "A10RoomSample"
   ],
   "terms": [
     {
@@ -41,7 +42,9 @@
         "teacher/screen-transition-sample/index.html",
         "teacher/bill-splitter/index.html",
         "teacher/shared-preferences-sample/index.html",
-        "teacher/memo-app/index.html"
+        "teacher/memo-app/index.html",
+        "docs/room-sample/index.html",
+        "teacher/room-sample/index.html"
       ]
     }
   ],
@@ -363,6 +366,60 @@
         }
       ],
       "archive": "docs/memo-app/downloads/A09MemoApp.zip"
+    },
+    {
+      "name": "A10RoomSample",
+      "package": "jp.ac.jec.a10roomsample",
+      "root": "A10RoomSample",
+      "docs": [
+        "docs/room-sample/index.html",
+        "teacher/room-sample/index.html"
+      ],
+      "source_java": "A10RoomSample/app/src/main/java/jp/ac/jec/a10roomsample/MainActivity.java",
+      "source_xml": "A10RoomSample/app/src/main/res/layout/activity_main.xml",
+      "snippets": [
+        {
+          "html": "docs/room-sample/index.html",
+          "id": "code-complete-java",
+          "source": "A10RoomSample/app/src/main/java/jp/ac/jec/a10roomsample/MainActivity.java"
+        },
+        {
+          "html": "docs/room-sample/index.html",
+          "id": "code-complete-java-2",
+          "source": "A10RoomSample/app/src/main/java/jp/ac/jec/a10roomsample/MainActivity.java"
+        },
+        {
+          "html": "docs/room-sample/index.html",
+          "id": "code-complete-xml",
+          "source": "A10RoomSample/app/src/main/res/layout/activity_main.xml"
+        },
+        {
+          "html": "docs/room-sample/index.html",
+          "id": "code-layout",
+          "source": "A10RoomSample/app/src/main/res/layout/activity_main.xml"
+        },
+        {
+          "html": "docs/room-sample/index.html",
+          "id": "code-item",
+          "source": "A10RoomSample/app/src/main/java/jp/ac/jec/a10roomsample/Item.java"
+        },
+        {
+          "html": "docs/room-sample/index.html",
+          "id": "code-dao",
+          "source": "A10RoomSample/app/src/main/java/jp/ac/jec/a10roomsample/ItemDao.java"
+        },
+        {
+          "html": "docs/room-sample/index.html",
+          "id": "code-database",
+          "source": "A10RoomSample/app/src/main/java/jp/ac/jec/a10roomsample/AppDatabase.java"
+        },
+        {
+          "html": "docs/room-sample/index.html",
+          "id": "code-toml",
+          "source": "A10RoomSample/gradle/libs.versions.toml"
+        }
+      ],
+      "archive": "docs/room-sample/downloads/A10RoomSample.zip"
     }
   ]
 }
