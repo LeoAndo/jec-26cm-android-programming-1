@@ -9,7 +9,8 @@
     "A04WebViewApp",
     "A05BombGame",
     "A06ScreenTransitionSample",
-    "A07BillSplitter"
+    "A07BillSplitter",
+    "A08SharedPreferencesSample"
   ],
   "terms": [
     {
@@ -29,13 +30,15 @@
         "docs/bomb-game/index.html",
         "docs/screen-transition-sample/index.html",
         "docs/bill-splitter/index.html",
+        "docs/shared-preferences-sample/index.html",
         "teacher/hello-android/index.html",
         "teacher/calc-game/index.html",
         "teacher/rock-paper-scissors-game/index.html",
         "teacher/webview-app/index.html",
         "teacher/bomb-game/index.html",
         "teacher/screen-transition-sample/index.html",
-        "teacher/bill-splitter/index.html"
+        "teacher/bill-splitter/index.html",
+        "teacher/shared-preferences-sample/index.html"
       ]
     }
   ],
@@ -272,6 +275,30 @@
         }
       ],
       "archive": "docs/bill-splitter/downloads/A07BillSplitter.zip"
+    },
+    {
+      "name": "A08SharedPreferencesSample",
+      "package": "jp.ac.jec.a08sharedpreferencessample",
+      "root": "A08SharedPreferencesSample",
+      "docs": [
+        "docs/shared-preferences-sample/index.html",
+        "teacher/shared-preferences-sample/index.html"
+      ],
+      "source_java": "A08SharedPreferencesSample/app/src/main/java/jp/ac/jec/a08sharedpreferencessample/MainActivity.java",
+      "source_xml": "A08SharedPreferencesSample/app/src/main/res/layout/activity_main.xml",
+      "snippets": [
+        {
+          "html": "docs/shared-preferences-sample/index.html",
+          "id": "code-complete-java",
+          "source": "A08SharedPreferencesSample/app/src/main/java/jp/ac/jec/a08sharedpreferencessample/MainActivity.java"
+        },
+        {
+          "html": "docs/shared-preferences-sample/index.html",
+          "id": "code-complete-xml",
+          "source": "A08SharedPreferencesSample/app/src/main/res/layout/activity_main.xml"
+        }
+      ],
+      "archive": "docs/shared-preferences-sample/downloads/A08SharedPreferencesSample.zip"
     }
   ]
 }

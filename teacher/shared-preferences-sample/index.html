@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="ja">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>教員用ガイド SharedPreferencesSample | Androidプログラミング1</title>
+<link rel="stylesheet" href="../../docs/assets/textbook.css"><script src="../../docs/assets/textbook.js" defer></script></head>
+<body class="plain"><a class="skip" href="#main">本文へ移動</a>
+<header class="topbar"><span class="brand">JEC / Androidプログラミング1</span><a href="../../docs/shared-preferences-sample/index.html">SharedPreferencesSampleの教科書へ戻る</a></header>
+<main id="main">
+<div class="hero"><p class="eyebrow">ANDROID PROGRAMMING 1 / 授業サポート</p><h1>教員用ガイド<br>SharedPreferencesSample</h1><p class="lede">「アプリを終了しても消えないデータ」を、<code>SharedPreferences</code> で体験させる単元です。保存・読み出し・初期値・削除の4つに絞り、最後に保存先のXMLファイルをアプリ自身に表示させて、データがどこにどう残るのかを目で確かめさせます。90分×2コマを目安に調整します。</p></div>
+
+<section><h2>1. 授業前の準備</h2>
+<ul><li>学生用の入口は <code>docs/shared-preferences-sample/index.html</code> です。完成版ZIPと画像を含む教材を、構成を保って配布します。</li><li>Android Studio Panda 2 | 2025.3.2、Java / Empty Views Activity、Minimum SDK API 31を確認します。作成先は <code>Documents/Android1/A08SharedPreferencesSample</code>、パッケージは <code>jp.ac.jec.a08sharedpreferencessample</code> です。</li><li><strong>配布物はありません。</strong>画像ファイルも外部ライブラリも使いません。学生は教科書のコードを入力するだけです。</li><li>完成版は <code>Documents/Android1/samples/A08SharedPreferencesSample</code> に置きます。見本と学生のアプリは同じパッケージ名のため、端末上では同じアプリを上書きします。<strong>保存データも共有される</strong>点に注意してください。見本でapplyしたあとに学生のアプリをRunすると、学生側の初回起動で値が入った状態になります。STEP 04の「初期値が出る」を見せる前に、学生の端末で一度clearするか、アプリのデータを消去させます。</li><li>指定エミュレータ <strong>jec_26cm_android1_Pixel 9a</strong> を縦向きで使います。</li><li>アプリの実行にインターネット接続は不要です。<strong>この単元ではLogcatを使いません。</strong>結果はすべて画面に表示されます。</li></ul>
+<div class="note"><p class="box-title">今回の仕様上の制約</p><p>各単元では画面回転時のデータ保持と横画面のレイアウトを扱いません。ただし今回のデータは <code>SharedPreferences</code> にあるため、回転しても端末を再起動しても残ります。回転で失われるのは画面に表示していた文字だけで、保存データではありません。この違いは質問が出たときに扱います。</p></div>
+</section>
+
+<section><h2>2. この単元の教材方針</h2>
+<table><thead><tr><th>方針</th><th>理由</th><th>授業での扱い</th></tr></thead><tbody>
+<tr><td><strong>Logcatを使わない</strong>。結果はすべてアプリの画面に出す</td><td>コマンド操作やIDEの機能に不慣れな学生、日本語のログ文言が読みにくい留学生でも、アプリを動かすだけで結果を確認できる。確認手段の習得が単元の主題を邪魔しない。</td><td>STEP 00で「今日はLogcatを開きません」と明言する。アプリが終了したときだけ <code>level:ERROR</code> で確認させる。</td></tr>
+<tr><td><strong>保存先のXMLをアプリ自身に表示させる</strong>（STEP 08）</td><td>Device Explorerや <code>adb</code> は、この受講者像にはハードルが高い。アプリは自分のデータディレクトリを権限なしで読めるので、実機でもそのまま動く。表示されるのは記号と英数字だけで、言語にほぼ依存しない。</td><td>STEP 08がこの単元の山場。apply後とclear後の2回表示させ、<code>&lt;map /&gt;</code> になることを確かめさせる。</td></tr>
+<tr><td><code>OnSharedPreferenceChangeListener</code>、<code>commit()</code>、<code>remove()</code> は<strong>扱わない</strong></td><td>リスナはライフサイクルと解除の話が必要で、主題が2つになる。<code>remove()</code> は <code>clear()</code> と考え方が同じ。範囲を保存・読み出し・初期値・削除の4つに絞る。</td><td><code>commit()</code> は教科書の解説（applyとcommitの違い）で表だけ示し、コードは書かせない。</td></tr>
+<tr><td>保存は <code>apply()</code> に統一する</td><td>実務で使うのは <code>apply()</code>。1つの単元で2つの書き方を出すと、どちらを使うべきか迷わせる。</td><td><code>clear()</code> の確定も <code>apply()</code> で統一している。</td></tr>
+<tr><td>キーは <code>private static final String</code> で<strong>MainActivityに置く</strong></td><td>この単元のクラスはMainActivityだけ。専用の定数クラスに分けると、使う側が1つしかないのに間接参照が増える。<code>private</code> に閉じられる利点もある。</td><td>複数の画面で共有する場合の置き場所は、質問が出たときだけ触れる。</td></tr>
+<tr><td>表示欄に <code>layout_weight="1"</code> を付ける</td><td><code>wrap_content</code> だと表示内容の長さでボタンの位置が上下に動き、押し間違える。ボタンを何度も押す教材のため。</td><td>STEP 02の解説で理由を扱う。「なぜweightを付けるのか」は設計の話として短く。</td></tr>
+</tbody></table>
+<div class="note"><p class="box-title">完成コードを説明するときの注意</p><p><code>var</code>、ラムダ式、<code>Set.of()</code>、<code>Files.readAllBytes</code> の書き方は変えません。教科書で説明します。<code>readPrefsXml()</code> の <code>try</code>〜<code>catch (IOException e)</code> は「ファイルを読めなかったときに受け止める」とだけ説明し、例外処理の一般論には広げません。<code>getApplicationInfo().dataDir</code> は「このアプリ専用の場所」とだけ触れます。</p></div>
+</section>
+
+<section><h2>3. 90分×2コマの進行</h2>
+<table><thead><tr><th>コマ</th><th>時間配分</th><th>終了時の確認</th></tr></thead><tbody>
+<tr><td>1コマ目</td><td>STEP 00：5分、STEP 01：15分、STEP 02：15分、STEP 03：10分、STEP 04：20分、STEP 05：20分、個別支援：5分</td><td>applyを押すと6行の値が変わる。押す前は初期値が出ることを説明できる。</td></tr>
+<tr><td>2コマ目</td><td>再開：5分、STEP 06：15分、STEP 07：10分、STEP 08：20分、STEP 09：15分、STEP 10：15分、APK・個別支援：10分</td><td>終了して開き直しても値が残る。app.xmlの中身を表示でき、clearで <code>&lt;map /&gt;</code> になることを確かめられる。</td></tr>
+</tbody></table>
+<p>STEP 04は、<strong>まだ何も保存していない状態で読み出す</strong>ことに意味があります。ここを飛ばしてSTEP 05のapplyを先に押させると、初期値を見る機会がなくなります。順番どおり進めさせてください。</p>
+<p>STEP 06は、この単元でいちばん大事な確認です。<strong>アプリの終了は「最近使ったアプリ」から上へスワイプ</strong>で行わせます。戻る操作（◁）だけでは終了しないことがあり、「残った」ように見えて確認になりません。全員が終了→起動を2回できたことを確かめてから次へ進みます。</p>
+<p>STEP 08は、<code>readPrefsXml()</code> を <code>onCreate</code> の中に貼ってしまう誤りが起きやすい工程です（A06・A07と同じ）。「onCreateの最後の <code>}</code> の下」を板書か画面で示します。まだ一度もapplyしていない端末では <code>(file not found)</code> が出ます。これは正常で、ファイルは<strong>最初のapplyのときに作られる</strong>ことを説明する機会になります。</p>
+<p>時間が足りない場合は、STEP 09のミニ練習を口頭の問いかけに切り替えます。練習2（初期値を <code>-1</code> に変える）だけは、STEP 04の理解確認に直結するため残すことを勧めます。</p>
+</section>
+
+<section><h2>4. STEPごとの照合コード</h2>
+<table><thead><tr><th>到達地点</th><th>参照ファイル</th><th>教員の確認ポイント</th></tr></thead><tbody>
+<tr><td>出発点（STEP 01）</td><td><a href="code/01-MainActivity.java">01-MainActivity.java</a> / <a href="code/01-activity_main.xml">01-activity_main.xml</a></td><td>Hello World!をRunできる。ひな形のまま。</td></tr>
+<tr><td>画面のレイアウト（STEP 02）</td><td><a href="code/02-activity_main.xml">02-activity_main.xml</a></td><td>id/mainのLinearLayout（vertical・center_horizontal）。btn_apply、btn_get、btn_clear、btn_xml、tv_outputがこの順。tv_outputが <code>0dp</code> + <code>weight="1"</code> になっている。</td></tr>
+<tr><td>SharedPreferencesの用意（STEP 03）</td><td><a href="code/03-MainActivity.java">03-MainActivity.java</a></td><td>定数7つがクラスの先頭にある。<code>prefs</code> がフィールド（onCreateのローカル変数になっていない）。</td></tr>
+<tr><td>読み出しと表示（STEP 04）</td><td><a href="code/04-MainActivity.java">04-MainActivity.java</a></td><td><code>currentValues()</code> が <code>onCreate</code> の外にある。<code>TextView output</code> の行が <code>prefs = ...</code> より上。まだリスナは1つもない。</td></tr>
+<tr><td>保存（STEP 05）</td><td><a href="code/05-MainActivity.java">05-MainActivity.java</a></td><td><code>btn_apply</code> のリスナだけがある。<code>editor.apply();</code> がある。<code>putStringSet</code> の引数が <code>Set.of("Hello", "World")</code>。</td></tr>
+<tr><td>読み出しボタン（STEP 06）</td><td><a href="code/06-MainActivity.java">06-MainActivity.java</a></td><td><code>btn_get</code> のリスナが <code>btn_apply</code> の下にある。<code>edit()</code> を呼んでいない。</td></tr>
+<tr><td>全削除（STEP 07）</td><td><a href="code/07-MainActivity.java">07-MainActivity.java</a></td><td><code>btn_clear</code> のリスナがある。<code>edit.clear();</code> のあとに <code>edit.apply();</code> がある（applyを忘れていない）。</td></tr>
+<tr><td>完成（STEP 08）</td><td><a href="code/08-MainActivity.java">08-MainActivity.java</a></td><td><code>readPrefsXml()</code> が <code>currentValues()</code> の下、クラスの最後の <code>}</code> の上にある。<code>btn_xml</code> のリスナがある。</td></tr>
+</tbody></table>
+<p>STEP 00・09・10は入力がないため、照合コードはありません。STEP 02・08のファイルは完成プロジェクトと同じ内容です（<a href="../../A08SharedPreferencesSample/app/src/main/res/layout/activity_main.xml">activity_main.xml</a>、<a href="../../A08SharedPreferencesSample/app/src/main/java/jp/ac/jec/a08sharedpreferencessample/MainActivity.java">MainActivity.java</a>）。<code>AndroidManifest.xml</code> は最初から最後までひな形のまま（MainActivityの <code>&lt;activity&gt;</code> だけ）なので、照合コードはありません。</p>
+</section>
+
+<section><h2>5. 理解確認と支援</h2>
+<table><thead><tr><th>問い</th><th>期待する行動・答え</th></tr></thead><tbody>
+<tr><td>アプリを終了しても値が残るのはなぜか。A07までと何が違うか</td><td><code>apply()</code> のときに端末の中のファイルに書き込んでいるから、と答える。A07までの値はメモリの上にだけあり、終了すると消えていた。</td></tr>
+<tr><td><code>edit()</code> → <code>putInt</code> → <code>apply()</code> のうち、どれを忘れると保存されないか</td><td><code>apply()</code>。putだけでは保存されない、と答える。<code>edit()</code> を忘れた場合はコンパイルできない。</td></tr>
+<tr><td><code>getInt(INT_VALUE, 0)</code> の <code>0</code> はいつ使われるか</td><td>そのキーのデータが保存されていないときだけ、と答える。保存されていればその値が返る。</td></tr>
+<tr><td>画面に <code>int_value = 0</code> と出ているとき、0が保存されているか</td><td>画面だけでは判別できない、と答える。show app.xmlで <code>&lt;int name="int_value" ...&gt;</code> があるかを見れば分かる。</td></tr>
+<tr><td>キーを定数にまとめているのはなぜか</td><td>保存と読み出しで同じ文字を使う必要があり、直接書くと打ち間違えても赤いエラーにならないため、と答える（STEP 09練習3）。</td></tr>
+<tr><td><code>FILE_NAME = "app"</code> はどこに現れるか</td><td>保存先が <code>shared_prefs/app.xml</code> になる、と答える。show app.xmlのパスで確かめられる。</td></tr>
+<tr><td><code>MODE_PRIVATE</code> の意味は</td><td>このアプリだけが読み書きできる、と答える。</td></tr>
+<tr><td><code>SharedPreferences</code> にパスワードを保存してはいけないのはなぜか</td><td>中身が暗号化されていないただのXMLファイルだから、と答える。STEP 08で実際に中身を見ていることを根拠にできる。</td></tr>
+<tr><td>clearするとファイルはどうなるか</td><td>ファイルは残り、中身が <code>&lt;map /&gt;</code> になる、と答える。</td></tr>
+</tbody></table>
+<p>エラー時は「STEP番号・ファイル・最初の赤い行・操作順」を聞きます。この単元のLogcat検索は <code>package:jp.ac.jec.a08sharedpreferencessample level:ERROR</code> です（<a href="../../docs/common/logcat.html">共通資料：Logcat</a>）。</p>
+<p>よくある原因は、①<code>editor.apply()</code> を書き忘れた（何も保存されない）、②<code>currentValues()</code> や <code>readPrefsXml()</code> を <code>onCreate</code> の中に貼った（赤いエラーが大量に出る）、③<code>prefs = getSharedPreferences(...)</code> を <code>output.setText(currentValues());</code> より下に書いた（起動時にアプリが終了する）、④<code>R.id</code> の名前の取り違え（ボタンを押しても何も起きない）、⑤レイアウトの <code>tv_output</code> を <code>wrap_content</code> のままにした（ボタンの位置が動く）、の5つです。</p>
+<p>③はNullPointerExceptionで起動直後に終了します。画面に何も出ないため学生は原因をつかみにくいので、<strong>onCreateの中の行の順番</strong>を最初に確認させてください。</p>
+</section>
+
+<section><h2>6. 到達度と提出</h2>
+<ul><li>applyで6種類の値を保存し、アプリを完全に終了して開き直しても残ることを自分で再現できる。</li><li>保存していない状態で <code>getXxx</code> が初期値を返すことを説明できる。「表示が0」と「0が保存されている」が別であることを説明できる。</li><li>show app.xmlでファイルのパスと中身を表示し、キーがname・値がvalueとして記録されていることを説明できる。</li><li>clearで全削除でき、そのあとファイルが <code>&lt;map /&gt;</code> になることを確かめられる。</li><li>提出する場合は <a href="../../docs/common/apk.html">共通資料：APKの作り方</a>に従い、先生が指定した場所へ <code>学籍番号_A08SharedPreferencesSample.apk</code> を提出する。</li></ul>
+</section>
+
+<section><h2>7. 教材の保守と確認</h2>
+<ul><li>完成コードを変更したら、教科書の部分コード、照合用の全体コード、画像をまとめて確認し、<code>python3 scripts/package-hello-android.py --project A08SharedPreferencesSample --output docs/shared-preferences-sample/downloads/A08SharedPreferencesSample.zip</code> で配布用ZIPを再作成します。教科書のコードと完成プロジェクトの一致は <code>python3 scripts/check-teaching-materials.py</code> で確かめます。</li><li>アプリ画面の5枚（app-step2、app-initial、app-applied、app-xml、app-xml-empty）は <code>jec_26cm_android1_Pixel 9a</code> で完成版を操作して撮影しました（2026年9月16日）。<code>app-initial.png</code> はSTEP 04（初回起動）とSTEP 07（clear後）の両方で使っています。表示が同じためです。</li><li>IDE操作の画像は <code>A08SharedPreferencesSample</code> / <code>jp.ac.jec.a08sharedpreferencessample</code> で撮影しています。差し替えたら、imgの <code>width</code> / <code>height</code> を実際のサイズに合わせます。</li><li>各STEPの照合コードは、完成プロジェクトのコピーにそのSTEPまでのファイルを入れ、STEP 01〜08のすべてで <code>assembleDebug</code> が通ることを確認しました（2026年9月16日）。完成コードを変更したら、照合コードも合わせて更新します。</li><li>教科書に載せた表示例（初期値・applyの結果・XMLの中身・<code>&lt;map /&gt;</code>）は、エミュレータで実際に操作して確認した内容です。<code>string_set_value</code> の並び順は <code>Set</code> の仕様上変わることがあるため、教科書にもその旨を書いています。</li><li>印刷時は補足・解答も展開されます。解答を配布したくない場合は、ブラウザで授業中に開く方式を使ってください。</li></ul>
+</section>
+
+<footer class="footer"><p><a href="../../docs/shared-preferences-sample/index.html">← SharedPreferencesSampleの教科書へ戻る</a></p><p>対象：macOS / Android Studio Panda 2 | 2025.3.2 · 確認日：2026年9月16日</p></footer>
+</main></body></html>
