@@ -77,15 +77,34 @@
 <p>自分のMacには <code>jec_26cm_android1_Pixel 9a</code> がありません。<a href="emulator.html" data-keep-from>共通資料：エミュレータの準備とアプリの実行</a>の手順で、同じ設定のものを自分で作ってください。名前は同じにしておくと、教科書の記述をそのまま読めます。</p>
 </section>
 
-<section><h3>3-4. 自動で作られるコードが違う</h3>
-<p>プロジェクトを新規作成したときの <code>MainActivity.java</code> の中身は、Android Studioの版によって少し違うことがあります。教科書は次の形を前提にしています。</p>
-<div class="code-head">MainActivity.java · 教科書が前提にしているひな形</div><pre tabindex="0"><code>ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -&gt; {
-    Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-    v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-    return insets;
-});</code></pre>
-<p>この部分が無かったり形が違ったりしても、<strong>教科書で追加する行だけを自分のコードに足せば動きます。</strong>迷ったら、完成プロジェクトの <code>MainActivity.java</code> と見比べてください。</p>
-<p>レイアウトの一番外側に <code>android:id="@+id/main"</code> が付いていない場合は、自分で付け足します。教科書のJavaが <code>findViewById(R.id.main)</code> で使っています。</p>
+<section><h3>3-4. Quail 4 との違い（実際に比べた結果）</h3>
+<p>教員が <strong>Android Studio Quail 4</strong> で同じ設定のひな形プロジェクトを作り、Panda 2 のものと1ファイルずつ比べました。結果は次のとおりです。</p>
+
+<h4>同じだったもの</h4>
+<table><thead><tr><th>ファイル</th><th>結果</th></tr></thead><tbody>
+<tr><td><code>MainActivity.java</code></td><td><strong>完全に同じ</strong>（パッケージ名の行を除く）</td></tr>
+<tr><td><code>activity_main.xml</code></td><td><strong>完全に同じ</strong></td></tr>
+<tr><td><code>themes.xml</code></td><td>同じ（テーマ名を除く）</td></tr>
+</tbody></table>
+<div class="check"><p class="box-title">ここが大事です</p><p><strong>教科書で入力するコードは、Quail 4 でもそのまま使えます。</strong>ひな形の <code>MainActivity.java</code> も <code>activity_main.xml</code> も中身が同じだからです。<code>android:id="@+id/main"</code> も、インセットの処理も、Panda 2 と同じ形で作られます。</p></div>
+
+<h4>違ったもの</h4>
+<p>違いはすべて<strong>ビルドの設定</strong>にありました。授業では触らない部分です。</p>
+<table><thead><tr><th>項目</th><th>Panda 2 | 2025.3.2</th><th>Quail 4</th></tr></thead><tbody>
+<tr><td>Android Gradle Plugin</td><td>9.1.1</td><td>9.4.0</td></tr>
+<tr><td>Gradle</td><td>9.3.1</td><td>9.6.0</td></tr>
+<tr><td>compileSdk</td><td>36</td><td>37</td></tr>
+<tr><td>targetSdk</td><td>36</td><td>37</td></tr>
+<tr><td><strong>Minimum SDK の初期値</strong></td><td>31</td><td><strong>30</strong></td></tr>
+<tr><td>R8のルールを書くファイル</td><td><code>app/proguard-rules.pro</code></td><td><code>app/src/main/keepRules/rules.keep</code></td></tr>
+<tr><td>AndroidManifest.xml</td><td>指定なし</td><td><code>android:windowSoftInputMode="adjustResize"</code> が自動で付く</td></tr>
+<tr><td>使うライブラリ</td><td><code>androidx.activity</code></td><td><code>androidx.activity-ktx</code></td></tr>
+</tbody></table>
+
+<div class="note"><p class="box-title">1つだけ、自分で直す必要があります</p><p><strong>Minimum SDK は、新規作成のときに自分で API 31 を選んでください。</strong>Quail 4 では初期値が API 30 になっていました。教科書は API 31 を前提にしています。あとから変えるときは <code>app/build.gradle.kts</code> の <code>minSdk</code> を <code>31</code> にします。</p></div>
+
+<p>そのほかの違い（AGP・Gradle・compileSdk・targetSdk・R8のファイル名・ライブラリ）は、<strong>そのままで構いません。</strong>教科書はこれらに依存していません。新しいバージョンが選んだ値のまま進めてください。</p>
+<p>なお Quail 4 のひな形は、そのまま <code>assembleDebug</code> が通ることを確認しています。</p>
 </section>
 
 <h2 id="stuck">4. それでも合わないとき</h2>
@@ -99,9 +118,12 @@
 </tbody></table>
 </section>
 
-<section><h3>4-2. このページで確認できていないこと</h3>
-<div class="note"><p class="box-title">未検証です</p><p>このページの読み替えは、<strong>実際に新しいバージョンのAndroid Studioで試して確かめたものではありません。</strong>「こういう違いが出やすい」という一般的な注意点をまとめたものです。書いてあるとおりにしても合わないことがあります。</p>
-<p>ちがうバージョンで進めて気づいたことがあれば、<strong>先生に知らせてください。</strong>次の版でこのページに反映します。そのとき「Android Studioのバージョン」「起きたこと」「教科書のどのSTEPか」の3つを伝えてもらえると助かります。</p></div>
+<section><h3>4-2. 確かめたこと・確かめていないこと</h3>
+<table><thead><tr><th></th><th>内容</th></tr></thead><tbody>
+<tr><td>確かめたこと</td><td>Quail 4 で作ったひな形プロジェクトと、Panda 2 のものを1ファイルずつ比べた（3-4の表）。Quail 4 のひな形が <code>assembleDebug</code> で通ることも確認した。</td></tr>
+<tr><td>確かめていないこと</td><td><strong>各単元のSTEPを最後まで通して進めた動作は、Quail 4 では試していません。</strong>Quail 4 以外のバージョン（さらに新しい版など）も試していません。3-1〜3-3の読み替えは、一般的な注意点としてまとめたものです。</td></tr>
+</tbody></table>
+<div class="note"><p class="box-title">気づいたことを教えてください</p><p>ちがうバージョンで進めて気づいたことがあれば、<strong>先生に知らせてください。</strong>次の版でこのページに反映します。そのとき「<strong>Android Studioのバージョン</strong>」「<strong>起きたこと</strong>」「<strong>教科書のどのSTEPか</strong>」の3つを伝えてもらえると助かります。</p></div>
 </section>
 
 <section><h2>公式資料</h2><p><a href="https://developer.android.com/studio/releases?hl=ja">Android Studio リリースノート</a>／<a href="https://developer.android.com/build/agp-upgrade-assistant?hl=ja">AGP Upgrade Assistant</a>／<a href="https://developer.android.com/studio/projects/create-project?hl=ja">プロジェクトを作成する</a></p></section>
