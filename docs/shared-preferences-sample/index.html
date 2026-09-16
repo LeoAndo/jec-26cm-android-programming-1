@@ -1,0 +1,574 @@
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="JavaとXMLで作るA08SharedPreferencesSample。SharedPreferencesでデータを端末に保存し、アプリを終了しても残ることを画面で確かめ、保存先のXMLファイルの中身まで見るところまでを小さなSTEPで学ぶ授業用教科書。">
+<title>SharedPreferencesSample — データを保存しよう | Androidプログラミング1</title>
+<link rel="stylesheet" href="../assets/textbook.css"><script src="../assets/textbook.js" defer></script></head>
+<body data-progress-key="jec-android1-sharedpreferences-v1">
+<a class="skip" href="#main">本文へ移動</a>
+<header class="topbar"><span class="brand">JEC / Androidプログラミング1</span><a href="../bill-splitter/index.html">A07 BillSplitter</a></header>
+<div class="shell"><aside class="sidebar"><div class="sidebar-inner"><p class="eyebrow">CONTENTS / 学習の順番</p>
+<nav aria-label="学習ステップ"><ol><li><a href="#step-0">00　今日のゴール</a></li>
+<li><a href="#step-1">01　プロジェクトを作って実行</a></li>
+<li><a href="#step-2">02　画面を作る</a></li>
+<li><a href="#step-3">03　SharedPreferencesを用意する</a></li>
+<li><a href="#step-4">04　保存されている値を画面に出す</a></li>
+<li><a href="#step-5">05　データを保存する</a></li>
+<li><a href="#step-6">06　アプリを終了しても残ることを確かめる</a></li>
+<li><a href="#step-7">07　データを全部消す</a></li>
+<li><a href="#step-8">08　保存先のXMLファイルを見る</a></li>
+<li><a href="#step-9">09　ミニ練習</a></li>
+<li><a href="#step-10">10　完成とふり返り</a></li></ol></nav>
+<div class="progress"><span data-progress-label>0 / 11 ステップ確認済み</span><progress value="0" max="11" aria-label="学習の進み具合"></progress><span class="muted">自分用のチェックです。</span></div>
+<div class="resources"><a href="#help">困ったとき</a><a href="#apply-or-commit">解説：applyとcommitの違い</a><a href="#what-to-save">解説：何を保存してよいか</a><a href="#sample-project">完成プロジェクトを開く</a><a href="../hello-android/index.html">A01：HelloAndroid</a><a href="../calc-game/index.html">A02：CalcGame</a><a href="../rock-paper-scissors-game/index.html">A03：RockPaperScissorsGame</a><a href="../webview-app/index.html">A04：WebViewApp</a><a href="../bomb-game/index.html">A05：BombGame</a><a href="../screen-transition-sample/index.html">A06：ScreenTransitionSample</a><a href="../bill-splitter/index.html">A07：BillSplitter</a><a href="../common/emulator.html">共通：エミュレータ</a><a href="../common/auto-import.html">共通：Auto Import</a><a href="../common/apk.html">共通：APKの提出</a><a href="../common/dev-tips.html">共通：開発Tips</a></div>
+</div></aside><main id="main"><div class="hero"><span class="unit">08</span><p class="eyebrow">SHARED PREFERENCES SAMPLE</p>
+<h1>アプリを閉じても<br>消えないデータ</h1><p class="lede">値を保存する。アプリを終了する。もう一度開くと、値が残っている。<br>保存先のファイルの中身まで、自分の目で確かめます。</p>
+<div class="tags"><span>Java / XML</span><span>A07の次の単元</span><span>90分 × 2コマ目安</span><span>Macで学ぶ</span></div></div>
+
+<section id="step-0" aria-labelledby="title-0">
+<p class="step-meta">STEP 00 · 目安 5分</p><h2 id="title-0">今日のゴール</h2>
+<p>これまでの単元で作ったアプリは、終了すると入力した内容が消えていました。今回は<strong>アプリを終了しても消えないデータ</strong>の保存を学びます。使うのは <code>SharedPreferences</code> です。</p>
+<p>画面はボタン4つと表示欄だけです。ボタンを押すたびに、いま保存されている内容が表示欄に出ます。</p>
+<div class="phones">
+<figure><a href="images/app-applied.png"><img src="images/app-applied.png" width="1080" height="2424" loading="lazy" alt="アプリの画面。apply、get、clear、show app.xmlの4つのボタンの下に、int_value = 1、string_value = Hello、boolean_value = true、float_value = 1.0、long_value = 1、string_set_value = [Hello, World] と表示されている"></a><figcaption>applyを押したあと。6種類の値が保存されています。 <a href="images/app-applied.png">画像を大きく開く</a></figcaption></figure>
+<figure><a href="images/app-xml.png"><img src="images/app-xml.png" width="1080" height="2424" loading="lazy" alt="show app.xmlを押した画面。ファイルのパスに続いて、mapタグの中にstring、boolean、set、float、long、intの各タグが並んだXMLが表示されている"></a><figcaption>保存先のファイルの中身です。データはXMLで残っています。 <a href="images/app-xml.png">画像を大きく開く</a></figcaption></figure>
+</div>
+<h3>できるようになること</h3>
+<ul><li>アプリを終了しても消えないデータを、<code>SharedPreferences</code> で保存できる。</li><li>保存されていないときに <code>getInt</code> などが返す<strong>初期値</strong>を説明できる。</li><li>保存したデータをまとめて消せる。</li><li>データがどこに、どんな形で保存されているかを説明できる。</li></ul>
+<h3>今日の道具</h3>
+<table><thead><tr><th>道具</th><th>どこで使うか</th></tr></thead><tbody>
+<tr><td><code>getSharedPreferences</code></td><td>保存先のファイル名を指定して、読み書きする入口を受け取る。</td></tr>
+<tr><td><code>edit()</code> と <code>putInt</code> ほか</td><td>保存したい値を、キー（名前）を付けて書き込む。</td></tr>
+<tr><td><code>apply()</code></td><td>書き込みを確定する。これを呼ぶまで保存されない。</td></tr>
+<tr><td><code>getInt</code> ほか</td><td>キーを指定して読み出す。データがないときは初期値が返る。</td></tr>
+<tr><td><code>clear()</code></td><td>保存したデータをすべて消す。</td></tr>
+</tbody></table>
+<div class="note"><p class="box-title">画面回転について</p><p>各単元では画面回転時のデータ保持と横画面のレイアウトを扱いません。縦向きで使います。なお今回のデータは <code>SharedPreferences</code> に入っているので、回転してもアプリを終了しても残ります。消えるのは画面に表示していた文字だけで、保存したデータではありません。</p></div>
+<div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-0"><span>今回作るアプリが「アプリを終了しても消えないデータ」を扱うことを、画像と表で説明できた。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
+<div class="next"><a href="#step-1">次へ：プロジェクトを作って実行 →</a></div></section>
+
+<section id="step-1" aria-labelledby="title-1">
+<p class="step-meta">STEP 01 · 目安 15分</p><h2 id="title-1">プロジェクトを作って実行</h2>
+<p>授業環境はMacと <strong>Android Studio Panda 2 | 2025.3.2</strong> です。A07までとは別のプロジェクトを作ります。</p>
+<div class="note"><p class="box-title">毎回、自分で新規作成します</p><p>作る場所は <code>Documents/Android1/A08SharedPreferencesSample</code> です。<a href="#sample-project">完成プロジェクト</a>は答え合わせ用で、授業の入力は自分で作ったプロジェクトに書きます。</p></div>
+<ol><li>Android Studioの <strong>New Project</strong> をクリックします。別のプロジェクトを開いているときは <strong>File → New → New Project</strong> を選びます。</li></ol>
+<ol start="2"><li><strong>Phone and Tablet → Empty Views Activity → Next</strong> の順に選びます。名前に <strong>Views</strong> があることを確認します。</li></ol>
+<figure><a href="images/empty-views-activity.png"><img src="images/empty-views-activity.png" width="1800" height="1358" loading="lazy" alt="テンプレート一覧でEmpty Views Activityが選択されている"></a><figcaption>Empty Views Activityを選択。Empty Activityとは別です。 <a href="images/empty-views-activity.png">画像を大きく開く</a></figcaption></figure>
+<ol start="3"><li>次の表のとおりに入力・選択して <strong>Finish</strong> を押します。</li></ol>
+<table><thead><tr><th>項目</th><th>入力・選択する内容</th></tr></thead><tbody>
+<tr><td>Name</td><td><code>A08SharedPreferencesSample</code></td></tr>
+<tr><td>Package name</td><td><code>jp.ac.jec.a08sharedpreferencessample</code>（すべて小文字）</td></tr>
+<tr><td>Save location</td><td><code>/Users/ユーザ名/Documents/Android1/A08SharedPreferencesSample</code></td></tr>
+<tr><td>Language</td><td>Java</td></tr>
+<tr><td>Minimum SDK</td><td>API 31 ("S"; Android 12.0)</td></tr>
+<tr><td>Build configuration language</td><td>Kotlin DSL (build.gradle.kts) [Recommended]</td></tr>
+</tbody></table>
+<figure><a href="images/project-settings.png"><img src="images/project-settings.png" width="1798" height="1184" loading="lazy" alt="New Projectの設定画面。NameにA08SharedPreferencesSample、Package nameにjp.ac.jec.a08sharedpreferencessample、LanguageにJava、Minimum SDKにAPI 31が入っている"></a><figcaption>入力後の画面。画像の保存先は先生の環境のものです。自分のDocuments以下を指定します。 <a href="images/project-settings.png">画像を大きく開く</a></figcaption></figure>
+<ol start="4"><li>Sync（歯車の読み込み）が終わるまで待ちます。</li><li>端末欄で <strong>jec_26cm_android1_Pixel 9a</strong> を選び、<strong>Run</strong>（▶）を押します。白い画面に <strong>Hello World!</strong> が出れば成功です。</li></ol>
+<p>エミュレータが出てこないときは<a href="../common/emulator.html">共通資料：エミュレータ</a>を見ます。</p>
+<div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-1"><span>自分の保存先にA08SharedPreferencesSampleを作り、Hello World!を表示できた。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
+<div class="next"><a href="#step-2">次へ：画面を作る →</a></div></section>
+
+<section id="step-2" aria-labelledby="title-2">
+<p class="step-meta">STEP 02 · 目安 15分</p><h2 id="title-2">画面を作る</h2>
+<p>ボタン4つと、結果を出す表示欄を並べます。<code>app/src/main/res/layout/activity_main.xml</code> を開き、中身をすべて次のコードに置き換えます。</p>
+<div class="code-head">activity_main.xml（全体を置き換え）</div>
+<pre id="code-layout" tabindex="0"><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;LinearLayout xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
+    xmlns:tools=&quot;http://schemas.android.com/tools&quot;
+    android:id=&quot;@+id/main&quot;
+    android:layout_width=&quot;match_parent&quot;
+    android:layout_height=&quot;match_parent&quot;
+    android:gravity=&quot;center_horizontal&quot;
+    android:orientation=&quot;vertical&quot;
+    tools:context=&quot;.MainActivity&quot;&gt;
+
+    &lt;Button
+        android:id=&quot;@+id/btn_apply&quot;
+        android:layout_width=&quot;wrap_content&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:text=&quot;apply&quot; /&gt;
+
+    &lt;Button
+        android:id=&quot;@+id/btn_get&quot;
+        android:layout_width=&quot;wrap_content&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:text=&quot;get&quot; /&gt;
+
+    &lt;Button
+        android:id=&quot;@+id/btn_clear&quot;
+        android:layout_width=&quot;wrap_content&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:text=&quot;clear&quot; /&gt;
+
+    &lt;Button
+        android:id=&quot;@+id/btn_xml&quot;
+        android:layout_width=&quot;wrap_content&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:text=&quot;show app.xml&quot; /&gt;
+
+    &lt;TextView
+        android:id=&quot;@+id/tv_output&quot;
+        android:layout_width=&quot;match_parent&quot;
+        android:layout_height=&quot;0dp&quot;
+        android:layout_weight=&quot;1&quot; /&gt;
+
+&lt;/LinearLayout&gt;</code></pre>
+<h3>書いた内容の意味</h3>
+<table><thead><tr><th>書いたところ</th><th>意味</th></tr></thead><tbody>
+<tr><td><code>LinearLayout</code> / <code>orientation="vertical"</code></td><td>中身を縦に並べる。ConstraintLayoutから書き換えている。</td></tr>
+<tr><td><code>gravity="center_horizontal"</code></td><td>中身を左右の中央に寄せる。上下には寄せない。</td></tr>
+<tr><td><code>android:id="@+id/main"</code></td><td>消しません。ひな形のJavaが <code>findViewById(R.id.main)</code> で使っています（A01と同じ）。</td></tr>
+<tr><td><code>btn_apply</code> / <code>btn_get</code> / <code>btn_clear</code> / <code>btn_xml</code></td><td>Javaから見つけるための名前。STEP 05以降で1つずつ使う。</td></tr>
+<tr><td><code>tv_output</code></td><td>結果を出す表示欄。最初は空です。</td></tr>
+<tr><td><code>layout_height="0dp"</code> と <code>layout_weight="1"</code></td><td>表示欄が<strong>残りの高さを全部使う</strong>という指定。表示する文字が長くても短くても大きさが変わらないので、上のボタンの位置がずれません。</td></tr>
+</tbody></table>
+<div class="note"><p class="box-title">なぜ表示欄にweightを付けるのか</p><p><code>layout_height="wrap_content"</code>（中身の分だけ）にすると、表示する文字が増えたときに表示欄が大きくなり、上のボタンが動いてしまいます。ボタンを何度も押す教材なので、押す場所が変わらないようにしています。</p></div>
+<p>文字を直接書いたことによる <code>Hardcoded text</code> の警告は、これまでの単元と同様にそのまま進めます。</p>
+<h3>Runで確かめる</h3>
+<p>apply・get・clear・show app.xmlの4つのボタンが画面の上に縦に並べば成功です。押しても、まだ何も起きません。</p>
+<figure class="phone"><a href="images/app-step2.png"><img src="images/app-step2.png" width="1080" height="2424" loading="lazy" alt="4つのボタンapply、get、clear、show app.xmlが縦に並び、その下は何も表示されていない画面"></a><figcaption>STEP 02の完成。表示欄はまだ空です。 <a href="images/app-step2.png">画像を大きく開く</a></figcaption></figure>
+<div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-2"><span>4つのボタンが並んだ画面をRunできた。表示欄にweightを付けた理由を説明できた。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
+<div class="next"><a href="#step-3">次へ：SharedPreferencesを用意する →</a></div></section>
+
+<section id="step-3" aria-labelledby="title-3">
+<p class="step-meta">STEP 03 · 目安 10分</p><h2 id="title-3">SharedPreferencesを用意する</h2>
+<p><code>MainActivity.java</code> を開きます。まず、保存に使う名前を定数にまとめ、読み書きの入口を受け取ります。</p>
+<h3>① クラスの先頭に定数とフィールドを追加する</h3>
+<p><code>public class MainActivity extends AppCompatActivity {</code> のすぐ下に書きます。</p>
+<div class="code-head">MainActivity.java · クラスの先頭</div>
+<pre id="code-keys" tabindex="0"><code>    private static final String FILE_NAME = &quot;app&quot;;
+    private static final String INT_VALUE = &quot;int_value&quot;;
+    private static final String BOOLEAN_VALUE = &quot;boolean_value&quot;;
+    private static final String FLOAT_VALUE = &quot;float_value&quot;;
+    private static final String LONG_VALUE = &quot;long_value&quot;;
+    private static final String STRING_VALUE = &quot;string_value&quot;;
+    private static final String STRING_SET_VALUE = &quot;string_set_value&quot;;
+
+    private SharedPreferences prefs;</code></pre>
+<h3>② onCreateの最後に1行追加する</h3>
+<div class="code-head">MainActivity.java · onCreateの中（いちばん下）</div>
+<pre id="code-get-prefs" tabindex="0"><code>        // ファイル名を指定して、SharedPreferencesを取得する.
+        prefs = getSharedPreferences(FILE_NAME, MODE_PRIVATE);</code></pre>
+<p><code>SharedPreferences</code> が赤いときは <kbd>⌥ Enter</kbd> で <code>android.content.SharedPreferences</code> を選びます（<a href="../common/auto-import.html">共通資料：Auto Import</a>）。</p>
+<h3>書いた内容の意味</h3>
+<table><thead><tr><th>書いたところ</th><th>意味</th></tr></thead><tbody>
+<tr><td><code>FILE_NAME = "app"</code></td><td>保存先のファイル名。このあと <code>app.xml</code> というファイルができます。</td></tr>
+<tr><td><code>INT_VALUE = "int_value"</code> など6つ</td><td>値に付ける名前（<strong>キー</strong>）。保存するときと読み出すときに同じものを使います。</td></tr>
+<tr><td><code>private static final String</code></td><td>キーの文字を1か所にまとめる書き方。打ち間違えを防げます（STEP 09の練習3で確かめます）。</td></tr>
+<tr><td><code>MODE_PRIVATE</code></td><td>このアプリだけが読み書きできる、という指定。ほかのアプリからは見えません。</td></tr>
+<tr><td><code>prefs</code></td><td>読み書きの入口。onCreateの外のメソッドからも使うので、フィールドにしています。</td></tr>
+</tbody></table>
+<div class="note"><p class="box-title">キーは自由に決めてよい？</p><p>キーの文字は自分で決められます。ただし<strong>保存したときと読み出すときで同じ</strong>でなければ、値は見つかりません。この教材では値の種類がわかる名前（<code>int_value</code> など）にしています。</p></div>
+<h3>Runで確かめる</h3><p>画面の見た目は変わりません。赤いエラーが出ずにRunできれば成功です。</p>
+<div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-3"><span>キーの定数を7つ書き、<code>getSharedPreferences</code> でprefsを受け取れた。MODE_PRIVATEの意味を説明できた。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
+<div class="next"><a href="#step-4">次へ：保存されている値を画面に出す →</a></div></section>
+
+<section id="step-4" aria-labelledby="title-4">
+<p class="step-meta">STEP 04 · 目安 20分</p><h2 id="title-4">保存されている値を画面に出す</h2>
+<p>まだ何も保存していません。その状態で読み出すと何が返るのかを、先に確かめます。</p>
+<h3>① 読み出してまとめるメソッドを追加する</h3>
+<p><code>onCreate</code> の最後の <code>}</code> の<strong>下</strong>、クラスの最後の <code>}</code> の<strong>上</strong>に書きます。onCreateの中ではありません。</p>
+<div class="code-head">MainActivity.java · onCreateの外</div>
+<pre id="code-current-values" tabindex="0"><code>    /**
+     * 保存されているデータをまとめて1つの文字列にする.
+     * データがない場合は、getXxx()の第2引数に渡した初期値が返る.
+     */
+    private String currentValues() {
+        return INT_VALUE + &quot; = &quot; + prefs.getInt(INT_VALUE, 0) + &quot;\n&quot;
+                + STRING_VALUE + &quot; = &quot; + prefs.getString(STRING_VALUE, &quot;&quot;) + &quot;\n&quot;
+                + BOOLEAN_VALUE + &quot; = &quot; + prefs.getBoolean(BOOLEAN_VALUE, false) + &quot;\n&quot;
+                + FLOAT_VALUE + &quot; = &quot; + prefs.getFloat(FLOAT_VALUE, 0) + &quot;\n&quot;
+                + LONG_VALUE + &quot; = &quot; + prefs.getLong(LONG_VALUE, 0) + &quot;\n&quot;
+                + STRING_SET_VALUE + &quot; = &quot; + prefs.getStringSet(STRING_SET_VALUE, Set.of());
+    }</code></pre>
+<p><code>Set</code> が赤いときは <kbd>⌥ Enter</kbd> で <code>java.util.Set</code> を選びます。</p>
+<h3>② onCreateで表示欄に出す</h3>
+<p><code>prefs = getSharedPreferences(...)</code> の行の<strong>上</strong>に表示欄を受け取る行を、<strong>下</strong>に表示する行を追加します。</p>
+<div class="code-head">MainActivity.java · onCreateの中</div>
+<pre id="code-show-values" tabindex="0"><code>        TextView output = findViewById(R.id.tv_output);
+
+        // ファイル名を指定して、SharedPreferencesを取得する.
+        prefs = getSharedPreferences(FILE_NAME, MODE_PRIVATE);
+
+        // 保存されているデータを表示する.
+        // アプリを終了してから開き直しても、データが残っていることを確認できる.
+        output.setText(currentValues());</code></pre>
+<h3>getXxxの第2引数は「初期値」</h3>
+<p><code>prefs.getInt(INT_VALUE, 0)</code> の <code>0</code> は、<strong>そのキーのデータが保存されていないときに返る値</strong>です。種類ごとに、教材では次の初期値を渡しています。</p>
+<table><thead><tr><th>メソッド</th><th>渡した初期値</th><th>データがないときの表示</th></tr></thead><tbody>
+<tr><td><code>getInt</code></td><td><code>0</code></td><td><code>int_value = 0</code></td></tr>
+<tr><td><code>getString</code></td><td><code>""</code>（空の文字）</td><td><code>string_value = </code>（右側が空）</td></tr>
+<tr><td><code>getBoolean</code></td><td><code>false</code></td><td><code>boolean_value = false</code></td></tr>
+<tr><td><code>getFloat</code></td><td><code>0</code></td><td><code>float_value = 0.0</code></td></tr>
+<tr><td><code>getLong</code></td><td><code>0</code></td><td><code>long_value = 0</code></td></tr>
+<tr><td><code>getStringSet</code></td><td><code>Set.of()</code>（空の集まり）</td><td><code>string_set_value = []</code></td></tr>
+</tbody></table>
+<p>初期値は自分で決められます。STEP 09の練習2で変えてみます。</p>
+<h3>Runで確かめる</h3>
+<p>起動しただけで、6行が表示されれば成功です。まだ保存していないので、すべて初期値です。</p>
+<figure class="phone"><a href="images/app-initial.png"><img src="images/app-initial.png" width="1080" height="2424" loading="lazy" alt="4つのボタンの下に、int_value = 0、string_value =、boolean_value = false、float_value = 0.0、long_value = 0、string_set_value = [] と表示されている画面"></a><figcaption>データがないときの表示。すべて渡した初期値です。 <a href="images/app-initial.png">画像を大きく開く</a></figcaption></figure>
+<div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-4"><span>起動すると6行が表示され、いまはすべて初期値であることを説明できた。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
+<div class="next"><a href="#step-5">次へ：データを保存する →</a></div></section>
+
+<section id="step-5" aria-labelledby="title-5">
+<p class="step-meta">STEP 05 · 目安 20分</p><h2 id="title-5">データを保存する</h2>
+<p>applyボタンに、6種類の値を保存する処理を書きます。<code>output.setText(currentValues());</code> の<strong>下</strong>に追加します。</p>
+<div class="code-head">MainActivity.java · onCreateの中</div>
+<pre id="code-apply" tabindex="0"><code>        findViewById(R.id.btn_apply).setOnClickListener(v -&gt; {
+            // データを保存するときは、edit()でEditorを取得する.
+            var editor = prefs.edit();
+            editor.putInt(INT_VALUE, 1);
+            editor.putString(STRING_VALUE, &quot;Hello&quot;);
+            editor.putBoolean(BOOLEAN_VALUE, true);
+            editor.putFloat(FLOAT_VALUE, 1.0f);
+            editor.putLong(LONG_VALUE, 1L);
+            editor.putStringSet(STRING_SET_VALUE, Set.of(&quot;Hello&quot;, &quot;World&quot;));
+            // apply()を呼ぶまでは保存されない. 戻り値で成功したかどうかが分からない.
+            editor.apply();
+            output.setText(currentValues());
+        });</code></pre>
+<h3>保存の3ステップ</h3>
+<table><thead><tr><th>順番</th><th>書くこと</th><th>意味</th></tr></thead><tbody>
+<tr><td>1</td><td><code>prefs.edit()</code></td><td>書き込み用の <code>Editor</code> を受け取る。読み出しと違い、保存には必ず必要。</td></tr>
+<tr><td>2</td><td><code>putInt</code> / <code>putString</code> ほか</td><td>キーと値の組を、種類に合ったメソッドで書き込む。<strong>この時点ではまだ保存されていない。</strong></td></tr>
+<tr><td>3</td><td><code>apply()</code></td><td>ここで確定する。忘れると何も保存されない。</td></tr>
+</tbody></table>
+<p>値の種類ごとにメソッドが分かれています。<code>1.0f</code> の <code>f</code>、<code>1L</code> の <code>L</code> は、floatとlongであることを表す印です（A06と同じ）。</p>
+<h3 id="apply-or-commit">解説：applyとcommitの違い</h3>
+<p>保存を確定するメソッドは2つあります。</p>
+<table><thead><tr><th></th><th><code>apply()</code></th><th><code>commit()</code></th></tr></thead><tbody>
+<tr><td>戻り値</td><td>なし</td><td><code>boolean</code>（成功したかどうか）</td></tr>
+<tr><td>ファイルへの書き込み</td><td>別の処理にまかせる（呼び出しはすぐ終わる）</td><td>書き終わるまで待つ</td></tr>
+<tr><td>ふだん使うのは</td><td><strong>こちら</strong></td><td>保存できたかどうかを、その場で確かめたいときだけ</td></tr>
+</tbody></table>
+<p>どちらを使っても、画面に出る結果は同じです。<code>apply()</code> でも、書き込みは<strong>この直後に別の処理が引き受けている</strong>ので、値がなくなることはありません。この教材では <code>apply()</code> を使います。</p>
+<h3>Runで確かめる</h3>
+<p>applyを押すと、6行の値が変わります。</p>
+<figure class="phone"><a href="images/app-applied.png"><img src="images/app-applied.png" width="1080" height="2424" loading="lazy" alt="applyを押したあとの画面。int_value = 1、string_value = Hello、boolean_value = true、float_value = 1.0、long_value = 1、string_set_value = [Hello, World] と表示されている"></a><figcaption>applyを押したあと。初期値から、保存した値に変わりました。 <a href="images/app-applied.png">画像を大きく開く</a></figcaption></figure>
+<p><code>string_set_value</code> が <code>[World, Hello]</code> のように逆の順で出ることがあります。<code>Set</code> は順番を約束しない入れ物なので、どちらでも正解です。</p>
+<div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-5"><span>applyを押すと6行の値が変わった。edit → put → applyの3ステップと、applyとcommitの違いを説明できた。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
+<div class="next"><a href="#step-6">次へ：アプリを終了しても残ることを確かめる →</a></div></section>
+
+<section id="step-6" aria-labelledby="title-6">
+<p class="step-meta">STEP 06 · 目安 15分</p><h2 id="title-6">アプリを終了しても残ることを確かめる</h2>
+<p>ここが今回のいちばん大事なところです。まず、読み出すだけのボタンを追加します。</p>
+<h3>① getボタンの処理を追加する</h3>
+<p>applyの処理（<code>});</code> まで）の<strong>下</strong>に追加します。</p>
+<div class="code-head">MainActivity.java · onCreateの中</div>
+<pre id="code-get" tabindex="0"><code>        findViewById(R.id.btn_get).setOnClickListener(v -&gt; output.setText(currentValues()));</code></pre>
+<p>読み出しだけなので <code>edit()</code> は要りません。処理が1つだけなので <code>{ }</code> を書かずに1行で済ませています。</p>
+<h3>② アプリを完全に終了して、開き直す</h3>
+<ol>
+<li>applyを押して、値が保存された状態にします。</li>
+<li>エミュレータで<strong>アプリ一覧（最近使ったアプリ）</strong>を開き、このアプリを上へスワイプして終了します。画面下の横棒を上へスワイプしてから止めると出ます。</li>
+<li>もう一度アプリのアイコンから起動します。</li>
+</ol>
+<p>起動した時点で、<strong>applyで保存した値がそのまま表示されていれば成功です</strong>。getを押しても同じ値が出ます。</p>
+<div class="note"><p class="box-title">なぜ残るのか</p><p><code>apply()</code> のときに、値が端末の中のファイルに書き込まれたからです。アプリを終了してもファイルは消えません。次に起動したとき、<code>getInt</code> などがそのファイルから読み出しています。そのファイルはSTEP 08で実際に見ます。</p></div>
+<div class="note"><p class="box-title">これまでの単元との違い</p><p>A02の得点やA07の参加者一覧は、アプリを終了すると消えていました。あれはメモリの上にだけあったからです。今回は<strong>ファイルに書いている</strong>ので、終了しても、端末を再起動しても残ります。</p></div>
+<h3>Runで確かめる</h3>
+<p>終了 → 起動を2回くり返して、毎回同じ値が出ることを確かめます。</p>
+<div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-6"><span>アプリを完全に終了して開き直しても値が残ることを確かめ、なぜ残るのかを説明できた。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
+<div class="next"><a href="#step-7">次へ：データを全部消す →</a></div></section>
+
+<section id="step-7" aria-labelledby="title-7">
+<p class="step-meta">STEP 07 · 目安 10分</p><h2 id="title-7">データを全部消す</h2>
+<p>保存したデータを消す処理を、clearボタンに書きます。getの行の<strong>下</strong>に追加します。</p>
+<div class="code-head">MainActivity.java · onCreateの中</div>
+<pre id="code-clear" tabindex="0"><code>        findViewById(R.id.btn_clear).setOnClickListener(v -&gt; {
+            // clear()は、保存されているデータをすべて削除する.
+            var edit = prefs.edit();
+            edit.clear();
+            edit.apply();
+            output.setText(currentValues());
+        });</code></pre>
+<p>消すときも <code>edit()</code> → 操作 → <code>apply()</code> の3ステップは同じです。<code>clear()</code> を呼んだだけでは消えません。</p>
+<h3>Runで確かめる</h3>
+<ol><li>applyを押して、値が入った状態にします。</li><li>clearを押します。6行がすべて<strong>初期値に戻れば成功です</strong>（STEP 04と同じ表示）。</li><li>もう一度applyを押すと、また値が入ります。</li></ol>
+<figure class="phone"><a href="images/app-initial.png"><img src="images/app-initial.png" width="1080" height="2424" loading="lazy" alt="clearを押したあとの画面。int_value = 0、string_value =、boolean_value = false、float_value = 0.0、long_value = 0、string_set_value = [] と、すべて初期値に戻っている"></a><figcaption>clearのあと。データが消えたので、また初期値が返ります。 <a href="images/app-initial.png">画像を大きく開く</a></figcaption></figure>
+<div class="note"><p class="box-title">「消えた」と「初期値」は違う</p><p>画面に <code>int_value = 0</code> と出ていても、それは「0が保存されている」のではなく「<strong>何も保存されていないので初期値の0が返った</strong>」という意味です。この2つは画面では見分けられません。STEP 08でファイルを見ると、はっきり違いがわかります。</p></div>
+<div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-7"><span>clearで全データを消せた。表示が初期値に戻るのは「0が保存された」からではないと説明できた。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
+<div class="next"><a href="#step-8">次へ：保存先のXMLファイルを見る →</a></div></section>
+
+<section id="step-8" aria-labelledby="title-8">
+<p class="step-meta">STEP 08 · 目安 20分</p><h2 id="title-8">保存先のXMLファイルを見る</h2>
+<p>データは端末の中のファイルに入っています。そのファイルを読んで、画面に出します。</p>
+<h3>① ファイルを読むメソッドを追加する</h3>
+<p><code>currentValues()</code> の<strong>下</strong>、クラスの最後の <code>}</code> の<strong>上</strong>に書きます。</p>
+<div class="code-head">MainActivity.java · onCreateの外</div>
+<pre id="code-read-xml" tabindex="0"><code>    /**
+     * SharedPreferencesの実体であるXMLファイルを読み込んで返す.
+     * 自分のアプリのデータなので、特別な権限なしで読める.
+     */
+    private String readPrefsXml() {
+        var file = new File(getApplicationInfo().dataDir, &quot;shared_prefs/&quot; + FILE_NAME + &quot;.xml&quot;);
+        if (!file.exists()) {
+            return file.getAbsolutePath() + &quot;\n\n(file not found)&quot;;
+        }
+        try {
+            return file.getAbsolutePath() + &quot;\n\n&quot;
+                    + new String(Files.readAllBytes(file.toPath()), StandardCharsets.UTF_8);
+        } catch (IOException e) {
+            return &quot;read error: &quot; + e;
+        }
+    }</code></pre>
+<p><code>File</code>・<code>Files</code>・<code>StandardCharsets</code>・<code>IOException</code> が赤いときは <kbd>⌥ Enter</kbd> で <code>java.io.File</code>、<code>java.nio.file.Files</code>、<code>java.nio.charset.StandardCharsets</code>、<code>java.io.IOException</code> を選びます。</p>
+<h3>② show app.xmlボタンの処理を追加する</h3>
+<p>clearの処理（<code>});</code> まで）の<strong>下</strong>に追加します。これでonCreateは完成です。</p>
+<div class="code-head">MainActivity.java · onCreateの中</div>
+<pre id="code-xml-button" tabindex="0"><code>        findViewById(R.id.btn_xml).setOnClickListener(v -&gt; {
+            output.setText(readPrefsXml());
+        });</code></pre>
+<h3>Runで確かめる</h3>
+<ol><li>applyを押します。</li><li>show app.xmlを押します。ファイルの場所と、中身のXMLが表示されます。</li></ol>
+<figure class="phone"><a href="images/app-xml.png"><img src="images/app-xml.png" width="1080" height="2424" loading="lazy" alt="show app.xmlを押した画面。パスのあとに、mapタグの中にstring、boolean、set、float、long、intの各タグが並んだXMLが表示されている"></a><figcaption>applyのあと。保存した6つの値がタグになっています。 <a href="images/app-xml.png">画像を大きく開く</a></figcaption></figure>
+<h3>読み取れること</h3>
+<table><thead><tr><th>画面に出たもの</th><th>意味</th></tr></thead><tbody>
+<tr><td><code>/data/user/0/jp.ac.jec.a08sharedpreferencessample/</code></td><td>このアプリ専用の場所。ほかのアプリからは読めません。</td></tr>
+<tr><td><code>shared_prefs/app.xml</code></td><td><code>FILE_NAME = "app"</code> と書いたので <code>app.xml</code> になっています。</td></tr>
+<tr><td><code>&lt;int name="int_value" value="1" /&gt;</code></td><td><strong>キーがname、値がvalue</strong>。種類ごとにタグ名が違います（int / long / float / boolean / string / set）。</td></tr>
+<tr><td><code>&lt;set&gt;</code> の中の <code>&lt;string&gt;</code> が2つ</td><td><code>Set.of("Hello", "World")</code> の2つが入っています。</td></tr>
+</tbody></table>
+<h3>clearするとどうなるか</h3>
+<ol><li>clearを押します。</li><li>もう一度show app.xmlを押します。</li></ol>
+<figure class="phone"><a href="images/app-xml-empty.png"><img src="images/app-xml-empty.png" width="1080" height="2424" loading="lazy" alt="clearしたあとにshow app.xmlを押した画面。同じパスのあとに、XML宣言とmapタグだけが表示されている"></a><figcaption>clearのあと。ファイルは残り、中身が空になります。 <a href="images/app-xml-empty.png">画像を大きく開く</a></figcaption></figure>
+<p><code>&lt;map /&gt;</code> だけになりました。<strong>ファイルそのものは消えず、中身が空になる</strong>ことがわかります。STEP 07で見た「消えた」と「初期値」の違いが、ここではっきりします。</p>
+<h3 id="what-to-save">解説：何を保存してよいか</h3>
+<p><code>SharedPreferences</code> は<strong>小さくて単純な設定</strong>のための入れ物です。</p>
+<table><thead><tr><th>向いているもの</th><th>向いていないもの</th></tr></thead><tbody>
+<tr><td>音量やダークモードの設定、最後に開いたタブ、チュートリアルを見たかどうか</td><td>写真や動画（大きすぎる）</td></tr>
+<tr><td>ログイン中かどうかの目印</td><td>何百件もの記録（一覧や検索にはデータベースを使う）</td></tr>
+<tr><td>ゲームのハイスコア</td><td><strong>パスワードやクレジットカード番号</strong></td></tr>
+</tbody></table>
+<div class="note"><p class="box-title">パスワードを入れてはいけない理由</p><p>いま見たとおり、中身は<strong>ただのXMLファイル</strong>です。暗号化されていません。ふつうの端末ではほかのアプリから読めませんが、それでも大事な情報を平文で置く場所ではありません。</p></div>
+<div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-8"><span>app.xmlの中身を表示し、キーと値がどう記録されているかを説明できた。clearでファイルが空になることを確かめた。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
+<div class="next"><a href="#step-9">次へ：ミニ練習 →</a></div></section>
+
+<section id="step-9" aria-labelledby="title-9">
+<p class="step-meta">STEP 09 · 目安 15分</p><h2 id="title-9">ミニ練習</h2>
+<p>まずSTEP 08まで完成させます。そのあと、次の小変更を1つずつ試します。<strong>予想 → 変更 → Run → 説明 → 元に戻す</strong>の順で行います。</p>
+<div class="task"><p class="box-title">練習1：保存する値を変える</p><p>applyの処理の2行を、次のように変えます。</p>
+<div class="code-head">練習1 · 変更後の2行</div>
+<pre id="code-practice-values" tabindex="0"><code>            editor.putInt(INT_VALUE, 100);
+            editor.putString(STRING_VALUE, &quot;Android&quot;);</code></pre>
+<p>applyを押したあと、show app.xmlを押すと、XMLのどこが変わるでしょうか。予想してから試します。</p>
+<details><summary>試したあとに答えを見る</summary><p><code>&lt;int name="int_value" value="100" /&gt;</code> と <code>&lt;string name="string_value"&gt;Android&lt;/string&gt;</code> の2つが変わり、ほかの4つは同じです。キーは変えていないので、同じ名前の値が上書きされます。確認後は <code>1</code> と <code>"Hello"</code> に戻します。</p></details></div>
+<div class="task"><p class="box-title">練習2：初期値を変える</p><p><code>currentValues()</code> の1行目を、次のように変えます（第2引数が <code>-1</code> です）。</p>
+<div class="code-head">練習2 · 変更後の行</div>
+<pre id="code-practice-default" tabindex="0"><code>        return INT_VALUE + &quot; = &quot; + prefs.getInt(INT_VALUE, -1) + &quot;\n&quot;</code></pre>
+<p>clearを押したあと、<code>int_value</code> は何と表示されるでしょうか。applyを押したあとはどうでしょうか。予想してから試します。</p>
+<details><summary>試したあとに答えを見る</summary><p>clearのあとは <code>int_value = -1</code>、applyのあとは <code>int_value = 1</code> です。初期値は<strong>データがないときだけ</strong>使われ、保存されていればその値が返ります。「0だから保存されていない」とは限らないこと、逆に「0が保存されている」こともあることを説明できれば十分です。確認後は <code>0</code> に戻します。</p></details></div>
+<div class="task"><p class="box-title">練習3：キーを直接書いて、打ち間違える</p><p><code>currentValues()</code> の1行目を、さらに次のように変えます（<code>_</code> がありません）。</p>
+<div class="code-head">練習3 · 変更後の行</div>
+<pre id="code-practice-key" tabindex="0"><code>        return INT_VALUE + &quot; = &quot; + prefs.getInt(&quot;intvalue&quot;, 0) + &quot;\n&quot;</code></pre>
+<p>赤いエラーは出るでしょうか。applyを押したあと、<code>int_value</code> は何と表示されるでしょうか。予想してから試します。</p>
+<details><summary>試したあとに答えを見る</summary><p>赤いエラーは<strong>出ません</strong>。applyを押しても <code>int_value = 0</code> のままです。保存したキーは <code>"int_value"</code>、探したキーは <code>"intvalue"</code> で、見つからないため初期値の0が返るからです。show app.xmlを押すと <code>&lt;int name="int_value" value="1" /&gt;</code> はちゃんとあります。定数名を <code>INT_VALU</code> のように打ち間違えた場合は、すぐ赤いエラーになります。キーを定数にまとめる理由を説明できれば十分です。確認後は <code>INT_VALUE</code> に戻します。</p></details></div>
+<div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-9"><span>3つの練習を試し、初期値が使われる条件と、キーを定数にまとめる理由を説明できた。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
+<div class="next"><a href="#step-10">次へ：完成とふり返り →</a></div></section>
+
+<section id="step-10" aria-labelledby="title-10">
+<p class="step-meta">STEP 10 · 目安 15分</p><h2 id="title-10">完成とふり返り</h2>
+<h3>完成チェック</h3>
+<table><thead><tr><th>操作</th><th>確認する結果</th></tr></thead><tbody>
+<tr><td>アプリを消してから初回起動</td><td>6行が初期値（<code>0</code> / 空 / <code>false</code> / <code>0.0</code> / <code>0</code> / <code>[]</code>）で表示される。</td></tr>
+<tr><td>apply</td><td>6行が <code>1</code> / <code>Hello</code> / <code>true</code> / <code>1.0</code> / <code>1</code> / <code>[Hello, World]</code> に変わる。</td></tr>
+<tr><td>get</td><td>applyのあとと同じ6行が出る。</td></tr>
+<tr><td>アプリを終了して開き直す</td><td>起動しただけで、applyで保存した値が出る。</td></tr>
+<tr><td>show app.xml</td><td>パスと、6つのタグが入ったXMLが出る。</td></tr>
+<tr><td>clear</td><td>6行が初期値に戻る。</td></tr>
+<tr><td>clearのあとにshow app.xml</td><td><code>&lt;map /&gt;</code> だけになる。</td></tr>
+</tbody></table>
+<h3>自分の言葉でふり返る</h3>
+<ol>
+<li>アプリを終了しても値が残るのはなぜですか。A07までのアプリとは何が違いますか。</li>
+<li><code>edit()</code> → <code>putInt</code> → <code>apply()</code> の3つのうち、どれを忘れると保存されませんか。</li>
+<li><code>getInt(INT_VALUE, 0)</code> の <code>0</code> はいつ使われますか。</li>
+<li>画面に <code>int_value = 0</code> と出ているとき、0が保存されているかどうかは、どうすれば確かめられますか。</li>
+<li>キーの文字を定数にまとめているのはなぜですか。直接書くと、どんな間違いに気付けなくなりますか。</li>
+<li><code>SharedPreferences</code> にパスワードを保存してはいけないのはなぜですか。</li>
+</ol>
+<h3>保存と提出</h3>
+<p>自分の <code>Documents/Android1/A08SharedPreferencesSample</code> を保存します。先生からAPK提出の指示がある場合は、<a href="../common/apk.html">共通資料：提出用APKの作り方</a>に進みます。ファイル名は <code>学籍番号_A08SharedPreferencesSample.apk</code> です。提出先は先生の案内に従います。</p>
+<p>教材のチェックは自分用です。先生への送信はしません。印刷は <kbd>⌘ P</kbd> で行えます。</p>
+<div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-10"><span>完成チェックを終え、保存・読み出し・初期値・削除・保存先のファイルについて説明できた。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
+</section>
+
+<section id="help"><h2>困ったとき</h2><table><thead><tr><th>困ったこと</th><th>最初に確認する場所</th></tr></thead><tbody>
+<tr><td><code>SharedPreferences</code> が赤い</td><td><kbd>⌥ Enter</kbd> で <code>android.content.SharedPreferences</code> を選ぶ。</td></tr>
+<tr><td><code>Set</code>、<code>File</code>、<code>Files</code>、<code>StandardCharsets</code>、<code>IOException</code>、<code>TextView</code> が赤い</td><td><kbd>⌥ Enter</kbd> で <code>java.util.Set</code>、<code>java.io.File</code>、<code>java.nio.file.Files</code>、<code>java.nio.charset.StandardCharsets</code>、<code>java.io.IOException</code>、<code>android.widget.TextView</code> を選ぶ。</td></tr>
+<tr><td><code>R.id.btn_apply</code> などが赤い</td><td>activity_main.xmlのidが <code>btn_apply</code> / <code>btn_get</code> / <code>btn_clear</code> / <code>btn_xml</code> / <code>tv_output</code> か確認。<code>android:id="@+id/main"</code> を消していないかも見る。</td></tr>
+<tr><td><code>currentValues()</code> や <code>readPrefsXml()</code> を追加したら、赤いエラーがたくさん出る</td><td>onCreateの中に入れていないか確認。onCreateの最後の <code>}</code> の下、クラスの最後の <code>}</code> の上に置く。</td></tr>
+<tr><td><code>prefs</code> が赤い、またはnullでアプリが終了する</td><td>STEP 03の <code>prefs = getSharedPreferences(FILE_NAME, MODE_PRIVATE);</code> を書いたか、<code>output.setText(currentValues());</code> より<strong>上</strong>にあるか確認する。</td></tr>
+<tr><td><code>output</code> が赤い（applyなどの中）</td><td><code>TextView output = findViewById(R.id.tv_output);</code> をonCreateの中に書いたか確認する。</td></tr>
+<tr><td>ボタンを押しても何も起きない</td><td>そのボタンの処理を追加したか、<code>R.id</code> の名前を取り違えていないか確認する。</td></tr>
+<tr><td>applyを押しても値が変わらない</td><td><code>editor.apply();</code> を書いたか確認する。putだけでは保存されない。</td></tr>
+<tr><td>アプリを終了すると値が消える</td><td>アプリのデータを消していないか確認する（設定 → アプリ → ストレージを消去）。エミュレータを作り直した場合も消える。</td></tr>
+<tr><td>show app.xmlで <code>(file not found)</code> と出る</td><td>まだ一度もapplyしていない状態。applyを押してから、もう一度show app.xmlを押す。</td></tr>
+<tr><td>clearしたのに <code>int_value = 0</code> と出る</td><td>正常です。データが消えたので、初期値の0が返っています（STEP 07）。</td></tr>
+<tr><td><code>string_set_value</code> の並びが画像と違う</td><td>正常です。<code>Set</code> は順番を約束しません。</td></tr>
+<tr><td>表示欄の文字が画面の下からはみ出す</td><td>activity_main.xmlの <code>tv_output</code> が <code>layout_height="0dp"</code> と <code>layout_weight="1"</code> になっているか確認する。</td></tr>
+<tr><td>ボタンを押すたびにボタンの位置が動く</td><td>同上。<code>wrap_content</code> のままだと、表示する文字の量で位置が変わる。</td></tr>
+<tr><td>直したのに動きが変わらない</td><td>ウィンドウの保存先が <code>Documents/Android1/A08SharedPreferencesSample</code> か確認する。samples側を開いていないか見る。</td></tr>
+</tbody></table>
+<p>質問では「STEP番号・編集したファイル・最初の赤い行・押した順番」を伝えます。</p></section>
+
+<section id="sample-project"><h2>完成プロジェクトを開く</h2>
+<p>完成版は最初の授業から使える見本です。<a class="button-link" href="downloads/A08SharedPreferencesSample.zip" download>完成プロジェクト A08SharedPreferencesSample.zip</a></p>
+<ol><li>ZIPを展開します。中に <code>A08SharedPreferencesSample</code> フォルダができます。</li><li>見本は <code>/Users/ユーザ名/Documents/Android1/samples/A08SharedPreferencesSample</code> に置きます。</li><li>Android Studioの <strong>Open</strong> で、<code>settings.gradle.kts</code> と <code>app</code> が入った <code>A08SharedPreferencesSample</code> フォルダを選びます。</li><li>Sync後にRunして動きを確認します。授業の入力に戻るときは自分の <code>Documents/Android1/A08SharedPreferencesSample</code> を開きます。</li></ol>
+<p>両方とも同じプロジェクト名なので、ウィンドウの保存先を確認しましょう。見本と自分のアプリは同じパッケージ名のため、端末上では同じアプリを更新します。<strong>保存したデータも共有されます</strong>。切り替えるときは、確認したい方のプロジェクトからRunします。</p>
+<details><summary>完成したMainActivity.javaで照合する</summary><div class="code-head">完成版 · MainActivity.java</div>
+<pre id="code-complete-java" tabindex="0"><code>package jp.ac.jec.a08sharedpreferencessample;
+
+import android.content.SharedPreferences;
+import android.os.Bundle;
+import android.widget.TextView;
+
+import androidx.activity.EdgeToEdge;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.graphics.Insets;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowInsetsCompat;
+
+import java.io.File;
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.util.Set;
+
+public class MainActivity extends AppCompatActivity {
+    private static final String FILE_NAME = &quot;app&quot;;
+    private static final String INT_VALUE = &quot;int_value&quot;;
+    private static final String BOOLEAN_VALUE = &quot;boolean_value&quot;;
+    private static final String FLOAT_VALUE = &quot;float_value&quot;;
+    private static final String LONG_VALUE = &quot;long_value&quot;;
+    private static final String STRING_VALUE = &quot;string_value&quot;;
+    private static final String STRING_SET_VALUE = &quot;string_set_value&quot;;
+
+    private SharedPreferences prefs;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        EdgeToEdge.enable(this);
+        setContentView(R.layout.activity_main);
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -&gt; {
+            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
+            return insets;
+        });
+
+        TextView output = findViewById(R.id.tv_output);
+
+        // ファイル名を指定して、SharedPreferencesを取得する.
+        prefs = getSharedPreferences(FILE_NAME, MODE_PRIVATE);
+
+        // 保存されているデータを表示する.
+        // アプリを終了してから開き直しても、データが残っていることを確認できる.
+        output.setText(currentValues());
+
+        findViewById(R.id.btn_apply).setOnClickListener(v -&gt; {
+            // データを保存するときは、edit()でEditorを取得する.
+            var editor = prefs.edit();
+            editor.putInt(INT_VALUE, 1);
+            editor.putString(STRING_VALUE, &quot;Hello&quot;);
+            editor.putBoolean(BOOLEAN_VALUE, true);
+            editor.putFloat(FLOAT_VALUE, 1.0f);
+            editor.putLong(LONG_VALUE, 1L);
+            editor.putStringSet(STRING_SET_VALUE, Set.of(&quot;Hello&quot;, &quot;World&quot;));
+            // apply()を呼ぶまでは保存されない. 戻り値で成功したかどうかが分からない.
+            editor.apply();
+            output.setText(currentValues());
+        });
+
+        findViewById(R.id.btn_get).setOnClickListener(v -&gt; output.setText(currentValues()));
+
+        findViewById(R.id.btn_clear).setOnClickListener(v -&gt; {
+            // clear()は、保存されているデータをすべて削除する.
+            var edit = prefs.edit();
+            edit.clear();
+            edit.apply();
+            output.setText(currentValues());
+        });
+
+        findViewById(R.id.btn_xml).setOnClickListener(v -&gt; {
+            output.setText(readPrefsXml());
+        });
+    }
+
+    /**
+     * 保存されているデータをまとめて1つの文字列にする.
+     * データがない場合は、getXxx()の第2引数に渡した初期値が返る.
+     */
+    private String currentValues() {
+        return INT_VALUE + &quot; = &quot; + prefs.getInt(INT_VALUE, 0) + &quot;\n&quot;
+                + STRING_VALUE + &quot; = &quot; + prefs.getString(STRING_VALUE, &quot;&quot;) + &quot;\n&quot;
+                + BOOLEAN_VALUE + &quot; = &quot; + prefs.getBoolean(BOOLEAN_VALUE, false) + &quot;\n&quot;
+                + FLOAT_VALUE + &quot; = &quot; + prefs.getFloat(FLOAT_VALUE, 0) + &quot;\n&quot;
+                + LONG_VALUE + &quot; = &quot; + prefs.getLong(LONG_VALUE, 0) + &quot;\n&quot;
+                + STRING_SET_VALUE + &quot; = &quot; + prefs.getStringSet(STRING_SET_VALUE, Set.of());
+    }
+
+    /**
+     * SharedPreferencesの実体であるXMLファイルを読み込んで返す.
+     * 自分のアプリのデータなので、特別な権限なしで読める.
+     */
+    private String readPrefsXml() {
+        var file = new File(getApplicationInfo().dataDir, &quot;shared_prefs/&quot; + FILE_NAME + &quot;.xml&quot;);
+        if (!file.exists()) {
+            return file.getAbsolutePath() + &quot;\n\n(file not found)&quot;;
+        }
+        try {
+            return file.getAbsolutePath() + &quot;\n\n&quot;
+                    + new String(Files.readAllBytes(file.toPath()), StandardCharsets.UTF_8);
+        } catch (IOException e) {
+            return &quot;read error: &quot; + e;
+        }
+    }
+}</code></pre></details>
+<details><summary>完成したactivity_main.xmlで照合する</summary><div class="code-head">完成版 · activity_main.xml</div>
+<pre id="code-complete-xml" tabindex="0"><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;LinearLayout xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
+    xmlns:tools=&quot;http://schemas.android.com/tools&quot;
+    android:id=&quot;@+id/main&quot;
+    android:layout_width=&quot;match_parent&quot;
+    android:layout_height=&quot;match_parent&quot;
+    android:gravity=&quot;center_horizontal&quot;
+    android:orientation=&quot;vertical&quot;
+    tools:context=&quot;.MainActivity&quot;&gt;
+
+    &lt;Button
+        android:id=&quot;@+id/btn_apply&quot;
+        android:layout_width=&quot;wrap_content&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:text=&quot;apply&quot; /&gt;
+
+    &lt;Button
+        android:id=&quot;@+id/btn_get&quot;
+        android:layout_width=&quot;wrap_content&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:text=&quot;get&quot; /&gt;
+
+    &lt;Button
+        android:id=&quot;@+id/btn_clear&quot;
+        android:layout_width=&quot;wrap_content&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:text=&quot;clear&quot; /&gt;
+
+    &lt;Button
+        android:id=&quot;@+id/btn_xml&quot;
+        android:layout_width=&quot;wrap_content&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:text=&quot;show app.xml&quot; /&gt;
+
+    &lt;TextView
+        android:id=&quot;@+id/tv_output&quot;
+        android:layout_width=&quot;match_parent&quot;
+        android:layout_height=&quot;0dp&quot;
+        android:layout_weight=&quot;1&quot; /&gt;
+
+&lt;/LinearLayout&gt;</code></pre></details>
+</section>
+
+<footer class="footer"><p>Androidプログラミング1 · A08SharedPreferencesSample / 本文・画像・操作機能はオフラインで利用できます。Android Studioの初回準備・ビルドと公式資料の閲覧にはネット接続が必要です。</p><p>画像は授業用の提供資料を使用。</p></footer>
+</main></div>
+<p class="sr-only" role="status" aria-live="polite" data-copy-status></p></body></html>
