@@ -28,6 +28,7 @@
 - [教員用：WebViewAppの授業の進め方・確認項目](teacher/webview-app/index.html)
 - [教員用：BombGameの授業の進め方・確認項目](teacher/bomb-game/index.html)
 - [教員用：ScreenTransitionSampleの授業の進め方・確認項目](teacher/screen-transition-sample/index.html)
+- [教員用：BillSplitterの授業の進め方・確認項目](teacher/bill-splitter/index.html)
 
 ### 開き方
 

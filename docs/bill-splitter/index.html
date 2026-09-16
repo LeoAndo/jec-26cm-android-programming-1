@@ -359,7 +359,7 @@ import java.util.Locale;
  *     {@code
  *     var participants = new String[]{&quot;鈴木一郎&quot;, &quot;鈴木二郎&quot;, &quot;鈴木三郎&quot;};
  *     var result = BillSplitter.calculateAndFormat(1234, participants);
- *     // result -&gt; &quot;鈴木一郎: ￥411\n鈴木二郎: ￥411\n鈴木三郎: ￥412\n合計: ￥1234&quot;
+ *     // result -&gt; &quot;鈴木一郎: ￥411\n鈴木二郎: ￥411\n鈴木三郎: ￥412\n合計: ￥1,234&quot;
  *     }
  * &lt;/pre&gt;
  * &lt;p&gt;
@@ -441,7 +441,7 @@ final class BillSplitter {
      *
      * @param totalAmount  合計金額 ex) 1234
      * @param participants 参加者リスト ex) {&quot;鈴木一郎&quot;, &quot;鈴木二郎&quot;, &quot;鈴木三郎&quot;}
-     * @return 表示用文字列 ex) &quot;鈴木一郎: ￥411\n鈴木二郎: ￥411\n鈴木三郎: ￥412\n合計: ￥1234&quot;
+     * @return 表示用文字列 ex) &quot;鈴木一郎: ￥411\n鈴木二郎: ￥411\n鈴木三郎: ￥412\n合計: ￥1,234&quot;
      * @throws IllegalArgumentException 参加者が2人未満の場合、合計金額が1未満の場合
      */
     @NonNull
@@ -760,7 +760,7 @@ import java.util.Locale;
  *     {@code
  *     var participants = new String[]{&quot;鈴木一郎&quot;, &quot;鈴木二郎&quot;, &quot;鈴木三郎&quot;};
  *     var result = BillSplitter.calculateAndFormat(1234, participants);
- *     // result -&gt; &quot;鈴木一郎: ￥411\n鈴木二郎: ￥411\n鈴木三郎: ￥412\n合計: ￥1234&quot;
+ *     // result -&gt; &quot;鈴木一郎: ￥411\n鈴木二郎: ￥411\n鈴木三郎: ￥412\n合計: ￥1,234&quot;
  *     }
  * &lt;/pre&gt;
  * &lt;p&gt;
@@ -842,7 +842,7 @@ final class BillSplitter {
      *
      * @param totalAmount  合計金額 ex) 1234
      * @param participants 参加者リスト ex) {&quot;鈴木一郎&quot;, &quot;鈴木二郎&quot;, &quot;鈴木三郎&quot;}
-     * @return 表示用文字列 ex) &quot;鈴木一郎: ￥411\n鈴木二郎: ￥411\n鈴木三郎: ￥412\n合計: ￥1234&quot;
+     * @return 表示用文字列 ex) &quot;鈴木一郎: ￥411\n鈴木二郎: ￥411\n鈴木三郎: ￥412\n合計: ￥1,234&quot;
      * @throws IllegalArgumentException 参加者が2人未満の場合、合計金額が1未満の場合
      */
     @NonNull

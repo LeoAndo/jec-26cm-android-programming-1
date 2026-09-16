@@ -18,7 +18,7 @@ import java.util.Locale;
  *     {@code
  *     var participants = new String[]{"鈴木一郎", "鈴木二郎", "鈴木三郎"};
  *     var result = BillSplitter.calculateAndFormat(1234, participants);
- *     // result -> "鈴木一郎: ￥411\n鈴木二郎: ￥411\n鈴木三郎: ￥412\n合計: ￥1234"
+ *     // result -> "鈴木一郎: ￥411\n鈴木二郎: ￥411\n鈴木三郎: ￥412\n合計: ￥1,234"
  *     }
  * </pre>
  * <p>
@@ -100,7 +100,7 @@ final class BillSplitter {
      *
      * @param totalAmount  合計金額 ex) 1234
      * @param participants 参加者リスト ex) {"鈴木一郎", "鈴木二郎", "鈴木三郎"}
-     * @return 表示用文字列 ex) "鈴木一郎: ￥411\n鈴木二郎: ￥411\n鈴木三郎: ￥412\n合計: ￥1234"
+     * @return 表示用文字列 ex) "鈴木一郎: ￥411\n鈴木二郎: ￥411\n鈴木三郎: ￥412\n合計: ￥1,234"
      * @throws IllegalArgumentException 参加者が2人未満の場合、合計金額が1未満の場合
      */
     @NonNull
