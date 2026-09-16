@@ -95,12 +95,18 @@
         android:contentDescription=&quot;@null&quot;
         android:src=&quot;@drawable/title_memo&quot; /&gt;
 
-    &lt;TextView
-        android:id=&quot;@+id/txt_memo_list&quot;
+    &lt;ScrollView
         android:layout_width=&quot;match_parent&quot;
         android:layout_height=&quot;0dp&quot;
         android:layout_weight=&quot;1&quot;
-        android:background=&quot;#c0c0c0&quot; /&gt;
+        android:fillViewport=&quot;true&quot;&gt;
+
+        &lt;TextView
+            android:id=&quot;@+id/txt_memo_list&quot;
+            android:layout_width=&quot;match_parent&quot;
+            android:layout_height=&quot;wrap_content&quot;
+            android:background=&quot;#c0c0c0&quot; /&gt;
+    &lt;/ScrollView&gt;
 
     &lt;EditText
         android:id=&quot;@+id/edt_memo&quot;
@@ -139,7 +145,9 @@
 <table><thead><tr><th>書いたところ</th><th>意味</th></tr></thead><tbody>
 <tr><td><code>ImageView</code> の <code>@drawable/title_memo</code></td><td>STEP 02で置いた画像を表示する。</td></tr>
 <tr><td><code>txt_memo_list</code></td><td>メモの一覧。<code>background</code> で灰色にして、どこまでが一覧か分かるようにしている。</td></tr>
-<tr><td><code>layout_height="0dp"</code> と <code>layout_weight="1"</code></td><td>一覧が<strong>残りの高さを全部使う</strong>という指定。メモが増えても減っても、入力欄とボタンの位置が変わらない。</td></tr>
+<tr><td><code>ScrollView</code></td><td>中身がはみ出したときにスクロールできるようにする入れ物。メモが増えて画面に入りきらなくなっても、指でなぞれば続きを読める。A07の参加者一覧と同じ形。</td></tr>
+<tr><td><code>layout_height="0dp"</code> と <code>layout_weight="1"</code></td><td>一覧が<strong>残りの高さを全部使う</strong>という指定。ScrollViewのほうに付ける。メモが増えても減っても、入力欄とボタンの位置が変わらない。</td></tr>
+<tr><td><code>fillViewport="true"</code></td><td>中身が短いときでも、ScrollViewの高さいっぱいまで広げる。これがないと、メモが少ないときに灰色の背景が途中までしか広がらない。</td></tr>
 <tr><td><code>edt_memo</code> の <code>hint</code></td><td>何も入力していないときに薄く出る案内。入力すると消える。</td></tr>
 <tr><td><code>inputType="text"</code></td><td>ふつうの1行の文字入力。</td></tr>
 <tr><td>横向きの <code>LinearLayout</code></td><td>ボタン2つを横に並べる入れ物。中の2つに <code>layout_weight="1"</code> を付けて、幅を半分ずつにしている。</td></tr>
@@ -385,12 +393,18 @@ public class MainActivity extends AppCompatActivity {
         android:contentDescription=&quot;@null&quot;
         android:src=&quot;@drawable/title_memo&quot; /&gt;
 
-    &lt;TextView
-        android:id=&quot;@+id/txt_memo_list&quot;
+    &lt;ScrollView
         android:layout_width=&quot;match_parent&quot;
         android:layout_height=&quot;0dp&quot;
         android:layout_weight=&quot;1&quot;
-        android:background=&quot;#c0c0c0&quot; /&gt;
+        android:fillViewport=&quot;true&quot;&gt;
+
+        &lt;TextView
+            android:id=&quot;@+id/txt_memo_list&quot;
+            android:layout_width=&quot;match_parent&quot;
+            android:layout_height=&quot;wrap_content&quot;
+            android:background=&quot;#c0c0c0&quot; /&gt;
+    &lt;/ScrollView&gt;
 
     &lt;EditText
         android:id=&quot;@+id/edt_memo&quot;
