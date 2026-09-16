@@ -95,13 +95,13 @@
 <tr><td>Gradle</td><td>9.3.1</td><td>9.6.0</td></tr>
 <tr><td>compileSdk</td><td>36</td><td>37</td></tr>
 <tr><td>targetSdk</td><td>36</td><td>37</td></tr>
-<tr><td><strong>Minimum SDK の初期値</strong></td><td>31</td><td><strong>30</strong></td></tr>
+<tr><td><strong>minSdk</strong></td><td>31</td><td><strong>30</strong>（比較に使ったひな形の値）</td></tr>
 <tr><td>R8のルールを書くファイル</td><td><code>app/proguard-rules.pro</code></td><td><code>app/src/main/keepRules/rules.keep</code></td></tr>
 <tr><td>AndroidManifest.xml</td><td>指定なし</td><td><code>android:windowSoftInputMode="adjustResize"</code> が自動で付く</td></tr>
 <tr><td>使うライブラリ</td><td><code>androidx.activity</code></td><td><code>androidx.activity-ktx</code></td></tr>
 </tbody></table>
 
-<div class="note"><p class="box-title">1つだけ、自分で直す必要があります</p><p><strong>Minimum SDK は、新規作成のときに自分で API 31 を選んでください。</strong>Quail 4 では初期値が API 30 になっていました。教科書は API 31 を前提にしています。あとから変えるときは <code>app/build.gradle.kts</code> の <code>minSdk</code> を <code>31</code> にします。</p></div>
+<div class="note"><p class="box-title">1つだけ、自分で直す必要があります</p><p><strong>Minimum SDK は、新規作成のときに自分で API 31 を選んでください。</strong>教科書は API 31 を前提にしています。比較に使った Quail 4 のひな形は <code>minSdk = 30</code> でした。作ったあとで確かめるときは <code>app/build.gradle.kts</code> の <code>minSdk</code> を見て、<code>31</code> でなければ直します。</p></div>
 
 <p>そのほかの違い（AGP・Gradle・compileSdk・targetSdk・R8のファイル名・ライブラリ）は、<strong>そのままで構いません。</strong>教科書はこれらに依存していません。新しいバージョンが選んだ値のまま進めてください。</p>
 <p>なお Quail 4 のひな形は、そのまま <code>assembleDebug</code> が通ることを確認しています。</p>
