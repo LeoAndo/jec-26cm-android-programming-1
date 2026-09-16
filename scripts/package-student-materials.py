@@ -67,6 +67,8 @@ def build(output_dir):
             "A06ScreenTransitionSample",
             "docs/screen-transition-sample/downloads/A06ScreenTransitionSample.zip",
         ))
+    if (ROOT / "A07BillSplitter").exists():
+        projects.append(("A07BillSplitter", "docs/bill-splitter/downloads/A07BillSplitter.zip"))
     for project, output in projects:
         subprocess.run(
             [sys.executable, str(ROOT / "scripts/package-hello-android.py"),
@@ -101,6 +103,9 @@ def build(output_dir):
     if ("docs/screen-transition-sample/index.html" in files
             and "docs/screen-transition-sample/downloads/A06ScreenTransitionSample.zip" not in files):
         raise ValueError("ScreenTransitionSampleの完成プロジェクトが見つかりません。")
+    if ("docs/bill-splitter/index.html" in files
+            and "docs/bill-splitter/downloads/A07BillSplitter.zip" not in files):
+        raise ValueError("BillSplitterの完成プロジェクトが見つかりません。")
     check_links(files)
 
     metadata = {"version": version, "revision": revision, "asset": ASSET_NAME}
