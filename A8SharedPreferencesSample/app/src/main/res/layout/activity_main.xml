@@ -20,13 +20,6 @@
             android:text="commit" />
 
         <Button
-            android:id="@+id/btn_apply"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="apply" />
-
-        <Button
             android:id="@+id/btn_get"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -38,13 +31,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
-
-        <Button
-            android:id="@+id/btn_remove"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="remove" />
 
         <Button
             android:id="@+id/btn_clear"
@@ -60,12 +46,6 @@
             android:layout_weight="1"
             android:text="app.xml" />
     </LinearLayout>
-
-    <Button
-        android:id="@+id/btn_test"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="TestActivity" />
 
     <ScrollView
         android:id="@+id/scroll_output"

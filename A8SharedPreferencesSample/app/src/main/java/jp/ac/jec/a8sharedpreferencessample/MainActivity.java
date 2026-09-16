@@ -1,6 +1,5 @@
 package jp.ac.jec.a8sharedpreferencessample;
 
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
@@ -25,12 +24,6 @@ public class MainActivity extends AppCompatActivity {
     private ScrollView scrollOutput;
     private TextView output;
 
-    // データの変更を検知するリスナー.
-    // 1回のedit()で6個のキーを変更すると、6回呼ばれる.
-    // clear()で全削除したときは、keyがnullで通知される.
-    private final SharedPreferences.OnSharedPreferenceChangeListener listener =
-            (sharedPreferences, key) -> appendLine("onSharedPreferenceChanged: " + key);
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,10 +38,15 @@ public class MainActivity extends AppCompatActivity {
         scrollOutput = findViewById(R.id.scroll_output);
         output = findViewById(R.id.tv_output);
 
+        // ファイル名を指定して、SharedPreferencesを取得する.
         prefs = getSharedPreferences(PrefKeys.FILE_NAME, MODE_PRIVATE);
 
+        // 保存されているデータを表示する.
+        // アプリを終了してから開き直しても、データが残っていることを確認できる.
+        showText(currentValues());
+
         findViewById(R.id.btn_commit).setOnClickListener(v -> {
-            clearOutput();
+            // データを保存するときは、edit()でEditorを取得する.
             var editor = prefs.edit();
             editor.putInt(PrefKeys.INT_VALUE, 1);
             editor.putString(PrefKeys.STRING_VALUE, "Hello");
@@ -56,66 +54,20 @@ public class MainActivity extends AppCompatActivity {
             editor.putFloat(PrefKeys.FLOAT_VALUE, 1.0f);
             editor.putLong(PrefKeys.LONG_VALUE, 1L);
             editor.putStringSet(PrefKeys.STRING_SET_VALUE, Set.of("Hello", "World"));
-            // commit()は保存が終わるまで待ち、成功したかどうかを返す.
+            // commit()を呼ぶまでは保存されない. 戻り値で成功したかどうかが分かる.
             var result = editor.commit();
-            appendLine("commit() -> " + result);
-        });
-
-        findViewById(R.id.btn_apply).setOnClickListener(v -> {
-            clearOutput();
-            prefs.edit()
-                    .putInt(PrefKeys.INT_VALUE, 2)
-                    .putString(PrefKeys.STRING_VALUE, "Android")
-                    .putBoolean(PrefKeys.BOOLEAN_VALUE, false)
-                    .putFloat(PrefKeys.FLOAT_VALUE, 2.0f)
-                    .putLong(PrefKeys.LONG_VALUE, 2L)
-                    .putStringSet(PrefKeys.STRING_SET_VALUE, Set.of("Hello", "Android"))
-                    .apply();
-            // apply()は戻り値がなく、ファイルへの保存はバックグラウンドで行われる.
-            appendLine("apply() -> void");
+            showText("commit() -> " + result + "\n\n" + currentValues());
         });
 
         findViewById(R.id.btn_get).setOnClickListener(v -> showText(currentValues()));
 
-        findViewById(R.id.btn_remove).setOnClickListener(v -> {
-            clearOutput();
-            prefs.edit()
-                    .remove(PrefKeys.INT_VALUE)
-                    .remove(PrefKeys.STRING_VALUE)
-                    .remove(PrefKeys.BOOLEAN_VALUE)
-                    .remove(PrefKeys.FLOAT_VALUE)
-                    .remove(PrefKeys.LONG_VALUE)
-                    .remove(PrefKeys.STRING_SET_VALUE)
-                    .apply();
-        });
-
         findViewById(R.id.btn_clear).setOnClickListener(v -> {
-            clearOutput();
-            prefs.edit().clear().apply();
+            // clear()は、保存されているデータをすべて削除する.
+            prefs.edit().clear().commit();
+            showText(currentValues());
         });
 
         findViewById(R.id.btn_xml).setOnClickListener(v -> showText(readPrefsXml()));
-
-        findViewById(R.id.btn_test).setOnClickListener(v -> {
-            var intent = new Intent(this, TestActivity.class);
-            startActivity(intent);
-        });
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        // 画面が見えている間だけ、データの変更を検知する.
-        prefs.registerOnSharedPreferenceChangeListener(listener);
-        // 起動したときと、TestActivityから戻ってきたときに、保存されているデータを表示する.
-        showText(currentValues());
-    }
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-        // 登録したままにするとリスナーが残り続けてしまうため、必ず解除する.
-        prefs.unregisterOnSharedPreferenceChangeListener(listener);
     }
 
     /**
@@ -156,13 +108,5 @@ public class MainActivity extends AppCompatActivity {
     private void showText(String text) {
         output.setText(text);
         scrollOutput.post(() -> scrollOutput.fullScroll(View.FOCUS_UP));
-    }
-
-    private void clearOutput() {
-        output.setText("");
-    }
-
-    private void appendLine(String line) {
-        output.append(line + "\n");
     }
 }
