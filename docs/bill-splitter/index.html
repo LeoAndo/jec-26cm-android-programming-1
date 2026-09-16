@@ -294,7 +294,7 @@ var btnBillSplit = findViewById(R.id.btn_bill_split);</code></pre>
 <div class="code-head">BillSplitActivity.java · クラスの最初</div>
 <pre tabindex="0"><code>private static final String EXTRA_KEY_PARTICIPANTS = "participants";</code></pre>
 <div class="code-head">BillSplitActivity.java · onCreateの最後の } の下、クラスの最後の } の上</div>
-<pre tabindex="0"><code>static void start(@NonNull final Context context, @NonNull final String[] participants) {
+<pre tabindex="0"><code>static void start(final Context context, final String[] participants) {
     var starter = new Intent(context, BillSplitActivity.class);
     starter.putExtra(EXTRA_KEY_PARTICIPANTS, participants);
     context.startActivity(starter);
@@ -667,7 +667,6 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
@@ -733,7 +732,7 @@ public class BillSplitActivity extends AppCompatActivity {
         });
     }
 
-    static void start(@NonNull final Context context, @NonNull final String[] participants) {
+    static void start(final Context context, final String[] participants) {
         var starter = new Intent(context, BillSplitActivity.class);
         starter.putExtra(EXTRA_KEY_PARTICIPANTS, participants);
         context.startActivity(starter);
