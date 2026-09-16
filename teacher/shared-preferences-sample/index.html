@@ -39,9 +39,9 @@
 <section><h2>4. STEPごとの照合コード</h2>
 <table><thead><tr><th>到達地点</th><th>参照ファイル</th><th>教員の確認ポイント</th></tr></thead><tbody>
 <tr><td>出発点（STEP 01）</td><td><a href="code/01-MainActivity.java">01-MainActivity.java</a> / <a href="code/01-activity_main.xml">01-activity_main.xml</a></td><td>Hello World!をRunできる。ひな形のまま。</td></tr>
-<tr><td>画面のレイアウト（STEP 02）</td><td><a href="code/02-activity_main.xml">02-activity_main.xml</a></td><td>id/mainのLinearLayout（vertical・center_horizontal）。btn_apply、btn_get、btn_clear、btn_xml、tv_outputがこの順。tv_outputが <code>0dp</code> + <code>weight="1"</code> になっている。</td></tr>
+<tr><td>画面のレイアウト（STEP 02）</td><td><a href="code/02-activity_main.xml">02-activity_main.xml</a></td><td>id/mainのLinearLayout（vertical・center_horizontal）。btn_apply、btn_get、btn_clear、btn_xml、txt_outputがこの順。txt_outputが <code>0dp</code> + <code>weight="1"</code> になっている。</td></tr>
 <tr><td>SharedPreferencesの用意（STEP 03）</td><td><a href="code/03-MainActivity.java">03-MainActivity.java</a></td><td>定数7つがクラスの先頭にある。<code>prefs</code> がフィールド（onCreateのローカル変数になっていない）。</td></tr>
-<tr><td>読み出しと表示（STEP 04）</td><td><a href="code/04-MainActivity.java">04-MainActivity.java</a></td><td><code>currentValues()</code> が <code>onCreate</code> の外にある。<code>TextView output</code> の行が <code>prefs = ...</code> より上。まだリスナは1つもない。</td></tr>
+<tr><td>読み出しと表示（STEP 04）</td><td><a href="code/04-MainActivity.java">04-MainActivity.java</a></td><td><code>currentValues()</code> が <code>onCreate</code> の外にある。<code>TextView txtOutput</code> の行が <code>prefs = ...</code> より上。まだリスナは1つもない。</td></tr>
 <tr><td>保存（STEP 05）</td><td><a href="code/05-MainActivity.java">05-MainActivity.java</a></td><td><code>btn_apply</code> のリスナだけがある。<code>editor.apply();</code> がある。<code>putStringSet</code> の引数が <code>Set.of("Hello", "World")</code>。</td></tr>
 <tr><td>読み出しボタン（STEP 06）</td><td><a href="code/06-MainActivity.java">06-MainActivity.java</a></td><td><code>btn_get</code> のリスナが <code>btn_apply</code> の下にある。<code>edit()</code> を呼んでいない。</td></tr>
 <tr><td>全削除（STEP 07）</td><td><a href="code/07-MainActivity.java">07-MainActivity.java</a></td><td><code>btn_clear</code> のリスナがある。<code>edit.clear();</code> のあとに <code>edit.apply();</code> がある（applyを忘れていない）。</td></tr>
@@ -63,7 +63,7 @@
 <tr><td>clearするとファイルはどうなるか</td><td>ファイルは残り、中身が <code>&lt;map /&gt;</code> になる、と答える。</td></tr>
 </tbody></table>
 <p>エラー時は「STEP番号・ファイル・最初の赤い行・操作順」を聞きます。この単元のLogcat検索は <code>package:jp.ac.jec.a08sharedpreferencessample level:ERROR</code> です（<a href="../../docs/common/logcat.html">共通資料：Logcat</a>）。</p>
-<p>よくある原因は、①<code>editor.apply()</code> を書き忘れた（何も保存されない）、②<code>currentValues()</code> や <code>readPrefsXml()</code> を <code>onCreate</code> の中に貼った（赤いエラーが大量に出る）、③<code>prefs = getSharedPreferences(...)</code> を <code>output.setText(currentValues());</code> より下に書いた（起動時にアプリが終了する）、④<code>R.id</code> の名前の取り違え（ボタンを押しても何も起きない）、⑤レイアウトの <code>tv_output</code> を <code>wrap_content</code> のままにした（ボタンの位置が動く）、の5つです。</p>
+<p>よくある原因は、①<code>editor.apply()</code> を書き忘れた（何も保存されない）、②<code>currentValues()</code> や <code>readPrefsXml()</code> を <code>onCreate</code> の中に貼った（赤いエラーが大量に出る）、③<code>prefs = getSharedPreferences(...)</code> を <code>txtOutput.setText(currentValues());</code> より下に書いた（起動時にアプリが終了する）、④<code>R.id</code> の名前の取り違え（ボタンを押しても何も起きない）、⑤レイアウトの <code>txt_output</code> を <code>wrap_content</code> のままにした（ボタンの位置が動く）、の5つです。</p>
 <p>③はNullPointerExceptionで起動直後に終了します。画面に何も出ないため学生は原因をつかみにくいので、<strong>onCreateの中の行の順番</strong>を最初に確認させてください。</p>
 </section>
 

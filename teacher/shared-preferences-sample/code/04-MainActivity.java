@@ -34,14 +34,14 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
 
-        var output = (TextView) findViewById(R.id.tv_output);
+        var txtOutput = (TextView) findViewById(R.id.txt_output);
 
         // ファイル名を指定して、SharedPreferencesを取得する.
         prefs = getSharedPreferences(FILE_NAME, MODE_PRIVATE);
 
         // 保存されているデータを表示する.
         // アプリを終了してから開き直しても、データが残っていることを確認できる.
-        output.setText(currentValues());
+        txtOutput.setText(currentValues());
     }
 
     /**
