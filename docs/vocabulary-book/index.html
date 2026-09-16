@@ -1,0 +1,761 @@
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="JavaとXMLで作るA11VocabularyBook。A10で学んだRoomを2つの画面で共有し、LiveDataで一覧が自動で最新になる単語帳アプリを作る授業用教科書。">
+<title>VocabularyBook — 2つの画面でデータを共有しよう | Androidプログラミング1</title>
+<link rel="stylesheet" href="../assets/textbook.css"><script src="../assets/textbook.js" defer></script></head>
+<body data-progress-key="jec-android1-vocabularybook-v1">
+<a class="skip" href="#main">本文へ移動</a>
+<header class="topbar"><span class="brand">JEC / Androidプログラミング1</span><a href="../room-sample/index.html">A10 RoomSample</a></header>
+<div class="shell"><aside class="sidebar"><div class="sidebar-inner"><p class="eyebrow">CONTENTS / 学習の順番</p>
+<nav aria-label="学習ステップ"><ol><li><a href="#step-0">00　今日のゴール</a></li>
+<li><a href="#step-1">01　プロジェクトを作って実行</a></li>
+<li><a href="#step-2">02　画像とRoomの準備</a></li>
+<li><a href="#step-3">03　データベースの3ファイルを作る</a></li>
+<li><a href="#step-4">04　メニュー画面を作る</a></li>
+<li><a href="#step-5">05　単語を追加する画面を作る</a></li>
+<li><a href="#step-6">06　カード画面を作る</a></li>
+<li><a href="#step-7">07　完成とふり返り</a></li>
+</ol></nav>
+<div class="progress"><span data-progress-label>0 / 8 ステップ確認済み</span><progress value="0" max="8" aria-label="学習の進み具合"></progress><span class="muted">自分用のチェックです。</span></div>
+<div class="resources"><a href="#help">困ったとき</a><a href="#why-livedata">解説：LiveDataは何が便利か</a><a href="#sample-project">完成プロジェクトを開く</a><a href="../hello-android/index.html">A01：HelloAndroid</a><a href="../calc-game/index.html">A02：CalcGame</a><a href="../rock-paper-scissors-game/index.html">A03：RockPaperScissorsGame</a><a href="../webview-app/index.html">A04：WebViewApp</a><a href="../bomb-game/index.html">A05：BombGame</a><a href="../screen-transition-sample/index.html">A06：ScreenTransitionSample</a><a href="../bill-splitter/index.html">A07：BillSplitter</a><a href="../shared-preferences-sample/index.html">A08：SharedPreferencesSample</a><a href="../memo-app/index.html">A09：MemoApp</a><a href="../room-sample/index.html">A10：RoomSample</a><a href="../common/emulator.html?from=vocabulary-book">共通：エミュレータ</a><a href="../common/auto-import.html?from=vocabulary-book">共通：Auto Import</a><a href="../common/apk.html?from=vocabulary-book">共通：APKの提出</a><a href="../common/dev-tips.html?from=vocabulary-book">共通：開発Tips</a><a href="../common/other-versions.html?from=vocabulary-book">共通：ちがうバージョン</a></div>
+</div></aside><main id="main"><div class="hero"><span class="unit">11</span><p class="eyebrow">VOCABULARY BOOK</p>
+<h1>2つの画面で<br>データを共有しよう</h1><p class="lede">A10では1つの画面でRoomを使いました。<br>今回は<strong>画面を2つ</strong>にして、片方で登録した単語を、もう片方がすぐ使えるようにします。</p>
+<div class="tags"><span>Java / XML</span><span>A10の次の単元</span><span>90分 × 1コマ目安</span><span>Macで学ぶ</span></div></div>
+
+<section id="step-0" aria-labelledby="title-0">
+<p class="step-meta">STEP 00 · 目安 5分</p><h2 id="title-0">今日のゴール</h2>
+<p>英単語と日本語を登録して、カードでめくって覚える単語帳アプリを作ります。画面は3つです。</p>
+<div class="phones">
+<figure><a href="images/app-main.png"><img src="images/app-main.png" width="1080" height="2424" loading="lazy" alt="ENGLISHのロゴ画像と、単語帳画面へ・単語を追加するの2つのボタンが並んだメニュー画面"></a><figcaption>メニュー画面。ここから2つの画面へ行きます。 <a href="images/app-main.png">画像を大きく開く</a></figcaption></figure>
+<figure><a href="images/app-add.png"><img src="images/app-add.png" width="1080" height="2424" loading="lazy" alt="英単語と日本語の入力欄、追加するボタン、登録ずみの単語としてapple・study・libraryの3行が表示されている画面"></a><figcaption>単語を追加する画面。下に登録ずみの単語が出ます。 <a href="images/app-add.png">画像を大きく開く</a></figcaption></figure>
+<figure><a href="images/app-card.png"><img src="images/app-card.png" width="1080" height="2424" loading="lazy" alt="1問目/全3問中とappleが表示され、答えを表示するボタンと前へ・次へのボタンが並んだカード画面。前へは押せない状態"></a><figcaption>カード画面。答えはまだ隠れています。 <a href="images/app-card.png">画像を大きく開く</a></figcaption></figure>
+<figure><a href="images/app-answer.png"><img src="images/app-answer.png" width="1080" height="2424" loading="lazy" alt="答えを表示するを押したあと、appleの下にりんごが表示され、ボタンが答えを非表示にするに変わっている画面"></a><figcaption>答えを表示したところ。 <a href="images/app-answer.png">画像を大きく開く</a></figcaption></figure>
+</div>
+<h3>できるようになること</h3>
+<ul><li>3つの画面を行き来できる。</li><li>同じ英単語を2回登録できないようにできる。</li><li>登録した単語を、別の画面のカードとして表示できる。</li><li><strong>単語を追加したとき、一覧を出し直す処理を書かなくても表示が変わる</strong>仕組みを説明できる。</li></ul>
+<h3>今日の道具</h3>
+<table><thead><tr><th>道具</th><th>どこで使うか</th><th>学んだ単元</th></tr></thead><tbody>
+<tr><td>画面の追加と行き来</td><td>メニュー画面から2つの画面を開く。</td><td>A06・A07</td></tr>
+<tr><td><code>Room</code></td><td>単語を保存する。</td><td>A10</td></tr>
+<tr><td><code>Snackbar</code></td><td>入力が空のときと、同じ単語のときに知らせる。</td><td>A07</td></tr>
+<tr><td><strong><code>LiveData</code></strong></td><td>単語が増えたときに、自動で表示を変える。<strong>今回の新顔です。</strong></td><td>—</td></tr>
+</tbody></table>
+<p>新しく覚えることは <strong><code>LiveData</code></strong> だけです。残りはA06・A07・A10で使ったものを組み合わせます。</p>
+<div class="note" id="why-livedata"><p class="box-title">解説：LiveDataは何が便利か</p>
+<p>A10では、保存したあとに毎回この1行を書きました。</p>
+<pre><code>itemDao.upsert(item);
+txtItemList.setText(itemList(itemDao));   // 自分で出し直す</code></pre>
+<p>画面が1つならこれで足ります。<strong>画面が2つになると困ります。</strong>単語を追加する画面で保存しても、カード画面は「保存された」ことを知りません。書き忘れると、古い内容が出たままになります。</p>
+<p><code>LiveData</code> は、<strong>データが変わったことを、見張っている画面に自分から知らせる</strong>仕組みです。一度 <code>observe</code> しておけば、あとは保存するだけで表示が変わります。</p>
+<table><thead><tr><th></th><th>A10のやり方</th><th>LiveData（今回）</th></tr></thead><tbody>
+<tr><td>保存したあと</td><td><code>setText</code> を自分で書く</td><td>書かない</td></tr>
+<tr><td>書き忘れると</td><td>古い表示のまま残る</td><td>起きない</td></tr>
+<tr><td>画面が2つのとき</td><td>どちらの画面にも書く必要がある</td><td>見張っている画面がすべて変わる</td></tr>
+</tbody></table></div>
+<div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-0"><span>今日作る3つの画面と、LiveDataが何を自動でやってくれるかを説明できた。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
+<div class="next"><a href="#step-1">次へ：プロジェクトを作って実行 →</a></div></section>
+
+<section id="step-1" aria-labelledby="title-1">
+<p class="step-meta">STEP 01 · 目安 10分</p><h2 id="title-1">プロジェクトを作って実行</h2>
+<p>授業環境はMacと <strong>Android Studio Panda 2 | 2025.3.2</strong> です。A10までとは別のプロジェクトを作ります。</p>
+<div class="note"><p class="box-title">毎回、自分で新規作成します</p><p>作る場所は <code>Documents/Android1/A11VocabularyBook</code> です。<a href="#sample-project">完成プロジェクト</a>は答え合わせ用で、授業の入力は自分で作ったプロジェクトに書きます。</p></div>
+<ol><li>Android Studioの <strong>New Project</strong> をクリックします。別のプロジェクトを開いているときは <strong>File → New → New Project</strong> を選びます。</li>
+<li><strong>Phone and Tablet → Empty Views Activity → Next</strong> の順に選びます。名前に <strong>Views</strong> があることを確認します。</li>
+<li>次の表のとおりに入力・選択して <strong>Finish</strong> を押します。</li></ol>
+<table><thead><tr><th>項目</th><th>入力・選択する内容</th></tr></thead><tbody>
+<tr><td>Name</td><td><code>A11VocabularyBook</code></td></tr>
+<tr><td>Package name</td><td><code>jp.ac.jec.a11vocabularybook</code>（すべて小文字）</td></tr>
+<tr><td>Save location</td><td><code>/Users/ユーザ名/Documents/Android1/A11VocabularyBook</code></td></tr>
+<tr><td>Language</td><td>Java</td></tr>
+<tr><td>Minimum SDK</td><td>API 31 ("S"; Android 12.0)</td></tr>
+<tr><td>Build configuration language</td><td>Kotlin DSL (build.gradle.kts) [Recommended]</td></tr>
+</tbody></table>
+<ol start="4"><li>Sync（歯車の読み込み）が終わるまで待ちます。</li><li>端末欄で <strong>jec_26cm_android1_Pixel 9a</strong> を選び、<strong>Run</strong>（▶）を押します。白い画面に <strong>Hello World!</strong> が出れば成功です。</li></ol>
+<p>エミュレータが出てこないときは<a href="../common/emulator.html?from=vocabulary-book">共通資料：エミュレータ</a>を見ます。</p>
+<div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-1"><span>自分の保存先にA11VocabularyBookを作り、Hello World!を表示できた。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
+<div class="next"><a href="#step-2">次へ：画像とRoomの準備 →</a></div></section>
+
+<section id="step-2" aria-labelledby="title-2">
+<p class="step-meta">STEP 02 · 目安 10分</p><h2 id="title-2">画像とRoomの準備</h2>
+<h3>① タイトル画像を入れる</h3>
+<p>先生から配られる <code>logoeng.png</code> を、プロジェクトに入れます。A03・A05・A07・A09でやった手順と同じです。</p>
+<ol>
+<li>Finderで <code>logoeng.png</code> をコピーします（<kbd>⌘ C</kbd>）。</li>
+<li>Android Studioのプロジェクト画面で <code>app/src/main/res/drawable</code> フォルダをクリックして選び、貼り付けます（<kbd>⌘ V</kbd>）。</li>
+<li>確認のウィンドウで <strong>New name</strong> が <code>logoeng.png</code>、<strong>To directory</strong> の末尾が <code>app/src/main/res/drawable</code> になっていることを確かめて <strong>OK</strong> を押します。</li>
+</ol>
+<div class="note"><p class="box-title">ファイル名は変えません</p><p>このあとXMLから <code>@drawable/logoeng</code> という名前で呼び出します。<strong>名前を変えると見つからなくなります。</strong></p></div>
+<h3>② Roomを使えるようにする</h3>
+<p>A10のSTEP 02と同じ手順です。<code>gradle/libs.versions.toml</code> の <code>[versions]</code> と <code>[libraries]</code> に追記します。</p>
+<details open><summary><code>libs.versions.toml</code>（全体）</summary>
+<pre id="code-toml"><code>[versions]
+agp = &quot;9.1.1&quot;
+junit = &quot;4.13.2&quot;
+junitVersion = &quot;1.3.0&quot;
+espressoCore = &quot;3.7.0&quot;
+appcompat = &quot;1.8.0&quot;
+material = &quot;1.14.0&quot;
+activity = &quot;1.13.0&quot;
+constraintlayout = &quot;2.2.2&quot;
+room = &quot;2.6.1&quot;
+
+[libraries]
+junit = { group = &quot;junit&quot;, name = &quot;junit&quot;, version.ref = &quot;junit&quot; }
+ext-junit = { group = &quot;androidx.test.ext&quot;, name = &quot;junit&quot;, version.ref = &quot;junitVersion&quot; }
+espresso-core = { group = &quot;androidx.test.espresso&quot;, name = &quot;espresso-core&quot;, version.ref = &quot;espressoCore&quot; }
+appcompat = { group = &quot;androidx.appcompat&quot;, name = &quot;appcompat&quot;, version.ref = &quot;appcompat&quot; }
+material = { group = &quot;com.google.android.material&quot;, name = &quot;material&quot;, version.ref = &quot;material&quot; }
+activity = { group = &quot;androidx.activity&quot;, name = &quot;activity&quot;, version.ref = &quot;activity&quot; }
+constraintlayout = { group = &quot;androidx.constraintlayout&quot;, name = &quot;constraintlayout&quot;, version.ref = &quot;constraintlayout&quot; }
+room-runtime = { group = &quot;androidx.room&quot;, name = &quot;room-runtime&quot;, version.ref = &quot;room&quot; }
+room-compiler = { group = &quot;androidx.room&quot;, name = &quot;room-compiler&quot;, version.ref = &quot;room&quot; }
+
+[plugins]
+android-application = { id = &quot;com.android.application&quot;, version.ref = &quot;agp&quot; }</code></pre></details>
+<p>続けて <code>app/build.gradle.kts</code> の <code>dependencies { }</code> に2行を追加し、<strong>Sync Now</strong> を押します。</p>
+<pre id="code-gradle"><code>    implementation(libs.room.runtime)
+    annotationProcessor(libs.room.compiler)</code></pre>
+<div class="note"><p class="box-title"><code>[plugins]</code> に書かないこと</p><p>A10と同じ注意です。<code>[plugins]</code> のほうに書くと <code>expected to find any of 'id' or 'version'</code> でビルドが止まります。</p></div>
+<div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-2"><span>画像をdrawableに置き、Roomの追記をしてエラーなくSyncできた。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
+<div class="next"><a href="#step-3">次へ：データベースの3ファイルを作る →</a></div></section>
+
+<section id="step-3" aria-labelledby="title-3">
+<p class="step-meta">STEP 03 · 目安 15分</p><h2 id="title-3">データベースの3ファイルを作る</h2>
+<p>A10で作った3つ（<code>Item</code> / <code>ItemDao</code> / <code>AppDatabase</code>）を、今回の内容で作り直します。作り方はA10と同じ <strong>New → Java Class</strong> です。<strong><code>ItemDao</code> だけ <code>Interface</code></strong> を選びます。</p>
+<h3>① Item.java（Class）</h3>
+<p>1件が「英単語」と「日本語」の2つを持ちます。</p>
+<pre id="code-item"><code>package jp.ac.jec.a11vocabularybook;
+
+import androidx.annotation.NonNull;
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
+
+@Entity
+public class Item {
+    @PrimaryKey(autoGenerate = true)
+    private int internalId;
+
+    @NonNull
+    private String english;
+
+    @NonNull
+    private String japanese;
+
+    public Item(@NonNull String english, @NonNull String japanese) {
+        this.english = english;
+        this.japanese = japanese;
+    }
+
+    public int getInternalId() {
+        return internalId;
+    }
+
+    public void setInternalId(int internalId) {
+        this.internalId = internalId;
+    }
+
+    @NonNull
+    public String getEnglish() {
+        return english;
+    }
+
+    public void setEnglish(@NonNull String english) {
+        this.english = english;
+    }
+
+    @NonNull
+    public String getJapanese() {
+        return japanese;
+    }
+
+    public void setJapanese(@NonNull String japanese) {
+        this.japanese = japanese;
+    }
+
+    @Override
+    public String toString() {
+        return english + &quot; : &quot; + japanese;
+    }
+}</code></pre>
+<h3>② ItemDao.java（Interface）</h3>
+<pre id="code-dao"><code>package jp.ac.jec.a11vocabularybook;
+
+import androidx.lifecycle.LiveData;
+import androidx.room.Dao;
+import androidx.room.Query;
+import androidx.room.Upsert;
+
+import java.util.List;
+
+@Dao
+public interface ItemDao {
+    @Query(&quot;SELECT * FROM item&quot;)
+    LiveData&lt;List&lt;Item&gt;&gt; getAll();
+
+    @Query(&quot;SELECT COUNT(*) FROM item WHERE english = :english&quot;)
+    int countByEnglish(String english);
+
+    @Upsert
+    void upsert(Item item);
+}</code></pre>
+<table><thead><tr><th>書いたもの</th><th>意味</th></tr></thead><tbody>
+<tr><td><code>LiveData&lt;List&lt;Item&gt;&gt; getAll()</code></td><td><strong>今回の新顔。</strong>ただの <code>List</code> ではなく <code>LiveData</code> で受け取ると、中身が変わったときに知らせてもらえる</td></tr>
+<tr><td><code>countByEnglish</code></td><td>同じ英単語が何件あるか数える。重複チェックに使う</td></tr>
+<tr><td><code>@Upsert</code></td><td>A10と同じ。あれば書き換え、なければ追加</td></tr>
+</tbody></table>
+<div class="note"><p class="box-title"><code>=</code> であって <code>LIKE</code> ではありません</p><p><code>WHERE english = :english</code> は「ぴったり同じ」という意味です。<code>LIKE</code> にすると <code>%</code> や <code>_</code> が特別な文字として扱われ、ちがう単語にも当たってしまいます。</p></div>
+<h3>③ AppDatabase.java（Class）</h3>
+<pre id="code-database"><code>package jp.ac.jec.a11vocabularybook;
+
+import android.content.Context;
+
+import androidx.room.Database;
+import androidx.room.Room;
+import androidx.room.RoomDatabase;
+
+@Database(entities = {Item.class}, version = 1, exportSchema = false)
+public abstract class AppDatabase extends RoomDatabase {
+    private static AppDatabase instance;
+
+    public abstract ItemDao itemDao();
+
+    /**
+     * データベースを取得する.
+     * 1つだけ作って使い回す書き方をシングルトンという.
+     * allowMainThreadQueries()は、読み書きを画面と同じスレッドで行うための指定.
+     * 本来は別スレッドで行うが、この授業では扱わない.
+     */
+    public static AppDatabase getInstance(Context context) {
+        if (instance == null) {
+            instance = Room.databaseBuilder(context.getApplicationContext(), AppDatabase.class, &quot;app.db&quot;)
+                    .allowMainThreadQueries()
+                    .build();
+        }
+        return instance;
+    }
+}</code></pre>
+<p>A10と同じ形です。<code>context.getApplicationContext()</code> を渡すところも同じです。</p>
+<div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-3"><span>3つのファイルを作り、getAllがLiveDataで受け取る形になっていることを確認した。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
+<div class="next"><a href="#step-4">次へ：メニュー画面を作る →</a></div></section>
+
+<section id="step-4" aria-labelledby="title-4">
+<p class="step-meta">STEP 04 · 目安 10分</p><h2 id="title-4">メニュー画面を作る</h2>
+<p>まず入口の画面を作ります。ボタンはまだ何もしません。</p>
+<p><code>app/src/main/res/layout/activity_main.xml</code> を開き、中身をすべて置き換えます。</p>
+<pre id="code-layout"><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;LinearLayout xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
+    xmlns:tools=&quot;http://schemas.android.com/tools&quot;
+    android:id=&quot;@+id/main&quot;
+    android:layout_width=&quot;match_parent&quot;
+    android:layout_height=&quot;match_parent&quot;
+    android:gravity=&quot;center_vertical&quot;
+    android:orientation=&quot;vertical&quot;
+    tools:context=&quot;.MainActivity&quot;&gt;
+
+    &lt;ImageView
+        android:layout_width=&quot;match_parent&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:contentDescription=&quot;@null&quot;
+        android:src=&quot;@drawable/logoeng&quot; /&gt;
+
+    &lt;Button
+        android:id=&quot;@+id/btn_start&quot;
+        android:layout_width=&quot;match_parent&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:layout_marginTop=&quot;12dp&quot;
+        android:text=&quot;単語帳画面へ&quot; /&gt;
+
+    &lt;Button
+        android:id=&quot;@+id/btn_add_card&quot;
+        android:layout_width=&quot;match_parent&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:text=&quot;単語を追加する&quot; /&gt;
+
+&lt;/LinearLayout&gt;</code></pre>
+<h3>Runで確かめる</h3>
+<p>ロゴ画像と2つのボタンが出れば成功です。押しても何も起きません。</p>
+<div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-4"><span>メニュー画面を表示できた。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
+<div class="next"><a href="#step-5">次へ：単語を追加する画面を作る →</a></div></section>
+
+<section id="step-5" aria-labelledby="title-5">
+<p class="step-meta">STEP 05 · 目安 20分</p><h2 id="title-5">単語を追加する画面を作る</h2>
+<p>2つ目の画面を追加します。A06・A07と同じ作り方です。</p>
+<ol>
+<li>左側のプロジェクト画面で <code>app → src → main → java → jp.ac.jec.a11vocabularybook</code> を右クリックします。</li>
+<li><strong>New → Activity → Empty Views Activity</strong> を選びます。</li>
+<li>次の表のとおりに入力して <strong>Finish</strong> を押します。</li>
+</ol>
+<table><thead><tr><th>項目</th><th>入力・選択する内容</th></tr></thead><tbody>
+<tr><td>Activity Name</td><td><code>CardAddActivity</code></td></tr>
+<tr><td>Generate a Layout File</td><td>チェックを入れる</td></tr>
+<tr><td>Layout Name</td><td><code>activity_card_add</code></td></tr>
+<tr><td>Launcher Activity</td><td><strong>チェックを入れない</strong></td></tr>
+<tr><td>Package name</td><td><code>jp.ac.jec.a11vocabularybook</code></td></tr>
+<tr><td>Source Language</td><td>Java</td></tr>
+</tbody></table>
+<div class="note"><p class="box-title">New → Java Classでは作りません</p><p>この作り方なら <code>AndroidManifest.xml</code> への登録も自動で行われます。<code>New → Java Class</code> で作ると登録されず、画面を開いたときにアプリが終了します。</p></div>
+<h3>① 画面を作る</h3>
+<pre id="code-card-add-xml"><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;LinearLayout xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
+    xmlns:tools=&quot;http://schemas.android.com/tools&quot;
+    android:id=&quot;@+id/main&quot;
+    android:layout_width=&quot;match_parent&quot;
+    android:layout_height=&quot;match_parent&quot;
+    android:orientation=&quot;vertical&quot;
+    tools:context=&quot;.CardAddActivity&quot;&gt;
+
+    &lt;LinearLayout
+        android:layout_width=&quot;match_parent&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:gravity=&quot;center_vertical&quot;
+        android:orientation=&quot;horizontal&quot;&gt;
+
+        &lt;TextView
+            android:layout_width=&quot;wrap_content&quot;
+            android:layout_height=&quot;wrap_content&quot;
+            android:text=&quot;英単語&quot; /&gt;
+
+        &lt;EditText
+            android:id=&quot;@+id/edt_english&quot;
+            android:layout_width=&quot;0dp&quot;
+            android:layout_height=&quot;wrap_content&quot;
+            android:layout_weight=&quot;1&quot;
+            android:hint=&quot;ここに入力してください&quot;
+            android:importantForAutofill=&quot;no&quot;
+            android:inputType=&quot;text&quot;
+            android:minHeight=&quot;48dp&quot; /&gt;
+    &lt;/LinearLayout&gt;
+
+    &lt;LinearLayout
+        android:layout_width=&quot;match_parent&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:gravity=&quot;center_vertical&quot;
+        android:orientation=&quot;horizontal&quot;&gt;
+
+        &lt;TextView
+            android:layout_width=&quot;wrap_content&quot;
+            android:layout_height=&quot;wrap_content&quot;
+            android:text=&quot;日本語&quot; /&gt;
+
+        &lt;EditText
+            android:id=&quot;@+id/edt_japanese&quot;
+            android:layout_width=&quot;0dp&quot;
+            android:layout_height=&quot;wrap_content&quot;
+            android:layout_weight=&quot;1&quot;
+            android:hint=&quot;ここに入力してください&quot;
+            android:importantForAutofill=&quot;no&quot;
+            android:inputType=&quot;text&quot;
+            android:minHeight=&quot;48dp&quot; /&gt;
+    &lt;/LinearLayout&gt;
+
+    &lt;Button
+        android:id=&quot;@+id/btn_add&quot;
+        android:layout_width=&quot;match_parent&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:layout_marginTop=&quot;12dp&quot;
+        android:text=&quot;追加する&quot; /&gt;
+
+    &lt;TextView
+        style=&quot;@style/TextAppearance.Material3.TitleMedium&quot;
+        android:layout_width=&quot;wrap_content&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:layout_marginTop=&quot;12dp&quot;
+        android:text=&quot;登録ずみの単語&quot; /&gt;
+
+    &lt;ScrollView
+        android:layout_width=&quot;match_parent&quot;
+        android:layout_height=&quot;0dp&quot;
+        android:layout_weight=&quot;1&quot;
+        android:fillViewport=&quot;true&quot;&gt;
+
+        &lt;TextView
+            android:id=&quot;@+id/txt_card_list&quot;
+            android:layout_width=&quot;match_parent&quot;
+            android:layout_height=&quot;wrap_content&quot;
+            tools:text=&quot;apple : りんご&quot; /&gt;
+    &lt;/ScrollView&gt;
+&lt;/LinearLayout&gt;</code></pre>
+<h3>② 中身を書く</h3>
+<pre id="code-card-add-java"><code>package jp.ac.jec.a11vocabularybook;
+
+import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
+import android.widget.EditText;
+import android.widget.TextView;
+
+import androidx.activity.EdgeToEdge;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.graphics.Insets;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowInsetsCompat;
+
+import com.google.android.material.snackbar.Snackbar;
+
+public class CardAddActivity extends AppCompatActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        EdgeToEdge.enable(this);
+        setContentView(R.layout.activity_card_add);
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -&gt; {
+            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
+            return insets;
+        });
+
+        var edtEnglish = (EditText) findViewById(R.id.edt_english);
+        var edtJapanese = (EditText) findViewById(R.id.edt_japanese);
+        var txtCardList = (TextView) findViewById(R.id.txt_card_list);
+
+        var itemDao = AppDatabase.getInstance(this).itemDao();
+
+        // LiveDataを見張っておくと、単語が増えたときに自動で呼ばれる.
+        itemDao.getAll().observe(this, items -&gt; {
+            var text = new StringBuilder();
+            for (var item : items) {
+                text.append(item).append(&quot;\n&quot;);
+            }
+            txtCardList.setText(text.toString());
+        });
+
+        findViewById(R.id.btn_add).setOnClickListener(v -&gt; {
+            var english = edtEnglish.getText().toString();
+            var japanese = edtJapanese.getText().toString();
+            if (english.isEmpty() || japanese.isEmpty()) {
+                Snackbar.make(v, &quot;英単語と日本語の両方を入力してください&quot;, Snackbar.LENGTH_SHORT).show();
+                return;
+            }
+            if (itemDao.countByEnglish(english) &gt; 0) {
+                Snackbar.make(v, &quot;すでに登録されている単語です&quot;, Snackbar.LENGTH_SHORT).show();
+                return;
+            }
+            // 一覧を出し直す処理は書かない. LiveDataが自動で知らせてくれる.
+            itemDao.upsert(new Item(english, japanese));
+            edtEnglish.setText(&quot;&quot;);
+            edtJapanese.setText(&quot;&quot;);
+        });
+    }
+
+    /**
+     * この画面を開く.
+     */
+    static void start(final Context context) {
+        var starter = new Intent(context, CardAddActivity.class);
+        context.startActivity(starter);
+    }
+}</code></pre>
+<div class="note"><p class="box-title">一覧を出し直す処理を書いていません</p><p><code>itemDao.upsert(...)</code> のあとに <code>setText</code> がありません。<strong>これが今回の新しいところです。</strong><code>observe</code> でLiveDataを見張っているので、単語が増えると <code>observe</code> の中が自動でもう一度呼ばれます。</p></div>
+<h3>③ メニュー画面からこの画面を開く</h3>
+<p><code>MainActivity.java</code> の <code>onCreate</code> の最後に追加します。</p>
+<pre id="code-open-add"><code>        findViewById(R.id.btn_add_card).setOnClickListener(v -&gt; {
+            CardAddActivity.start(this);
+        });</code></pre>
+<p>画面を開く処理は、<strong>開かれる側のクラスに <code>start</code> という名前で書きます。</strong>A07の <code>BillSplitActivity.start(...)</code> と同じ形です。</p>
+<h3>Runで確かめる</h3>
+<ol><li><strong>単語を追加する</strong> を押して、この画面が出ることを確認します。</li>
+<li>英単語に <code>apple</code>、日本語に <code>りんご</code> を入れて <strong>追加する</strong>。下の一覧に増えます。</li>
+<li>同じ <code>apple</code> をもう一度登録してみます。メッセージが出て、一覧は増えません。</li></ol>
+<figure class="phone"><a href="images/app-duplicate.png"><img src="images/app-duplicate.png" width="1080" height="2424" loading="lazy" alt="英単語にapple、日本語にringoを入れて追加するを押したときに、すでに登録されている単語ですのメッセージが出て、一覧が3行のままの画面"></a><figcaption>同じ英単語は登録されません。一覧も増えません。 <a href="images/app-duplicate.png">画像を大きく開く</a></figcaption></figure>
+<div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-5"><span>単語を登録でき、同じ英単語が登録できないことを確かめた。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
+<div class="next"><a href="#step-6">次へ：カード画面を作る →</a></div></section>
+
+<section id="step-6" aria-labelledby="title-6">
+<p class="step-meta">STEP 06 · 目安 15分</p><h2 id="title-6">カード画面を作る</h2>
+<p>3つ目の画面を追加します。STEP 05と同じ手順で、<strong>Activity Name</strong> を <code>CardActivity</code>、<strong>Layout Name</strong> を <code>activity_card</code> にします。</p>
+<h3>① 画面を作る</h3>
+<pre id="code-card-xml"><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;LinearLayout xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
+    xmlns:tools=&quot;http://schemas.android.com/tools&quot;
+    android:id=&quot;@+id/main&quot;
+    android:layout_width=&quot;match_parent&quot;
+    android:layout_height=&quot;match_parent&quot;
+    android:orientation=&quot;vertical&quot;
+    tools:context=&quot;.CardActivity&quot;&gt;
+
+    &lt;TextView
+        android:id=&quot;@+id/txt_question_no&quot;
+        style=&quot;@style/TextAppearance.Material3.HeadlineSmall&quot;
+        android:layout_width=&quot;match_parent&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        tools:text=&quot;1問目/全3問中&quot; /&gt;
+
+    &lt;TextView
+        android:id=&quot;@+id/txt_english&quot;
+        style=&quot;@style/TextAppearance.Material3.BodyLarge&quot;
+        android:layout_width=&quot;match_parent&quot;
+        android:layout_height=&quot;160dp&quot;
+        tools:text=&quot;apple&quot; /&gt;
+
+    &lt;Button
+        android:id=&quot;@+id/btn_answer&quot;
+        android:layout_width=&quot;match_parent&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:text=&quot;答えを表示する&quot; /&gt;
+
+    &lt;TextView
+        android:id=&quot;@+id/txt_japanese&quot;
+        style=&quot;@style/TextAppearance.Material3.BodyLarge&quot;
+        android:layout_width=&quot;match_parent&quot;
+        android:layout_height=&quot;160dp&quot;
+        android:visibility=&quot;invisible&quot;
+        tools:text=&quot;りんご&quot; /&gt;
+
+    &lt;LinearLayout
+        android:layout_width=&quot;match_parent&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:orientation=&quot;horizontal&quot;&gt;
+
+        &lt;Button
+            android:id=&quot;@+id/btn_back&quot;
+            style=&quot;@style/Widget.Material3.Button.OutlinedButton&quot;
+            android:layout_width=&quot;0dp&quot;
+            android:layout_height=&quot;wrap_content&quot;
+            android:layout_weight=&quot;1&quot;
+            android:enabled=&quot;false&quot;
+            android:text=&quot;前へ&quot; /&gt;
+
+        &lt;Button
+            android:id=&quot;@+id/btn_next&quot;
+            style=&quot;@style/Widget.Material3.Button.OutlinedButton&quot;
+            android:layout_width=&quot;0dp&quot;
+            android:layout_height=&quot;wrap_content&quot;
+            android:layout_weight=&quot;1&quot;
+            android:enabled=&quot;false&quot;
+            android:text=&quot;次へ&quot; /&gt;
+    &lt;/LinearLayout&gt;
+&lt;/LinearLayout&gt;</code></pre>
+<p><code>btn_back</code> と <code>btn_next</code> に <code>android:enabled="false"</code> が付いています。<strong>単語が届く前に押されると落ちる</strong>ので、最初は押せない状態から始めます。</p>
+<h3>② 中身を書く</h3>
+<pre id="code-card-java"><code>package jp.ac.jec.a11vocabularybook;
+
+import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
+
+import androidx.activity.EdgeToEdge;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.graphics.Insets;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowInsetsCompat;
+
+import com.google.android.material.snackbar.Snackbar;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class CardActivity extends AppCompatActivity {
+    private final List&lt;Item&gt; cardList = new ArrayList&lt;&gt;();
+    private int cardIndex;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        EdgeToEdge.enable(this);
+        setContentView(R.layout.activity_card);
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -&gt; {
+            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
+            return insets;
+        });
+
+        var btnBack = (Button) findViewById(R.id.btn_back);
+        var btnNext = (Button) findViewById(R.id.btn_next);
+        var btnAnswer = (Button) findViewById(R.id.btn_answer);
+
+        var itemDao = AppDatabase.getInstance(this).itemDao();
+
+        // LiveDataを見張っておくと、単語が増えたときに自動で呼ばれる.
+        itemDao.getAll().observe(this, items -&gt; {
+            cardList.clear();
+            cardList.addAll(items);
+            if (cardList.isEmpty()) {
+                Snackbar.make(findViewById(R.id.main), &quot;単語がありません&quot;, Snackbar.LENGTH_INDEFINITE)
+                        .setAction(&quot;単語を追加する&quot;, v -&gt; {
+                            CardAddActivity.start(this);
+                        }).show();
+                return;
+            }
+            if (cardIndex &gt; cardList.size() - 1) {
+                cardIndex = cardList.size() - 1;
+            }
+            updateCardView();
+        });
+
+        btnBack.setOnClickListener(v -&gt; {
+            cardIndex--;
+            updateCardView();
+        });
+
+        btnNext.setOnClickListener(v -&gt; {
+            cardIndex++;
+            updateCardView();
+        });
+
+        btnAnswer.setOnClickListener(v -&gt; {
+            var txtJapanese = (TextView) findViewById(R.id.txt_japanese);
+            var isVisible = (txtJapanese.getVisibility() == View.VISIBLE);
+            txtJapanese.setVisibility(isVisible ? View.INVISIBLE : View.VISIBLE);
+            btnAnswer.setText(isVisible ? &quot;答えを表示する&quot; : &quot;答えを非表示にする&quot;);
+        });
+    }
+
+    /**
+     * この画面を開く.
+     */
+    static void start(final Context context) {
+        var starter = new Intent(context, CardActivity.class);
+        context.startActivity(starter);
+    }
+
+    /**
+     * いま表示するカードの内容にそろえる.
+     */
+    private void updateCardView() {
+        var card = cardList.get(cardIndex);
+        var txtQuestionNo = (TextView) findViewById(R.id.txt_question_no);
+        var txtEnglish = (TextView) findViewById(R.id.txt_english);
+        var txtJapanese = (TextView) findViewById(R.id.txt_japanese);
+        var btnAnswer = (Button) findViewById(R.id.btn_answer);
+
+        txtQuestionNo.setText((cardIndex + 1) + &quot;問目/全&quot; + cardList.size() + &quot;問中&quot;);
+        txtEnglish.setText(card.getEnglish());
+        txtJapanese.setText(card.getJapanese());
+
+        // カードを変えたら、答えは隠した状態に戻す.
+        txtJapanese.setVisibility(View.INVISIBLE);
+        btnAnswer.setText(&quot;答えを表示する&quot;);
+
+        findViewById(R.id.btn_back).setEnabled(cardIndex &gt; 0);
+        findViewById(R.id.btn_next).setEnabled(cardIndex &lt; cardList.size() - 1);
+    }
+}</code></pre>
+<table><thead><tr><th>書いたもの</th><th>意味</th></tr></thead><tbody>
+<tr><td><code>cardList.clear()</code> してから <code>addAll</code></td><td>LiveDataは変わるたびに呼ばれる。<strong>clearを忘れると、戻ってくるたびに一覧が二重になる</strong></td></tr>
+<tr><td><code>cardIndex</code> の調整</td><td>いま見ているカードが最後より後ろにならないようにそろえる</td></tr>
+<tr><td><code>updateCardView()</code></td><td>問題番号・英単語・日本語・ボタンの押せる／押せないを、まとめてそろえる</td></tr>
+<tr><td><code>setVisibility(View.INVISIBLE)</code></td><td>カードを送ったら、答えは隠した状態に戻す</td></tr>
+</tbody></table>
+<h3>③ メニュー画面からこの画面を開く</h3>
+<pre id="code-open-card"><code>        findViewById(R.id.btn_start).setOnClickListener(v -&gt; {
+            CardActivity.start(this);
+        });</code></pre>
+<h3>Runで確かめる</h3>
+<ol><li><strong>単語帳画面へ</strong> を押します。1問目が出ます。<strong>前へ</strong> は押せません。</li>
+<li><strong>答えを表示する</strong> を押すと日本語が出て、ボタンの文字が変わります。</li>
+<li><strong>次へ</strong> を押すと2問目になり、<strong>答えはまた隠れます</strong>。</li>
+<li>最後のカードでは <strong>次へ</strong> が押せなくなります。</li></ol>
+<figure class="phone"><a href="images/app-empty.png"><img src="images/app-empty.png" width="1080" height="2424" loading="lazy" alt="単語が1件もないときに、単語がありませんのメッセージと単語を追加するボタンが画面下に出ているカード画面"></a><figcaption>単語が1件もないとき。メッセージから追加画面へ行けます。 <a href="images/app-empty.png">画像を大きく開く</a></figcaption></figure>
+<div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-6"><span>カードを送れて、答えの表示・非表示が切り替わることを確かめた。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
+<div class="next"><a href="#step-7">次へ：完成とふり返り →</a></div></section>
+
+<section id="step-7" aria-labelledby="title-7">
+<p class="step-meta">STEP 07 · 目安 5分</p><h2 id="title-7">完成とふり返り</h2>
+<p>完成した <code>MainActivity.java</code> です。</p>
+<pre id="code-complete-java"><code>package jp.ac.jec.a11vocabularybook;
+
+import android.os.Bundle;
+
+import androidx.activity.EdgeToEdge;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.graphics.Insets;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowInsetsCompat;
+
+public class MainActivity extends AppCompatActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        EdgeToEdge.enable(this);
+        setContentView(R.layout.activity_main);
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -&gt; {
+            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
+            return insets;
+        });
+
+        findViewById(R.id.btn_start).setOnClickListener(v -&gt; {
+            CardActivity.start(this);
+        });
+
+        findViewById(R.id.btn_add_card).setOnClickListener(v -&gt; {
+            CardAddActivity.start(this);
+        });
+    }
+}</code></pre>
+<h3>ふり返り</h3>
+<ol>
+<li><code>LiveData&lt;List&lt;Item&gt;&gt;</code> と <code>List&lt;Item&gt;</code> の違いは何か。</li>
+<li>単語を追加したあと、一覧を出し直す処理を書かなくてよいのはなぜか。</li>
+<li><code>cardList.clear()</code> を消すとどうなるか。理由も説明する。</li>
+<li>画面を開く処理を、開かれる側の <code>start</code> メソッドに書いているのはなぜか。</li>
+<li>A10とA11で、Roomの使い方が変わったところはどこか。</li>
+</ol>
+<h3>練習</h3>
+<ol>
+<li><code>CardAddActivity</code> の <code>observe</code> の中を消してRunする。単語を追加したとき、一覧はどうなるか。</li>
+<li><code>CardActivity</code> の <code>cardList.clear()</code> を消してRunする。単語を追加してカード画面に戻ると、全何問中になるか。</li>
+<li><code>activity_card.xml</code> の <code>android:enabled="false"</code> を2つとも消してRunし、単語が0件の状態で <strong>次へ</strong> を押すとどうなるか確かめる。</li>
+</ol>
+<div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-7"><span>3つの画面がつながり、LiveDataの働きを説明できた。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
+</section>
+
+<section id="help" aria-labelledby="title-help">
+<h2 id="title-help">困ったとき</h2>
+<table><thead><tr><th>症状</th><th>見るところ</th></tr></thead><tbody>
+<tr><td>ボタンを押すとアプリが終了する</td><td>STEP 05。画面を <code>New → Java Class</code> で作ると <code>AndroidManifest.xml</code> に登録されません。<code>New → Activity → Empty Views Activity</code> で作り直します</td></tr>
+<tr><td>一覧が二重に増える</td><td>STEP 06②。<code>cardList.clear()</code> を書いたか</td></tr>
+<tr><td><code>expected to find any of 'id' or 'version'</code></td><td>STEP 02②。<code>[libraries]</code> に書いたか</td></tr>
+<tr><td><code>ItemDao</code> の中で赤いエラーが出る</td><td>STEP 03②。<strong>Class ではなく Interface</strong> で作ったか</td></tr>
+<tr><td>同じ単語が登録できてしまう</td><td>STEP 03②。<code>countByEnglish</code> が <code>=</code> になっているか</td></tr>
+<tr><td>ロゴ画像が見つからない</td><td>STEP 02①。ファイル名を <code>logoeng.png</code> のままにしたか</td></tr>
+<tr><td>importの赤い波線が消えない</td><td><a href="../common/auto-import.html?from=vocabulary-book">共通資料：Auto Import</a></td></tr>
+<tr><td>エミュレータが出てこない</td><td><a href="../common/emulator.html?from=vocabulary-book">共通資料：エミュレータ</a></td></tr>
+<tr><td>画面を回すと見ていたカードが1問目に戻る</td><td><a href="../common/dev-tips.html?from=vocabulary-book">共通資料：開発Tips</a> のC章。登録した単語は消えません</td></tr>
+</tbody></table>
+</section>
+
+<section id="sample-project" aria-labelledby="title-sample">
+<h2 id="title-sample">完成プロジェクト</h2>
+<p>答え合わせ用です。<a href="downloads/A11VocabularyBook.zip">A11VocabularyBook.zip</a> を展開し、Android Studioの <strong>File → Open</strong> で開きます。授業の入力は自分で作ったプロジェクトに書きます。</p>
+<details><summary>完成した <code>activity_main.xml</code></summary>
+<pre id="code-complete-xml"><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;LinearLayout xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
+    xmlns:tools=&quot;http://schemas.android.com/tools&quot;
+    android:id=&quot;@+id/main&quot;
+    android:layout_width=&quot;match_parent&quot;
+    android:layout_height=&quot;match_parent&quot;
+    android:gravity=&quot;center_vertical&quot;
+    android:orientation=&quot;vertical&quot;
+    tools:context=&quot;.MainActivity&quot;&gt;
+
+    &lt;ImageView
+        android:layout_width=&quot;match_parent&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:contentDescription=&quot;@null&quot;
+        android:src=&quot;@drawable/logoeng&quot; /&gt;
+
+    &lt;Button
+        android:id=&quot;@+id/btn_start&quot;
+        android:layout_width=&quot;match_parent&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:layout_marginTop=&quot;12dp&quot;
+        android:text=&quot;単語帳画面へ&quot; /&gt;
+
+    &lt;Button
+        android:id=&quot;@+id/btn_add_card&quot;
+        android:layout_width=&quot;match_parent&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:text=&quot;単語を追加する&quot; /&gt;
+
+&lt;/LinearLayout&gt;</code></pre></details>
+</section>
+
+<footer class="footer"><p>Androidプログラミング1 · A11VocabularyBook / 本文・画像・操作機能はオフラインで利用できます。Android Studioの初回準備・ビルドと公式資料の閲覧にはネット接続が必要です。</p><p>画像は授業用の提供資料を使用。スクリーンショットの単語は例です。</p></footer>
+</main></div>
+<p class="sr-only" role="status" aria-live="polite" data-copy-status></p></body></html>

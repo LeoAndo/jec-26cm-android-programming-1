@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="ja">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>教員用ガイド VocabularyBook | Androidプログラミング1</title>
+<link rel="stylesheet" href="../../docs/assets/textbook.css"><script src="../../docs/assets/textbook.js" defer></script></head>
+<body class="plain"><a class="skip" href="#main">本文へ移動</a>
+<header class="topbar"><span class="brand">JEC / Androidプログラミング1</span><a href="../../docs/vocabulary-book/index.html">VocabularyBookの教科書へ戻る</a></header>
+<main id="main">
+<div class="hero"><p class="eyebrow">ANDROID PROGRAMMING 1 / 授業サポート</p><h1>教員用ガイド<br>VocabularyBook</h1><p class="lede">A10で学んだRoomを、2つの画面で共有する単元です。新出概念は <code>LiveData</code> だけ。Androidプログラミング1の最終単元です。90分×1コマを目安に調整します。</p></div>
+
+<section><h2>1. 授業前の準備</h2>
+<ul>
+<li>学生用の入口は <code>docs/vocabulary-book/index.html</code> です。完成版ZIPと画像を含む教材を、構成を保って配布します。</li>
+<li>Android Studio Panda 2 | 2025.3.2、Java / Empty Views Activity、Minimum SDK API 31を確認します。作成先は <code>Documents/Android1/A11VocabularyBook</code>、パッケージは <code>jp.ac.jec.a11vocabularybook</code> です。</li>
+<li><strong>配布物が1つあります。</strong>STEP 02で使う <code>logoeng.png</code> です。完成プロジェクトZIPの <code>app/src/main/res/drawable/logoeng.png</code> がそのまま使えます。授業前に配布できる場所へ置きます。</li>
+<li>完成版は <code>Documents/Android1/samples/A11VocabularyBook</code> に置きます。見本と学生のアプリは同じパッケージ名のため、端末上では同じアプリを上書きします。<strong>登録した単語も共有されます。</strong>STEP 05の「一覧が空から始まる」を見せる前に、学生の端末でアプリのデータを消去させてください。</li>
+<li>指定エミュレータ <strong>jec_26cm_android1_Pixel 9a</strong> を縦向きで使います。</li>
+<li>STEP 02のSyncにネット接続が必要です（A10と同じ）。アプリの実行には不要です。この単元ではLogcatを使いません。</li>
+</ul>
+<div class="note"><p class="box-title">今回の仕様上の制約</p><p>登録した単語の削除・書き換えはできません。カードの並べ替えやランダム出題もありません。一覧は <code>TextView</code> に並べただけで、行をタップして選ぶこともできません（<code>RecyclerView</code> はREADME 基本方針7によりAndroidプログラミング1では扱いません）。画面回転で見ていたカードは1問目に戻ります（<a href="../../docs/common/dev-tips.html">共通資料：開発Tips</a>のC章）。<strong>登録した単語は画面を回しても消えません。</strong></p></div>
+</section>
+
+<section><h2>2. この単元の教材方針</h2>
+<p>README「単元の範囲の決め方（全単元共通）」に沿って、新概念を <code>LiveData</code> 1つに絞っています。</p>
+<table><thead><tr><th>方針</th><th>理由</th><th>授業での扱い</th></tr></thead><tbody>
+<tr><td><strong><code>allowMainThreadQueries()</code> を残し、別スレッドは扱わない</strong></td><td>A10で「別スレッドを意識しない構成」にした方針を最終単元まで通す。スレッドを入れると、この単元の新概念が <code>LiveData</code> とワーカースレッドの2つになり、基準1を超える。</td><td>質問が出たら「実務では別スレッドで行う。Androidプログラミング2以降で扱う」とだけ答える。</td></tr>
+<tr><td><strong>単語追加画面に「登録ずみの単語」を置く</strong></td><td><code>LiveData</code> の利点は、画面上の変化として見せないと伝わらない（基準2）。追加した瞬間に一覧が変わり、しかもコードに <code>setText</code> を書いていない、という対比が要る。</td><td>STEP 05の解説と、STEP 07の練習1（<code>observe</code> の中を消す）で扱う。<strong>この対比を飛ばすと「なぜ <code>LiveData</code> なのか」が残らない。</strong></td></tr>
+<tr><td>画面を開く処理を <code>start(Context)</code> に寄せる</td><td>A07 <code>BillSplitActivity.start(...)</code> と同じ形。開かれる側が自分の開き方を持つので、あとでEXTRAを足すときも呼び出し側を直さずに済む。</td><td>STEP 05③でA07と同じ形だと一言添える。</td></tr>
+<tr><td><code>btn_back</code> / <code>btn_next</code> を <code>enabled="false"</code> から始める</td><td><code>LiveData</code> は<strong>あとから</strong>データを届ける。届く前に押せると空のリストに触れて落ちる。非同期に届くという性質が、そのままUIの初期状態に効く例。</td><td>STEP 06①で理由を短く扱う。練習3で実際に落としてみせる。</td></tr>
+<tr><td>重複チェックは <code>=</code>（<code>LIKE</code> ではない）</td><td><code>LIKE</code> は <code>%</code> と <code>_</code> をワイルドカードとして扱うため、ちがう単語に誤ヒットする。</td><td>STEP 03②の注意書きで扱う。</td></tr>
+</tbody></table>
+<div class="note"><p class="box-title">方針の例外：<code>@NonNull</code> を学生に書かせます</p><p>A10と同じ扱いです。<code>@Entity</code> のフィールドに付けた <code>@NonNull</code> は「この列は NOT NULL」という表の定義そのもので、外すと表の形が変わります。A10で説明ずみなので、ここでは「A10と同じ」と確認するだけで足ります。</p></div>
+<div class="note"><p class="box-title">完成コードを説明するときの注意</p><p><code>var</code>、ラムダ式、<code>findViewById</code> の明示キャスト、<code>Snackbar</code> の書き方は変えません（READMEの「完成コードの書き方（全単元共通）」）。</p></div>
+</section>
+
+<section><h2>3. 90分×1コマの進行</h2>
+<table><thead><tr><th>時間配分</th><th>終了時の確認</th></tr></thead><tbody>
+<tr><td>STEP 00：5分、STEP 01：10分、STEP 02：10分、STEP 03：15分、STEP 04：10分、STEP 05：20分、STEP 06：15分、STEP 07：5分</td><td>3つの画面がつながり、追加した単語がカードに出る。同じ英単語は登録できない。</td></tr>
+</tbody></table>
+<p><strong>STEP 05が山場です。</strong>Activityの追加（<code>New → Activity</code>）、LiveDataの <code>observe</code>、重複チェックの3つが同時に出ます。<code>New → Java Class</code> で作って <code>AndroidManifest.xml</code> に登録されず、ボタンを押した瞬間にアプリが終了する事故が毎回起きます。A06・A07で同じ注意をしていますが、ここでも机間指導で作り方を確認してください。</p>
+<p><strong>STEP 04でボタンを「まだ何もしない」状態にしているのは意図的です。</strong>先にメニュー画面を出しておくと、STEP 05・06で画面が増えるたびにRunして確かめられます。各STEPの終わりで必ずビルドが通る順番にしてあります。</p>
+<p>時間が足りないときは、STEP 06の解説を短くしてSTEP 07の練習1・2に回すほうが定着します。練習1（<code>observe</code> の中を消す）と練習2（<code>clear()</code> を消す）は、この単元の要点そのものです。</p>
+</section>
+
+<section><h2>4. STEPごとの照合コード</h2>
+<table><thead><tr><th>到達地点</th><th>参照ファイル</th><th>教員の確認ポイント</th></tr></thead><tbody>
+<tr><td>出発点（STEP 01）</td><td><a href="code/01-MainActivity.java">01-MainActivity.java</a> / <a href="code/01-activity_main.xml">01-activity_main.xml</a></td><td>Hello World!をRunできる。ひな形のまま。</td></tr>
+<tr><td>データベースの3ファイル（STEP 03）</td><td><a href="code/03-Item.java">03-Item.java</a> / <a href="code/03-ItemDao.java">03-ItemDao.java</a> / <a href="code/03-AppDatabase.java">03-AppDatabase.java</a></td><td><code>ItemDao</code> が <code>interface</code>。<code>getAll()</code> の戻り値が <code>LiveData&lt;List&lt;Item&gt;&gt;</code>。<code>countByEnglish</code> が <code>=</code>。<code>AppDatabase</code> に <code>getApplicationContext()</code> と <code>allowMainThreadQueries()</code>。</td></tr>
+<tr><td>メニュー画面（STEP 04）</td><td><a href="code/04-MainActivity.java">04-MainActivity.java</a> / <a href="code/04-activity_main.xml">04-activity_main.xml</a></td><td>リスナがまだ1つもない。ImageViewは <code>@drawable/logoeng</code>。idは <code>btn_start</code> / <code>btn_add_card</code>。</td></tr>
+<tr><td>単語を追加する画面（STEP 05）</td><td><a href="code/05-CardAddActivity.java">05-CardAddActivity.java</a> / <a href="code/05-activity_card_add.xml">05-activity_card_add.xml</a> / <a href="code/05-MainActivity.java">05-MainActivity.java</a></td><td><code>upsert</code> のあとに <code>setText</code> が<strong>ない</strong>こと。<code>observe</code> が <code>onCreate</code> の中にあること。<code>MainActivity</code> には <code>btn_add_card</code> のリスナだけがある。</td></tr>
+<tr><td>完成（STEP 06）</td><td><a href="code/06-CardActivity.java">06-CardActivity.java</a> / <a href="code/06-activity_card.xml">06-activity_card.xml</a> / <a href="code/06-MainActivity.java">06-MainActivity.java</a></td><td><code>cardList.clear()</code> が <code>addAll</code> の前にある。XMLの2つのボタンに <code>enabled="false"</code>。<code>updateCardView()</code> が答えを隠した状態に戻している。</td></tr>
+</tbody></table>
+<p>STEP 00・02・07は入力がないため、照合コードはありません（STEP 02は画像の配置とビルド設定の追記だけです。設定の対象は <code>gradle/libs.versions.toml</code> と <code>app/build.gradle.kts</code> で、完成プロジェクトの<a href="../../A11VocabularyBook/gradle/libs.versions.toml">libs.versions.toml</a>、<a href="../../A11VocabularyBook/app/build.gradle.kts">build.gradle.kts</a>を参照します）。STEP 03〜06のファイルは完成プロジェクトと同じ内容です。<code>AndroidManifest.xml</code> はSTEP 05・06のActivity追加時にAndroid Studioが自動で書き換えるため、照合コードはありません。</p>
+</section>
+
+<section><h2>5. つまずきやすいエラーと対応</h2>
+<table><thead><tr><th>エラー・症状</th><th>原因</th><th>対応</th></tr></thead><tbody>
+<tr><td>ボタンを押すとアプリが終了する</td><td>画面を <code>New → Java Class</code> で作り、<code>AndroidManifest.xml</code> に登録されていない</td><td><code>New → Activity → Empty Views Activity</code> で作り直す（STEP 05）</td></tr>
+<tr><td>カード画面の一覧が二重・三重になる</td><td><code>cardList.clear()</code> がない</td><td>06-CardActivity.javaと見比べさせる</td></tr>
+<tr><td>単語0件で「次へ」を押すと落ちる</td><td>XMLの <code>enabled="false"</code> がない</td><td>06-activity_card.xmlと見比べさせる</td></tr>
+<tr><td>単語を追加しても一覧が変わらない</td><td><code>observe</code> を書いていない、または <code>getAll()</code> の戻り値を <code>List</code> にしている</td><td>03-ItemDao.javaと05-CardAddActivity.javaを見比べさせる</td></tr>
+<tr><td>ちがう単語なのに「すでに登録されている」と出る</td><td><code>countByEnglish</code> が <code>LIKE</code> になっている</td><td><code>=</code> に直す（STEP 03②）</td></tr>
+<tr><td><code>ItemDao</code> の全行が赤い</td><td><code>Interface</code> ではなく <code>Class</code> で作った</td><td>ファイルを削除して作り直す（STEP 03②）</td></tr>
+</tbody></table>
+</section>
+
+<footer class="footer"><p>Androidプログラミング1 · 教員用ガイド A11VocabularyBook</p></footer>
+</main>
+<p class="sr-only" role="status" aria-live="polite" data-copy-status></p></body></html>

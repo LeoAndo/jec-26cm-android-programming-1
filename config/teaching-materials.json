@@ -12,7 +12,8 @@
     "A07BillSplitter",
     "A08SharedPreferencesSample",
     "A09MemoApp",
-    "A10RoomSample"
+    "A10RoomSample",
+    "A11VocabularyBook"
   ],
   "terms": [
     {
@@ -44,7 +45,9 @@
         "teacher/shared-preferences-sample/index.html",
         "teacher/memo-app/index.html",
         "docs/room-sample/index.html",
-        "teacher/room-sample/index.html"
+        "teacher/room-sample/index.html",
+        "docs/vocabulary-book/index.html",
+        "teacher/vocabulary-book/index.html"
       ]
     }
   ],
@@ -420,6 +423,75 @@
         }
       ],
       "archive": "docs/room-sample/downloads/A10RoomSample.zip"
+    },
+    {
+      "name": "A11VocabularyBook",
+      "package": "jp.ac.jec.a11vocabularybook",
+      "root": "A11VocabularyBook",
+      "docs": [
+        "docs/vocabulary-book/index.html",
+        "teacher/vocabulary-book/index.html"
+      ],
+      "source_java": "A11VocabularyBook/app/src/main/java/jp/ac/jec/a11vocabularybook/MainActivity.java",
+      "source_xml": "A11VocabularyBook/app/src/main/res/layout/activity_main.xml",
+      "snippets": [
+        {
+          "html": "docs/vocabulary-book/index.html",
+          "id": "code-complete-java",
+          "source": "A11VocabularyBook/app/src/main/java/jp/ac/jec/a11vocabularybook/MainActivity.java"
+        },
+        {
+          "html": "docs/vocabulary-book/index.html",
+          "id": "code-complete-xml",
+          "source": "A11VocabularyBook/app/src/main/res/layout/activity_main.xml"
+        },
+        {
+          "html": "docs/vocabulary-book/index.html",
+          "id": "code-layout",
+          "source": "A11VocabularyBook/app/src/main/res/layout/activity_main.xml"
+        },
+        {
+          "html": "docs/vocabulary-book/index.html",
+          "id": "code-item",
+          "source": "A11VocabularyBook/app/src/main/java/jp/ac/jec/a11vocabularybook/Item.java"
+        },
+        {
+          "html": "docs/vocabulary-book/index.html",
+          "id": "code-dao",
+          "source": "A11VocabularyBook/app/src/main/java/jp/ac/jec/a11vocabularybook/ItemDao.java"
+        },
+        {
+          "html": "docs/vocabulary-book/index.html",
+          "id": "code-database",
+          "source": "A11VocabularyBook/app/src/main/java/jp/ac/jec/a11vocabularybook/AppDatabase.java"
+        },
+        {
+          "html": "docs/vocabulary-book/index.html",
+          "id": "code-card-add-java",
+          "source": "A11VocabularyBook/app/src/main/java/jp/ac/jec/a11vocabularybook/CardAddActivity.java"
+        },
+        {
+          "html": "docs/vocabulary-book/index.html",
+          "id": "code-card-add-xml",
+          "source": "A11VocabularyBook/app/src/main/res/layout/activity_card_add.xml"
+        },
+        {
+          "html": "docs/vocabulary-book/index.html",
+          "id": "code-card-java",
+          "source": "A11VocabularyBook/app/src/main/java/jp/ac/jec/a11vocabularybook/CardActivity.java"
+        },
+        {
+          "html": "docs/vocabulary-book/index.html",
+          "id": "code-card-xml",
+          "source": "A11VocabularyBook/app/src/main/res/layout/activity_card.xml"
+        },
+        {
+          "html": "docs/vocabulary-book/index.html",
+          "id": "code-toml",
+          "source": "A11VocabularyBook/gradle/libs.versions.toml"
+        }
+      ],
+      "archive": "docs/vocabulary-book/downloads/A11VocabularyBook.zip"
     }
   ]
 }
