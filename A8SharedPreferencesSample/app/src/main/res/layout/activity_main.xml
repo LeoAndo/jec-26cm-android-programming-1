@@ -4,44 +4,83 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center"
     android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <Button
-        android:id="@+id/btn_commit"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="commit" />
+        android:orientation="horizontal">
 
-    <Button
-        android:id="@+id/btn_apply"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="apply" />
+        <Button
+            android:id="@+id/btn_commit"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="commit" />
 
-    <Button
-        android:id="@+id/btn_get"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="get" />
+        <Button
+            android:id="@+id/btn_apply"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="apply" />
 
-    <Button
-        android:id="@+id/btn_remove"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="remove" />
+        <Button
+            android:id="@+id/btn_get"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="get" />
+    </LinearLayout>
 
-    <Button
-        android:id="@+id/btn_clear"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="clear" />
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn_remove"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="remove" />
+
+        <Button
+            android:id="@+id/btn_clear"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="clear" />
+
+        <Button
+            android:id="@+id/btn_xml"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="app.xml" />
+    </LinearLayout>
 
     <Button
         android:id="@+id/btn_test"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="TestActivity" />
+
+    <ScrollView
+        android:id="@+id/scroll_output"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <TextView
+            android:id="@+id/tv_output"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="monospace"
+            android:padding="8dp"
+            android:textIsSelectable="true"
+            android:textSize="12sp" />
+    </ScrollView>
 
 </LinearLayout>
