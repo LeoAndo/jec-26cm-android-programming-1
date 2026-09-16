@@ -70,6 +70,12 @@
     document.querySelectorAll('a[data-back]').forEach(link => {
       link.setAttribute('href', `../${backTo}/index.html`);
     });
+    // 共通資料どうしのリンクにも ?from= を引き継ぐ。
+    // これがないと、別の共通資料へ移った時点で戻り先がA01に戻ってしまう。
+    document.querySelectorAll('a[data-keep-from]').forEach(link => {
+      const href = link.getAttribute('href');
+      if (href && !href.includes('?')) link.setAttribute('href', `${href}?from=${backTo}`);
+    });
   }
 
   let closedForScreen = [];
