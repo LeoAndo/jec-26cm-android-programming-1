@@ -6,7 +6,20 @@
 <body class="plain"><a class="skip" href="#main">本文へ移動</a>
 <header class="topbar"><span class="brand">JEC / Androidプログラミング1</span><a href="../hello-android/index.html" data-back>もとの教科書へ戻る</a></header>
 <main id="main"><div class="hero"><p class="eyebrow">ANDROID PROGRAMMING 1 / 共通資料・授業サポート</p><h1>開発Tips</h1><p class="lede">授業で「なぜこうなるの？」が出やすい話題をまとめています。<br>どれも各単元では扱いませんが、自分のアプリを作るときに役立ちます。</p>
-<nav aria-label="このページの内容"><ol><li><a href="#margin">画面の余白が消える</a></li><li><a href="#keyboard">キーボードが部品を隠す</a></li></ol></nav></div>
+<nav aria-label="このページの内容"><ol><li><a href="#margin">画面の余白が消える</a></li><li><a href="#keyboard">キーボードが部品を隠す</a></li><li><a href="#rotate">画面を回すとデータが消える</a></li></ol></nav></div>
+
+<div class="note"><p class="box-title">動作を確かめた環境</p>
+<p>このページに書いた<strong>画面の見え方</strong>は、次の1台で確認したものです。メーカーごとの端末やOSバージョンによる違いは検証していません。手元の端末で違う動きをしたら、先生に知らせてください。</p>
+<table><thead><tr><th>項目</th><th>内容</th></tr></thead><tbody>
+<tr><td>端末</td><td>Android Studioのエミュレータ <code>jec_26cm_android1_Pixel 9a</code>（Pixel 9a）</td></tr>
+<tr><td>Androidのバージョン</td><td>17（API 37）</td></tr>
+<tr><td>ビルド番号</td><td><code>CP31.260623.012</code></td></tr>
+<tr><td>確認日</td><td>2026年9月16日</td></tr>
+</tbody></table>
+<p>いっぽう、次の2つはAndroidの仕組みとして決まっている動きです。<strong>端末による差はありません。</strong></p>
+<ul><li><code>setPadding</code> は余白を<strong>足すのではなく置き換える</strong>（Aの原因）</li>
+<li><code>WindowInsetsCompat.Type.systemBars()</code> に<strong>キーボードは含まれない</strong>（Bの原因）</li><li>画面を回すと<strong>Activityが作り直される</strong>（Cの原因）</li></ul>
+</div>
 
 <h2 id="margin">A. 画面の余白が消える</h2>
 
@@ -109,7 +122,33 @@
 <p>授業で配られる完成プロジェクトでは、この対応を入れていません。単元ごとの学習内容に集中するためです。自分でアプリを作るときに、入力欄の下にボタンを置きたくなったら思い出してください。</p>
 </section>
 
-<section><h2>公式資料</h2><p><a href="https://developer.android.com/develop/ui/views/layout/edge-to-edge?hl=ja">Android Developers：アプリでedge-to-edgeを表示する</a>／<a href="https://developer.android.com/develop/ui/views/layout/declare-layout?hl=ja">レイアウトを作成する</a>／<a href="https://developer.android.com/develop/ui/views/layout/sw-keyboard?hl=ja">ソフトウェア キーボードの表示に合わせる</a></p></section>
+<h2 id="rotate">C. 画面を回すとデータが消える</h2>
+
+<section><h3>C-1. 何が起きているか</h3>
+<p>端末を横向きにすると、<strong>Activityがいったん壊されて、作り直されます。</strong>新しく <code>onCreate</code> が動くので、それまで変数に入れていた値や、ボタンの押せる・押せないといった状態は消えます。</p>
+<p>授業のアプリで実際に確かめた結果です。</p>
+<table><thead><tr><th>アプリ</th><th>回す前</th><th>回した後</th></tr></thead><tbody>
+<tr><td>A05BombGame</td><td>1と2のボタンを押して、押せない状態にした</td><td><strong>9個とも押せる状態に戻る</strong>（ゲームの進行が消える）</td></tr>
+<tr><td>A09MemoApp</td><td>メモを1件追加した</td><td><strong>メモは残っている</strong></td></tr>
+</tbody></table>
+<div class="check"><p class="box-title">なぜA09だけ残るのか</p><p>A09は <code>onCreate</code> で毎回 <code>SharedPreferences</code> からメモを読み直しています。Activityが作り直されても、<strong>ファイルに保存したデータは消えない</strong>ので、読み直せば同じ内容が出ます。変数の中だけに持っていたA05は、読み直す先がないため消えます。</p></div>
+</section>
+
+<section><h3>C-2. 残したいときのやり方</h3>
+<table><thead><tr><th>やり方</th><th>いつまで残るか</th><th>使いどころ</th></tr></thead><tbody>
+<tr><td><code>SharedPreferences</code> に保存する</td><td>アプリを終了しても、端末を再起動しても残る</td><td>設定やメモなど、次に開いたときも欲しいもの。A08・A09で学んだ方法。</td></tr>
+<tr><td><code>onSaveInstanceState</code> に入れる</td><td>回転などの作り直しの間だけ。アプリを終了すると消える</td><td>入力途中の内容や、ゲームの途中経過。</td></tr>
+<tr><td><code>ViewModel</code> を使う</td><td>同上（作り直しをまたいで残る）</td><td>本格的なアプリ向け。Androidプログラミング2で扱います。</td></tr>
+</tbody></table>
+<p>いちばん簡単なのは1つ目です。「作り直されても困らないように、大事なものは保存しておく」と考えると分かりやすくなります。</p>
+</section>
+
+<section><h3>C-3. 授業での扱い</h3>
+<p>各単元では<strong>画面回転時のデータ保持と、横向きのレイアウトを扱いません。</strong>単元ごとの学習内容に集中するためです。授業中は端末を縦向きで使ってください。</p>
+<p>横向きにすると、部品が画面からはみ出して見えなくなることがあります。これも上と同じ理由で、各単元では対応していません。</p>
+</section>
+
+<section><h2>公式資料</h2><p><a href="https://developer.android.com/develop/ui/views/layout/edge-to-edge?hl=ja">Android Developers：アプリでedge-to-edgeを表示する</a>／<a href="https://developer.android.com/develop/ui/views/layout/declare-layout?hl=ja">レイアウトを作成する</a>／<a href="https://developer.android.com/develop/ui/views/layout/sw-keyboard?hl=ja">ソフトウェア キーボードの表示に合わせる</a>／<a href="https://developer.android.com/guide/components/activities/activity-lifecycle?hl=ja">アクティビティのライフサイクル</a></p></section>
 
 <footer class="footer"><p><a href="../hello-android/index.html" data-back>← もとの教科書へ戻る</a></p><p>対象：macOS / Android Studio Panda 2 | 2025.3.2 · 確認日：2026年9月16日</p></footer></main>
 <p class="sr-only" role="status" aria-live="polite" data-copy-status></p></body></html>
