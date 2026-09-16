@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".CardActivity">
+
+    <TextView
+        android:id="@+id/txt_question_no"
+        style="@style/TextAppearance.Material3.HeadlineSmall"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:text="1問目/全3問中" />
+
+    <TextView
+        android:id="@+id/txt_english"
+        style="@style/TextAppearance.Material3.BodyLarge"
+        android:layout_width="match_parent"
+        android:layout_height="160dp"
+        tools:text="apple" />
+
+    <Button
+        android:id="@+id/btn_answer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="答えを表示する" />
+
+    <TextView
+        android:id="@+id/txt_japanese"
+        style="@style/TextAppearance.Material3.BodyLarge"
+        android:layout_width="match_parent"
+        android:layout_height="160dp"
+        android:visibility="invisible"
+        tools:text="りんご" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn_back"
+            style="@style/Widget.Material3.Button.OutlinedButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:enabled="false"
+            android:text="前へ" />
+
+        <Button
+            android:id="@+id/btn_next"
+            style="@style/Widget.Material3.Button.OutlinedButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:enabled="false"
+            android:text="次へ" />
+    </LinearLayout>
+</LinearLayout>
