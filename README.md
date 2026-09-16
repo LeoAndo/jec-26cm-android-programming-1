@@ -58,7 +58,8 @@
 
 | フォルダ | 役割 |
 | --- | --- |
-| `Panda2JavaEmptyViewActivity` | 教員が出発点を確認するためのJava / Empty Views Activityのひな形（学生には非公開） |
+| `Panda2JavaEmptyViewActivity` | 教員が出発点を確認するためのJava / Empty Views Activityのひな形（学生には非公開）。授業の基準バージョン **Android Studio Panda 2 \| 2025.3.2** で作成 |
+| `Quail4JavaEmptyViewActivity` | 上と同じ設定を **Android Studio Quail 4** で作ったひな形（学生には非公開）。基準より新しい版との差分を確認するための比較用。結果は[共通資料：ちがうバージョンで進めるとき](docs/common/other-versions.html)に掲載 |
 | `A01HelloAndroid` | 完成プロジェクト。配布用ZIPを教科書に同梱し、初回から学生も参照可能 |
 | `A02CalcGame` | 完成プロジェクト。配布用ZIPを教科書に同梱し、初回から学生も参照可能 |
 | `A03RockPaperScissorsGame` | 完成プロジェクト。配布用ZIPを教科書に同梱し、初回から学生も参照可能。STEP 2の画像もこのZIPから取り出す |
