@@ -108,35 +108,35 @@
 <p>なお Quail 4 のひな形は、そのまま <code>assembleDebug</code> が通ることを確認しています。</p>
 </section>
 
-<section><h3>3-5. Javaのバージョンのこと</h3>
+<section><h3>3-5. Javaのバージョンのこと（JVM / toolchainVersion / compileOptions）</h3>
 <p class="lede"><strong>先に結論です。教科書に出てくるJavaの書き方は、Quail 4 でもそのまま使えます。</strong></p>
 
 <h4>Javaは2か所で使われています</h4>
-<p>まぎらわしいのですが、Androidアプリ作りでは「Java」が2つの役割で出てきます。</p>
-<table><thead><tr><th></th><th>どこで使うJavaか</th><th>だれが決めるか</th></tr></thead><tbody>
-<tr><td>①</td><td><strong>自分が書くコード</strong>のJava。<code>MainActivity.java</code> に書く <code>var</code> やラムダ式など。</td><td>プロジェクトの設定で決まっている</td></tr>
-<tr><td>②</td><td><strong>アプリを組み立てる道具</strong>を動かすためのJava。学生が直接書くことはありません。</td><td>Android Studioが用意する</td></tr>
+<p>まぎらわしいのですが、Androidアプリ作りでは「Java」が2つの役割で出てきます。調べるときに使う言葉もあわせて載せます。</p>
+<table><thead><tr><th></th><th>どこで使うJavaか</th><th>設定の名前と場所</th></tr></thead><tbody>
+<tr><td>①</td><td><strong>自分が書くコード</strong>のJava。<code>MainActivity.java</code> に書く <code>var</code> やラムダ式など。</td><td><code>compileOptions</code> の <code>sourceCompatibility</code> / <code>targetCompatibility</code><br>（<code>app/build.gradle.kts</code>）</td></tr>
+<tr><td>②</td><td><strong>アプリを組み立てる道具（Gradle）を動かす</strong>ためのJava。この実行環境を <strong>JVM</strong> と呼びます。学生が直接書くことはありません。</td><td><code>toolchainVersion</code><br>（<code>gradle/gradle-daemon-jvm.properties</code>）</td></tr>
 </tbody></table>
 <p>Panda 2 と Quail 4 で違うのは、<strong>②のほうだけ</strong>です。</p>
 <table><thead><tr><th></th><th>Panda 2 | 2025.3.2</th><th>Quail 4</th></tr></thead><tbody>
-<tr><td>① 自分が書くコードのJava</td><td>Java 11</td><td><strong>Java 11（同じ）</strong></td></tr>
-<tr><td>② 道具を動かすJava</td><td>21</td><td><strong>25</strong></td></tr>
+<tr><td>① 自分が書くコードのJava<br>（<code>compileOptions</code>）</td><td><code>JavaVersion.VERSION_11</code></td><td><strong><code>JavaVersion.VERSION_11</code>（同じ）</strong></td></tr>
+<tr><td>② Gradleを動かすJVM<br>（<code>toolchainVersion</code>）</td><td><code>21</code></td><td><strong><code>25</code></strong></td></tr>
 </tbody></table>
-<div class="check"><p class="box-title">だから、コードの書き方は変わりません</p><p>①が同じなので、<strong>教科書のコードをそのまま入力して大丈夫です。</strong>「Javaのバージョンが違うから書き方も変えないといけないのでは」と心配する必要はありません。</p></div>
+<div class="check"><p class="box-title">だから、コードの書き方は変わりません</p><p>①の <code>compileOptions</code> が同じ Java 11 なので、<strong>教科書のコードをそのまま入力して大丈夫です。</strong>「Javaのバージョンが違うから書き方も変えないといけないのでは」と心配する必要はありません。</p></div>
 
-<h4>起きること：最初のビルドに時間がかかります</h4>
-<p>プロジェクトには「②にどのバージョンを使うか」が書き込まれています。そのバージョンが自分のパソコンに無いと、<strong>Android Studioが自動でダウンロードします。</strong></p>
-<p>授業で配る<strong>完成プロジェクトには「21を使う」と書かれています。</strong>Quail 4 が持っているのは25なので、完成プロジェクトを開くと<strong>21のダウンロードが始まることがあります。</strong></p>
+<h4>起きること：最初のビルドに時間がかかります（Gradle toolchain のダウンロード）</h4>
+<p><code>gradle/gradle-daemon-jvm.properties</code> には「②にどのバージョンを使うか」が <code>toolchainVersion</code> として書き込まれています。そのバージョンが自分のパソコンに無いと、<strong>Gradleが自動でダウンロードします</strong>（Gradle の <strong>toolchain 自動プロビジョニング</strong>という仕組みです）。</p>
+<p>授業で配る<strong>完成プロジェクトは <code>toolchainVersion=21</code></strong> です。Quail 4 が持っているのは25なので、完成プロジェクトを開くと<strong>JDK 21 のダウンロードが始まることがあります。</strong></p>
 <div class="note"><p class="box-title">こうなったときは、待ってください</p>
 <ul><li><strong>初回のビルドだけ、数分かかることがあります。</strong>止まってしまったわけではありません。</li>
 <li>このとき<strong>インターネットにつながっている必要があります。</strong>つながっていないと失敗します。</li>
-<li><strong>2回目からは速くなります。</strong>一度ダウンロードしたものが使い回されるためです。</li></ul>
-<p>画面下のビルドの表示に <code>Downloading</code> や <code>toolchain</code> という文字が出ていれば、この待ち時間です。</p></div>
-<p>自分で新しく作ったプロジェクトのほうは、Quail 4 が自分の持っているバージョンを書き込むので、このダウンロードは起きません。</p>
+<li><strong>2回目からは速くなります。</strong>一度ダウンロードしたものが <code>~/.gradle/jdks</code> に保存され、使い回されるためです。</li></ul>
+<p>画面下のビルドの表示に <code>Downloading</code> や <code>toolchain</code> という文字が出ていれば、この待ち時間です。エラーを調べるときは <strong>Gradle toolchain</strong> や <strong>toolchain auto-provisioning</strong> という言葉で検索すると情報が見つかります。</p></div>
+<p>自分で新しく作ったプロジェクトのほうは、Quail 4 が自分の持っているバージョン（<code>toolchainVersion=25</code>）を書き込むので、このダウンロードは起きません。</p>
 
 <details><summary>先生向け：確認した内容</summary>
-<p>各プロジェクトの <code>gradle/gradle-daemon-jvm.properties</code> の <code>toolchainVersion</code> を比較しました。A01〜A09 と Panda 2 のひな形はすべて <code>21</code>、Quail 4 のひな形は <code>25</code> です。<code>compileOptions</code> の <code>sourceCompatibility</code> / <code>targetCompatibility</code> は、どちらも <code>JavaVersion.VERSION_11</code> で一致しています。</p>
-<p>JDK 25 が入っていないMacで Quail 4 のひな形をビルドしたところ、Gradleが Eclipse Adoptium 25.0.3 を <code>~/.gradle/jdks</code> へ自動取得したうえで <code>assembleDebug</code> が成功しました。</p>
+<p>各プロジェクトの <code>gradle/gradle-daemon-jvm.properties</code> の <code>toolchainVersion</code> を比較しました。A01〜A09 と <code>Panda2JavaEmptyViewActivity</code> はすべて <code>21</code>、<code>Quail4JavaEmptyViewActivity</code> は <code>25</code> です。<code>app/build.gradle.kts</code> の <code>compileOptions</code> は、どちらも <code>sourceCompatibility</code> / <code>targetCompatibility</code> とも <code>JavaVersion.VERSION_11</code> で一致しています。</p>
+<p>JDK 25 が入っていないMacで <code>Quail4JavaEmptyViewActivity</code> をビルドしたところ、Gradleが Eclipse Adoptium 25.0.3 を <code>~/.gradle/jdks</code> へ自動取得したうえで <code>assembleDebug</code> が成功しました（2026年9月17日）。</p>
 </details>
 </section>
 
