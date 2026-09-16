@@ -64,6 +64,30 @@
 </tbody></table>
 </section>
 
+<section><h2>6. 理解確認と支援</h2>
+<table><thead><tr><th>問い</th><th>期待する行動・答え</th></tr></thead><tbody>
+<tr><td><code>LiveData&lt;List&lt;Item&gt;&gt;</code> と <code>List&lt;Item&gt;</code> の違いは</td><td><code>List</code> はそのときの中身を1回受け取るだけ。<code>LiveData</code> は中身が変わるたびに知らせてくれる、と答える。</td></tr>
+<tr><td>単語を追加したあと、一覧を出し直す処理を書かなくてよいのはなぜか</td><td><code>observe</code> でLiveDataを見張っているため。追加すると <code>observe</code> の中がもう一度呼ばれる、と答える。A10では <code>setText</code> を自分で書いていたことと対比できる。</td></tr>
+<tr><td><code>cardList.clear()</code> を消すとどうなるか</td><td>LiveDataは変わるたびに呼ばれるので、そのたびに同じ単語が積み上がる。全3問が全6問になる、と答える。</td></tr>
+<tr><td>「前へ」「次へ」を最初は押せない状態にしているのはなぜか</td><td>LiveDataはあとからデータを届けるため。届く前に押すと、空のリストに触れて落ちる、と答える。</td></tr>
+<tr><td>画面を開く処理を、開かれる側の <code>start</code> に書いているのはなぜか</td><td>開かれる側が自分の開き方を持つほうが、渡す値が増えたときに呼び出し側を直さずに済む、と答える。A07の <code>BillSplitActivity.start(...)</code> と同じ形だと気づければ十分。</td></tr>
+<tr><td>重複チェックが <code>=</code> で <code>LIKE</code> ではないのはなぜか</td><td><code>LIKE</code> は <code>%</code> や <code>_</code> を特別な文字として扱うため、ちがう単語に当たってしまう、と答える。</td></tr>
+<tr><td>A10とA11で、Roomの使い方が変わったところは</td><td><code>getAll()</code> の戻り値が <code>LiveData</code> になったこと。保存したあとの <code>setText</code> が要らなくなったこと、と答える。</td></tr>
+</tbody></table>
+<p>エラー時は「STEP番号・ファイル・最初の赤い行・操作順」を聞きます。この単元のパッケージは <code>jp.ac.jec.a11vocabularybook</code> です。アプリが終了してしまうときだけ <a href="../../docs/common/logcat.html">共通資料：Logcat</a> を開き、<code>package:jp.ac.jec.a11vocabularybook level:ERROR</code> で確認します。</p>
+<p>よくある原因は、①画面を <code>New → Java Class</code> で作った（<code>AndroidManifest.xml</code> に登録されず、ボタンを押した瞬間に終了）、②<code>cardList.clear()</code> がない（一覧が二重）、③XMLの <code>enabled="false"</code> がない（0件で「次へ」を押すと落ちる）、④<code>getAll()</code> の戻り値を <code>List</code> にした（表示が変わらない）、⑤<code>ItemDao</code> を <code>Class</code> で作った、の5つです。</p>
+<p><strong>①がこの単元で最も多い事故です。</strong>アプリが終了するだけでコンパイルは通るため、学生は原因をJavaのコードに求めます。まず <code>AndroidManifest.xml</code> を開かせて、<code>&lt;activity&gt;</code> の行があるかを確認させてください。</p>
+<p>入力中にキーボードがボタンに重なって押せないことがあります。キーボードを閉じてから押すよう伝えます。理由と対処は<a href="../../docs/common/dev-tips.html">共通資料：開発Tips</a>のB章にあります。</p>
+</section>
+
+<section><h2>7. 到達度と提出</h2>
+<ul><li>3つの画面を行き来できる。</li><li>英単語と日本語を登録でき、空のときと同じ英単語のときにメッセージが出ることを再現できる。</li><li>登録した単語がカード画面に出る。カードを送ると答えが隠れた状態に戻ることを確かめられる。</li><li>単語を追加したときに一覧が自動で変わる理由を、<code>LiveData</code> という言葉を使って説明できる。A10で <code>setText</code> を書いていたことと対比できる。</li><li>アプリを完全に終了して開き直しても単語が残ることを確かめられる。</li><li>提出する場合は <a href="../../docs/common/apk.html">共通資料：APKの作り方</a>に従い、先生が指定した場所へ <code>学籍番号_A11VocabularyBook.apk</code> を提出する。</li></ul>
+</section>
+
+<section><h2>8. 教材の保守と確認</h2>
+<ul><li>完成コードを変更したら、教科書の部分コード、照合用の全体コード、画像をまとめて確認し、<code>python3 scripts/package-hello-android.py --project A11VocabularyBook --output docs/vocabulary-book/downloads/A11VocabularyBook.zip</code> で配布用ZIPを再作成します。教科書のコードと完成プロジェクトの一致は <code>python3 scripts/check-teaching-materials.py</code> で確かめます。</li><li>アプリ画面の7枚（app-main、app-add、app-duplicate、app-card、app-answer、app-card2、app-empty）は <code>jec_26cm_android1_Pixel 9a</code>（Android 17 / API 37）で完成版を操作して撮影しました（2026年9月17日）。</li><li><strong>スクリーンショットの3件（apple : りんご／study : 勉強する／library : 図書館）は、エミュレータのIMEを経由せず <code>databases/app.db</code> に直接書き込んで表示させたものです。</strong>アプリの描画そのものは本物ですが、撮り直すときは同じ方法か、手入力で同じ3件を入れてください。本文の記述もこの3件に合わせています。</li><li>IDE操作の画像6枚（テンプレート選択、プロジェクト設定、画像の貼り付け、New → Activity、CardAddActivity・CardActivityのダイアログ）は <code>A11VocabularyBook</code> / <code>jp.ac.jec.a11vocabularybook</code> で撮影したものです。差し替えるときはimgの <code>width</code> / <code>height</code> を実際のサイズに合わせます。</li><li>各STEPの照合コードは、そのSTEPの終わりで必ず <code>assembleDebug</code> が通る順番に並べています。STEPを入れ替えるときは、画面を追加する前に呼び出し側を書かないよう注意してください。</li><li>印刷時は補足・解答も展開されます。解答を配布したくない場合は、ブラウザで授業中に開く方式を使ってください。</li></ul>
+</section>
+
 <footer class="footer"><p>Androidプログラミング1 · 教員用ガイド A11VocabularyBook</p></footer>
 </main>
 <p class="sr-only" role="status" aria-live="polite" data-copy-status></p></body></html>
