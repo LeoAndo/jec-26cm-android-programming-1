@@ -82,6 +82,11 @@ public class TestActivity extends AppCompatActivity {
     }
 
     // startメソッドはAndroid Studioのコードテンプレートを利用して作成できる！
+    static void start(Context context) {
+        var intent = new Intent(context, TestActivity.class);
+        context.startActivity(intent);
+    }
+
     static void start(Context context, int intValue, long longValue, float floatValue,
                       double doubleValue, boolean booleanValue, char charValue, String stringValue) {
         var intent = new Intent(context, TestActivity.class);
