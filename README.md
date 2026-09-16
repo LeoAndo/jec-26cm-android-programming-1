@@ -27,6 +27,7 @@
 - [共通資料：Logcatの使い方](docs/common/logcat.html)
 - [共通資料：提出用APKの作り方](docs/common/apk.html)
 - [共通資料：開発Tips（画面の余白・キーボード・画面回転）](docs/common/dev-tips.html)
+- [共通資料：ちがうバージョンで進めるとき（サポート範囲と読み替え）](docs/common/other-versions.html)
 - [教員用：HelloAndroidの授業の進め方・確認項目](teacher/hello-android/index.html)
 - [教員用：CalcGameの授業の進め方・確認項目](teacher/calc-game/index.html)
 - [教員用：RockPaperScissorsGameの授業の進め方・確認項目](teacher/rock-paper-scissors-game/index.html)

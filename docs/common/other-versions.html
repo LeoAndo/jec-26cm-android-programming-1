@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="ja">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ちがうバージョンで進めるとき | Androidプログラミング1</title>
+<link rel="stylesheet" href="../assets/textbook.css"><script src="../assets/textbook.js" defer></script></head>
+<body class="plain"><a class="skip" href="#main">本文へ移動</a>
+<header class="topbar"><span class="brand">JEC / Androidプログラミング1</span><a href="../hello-android/index.html" data-back>もとの教科書へ戻る</a></header>
+<main id="main"><div class="hero"><p class="eyebrow">ANDROID PROGRAMMING 1 / 共通資料・授業サポート</p><h1>ちがうバージョンで<br>進めるとき</h1><p class="lede">教科書は、学校の貸与パソコンと規定のバージョンを前提に書かれています。<br>自分のMacなど、ちがう環境で進める人のための読み替え資料です。</p>
+<nav aria-label="このページの内容"><ol>
+<li><a href="#policy">サポートの範囲</a></li>
+<li><a href="#baseline">教科書が前提にしているもの</a></li>
+<li><a href="#reading">読み替えのポイント</a></li>
+<li><a href="#stuck">それでも合わないとき</a></li>
+</ol></nav></div>
+
+<div class="note"><p class="box-title">はじめに読んでください</p>
+<p>学科の方針として、<strong>貸与パソコン以外、または学校規定のバージョン以外での動作はサポート対象外</strong>です。授業中に質問しても、その場では解決できないことがあります。</p>
+<p>このページは「サポート外でも自分の環境で進めたい」という人のための手がかりです。<strong>確実に授業についていきたい場合は、規定のバージョンに合わせてください。</strong></p>
+</div>
+
+<h2 id="policy">1. サポートの範囲</h2>
+
+<section><h3>1-1. 対象になるもの・ならないもの</h3>
+<table><thead><tr><th></th><th>扱い</th></tr></thead><tbody>
+<tr><td>貸与パソコン＋規定のバージョン</td><td><strong>サポート対象。</strong>教科書のとおりに進みます。</td></tr>
+<tr><td>自分のMac、または規定と違うバージョン</td><td><strong>サポート対象外。</strong>このページを手がかりに自分で読み替えます。</td></tr>
+<tr><td>Windows</td><td>授業では使いません。教科書はmacOS前提で書かれています。</td></tr>
+</tbody></table>
+<p>サポート対象外の環境で起きた問題は、<strong>提出物の評価では考慮されません。</strong>提出できなくなりそうなときは、早めに貸与パソコンへ切り替えてください。</p>
+</section>
+
+<h2 id="baseline">2. 教科書が前提にしているもの</h2>
+
+<section><h3>2-1. 開発環境</h3>
+<table><thead><tr><th>項目</th><th>前提にしている内容</th></tr></thead><tbody>
+<tr><td>Android Studio</td><td><strong>Panda 2 | 2025.3.2</strong></td></tr>
+<tr><td>OS</td><td>macOS</td></tr>
+<tr><td>エミュレータ</td><td><code>jec_26cm_android1_Pixel 9a</code></td></tr>
+</tbody></table>
+<p>教科書のスクリーンショットは、すべてこの環境で撮影しています。</p>
+</section>
+
+<section><h3>2-2. プロジェクトを作るときの選択</h3>
+<table><thead><tr><th>項目</th><th>選ぶもの</th></tr></thead><tbody>
+<tr><td>テンプレート</td><td>Phone and Tablet → <strong>Empty Views Activity</strong></td></tr>
+<tr><td>Language</td><td>Java</td></tr>
+<tr><td>Minimum SDK</td><td>API 31 ("S"; Android 12.0)</td></tr>
+<tr><td>Build configuration language</td><td>Kotlin DSL (build.gradle.kts)</td></tr>
+</tbody></table>
+</section>
+
+<section><h3>2-3. 完成プロジェクトが使っているもの</h3>
+<p>各単元の完成プロジェクトZIPは、次のバージョンで作られています。</p>
+<table><thead><tr><th>項目</th><th>バージョン</th></tr></thead><tbody>
+<tr><td>Android Gradle Plugin</td><td>9.1.1</td></tr>
+<tr><td>Gradle</td><td>9.3.1</td></tr>
+<tr><td>minSdk / targetSdk</td><td>31 / 36</td></tr>
+</tbody></table>
+</section>
+
+<h2 id="reading">3. 読み替えのポイント</h2>
+
+<section><h3>3-1. 画面の見た目が違う</h3>
+<p>Android Studioは版が上がると、ウィンドウの文言や項目の並びが変わることがあります。</p>
+<div class="check"><p class="box-title">合わせ方</p><p><strong>スクリーンショットの見た目ではなく、「何を選ぶか」で合わせます。</strong>2-2の表の4項目さえ同じなら、画面の並びが違っても同じプロジェクトができます。項目が見つからないときは、ウィンドウ内を探すか、<strong>Previous</strong> で1つ前に戻って確認します。</p></div>
+<p>テンプレートの名前が変わっている場合は、<strong>Views</strong> という語が入っているものを選びます。<code>Empty Activity</code>（Viewsが付かないもの）はJetpack Composeという別のしくみで、教科書のXMLと合いません。</p>
+</section>
+
+<section><h3>3-2. 完成プロジェクトを開くと更新をすすめられる</h3>
+<p>新しいAndroid Studioで完成プロジェクトZIPを開くと、<strong>Android Gradle Pluginのアップグレード</strong>をすすめる案内（AGP Upgrade Assistant）が出ることがあります。</p>
+<div class="note"><p class="box-title">授業中は更新しません</p><p>更新すると <code>build.gradle.kts</code> などの中身が書き換わり、教科書に載っているコードと差が出ます。<strong>案内が出ても閉じてください。</strong>完成プロジェクトは「答え合わせ用の見本」なので、そのまま読めれば十分です。</p></div>
+<p>自分で作るプロジェクトのほうは、新しいAndroid Studioが選んだバージョンのままで構いません。教科書が指定しているのは2-2の4項目だけです。</p>
+</section>
+
+<section><h3>3-3. エミュレータの名前が違う</h3>
+<p>自分のMacには <code>jec_26cm_android1_Pixel 9a</code> がありません。<a href="emulator.html">共通資料：エミュレータの準備とアプリの実行</a>の手順で、同じ設定のものを自分で作ってください。名前は同じにしておくと、教科書の記述をそのまま読めます。</p>
+</section>
+
+<section><h3>3-4. 自動で作られるコードが違う</h3>
+<p>プロジェクトを新規作成したときの <code>MainActivity.java</code> の中身は、Android Studioの版によって少し違うことがあります。教科書は次の形を前提にしています。</p>
+<div class="code-head">MainActivity.java · 教科書が前提にしているひな形</div><pre tabindex="0"><code>ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -&gt; {
+    Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
+    v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
+    return insets;
+});</code></pre>
+<p>この部分が無かったり形が違ったりしても、<strong>教科書で追加する行だけを自分のコードに足せば動きます。</strong>迷ったら、完成プロジェクトの <code>MainActivity.java</code> と見比べてください。</p>
+<p>レイアウトの一番外側に <code>android:id="@+id/main"</code> が付いていない場合は、自分で付け足します。教科書のJavaが <code>findViewById(R.id.main)</code> で使っています。</p>
+</section>
+
+<h2 id="stuck">4. それでも合わないとき</h2>
+
+<section><h3>4-1. 判断のしかた</h3>
+<table><thead><tr><th>状況</th><th>どうするか</th></tr></thead><tbody>
+<tr><td>画面の文言が違うだけ</td><td>3-1のとおり、選ぶ内容で合わせる。</td></tr>
+<tr><td>教科書のコードを入れても赤いエラーが消えない</td><td>各単元の「困ったとき」を見る。それでも直らなければ規定のバージョンに切り替える。</td></tr>
+<tr><td>Runできない・ビルドが通らない</td><td><strong>規定のバージョンに切り替える。</strong>環境の違いが原因のことが多く、授業時間内では切り分けられません。</td></tr>
+<tr><td>提出期限が近い</td><td>迷わず貸与パソコンで作り直す。教科書どおりに進めば同じものができます。</td></tr>
+</tbody></table>
+</section>
+
+<section><h3>4-2. このページで確認できていないこと</h3>
+<div class="note"><p class="box-title">未検証です</p><p>このページの読み替えは、<strong>実際に新しいバージョンのAndroid Studioで試して確かめたものではありません。</strong>「こういう違いが出やすい」という一般的な注意点をまとめたものです。書いてあるとおりにしても合わないことがあります。</p>
+<p>ちがうバージョンで進めて気づいたことがあれば、<strong>先生に知らせてください。</strong>次の版でこのページに反映します。そのとき「Android Studioのバージョン」「起きたこと」「教科書のどのSTEPか」の3つを伝えてもらえると助かります。</p></div>
+</section>
+
+<section><h2>公式資料</h2><p><a href="https://developer.android.com/studio/releases?hl=ja">Android Studio リリースノート</a>／<a href="https://developer.android.com/build/agp-upgrade-assistant?hl=ja">AGP Upgrade Assistant</a>／<a href="https://developer.android.com/studio/projects/create-project?hl=ja">プロジェクトを作成する</a></p></section>
+
+<footer class="footer"><p><a href="../hello-android/index.html" data-back>← もとの教科書へ戻る</a></p><p>対象：macOS / Android Studio Panda 2 | 2025.3.2 · 確認日：2026年9月17日</p></footer></main>
+<p class="sr-only" role="status" aria-live="polite" data-copy-status></p></body></html>
