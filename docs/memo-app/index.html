@@ -47,8 +47,9 @@
 <p>授業環境はMacと <strong>Android Studio Panda 2 | 2025.3.2</strong> です。A08までとは別のプロジェクトを作ります。</p>
 <div class="note"><p class="box-title">毎回、自分で新規作成します</p><p>作る場所は <code>Documents/Android1/A09MemoApp</code> です。<a href="#sample-project">完成プロジェクト</a>は答え合わせ用で、授業の入力は自分で作ったプロジェクトに書きます。</p></div>
 <ol><li>Android Studioの <strong>New Project</strong> をクリックします。別のプロジェクトを開いているときは <strong>File → New → New Project</strong> を選びます。</li>
-<li><strong>Phone and Tablet → Empty Views Activity → Next</strong> の順に選びます。名前に <strong>Views</strong> があることを確認します。</li>
-<li>次の表のとおりに入力・選択して <strong>Finish</strong> を押します。</li></ol>
+<li><strong>Phone and Tablet → Empty Views Activity → Next</strong> の順に選びます。名前に <strong>Views</strong> があることを確認します。</li></ol>
+<figure><a href="images/empty-views-activity.png"><img src="images/empty-views-activity.png" width="1804" height="1360" loading="lazy" alt="テンプレート一覧でEmpty Views Activityが選択されている"></a><figcaption>Empty Views Activityを選択。Empty Activityとは別です。 <a href="images/empty-views-activity.png">画像を大きく開く</a></figcaption></figure>
+<ol start="3"><li>次の表のとおりに入力・選択して <strong>Finish</strong> を押します。</li></ol>
 <table><thead><tr><th>項目</th><th>入力・選択する内容</th></tr></thead><tbody>
 <tr><td>Name</td><td><code>A09MemoApp</code></td></tr>
 <tr><td>Package name</td><td><code>jp.ac.jec.a09memoapp</code>（すべて小文字）</td></tr>
@@ -57,6 +58,7 @@
 <tr><td>Minimum SDK</td><td>API 31 ("S"; Android 12.0)</td></tr>
 <tr><td>Build configuration language</td><td>Kotlin DSL (build.gradle.kts) [Recommended]</td></tr>
 </tbody></table>
+<figure><a href="images/project-settings.png"><img src="images/project-settings.png" width="1794" height="1356" loading="lazy" alt="A09MemoAppの新規設定。パッケージjp.ac.jec.a09memoapp、Java、API 31、Kotlin DSL"></a><figcaption>入力後の画面。画像の保存先は先生の例です。自分の <code>Documents/Android1/A09MemoApp</code> に読み替えます。 <a href="images/project-settings.png">画像を大きく開く</a></figcaption></figure>
 <ol start="4"><li>Sync（歯車の読み込み）が終わるまで待ちます。</li><li>端末欄で <strong>jec_26cm_android1_Pixel 9a</strong> を選び、<strong>Run</strong>（▶）を押します。白い画面に <strong>Hello World!</strong> が出れば成功です。</li></ol>
 <p>エミュレータが出てこないときは<a href="../common/emulator.html?from=memo-app">共通資料：エミュレータ</a>を見ます。</p>
 <div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-1"><span>自分の保存先にA09MemoAppを作り、Hello World!を表示できた。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
@@ -68,9 +70,10 @@
 <ol>
 <li>Finderで <code>title_memo.png</code> をコピーします（<kbd>⌘ C</kbd>）。</li>
 <li>Android Studioのプロジェクト画面で <code>app/src/main/res/drawable</code> フォルダをクリックして選び、貼り付けます（<kbd>⌘ V</kbd>）。</li>
-<li>確認のウィンドウが出ます。<strong>New name</strong> が <code>title_memo.png</code>、<strong>To directory</strong> の末尾が <code>app/src/main/res/drawable</code> になっていることを確かめて <strong>OK</strong> を押します。</li>
-<li><code>drawable</code> フォルダの中に <code>title_memo.png</code> が増えていれば成功です。</li>
-</ol>
+<li>確認のウィンドウが出ます。<strong>New name</strong> が <code>title_memo.png</code>、<strong>To directory</strong> の末尾が <code>app/src/main/res/drawable</code> になっていることを確かめて <strong>OK</strong> を押します。</li></ol>
+<figure><a href="images/drawable-copy.png"><img src="images/drawable-copy.png" width="2058" height="792" loading="lazy" alt="Project表示でdrawableフォルダを選び、Copyダイアログが開いている。New nameはtitle_memo.png、To directoryの末尾はA09MemoApp/app/src/main/res/drawable"></a><figcaption>To directoryの末尾が A09MemoApp/app/src/main/res/drawable になっていればOK。画像のパスは先生の保存先の例です。 <a href="images/drawable-copy.png">画像を大きく開く</a></figcaption></figure>
+<ol start="4"><li><code>drawable</code> フォルダの中に <code>title_memo.png</code> が増えていれば成功です。</li></ol>
+<figure><a href="images/drawable-files.png"><img src="images/drawable-files.png" width="868" height="522" loading="lazy" alt="drawableフォルダにic_launcher_background.xml、ic_launcher_foreground.xml、title_memo.pngが並んでいる"></a><figcaption>drawableに <code>title_memo.png</code> が増えれば成功。 <a href="images/drawable-files.png">画像を大きく開く</a></figcaption></figure>
 <div class="note"><p class="box-title">ファイル名は変えません</p><p>このあとXMLから <code>@drawable/title_memo</code> という名前で呼び出します。<strong>名前を変えると見つからなくなります。</strong>大文字や日本語も使えません。</p></div>
 <h3>Runで確かめる</h3><p>画面はまだ <strong>Hello World!</strong> のままです。エラーが出ずにRunできれば成功です。画像を使うのは次のSTEPです。</p>
 <div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-2"><span><code>drawable</code> に <code>title_memo.png</code> を置けた。ファイル名を変えてはいけない理由を説明できた。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
