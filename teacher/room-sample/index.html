@@ -73,6 +73,30 @@
 </tbody></table>
 </section>
 
+<section><h2>6. 理解確認と支援</h2>
+<table><thead><tr><th>問い</th><th>期待する行動・答え</th></tr></thead><tbody>
+<tr><td><code>@Entity</code> / <code>@Dao</code> / <code>@Database</code> はそれぞれ何を表すか</td><td>表の形 / 読み書きの窓口 / データベース本体、と答える。3つがそろって初めて動くことを説明できる。</td></tr>
+<tr><td><code>internalId</code> はどこで決まるか</td><td><code>@PrimaryKey(autoGenerate = true)</code> により保存のたびにRoomが1・2・3…と付ける、と答える。自分で入力しないのに値が入る理由を説明できる。</td></tr>
+<tr><td><code>@Upsert</code> が「追加」になるのはどんなときか</td><td>idが入っていないとき（=0のとき）。idを入れると、その行を書き換える、と答える。</td></tr>
+<tr><td><code>ItemDao</code> のメソッドに中身がないのはなぜか</td><td>ビルドのときにRoomが自動で作るため。<code>room-compiler</code> がその仕事をしている、と答える。</td></tr>
+<tr><td>保存したあとに <code>setText</code> し直しているのはなぜか</td><td>データベースに書いても画面は自動では変わらないため。「書いた」と「画面に出す」は別の仕事、と答える。</td></tr>
+<tr><td>A09のSharedPreferencesではできないことは何か</td><td>1件だけ書き換える・1件だけ消すこと。A09は一覧をまとめて1つの文字列で保存しているため、と答える。</td></tr>
+<tr><td><code>getApplicationContext()</code> を渡すのはなぜか</td><td>作ったデータベースはアプリが終わるまで残るため、画面ではなくアプリ全体を渡す、と答える。</td></tr>
+</tbody></table>
+<p>エラー時は「STEP番号・ファイル・最初の赤い行・操作順」を聞きます。この単元のパッケージは <code>jp.ac.jec.a10roomsample</code> です。アプリが終了してしまうときだけ <a href="../../docs/common/logcat.html">共通資料：Logcat</a> を開き、<code>package:jp.ac.jec.a10roomsample level:ERROR</code> で確認します。</p>
+<p>よくある原因は、①<code>room-runtime</code> / <code>room-compiler</code> を <code>[plugins]</code> に書いた、②Syncしていない、③<code>ItemDao</code> を <code>Class</code> で作った、④<code>Item</code> のセッターがない、⑤<code>setText(itemList(itemDao))</code> をリスナに書いていない、の5つです。</p>
+<p>①と③は<strong>エラーの文面から原因にたどり着きにくい</strong>のが特徴です。①は <code>expected to find any of 'id' or 'version'</code>、③は中身を貼り付けた瞬間に全行が赤くなります。どちらも「どこに書いたか」「どの種類で作ったか」を先に確認させてください。</p>
+<p>入力中にキーボードがボタンに重なって押せないことがあります。キーボードを閉じてから押すよう伝えます。理由と対処は<a href="../../docs/common/dev-tips.html">共通資料：開発Tips</a>のB章にあります。</p>
+</section>
+
+<section><h2>7. 到達度と提出</h2>
+<ul><li>タイトルを入力して保存でき、一覧に <code>id</code> が付いて増えることを再現できる。</li><li><code>id</code> を指定して1件だけ書き換えられる。どの行が効いているか説明できる。</li><li><code>id</code> を指定して1件だけ消せる。存在しない <code>id</code> のときにメッセージが出ることを確かめられる。</li><li>アプリを完全に終了して開き直してもデータが残ることを確かめられる。</li><li>A09のSharedPreferencesとの違いを、画面の動きで説明できる。</li><li>提出する場合は <a href="../../docs/common/apk.html">共通資料：APKの作り方</a>に従い、先生が指定した場所へ <code>学籍番号_A10RoomSample.apk</code> を提出する。</li></ul>
+</section>
+
+<section><h2>8. 教材の保守と確認</h2>
+<ul><li>完成コードを変更したら、教科書の部分コード、照合用の全体コード、画像をまとめて確認し、<code>python3 scripts/package-hello-android.py --project A10RoomSample --output docs/room-sample/downloads/A10RoomSample.zip</code> で配布用ZIPを再作成します。教科書のコードと完成プロジェクトの一致は <code>python3 scripts/check-teaching-materials.py</code> で確かめます。</li><li>アプリ画面の5枚（app-initial、app-saved、app-updated、app-deleted、app-error-empty）は <code>jec_26cm_android1_Pixel 9a</code>（Android 17 / API 37）で完成版を操作して撮影しました（2026年9月17日）。<strong>表示しているデータ（CAR / BIKE / TRAIN、id 2 を BICYCLE に変更、id 3 を削除）は教科書STEP 07の手順と同じ順番</strong>です。撮り直すときも同じ順番で操作してください。</li><li>IDE操作の画像6枚（テンプレート選択、プロジェクト設定、New → Java Class、Item・AppDatabase・ItemDaoのダイアログ）は <code>A10RoomSample</code> / <code>jp.ac.jec.a10roomsample</code> で撮影したものです。差し替えるときはimgの <code>width</code> / <code>height</code> を実際のサイズに合わせます。</li><li>各STEPの照合コードは、完成プロジェクトのコピーにそのSTEPまでのファイルを入れてビルドが通ることを確認しています。STEP 02はビルド設定の追記のみのため照合コードがありません。</li><li>印刷時は補足・解答も展開されます。解答を配布したくない場合は、ブラウザで授業中に開く方式を使ってください。</li></ul>
+</section>
+
 <footer class="footer"><p>Androidプログラミング1 · 教員用ガイド A10RoomSample</p></footer>
 </main>
 <p class="sr-only" role="status" aria-live="polite" data-copy-status></p></body></html>
