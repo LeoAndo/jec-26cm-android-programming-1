@@ -416,6 +416,9 @@ Non-Bundled Plugins:
 # 完成コードの書き方（全単元共通）
 完成プロジェクトのコードは、単元をまたいで同じ書き方にそろえる。教科書に掲載するコードと `teacher/<単元>/code` の照合コードも同じ形にする。
 
+## レイアウトの余白
+`android:padding` は書かない。ルートに書いても `ViewCompat.setOnApplyWindowInsetsListener` の中の `v.setPadding(...)` で上書きされて効かず、内側の入れ物に書くと、その単元だけ余白が付いて見た目が揃わなくなる。部品は端から並べる。
+
 ## Viewの取得（findViewById）
 1. `findViewById` は `onCreate` の冒頭（インセットのリスナ設定の直後）でまとめて呼び、`var` のローカル変数に入れる。命名は `txtXxx` / `edtXxx` / `btnXxx` / `imgXxx`。
 2. `onCreate` 以外のメソッドからも使うViewはフィールドにする（A02CalcGameの `txtMessage`、A04WebViewAppの `webView`）。同じidに対して `findViewById` を2回呼ばない。
