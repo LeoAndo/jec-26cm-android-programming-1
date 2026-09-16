@@ -1,0 +1,1021 @@
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="JavaとXMLで作るA07BillSplitter。参加者をArrayListで集め、Intentで配列を渡して画面を切り替え、配られた計算クラスを使って割り勘の結果を表示するまでを小さなSTEPで学ぶ授業用教科書。">
+<title>BillSplitter — 割り勘アプリを作ろう | Androidプログラミング1</title>
+<link rel="stylesheet" href="../assets/textbook.css"><script src="../assets/textbook.js" defer></script></head>
+<body data-progress-key="jec-android1-billsplitter-v1">
+<a class="skip" href="#main">本文へ移動</a>
+<header class="topbar"><span class="brand">JEC / Androidプログラミング1</span><a href="../screen-transition-sample/index.html">A06 ScreenTransitionSample</a></header>
+<div class="shell"><aside class="sidebar"><div class="sidebar-inner"><p class="eyebrow">CONTENTS / 学習の順番</p>
+<nav aria-label="学習ステップ"><ol><li><a href="#step-0">00　今日のゴール</a></li>
+<li><a href="#step-1">01　プロジェクトを作って実行</a></li>
+<li><a href="#step-2">02　タイトル画像を入れる</a></li>
+<li><a href="#step-3">03　TOP画面のレイアウトを作る</a></li>
+<li><a href="#step-4">04　参加者を登録する</a></li>
+<li><a href="#step-5">05　ワリカン画面を作る</a></li>
+<li><a href="#step-6">06　参加者リストを渡して画面を切り替える</a></li>
+<li><a href="#step-7">07　割り勘の計算クラスを使う</a></li>
+<li><a href="#step-8">08　入力チェックを作る</a></li>
+<li><a href="#step-9">09　計算結果を表示する</a></li>
+<li><a href="#step-10">10　ミニ練習</a></li>
+<li><a href="#step-11">11　完成とふり返り</a></li></ol></nav>
+<div class="progress"><span data-progress-label>0 / 12 ステップ確認済み</span><progress value="0" max="12" aria-label="学習の進み具合"></progress><span class="muted">自分用のチェックです。</span></div>
+<div class="resources"><a href="#help">困ったとき</a><a href="#why-check">解説：なぜ画面側でチェックするのか</a><a href="#how-split">解説：1円の端数はだれが払う？</a><a href="#sample-project">完成プロジェクトを開く</a><a href="../hello-android/index.html">A01：HelloAndroid</a><a href="../calc-game/index.html">A02：CalcGame</a><a href="../rock-paper-scissors-game/index.html">A03：RockPaperScissorsGame</a><a href="../webview-app/index.html">A04：WebViewApp</a><a href="../bomb-game/index.html">A05：BombGame</a><a href="../screen-transition-sample/index.html">A06：ScreenTransitionSample</a><a href="../common/emulator.html">共通：エミュレータ</a><a href="../common/auto-import.html">共通：Auto Import</a><a href="../common/logcat.html">共通：Logcat</a><a href="../common/apk.html">共通：APKの提出</a></div>
+</div></aside><main id="main"><div class="hero"><span class="unit">07</span><p class="eyebrow">BILL SPLITTER</p>
+<h1>割り勘アプリを<br>作ろう</h1><p class="lede">参加者を登録する。金額を入れる。1円もずれずに分ける。<br>A06で学んだ「配列を渡す」を、使えるアプリにします。</p>
+<div class="tags"><span>Java / XML</span><span>A06の次の単元</span><span>90分 × 3コマ目安</span><span>Macで学ぶ</span></div></div>
+
+<section id="step-0" aria-labelledby="title-0">
+<p class="step-meta">STEP 00 · 目安 5分</p><h2 id="title-0">今日のゴール</h2>
+<p>飲み会やランチの支払いを、参加者で分けるアプリを作ります。名前を登録する画面と、金額を入れて結果を見る画面の、2つの画面でできています。</p>
+<div class="phones">
+<figure><a href="images/app-top-initial.png"><img src="images/app-top-initial.png" width="1080" height="2424" loading="lazy" alt="TOP画面。タイトル画像の下に名前の入力欄、登録ボタン、ワリカン画面へボタン、参加者一覧の見出しが並んでいる"></a><figcaption>1つ目の画面。参加者の名前を登録します。 <a href="images/app-top-initial.png">画像を大きく開く</a></figcaption></figure>
+<figure><a href="images/app-split-result.png"><img src="images/app-split-result.png" width="1080" height="2424" loading="lazy" alt="ワリカン画面。1234と入力し、Sato 411円、Suzuki 412円、Tanaka 411円、合計1234円と表示されている"></a><figcaption>2つ目の画面。1234円を3人で割った結果です。 <a href="images/app-split-result.png">画像を大きく開く</a></figcaption></figure>
+</div>
+<h3>今日の道具</h3>
+<table><thead><tr><th>道具</th><th>どこで使うか</th></tr></thead><tbody>
+<tr><td><code>ArrayList</code></td><td>登録した参加者の名前をためておく。</td></tr>
+<tr><td>Intentで配列を渡す</td><td>A06のTest 3と同じ形。参加者の名前を次の画面へ渡す。</td></tr>
+<tr><td>入力チェック</td><td>おかしな入力のときは計算せず、Snackbarで知らせる。</td></tr>
+<tr><td>配られたクラスを使う</td><td>割り勘の計算は <code>BillSplitter</code> が担当する。中身は読まなくてよい。</td></tr>
+</tbody></table>
+<p>1234円を3人で割ると411.33…円です。1円より細かいお金は払えないので、<strong>411円・411円・412円</strong>のように、差が1円までになるように分けます。合計は必ず1234円に戻ります。</p>
+<div class="note"><p class="box-title">画面回転について</p><p>各単元では画面回転時のデータ保持と横画面のレイアウトを扱いません。回転などでActivityが作り直されると、登録した参加者と計算結果は初期状態に戻ります。横向きでは画面の下の部分が見えなくなる場合があるため、縦向きで使います。この観点は別単元の演習アプリで検証します。</p></div>
+<div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-0"><span>割り勘アプリが2つの画面でできていること、支払額の差が1円までになることを、画像と表で説明できた。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
+<div class="next"><a href="#step-1">次へ：プロジェクトを作って実行 →</a></div></section>
+
+<section id="step-1" aria-labelledby="title-1">
+<p class="step-meta">STEP 01 · 目安 15分</p><h2 id="title-1">プロジェクトを作って実行</h2>
+<p>授業環境はMacと <strong>Android Studio Panda 2 | 2025.3.2</strong> です。A06までとは別のプロジェクトを作ります。</p>
+<div class="note"><p class="box-title">毎回、自分で新規作成します</p><p>作る場所は <code>Documents/Android1/A07BillSplitter</code> です。<a href="#sample-project">完成プロジェクト</a>は答え合わせ用で、授業の入力は自分で作ったプロジェクトに書きます。</p></div>
+<ol><li>Android Studioの <strong>New Project</strong> をクリックします。別のプロジェクトを開いているときは <strong>File → New → New Project</strong> を選びます。</li></ol>
+<figure><a href="images/new-project.png"><img src="images/new-project.png" width="1604" height="256" loading="lazy" alt="Android StudioのWelcome画面。右上にNew Flutter Project、New Project、Openのボタンが並んでいる"></a><figcaption>右上のNew Projectをクリック。 <a href="images/new-project.png">画像を大きく開く</a></figcaption></figure>
+<ol start="2"><li><strong>Phone and Tablet → Empty Views Activity → Next</strong> の順に選びます。名前に <strong>Views</strong> があることを確認します。</li></ol>
+<figure><a href="images/empty-views-activity.png"><img src="images/empty-views-activity.png" width="1798" height="1356" loading="lazy" alt="テンプレート一覧でEmpty Views Activityが選択されている"></a><figcaption>Empty Views Activityを選択。Empty Activityとは別です。 <a href="images/empty-views-activity.png">画像を大きく開く</a></figcaption></figure>
+<ol start="3"><li>次の表のとおりに入力・選択して <strong>Finish</strong> を押します。</li></ol>
+<table><thead><tr><th>項目</th><th>入力・選択する内容</th></tr></thead><tbody>
+<tr><td>Name</td><td><code>A07BillSplitter</code></td></tr>
+<tr><td>Package name</td><td><code>jp.ac.jec.a07billsplitter</code>（すべて小文字）</td></tr>
+<tr><td>Save location</td><td><code>/Users/ユーザ名/Documents/Android1/A07BillSplitter</code></td></tr>
+<tr><td>Language</td><td>Java</td></tr>
+<tr><td>Minimum SDK</td><td>API 31 ("S"; Android 12.0)</td></tr>
+<tr><td>Build configuration language</td><td>Kotlin DSL (build.gradle.kts) [Recommended]</td></tr>
+</tbody></table>
+<figure><a href="images/project-settings.png"><img src="images/project-settings.png" width="1806" height="1350" loading="lazy" alt="New Projectの設定画面。NameにA07BillSplitter、Package nameにjp.ac.jec.a07billsplitter、LanguageにJava、Minimum SDKにAPI 31が入っている"></a><figcaption>入力後の画面。画像の保存先は先生の環境のものです。自分のDocuments以下を指定します。 <a href="images/project-settings.png">画像を大きく開く</a></figcaption></figure>
+<ol start="4"><li>Sync（歯車の読み込み）が終わるまで待ちます。</li><li>端末欄で <strong>jec_26cm_android1_Pixel 9a</strong> を選び、<strong>Run</strong>（▶）を押します。白い画面に <strong>Hello World!</strong> が出れば成功です。</li></ol>
+<p>エミュレータが出てこないときは<a href="../common/emulator.html">共通資料：エミュレータ</a>を見ます。</p>
+<div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-1"><span>自分の保存先にA07BillSplitterを作り、Hello World!を表示できた。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
+<div class="next"><a href="#step-2">次へ：タイトル画像を入れる →</a></div></section>
+
+<section id="step-2" aria-labelledby="title-2">
+<p class="step-meta">STEP 02 · 目安 10分</p><h2 id="title-2">タイトル画像を入れる</h2>
+<p>TOP画面の上に置く<strong>タイトル画像</strong>を追加します。先生から配られた <code>title_img.png</code> を使います。</p>
+<ol><li>配られた <code>title_img.png</code> をFinderで選び、<kbd>⌘ C</kbd> でコピーします。</li><li>Android Studioの左側で <code>app → src → main → res → drawable</code> をクリックし、<kbd>⌘ V</kbd> で貼り付けます。</li><li>Copyのダイアログが出ます。New nameが <code>title_img.png</code>、To directoryの最後が <code>A07BillSplitter/app/src/main/res/drawable</code> になっていることを確認して <strong>OK</strong> を押します。</li></ol>
+<figure><a href="images/drawable-copy.png"><img src="images/drawable-copy.png" width="2050" height="836" loading="lazy" alt="Copyダイアログ。New nameにtitle_img.png、To directoryにA07BillSplitter/app/src/main/res/drawableが表示されている"></a><figcaption>貼り付け先がdrawableになっているか確認します。 <a href="images/drawable-copy.png">画像を大きく開く</a></figcaption></figure>
+<figure><a href="images/drawable-files.png"><img src="images/drawable-files.png" width="836" height="678" loading="lazy" alt="プロジェクト画面のdrawableフォルダに、ic_launcher_background.xml、ic_launcher_foreground.xml、title_img.pngが並んでいる"></a><figcaption>drawableの中に <code>title_img.png</code> が増えていれば成功です。 <a href="images/drawable-files.png">画像を大きく開く</a></figcaption></figure>
+<div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-2"><span>title_img.pngをres/drawableに入れ、プロジェクト画面で確認できた。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
+<div class="next"><a href="#step-3">次へ：TOP画面のレイアウトを作る →</a></div></section>
+
+<section id="step-3" aria-labelledby="title-3">
+<p class="step-meta">STEP 03 · 目安 20分</p><h2 id="title-3">TOP画面のレイアウトを作る</h2>
+<p><code>app → src → main → res → layout → activity_main.xml</code> を開き、左上の <strong>Code</strong> を選びます。中身をすべて消して、次のコードに置き換えます。</p>
+<div class="code-head">activity_main.xml · 全文</div>
+<pre tabindex="0"><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;LinearLayout xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
+    xmlns:tools=&quot;http://schemas.android.com/tools&quot;
+    android:id=&quot;@+id/main&quot;
+    android:layout_width=&quot;match_parent&quot;
+    android:layout_height=&quot;match_parent&quot;
+    android:gravity=&quot;center_horizontal&quot;
+    android:orientation=&quot;vertical&quot;
+    tools:context=&quot;.MainActivity&quot;&gt;
+
+    &lt;ImageView
+        android:layout_width=&quot;wrap_content&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:layout_gravity=&quot;center_horizontal&quot;
+        android:contentDescription=&quot;@null&quot;
+        android:src=&quot;@drawable/title_img&quot; /&gt;
+
+    &lt;EditText
+        android:id=&quot;@+id/edt_participant_name&quot;
+        android:layout_width=&quot;match_parent&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:hint=&quot;参加者の名前を入力してください&quot;
+        android:importantForAutofill=&quot;no&quot;
+        android:inputType=&quot;textPersonName&quot; /&gt;
+
+    &lt;Button
+        android:id=&quot;@+id/btn_add&quot;
+        android:layout_width=&quot;match_parent&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:text=&quot;登録&quot; /&gt;
+
+    &lt;Button
+        android:id=&quot;@+id/btn_bill_split&quot;
+        android:layout_width=&quot;match_parent&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:text=&quot;ワリカン画面へ&quot; /&gt;
+
+    &lt;TextView
+        android:layout_width=&quot;wrap_content&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:text=&quot;参加者一覧&quot; /&gt;
+
+    &lt;ScrollView
+        android:layout_width=&quot;match_parent&quot;
+        android:layout_height=&quot;wrap_content&quot;&gt;
+
+        &lt;TextView
+            android:id=&quot;@+id/txt_participant_list&quot;
+            android:layout_width=&quot;wrap_content&quot;
+            android:layout_height=&quot;wrap_content&quot;
+            tools:text=&quot;鈴木一郎\n鈴木二郎\n鈴木三郎&quot; /&gt;
+    &lt;/ScrollView&gt;
+&lt;/LinearLayout&gt;</code></pre>
+<h3>置いた部品</h3>
+<table><thead><tr><th>部品</th><th>id</th><th>役割</th></tr></thead><tbody>
+<tr><td>ImageView</td><td>（なし）</td><td>STEP 02で入れたタイトル画像を表示する。</td></tr>
+<tr><td>EditText</td><td><code>edt_participant_name</code></td><td>参加者の名前を入力する。</td></tr>
+<tr><td>Button</td><td><code>btn_add</code></td><td>入力した名前を登録する。</td></tr>
+<tr><td>Button</td><td><code>btn_bill_split</code></td><td>ワリカン画面へ進む。</td></tr>
+<tr><td>TextView</td><td><code>txt_participant_list</code></td><td>登録した名前を並べて表示する。</td></tr>
+</tbody></table>
+<p>一番外側の <code>LinearLayout</code> には <code>android:id="@+id/main"</code> が付いています。この <code>main</code> は、画面の上下の余白（ステータスバーの下など）を自動で空ける処理で使います。消さないようにします。</p>
+<p>Runすると、STEP 00の1枚目と同じ画面になります。まだボタンを押しても何も起きません。</p>
+<div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-3"><span>TOP画面のレイアウトを作り、タイトル画像・入力欄・ボタン2つ・参加者一覧を表示できた。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
+<div class="next"><a href="#step-4">次へ：参加者を登録する →</a></div></section>
+
+<section id="step-4" aria-labelledby="title-4">
+<p class="step-meta">STEP 04 · 目安 25分</p><h2 id="title-4">参加者を登録する</h2>
+<p><code>MainActivity.java</code> を開きます。<code>onCreate</code> の中の、<code>ViewCompat.setOnApplyWindowInsetsListener(…);</code> で終わる行の<strong>下</strong>に書いていきます。</p>
+<h3>① 名前をためる入れ物と、画面の部品を用意する</h3>
+<div class="code-head">MainActivity.java · onCreateの中</div>
+<pre tabindex="0"><code>var participants = new ArrayList&lt;String&gt;();
+
+var edtParticipantName = (EditText) findViewById(R.id.edt_participant_name);
+var txtParticipantList = (TextView) findViewById(R.id.txt_participant_list);
+var btnAdd = findViewById(R.id.btn_add);
+var btnBillSplit = findViewById(R.id.btn_bill_split);</code></pre>
+<p><code>ArrayList</code> は、あとから増やせる入れ物です。ここに参加者の名前をためます。</p>
+<p><code>findViewById</code> は <code>onCreate</code> の最初にまとめて書きます。あとから何度も呼ばずに済み、どの部品を使うアプリなのかが上から読めます。</p>
+<p>赤い字になったら <kbd>⌥ Enter</kbd> を押し、<code>java.util.ArrayList</code>・<code>android.widget.EditText</code>・<code>android.widget.TextView</code> を選びます。<a href="../common/auto-import.html">共通資料：Auto Import</a>も見ます。</p>
+<h3>② 登録ボタンの処理を書く</h3>
+<div class="code-head">MainActivity.java · ①の下</div>
+<pre tabindex="0"><code>btnAdd.setOnClickListener(v -&gt; {
+    var participantName = edtParticipantName.getText().toString();
+    if (participantName.isEmpty()) {
+        Snackbar.make(v, "参加者名を入力してください", Snackbar.LENGTH_SHORT).show();
+        return;
+    }
+    if (participants.contains(participantName)) {
+        Snackbar.make(v, "参加者名が重複しています", Snackbar.LENGTH_SHORT).show();
+        return;
+    }
+
+    participants.add(participantName);
+    txtParticipantList.append(participantName + "\n");
+    edtParticipantName.setText("");
+});</code></pre>
+<table><thead><tr><th>書いたこと</th><th>意味</th></tr></thead><tbody>
+<tr><td><code>isEmpty()</code></td><td>入力欄が空のときは登録しない。</td></tr>
+<tr><td><code>contains(participantName)</code></td><td>同じ名前がすでにあるときは登録しない。</td></tr>
+<tr><td><code>return;</code></td><td>メッセージを出して、ここで処理をやめる。下の登録は行われない。</td></tr>
+<tr><td><code>append</code></td><td>一覧の<strong>末尾に追加</strong>する。<code>setText</code> だと前の名前が消える。</td></tr>
+<tr><td><code>setText("")</code></td><td>入力欄を空にして、次の名前を入れやすくする。</td></tr>
+</tbody></table>
+<p><code>"\n"</code> は改行です。1人1行で並びます。</p>
+<h3>③ Runで確かめる</h3>
+<ol><li>何も入力せずに <strong>登録</strong> を押します。</li></ol>
+<figure><a href="images/app-top-error-empty-name.png"><img src="images/app-top-error-empty-name.png" width="1080" height="2424" loading="lazy" alt="名前を入れずに登録を押したところ。画面下に参加者名を入力してくださいと表示されている"></a><figcaption>空のときは登録されず、下にメッセージが出ます。 <a href="images/app-top-error-empty-name.png">画像を大きく開く</a></figcaption></figure>
+<ol start="2"><li><code>Sato</code>・<code>Suzuki</code>・<code>Tanaka</code> の順に登録します。</li></ol>
+<figure><a href="images/app-top-three-members.png"><img src="images/app-top-three-members.png" width="1080" height="2424" loading="lazy" alt="参加者一覧にSato、Suzuki、Tanakaの3人が縦に並んでいる"></a><figcaption>登録した順に1行ずつ増えます。 <a href="images/app-top-three-members.png">画像を大きく開く</a></figcaption></figure>
+<ol start="3"><li>もう一度 <code>Sato</code> を登録します。</li></ol>
+<figure><a href="images/app-top-error-duplicate.png"><img src="images/app-top-error-duplicate.png" width="1080" height="2424" loading="lazy" alt="すでに登録済みのSatoをもう一度登録しようとして、参加者名が重複していますと表示されている"></a><figcaption>同じ名前は登録されません。一覧も増えません。 <a href="images/app-top-error-duplicate.png">画像を大きく開く</a></figcaption></figure>
+<div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-4"><span>参加者を登録でき、空のときと同じ名前のときにメッセージが出ることを確かめられた。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
+<div class="next"><a href="#step-5">次へ：ワリカン画面を作る →</a></div></section>
+
+<section id="step-5" aria-labelledby="title-5">
+<p class="step-meta">STEP 05 · 目安 15分</p><h2 id="title-5">ワリカン画面を作る</h2>
+<p>2つ目の画面を追加します。A06のTestActivityと同じ作り方です。</p>
+<ol><li>左側のプロジェクト画面で <code>app → src → main → java → jp.ac.jec.a07billsplitter</code> を右クリックします。</li><li><strong>New → Activity → Empty Views Activity</strong> を選びます。</li></ol>
+<figure><a href="images/new-activity-menu.png"><img src="images/new-activity-menu.png" width="2230" height="1106" loading="lazy" alt="パッケージを右クリックして、New、Activity、Empty Views Activityと選んでいるメニュー"></a><figcaption>作る場所は <code>jp.ac.jec.a07billsplitter</code> です。 <a href="images/new-activity-menu.png">画像を大きく開く</a></figcaption></figure>
+<ol start="3"><li>次の表のとおりに入力して <strong>Finish</strong> を押します。<strong>Launcher Activityにはチェックを入れません。</strong></li></ol>
+<table><thead><tr><th>項目</th><th>入力・選択する内容</th></tr></thead><tbody>
+<tr><td>Activity Name</td><td><code>BillSplitActivity</code></td></tr>
+<tr><td>Generate a Layout File</td><td>チェックを入れる</td></tr>
+<tr><td>Layout Name</td><td><code>activity_bill_split</code></td></tr>
+<tr><td>Launcher Activity</td><td><strong>チェックを入れない</strong></td></tr>
+<tr><td>Package name</td><td><code>jp.ac.jec.a07billsplitter</code></td></tr>
+<tr><td>Source Language</td><td>Java</td></tr>
+</tbody></table>
+<figure><a href="images/new-activity-settings.png"><img src="images/new-activity-settings.png" width="1796" height="1356" loading="lazy" alt="New Android Activityの設定画面。Activity NameにBillSplitActivity、Layout Nameにactivity_bill_split、Launcher Activityは未チェック"></a><figcaption>Launcher Activityにチェックを入れると、アプリのアイコンが2つになります。 <a href="images/new-activity-settings.png">画像を大きく開く</a></figcaption></figure>
+<div class="note"><p class="box-title">New → Java Classでは作りません</p><p>この作り方なら <code>AndroidManifest.xml</code> への登録も自動で行われます。<strong>New → Java Class</strong> で作ると登録されず、画面を開いたときにアプリが終了します。</p></div>
+<h3>ワリカン画面のレイアウト</h3>
+<p><code>res → layout → activity_bill_split.xml</code> を開き、<strong>Code</strong> にしてから、中身をすべて次のコードに置き換えます。</p>
+<div class="code-head">activity_bill_split.xml · 全文</div>
+<pre tabindex="0"><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;LinearLayout xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
+    xmlns:tools=&quot;http://schemas.android.com/tools&quot;
+    android:id=&quot;@+id/main&quot;
+    android:layout_width=&quot;match_parent&quot;
+    android:layout_height=&quot;match_parent&quot;
+    android:gravity=&quot;center_horizontal&quot;
+    android:orientation=&quot;vertical&quot;
+    tools:context=&quot;.BillSplitActivity&quot;&gt;
+
+    &lt;TextView
+        android:id=&quot;@+id/txt_number_of_people&quot;
+        android:layout_width=&quot;wrap_content&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        tools:text=&quot;参加者は4人&quot; /&gt;
+
+    &lt;LinearLayout
+        android:layout_width=&quot;match_parent&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:orientation=&quot;horizontal&quot;&gt;
+
+        &lt;TextView
+            android:id=&quot;@+id/txt_total_amount&quot;
+            android:layout_width=&quot;100dp&quot;
+            android:layout_height=&quot;wrap_content&quot;
+            android:text=&quot;支払額（￥）&quot; /&gt;
+
+        &lt;EditText
+            android:id=&quot;@+id/edt_total_amount&quot;
+            android:layout_width=&quot;match_parent&quot;
+            android:layout_height=&quot;wrap_content&quot;
+            android:hint=&quot;金額を入力してください&quot;
+            android:importantForAutofill=&quot;no&quot;
+            android:inputType=&quot;number&quot;
+            android:maxLength=&quot;9&quot;
+            tools:text=&quot;1234567890&quot; /&gt;
+    &lt;/LinearLayout&gt;
+
+    &lt;Button
+        android:id=&quot;@+id/btn_calc&quot;
+        android:layout_width=&quot;wrap_content&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:text=&quot;計算実行&quot; /&gt;
+
+    &lt;TextView
+        style=&quot;@style/TextAppearance.Material3.HeadlineSmall&quot;
+        android:layout_width=&quot;wrap_content&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:layout_marginTop=&quot;12dp&quot;
+        android:text=&quot;計算結果&quot; /&gt;
+
+    &lt;ScrollView
+        android:layout_width=&quot;wrap_content&quot;
+        android:layout_height=&quot;wrap_content&quot;&gt;
+
+        &lt;TextView
+            android:id=&quot;@+id/txt_participant_list&quot;
+            android:layout_width=&quot;wrap_content&quot;
+            android:layout_height=&quot;wrap_content&quot;
+            tools:text=&quot;鈴木一郎: ￥411\n鈴木二郎: ￥411\n鈴木三郎: ￥412\n合計: ￥1234&quot; /&gt;
+    &lt;/ScrollView&gt;
+&lt;/LinearLayout&gt;</code></pre>
+<table><thead><tr><th>部品</th><th>id</th><th>役割</th></tr></thead><tbody>
+<tr><td>TextView</td><td><code>txt_number_of_people</code></td><td>受け取った人数を表示する。</td></tr>
+<tr><td>EditText</td><td><code>edt_total_amount</code></td><td>合計金額を入力する。</td></tr>
+<tr><td>Button</td><td><code>btn_calc</code></td><td>計算を実行する。</td></tr>
+<tr><td>TextView</td><td><code>txt_participant_list</code></td><td>計算結果を表示する。</td></tr>
+</tbody></table>
+<p>金額の入力欄には <code>android:inputType="number"</code> と <code>android:maxLength="9"</code> を付けています。数字だけのキーボードが出て、9桁までしか入りません。</p>
+<div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-5"><span>BillSplitActivityとactivity_bill_split.xmlを作り、Launcher Activityにチェックを入れていないことを確認できた。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
+<div class="next"><a href="#step-6">次へ：参加者リストを渡して画面を切り替える →</a></div></section>
+
+<section id="step-6" aria-labelledby="title-6">
+<p class="step-meta">STEP 06 · 目安 20分</p><h2 id="title-6">参加者リストを渡して画面を切り替える</h2>
+<p>A06のTest 3でやった<strong>配列を渡す</strong>形です。渡す側と受け取る側の両方を書きます。</p>
+<h3>① 受け取る側（BillSplitActivity）にstartメソッドを作る</h3>
+<p><code>BillSplitActivity.java</code> を開きます。クラスの最初と、<code>onCreate</code> の<strong>外</strong>に次を書きます。</p>
+<div class="code-head">BillSplitActivity.java · クラスの最初</div>
+<pre tabindex="0"><code>private static final String EXTRA_KEY_PARTICIPANTS = "participants";</code></pre>
+<div class="code-head">BillSplitActivity.java · onCreateの最後の } の下、クラスの最後の } の上</div>
+<pre tabindex="0"><code>static void start(@NonNull final Context context, @NonNull final String[] participants) {
+    var starter = new Intent(context, BillSplitActivity.class);
+    starter.putExtra(EXTRA_KEY_PARTICIPANTS, participants);
+    context.startActivity(starter);
+}</code></pre>
+<p>キーの文字（<code>"participants"</code>）は、受け取る側であるこの画面が持ちます。渡す側は <code>start</code> を呼ぶだけでよく、キーを間違えようがありません。</p>
+<h3>② 受け取って人数を表示する</h3>
+<p><code>onCreate</code> の中の、<code>ViewCompat.setOnApplyWindowInsetsListener(…);</code> の下に書きます。</p>
+<div class="code-head">BillSplitActivity.java · onCreateの中</div>
+<pre tabindex="0"><code>// start()経由でしか起動しないため、nullになるのは呼び出し側のバグのとき
+var participants = Objects.requireNonNull(getIntent().getStringArrayExtra(EXTRA_KEY_PARTICIPANTS));
+
+var txtNumberOfPeople = (TextView) findViewById(R.id.txt_number_of_people);
+var edtTotalAmount = (EditText) findViewById(R.id.edt_total_amount);
+var txtParticipantList = (TextView) findViewById(R.id.txt_participant_list);
+var btnCalc = findViewById(R.id.btn_calc);
+
+var numberOfPeople = participants.length; // ex) 4
+txtNumberOfPeople.setText("参加者は" + numberOfPeople + "人");</code></pre>
+<p><code>getStringArrayExtra</code> は、値が入っていないと <code>null</code> を返します。<code>Objects.requireNonNull</code> は、<code>null</code> だったらその場でアプリを止める書き方です。ここが <code>null</code> になるのは渡し忘れというプログラムの間違いのときだけなので、すぐ気づけるようにしておきます。</p>
+<h3>③ 渡す側（MainActivity）から呼ぶ</h3>
+<p><code>MainActivity.java</code> の、STEP 04で書いた <code>btnAdd.setOnClickListener(…);</code> の下に書きます。</p>
+<div class="code-head">MainActivity.java · ②の下</div>
+<pre tabindex="0"><code>btnBillSplit.setOnClickListener(v -&gt; {
+    if (participants.size() &lt; 2) {
+        Snackbar.make(v, "参加者を2人以上追加してください", Snackbar.LENGTH_SHORT).show();
+        return;
+    }
+    BillSplitActivity.start(this, participants.toArray(new String[0]));
+});</code></pre>
+<p><code>participants</code> は <code>ArrayList</code> ですが、Intentで渡すのは<strong>配列</strong>です。<code>toArray(new String[0])</code> で <code>String[]</code> に変えて渡します。</p>
+<p>1人では割り勘になりません。2人未満のときは画面を切り替えずにメッセージを出します。</p>
+<h3>④ Runで確かめる</h3>
+<ol><li>参加者を1人だけ登録して <strong>ワリカン画面へ</strong> を押します。</li></ol>
+<figure><a href="images/app-top-error-less-than-two.png"><img src="images/app-top-error-less-than-two.png" width="1080" height="2424" loading="lazy" alt="参加者が1人のときにワリカン画面へを押して、参加者を2人以上追加してくださいと表示されている"></a><figcaption>1人のときは画面が切り替わりません。 <a href="images/app-top-error-less-than-two.png">画像を大きく開く</a></figcaption></figure>
+<ol start="2"><li>3人登録してから <strong>ワリカン画面へ</strong> を押します。</li></ol>
+<figure><a href="images/app-split-initial.png"><img src="images/app-split-initial.png" width="1080" height="2424" loading="lazy" alt="ワリカン画面。上に参加者は3人、その下に支払額（￥）のラベルと金額の入力欄、計算実行ボタン、計算結果の見出しがある"></a><figcaption>渡した人数が <strong>参加者は3人</strong> と表示されます。 <a href="images/app-split-initial.png">画像を大きく開く</a></figcaption></figure>
+<div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-6"><span>2人以上のときだけワリカン画面が開き、渡した人数を表示できた。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
+<div class="next"><a href="#step-7">次へ：割り勘の計算クラスを使う →</a></div></section>
+
+<section id="step-7" aria-labelledby="title-7">
+<p class="step-meta">STEP 07 · 目安 10分</p><h2 id="title-7">割り勘の計算クラスを使う</h2>
+<p>割り勘の計算は、先生から配られる <code>BillSplitter.java</code> が行います。<strong>中身を読む必要はありません。</strong>使い方だけ覚えます。</p>
+<ol><li>配られた <code>BillSplitter.java</code> を、<code>MainActivity.java</code> と同じ場所（<code>jp.ac.jec.a07billsplitter</code>）に置きます。</li><li>ファイルを開き、1行目が <code>package jp.ac.jec.a07billsplitter;</code> になっていることを確認します。</li></ol>
+<details><summary>BillSplitter.javaの中身を見る（読まなくてよい）</summary><div class="code-head">配布ファイル · BillSplitter.java</div>
+<pre tabindex="0"><code>package jp.ac.jec.a07billsplitter;
+
+import android.icu.text.NumberFormat;
+
+import androidx.annotation.CheckResult;
+import androidx.annotation.IntRange;
+import androidx.annotation.NonNull;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.Locale;
+
+/**
+ * できるだけ全員の支払額を均等にする
+ *
+ * &lt;pre&gt;
+ *     {@code
+ *     var participants = new String[]{&quot;鈴木一郎&quot;, &quot;鈴木二郎&quot;, &quot;鈴木三郎&quot;};
+ *     var result = BillSplitter.calculateAndFormat(1234, participants);
+ *     // result -&gt; &quot;鈴木一郎: ￥411\n鈴木二郎: ￥411\n鈴木三郎: ￥412\n合計: ￥1234&quot;
+ *     }
+ * &lt;/pre&gt;
+ * &lt;p&gt;
+ * このクラスは計算だけを担当し、画面に出すメッセージは持たない。
+ * ユーザーの入力ミス（未入力・金額が少なすぎる等）は呼び出し側の画面でチェックすること。
+ * ここで投げる {@link IllegalArgumentException} は「プログラムの不具合」を知らせるためのもの。
+ * &lt;p&gt;
+ * メソッドに付いている注釈はAndroid Studioへのヒント。
+ * {@code @NonNull} はnullを渡す（返す）とNG、{@code @IntRange} は範囲外の値を渡すとNG、
+ * {@code @CheckResult} は戻り値を使わずに捨てるとNG、という意味で、それぞれ警告が表示される。
+ */
+final class BillSplitter {
+
+    /**
+     * 金額の表示に使うロケール。
+     * 引数なしの {@code getCurrencyInstance()} は端末の言語設定に従うため、
+     * 英語(US)端末では &quot;$411.00&quot; のように小数第2位まで表示されてしまう。
+     * この計算は「1円単位」で行っているので、円に固定して表示のズレを防ぐ。
+     */
+    private static final Locale CURRENCY_LOCALE = Locale.JAPAN;
+
+    private BillSplitter() {
+    }
+
+    /**
+     * 割り勘計算を行う
+     *
+     * &lt;pre&gt;
+     *     {@code
+     *     var payments = splitBill(1234, 4);
+     *     }
+     * &lt;/pre&gt;
+     * &lt;p&gt;
+     * 合計金額が人数より少ない場合は支払額が0円の人が出る ex) splitBill(2, 5) -&gt; {1, 1, 0, 0, 0}
+     *
+     * @param totalAmount    合計金額 ex) 1234
+     * @param numberOfPeople 人数 ex) 4
+     * @return 各人の支払額リスト（変更可能なリスト） ex) {309, 309, 308, 308}
+     * @throws IllegalArgumentException 参加者が2人未満の場合、合計金額が1未満の場合
+     */
+    @NonNull
+    @CheckResult
+    private static List&lt;Integer&gt; splitBill(
+            @IntRange(from = 1) final int totalAmount,
+            @IntRange(from = 2) final int numberOfPeople) {
+        if (totalAmount &lt; 1) {
+            throw new IllegalArgumentException(&quot;合計金額は1以上を指定してください&quot;);
+        }
+        if (numberOfPeople &lt; 2) {
+            throw new IllegalArgumentException(&quot;人数は2人以上を指定してください&quot;);
+        }
+
+        var payments = new ArrayList&lt;Integer&gt;();
+
+        // 基本金額（切り捨て）
+        var baseAmount = totalAmount / numberOfPeople;
+
+        // 全員が基本金額を支払った場合の合計
+        var baseTotal = baseAmount * numberOfPeople;
+
+        // 端数金額
+        var remainder = totalAmount - baseTotal;
+
+        // 各人の支払額を計算
+        for (var i = 0; i &lt; numberOfPeople; i++) {
+            // 先頭から順に、端数分を1円ずつ追加
+            if (i &lt; remainder) {
+                payments.add(baseAmount + 1);
+            } else {
+                payments.add(baseAmount);
+            }
+        }
+
+        return payments;
+    }
+
+    /**
+     * 計算結果を表示用にフォーマットした文字列を返す
+     *
+     * @param totalAmount  合計金額 ex) 1234
+     * @param participants 参加者リスト ex) {&quot;鈴木一郎&quot;, &quot;鈴木二郎&quot;, &quot;鈴木三郎&quot;}
+     * @return 表示用文字列 ex) &quot;鈴木一郎: ￥411\n鈴木二郎: ￥411\n鈴木三郎: ￥412\n合計: ￥1234&quot;
+     * @throws IllegalArgumentException 参加者が2人未満の場合、合計金額が1未満の場合
+     */
+    @NonNull
+    @CheckResult
+    static String calculateAndFormat(@IntRange(from = 1) final int totalAmount, @NonNull final String[] participants) {
+        var currencyInstance = NumberFormat.getCurrencyInstance(CURRENCY_LOCALE);
+
+        // splitBillの戻り値をそのまま並び替えると、splitBill側の作り方に依存してしまう
+        // （変更できないリストを返すようになった瞬間に落ちる）ので、コピーしてから並び替える
+        var payments = new ArrayList&lt;&gt;(splitBill(totalAmount, participants.length));
+
+        // paymentsをシャッフルすることで、先頭から順に1円ずつ追加する順番を変える
+        Collections.shuffle(payments);
+
+        var result = new StringBuilder();
+        var total = 0; // 支払額の合計（totalAmountと一致するかの検算用）
+        for (var i = 0; i &lt; payments.size(); i++) {
+            var payment = payments.get(i);
+            total += payment;
+            result.append(participants[i]).append(&quot;: &quot;).append(currencyInstance.format(payment)).append(&quot;\n&quot;);
+        }
+        result.append(&quot;合計: &quot;).append(currencyInstance.format(total));
+        return result.toString();
+    }
+}</code></pre></details>
+<h3>使い方</h3>
+<div class="code-head">呼び出し方</div>
+<pre tabindex="0"><code>var result = BillSplitter.calculateAndFormat(1234, participants);
+// result -&gt; "Sato: ￥411\nSuzuki: ￥411\nTanaka: ￥412\n合計: ￥1,234"</code></pre>
+<table><thead><tr><th>渡すもの</th><th>内容</th></tr></thead><tbody>
+<tr><td>1つ目</td><td>合計金額（整数）。<strong>1以上</strong>であること。</td></tr>
+<tr><td>2つ目</td><td>参加者の名前の配列。<strong>2人以上</strong>であること。</td></tr>
+<tr><td>戻り値</td><td>そのまま <code>setText</code> できる文字列。改行も入っている。</td></tr>
+</tbody></table>
+<div class="note"><p class="box-title">大事な約束</p><p>「金額は1以上」「2人以上」を守るのは<strong>呼び出す側の仕事</strong>です。守らずに呼ぶとアプリが終了します。次のSTEPで、その前にチェックを入れます。</p></div>
+<h3 id="how-split">解説：1円の端数はだれが払う？</h3>
+<p>1234円を3人で割ると411円あまり1円です。<code>BillSplitter</code> は、全員に411円を割り当ててから、あまった1円を1人に足します。だれが払うかは<strong>実行するたびに変わります</strong>。同じ金額でもう一度計算すると、412円の人が入れ替わります。</p>
+<div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-7"><span>BillSplitter.javaを自分のプロジェクトに置き、calculateAndFormatに何を渡すか説明できた。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
+<div class="next"><a href="#step-8">次へ：入力チェックを作る →</a></div></section>
+
+<section id="step-8" aria-labelledby="title-8">
+<p class="step-meta">STEP 08 · 目安 20分</p><h2 id="title-8">入力チェックを作る</h2>
+<p><code>BillSplitActivity.java</code> の <code>onCreate</code> の中、STEP 06②で書いたコードの下に書きます。計算する前に、3つのことを確かめます。</p>
+<div class="code-head">BillSplitActivity.java · 計算実行ボタンの処理</div>
+<pre tabindex="0"><code>btnCalc.setOnClickListener(v -&gt; {
+    var edtTotalAmountStr = edtTotalAmount.getText().toString(); // ex) "1234"
+
+    // 入力チェック1: 未入力
+    if (edtTotalAmountStr.isEmpty()) {
+        Snackbar.make(v, "支払い金額を入力してください", Snackbar.LENGTH_SHORT).show();
+        return;
+    }
+
+    // 入力チェック2: int型に変換できない（桁数が多すぎる場合など）
+    final int totalAmount; // ex) 1234
+    try {
+        totalAmount = Integer.parseInt(edtTotalAmountStr);
+    } catch (NumberFormatException e) {
+        Snackbar.make(v, "支払い金額は数字で入力してください", Snackbar.LENGTH_SHORT).show();
+        return;
+    }
+
+    // 入力チェック3: 金額が人数より少ないと、支払額が0円の人が出てしまう
+    // ここを通れば合計金額は必ず1以上になる
+    if (totalAmount &lt; numberOfPeople) {
+        Snackbar.make(v, numberOfPeople + "人で割るには" + numberOfPeople + "円以上を入力してください", Snackbar.LENGTH_SHORT).show();
+        return;
+    }
+});</code></pre>
+<table><thead><tr><th>チェック</th><th>なぜ必要か</th></tr></thead><tbody>
+<tr><td>1. 未入力</td><td>空の文字は数字に変えられない。</td></tr>
+<tr><td>2. 数字に変えられない</td><td><code>Integer.parseInt</code> は、変えられないと例外を出してアプリが終了する。<code>try</code> で受け止める。</td></tr>
+<tr><td>3. 金額が人数より少ない</td><td>2円を3人で割ると0円の人が出る。ここを通れば「1以上」も自動的に満たされる。</td></tr>
+</tbody></table>
+<h3 id="why-check">解説：なぜ画面側でチェックするのか</h3>
+<p><code>BillSplitter</code> は計算だけを担当し、画面に出すメッセージを持っていません。<strong>ユーザーの入力ミスは画面側で止める</strong>、という分け方です。こうすると、計算の部分は他のアプリでもそのまま使えます。</p>
+<h3>Runで確かめる</h3>
+<ol><li>何も入力せずに <strong>計算実行</strong> を押します。</li></ol>
+<figure><a href="images/app-split-error-empty-amount.png"><img src="images/app-split-error-empty-amount.png" width="1080" height="2424" loading="lazy" alt="金額を入れずに計算実行を押して、支払い金額を入力してくださいと表示されている"></a><figcaption>空のときのメッセージ。 <a href="images/app-split-error-empty-amount.png">画像を大きく開く</a></figcaption></figure>
+<ol start="2"><li>3人のときに <code>2</code> と入れて <strong>計算実行</strong> を押します。</li></ol>
+<figure><a href="images/app-split-error-too-small.png"><img src="images/app-split-error-too-small.png" width="1080" height="2424" loading="lazy" alt="3人のときに2円と入力して計算実行を押し、3人で割るには3円以上を入力してくださいと表示されている"></a><figcaption>人数より少ない金額は計算しません。 <a href="images/app-split-error-too-small.png">画像を大きく開く</a></figcaption></figure>
+<div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-8"><span>3つの入力チェックを書き、それぞれのメッセージが出ることを確かめられた。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
+<div class="next"><a href="#step-9">次へ：計算結果を表示する →</a></div></section>
+
+<section id="step-9" aria-labelledby="title-9">
+<p class="step-meta">STEP 09 · 目安 10分</p><h2 id="title-9">計算結果を表示する</h2>
+<p>チェックを全部通ったときだけ計算します。STEP 08で書いた入力チェック3の <code>}</code> の下、リスナの最後に追加します。</p>
+<div class="code-head">BillSplitActivity.java · 入力チェックの下</div>
+<pre tabindex="0"><code>// 入力チェックが済んでいるので、BillSplitterが例外を投げることはない
+var result = BillSplitter.calculateAndFormat(totalAmount, participants);
+txtParticipantList.setText(result);</code></pre>
+<h3>Runで確かめる</h3>
+<ol><li>3人のときに <code>1234</code> と入れて <strong>計算実行</strong> を押します。</li></ol>
+<figure><a href="images/app-split-result.png"><img src="images/app-split-result.png" width="1080" height="2424" loading="lazy" alt="1234円を3人で割った結果。Sato 411円、Suzuki 412円、Tanaka 411円、合計1234円"></a><figcaption>411円・412円・411円。合計は入力した1234円に戻ります。 <a href="images/app-split-result.png">画像を大きく開く</a></figcaption></figure>
+<ol start="2"><li>もう一度 <strong>計算実行</strong> を押します。412円の人が変わることを確かめます。</li><li>金額を <code>999999999</code>（9桁）にして押します。</li></ol>
+<figure><a href="images/app-split-result-max.png"><img src="images/app-split-result-max.png" width="1080" height="2424" loading="lazy" alt="999999999円を3人で割った結果。3人とも333,333,333円、合計999,999,999円"></a><figcaption>3で割り切れるので、3人とも同じ金額です。 <a href="images/app-split-result-max.png">画像を大きく開く</a></figcaption></figure>
+<p>金額に <code>,</code> が入るのは、<code>BillSplitter</code> が日本円の表示に整えているためです。</p>
+<div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-9"><span>計算結果と合計を表示でき、合計が入力した金額と一致することを確かめられた。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
+<div class="next"><a href="#step-10">次へ：ミニ練習 →</a></div></section>
+
+<section id="step-10" aria-labelledby="title-10">
+<p class="step-meta">STEP 10 · 目安 15分</p><h2 id="title-10">ミニ練習</h2>
+<p>できた人は試してみましょう。コードは変えません。</p>
+<ol><li><strong>割り切れる金額</strong>を入れます。3人で <code>1200</code> 円のとき、全員いくらになりますか。</li><li><strong>端数が2円出る金額</strong>を入れます。3人で <code>1235</code> 円のとき、412円の人は何人になりますか。</li><li>参加者を<strong>15人</strong>登録して、<code>123456</code> 円を計算します。合計の行を確かめます。</li></ol>
+<figure><a href="images/app-split-result-15members.png"><img src="images/app-split-result-15members.png" width="1080" height="2424" loading="lazy" alt="15人で123456円を割った結果。8230円と8231円が並び、合計123,456円と表示されている"></a><figcaption>15人でも、差は1円までです。 <a href="images/app-split-result-15members.png">画像を大きく開く</a></figcaption></figure>
+<ol start="4"><li>参加者名に<strong>同じ名前</strong>を入れようとするとどうなりますか。STEP 04のチェックを思い出します。</li></ol>
+<div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-10"><span>ミニ練習を試し、どの金額でも支払額の合計が入力した金額に戻ることを確かめられた。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
+<div class="next"><a href="#step-11">次へ：完成とふり返り →</a></div></section>
+
+<section id="step-11" aria-labelledby="title-11">
+<p class="step-meta">STEP 11 · 目安 15分</p><h2 id="title-11">完成とふり返り</h2>
+<h3>2つの画面の役割</h3>
+<table><thead><tr><th>画面</th><th>やること</th><th>使ったもの</th></tr></thead><tbody>
+<tr><td>MainActivity</td><td>参加者を登録する。2人以上でワリカン画面へ渡す。</td><td><code>ArrayList</code>、<code>toArray</code>、<code>start</code></td></tr>
+<tr><td>BillSplitActivity</td><td>金額を受け取り、チェックしてから計算・表示する。</td><td><code>getStringArrayExtra</code>、<code>parseInt</code>、<code>BillSplitter</code></td></tr>
+</tbody></table>
+<h3>入力チェックの一覧</h3>
+<table><thead><tr><th>いつ</th><th>表示されるメッセージ</th></tr></thead><tbody>
+<tr><td>名前が空のまま登録</td><td>参加者名を入力してください</td></tr>
+<tr><td>同じ名前を登録</td><td>参加者名が重複しています</td></tr>
+<tr><td>参加者が1人以下でワリカン画面へ</td><td>参加者を2人以上追加してください</td></tr>
+<tr><td>金額が空のまま計算実行</td><td>支払い金額を入力してください</td></tr>
+<tr><td>金額を数字に変えられない</td><td>支払い金額は数字で入力してください</td></tr>
+<tr><td>金額が人数より少ない</td><td>○人で割るには○円以上を入力してください</td></tr>
+</tbody></table>
+<h3>ふり返り</h3>
+<ol><li>A06で学んだ「配列を渡す」を、どこで使いましたか。</li><li>キーの文字（<code>"participants"</code>）を、受け取る側に置いたのはなぜですか。</li><li>入力チェックを計算クラスではなく画面側に書いたのはなぜですか。</li></ol>
+<p>提出のしかたは<a href="../common/apk.html">共通資料：APKの提出</a>を見ます。</p><div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-11"><span>完成チェックを終え、配列の受け渡し・キーの定数を受け取る側に置く理由・入力チェックを画面側に書く理由を説明できた。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
+</section>
+
+<section id="help"><h2>困ったとき</h2><table><thead><tr><th>困ったこと</th><th>最初に確認する場所</th></tr></thead><tbody>
+<tr><td><code>R.id.edt_participant_name</code> などが赤い</td><td>レイアウトのidと同じ綴りか確認。<code>android:id="@+id/main"</code> を消していないかも見る。</td></tr>
+<tr><td><code>BillSplitter</code> が赤い</td><td>STEP 07で <code>BillSplitter.java</code> を置いたか、場所が <code>MainActivity.java</code> と同じか確認。1行目の <code>package</code> も見る。</td></tr>
+<tr><td><code>Snackbar</code>・<code>ArrayList</code>・<code>Objects</code>・<code>EditText</code>・<code>TextView</code> が赤い</td><td><kbd>⌥ Enter</kbd> で <code>com.google.android.material.snackbar.Snackbar</code>、<code>java.util.ArrayList</code>、<code>java.util.Objects</code>、<code>android.widget.EditText</code>、<code>android.widget.TextView</code> を選ぶ。</td></tr>
+<tr><td><code>start(…)</code> が赤い（MainActivity）</td><td>STEP 06①を <code>BillSplitActivity</code> に追加したか確認。<code>onCreate</code> の中に入れていないかも見る。</td></tr>
+<tr><td><code>startを追加したら赤いエラーがたくさん出る</code></td><td><code>start</code> を <code>onCreate</code> の中に書いていないか確認。<code>onCreate</code> の最後の <code>}</code> の下、クラスの最後の <code>}</code> の上に置く。</td></tr>
+<tr><td>ワリカン画面へを押すとアプリが終了する</td><td>Logcatを <code>level:ERROR</code> にして <code>ActivityNotFoundException</code> か確認。<code>AndroidManifest.xml</code> に <code>android:name=".BillSplitActivity"</code> の <code>&lt;activity&gt;</code> があるか見る。New → Java Classで作ると登録されない。</td></tr>
+<tr><td>アプリのアイコンが2つある</td><td>STEP 05でLauncher Activityにチェックを入れた可能性がある。<code>BillSplitActivity</code> の <code>&lt;activity&gt;</code> から <code>&lt;intent-filter&gt;</code> を消し、<code>android:exported="false"</code> にする。</td></tr>
+<tr><td>ワリカン画面が真っ白、または人数が出ない</td><td>STEP 06②を書いたか確認。<code>txt_number_of_people</code> の綴りも見る。</td></tr>
+<tr><td>計算実行を押しても何も出ない</td><td>STEP 09の2行を、入力チェックの<strong>下</strong>に書いたか確認。<code>return;</code> の上に書くと実行されない。</td></tr>
+<tr><td>参加者一覧が1人分しか出ない</td><td><code>append</code> ではなく <code>setText</code> になっていないか確認。<code>setText</code> は前の文字を消す。</td></tr>
+<tr><td>登録しても入力欄に文字が残る</td><td>STEP 04②の最後の <code>edtParticipantName.setText("")</code> があるか確認。</td></tr>
+<tr><td>金額の欄に文字が入ってしまう</td><td><code>activity_bill_split.xml</code> の <code>android:inputType="number"</code> を確認。</td></tr>
+<tr><td>名前の入力中に候補が出て、ボタンが押せない</td><td>キーボードの候補が重なっている。候補以外の場所をタップしてから押す。</td></tr>
+<tr><td>直したのに動きが変わらない</td><td>ウィンドウの保存先が <code>Documents/Android1/A07BillSplitter</code> か確認。samples側を開いていないか見る。</td></tr>
+</tbody></table>
+<p><a href="../common/logcat.html">共通資料：Logcat</a>を使います。今回のパッケージは <code>jp.ac.jec.a07billsplitter</code> です。エラーを見るときは <code>package:jp.ac.jec.a07billsplitter level:ERROR</code> にします。前の単元のパッケージ名も残さないようにします。</p>
+<p>質問では「STEP番号・編集したファイル・最初の赤い行・押した順番」を伝えます。</p></section>
+
+<section id="sample-project"><h2>完成プロジェクトを開く</h2>
+<p>完成版は最初の授業から使える見本です。<a class="button-link" href="downloads/A07BillSplitter.zip" download>完成プロジェクト A07BillSplitter.zip</a></p>
+<ol><li>ZIPを展開します。中に <code>A07BillSplitter</code> フォルダができます。</li><li>見本は <code>/Users/ユーザ名/Documents/Android1/samples/A07BillSplitter</code> に置きます。</li><li>Android Studioの <strong>Open</strong> で、<code>settings.gradle.kts</code> と <code>app</code> が入った <code>A07BillSplitter</code> フォルダを選びます。</li><li>Sync後にRunして動きを確認します。授業の入力に戻るときは自分の <code>Documents/Android1/A07BillSplitter</code> を開きます。</li></ol>
+<p>両方とも同じプロジェクト名なので、ウィンドウの保存先を確認しましょう。見本と自分のアプリは同じパッケージ名のため、端末上では同じアプリを更新します。切り替えるときは、確認したい方のプロジェクトからRunします。</p>
+<details><summary>完成したMainActivity.javaで照合する</summary><div class="code-head">完成版 · MainActivity.java</div>
+<pre id="code-complete-main-java" tabindex="0"><code>package jp.ac.jec.a07billsplitter;
+
+import android.os.Bundle;
+import android.widget.EditText;
+import android.widget.TextView;
+
+import androidx.activity.EdgeToEdge;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.graphics.Insets;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowInsetsCompat;
+
+import com.google.android.material.snackbar.Snackbar;
+
+import java.util.ArrayList;
+
+public class MainActivity extends AppCompatActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        EdgeToEdge.enable(this);
+        setContentView(R.layout.activity_main);
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -&gt; {
+            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
+            return insets;
+        });
+
+        var participants = new ArrayList&lt;String&gt;();
+
+        var edtParticipantName = (EditText) findViewById(R.id.edt_participant_name);
+        var txtParticipantList = (TextView) findViewById(R.id.txt_participant_list);
+        var btnAdd = findViewById(R.id.btn_add);
+        var btnBillSplit = findViewById(R.id.btn_bill_split);
+
+        btnAdd.setOnClickListener(v -&gt; {
+            var participantName = edtParticipantName.getText().toString();
+            if (participantName.isEmpty()) {
+                Snackbar.make(v, &quot;参加者名を入力してください&quot;, Snackbar.LENGTH_SHORT).show();
+                return;
+            }
+            if (participants.contains(participantName)) {
+                Snackbar.make(v, &quot;参加者名が重複しています&quot;, Snackbar.LENGTH_SHORT).show();
+                return;
+            }
+
+            participants.add(participantName);
+            txtParticipantList.append(participantName + &quot;\n&quot;);
+            edtParticipantName.setText(&quot;&quot;);
+        });
+
+        btnBillSplit.setOnClickListener(v -&gt; {
+            if (participants.size() &lt; 2) {
+                Snackbar.make(v, &quot;参加者を2人以上追加してください&quot;, Snackbar.LENGTH_SHORT).show();
+                return;
+            }
+            BillSplitActivity.start(this, participants.toArray(new String[0]));
+        });
+    }
+}</code></pre></details>
+<details><summary>完成したBillSplitActivity.javaで照合する</summary><div class="code-head">完成版 · BillSplitActivity.java</div>
+<pre id="code-complete-split-java" tabindex="0"><code>package jp.ac.jec.a07billsplitter;
+
+import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
+import android.widget.EditText;
+import android.widget.TextView;
+
+import androidx.activity.EdgeToEdge;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.graphics.Insets;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowInsetsCompat;
+
+import com.google.android.material.snackbar.Snackbar;
+
+import java.util.Objects;
+
+public class BillSplitActivity extends AppCompatActivity {
+    private static final String EXTRA_KEY_PARTICIPANTS = &quot;participants&quot;;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        EdgeToEdge.enable(this);
+        setContentView(R.layout.activity_bill_split);
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -&gt; {
+            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
+            return insets;
+        });
+
+        // start()経由でしか起動しないため、nullになるのは呼び出し側のバグのとき
+        var participants = Objects.requireNonNull(getIntent().getStringArrayExtra(EXTRA_KEY_PARTICIPANTS));
+
+        var txtNumberOfPeople = (TextView) findViewById(R.id.txt_number_of_people);
+        var edtTotalAmount = (EditText) findViewById(R.id.edt_total_amount);
+        var txtParticipantList = (TextView) findViewById(R.id.txt_participant_list);
+        var btnCalc = findViewById(R.id.btn_calc);
+
+        var numberOfPeople = participants.length; // ex) 4
+        txtNumberOfPeople.setText(&quot;参加者は&quot; + numberOfPeople + &quot;人&quot;);
+
+        btnCalc.setOnClickListener(v -&gt; {
+            var edtTotalAmountStr = edtTotalAmount.getText().toString(); // ex) &quot;1234&quot;
+
+            // 入力チェック1: 未入力
+            if (edtTotalAmountStr.isEmpty()) {
+                Snackbar.make(v, &quot;支払い金額を入力してください&quot;, Snackbar.LENGTH_SHORT).show();
+                return;
+            }
+
+            // 入力チェック2: int型に変換できない（桁数が多すぎる場合など）
+            final int totalAmount; // ex) 1234
+            try {
+                totalAmount = Integer.parseInt(edtTotalAmountStr);
+            } catch (NumberFormatException e) {
+                Snackbar.make(v, &quot;支払い金額は数字で入力してください&quot;, Snackbar.LENGTH_SHORT).show();
+                return;
+            }
+
+            // 入力チェック3: 金額が人数より少ないと、支払額が0円の人が出てしまう
+            // ここを通れば合計金額は必ず1以上になる
+            if (totalAmount &lt; numberOfPeople) {
+                Snackbar.make(v, numberOfPeople + &quot;人で割るには&quot; + numberOfPeople + &quot;円以上を入力してください&quot;, Snackbar.LENGTH_SHORT).show();
+                return;
+            }
+
+            // 入力チェックが済んでいるので、BillSplitterが例外を投げることはない
+            var result = BillSplitter.calculateAndFormat(totalAmount, participants);
+            txtParticipantList.setText(result);
+        });
+    }
+
+    static void start(@NonNull final Context context, @NonNull final String[] participants) {
+        var starter = new Intent(context, BillSplitActivity.class);
+        starter.putExtra(EXTRA_KEY_PARTICIPANTS, participants);
+        context.startActivity(starter);
+    }
+}</code></pre></details>
+<details><summary>配布されたBillSplitter.javaで照合する</summary><div class="code-head">配布ファイル · BillSplitter.java</div>
+<pre id="code-complete-splitter-java" tabindex="0"><code>package jp.ac.jec.a07billsplitter;
+
+import android.icu.text.NumberFormat;
+
+import androidx.annotation.CheckResult;
+import androidx.annotation.IntRange;
+import androidx.annotation.NonNull;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.Locale;
+
+/**
+ * できるだけ全員の支払額を均等にする
+ *
+ * &lt;pre&gt;
+ *     {@code
+ *     var participants = new String[]{&quot;鈴木一郎&quot;, &quot;鈴木二郎&quot;, &quot;鈴木三郎&quot;};
+ *     var result = BillSplitter.calculateAndFormat(1234, participants);
+ *     // result -&gt; &quot;鈴木一郎: ￥411\n鈴木二郎: ￥411\n鈴木三郎: ￥412\n合計: ￥1234&quot;
+ *     }
+ * &lt;/pre&gt;
+ * &lt;p&gt;
+ * このクラスは計算だけを担当し、画面に出すメッセージは持たない。
+ * ユーザーの入力ミス（未入力・金額が少なすぎる等）は呼び出し側の画面でチェックすること。
+ * ここで投げる {@link IllegalArgumentException} は「プログラムの不具合」を知らせるためのもの。
+ * &lt;p&gt;
+ * メソッドに付いている注釈はAndroid Studioへのヒント。
+ * {@code @NonNull} はnullを渡す（返す）とNG、{@code @IntRange} は範囲外の値を渡すとNG、
+ * {@code @CheckResult} は戻り値を使わずに捨てるとNG、という意味で、それぞれ警告が表示される。
+ */
+final class BillSplitter {
+
+    /**
+     * 金額の表示に使うロケール。
+     * 引数なしの {@code getCurrencyInstance()} は端末の言語設定に従うため、
+     * 英語(US)端末では &quot;$411.00&quot; のように小数第2位まで表示されてしまう。
+     * この計算は「1円単位」で行っているので、円に固定して表示のズレを防ぐ。
+     */
+    private static final Locale CURRENCY_LOCALE = Locale.JAPAN;
+
+    private BillSplitter() {
+    }
+
+    /**
+     * 割り勘計算を行う
+     *
+     * &lt;pre&gt;
+     *     {@code
+     *     var payments = splitBill(1234, 4);
+     *     }
+     * &lt;/pre&gt;
+     * &lt;p&gt;
+     * 合計金額が人数より少ない場合は支払額が0円の人が出る ex) splitBill(2, 5) -&gt; {1, 1, 0, 0, 0}
+     *
+     * @param totalAmount    合計金額 ex) 1234
+     * @param numberOfPeople 人数 ex) 4
+     * @return 各人の支払額リスト（変更可能なリスト） ex) {309, 309, 308, 308}
+     * @throws IllegalArgumentException 参加者が2人未満の場合、合計金額が1未満の場合
+     */
+    @NonNull
+    @CheckResult
+    private static List&lt;Integer&gt; splitBill(
+            @IntRange(from = 1) final int totalAmount,
+            @IntRange(from = 2) final int numberOfPeople) {
+        if (totalAmount &lt; 1) {
+            throw new IllegalArgumentException(&quot;合計金額は1以上を指定してください&quot;);
+        }
+        if (numberOfPeople &lt; 2) {
+            throw new IllegalArgumentException(&quot;人数は2人以上を指定してください&quot;);
+        }
+
+        var payments = new ArrayList&lt;Integer&gt;();
+
+        // 基本金額（切り捨て）
+        var baseAmount = totalAmount / numberOfPeople;
+
+        // 全員が基本金額を支払った場合の合計
+        var baseTotal = baseAmount * numberOfPeople;
+
+        // 端数金額
+        var remainder = totalAmount - baseTotal;
+
+        // 各人の支払額を計算
+        for (var i = 0; i &lt; numberOfPeople; i++) {
+            // 先頭から順に、端数分を1円ずつ追加
+            if (i &lt; remainder) {
+                payments.add(baseAmount + 1);
+            } else {
+                payments.add(baseAmount);
+            }
+        }
+
+        return payments;
+    }
+
+    /**
+     * 計算結果を表示用にフォーマットした文字列を返す
+     *
+     * @param totalAmount  合計金額 ex) 1234
+     * @param participants 参加者リスト ex) {&quot;鈴木一郎&quot;, &quot;鈴木二郎&quot;, &quot;鈴木三郎&quot;}
+     * @return 表示用文字列 ex) &quot;鈴木一郎: ￥411\n鈴木二郎: ￥411\n鈴木三郎: ￥412\n合計: ￥1234&quot;
+     * @throws IllegalArgumentException 参加者が2人未満の場合、合計金額が1未満の場合
+     */
+    @NonNull
+    @CheckResult
+    static String calculateAndFormat(@IntRange(from = 1) final int totalAmount, @NonNull final String[] participants) {
+        var currencyInstance = NumberFormat.getCurrencyInstance(CURRENCY_LOCALE);
+
+        // splitBillの戻り値をそのまま並び替えると、splitBill側の作り方に依存してしまう
+        // （変更できないリストを返すようになった瞬間に落ちる）ので、コピーしてから並び替える
+        var payments = new ArrayList&lt;&gt;(splitBill(totalAmount, participants.length));
+
+        // paymentsをシャッフルすることで、先頭から順に1円ずつ追加する順番を変える
+        Collections.shuffle(payments);
+
+        var result = new StringBuilder();
+        var total = 0; // 支払額の合計（totalAmountと一致するかの検算用）
+        for (var i = 0; i &lt; payments.size(); i++) {
+            var payment = payments.get(i);
+            total += payment;
+            result.append(participants[i]).append(&quot;: &quot;).append(currencyInstance.format(payment)).append(&quot;\n&quot;);
+        }
+        result.append(&quot;合計: &quot;).append(currencyInstance.format(total));
+        return result.toString();
+    }
+}</code></pre></details>
+<details><summary>完成したactivity_main.xmlで照合する</summary><div class="code-head">完成版 · activity_main.xml</div>
+<pre id="code-complete-main-xml" tabindex="0"><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;LinearLayout xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
+    xmlns:tools=&quot;http://schemas.android.com/tools&quot;
+    android:id=&quot;@+id/main&quot;
+    android:layout_width=&quot;match_parent&quot;
+    android:layout_height=&quot;match_parent&quot;
+    android:gravity=&quot;center_horizontal&quot;
+    android:orientation=&quot;vertical&quot;
+    tools:context=&quot;.MainActivity&quot;&gt;
+
+    &lt;ImageView
+        android:layout_width=&quot;wrap_content&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:layout_gravity=&quot;center_horizontal&quot;
+        android:contentDescription=&quot;@null&quot;
+        android:src=&quot;@drawable/title_img&quot; /&gt;
+
+    &lt;EditText
+        android:id=&quot;@+id/edt_participant_name&quot;
+        android:layout_width=&quot;match_parent&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:hint=&quot;参加者の名前を入力してください&quot;
+        android:importantForAutofill=&quot;no&quot;
+        android:inputType=&quot;textPersonName&quot; /&gt;
+
+    &lt;Button
+        android:id=&quot;@+id/btn_add&quot;
+        android:layout_width=&quot;match_parent&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:text=&quot;登録&quot; /&gt;
+
+    &lt;Button
+        android:id=&quot;@+id/btn_bill_split&quot;
+        android:layout_width=&quot;match_parent&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:text=&quot;ワリカン画面へ&quot; /&gt;
+
+    &lt;TextView
+        android:layout_width=&quot;wrap_content&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:text=&quot;参加者一覧&quot; /&gt;
+
+    &lt;ScrollView
+        android:layout_width=&quot;match_parent&quot;
+        android:layout_height=&quot;wrap_content&quot;&gt;
+
+        &lt;TextView
+            android:id=&quot;@+id/txt_participant_list&quot;
+            android:layout_width=&quot;wrap_content&quot;
+            android:layout_height=&quot;wrap_content&quot;
+            tools:text=&quot;鈴木一郎\n鈴木二郎\n鈴木三郎&quot; /&gt;
+    &lt;/ScrollView&gt;
+&lt;/LinearLayout&gt;</code></pre></details>
+<details><summary>完成したactivity_bill_split.xmlで照合する</summary><div class="code-head">完成版 · activity_bill_split.xml</div>
+<pre id="code-complete-split-xml" tabindex="0"><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;LinearLayout xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
+    xmlns:tools=&quot;http://schemas.android.com/tools&quot;
+    android:id=&quot;@+id/main&quot;
+    android:layout_width=&quot;match_parent&quot;
+    android:layout_height=&quot;match_parent&quot;
+    android:gravity=&quot;center_horizontal&quot;
+    android:orientation=&quot;vertical&quot;
+    tools:context=&quot;.BillSplitActivity&quot;&gt;
+
+    &lt;TextView
+        android:id=&quot;@+id/txt_number_of_people&quot;
+        android:layout_width=&quot;wrap_content&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        tools:text=&quot;参加者は4人&quot; /&gt;
+
+    &lt;LinearLayout
+        android:layout_width=&quot;match_parent&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:orientation=&quot;horizontal&quot;&gt;
+
+        &lt;TextView
+            android:id=&quot;@+id/txt_total_amount&quot;
+            android:layout_width=&quot;100dp&quot;
+            android:layout_height=&quot;wrap_content&quot;
+            android:text=&quot;支払額（￥）&quot; /&gt;
+
+        &lt;EditText
+            android:id=&quot;@+id/edt_total_amount&quot;
+            android:layout_width=&quot;match_parent&quot;
+            android:layout_height=&quot;wrap_content&quot;
+            android:hint=&quot;金額を入力してください&quot;
+            android:importantForAutofill=&quot;no&quot;
+            android:inputType=&quot;number&quot;
+            android:maxLength=&quot;9&quot;
+            tools:text=&quot;1234567890&quot; /&gt;
+    &lt;/LinearLayout&gt;
+
+    &lt;Button
+        android:id=&quot;@+id/btn_calc&quot;
+        android:layout_width=&quot;wrap_content&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:text=&quot;計算実行&quot; /&gt;
+
+    &lt;TextView
+        style=&quot;@style/TextAppearance.Material3.HeadlineSmall&quot;
+        android:layout_width=&quot;wrap_content&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:layout_marginTop=&quot;12dp&quot;
+        android:text=&quot;計算結果&quot; /&gt;
+
+    &lt;ScrollView
+        android:layout_width=&quot;wrap_content&quot;
+        android:layout_height=&quot;wrap_content&quot;&gt;
+
+        &lt;TextView
+            android:id=&quot;@+id/txt_participant_list&quot;
+            android:layout_width=&quot;wrap_content&quot;
+            android:layout_height=&quot;wrap_content&quot;
+            tools:text=&quot;鈴木一郎: ￥411\n鈴木二郎: ￥411\n鈴木三郎: ￥412\n合計: ￥1234&quot; /&gt;
+    &lt;/ScrollView&gt;
+&lt;/LinearLayout&gt;</code></pre></details>
+<details><summary>完成したAndroidManifest.xmlで照合する</summary><div class="code-head">完成版 · AndroidManifest.xml</div>
+<pre id="code-complete-manifest" tabindex="0"><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;manifest xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
+    xmlns:tools=&quot;http://schemas.android.com/tools&quot;&gt;
+
+    &lt;application
+        android:allowBackup=&quot;true&quot;
+        android:dataExtractionRules=&quot;@xml/data_extraction_rules&quot;
+        android:fullBackupContent=&quot;@xml/backup_rules&quot;
+        android:icon=&quot;@mipmap/ic_launcher&quot;
+        android:label=&quot;@string/app_name&quot;
+        android:roundIcon=&quot;@mipmap/ic_launcher_round&quot;
+        android:supportsRtl=&quot;true&quot;
+        android:theme=&quot;@style/Theme.A07BillSplitter&quot;&gt;
+        &lt;activity
+            android:name=&quot;.BillSplitActivity&quot;
+            android:exported=&quot;false&quot; /&gt;
+        &lt;activity
+            android:name=&quot;.MainActivity&quot;
+            android:exported=&quot;true&quot;&gt;
+            &lt;intent-filter&gt;
+                &lt;action android:name=&quot;android.intent.action.MAIN&quot; /&gt;
+
+                &lt;category android:name=&quot;android.intent.category.LAUNCHER&quot; /&gt;
+            &lt;/intent-filter&gt;
+        &lt;/activity&gt;
+    &lt;/application&gt;
+
+&lt;/manifest&gt;</code></pre></details>
+</section>
+
+<footer class="footer"><p>Androidプログラミング1 · A07BillSplitter / 本文・画像・操作機能はオフラインで利用できます。Android Studioの初回準備・ビルドと公式資料の閲覧にはネット接続が必要です。</p><p>画像は授業用の提供資料を使用。スクリーンショットの参加者名は例です。</p></footer>
+</main></div>
+<p class="sr-only" role="status" aria-live="polite" data-copy-status></p></body></html>

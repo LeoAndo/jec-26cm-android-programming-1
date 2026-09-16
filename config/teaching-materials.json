@@ -8,7 +8,8 @@
     "A03RockPaperScissorsGame",
     "A04WebViewApp",
     "A05BombGame",
-    "A06ScreenTransitionSample"
+    "A06ScreenTransitionSample",
+    "A07BillSplitter"
   ],
   "terms": [
     {
@@ -27,12 +28,14 @@
         "docs/webview-app/index.html",
         "docs/bomb-game/index.html",
         "docs/screen-transition-sample/index.html",
+        "docs/bill-splitter/index.html",
         "teacher/hello-android/index.html",
         "teacher/calc-game/index.html",
         "teacher/rock-paper-scissors-game/index.html",
         "teacher/webview-app/index.html",
         "teacher/bomb-game/index.html",
-        "teacher/screen-transition-sample/index.html"
+        "teacher/screen-transition-sample/index.html",
+        "teacher/bill-splitter/index.html"
       ]
     }
   ],
@@ -225,6 +228,50 @@
         }
       ],
       "archive": "docs/screen-transition-sample/downloads/A06ScreenTransitionSample.zip"
+    },
+    {
+      "name": "A07BillSplitter",
+      "package": "jp.ac.jec.a07billsplitter",
+      "root": "A07BillSplitter",
+      "docs": [
+        "docs/bill-splitter/index.html",
+        "teacher/bill-splitter/index.html"
+      ],
+      "source_java": "A07BillSplitter/app/src/main/java/jp/ac/jec/a07billsplitter/MainActivity.java",
+      "source_xml": "A07BillSplitter/app/src/main/res/layout/activity_main.xml",
+      "snippets": [
+        {
+          "html": "docs/bill-splitter/index.html",
+          "id": "code-complete-main-java",
+          "source": "A07BillSplitter/app/src/main/java/jp/ac/jec/a07billsplitter/MainActivity.java"
+        },
+        {
+          "html": "docs/bill-splitter/index.html",
+          "id": "code-complete-split-java",
+          "source": "A07BillSplitter/app/src/main/java/jp/ac/jec/a07billsplitter/BillSplitActivity.java"
+        },
+        {
+          "html": "docs/bill-splitter/index.html",
+          "id": "code-complete-splitter-java",
+          "source": "A07BillSplitter/app/src/main/java/jp/ac/jec/a07billsplitter/BillSplitter.java"
+        },
+        {
+          "html": "docs/bill-splitter/index.html",
+          "id": "code-complete-main-xml",
+          "source": "A07BillSplitter/app/src/main/res/layout/activity_main.xml"
+        },
+        {
+          "html": "docs/bill-splitter/index.html",
+          "id": "code-complete-split-xml",
+          "source": "A07BillSplitter/app/src/main/res/layout/activity_bill_split.xml"
+        },
+        {
+          "html": "docs/bill-splitter/index.html",
+          "id": "code-complete-manifest",
+          "source": "A07BillSplitter/app/src/main/AndroidManifest.xml"
+        }
+      ],
+      "archive": "docs/bill-splitter/downloads/A07BillSplitter.zip"
     }
   ]
 }
