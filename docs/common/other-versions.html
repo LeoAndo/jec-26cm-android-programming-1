@@ -108,20 +108,36 @@
 <p>なお Quail 4 のひな形は、そのまま <code>assembleDebug</code> が通ることを確認しています。</p>
 </section>
 
-<section><h3>3-5. Java（JVM）のバージョン</h3>
-<p>Android Studio には Java の実行環境（JDK）が同梱されており、版によって中身が違います。教材との関係は次のとおりです。</p>
-<table><thead><tr><th>項目</th><th>Panda 2 | 2025.3.2</th><th>Quail 4</th></tr></thead><tbody>
-<tr><td><strong>書くコードのJava文法</strong><br>（<code>compileOptions</code>）</td><td>Java 11</td><td><strong>Java 11（同じ）</strong></td></tr>
-<tr><td>Gradleを動かすJVM<br>（<code>gradle-daemon-jvm.properties</code> の <code>toolchainVersion</code>）</td><td>21</td><td><strong>25</strong></td></tr>
-</tbody></table>
-<div class="check"><p class="box-title">コードの書き方は変わりません</p><p><code>compileOptions</code> がどちらも <strong>Java 11</strong> なので、<strong>教科書に出てくるJavaの書き方はそのまま使えます。</strong><code>var</code> もラムダ式も同じように動きます。違うのは「Gradleというビルドの道具を動かすJVM」のほうです。</p></div>
+<section><h3>3-5. Javaのバージョンのこと</h3>
+<p class="lede"><strong>先に結論です。教科書に出てくるJavaの書き方は、Quail 4 でもそのまま使えます。</strong></p>
 
-<h4>初回ビルドに時間がかかることがあります</h4>
-<p>プロジェクトには「どのバージョンのJVMでビルドするか」が書かれています。そのバージョンが手元に無いと、<strong>Gradleがインターネットから自動的にダウンロードします。</strong></p>
-<p>実際に確かめた結果です。JDK 25 が入っていないMacで Quail 4 のひな形をビルドしたところ、Gradleが JDK 25（Eclipse Adoptium 25.0.3）を自動で取得してからビルドが通りました。</p>
-<div class="note"><p class="box-title">完成プロジェクトZIPを開くとき</p><p>各単元の<strong>完成プロジェクトZIPは <code>toolchainVersion=21</code></strong> で作られています。Quail 4 には別のバージョンが同梱されているため、開いてビルドすると <strong>JDK 21 の取得が走ることがあります。</strong></p>
-<p>そのため、<strong>初回のビルドは時間がかかり、インターネット接続が必要です。</strong>オフラインだと失敗することがあります。2回目からは取得済みのものが使われるので速くなります。</p></div>
-<p>自分で作るプロジェクトのほうは、Quail 4 が選んだバージョンがそのまま書かれるので、この取得は起きません。</p>
+<h4>Javaは2か所で使われています</h4>
+<p>まぎらわしいのですが、Androidアプリ作りでは「Java」が2つの役割で出てきます。</p>
+<table><thead><tr><th></th><th>どこで使うJavaか</th><th>だれが決めるか</th></tr></thead><tbody>
+<tr><td>①</td><td><strong>自分が書くコード</strong>のJava。<code>MainActivity.java</code> に書く <code>var</code> やラムダ式など。</td><td>プロジェクトの設定で決まっている</td></tr>
+<tr><td>②</td><td><strong>アプリを組み立てる道具</strong>を動かすためのJava。学生が直接書くことはありません。</td><td>Android Studioが用意する</td></tr>
+</tbody></table>
+<p>Panda 2 と Quail 4 で違うのは、<strong>②のほうだけ</strong>です。</p>
+<table><thead><tr><th></th><th>Panda 2 | 2025.3.2</th><th>Quail 4</th></tr></thead><tbody>
+<tr><td>① 自分が書くコードのJava</td><td>Java 11</td><td><strong>Java 11（同じ）</strong></td></tr>
+<tr><td>② 道具を動かすJava</td><td>21</td><td><strong>25</strong></td></tr>
+</tbody></table>
+<div class="check"><p class="box-title">だから、コードの書き方は変わりません</p><p>①が同じなので、<strong>教科書のコードをそのまま入力して大丈夫です。</strong>「Javaのバージョンが違うから書き方も変えないといけないのでは」と心配する必要はありません。</p></div>
+
+<h4>起きること：最初のビルドに時間がかかります</h4>
+<p>プロジェクトには「②にどのバージョンを使うか」が書き込まれています。そのバージョンが自分のパソコンに無いと、<strong>Android Studioが自動でダウンロードします。</strong></p>
+<p>授業で配る<strong>完成プロジェクトには「21を使う」と書かれています。</strong>Quail 4 が持っているのは25なので、完成プロジェクトを開くと<strong>21のダウンロードが始まることがあります。</strong></p>
+<div class="note"><p class="box-title">こうなったときは、待ってください</p>
+<ul><li><strong>初回のビルドだけ、数分かかることがあります。</strong>止まってしまったわけではありません。</li>
+<li>このとき<strong>インターネットにつながっている必要があります。</strong>つながっていないと失敗します。</li>
+<li><strong>2回目からは速くなります。</strong>一度ダウンロードしたものが使い回されるためです。</li></ul>
+<p>画面下のビルドの表示に <code>Downloading</code> や <code>toolchain</code> という文字が出ていれば、この待ち時間です。</p></div>
+<p>自分で新しく作ったプロジェクトのほうは、Quail 4 が自分の持っているバージョンを書き込むので、このダウンロードは起きません。</p>
+
+<details><summary>先生向け：確認した内容</summary>
+<p>各プロジェクトの <code>gradle/gradle-daemon-jvm.properties</code> の <code>toolchainVersion</code> を比較しました。A01〜A09 と Panda 2 のひな形はすべて <code>21</code>、Quail 4 のひな形は <code>25</code> です。<code>compileOptions</code> の <code>sourceCompatibility</code> / <code>targetCompatibility</code> は、どちらも <code>JavaVersion.VERSION_11</code> で一致しています。</p>
+<p>JDK 25 が入っていないMacで Quail 4 のひな形をビルドしたところ、Gradleが Eclipse Adoptium 25.0.3 を <code>~/.gradle/jdks</code> へ自動取得したうえで <code>assembleDebug</code> が成功しました。</p>
+</details>
 </section>
 
 <h2 id="stuck">4. それでも合わないとき</h2>
