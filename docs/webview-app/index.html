@@ -365,12 +365,12 @@ public boolean onCreateOptionsMenu(Menu menu) {
 }
 
 @Override
-public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+public boolean onOptionsItemSelected(MenuItem item) {
     var appMenuItem = AppMenuItem.values()[item.getItemId()];
     webView.loadUrl(appMenuItem.getUrl());
     return true; // trueを指定し、イベントを消費して処理を終了する
 }</code></pre>
-<p>importは <code>android.view.Menu</code>、<code>android.view.MenuItem</code>、<code>androidx.annotation.NonNull</code> です。<code>MenuItem</code> の候補が複数出たときは <code>android.view.MenuItem</code> を選びます。</p>
+<p>importは <code>android.view.Menu</code> と <code>android.view.MenuItem</code> です。<code>MenuItem</code> の候補が複数出たときは <code>android.view.MenuItem</code> を選びます。</p>
 <table><thead><tr><th>メソッド</th><th>呼ばれるとき</th><th>していること</th></tr></thead><tbody>
 <tr><td>onCreateOptionsMenu</td><td>メニューを用意するとき</td><td>enumの値を順に取り出し、メニューに1項目ずつ追加する。<code>true</code> を返すとメニューが表示される。</td></tr>
 <tr><td>onOptionsItemSelected</td><td>メニューの項目を押したとき</td><td>押した項目のidからenumの値を取り出し、そのURLを読み込む。<code>true</code> は「この処理で終わり」という意味。</td></tr>
@@ -385,7 +385,7 @@ public boolean onOptionsItemSelected(@NonNull MenuItem item) {
 
 <div class="flow" aria-label="メニューを押したときの流れ"><strong>「映画「SLAM DUNK」公式サイト」を押す</strong><span>→</span><strong>item.getItemId() は 2</strong><span>→</span><strong>AppMenuItem.values()[2] は SLAM_DUNK_MOVIE</strong><span>→</span><strong>そのURLをloadUrl</strong></div>
 <p><code>values()</code>・<code>ordinal()</code>・<code>getUrl()</code> の読み方は、<a href="#enum-usage">STEP 5の「enumの値の使い方」</a>で確かめられます。</p>
-<p><code>@Override</code> は、親クラス（AppCompatActivity）のメソッドを上書きする印です。名前を打ち間違えると赤いエラーで気付けます。<code>@NonNull</code> は「<code>item</code> にnullは来ない」ことを示す印です。</p>
+<p><code>@Override</code> は、親クラス（AppCompatActivity）のメソッドを上書きする印です。名前を打ち間違えると赤いエラーで気付けます。</p>
 <h3>Runで確かめる</h3>
 <ol><li>起動直後は白い画面です（確認用のloadUrlを削除したため）。</li><li>右上の <strong>⋮</strong> を押すと、4つのサイト名が表示されます。</li><li>「映画「SLAM DUNK」公式サイト」を押すと、そのページが表示されます。ほかの項目も試します。</li></ol>
 <div class="phones"><figure><a href="images/app-menu.png"><img src="images/app-menu.png" width="1080" height="2424" loading="lazy" alt="右上のメニューが開き、Yahoo!ニュース、GitHub Copilot、映画「SLAM DUNK」公式サイト、OpenAI ChatGPTの4項目が並んでいる"></a><figcaption>⋮ を押したところ。enumに書いた順に並びます。 <a href="images/app-menu.png">画像を大きく開く</a></figcaption></figure>
@@ -581,7 +581,6 @@ import android.widget.CheckBox;
 
 import androidx.activity.EdgeToEdge;
 import androidx.activity.OnBackPressedCallback;
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
@@ -640,7 +639,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+    public boolean onOptionsItemSelected(MenuItem item) {
         var appMenuItem = AppMenuItem.values()[item.getItemId()];
         webView.loadUrl(appMenuItem.getUrl());
         return true; // trueを指定し、イベントを消費して処理を終了する

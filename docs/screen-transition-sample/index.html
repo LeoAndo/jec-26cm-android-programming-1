@@ -965,8 +965,6 @@ public class TestActivity extends AppCompatActivity {
 <div class="code-head">Person.java · 全体を置き換える</div>
 <pre id="code-person" tabindex="0"><code>package jp.ac.jec.a06screentransitionsample;
 
-import androidx.annotation.NonNull;
-
 import java.io.Serializable;
 
 class Person implements Serializable {
@@ -986,7 +984,6 @@ class Person implements Serializable {
         return age;
     }
 
-    @NonNull
     @Override
     public String toString() {
         return &quot;Person{&quot; +
@@ -1000,7 +997,7 @@ class Person implements Serializable {
 <tr><td>private String name; / private int age;</td><td>名前と年齢を覚えるフィールド（A02 STEP 4）。</td></tr>
 <tr><td>public Person(String name, int age)</td><td>コンストラクタ。受け取った名前と年齢をフィールドに入れる。A04 STEP 5のAppMenuItemと同じ形。</td></tr>
 <tr><td>getName() / getAge()</td><td>名前と年齢を読み出すメソッド（A04のgetUrlと同じ）。今回のアプリでは使っていない。</td></tr>
-<tr><td>@NonNull @Override public String toString()</td><td><code>"person: " + person</code> のように文字につなげたとき、<code>Person{name='John', age=20}</code> という文字にするメソッド。@Overrideと@NonNullはA04 STEP 6で見た印。中の記号の書き方は覚えなくてよい。</td></tr>
+<tr><td>@Override public String toString()</td><td><code>"person: " + person</code> のように文字につなげたとき、<code>Person{name='John', age=20}</code> という文字にするメソッド。@OverrideはA04 STEP 6で見た印。中の記号の書き方は覚えなくてよい。</td></tr>
 </tbody></table>
 <h3>② キーの定数を追加する（Aの場所）</h3>
 <p><code>EXTRA_KEY_STRING_ARRAY_LIST_VALUE</code> の行の下に、1行空けて追加します。</p>
@@ -1324,8 +1321,6 @@ public class TestActivity extends AppCompatActivity {
 <details><summary>完成したPerson.javaで照合する</summary><div class="code-head">完成版 · Person.java</div>
 <pre id="code-complete-person-java" tabindex="0"><code>package jp.ac.jec.a06screentransitionsample;
 
-import androidx.annotation.NonNull;
-
 import java.io.Serializable;
 
 class Person implements Serializable {
@@ -1345,7 +1340,6 @@ class Person implements Serializable {
         return age;
     }
 
-    @NonNull
     @Override
     public String toString() {
         return &quot;Person{&quot; +

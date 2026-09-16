@@ -347,7 +347,7 @@ windowsは利用していない
 7. リストの実装(RecyclerView)は難しいのでAndroid 1では扱わない
 8. コード量を減らすため、varキーワードを多用する
 9. finalキーワードの利用はワーニングが出る箇所のみ使用
-10. @NonNullと@Nullableアノテーションは部分的に使いたい (実装ミスの特定が楽になるため)
+10. @NonNullと@Nullableアノテーションは、学生自身が書く実装では意識させない教科書の構成にする。配布する予定で学生が直接書かないコード（A07BillSplitterのBillSplitter.javaなど）は例外とし、実装ミスの特定が楽になるようそのまま使う
 11. 基本的にライブラリ追加なしで授業用テキストを作成する。ただし、androidxパッケージに関しては必要に応じて導入する
 12. フォルダブルやタブレット端末へのアプリ対応は学生側に意識させない教科書の構成にする
 13. ダーツテーマ対応は学生側に意識させない教科書の構成にする
@@ -375,3 +375,7 @@ windowsは利用していない
 
 ## レイアウトの余白
 5. 一番外側（`@+id/main` を付けた部品）に `android:padding` を書かない。ひな形の `setPadding` が実行時に置き換えるため指定は効かず、Android Studioのプレビューと実機で見た目が食い違う。余白が必要なときは、中の部品の `android:layout_margin` を使うか、内側にもう1つ入れ物を置いてそちらに `padding` を書く。学生向けの説明は[共通資料：開発Tips](docs/common/dev-tips.html)にある。
+
+## nullに関するアノテーション
+6. 学生が教科書を見ながら自分で打ち込むコードには `@NonNull` / `@Nullable` を書かない。`androidx.annotation` のimportも入れない。教科書の本文でも説明しない。
+7. 配布する予定で学生が直接書かないコード（A07BillSplitterの `BillSplitter.java`）は例外とし、`@NonNull` / `@IntRange` / `@CheckResult` とそれを説明するJavadocをそのまま残す。教科書では「Android Studioへのヒント」とだけ触れる。

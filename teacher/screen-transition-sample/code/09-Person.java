@@ -1,7 +1,5 @@
 package jp.ac.jec.a06screentransitionsample;
 
-import androidx.annotation.NonNull;
-
 import java.io.Serializable;
 
 class Person implements Serializable {
@@ -21,7 +19,6 @@ class Person implements Serializable {
         return age;
     }
 
-    @NonNull
     @Override
     public String toString() {
         return "Person{" +
