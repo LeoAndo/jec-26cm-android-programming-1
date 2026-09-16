@@ -38,14 +38,14 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
 
-        var output = (TextView) findViewById(R.id.tv_output);
+        var txtOutput = (TextView) findViewById(R.id.txt_output);
 
         // ファイル名を指定して、SharedPreferencesを取得する.
         prefs = getSharedPreferences(FILE_NAME, MODE_PRIVATE);
 
         // 保存されているデータを表示する.
         // アプリを終了してから開き直しても、データが残っていることを確認できる.
-        output.setText(currentValues());
+        txtOutput.setText(currentValues());
 
         findViewById(R.id.btn_apply).setOnClickListener(v -> {
             // データを保存するときは、edit()でEditorを取得する.
@@ -58,21 +58,21 @@ public class MainActivity extends AppCompatActivity {
             editor.putStringSet(STRING_SET_VALUE, Set.of("Hello", "World"));
             // apply()を呼ぶまでは保存されない. 戻り値で成功したかどうかが分からない.
             editor.apply();
-            output.setText(currentValues());
+            txtOutput.setText(currentValues());
         });
 
-        findViewById(R.id.btn_get).setOnClickListener(v -> output.setText(currentValues()));
+        findViewById(R.id.btn_get).setOnClickListener(v -> txtOutput.setText(currentValues()));
 
         findViewById(R.id.btn_clear).setOnClickListener(v -> {
             // clear()は、保存されているデータをすべて削除する.
             var edit = prefs.edit();
             edit.clear();
             edit.apply();
-            output.setText(currentValues());
+            txtOutput.setText(currentValues());
         });
 
         findViewById(R.id.btn_xml).setOnClickListener(v -> {
-            output.setText(readPrefsXml());
+            txtOutput.setText(readPrefsXml());
         });
     }
 

@@ -107,7 +107,7 @@
         android:text=&quot;show app.xml&quot; /&gt;
 
     &lt;TextView
-        android:id=&quot;@+id/tv_output&quot;
+        android:id=&quot;@+id/txt_output&quot;
         android:layout_width=&quot;match_parent&quot;
         android:layout_height=&quot;0dp&quot;
         android:layout_weight=&quot;1&quot; /&gt;
@@ -119,7 +119,7 @@
 <tr><td><code>gravity="center_horizontal"</code></td><td>中身を左右の中央に寄せる。上下には寄せない。</td></tr>
 <tr><td><code>android:id="@+id/main"</code></td><td>消しません。ひな形のJavaが <code>findViewById(R.id.main)</code> で使っています（A01と同じ）。</td></tr>
 <tr><td><code>btn_apply</code> / <code>btn_get</code> / <code>btn_clear</code> / <code>btn_xml</code></td><td>Javaから見つけるための名前。STEP 05以降で1つずつ使う。</td></tr>
-<tr><td><code>tv_output</code></td><td>結果を出す表示欄。最初は空です。</td></tr>
+<tr><td><code>txt_output</code></td><td>結果を出す表示欄。最初は空です。</td></tr>
 <tr><td><code>layout_height="0dp"</code> と <code>layout_weight="1"</code></td><td>表示欄が<strong>残りの高さを全部使う</strong>という指定。表示する文字が長くても短くても大きさが変わらないので、上のボタンの位置がずれません。</td></tr>
 </tbody></table>
 <div class="note"><p class="box-title">なぜ表示欄にweightを付けるのか</p><p><code>layout_height="wrap_content"</code>（中身の分だけ）にすると、表示する文字が増えたときに表示欄が大きくなり、上のボタンが動いてしまいます。ボタンを何度も押す教材なので、押す場所が変わらないようにしています。</p></div>
@@ -185,14 +185,14 @@
 <h3>② onCreateで表示欄に出す</h3>
 <p><code>prefs = getSharedPreferences(...)</code> の行の<strong>上</strong>に表示欄を受け取る行を、<strong>下</strong>に表示する行を追加します。</p>
 <div class="code-head">MainActivity.java · onCreateの中</div>
-<pre id="code-show-values" tabindex="0"><code>        var output = (TextView) findViewById(R.id.tv_output);
+<pre id="code-show-values" tabindex="0"><code>        var txtOutput = (TextView) findViewById(R.id.txt_output);
 
         // ファイル名を指定して、SharedPreferencesを取得する.
         prefs = getSharedPreferences(FILE_NAME, MODE_PRIVATE);
 
         // 保存されているデータを表示する.
         // アプリを終了してから開き直しても、データが残っていることを確認できる.
-        output.setText(currentValues());</code></pre>
+        txtOutput.setText(currentValues());</code></pre>
 <h3>getXxxの第2引数は「初期値」</h3>
 <p><code>prefs.getInt(INT_VALUE, 0)</code> の <code>0</code> は、<strong>そのキーのデータが保存されていないときに返る値</strong>です。種類ごとに、教材では次の初期値を渡しています。</p>
 <table><thead><tr><th>メソッド</th><th>渡した初期値</th><th>データがないときの表示</th></tr></thead><tbody>
@@ -212,7 +212,7 @@
 
 <section id="step-5" aria-labelledby="title-5">
 <p class="step-meta">STEP 05 · 目安 20分</p><h2 id="title-5">データを保存する</h2>
-<p>applyボタンに、6種類の値を保存する処理を書きます。<code>output.setText(currentValues());</code> の<strong>下</strong>に追加します。</p>
+<p>applyボタンに、6種類の値を保存する処理を書きます。<code>txtOutput.setText(currentValues());</code> の<strong>下</strong>に追加します。</p>
 <div class="code-head">MainActivity.java · onCreateの中</div>
 <pre id="code-apply" tabindex="0"><code>        findViewById(R.id.btn_apply).setOnClickListener(v -&gt; {
             // データを保存するときは、edit()でEditorを取得する.
@@ -225,7 +225,7 @@
             editor.putStringSet(STRING_SET_VALUE, Set.of(&quot;Hello&quot;, &quot;World&quot;));
             // apply()を呼ぶまでは保存されない. 戻り値で成功したかどうかが分からない.
             editor.apply();
-            output.setText(currentValues());
+            txtOutput.setText(currentValues());
         });</code></pre>
 <h3>保存の3ステップ</h3>
 <table><thead><tr><th>順番</th><th>書くこと</th><th>意味</th></tr></thead><tbody>
@@ -255,7 +255,7 @@
 <h3>① getボタンの処理を追加する</h3>
 <p>applyの処理（<code>});</code> まで）の<strong>下</strong>に追加します。</p>
 <div class="code-head">MainActivity.java · onCreateの中</div>
-<pre id="code-get" tabindex="0"><code>        findViewById(R.id.btn_get).setOnClickListener(v -&gt; output.setText(currentValues()));</code></pre>
+<pre id="code-get" tabindex="0"><code>        findViewById(R.id.btn_get).setOnClickListener(v -&gt; txtOutput.setText(currentValues()));</code></pre>
 <p>読み出しだけなので <code>edit()</code> は要りません。処理が1つだけなので <code>{ }</code> を書かずに1行で済ませています。</p>
 <h3>② アプリを完全に終了して、開き直す</h3>
 <ol>
@@ -280,7 +280,7 @@
             var edit = prefs.edit();
             edit.clear();
             edit.apply();
-            output.setText(currentValues());
+            txtOutput.setText(currentValues());
         });</code></pre>
 <p>消すときも <code>edit()</code> → 操作 → <code>apply()</code> の3ステップは同じです。<code>clear()</code> を呼んだだけでは消えません。</p>
 <h3>Runで確かめる</h3>
@@ -317,7 +317,7 @@
 <p>clearの処理（<code>});</code> まで）の<strong>下</strong>に追加します。これでonCreateは完成です。</p>
 <div class="code-head">MainActivity.java · onCreateの中</div>
 <pre id="code-xml-button" tabindex="0"><code>        findViewById(R.id.btn_xml).setOnClickListener(v -&gt; {
-            output.setText(readPrefsXml());
+            txtOutput.setText(readPrefsXml());
         });</code></pre>
 <h3>Runで確かめる</h3>
 <ol><li>applyを押します。</li><li>show app.xmlを押します。ファイルの場所と、中身のXMLが表示されます。</li></ol>
@@ -396,17 +396,17 @@
 <section id="help"><h2>困ったとき</h2><table><thead><tr><th>困ったこと</th><th>最初に確認する場所</th></tr></thead><tbody>
 <tr><td><code>SharedPreferences</code> が赤い</td><td><kbd>⌥ Enter</kbd> で <code>android.content.SharedPreferences</code> を選ぶ。</td></tr>
 <tr><td><code>Set</code>、<code>File</code>、<code>Files</code>、<code>StandardCharsets</code>、<code>IOException</code>、<code>TextView</code> が赤い</td><td><kbd>⌥ Enter</kbd> で <code>java.util.Set</code>、<code>java.io.File</code>、<code>java.nio.file.Files</code>、<code>java.nio.charset.StandardCharsets</code>、<code>java.io.IOException</code>、<code>android.widget.TextView</code> を選ぶ。</td></tr>
-<tr><td><code>R.id.btn_apply</code> などが赤い</td><td>activity_main.xmlのidが <code>btn_apply</code> / <code>btn_get</code> / <code>btn_clear</code> / <code>btn_xml</code> / <code>tv_output</code> か確認。<code>android:id="@+id/main"</code> を消していないかも見る。</td></tr>
+<tr><td><code>R.id.btn_apply</code> などが赤い</td><td>activity_main.xmlのidが <code>btn_apply</code> / <code>btn_get</code> / <code>btn_clear</code> / <code>btn_xml</code> / <code>txt_output</code> か確認。<code>android:id="@+id/main"</code> を消していないかも見る。</td></tr>
 <tr><td><code>currentValues()</code> や <code>readPrefsXml()</code> を追加したら、赤いエラーがたくさん出る</td><td>onCreateの中に入れていないか確認。onCreateの最後の <code>}</code> の下、クラスの最後の <code>}</code> の上に置く。</td></tr>
-<tr><td><code>prefs</code> が赤い、またはnullでアプリが終了する</td><td>STEP 03の <code>prefs = getSharedPreferences(FILE_NAME, MODE_PRIVATE);</code> を書いたか、<code>output.setText(currentValues());</code> より<strong>上</strong>にあるか確認する。</td></tr>
-<tr><td><code>output</code> が赤い（applyなどの中）</td><td><code>var output = (TextView) findViewById(R.id.tv_output);</code> をonCreateの中に書いたか確認する。</td></tr>
+<tr><td><code>prefs</code> が赤い、またはnullでアプリが終了する</td><td>STEP 03の <code>prefs = getSharedPreferences(FILE_NAME, MODE_PRIVATE);</code> を書いたか、<code>txtOutput.setText(currentValues());</code> より<strong>上</strong>にあるか確認する。</td></tr>
+<tr><td><code>txtOutput</code> が赤い（applyなどの中）</td><td><code>var txtOutput = (TextView) findViewById(R.id.txt_output);</code> をonCreateの中に書いたか確認する。</td></tr>
 <tr><td>ボタンを押しても何も起きない</td><td>そのボタンの処理を追加したか、<code>R.id</code> の名前を取り違えていないか確認する。</td></tr>
 <tr><td>applyを押しても値が変わらない</td><td><code>editor.apply();</code> を書いたか確認する。putだけでは保存されない。</td></tr>
 <tr><td>アプリを終了すると値が消える</td><td>アプリのデータを消していないか確認する（設定 → アプリ → ストレージを消去）。エミュレータを作り直した場合も消える。</td></tr>
 <tr><td>show app.xmlで <code>(file not found)</code> と出る</td><td>まだ一度もapplyしていない状態。applyを押してから、もう一度show app.xmlを押す。</td></tr>
 <tr><td>clearしたのに <code>int_value = 0</code> と出る</td><td>正常です。データが消えたので、初期値の0が返っています（STEP 07）。</td></tr>
 <tr><td><code>string_set_value</code> の並びが画像と違う</td><td>正常です。<code>Set</code> は順番を約束しません。</td></tr>
-<tr><td>表示欄の文字が画面の下からはみ出す</td><td>activity_main.xmlの <code>tv_output</code> が <code>layout_height="0dp"</code> と <code>layout_weight="1"</code> になっているか確認する。</td></tr>
+<tr><td>表示欄の文字が画面の下からはみ出す</td><td>activity_main.xmlの <code>txt_output</code> が <code>layout_height="0dp"</code> と <code>layout_weight="1"</code> になっているか確認する。</td></tr>
 <tr><td>ボタンを押すたびにボタンの位置が動く</td><td>同上。<code>wrap_content</code> のままだと、表示する文字の量で位置が変わる。</td></tr>
 <tr><td>直したのに動きが変わらない</td><td>ウィンドウの保存先が <code>Documents/Android1/A08SharedPreferencesSample</code> か確認する。samples側を開いていないか見る。</td></tr>
 </tbody></table>
@@ -457,14 +457,14 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
 
-        var output = (TextView) findViewById(R.id.tv_output);
+        var txtOutput = (TextView) findViewById(R.id.txt_output);
 
         // ファイル名を指定して、SharedPreferencesを取得する.
         prefs = getSharedPreferences(FILE_NAME, MODE_PRIVATE);
 
         // 保存されているデータを表示する.
         // アプリを終了してから開き直しても、データが残っていることを確認できる.
-        output.setText(currentValues());
+        txtOutput.setText(currentValues());
 
         findViewById(R.id.btn_apply).setOnClickListener(v -&gt; {
             // データを保存するときは、edit()でEditorを取得する.
@@ -477,21 +477,21 @@ public class MainActivity extends AppCompatActivity {
             editor.putStringSet(STRING_SET_VALUE, Set.of(&quot;Hello&quot;, &quot;World&quot;));
             // apply()を呼ぶまでは保存されない. 戻り値で成功したかどうかが分からない.
             editor.apply();
-            output.setText(currentValues());
+            txtOutput.setText(currentValues());
         });
 
-        findViewById(R.id.btn_get).setOnClickListener(v -&gt; output.setText(currentValues()));
+        findViewById(R.id.btn_get).setOnClickListener(v -&gt; txtOutput.setText(currentValues()));
 
         findViewById(R.id.btn_clear).setOnClickListener(v -&gt; {
             // clear()は、保存されているデータをすべて削除する.
             var edit = prefs.edit();
             edit.clear();
             edit.apply();
-            output.setText(currentValues());
+            txtOutput.setText(currentValues());
         });
 
         findViewById(R.id.btn_xml).setOnClickListener(v -&gt; {
-            output.setText(readPrefsXml());
+            txtOutput.setText(readPrefsXml());
         });
     }
 
@@ -561,7 +561,7 @@ public class MainActivity extends AppCompatActivity {
         android:text=&quot;show app.xml&quot; /&gt;
 
     &lt;TextView
-        android:id=&quot;@+id/tv_output&quot;
+        android:id=&quot;@+id/txt_output&quot;
         android:layout_width=&quot;match_parent&quot;
         android:layout_height=&quot;0dp&quot;
         android:layout_weight=&quot;1&quot; /&gt;
