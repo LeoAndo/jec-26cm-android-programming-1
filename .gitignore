@@ -1,3 +1,8 @@
 /dist/
 __pycache__/
 .DS_Store
+
+# Android StudioのIDE設定。各プロジェクトの.gitignoreは.idea配下を
+# 全部は無視しないため（gradle.xml、compiler.xml、vcs.xmlなどが対象外）、
+# git add -A で紛れ込まないようここでまとめて無視する。
+.idea/
