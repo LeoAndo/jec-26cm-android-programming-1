@@ -21,7 +21,7 @@
 <tr><td>金額の表示は<strong>日本円に固定</strong>（<code>Locale.JAPAN</code>）</td><td>引数なしの <code>getCurrencyInstance()</code> は端末の言語設定に従うため、英語(US)端末では <code>$411.00</code> と小数第2位まで表示される。計算は1円単位なので表示とズレる。</td><td>学生には説明しない（配布クラスの中の話）。質問が出たら「1円単位で計算しているので、円で表示するよう指定している」と答える。</td></tr>
 <tr><td><code>findViewById</code> は <code>onCreate</code> の冒頭にまとめる</td><td>A01〜A06と同じ書き方にそろえる。リスナの中が処理だけになり、読みやすい。</td><td>STEP 04①とSTEP 06②で、まとめて書く形をそのまま示す。</td></tr>
 </tbody></table>
-<div class="note"><p class="box-title">完成コードを説明するときの注意</p><p><code>var</code>、<code>Objects.requireNonNull</code>、<code>try</code>〜<code>catch (NumberFormatException e)</code>、starterテンプレートをもとにした <code>start</code> メソッドの書き方は変えません。教科書で説明します。<code>Objects.requireNonNull</code> は「nullだったらその場で止める書き方」、<code>try</code>〜<code>catch</code> は「数字に変えられなかったときに受け止める」とだけ説明し、例外処理の一般論には広げません。<code>BillSplitter</code> に付いている <code>@NonNull</code> / <code>@IntRange</code> / <code>@CheckResult</code> は「Android Studioへのヒント」とだけ触れます（クラスのJavadocに同じ説明があります）。これは配布する完成クラスだけの例外で、学生が自分で打ち込むコードにはアノテーションを書かせません。</p></div>
+<div class="note"><p class="box-title">完成コードを説明するときの注意</p><p><code>var</code>、<code>Objects.requireNonNull</code>、<code>try</code>〜<code>catch (NumberFormatException e)</code>、starterテンプレートをもとにした <code>start</code> メソッドの書き方は変えません。教科書で説明します。<code>Objects.requireNonNull</code> は「nullだったらその場で止める書き方」、<code>try</code>〜<code>catch</code> は「数字に変えられなかったときに受け止める」とだけ説明し、例外処理の一般論には広げません。<code>BillSplitter</code> に付いている <code>@NonNull</code> / <code>@IntRange</code> / <code>@CheckResult</code> は「Android Studioへのヒント」とだけ触れます（クラスのJavadocに同じ説明があります）。これは配布する完成クラスの例外です。学生が自分で打ち込むコードにはアノテーションを書かせません（Android Studioが自動で付けたものは、そのままにします）。</p></div>
 </section>
 
 <section><h2>3. 90分×3コマの進行</h2>
