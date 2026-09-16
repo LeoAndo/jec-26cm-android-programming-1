@@ -60,8 +60,9 @@ txtItemList.setText(itemList(itemDao));   // 自分で出し直す</code></pre>
 <p>授業環境はMacと <strong>Android Studio Panda 2 | 2025.3.2</strong> です。A10までとは別のプロジェクトを作ります。</p>
 <div class="note"><p class="box-title">毎回、自分で新規作成します</p><p>作る場所は <code>Documents/Android1/A11VocabularyBook</code> です。<a href="#sample-project">完成プロジェクト</a>は答え合わせ用で、授業の入力は自分で作ったプロジェクトに書きます。</p></div>
 <ol><li>Android Studioの <strong>New Project</strong> をクリックします。別のプロジェクトを開いているときは <strong>File → New → New Project</strong> を選びます。</li>
-<li><strong>Phone and Tablet → Empty Views Activity → Next</strong> の順に選びます。名前に <strong>Views</strong> があることを確認します。</li>
-<li>次の表のとおりに入力・選択して <strong>Finish</strong> を押します。</li></ol>
+<li><strong>Phone and Tablet → Empty Views Activity → Next</strong> の順に選びます。名前に <strong>Views</strong> があることを確認します。</li></ol>
+<figure><a href="images/empty-views-activity.png"><img src="images/empty-views-activity.png" width="1794" height="1348" loading="lazy" alt="テンプレート一覧でEmpty Views Activityが選択されている"></a><figcaption>Empty Views Activityを選択。Empty Activityとは別です。 <a href="images/empty-views-activity.png">画像を大きく開く</a></figcaption></figure>
+<ol start="3"><li>次の表のとおりに入力・選択して <strong>Finish</strong> を押します。</li></ol>
 <table><thead><tr><th>項目</th><th>入力・選択する内容</th></tr></thead><tbody>
 <tr><td>Name</td><td><code>A11VocabularyBook</code></td></tr>
 <tr><td>Package name</td><td><code>jp.ac.jec.a11vocabularybook</code>（すべて小文字）</td></tr>
@@ -70,6 +71,7 @@ txtItemList.setText(itemList(itemDao));   // 自分で出し直す</code></pre>
 <tr><td>Minimum SDK</td><td>API 31 ("S"; Android 12.0)</td></tr>
 <tr><td>Build configuration language</td><td>Kotlin DSL (build.gradle.kts) [Recommended]</td></tr>
 </tbody></table>
+<figure><a href="images/project-settings.png"><img src="images/project-settings.png" width="1798" height="1358" loading="lazy" alt="A11VocabularyBookの新規設定。パッケージjp.ac.jec.a11vocabularybook、Java、API 31、Kotlin DSL"></a><figcaption>入力後の画面。画像の保存先は先生の例です。自分の <code>Documents/Android1/A11VocabularyBook</code> に読み替えます。 <a href="images/project-settings.png">画像を大きく開く</a></figcaption></figure>
 <ol start="4"><li>Sync（歯車の読み込み）が終わるまで待ちます。</li><li>端末欄で <strong>jec_26cm_android1_Pixel 9a</strong> を選び、<strong>Run</strong>（▶）を押します。白い画面に <strong>Hello World!</strong> が出れば成功です。</li></ol>
 <p>エミュレータが出てこないときは<a href="../common/emulator.html?from=vocabulary-book">共通資料：エミュレータ</a>を見ます。</p>
 <div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-1"><span>自分の保存先にA11VocabularyBookを作り、Hello World!を表示できた。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
@@ -84,6 +86,7 @@ txtItemList.setText(itemList(itemDao));   // 自分で出し直す</code></pre>
 <li>Android Studioのプロジェクト画面で <code>app/src/main/res/drawable</code> フォルダをクリックして選び、貼り付けます（<kbd>⌘ V</kbd>）。</li>
 <li>確認のウィンドウで <strong>New name</strong> が <code>logoeng.png</code>、<strong>To directory</strong> の末尾が <code>app/src/main/res/drawable</code> になっていることを確かめて <strong>OK</strong> を押します。</li>
 </ol>
+<figure><a href="images/drawable-copy.png"><img src="images/drawable-copy.png" width="2018" height="782" loading="lazy" alt="Project表示でdrawableフォルダを選び、Copyダイアログが開いている。New nameはlogoeng.png、To directoryの末尾はA11VocabularyBook/app/src/main/res/drawable"></a><figcaption>To directoryの末尾が A11VocabularyBook/app/src/main/res/drawable になっていればOK。画像のパスは先生の保存先の例です。 <a href="images/drawable-copy.png">画像を大きく開く</a></figcaption></figure>
 <div class="note"><p class="box-title">ファイル名は変えません</p><p>このあとXMLから <code>@drawable/logoeng</code> という名前で呼び出します。<strong>名前を変えると見つからなくなります。</strong></p></div>
 <h3>② Roomを使えるようにする</h3>
 <p>A10のSTEP 02と同じ手順です。<code>gradle/libs.versions.toml</code> の <code>[versions]</code> と <code>[libraries]</code> に追記します。</p>
@@ -282,9 +285,9 @@ public abstract class AppDatabase extends RoomDatabase {
 <p>2つ目の画面を追加します。A06・A07と同じ作り方です。</p>
 <ol>
 <li>左側のプロジェクト画面で <code>app → src → main → java → jp.ac.jec.a11vocabularybook</code> を右クリックします。</li>
-<li><strong>New → Activity → Empty Views Activity</strong> を選びます。</li>
-<li>次の表のとおりに入力して <strong>Finish</strong> を押します。</li>
-</ol>
+<li><strong>New → Activity → Empty Views Activity</strong> を選びます。</li></ol>
+<figure><a href="images/new-activity-menu.png"><img src="images/new-activity-menu.png" width="2068" height="1378" loading="lazy" alt="パッケージを右クリックしてNew、Activity、Empty Views Activityと辿ったメニュー"></a><figcaption><strong>New → Java Class ではありません。</strong>Activity → Empty Views Activity を選びます。 <a href="images/new-activity-menu.png">画像を大きく開く</a></figcaption></figure>
+<ol start="3"><li>次の表のとおりに入力して <strong>Finish</strong> を押します。</li></ol>
 <table><thead><tr><th>項目</th><th>入力・選択する内容</th></tr></thead><tbody>
 <tr><td>Activity Name</td><td><code>CardAddActivity</code></td></tr>
 <tr><td>Generate a Layout File</td><td>チェックを入れる</td></tr>
@@ -293,6 +296,7 @@ public abstract class AppDatabase extends RoomDatabase {
 <tr><td>Package name</td><td><code>jp.ac.jec.a11vocabularybook</code></td></tr>
 <tr><td>Source Language</td><td>Java</td></tr>
 </tbody></table>
+<figure><a href="images/new-activity-card-add.png"><img src="images/new-activity-card-add.png" width="1800" height="1358" loading="lazy" alt="New Android Activityのダイアログ。Activity NameはCardAddActivity、Layout Nameはactivity_card_add、Launcher Activityのチェックは外れている"></a><figcaption><strong>Launcher Activity にはチェックを入れません。</strong>入れるとアプリのアイコンが2つになります。 <a href="images/new-activity-card-add.png">画像を大きく開く</a></figcaption></figure>
 <div class="note"><p class="box-title">New → Java Classでは作りません</p><p>この作り方なら <code>AndroidManifest.xml</code> への登録も自動で行われます。<code>New → Java Class</code> で作ると登録されず、画面を開いたときにアプリが終了します。</p></div>
 <h3>① 画面を作る</h3>
 <pre id="code-card-add-xml"><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
@@ -464,6 +468,7 @@ public class CardAddActivity extends AppCompatActivity {
 <section id="step-6" aria-labelledby="title-6">
 <p class="step-meta">STEP 06 · 目安 15分</p><h2 id="title-6">カード画面を作る</h2>
 <p>3つ目の画面を追加します。STEP 05と同じ手順で、<strong>Activity Name</strong> を <code>CardActivity</code>、<strong>Layout Name</strong> を <code>activity_card</code> にします。</p>
+<figure><a href="images/new-activity-card.png"><img src="images/new-activity-card.png" width="1792" height="1358" loading="lazy" alt="New Android Activityのダイアログ。Activity NameはCardActivity、Layout Nameはactivity_card、Launcher Activityのチェックは外れている"></a><figcaption>ここでも <strong>Launcher Activity</strong> にはチェックを入れません。 <a href="images/new-activity-card.png">画像を大きく開く</a></figcaption></figure>
 <h3>① 画面を作る</h3>
 <pre id="code-card-xml"><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
 &lt;LinearLayout xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
