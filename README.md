@@ -14,6 +14,8 @@
 - [完成プロジェクト（A04WebViewApp）](docs/webview-app/downloads/A04WebViewApp.zip)
 - [BombGame：爆弾ゲームを作ろう](docs/bomb-game/index.html)
 - [完成プロジェクト（A05BombGame）](docs/bomb-game/downloads/A05BombGame.zip)
+- [ScreenTransitionSample：画面を切り替えて値を渡そう](docs/screen-transition-sample/index.html)
+- [完成プロジェクト（A06ScreenTransitionSample）](docs/screen-transition-sample/downloads/A06ScreenTransitionSample.zip)
 - [共通資料：エミュレータの準備とアプリの実行](docs/common/emulator.html)
 - [共通資料：Auto Importの設定](docs/common/auto-import.html)
 - [共通資料：Logcatの使い方](docs/common/logcat.html)
@@ -23,6 +25,7 @@
 - [教員用：RockPaperScissorsGameの授業の進め方・確認項目](teacher/rock-paper-scissors-game/index.html)
 - [教員用：WebViewAppの授業の進め方・確認項目](teacher/webview-app/index.html)
 - [教員用：BombGameの授業の進め方・確認項目](teacher/bomb-game/index.html)
+- [教員用：ScreenTransitionSampleの授業の進め方・確認項目](teacher/screen-transition-sample/index.html)
 
 ### 開き方
 
@@ -32,13 +35,13 @@
 
 ### 学生への配布
 
-学生には [最新の教材リリース](https://github.com/LeoAndo/jec-26cm-android-programming-1/releases/latest) の Assets にある **android1-student-materials.zip** を案内します（初回公開後から利用可能）。展開後、授業で使う単元の `docs/hello-android/index.html`、`docs/calc-game/index.html`、`docs/rock-paper-scissors-game/index.html`、`docs/webview-app/index.html`、`docs/bomb-game/index.html` のいずれかをブラウザで開きます。各教科書から完成プロジェクトのZIPをダウンロードでき、初回から参考資料として使えます。
+学生には [最新の教材リリース](https://github.com/LeoAndo/jec-26cm-android-programming-1/releases/latest) の Assets にある **android1-student-materials.zip** を案内します（初回公開後から利用可能）。展開後、授業で使う単元の `docs/hello-android/index.html`、`docs/calc-game/index.html`、`docs/rock-paper-scissors-game/index.html`、`docs/webview-app/index.html`、`docs/bomb-game/index.html`、`docs/screen-transition-sample/index.html` のいずれかをブラウザで開きます。各教科書から完成プロジェクトのZIPをダウンロードでき、初回から参考資料として使えます。
 
 学生用ZIPには `docs` 一式と開き方・版情報を収録します。`teacher` フォルダと `Panda2JavaEmptyViewActivity` は収録しません。GitHubが自動で表示する **Source code (zip)** はリポジトリ全体のため、学生用ZIPには使いません。なお、このリポジトリ自体はPublicなので、教員用ファイルもGitHub上では閲覧できます。
 
 授業中は教員が指定した版を使います。授業ごとの案内には、内容が固定された個別リリースのURLを使ってください。更新版は別フォルダに展開し、学生自身のAndroid Studioプロジェクトは上書きしません。
 
-各単元で、学生自身が毎回Android Studioからプロジェクトを新規作成します。完成版は動作確認とコード比較の参考資料として使います。作成先は `/Users/ユーザ名/Documents/Android1/プロジェクト名` です。HelloAndroidは `A01HelloAndroid`、CalcGameは `A02CalcGame`、RockPaperScissorsGameは `A03RockPaperScissorsGame`、WebViewAppは `A04WebViewApp`、BombGameは `A05BombGame` として保存します。
+各単元で、学生自身が毎回Android Studioからプロジェクトを新規作成します。完成版は動作確認とコード比較の参考資料として使います。作成先は `/Users/ユーザ名/Documents/Android1/プロジェクト名` です。HelloAndroidは `A01HelloAndroid`、CalcGameは `A02CalcGame`、RockPaperScissorsGameは `A03RockPaperScissorsGame`、WebViewAppは `A04WebViewApp`、BombGameは `A05BombGame`、ScreenTransitionSampleは `A06ScreenTransitionSample` として保存します。
 
 ### 教員が確認に使うプロジェクト
 
@@ -50,8 +53,9 @@
 | `A03RockPaperScissorsGame` | 完成プロジェクト。配布用ZIPを教科書に同梱し、初回から学生も参照可能。STEP 2の画像もこのZIPから取り出す |
 | `A04WebViewApp` | 完成プロジェクト。配布用ZIPを教科書に同梱し、初回から学生も参照可能。実行時にインターネット接続が必要 |
 | `A05BombGame` | 完成プロジェクト。配布用ZIPを教科書に同梱し、初回から学生も参照可能。STEP 2の画像もこのZIPから取り出す |
+| `A06ScreenTransitionSample` | 完成プロジェクト。配布用ZIPを教科書に同梱し、初回から学生も参照可能。受け取った値は画面ではなくLogcat（tag `TestActivity`）で確認する |
 
-教員用ガイドとステップごとの照合用コードは `teacher/hello-android`、`teacher/calc-game`、`teacher/rock-paper-scissors-game`、`teacher/webview-app`、`teacher/bomb-game` にまとめています。完成版の見本は `Documents/Android1/samples/A01HelloAndroid` / `A02CalcGame` / `A03RockPaperScissorsGame` / `A04WebViewApp` / `A05BombGame`、授業で作るプロジェクトは `Documents/Android1/A01HelloAndroid` / `A02CalcGame` / `A03RockPaperScissorsGame` / `A04WebViewApp` / `A05BombGame` に置きます。
+教員用ガイドとステップごとの照合用コードは `teacher/hello-android`、`teacher/calc-game`、`teacher/rock-paper-scissors-game`、`teacher/webview-app`、`teacher/bomb-game`、`teacher/screen-transition-sample` にまとめています。完成版の見本は `Documents/Android1/samples/A01HelloAndroid` / `A02CalcGame` / `A03RockPaperScissorsGame` / `A04WebViewApp` / `A05BombGame` / `A06ScreenTransitionSample`、授業で作るプロジェクトは `Documents/Android1/A01HelloAndroid` / `A02CalcGame` / `A03RockPaperScissorsGame` / `A04WebViewApp` / `A05BombGame` / `A06ScreenTransitionSample` に置きます。
 
 ### 完成プロジェクトのZIPを更新する（教員用）
 
@@ -70,9 +74,10 @@ python3 scripts/package-hello-android.py --project A02CalcGame --output docs/cal
 python3 scripts/package-hello-android.py --project A03RockPaperScissorsGame --output docs/rock-paper-scissors-game/downloads/A03RockPaperScissorsGame.zip
 python3 scripts/package-hello-android.py --project A04WebViewApp --output docs/webview-app/downloads/A04WebViewApp.zip
 python3 scripts/package-hello-android.py --project A05BombGame --output docs/bomb-game/downloads/A05BombGame.zip
+python3 scripts/package-hello-android.py --project A06ScreenTransitionSample --output docs/screen-transition-sample/downloads/A06ScreenTransitionSample.zip
 ```
 
-学生用ZIPを作成するときは、A01〜A05の完成版ZIPを再生成し、HTMLのリンク確認も行います。
+学生用ZIPを作成するときは、A01〜A06の完成版ZIPを再生成し、HTMLのリンク確認も行います。
 
 ```sh
 python3 scripts/package-student-materials.py

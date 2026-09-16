@@ -7,7 +7,8 @@
     "A02CalcGame",
     "A03RockPaperScissorsGame",
     "A04WebViewApp",
-    "A05BombGame"
+    "A05BombGame",
+    "A06ScreenTransitionSample"
   ],
   "terms": [
     {
@@ -25,11 +26,13 @@
         "docs/rock-paper-scissors-game/index.html",
         "docs/webview-app/index.html",
         "docs/bomb-game/index.html",
+        "docs/screen-transition-sample/index.html",
         "teacher/hello-android/index.html",
         "teacher/calc-game/index.html",
         "teacher/rock-paper-scissors-game/index.html",
         "teacher/webview-app/index.html",
-        "teacher/bomb-game/index.html"
+        "teacher/bomb-game/index.html",
+        "teacher/screen-transition-sample/index.html"
       ]
     }
   ],
@@ -183,6 +186,45 @@
         }
       ],
       "archive": "docs/bomb-game/downloads/A05BombGame.zip"
+    },
+    {
+      "name": "A06ScreenTransitionSample",
+      "package": "jp.ac.jec.a06screentransitionsample",
+      "root": "A06ScreenTransitionSample",
+      "docs": [
+        "docs/screen-transition-sample/index.html",
+        "teacher/screen-transition-sample/index.html"
+      ],
+      "source_java": "A06ScreenTransitionSample/app/src/main/java/jp/ac/jec/a06screentransitionsample/MainActivity.java",
+      "source_xml": "A06ScreenTransitionSample/app/src/main/res/layout/activity_main.xml",
+      "snippets": [
+        {
+          "html": "docs/screen-transition-sample/index.html",
+          "id": "code-complete-main-java",
+          "source": "A06ScreenTransitionSample/app/src/main/java/jp/ac/jec/a06screentransitionsample/MainActivity.java"
+        },
+        {
+          "html": "docs/screen-transition-sample/index.html",
+          "id": "code-complete-test-java",
+          "source": "A06ScreenTransitionSample/app/src/main/java/jp/ac/jec/a06screentransitionsample/TestActivity.java"
+        },
+        {
+          "html": "docs/screen-transition-sample/index.html",
+          "id": "code-complete-person-java",
+          "source": "A06ScreenTransitionSample/app/src/main/java/jp/ac/jec/a06screentransitionsample/Person.java"
+        },
+        {
+          "html": "docs/screen-transition-sample/index.html",
+          "id": "code-complete-main-xml",
+          "source": "A06ScreenTransitionSample/app/src/main/res/layout/activity_main.xml"
+        },
+        {
+          "html": "docs/screen-transition-sample/index.html",
+          "id": "code-complete-manifest",
+          "source": "A06ScreenTransitionSample/app/src/main/AndroidManifest.xml"
+        }
+      ],
+      "archive": "docs/screen-transition-sample/downloads/A06ScreenTransitionSample.zip"
     }
   ]
 }
