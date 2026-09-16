@@ -453,7 +453,12 @@ public class TestActivity extends AppCompatActivity {
 <h3>② 教科書のコードで置き換える</h3>
 <p>できた5行（<code>public static void start</code> から、その <code>}</code> まで）を選び、貼り付けて置き換えます。</p>
 <div class="code-head">置き換え · starterで作ったstartメソッド</div>
-<pre id="code-start-single" tabindex="0"><code>// startメソッドはAndroid Studioのコードテンプレートを利用して作成できる！
+<pre id="code-start-single" tabindex="0"><code>static void start(Context context) {
+    var intent = new Intent(context, TestActivity.class);
+    context.startActivity(intent);
+}
+
+// startメソッドはAndroid Studioのコードテンプレートを利用して作成できる！
 static void start(Context context, int intValue, long longValue, float floatValue,
                   double doubleValue, boolean booleanValue, char charValue, String stringValue) {
     var intent = new Intent(context, TestActivity.class);
@@ -588,6 +593,13 @@ public class TestActivity extends AppCompatActivity {
         context.startActivity(intent);
     }
 }</code></pre></details>
+<h3>④ btn1も同じ形にそろえる</h3>
+<p>STEP 4で書いた <strong>btn1の処理</strong>を、いま作った <code>start</code> を使う形に置き換えます。</p>
+<pre id="code-btn1-start" tabindex="0"><code>        findViewById(R.id.btn1).setOnClickListener(v -&gt; {
+            TestActivity.start(this);
+        });</code></pre>
+<p>置き換えると <code>MainActivity.java</code> の中から <code>new Intent(...)</code> がなくなります。<strong>ファイルの上のほうにある <code>import android.content.Intent;</code> が灰色になる</strong>ので、その行を消します。使っていないimportが残っていても動きますが、読む人が「Intentを使っているのか」と探すことになります。</p>
+<div class="note"><p class="box-title">画面を開く書き方は1つにそろえます</p><p>STEP 4では <code>new Intent(...)</code> と <code>startActivity(...)</code> を直接書きました。いちばん素の形で、何が起きているかが見えるからです。<code>start</code> を作ったあとは、<strong>開かれる側（TestActivity）が自分の開き方を持つ</strong>ほうが読みやすくなります。渡す値が増えても、呼び出し側は <code>TestActivity.start(...)</code> のままで済みます。A07のBillSplitterでも同じ形が出てきます。</p></div>
 <div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-6"><span>Test 2で 1・2・3.0・4.0・true・5・6 がLogcatに出ることを確認した。キーの定数をTestActivityに置く理由を説明できた。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
 <div class="next"><a href="#step-7">次へ：配列を渡す →</a></div>
 </section>
@@ -1136,7 +1148,6 @@ TestActivity  D  person: Person{name='John', age=20}</code></pre>
 <details><summary>完成したMainActivity.javaで照合する</summary><div class="code-head">完成版 · MainActivity.java</div>
 <pre id="code-complete-main-java" tabindex="0"><code>package jp.ac.jec.a06screentransitionsample;
 
-import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.activity.EdgeToEdge;
@@ -1162,20 +1173,19 @@ public class MainActivity extends AppCompatActivity {
         });
 
         findViewById(R.id.btn1).setOnClickListener(v -&gt; {
-            var intent = new Intent(this, TestActivity.class);
-            startActivity(intent);
+            TestActivity.start(this);
         });
 
         findViewById(R.id.btn2).setOnClickListener(v -&gt; {
             TestActivity.start(this, 1, 2L, 3.0f,
-                    4.0, true, '5', &quot;6&quot;);
+                    4.0, true, &#x27;5&#x27;, &quot;6&quot;);
         });
 
         findViewById(R.id.btn3).setOnClickListener(v -&gt; {
             TestActivity.start(this, new int[]{1, 2, 3},
                     new long[]{4, 5, 6}, new float[]{7.0f, 8.0f, 9.0f},
                     new double[]{10.0, 11.0, 12.0}, new boolean[]{true, false, true},
-                    new char[]{'a', 'b', 'c'}, new String[]{&quot;7&quot;, &quot;8&quot;, &quot;9&quot;});
+                    new char[]{&#x27;a&#x27;, &#x27;b&#x27;, &#x27;c&#x27;}, new String[]{&quot;7&quot;, &quot;8&quot;, &quot;9&quot;});
         });
 
         findViewById(R.id.btn4).setOnClickListener(v -&gt; {
@@ -1245,7 +1255,7 @@ public class TestActivity extends AppCompatActivity {
         var floatValue = getIntent().getFloatExtra(EXTRA_KEY_FLOAT_VALUE, 0);
         var doubleValue = getIntent().getDoubleExtra(EXTRA_KEY_DOUBLE_VALUE, 0);
         var booleanValue = getIntent().getBooleanExtra(EXTRA_KEY_BOOLEAN_VALUE, false);
-        var charValue = getIntent().getCharExtra(EXTRA_KEY_CHAR_VALUE, ' ');
+        var charValue = getIntent().getCharExtra(EXTRA_KEY_CHAR_VALUE, &#x27; &#x27;);
         var stringValue = getIntent().getStringExtra(EXTRA_KEY_STRING_VALUE);
         Log.d(&quot;TestActivity&quot;, &quot;intValue: &quot; + intValue);
         Log.d(&quot;TestActivity&quot;, &quot;longValue: &quot; + longValue);
@@ -1280,6 +1290,11 @@ public class TestActivity extends AppCompatActivity {
     }
 
     // startメソッドはAndroid Studioのコードテンプレートを利用して作成できる！
+    static void start(Context context) {
+        var intent = new Intent(context, TestActivity.class);
+        context.startActivity(intent);
+    }
+
     static void start(Context context, int intValue, long longValue, float floatValue,
                       double doubleValue, boolean booleanValue, char charValue, String stringValue) {
         var intent = new Intent(context, TestActivity.class);

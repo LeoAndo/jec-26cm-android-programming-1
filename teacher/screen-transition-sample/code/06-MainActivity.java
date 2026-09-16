@@ -1,6 +1,5 @@
 package jp.ac.jec.a06screentransitionsample;
 
-import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.activity.EdgeToEdge;
@@ -23,8 +22,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         findViewById(R.id.btn1).setOnClickListener(v -> {
-            var intent = new Intent(this, TestActivity.class);
-            startActivity(intent);
+            TestActivity.start(this);
         });
 
         findViewById(R.id.btn2).setOnClickListener(v -> {
