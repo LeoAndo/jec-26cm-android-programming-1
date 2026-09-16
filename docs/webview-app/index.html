@@ -185,13 +185,13 @@
     tools:context=&quot;.MainActivity&quot;&gt;
 
     &lt;CheckBox
-        android:id=&quot;@+id/checkBox&quot;
+        android:id=&quot;@+id/chk_javascript&quot;
         android:layout_width=&quot;wrap_content&quot;
         android:layout_height=&quot;wrap_content&quot;
         android:text=&quot;JavaScript ON&quot; /&gt;
 
     &lt;WebView
-        android:id=&quot;@+id/webView&quot;
+        android:id=&quot;@+id/web_view&quot;
         android:layout_width=&quot;match_parent&quot;
         android:layout_height=&quot;match_parent&quot; /&gt;
 &lt;/LinearLayout&gt;</code></pre>
@@ -222,13 +222,13 @@
 <h3>② onCreateの中でページを読み込む</h3>
 <p><code>onCreate</code> の中で、ひな形の <code>return insets;</code> に続く <code>});</code> の下、<code>onCreate</code> を閉じる <code>}</code> より上に追加します。</p>
 <div class="code-head">追加 · onCreateの中</div>
-<pre id="code-load" tabindex="0"><code>webView = findViewById(R.id.webView);
+<pre id="code-load" tabindex="0"><code>webView = (WebView) findViewById(R.id.web_view);
 
 webView.setWebViewClient(new WebViewClient());
 webView.loadUrl(&quot;https://news.yahoo.co.jp/&quot;); // 表示の確認用。STEP 6で削除する</code></pre>
 <p>importは <code>android.webkit.WebViewClient</code> です。</p>
 <table><thead><tr><th>コード</th><th>意味</th></tr></thead><tbody>
-<tr><td>webView = findViewById(R.id.webView);</td><td>XMLのWebViewを取得し、フィールドに入れる。フィールドの型がWebViewなので、varやキャストは書かない。</td></tr>
+<tr><td>webView = (WebView) findViewById(R.id.web_view);</td><td>XMLのWebViewを取得し、フィールドに入れる。フィールドの型がWebViewなので、varやキャストは書かない。</td></tr>
 <tr><td>setWebViewClient(new WebViewClient())</td><td>ページ内のリンクを、Chromeなど別のアプリではなく、このWebViewの中で開くようにする。</td></tr>
 <tr><td>loadUrl("https://...")</td><td>指定したURLのページを読み込んで表示する。</td></tr>
 </tbody></table>
@@ -401,9 +401,9 @@ public boolean onOptionsItemSelected(@NonNull MenuItem item) {
 <p class="file">変更するファイル：MainActivity.java</p>
 <p><strong>JavaScript</strong> は、Webページの中で動くプログラミング言語です。多くのサイトは、メニューの開閉や表示の切り替えなどにJavaScriptを使います。WebViewは初期設定でJavaScriptが<strong>無効</strong>なので、チェックボックスで切り替えられるようにします。</p>
 <h3>① CheckBoxを取得する</h3>
-<p><code>onCreate</code> の <code>webView = findViewById(R.id.webView);</code> の<strong>すぐ下</strong>に追加します。</p>
+<p><code>onCreate</code> の <code>webView = (WebView) findViewById(R.id.web_view);</code> の<strong>すぐ下</strong>に追加します。</p>
 <div class="code-head">追加 · webView = findViewById(...); の下</div>
-<pre id="code-checkbox" tabindex="0"><code>var checkBox = (CheckBox) findViewById(R.id.checkBox);</code></pre>
+<pre id="code-checkbox" tabindex="0"><code>var checkBox = (CheckBox) findViewById(R.id.chk_javascript);</code></pre>
 <p>importは <code>android.widget.CheckBox</code> です。<code>(CheckBox)</code> は、チェックの状態を読むためにCheckBoxとして扱う指定です。</p>
 <h3>② 起動時の設定をそろえる</h3>
 <p><code>webView.setWebViewClient(new WebViewClient());</code> の<strong>すぐ下</strong>に追加します。</p>
@@ -551,7 +551,7 @@ public boolean onKeyDown(int keyCode, KeyEvent event) {
 <tr><td>「ウェブページへのアクセス不可」「net::ERR_CACHE_MISS」</td><td>AndroidManifest.xmlのINTERNETの許可の行があるか、つづりが <code>android.permission.INTERNET</code> か。保存してRunし直す。</td></tr>
 <tr><td>ビルドで「unexpected element &lt;uses-permission&gt; found in &lt;manifest&gt;&lt;application&gt;」</td><td>許可の行が <code>&lt;application&gt;</code> の中にある。<code>&lt;application</code> の上に移動する。</td></tr>
 <tr><td>「ウェブページへのアクセス不可」で別のエラー名</td><td>Macがインターネットにつながっているか。URLのつづりを確認する。</td></tr>
-<tr><td>R.id.webView / R.id.checkBox が赤い</td><td>XMLのid。<code>webView</code>・<code>checkBox</code> の大文字・小文字まで一致するか。最初のXMLエラーを直してビルドする。</td></tr>
+<tr><td>R.id.web_view / R.id.chk_javascript が赤い</td><td>XMLのid。<code>webView</code>・<code>checkBox</code> の大文字・小文字まで一致するか。最初のXMLエラーを直してビルドする。</td></tr>
 <tr><td>AppMenuItem が赤い</td><td>STEP 5のファイル名が <code>AppMenuItem.java</code> か。<code>app/src/main/java</code> の、MainActivityと同じ場所に作ったか。</td></tr>
 <tr><td>Menu・MenuItemが赤い</td><td><code>android.view.Menu</code> と <code>android.view.MenuItem</code> をimportする。<kbd>⌥ Enter</kbd> で候補を確認する。</td></tr>
 <tr><td>リンクを押すとChromeが開く</td><td><code>setWebViewClient</code> の行があるか（STEP 4・STEP 8）。コメントにしたままになっていないか。</td></tr>
@@ -601,8 +601,8 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
 
-        webView = findViewById(R.id.webView);
-        var checkBox = (CheckBox) findViewById(R.id.checkBox);
+        webView = (WebView) findViewById(R.id.web_view);
+        var checkBox = (CheckBox) findViewById(R.id.chk_javascript);
 
         // 戻る操作で前のページに戻る処理。前のページがあるときだけ有効にする
         // Android 16以降（targetSdk 36以上）はonKeyDownで戻るキーを受け取れないため、OnBackPressedCallbackを使う
@@ -687,13 +687,13 @@ enum AppMenuItem {
     tools:context=&quot;.MainActivity&quot;&gt;
 
     &lt;CheckBox
-        android:id=&quot;@+id/checkBox&quot;
+        android:id=&quot;@+id/chk_javascript&quot;
         android:layout_width=&quot;wrap_content&quot;
         android:layout_height=&quot;wrap_content&quot;
         android:text=&quot;JavaScript ON&quot; /&gt;
 
     &lt;WebView
-        android:id=&quot;@+id/webView&quot;
+        android:id=&quot;@+id/web_view&quot;
         android:layout_width=&quot;match_parent&quot;
         android:layout_height=&quot;match_parent&quot; /&gt;
 &lt;/LinearLayout&gt;</code></pre>

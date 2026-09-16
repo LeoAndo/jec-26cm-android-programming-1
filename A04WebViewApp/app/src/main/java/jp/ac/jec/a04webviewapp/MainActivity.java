@@ -29,8 +29,8 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
 
-        webView = findViewById(R.id.webView);
-        var checkBox = (CheckBox) findViewById(R.id.checkBox);
+        webView = (WebView) findViewById(R.id.web_view);
+        var checkBox = (CheckBox) findViewById(R.id.chk_javascript);
 
         // 戻る操作で前のページに戻る処理。前のページがあるときだけ有効にする
         // Android 16以降（targetSdk 36以上）はonKeyDownで戻るキーを受け取れないため、OnBackPressedCallbackを使う
