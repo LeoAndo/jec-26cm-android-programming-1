@@ -24,7 +24,7 @@
 - [共通資料：Auto Importの設定](docs/common/auto-import.html)
 - [共通資料：Logcatの使い方](docs/common/logcat.html)
 - [共通資料：提出用APKの作り方](docs/common/apk.html)
-- [共通資料：開発Tips（画面の余白）](docs/common/dev-tips.html)
+- [共通資料：開発Tips（画面の余白・キーボード・画面回転）](docs/common/dev-tips.html)
 - [教員用：HelloAndroidの授業の進め方・確認項目](teacher/hello-android/index.html)
 - [教員用：CalcGameの授業の進め方・確認項目](teacher/calc-game/index.html)
 - [教員用：RockPaperScissorsGameの授業の進め方・確認項目](teacher/rock-paper-scissors-game/index.html)
@@ -356,7 +356,7 @@ windowsは利用していない
 11. 基本的にライブラリ追加なしで授業用テキストを作成する。ただし、androidxパッケージに関しては必要に応じて導入する
 12. フォルダブルやタブレット端末へのアプリ対応は学生側に意識させない教科書の構成にする
 13. ダークテーマ対応は学生側に意識させない教科書の構成にする
-14. 各単元では画面回転時のデータ保持と横画面時のレイアウト対応を扱わず、必要な観点は別単元の演習アプリで検証する
+14. 各単元では画面回転時のデータ保持と横画面時のレイアウト対応を扱わない。考え方と対処法は[共通資料：開発Tips](docs/common/dev-tips.html)に掲載する
 
 
 # 授業用教科書の基本方針
