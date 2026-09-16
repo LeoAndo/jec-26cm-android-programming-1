@@ -36,7 +36,21 @@
 <p>時間が足りない場合は、STEP 10のミニ練習を口頭の問いかけに切り替えます。STEP 10練習3（15人）は、登録に時間がかかるため、教員の画面で見せる方法でも構いません。</p>
 </section>
 
-<section><h2>4. 理解確認と支援</h2>
+<section><h2>4. STEPごとの照合コード</h2>
+<table><thead><tr><th>到達地点</th><th>参照ファイル</th><th>教員の確認ポイント</th></tr></thead><tbody>
+<tr><td>出発点（STEP 01）</td><td><a href="code/01-MainActivity.java">01-MainActivity.java</a> / <a href="code/01-activity_main.xml">01-activity_main.xml</a></td><td>Hello World!をRunできる。ひな形のまま。</td></tr>
+<tr><td>TOP画面のレイアウト（STEP 03）</td><td><a href="code/03-activity_main.xml">03-activity_main.xml</a></td><td>id/mainのLinearLayout（vertical・center_horizontal）。ImageView、edt_participant_name、btn_add、btn_bill_split、txt_participant_listがこの順。ルートに <code>android:padding</code> を書かない。</td></tr>
+<tr><td>参加者の登録（STEP 04）</td><td><a href="code/04-MainActivity.java">04-MainActivity.java</a></td><td>4つの <code>findViewById</code> が <code>onCreate</code> の冒頭にまとまっている。<code>btnAdd</code> のリスナだけがある。一覧は <code>append</code>（<code>setText</code> ではない）。</td></tr>
+<tr><td>ワリカン画面の追加（STEP 05）</td><td><a href="code/05-BillSplitActivity.java">05-BillSplitActivity.java</a> / <a href="code/05-activity_bill_split.xml">05-activity_bill_split.xml</a> / <a href="code/05-AndroidManifest.xml">05-AndroidManifest.xml</a></td><td>BillSplitActivity.javaがMainActivityと同じ場所にある。Manifestの <code>&lt;activity android:name=".BillSplitActivity"&gt;</code> がexported=falseで、intent-filterがない。Javaはウィザードが作ったまま。</td></tr>
+<tr><td>参加者リストを渡す（STEP 06）</td><td><a href="code/06-MainActivity.java">06-MainActivity.java</a> / <a href="code/06-BillSplitActivity.java">06-BillSplitActivity.java</a></td><td><code>start</code> が <code>onCreate</code> の外にある。キーの定数はBillSplitActivity側。MainActivityは <code>toArray(new String[0])</code> で配列にして渡す。この時点ではSnackbarのimportはBillSplitActivityにない。</td></tr>
+<tr><td>計算クラスの配置（STEP 07）</td><td><a href="code/07-BillSplitter.java">07-BillSplitter.java</a></td><td>配布ファイルそのもの。学生が書き換えていないか確認する。</td></tr>
+<tr><td>入力チェック（STEP 08）</td><td><a href="code/08-BillSplitActivity.java">08-BillSplitActivity.java</a></td><td>3つのチェックがこの順（未入力 → <code>parseInt</code> → 金額が人数未満）。<code>parseInt</code> が <code>try</code> の中にある。まだ計算はしない。</td></tr>
+<tr><td>完成（STEP 09）</td><td><a href="code/09-BillSplitActivity.java">09-BillSplitActivity.java</a></td><td>入力チェックの<strong>下</strong>に <code>calculateAndFormat</code> と <code>setText</code> の2行がある。</td></tr>
+</tbody></table>
+<p>STEP 02は画像の配置だけ、STEP 10は完成版のまま試す練習、STEP 11はふり返りのため、照合コードはありません。STEP 03・05・06・07・09のファイルは完成プロジェクトと同じ内容です（<a href="../../A07BillSplitter/app/src/main/res/layout/activity_main.xml">activity_main.xml</a>、<a href="../../A07BillSplitter/app/src/main/res/layout/activity_bill_split.xml">activity_bill_split.xml</a>、<a href="../../A07BillSplitter/app/src/main/AndroidManifest.xml">AndroidManifest.xml</a>、<a href="../../A07BillSplitter/app/src/main/java/jp/ac/jec/a07billsplitter/MainActivity.java">MainActivity.java</a>、<a href="../../A07BillSplitter/app/src/main/java/jp/ac/jec/a07billsplitter/BillSplitActivity.java">BillSplitActivity.java</a>、<a href="../../A07BillSplitter/app/src/main/java/jp/ac/jec/a07billsplitter/BillSplitter.java">BillSplitter.java</a>）。STEP 01・03・04のAndroidManifest.xmlはひな形のまま（MainActivityの <code>&lt;activity&gt;</code> だけ）なので、照合コードはありません。</p>
+</section>
+
+<section><h2>5. 理解確認と支援</h2>
 <table><thead><tr><th>問い</th><th>期待する行動・答え</th></tr></thead><tbody>
 <tr><td>1234円を3人で割ると、なぜ411円が2人で412円が1人なのか</td><td>1円より細かいお金は払えないため、411円ずつ配ってから、あまった1円を1人に足している、と答える。合計が1234円に戻ることも確かめる。</td></tr>
 <tr><td>同じ金額でもう一度計算すると、412円の人が変わるのは？</td><td>あまりの1円をだれが払うかは実行ごとに変えている、と答える。特定の人が損をしないようにするため。</td></tr>
@@ -52,12 +66,12 @@
 <p>名前の入力中に、Androidの入力候補が「登録」ボタンに重なって押せないことがあります（<code>android:inputType="textPersonName"</code> のため）。候補以外の場所を一度タップしてから押すよう伝えます。教科書の「困ったとき」にも記載しています。</p>
 </section>
 
-<section><h2>5. 到達度と提出</h2>
+<section><h2>6. 到達度と提出</h2>
 <ul><li>参加者を2人以上登録し、金額を入れて全員の支払額と合計を表示できる。</li><li>6つの入力チェック（教科書STEP 11の表）をすべて自分で再現できる。</li><li>表示された支払額の合計が、入力した金額と必ず一致することを確かめられる。</li><li>配布された <code>BillSplitter</code> を、中身を読まずに使い方だけで呼べている。前提条件を守るのは呼び出す側だと説明できる。</li><li>提出する場合は <a href="../../docs/common/apk.html">共通資料：APKの作り方</a>に従い、先生が指定した場所へ <code>学籍番号_A07BillSplitter.apk</code> を提出する。</li></ul>
 </section>
 
-<section><h2>6. 教材の保守と確認</h2>
-<ul><li>完成コードを変更したら、教科書の部分コード、照合用の全体コード、画像をまとめて確認し、<code>python3 scripts/package-hello-android.py --project A07BillSplitter --output docs/bill-splitter/downloads/A07BillSplitter.zip</code> で配布用ZIPを再作成します。教科書のコードと完成プロジェクトの一致は <code>python3 scripts/check-teaching-materials.py</code> で確かめます。</li><li>画像18枚はすべて教員提供資料です。IDE操作の7枚（new-project、empty-views-activity、project-settings、drawable-copy、drawable-files、new-activity-menu、new-activity-settings）は <code>A07BillSplitter</code> / <code>jp.ac.jec.a07billsplitter</code> で撮影しています。アプリ画面の11枚は <code>jec_26cm_android1_Pixel 9a</code> で完成版を操作して撮影しました（2026年9月16日）。差し替えたら、imgの <code>width</code> / <code>height</code> を実際のサイズに合わせます。</li><li>アプリ画面の参加者名は <code>Sato</code> / <code>Suzuki</code> / <code>Tanaka</code> です。教科書の本文もこの名前に合わせています。日本語名に変える場合は、本文とスクリーンショットの両方を差し替えます。</li><li>割り勘の計算は、合計金額1〜5000円 × 人数2〜50人のすべての組み合わせで、「支払額の合計が合計金額と一致する」「支払額の差が最大1円」「負の額が出ない」ことを確認しています。<code>maxLength="9"</code> の範囲でオーバーフローは起きません。</li><li>この単元には、他の単元にある <code>teacher/bill-splitter/code</code>（STEPごとの照合コード）がまだありません。授業中の照合は、完成プロジェクトと教科書の照合用コード（「完成プロジェクトを開く」の各 <code>details</code>）で行ってください。</li><li>印刷時は補足・解答も展開されます。解答を配布したくない場合は、ブラウザで授業中に開く方式を使ってください。</li></ul>
+<section><h2>7. 教材の保守と確認</h2>
+<ul><li>完成コードを変更したら、教科書の部分コード、照合用の全体コード、画像をまとめて確認し、<code>python3 scripts/package-hello-android.py --project A07BillSplitter --output docs/bill-splitter/downloads/A07BillSplitter.zip</code> で配布用ZIPを再作成します。教科書のコードと完成プロジェクトの一致は <code>python3 scripts/check-teaching-materials.py</code> で確かめます。</li><li>画像18枚はすべて教員提供資料です。IDE操作の7枚（new-project、empty-views-activity、project-settings、drawable-copy、drawable-files、new-activity-menu、new-activity-settings）は <code>A07BillSplitter</code> / <code>jp.ac.jec.a07billsplitter</code> で撮影しています。アプリ画面の11枚は <code>jec_26cm_android1_Pixel 9a</code> で完成版を操作して撮影しました（2026年9月16日）。差し替えたら、imgの <code>width</code> / <code>height</code> を実際のサイズに合わせます。</li><li>アプリ画面の参加者名は <code>Sato</code> / <code>Suzuki</code> / <code>Tanaka</code> です。教科書の本文もこの名前に合わせています。日本語名に変える場合は、本文とスクリーンショットの両方を差し替えます。</li><li>割り勘の計算は、合計金額1〜5000円 × 人数2〜50人のすべての組み合わせで、「支払額の合計が合計金額と一致する」「支払額の差が最大1円」「負の額が出ない」ことを確認しています。<code>maxLength="9"</code> の範囲でオーバーフローは起きません。</li><li>各STEPの照合コードは、完成プロジェクトのコピーにそのSTEPまでのファイルを入れ（STEP 01〜04のAndroidManifest.xmlはひな形、BillSplitActivityとactivity_bill_split.xmlはSTEP 05から、BillSplitter.javaはSTEP 07から含める）、STEP 01〜09のすべてで <code>assembleDebug</code> が通ることを確認しました（2026年9月16日）。完成コードを変更したら、照合コードも合わせて更新します。</li><li>印刷時は補足・解答も展開されます。解答を配布したくない場合は、ブラウザで授業中に開く方式を使ってください。</li></ul>
 </section>
 
 <footer class="footer"><p><a href="../../docs/bill-splitter/index.html">← BillSplitterの教科書へ戻る</a></p><p>対象：macOS / Android Studio Panda 2 | 2025.3.2 · 確認日：2026年9月16日</p></footer>
