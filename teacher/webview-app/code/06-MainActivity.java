@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
 
-        webView = findViewById(R.id.webView);
+        webView = (WebView) findViewById(R.id.web_view);
 
         webView.setWebViewClient(new WebViewClient());
     }

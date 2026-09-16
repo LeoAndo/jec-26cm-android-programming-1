@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
 
-        webView = findViewById(R.id.webView);
+        webView = (WebView) findViewById(R.id.web_view);
 
         webView.setWebViewClient(new WebViewClient());
         webView.loadUrl("https://news.yahoo.co.jp/"); // 表示の確認用。STEP 6で削除する

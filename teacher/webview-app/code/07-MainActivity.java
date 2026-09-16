@@ -28,8 +28,8 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
 
-        webView = findViewById(R.id.webView);
-        var checkBox = (CheckBox) findViewById(R.id.checkBox);
+        webView = (WebView) findViewById(R.id.web_view);
+        var checkBox = (CheckBox) findViewById(R.id.chk_javascript);
 
         webView.setWebViewClient(new WebViewClient());
         webView.getSettings().setJavaScriptEnabled(checkBox.isChecked());

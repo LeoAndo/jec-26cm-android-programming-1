@@ -8,13 +8,13 @@
     tools:context=".MainActivity">
 
     <CheckBox
-        android:id="@+id/checkBox"
+        android:id="@+id/chk_javascript"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="JavaScript ON" />
 
     <WebView
-        android:id="@+id/webView"
+        android:id="@+id/web_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 </LinearLayout>
