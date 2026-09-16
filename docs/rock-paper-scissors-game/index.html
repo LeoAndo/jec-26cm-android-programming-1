@@ -19,7 +19,7 @@
 <li><a href="#step-9">09　ミニ練習</a></li>
 <li><a href="#step-10">10　完成とふり返り</a></li></ol></nav>
 <div class="progress"><span data-progress-label>0 / 11 ステップ確認済み</span><progress value="0" max="11" aria-label="学習の進み具合"></progress><span class="muted">自分用のチェックです。</span></div>
-<div class="resources"><a href="#help">困ったとき</a><a href="#sample-project">完成プロジェクトを開く</a><a href="../hello-android/index.html">A01：HelloAndroid</a><a href="../calc-game/index.html">A02：CalcGame</a><a href="../common/emulator.html">共通：エミュレータ</a><a href="../common/auto-import.html">共通：Auto Import</a><a href="../common/logcat.html">共通：Logcat</a><a href="../common/apk.html">共通：APKの提出</a><a href="../common/dev-tips.html">共通：開発Tips</a></div>
+<div class="resources"><a href="#help">困ったとき</a><a href="#sample-project">完成プロジェクトを開く</a><a href="../hello-android/index.html">A01：HelloAndroid</a><a href="../calc-game/index.html">A02：CalcGame</a><a href="../common/emulator.html?from=rock-paper-scissors-game">共通：エミュレータ</a><a href="../common/auto-import.html?from=rock-paper-scissors-game">共通：Auto Import</a><a href="../common/logcat.html?from=rock-paper-scissors-game">共通：Logcat</a><a href="../common/apk.html?from=rock-paper-scissors-game">共通：APKの提出</a><a href="../common/dev-tips.html?from=rock-paper-scissors-game">共通：開発Tips</a></div>
 </div></aside><main id="main"><div class="hero"><span class="unit">03</span><p class="eyebrow">ROCK PAPER SCISSORS GAME</p>
 <h1>じゃんけんゲームを<br>作ろう</h1><p class="lede">手を選ぶ。CPUと勝負する。勝ちを数える。<br>画像と配列を使って、何度も遊べるゲームへ。</p>
 <div class="tags"><span>Java / XML</span><span>A02の次の単元</span><span>90分 × 3コマ目安</span><span>Macで学ぶ</span></div></div>
@@ -74,7 +74,7 @@
 </tbody></table>
 <figure><a href="images/project-settings.png"><img src="images/project-settings.png" width="1722" height="1044" loading="lazy" alt="A03RockPaperScissorsGameの新規設定。パッケージjp.ac.jec.a03rockpaperscissorsgame、Java、API 31"></a><figcaption>画像の保存先は先生の例です。自分のDocuments/Android1/A03RockPaperScissorsGameに読み替えます。 <a href="images/project-settings.png">画像を大きく開く</a></figcaption></figure>
 
-<ol start="3"><li>Finderの <strong>移動 → ホーム</strong> で自分のユーザ名を確認します。書類（Documents）に <code>Android1</code> フォルダがなければ作ります。</li><li>表の値と保存先を確認し、<strong>Finish</strong> をクリックします。<code>ユーザ名</code> は自分の名前に置き換えます。</li><li><strong>Gradle Sync</strong> が完了するまで待ちます。</li><li><a href="../common/auto-import.html">共通資料：Auto Import</a>のJava設定を確認します。</li></ol>
+<ol start="3"><li>Finderの <strong>移動 → ホーム</strong> で自分のユーザ名を確認します。書類（Documents）に <code>Android1</code> フォルダがなければ作ります。</li><li>表の値と保存先を確認し、<strong>Finish</strong> をクリックします。<code>ユーザ名</code> は自分の名前に置き換えます。</li><li><strong>Gradle Sync</strong> が完了するまで待ちます。</li><li><a href="../common/auto-import.html?from=rock-paper-scissors-game">共通資料：Auto Import</a>のJava設定を確認します。</li></ol>
 <h3>この単元で使う場所</h3>
 <table><thead><tr><th>役割</th><th>Project表示で開く場所</th></tr></thead><tbody>
 <tr><td>画像</td><td><code>app/src/main/res/drawable</code></td></tr>
@@ -84,7 +84,7 @@
 
 <p>左の一覧が見えないときは <strong>View → Tool Windows → Project</strong> を開きます。一覧の上の表示名が <strong>Project</strong> になっていることを確認します。パッケージのフォルダが <code>jp.ac.jec.a03rockpaperscissorsgame</code> とまとめて表示される場合もあります。</p>
 <h3>変更前に1回Runする</h3>
-<ol><li><a href="../common/emulator.html">共通資料：エミュレータ</a>に従って端末を起動します。</li><li>上部で <strong>app</strong> と <strong>jec_26cm_android1_Pixel 9a</strong> を選び、<strong>Run ▶</strong> を押します。</li><li><strong>Hello World!</strong> が表示されれば成功です。</li></ol>
+<ol><li><a href="../common/emulator.html?from=rock-paper-scissors-game">共通資料：エミュレータ</a>に従って端末を起動します。</li><li>上部で <strong>app</strong> と <strong>jec_26cm_android1_Pixel 9a</strong> を選び、<strong>Run ▶</strong> を押します。</li><li><strong>Hello World!</strong> が表示されれば成功です。</li></ol>
 <div class="note"><p class="box-title">MainActivity.ktができたとき</p><p>先生に画面を見せ、Empty Views Activity / Javaの選択を確認します。</p></div>
 <div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-1"><span>自分の保存先にA03RockPaperScissorsGameを作り、Hello World!を表示できた。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
 <div class="next"><a href="#step-2">次へ：画像をdrawableに追加 →</a></div>
@@ -447,7 +447,7 @@ switch (result) {
 <figure><a href="images/app-streak.png"><img src="images/app-streak.png" width="1080" height="2424" loading="lazy" alt="次の戦いへのあと、チョキでパーに勝ち、あなたの勝ち 2連勝中！と表示されている"></a><figcaption>次の戦いへのあと、チョキでパーに勝つと2連勝。 <a href="images/app-streak.png">画像を大きく開く</a></figcaption></figure>
 </div>
 <h3>Runで確かめる</h3>
-<ol><li><a href="../common/logcat.html">共通資料：Logcat</a>に従ってLogcatを開き、検索欄を次の文字にします。</li></ol>
+<ol><li><a href="../common/logcat.html?from=rock-paper-scissors-game">共通資料：Logcat</a>に従ってLogcatを開き、検索欄を次の文字にします。</li></ol>
 <div class="code-head">Logcatの検索欄 · RockPaperScissorsGame用</div><pre tabindex="0"><code>package:jp.ac.jec.a03rockpaperscissorsgame tag:MainActivity level:DEBUG</code></pre>
 <ol start="2"><li>何回か勝負します。画面の結果と、ログの番号が上の表と同じか確かめます。</li><li>勝ったあとに次の戦いへを押し、もう一度勝つと「2連勝中！」になります。</li><li>引き分けか負けのあとに勝つと、「1連勝中！」から数え直します。</li></ol>
 <div class="code-head">読むところの例 · グーでCPUがチョキのとき</div><pre tabindex="0"><code>MainActivity  D  selectedHandIndex: 0, cpu: 1, result: 2</code></pre>
@@ -481,7 +481,7 @@ switch (result) {
 </tbody></table>
 
 <h3>自分の言葉でふり返る</h3><ol><li><code>selectedHand</code> と <code>winCount</code> は、それぞれ何を覚えていますか。</li><li>押した画像の番号 <code>i</code> は、どの比較で決まりましたか。</li><li><code>(selectedHand - cpu + 3) % 3</code> の <code>+ 3</code> は何のためですか。</li><li>勝負！のあとに手を選び直せないのはなぜですか。</li></ol>
-<h3>保存と提出</h3><p>自分の <code>Documents/Android1/A03RockPaperScissorsGame</code> を保存します。先生からAPK提出の指示がある場合は、<a href="../common/apk.html">共通資料：提出用APKの作り方</a>に進みます。ファイル名は <code>学籍番号_A03RockPaperScissorsGame.apk</code> です。提出先は先生の案内に従います。</p>
+<h3>保存と提出</h3><p>自分の <code>Documents/Android1/A03RockPaperScissorsGame</code> を保存します。先生からAPK提出の指示がある場合は、<a href="../common/apk.html?from=rock-paper-scissors-game">共通資料：提出用APKの作り方</a>に進みます。ファイル名は <code>学籍番号_A03RockPaperScissorsGame.apk</code> です。提出先は先生の案内に従います。</p>
 <p>教材のチェックは自分用です。先生への送信はしません。印刷は <kbd>⌘ P</kbd> で行えます。</p>
 <div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-10"><span>完成チェックを終え、配列・for文・乱数・switch文・連勝数のフィールドを説明できた。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
 </section>
@@ -503,7 +503,7 @@ switch (result) {
 <tr><td>画面の下が見えない</td><td>エミュレータを縦向きにする。この単元では横向きの表示を扱わない。</td></tr>
 </tbody></table>
 
-<p><a href="../common/logcat.html">共通資料：Logcat</a>を使います。今回のパッケージは <code>jp.ac.jec.a03rockpaperscissorsgame</code> です。エラーを見るときは、STEP 8で入れた <code>tag:MainActivity</code> と <code>level:DEBUG</code> を消して、<code>package:jp.ac.jec.a03rockpaperscissorsgame level:ERROR</code> に置き換えます。A01・A02用のパッケージ名も残さないようにします。</p>
+<p><a href="../common/logcat.html?from=rock-paper-scissors-game">共通資料：Logcat</a>を使います。今回のパッケージは <code>jp.ac.jec.a03rockpaperscissorsgame</code> です。エラーを見るときは、STEP 8で入れた <code>tag:MainActivity</code> と <code>level:DEBUG</code> を消して、<code>package:jp.ac.jec.a03rockpaperscissorsgame level:ERROR</code> に置き換えます。A01・A02用のパッケージ名も残さないようにします。</p>
 <p>質問では「STEP番号・編集したファイル・最初の赤い行・押した順番」を伝えます。</p></section>
 <section id="sample-project"><h2>完成プロジェクトを開く</h2>
 <p>完成版は最初の授業から使える見本です。STEP 2の画像も、このZIPから取り出します。<a class="button-link" href="downloads/A03RockPaperScissorsGame.zip" download>完成プロジェクト A03RockPaperScissorsGame.zip</a></p>
