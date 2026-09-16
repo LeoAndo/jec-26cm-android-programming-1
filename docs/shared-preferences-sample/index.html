@@ -185,7 +185,7 @@
 <h3>② onCreateで表示欄に出す</h3>
 <p><code>prefs = getSharedPreferences(...)</code> の行の<strong>上</strong>に表示欄を受け取る行を、<strong>下</strong>に表示する行を追加します。</p>
 <div class="code-head">MainActivity.java · onCreateの中</div>
-<pre id="code-show-values" tabindex="0"><code>        TextView output = findViewById(R.id.tv_output);
+<pre id="code-show-values" tabindex="0"><code>        var output = (TextView) findViewById(R.id.tv_output);
 
         // ファイル名を指定して、SharedPreferencesを取得する.
         prefs = getSharedPreferences(FILE_NAME, MODE_PRIVATE);
@@ -399,7 +399,7 @@
 <tr><td><code>R.id.btn_apply</code> などが赤い</td><td>activity_main.xmlのidが <code>btn_apply</code> / <code>btn_get</code> / <code>btn_clear</code> / <code>btn_xml</code> / <code>tv_output</code> か確認。<code>android:id="@+id/main"</code> を消していないかも見る。</td></tr>
 <tr><td><code>currentValues()</code> や <code>readPrefsXml()</code> を追加したら、赤いエラーがたくさん出る</td><td>onCreateの中に入れていないか確認。onCreateの最後の <code>}</code> の下、クラスの最後の <code>}</code> の上に置く。</td></tr>
 <tr><td><code>prefs</code> が赤い、またはnullでアプリが終了する</td><td>STEP 03の <code>prefs = getSharedPreferences(FILE_NAME, MODE_PRIVATE);</code> を書いたか、<code>output.setText(currentValues());</code> より<strong>上</strong>にあるか確認する。</td></tr>
-<tr><td><code>output</code> が赤い（applyなどの中）</td><td><code>TextView output = findViewById(R.id.tv_output);</code> をonCreateの中に書いたか確認する。</td></tr>
+<tr><td><code>output</code> が赤い（applyなどの中）</td><td><code>var output = (TextView) findViewById(R.id.tv_output);</code> をonCreateの中に書いたか確認する。</td></tr>
 <tr><td>ボタンを押しても何も起きない</td><td>そのボタンの処理を追加したか、<code>R.id</code> の名前を取り違えていないか確認する。</td></tr>
 <tr><td>applyを押しても値が変わらない</td><td><code>editor.apply();</code> を書いたか確認する。putだけでは保存されない。</td></tr>
 <tr><td>アプリを終了すると値が消える</td><td>アプリのデータを消していないか確認する（設定 → アプリ → ストレージを消去）。エミュレータを作り直した場合も消える。</td></tr>
@@ -457,7 +457,7 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
 
-        TextView output = findViewById(R.id.tv_output);
+        var output = (TextView) findViewById(R.id.tv_output);
 
         // ファイル名を指定して、SharedPreferencesを取得する.
         prefs = getSharedPreferences(FILE_NAME, MODE_PRIVATE);

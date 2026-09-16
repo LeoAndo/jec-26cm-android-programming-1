@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
 
-        TextView output = findViewById(R.id.tv_output);
+        var output = (TextView) findViewById(R.id.tv_output);
 
         // ファイル名を指定して、SharedPreferencesを取得する.
         prefs = getSharedPreferences(FILE_NAME, MODE_PRIVATE);
