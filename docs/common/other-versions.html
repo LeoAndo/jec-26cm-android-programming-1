@@ -108,6 +108,38 @@
 <p>なお Quail 4 のひな形は、そのまま <code>assembleDebug</code> が通ることを確認しています。</p>
 </section>
 
+<section><h3>3-5. Javaのバージョンのこと（JVM / toolchainVersion / compileOptions）</h3>
+<p class="lede"><strong>先に結論です。教科書に出てくるJavaの書き方は、Quail 4 でもそのまま使えます。</strong></p>
+
+<h4>Javaは2か所で使われています</h4>
+<p>まぎらわしいのですが、Androidアプリ作りでは「Java」が2つの役割で出てきます。調べるときに使う言葉もあわせて載せます。</p>
+<table><thead><tr><th></th><th>どこで使うJavaか</th><th>設定の名前と場所</th></tr></thead><tbody>
+<tr><td>①</td><td><strong>自分が書くコード</strong>のJava。<code>MainActivity.java</code> に書く <code>var</code> やラムダ式など。</td><td><code>compileOptions</code> の <code>sourceCompatibility</code> / <code>targetCompatibility</code><br>（<code>app/build.gradle.kts</code>）</td></tr>
+<tr><td>②</td><td><strong>アプリを組み立てる道具（Gradle）を動かす</strong>ためのJava。この実行環境を <strong>JVM</strong> と呼びます。学生が直接書くことはありません。</td><td><code>toolchainVersion</code><br>（<code>gradle/gradle-daemon-jvm.properties</code>）</td></tr>
+</tbody></table>
+<p>Panda 2 と Quail 4 で違うのは、<strong>②のほうだけ</strong>です。</p>
+<table><thead><tr><th></th><th>Panda 2 | 2025.3.2</th><th>Quail 4</th></tr></thead><tbody>
+<tr><td>① 自分が書くコードのJava<br>（<code>compileOptions</code>）</td><td><code>JavaVersion.VERSION_11</code></td><td><strong><code>JavaVersion.VERSION_11</code>（同じ）</strong></td></tr>
+<tr><td>② Gradleを動かすJVM<br>（<code>toolchainVersion</code>）</td><td><code>21</code></td><td><strong><code>25</code></strong></td></tr>
+</tbody></table>
+<div class="check"><p class="box-title">だから、コードの書き方は変わりません</p><p>①の <code>compileOptions</code> が同じ Java 11 なので、<strong>教科書のコードをそのまま入力して大丈夫です。</strong>「Javaのバージョンが違うから書き方も変えないといけないのでは」と心配する必要はありません。</p></div>
+
+<h4>起きること：最初のビルドに時間がかかります（Gradle toolchain のダウンロード）</h4>
+<p><code>gradle/gradle-daemon-jvm.properties</code> には「②にどのバージョンを使うか」が <code>toolchainVersion</code> として書き込まれています。そのバージョンが自分のパソコンに無いと、<strong>Gradleが自動でダウンロードします</strong>（Gradle の <strong>toolchain 自動プロビジョニング</strong>という仕組みです）。</p>
+<p>授業で配る<strong>完成プロジェクトは <code>toolchainVersion=21</code></strong> です。Quail 4 が持っているのは25なので、完成プロジェクトを開くと<strong>JDK 21 のダウンロードが始まることがあります。</strong></p>
+<div class="note"><p class="box-title">こうなったときは、待ってください</p>
+<ul><li><strong>初回のビルドだけ、数分かかることがあります。</strong>止まってしまったわけではありません。</li>
+<li>このとき<strong>インターネットにつながっている必要があります。</strong>つながっていないと失敗します。</li>
+<li><strong>2回目からは速くなります。</strong>一度ダウンロードしたものが <code>~/.gradle/jdks</code> に保存され、使い回されるためです。</li></ul>
+<p>画面下のビルドの表示に <code>Downloading</code> や <code>toolchain</code> という文字が出ていれば、この待ち時間です。エラーを調べるときは <strong>Gradle toolchain</strong> や <strong>toolchain auto-provisioning</strong> という言葉で検索すると情報が見つかります。</p></div>
+<p>自分で新しく作ったプロジェクトのほうは、Quail 4 が自分の持っているバージョン（<code>toolchainVersion=25</code>）を書き込むので、このダウンロードは起きません。</p>
+
+<details><summary>先生向け：確認した内容</summary>
+<p>各プロジェクトの <code>gradle/gradle-daemon-jvm.properties</code> の <code>toolchainVersion</code> を比較しました。A01〜A09 と <code>Panda2JavaEmptyViewActivity</code> はすべて <code>21</code>、<code>Quail4JavaEmptyViewActivity</code> は <code>25</code> です。<code>app/build.gradle.kts</code> の <code>compileOptions</code> は、どちらも <code>sourceCompatibility</code> / <code>targetCompatibility</code> とも <code>JavaVersion.VERSION_11</code> で一致しています。</p>
+<p>JDK 25 が入っていないMacで <code>Quail4JavaEmptyViewActivity</code> をビルドしたところ、Gradleが Eclipse Adoptium 25.0.3 を <code>~/.gradle/jdks</code> へ自動取得したうえで <code>assembleDebug</code> が成功しました（2026年9月17日）。</p>
+</details>
+</section>
+
 <h2 id="stuck">4. それでも合わないとき</h2>
 
 <section><h3>4-1. 判断のしかた</h3>
@@ -121,7 +153,7 @@
 
 <section><h3>4-2. 確かめたこと・確かめていないこと</h3>
 <table><thead><tr><th></th><th>内容</th></tr></thead><tbody>
-<tr><td>確かめたこと</td><td>Quail 4 で作ったひな形プロジェクトと、Panda 2 のものを1ファイルずつ比べた（3-4の表）。Quail 4 のひな形が <code>assembleDebug</code> で通ることも確認した。</td></tr>
+<tr><td>確かめたこと</td><td>Quail 4 で作ったひな形プロジェクトと、Panda 2 のものを1ファイルずつ比べた（3-4の表）。Quail 4 のひな形が <code>assembleDebug</code> で通ること、そのときGradleが JDK 25 を自動取得したこと（3-5）も確認した。</td></tr>
 <tr><td>確かめていないこと</td><td><strong>各単元のSTEPを最後まで通して進めた動作は、Quail 4 では試していません。</strong>Quail 4 以外のバージョン（さらに新しい版など）も試していません。3-1〜3-3の読み替えは、一般的な注意点としてまとめたものです。</td></tr>
 </tbody></table>
 <div class="note"><p class="box-title">気づいたことを教えてください</p><p>ちがうバージョンで進めて気づいたことがあれば、<strong>先生に知らせてください。</strong>次の版でこのページに反映します。そのとき「<strong>Android Studioのバージョン</strong>」「<strong>起きたこと</strong>」「<strong>教科書のどのSTEPか</strong>」の3つを伝えてもらえると助かります。</p></div>
