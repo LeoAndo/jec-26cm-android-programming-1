@@ -13,12 +13,18 @@
         android:contentDescription="@null"
         android:src="@drawable/title_memo" />
 
-    <TextView
-        android:id="@+id/txt_memo_list"
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:background="#c0c0c0" />
+        android:fillViewport="true">
+
+        <TextView
+            android:id="@+id/txt_memo_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#c0c0c0" />
+    </ScrollView>
 
     <EditText
         android:id="@+id/edt_memo"
