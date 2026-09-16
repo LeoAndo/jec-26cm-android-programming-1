@@ -45,6 +45,38 @@
       ]
     }
   ],
+  "registration": {
+    "targets": [
+      {
+        "path": "README.md",
+        "requires": [
+          "student_doc",
+          "teacher_doc",
+          "archive"
+        ]
+      },
+      {
+        "path": "scripts/package-student-materials.py",
+        "requires": [
+          "student_doc",
+          "archive",
+          "guidance_line"
+        ]
+      }
+    ]
+  },
+  "project_layout": {
+    "gitignore_reference": "A01HelloAndroid/.gitignore",
+    "untracked_parts": [
+      ".idea",
+      ".gradle",
+      ".kotlin",
+      "build"
+    ],
+    "untracked_names": [
+      "local.properties"
+    ]
+  },
   "projects": [
     {
       "name": "A01HelloAndroid",

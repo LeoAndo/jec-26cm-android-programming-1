@@ -174,6 +174,74 @@ def check_project(root: Path, project: dict, errors: list[str]) -> None:
         add(errors, root, archive_path, 1, f"ZIPを読み込めません: {error}")
 
 
+
+
+def _split_unit(name: str) -> tuple[str, str]:
+    """A09MemoApp を ("A09", "MemoApp") に分ける。"""
+    match = re.match(r"^(A\d+)(.*)$", name)
+    return (match.group(1), match.group(2)) if match else (name, name)
+
+
+def check_registration(root: Path, config: dict, errors: list[str]) -> None:
+    """単元が設定・README・配布スクリプトのすべてに登録されているか確かめる。"""
+    setting = config.get("registration")
+    if not setting:
+        return
+    scan_roots = set(config["scan_roots"])
+    required_in = {name for term in config["terms"] for name in term.get("required_in", [])}
+    targets = []
+    for target in setting["targets"]:
+        path = root / target["path"]
+        if not path.is_file():
+            add(errors, root, target["path"], 1, "登録確認の対象ファイルがありません")
+            continue
+        targets.append((target["path"], read(path), target["requires"]))
+    for project in config["projects"]:
+        name = project["name"]
+        if project["root"] not in scan_roots:
+            add(errors, root, CONFIG.as_posix(), 1, f"{name}がscan_rootsにありません")
+        for doc in project["docs"]:
+            if doc not in required_in:
+                add(errors, root, CONFIG.as_posix(), 1, f"{name}の{doc}がterms.required_inにありません")
+        number, label = _split_unit(name)
+        paths = {
+            "student_doc": project["docs"][0],
+            "teacher_doc": project["docs"][1],
+            "archive": project["archive"],
+            # 案内文の1行。単元がどこか1か所だけ抜ける事故を捕まえる。
+            "guidance_line": f"{number} {label}：{project['docs'][0]}",
+        }
+        for shown, content, requires in targets:
+            for key in requires:
+                needed = paths[key]
+                if needed not in content:
+                    add(errors, root, shown, 1, f"{name}の{needed}への参照がありません")
+
+
+def check_project_layout(root: Path, config: dict, errors: list[str]) -> None:
+    """単元プロジェクトの.gitignoreと、追跡してはいけないファイルを確かめる。"""
+    setting = config.get("project_layout")
+    if not setting:
+        return
+    reference_path = root / setting["gitignore_reference"]
+    if not reference_path.is_file():
+        add(errors, root, setting["gitignore_reference"], 1, ".gitignoreの基準ファイルがありません")
+        return
+    reference = read(reference_path)
+    parts = set(setting.get("untracked_parts", []))
+    names = set(setting.get("untracked_names", []))
+    for project in config["projects"]:
+        path = root / project["root"] / ".gitignore"
+        if not path.is_file():
+            add(errors, root, path, 1, ".gitignoreがありません")
+        elif read(path) != reference:
+            add(errors, root, path, 1, f"{setting['gitignore_reference']}と内容が異なります")
+        for name in tracked_files(root, project["root"]):
+            tracked = Path(name)
+            if parts.intersection(tracked.parts) or tracked.name in names:
+                add(errors, root, name, 1, "Git管理してはいけないファイルです")
+
+
 def validate(root: Path) -> list[str]:
     config_path = root / CONFIG
     if not config_path.is_file():
@@ -184,6 +252,8 @@ def validate(root: Path) -> list[str]:
         return [f"{CONFIG}:1: 設定ファイルを読み込めません: {error}"]
     errors: list[str] = []
     check_terms(root, config, errors)
+    check_registration(root, config, errors)
+    check_project_layout(root, config, errors)
     for project in config["projects"]:
         check_project(root, project, errors)
     return errors
