@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="ja">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>開発Tips：画面の余白 | Androidプログラミング1</title>
+<link rel="stylesheet" href="../assets/textbook.css"><script src="../assets/textbook.js" defer></script></head>
+<body class="plain"><a class="skip" href="#main">本文へ移動</a>
+<header class="topbar"><span class="brand">JEC / Androidプログラミング1</span><a href="../hello-android/index.html">HelloAndroidの教科書へ戻る</a></header>
+<main id="main"><div class="hero"><p class="eyebrow">ANDROID PROGRAMMING 1 / 共通資料・授業サポート</p><h1>開発Tips：画面の余白</h1><p class="lede">部品が画面の端にくっつく。Previewでは余白があるのに実機では消える。その理由と直し方です。</p></div>
+
+<section><h2>1. 何が起きているか</h2>
+<p>授業で作るアプリには、どの単元にも次のコードがあります。プロジェクトを新規作成したときにAndroid Studioが入れるコードです。</p>
+<div class="code-head">MainActivity.java · どの単元にもあるひな形</div><pre tabindex="0"><code>ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -&gt; {
+    Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
+    v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
+    return insets;
+});</code></pre>
+<p>これは、画面の上の時計や電池が並ぶ帯（ステータスバー）と、下の帯（ナビゲーションバー）に部品が隠れないよう、<code>@+id/main</code> の部品に余白を入れる処理です。</p>
+<p>大事なのは <code>setPadding</code> の動きです。<strong>足し算ではなく、置き換えです。</strong>もともと入っていた余白は、この行が動いた時点で消えます。</p>
+<div class="note"><p class="box-title">だから、ここに書いた余白は消えます</p><p>レイアウトの一番外側（<code>@+id/main</code> が付いた部品）に <code>android:padding</code> を書いても、実機では <code>setPadding</code> に上書きされます。縦向きの端末では左右のシステムバーが <code>0</code> なので、<strong>左右の余白は0になり、部品が画面の端にくっつきます</strong>。</p></div>
+<div class="check"><p class="box-title">見分け方</p><p>Android Studioの<strong>Previewには余白が見えるのに、Runすると消える</strong>。これならこの現象です。Previewはレイアウトだけを描くので、<code>setPadding</code> が動かないためです。</p></div></section>
+
+<section><h2>2. 余白を入れたいとき</h2>
+<p>3つのやり方があります。授業のアプリでは<strong>方法1</strong>がいちばん簡単です。</p>
+
+<h3>方法1：部品のほうに <code>layout_margin</code> を書く（おすすめ）</h3>
+<p>一番外側ではなく、<strong>中の部品</strong>に余白を指定します。<code>setPadding</code> が書き換えるのは一番外側の部品だけなので、中の部品の指定は消えません。</p>
+<div class="code-head">activity_main.xml · 中のボタンに余白を付ける</div><pre tabindex="0"><code>&lt;Button
+    android:id="@+id/btn_start"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_margin="12dp"
+    android:text="スタート" /&gt;</code></pre>
+<table><thead><tr><th>書き方</th><th>意味</th></tr></thead><tbody>
+<tr><td><code>android:layout_margin="12dp"</code></td><td>上下左右に12dpの余白。</td></tr>
+<tr><td><code>android:layout_marginHorizontal="12dp"</code></td><td>左右だけに余白。</td></tr>
+<tr><td><code>android:layout_marginTop="12dp"</code></td><td>上だけに余白。</td></tr>
+</tbody></table>
+<p><code>padding</code> は「部品の内側」、<code>margin</code> は「部品の外側」の余白です。ボタンの文字とボタンの枠のすき間を広げたいときは <code>padding</code>、ボタンと画面の端のすき間を空けたいときは <code>margin</code> を使います。</p>
+
+<h3>方法2：一番外側の内側に、もう1つ入れ物を置く</h3>
+<p>部品が多くて1つずつ指定するのが大変なときは、<code>@+id/main</code> の<strong>内側</strong>にもう1つ <code>LinearLayout</code> を置き、そちらに <code>padding</code> を書きます。書き換えられるのは外側だけなので、内側の余白は残ります。</p>
+<div class="code-head">activity_main.xml · 入れ物を2重にする</div><pre tabindex="0"><code>&lt;LinearLayout
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"&gt;
+
+    &lt;LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="12dp"&gt;
+
+        &lt;!-- ここに部品を並べる --&gt;
+
+    &lt;/LinearLayout&gt;
+&lt;/LinearLayout&gt;</code></pre>
+<p>入れ物が1つ増えるぶん、XMLは読みにくくなります。部品が少ないうちは方法1で足ります。</p>
+
+<h3>方法3：ひな形のコードを書き換える</h3>
+<p>ひな形の <code>setPadding</code> に、自分の余白を足して渡します。<strong>授業では使いません。</strong>ひな形のコードは単元を通して同じ形で説明しているためです。参考として、書き方だけ示します。</p>
+<div class="code-head">MainActivity.java · 参考</div><pre tabindex="0"><code>ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -&gt; {
+    Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
+    var extra = (int) (12 * getResources().getDisplayMetrics().density); // 12dpをピクセルに直す
+    v.setPadding(systemBars.left + extra, systemBars.top + extra,
+            systemBars.right + extra, systemBars.bottom + extra);
+    return insets;
+});</code></pre>
+<p>XMLの <code>12dp</code> は、端末ごとの細かさに合わせてピクセルに直す必要があります。Javaでは自動で直らないため、この1行が増えます。</p>
+</section>
+
+<section><h2>3. まとめ</h2>
+<table><thead><tr><th>やりたいこと</th><th>どこに書くか</th></tr></thead><tbody>
+<tr><td>部品と画面の端のすき間を空けたい</td><td>その部品に <code>android:layout_margin</code>（方法1）</td></tr>
+<tr><td>画面全体に同じ余白を入れたい</td><td>内側にもう1つ入れ物を置き、そこに <code>android:padding</code>（方法2）</td></tr>
+<tr><td>一番外側（<code>@+id/main</code>）に <code>android:padding</code></td><td><strong>効きません。</strong>実機では消えます</td></tr>
+</tbody></table>
+<p>授業で配られる完成プロジェクトでは、一番外側に <code>android:padding</code> を書いていません。効かない指定を残すと、Previewと実機で見た目が食い違い、原因を探すのが難しくなるためです。</p>
+</section>
+
+<section><h2>公式資料</h2><p><a href="https://developer.android.com/develop/ui/views/layout/edge-to-edge?hl=ja">Android Developers：アプリでedge-to-edgeを表示する</a>／<a href="https://developer.android.com/develop/ui/views/layout/declare-layout?hl=ja">レイアウトを作成する</a></p></section>
+
+<footer class="footer"><p><a href="../hello-android/index.html">← HelloAndroidの教科書へ戻る</a></p><p>対象：macOS / Android Studio Panda 2 | 2025.3.2 · 確認日：2026年9月16日</p></footer></main>
+<p class="sr-only" role="status" aria-live="polite" data-copy-status></p></body></html>

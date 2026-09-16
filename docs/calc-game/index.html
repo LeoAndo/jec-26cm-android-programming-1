@@ -20,7 +20,7 @@
 <li><a href="#step-10">10　ミニ練習</a></li>
 <li><a href="#step-11">11　完成とふり返り</a></li></ol></nav>
 <div class="progress"><span data-progress-label>0 / 12 ステップ確認済み</span><progress value="0" max="12" aria-label="学習の進み具合"></progress><span class="muted">自分用のチェックです。</span></div>
-<div class="resources"><a href="#help">困ったとき</a><a href="#sample-project">完成プロジェクトを開く</a><a href="../hello-android/index.html">A01：HelloAndroid</a><a href="../common/emulator.html">共通：エミュレータ</a><a href="../common/auto-import.html">共通：Auto Import</a><a href="../common/logcat.html">共通：Logcat</a><a href="../common/apk.html">共通：APKの提出</a></div>
+<div class="resources"><a href="#help">困ったとき</a><a href="#sample-project">完成プロジェクトを開く</a><a href="../hello-android/index.html">A01：HelloAndroid</a><a href="../common/emulator.html">共通：エミュレータ</a><a href="../common/auto-import.html">共通：Auto Import</a><a href="../common/logcat.html">共通：Logcat</a><a href="../common/apk.html">共通：APKの提出</a><a href="../common/dev-tips.html">共通：開発Tips</a></div>
 </div></aside><main id="main"><div class="hero"><span class="unit">02</span><p class="eyebrow">CALC GAME</p>
 <h1>計算ゲームを<br>作ろう</h1><p class="lede">時間を計る。問題を出す。答えを比べる。<br>ボタンの処理をつなげて、10問のゲームへ。</p>
 <div class="tags"><span>Java / XML</span><span>A01の次の単元</span><span>90分 × 3コマ目安</span><span>Macで学ぶ</span></div></div>
@@ -268,36 +268,40 @@
 
 <p class="file">変更するファイル：MainActivity.java</p>
 <p>ゲームでは、ボタンを押していない間も「今は何問目か」を覚えておきます。<strong>フィールド</strong>は、クラスの中で値を覚えておく変数です。</p>
-<h3>① クラスの中、onCreateの外に5行追加</h3>
+<h3>① クラスの中、onCreateの外に6行追加</h3>
 <p><code>public class MainActivity extends AppCompatActivity {</code> のすぐ下、<code>@Override</code> より上に追加します。</p>
 <div class="code-head">追加 · MainActivityのフィールド</div>
 <pre id="code-fields" tabindex="0"><code>private int nowNo = 1; // 今の問題が何問目かのカウント数
 private int correctNo; // 正解数
 private int answer; // 計算結果の答え
 private long elapsedTimeMillis; // タイマーの経過時間(ms)
-private boolean isPlaying = false; // ゲーム中かどうかのフラグ (Chronometer#mStartedフラグを取得できないため用意)</code></pre>
+private boolean isPlaying = false; // ゲーム中かどうかのフラグ (Chronometer#mStartedフラグを取得できないため用意)
+private TextView txtMessage; // メッセージの表示欄。onCreate以外のメソッドからも使うためフィールドにする</code></pre>
 <table><thead><tr><th>名前</th><th>初期値</th><th>覚えるもの</th></tr></thead><tbody>
 <tr><td>nowNo</td><td>1</td><td>今の問題番号。1問目から始める。</td></tr>
 <tr><td>correctNo</td><td>0</td><td>正解した回数。</td></tr>
 <tr><td>answer</td><td>0</td><td>今表示している問題の答え。出題時に更新する。</td></tr>
 <tr><td>elapsedTimeMillis</td><td>0</td><td>停止した時点までの時間（ミリ秒）。</td></tr>
 <tr><td>isPlaying</td><td>false</td><td>回答を受け付けるか。trueはゲーム中、falseはそれ以外。</td></tr>
+<tr><td>txtMessage</td><td>なし</td><td>メッセージの表示欄。STEP 06で作る <code>startQuestion</code> からも使うため、ここで覚えておく。</td></tr>
 </tbody></table>
 
 <p><code>int</code> は整数、<code>long</code> は時間などの大きな整数、<code>boolean</code> は <code>true</code> / <code>false</code> を入れる型です。数値のフィールドは初期値を書かないと0になります。<code>private</code> は、このクラスの中で使う指定です。</p>
 <p>フィールドには <code>var</code> を使えません。A01で使った <code>var</code> は、メソッド内などのローカル変数に使います。</p>
+<p><code>txtMessage</code> だけ画面の部品です。<code>onCreate</code> の中だけで使う部品はローカル変数で足りますが、これはSTEP 06で作る別のメソッドからも使うため、フィールドにします。</p>
 <h3>② 画面の部品を取得する</h3>
 <p><code>onCreate</code> の中で、ひな形の <code>return insets;</code> に続く <code>});</code> の下、<code>onCreate</code> を閉じる <code>}</code> より上に追加します。</p>
 <div class="code-head">追加 · onCreateの中</div>
 <pre id="code-views" tabindex="0"><code>var chronometer = (Chronometer) findViewById(R.id.chronometer);
-var txtMessage = (TextView) findViewById(R.id.txt_message);
+txtMessage = (TextView) findViewById(R.id.txt_message);
 var btnStart = findViewById(R.id.btn_start);
 var btnStop = findViewById(R.id.btn_stop);
 var btnReset = findViewById(R.id.btn_reset);</code></pre>
 
+<p><code>txtMessage</code> の行だけ <code>var</code> が付きません。①で作ったフィールドに入れるためです。ほかの4つは <code>onCreate</code> の中だけで使うので、<code>var</code> のローカル変数にします。</p>
 <p><code>(Chronometer)</code> と <code>(TextView)</code> は、それぞれの部品の機能を使う指定です。操作ボタンは、Viewが持つクリック登録と有効・無効の切り替えだけを使うため、ここではキャストしていません。</p>
 <p>Auto Importで <code>android.widget.Chronometer</code> と <code>android.widget.TextView</code> を追加します。赤字が残るときは名前にカーソルを置いて <kbd>⌥ Enter</kbd> で候補を確認します。</p>
-<div class="note"><p class="box-title">追加場所を指さして確認</p><p>5つのフィールドは <strong>onCreateの外</strong>、5つの部品を取得する行は <strong>onCreateの中</strong> です。Runして画面が変わらなくても成功です。</p></div>
+<div class="note"><p class="box-title">追加場所を指さして確認</p><p>6つのフィールドは <strong>onCreateの外</strong>、5つの部品を取得する行は <strong>onCreateの中</strong> です。Runして画面が変わらなくても成功です。</p></div>
 <div class="note"><p class="box-title">1コマ目はここまで</p><p>保存してからもう一度Runします。先生に <code>nowNo</code> と <code>correctNo</code> の役割を説明しましょう。次回も自分の <code>Documents/Android1/A02CalcGame</code> を開きます。</p></div>
 <div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-4"><span>フィールドとローカル変数の場所を区別し、5つの値の役割を表で確認した。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
 <div class="next"><a href="#step-5">次へ：開始・停止・リセット →</a></div>
@@ -386,7 +390,7 @@ private void startQuestion() {
     // var randomNumber = RandomGenerator.getDefault().nextInt(1, 10); // API Level 35から利用可能. OSバージョンの分岐は使わない
     answer = 10 - randomNumber;
     var message = nowNo + &quot;問目: 10 - &quot; + randomNumber + &quot; =&quot;;
-    ((TextView) findViewById(R.id.txt_message)).setText(message);
+    txtMessage.setText(message);
 }</code></pre>
 
 <p><code>java.util.concurrent.ThreadLocalRandom</code> をimportします。<code>nextInt(1, 10)</code> は <strong>1以上、10未満</strong>の整数を選ぶので、1〜9が出ます。<code>answer = 10 - randomNumber;</code> で答えも1〜9になります。</p>
@@ -601,6 +605,7 @@ public class MainActivity extends AppCompatActivity {
     private int answer; // 計算結果の答え
     private long elapsedTimeMillis; // タイマーの経過時間(ms)
     private boolean isPlaying = false; // ゲーム中かどうかのフラグ (Chronometer#mStartedフラグを取得できないため用意)
+    private TextView txtMessage; // メッセージの表示欄。onCreate以外のメソッドからも使うためフィールドにする
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -615,7 +620,7 @@ public class MainActivity extends AppCompatActivity {
 
         // Viewのインスタンスを取得する
         var chronometer = (Chronometer) findViewById(R.id.chronometer);
-        var txtMessage = (TextView) findViewById(R.id.txt_message);
+        txtMessage = (TextView) findViewById(R.id.txt_message);
         var btnStart = findViewById(R.id.btn_start);
         var btnStop = findViewById(R.id.btn_stop);
         var btnReset = findViewById(R.id.btn_reset);
@@ -701,7 +706,7 @@ public class MainActivity extends AppCompatActivity {
         // var randomNumber = RandomGenerator.getDefault().nextInt(1, 10); // API Level 35から利用可能. OSバージョンの分岐は使わない
         answer = 10 - randomNumber;
         var message = nowNo + &quot;問目: 10 - &quot; + randomNumber + &quot; =&quot;;
-        ((TextView) findViewById(R.id.txt_message)).setText(message);
+        txtMessage.setText(message);
     }
 }</code></pre>
 </details>

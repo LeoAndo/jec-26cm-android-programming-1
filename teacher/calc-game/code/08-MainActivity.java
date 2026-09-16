@@ -20,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
     private int answer; // 計算結果の答え
     private long elapsedTimeMillis; // タイマーの経過時間(ms)
     private boolean isPlaying = false; // ゲーム中かどうかのフラグ (Chronometer#mStartedフラグを取得できないため用意)
+    private TextView txtMessage; // メッセージの表示欄。onCreate以外のメソッドからも使うためフィールドにする
 
 
     @Override
@@ -34,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         var chronometer = (Chronometer) findViewById(R.id.chronometer);
-        var txtMessage = (TextView) findViewById(R.id.txt_message);
+        txtMessage = (TextView) findViewById(R.id.txt_message);
         var btnStart = findViewById(R.id.btn_start);
         var btnStop = findViewById(R.id.btn_stop);
         var btnReset = findViewById(R.id.btn_reset);
@@ -109,6 +110,6 @@ public class MainActivity extends AppCompatActivity {
         // var randomNumber = RandomGenerator.getDefault().nextInt(1, 10); // API Level 35から利用可能. OSバージョンの分岐は使わない
         answer = 10 - randomNumber;
         var message = nowNo + "問目: 10 - " + randomNumber + " =";
-        ((TextView) findViewById(R.id.txt_message)).setText(message);
+        txtMessage.setText(message);
     }
 }
