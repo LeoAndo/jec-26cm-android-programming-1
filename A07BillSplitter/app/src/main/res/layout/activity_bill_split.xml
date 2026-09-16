@@ -24,7 +24,7 @@
             android:id="@+id/txt_total_amount"
             android:layout_width="100dp"
             android:layout_height="wrap_content"
-            tools:text="支払額（￥）" />
+            android:text="支払額（￥）" />
 
         <EditText
             android:id="@+id/edt_total_amount"

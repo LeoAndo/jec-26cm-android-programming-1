@@ -29,8 +29,12 @@ public class MainActivity extends AppCompatActivity {
 
         var participants = new ArrayList<String>();
 
-        findViewById(R.id.btn_add).setOnClickListener(v -> {
-            var edtParticipantName = (EditText) findViewById(R.id.edt_participant_name);
+        var edtParticipantName = (EditText) findViewById(R.id.edt_participant_name);
+        var txtParticipantList = (TextView) findViewById(R.id.txt_participant_list);
+        var btnAdd = findViewById(R.id.btn_add);
+        var btnBillSplit = findViewById(R.id.btn_bill_split);
+
+        btnAdd.setOnClickListener(v -> {
             var participantName = edtParticipantName.getText().toString();
             if (participantName.isEmpty()) {
                 Snackbar.make(v, "参加者名を入力してください", Snackbar.LENGTH_SHORT).show();
@@ -42,12 +46,11 @@ public class MainActivity extends AppCompatActivity {
             }
 
             participants.add(participantName);
-            var txtParticipantList = (TextView) findViewById(R.id.txt_participant_list);
             txtParticipantList.append(participantName + "\n");
             edtParticipantName.setText("");
         });
 
-        findViewById(R.id.btn_bill_split).setOnClickListener(v -> {
+        btnBillSplit.setOnClickListener(v -> {
             if (participants.size() < 2) {
                 Snackbar.make(v, "参加者を2人以上追加してください", Snackbar.LENGTH_SHORT).show();
                 return;
