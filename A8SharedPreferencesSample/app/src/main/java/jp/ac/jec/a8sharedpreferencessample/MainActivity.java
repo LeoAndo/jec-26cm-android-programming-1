@@ -17,6 +17,14 @@ import java.nio.file.Files;
 import java.util.Set;
 
 public class MainActivity extends AppCompatActivity {
+    private static final String FILE_NAME = "app";
+    private static final String INT_VALUE = "int_value";
+    private static final String BOOLEAN_VALUE = "boolean_value";
+    private static final String FLOAT_VALUE = "float_value";
+    private static final String LONG_VALUE = "long_value";
+    private static final String STRING_VALUE = "string_value";
+    private static final String STRING_SET_VALUE = "string_set_value";
+
     private SharedPreferences prefs;
 
     @Override
@@ -33,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
         TextView output = findViewById(R.id.tv_output);
 
         // ファイル名を指定して、SharedPreferencesを取得する.
-        prefs = getSharedPreferences(PrefKeys.FILE_NAME, MODE_PRIVATE);
+        prefs = getSharedPreferences(FILE_NAME, MODE_PRIVATE);
 
         // 保存されているデータを表示する.
         // アプリを終了してから開き直しても、データが残っていることを確認できる.
@@ -42,12 +50,12 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.btn_apply).setOnClickListener(v -> {
             // データを保存するときは、edit()でEditorを取得する.
             var editor = prefs.edit();
-            editor.putInt(PrefKeys.INT_VALUE, 1);
-            editor.putString(PrefKeys.STRING_VALUE, "Hello");
-            editor.putBoolean(PrefKeys.BOOLEAN_VALUE, true);
-            editor.putFloat(PrefKeys.FLOAT_VALUE, 1.0f);
-            editor.putLong(PrefKeys.LONG_VALUE, 1L);
-            editor.putStringSet(PrefKeys.STRING_SET_VALUE, Set.of("Hello", "World"));
+            editor.putInt(INT_VALUE, 1);
+            editor.putString(STRING_VALUE, "Hello");
+            editor.putBoolean(BOOLEAN_VALUE, true);
+            editor.putFloat(FLOAT_VALUE, 1.0f);
+            editor.putLong(LONG_VALUE, 1L);
+            editor.putStringSet(STRING_SET_VALUE, Set.of("Hello", "World"));
             // apply()を呼ぶまでは保存されない. 戻り値で成功したかどうかが分からない.
             editor.apply();
             output.setText(currentValues());
@@ -73,12 +81,12 @@ public class MainActivity extends AppCompatActivity {
      * データがない場合は、getXxx()の第2引数に渡した初期値が返る.
      */
     private String currentValues() {
-        return PrefKeys.INT_VALUE + " = " + prefs.getInt(PrefKeys.INT_VALUE, 0) + "\n"
-                + PrefKeys.STRING_VALUE + " = " + prefs.getString(PrefKeys.STRING_VALUE, "") + "\n"
-                + PrefKeys.BOOLEAN_VALUE + " = " + prefs.getBoolean(PrefKeys.BOOLEAN_VALUE, false) + "\n"
-                + PrefKeys.FLOAT_VALUE + " = " + prefs.getFloat(PrefKeys.FLOAT_VALUE, 0) + "\n"
-                + PrefKeys.LONG_VALUE + " = " + prefs.getLong(PrefKeys.LONG_VALUE, 0) + "\n"
-                + PrefKeys.STRING_SET_VALUE + " = " + prefs.getStringSet(PrefKeys.STRING_SET_VALUE, Set.of());
+        return INT_VALUE + " = " + prefs.getInt(INT_VALUE, 0) + "\n"
+                + STRING_VALUE + " = " + prefs.getString(STRING_VALUE, "") + "\n"
+                + BOOLEAN_VALUE + " = " + prefs.getBoolean(BOOLEAN_VALUE, false) + "\n"
+                + FLOAT_VALUE + " = " + prefs.getFloat(FLOAT_VALUE, 0) + "\n"
+                + LONG_VALUE + " = " + prefs.getLong(LONG_VALUE, 0) + "\n"
+                + STRING_SET_VALUE + " = " + prefs.getStringSet(STRING_SET_VALUE, Set.of());
     }
 
     /**
@@ -86,7 +94,7 @@ public class MainActivity extends AppCompatActivity {
      * 自分のアプリのデータなので、特別な権限なしで読める.
      */
     private String readPrefsXml() {
-        var file = new File(getApplicationInfo().dataDir, "shared_prefs/" + PrefKeys.FILE_NAME + ".xml");
+        var file = new File(getApplicationInfo().dataDir, "shared_prefs/" + FILE_NAME + ".xml");
         if (!file.exists()) {
             return file.getAbsolutePath() + "\n\n(file not found)";
         }
