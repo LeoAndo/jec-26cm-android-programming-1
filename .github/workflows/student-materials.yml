@@ -47,7 +47,10 @@ jobs:
         run: python3 -m unittest discover -s scripts -p 'test_*.py' -v
       - name: 学生用教材ZIPの生成とリンク確認
         run: python3 scripts/package-student-materials.py
+      # PRではprepare-releaseが動かないため、この成果物を使う側がいない。生成と
+      # リンク確認だけ行い、保存はmainとworkflow_dispatchのときだけにする。
       - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        if: github.event_name != 'pull_request'
         with:
           name: student-materials-package-${{ github.run_id }}
           overwrite: true
