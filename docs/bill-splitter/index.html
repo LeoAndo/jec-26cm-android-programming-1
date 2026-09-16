@@ -20,7 +20,7 @@
 <li><a href="#step-10">10　ミニ練習</a></li>
 <li><a href="#step-11">11　完成とふり返り</a></li></ol></nav>
 <div class="progress"><span data-progress-label>0 / 12 ステップ確認済み</span><progress value="0" max="12" aria-label="学習の進み具合"></progress><span class="muted">自分用のチェックです。</span></div>
-<div class="resources"><a href="#help">困ったとき</a><a href="#why-check">解説：なぜ画面側でチェックするのか</a><a href="#how-split">解説：1円の端数はだれが払う？</a><a href="#sample-project">完成プロジェクトを開く</a><a href="../hello-android/index.html">A01：HelloAndroid</a><a href="../calc-game/index.html">A02：CalcGame</a><a href="../rock-paper-scissors-game/index.html">A03：RockPaperScissorsGame</a><a href="../webview-app/index.html">A04：WebViewApp</a><a href="../bomb-game/index.html">A05：BombGame</a><a href="../screen-transition-sample/index.html">A06：ScreenTransitionSample</a><a href="../common/emulator.html">共通：エミュレータ</a><a href="../common/auto-import.html">共通：Auto Import</a><a href="../common/logcat.html">共通：Logcat</a><a href="../common/apk.html">共通：APKの提出</a><a href="../common/dev-tips.html">共通：開発Tips</a></div>
+<div class="resources"><a href="#help">困ったとき</a><a href="#why-check">解説：なぜ画面側でチェックするのか</a><a href="#how-split">解説：1円の端数はだれが払う？</a><a href="#sample-project">完成プロジェクトを開く</a><a href="../hello-android/index.html">A01：HelloAndroid</a><a href="../calc-game/index.html">A02：CalcGame</a><a href="../rock-paper-scissors-game/index.html">A03：RockPaperScissorsGame</a><a href="../webview-app/index.html">A04：WebViewApp</a><a href="../bomb-game/index.html">A05：BombGame</a><a href="../screen-transition-sample/index.html">A06：ScreenTransitionSample</a><a href="../common/emulator.html?from=bill-splitter">共通：エミュレータ</a><a href="../common/auto-import.html?from=bill-splitter">共通：Auto Import</a><a href="../common/logcat.html?from=bill-splitter">共通：Logcat</a><a href="../common/apk.html?from=bill-splitter">共通：APKの提出</a><a href="../common/dev-tips.html?from=bill-splitter">共通：開発Tips</a></div>
 </div></aside><main id="main"><div class="hero"><span class="unit">07</span><p class="eyebrow">BILL SPLITTER</p>
 <h1>割り勘アプリを<br>作ろう</h1><p class="lede">参加者を登録する。金額を入れる。1円もずれずに分ける。<br>A06で学んだ「配列を渡す」を、使えるアプリにします。</p>
 <div class="tags"><span>Java / XML</span><span>A06の次の単元</span><span>90分 × 3コマ目安</span><span>Macで学ぶ</span></div></div>
@@ -63,7 +63,7 @@
 </tbody></table>
 <figure><a href="images/project-settings.png"><img src="images/project-settings.png" width="1806" height="1350" loading="lazy" alt="New Projectの設定画面。NameにA07BillSplitter、Package nameにjp.ac.jec.a07billsplitter、LanguageにJava、Minimum SDKにAPI 31が入っている"></a><figcaption>入力後の画面。画像の保存先は先生の環境のものです。自分のDocuments以下を指定します。 <a href="images/project-settings.png">画像を大きく開く</a></figcaption></figure>
 <ol start="4"><li>Sync（歯車の読み込み）が終わるまで待ちます。</li><li>端末欄で <strong>jec_26cm_android1_Pixel 9a</strong> を選び、<strong>Run</strong>（▶）を押します。白い画面に <strong>Hello World!</strong> が出れば成功です。</li></ol>
-<p>エミュレータが出てこないときは<a href="../common/emulator.html">共通資料：エミュレータ</a>を見ます。</p>
+<p>エミュレータが出てこないときは<a href="../common/emulator.html?from=bill-splitter">共通資料：エミュレータ</a>を見ます。</p>
 <div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-1"><span>自分の保存先にA07BillSplitterを作り、Hello World!を表示できた。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
 <div class="next"><a href="#step-2">次へ：タイトル画像を入れる →</a></div></section>
 
@@ -159,7 +159,7 @@ var btnAdd = findViewById(R.id.btn_add);
 var btnBillSplit = findViewById(R.id.btn_bill_split);</code></pre>
 <p><code>ArrayList</code> は、あとから増やせる入れ物です。ここに参加者の名前をためます。</p>
 <p><code>findViewById</code> は <code>onCreate</code> の最初にまとめて書きます。あとから何度も呼ばずに済み、どの部品を使うアプリなのかが上から読めます。</p>
-<p>赤い字になったら <kbd>⌥ Enter</kbd> を押し、<code>java.util.ArrayList</code>・<code>android.widget.EditText</code>・<code>android.widget.TextView</code> を選びます。<a href="../common/auto-import.html">共通資料：Auto Import</a>も見ます。</p>
+<p>赤い字になったら <kbd>⌥ Enter</kbd> を押し、<code>java.util.ArrayList</code>・<code>android.widget.EditText</code>・<code>android.widget.TextView</code> を選びます。<a href="../common/auto-import.html?from=bill-splitter">共通資料：Auto Import</a>も見ます。</p>
 <h3>② 登録ボタンの処理を書く</h3>
 <div class="code-head">MainActivity.java · ①の下</div>
 <pre tabindex="0"><code>btnAdd.setOnClickListener(v -&gt; {
@@ -569,7 +569,7 @@ txtParticipantList.setText(result);</code></pre>
 </tbody></table>
 <h3>ふり返り</h3>
 <ol><li>A06で学んだ「配列を渡す」を、どこで使いましたか。</li><li>キーの文字（<code>"participants"</code>）を、受け取る側に置いたのはなぜですか。</li><li>入力チェックを計算クラスではなく画面側に書いたのはなぜですか。</li></ol>
-<p>提出のしかたは<a href="../common/apk.html">共通資料：APKの提出</a>を見ます。</p><div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-11"><span>完成チェックを終え、配列の受け渡し・キーの定数を受け取る側に置く理由・入力チェックを画面側に書く理由を説明できた。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
+<p>提出のしかたは<a href="../common/apk.html?from=bill-splitter">共通資料：APKの提出</a>を見ます。</p><div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-11"><span>完成チェックを終え、配列の受け渡し・キーの定数を受け取る側に置く理由・入力チェックを画面側に書く理由を説明できた。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
 </section>
 
 <section id="help"><h2>困ったとき</h2><table><thead><tr><th>困ったこと</th><th>最初に確認する場所</th></tr></thead><tbody>
@@ -588,7 +588,7 @@ txtParticipantList.setText(result);</code></pre>
 <tr><td>名前の入力中に候補が出て、ボタンが押せない</td><td>キーボードの候補が重なっている。候補以外の場所をタップしてから押す。</td></tr>
 <tr><td>直したのに動きが変わらない</td><td>ウィンドウの保存先が <code>Documents/Android1/A07BillSplitter</code> か確認。samples側を開いていないか見る。</td></tr>
 </tbody></table>
-<p><a href="../common/logcat.html">共通資料：Logcat</a>を使います。今回のパッケージは <code>jp.ac.jec.a07billsplitter</code> です。エラーを見るときは <code>package:jp.ac.jec.a07billsplitter level:ERROR</code> にします。前の単元のパッケージ名も残さないようにします。</p>
+<p><a href="../common/logcat.html?from=bill-splitter">共通資料：Logcat</a>を使います。今回のパッケージは <code>jp.ac.jec.a07billsplitter</code> です。エラーを見るときは <code>package:jp.ac.jec.a07billsplitter level:ERROR</code> にします。前の単元のパッケージ名も残さないようにします。</p>
 <p>質問では「STEP番号・編集したファイル・最初の赤い行・押した順番」を伝えます。</p></section>
 
 <section id="sample-project"><h2>完成プロジェクトを開く</h2>

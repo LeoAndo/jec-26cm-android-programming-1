@@ -62,6 +62,16 @@
     document.querySelectorAll('main section[id]').forEach(section => observer.observe(section));
   }
 
+  // 共通資料の「もとの教科書へ戻る」は、開く前に見ていた単元へ戻す。
+  // 単元側のリンクが ?from=<単元フォルダ名> を付けている。
+  // 付いていないとき（共通資料を直接開いたとき）は、hrefのリンク先をそのまま使う。
+  const backTo = new URLSearchParams(window.location.search).get('from');
+  if (backTo && /^[a-z0-9-]+$/.test(backTo)) {
+    document.querySelectorAll('a[data-back]').forEach(link => {
+      link.setAttribute('href', `../${backTo}/index.html`);
+    });
+  }
+
   let closedForScreen = [];
   window.addEventListener('beforeprint', () => {
     closedForScreen = [...document.querySelectorAll('details:not([open])')];

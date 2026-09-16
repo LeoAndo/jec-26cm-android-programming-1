@@ -20,7 +20,7 @@
 <li><a href="#step-10">10　ミニ練習</a></li>
 <li><a href="#step-11">11　完成とふり返り</a></li></ol></nav>
 <div class="progress"><span data-progress-label>0 / 12 ステップ確認済み</span><progress value="0" max="12" aria-label="学習の進み具合"></progress><span class="muted">自分用のチェックです。</span></div>
-<div class="resources"><a href="#help">困ったとき</a><a href="#key-in-test-activity">解説：キーの定数が、なぜ受け取る側のTestActivityにある？</a><a href="#common-way">解説：実際によく使う渡し方は？</a><a href="#sample-project">完成プロジェクトを開く</a><a href="../hello-android/index.html">A01：HelloAndroid</a><a href="../calc-game/index.html">A02：CalcGame</a><a href="../rock-paper-scissors-game/index.html">A03：RockPaperScissorsGame</a><a href="../webview-app/index.html">A04：WebViewApp</a><a href="../bomb-game/index.html">A05：BombGame</a><a href="../common/emulator.html">共通：エミュレータ</a><a href="../common/auto-import.html">共通：Auto Import</a><a href="../common/logcat.html">共通：Logcat</a><a href="../common/apk.html">共通：APKの提出</a><a href="../common/dev-tips.html">共通：開発Tips</a></div>
+<div class="resources"><a href="#help">困ったとき</a><a href="#key-in-test-activity">解説：キーの定数が、なぜ受け取る側のTestActivityにある？</a><a href="#common-way">解説：実際によく使う渡し方は？</a><a href="#sample-project">完成プロジェクトを開く</a><a href="../hello-android/index.html">A01：HelloAndroid</a><a href="../calc-game/index.html">A02：CalcGame</a><a href="../rock-paper-scissors-game/index.html">A03：RockPaperScissorsGame</a><a href="../webview-app/index.html">A04：WebViewApp</a><a href="../bomb-game/index.html">A05：BombGame</a><a href="../common/emulator.html?from=screen-transition-sample">共通：エミュレータ</a><a href="../common/auto-import.html?from=screen-transition-sample">共通：Auto Import</a><a href="../common/logcat.html?from=screen-transition-sample">共通：Logcat</a><a href="../common/apk.html?from=screen-transition-sample">共通：APKの提出</a><a href="../common/dev-tips.html?from=screen-transition-sample">共通：開発Tips</a></div>
 </div></aside><main id="main"><div class="hero"><span class="unit">06</span><p class="eyebrow">SCREEN TRANSITION SAMPLE</p>
 <h1>画面を切り替えて<br>値を渡そう</h1><p class="lede">ボタンを押す。次の画面が開く。渡した値をLogcatで見る。<br>Intentで、画面と画面をつなぐアプリへ。</p>
 <div class="tags"><span>Java / XML</span><span>A01〜A05の内容を使う</span><span>90分 × 2コマ目安</span><span>Macで学ぶ</span></div></div>
@@ -81,7 +81,7 @@ TestActivity  D  stringValue: 6</code></pre>
 <tr><td>Build configuration language</td><td><strong>Kotlin DSL（build.gradle.kts）</strong></td></tr>
 </tbody></table>
 <figure><a href="images/project-settings.png"><img src="images/project-settings.png" width="1792" height="1354" loading="lazy" alt="A06ScreenTransitionSampleの新規設定。パッケージjp.ac.jec.a06screentransitionsample、Language Java、Minimum SDK API 31、Kotlin DSL"></a><figcaption>Nameを入力すると、Package nameは自動で決まります。画像の保存先は先生の例です。自分の <code>Documents/Android1/A06ScreenTransitionSample</code> に読み替えます。 <a href="images/project-settings.png">画像を大きく開く</a></figcaption></figure>
-<ol start="4"><li>Finderの <strong>移動 → ホーム</strong> で自分のユーザ名を確認します。書類（Documents）に <code>Android1</code> フォルダがなければ作ります。</li><li>表の値と保存先を確認し、<strong>Finish</strong> をクリックします。Save locationの最後が <code>Documents/Android1/A06ScreenTransitionSample</code> になっていることを確かめます。<code>ユーザ名</code> は自分の名前に置き換えます。</li><li><strong>Gradle Sync</strong> が完了するまで待ちます（初回は数分かかります）。</li><li><a href="../common/auto-import.html">共通資料：Auto Import</a>のJava設定を確認します。</li></ol>
+<ol start="4"><li>Finderの <strong>移動 → ホーム</strong> で自分のユーザ名を確認します。書類（Documents）に <code>Android1</code> フォルダがなければ作ります。</li><li>表の値と保存先を確認し、<strong>Finish</strong> をクリックします。Save locationの最後が <code>Documents/Android1/A06ScreenTransitionSample</code> になっていることを確かめます。<code>ユーザ名</code> は自分の名前に置き換えます。</li><li><strong>Gradle Sync</strong> が完了するまで待ちます（初回は数分かかります）。</li><li><a href="../common/auto-import.html?from=screen-transition-sample">共通資料：Auto Import</a>のJava設定を確認します。</li></ol>
 <h3>この単元で使う場所</h3>
 <table><thead><tr><th>役割</th><th>Project表示で開く場所</th></tr></thead><tbody>
 <tr><td>画面（XML）</td><td><code>app/src/main/res/layout/activity_main.xml</code></td></tr>
@@ -91,7 +91,7 @@ TestActivity  D  stringValue: 6</code></pre>
 </tbody></table>
 <p>左の一覧が見えないときは <strong>View → Tool Windows → Project</strong> を開きます。一覧の上の表示名が <strong>Project</strong> になっていることを確認します。パッケージのフォルダが <code>jp.ac.jec.a06screentransitionsample</code> とまとめて表示される場合もあります。</p>
 <h3>変更前に1回Runする</h3>
-<p>エミュレータ <strong>jec_26cm_android1_Pixel 9a</strong> を選び、<strong>Run ▶</strong> を押します。準備は <a href="../common/emulator.html">共通資料：エミュレータの準備とアプリの実行</a>のとおりです。画面の中央に「Hello World!」が表示されれば成功です。</p>
+<p>エミュレータ <strong>jec_26cm_android1_Pixel 9a</strong> を選び、<strong>Run ▶</strong> を押します。準備は <a href="../common/emulator.html?from=screen-transition-sample">共通資料：エミュレータの準備とアプリの実行</a>のとおりです。画面の中央に「Hello World!」が表示されれば成功です。</p>
 <div class="note"><p class="box-title">MainActivity.ktができたとき</p><p>Languageの選択がKotlinになっています。プロジェクトを作り直し、Javaを選びます。</p></div>
 <div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-1"><span>自分の保存先にA06ScreenTransitionSampleを作り、Hello World!を表示できた。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
 <div class="next"><a href="#step-2">次へ：ボタンを5つ並べる →</a></div>
@@ -371,7 +371,7 @@ Log.d(&quot;TestActivity&quot;, &quot;stringValue: &quot; + stringValue);</code>
 </tbody></table>
 <p><code>var</code> は右側から型が決まります（A01 STEP 4）。<code>getIntExtra</code> なら intValue は int、<code>getStringExtra</code> なら stringValue は String です。</p>
 <h3>Runで確かめる</h3>
-<ol><li><a href="../common/logcat.html">共通資料：Logcat</a>に従ってLogcatを開き、検索欄を次の文字にします。</li></ol>
+<ol><li><a href="../common/logcat.html?from=screen-transition-sample">共通資料：Logcat</a>に従ってLogcatを開き、検索欄を次の文字にします。</li></ol>
 <div class="code-head">Logcatの検索欄 · ScreenTransitionSample用</div><pre tabindex="0"><code>package:jp.ac.jec.a06screentransitionsample tag:TestActivity level:DEBUG</code></pre>
 <ol start="2"><li>Runして、Test 1を押します。7行が出れば成功です。</li></ol>
 <div class="code-head">読むところの例 · Test 1を押したとき</div><pre tabindex="0"><code>TestActivity  D  intValue: 0
@@ -1103,7 +1103,7 @@ TestActivity  D  person: Person{name='John', age=20}</code></pre>
 <h3>自分の言葉でふり返る</h3>
 <ol><li>キーの定数が、値を送るMainActivityではなくTestActivityにあるのはなぜですか。</li><li>Test 1で intValue が0、stringValue が null になるのはなぜですか。</li><li>同じ名前のstartが4つあっても、どれが呼ばれるかが決まるのはなぜですか。</li><li>実際のアプリでよく使う渡し方はどれですか。Personを丸ごと渡す代わりに、何を渡すとよいですか。</li><li>TestActivityからMainActivityに戻るコードを書いていないのに、戻れるのはなぜですか。</li></ol>
 <h3>保存と提出</h3>
-<p>自分の <code>Documents/Android1/A06ScreenTransitionSample</code> を保存します。先生からAPK提出の指示がある場合は、<a href="../common/apk.html">共通資料：提出用APKの作り方</a>に進みます。ファイル名は <code>学籍番号_A06ScreenTransitionSample.apk</code> です。提出先は先生の案内に従います。</p>
+<p>自分の <code>Documents/Android1/A06ScreenTransitionSample</code> を保存します。先生からAPK提出の指示がある場合は、<a href="../common/apk.html?from=screen-transition-sample">共通資料：提出用APKの作り方</a>に進みます。ファイル名は <code>学籍番号_A06ScreenTransitionSample.apk</code> です。提出先は先生の案内に従います。</p>
 <p>教材のチェックは自分用です。先生への送信はしません。印刷は <kbd>⌘ P</kbd> で行えます。</p>
 <div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-11"><span>完成チェックを終え、画面の追加・Intent・キーと既定値・キーの定数をTestActivityに置く理由・実際によく使う渡し方を説明できた。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
 </section>
@@ -1127,7 +1127,7 @@ TestActivity  D  person: Person{name='John', age=20}</code></pre>
 <tr><td>直したのに動きが変わらない</td><td>ウィンドウの保存先が Documents/Android1/A06ScreenTransitionSample か確認。samples側を開いていないか見る。</td></tr>
 </tbody></table>
 
-<p><a href="../common/logcat.html">共通資料：Logcat</a>を使います。今回のパッケージは <code>jp.ac.jec.a06screentransitionsample</code> です。受け取った値は <code>package:jp.ac.jec.a06screentransitionsample tag:TestActivity level:DEBUG</code> で見ます。エラーを見るときは、<code>tag:TestActivity</code> と <code>level:DEBUG</code> を消して、<code>package:jp.ac.jec.a06screentransitionsample level:ERROR</code> に置き換えます。前の単元のパッケージ名も残さないようにします。</p>
+<p><a href="../common/logcat.html?from=screen-transition-sample">共通資料：Logcat</a>を使います。今回のパッケージは <code>jp.ac.jec.a06screentransitionsample</code> です。受け取った値は <code>package:jp.ac.jec.a06screentransitionsample tag:TestActivity level:DEBUG</code> で見ます。エラーを見るときは、<code>tag:TestActivity</code> と <code>level:DEBUG</code> を消して、<code>package:jp.ac.jec.a06screentransitionsample level:ERROR</code> に置き換えます。前の単元のパッケージ名も残さないようにします。</p>
 <p>質問では「STEP番号・編集したファイル・最初の赤い行・押した順番」を伝えます。</p></section>
 <section id="sample-project"><h2>完成プロジェクトを開く</h2>
 <p>完成版は最初の授業から使える見本です。<a class="button-link" href="downloads/A06ScreenTransitionSample.zip" download>完成プロジェクト A06ScreenTransitionSample.zip</a></p>

@@ -19,7 +19,7 @@
 <li><a href="#step-9">09　ミニ練習</a></li>
 <li><a href="#step-10">10　完成とふり返り</a></li></ol></nav>
 <div class="progress"><span data-progress-label>0 / 11 ステップ確認済み</span><progress value="0" max="11" aria-label="学習の進み具合"></progress><span class="muted">自分用のチェックです。</span></div>
-<div class="resources"><a href="#help">困ったとき</a><a href="#enum-why">解説：enumを使うメリット</a><a href="#back-android16">解説：Android 16以降の戻る操作</a><a href="#sample-project">完成プロジェクトを開く</a><a href="../hello-android/index.html">A01：HelloAndroid</a><a href="../calc-game/index.html">A02：CalcGame</a><a href="../rock-paper-scissors-game/index.html">A03：RockPaperScissorsGame</a><a href="../common/emulator.html">共通：エミュレータ</a><a href="../common/auto-import.html">共通：Auto Import</a><a href="../common/logcat.html">共通：Logcat</a><a href="../common/apk.html">共通：APKの提出</a><a href="../common/dev-tips.html">共通：開発Tips</a></div>
+<div class="resources"><a href="#help">困ったとき</a><a href="#enum-why">解説：enumを使うメリット</a><a href="#back-android16">解説：Android 16以降の戻る操作</a><a href="#sample-project">完成プロジェクトを開く</a><a href="../hello-android/index.html">A01：HelloAndroid</a><a href="../calc-game/index.html">A02：CalcGame</a><a href="../rock-paper-scissors-game/index.html">A03：RockPaperScissorsGame</a><a href="../common/emulator.html?from=webview-app">共通：エミュレータ</a><a href="../common/auto-import.html?from=webview-app">共通：Auto Import</a><a href="../common/logcat.html?from=webview-app">共通：Logcat</a><a href="../common/apk.html?from=webview-app">共通：APKの提出</a><a href="../common/dev-tips.html?from=webview-app">共通：開発Tips</a></div>
 </div></aside><main id="main"><div class="hero"><span class="unit">04</span><p class="eyebrow">WEBVIEW APP</p>
 <h1>アプリの中で<br>Webページを表示しよう</h1><p class="lede">ページを開く。メニューで切り替える。前のページに戻る。<br>WebViewを使って、小さなブラウザアプリへ。</p>
 <div class="tags"><span>Java / XML</span><span>A03の次の単元</span><span>90分 × 2コマ目安</span><span>Macで学ぶ</span><span>インターネット接続が必要</span></div></div>
@@ -74,7 +74,7 @@
 </tbody></table>
 <figure><a href="images/project-settings.png"><img src="images/project-settings.png" width="1784" height="1350" loading="lazy" alt="A04WebViewAppの新規設定。パッケージjp.ac.jec.a04webviewapp、Java、API 31"></a><figcaption>画像の保存先は先生の例です。自分のDocuments/Android1/A04WebViewAppに読み替えます。 <a href="images/project-settings.png">画像を大きく開く</a></figcaption></figure>
 
-<ol start="3"><li>Finderの <strong>移動 → ホーム</strong> で自分のユーザ名を確認します。書類（Documents）に <code>Android1</code> フォルダがなければ作ります。</li><li>表の値と保存先を確認し、<strong>Finish</strong> をクリックします。<code>ユーザ名</code> は自分の名前に置き換えます。</li><li><strong>Gradle Sync</strong> が完了するまで待ちます。</li><li><a href="../common/auto-import.html">共通資料：Auto Import</a>のJava設定を確認します。</li></ol>
+<ol start="3"><li>Finderの <strong>移動 → ホーム</strong> で自分のユーザ名を確認します。書類（Documents）に <code>Android1</code> フォルダがなければ作ります。</li><li>表の値と保存先を確認し、<strong>Finish</strong> をクリックします。<code>ユーザ名</code> は自分の名前に置き換えます。</li><li><strong>Gradle Sync</strong> が完了するまで待ちます。</li><li><a href="../common/auto-import.html?from=webview-app">共通資料：Auto Import</a>のJava設定を確認します。</li></ol>
 <h3>この単元で使う場所</h3>
 <table><thead><tr><th>役割</th><th>Project表示で開く場所</th></tr></thead><tbody>
 <tr><td>見た目の設定（テーマ）</td><td><code>app/src/main/res/values/themes.xml</code> と <code>app/src/main/res/values-night/themes.xml</code></td></tr>
@@ -86,7 +86,7 @@
 
 <p>左の一覧が見えないときは <strong>View → Tool Windows → Project</strong> を開きます。一覧の上の表示名が <strong>Project</strong> になっていることを確認します。パッケージのフォルダが <code>jp.ac.jec.a04webviewapp</code> とまとめて表示される場合もあります。</p>
 <h3>変更前に1回Runする</h3>
-<ol><li><a href="../common/emulator.html">共通資料：エミュレータ</a>に従って端末を起動します。</li><li>上部で <strong>app</strong> と <strong>jec_26cm_android1_Pixel 9a</strong> を選び、<strong>Run ▶</strong> を押します。</li><li><strong>Hello World!</strong> が表示されれば成功です。</li></ol>
+<ol><li><a href="../common/emulator.html?from=webview-app">共通資料：エミュレータ</a>に従って端末を起動します。</li><li>上部で <strong>app</strong> と <strong>jec_26cm_android1_Pixel 9a</strong> を選び、<strong>Run ▶</strong> を押します。</li><li><strong>Hello World!</strong> が表示されれば成功です。</li></ol>
 <div class="note"><p class="box-title">MainActivity.ktができたとき</p><p>先生に画面を見せ、Empty Views Activity / Javaの選択を確認します。</p></div>
 <div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-1"><span>自分の保存先にA04WebViewAppを作り、Hello World!を表示できた。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
 <div class="next"><a href="#step-2">次へ：ActionBarとインターネットの許可 →</a></div>
@@ -542,7 +542,7 @@ public boolean onKeyDown(int keyCode, KeyEvent event) {
 </tbody></table>
 
 <h3>自分の言葉でふり返る</h3><ol><li>INTERNETの許可は、どのファイルに書きましたか。書かないとどうなりましたか。</li><li>メニューの項目を増やすとき、変更するのはどのファイルですか。</li><li>URLと表示名を2つの配列で持つ書き方と比べて、enumを使うと何がよいですか。1つ挙げましょう。</li><li>JavaScriptの設定を変えたあと、<code>reload()</code> を呼ぶのはなぜですか。</li><li>Android 16以降で、<code>onKeyDown</code> ではなく <code>OnBackPressedCallback</code> を使うのはなぜですか。</li></ol>
-<h3>保存と提出</h3><p>自分の <code>Documents/Android1/A04WebViewApp</code> を保存します。先生からAPK提出の指示がある場合は、<a href="../common/apk.html">共通資料：提出用APKの作り方</a>に進みます。ファイル名は <code>学籍番号_A04WebViewApp.apk</code> です。提出先は先生の案内に従います。</p>
+<h3>保存と提出</h3><p>自分の <code>Documents/Android1/A04WebViewApp</code> を保存します。先生からAPK提出の指示がある場合は、<a href="../common/apk.html?from=webview-app">共通資料：提出用APKの作り方</a>に進みます。ファイル名は <code>学籍番号_A04WebViewApp.apk</code> です。提出先は先生の案内に従います。</p>
 <p>教材のチェックは自分用です。先生への送信はしません。印刷は <kbd>⌘ P</kbd> で行えます。</p>
 <div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-10"><span>完成チェックを終え、許可・WebView・enumとメニュー・JavaScript・戻る操作を説明できた。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
 </section>
@@ -563,7 +563,7 @@ public boolean onKeyDown(int keyCode, KeyEvent event) {
 <tr><td>ページの表示が崩れる・一部が出ない</td><td>JavaScriptが必要なページのことがある。「JavaScript ON」にしてみる。サイト側の更新で見た目が変わることもある。</td></tr>
 </tbody></table>
 
-<p><a href="../common/logcat.html">共通資料：Logcat</a>を使います。今回のパッケージは <code>jp.ac.jec.a04webviewapp</code> です。エラーを見るときは <code>package:jp.ac.jec.a04webviewapp level:ERROR</code> にします。これまでの単元のパッケージ名や <code>tag:MainActivity</code> を残さないようにします。</p>
+<p><a href="../common/logcat.html?from=webview-app">共通資料：Logcat</a>を使います。今回のパッケージは <code>jp.ac.jec.a04webviewapp</code> です。エラーを見るときは <code>package:jp.ac.jec.a04webviewapp level:ERROR</code> にします。これまでの単元のパッケージ名や <code>tag:MainActivity</code> を残さないようにします。</p>
 <p>質問では「STEP番号・編集したファイル・最初の赤い行・押した順番」を伝えます。</p></section>
 <section id="sample-project"><h2>完成プロジェクトを開く</h2>
 <p>完成版は最初の授業から使える見本です。<a class="button-link" href="downloads/A04WebViewApp.zip" download>完成プロジェクト A04WebViewApp.zip</a></p>

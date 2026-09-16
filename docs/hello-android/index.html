@@ -25,7 +25,7 @@
 <li><a href="#step-8">08　ミニ練習</a></li>
 <li><a href="#step-9">09　完成とふり返り</a></li></ol></nav>
 <div class="progress"><span data-progress-label>0 / 10 ステップ確認済み</span><progress value="0" max="10" aria-label="学習の進み具合"></progress><span class="muted">自分用のチェックです。</span></div>
-<div class="resources"><a href="#help">困ったとき</a><a href="#sample-project">完成プロジェクトを開く</a><a href="../common/emulator.html">共通：エミュレータ</a><a href="../common/logcat.html">共通：Logcat</a><a href="../common/apk.html">共通：APKの提出</a><a href="../common/dev-tips.html">共通：開発Tips</a><a href="../common/auto-import.html">共通：Auto Import</a></div>
+<div class="resources"><a href="#help">困ったとき</a><a href="#sample-project">完成プロジェクトを開く</a><a href="../common/emulator.html?from=hello-android">共通：エミュレータ</a><a href="../common/logcat.html?from=hello-android">共通：Logcat</a><a href="../common/apk.html?from=hello-android">共通：APKの提出</a><a href="../common/dev-tips.html?from=hello-android">共通：開発Tips</a><a href="../common/auto-import.html?from=hello-android">共通：Auto Import</a></div>
 </div></aside>
 <main id="main">
 <div class="hero"><span class="unit">01</span><p class="eyebrow">HELLO ANDROID</p><h1>はじめての<br>アプリ作り</h1><p class="lede">ボタンを押す。文字が変わる。<br>小さい「できた」を、ひとつずつ。</p><div class="tags"><span>Java / XML</span><span>Macで学ぶ</span><span>90分 × 2コマ目安</span><span>予習なしで始められる</span></div></div>
@@ -84,7 +84,7 @@
 <div class="note"><p class="box-title">Finishを押す前に、保存先を確認</p><p>ユーザ名が <code>cmstudent</code> の場合は、<code>/Users/cmstudent/Documents/Android1/A01HelloAndroid</code> です。<code>ユーザ名</code> という文字をそのまま入力しません。</p><p>保存先の最後が <code>Documents/Android1/A01HelloAndroid</code> になっていることを確認します。すでに同名のプロジェクトがあるときは、先生に画面を見せます。</p></div>
 <ol start="6"><li><strong>Finish</strong>（完了）をクリックします。</li><li><strong>Gradle Sync</strong>（必要な設定や部品をそろえる処理）が終わるまで待ちます。下の進行表示が終わり、失敗を示す赤い表示がなければ次へ進みます。</li></ol>
 <div class="note"><p class="box-title">MainActivity.ktができたとき</p><p>この授業で開くのは <code>MainActivity.java</code> です。<code>.kt</code> しか見つからない場合は、先生に画面を見せてください。Empty Views Activity / Javaの選択を確認します。</p></div>
-<p>プロジェクトが開いたら、<a href="../common/auto-import.html">共通資料：Auto Importの設定</a>を行います。この設定は、以降のJavaの入力で使います。</p>
+<p>プロジェクトが開いたら、<a href="../common/auto-import.html?from=hello-android">共通資料：Auto Importの設定</a>を行います。この設定は、以降のJavaの入力で使います。</p>
 <div class="check"><p class="box-title">ここで止まって、確認（かくにん）</p><label><input type="checkbox" data-check="step-1"><span>プロジェクト名と保存先を確認し、MainActivity.javaを開いた。Auto Importも設定できた。</span></label><p>できたらチェックします。できないときは、この画面を先生に見せましょう。</p></div>
 <div class="next"><a href="#step-2">次へ：ファイルを見つけて動かす →</a></div>
 
@@ -98,7 +98,7 @@
 <table><thead><tr><th>ファイル</th><th>何を書く？</th></tr></thead><tbody><tr><td><code>activity_main.xml</code></td><td>文字やボタンを、どこに置くか。</td></tr><tr><td><code>MainActivity.java</code></td><td>ボタンを押したら、何をするか。</td></tr></tbody></table>
 <p>どちらも <code>app/src/main</code> の中です。<code>src/test</code> と <code>src/androidTest</code> は今回の編集場所ではありません。</p>
 <h3>② Runで動かす</h3>
-<ol><li><a href="../common/emulator.html">共通資料：エミュレータの準備とアプリの実行</a> を開き、端末を起動します。</li><li>Android Studioの上部で実行するものを <strong>app</strong>、端末を <strong>jec_26cm_android1_Pixel 9a</strong> にします。</li><li>三角形の <strong>Run ▶</strong> をクリックします。</li><li>端末画面に <strong>Hello World!</strong> だけが出れば成功です。最初の起動は時間がかかることがあります。</li></ol>
+<ol><li><a href="../common/emulator.html?from=hello-android">共通資料：エミュレータの準備とアプリの実行</a> を開き、端末を起動します。</li><li>Android Studioの上部で実行するものを <strong>app</strong>、端末を <strong>jec_26cm_android1_Pixel 9a</strong> にします。</li><li>三角形の <strong>Run ▶</strong> をクリックします。</li><li>端末画面に <strong>Hello World!</strong> だけが出れば成功です。最初の起動は時間がかかることがあります。</li></ol>
 <figure class="phone"><a href="images/app-starter.png"><img src="images/app-starter.png" width="1080" height="2424" loading="lazy" alt="出発点の画面。中央にHello World!だけが表示されている"></a><figcaption>STEP 2の成功画面：まだボタンはありません。 <a href="images/app-starter.png">画像を大きく開く</a></figcaption></figure>
 <div class="check"><p class="box-title">ここで止まって、確認（かくにん）</p><label><input type="checkbox" data-check="step-2"><span>変更前のアプリで、Hello World!だけを表示できた。</span></label><p>できたらチェックします。できないときは、この画面を先生に見せましょう。</p></div>
 <div class="next"><a href="#step-3">次へ：画面を作る →</a></div>
@@ -167,7 +167,7 @@
 
 <p class="file">変更するファイル：app/src/main/java/jp/ac/jec/a01helloandroid/MainActivity.java</p>
 <p><code>MainActivity</code> は、このアプリの画面を担当します。<code>onCreate</code>（オン・クリエイト）は、その画面を作るときに呼ばれる<strong>メソッド</strong>です。メソッドは、いくつかの処理に名前を付けたまとまりです。</p>
-<p>Javaを入力すると、設定したAuto Importが必要なimport文を追加します。設定がまだの場合は、<a href="../common/auto-import.html">共通資料</a>で確認します。</p>
+<p>Javaを入力すると、設定したAuto Importが必要なimport文を追加します。設定がまだの場合は、<a href="../common/auto-import.html?from=hello-android">共通資料</a>で確認します。</p>
 <h3>① 追加する場所を見つける</h3>
 <p>ひな形の <code>ViewCompat.setOnApplyWindowInsetsListener</code> から始まる部分を見つけます。その末尾の <code>return insets;</code> と <code>});</code> の<strong>下</strong>に追加します。<code>onCreate</code> の最後の <code>}</code> より<strong>上</strong>です。</p>
 <div class="code-head">場所の目印 · この枠は入力しません</div>
@@ -229,7 +229,7 @@ button.setOnClickListener(v -&gt; {
 <h3>② 新しい4行の意味</h3>
 <ul><li><code>getText()</code>：今表示されている文字を取り出す。</li><li><code>toString()</code>：取り出した値を <code>String</code>（文字列）の形にする。</li><li><code>var string = …</code> / <code>var updateString = …</code>：取り出した文字に名前を付ける。<code>text</code> は画面の部品、<code>string</code> は取り出した文字です。</li><li><code>Log.d("MainActivity", string)</code>：目印 <code>MainActivity</code> を付けて、<code>string</code> の内容をログに出す。<code>d</code> はDebug（動作確認用）です。</li></ul>
 <h3>③ Logcatを開いてRunする</h3>
-<ol><li><a href="../common/logcat.html">共通資料：Logcatの使い方</a> に従ってLogcatを開きます。</li><li>検索欄に <code>package:jp.ac.jec.a01helloandroid tag:MainActivity level:DEBUG</code> と入力します。</li><li>Runします。ログに <code>Hello World!</code> が出ます。</li><li>変更ボタンを押します。新しい行に <code>Hello, Android!</code> が出ます。</li></ol>
+<ol><li><a href="../common/logcat.html?from=hello-android">共通資料：Logcatの使い方</a> に従ってLogcatを開きます。</li><li>検索欄に <code>package:jp.ac.jec.a01helloandroid tag:MainActivity level:DEBUG</code> と入力します。</li><li>Runします。ログに <code>Hello World!</code> が出ます。</li><li>変更ボタンを押します。新しい行に <code>Hello, Android!</code> が出ます。</li></ol>
 <p>時刻や行の数は同じでなくて構いません。<strong>メッセージの文字</strong>を比べます。</p>
 <div class="check"><p class="box-title">ここで止まって、確認（かくにん）</p><label><input type="checkbox" data-check="step-5"><span>Logcatで、起動時とクリック後の2種類の文字を見つけた。</span></label><p>できたらチェックします。できないときは、この画面を先生に見せましょう。</p></div>
 <div class="next"><a href="#step-6">次へ：ボタンを横に並べる →</a></div>
@@ -422,7 +422,7 @@ btn2.setOnClickListener(v -&gt; {
 <h3>③ 授業の記録を残す</h3>
 <p>次の4項目を、先生が指定する用紙や提出先に書きます。このページのチェックは自分用で、先生には送信されません。</p>
 <ul><li>学籍番号・氏名</li><li>できたステップ：STEP ＿＿まで</li><li>説明できること：「＿＿を変えると、＿＿になる」</li><li>まだ困っていること：「STEP ＿＿の＿＿」／困っていなければ「なし」</li></ul>
-<p>先生に画面を見せ、変更ボタン・1・2を順番に押します。APKの提出を指示された場合は、<a href="../common/apk.html">共通資料：提出用APKの作り方</a>を使います。</p>
+<p>先生に画面を見せ、変更ボタン・1・2を順番に押します。APKの提出を指示された場合は、<a href="../common/apk.html?from=hello-android">共通資料：提出用APKの作り方</a>を使います。</p>
 <details><summary>完成したJava全体を確認する</summary>
 <p>ここまで入力したJavaを確認できます。XMLの全体は<a href="#code-final-xml">STEP 6の完成XML</a>です。package名は <code>jp.ac.jec.a01helloandroid</code> を使います。</p>
 <div class="code-head">MainActivity.java · 完成コード</div>
@@ -503,7 +503,7 @@ public class MainActivity extends AppCompatActivity {
 <table><thead><tr><th>困ったこと</th><th>最初に確認すること</th></tr></thead><tbody>
 <tr><td>ファイルが見つからない</td><td>左上のプロジェクト名と、Project一覧の表示方法を確認。STEP 2の場所をたどる。</td></tr>
 <tr><td>XMLが赤い</td><td><code>"</code> の閉じ忘れ、<code>/&gt;</code>、<code>&lt;/LinearLayout&gt;</code> を確認。Code表示で、最初の赤い場所を先生に見せる。</td></tr>
-<tr><td>TextView / Button / Log / Toast / Snackbarが赤い</td><td><a href="../common/auto-import.html#trouble">共通資料：自動で追加されないとき</a>でAuto Importの設定と候補を確認する。</td></tr>
+<tr><td>TextView / Button / Log / Toast / Snackbarが赤い</td><td><a href="../common/auto-import.html?from=hello-android#trouble">共通資料：自動で追加されないとき</a>でAuto Importの設定と候補を確認する。</td></tr>
 <tr><td>R.id.text / btn1 / btn2が赤い</td><td>XMLのidとJavaの名前を一文字ずつ比較する。大文字と小文字も区別する。XMLのエラーを先に直す。</td></tr>
 <tr><td>R全体が赤い</td><td>XMLの最初のエラーを確認。<code>import android.R;</code> があれば、その行を削除する。package名も確認する。</td></tr>
 <tr><td>波かっこやセミコロンのエラー</td><td>追加コードがonCreateの中にあるか確認する。教材のコードと、前後の <code>});</code> と <code>}</code> を比べる。</td></tr>
@@ -511,8 +511,8 @@ public class MainActivity extends AppCompatActivity {
 <tr><td>押しても文字が変わらない</td><td>Runしたか、正しいアプリを見ているか確認。XMLのid/buttonとJavaのR.id.buttonを比べる。</td></tr>
 <tr><td>Snackbar / Toastが出ない</td><td>1か2を押したか、最後に <code>.show()</code> があるか確認。短時間で消えるので押した直後を見る。</td></tr>
 <tr><td>styleが見つからない</td><td>名前をコピーし直す。直らなければ先生に見せる。先生がMaterialのバージョンを確認する。</td></tr>
-<tr><td>ログが見つからない</td><td><a href="../common/logcat.html#trouble">共通資料の「ログが出ないとき」</a>へ。</td></tr>
-<tr><td>Runできない・端末がない</td><td><a href="../common/emulator.html#trouble">共通資料の「動かないとき」</a>へ。エラー文を消さずに先生に見せる。</td></tr>
+<tr><td>ログが見つからない</td><td><a href="../common/logcat.html?from=hello-android#trouble">共通資料の「ログが出ないとき」</a>へ。</td></tr>
+<tr><td>Runできない・端末がない</td><td><a href="../common/emulator.html?from=hello-android#trouble">共通資料の「動かないとき」</a>へ。エラー文を消さずに先生に見せる。</td></tr>
 </tbody></table>
 <p>一度にいくつも直すと、何が変わったか分かりにくくなります。1か所直して、もう一度Runしましょう。</p></section>
 <section id="references"><h2>もっと知りたいとき</h2><p>授業はこの教科書だけで進められます。次の公式資料は、あとから調べたい人向けです。</p><ul>

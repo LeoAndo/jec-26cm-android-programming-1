@@ -19,7 +19,7 @@
 <li><a href="#step-9">09　ミニ練習</a></li>
 <li><a href="#step-10">10　完成とふり返り</a></li></ol></nav>
 <div class="progress"><span data-progress-label>0 / 11 ステップ確認済み</span><progress value="0" max="11" aria-label="学習の進み具合"></progress><span class="muted">自分用のチェックです。</span></div>
-<div class="resources"><a href="#help">困ったとき</a><a href="#apply-or-commit">解説：applyとcommitの違い</a><a href="#what-to-save">解説：何を保存してよいか</a><a href="#sample-project">完成プロジェクトを開く</a><a href="../hello-android/index.html">A01：HelloAndroid</a><a href="../calc-game/index.html">A02：CalcGame</a><a href="../rock-paper-scissors-game/index.html">A03：RockPaperScissorsGame</a><a href="../webview-app/index.html">A04：WebViewApp</a><a href="../bomb-game/index.html">A05：BombGame</a><a href="../screen-transition-sample/index.html">A06：ScreenTransitionSample</a><a href="../bill-splitter/index.html">A07：BillSplitter</a><a href="../common/emulator.html">共通：エミュレータ</a><a href="../common/auto-import.html">共通：Auto Import</a><a href="../common/apk.html">共通：APKの提出</a><a href="../common/dev-tips.html">共通：開発Tips</a></div>
+<div class="resources"><a href="#help">困ったとき</a><a href="#apply-or-commit">解説：applyとcommitの違い</a><a href="#what-to-save">解説：何を保存してよいか</a><a href="#sample-project">完成プロジェクトを開く</a><a href="../hello-android/index.html">A01：HelloAndroid</a><a href="../calc-game/index.html">A02：CalcGame</a><a href="../rock-paper-scissors-game/index.html">A03：RockPaperScissorsGame</a><a href="../webview-app/index.html">A04：WebViewApp</a><a href="../bomb-game/index.html">A05：BombGame</a><a href="../screen-transition-sample/index.html">A06：ScreenTransitionSample</a><a href="../bill-splitter/index.html">A07：BillSplitter</a><a href="../common/emulator.html?from=shared-preferences-sample">共通：エミュレータ</a><a href="../common/auto-import.html?from=shared-preferences-sample">共通：Auto Import</a><a href="../common/apk.html?from=shared-preferences-sample">共通：APKの提出</a><a href="../common/dev-tips.html?from=shared-preferences-sample">共通：開発Tips</a></div>
 </div></aside><main id="main"><div class="hero"><span class="unit">08</span><p class="eyebrow">SHARED PREFERENCES SAMPLE</p>
 <h1>アプリを閉じても<br>消えないデータ</h1><p class="lede">値を保存する。アプリを終了する。もう一度開くと、値が残っている。<br>保存先のファイルの中身まで、自分の目で確かめます。</p>
 <div class="tags"><span>Java / XML</span><span>A07の次の単元</span><span>90分 × 2コマ目安</span><span>Macで学ぶ</span></div></div>
@@ -64,7 +64,7 @@
 </tbody></table>
 <figure><a href="images/project-settings.png"><img src="images/project-settings.png" width="1798" height="1184" loading="lazy" alt="New Projectの設定画面。NameにA08SharedPreferencesSample、Package nameにjp.ac.jec.a08sharedpreferencessample、LanguageにJava、Minimum SDKにAPI 31が入っている"></a><figcaption>入力後の画面。画像の保存先は先生の環境のものです。自分のDocuments以下を指定します。 <a href="images/project-settings.png">画像を大きく開く</a></figcaption></figure>
 <ol start="4"><li>Sync（歯車の読み込み）が終わるまで待ちます。</li><li>端末欄で <strong>jec_26cm_android1_Pixel 9a</strong> を選び、<strong>Run</strong>（▶）を押します。白い画面に <strong>Hello World!</strong> が出れば成功です。</li></ol>
-<p>エミュレータが出てこないときは<a href="../common/emulator.html">共通資料：エミュレータ</a>を見ます。</p>
+<p>エミュレータが出てこないときは<a href="../common/emulator.html?from=shared-preferences-sample">共通資料：エミュレータ</a>を見ます。</p>
 <div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-1"><span>自分の保存先にA08SharedPreferencesSampleを作り、Hello World!を表示できた。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
 <div class="next"><a href="#step-2">次へ：画面を作る →</a></div></section>
 
@@ -149,7 +149,7 @@
 <div class="code-head">MainActivity.java · onCreateの中（いちばん下）</div>
 <pre id="code-get-prefs" tabindex="0"><code>        // ファイル名を指定して、SharedPreferencesを取得する.
         prefs = getSharedPreferences(FILE_NAME, MODE_PRIVATE);</code></pre>
-<p><code>SharedPreferences</code> が赤いときは <kbd>⌥ Enter</kbd> で <code>android.content.SharedPreferences</code> を選びます（<a href="../common/auto-import.html">共通資料：Auto Import</a>）。</p>
+<p><code>SharedPreferences</code> が赤いときは <kbd>⌥ Enter</kbd> で <code>android.content.SharedPreferences</code> を選びます（<a href="../common/auto-import.html?from=shared-preferences-sample">共通資料：Auto Import</a>）。</p>
 <h3>書いた内容の意味</h3>
 <table><thead><tr><th>書いたところ</th><th>意味</th></tr></thead><tbody>
 <tr><td><code>FILE_NAME = "app"</code></td><td>保存先のファイル名。このあと <code>app.xml</code> というファイルができます。</td></tr>
@@ -388,7 +388,7 @@
 <li><code>SharedPreferences</code> にパスワードを保存してはいけないのはなぜですか。</li>
 </ol>
 <h3>保存と提出</h3>
-<p>自分の <code>Documents/Android1/A08SharedPreferencesSample</code> を保存します。先生からAPK提出の指示がある場合は、<a href="../common/apk.html">共通資料：提出用APKの作り方</a>に進みます。ファイル名は <code>学籍番号_A08SharedPreferencesSample.apk</code> です。提出先は先生の案内に従います。</p>
+<p>自分の <code>Documents/Android1/A08SharedPreferencesSample</code> を保存します。先生からAPK提出の指示がある場合は、<a href="../common/apk.html?from=shared-preferences-sample">共通資料：提出用APKの作り方</a>に進みます。ファイル名は <code>学籍番号_A08SharedPreferencesSample.apk</code> です。提出先は先生の案内に従います。</p>
 <p>教材のチェックは自分用です。先生への送信はしません。印刷は <kbd>⌘ P</kbd> で行えます。</p>
 <div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-10"><span>完成チェックを終え、保存・読み出し・初期値・削除・保存先のファイルについて説明できた。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
 </section>
