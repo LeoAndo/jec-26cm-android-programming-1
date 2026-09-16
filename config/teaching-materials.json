@@ -10,7 +10,8 @@
     "A05BombGame",
     "A06ScreenTransitionSample",
     "A07BillSplitter",
-    "A08SharedPreferencesSample"
+    "A08SharedPreferencesSample",
+    "A09MemoApp"
   ],
   "terms": [
     {
@@ -31,6 +32,7 @@
         "docs/screen-transition-sample/index.html",
         "docs/bill-splitter/index.html",
         "docs/shared-preferences-sample/index.html",
+        "docs/memo-app/index.html",
         "teacher/hello-android/index.html",
         "teacher/calc-game/index.html",
         "teacher/rock-paper-scissors-game/index.html",
@@ -38,7 +40,8 @@
         "teacher/bomb-game/index.html",
         "teacher/screen-transition-sample/index.html",
         "teacher/bill-splitter/index.html",
-        "teacher/shared-preferences-sample/index.html"
+        "teacher/shared-preferences-sample/index.html",
+        "teacher/memo-app/index.html"
       ]
     }
   ],
@@ -299,6 +302,35 @@
         }
       ],
       "archive": "docs/shared-preferences-sample/downloads/A08SharedPreferencesSample.zip"
+    },
+    {
+      "name": "A09MemoApp",
+      "package": "jp.ac.jec.a09memoapp",
+      "root": "A09MemoApp",
+      "docs": [
+        "docs/memo-app/index.html",
+        "teacher/memo-app/index.html"
+      ],
+      "source_java": "A09MemoApp/app/src/main/java/jp/ac/jec/a09memoapp/MainActivity.java",
+      "source_xml": "A09MemoApp/app/src/main/res/layout/activity_main.xml",
+      "snippets": [
+        {
+          "html": "docs/memo-app/index.html",
+          "id": "code-complete-java",
+          "source": "A09MemoApp/app/src/main/java/jp/ac/jec/a09memoapp/MainActivity.java"
+        },
+        {
+          "html": "docs/memo-app/index.html",
+          "id": "code-complete-xml",
+          "source": "A09MemoApp/app/src/main/res/layout/activity_main.xml"
+        },
+        {
+          "html": "docs/memo-app/index.html",
+          "id": "code-layout",
+          "source": "A09MemoApp/app/src/main/res/layout/activity_main.xml"
+        }
+      ],
+      "archive": "docs/memo-app/downloads/A09MemoApp.zip"
     }
   ]
 }

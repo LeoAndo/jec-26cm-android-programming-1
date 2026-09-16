@@ -1,0 +1,446 @@
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="JavaとXMLで作るA09MemoApp。A08で学んだSharedPreferencesを使って、アプリを終了しても消えないメモ帳を作る授業用教科書。">
+<title>MemoApp — 消えないメモ帳を作ろう | Androidプログラミング1</title>
+<link rel="stylesheet" href="../assets/textbook.css"><script src="../assets/textbook.js" defer></script></head>
+<body data-progress-key="jec-android1-memoapp-v1">
+<a class="skip" href="#main">本文へ移動</a>
+<header class="topbar"><span class="brand">JEC / Androidプログラミング1</span><a href="../shared-preferences-sample/index.html">A08 SharedPreferencesSample</a></header>
+<div class="shell"><aside class="sidebar"><div class="sidebar-inner"><p class="eyebrow">CONTENTS / 学習の順番</p>
+<nav aria-label="学習ステップ"><ol><li><a href="#step-0">00　今日のゴール</a></li>
+<li><a href="#step-1">01　プロジェクトを作って実行</a></li>
+<li><a href="#step-2">02　タイトル画像を入れる</a></li>
+<li><a href="#step-3">03　画面を作る</a></li>
+<li><a href="#step-4">04　メモを追加する</a></li>
+<li><a href="#step-5">05　終了しても残るようにする</a></li>
+<li><a href="#step-6">06　データを全部消す</a></li>
+<li><a href="#step-7">07　完成とふり返り</a></li></ol></nav>
+<div class="progress"><span data-progress-label>0 / 8 ステップ確認済み</span><progress value="0" max="8" aria-label="学習の進み具合"></progress><span class="muted">自分用のチェックです。</span></div>
+<div class="resources"><a href="#help">困ったとき</a><a href="#why-textview">解説：なぜArrayListを使わないのか</a><a href="#sample-project">完成プロジェクトを開く</a><a href="../hello-android/index.html">A01：HelloAndroid</a><a href="../calc-game/index.html">A02：CalcGame</a><a href="../rock-paper-scissors-game/index.html">A03：RockPaperScissorsGame</a><a href="../webview-app/index.html">A04：WebViewApp</a><a href="../bomb-game/index.html">A05：BombGame</a><a href="../screen-transition-sample/index.html">A06：ScreenTransitionSample</a><a href="../bill-splitter/index.html">A07：BillSplitter</a><a href="../shared-preferences-sample/index.html">A08：SharedPreferencesSample</a><a href="../common/emulator.html?from=memo-app">共通：エミュレータ</a><a href="../common/auto-import.html?from=memo-app">共通：Auto Import</a><a href="../common/apk.html?from=memo-app">共通：APKの提出</a><a href="../common/dev-tips.html?from=memo-app">共通：開発Tips</a></div>
+</div></aside><main id="main"><div class="hero"><span class="unit">09</span><p class="eyebrow">MEMO APP</p>
+<h1>消えないメモ帳を<br>作ろう</h1><p class="lede">メモを書く。一覧に増える。アプリを閉じても残っている。<br>A08で学んだ保存を、毎日使えるアプリにします。</p>
+<div class="tags"><span>Java / XML</span><span>A08の次の単元</span><span>90分 × 1コマ目安</span><span>Macで学ぶ</span></div></div>
+
+<section id="step-0" aria-labelledby="title-0">
+<p class="step-meta">STEP 00 · 目安 5分</p><h2 id="title-0">今日のゴール</h2>
+<p>メモを書いて一覧にためるアプリを作ります。A08では値を保存する練習をしましたが、今回はそれを<strong>実際に使えるアプリ</strong>にします。</p>
+<div class="phones">
+<figure><a href="images/app-initial.png"><img src="images/app-initial.png" width="1080" height="2424" loading="lazy" alt="memorandumのタイトル画像、灰色のメモ一覧、メモを入力してくださいの入力欄、データ削除と追加のボタンが並んだ画面。一覧は空"></a><figcaption>起動したところ。まだメモはありません。 <a href="images/app-initial.png">画像を大きく開く</a></figcaption></figure>
+<figure><a href="images/app-added.png"><img src="images/app-added.png" width="1080" height="2424" loading="lazy" alt="メモ一覧に、牛乳を買う、レポートを出す、9時に集合の3行が表示されている画面"></a><figcaption>メモを3つ追加したところ。 <a href="images/app-added.png">画像を大きく開く</a></figcaption></figure>
+</div>
+<h3>できるようになること</h3>
+<ul><li>入力した文字を、一覧に1行ずつ増やせる。</li><li>何も入れずに押されたときに、メッセージで知らせて止められる。</li><li>アプリを終了しても、書いたメモが残るようにできる。</li><li>保存したメモをまとめて消せる。</li></ul>
+<h3>今日の道具</h3>
+<table><thead><tr><th>道具</th><th>どこで使うか</th><th>学んだ単元</th></tr></thead><tbody>
+<tr><td><code>EditText</code> と <code>Button</code></td><td>メモを入力して、追加する。</td><td>A07</td></tr>
+<tr><td><code>Snackbar</code></td><td>入力が空のときに知らせる。</td><td>A07</td></tr>
+<tr><td><code>TextView.append</code></td><td>一覧に1行ずつ足す。<strong>今回の新顔です。</strong></td><td>—</td></tr>
+<tr><td><code>SharedPreferences</code></td><td>メモを保存して、次に開いたときに読み出す。</td><td>A08</td></tr>
+</tbody></table>
+<p>新しく覚えることは <code>append</code> だけです。残りはA07とA08で使ったものを組み合わせます。</p>
+<div class="note"><p class="box-title">1件だけ消す機能はありません</p><p>このアプリの削除は「全部消す」だけです。1件だけ消すには <code>RecyclerView</code> という部品が必要で、Androidプログラミング2で扱います。</p></div>
+<div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-0"><span>今日作るアプリの画面と、使う道具が今までの単元のどれで学んだものかを説明できた。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
+<div class="next"><a href="#step-1">次へ：プロジェクトを作って実行 →</a></div></section>
+
+<section id="step-1" aria-labelledby="title-1">
+<p class="step-meta">STEP 01 · 目安 10分</p><h2 id="title-1">プロジェクトを作って実行</h2>
+<p>授業環境はMacと <strong>Android Studio Panda 2 | 2025.3.2</strong> です。A08までとは別のプロジェクトを作ります。</p>
+<div class="note"><p class="box-title">毎回、自分で新規作成します</p><p>作る場所は <code>Documents/Android1/A09MemoApp</code> です。<a href="#sample-project">完成プロジェクト</a>は答え合わせ用で、授業の入力は自分で作ったプロジェクトに書きます。</p></div>
+<ol><li>Android Studioの <strong>New Project</strong> をクリックします。別のプロジェクトを開いているときは <strong>File → New → New Project</strong> を選びます。</li>
+<li><strong>Phone and Tablet → Empty Views Activity → Next</strong> の順に選びます。名前に <strong>Views</strong> があることを確認します。</li>
+<li>次の表のとおりに入力・選択して <strong>Finish</strong> を押します。</li></ol>
+<table><thead><tr><th>項目</th><th>入力・選択する内容</th></tr></thead><tbody>
+<tr><td>Name</td><td><code>A09MemoApp</code></td></tr>
+<tr><td>Package name</td><td><code>jp.ac.jec.a09memoapp</code>（すべて小文字）</td></tr>
+<tr><td>Save location</td><td><code>/Users/ユーザ名/Documents/Android1/A09MemoApp</code></td></tr>
+<tr><td>Language</td><td>Java</td></tr>
+<tr><td>Minimum SDK</td><td>API 31 ("S"; Android 12.0)</td></tr>
+<tr><td>Build configuration language</td><td>Kotlin DSL (build.gradle.kts) [Recommended]</td></tr>
+</tbody></table>
+<ol start="4"><li>Sync（歯車の読み込み）が終わるまで待ちます。</li><li>端末欄で <strong>jec_26cm_android1_Pixel 9a</strong> を選び、<strong>Run</strong>（▶）を押します。白い画面に <strong>Hello World!</strong> が出れば成功です。</li></ol>
+<p>エミュレータが出てこないときは<a href="../common/emulator.html?from=memo-app">共通資料：エミュレータ</a>を見ます。</p>
+<div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-1"><span>自分の保存先にA09MemoAppを作り、Hello World!を表示できた。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
+<div class="next"><a href="#step-2">次へ：タイトル画像を入れる →</a></div></section>
+
+<section id="step-2" aria-labelledby="title-2">
+<p class="step-meta">STEP 02 · 目安 10分</p><h2 id="title-2">タイトル画像を入れる</h2>
+<p>先生から配られる <code>title_memo.png</code> を、プロジェクトに入れます。A03・A05・A07でやった手順と同じです。</p>
+<ol>
+<li>Finderで <code>title_memo.png</code> をコピーします（<kbd>⌘ C</kbd>）。</li>
+<li>Android Studioのプロジェクト画面で <code>app/src/main/res/drawable</code> フォルダをクリックして選び、貼り付けます（<kbd>⌘ V</kbd>）。</li>
+<li>確認のウィンドウが出ます。<strong>New name</strong> が <code>title_memo.png</code>、<strong>To directory</strong> の末尾が <code>app/src/main/res/drawable</code> になっていることを確かめて <strong>OK</strong> を押します。</li>
+<li><code>drawable</code> フォルダの中に <code>title_memo.png</code> が増えていれば成功です。</li>
+</ol>
+<div class="note"><p class="box-title">ファイル名は変えません</p><p>このあとXMLから <code>@drawable/title_memo</code> という名前で呼び出します。<strong>名前を変えると見つからなくなります。</strong>大文字や日本語も使えません。</p></div>
+<h3>Runで確かめる</h3><p>画面はまだ <strong>Hello World!</strong> のままです。エラーが出ずにRunできれば成功です。画像を使うのは次のSTEPです。</p>
+<div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-2"><span><code>drawable</code> に <code>title_memo.png</code> を置けた。ファイル名を変えてはいけない理由を説明できた。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
+<div class="next"><a href="#step-3">次へ：画面を作る →</a></div></section>
+
+<section id="step-3" aria-labelledby="title-3">
+<p class="step-meta">STEP 03 · 目安 15分</p><h2 id="title-3">画面を作る</h2>
+<p><code>app/src/main/res/layout/activity_main.xml</code> を開き、中身をすべて次のコードに置き換えます。</p>
+<div class="code-head">activity_main.xml（全体を置き換え）</div>
+<pre id="code-layout" tabindex="0"><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;LinearLayout xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
+    xmlns:tools=&quot;http://schemas.android.com/tools&quot;
+    android:id=&quot;@+id/main&quot;
+    android:layout_width=&quot;match_parent&quot;
+    android:layout_height=&quot;match_parent&quot;
+    android:orientation=&quot;vertical&quot;
+    tools:context=&quot;.MainActivity&quot;&gt;
+
+    &lt;ImageView
+        android:layout_width=&quot;match_parent&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:contentDescription=&quot;@null&quot;
+        android:src=&quot;@drawable/title_memo&quot; /&gt;
+
+    &lt;ScrollView
+        android:layout_width=&quot;match_parent&quot;
+        android:layout_height=&quot;0dp&quot;
+        android:layout_weight=&quot;1&quot;
+        android:fillViewport=&quot;true&quot;&gt;
+
+        &lt;TextView
+            android:id=&quot;@+id/txt_memo_list&quot;
+            android:layout_width=&quot;match_parent&quot;
+            android:layout_height=&quot;wrap_content&quot;
+            android:background=&quot;#c0c0c0&quot; /&gt;
+    &lt;/ScrollView&gt;
+
+    &lt;EditText
+        android:id=&quot;@+id/edt_memo&quot;
+        android:layout_width=&quot;match_parent&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:layout_marginTop=&quot;12dp&quot;
+        android:hint=&quot;メモを入力してください&quot;
+        android:importantForAutofill=&quot;no&quot;
+        android:inputType=&quot;text&quot; /&gt;
+
+    &lt;LinearLayout
+        android:layout_width=&quot;match_parent&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:layout_marginTop=&quot;12dp&quot;
+        android:orientation=&quot;horizontal&quot;&gt;
+
+        &lt;Button
+            android:id=&quot;@+id/btn_clear&quot;
+            style=&quot;@style/Widget.Material3.Button.OutlinedButton&quot;
+            android:layout_width=&quot;0dp&quot;
+            android:layout_height=&quot;wrap_content&quot;
+            android:layout_weight=&quot;1&quot;
+            android:text=&quot;データ削除&quot; /&gt;
+
+        &lt;Button
+            android:id=&quot;@+id/btn_add&quot;
+            style=&quot;@style/Widget.Material3.Button.OutlinedButton&quot;
+            android:layout_width=&quot;0dp&quot;
+            android:layout_height=&quot;wrap_content&quot;
+            android:layout_weight=&quot;1&quot;
+            android:text=&quot;追加&quot; /&gt;
+    &lt;/LinearLayout&gt;
+
+&lt;/LinearLayout&gt;</code></pre>
+<h3>書いた内容の意味</h3>
+<table><thead><tr><th>書いたところ</th><th>意味</th></tr></thead><tbody>
+<tr><td><code>ImageView</code> の <code>@drawable/title_memo</code></td><td>STEP 02で置いた画像を表示する。</td></tr>
+<tr><td><code>txt_memo_list</code></td><td>メモの一覧。<code>background</code> で灰色にして、どこまでが一覧か分かるようにしている。</td></tr>
+<tr><td><code>ScrollView</code></td><td>中身がはみ出したときにスクロールできるようにする入れ物。メモが増えて画面に入りきらなくなっても、指でなぞれば続きを読める。A07の参加者一覧と同じ形。</td></tr>
+<tr><td><code>layout_height="0dp"</code> と <code>layout_weight="1"</code></td><td>一覧が<strong>残りの高さを全部使う</strong>という指定。ScrollViewのほうに付ける。メモが増えても減っても、入力欄とボタンの位置が変わらない。</td></tr>
+<tr><td><code>fillViewport="true"</code></td><td>中身が短いときでも、ScrollViewの高さいっぱいまで広げる。これがないと、メモが少ないときに灰色の背景が途中までしか広がらない。</td></tr>
+<tr><td><code>edt_memo</code> の <code>hint</code></td><td>何も入力していないときに薄く出る案内。入力すると消える。</td></tr>
+<tr><td><code>inputType="text"</code></td><td>ふつうの1行の文字入力。</td></tr>
+<tr><td>横向きの <code>LinearLayout</code></td><td>ボタン2つを横に並べる入れ物。中の2つに <code>layout_weight="1"</code> を付けて、幅を半分ずつにしている。</td></tr>
+<tr><td><code>style="@style/Widget.Material3.Button.OutlinedButton"</code></td><td>枠線だけのボタンの見た目。</td></tr>
+</tbody></table>
+<p><code>android:id="@+id/main"</code> は消しません。ひな形のJavaが <code>findViewById(R.id.main)</code> で使っています。文字を直接書いたことによる <code>Hardcoded text</code> の警告は、これまでの単元と同様にそのまま進めます。</p>
+<h3>Runで確かめる</h3>
+<p>タイトル画像、灰色の一覧、入力欄、2つのボタンが並べば成功です。押してもまだ何も起きません。</p>
+<figure class="phone"><a href="images/app-initial.png"><img src="images/app-initial.png" width="1080" height="2424" loading="lazy" alt="memorandumのタイトル画像、灰色の空のメモ一覧、入力欄、データ削除と追加のボタンが並んだ画面"></a><figcaption>STEP 03の完成。ボタンはまだ動きません。 <a href="images/app-initial.png">画像を大きく開く</a></figcaption></figure>
+<div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-3"><span>画面を作れた。一覧に <code>layout_weight</code> を付けた理由を説明できた。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
+<div class="next"><a href="#step-4">次へ：メモを追加する →</a></div></section>
+
+<section id="step-4" aria-labelledby="title-4">
+<p class="step-meta">STEP 04 · 目安 20分</p><h2 id="title-4">メモを追加する</h2>
+<p>まずは保存のことを考えず、<strong>画面の中だけでメモを増やせる</strong>ようにします。</p>
+<h3>① 部品を受け取る</h3>
+<p><code>MainActivity.java</code> を開き、<code>onCreate</code> の中（インセットの処理の下）に書きます。</p>
+<div class="code-head">MainActivity.java · onCreateの中</div>
+<pre id="code-find-views" tabindex="0"><code>        var txtMemoList = (TextView) findViewById(R.id.txt_memo_list);
+        var edtMemo = (EditText) findViewById(R.id.edt_memo);</code></pre>
+<p><code>TextView</code> と <code>EditText</code> が赤いときは <kbd>⌥ Enter</kbd> で <code>android.widget.TextView</code>、<code>android.widget.EditText</code> を選びます（<a href="../common/auto-import.html?from=memo-app">共通資料：Auto Import</a>）。</p>
+<h3>② 追加ボタンの処理を書く</h3>
+<div class="code-head">MainActivity.java · onCreateの中（①の下）</div>
+<pre id="code-add" tabindex="0"><code>        findViewById(R.id.btn_add).setOnClickListener(v -&gt; {
+            var edtMemoStr = edtMemo.getText().toString();
+            if (edtMemoStr.isEmpty()) {
+                Snackbar.make(v, &quot;メモを入力してください&quot;, Snackbar.LENGTH_SHORT).show();
+                return;
+            }
+            txtMemoList.append(edtMemoStr + &quot;\n&quot;);
+            edtMemo.setText(&quot;&quot;);
+        });</code></pre>
+<p><code>Snackbar</code> が赤いときは <kbd>⌥ Enter</kbd> で <code>com.google.android.material.snackbar.Snackbar</code> を選びます。</p>
+<h3>書いた内容の意味</h3>
+<table><thead><tr><th>行</th><th>意味</th></tr></thead><tbody>
+<tr><td><code>edtMemo.getText().toString()</code></td><td>入力欄の文字を取り出す。<code>getText()</code> の戻り値はそのままでは文字列として扱えないので <code>toString()</code> を付ける（A07と同じ）。</td></tr>
+<tr><td><code>if (edtMemoStr.isEmpty())</code></td><td>空かどうかを調べる。空ならメッセージを出して <code>return;</code> で処理をやめる。</td></tr>
+<tr><td><code>return;</code></td><td>この先を実行しない、という意味。<strong>これがないと空のメモが追加されます。</strong></td></tr>
+<tr><td><code>txtMemoList.append(...)</code></td><td><strong>今回の新顔。</strong>いまの表示の<strong>後ろに足す</strong>。<code>setText</code> だと前の内容が消えて1件しか残らない。</td></tr>
+<tr><td><code>+ &quot;\n&quot;</code></td><td>改行。これがないと全部が1行につながる。</td></tr>
+<tr><td><code>edtMemo.setText(&quot;&quot;)</code></td><td>入力欄を空に戻す。次のメモをすぐ書ける。</td></tr>
+</tbody></table>
+<h3>Runで確かめる</h3>
+<ol><li>何も入力せずに <strong>追加</strong> を押します。画面の下にメッセージが出て、一覧は増えません。</li>
+<li>メモを入力して <strong>追加</strong> を押します。一覧に1行増え、入力欄が空になります。</li>
+<li>何回か追加して、行が増えていくことを確かめます。</li></ol>
+<figure class="phone"><a href="images/app-error-empty.png"><img src="images/app-error-empty.png" width="1080" height="2424" loading="lazy" alt="何も入力せずに追加を押したところ。画面下に黒い帯でメモを入力してくださいと表示されている"></a><figcaption>空のときは追加されず、下にメッセージが出ます。 <a href="images/app-error-empty.png">画像を大きく開く</a></figcaption></figure>
+<div class="note"><p class="box-title">まだ保存はされていません</p><p>アプリを完全に終了して開き直すと、メモは消えます。ここまでは<strong>画面の中だけ</strong>の話だからです。次のSTEPで保存します。</p></div>
+<div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-4"><span>メモを追加できた。<code>append</code> と <code>setText</code> の違い、<code>return;</code> の役割を説明できた。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
+<div class="next"><a href="#step-5">次へ：終了しても残るようにする →</a></div></section>
+
+<section id="step-5" aria-labelledby="title-5">
+<p class="step-meta">STEP 05 · 目安 15分</p><h2 id="title-5">アプリを終了しても残るようにする</h2>
+<p>ここが今回の中心です。A08で学んだ <code>SharedPreferences</code> を使います。</p>
+<h3>① 保存に使う名前を決める</h3>
+<p><code>public class MainActivity extends AppCompatActivity {</code> のすぐ下に書きます。</p>
+<div class="code-head">MainActivity.java · クラスの先頭</div>
+<pre id="code-keys" tabindex="0"><code>    private static final String FILE_NAME = &quot;app&quot;;
+    private static final String MEMO = &quot;memo&quot;;</code></pre>
+<p>A08と同じで、<strong>キーは定数にまとめます。</strong>直接書くと、打ち間違えても赤いエラーにならず、値だけが見つからなくなります。</p>
+<h3>② 保存されているメモを表示する</h3>
+<p>STEP 04①の2行の<strong>下</strong>、追加ボタンの処理の<strong>上</strong>に書きます。</p>
+<div class="code-head">MainActivity.java · onCreateの中</div>
+<pre id="code-load" tabindex="0"><code>        var prefs = getSharedPreferences(FILE_NAME, MODE_PRIVATE);
+
+        txtMemoList.setText(prefs.getString(MEMO, &quot;&quot;));</code></pre>
+<p>保存されていないときは第2引数の <code>&quot;&quot;</code>（空の文字）が返るので、初回は一覧が空のままになります。</p>
+<h3>③ 追加のときに保存する</h3>
+<p>STEP 04で書いた <code>append</code> の<strong>下</strong>、<code>edtMemo.setText(&quot;&quot;)</code> の<strong>上</strong>に3行を足します。</p>
+<div class="code-head">MainActivity.java · 追加ボタンの処理の中</div>
+<pre id="code-save" tabindex="0"><code>            var edit = prefs.edit();
+            edit.putString(MEMO, txtMemoList.getText().toString());
+            edit.apply();</code></pre>
+<p>A08と同じ <code>edit()</code> → <code>putString</code> → <code>apply()</code> の3ステップです。<code>apply()</code> を忘れると保存されません。</p>
+<h3 id="why-textview">解説：なぜArrayListを使わないのか</h3>
+<p>保存しているのは <code>txtMemoList.getText().toString()</code>、つまり<strong>画面に表示している文字そのもの</strong>です。改行も含めて、まるごと1つの文字列として保存しています。</p>
+<p>A07では参加者を <code>ArrayList</code> にためていました。あれは<strong>同じ名前がすでにあるか</strong>を調べたり、<strong>何人いるか</strong>を数えたりする必要があったからです。今回のメモにはそうした判定がありません。</p>
+<table><thead><tr><th></th><th>A07BillSplitter</th><th>A09MemoApp</th></tr></thead><tbody>
+<tr><td>ためる場所</td><td><code>ArrayList</code> と画面の両方</td><td>画面だけ</td></tr>
+<tr><td>理由</td><td>重複チェックと人数チェックに必要</td><td>判定をしないので不要</td></tr>
+<tr><td>更新する場所</td><td>2か所</td><td>1か所</td></tr>
+</tbody></table>
+<p>必要のないものを持たないほうが、コードは短く読みやすくなります。「<strong>判定が必要になったら、データを別に持つ</strong>」と覚えておきましょう。</p>
+<h3>Runで確かめる</h3>
+<ol><li>メモを2〜3件追加します。</li>
+<li>エミュレータで<strong>アプリ一覧（最近使ったアプリ）</strong>を開き、このアプリを上へスワイプして終了します。</li>
+<li>もう一度アプリのアイコンから起動します。<strong>メモが残っていれば成功です。</strong></li></ol>
+<figure class="phone"><a href="images/app-added.png"><img src="images/app-added.png" width="1080" height="2424" loading="lazy" alt="メモ一覧に、牛乳を買う、レポートを出す、9時に集合の3行が表示されている画面"></a><figcaption>終了して開き直しても、この状態のままです。 <a href="images/app-added.png">画像を大きく開く</a></figcaption></figure>
+<div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-5"><span>終了して開き直してもメモが残った。A07と違って <code>ArrayList</code> を使わない理由を説明できた。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
+<div class="next"><a href="#step-6">次へ：データを全部消す →</a></div></section>
+
+<section id="step-6" aria-labelledby="title-6">
+<p class="step-meta">STEP 06 · 目安 5分</p><h2 id="title-6">データを全部消す</h2>
+<p>「データ削除」ボタンの処理を、追加ボタンの処理（<code>});</code> まで）の<strong>下</strong>に書きます。これで完成です。</p>
+<div class="code-head">MainActivity.java · onCreateの中</div>
+<pre id="code-clear" tabindex="0"><code>        findViewById(R.id.btn_clear).setOnClickListener(v -&gt; {
+            var edit = prefs.edit();
+            edit.clear();
+            edit.apply();
+            txtMemoList.setText(&quot;&quot;);
+        });</code></pre>
+<table><thead><tr><th>行</th><th>意味</th></tr></thead><tbody>
+<tr><td><code>edit.clear()</code></td><td>保存されているデータをすべて消す予約をする。</td></tr>
+<tr><td><code>edit.apply()</code></td><td>ここで確定する。これを忘れると消えない。</td></tr>
+<tr><td><code>txtMemoList.setText(&quot;&quot;)</code></td><td><strong>画面の表示も消す。</strong>保存を消しただけでは、画面に出ている文字はそのまま残る。</td></tr>
+</tbody></table>
+<div class="note"><p class="box-title">なぜ2つとも消すのか</p><p>保存されているデータ（ファイル）と、画面に表示している文字は<strong>別のもの</strong>です。<code>clear()</code> はファイルの中身を消すだけなので、画面は自分で消す必要があります。<code>setText(&quot;&quot;)</code> を書き忘れると、消したはずのメモが画面に残ったままになり、次に起動したときだけ消えている、という分かりにくい動きになります。</p></div>
+<h3>Runで確かめる</h3>
+<ol><li>メモを何件か追加します。</li><li><strong>データ削除</strong> を押します。一覧が空になれば成功です。</li><li>アプリを終了して開き直します。空のままなら、保存も消えています。</li></ol>
+<div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-6"><span>データ削除で一覧と保存の両方を消せた。2つを別々に消す理由を説明できた。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
+<div class="next"><a href="#step-7">次へ：完成とふり返り →</a></div></section>
+
+<section id="step-7" aria-labelledby="title-7">
+<p class="step-meta">STEP 07 · 目安 10分</p><h2 id="title-7">完成とふり返り</h2>
+<h3>完成チェック</h3>
+<table><thead><tr><th>操作</th><th>確認する結果</th></tr></thead><tbody>
+<tr><td>アプリを消してから初回起動</td><td>一覧が空で表示される。</td></tr>
+<tr><td>何も入れずに「追加」</td><td>下にメッセージが出て、一覧は増えない。</td></tr>
+<tr><td>メモを入れて「追加」</td><td>一覧に1行増え、入力欄が空になる。</td></tr>
+<tr><td>続けて何件か追加</td><td>行が1行ずつ増えていく。</td></tr>
+<tr><td>アプリを終了して開き直す</td><td>メモが残っている。</td></tr>
+<tr><td>「データ削除」</td><td>一覧が空になる。</td></tr>
+<tr><td>削除のあと終了して開き直す</td><td>空のまま。</td></tr>
+</tbody></table>
+<h3>ミニ練習</h3>
+<p><strong>予想 → 変更 → Run → 説明 → 元に戻す</strong>の順で試します。</p>
+<div class="task"><p class="box-title">練習1：appendをsetTextに変えてみる</p><p>STEP 04の <code>txtMemoList.append(edtMemoStr + &quot;\n&quot;);</code> を次のように変えます。</p>
+<div class="code-head">練習1 · 変更後の行</div>
+<pre id="code-practice-settext" tabindex="0"><code>            txtMemoList.setText(edtMemoStr + &quot;\n&quot;);</code></pre>
+<p>メモを3件追加すると、一覧はどうなるでしょうか。予想してから試します。</p>
+<details><summary>試したあとに答えを見る</summary><p><strong>最後に追加した1件だけ</strong>が残ります。<code>setText</code> は「置き換える」、<code>append</code> は「後ろに足す」ためです。保存される内容も1件だけになります。確認後は <code>append</code> に戻します。</p></details></div>
+<div class="task"><p class="box-title">練習2：改行を消してみる</p><p>同じ行の <code>+ &quot;\n&quot;</code> を消します。</p>
+<details><summary>試したあとに答えを見る</summary><p>メモが<strong>全部つながって1行</strong>になります（<code>牛乳を買うレポートを出す9時に集合</code>）。一覧が「1行ずつ」に見えていたのは、自分で改行を足していたからだと説明できれば十分です。確認後は戻します。</p></details></div>
+<div class="task"><p class="box-title">練習3：データ削除からsetTextを消してみる</p><p>STEP 06の <code>txtMemoList.setText(&quot;&quot;);</code> を消して、メモを追加してから「データ削除」を押します。</p>
+<details><summary>試したあとに答えを見る</summary><p>画面のメモは<strong>消えません。</strong>でもアプリを終了して開き直すと空になっています。保存（ファイル）と画面の表示は別物で、<code>clear()</code> はファイルしか消さないためです。確認後は戻します。</p></details></div>
+<h3>自分の言葉でふり返る</h3>
+<ol>
+<li><code>append</code> と <code>setText</code> は何が違いますか。</li>
+<li>空のときの <code>return;</code> を消すと、何が起きますか。</li>
+<li>アプリを終了してもメモが残るのはなぜですか。どの行が効いていますか。</li>
+<li>A07では <code>ArrayList</code> を使ったのに、A09では使っていないのはなぜですか。</li>
+<li>「データ削除」で2つのものを消しているのはなぜですか。</li>
+</ol>
+<h3>保存と提出</h3>
+<p>自分の <code>Documents/Android1/A09MemoApp</code> を保存します。先生からAPK提出の指示がある場合は、<a href="../common/apk.html?from=memo-app">共通資料：提出用APKの作り方</a>に進みます。ファイル名は <code>学籍番号_A09MemoApp.apk</code> です。</p>
+<p>教材のチェックは自分用です。先生への送信はしません。印刷は <kbd>⌘ P</kbd> で行えます。</p>
+<div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-7"><span>完成チェックを終え、追加・保存・削除の仕組みを説明できた。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
+</section>
+
+<section id="help"><h2>困ったとき</h2><table><thead><tr><th>困ったこと</th><th>最初に確認する場所</th></tr></thead><tbody>
+<tr><td><code>TextView</code>、<code>EditText</code>、<code>Snackbar</code> が赤い</td><td><kbd>⌥ Enter</kbd> で <code>android.widget.TextView</code>、<code>android.widget.EditText</code>、<code>com.google.android.material.snackbar.Snackbar</code> を選ぶ。</td></tr>
+<tr><td><code>R.id.txt_memo_list</code> などが赤い</td><td>activity_main.xmlのidが <code>txt_memo_list</code> / <code>edt_memo</code> / <code>btn_add</code> / <code>btn_clear</code> か確認。<code>android:id="@+id/main"</code> を消していないかも見る。</td></tr>
+<tr><td><code>@drawable/title_memo</code> が赤い</td><td>STEP 02で <code>drawable</code> に置けているか、ファイル名が <code>title_memo.png</code> か確認する。</td></tr>
+<tr><td><code>prefs</code> が赤い（追加や削除の中）</td><td>STEP 05②の <code>var prefs = ...</code> を、ボタンの処理より<strong>上</strong>に書いたか確認する。</td></tr>
+<tr><td>追加を押しても一覧が増えない</td><td><code>append</code> を書いたか、<code>R.id.btn_add</code> の名前が合っているか確認する。</td></tr>
+<tr><td>1件しか表示されない</td><td><code>setText</code> になっていないか確認する。追加は <code>append</code>。</td></tr>
+<tr><td>メモが全部つながって1行になる</td><td><code>+ "\n"</code> を書いたか確認する。</td></tr>
+<tr><td>終了するとメモが消える</td><td>STEP 05③の3行を書いたか、<code>edit.apply();</code> があるか確認する。</td></tr>
+<tr><td>データ削除しても画面が消えない</td><td>STEP 06の <code>txtMemoList.setText("");</code> を書いたか確認する。</td></tr>
+<tr><td>空のメモが追加されてしまう</td><td><code>return;</code> を書いたか確認する。</td></tr>
+<tr><td>キーボードでボタンが隠れる</td><td>キーボードを閉じてから押します。理由と対処は<a href="../common/dev-tips.html?from=memo-app">共通資料：開発Tips</a>にあります。</td></tr>
+<tr><td>直したのに動きが変わらない</td><td>ウィンドウの保存先が <code>Documents/Android1/A09MemoApp</code> か確認する。samples側を開いていないか見る。</td></tr>
+</tbody></table>
+<p>質問では「STEP番号・編集したファイル・最初の赤い行・押した順番」を伝えます。</p></section>
+
+<section id="sample-project"><h2>完成プロジェクトを開く</h2>
+<p>完成版は最初の授業から使える見本です。<a class="button-link" href="downloads/A09MemoApp.zip" download>完成プロジェクト A09MemoApp.zip</a></p>
+<ol><li>ZIPを展開します。中に <code>A09MemoApp</code> フォルダができます。</li><li>見本は <code>/Users/ユーザ名/Documents/Android1/samples/A09MemoApp</code> に置きます。</li><li>Android Studioの <strong>Open</strong> で、<code>settings.gradle.kts</code> と <code>app</code> が入った <code>A09MemoApp</code> フォルダを選びます。</li><li>Sync後にRunして動きを確認します。授業の入力に戻るときは自分の <code>Documents/Android1/A09MemoApp</code> を開きます。</li></ol>
+<p>両方とも同じプロジェクト名なので、ウィンドウの保存先を確認しましょう。見本と自分のアプリは同じパッケージ名 <code>jp.ac.jec.a09memoapp</code> のため、端末上では同じアプリを更新します。<strong>保存したメモも共有されます。</strong></p>
+<p>STEP 02で使う <code>title_memo.png</code> も、このZIPの <code>app/src/main/res/drawable/title_memo.png</code> から取り出せます。</p>
+<details><summary>完成したMainActivity.javaで照合する</summary><div class="code-head">完成版 · MainActivity.java</div>
+<pre id="code-complete-java" tabindex="0"><code>package jp.ac.jec.a09memoapp;
+
+import android.os.Bundle;
+import android.widget.EditText;
+import android.widget.TextView;
+
+import androidx.activity.EdgeToEdge;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.graphics.Insets;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowInsetsCompat;
+
+import com.google.android.material.snackbar.Snackbar;
+
+public class MainActivity extends AppCompatActivity {
+    private static final String FILE_NAME = &quot;app&quot;;
+    private static final String MEMO = &quot;memo&quot;;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        EdgeToEdge.enable(this);
+        setContentView(R.layout.activity_main);
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -&gt; {
+            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
+            return insets;
+        });
+
+
+        var txtMemoList = (TextView) findViewById(R.id.txt_memo_list);
+        var edtMemo = (EditText) findViewById(R.id.edt_memo);
+
+        var prefs = getSharedPreferences(FILE_NAME, MODE_PRIVATE);
+
+        txtMemoList.setText(prefs.getString(MEMO, &quot;&quot;));
+
+        findViewById(R.id.btn_add).setOnClickListener(v -&gt; {
+            var edtMemoStr = edtMemo.getText().toString();
+            if (edtMemoStr.isEmpty()) {
+                Snackbar.make(v, &quot;メモを入力してください&quot;, Snackbar.LENGTH_SHORT).show();
+                return;
+            }
+            txtMemoList.append(edtMemoStr + &quot;\n&quot;);
+            var edit = prefs.edit();
+            edit.putString(MEMO, txtMemoList.getText().toString());
+            edit.apply();
+            edtMemo.setText(&quot;&quot;);
+        });
+
+        findViewById(R.id.btn_clear).setOnClickListener(v -&gt; {
+            var edit = prefs.edit();
+            edit.clear();
+            edit.apply();
+            txtMemoList.setText(&quot;&quot;);
+        });
+    }
+}</code></pre></details>
+<details><summary>完成したactivity_main.xmlで照合する</summary><div class="code-head">完成版 · activity_main.xml</div>
+<pre id="code-complete-xml" tabindex="0"><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;LinearLayout xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
+    xmlns:tools=&quot;http://schemas.android.com/tools&quot;
+    android:id=&quot;@+id/main&quot;
+    android:layout_width=&quot;match_parent&quot;
+    android:layout_height=&quot;match_parent&quot;
+    android:orientation=&quot;vertical&quot;
+    tools:context=&quot;.MainActivity&quot;&gt;
+
+    &lt;ImageView
+        android:layout_width=&quot;match_parent&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:contentDescription=&quot;@null&quot;
+        android:src=&quot;@drawable/title_memo&quot; /&gt;
+
+    &lt;ScrollView
+        android:layout_width=&quot;match_parent&quot;
+        android:layout_height=&quot;0dp&quot;
+        android:layout_weight=&quot;1&quot;
+        android:fillViewport=&quot;true&quot;&gt;
+
+        &lt;TextView
+            android:id=&quot;@+id/txt_memo_list&quot;
+            android:layout_width=&quot;match_parent&quot;
+            android:layout_height=&quot;wrap_content&quot;
+            android:background=&quot;#c0c0c0&quot; /&gt;
+    &lt;/ScrollView&gt;
+
+    &lt;EditText
+        android:id=&quot;@+id/edt_memo&quot;
+        android:layout_width=&quot;match_parent&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:layout_marginTop=&quot;12dp&quot;
+        android:hint=&quot;メモを入力してください&quot;
+        android:importantForAutofill=&quot;no&quot;
+        android:inputType=&quot;text&quot; /&gt;
+
+    &lt;LinearLayout
+        android:layout_width=&quot;match_parent&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:layout_marginTop=&quot;12dp&quot;
+        android:orientation=&quot;horizontal&quot;&gt;
+
+        &lt;Button
+            android:id=&quot;@+id/btn_clear&quot;
+            style=&quot;@style/Widget.Material3.Button.OutlinedButton&quot;
+            android:layout_width=&quot;0dp&quot;
+            android:layout_height=&quot;wrap_content&quot;
+            android:layout_weight=&quot;1&quot;
+            android:text=&quot;データ削除&quot; /&gt;
+
+        &lt;Button
+            android:id=&quot;@+id/btn_add&quot;
+            style=&quot;@style/Widget.Material3.Button.OutlinedButton&quot;
+            android:layout_width=&quot;0dp&quot;
+            android:layout_height=&quot;wrap_content&quot;
+            android:layout_weight=&quot;1&quot;
+            android:text=&quot;追加&quot; /&gt;
+    &lt;/LinearLayout&gt;
+
+&lt;/LinearLayout&gt;</code></pre></details>
+</section>
+
+<footer class="footer"><p>Androidプログラミング1 · A09MemoApp / 本文・画像・操作機能はオフラインで利用できます。Android Studioの初回準備・ビルドと公式資料の閲覧にはネット接続が必要です。</p><p>画像は授業用の提供資料を使用。スクリーンショットのメモは例です。</p></footer>
+</main></div>
+<p class="sr-only" role="status" aria-live="polite" data-copy-status></p></body></html>

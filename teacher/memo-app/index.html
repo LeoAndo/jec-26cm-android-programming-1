@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="ja">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>教員用ガイド MemoApp | Androidプログラミング1</title>
+<link rel="stylesheet" href="../../docs/assets/textbook.css"><script src="../../docs/assets/textbook.js" defer></script></head>
+<body class="plain"><a class="skip" href="#main">本文へ移動</a>
+<header class="topbar"><span class="brand">JEC / Androidプログラミング1</span><a href="../../docs/memo-app/index.html">MemoAppの教科書へ戻る</a></header>
+<main id="main">
+<div class="hero"><p class="eyebrow">ANDROID PROGRAMMING 1 / 授業サポート</p><h1>教員用ガイド<br>MemoApp</h1><p class="lede">A08で学んだ <code>SharedPreferences</code> を、毎日使えるアプリの形にする単元です。新出概念は <code>TextView.append</code> だけで、残りはA07とA08の組み合わせ。90分×1コマを目安に調整します。</p></div>
+
+<section><h2>1. 授業前の準備</h2>
+<ul><li>学生用の入口は <code>docs/memo-app/index.html</code> です。完成版ZIPと画像を含む教材を、構成を保って配布します。</li><li>Android Studio Panda 2 | 2025.3.2、Java / Empty Views Activity、Minimum SDK API 31を確認します。作成先は <code>Documents/Android1/A09MemoApp</code>、パッケージは <code>jp.ac.jec.a09memoapp</code> です。</li><li><strong>配布物が1つあります。</strong>STEP 02で使う <code>title_memo.png</code> です。完成プロジェクトZIPの <code>app/src/main/res/drawable/title_memo.png</code> がそのまま使えます。授業前に配布できる場所へ置きます。</li><li>完成版は <code>Documents/Android1/samples/A09MemoApp</code> に置きます。見本と学生のアプリは同じパッケージ名のため、端末上では同じアプリを上書きします。<strong>保存したメモも共有されます。</strong>見本でメモを追加したあとに学生のアプリをRunすると、学生側の初回起動でメモが入った状態になります。STEP 03の「一覧が空」を見せる前に、学生の端末で一度データ削除させるか、アプリのデータを消去させてください。</li><li>指定エミュレータ <strong>jec_26cm_android1_Pixel 9a</strong> を縦向きで使います。</li><li>アプリの実行にインターネット接続は不要です。この単元ではLogcatを使いません。</li></ul>
+<div class="note"><p class="box-title">今回の仕様上の制約</p><p>1件だけの削除はできません（<code>clear()</code> による全削除のみ）。1件削除は <code>RecyclerView</code> が必要で、README 基本方針7によりAndroidプログラミング1では扱いません。学生から必ず質問が出るので、STEP 00で先回りして「Androidプログラミング2で扱う」と伝えてください。画面回転時のデータ保持と横画面のレイアウトも扱いません（<a href="../../docs/common/dev-tips.html">共通資料：開発Tips</a>のC章に掲載しています）。</p></div>
+</section>
+
+<section><h2>2. この単元の教材方針</h2>
+<table><thead><tr><th>方針</th><th>理由</th><th>授業での扱い</th></tr></thead><tbody>
+<tr><td>メモ一覧を <code>ArrayList</code> ではなく<strong>TextViewの表示文字列として保存</strong>する</td><td>A07で <code>ArrayList</code> を使ったのは重複チェックと人数チェックのため。A09には判定がなく、<code>ArrayList</code> にすると保存時の <code>String.join</code> と復元時の <code>split</code> が増えるだけで、学習項目も増える。「空文字を <code>split</code> すると要素1個の配列が返る」という初学者が確実に踏む罠も抱える。</td><td>STEP 05の解説「なぜArrayListを使わないのか」でA07と表で比較する。<strong>この説明を飛ばすと「単元ごとに書き方が違う」とだけ受け取られる。</strong></td></tr>
+<tr><td><strong>保存なし（STEP 04）→ 保存あり（STEP 05）</strong>の順で作る</td><td>先に画面の中だけで動かすと、<code>append</code> の働きに集中できる。保存を足したときの変化（終了しても残る）が体験として際立つ。</td><td>STEP 04の最後に「いま終了すると消えます」と明示し、実際に試させてからSTEP 05へ進む。</td></tr>
+<tr><td>キーは <code>private static final String</code> にまとめる</td><td>A08のSTEP 09練習3で「直書きは打ち間違えても赤いエラーにならない」を実演させている。直後の単元で直書きに戻ると方針がぶれる。</td><td>STEP 05①で、A08と同じ形だと一言添える。</td></tr>
+<tr><td>一覧のTextViewに <code>layout_weight="1"</code> を付ける</td><td><code>lines</code> による固定高だと、画面サイズによって余白が大きく残ったり足りなくなったりする。メモの増減でボタンの位置が動かない利点もある。</td><td>STEP 03の表で理由を短く扱う。</td></tr>
+<tr><td>「データ削除」で<strong>保存と画面の両方</strong>を消す</td><td>片方だけ消すと、画面には残るが再起動すると消えている、という分かりにくい状態になる。保存と表示が別物だと気づかせる良い教材。</td><td>STEP 06の解説とSTEP 07練習3で扱う。</td></tr>
+</tbody></table>
+<div class="note"><p class="box-title">完成コードを説明するときの注意</p><p><code>var</code>、ラムダ式、<code>findViewById</code> の明示キャスト、<code>Snackbar</code> の書き方は変えません。単元をまたいで同じ形にそろえるためです（READMEの「完成コードの書き方（全単元共通）」）。</p></div>
+</section>
+
+<section><h2>3. 90分×1コマの進行</h2>
+<table><thead><tr><th>時間配分</th><th>終了時の確認</th></tr></thead><tbody>
+<tr><td>STEP 00：5分、STEP 01：10分、STEP 02：10分、STEP 03：15分、STEP 04：20分、STEP 05：15分、STEP 06：5分、STEP 07：10分</td><td>メモを追加でき、アプリを終了して開き直しても残る。データ削除で一覧と保存の両方が消える。</td></tr>
+</tbody></table>
+<p>STEP 04が最も時間を使います。<code>append</code> と <code>setText</code> の違い、<code>return;</code> の役割、<code>+ "\n"</code> の3点でつまずきが出ます。STEP 07の練習1・2はこの3点の確認になっているので、時間が足りないときはSTEP 04の説明を短くして練習に回すほうが定着します。</p>
+<p>STEP 05は、<code>var prefs = ...</code> を<strong>ボタンの処理より上に書く</strong>必要があります。下に書くとリスナの中から見えず赤いエラーになります。板書か画面で位置を示してください。</p>
+<p>時間が余ったら、STEP 07のふり返り5問を口頭で回すか、練習3（データ削除から <code>setText("")</code> を消す）まで試させます。</p>
+</section>
+
+<section><h2>4. STEPごとの照合コード</h2>
+<table><thead><tr><th>到達地点</th><th>参照ファイル</th><th>教員の確認ポイント</th></tr></thead><tbody>
+<tr><td>出発点（STEP 01）</td><td><a href="code/01-MainActivity.java">01-MainActivity.java</a> / <a href="code/01-activity_main.xml">01-activity_main.xml</a></td><td>Hello World!をRunできる。ひな形のまま。</td></tr>
+<tr><td>画面のレイアウト（STEP 03）</td><td><a href="code/03-activity_main.xml">03-activity_main.xml</a></td><td>id/mainのLinearLayout（vertical）。ImageView、txt_memo_list、edt_memo、横向きLinearLayout（btn_clear→btn_add）の順。txt_memo_listが <code>0dp</code> + <code>weight="1"</code>。ルートに <code>android:padding</code> を書かない。</td></tr>
+<tr><td>メモの追加（STEP 04）</td><td><a href="code/04-MainActivity.java">04-MainActivity.java</a></td><td>2つの <code>findViewById</code> が <code>onCreate</code> の冒頭にまとまっている。<code>btn_add</code> のリスナだけがある。一覧は <code>append</code>（<code>setText</code> ではない）。空チェックの <code>return;</code> がある。<strong>SharedPreferencesはまだ出てこない。</strong></td></tr>
+<tr><td>保存と復元（STEP 05）</td><td><a href="code/05-MainActivity.java">05-MainActivity.java</a></td><td>定数2つがクラスの先頭にある。<code>var prefs = ...</code> がリスナより上。<code>append</code> の下に <code>edit()</code> → <code>putString</code> → <code>apply()</code> の3行。まだ <code>btn_clear</code> のリスナはない。</td></tr>
+<tr><td>完成（STEP 06）</td><td><a href="code/06-MainActivity.java">06-MainActivity.java</a></td><td><code>btn_clear</code> のリスナがあり、<code>edit.clear()</code> → <code>edit.apply()</code> の下に <code>txtMemoList.setText("")</code> がある。</td></tr>
+</tbody></table>
+<p>STEP 00・02・07は入力がないため、照合コードはありません（STEP 02は画像の配置だけ）。STEP 03・06のファイルは完成プロジェクトと同じ内容です（<a href="../../A09MemoApp/app/src/main/res/layout/activity_main.xml">activity_main.xml</a>、<a href="../../A09MemoApp/app/src/main/java/jp/ac/jec/a09memoapp/MainActivity.java">MainActivity.java</a>）。<code>AndroidManifest.xml</code> は最初から最後までひな形のままなので、照合コードはありません。</p>
+</section>
+
+<section><h2>5. 理解確認と支援</h2>
+<table><thead><tr><th>問い</th><th>期待する行動・答え</th></tr></thead><tbody>
+<tr><td><code>append</code> と <code>setText</code> の違いは</td><td><code>append</code> は後ろに足す、<code>setText</code> は置き換える、と答える。<code>setText</code> にすると1件しか残らないことを説明できる。</td></tr>
+<tr><td>空のときの <code>return;</code> を消すとどうなるか</td><td>メッセージが出たあとも処理が続き、空のメモが追加されてしまう、と答える。</td></tr>
+<tr><td><code>+ "\n"</code> は何のためにあるか</td><td>改行。ないとメモが全部つながって1行になる、と答える。</td></tr>
+<tr><td>アプリを終了してもメモが残るのはなぜか</td><td><code>edit.putString</code> と <code>edit.apply()</code> でファイルに保存しているため。起動時に <code>prefs.getString</code> で読み直している、と答える。</td></tr>
+<tr><td>A07では <code>ArrayList</code> を使ったのに、A09で使わないのはなぜか</td><td>A07は重複チェックと人数チェックに必要だったが、A09には判定がないため、と答える。「判定が必要になったらデータを別に持つ」と言えれば十分。</td></tr>
+<tr><td>「データ削除」で2つのものを消しているのはなぜか</td><td>保存（ファイル）と画面の表示は別物だから、と答える。<code>clear()</code> はファイルしか消さない。</td></tr>
+<tr><td>保存されているのは何か</td><td>画面に表示している文字列まるごと1つ。改行も含めて1つの値として保存している、と答える。</td></tr>
+</tbody></table>
+<p>エラー時は「STEP番号・ファイル・最初の赤い行・操作順」を聞きます。この単元のパッケージは <code>jp.ac.jec.a09memoapp</code> です。アプリが終了してしまうときだけ <a href="../../docs/common/logcat.html">共通資料：Logcat</a> を開き、<code>package:jp.ac.jec.a09memoapp level:ERROR</code> で確認します。</p>
+<p>よくある原因は、①<code>append</code> を <code>setText</code> にした（1件しか出ない）、②<code>+ "\n"</code> を忘れた（全部つながる）、③<code>var prefs = ...</code> をリスナより下に書いた（赤いエラー）、④<code>edit.apply()</code> を書き忘れた（終了すると消える）、⑤データ削除で <code>txtMemoList.setText("")</code> を書き忘れた（画面が消えない）、の5つです。</p>
+<p>③は「<code>prefs</code> が赤い」という形で出ます。学生は原因をコードの中身に求めがちなので、<strong>行の順番</strong>を最初に確認させてください。</p>
+<p>名前の入力中に、Androidの入力候補やキーボードがボタンに重なって押せないことがあります。キーボードを閉じてから押すよう伝えます。理由と対処は<a href="../../docs/common/dev-tips.html">共通資料：開発Tips</a>のB章にあります。</p>
+</section>
+
+<section><h2>6. 到達度と提出</h2>
+<ul><li>メモを追加でき、空のときはメッセージが出て追加されないことを再現できる。</li><li>アプリを完全に終了して開き直してもメモが残ることを確かめられる。どの行が効いているか説明できる。</li><li>データ削除で、一覧と保存の両方が消えることを確かめられる。2つを別々に消す理由を説明できる。</li><li>A07と違って <code>ArrayList</code> を使わない理由を説明できる。</li><li>提出する場合は <a href="../../docs/common/apk.html">共通資料：APKの作り方</a>に従い、先生が指定した場所へ <code>学籍番号_A09MemoApp.apk</code> を提出する。</li></ul>
+</section>
+
+<section><h2>7. 教材の保守と確認</h2>
+<ul><li>完成コードを変更したら、教科書の部分コード、照合用の全体コード、画像をまとめて確認し、<code>python3 scripts/package-hello-android.py --project A09MemoApp --output docs/memo-app/downloads/A09MemoApp.zip</code> で配布用ZIPを再作成します。教科書のコードと完成プロジェクトの一致は <code>python3 scripts/check-teaching-materials.py</code> で確かめます。</li><li>アプリ画面の3枚（app-initial、app-added、app-error-empty）は <code>jec_26cm_android1_Pixel 9a</code>（Android 17 / API 37）で完成版を操作して撮影しました（2026年9月17日）。<code>app-initial.png</code> はSTEP 00・STEP 03・データ削除後の3か所で使っています。表示が同じためです。</li><li><strong>スクリーンショットのメモ（牛乳を買う／レポートを出す／9時に集合）は、エミュレータのIMEを経由せず <code>shared_prefs/app.xml</code> に直接書き込んで表示させたものです。</strong>アプリの描画そのものは本物ですが、撮り直すときは同じ方法か、手入力で同じ3件を入れてください。本文の記述もこの3件に合わせています。</li><li>IDE操作の画像（New Project、Empty Views Activity、プロジェクト設定、画像の貼り付け）は<strong>まだ用意していません。</strong>STEP 01・02は文章だけの手順になっています。差し替えるときは <code>A09MemoApp</code> / <code>jp.ac.jec.a09memoapp</code> で撮影し、imgの <code>width</code> / <code>height</code> を実際のサイズに合わせます。</li><li>各STEPの照合コードは、完成プロジェクトのコピーにそのSTEPまでのファイルを入れ、STEP 01〜06のすべてで <code>assembleDebug</code> が通ることを確認しました（2026年9月17日）。</li><li>印刷時は補足・解答も展開されます。解答を配布したくない場合は、ブラウザで授業中に開く方式を使ってください。</li></ul>
+</section>
+
+<footer class="footer"><p><a href="../../docs/memo-app/index.html">← MemoAppの教科書へ戻る</a></p><p>対象：macOS / Android Studio Panda 2 | 2025.3.2 · 確認日：2026年9月17日</p></footer>
+</main></body></html>
