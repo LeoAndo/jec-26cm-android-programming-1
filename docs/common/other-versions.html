@@ -85,6 +85,7 @@
 <tr><td><code>MainActivity.java</code></td><td><strong>完全に同じ</strong>（パッケージ名の行を除く）</td></tr>
 <tr><td><code>activity_main.xml</code></td><td><strong>完全に同じ</strong></td></tr>
 <tr><td><code>themes.xml</code></td><td>同じ（テーマ名を除く）</td></tr>
+<tr><td>Minimum SDK</td><td>どちらも <code>minSdk = 31</code>。ウィザードで API 31 を選べば同じになる</td></tr>
 </tbody></table>
 <div class="check"><p class="box-title">ここが大事です</p><p><strong>教科書で入力するコードは、Quail 4 でもそのまま使えます。</strong>ひな形の <code>MainActivity.java</code> も <code>activity_main.xml</code> も中身が同じだからです。<code>android:id="@+id/main"</code> も、インセットの処理も、Panda 2 と同じ形で作られます。</p></div>
 
@@ -95,15 +96,15 @@
 <tr><td>Gradle</td><td>9.3.1</td><td>9.6.0</td></tr>
 <tr><td>compileSdk</td><td>36</td><td>37</td></tr>
 <tr><td>targetSdk</td><td>36</td><td>37</td></tr>
-<tr><td><strong>minSdk</strong></td><td>31</td><td><strong>30</strong>（比較に使ったひな形の値）</td></tr>
 <tr><td>R8のルールを書くファイル</td><td><code>app/proguard-rules.pro</code></td><td><code>app/src/main/keepRules/rules.keep</code></td></tr>
 <tr><td>AndroidManifest.xml</td><td>指定なし</td><td><code>android:windowSoftInputMode="adjustResize"</code> が自動で付く</td></tr>
 <tr><td>使うライブラリ</td><td><code>androidx.activity</code></td><td><code>androidx.activity-ktx</code></td></tr>
+<tr><td>ライブラリの版</td><td>appcompat 1.8.0 / material 1.14.0 など</td><td>appcompat 1.6.1 / material 1.10.0 など（<strong>やや古い</strong>）</td></tr>
 </tbody></table>
 
-<div class="note"><p class="box-title">1つだけ、自分で直す必要があります</p><p><strong>Minimum SDK は、新規作成のときに自分で API 31 を選んでください。</strong>教科書は API 31 を前提にしています。比較に使った Quail 4 のひな形は <code>minSdk = 30</code> でした。作ったあとで確かめるときは <code>app/build.gradle.kts</code> の <code>minSdk</code> を見て、<code>31</code> でなければ直します。</p></div>
+<div class="note"><p class="box-title">Minimum SDK だけは自分で選びます</p><p>教科書は <strong>API 31</strong> を前提にしています。新規作成のときに自分で API 31 を選べば、Quail 4 でも <code>minSdk = 31</code> になります（比較に使ったひな形で確認しました）。作ったあとで確かめるときは <code>app/build.gradle.kts</code> の <code>minSdk</code> を見ます。</p></div>
 
-<p>そのほかの違い（AGP・Gradle・compileSdk・targetSdk・R8のファイル名・ライブラリ）は、<strong>そのままで構いません。</strong>教科書はこれらに依存していません。新しいバージョンが選んだ値のまま進めてください。</p>
+<p>上の表の違い（AGP・Gradle・compileSdk・targetSdk・R8のファイル名・ライブラリ）は、<strong>そのままで構いません。</strong>教科書はこれらに依存していません。新しいバージョンが選んだ値のまま進めてください。</p>
 <p>なお Quail 4 のひな形は、そのまま <code>assembleDebug</code> が通ることを確認しています。</p>
 </section>
 
