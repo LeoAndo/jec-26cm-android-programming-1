@@ -7,7 +7,6 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
@@ -69,7 +68,7 @@ public class BillSplitActivity extends AppCompatActivity {
         });
     }
 
-    static void start(@NonNull final Context context, @NonNull final String[] participants) {
+    static void start(final Context context, final String[] participants) {
         var starter = new Intent(context, BillSplitActivity.class);
         starter.putExtra(EXTRA_KEY_PARTICIPANTS, participants);
         context.startActivity(starter);
