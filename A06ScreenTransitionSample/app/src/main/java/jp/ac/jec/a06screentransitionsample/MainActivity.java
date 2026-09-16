@@ -8,9 +8,6 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -29,24 +26,11 @@ public class MainActivity extends AppCompatActivity {
         });
 
         findViewById(R.id.btn2).setOnClickListener(v -> {
-            TestActivity.start(this, 1, 2L, 3.0f,
-                    4.0, true, '5', "6");
+            TestActivity.start(this, 1, "2");
         });
 
         findViewById(R.id.btn3).setOnClickListener(v -> {
-            TestActivity.start(this, new int[]{1, 2, 3},
-                    new long[]{4, 5, 6}, new float[]{7.0f, 8.0f, 9.0f},
-                    new double[]{10.0, 11.0, 12.0}, new boolean[]{true, false, true},
-                    new char[]{'a', 'b', 'c'}, new String[]{"7", "8", "9"});
-        });
-
-        findViewById(R.id.btn4).setOnClickListener(v -> {
-            TestActivity.start(this, new ArrayList<>(List.of(1, 2, 3)),
-                    new ArrayList<>(List.of("4", "5", "6")));
-        });
-
-        findViewById(R.id.btn5).setOnClickListener(v -> {
-            TestActivity.start(this, new Person("John", 20));
+            TestActivity.start(this, new String[]{"3", "4", "5"});
         });
     }
 }
