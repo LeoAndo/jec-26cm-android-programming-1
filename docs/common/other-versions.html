@@ -108,6 +108,22 @@
 <p>なお Quail 4 のひな形は、そのまま <code>assembleDebug</code> が通ることを確認しています。</p>
 </section>
 
+<section><h3>3-5. Java（JVM）のバージョン</h3>
+<p>Android Studio には Java の実行環境（JDK）が同梱されており、版によって中身が違います。教材との関係は次のとおりです。</p>
+<table><thead><tr><th>項目</th><th>Panda 2 | 2025.3.2</th><th>Quail 4</th></tr></thead><tbody>
+<tr><td><strong>書くコードのJava文法</strong><br>（<code>compileOptions</code>）</td><td>Java 11</td><td><strong>Java 11（同じ）</strong></td></tr>
+<tr><td>Gradleを動かすJVM<br>（<code>gradle-daemon-jvm.properties</code> の <code>toolchainVersion</code>）</td><td>21</td><td><strong>25</strong></td></tr>
+</tbody></table>
+<div class="check"><p class="box-title">コードの書き方は変わりません</p><p><code>compileOptions</code> がどちらも <strong>Java 11</strong> なので、<strong>教科書に出てくるJavaの書き方はそのまま使えます。</strong><code>var</code> もラムダ式も同じように動きます。違うのは「Gradleというビルドの道具を動かすJVM」のほうです。</p></div>
+
+<h4>初回ビルドに時間がかかることがあります</h4>
+<p>プロジェクトには「どのバージョンのJVMでビルドするか」が書かれています。そのバージョンが手元に無いと、<strong>Gradleがインターネットから自動的にダウンロードします。</strong></p>
+<p>実際に確かめた結果です。JDK 25 が入っていないMacで Quail 4 のひな形をビルドしたところ、Gradleが JDK 25（Eclipse Adoptium 25.0.3）を自動で取得してからビルドが通りました。</p>
+<div class="note"><p class="box-title">完成プロジェクトZIPを開くとき</p><p>各単元の<strong>完成プロジェクトZIPは <code>toolchainVersion=21</code></strong> で作られています。Quail 4 には別のバージョンが同梱されているため、開いてビルドすると <strong>JDK 21 の取得が走ることがあります。</strong></p>
+<p>そのため、<strong>初回のビルドは時間がかかり、インターネット接続が必要です。</strong>オフラインだと失敗することがあります。2回目からは取得済みのものが使われるので速くなります。</p></div>
+<p>自分で作るプロジェクトのほうは、Quail 4 が選んだバージョンがそのまま書かれるので、この取得は起きません。</p>
+</section>
+
 <h2 id="stuck">4. それでも合わないとき</h2>
 
 <section><h3>4-1. 判断のしかた</h3>
@@ -121,7 +137,7 @@
 
 <section><h3>4-2. 確かめたこと・確かめていないこと</h3>
 <table><thead><tr><th></th><th>内容</th></tr></thead><tbody>
-<tr><td>確かめたこと</td><td>Quail 4 で作ったひな形プロジェクトと、Panda 2 のものを1ファイルずつ比べた（3-4の表）。Quail 4 のひな形が <code>assembleDebug</code> で通ることも確認した。</td></tr>
+<tr><td>確かめたこと</td><td>Quail 4 で作ったひな形プロジェクトと、Panda 2 のものを1ファイルずつ比べた（3-4の表）。Quail 4 のひな形が <code>assembleDebug</code> で通ること、そのときGradleが JDK 25 を自動取得したこと（3-5）も確認した。</td></tr>
 <tr><td>確かめていないこと</td><td><strong>各単元のSTEPを最後まで通して進めた動作は、Quail 4 では試していません。</strong>Quail 4 以外のバージョン（さらに新しい版など）も試していません。3-1〜3-3の読み替えは、一般的な注意点としてまとめたものです。</td></tr>
 </tbody></table>
 <div class="note"><p class="box-title">気づいたことを教えてください</p><p>ちがうバージョンで進めて気づいたことがあれば、<strong>先生に知らせてください。</strong>次の版でこのページに反映します。そのとき「<strong>Android Studioのバージョン</strong>」「<strong>起きたこと</strong>」「<strong>教科書のどのSTEPか</strong>」の3つを伝えてもらえると助かります。</p></div>
