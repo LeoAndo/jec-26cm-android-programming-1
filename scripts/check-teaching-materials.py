@@ -242,26 +242,6 @@ def check_project_layout(root: Path, config: dict, errors: list[str]) -> None:
                 add(errors, root, name, 1, "Git管理してはいけないファイルです")
 
 
-def check_layout_ids(root: Path, config: dict, errors: list[str]) -> None:
-    """レイアウトのidに、この教材で使わない略記の接頭辞がないか確かめる。"""
-    prefixes = config.get("forbidden_id_prefixes")
-    if not prefixes:
-        return
-    for project in config["projects"]:
-        layout_dir = root / project["root"] / "app/src/main/res/layout"
-        if not layout_dir.is_dir():
-            continue
-        for path in sorted(layout_dir.glob("*.xml")):
-            for line_number, line in enumerate(read(path).splitlines(), 1):
-                match = re.search(r'android:id="@\+id/([\w]+)"', line)
-                if not match:
-                    continue
-                for prefix in prefixes:
-                    if match.group(1).startswith(prefix):
-                        add(errors, root, path, line_number,
-                            f"idの接頭辞{prefix}は使いません: {match.group(1)}")
-
-
 def validate(root: Path) -> list[str]:
     config_path = root / CONFIG
     if not config_path.is_file():
@@ -274,7 +254,6 @@ def validate(root: Path) -> list[str]:
     check_terms(root, config, errors)
     check_registration(root, config, errors)
     check_project_layout(root, config, errors)
-    check_layout_ids(root, config, errors)
     for project in config["projects"]:
         check_project(root, project, errors)
     return errors

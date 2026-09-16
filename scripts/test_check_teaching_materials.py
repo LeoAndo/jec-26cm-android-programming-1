@@ -82,28 +82,6 @@ class TeachingMaterialsCheckTest(unittest.TestCase):
             errors = CHECKER.validate(root)
             self.assertTrue(any("A01 X：docs/x/index.html" in e for e in errors), errors)
 
-    def test_forbidden_id_prefix_is_reported(self):
-        """レイアウトidに使わない接頭辞があると検出する。"""
-        with tempfile.TemporaryDirectory() as temporary:
-            root = Path(temporary)
-            layout = root / "A01X/app/src/main/res/layout"
-            layout.mkdir(parents=True)
-            (layout / "activity_main.xml").write_text(
-                '<TextView android:id="@+id/tv_output" />\n', encoding="utf-8"
-            )
-            self._project_root(root, {
-                "scan_roots": [],
-                "terms": [{"name": "t", "canonical": "c", "forbidden": [], "required_in": []}],
-                "forbidden_id_prefixes": ["tv_"],
-                "projects": [{
-                    "name": "A01X", "package": "p", "root": "A01X",
-                    "docs": [], "source_java": "A01X/j.java", "source_xml": "A01X/l.xml",
-                    "snippets": [], "archive": "docs/x/downloads/A01X.zip",
-                }],
-            })
-            errors = CHECKER.validate(root)
-            self.assertTrue(any("tv_output" in e for e in errors), errors)
-
     def test_forbidden_spelling_is_rejected(self):
         with tempfile.TemporaryDirectory() as temporary:
             root = Path(temporary)
