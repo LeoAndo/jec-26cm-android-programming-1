@@ -135,7 +135,7 @@
 <p>自分で新しく作ったプロジェクトのほうは、Quail 4 が自分の持っているバージョン（<code>toolchainVersion=25</code>）を書き込むので、このダウンロードは起きません。</p>
 
 <details><summary>先生向け：確認した内容</summary>
-<p>各プロジェクトの <code>gradle/gradle-daemon-jvm.properties</code> の <code>toolchainVersion</code> を比較しました。A01〜A09 と <code>Panda2JavaEmptyViewActivity</code> はすべて <code>21</code>、<code>Quail4JavaEmptyViewActivity</code> は <code>25</code> です。<code>app/build.gradle.kts</code> の <code>compileOptions</code> は、どちらも <code>sourceCompatibility</code> / <code>targetCompatibility</code> とも <code>JavaVersion.VERSION_11</code> で一致しています。</p>
+<p>各プロジェクトの <code>gradle/gradle-daemon-jvm.properties</code> の <code>toolchainVersion</code> を比較しました。A01〜A11 と <code>Panda2JavaEmptyViewActivity</code> はすべて <code>21</code>、<code>Quail4JavaEmptyViewActivity</code> は <code>25</code> です。<code>app/build.gradle.kts</code> の <code>compileOptions</code> は、どちらも <code>sourceCompatibility</code> / <code>targetCompatibility</code> とも <code>JavaVersion.VERSION_11</code> で一致しています。</p>
 <p>JDK 25 が入っていないMacで <code>Quail4JavaEmptyViewActivity</code> をビルドしたところ、Gradleが Eclipse Adoptium 25.0.3 を <code>~/.gradle/jdks</code> へ自動取得したうえで <code>assembleDebug</code> が成功しました（2026年9月17日）。</p>
 </details>
 </section>
@@ -153,7 +153,7 @@
 
 <section><h3>4-2. 確かめたこと・確かめていないこと</h3>
 <table><thead><tr><th></th><th>内容</th></tr></thead><tbody>
-<tr><td>確かめたこと</td><td>Quail 4 で作ったひな形プロジェクトと、Panda 2 のものを1ファイルずつ比べた（3-4の表）。Quail 4 のひな形が <code>assembleDebug</code> で通ること、そのときGradleが JDK 25 を自動取得したこと（3-5）も確認した。<strong>さらに、Quail 4 で作ったひな形に全9単元のSTEPごとのコードを順に入れて、68か所でビルドを確かめた。Quail 4 だから起きる失敗は1件もなかった。</strong></td></tr>
+<tr><td>確かめたこと</td><td>Quail 4 で作ったひな形プロジェクトと、Panda 2 のものを1ファイルずつ比べた（3-4の表）。Quail 4 のひな形が <code>assembleDebug</code> で通ること、そのときGradleが JDK 25 を自動取得したこと（3-5）も確認した。<strong>さらに、Quail 4 の設定（3-4の表のとおり）にした各単元のプロジェクトへ、STEPごとのコードを順に入れて、全11単元・77か所でビルドを確かめた。Quail 4 だから起きる失敗は1件もなかった。</strong>A10・A11で使うRoomは、ビルドのときにコードを自動で作る部品（<code>annotationProcessor</code>）を使う。これもJDK 25で問題なく動いた。</td></tr>
 <tr><td>確かめていないこと</td><td><strong>エミュレータで実際に動かした確認は、Panda 2 で行っています。</strong>Quail 4 では、コードが組み立てられるところまでを確かめました。Android Studio の画面そのもの（メニューの位置や表示）は版によって変わるため、教科書のスクリーンショットと違って見えることがあります。Quail 4 以外のバージョン（さらに新しい版など）も試していません。3-1〜3-3の読み替えは、一般的な注意点としてまとめたものです。</td></tr>
 </tbody></table>
 <div class="note"><p class="box-title">気づいたことを教えてください</p><p>ちがうバージョンで進めて気づいたことがあれば、<strong>先生に知らせてください。</strong>次の版でこのページに反映します。そのとき「<strong>Android Studioのバージョン</strong>」「<strong>起きたこと</strong>」「<strong>教科書のどのSTEPか</strong>」の3つを伝えてもらえると助かります。</p></div>
