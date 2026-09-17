@@ -25,8 +25,8 @@
 <tr><td>上半分の画面</td><td><a href="code/02-activity_main.xml">02-activity_main.xml</a></td><td>Chronometer、START/STOP/RESET、txt_messageがある。</td></tr>
 <tr><td>数字の配置</td><td><a href="code/03-activity_main.xml">03-activity_main.xml</a></td><td>btn1〜btn9が3列×3行。</td></tr>
 <tr><td>フィールド・View取得</td><td><a href="code/04-MainActivity.java">04-MainActivity.java</a></td><td>フィールドはonCreateの外、View取得は中。</td></tr>
-<tr><td>タイマー</td><td><a href="code/05-MainActivity.java">05-MainActivity.java</a></td><td>elapsedTimeMillisでSTOP時点を保持する。</td></tr>
-<tr><td>問題出題</td><td><a href="code/06-MainActivity.java">06-MainActivity.java</a></td><td>1〜9の乱数とanswerをstartQuestionで設定する。</td></tr>
+<tr><td>タイマー</td><td><a href="code/05-MainActivity.java">05-MainActivity.java</a></td><td>elapsedTimeMillisでSTOP時点を保持する。<strong>startQuestionの呼び出しはまだない</strong>（メソッドを作るのはSTEP 6のため）。</td></tr>
+<tr><td>問題出題</td><td><a href="code/06-MainActivity.java">06-MainActivity.java</a></td><td>1〜9の乱数とanswerをstartQuestionで設定する。STARTの <code>isPlaying = true;</code> の直前に <code>if (answer == 0) { startQuestion(); }</code> がある。</td></tr>
 <tr><td>入力受付</td><td><a href="code/07-MainActivity.java">07-MainActivity.java</a></td><td>配列とfor文で9個に登録し、ゲーム外はreturnする。</td></tr>
 <tr><td>採点途中</td><td><a href="code/08-MainActivity.java">08-MainActivity.java</a></td><td>answer比較、correctNo++、nowNo++の順。</td></tr>
 <tr><td>完成</td><td><a href="code/09-MainActivity.java">09-MainActivity.java</a></td><td>10問目で停止・結果表示・isPlaying=false。</td></tr>
