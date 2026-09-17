@@ -321,10 +321,6 @@ btnStart.setOnClickListener(v -&gt; {
     btnStop.setEnabled(true);
     btnStart.setEnabled(false);
     btnReset.setEnabled(false);
-    // 初回開始時だけ問題を作る。STOP後のSTARTでは現在の問題をそのまま再開する
-    if (answer == 0) {
-        startQuestion();
-    }
     isPlaying = true;
 });</code></pre>
 
@@ -396,9 +392,13 @@ private void startQuestion() {
 <p><code>java.util.concurrent.ThreadLocalRandom</code> をimportします。<code>nextInt(1, 10)</code> は <strong>1以上、10未満</strong>の整数を選ぶので、1〜9が出ます。<code>answer = 10 - randomNumber;</code> で答えも1〜9になります。</p>
 <p><code>randomNumber</code> と <code>message</code> は、このメソッド内で使うローカル変数です。<code>answer</code> はあとでクリック処理からも読むためフィールドに保存します。</p>
 <h3>② STARTから呼び出す</h3>
-<p>STARTのクリック処理の末尾にある <code>isPlaying = true;</code> の<strong>直前</strong>に、次の1行を追加します。他のSTARTの行は残します。</p>
+<p>STARTのクリック処理の末尾にある <code>isPlaying = true;</code> の<strong>直前</strong>に、次の4行を追加します。他のSTARTの行は残します。</p>
 <div class="code-head">追加 · STARTのisPlaying = true;の直前</div>
-<pre id="code-call-question" tabindex="0"><code>startQuestion();</code></pre>
+<pre id="code-call-question" tabindex="0"><code>// 初回開始時だけ問題を作る。STOP後のSTARTでは現在の問題をそのまま再開する
+if (answer == 0) {
+    startQuestion();
+}</code></pre>
+<p><code>answer</code> は、問題を作ったときに答えが入るフィールドです（STEP 04）。<code>0</code> のままなら、まだ問題を作っていないということなので、新しい問題を出します。STOPで止めたあとのSTARTでは <code>answer</code> が残っているため、<strong>同じ問題のまま</strong>タイマーだけ再開します。</p>
 
 <h3>Runで確かめる</h3><p>STARTを押すと「1問目: 10 - 数字 =」が出ます。数字は画像と違って構いません。</p>
 <figure class="phone"><a href="images/app-playing.png"><img src="images/app-playing.png" width="1080" height="2424" loading="lazy" alt="ゲーム中のタイマーと1問目: 10 - 4 ="></a><figcaption>STARTで問題を表示。 <a href="images/app-playing.png">画像を大きく開く</a></figcaption></figure>

@@ -44,10 +44,6 @@ public class MainActivity extends AppCompatActivity {
             btnStop.setEnabled(true);
             btnStart.setEnabled(false);
             btnReset.setEnabled(false);
-            // 初回開始時だけ問題を作る。STOP後のSTARTでは現在の問題をそのまま再開する
-            if (answer == 0) {
-                startQuestion();
-            }
             isPlaying = true;
         });
 
