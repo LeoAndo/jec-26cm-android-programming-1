@@ -398,7 +398,7 @@ private void startQuestion() {
 if (answer == 0) {
     startQuestion();
 }</code></pre>
-<p><code>answer</code> は、問題を作ったときに答えが入るフィールドです（STEP 3）。<code>0</code> のままなら、まだ問題を作っていないということなので、新しい問題を出します。STOPで止めたあとのSTARTでは <code>answer</code> が残っているため、<strong>同じ問題のまま</strong>タイマーだけ再開します。</p>
+<p><code>answer</code> は、問題を作ったときに答えが入るフィールドです（STEP 04）。<code>0</code> のままなら、まだ問題を作っていないということなので、新しい問題を出します。STOPで止めたあとのSTARTでは <code>answer</code> が残っているため、<strong>同じ問題のまま</strong>タイマーだけ再開します。</p>
 
 <h3>Runで確かめる</h3><p>STARTを押すと「1問目: 10 - 数字 =」が出ます。数字は画像と違って構いません。</p>
 <figure class="phone"><a href="images/app-playing.png"><img src="images/app-playing.png" width="1080" height="2424" loading="lazy" alt="ゲーム中のタイマーと1問目: 10 - 4 ="></a><figcaption>STARTで問題を表示。 <a href="images/app-playing.png">画像を大きく開く</a></figcaption></figure>
