@@ -68,6 +68,12 @@
           "archive",
           "guidance_line"
         ]
+      },
+      {
+        "path": "scripts/release-student-materials.py",
+        "requires": [
+          "guidance_line"
+        ]
       }
     ]
   },
