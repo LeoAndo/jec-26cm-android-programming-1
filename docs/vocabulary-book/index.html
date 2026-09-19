@@ -89,7 +89,14 @@ txtItemList.setText(itemList(itemDao));   // 自分で出し直す</code></pre>
 <figure><a href="images/drawable-copy.png"><img src="images/drawable-copy.png" width="2018" height="782" loading="lazy" alt="Project表示でdrawableフォルダを選び、Copyダイアログが開いている。New nameはlogoeng.png、To directoryの末尾はA11VocabularyBook/app/src/main/res/drawable"></a><figcaption>To directoryの末尾が A11VocabularyBook/app/src/main/res/drawable になっていればOK。画像のパスは先生の保存先の例です。 <a href="images/drawable-copy.png">画像を大きく開く</a></figcaption></figure>
 <div class="note"><p class="box-title">ファイル名は変えません</p><p>このあとXMLから <code>@drawable/logoeng</code> という名前で呼び出します。<strong>名前を変えると見つからなくなります。</strong></p></div>
 <h3>② Roomを使えるようにする</h3>
-<p>A10のSTEP 02と同じ手順です。<code>gradle/libs.versions.toml</code> の <code>[versions]</code> と <code>[libraries]</code> に追記します。</p>
+<p>Roomは、Android Studioに最初から入っている部品ではありません。<strong>使うと宣言してから</strong>使います。A10でも行った準備です。宣言は2つのファイルに分けて書きます。</p>
+<p>1つ目は <code>gradle/libs.versions.toml</code> です。<strong>どの部品をどのバージョンで使うか</strong>を一覧にしておくファイルで、Android Studioがひな形として用意しています。開いて、次の<strong>3行</strong>を足します。</p>
+<table><thead><tr><th>追記する場所</th><th>追記する行</th><th>意味</th></tr></thead><tbody>
+<tr><td><code>[versions]</code> の最後</td><td><code>room = "2.6.1"</code></td><td>Roomのバージョンに <code>room</code> という名前を付ける</td></tr>
+<tr><td><code>[libraries]</code> の最後</td><td><code>room-runtime = ...</code></td><td>アプリが動くときに使う本体</td></tr>
+<tr><td><code>[libraries]</code> の最後</td><td><code>room-compiler = ...</code></td><td>ビルドのときに、書いた命令からコードを自動で作る部品</td></tr>
+</tbody></table>
+<p><code>...</code> と省略した部分は、次の全体から写します。足したあとのファイルは、次のとおりになります。</p>
 <details open><summary><code>libs.versions.toml</code>（全体）</summary>
 <pre id="code-toml"><code>[versions]
 agp = &quot;9.1.1&quot;
@@ -115,18 +122,26 @@ room-compiler = { group = &quot;androidx.room&quot;, name = &quot;room-compiler&
 
 [plugins]
 android-application = { id = &quot;com.android.application&quot;, version.ref = &quot;agp&quot; }</code></pre></details>
-<p>続けて <code>app/build.gradle.kts</code> の <code>dependencies { }</code> に2行を追加し、<strong>Sync Now</strong> を押します。</p>
+<div class="note"><p class="box-title"><code>[plugins]</code> に書かないこと</p><p><code>[libraries]</code> と <code>[plugins]</code> は見た目が似ています。<code>[plugins]</code> のほうに書くと <code>expected to find any of 'id' or 'version'</code> というエラーでビルドが止まります。追記した2行から上へたどって、<strong>最初に出てくる見出しが <code>[libraries]</code> になっているか</strong>を確かめてください。</p></div>
+<p>2つ目は <code>app/build.gradle.kts</code> です。開いて、<code>dependencies { }</code> の中の最後に2行を追加します。</p>
 <pre id="code-gradle"><code>    implementation(libs.room.runtime)
     annotationProcessor(libs.room.compiler)</code></pre>
-<div class="note"><p class="box-title"><code>[plugins]</code> に書かないこと</p><p>A10と同じ注意です。<code>[plugins]</code> のほうに書くと <code>expected to find any of 'id' or 'version'</code> でビルドが止まります。</p></div>
+<p><code>libs.room.runtime</code> の <code>libs.</code> は、先ほど追記した <code>libs.versions.toml</code> のことです。<code>room-runtime</code> のハイフンは、ここでは<strong>ドット</strong>（<code>room.runtime</code>）に変わります。</p>
+<p>画面の上に <strong>Sync Now</strong> というリンクが出ます。押して、読み込みが終わるまで待ちます。エラーが出なければ成功です。</p>
 <div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-2"><span>画像をdrawableに置き、Roomの追記をしてエラーなくSyncできた。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
 <div class="next"><a href="#step-3">次へ：データベースの3ファイルを作る →</a></div></section>
 
 <section id="step-3" aria-labelledby="title-3">
 <p class="step-meta">STEP 03 · 目安 15分</p><h2 id="title-3">データベースの3ファイルを作る</h2>
-<p>A10で作った3つ（<code>Item</code> / <code>ItemDao</code> / <code>AppDatabase</code>）を、今回の内容で作り直します。作り方はA10と同じ <strong>New → Java Class</strong> です。<strong><code>ItemDao</code> だけ <code>Interface</code></strong> を選びます。</p>
+<p>A10で作った3つ（<code>Item</code> / <code>ItemDao</code> / <code>AppDatabase</code>）を、今回の内容で作り直します。3つとも <strong>New → Java Class</strong> で作ります。<strong><code>ItemDao</code> だけ <code>Interface</code></strong> を選びます。</p>
 <h3>① Item.java（Class）</h3>
-<p>1件が「英単語」と「日本語」の2つを持ちます。</p>
+<p>Roomは、データを<strong>表</strong>の形で保存します。「1行にどんな項目があるか」を決めるのが <code>Item</code> クラスです。今回は、1件が「英単語」と「日本語」の2つを持ちます。</p>
+<ol>
+<li>左側のプロジェクト画面で <code>app → src → main → java → jp.ac.jec.a11vocabularybook</code>（<code>MainActivity</code> があるフォルダ）を右クリックし、<strong>New → Java Class</strong> を選びます。</li>
+<li><strong>New Java Class</strong> という小さなウィンドウが出ます。いちばん上の欄に、名前 <code>Item</code> を入力します。</li>
+<li>その下の一覧（<code>Class</code>・<code>Interface</code>・<code>Enum</code> …）で <strong>Class</strong> を選び、<kbd>return</kbd> を押します。</li>
+<li>できた <code>Item.java</code> の中身を、すべて次のコードに置き換えます。</li>
+</ol>
 <pre id="code-item"><code>package jp.ac.jec.a11vocabularybook;
 
 import androidx.annotation.NonNull;
@@ -180,7 +195,16 @@ public class Item {
         return english + &quot; : &quot; + japanese;
     }
 }</code></pre>
+<table><thead><tr><th>書いたもの</th><th>意味</th></tr></thead><tbody>
+<tr><td><code>@Entity</code></td><td>このクラスが<strong>表1つ分</strong>であるという印。クラス名 <code>Item</code> がそのまま表の名前になる</td></tr>
+<tr><td><code>@PrimaryKey(autoGenerate = true)</code></td><td>この項目（<code>internalId</code>）が<strong>行を見分ける番号</strong>。<code>autoGenerate = true</code> で、保存するたびに1・2・3…と自動で増える</td></tr>
+<tr><td><code>english</code> / <code>japanese</code></td><td>保存したい2つの文字。表の項目は、番号とこの2つ</td></tr>
+<tr><td><code>toString()</code></td><td>1件を <code>apple : りんご</code> の形の文字にする。STEP 05で一覧を表示するときに使われる</td></tr>
+</tbody></table>
+<div class="note"><p class="box-title"><code>@NonNull</code> はここだけ書きます</p><p>この授業では <code>@NonNull</code> を自分で書きません。ただし <code>@Entity</code> のフィールドに付けた <code>@NonNull</code> は、Javaの注意書きではなく<strong>「この列は空にできない」という表の決まりそのもの</strong>です。外すと表の形が変わってしまうので、ここだけは書きます。</p></div>
 <h3>② ItemDao.java（Interface）</h3>
+<p>次に「どう読み書きするか」を書きます。<strong>Dao</strong> は Data Access Object の略で、データベースへの<strong>窓口</strong>です。</p>
+<p>①と同じ手順で <strong>New → Java Class</strong> を開き、名前に <code>ItemDao</code> と入力します。<strong>ここだけは、一覧で <code>Interface</code> を選びます。</strong><code>Class</code> のまま作ると、中身を書いたときに赤いエラーになります。できた <code>ItemDao.java</code> の中身を、すべて次のコードに置き換えます。</p>
 <pre id="code-dao"><code>package jp.ac.jec.a11vocabularybook;
 
 import androidx.lifecycle.LiveData;
@@ -202,12 +226,17 @@ public interface ItemDao {
     void upsert(Item item);
 }</code></pre>
 <table><thead><tr><th>書いたもの</th><th>意味</th></tr></thead><tbody>
+<tr><td><code>@Dao</code></td><td>このインタフェースがデータベースへの窓口であるという印</td></tr>
+<tr><td><code>@Query("SELECT * FROM item")</code></td><td>表の中身を全部取り出す命令。<code>item</code> は <code>Item</code> クラスから作られた表の名前</td></tr>
 <tr><td><code>LiveData&lt;List&lt;Item&gt;&gt; getAll()</code></td><td><strong>今回の新顔。</strong>ただの <code>List</code> ではなく <code>LiveData</code> で受け取ると、中身が変わったときに知らせてもらえる</td></tr>
-<tr><td><code>countByEnglish</code></td><td>同じ英単語が何件あるか数える。重複チェックに使う</td></tr>
-<tr><td><code>@Upsert</code></td><td>A10と同じ。あれば書き換え、なければ追加</td></tr>
+<tr><td><code>@Query("SELECT COUNT(*) ...")</code> と <code>countByEnglish</code></td><td>同じ英単語が何件あるか数える。<code>:english</code> はメソッドの引数のこと。重複チェックに使う</td></tr>
+<tr><td><code>@Upsert</code></td><td>A10でも使った命令。<strong>あれば書き換え、なければ追加</strong>（upsert は update と insert を合わせた言葉）。今回は単語の追加に使う</td></tr>
+<tr><td>メソッドに <code>{ }</code> がない</td><td>中身は、<strong>ビルドするときにRoomが自動で作る</strong>。STEP 02で足した <code>room-compiler</code> がその仕事をする。書くのは「何をしたいか」だけ</td></tr>
 </tbody></table>
 <div class="note"><p class="box-title"><code>=</code> であって <code>LIKE</code> ではありません</p><p><code>WHERE english = :english</code> は「ぴったり同じ」という意味です。<code>LIKE</code> にすると <code>%</code> や <code>_</code> が特別な文字として扱われ、ちがう単語にも当たってしまいます。</p></div>
 <h3>③ AppDatabase.java（Class）</h3>
+<p>表（<code>Item</code>）と窓口（<code>ItemDao</code>）ができました。最後に、この2つをまとめる<strong>データベース本体</strong>を作ります。</p>
+<p>①と同じ手順で <strong>New → Java Class</strong> を開き、名前に <code>AppDatabase</code> と入力します。種類は <strong>Class</strong> です。できた <code>AppDatabase.java</code> の中身を、すべて次のコードに置き換えます。</p>
 <pre id="code-database"><code>package jp.ac.jec.a11vocabularybook;
 
 import android.content.Context;
@@ -237,7 +266,14 @@ public abstract class AppDatabase extends RoomDatabase {
         return instance;
     }
 }</code></pre>
-<p>A10と同じ形です。<code>context.getApplicationContext()</code> を渡すところも同じです。</p>
+<table><thead><tr><th>書いたもの</th><th>意味</th></tr></thead><tbody>
+<tr><td><code>@Database(entities = {Item.class}, version = 1)</code></td><td>このデータベースが <code>Item</code> の表を持つという宣言。<code>version</code> は表の形を変えたときに増やす番号</td></tr>
+<tr><td><code>abstract class</code> / <code>abstract ItemDao itemDao()</code></td><td>中身はRoomが自動で作るので <code>abstract</code>（中身を書かない）にする。②のメソッドに <code>{ }</code> がないのと同じ理由</td></tr>
+<tr><td><code>getInstance(Context context)</code></td><td>データベースを取り出すメソッド。最初の1回だけ作って、あとは同じものを返す</td></tr>
+<tr><td><code>"app.db"</code></td><td>端末に作られるファイルの名前</td></tr>
+<tr><td><code>allowMainThreadQueries()</code></td><td>読み書きを画面と同じ流れで行う指定。この授業ではこれを付ける</td></tr>
+</tbody></table>
+<div class="note"><p class="box-title"><code>context.getApplicationContext()</code> を忘れない</p><p><code>Room.databaseBuilder(...)</code> の最初に渡しているのは、受け取った <code>context</code> そのままではなく <code>context.getApplicationContext()</code> です。ここを <code>context</code> のままにすると、画面を閉じたり回したりするたびに<strong>古い画面が消えずに残り続けます</strong>。作ったデータベースはアプリが終わるまで残るため、画面ではなく<strong>アプリ全体</strong>を渡します。A10でも同じ形で書きました。</p></div>
 <div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-3"><span>3つのファイルを作り、getAllがLiveDataで受け取る形になっていることを確認した。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
 <div class="next"><a href="#step-4">次へ：メニュー画面を作る →</a></div></section>
 
@@ -473,7 +509,13 @@ public class CardAddActivity extends AppCompatActivity {
 <pre id="code-open-add"><code>        findViewById(R.id.btn_add_card).setOnClickListener(v -&gt; {
             CardAddActivity.start(this);
         });</code></pre>
-<p>画面を開く処理は、<strong>開かれる側のクラスに <code>start</code> という名前で書きます。</strong>A07の <code>BillSplitActivity.start(...)</code> と同じ形です。</p>
+<p>画面を開く処理は、<strong>開かれる側のクラスに <code>start</code> という名前で書きます。</strong>A07の <code>BillSplitActivity.start(...)</code> と同じ形です。ここで呼んでいるのは、②で <code>CardAddActivity.java</code> の最後に書いた <code>start</code> です。</p>
+<table><thead><tr><th>書いたもの</th><th>意味</th></tr></thead><tbody>
+<tr><td><code>static void start(…)</code></td><td>クラス名を付けて <code>CardAddActivity.start(…)</code> と呼べるメソッド。この画面を開く手順を、開かれる側であるこの画面自身が持つ。</td></tr>
+<tr><td><code>Context context</code></td><td>画面（Activity）を受け取るための型。呼ぶ側が <code>this</code> を渡すと、ここに入る。</td></tr>
+<tr><td><code>new Intent(context, CardAddActivity.class)</code></td><td>今の画面から <code>CardAddActivity</code> を開くための指示（Intent）を作る。</td></tr>
+<tr><td><code>context.startActivity(starter)</code></td><td>IntentをAndroidに渡して、画面を開いてもらう。</td></tr>
+</tbody></table>
 <h3>Runで確かめる</h3>
 <ol><li><strong>単語を追加する</strong> を押して、この画面が出ることを確認します。</li>
 <li>英単語に <code>apple</code>、日本語に <code>りんご</code> を入れて <strong>追加する</strong>。下の一覧に増えます。</li>
