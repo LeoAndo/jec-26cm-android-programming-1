@@ -773,6 +773,19 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 }</code></pre>
+<h3>完成チェック</h3>
+<p>上から順に操作します。単語が1件もない状態から確かめるので、アプリを消してから始めます。</p>
+<p>表の<strong>戻る操作</strong>は、画面の端から内側へのスワイプ、またはエミュレータの ◁ です。キーボードが出ているときは、1回目でキーボードが閉じるので、もう一度行います。<strong>アプリを終了する</strong>ときは、エミュレータでアプリ一覧（最近使ったアプリ）を開き、このアプリを上へスワイプします。アプリ一覧は、画面下の横棒を上へスワイプしてから止めると出ます。</p>
+<table><thead><tr><th>操作</th><th>確認する結果</th></tr></thead><tbody>
+<tr><td>アプリを消してから初回起動</td><td>ロゴ画像と、「単語帳画面へ」「単語を追加する」の2つのボタンが出る。</td></tr>
+<tr><td>「単語帳画面へ」→ メッセージの右の「単語を追加する」</td><td>「単語がありません」と出て、「前へ」「次へ」は押せない。「単語を追加する」を押すと、単語を追加する画面に切り替わる。「登録ずみの単語」の下は空。</td></tr>
+<tr><td>何も入れずに「追加する」</td><td>「英単語と日本語の両方を入力してください」が出て、一覧は増えない。</td></tr>
+<tr><td>apple と りんご を「追加する」</td><td>押してすぐ、一覧に「apple : りんご」が出る。2つの入力欄は空になる。</td></tr>
+<tr><td>study と 勉強する も追加 → もう一度 apple と りんご を追加</td><td>一覧が2行になる。2回目の apple は「すでに登録されている単語です」が出て、一覧は増えない。</td></tr>
+<tr><td>戻る操作</td><td>カード画面に戻る。「単語がありません」は消えていて、「1問目/全2問中」と apple が出ている。</td></tr>
+<tr><td>「答えを表示する」→「次へ」</td><td>りんご が出て、ボタンが「答えを非表示にする」に変わる。「次へ」で2問目の study になり、答えはまた隠れる。「次へ」は押せなくなる。</td></tr>
+<tr><td>アプリを終了して開き直す</td><td>「単語帳画面へ」を押すと、登録した2件が残っていて、「1問目/全2問中」と apple が出る。</td></tr>
+</tbody></table>
 <h3>練習</h3>
 <ol>
 <li><code>CardAddActivity</code> の <code>observe</code> の中を消してRunする。単語を追加したとき、一覧はどうなるか。</li>
@@ -782,7 +795,7 @@ public class MainActivity extends AppCompatActivity {
 <h3>保存</h3>
 <p>自分の <code>Documents/Android1/A11VocabularyBook</code> を保存します。</p>
 <p>教材のチェックは自分用です。先生への送信はしません。印刷は <kbd>⌘ P</kbd> で行えます。</p>
-<div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-7"><span>3つの画面を行き来でき、単語を追加すると一覧がすぐ増えることを確認した。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
+<div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-7"><span>完成チェックの操作をすべて試し、表のとおりの結果になった。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
 </section>
 
 <section id="help" aria-labelledby="title-help">
