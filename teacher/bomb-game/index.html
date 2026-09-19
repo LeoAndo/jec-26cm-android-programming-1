@@ -10,9 +10,21 @@
 <section><h2>1. 授業前の準備</h2>
 <ul><li>学生用の入口は <code>docs/bomb-game/index.html</code> です。完成版ZIPと画像を含む教材を、構成を保って配布します。</li><li>Android Studio Panda 2 | 2025.3.2、Java / Empty Views Activity、Minimum SDK API 31を確認します。作成先は <code>Documents/Android1/A05BombGame</code>、パッケージは <code>jp.ac.jec.a05bombgame</code> です。</li><li>STEP 2で使う <code>bomb_initial.png</code>・<code>bomb_ignited.png</code>・<code>bomb_exploded.png</code> は、完成版ZIPの <code>app/src/main/res/drawable</code> から学生自身がコピーします。別の画像配布は行いません。</li><li>完成版は <code>Documents/Android1/samples/A05BombGame</code> に置きます。画像の貼り付け先とRunするプロジェクトが <code>samples</code> 側になっていないか、保存先で確認します。</li><li>指定エミュレータ <strong>jec_26cm_android1_Pixel 9a</strong> を縦向きで使います。横向きではメッセージと再挑戦ボタンが画面に収まらず、ゲーム終了後に再挑戦を押せなくなるため、今回の保証範囲に含めません。</li><li>教員用の途中コードは <code>teacher/bomb-game/code</code> にあります。学生には配布せず、現在のSTEPの照合に使います。</li></ul>
 <div class="note"><p class="box-title">今回の仕様上の制約</p><p>押した数字ボタンは <code>setEnabled(false)</code> で押せなくし、爆発・クリアのときは9個すべてを押せなくします。着火したあとにクリアした場合、爆弾は火がついた画像のままです。導火線スイッチの数字は <code>Log.d</code> でLogcatに出すため、学生は動作確認に使えます。各単元では画面回転時のデータ保持を扱いません。回転などでActivityが再生成された場合は、押したボタンと状態が初期化され、スイッチの数字も選び直されます。この観点は別単元の演習アプリで検証します。</p></div>
-<div class="note"><p class="box-title">完成コードを説明するときの注意</p><p>クリア判定の <code>else { // ゲーム続行</code> には、爆発（ゲームオーバー）の表示も含まれます。教科書STEP 9では「クリアではないとき」と説明しています。<code>Arrays.stream</code> の <code>distinct</code> / <code>count</code> / <code>anyMatch</code> / <code>forEach</code> / <code>filter</code> は、この単元の新しい学習項目です。for文には書き換えず、教科書のSTEP 5・7・9で、表や学習済みの拡張for文との対応を使って1つずつ説明します。</p></div>
 </section>
-<section><h2>2. 90分×3コマの進行</h2>
+<section><h2>2. この単元の教材方針</h2>
+<p>この単元は、READMEの「単元の範囲の決め方（全単元共通）」を明文化する前に作りました。次の表には、PR・issue・READMEに理由が残っている判断だけを載せています。学生から「ネットで見た書き方と違う」「前の単元と書き方が違う」と質問が出たときの答えになります。</p>
+<table><thead><tr><th>方針</th><th>理由</th><th>授業での扱い</th></tr></thead><tbody>
+<tr><td>Stream API（<code>distinct</code> / <code>count</code> / <code>anyMatch</code> / <code>forEach</code> / <code>filter</code>）を<strong>for文に書き換えない</strong></td><td>A01〜A03にない書き方で、レビューでは、学生がコードを追えなくなりやすいと指摘された。オーナーの判断で、コードは変えずに教科書で解説すると決めた（PR #11）。for文にすると、フラグ変数と <code>break</code>、数える変数が要り、行数と入れ子が増える。追いにくさはfor文版にもある。</td><td>STEP 5・7・9で1つずつ、表を使って説明する。<code>forEach</code> は、学習済みの拡張for文と同じ動きだと示す。つまずきが多ければ、for文版を練習問題に足すか、別のissueで検討する（PR #11の申し送り）。</td></tr>
+<tr><td>スイッチの数字は、メソッドの中から<strong>フィールドに直接代入</strong>する</td><td>最初の完成コードは、フィールドと同じ名前のローカル変数と <code>this.</code> を使っていた。そのまま教科書にすると、<code>new int[2]</code> の初期値と <code>this.</code> の説明が増え、学習目標（乱数・do-while文・状態の管理）から外れる。A02の <code>answer</code> も、メソッドの中から直接代入している（PR #11、42e62e9）。</td><td>STEP 5②の表で「作った配列を、①のフィールドに入れる」と説明する。初期値はないが、クリックの処理を付ける前に <code>onCreate</code> で必ず代入される。</td></tr>
+<tr><td>クリアの条件を<strong>括弧で囲み</strong>、7個・8個の意味をコメントに書く</td><td><code>&amp;&amp;</code> が先に計算されるので、括弧がなくても判定は同じ。ただ、学生が写し間違えたときに気付きにくく、<code>7</code> と <code>8</code> の意味もコードから読み取れない。括弧があると、教科書の説明とコードの形がそろう（PR #11、42e62e9）。</td><td>STEP 9「クリアの条件を読む」の表を読み合わせる。8と比べる理由は、STEP 10練習2（8を7に変える）で確かめさせる。</td></tr>
+<tr><td>ログは <code>Log.d</code> にそろえ、スイッチの確認に使う</td><td>A01・A03と<a href="../../docs/common/logcat.html">共通資料：Logcat</a>は、<code>Log.d</code> と <code>level:DEBUG</code> で統一している。最初の完成コードは、ここだけ <code>Log.i</code> だった。そろえると、検索欄がほかの単元と同じまま使え、「ここだけInfoの理由」の説明が要らない（PR #11、42e62e9）。</td><td>STEP 5で、ログが2行出ることを確かめる。STEP 7・9は、このログでスイッチを見ながら、着火・爆発・クリアを試す。</td></tr>
+<tr><td>9個の数字ボタンは、<strong>配列の初期化子の中で</strong> <code>findViewById</code> を呼ぶ</td><td>全単元共通のルールでは、<code>findViewById</code> は <code>onCreate</code> の冒頭でまとめて呼ぶ。配列の初期化子の中で呼ぶ形は、冒頭で取得していれば準拠とみなす例外として、READMEに明文化している（issue #21、PR #25）。</td><td>STEP 6①で、配列にまとめる形をそのまま示す。A03の <code>imageViews</code> と同じ書き方。</td></tr>
+<tr><td>画像3枚は別に配布せず、<strong>完成版ZIPから学生がコピー</strong>する</td><td>A03と同じ方式。完成版は初回から公開するので、画像を別に配ると二重管理になる（A03のPR #9）。</td><td>STEP 2は「A03と同じ手順」と伝え、貼り付け先が <code>samples</code> 側でないかを確認する。</td></tr>
+<tr><td>教科書の冒頭のタグは「A01〜A03の内容を使う」のまま</td><td>A04の教科書を追加したとき、「前の単元」のリンクはA04に変えたが、タグは変えなかった。学習内容はA01〜A03を使い、A04（WebView）の内容は使わないため（PR #17）。</td><td>STEP 0の冒頭で、A01〜A03の何を使うか（画面・配列とfor文・乱数・フィールド）を確認する。</td></tr>
+</tbody></table>
+<div class="note"><p class="box-title">完成コードを説明するときの注意</p><p>クリア判定の <code>else { // ゲーム続行</code> には、爆発（ゲームオーバー）の表示も含まれます。教科書STEP 9では「クリアではないとき」と説明しています。<code>btnRetry</code> は、<code>txtMessage</code> や <code>imgBomb</code> と違ってキャストしていません。教科書STEP 6①は「クリック登録と表示の切り替えだけを使うため、A03と同じくキャストしない」と説明しています。<code>if (match) nowState++;</code> の <code>{ }</code> の省略は、STEP 7②の表で説明しています。Stream APIを含め、完成コードの書き方は変えません。教科書で説明します。</p></div>
+</section>
+<section><h2>3. 90分×3コマの進行</h2>
 <table><thead><tr><th>コマ</th><th>時間配分</th><th>終了時の確認</th></tr></thead><tbody>
 <tr><td>1コマ目</td><td>STEP 0：5分、STEP 1：15分、STEP 2：15分、STEP 3：20分、STEP 4：10分、再実行・個別支援：20分、ふり返り：5分</td><td>drawableに3画像があり、完成版と同じ画面をRunできる。見えない再挑戦ボタンを含めてidを指させる。</td></tr>
 <tr><td>2コマ目</td><td>再開：5分、STEP 5：25分、STEP 6：15分、STEP 7：30分、再実行・確認：10分、ふり返り：5分</td><td>Logcatでスイッチの数字を確認し、着火と爆発を実演できる。</td></tr>
@@ -20,7 +32,7 @@
 </tbody></table>
 <p>STEP 5は <code>int[]</code>、メソッド、do-while文、<code>distinct().count()</code> が一度に出るため、コード入力後に「くり返し」の表を読み合わせます。STEP 7は定数と <code>anyMatch</code> が新しいため、「スイッチが {3, 7} のとき」の表で、押した数字ごとに <code>match</code> を答えさせます。STEP 9は置き換え範囲を間違えやすい工程です。貼り付ける前に、選択範囲が <code>if (nowState == STATE_IGNITED) {</code> から else if の閉じ括弧までで、<code>});</code> を含まないことを確認させます。</p>
 </section>
-<section><h2>3. STEPごとの照合コード</h2>
+<section><h2>4. STEPごとの照合コード</h2>
 <table><thead><tr><th>到達地点</th><th>参照ファイル</th><th>教員の確認ポイント</th></tr></thead><tbody>
 <tr><td>出発点（STEP 1）</td><td><a href="code/01-MainActivity.java">01-MainActivity.java</a> / <a href="code/01-activity_main.xml">01-activity_main.xml</a></td><td>Hello World!をRunできる。</td></tr>
 <tr><td>画像の追加（STEP 2）</td><td>出発点のまま</td><td><code>app/src/main/res/drawable</code> に3つのPNGがあり、ビルドが通る。</td></tr>
@@ -34,7 +46,7 @@
 </tbody></table>
 <p>STEP 4のXMLとSTEP 9のJavaは、完成プロジェクトの <a href="../../A05BombGame/app/src/main/res/layout/activity_main.xml">activity_main.xml</a> と <a href="../../A05BombGame/app/src/main/java/jp/ac/jec/a05bombgame/MainActivity.java">MainActivity.java</a> と同じ内容です。STEP 8のJavaの表示の処理を、教科書STEP 9のコードに置き換えると、STEP 9のJavaになります。</p>
 </section>
-<section><h2>4. 理解確認と支援</h2>
+<section><h2>5. 理解確認と支援</h2>
 <table><thead><tr><th>問い</th><th>期待する行動・答え</th></tr></thead><tbody>
 <tr><td>2つのスイッチが同じ数字にならないのは？</td><td>do-while文の条件 <code>distinct().count() != 2</code> を示し、同じ数字なら作り直す、と答える。</td></tr>
 <tr><td>押した数字がスイッチかは、どこで調べる？</td><td><code>anyMatch(num -&gt; num == number)</code> を示し、配列に同じ値が1つでもあればtrue、と答える。</td></tr>
@@ -46,10 +58,10 @@
 <p>エラー時は「STEP番号・ファイル・最初の赤い行・操作順」を聞きます。A05のLogcat検索は、エラーが <code>package:jp.ac.jec.a05bombgame level:ERROR</code>、STEP 5のスイッチのログが <code>package:jp.ac.jec.a05bombgame tag:MainActivity level:DEBUG</code> です。</p>
 <p>画像関係のエラーは、drawable以外への貼り付け、<code>samples</code> 側への貼り付け、ファイル名の変更（大文字・拡張子の重複）が主な原因です。<code>nowState</code> を <code>onCreate</code> の中で宣言すると、ラムダの中で変更できないエラーになります。フィールドの位置を確認させます。</p>
 </section>
-<section><h2>5. 到達度と提出</h2>
+<section><h2>6. 到達度と提出</h2>
 <ul><li>学生自身が着火・爆発・クリアを操作し、再挑戦で何度も遊べる。</li><li><code>nowState</code> と <code>randomIgnitionNumbers</code> の役割と、フィールドにした理由を説明できる。</li><li>スイッチを固定したSTEP 10練習1で、着火・爆発・着火前後のクリアを確認できる。</li><li>STEP 10の変更を試したあと、完成版の値に戻してRunする。</li><li>提出する場合は <a href="../../docs/common/apk.html">共通資料：APKの作り方</a>に従い、先生が指定した場所へ <code>学籍番号_A05BombGame.apk</code> を提出する。</li></ul>
 </section>
-<section><h2>6. 教材の保守と確認</h2>
+<section><h2>7. 教材の保守と確認</h2>
 <ul><li>完成コードを変更したら、教科書の部分コード、完成コード、<code>teacher/bomb-game/code</code>、画像、練習の答えをまとめて確認し、<code>python3 scripts/package-hello-android.py --project A05BombGame --output docs/bomb-game/downloads/A05BombGame.zip</code> で配布用ZIPを再作成します。</li><li>アプリ画像は教員の <code>jec_26cm_android1_Pixel 9a</code> で撮影した、起動直後・1を押した後・着火・爆発・クリアの5状態です。</li><li>新規プロジェクト作成とdrawableへの画像追加の画像は教員提供資料を使用しています。</li><li>各STEPの照合コードは、完成プロジェクトのコピーに入れてビルドできることと、STEP 5〜8・STEP 10の練習の動作をエミュレータで確認しています。</li><li>印刷時は補足・解答も展開されます。解答を配布したくない場合は、ブラウザで授業中に開く方式を使ってください。</li></ul>
 </section>
 <footer class="footer"><p><a href="../../docs/bomb-game/index.html">← BombGameの教科書へ戻る</a></p><p>対象：macOS / Android Studio Panda 2 | 2025.3.2 · 確認日：2026年9月15日</p></footer>
