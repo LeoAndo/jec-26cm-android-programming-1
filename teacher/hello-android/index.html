@@ -8,7 +8,7 @@
 <main id="main"><div class="hero"><p class="eyebrow">ANDROID PROGRAMMING 1 / 共通資料・授業サポート</p><h1>教員用ガイド<br>HelloAndroid</h1><p class="lede">授業内で「操作・確認・言語化」まで終えるための進行案です。1コマ90分、全2コマを目安に、クラスの進み具合に合わせて調整します。</p></div>
 
 <section><h2>1. 授業前の準備</h2>
-<ul><li>学生には、完成プロジェクトのZIPを含む <code>docs</code> フォルダを、構成を保って配布します。完成版は初回から自由に参照できます。<code>teacher</code> フォルダと教員のひな形プロジェクトは配布しません。</li><li>学生のMacで <code>docs/hello-android/index.html</code> をブラウザで開けることを確認します。公式資料以外にCDN・Webフォント・オンライン実行環境は使いません。</li><li>Android Studio Panda 2 | 2025.3.2、必要なSDK・System Image・Gradle依存関係を事前にそろえます。初回ダウンロードは下表の授業時間に含めません。</li><li><code>Panda2JavaEmptyViewActivity</code> は、教員が出発点を確認するために使います。学生はAndroid StudioのJava / Empty Views Activityから <code>A01HelloAndroid</code> を新規作成します。</li><li>学生の作成先を <code>/Users/ユーザ名/Documents/Android1/プロジェクト名</code> に統一します。画像の教員のパスを写さないよう、本人のユーザ名と末尾のフォルダを確認します。</li><li>Project表示でファイルを開きます。<a href="../../docs/common/auto-import.html">Auto Importの共通資料</a>に従って、授業前にJava欄の設定を確認します。</li><li>指定エミュレータ <strong>jec_26cm_android1_Pixel 9a</strong> で完成版をRunし、文字変更・Snackbar・Toast・Logcatを確認します。</li><li>本日の停止位置、APK提出の有無、提出先を板書します。提出ファイル名は <code>学籍番号_プロジェクト名.apk</code> に統一します。</li></ul>
+<ul><li>学生には、完成プロジェクトのZIPを含む <code>docs</code> フォルダを、構成を保って配布します。完成版は初回から自由に参照できます。<code>teacher</code> フォルダと教員のひな形プロジェクトは配布しません。</li><li>学生のMacで <code>docs/hello-android/index.html</code> をブラウザで開けることを確認します。公式資料以外にCDN・Webフォント・オンライン実行環境は使いません。</li><li>Android Studio Panda 2 | 2025.3.2、必要なSDK・System Image・Gradle依存関係を事前にそろえます。初回ダウンロードは下表の授業時間に含めません。</li><li><code>Panda2JavaEmptyViewActivity</code> は、教員が出発点を確認するために使います。学生はAndroid StudioのJava / Empty Views Activityから <code>A01HelloAndroid</code> を新規作成します。</li><li>学生の作成先を <code>/Users/ユーザ名/Documents/Android1/プロジェクト名</code> に統一します。画像の教員のパスを写さないよう、本人のユーザ名と末尾のフォルダを確認します。</li><li>Project表示でファイルを開きます。<a href="../../docs/common/auto-import.html">Auto Importの共通資料</a>に従って、授業前にJava欄の設定を確認します。</li><li>指定エミュレータ <strong>jec_26cm_android1_Pixel 9a</strong> で完成版をRunし、文字変更・Snackbar・Toast・Logcatを確認します。</li><li>本日の停止位置を板書します。</li></ul>
 <h3>完成版を公開して進める</h3>
 <p><strong>各単元で、学生自身が毎回Android Studioからプロジェクトを新規作成することを固定方針とします。</strong>完成版は、動く状態の確認と、自分のコードとの比較に使います。見本を読むときは今のステップの部分を指定します。理解は、STEP 8の小変更と、結果の実演・指さし・短い説明で確認します。</p>
 <p>見本の置き場所は <code>Documents/Android1/samples/A01HelloAndroid</code>、学生が作る場所は <code>Documents/Android1/A01HelloAndroid</code> です。<a href="../../docs/hello-android/index.html#sample-project">学生向けの完成版の開き方</a>を初回に案内します。</p>
@@ -40,10 +40,10 @@
 <section><h2>3. 90分×2コマの進行案</h2>
 <table><thead><tr><th>コマ</th><th>時間配分</th><th>終了時の確認</th></tr></thead><tbody>
 <tr><td>1コマ目<br>合計90分</td><td>STEP 0：5分<br>STEP 1：15分<br>STEP 2：10分<br>STEP 3：20分<br>STEP 4：20分<br>再実行・個別支援：15分<br>ふり返り：5分</td><td>ボタンで文字を変更できる。XMLの役割とJavaの変更する行を指させる。</td></tr>
-<tr><td>2コマ目<br>合計90分</td><td>再開・文字変更の確認：5分<br>STEP 5：10分<br>STEP 6：15分<br>STEP 7：15分<br>STEP 8：15分<br>STEP 9：10分<br>提出・個別支援：20分</td><td>ログ・Snackbar・Toastを確認し、小変更の理由を説明できる。</td></tr>
+<tr><td>2コマ目<br>合計90分</td><td>再開・文字変更の確認：5分<br>STEP 5：10分<br>STEP 6：15分<br>STEP 7：15分<br>STEP 8：15分<br>STEP 9：10分<br>個別支援：20分</td><td>ログ・Snackbar・Toastを確認し、小変更の理由を説明できる。</td></tr>
 </tbody></table>
 <p>1コマ目はSTEP 4で区切り、保存先と再開するプロジェクト名を確認します。2コマ目の最初に、全員が前回の文字変更を再現します。進みが速い学生は、変更する行と実行結果を自分で確認します。</p>
-<p>2コマ目の最後の20分は、APK生成・提出と個別支援に使います。APK提出がない回は再実行と口頭確認に充てます。ダウンロードや設定の調整が残った場合は、この時間を使い、終わらない学生の再開地点を記録します。</p>
+<p>2コマ目の最後の20分は、再実行と口頭確認、個別支援に使います。ダウンロードや設定の調整が残った場合は、この時間を使い、終わらない学生の再開地点を記録します。</p>
 </section>
 <section><h2>4. 留学生・初心者への進め方</h2>
 <ul><li><strong>最初に完成動作を見せる。</strong> 1回の実演は「起動 → 変更 → 1 → 消えるのを待つ → 2」の順。操作と結果を同じ短い文で繰り返します。</li><li><strong>1回の指示は1つ。</strong> 「MainActivity.javaを開く」「追加する場所を見る」「2行追加する」と分けます。複数のファイルを同時に修正させません。</li><li><strong>コード入力と意味の説明を分ける。</strong> コピー後に、id・変数・処理の場所を指さして確認します。書き写しだけで完了とせず、予想と小変更で理解を見ます。</li><li><strong>英語のUI名を残す。</strong> 実画面と同じ表記を読み、日本語の短い意味を添えます。日本語の長い説明を暗記させません。</li><li><strong>止まれる場所を共有する。</strong> 各ステップの緑の確認欄で全員を待ちます。確認を終えた学生は、そのステップをもう一度自分で動かします。</li><li><strong>質問を定型にする。</strong> 「STEP __」「ファイル名」「赤い最初の行」。日本語で長く話せない場合は指さしや母語のメモから始められます。</li><li><strong>復習を授業内に置く。</strong> STEP 8・9を必須とし、予習や自宅でのやり直しを前提にしません。</li></ul>
