@@ -30,7 +30,7 @@
 <section><h2>3. 90分×3コマの進行</h2>
 <table><thead><tr><th>コマ</th><th>時間配分</th><th>終了時の確認</th></tr></thead><tbody>
 <tr><td>1コマ目</td><td>STEP 00：5分、STEP 01：15分、STEP 02：10分、STEP 03：20分、STEP 04：25分、再実行・個別支援：10分、理解確認：5分</td><td>タイトル画像とレイアウトが表示され、参加者を登録できる。空のときと同じ名前のときにメッセージが出る。</td></tr>
-<tr><td>2コマ目</td><td>再開：5分、STEP 05：15分、STEP 06：20分、STEP 07：10分、個別支援：10分、確認：5分の見込みで、残り時間はSTEP 08の前半へ</td><td>2人以上のときだけワリカン画面が開き、<strong>参加者は○人</strong> が表示される。<code>BillSplitter</code> をプロジェクトに置けている。</td></tr>
+<tr><td>2コマ目</td><td>再開：5分、STEP 05：15分、STEP 06：20分、STEP 07：15分、個別支援：10分、確認：5分の見込みで、残り時間はSTEP 08の前半へ</td><td>2人以上のときだけワリカン画面が開き、<strong>参加者は○人</strong> が表示される。<code>BillSplitter</code> をプロジェクトに置けている。</td></tr>
 <tr><td>3コマ目</td><td>再開：5分、STEP 08：20分、STEP 09：10分、STEP 10：15分、STEP 11：15分、個別支援：10分</td><td>入力チェック1・3のメッセージが出て、計算結果と合計が表示される。合計が入力した金額と一致することを説明できる。</td></tr>
 </tbody></table>
 <p>STEP 05は、<strong>New → Java Class</strong> で作ってしまう誤りが起きやすい工程です。Java Classで作ると <code>AndroidManifest.xml</code> への登録とレイアウトが作られず、STEP 06で <code>ActivityNotFoundException</code> になりアプリが終了します。画面で <strong>New → Activity → Empty Views Activity</strong> を実演し、<strong>Launcher Activity</strong> のチェックを外すことも示します。作成後に <code>&lt;activity android:name=".BillSplitActivity" android:exported="false" /&gt;</code> が増えたことを全員で確かめます。</p>
