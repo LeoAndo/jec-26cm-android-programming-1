@@ -202,11 +202,11 @@
 <tr><td>WebViewの layout_height="match_parent"</td><td>CheckBoxの下の、残りの高さいっぱいに広げる。</td></tr>
 </tbody></table>
 
-<p><code>android:id="@+id/main"</code> はJavaのひな形でも使うため残します。<code>checkBox</code> と <code>webView</code> は、次にJavaから探すための名前です。大文字・小文字も区別します。</p>
+<p><code>android:id="@+id/main"</code> はJavaのひな形でも使うため残します。<code>chk_javascript</code> と <code>web_view</code> は、次にJavaから探すための名前です。大文字・小文字も区別します。</p>
 <p>文字を直接書いたことによる <code>Hardcoded text</code> の警告は、これまでの単元と同様にそのまま進めます。</p>
 <h3>Runで確かめる</h3><p>ActionBarの下に「JavaScript ON」のチェックボックスが表示され、その下は白い画面です。チェックは付けたり外したりできますが、まだ何も起きません。</p>
 <figure class="phone"><a href="images/app-initial.png"><img src="images/app-initial.png" width="1080" height="2424" loading="lazy" alt="ActionBarの下にJavaScript ONのチェックボックスがあり、その下は白い画面"></a><figcaption>このSTEPの画面。白い部分がWebViewです。 <a href="images/app-initial.png">画像を大きく開く</a></figcaption></figure>
-<div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-3"><span>チェックボックスと白いWebViewが表示され、checkBoxとwebViewのidを確認した。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
+<div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-3"><span>チェックボックスと白いWebViewが表示され、chk_javascriptとweb_viewのidを確認した。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
 <div class="next"><a href="#step-4">次へ：WebViewでページを表示 →</a></div>
 </section>
 <section id="step-4" aria-labelledby="title-4">
@@ -228,7 +228,7 @@ webView.setWebViewClient(new WebViewClient());
 webView.loadUrl(&quot;https://news.yahoo.co.jp/&quot;); // 表示の確認用。STEP 6で削除する</code></pre>
 <p>importは <code>android.webkit.WebViewClient</code> です。</p>
 <table><thead><tr><th>コード</th><th>意味</th></tr></thead><tbody>
-<tr><td>webView = (WebView) findViewById(R.id.web_view);</td><td>XMLのWebViewを取得し、フィールドに入れる。フィールドの型がWebViewなので、varやキャストは書かない。</td></tr>
+<tr><td>webView = (WebView) findViewById(R.id.web_view);</td><td>XMLのWebViewを取得し、フィールドに入れる。フィールドの型がWebViewなので、varは書かない。</td></tr>
 <tr><td>setWebViewClient(new WebViewClient())</td><td>ページ内のリンクを、Chromeなど別のアプリではなく、このWebViewの中で開くようにする。</td></tr>
 <tr><td>loadUrl("https://...")</td><td>指定したURLのページを読み込んで表示する。</td></tr>
 </tbody></table>
@@ -551,7 +551,7 @@ public boolean onKeyDown(int keyCode, KeyEvent event) {
 <tr><td>「ウェブページへのアクセス不可」「net::ERR_CACHE_MISS」</td><td>AndroidManifest.xmlのINTERNETの許可の行があるか、つづりが <code>android.permission.INTERNET</code> か。保存してRunし直す。</td></tr>
 <tr><td>ビルドで「unexpected element &lt;uses-permission&gt; found in &lt;manifest&gt;&lt;application&gt;」</td><td>許可の行が <code>&lt;application&gt;</code> の中にある。<code>&lt;application</code> の上に移動する。</td></tr>
 <tr><td>「ウェブページへのアクセス不可」で別のエラー名</td><td>Macがインターネットにつながっているか。URLのつづりを確認する。</td></tr>
-<tr><td>R.id.web_view / R.id.chk_javascript が赤い</td><td>XMLのid。<code>webView</code>・<code>checkBox</code> の大文字・小文字まで一致するか。最初のXMLエラーを直してビルドする。</td></tr>
+<tr><td>R.id.web_view / R.id.chk_javascript が赤い</td><td>XMLのid。<code>web_view</code>・<code>chk_javascript</code> の大文字・小文字まで一致するか。最初のXMLエラーを直してビルドする。</td></tr>
 <tr><td>AppMenuItem が赤い</td><td>STEP 5のファイル名が <code>AppMenuItem.java</code> か。<code>app/src/main/java</code> の、MainActivityと同じ場所に作ったか。</td></tr>
 <tr><td>Menu・MenuItemが赤い</td><td><code>android.view.Menu</code> と <code>android.view.MenuItem</code> をimportする。<kbd>⌥ Enter</kbd> で候補を確認する。</td></tr>
 <tr><td>リンクを押すとChromeが開く</td><td><code>setWebViewClient</code> の行があるか（STEP 4・STEP 8）。コメントにしたままになっていないか。</td></tr>
