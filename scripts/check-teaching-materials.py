@@ -6,6 +6,7 @@ import argparse
 import html
 import json
 from pathlib import Path
+import posixpath
 import re
 import subprocess
 import sys
@@ -63,6 +64,15 @@ def tracked_files(root: Path, project_root: str) -> list[str]:
     if result.returncode != 0:
         raise RuntimeError("git ls-filesを実行できません。Git cloneしたリポジトリで実行してください。")
     return [name for name in result.stdout.decode().split("\0") if name]
+
+
+def archive_sources(root: Path, project_root: str) -> set[str]:
+    """完成プロジェクトZIPに入れるファイル。Git管理下で、IDE設定やビルド出力でないもの。"""
+    return {
+        name for name in tracked_files(root, project_root)
+        if not any(part in IGNORED_ARCHIVE_PARTS for part in Path(name).parts)
+        and Path(name).name != "local.properties"
+    }
 
 
 def add(errors: list[str], root: Path, path: Path | str, line: int, message: str) -> None:
@@ -151,11 +161,7 @@ def check_project(root: Path, project: dict, errors: list[str]) -> None:
         add(errors, root, archive_path, 1, "完成プロジェクトZIPがありません")
         return
     try:
-        expected_names = {
-            name for name in tracked_files(root, project["root"])
-            if not any(part in IGNORED_ARCHIVE_PARTS for part in Path(name).parts)
-            and Path(name).name != "local.properties"
-        }
+        expected_names = archive_sources(root, project["root"])
         with ZipFile(archive_path) as archive:
             actual_names = set(archive.namelist())
             for name in sorted(expected_names - actual_names):
@@ -174,6 +180,40 @@ def check_project(root: Path, project: dict, errors: list[str]) -> None:
         add(errors, root, archive_path, 1, f"ZIPを読み込めません: {error}")
 
 
+
+def check_images(root: Path, project: dict, errors: list[str]) -> None:
+    """教科書から直接ダウンロードさせる画像が、完成プロジェクトの画像と同じか確かめる。
+
+    ZIPの検査が「ZIPの中身＝ソース」を保証するので、ここで「配布画像＝ソース」を確かめれば、
+    学生がどちらから取っても同じ画像になる。
+    """
+    images = project.get("images", [])
+    if not images:
+        return
+    sources = archive_sources(root, project["root"])
+    textbook_name = project["docs"][0]
+    textbook_path = root / textbook_name
+    textbook = read(textbook_path) if textbook_path.is_file() else None
+    for image in images:
+        download_path = root / image["download"]
+        source_path = root / image["source"]
+        if Path(image["download"]).name != Path(image["source"]).name:
+            # 学生は落としたファイルをそのままdrawableに入れる。名前が違うと @drawable/… が解決できない。
+            add(errors, root, image["download"], 1, f"配布画像とソースのファイル名が一致しません: {image['source']}")
+        if image["source"] not in sources:
+            add(errors, root, image["source"], 1, "配布画像の元ファイルが、完成プロジェクトZIPに入るファイルではありません")
+        elif not download_path.is_file():
+            add(errors, root, image["download"], 1, "配布画像がありません")
+        else:
+            try:
+                if download_path.read_bytes() != source_path.read_bytes():
+                    add(errors, root, download_path, 1, f"配布画像とソースの内容が一致しません: {image['source']}（ソースからコピーし直してください）")
+            except OSError as error:
+                add(errors, root, download_path, 1, f"配布画像を読み込めません: {error}")
+        if textbook is not None:
+            link = posixpath.relpath(image["download"], posixpath.dirname(textbook_name))
+            if f'href="{link}"' not in textbook:
+                add(errors, root, textbook_path, 1, f"配布画像へのリンクがありません: {link}")
 
 
 def _split_unit(name: str) -> tuple[str, str]:
@@ -256,6 +296,7 @@ def validate(root: Path) -> list[str]:
     check_project_layout(root, config, errors)
     for project in config["projects"]:
         check_project(root, project, errors)
+        check_images(root, project, errors)
     return errors
 
 

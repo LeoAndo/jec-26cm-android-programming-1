@@ -69,8 +69,13 @@
 
 <section id="step-2" aria-labelledby="title-2">
 <p class="step-meta">STEP 02 · 目安 10分</p><h2 id="title-2">タイトル画像を入れる</h2>
-<p>TOP画面の上に置く<strong>タイトル画像</strong>を追加します。先生から配られた <code>title_img.png</code> を使います。</p>
-<ol><li>配られた <code>title_img.png</code> をFinderで選び、<kbd>⌘ C</kbd> でコピーします。</li><li>Android Studioの左側で <code>app → src → main → res → drawable</code> をクリックし、<kbd>⌘ V</kbd> で貼り付けます。</li><li>Copyのダイアログが出ます。New nameが <code>title_img.png</code>、To directoryの最後が <code>A07BillSplitter/app/src/main/res/drawable</code> になっていることを確認して <strong>OK</strong> を押します。</li></ol>
+<p>TOP画面の上に置く<strong>タイトル画像</strong>を追加します。画像の <code>title_img.png</code> は、次のボタンからダウンロードします。</p>
+<ol><li><a class="button-link" href="downloads/title_img.png" download>title_img.png</a> を押します。教科書の開き方とブラウザによって、押したあとの動きが変わります。下の表を見て、<strong>ダウンロード</strong> フォルダに保存します。</li></ol>
+<table><thead><tr><th>ボタンを押したあと</th><th>すること</th></tr></thead><tbody>
+<tr><td>画像が大きく表示された</td><td>画像の上で右クリックし、画像を保存する項目を選びます。Chromeは <strong>名前を付けて画像を保存…</strong>、Safariは <strong>イメージを"ダウンロード"に保存</strong> です。保存先を聞かれたら、名前は変えずに <strong>ダウンロード</strong> フォルダへ保存します。保存したら、ブラウザの <strong>←</strong>（戻る）で教科書に戻ります。</td></tr>
+<tr><td>ダウンロードが始まった</td><td>そのままで大丈夫です。ブラウザが <strong>ダウンロード</strong> フォルダに保存しています。</td></tr>
+</tbody></table>
+<ol start="2"><li>Finderを開き、左側の <strong>ダウンロード</strong> をクリックします。<code>title_img.png</code> を選び、<kbd>⌘ C</kbd> でコピーします。</li><li>Android Studioの左側で <code>app → src → main → res → drawable</code> をクリックし、<kbd>⌘ V</kbd> で貼り付けます。</li><li>Copyのダイアログが出ます。New nameが <code>title_img.png</code>、To directoryの最後が <code>A07BillSplitter/app/src/main/res/drawable</code> になっていることを確認して <strong>OK</strong> を押します。</li></ol>
 <figure><a href="images/drawable-copy.png"><img src="images/drawable-copy.png" width="2050" height="836" loading="lazy" alt="Copyダイアログ。New nameにtitle_img.png、To directoryにA07BillSplitter/app/src/main/res/drawableが表示されている"></a><figcaption>貼り付け先がdrawableになっているか確認します。 <a href="images/drawable-copy.png">画像を大きく開く</a></figcaption></figure>
 <figure><a href="images/drawable-files.png"><img src="images/drawable-files.png" width="836" height="678" loading="lazy" alt="プロジェクト画面のdrawableフォルダに、ic_launcher_background.xml、ic_launcher_foreground.xml、title_img.pngが並んでいる"></a><figcaption>drawableの中に <code>title_img.png</code> が増えていれば成功です。 <a href="images/drawable-files.png">画像を大きく開く</a></figcaption></figure>
 <div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-2"><span>title_img.pngをres/drawableに入れ、プロジェクト画面で確認できた。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
