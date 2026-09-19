@@ -59,20 +59,22 @@
 <tr><td>画像</td><td><code>res → drawable</code> の中の画像</td><td>自分で用意したPNG画像を、<strong>同じファイル名のまま</strong>入れ替える。名前が同じなら、ほかのコードは変えずに済む</td></tr>
 <tr><td>数値</td><td>Javaの中の数字</td><td>計算ゲームの問題の数など</td></tr>
 </tbody></table>
-<p>これは例です。表にないところを変えても構いません。</p>
 <div class="note"><p class="box-title">ボタンの色は <code>android:background</code> では変わりません</p><p>ボタンに <code>android:background</code> を書いても、色は変わらず、角の丸みだけがなくなります。ボタンの色を変えるときは、<code>android:backgroundTint</code> を使います。</p></div>
+<p>これは例です。表にないところを変えても構いません。</p>
+<div class="note"><p class="box-title">変えると動かなくなりやすいところ</p><p>次の3つは、<strong>変えてはいけないわけではありません。</strong>ただ、1か所変えると、ほかの場所も合わせて直す必要があり、ビルドが通らなくなったり、アプリが起動しなくなったりすることがあります。</p><ul><li>クラスの名前（<code>MainActivity</code> など）</li><li>パッケージ名（<code>jp.ac.jec.a02calcgame</code> のように、<code>jp.ac.jec.</code> で始まる名前）</li><li><code>AndroidManifest.xml</code> の中身</li></ul><p>変えてみたいときは、手順3のコピーがあることを確かめてから始めてください。</p></div>
 <h3>例：文字の色を変える</h3>
 <p>授業では出てこなかった書き方なので、やり方を1つ示します。<code>A01HelloAndroid</code> の <code>Hello World!</code> の文字を、赤にします。</p>
 <ol>
 <li><code>app → res → layout → activity_main.xml</code> を開きます。</li>
 <li>エディタ右上の <strong>Code</strong> を選び、<code>Hello World!</code> と書いてある <code>TextView</code> を探します。</li>
-<li>いちばん下の行の <code>/&gt;</code> を消して改行し、<code>android:textColor="#FF0000"</code> の行を足します。<code>/&gt;</code> は、足した行の終わりに付け直します。</li>
+<li>その <code>TextView</code> の終わりにある <code>/&gt;</code> の手前をクリックし、<kbd>Enter</kbd> を押します。<code>/&gt;</code> が次の行に移ります。</li>
+<li>移った <code>/&gt;</code> の前に、<code>android:textColor="#FF0000"</code> と書きます。</li>
 </ol>
 <div class="code-head">activity_main.xml · 変える前</div><pre tabindex="0"><code>        android:text="Hello World!" /&gt;</code></pre>
 <div class="code-head">activity_main.xml · 変えたあと</div><pre tabindex="0"><code>        android:text="Hello World!"
         android:textColor="#FF0000" /&gt;</code></pre>
-<p><code>/&gt;</code> は「この部品の設定はここまで」という印です。足す行は、かならず <code>/&gt;</code> より前に入れます。</p>
-<ol start="4">
+<p><code>/&gt;</code> は「この部品の設定はここまで」という印です。足す行は、かならず <code>/&gt;</code> より前に入れます。行の並びが自分のコードと少し違っていても、<code>/&gt;</code> の手前に足すところが同じなら大丈夫です。</p>
+<ol start="5">
 <li><strong>Run ▶</strong> を押して、エミュレータで確かめます。</li>
 </ol>
 <div class="phones">
@@ -91,8 +93,7 @@
 <p>色を書くと、その行の左端に、その色の小さな四角が出ます。四角をクリックすると、好きな色を選べます。</p>
 <h3>変えたら、すぐRunして確かめる</h3>
 <p>1か所変えたら <strong>Run ▶</strong> を押し、エミュレータで見た目と動きを確かめます。まとめて変えてからRunすると、動かなくなったときに、どこが原因か分からなくなります。</p>
-<div class="check"><p class="box-title">成功の目印</p><p>アレンジしたところが、エミュレータの画面で確かめられる。アプリが、アレンジの前と同じように最後まで動く。</p></div>
-<div class="note"><p class="box-title">変えると動かなくなりやすいところ</p><p>次の3つは、<strong>変えてはいけないわけではありません。</strong>ただ、1か所変えると、ほかの場所も合わせて直す必要があり、ビルドが通らなくなったり、アプリが起動しなくなったりすることがあります。</p><ul><li>クラスの名前（<code>MainActivity</code> など）</li><li>パッケージ名（<code>jp.ac.jec.a02calcgame</code> のように、<code>jp.ac.jec.</code> で始まる名前）</li><li><code>AndroidManifest.xml</code> の中身</li></ul><p>変えてみたいときは、手順3のコピーがあることを確かめてから始めてください。</p></div></section>
+<div class="check"><p class="box-title">成功の目印</p><p>アレンジしたところが、エミュレータの画面で確かめられる。アプリが、アレンジの前と同じように最後まで動く。</p></div></section>
 
 <section id="build"><h2>5. APKを作る</h2>
 <p><strong>APK</strong>（エーピーケー）は、Androidにアプリをインストールするためのファイルです。今回は授業内で動作を確認する <strong>debug版</strong> を作ります。</p>
@@ -119,7 +120,7 @@
 
 <section id="submit"><h2>7. Google Classroomに提出する</h2>
 <p>APKが3つそろってから、まとめて提出します。</p>
-<ol><li>Google Classroomでこの授業のクラスを開き、<strong>授業</strong> から提出課題を開きます。</li><li><strong>あなたの課題</strong> の <strong>追加または作成</strong> をクリックし、<strong>ファイル</strong> を選びます。</li><li><code>提出用</code> フォルダの3つのAPKを選び、アップロードします。</li><li>3つのファイル名が並んでいることを確認し、<strong>提出</strong> をクリックします。</li><li>表示が <strong>提出済み</strong> に変わったことを確認します。</li></ol>
+<ol><li>Google Classroomでこの授業のクラスを開き、<strong>授業</strong> から提出課題を開きます。</li><li><strong>あなたの課題</strong> の <strong>追加または作成</strong> をクリックし、<strong>ファイル</strong> を選びます。</li><li><code>提出用</code> フォルダの3つのAPKを選び、アップロードします。<kbd>⌘</kbd> を押しながらクリックすると、3つまとめて選べます。1つずつ、3回に分けて追加しても構いません。</li><li>3つのファイル名が並んでいることを確認し、<strong>提出</strong> をクリックします。</li><li>表示が <strong>提出済み</strong> に変わったことを確認します。</li></ol>
 <p>ボタンの名前は、画面によって少し違うことがあります。見つからないときは、その画面のまま先生に見せてください。</p>
 <div class="check"><p class="box-title">成功の目印</p><p>3つのAPKが、それぞれ <code>学籍番号_プロジェクト名.apk</code> の名前で表示され、<strong>提出済み</strong> になっている。</p></div>
 <p>提出したあとでアプリを直したときは、動作確認 → APK生成 → 名前を変える、の順でやり直します。Google Classroomで <strong>提出を取り消し</strong> をクリックすると、ファイルを入れ替えて、もう一度提出できます。</p>
