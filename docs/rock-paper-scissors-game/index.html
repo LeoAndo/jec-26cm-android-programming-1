@@ -463,7 +463,7 @@ switch (result) {
 <div class="task"><p class="box-title">練習2：「+ 3」を消すとどうなる？</p><p>練習1の行を <code>var cpu = 2;</code>（CPUはいつもパー）にし、計算式を <code>(selectedHand - cpu) % 3</code> に変えます。グーで勝負すると、画面とLogcatの <code>result</code> はどうなるでしょうか。</p><details><summary>試したあとに答えを見る</summary><p><code>(0 - 2) % 3</code> は −2 です。0・1・2のどのcaseにも当てはまらないため、メッセージは「じゃんけんの手を選んでください」のまま変わりません。Logcatには <code>result: -2</code> と出ます。マイナスにならないよう3を足している、と説明できれば十分です。確認後は <code>+ 3</code> と乱数の行を元に戻します。</p></details></div>
 <div class="task"><p class="box-title">練習3：状態を説明する</p><p>勝負！のあとに手の画像を押しても選び直せないのは、どの行のおかげですか。次の戦いへのあとに、また選べるようになるのはどの行ですか。連勝数が0に戻る行も指さしましょう。</p><details><summary>説明したあとに答えを見る</summary><p>勝負！の処理の <code>item.setClickable(false)</code> で押せなくし、次の戦いへの処理の <code>imageView.setClickable(true)</code> で戻します。連勝数は、switch文の <code>case 0</code> と <code>case 1</code> にある <code>winCount = 0</code> で0に戻ります。</p></details></div>
 <div class="note"><p class="box-title">完成版に戻してから確認</p><p>練習1・2の乱数の行と <code>+ 3</code> を元に戻します。Auto Importの設定により、使わなくなった <code>ThreadLocalRandom</code> のimportが消えることがあります。戻したあとに赤字になったら、<kbd>⌥ Enter</kbd> でimportを追加します。</p></div>
-<div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-9"><span>CPUの手を固定して表の結果と連勝数を確かめ、+ 3の理由を説明してから完成版に戻した。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
+<div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-9"><span>CPUの手を固定して表の結果と「3連勝中！」の表示を確かめ、+ 3を消すとLogcatに result: -2 が出ることも確かめて、完成版に戻した。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
 <div class="next"><a href="#step-10">次へ：完成 →</a></div>
 </section>
 <section id="step-10" aria-labelledby="title-10">
