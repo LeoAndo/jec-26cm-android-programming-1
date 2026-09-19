@@ -44,9 +44,14 @@
    - コミット済みで、`origin/main` が自分と同じファイルを変えていたら、試しにマージして（作業ツリーは変わらない）、衝突の有無とマージ後のファイルの形を確かめる。
 
      ```sh
-     T=$(git merge-tree --write-tree HEAD origin/main)   # 衝突があると終了コードが0以外になる
-     git show "${T}:teacher/<単元>/index.html"
+     if T=$(git merge-tree --write-tree HEAD origin/main); then
+       git show "${T}:teacher/<単元>/index.html"   # 衝突なし。マージ後の形を確認する
+     else
+       echo "$T"                                  # 衝突あり。競合したファイルが出る
+     fi
      ```
+
+     衝突があると終了コードが1になり、`$T` はtree IDだけでなく競合情報も含む複数行になる。そのまま `git show "${T}:..."` に渡すと `invalid object name` で失敗するので、終了コードで分ける。
 
      zshでは `git show $T:teacher/...` と書くと `:t` が修飾子と解釈されて失敗するので、`"${T}:..."` と波かっこで囲む。
    - push前ならrebaseしてよい。push済みなら履歴は書き換えず（§5）、必要なら `git merge origin/main` する。
