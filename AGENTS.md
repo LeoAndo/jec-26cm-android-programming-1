@@ -32,6 +32,15 @@
   cd A01HelloAndroid && ANDROID_HOME="$HOME/Library/Android/sdk" ./gradlew assembleDebug
   ```
 
+- **commitしないPoC成果物は、リポジトリの外に置く。** 置き場は `~/Documents/jec-26cm-android-programming-1-verification-deliverables`。なければ作る。
+
+  ```sh
+  mkdir -p ~/Documents/jec-26cm-android-programming-1-verification-deliverables
+  ```
+
+  ここに置くのは、検証のために撮った大量のスクリーンショット、検証結果をまとめただけのHTML、配布予定のないPoCプロジェクトなど、commitするとリポジトリが重くなるもの。リポジトリの外なので `.gitignore` は要らない。worktreeの中に作ると、`git clean` やworktreeの削除で消える。
+- この置き場のバックアップは取らない。消えて困るものは置かない。教材として配布するスクリーンショットは、ここではなく `docs/<単元>/images/` にcommitする。
+
 ## 3. 着手から後片付けまで
 
 1. `git fetch origin --prune` してから、issueを読む（`gh issue view <番号>`）。
