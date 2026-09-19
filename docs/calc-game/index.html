@@ -537,7 +537,7 @@ for (var id : numberButtonIds) {
 <div class="task"><p class="box-title">練習2：問題を固定して採点を調べる</p><p><code>startQuestion</code> の乱数を作る1行を <code>var randomNumber = 4;</code> に変えます。答えは毎回6です。10回とも6なら10問正解、10回とも1なら0問正解になるか確認します。</p><details><summary>試したあとに確認する</summary><p>6を3回、そのあと1を7回押すと、3問正解になります。各回の間にはRESET → STARTが必要です。確認後は <code>ThreadLocalRandom.current().nextInt(1, 10)</code> に戻します。</p></details></div>
 <div class="task"><p class="box-title">練習3：状態を説明する</p><p>STOP後に数字を押したとき、正解数を増やさないのはどの行ですか。「押したら無効」になるまでの流れを指さしましょう。</p><details><summary>説明したあとに答えを見る</summary><p>STOPで <code>isPlaying = false</code> にします。数字の処理は <code>if (!isPlaying)</code> に入り、Snackbarを出し、<code>return</code> で終了します。採点の行には進みません。</p></details></div>
 <div class="note"><p class="box-title">完成版に戻してから確認</p><p>練習1の9、練習2の乱数の行を元に戻します。数字ボタンの <code>android:text</code> は1〜9のままにします。文字に変えると <code>Integer.parseInt</code> で数値に変換できなくなります。</p></div>
-<div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-10"><span>5問版と固定問題を試し、変更理由を説明してから完成版の値に戻した。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
+<div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-10"><span>5問版にすると5問目の回答で結果になり、問題を固定すると答えが毎回6になることを確かめ、完成版の値に戻した。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
 <div class="next"><a href="#step-11">次へ：完成 →</a></div>
 </section>
 <section id="step-11" aria-labelledby="title-11">
