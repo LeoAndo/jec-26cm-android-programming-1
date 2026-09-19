@@ -43,7 +43,7 @@
 <tr><td><code>clear()</code></td><td>保存したデータをすべて消す。</td></tr>
 </tbody></table>
 <div class="note"><p class="box-title">画面回転について</p><p>各単元では画面回転時のデータ保持と横画面のレイアウトを扱いません。縦向きで使います。なお今回のデータは <code>SharedPreferences</code> に入っているので、回転してもアプリを終了しても残ります。消えるのは画面に表示していた文字だけで、保存したデータではありません。</p></div>
-<div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-0"><span>今回作るアプリが「アプリを終了しても消えないデータ」を扱うことを、画像と表で説明できた。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
+<div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-0"><span>今回作るアプリの画面を画像で確かめ、保存・読み出し・削除に使う技術を表で確認した。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
 <div class="next"><a href="#step-1">次へ：プロジェクトを作って実行 →</a></div></section>
 
 <section id="step-1" aria-labelledby="title-1">
@@ -127,7 +127,7 @@
 <h3>Runで確かめる</h3>
 <p>apply・get・clear・show app.xmlの4つのボタンが画面の上に縦に並べば成功です。押しても、まだ何も起きません。</p>
 <figure class="phone"><a href="images/app-step2.png"><img src="images/app-step2.png" width="1080" height="2424" loading="lazy" alt="4つのボタンapply、get、clear、show app.xmlが縦に並び、その下は何も表示されていない画面"></a><figcaption>STEP 02の完成。表示欄はまだ空です。 <a href="images/app-step2.png">画像を大きく開く</a></figcaption></figure>
-<div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-2"><span>4つのボタンが並んだ画面をRunできた。表示欄にweightを付けた理由を説明できた。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
+<div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-2"><span>4つのボタンが並んだ画面をRunできた。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
 <div class="next"><a href="#step-3">次へ：SharedPreferencesを用意する →</a></div></section>
 
 <section id="step-3" aria-labelledby="title-3">
@@ -160,7 +160,7 @@
 </tbody></table>
 <div class="note"><p class="box-title">キーは自由に決めてよい？</p><p>キーの文字は自分で決められます。ただし<strong>保存したときと読み出すときで同じ</strong>でなければ、値は見つかりません。この教材では値の種類がわかる名前（<code>int_value</code> など）にしています。</p></div>
 <h3>Runで確かめる</h3><p>画面の見た目は変わりません。赤いエラーが出ずにRunできれば成功です。</p>
-<div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-3"><span>キーの定数を7つ書き、<code>getSharedPreferences</code> でprefsを受け取れた。MODE_PRIVATEの意味を説明できた。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
+<div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-3"><span>キーの定数を7つ書き、<code>getSharedPreferences</code> でprefsを受け取れた。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
 <div class="next"><a href="#step-4">次へ：保存されている値を画面に出す →</a></div></section>
 
 <section id="step-4" aria-labelledby="title-4">
@@ -207,7 +207,7 @@
 <h3>Runで確かめる</h3>
 <p>起動しただけで、6行が表示されれば成功です。まだ保存していないので、すべて初期値です。</p>
 <figure class="phone"><a href="images/app-initial.png"><img src="images/app-initial.png" width="1080" height="2424" loading="lazy" alt="4つのボタンの下に、int_value = 0、string_value =、boolean_value = false、float_value = 0.0、long_value = 0、string_set_value = [] と表示されている画面"></a><figcaption>データがないときの表示。すべて渡した初期値です。 <a href="images/app-initial.png">画像を大きく開く</a></figcaption></figure>
-<div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-4"><span>起動すると6行が表示され、いまはすべて初期値であることを説明できた。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
+<div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-4"><span>起動すると6行が表示され、表のとおりの初期値になっていることを確認した。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
 <div class="next"><a href="#step-5">次へ：データを保存する →</a></div></section>
 
 <section id="step-5" aria-labelledby="title-5">
@@ -246,7 +246,7 @@
 <p>applyを押すと、6行の値が変わります。</p>
 <figure class="phone"><a href="images/app-applied.png"><img src="images/app-applied.png" width="1080" height="2424" loading="lazy" alt="applyを押したあとの画面。int_value = 1、string_value = Hello、boolean_value = true、float_value = 1.0、long_value = 1、string_set_value = [Hello, World] と表示されている"></a><figcaption>applyを押したあと。初期値から、保存した値に変わりました。 <a href="images/app-applied.png">画像を大きく開く</a></figcaption></figure>
 <p><code>string_set_value</code> が <code>[World, Hello]</code> のように逆の順で出ることがあります。<code>Set</code> は順番を約束しない入れ物なので、どちらでも正解です。</p>
-<div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-5"><span>applyを押すと6行の値が変わった。edit → put → applyの3ステップと、applyとcommitの違いを説明できた。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
+<div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-5"><span>applyを押すと6行の値が変わった。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
 <div class="next"><a href="#step-6">次へ：アプリを終了しても残ることを確かめる →</a></div></section>
 
 <section id="step-6" aria-labelledby="title-6">
@@ -268,7 +268,7 @@
 <div class="note"><p class="box-title">これまでの単元との違い</p><p>A02の得点やA07の参加者一覧は、アプリを終了すると消えていました。あれはメモリの上にだけあったからです。今回は<strong>ファイルに書いている</strong>ので、終了しても、端末を再起動しても残ります。</p></div>
 <h3>Runで確かめる</h3>
 <p>終了 → 起動を2回くり返して、毎回同じ値が出ることを確かめます。</p>
-<div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-6"><span>アプリを完全に終了して開き直しても値が残ることを確かめ、なぜ残るのかを説明できた。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
+<div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-6"><span>アプリを完全に終了して開き直しても、値が残ることを確かめた。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
 <div class="next"><a href="#step-7">次へ：データを全部消す →</a></div></section>
 
 <section id="step-7" aria-labelledby="title-7">
@@ -287,7 +287,7 @@
 <ol><li>applyを押して、値が入った状態にします。</li><li>clearを押します。6行がすべて<strong>初期値に戻れば成功です</strong>（STEP 04と同じ表示）。</li><li>もう一度applyを押すと、また値が入ります。</li></ol>
 <figure class="phone"><a href="images/app-initial.png"><img src="images/app-initial.png" width="1080" height="2424" loading="lazy" alt="clearを押したあとの画面。int_value = 0、string_value =、boolean_value = false、float_value = 0.0、long_value = 0、string_set_value = [] と、すべて初期値に戻っている"></a><figcaption>clearのあと。データが消えたので、また初期値が返ります。 <a href="images/app-initial.png">画像を大きく開く</a></figcaption></figure>
 <div class="note"><p class="box-title">「消えた」と「初期値」は違う</p><p>画面に <code>int_value = 0</code> と出ていても、それは「0が保存されている」のではなく「<strong>何も保存されていないので初期値の0が返った</strong>」という意味です。この2つは画面では見分けられません。STEP 08でファイルを見ると、はっきり違いがわかります。</p></div>
-<div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-7"><span>clearで全データを消せた。表示が初期値に戻るのは「0が保存された」からではないと説明できた。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
+<div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-7"><span>clearで全データを消せ、6行が初期値に戻った。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
 <div class="next"><a href="#step-8">次へ：保存先のXMLファイルを見る →</a></div></section>
 
 <section id="step-8" aria-labelledby="title-8">
@@ -341,7 +341,7 @@
 <tr><td>ゲームのハイスコア</td><td><strong>パスワードやクレジットカード番号</strong></td></tr>
 </tbody></table>
 <div class="note"><p class="box-title">パスワードを入れてはいけない理由</p><p>いま見たとおり、中身は<strong>ただのXMLファイル</strong>です。暗号化されていません。ふつうの端末ではほかのアプリから読めませんが、それでも大事な情報を平文で置く場所ではありません。</p></div>
-<div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-8"><span>app.xmlの中身を表示し、キーと値がどう記録されているかを説明できた。clearでファイルが空になることを確かめた。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
+<div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-8"><span>app.xmlの中身を表示してキーと値を確かめ、clearでファイルが空になることも確かめた。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
 <div class="next"><a href="#step-9">次へ：ミニ練習 →</a></div></section>
 
 <section id="step-9" aria-labelledby="title-9">
@@ -363,7 +363,7 @@
 <pre id="code-practice-key" tabindex="0"><code>        return INT_VALUE + &quot; = &quot; + prefs.getInt(&quot;intvalue&quot;, 0) + &quot;\n&quot;</code></pre>
 <p>赤いエラーは出るでしょうか。applyを押したあと、<code>int_value</code> は何と表示されるでしょうか。予想してから試します。</p>
 <details><summary>試したあとに答えを見る</summary><p>赤いエラーは<strong>出ません</strong>。applyを押しても <code>int_value = 0</code> のままです。保存したキーは <code>"int_value"</code>、探したキーは <code>"intvalue"</code> で、見つからないため初期値の0が返るからです。show app.xmlを押すと <code>&lt;int name="int_value" value="1" /&gt;</code> はちゃんとあります。定数名を <code>INT_VALU</code> のように打ち間違えた場合は、すぐ赤いエラーになります。キーを定数にまとめる理由を説明できれば十分です。確認後は <code>INT_VALUE</code> に戻します。</p></details></div>
-<div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-9"><span>3つの練習を試し、初期値が使われる条件と、キーを定数にまとめる理由を説明できた。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
+<div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-9"><span>3つの練習を試し、表示がどう変わるかを確かめてから、コードを元に戻した。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
 <div class="next"><a href="#step-10">次へ：完成 →</a></div></section>
 
 <section id="step-10" aria-labelledby="title-10">
@@ -381,7 +381,7 @@
 <h3>保存</h3>
 <p>自分の <code>Documents/Android1/A08SharedPreferencesSample</code> を保存します。</p>
 <p>教材のチェックは自分用です。先生への送信はしません。印刷は <kbd>⌘ P</kbd> で行えます。</p>
-<div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-10"><span>完成チェックを終え、保存・読み出し・初期値・削除・保存先のファイルについて説明できた。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
+<div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-10"><span>完成チェックの操作をすべて試し、表のとおりの結果になった。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
 </section>
 
 <section id="help"><h2>困ったとき</h2><table><thead><tr><th>困ったこと</th><th>最初に確認する場所</th></tr></thead><tbody>

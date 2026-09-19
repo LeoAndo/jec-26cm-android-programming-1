@@ -50,7 +50,7 @@
 <tr><td>1件だけ削除</td><td>できない</td><td>できる</td></tr>
 <tr><td>向いているもの</td><td>設定値、ログイン状態など少ないデータ</td><td>件数が増えるデータ</td></tr>
 </tbody></table></div>
-<div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-0"><span>今日作るアプリの画面と、A09のSharedPreferencesとの違いを説明できた。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
+<div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-0"><span>今日作るアプリの画面を画像で確かめ、A09のSharedPreferencesとの違いを表で確認した。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
 <div class="next"><a href="#step-1">次へ：プロジェクトを作って実行 →</a></div></section>
 
 <section id="step-1" aria-labelledby="title-1">
@@ -273,7 +273,7 @@ public class Item {
 </tbody></table>
 <div class="note"><p class="box-title"><code>@NonNull</code> はここだけ書きます</p><p>この授業では <code>@NonNull</code> を自分で書きません。ただし <code>@Entity</code> のフィールドに付けた <code>@NonNull</code> は、Javaの注意書きではなく<strong>「この列は空にできない」という表の決まりそのもの</strong>です。外すと表の形が変わってしまうので、ここだけは書きます。</p></div>
 <div class="note"><p class="box-title"><code>toString()</code> は表示のために使います</p><p>STEP 07で一覧を表示するときに、<code>Item</code> をそのまま文字にして並べます。画面に出ている <code>Item{internalId=1, title='CAR'}</code> という表示は、このメソッドが作っています。</p></div>
-<div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-4"><span>Itemクラスを作り、@Entityと@PrimaryKeyが何を表すか説明できた。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
+<div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-4"><span>Itemクラスを作り、表の項目が <code>internalId</code> と <code>title</code> の2つだけになっていることを確認した。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
 <div class="next"><a href="#step-5">次へ：読み書きの命令を書く →</a></div></section>
 
 <section id="step-5" aria-labelledby="title-5">
@@ -317,7 +317,7 @@ public interface ItemDao {
 </tbody></table>
 <div class="note"><p class="box-title">中身（処理）を書かなくてよい理由</p><p>メソッドに <code>{ }</code> がありません。<strong>ビルドするときにRoomが自動で中身を作ります。</strong>STEP 02で追加した <code>room-compiler</code> がその仕事をしています。私たちが書くのは「何をしたいか」だけです。</p></div>
 <div class="note"><p class="box-title">なぜ <code>@Upsert</code> だけなのか</p><p>Roomには <code>@Insert</code>（追加）と <code>@Update</code>（書き換え）もあります。この授業では、2つを使い分ける判断を増やさないために <code>@Upsert</code> 1つにまとめています。idが空なら追加、idを入れたら書き換え、という<strong>画面の動きがそのままメソッド1つに対応</strong>します。</p></div>
-<div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-5"><span>ItemDaoをInterfaceで作り、@Upsertが「あれば書き換え、なければ追加」だと説明できた。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
+<div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-5"><span>ItemDaoをInterfaceで作り、どのメソッドにも中身の <code>{ }</code> がないことを確認した。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
 <div class="next"><a href="#step-6">次へ：データベース本体を作る →</a></div></section>
 
 <section id="step-6" aria-labelledby="title-6">
@@ -365,7 +365,7 @@ public abstract class AppDatabase extends RoomDatabase {
 </tbody></table>
 <div class="note"><p class="box-title">なぜ1つだけ作って使い回すのか</p><p>データベースを開く準備には時間がかかります。ボタンを押すたびに作り直すと、そのたびに待たされます。そこで<strong>最初の1回だけ作って、あとは同じものを返す</strong>書き方にします。この書き方を<strong>シングルトン</strong>といい、Roomの公式資料でもこの形がすすめられています。</p></div>
 <div class="note"><p class="box-title"><code>context.getApplicationContext()</code> を忘れない</p><p><code>Room.databaseBuilder(...)</code> の最初に渡しているのは、受け取った <code>context</code> そのままではなく <code>context.getApplicationContext()</code> です。ここを <code>context</code> のままにすると、画面を回すたびに<strong>古い画面が消えずに残り続けます</strong>。作ったデータベースはアプリが終わるまで残るため、画面ではなく<strong>アプリ全体</strong>を渡します。</p></div>
-<div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-6"><span>AppDatabaseを作り、1つだけ作って使い回す理由を説明できた。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
+<div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-6"><span>AppDatabaseを作り、<code>Room.databaseBuilder</code> に <code>context.getApplicationContext()</code> を渡していることを確認した。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
 <div class="next"><a href="#step-7">次へ：画面とつないで完成 →</a></div></section>
 
 <section id="step-7" aria-labelledby="title-7">
