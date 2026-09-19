@@ -11,7 +11,20 @@
 <ul><li>学生用の入口は <code>docs/calc-game/index.html</code> です。完成版ZIPと画像を含む教材を、構成を保って配布します。</li><li>Android Studio Panda 2 | 2025.3.2、Java / Empty Views Activity、Minimum SDK API 31を確認します。作成先は <code>Documents/Android1/A02CalcGame</code> です。</li><li>指定エミュレータ <strong>jec_26cm_android1_Pixel 9a</strong> を縦向きで使います。横向きでは画面下部が隠れるため、今回の保証範囲に含めません。</li><li>完成版は <code>Documents/Android1/samples/A02CalcGame</code> に置きます。学生の作成先と混同しないよう、Run前に保存先を確認します。</li><li>教員用の途中コードは <code>teacher/calc-game/code</code> にあります。学生には配布せず、現在のSTEPの照合に使います。</li></ul>
 <div class="note"><p class="box-title">今回の仕様上の制約</p><p>STOP後のSTARTは、現在の問題・問題番号・正解数を保ったままタイマーだけを再開します。各単元では画面回転時のデータ保持を扱いません。回転などでActivityが再生成された場合はゲームをやり直します。この観点は別単元の演習アプリで検証します。</p></div>
 </section>
-<section><h2>2. 90分×3コマの進行</h2>
+<section><h2>2. この単元の教材方針</h2>
+<table><thead><tr><th>方針</th><th>理由</th><th>授業での扱い</th></tr></thead><tbody>
+<tr><td>画面の部品のうち <code>txtMessage</code> だけ<strong>フィールド</strong>にし、ほかの部品は <code>var</code> のローカル変数にする</td><td><code>txtMessage</code> は <code>onCreate</code> のほかに、STEP 6で作る <code>startQuestion()</code> からも使う。以前は <code>startQuestion()</code> の中でもう一度 <code>findViewById</code> していた（同じidの二重取得）ので、フィールドに変えた（PR #25）。<code>onCreate</code> 以外のメソッドからも使うViewはフィールドにし、同じidに対して <code>findViewById</code> を2回呼ばない（READMEの「完成コードの書き方」Viewの取得2。A04WebViewAppの <code>webView</code> と同じ形）。</td><td>STEP 4が「状態を覚えるフィールド」の回なので、①で値のフィールド5つと一緒に追加する。「STEP 6で作る別のメソッドからも使うため、フィールドにする」と説明する。②では、<code>txtMessage</code> の行だけ <code>var</code> が付かない理由を説明する。</td></tr>
+<tr><td>操作ボタン3つ（START / STOP / RESET）は、<code>findViewById</code> の結果を<strong>キャストしない</strong>。<code>Chronometer</code> と <code>TextView</code> はキャストする</td><td>操作ボタンで使うのは、Viewが持つクリック登録と、有効・無効の切り替えだけのため。<code>Chronometer</code> と <code>TextView</code> は、それぞれの部品の機能を使うのでキャストする。</td><td>STEP 4②の説明で扱う。数字ボタンは表示文字を読むので、STEP 7で <code>(Button)</code> にキャストする。A01ではボタンも <code>(Button)</code> でキャストしていたので、書き方の違いを聞かれたら、この説明で答える。</td></tr>
+<tr><td>ゲーム中かどうかは、<code>isPlaying</code> フィールドで自分で覚える</td><td><code>Chronometer</code> が動いているかどうかのフラグ（<code>mStarted</code>）は、外から取得できないため。完成コードのフィールドのコメントに、この理由を残している。</td><td>STEP 4①のコードに、このコメントが入っている。表では「回答を受け付けるか」とだけ説明し、<code>mStarted</code> には触れていない。コメントについて質問が出たら、「Chronometerに動いているかを聞く方法がないので、自分で覚えている」と答える。</td></tr>
+<tr><td>STEP 5のSTARTの処理には <code>startQuestion()</code> の呼び出しを<strong>入れない</strong>。STEP 6でメソッドを作ったあとに足す</td><td>以前はSTEP 5のコードに呼び出しがあった。メソッドを作るのはSTEP 6なので、STEP 5の時点ではコンパイルが通らず、「Runで確かめる」で学生全員が赤いエラーに当たっていた（issue #66）。呼び出しをSTEP 6へ移しても、STEP 5「START / STOP / RESET」、STEP 6「メソッドにして呼び出す」という各回の主題は保てる。</td><td>STEP 5の注記「ここではタイマーだけ」で、問題文はまだ出ないと伝える。STEP 6②で、<code>isPlaying = true;</code> の直前に4行を追加させる。照合コード（STEP 5・STEP 6）の確認ポイントにも入れている。</td></tr>
+<tr><td>STOPのあとのSTARTでは、問題を<strong>作り直さない</strong>（<code>if (answer == 0)</code> のときだけ <code>startQuestion()</code> を呼ぶ）</td><td>最初の実装は、STARTのたびに <code>startQuestion()</code> を呼んでいた。これだと、STOP → STARTで未回答の問題が別の問題に置き換わる。問題番号と正解数は保たれるので、答えずに問題だけを引き直せてしまう。PR #3 のレビューでこの指摘を受けて直した。</td><td>STEP 6②の説明と、注記「STOPからの再開について」で扱う。「5. 理解確認と支援」の最初の問いでも確かめる。</td></tr>
+<tr><td>乱数は <code>ThreadLocalRandom</code> で作る。<code>RandomGenerator</code> は使わない</td><td><code>RandomGenerator</code> はAPI Level 35から使える。この授業のMinimum SDKはAPI 31で、OSバージョンで処理を分ける書き方は使わないため。完成コードの <code>startQuestion()</code> に、コメントアウトした行とこの理由を残している。</td><td>STEP 6①のコードに、コメントアウトした <code>RandomGenerator</code> の行がそのまま入っている。教科書の本文では触れていない。質問が出たら、コメントのとおりに答える。</td></tr>
+<tr><td>数字ボタン9個は、idの配列と拡張for文で取得し、同じクリック処理を登録する</td><td>9個のボタンに同じ処理を付けるため。ループでidを引いて取得するこの形は、<code>findViewById</code> を <code>onCreate</code> の冒頭にまとめるルールの例外として認めている（READMEの「完成コードの書き方」Viewの取得4）。</td><td>STEP 7で配列と拡張for文を説明する。for文は画面を作るときに実行され、中のクリック処理はボタンを押したときに実行されることも伝える。「5. 理解確認と支援」に問いがある。</td></tr>
+</tbody></table>
+<p>画面回転時のデータ保持と横画面のレイアウトを扱わない方針（README 基本方針14）は、「1. 授業前の準備」に書いています。</p>
+<div class="note"><p class="box-title">完成コードを説明するときの注意</p><p><code>var</code>、ラムダ式、<code>findViewById</code> の書き方（操作ボタンだけキャストしない点を含む）は変えません。単元をまたいで同じ形にそろえるためです（READMEの「完成コードの書き方（全単元共通）」）。完成コードに残っているコメントも、そのままにします。</p></div>
+</section>
+<section><h2>3. 90分×3コマの進行</h2>
 <table><thead><tr><th>コマ</th><th>時間配分</th><th>終了時の確認</th></tr></thead><tbody>
 <tr><td>1コマ目</td><td>STEP 0：5分、STEP 1：15分、STEP 2：20分、STEP 3：20分、STEP 4：15分、再実行：10分、ふり返り：5分</td><td>画面を作り、5フィールドの場所と役割を説明できる。</td></tr>
 <tr><td>2コマ目</td><td>再開：5分、STEP 5：25分、STEP 6：15分、STEP 7：15分、STEP 8：20分、確認：10分</td><td>STOP/START、乱数、配列、正解数の変化を実演できる。</td></tr>
@@ -19,7 +32,7 @@
 </tbody></table>
 <p>最初の2コマは、各STEPの緑の確認欄で全員を待ちます。遅れた学生には該当する参照コードを見せ、修正後に必ずRunまで行います。</p>
 </section>
-<section><h2>3. STEPごとの照合コード</h2>
+<section><h2>4. STEPごとの照合コード</h2>
 <table><thead><tr><th>到達地点</th><th>参照ファイル</th><th>教員の確認ポイント</th></tr></thead><tbody>
 <tr><td>出発点</td><td><a href="code/01-MainActivity.java">01-MainActivity.java</a> / <a href="code/01-activity_main.xml">01-activity_main.xml</a></td><td>Hello World!をRunできる。</td></tr>
 <tr><td>上半分の画面</td><td><a href="code/02-activity_main.xml">02-activity_main.xml</a></td><td>Chronometer、START/STOP/RESET、txt_messageがある。</td></tr>
@@ -32,7 +45,7 @@
 <tr><td>完成</td><td><a href="code/09-MainActivity.java">09-MainActivity.java</a></td><td>10問目で停止・結果表示・isPlaying=false。</td></tr>
 </tbody></table>
 </section>
-<section><h2>4. 理解確認と支援</h2>
+<section><h2>5. 理解確認と支援</h2>
 <table><thead><tr><th>問い</th><th>期待する行動・答え</th></tr></thead><tbody>
 <tr><td>STOP後にSTARTすると問題が変わらないのはなぜ？</td><td>START処理の <code>if (answer == 0)</code> を示し、answerが残っていると出題しないと説明する。</td></tr>
 <tr><td>なぜ数字ボタンを配列にした？</td><td>9個に同じリスナーをfor文で登録するため、と答える。</td></tr>
@@ -41,10 +54,10 @@
 </tbody></table>
 <p>エラー時は「STEP番号・ファイル・最初の赤い行・操作順」を聞きます。A02のLogcat検索は <code>package:jp.ac.jec.a02calcgame level:ERROR</code> です。</p>
 </section>
-<section><h2>5. 到達度と提出</h2>
+<section><h2>6. 到達度と提出</h2>
 <ul><li>学生自身がSTARTから10問回答し、結果を表示できる。</li><li>正解数・問題番号・経過時間のフィールドを1つずつ指させる。</li><li>STOP/STARTで現問題を維持し、RESETで初期状態へ戻ることを実演できる。</li><li>STEP 10の変更を試したあと、完成版の値に戻してRunする。</li><li>提出する場合は <a href="../../docs/common/apk.html">共通資料：APKの作り方</a>に従い、先生が指定した場所へ <code>学籍番号_A02CalcGame.apk</code> を提出する。</li></ul>
 </section>
-<section><h2>6. 教材の保守と確認</h2>
+<section><h2>7. 教材の保守と確認</h2>
 <ul><li>完成コードを変更したら、教科書の部分コード、完成コード、<code>teacher/calc-game/code</code>、画像、練習の答えをまとめて確認し、<code>python3 scripts/package-hello-android.py --project A02CalcGame --output docs/calc-game/downloads/A02CalcGame.zip</code> で配布用ZIPを再作成します。教科書のコードと完成プロジェクトの一致は <code>python3 scripts/check-teaching-materials.py</code> で確かめます。</li><li>アプリ画像5枚のうち、app-initial（起動直後。問題文は空欄でSTARTのみ有効）はSTEP 00とSTEP 03の確認の2箇所、app-playing（ゲーム中。1問目の式が出てSTOPのみ有効）はSTEP 00とSTEP 06の確認の2箇所で使っています（表示が同じため）。app-paused（STOP後。時間と問題を保持しSTART/RESETが有効）はSTEP 06、app-result（結果表示。正解数と時間は例でプレイごとに変わります）とapp-snackbar（終了後に数字ボタンを押すと出る「ゲーム中のみボタンを押せます」の案内）はSTEP 09で使っています。撮影に使ったエミュレータ・Android/APIバージョン・撮影日は、本PRでは確認できていません。</li><li>新規プロジェクト作成の3画像（new-project、empty-views-activity、project-settings）は教員提供資料を使用しています。</li><li>各STEPの照合コードは、完成プロジェクトのコピーにそのSTEPまでのファイルを入れ、STEP 01〜09のすべてで <code>assembleDebug</code> が通ることを確認しました（2026年9月19日）。完成コードを変更したら、照合コードも合わせて更新します。</li><li>印刷時は補足・解答も展開されます。解答を配布したくない場合は、ブラウザで授業中に開く方式を使ってください。</li></ul>
 </section>
 <footer class="footer"><p><a href="../../docs/calc-game/index.html">← CalcGameの教科書へ戻る</a></p><p>対象：macOS / Android Studio Panda 2 | 2025.3.2 · 確認日：2026年9月19日</p></footer>
