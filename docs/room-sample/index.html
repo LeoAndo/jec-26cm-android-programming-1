@@ -485,15 +485,17 @@ public class MainActivity extends AppCompatActivity {
 <tr><td>アプリを終了して開き直す</td><td>残った2行がそのまま表示される。</td></tr>
 </tbody></table>
 <h3>練習</h3>
+<p>上から順に試します。<strong>予想 → 試す → 説明</strong>の順で行います。コードを書き換える3は、確かめたあとに<strong>元に戻します</strong>。</p>
 <ol>
 <li>存在しないid（例：<code>99</code>）を入れて <strong>削除</strong> を押すとどうなるか、試して理由を説明する。</li>
 <li>id欄に <code>1</code> を入れ、タイトルを空にして <strong>保存</strong> を押すとどうなるか、試して理由を説明する。</li>
-<li><code>btn_upsert</code> のリスナから <code>txtItemList.setText(itemList(itemDao));</code> の1行を消してRunする。保存したデータはどうなっているか、アプリを開き直して確かめる。</li>
+<li><code>btn_upsert</code> のリスナから <code>txtItemList.setText(itemList(itemDao));</code> の1行を消してRunする。保存したデータはどうなっているか、アプリを開き直して確かめる。<strong>確かめたら、消した1行を元に戻す。</strong></li>
 </ol>
+<div class="note"><p class="box-title">完成版に戻してから確認</p><p>練習3で消した <code>txtItemList.setText(itemList(itemDao));</code> の1行を、<code>btn_upsert</code> のリスナの <code>itemDao.upsert(item);</code> の次に戻します。戻したらRunして、タイトルを入れて<strong>保存</strong>を押すと、その場で一覧が1行増えることを確かめます。戻さないままだと、保存を押しても一覧が変わらないアプリが手元に残ります。</p></div>
 <h3>保存</h3>
 <p>自分の <code>Documents/Android1/A10RoomSample</code> を保存します。</p>
 <p>教材のチェックは自分用です。先生への送信はしません。印刷は <kbd>⌘ P</kbd> で行えます。</p>
-<div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-7"><span>完成チェックの操作をすべて試し、表のとおりの結果になった。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
+<div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-7"><span>完成チェックの操作をすべて試して表のとおりの結果になり、練習3で消した1行を元に戻した。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
 </section>
 
 <section id="help" aria-labelledby="title-help">
