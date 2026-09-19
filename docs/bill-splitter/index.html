@@ -317,6 +317,13 @@ var btnBillSplit = findViewById(R.id.btn_bill_split);</code></pre>
     starter.putExtra(EXTRA_KEY_PARTICIPANTS, participants);
     context.startActivity(starter);
 }</code></pre>
+<table><thead><tr><th>書いたこと</th><th>意味</th></tr></thead><tbody>
+<tr><td><code>static void start(…)</code></td><td>クラス名を付けて <code>BillSplitActivity.start(…)</code> と呼べるメソッド。この画面を開く手順を、開かれる側であるこの画面自身が持つ。</td></tr>
+<tr><td><code>Context context</code></td><td>画面（Activity）を受け取るための型。呼ぶ側が <code>this</code> を渡すと、ここに入る。</td></tr>
+<tr><td><code>new Intent(context, BillSplitActivity.class)</code></td><td>今の画面から <code>BillSplitActivity</code> を開くための指示（Intent）を作る。</td></tr>
+<tr><td><code>starter.putExtra(EXTRA_KEY_PARTICIPANTS, participants)</code></td><td>キーを付けて、渡したい値をIntentに入れる。</td></tr>
+<tr><td><code>context.startActivity(starter)</code></td><td>IntentをAndroidに渡して、画面を開いてもらう。</td></tr>
+</tbody></table>
 <p>キーの文字（<code>"participants"</code>）は、受け取る側であるこの画面が持ちます。渡す側は <code>start</code> を呼ぶだけでよく、キーを間違えようがありません。</p>
 <h3>② 受け取って人数を表示する</h3>
 <p><code>onCreate</code> の中の、<code>ViewCompat.setOnApplyWindowInsetsListener(…);</code> の下に書きます。</p>
@@ -331,7 +338,7 @@ var btnCalc = findViewById(R.id.btn_calc);
 
 var numberOfPeople = participants.length; // ex) 4
 txtNumberOfPeople.setText("参加者は" + numberOfPeople + "人");</code></pre>
-<p><code>getStringArrayExtra</code> は、値が入っていないと <code>null</code> を返します。<code>Objects.requireNonNull</code> は、<code>null</code> だったらその場でアプリを止める書き方です。ここが <code>null</code> になるのは渡し忘れというプログラムの間違いのときだけなので、すぐ気づけるようにしておきます。</p>
+<p><code>getIntent()</code> は、この画面を開いたときのIntent（①の <code>start</code> で作って <code>startActivity</code> に渡したもの）を返します。<code>getStringArrayExtra(EXTRA_KEY_PARTICIPANTS)</code> は、そのIntentから、①で <code>putExtra</code> したのと同じキーの配列を取り出します。値が入っていないと <code>null</code> を返します。<code>Objects.requireNonNull</code> は、<code>null</code> だったらその場でアプリを止める書き方です。ここが <code>null</code> になるのは渡し忘れというプログラムの間違いのときだけなので、すぐ気づけるようにしておきます。</p>
 <h3>③ 渡す側（MainActivity）から呼ぶ</h3>
 <p><code>MainActivity.java</code> の、STEP 04で書いた <code>btnAdd.setOnClickListener(…);</code> の下に書きます。</p>
 <div class="code-head">MainActivity.java · ②の下</div>
