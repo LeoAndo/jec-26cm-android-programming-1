@@ -115,7 +115,7 @@
 <p>まぎらわしいのですが、Androidアプリ作りでは「Java」が2つの役割で出てきます。調べるときに使う言葉もあわせて載せます。</p>
 <table><thead><tr><th></th><th>どこで使うJavaか</th><th>設定の名前と場所</th></tr></thead><tbody>
 <tr><td>①</td><td><strong>自分が書くコード</strong>のJava。<code>MainActivity.java</code> に書く <code>var</code> やラムダ式など。</td><td><code>compileOptions</code> の <code>sourceCompatibility</code> / <code>targetCompatibility</code><br>（<code>app/build.gradle.kts</code>）</td></tr>
-<tr><td>②</td><td><strong>アプリを組み立てる道具（Gradle）を動かす</strong>ためのJava。この実行環境を <strong>JVM</strong> と呼びます。学生が直接書くことはありません。</td><td><code>toolchainVersion</code><br>（<code>gradle/gradle-daemon-jvm.properties</code>）</td></tr>
+<tr><td>②</td><td><strong>アプリを組み立てるビルドツール（Gradle）を動かす</strong>ためのJava。この実行環境を <strong>JVM</strong> と呼びます。学生が直接書くことはありません。</td><td><code>toolchainVersion</code><br>（<code>gradle/gradle-daemon-jvm.properties</code>）</td></tr>
 </tbody></table>
 <p>Panda 2 と Quail 4 で違うのは、<strong>②のほうだけ</strong>です。</p>
 <table><thead><tr><th></th><th>Panda 2 | 2025.3.2</th><th>Quail 4</th></tr></thead><tbody>
