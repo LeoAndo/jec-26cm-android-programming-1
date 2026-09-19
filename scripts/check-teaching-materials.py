@@ -249,8 +249,8 @@ def check_downloads(root: Path, project: dict, errors: list[str]) -> None:
         if not textbook_path.is_file():
             continue
         # Finderで開かせるので、置き場所のフォルダとファイル名が、同じSTEP（<section>）に書いてあること。
-        # 教科書のどこかにあればよい、とはしない。同じフォルダに別のSTEPで使うファイルも入るので
-        # （A07のタイトル画像と BillSplitter.java）、片方のSTEPから案内が消えても通ってしまう。
+        # 教科書のどこかにあればよい、とはしない。同じフォルダのファイルを別々のSTEPで使うときに、
+        # 片方のSTEPから案内が消えても、もう片方の案内で通ってしまう。
         # 置き場所は配布物の中での場所なので、リポジトリのパスをそのまま矢印でつないだ形で照合する。
         folder = " → ".join(Path(item["download"]).parent.parts)
         guided = [text for text in sections.texts if folder in text]

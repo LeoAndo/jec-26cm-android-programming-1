@@ -269,8 +269,8 @@ class TeachingMaterialsCheckTest(unittest.TestCase):
     def test_download_guided_only_in_another_step_is_rejected(self):
         """置き場所が別のSTEPにしか書かれていなければ検出する。
 
-        同じフォルダに別のSTEPで使うファイルも入っているとき（A07のタイトル画像と BillSplitter.java）、
-        片方のSTEPから置き場所の案内が消えても、教科書全体で探すと見つかってしまう。
+        同じフォルダのファイルを別々のSTEPで使うとき、片方のSTEPから置き場所の案内が消えても、
+        教科書全体で探すと見つかってしまう。
         """
         with tempfile.TemporaryDirectory() as temporary:
             root = Path(temporary)
