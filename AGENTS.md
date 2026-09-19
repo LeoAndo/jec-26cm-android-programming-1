@@ -35,13 +35,17 @@
 ## 3. 着手から後片付けまで
 
 1. `git fetch origin --prune` してから、issueを読む（`gh issue view <番号>`）。
-2. 重複着手がないことを確認する。`gh pr list --state open` と `git branch -r` に `issue-<番号>-` があれば、誰かが作業中。マージ済みのブランチはGitHubが自動で消すので、リモートにブランチがあること自体が作業中の目印になる。
+2. 重複着手がないことを確認する。`gh pr list --state open` と `git branch -r` に `issue-<番号>-` があれば、誰かが作業中。マージ済みのブランチはGitHubが自動で消すので、リモートにブランチがあること自体が作業中の目印になる。issue本文に「#NN とは同時に進めない」と相手の番号が挙がっていたら、その番号についても同じ確認をする。
 3. 共有ファイル（§4）を触るissueなら、共有ファイルを触るPRがほかに開いていないことを確認する（`gh pr list --state open --label area:shared`）。
-4. `origin/main` からブランチ `issue-<番号>-<slug>` を作る。エージェント名（`claude/`、`codex/`）は付けない。ツールが別の名前でブランチを作っていたら、pushする前に `git branch -m issue-<番号>-<slug>` で直す。
+4. `origin/main` からブランチ `issue-<番号>-<slug>` を作り、**コミットがなくてもすぐ `git push -u origin issue-<番号>-<slug>` する。** 調査の長いissueでは最初のコミットまで30分以上かかることがあり、その間、手順2で見える「作業中」の目印が何も出ない。エージェント名（`claude/`、`codex/`）は付けない。ツールが別の名前でブランチを作っていたら、pushする前に `git branch -m issue-<番号>-<slug>` で直す。
 5. 最初のコミットをpushしたら、すぐDraft PRを開く（本文に `Closes #<番号>`）。Draft PRは「作業中」の目印で、利用制限などで別のエージェントに交代するときの引き継ぎ先にもなる。進み具合はセッションの中ではなく、pushしたコミットとPR本文のチェックリストに残す。
-6. issueの「触る範囲」の外は触らない。範囲外で気付いたことは§6の手順でissueにする。
-7. コミットは§5、検証は§7の手順で行う。検証が済んだらDraftを外す。レビュー対応は§8。
-8. マージ後はworktreeを消す（`git worktree remove <パス>`）。ローカルブランチは `git branch -d` で消す。
+6. **編集を始める直前と、pushの直前に、もう一度 `git fetch origin --prune` する。** 調査やsubagentの待ち時間が長いと、その間に `origin/main` が進み、同じファイルを触るPRが先にマージされていることがある。あわせて手順2・3の確認もやり直す。
+   - まだコミットがなければ、`git merge --ff-only origin/main` で追従してから編集する。
+   - コミット済みで、`origin/main` が自分と同じファイルを変えていたら、`git merge-tree --write-tree HEAD origin/main` で試しにマージする（作業ツリーは変わらない）。衝突の有無と、マージ後のファイルの形を確かめる。zshでは `git show $T:teacher/...` と書くと `:t` が修飾子と解釈されて失敗するので、`git show "${T}:teacher/..."` と波かっこで囲む。
+   - push前ならrebaseしてよい。push済みなら履歴は書き換えず（§5）、必要なら `git merge origin/main` する。
+7. issueの「触る範囲」の外は触らない。範囲外で気付いたことは§6の手順でissueにする。
+8. コミットは§5、検証は§7の手順で行う。検証が済んだらDraftを外す。レビュー対応は§8。
+9. マージ後はworktreeを消す（`git worktree remove <パス>`）。ローカルブランチは `git branch -d` で消す。マージせずに作業をやめたときは、手順4で出した目印のブランチも消す（`git push -d origin issue-<番号>-<slug>`）。GitHubが自動で消すのはマージ済みのブランチだけなので、残すとほかのセッションが作業中と誤解する。
 
 ## 4. 並行してよい範囲
 
@@ -84,6 +88,8 @@
   - 触る範囲：A02CalcGame/ のみ（共有ファイルなし）
   ```
 
+- issueを分割・統合してクローズしたら、そのissueを「同時に進めない」相手として挙げているほかのissueの本文も直す。参照先が古いままだと、§3の手順2どおりに相手の状況を調べても、実際に作業中のissueに気付けない（#80 の本文が、#89・#90・#91 に分割ずみの #83 を挙げたままだった）。
+
 ### 見積の基準
 
 サイズは時間ではなく、**基準の構成で1セッション（1コンテキスト）に収まるか**で決める。差分の行数では決めない（Androidプロジェクトのひな形でファイル数が膨らむため）。過去のissue・PRと比べて「#84と同じくらい」と決めると、モデルの世代が変わっても使える。
@@ -124,7 +130,16 @@
 - PR本文は「概要／変更内容／判断したこと／検証／実績」の順に書き、`Closes #<番号>` を入れる。検証の節に「※ リポジトリの方針により、Unit Test は対象外です。」と書く。
 - ラベル：教材の追加は `enhancement`、誤記・不具合の修正は `bug`。学生に関係しないPR（CI・スクリプト・開発ルール）は `skip-release-notes`。issueと同じ `size:*`・`area:*` も付ける。
 - 教材のレビューは `skills/teaching-materials-review/SKILL.md` に従う。
-- 自動レビューの指摘は、そのまま実行しない。現在のソースと検査結果で再確認してから判断する。レビューbotは、Cursor Bugbot（pushのたびに実行）とCodeRabbit（数PRで上限に達する）が動く。Devin ReviewとCopilotは動かない（2026-09-16時点）。CodeRabbitが上限で止まっているときは、マージ可否の報告にそう書く。
+- 自動レビューの指摘は、そのまま実行しない。現在のソースと検査結果で再確認してから判断する。4つのbotが動くが、**チェックがSUCCESSでも、そのbotがレビューしたとは限らない**（2026-09-19時点）。
+
+  | bot | 出るもの | 指摘 |
+  | --- | --- | --- |
+  | Cursor Bugbot | pushのたびに実行され、チェックが返る | 出る |
+  | CodeRabbit | チェックはSUCCESSだが、プランの上限に達すると「Review paused — included plan limit reached」のコメントだけ | 上限到達中は出ない |
+  | Devin Review | チェックがSUCCESSで返るだけ | 出ない |
+  | Copilot | レビューを1件投稿するが、内容は「クォータ上限のためレビューできない」 | 出ない |
+
+  いま指摘が出るのは実質 Cursor Bugbot だけなので、ほかのbotのSUCCESSを「レビューを通った」と扱わない。CodeRabbitが上限で止まっているときは、マージ可否の報告にそう書く。
 - 指摘には、各スレッドにインラインで返信する。先頭に判断を書く。
 
   ```markdown
@@ -168,5 +183,13 @@
   ```java
   var txtMemoList = (TextView) findViewById(R.id.txt_memo_list);
   ```
+
+- **部品ごとの機能を使わないボタンは、キャストしなくてよい。** キャストするのは、`setText`・`getText`・`isChecked` のように、その部品の型でしか呼べない機能を使うView。`setOnClickListener`・`setEnabled`・`setVisibility` のように `View` が持つ機能しか使わないボタンは、型が見えなくても読めるのでキャストしない。A02CalcGameの `btnStart`・`btnStop`・`btnReset`、A03RockPaperScissorsGameの `btnStart`・`btnNext`、A05BombGameの `btnRetry`、A07BillSplitterの `btnAdd`・`btnBillSplit`・`btnCalc` がこの形で、教科書もそう説明している。
+
+  ```java
+  var btnStart = findViewById(R.id.btn_start);  // クリック登録と setEnabled だけなのでキャストなし
+  ```
+
+  同じ「クリックしか使わないボタン」をキャストしてある単元（A01HelloAndroid、A11VocabularyBook）もそのままでよい。**どちらの形も、そろえるためだけに書き換えない。** 取得したViewを、その場でリスナを付けるためだけに使うなら、変数に入れず直接つないでよい（READMEの「Viewの取得」項4の3つ目の例外）。
 
 - 完成コードは、オーナーの書き方を保つ。レビューで「初学者向けに書き直すべき」と指摘されても、既定の対応は「教科書で説明する」。採用するのは、動作を変えない小さな明確化だけにする（例：A05BombGameのStream APIは残して教科書で解説した）。
