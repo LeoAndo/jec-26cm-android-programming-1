@@ -176,8 +176,8 @@ class TeachingMaterialsCheckTest(unittest.TestCase):
             self.assertTrue(any("実行権限が一致しません: Sample/gradlew" in error for error in errors))
 
     def _image_root(self, root: Path, download: bytes, textbook: str,
-                    download_name: str = "title.png") -> None:
-        """配布画像の検査に必要な最小限のリポジトリを作る。"""
+                    download_name: str = "title.png", guidance: str | None = None) -> None:
+        """配布ファイルの検査に必要な最小限のリポジトリを作る。"""
         source = root / "Sample/app/src/main/res/drawable/title.png"
         source.parent.mkdir(parents=True)
         source.write_bytes(b"\x89PNG\r\n\x1a\n" + bytes(range(64)))
@@ -194,15 +194,15 @@ class TeachingMaterialsCheckTest(unittest.TestCase):
                 "docs": ["docs/x/index.html", "teacher/x/index.html"],
                 "source_java": "Sample/j.java", "source_xml": "Sample/l.xml",
                 "snippets": [], "archive": "docs/x/downloads/Sample.zip",
-                "images": [{
+                "downloads": [dict({
                     "download": f"docs/x/downloads/{download_name}",
                     "source": "Sample/app/src/main/res/drawable/title.png",
-                }],
+                }, **({"guidance": guidance} if guidance else {}))],
             }],
         })
 
     def _image_errors(self, root: Path) -> list[str]:
-        return [error for error in CHECKER.validate(root) if "配布画像" in error]
+        return [error for error in CHECKER.validate(root) if "配布ファイル" in error]
 
     def test_image_identical_to_source_is_accepted(self):
         with tempfile.TemporaryDirectory() as temporary:
@@ -212,7 +212,7 @@ class TeachingMaterialsCheckTest(unittest.TestCase):
             self.assertEqual(self._image_errors(root), [])
 
     def test_image_differing_by_one_byte_is_rejected(self):
-        """配布画像が、完成プロジェクトの画像と1バイトでも違えば検出する。"""
+        """配布ファイルが、完成プロジェクトのソースと1バイトでも違えば検出する。"""
         with tempfile.TemporaryDirectory() as temporary:
             root = Path(temporary)
             changed = bytearray(b"\x89PNG\r\n\x1a\n" + bytes(range(64)))
@@ -259,6 +259,49 @@ class TeachingMaterialsCheckTest(unittest.TestCase):
             errors = self._image_errors(root)
             self.assertEqual(len(errors), 1, errors)
             self.assertIn("ファイル名が一致しません", errors[0])
+
+    def test_finder_guidance_is_accepted(self):
+        """Finderで開かせる形では、置き場所のフォルダとファイル名が書いてあれば通る。"""
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            source = b"\x89PNG\r\n\x1a\n" + bytes(range(64))
+            self._image_root(root, source,
+                             "<p>書類 → 教材フォルダ → <code>docs → x → downloads</code> の title.png をコピーします。</p>",
+                             guidance="finder")
+            self.assertEqual(self._image_errors(root), [])
+
+    def test_finder_guidance_without_folder_is_rejected(self):
+        """置き場所の案内が教科書から消えたら検出する。学生はファイルを見つけられない。"""
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            source = b"\x89PNG\r\n\x1a\n" + bytes(range(64))
+            self._image_root(root, source, "<p>title.png をコピーします。</p>", guidance="finder")
+            errors = self._image_errors(root)
+            self.assertEqual(len(errors), 1, errors)
+            self.assertIn("置き場所の案内がありません: docs → x → downloads", errors[0])
+
+    def test_finder_guidance_without_file_name_is_rejected(self):
+        """ファイル名の案内が消えたら検出する。"""
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            source = b"\x89PNG\r\n\x1a\n" + bytes(range(64))
+            self._image_root(root, source, "<p><code>docs → x → downloads</code> を開きます。</p>", guidance="finder")
+            errors = self._image_errors(root)
+            self.assertEqual(len(errors), 1, errors)
+            self.assertIn("ファイル名の案内がありません: title.png", errors[0])
+
+    def test_finder_guidance_differing_from_source_is_rejected(self):
+        """Finderで開かせる形でも、ソースとの一致は同じように検査する。"""
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            changed = bytearray(b"\x89PNG\r\n\x1a\n" + bytes(range(64)))
+            changed[-1] ^= 0x01
+            self._image_root(root, bytes(changed),
+                             "<p><code>docs → x → downloads</code> の title.png をコピーします。</p>",
+                             guidance="finder")
+            errors = self._image_errors(root)
+            self.assertEqual(len(errors), 1, errors)
+            self.assertIn("内容が一致しません: Sample/app/src/main/res/drawable/title.png", errors[0])
 
     def test_image_source_outside_archive_is_rejected(self):
         """元ファイルがGit管理されていなければ、完成プロジェクトZIPにも入らない。"""
