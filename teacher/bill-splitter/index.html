@@ -10,7 +10,7 @@
 
 <section><h2>1. 授業前の準備</h2>
 <ul><li>学生用の入口は <code>docs/bill-splitter/index.html</code> です。完成版ZIPと画像を含む教材を、構成を保って配布します。</li><li>Android Studio Panda 2 | 2025.3.2、Java / Empty Views Activity、Minimum SDK API 31を確認します。作成先は <code>Documents/Android1/A07BillSplitter</code>、パッケージは <code>jp.ac.jec.a07billsplitter</code> です。</li><li><strong>配布物が2つあります。</strong>STEP 02で使う <code>title_img.png</code> と、STEP 07で使う <code>BillSplitter.java</code> です。どちらも授業前に配布できる場所へ置きます。完成プロジェクトZIPの <code>app/src/main/res/drawable/title_img.png</code> と <code>app/src/main/java/jp/ac/jec/a07billsplitter/BillSplitter.java</code> がそのまま使えます。</li><li>完成版は <code>Documents/Android1/samples/A07BillSplitter</code> に置きます。見本と学生のアプリは同じパッケージ名のため、端末上では同じアプリを上書きします。Run前にウィンドウの保存先を確認させます。</li><li>指定エミュレータ <strong>jec_26cm_android1_Pixel 9a</strong> を縦向きで使います。</li><li>アプリの実行にインターネット接続は不要です。この単元ではLogcatを使いません。結果はすべて画面に表示されます。</li></ul>
-<div class="note"><p class="box-title">今回の仕様上の制約</p><p>各単元では画面回転時のデータ保持と横画面のレイアウトを扱いません。回転などでActivityが作り直されると、登録した参加者と計算結果は初期状態に戻ります。この観点は別単元の演習アプリで検証します。金額の入力欄は <code>android:inputType="number"</code> と <code>android:maxLength="9"</code> で、半角数字9桁までに制限しています。参加者の人数に上限はありませんが、教材が想定するのは数人から十数人です。</p></div>
+<div class="note"><p class="box-title">今回の仕様上の制約</p><p>各単元では画面回転時のデータ保持と横画面のレイアウトを扱いません。回転などでActivityが作り直されると、登録した参加者と計算結果は初期状態に戻ります。考え方と対処法は<a href="../../docs/common/dev-tips.html#rotate">共通資料：開発Tips</a>のC章に掲載しています。金額の入力欄は <code>android:inputType="number"</code> と <code>android:maxLength="9"</code> で、半角数字9桁までに制限しています。参加者の人数に上限はありませんが、教材が想定するのは数人から十数人です。</p></div>
 </section>
 
 <section><h2>2. この単元の教材方針</h2>
