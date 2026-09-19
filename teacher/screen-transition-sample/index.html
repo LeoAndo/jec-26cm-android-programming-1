@@ -10,9 +10,17 @@
 <section><h2>1. 授業前の準備</h2>
 <ul><li>学生用の入口は <code>docs/screen-transition-sample/index.html</code> です。完成版ZIPと画像を含む教材を、構成を保って配布します。</li><li>Android Studio Panda 2 | 2025.3.2、Java / Empty Views Activity、Minimum SDK API 31を確認します。作成先は <code>Documents/Android1/A06ScreenTransitionSample</code>、パッケージは <code>jp.ac.jec.a06screentransitionsample</code> です。</li><li>アプリの実行にインターネット接続は不要です。画像などの追加の配布物もありません。STEP 3では、<strong>New → Activity → Empty Views Activity</strong> で2つ目の画面（TestActivity）を作ります。</li><li>完成版は <code>Documents/Android1/samples/A06ScreenTransitionSample</code> に置きます。見本と学生のアプリは同じパッケージ名のため、端末上では同じアプリを上書きします。Run前にウィンドウの保存先を確認させます。</li><li>指定エミュレータ <strong>jec_26cm_android1_Pixel 9a</strong> を縦向きで使います（教材の確認はAndroid 17 / API 37）。</li><li>受け取った値は画面に出さず、Logcatで見ます。授業前に、教員の画面でLogcatの検索欄を <code>package:jp.ac.jec.a06screentransitionsample tag:TestActivity level:DEBUG</code> にして見せられるようにしておきます。</li><li>教員用の途中コードは <code>teacher/screen-transition-sample/code</code> にあります。現在のSTEPの照合に使います。STEP 4のMainActivity.javaとSTEP 5〜8のTestActivity.javaは、教科書の各STEPにある照合用の全体コードと同じ内容です。そのほかのファイルは学生には配布しません。</li></ul>
 <div class="note"><p class="box-title">今回の仕様上の制約</p><p>TestActivityは画面に何も置かず、受け取った値を <code>Log.d</code> でLogcatに出すだけです。完成版では、どのボタンで開いても3行が出て、送っていない値は既定値か <code>null</code> になります。Test 1はIntentに値を入れないため、すべて既定値か <code>null</code> です。TestActivityから戻る処理のコードはなく、Androidの標準の戻る操作でMainActivityに戻ります。各単元では画面回転時のデータ保持と横画面のレイアウトを扱いません。この観点は別単元の演習アプリで検証します。</p></div>
+</section>
+<section><h2>2. この単元の教材方針</h2>
+<table><thead><tr><th>方針</th><th>理由</th><th>授業での扱い</th></tr></thead><tbody>
+<tr><td>渡す型は <code>int</code>・<code>String</code>（スカラー2種）と <code>String[]</code>（配列1種）だけに絞り、<code>long</code> などの型・配列、<code>ArrayList</code>、<code>Person</code>（<code>Serializable</code>）は扱わない</td><td>型のバリエーションを並べても理解は増えず読む量だけが増える（README「単元の範囲の決め方」基準3「網羅を目的にしない」）。<code>int</code> で仕組みを理解すれば、ほかの型も同じ形で取り出せる。<code>String[]</code> を残したのは、後続のA07 BillSplitterが同じ形（<code>BillSplitActivity.start(context, String[] participants)</code>）を使うため（「判断に迷ったとき」の基準）。<code>ArrayList</code> と <code>Person</code>（<code>Serializable</code>）は、後続単元でIntent経由の受け渡しに使っていないため外した。</td><td>STEP 5で「ほかの型も同じ形で取り出せます」と一言添えるにとどめる。<code>Serializable</code> と <code>ArrayList</code> は教材に出てこない。</td></tr>
+<tr><td>画面遷移は遷移先（TestActivity）が持つ <code>static start(Context ...)</code> に統一する。ただしSTEP 4だけは <code>new Intent(...)</code> と <code>startActivity(...)</code> を直接書かせる</td><td>遷移先がEXTRAキーを持てるため、呼び出す側はキー名を打ち間違えられず、あとでEXTRAを足すときも呼び出し側を直さずに済む。A07 BillSplitterも同じ <code>start</code> の形で統一されているため、先に出てくるA06から揃えた。STEP 4を例外にしたのは、2つ目の画面を初めて開く回でいちばん素の形を先に見せるためで、<code>start</code> ができるSTEP 6で揃え直す構成にした。</td><td>STEP 6④で、STEP 4に書いたbtn1の処理を <code>TestActivity.start(this)</code> に置き換えさせ、不要になった <code>import android.content.Intent;</code> を消させる。</td></tr>
+<tr><td>EXTRAキーの定数は、送るMainActivityではなく受け取るTestActivity側に置く</td><td>値を入れる <code>putExtra</code>（start）と取り出す <code>getXxxExtra</code>（onCreate）がどちらもTestActivityにあるため、privateで1か所にまとめられる。MainActivityは <code>start</code> に値を渡すだけでキーを知らなくてよい。Android Studioのstarterテンプレートも、開かれる側のクラスに <code>start</code> を作る。</td><td>STEP 6の<a href="../../docs/screen-transition-sample/index.html#key-in-test-activity">解説：キーの定数をTestActivityに置く理由</a>で、流れの図と4つの理由の表を使って説明する。</td></tr>
+<tr><td>3つのボタンは <code>findViewById(R.id.btnN).setOnClickListener(...)</code> とその場で呼ぶだけにし、変数やフィールドに入れない</td><td>全単元共通ルール（README「完成コードの書き方」）は、取得したViewをその場でリスナを付けるためだけに使い、以後参照しない場合を例外として認めている。A06の3つのボタンはそれぞれ1回しか呼ばれず <code>onCreate</code> の直下にあるため、ルールが防ぎたい問題（リスナの中で呼ぶ、同じidを2回取得する）が起きない。変数化すると教科書と <code>teacher/screen-transition-sample/code</code> の掲載コードに波及する一方、得られるのは見た目の統一だけと判断した。</td><td>特別な説明はしない。STEP 2でボタンを配置したあと、STEP 4以降で各ボタンのリスナをこの形のまま扱う。</td></tr>
+</tbody></table>
 <div class="note"><p class="box-title">完成コードを説明するときの注意</p><p><code>var</code>、starterテンプレートをもとにした <code>start</code> メソッド（引数の違う3つのオーバーロード）の書き方は変えません。教科書で説明します。</p><p>Intentの <code>putExtra</code> の説明（javadoc）と公式ガイドでは、キーの文字列の先頭にパッケージ名を付けるよう案内されています。完成コードのキー（<code>"intValue"</code> など）は付けていません。アプリ内の明示的なIntentでは問題なく動くため、コードは変えず、教科書でも「公式の推奨どおり」とは書いていません。キーの定数を受け取る側に置く理由は、①値を入れる <code>putExtra</code>（start）と取り出す <code>getXxxExtra</code>（onCreate）が同じTestActivityにある、②Android Studioのstarterテンプレートも開かれる側のクラスに <code>start</code> を作る、の2点を根拠に説明しています。</p></div>
 </section>
-<section><h2>2. 90分×2コマの進行</h2>
+<section><h2>3. 90分×2コマの進行</h2>
 <table><thead><tr><th>コマ</th><th>時間配分</th><th>終了時の確認</th></tr></thead><tbody>
 <tr><td>1コマ目</td><td>STEP 0：5分、STEP 1：15分、STEP 2：10分、STEP 3：15分、STEP 4：15分、STEP 5：20分、再実行・個別支援：5分、ふり返り：5分</td><td>3つのボタンの画面からTest 1でTestActivityを開き、戻る操作で戻れる。Logcatに既定値の2行が出る。キーと既定値の意味を説明できる。</td></tr>
 <tr><td>2コマ目</td><td>再開：5分、STEP 6：20分、STEP 7：10分、STEP 8：10分、STEP 9：15分、予備・個別支援：30分</td><td>Test 2・3で値と配列を渡せる。キーの定数をTestActivityに置く理由と、実際によく使う渡し方を説明できる。2コマ目には余裕があるので、STEP 8の練習を全員に試させる。</td></tr>
@@ -29,7 +37,7 @@
 <tr><td>今回の渡し方の中で、実際によく使う渡し方</td><td>STEP 0「できるようになること」、STEP 9の<a href="../../docs/screen-transition-sample/index.html#common-way">解説：実際によく使う渡し方</a>、STEP 9ふり返り問4</td><td>3つの渡し方を比べたあとに示す。結論はTest 2の形（putExtraで、IDなど小さな値を1つずつ渡す）。大きなデータを丸ごと渡すより、見分けるための番号（ID）を渡し、開いた画面でデータを用意することが多い、と伝える。公式資料では、Intentで渡すデータを数KB程度に抑えるよう案内されている。</td></tr>
 </tbody></table>
 </section>
-<section><h2>3. STEPごとの照合コード</h2>
+<section><h2>4. STEPごとの照合コード</h2>
 <table><thead><tr><th>到達地点</th><th>参照ファイル</th><th>教員の確認ポイント</th></tr></thead><tbody>
 <tr><td>出発点（STEP 1）</td><td><a href="code/01-MainActivity.java">01-MainActivity.java</a> / <a href="code/01-activity_main.xml">01-activity_main.xml</a></td><td>Hello World!をRunできる。</td></tr>
 <tr><td>ボタン（STEP 2）</td><td><a href="code/02-activity_main.xml">02-activity_main.xml</a></td><td>id/mainのLinearLayout（vertical・center）。btn1〜btn3が縦に並ぶ。</td></tr>
@@ -42,7 +50,7 @@
 </tbody></table>
 <p>STEP 2のXML、STEP 3のactivity_test.xmlとAndroidManifest.xml、STEP 7の2つのJavaは、完成プロジェクトの <a href="../../A06ScreenTransitionSample/app/src/main/res/layout/activity_main.xml">activity_main.xml</a>、<a href="../../A06ScreenTransitionSample/app/src/main/res/layout/activity_test.xml">activity_test.xml</a>、<a href="../../A06ScreenTransitionSample/app/src/main/AndroidManifest.xml">AndroidManifest.xml</a>、<a href="../../A06ScreenTransitionSample/app/src/main/java/jp/ac/jec/a06screentransitionsample/MainActivity.java">MainActivity.java</a>、<a href="../../A06ScreenTransitionSample/app/src/main/java/jp/ac/jec/a06screentransitionsample/TestActivity.java">TestActivity.java</a> と同じ内容です。STEP 1・2のAndroidManifest.xmlはひな形のまま（MainActivityの <code>&lt;activity&gt;</code> だけ）なので、照合コードはありません。STEP 8は練習のあと完成版に戻すため、ファイルを作りません。</p>
 </section>
-<section><h2>4. 理解確認と支援</h2>
+<section><h2>5. 理解確認と支援</h2>
 <table><thead><tr><th>問い</th><th>期待する行動・答え</th></tr></thead><tbody>
 <tr><td>Test 1でintValueが0、stringValueがnullなのは？</td><td>Test 1はIntentに何も入れていない。<code>getIntExtra</code> は2つ目の引数（既定値）を返し、<code>getStringExtra</code> は <code>null</code> を返す、と答える。</td></tr>
 <tr><td>キーの定数が、送るMainActivityではなくTestActivityにあるのは？</td><td>値を入れる <code>putExtra</code>（start）と取り出す <code>getXxxExtra</code>（onCreate）がどちらもTestActivityにあり、privateで1か所にまとめられる。MainActivityは <code>start</code> に値を渡すだけで、キーを知らなくてよい、と答える。</td></tr>
@@ -55,10 +63,10 @@
 <p>エラー時は「STEP番号・ファイル・最初の赤い行・操作順」を聞きます。A06のLogcat検索は、エラーが <code>package:jp.ac.jec.a06screentransitionsample level:ERROR</code>、受け取った値が <code>package:jp.ac.jec.a06screentransitionsample tag:TestActivity level:DEBUG</code> です。<code>tag:TestActivity</code> はTestActivityを含むタグも表示するため、<code>VRI[TestActivity]</code> の行が混ざることがあります。読み飛ばしてよいと伝えます。</p>
 <p>よくある原因は、TestActivityをNew → Java Classで作った（Manifestに登録がなく <code>ActivityNotFoundException</code>）、<code>start</code> をonCreateの中に貼った、定数をコピーしたあとに <code>putExtra</code> と <code>getXxxExtra</code> のキーを取り違えた（エラーにならず既定値になる）、Logcatの検索欄が <code>tag:MainActivity</code> のまま、の4つです。Launcher Activityにチェックを入れて作った場合は、STEP 3の照合用Manifestと見比べ、TestActivityの <code>&lt;activity&gt;</code> から <code>&lt;intent-filter&gt;</code> を消し、exportedを <code>false</code> にさせます（この場合にどちらの画面から起動するかは確認していません）。</p>
 </section>
-<section><h2>5. 到達度と提出</h2>
+<section><h2>6. 到達度と提出</h2>
 <ul><li>学生自身がTest 1〜3を押し、Logcatの結果を教科書STEP 9の完成チェックの表と照合できる。</li><li>戻る操作でMainActivityに戻れることを確かめ、戻るコードがいらない理由を説明できる。</li><li>キーの定数をTestActivityに置く理由と、実際によく使う渡し方を説明できる。</li><li>STEP 8の変更を試したあと、完成版に戻してTest 2の結果が intValue: 1・stringValue: 2 に戻ることを確認する。</li><li>提出する場合は <a href="../../docs/common/apk.html">共通資料：APKの作り方</a>に従い、先生が指定した場所へ <code>学籍番号_A06ScreenTransitionSample.apk</code> を提出する。</li></ul>
 </section>
-<section><h2>6. 教材の保守と確認</h2>
+<section><h2>7. 教材の保守と確認</h2>
 <ul><li>完成コードを変更したら、教科書の部分コード、照合用の全体コード、完成コード、<code>teacher/screen-transition-sample/code</code>、画像、Logcatの出力例、練習の答えをまとめて確認し、<code>python3 scripts/package-hello-android.py --project A06ScreenTransitionSample --output docs/screen-transition-sample/downloads/A06ScreenTransitionSample.zip</code> で配布用ZIPを再作成します。教科書のコードと完成プロジェクトの一致は <code>python3 scripts/check-teaching-materials.py</code> で確かめます。</li><li>画像8枚のうち、new-project・empty-views-activity・project-settings・new-activity-menu・new-activity-settings・starter-templateの6枚はIDE操作の画像です。app-testはそのまま使います。<strong>app-mainは、ボタンを3つにしたあとの画面で撮り直しました（2026年9月17日）。</strong></li><li><strong>Logcatの画面を写した画像は置いていません。</strong>以前はSTEP 9・11に5枚ありましたが、渡す値を絞ったことで内容が合わなくなったため、STEP 9では押したボタンごとの出力を表で示す形にしました。各STEPの「読むところの例」も、実際に <code>jec_26cm_android1_Pixel 9a</code> で実行した出力と一致しています（2026年9月17日に確認）。</li><li>各STEPの照合コードは、完成プロジェクトのコピーにそのSTEPまでのファイルを入れ（STEP 1・2のAndroidManifest.xmlはひな形、TestActivityとactivity_test.xmlはSTEP 3から）、STEP 1〜7のすべてで <code>assembleDebug</code> が通ることを確認しました。Test 1〜3のLogcat出力も <code>jec_26cm_android1_Pixel 9a</code>（Android 17 / API 37）で確認しています（2026年9月17日）。</li><li>印刷時は補足・解答も展開されます。解答を配布したくない場合は、ブラウザで授業中に開く方式を使ってください。</li></ul>
 </section>
 <footer class="footer"><p><a href="../../docs/screen-transition-sample/index.html">← ScreenTransitionSampleの教科書へ戻る</a></p><p>対象：macOS / Android Studio Panda 2 | 2025.3.2 · 確認日：2026年9月15日</p></footer>
