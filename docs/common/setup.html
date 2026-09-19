@@ -78,7 +78,7 @@
 <div class="code-head">出力（その日の最初の1回だけ）</div><pre tabindex="0"><code>* daemon not running; starting now at tcp:5037
 * daemon started successfully</code></pre>
 <div class="check"><p class="box-title">成功の目印</p><p><code>List of devices attached</code> と表示される。エラーが出ない。</p></div>
-<div class="note"><p class="box-title">この設定は、Terminalを閉じると消えます</p><p>手順4で打った <code>export</code> の行は、<strong>いま開いているウィンドウの中だけ</strong>で効きます。Terminalを閉じたり、新しいタブやウィンドウを開いたりすると、効果はなくなります。</p><p>そこで <code>adb</code> を使うと、次のように出ます。</p><div class="code-head">出力（置き場所を教える前）</div><pre tabindex="0"><code>zsh: command not found: adb</code></pre><p>これが出たら、<strong>上の <code>export</code> の行をもう一度実行してから</strong>、やり直してください。Macの設定を書き換える必要はありません。授業のたびに、この1行を打つだけです。</p></div></section>
+<div class="note"><p class="box-title">この設定は、Terminalを閉じると消えます</p><p>手順4で打った <code>export</code> の行は、<strong>いま開いているウィンドウの中だけ</strong>で効きます。Terminalを閉じたり、新しいタブやウィンドウを開いたりすると、効果はなくなります。</p><p>そこで <code>adb</code> を使うと、次のように出ます。</p><div class="code-head">出力（置き場所を教える前）</div><pre tabindex="0"><code>zsh: command not found: adb</code></pre><p>これが出たら、<strong>上の <code>export</code> の行をもう一度実行してから</strong>、やり直してください。Macの設定を書き換える必要はありません。打ち直すのは、この1行だけです。</p><p><code>adb</code> を使うのは、この準備の手順4と手順6だけです。準備が終わったあとの授業で、この行を打つことはありません。</p></div></section>
 
 <section id="emulator"><h2>5. エミュレータを作る</h2>
 <p><strong>エミュレータ</strong>は、Macの中で動く練習用のAndroid端末です。作り方は共通資料にまとめてあります。</p>
@@ -152,7 +152,7 @@ emulator-5554	device</code></pre>
 <ol>
 <li>手順1で「書類」に置いた教材のフォルダを開き、<code>docs</code> → <code>hello-android</code> → <code>index.html</code> をダブルクリックします。ブラウザで教科書が開きます。</li>
 <li>教科書の<a href="../hello-android/index.html#sample-project">完成プロジェクトを開く</a>から、<code>A01HelloAndroid.zip</code> をダウンロードします。</li>
-<li>ダウンロードした <code>A01HelloAndroid.zip</code> をダブルクリックして展開します。<code>A01HelloAndroid</code> というフォルダができます。</li>
+<li>ダウンロードした <code>A01HelloAndroid.zip</code> をダブルクリックして展開します。<code>A01HelloAndroid</code> というフォルダができます。すでに <code>A01HelloAndroid</code> というフォルダになっている場合は、そのままで大丈夫です。ブラウザが自動で開いてくれています。</li>
 <li>そのフォルダを、Finderで <strong>書類 → Android1 → samples</strong> へ移動します。手順3で作った場所です。</li>
 <li>Android Studioの最初の画面で <strong>Open</strong> をクリックし、いま移動した <code>A01HelloAndroid</code> フォルダを選びます。</li>
 <li>画面の下で <strong>Gradle Sync</strong> という処理が終わるまで待ちます。初回は数分かかります。</li>
@@ -180,6 +180,8 @@ emulator-5554	device</code></pre>
 <li><a href="auto-import.html" data-keep-from>Auto Importの設定</a>（A01のSTEP 1で行います）</li>
 <li><a href="other-versions.html" data-keep-from>ちがうAndroid Studioのバージョンで進めるとき</a>（自分のMacなどで進めるとき）</li>
 </ul></section>
+
+<section><h2>公式資料</h2><ul><li><a href="https://developer.android.com/studio/install?hl=ja">Android Developers：Android Studio をインストールする</a>（手順2）</li><li><a href="https://developer.android.com/studio/intro/update?hl=ja">Android Developers：IDE および SDK ツールの更新</a>（手順4のSDK）</li><li><a href="https://developer.android.com/tools/adb?hl=ja">Android Developers：Android Debug Bridge（adb）</a>（手順4・手順6）</li><li><a href="https://developer.android.com/studio/run?hl=ja">Android Developers：アプリのビルドと実行</a>（手順9）</li></ul></section>
 
 <footer class="footer"><p><a href="../hello-android/index.html" data-back>← もとの教科書へ戻る</a></p><p>対象：macOS / Android Studio Panda 2 | 2025.3.2 · 画像：教員提供 · 確認日：2026年9月20日</p></footer></main>
 <p class="sr-only" role="status" aria-live="polite" data-copy-status></p></body></html>
