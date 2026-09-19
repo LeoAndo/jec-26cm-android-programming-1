@@ -602,10 +602,22 @@ txtParticipantList.setText(result);</code></pre>
 <tr><td>金額が人数より少ない</td><td>○人で割るには○円以上を入力してください</td></tr>
 </tbody></table>
 <p>画面で出して確かめられるのは、6つのうち5つです。「支払い金額は数字で入力してください」は、金額の入力欄に半角の数字が9桁までしか入らないので表示されません（<a href="#why-not-shown">STEP 08の解説</a>）。出せなくても、操作のまちがいではありません。</p>
+<h3>完成チェック</h3>
+<p>Runし直して、上から順に操作します。入力チェックのメッセージは、上の一覧のうち画面で出せる5つを確かめます。</p>
+<table><thead><tr><th>操作</th><th>確認する結果</th></tr></thead><tbody>
+<tr><td>起動直後</td><td>タイトル画像、名前の入力欄、「登録」「ワリカン画面へ」、「参加者一覧」の見出しが出る。一覧は空。</td></tr>
+<tr><td>何も入れずに「登録」</td><td>「参加者名を入力してください」が出て、一覧は増えない。</td></tr>
+<tr><td>Sato を登録 →「ワリカン画面へ」</td><td>一覧に Sato が出て、入力欄が空になる。1人のときは「参加者を2人以上追加してください」が出て、画面は切り替わらない。</td></tr>
+<tr><td>Suzuki・Tanaka を登録 → もう一度 Sato を登録</td><td>一覧が3行になる。2回目の Sato は「参加者名が重複しています」が出て、一覧は増えない。</td></tr>
+<tr><td>「ワリカン画面へ」</td><td>画面が切り替わり、「参加者は3人」と出る。</td></tr>
+<tr><td>何も入れずに「計算実行」</td><td>「支払い金額を入力してください」が出て、計算結果は出ない。</td></tr>
+<tr><td>2 と入れて「計算実行」</td><td>「3人で割るには3円以上を入力してください」が出て、計算結果は出ない。</td></tr>
+<tr><td>1234 に変えて「計算実行」</td><td>Sato・Suzuki・Tanaka の支払額が出る。411円が2人、412円が1人で、合計は入力した1234円に戻る。</td></tr>
+</tbody></table>
 <h3>保存</h3>
 <p>自分の <code>Documents/Android1/A07BillSplitter</code> を保存します。</p>
 <p>教材のチェックは自分用です。先生への送信はしません。印刷は <kbd>⌘ P</kbd> で行えます。</p>
-<div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-11"><span>参加者を3人登録して1234円を割り勘でき、名前が空・参加者が1人以下・金額が空のときはメッセージが出て計算されないことを確認した。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
+<div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-11"><span>完成チェックの操作をすべて試し、表のとおりの結果になった。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
 </section>
 
 <section id="help"><h2>困ったとき</h2><table><thead><tr><th>困ったこと</th><th>最初に確認する場所</th></tr></thead><tbody>
