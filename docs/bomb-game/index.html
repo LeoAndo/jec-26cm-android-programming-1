@@ -45,7 +45,7 @@
 </tbody></table>
 
 <p>各コマに再実行と個別確認の時間を含みます。予習は不要です。</p>
-<div class="note"><p class="box-title">毎回、自分で新規作成します</p><p>作る場所は <code>Documents/Android1/A05BombGame</code> です。<a href="#sample-project">完成プロジェクト</a>は初回から開けます。STEP 2で使う画像は、STEP 2のボタンからダウンロードします。</p></div>
+<div class="note"><p class="box-title">毎回、自分で新規作成します</p><p>作る場所は <code>Documents/Android1/A05BombGame</code> です。<a href="#sample-project">完成プロジェクト</a>は初回から開けます。STEP 2で使う画像は、教材のフォルダに入っています。STEP 2でFinderからコピーします。</p></div>
 
 <h3>完成アプリの状態</h3><table><thead><tr><th>状態</th><th>爆弾の画像</th><th>メッセージ</th><th>数字ボタン</th><th>再挑戦</th></tr></thead><tbody>
 <tr><td>起動直後・再挑戦の後</td><td>火のない爆弾</td><td>どれか押してみよう</td><td>すべて押せる</td><td>見えない</td></tr>
@@ -106,14 +106,12 @@
 </tbody></table>
 
 <p>名前はファイル名から <code>.png</code> を取ったものです。drawableのファイル名には、<strong>小文字の英字・数字・_（アンダースコア）</strong> だけを使います。</p>
-<h3>① 画像をダウンロードする</h3>
-<ol><li>次の3つのボタンを、1つずつ押します。教科書の開き方とブラウザによって、押したあとの動きが変わります。下の表を見て、3つとも <strong>ダウンロード</strong> フォルダに保存します。</li></ol>
-<p><a class="button-link" href="downloads/bomb_initial.png" download>bomb_initial.png</a> <a class="button-link" href="downloads/bomb_ignited.png" download>bomb_ignited.png</a> <a class="button-link" href="downloads/bomb_exploded.png" download>bomb_exploded.png</a></p>
-<table><thead><tr><th>ボタンを押したあと</th><th>すること</th></tr></thead><tbody>
-<tr><td>画像が大きく表示された</td><td>画像の上で右クリックし、画像を保存する項目を選びます。Chromeは <strong>名前を付けて画像を保存…</strong>、Safariは <strong>イメージを"ダウンロード"に保存</strong> です。保存先を聞かれたら、名前は変えずに <strong>ダウンロード</strong> フォルダへ保存します。保存したら、ブラウザの <strong>←</strong>（戻る）で教科書に戻ります。</td></tr>
-<tr><td>ダウンロードが始まった</td><td>そのままで大丈夫です。ブラウザが <strong>ダウンロード</strong> フォルダに保存しています。</td></tr>
-</tbody></table>
-<ol start="2"><li>Finderを開き、左側の <strong>ダウンロード</strong> をクリックします。</li><li><kbd>⌘</kbd> を押しながら、<code>bomb_exploded.png</code>・<code>bomb_ignited.png</code>・<code>bomb_initial.png</code> の3つをクリックして選び、<kbd>⌘ C</kbd> でコピーします。<code>bomb_initial (1).png</code> のように番号が付いたファイルは、同じ画像を2回保存したものです。名前が違うので選びません。</li></ol>
+<h3>① 教材のフォルダから画像をコピーする</h3>
+<p>3つの画像は、教科書といっしょに配られた<strong>教材のフォルダ</strong>に入っています。Finderで開いて、3つまとめてコピーします。</p>
+<ol><li>Finderを開き、左側の <strong>書類</strong> をクリックします。教材のフォルダをダブルクリックで開きます。名前は <code>android1-student-materials-</code> のうしろに日付が付いた形で、日付は配られた回によって変わります。</li>
+<li>その中を <code>docs → bomb-game → downloads</code> の順に開きます。<code>bomb-game</code> は、いま読んでいるこの教科書（<code>index.html</code>）が入っているフォルダです。</li>
+<li><kbd>⌘</kbd> を押しながら、<code>bomb_exploded.png</code>・<code>bomb_ignited.png</code>・<code>bomb_initial.png</code> の3つをクリックして選び、<kbd>⌘ C</kbd> でコピーします。同じフォルダにある <code>A05BombGame.zip</code> は完成プロジェクトです。選びません。</li></ol>
+<div class="note"><p class="box-title">教材のフォルダが見つからないとき</p><p>教材のフォルダは、はじめの準備で「書類」へ移動したものです（<a href="../common/setup.html?from=bomb-game#materials">共通資料：はじめの準備</a>の1.）。まだ移動していなければ、先にそちらを行います。同じ教材を2回ダウンロードして名前のうしろに <code>(1)</code> が付いたものがあるときは、自分で判断せず先生に見せてください。</p></div>
 <h3>② 自分のプロジェクトに貼り付ける</h3>
 <ol><li>Android Studioに戻り、自分の <code>A05BombGame</code> を開いていることを確認します。</li><li>Project表示で <code>app/src/main/res/drawable</code> フォルダをクリックして選び、<kbd>⌘ V</kbd> で貼り付けます。</li><li><strong>Copy</strong> の画面が出たら、<strong>To directory</strong> を確認します。末尾が <code>A05BombGame/app/src/main/res/drawable</code> になっていれば <strong>OK</strong> を押します。見本（完成プロジェクト）を <code>samples</code> フォルダに置いて開いている人は、途中に <code>samples</code> が入っていないことも確かめます。入っていたら、見本の方に貼り付けようとしています。</li></ol>
 <figure><a href="images/drawable-copy.png"><img src="images/drawable-copy.png" width="2072" height="1090" loading="lazy" alt="Project表示でdrawableフォルダを選び、Copyダイアログが開いている。To directoryの末尾はA05BombGame/app/src/main/res/drawable"></a><figcaption>To directoryの末尾が A05BombGame/app/src/main/res/drawable になっていればOK。画像のパスは先生の保存先の例です。 <a href="images/drawable-copy.png">画像を大きく開く</a></figcaption></figure>
