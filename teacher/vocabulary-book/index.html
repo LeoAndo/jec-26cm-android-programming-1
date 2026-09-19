@@ -27,6 +27,7 @@
 <tr><td><strong>単語追加画面に「登録ずみの単語」を置く</strong></td><td><code>LiveData</code> の利点は、画面上の変化として見せないと伝わらない（基準2）。追加した瞬間に一覧が変わり、しかもコードに <code>setText</code> を書いていない、という対比が要る。</td><td>STEP 05の解説と、STEP 07の練習1（<code>observe</code> の中を消す）で扱う。<strong>この対比を飛ばすと「なぜ <code>LiveData</code> なのか」が残らない。</strong></td></tr>
 <tr><td>画面を開く処理を <code>start(Context)</code> に寄せる</td><td>A07 <code>BillSplitActivity.start(...)</code> と同じ形。開かれる側が自分の開き方を持つので、あとでEXTRAを足すときも呼び出し側を直さずに済む。</td><td>STEP 05③でA07と同じ形だと一言添える。</td></tr>
 <tr><td><code>btn_back</code> / <code>btn_next</code> を <code>enabled="false"</code> から始める</td><td><code>LiveData</code> は<strong>あとから</strong>データを届ける。届く前に押せると空のリストに触れて落ちる。非同期に届くという性質が、そのままUIの初期状態に効く例。</td><td>STEP 06①で理由を短く扱う。練習3で実際に落としてみせる。</td></tr>
+<tr><td><code>CardActivity</code> の6つのViewをフィールドにする</td><td><code>updateCardView()</code> は「次へ」「戻る」とLiveDataの通知のたびに呼ばれる。ここで <code>findViewById</code> を呼ぶと、同じidを何度も探し直すことになる（READMEの「Viewの取得」2）。A02CalcGameの <code>txtMessage</code> と同じ直し方。</td><td>STEP 06②で「<code>onCreate</code> の外からも使うViewはフィールド」とA02を振り返る。フィールドが6つに増えるので、役割は表でまとめて読ませる。</td></tr>
 <tr><td>重複チェックは <code>=</code>（<code>LIKE</code> ではない）</td><td><code>LIKE</code> は <code>%</code> と <code>_</code> をワイルドカードとして扱うため、ちがう単語に誤ヒットする。</td><td>STEP 03②の注意書きで扱う。</td></tr>
 </tbody></table>
 <div class="note"><p class="box-title">方針の例外：<code>@NonNull</code> を学生に書かせます</p><p>A10と同じ扱いです。<code>@Entity</code> のフィールドに付けた <code>@NonNull</code> は「この列は NOT NULL」という表の定義そのもので、外すと表の形が変わります。A10で説明ずみなので、ここでは「A10と同じ」と確認するだけで足ります。</p></div>

@@ -556,6 +556,13 @@ import java.util.List;
 public class CardActivity extends AppCompatActivity {
     private final List&lt;Item&gt; cardList = new ArrayList&lt;&gt;();
     private int cardIndex;
+    // 次の6つは、onCreate以外のメソッド(updateCardView)からも使うためフィールドにする
+    private TextView txtQuestionNo;
+    private TextView txtEnglish;
+    private TextView txtJapanese;
+    private Button btnBack;
+    private Button btnNext;
+    private Button btnAnswer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -568,9 +575,12 @@ public class CardActivity extends AppCompatActivity {
             return insets;
         });
 
-        var btnBack = (Button) findViewById(R.id.btn_back);
-        var btnNext = (Button) findViewById(R.id.btn_next);
-        var btnAnswer = (Button) findViewById(R.id.btn_answer);
+        txtQuestionNo = (TextView) findViewById(R.id.txt_question_no);
+        txtEnglish = (TextView) findViewById(R.id.txt_english);
+        txtJapanese = (TextView) findViewById(R.id.txt_japanese);
+        btnBack = (Button) findViewById(R.id.btn_back);
+        btnNext = (Button) findViewById(R.id.btn_next);
+        btnAnswer = (Button) findViewById(R.id.btn_answer);
 
         var itemDao = AppDatabase.getInstance(this).itemDao();
 
@@ -602,7 +612,6 @@ public class CardActivity extends AppCompatActivity {
         });
 
         btnAnswer.setOnClickListener(v -&gt; {
-            var txtJapanese = (TextView) findViewById(R.id.txt_japanese);
             var isVisible = (txtJapanese.getVisibility() == View.VISIBLE);
             txtJapanese.setVisibility(isVisible ? View.INVISIBLE : View.VISIBLE);
             btnAnswer.setText(isVisible ? &quot;答えを表示する&quot; : &quot;答えを非表示にする&quot;);
@@ -622,10 +631,6 @@ public class CardActivity extends AppCompatActivity {
      */
     private void updateCardView() {
         var card = cardList.get(cardIndex);
-        var txtQuestionNo = (TextView) findViewById(R.id.txt_question_no);
-        var txtEnglish = (TextView) findViewById(R.id.txt_english);
-        var txtJapanese = (TextView) findViewById(R.id.txt_japanese);
-        var btnAnswer = (Button) findViewById(R.id.btn_answer);
 
         txtQuestionNo.setText((cardIndex + 1) + &quot;問目/全&quot; + cardList.size() + &quot;問中&quot;);
         txtEnglish.setText(card.getEnglish());
@@ -635,13 +640,15 @@ public class CardActivity extends AppCompatActivity {
         txtJapanese.setVisibility(View.INVISIBLE);
         btnAnswer.setText(&quot;答えを表示する&quot;);
 
-        findViewById(R.id.btn_back).setEnabled(cardIndex &gt; 0);
-        findViewById(R.id.btn_next).setEnabled(cardIndex &lt; cardList.size() - 1);
+        btnBack.setEnabled(cardIndex &gt; 0);
+        btnNext.setEnabled(cardIndex &lt; cardList.size() - 1);
     }
-}</code></pre>
+}
+</code></pre>
 <table><thead><tr><th>書いたもの</th><th>意味</th></tr></thead><tbody>
 <tr><td><code>cardList.clear()</code> してから <code>addAll</code></td><td>LiveDataは変わるたびに呼ばれる。<strong>clearを忘れると、戻ってくるたびに一覧が二重になる</strong></td></tr>
 <tr><td><code>cardIndex</code> の調整</td><td>いま見ているカードが最後より後ろにならないようにそろえる</td></tr>
+<tr><td>6つのViewをフィールドにする</td><td><code>updateCardView()</code> からも使うので、<code>onCreate</code> で1回だけ探してフィールドに入れておく。<strong>同じidを2回 <code>findViewById</code> しない</strong></td></tr>
 <tr><td><code>updateCardView()</code></td><td>問題番号・英単語・日本語・ボタンの押せる／押せないを、まとめてそろえる</td></tr>
 <tr><td><code>setVisibility(View.INVISIBLE)</code></td><td>カードを送ったら、答えは隠した状態に戻す</td></tr>
 </tbody></table>
