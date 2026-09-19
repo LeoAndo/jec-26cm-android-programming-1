@@ -18,7 +18,7 @@
 <li><a href="#step-8">08　入力チェックを作る</a></li>
 <li><a href="#step-9">09　計算結果を表示する</a></li>
 <li><a href="#step-10">10　ミニ練習</a></li>
-<li><a href="#step-11">11　完成とふり返り</a></li></ol></nav>
+<li><a href="#step-11">11　完成</a></li></ol></nav>
 <div class="progress"><span data-progress-label>0 / 12 ステップ確認済み</span><progress value="0" max="12" aria-label="学習の進み具合"></progress><span class="muted">自分用のチェックです。</span></div>
 <div class="resources"><a href="#help">困ったとき</a><a href="#why-check">解説：なぜ画面側でチェックするのか</a><a href="#how-split">解説：1円の端数はだれが払う？</a><a href="#sample-project">完成プロジェクトを開く</a><a href="../hello-android/index.html">A01：HelloAndroid</a><a href="../calc-game/index.html">A02：CalcGame</a><a href="../rock-paper-scissors-game/index.html">A03：RockPaperScissorsGame</a><a href="../webview-app/index.html">A04：WebViewApp</a><a href="../bomb-game/index.html">A05：BombGame</a><a href="../screen-transition-sample/index.html">A06：ScreenTransitionSample</a><a href="../common/emulator.html?from=bill-splitter">共通：エミュレータ</a><a href="../common/auto-import.html?from=bill-splitter">共通：Auto Import</a><a href="../common/logcat.html?from=bill-splitter">共通：Logcat</a><a href="../common/apk.html?from=bill-splitter">共通：APKの提出</a><a href="../common/dev-tips.html?from=bill-splitter">共通：開発Tips</a><a href="../common/other-versions.html?from=bill-splitter">共通：ちがうバージョン</a></div>
 </div></aside><main id="main"><div class="hero"><span class="unit">07</span><p class="eyebrow">BILL SPLITTER</p>
@@ -567,10 +567,10 @@ txtParticipantList.setText(result);</code></pre>
 <figure class="phone"><a href="images/app-split-result-15members.png"><img src="images/app-split-result-15members.png" width="1080" height="2424" loading="lazy" alt="15人で123456円を割った結果。8230円と8231円が並び、合計123,456円と表示されている"></a><figcaption>15人でも、差は1円までです。 <a href="images/app-split-result-15members.png">画像を大きく開く</a></figcaption></figure>
 <ol start="4"><li>参加者名に<strong>同じ名前</strong>を入れようとするとどうなりますか。STEP 04のチェックを思い出します。</li></ol>
 <div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-10"><span>ミニ練習を試し、どの金額でも支払額の合計が入力した金額に戻ることを確かめられた。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
-<div class="next"><a href="#step-11">次へ：完成とふり返り →</a></div></section>
+<div class="next"><a href="#step-11">次へ：完成 →</a></div></section>
 
 <section id="step-11" aria-labelledby="title-11">
-<p class="step-meta">STEP 11 · 目安 15分</p><h2 id="title-11">完成とふり返り</h2>
+<p class="step-meta">STEP 11 · 目安 15分</p><h2 id="title-11">完成</h2>
 <h3>2つの画面の役割</h3>
 <table><thead><tr><th>画面</th><th>やること</th><th>使ったもの</th></tr></thead><tbody>
 <tr><td>MainActivity</td><td>参加者を登録する。2人以上でワリカン画面へ渡す。</td><td><code>ArrayList</code>、<code>toArray</code>、<code>start</code></td></tr>
@@ -585,8 +585,6 @@ txtParticipantList.setText(result);</code></pre>
 <tr><td>金額を数字に変えられない</td><td>支払い金額は数字で入力してください</td></tr>
 <tr><td>金額が人数より少ない</td><td>○人で割るには○円以上を入力してください</td></tr>
 </tbody></table>
-<h3>ふり返り</h3>
-<ol><li>A06で学んだ「配列を渡す」を、どこで使いましたか。</li><li>キーの文字（<code>"participants"</code>）を、受け取る側に置いたのはなぜですか。</li><li>入力チェックを計算クラスではなく画面側に書いたのはなぜですか。</li></ol>
 <div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-11"><span>完成チェックを終え、配列の受け渡し・キーの定数を受け取る側に置く理由・入力チェックを画面側に書く理由を説明できた。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
 </section>
 

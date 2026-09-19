@@ -14,7 +14,7 @@
 <li><a href="#step-4">04　メニュー画面を作る</a></li>
 <li><a href="#step-5">05　単語を追加する画面を作る</a></li>
 <li><a href="#step-6">06　カード画面を作る</a></li>
-<li><a href="#step-7">07　完成とふり返り</a></li>
+<li><a href="#step-7">07　完成</a></li>
 </ol></nav>
 <div class="progress"><span data-progress-label>0 / 8 ステップ確認済み</span><progress value="0" max="8" aria-label="学習の進み具合"></progress><span class="muted">自分用のチェックです。</span></div>
 <div class="resources"><a href="#help">困ったとき</a><a href="#why-livedata">解説：LiveDataは何が便利か</a><a href="#sample-project">完成プロジェクトを開く</a><a href="../hello-android/index.html">A01：HelloAndroid</a><a href="../calc-game/index.html">A02：CalcGame</a><a href="../rock-paper-scissors-game/index.html">A03：RockPaperScissorsGame</a><a href="../webview-app/index.html">A04：WebViewApp</a><a href="../bomb-game/index.html">A05：BombGame</a><a href="../screen-transition-sample/index.html">A06：ScreenTransitionSample</a><a href="../bill-splitter/index.html">A07：BillSplitter</a><a href="../shared-preferences-sample/index.html">A08：SharedPreferencesSample</a><a href="../memo-app/index.html">A09：MemoApp</a><a href="../room-sample/index.html">A10：RoomSample</a><a href="../common/emulator.html?from=vocabulary-book">共通：エミュレータ</a><a href="../common/auto-import.html?from=vocabulary-book">共通：Auto Import</a><a href="../common/logcat.html?from=vocabulary-book">共通：Logcat</a><a href="../common/apk.html?from=vocabulary-book">共通：APKの提出</a><a href="../common/dev-tips.html?from=vocabulary-book">共通：開発Tips</a><a href="../common/other-versions.html?from=vocabulary-book">共通：ちがうバージョン</a></div>
@@ -682,10 +682,10 @@ public class CardActivity extends AppCompatActivity {
 <figure class="phone"><a href="images/app-card2.png"><img src="images/app-card2.png" width="1080" height="2424" loading="lazy" alt="次へを押したあと、2問目/全3問中とstudyが表示され、答えは隠れた状態に戻っているカード画面。前へと次へはどちらも押せる"></a><figcaption>次へを押したところ。2問目になり、答えはまた隠れています。 <a href="images/app-card2.png">画像を大きく開く</a></figcaption></figure>
 <figure class="phone"><a href="images/app-empty.png"><img src="images/app-empty.png" width="1080" height="2424" loading="lazy" alt="単語が1件もないときに、単語がありませんのメッセージと単語を追加するボタンが画面下に出ているカード画面"></a><figcaption>単語が1件もないとき。メッセージから追加画面へ行けます。 <a href="images/app-empty.png">画像を大きく開く</a></figcaption></figure>
 <div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-6"><span>カードを送れて、答えの表示・非表示が切り替わることを確かめた。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
-<div class="next"><a href="#step-7">次へ：完成とふり返り →</a></div></section>
+<div class="next"><a href="#step-7">次へ：完成 →</a></div></section>
 
 <section id="step-7" aria-labelledby="title-7">
-<p class="step-meta">STEP 07 · 目安 5分</p><h2 id="title-7">完成とふり返り</h2>
+<p class="step-meta">STEP 07 · 目安 5分</p><h2 id="title-7">完成</h2>
 <p>完成した <code>MainActivity.java</code> です。</p>
 <pre id="code-complete-java"><code>package jp.ac.jec.a11vocabularybook;
 
@@ -719,14 +719,6 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 }</code></pre>
-<h3>ふり返り</h3>
-<ol>
-<li><code>LiveData&lt;List&lt;Item&gt;&gt;</code> と <code>List&lt;Item&gt;</code> の違いは何か。</li>
-<li>単語を追加したあと、一覧を出し直す処理を書かなくてよいのはなぜか。</li>
-<li><code>cardList.clear()</code> を消すとどうなるか。理由も説明する。</li>
-<li>画面を開く処理を、開かれる側の <code>start</code> メソッドに書いているのはなぜか。</li>
-<li>A10とA11で、Roomの使い方が変わったところはどこか。</li>
-</ol>
 <h3>練習</h3>
 <ol>
 <li><code>CardAddActivity</code> の <code>observe</code> の中を消してRunする。単語を追加したとき、一覧はどうなるか。</li>

@@ -17,7 +17,7 @@
 <li><a href="#step-7">07　次の戦いへ戻す</a></li>
 <li><a href="#step-8">08　勝ち負けと連勝数</a></li>
 <li><a href="#step-9">09　ミニ練習</a></li>
-<li><a href="#step-10">10　完成とふり返り</a></li></ol></nav>
+<li><a href="#step-10">10　完成</a></li></ol></nav>
 <div class="progress"><span data-progress-label>0 / 11 ステップ確認済み</span><progress value="0" max="11" aria-label="学習の進み具合"></progress><span class="muted">自分用のチェックです。</span></div>
 <div class="resources"><a href="#help">困ったとき</a><a href="#sample-project">完成プロジェクトを開く</a><a href="../hello-android/index.html">A01：HelloAndroid</a><a href="../calc-game/index.html">A02：CalcGame</a><a href="../common/emulator.html?from=rock-paper-scissors-game">共通：エミュレータ</a><a href="../common/auto-import.html?from=rock-paper-scissors-game">共通：Auto Import</a><a href="../common/logcat.html?from=rock-paper-scissors-game">共通：Logcat</a><a href="../common/apk.html?from=rock-paper-scissors-game">共通：APKの提出</a><a href="../common/dev-tips.html?from=rock-paper-scissors-game">共通：開発Tips</a><a href="../common/other-versions.html?from=rock-paper-scissors-game">共通：ちがうバージョン</a></div>
 </div></aside><main id="main"><div class="hero"><span class="unit">03</span><p class="eyebrow">ROCK PAPER SCISSORS GAME</p>
@@ -464,10 +464,10 @@ switch (result) {
 <div class="task"><p class="box-title">練習3：状態を説明する</p><p>勝負！のあとに手の画像を押しても選び直せないのは、どの行のおかげですか。次の戦いへのあとに、また選べるようになるのはどの行ですか。連勝数が0に戻る行も指さしましょう。</p><details><summary>説明したあとに答えを見る</summary><p>勝負！の処理の <code>item.setClickable(false)</code> で押せなくし、次の戦いへの処理の <code>imageView.setClickable(true)</code> で戻します。連勝数は、switch文の <code>case 0</code> と <code>case 1</code> にある <code>winCount = 0</code> で0に戻ります。</p></details></div>
 <div class="note"><p class="box-title">完成版に戻してから確認</p><p>練習1・2の乱数の行と <code>+ 3</code> を元に戻します。Auto Importの設定により、使わなくなった <code>ThreadLocalRandom</code> のimportが消えることがあります。戻したあとに赤字になったら、<kbd>⌥ Enter</kbd> でimportを追加します。</p></div>
 <div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-9"><span>CPUの手を固定して表の結果と連勝数を確かめ、+ 3の理由を説明してから完成版に戻した。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
-<div class="next"><a href="#step-10">次へ：完成とふり返り →</a></div>
+<div class="next"><a href="#step-10">次へ：完成 →</a></div>
 </section>
 <section id="step-10" aria-labelledby="title-10">
-<p class="step-meta">STEP 10 · 目安 15分</p><h2 id="title-10">完成とふり返り</h2>
+<p class="step-meta">STEP 10 · 目安 15分</p><h2 id="title-10">完成</h2>
 
 <h3>完成チェック</h3>
 <table><thead><tr><th>操作</th><th>確認する結果</th></tr></thead><tbody>
@@ -480,7 +480,6 @@ switch (result) {
 <tr><td>Logcat</td><td>勝負！のたびに、選んだ手・CPUの手・結果の番号が出る。</td></tr>
 </tbody></table>
 
-<h3>自分の言葉でふり返る</h3><ol><li><code>selectedHand</code> と <code>winCount</code> は、それぞれ何を覚えていますか。</li><li>押した画像の番号 <code>i</code> は、どの比較で決まりましたか。</li><li><code>(selectedHand - cpu + 3) % 3</code> の <code>+ 3</code> は何のためですか。</li><li>勝負！のあとに手を選び直せないのはなぜですか。</li></ol>
 <h3>保存</h3><p>自分の <code>Documents/Android1/A03RockPaperScissorsGame</code> を保存します。</p>
 <p>教材のチェックは自分用です。先生への送信はしません。印刷は <kbd>⌘ P</kbd> で行えます。</p>
 <div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-10"><span>完成チェックを終え、配列・for文・乱数・switch文・連勝数のフィールドを説明できた。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>

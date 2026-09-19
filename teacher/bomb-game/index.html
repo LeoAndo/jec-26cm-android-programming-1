@@ -26,8 +26,8 @@
 </section>
 <section><h2>3. 90分×3コマの進行</h2>
 <table><thead><tr><th>コマ</th><th>時間配分</th><th>終了時の確認</th></tr></thead><tbody>
-<tr><td>1コマ目</td><td>STEP 0：5分、STEP 1：15分、STEP 2：15分、STEP 3：20分、STEP 4：10分、再実行・個別支援：20分、ふり返り：5分</td><td>drawableに3画像があり、完成版と同じ画面をRunできる。見えない再挑戦ボタンを含めてidを指させる。</td></tr>
-<tr><td>2コマ目</td><td>再開：5分、STEP 5：25分、STEP 6：15分、STEP 7：30分、再実行・確認：10分、ふり返り：5分</td><td>Logcatでスイッチの数字を確認し、着火と爆発を実演できる。</td></tr>
+<tr><td>1コマ目</td><td>STEP 0：5分、STEP 1：15分、STEP 2：15分、STEP 3：20分、STEP 4：10分、再実行・個別支援：20分、理解確認：5分</td><td>drawableに3画像があり、完成版と同じ画面をRunできる。見えない再挑戦ボタンを含めてidを指させる。</td></tr>
+<tr><td>2コマ目</td><td>再開：5分、STEP 5：25分、STEP 6：15分、STEP 7：30分、再実行・確認：10分、理解確認：5分</td><td>Logcatでスイッチの数字を確認し、着火と爆発を実演できる。</td></tr>
 <tr><td>3コマ目</td><td>再開：5分、STEP 8：15分、STEP 9：25分、STEP 10：20分、STEP 11：15分、個別支援：10分</td><td>再挑戦とクリアを動かし、ミニ練習の変更を元に戻して完成版を説明できる。</td></tr>
 </tbody></table>
 <p>STEP 5は <code>int[]</code>、メソッド、do-while文、<code>distinct().count()</code> が一度に出るため、コード入力後に「くり返し」の表を読み合わせます。STEP 7は定数と <code>anyMatch</code> が新しいため、「スイッチが {3, 7} のとき」の表で、押した数字ごとに <code>match</code> を答えさせます。STEP 9は置き換え範囲を間違えやすい工程です。貼り付ける前に、選択範囲が <code>if (nowState == STATE_IGNITED) {</code> から else if の閉じ括弧までで、<code>});</code> を含まないことを確認させます。</p>
@@ -53,6 +53,7 @@
 <tr><td>nowState++ で次の状態になるのはなぜ？</td><td>定数が STATE_INITIAL = 1、STATE_IGNITED = 2、STATE_EXPLODED = 3 の連番だから、と答える。</td></tr>
 <tr><td>着火後は8と比べるのはなぜ？</td><td>押したスイッチ1個も押せないボタンに数えるため。STEP 10練習2の結果で説明する。</td></tr>
 <tr><td>再挑戦でスイッチが変わるのは？</td><td>再挑戦の処理から <code>generateIgnitionNumbers()</code> を呼んでいる、と示す。</td></tr>
+<tr><td><code>2</code> と書く代わりに定数 <code>STATE_IGNITED</code> を使うとよいのは？</td><td>数字だけでは何の状態か分からないが、名前があれば「着火」だと読める、と答える。定数の名前を打ち間違えると赤いエラーになるので気付ける、と言えればなおよい。</td></tr>
 <tr><td>回転したら？</td><td>この単元では状態を保存しないため、押したボタンと状態が初期化され、スイッチも選び直される、と理解している。</td></tr>
 </tbody></table>
 <p>エラー時は「STEP番号・ファイル・最初の赤い行・操作順」を聞きます。A05のLogcat検索は、エラーが <code>package:jp.ac.jec.a05bombgame level:ERROR</code>、STEP 5のスイッチのログが <code>package:jp.ac.jec.a05bombgame tag:MainActivity level:DEBUG</code> です。</p>

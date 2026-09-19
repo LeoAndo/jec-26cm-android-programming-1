@@ -24,8 +24,8 @@
 </section>
 <section><h2>3. 90分×3コマの進行</h2>
 <table><thead><tr><th>コマ</th><th>時間配分</th><th>終了時の確認</th></tr></thead><tbody>
-<tr><td>1コマ目</td><td>STEP 0：5分、STEP 1：15分、STEP 2：15分、STEP 3：20分、STEP 4：15分、再実行・個別支援：15分、ふり返り：5分</td><td>drawableに4画像があり、完成版と同じ画面をRunできる。idを指させる。</td></tr>
-<tr><td>2コマ目</td><td>再開：5分、STEP 5：30分、STEP 6：20分、STEP 7：15分、再実行・確認：15分、ふり返り：5分</td><td>手の選択、勝負！でのCPUの手の表示、次の戦いへでの初期化を実演できる。</td></tr>
+<tr><td>1コマ目</td><td>STEP 0：5分、STEP 1：15分、STEP 2：15分、STEP 3：20分、STEP 4：15分、再実行・個別支援：15分、理解確認：5分</td><td>drawableに4画像があり、完成版と同じ画面をRunできる。idを指させる。</td></tr>
+<tr><td>2コマ目</td><td>再開：5分、STEP 5：30分、STEP 6：20分、STEP 7：15分、再実行・確認：15分、理解確認：5分</td><td>手の選択、勝負！でのCPUの手の表示、次の戦いへでの初期化を実演できる。</td></tr>
 <tr><td>3コマ目</td><td>再開：5分、STEP 8：25分、STEP 9：20分、STEP 10：15分、個別支援：25分</td><td>勝敗と連勝数を表示し、変更を元に戻して完成版を説明できる。</td></tr>
 </tbody></table>
 <p>STEP 2は、ZIPの展開先と貼り付け先を取り違えやすい工程です。Copy画面の <strong>To directory</strong> を全員で確認してからOKを押させます。STEP 5は外側の拡張for文と内側の番号付きfor文が重なるため、コード入力後に「チョキを押したときのi」の表を読み合わせます。</p>
@@ -49,6 +49,7 @@
 <tr><td>CPUの画像の配列とimageViewsの順番をそろえる理由は？</td><td>同じ番号が同じ手を表さないと、勝敗の計算が合わなくなる、と答える。</td></tr>
 <tr><td>+ 3 がないと？</td><td>自分の番号がCPUより小さいとマイナスになり、どのcaseにも入らない。STEP 9練習2の結果で説明する。</td></tr>
 <tr><td>勝負！のあとに選び直せないのは？</td><td>勝負！の処理の <code>setClickable(false)</code> を示し、次の戦いへの <code>setClickable(true)</code> と対応付ける。</td></tr>
+<tr><td><code>selectedHand</code> と <code>winCount</code> は何を覚えている？</td><td><code>selectedHand</code> は選んだ手の番号（-1：未選択、0：グー、1：チョキ、2：パー）、<code>winCount</code> は連勝数。勝つと1増え、引き分けと負けで0に戻る、と答える。</td></tr>
 <tr><td>回転したら？</td><td>この単元では状態を保存しないため、選択と連勝数が初期状態に戻る、と理解している。</td></tr>
 </tbody></table>
 <p>エラー時は「STEP番号・ファイル・最初の赤い行・操作順」を聞きます。A03のLogcat検索は、エラーが <code>package:jp.ac.jec.a03rockpaperscissorsgame level:ERROR</code>、STEP 8の判定ログが <code>package:jp.ac.jec.a03rockpaperscissorsgame tag:MainActivity level:DEBUG</code> です。</p>

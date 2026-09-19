@@ -23,7 +23,7 @@
 <li><a href="#step-6">06　横に並べる</a></li>
 <li><a href="#step-7">07　SnackbarとToast</a></li>
 <li><a href="#step-8">08　ミニ練習</a></li>
-<li><a href="#step-9">09　完成とふり返り</a></li></ol></nav>
+<li><a href="#step-9">09　完成</a></li></ol></nav>
 <div class="progress"><span data-progress-label>0 / 10 ステップ確認済み</span><progress value="0" max="10" aria-label="学習の進み具合"></progress><span class="muted">自分用のチェックです。</span></div>
 <div class="resources"><a href="#help">困ったとき</a><a href="#sample-project">完成プロジェクトを開く</a><a href="../common/emulator.html?from=hello-android">共通：エミュレータ</a><a href="../common/logcat.html?from=hello-android">共通：Logcat</a><a href="../common/apk.html?from=hello-android">共通：APKの提出</a><a href="../common/dev-tips.html?from=hello-android">共通：開発Tips</a><a href="../common/other-versions.html?from=hello-android">共通：ちがうバージョン</a><a href="../common/auto-import.html?from=hello-android">共通：Auto Import</a></div>
 </div></aside>
@@ -401,11 +401,11 @@ btn2.setOnClickListener(v -&gt; {
 <h3>最後の5分 · 元に戻し、記録する</h3>
 <ol><li>練習Aの文字を <code>Hello, Android!</code> に戻します。</li><li>練習Bのボタンを <code>1</code> に戻します。</li><li>練習Cをした人は余白を <code>12dp</code> に戻します。</li><li>Runし、「＿＿を変えたので、＿＿が変わりました」と、変更したことを1つメモします。</li></ol>
 <div class="check"><p class="box-title">ここで止まって、確認（かくにん）</p><label><input type="checkbox" data-check="step-8"><span>練習A・Bを動かし、変更した場所と結果を1つ記録できた。最後に元の表示へ戻した。</span></label><p>できたらチェックします。できないときは、この画面を先生に見せましょう。</p></div>
-<div class="next"><a href="#step-9">次へ：完成を確認する →</a></div>
+<div class="next"><a href="#step-9">次へ：完成 →</a></div>
 
 </section><section id="step-9" aria-labelledby="title-9">
 <p class="step-meta">STEP 09 · 目安 10分</p>
-<h2 id="title-9">完成を確認して、記録する</h2>
+<h2 id="title-9">完成</h2>
 
 <h3>① 完成チェック</h3>
 <p>Runし、上から順に操作します。最初の文字に戻したいときは、Android Studioの <strong>Stop ■</strong> を押してから <strong>Run ▶</strong> を押します。</p>
@@ -416,10 +416,7 @@ btn2.setOnClickListener(v -&gt; {
 <tr><td>2を押す</td><td>Toastに2が出て、しばらくすると消える。</td></tr>
 <tr><td>3を押す</td><td>メッセージは出ない。</td></tr>
 </tbody></table>
-<h3>② 3問でふり返る</h3>
-<ol><li>部品の位置を書くファイルは、XMLとJavaのどちらですか。</li><li><code>setText</code> と <code>getText</code> は、それぞれ何をしますか。</li><li>ボタンの処理は、起動時とクリック時のどちらに実行されますか。</li></ol>
-<details><summary>自分で答えてから確認する</summary><ol><li>XML（activity_main.xml）。</li><li>setTextは文字を変える。getTextは今の文字を取り出す。</li><li>クリック時。起動時にsetOnClickListenerでその処理を登録します。</li></ol></details>
-<h3>③ 授業の記録を残す</h3>
+<h3>② 授業の記録を残す</h3>
 <p>次の4項目を、先生が指定する用紙や提出先に書きます。このページのチェックは自分用で、先生には送信されません。</p>
 <ul><li>学籍番号・氏名</li><li>できたステップ：STEP ＿＿まで</li><li>説明できること：「＿＿を変えると、＿＿になる」</li><li>まだ困っていること：「STEP ＿＿の＿＿」／困っていなければ「なし」</li></ul>
 <p>先生に画面を見せ、変更ボタン・1・2を順番に押します。</p>

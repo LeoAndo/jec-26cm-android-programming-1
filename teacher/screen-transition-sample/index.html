@@ -22,7 +22,7 @@
 </section>
 <section><h2>3. 90分×2コマの進行</h2>
 <table><thead><tr><th>コマ</th><th>時間配分</th><th>終了時の確認</th></tr></thead><tbody>
-<tr><td>1コマ目</td><td>STEP 0：5分、STEP 1：15分、STEP 2：10分、STEP 3：15分、STEP 4：15分、STEP 5：20分、再実行・個別支援：5分、ふり返り：5分</td><td>3つのボタンの画面からTest 1でTestActivityを開き、戻る操作で戻れる。Logcatに既定値の2行が出る。キーと既定値の意味を説明できる。</td></tr>
+<tr><td>1コマ目</td><td>STEP 0：5分、STEP 1：15分、STEP 2：10分、STEP 3：15分、STEP 4：15分、STEP 5：20分、再実行・個別支援：5分、理解確認：5分</td><td>3つのボタンの画面からTest 1でTestActivityを開き、戻る操作で戻れる。Logcatに既定値の2行が出る。キーと既定値の意味を説明できる。</td></tr>
 <tr><td>2コマ目</td><td>再開：5分、STEP 6：20分、STEP 7：10分、STEP 8：10分、STEP 9：15分、予備・個別支援：30分</td><td>Test 2・3で値と配列を渡せる。キーの定数をTestActivityに置く理由と、実際によく使う渡し方を説明できる。2コマ目には余裕があるので、STEP 8の練習を全員に試させる。</td></tr>
 </tbody></table>
 <p>STEP 3は、<strong>New → Java Class</strong> で作ってしまう誤りが起きやすい工程です。Java Classで作ると、画面のXMLとAndroidManifest.xmlへの登録が作られず、STEP 4のTest 1で <code>ActivityNotFoundException</code> になりアプリが終了します。画面で <strong>New → Activity → Empty Views Activity</strong> を実演し、<strong>Launcher Activity</strong> のチェックを外すことも示します。作成後に、AndroidManifest.xmlに <code>&lt;activity android:name=".TestActivity" android:exported="false" /&gt;</code> が増えたことを全員で確かめます。</p>
@@ -30,11 +30,11 @@
 <p>STEP 6はstarterテンプレートを実演すると早く進みます。テンプレートの定義では、展開後に入力欄が2か所（クラス名と <code>putExtra( )</code> の中）あります。授業前にPanda 2で一度試し、<kbd>Enter</kbd> と <kbd>Esc</kbd> の押し方を確認してから実演してください。候補が出ない学生も、教科書のコードを貼り付ければ同じ結果になります。解説「キーの定数が、なぜ受け取る側のTestActivityにある？」は、Test 2のLogcatを確認してから約5分で読ませます。</p>
 <p><strong>STEP 6④で、STEP 4に書いたbtn1の処理を <code>TestActivity.start(this)</code> に置き換えます。</strong>STEP 4では <code>new Intent(...)</code> と <code>startActivity(...)</code> を直接書かせています。いちばん素の形を先に見せるためで、<code>start</code> を作ったあとは全部そろえます。置き換えると <code>MainActivity.java</code> から <code>new Intent(...)</code> がなくなるので、<code>import android.content.Intent;</code> が灰色になります。その行を消させてください。消し忘れても動きますが、完成コードの照合で差が出ます。</p>
 <p>STEP 7はSTEP 5・6と同じ流れ（定数 → 受け取り → start → ボタン）です。説明は最小限にし、貼り付け位置の確認に時間を使います。とくに <code>start</code> をonCreateの中に貼っていないか（赤いエラーがたくさん出る）を見ます。</p>
-<p><strong>2コマ目には余裕があります。</strong>STEP 8の練習3つを全員に試させ、STEP 9のふり返り5問まで回してください。練習2（キーを直接書いて打ち間違える）が、この単元でいちばん定着する体験です。</p>
+<p><strong>2コマ目には余裕があります。</strong>STEP 8の練習3つを全員に試させ、「5. 理解確認と支援」の問いまで回してください。練習2（キーを直接書いて打ち間違える）が、この単元でいちばん定着する体験です。</p>
 <p>この単元では、次の2点を必ず扱います。</p>
 <table><thead><tr><th>押さえる点</th><th>教科書の場所</th><th>授業での扱い</th></tr></thead><tbody>
-<tr><td>キーの定数（<code>EXTRA_KEY_INT_VALUE</code> など）が、値を受け取る側のTestActivityにある理由</td><td>STEP 5の予告、STEP 6の<a href="../../docs/screen-transition-sample/index.html#key-in-test-activity">解説：キーの定数をTestActivityに置く理由</a>、STEP 8練習2・3、STEP 9ふり返り問1</td><td>STEP 6でTest 2のLogcatを確かめたあと、流れの図で <code>putExtra</code>（start）と <code>getIntExtra</code>（onCreate）が同じ定数を使うことを指させる。「キーを使うのはTestActivityの中だけ」「キーの文字を書くのは1か所」を中心に説明する。MainActivityにはキーの文字が1つも出てこないことも確かめる。STEP 8練習2で、キーを直接書いて打ち間違えても赤いエラーにならず、既定値の0になることを体験させる。</td></tr>
-<tr><td>今回の渡し方の中で、実際によく使う渡し方</td><td>STEP 0「できるようになること」、STEP 9の<a href="../../docs/screen-transition-sample/index.html#common-way">解説：実際によく使う渡し方</a>、STEP 9ふり返り問4</td><td>3つの渡し方を比べたあとに示す。結論はTest 2の形（putExtraで、IDなど小さな値を1つずつ渡す）。大きなデータを丸ごと渡すより、見分けるための番号（ID）を渡し、開いた画面でデータを用意することが多い、と伝える。公式資料では、Intentで渡すデータを数KB程度に抑えるよう案内されている。</td></tr>
+<tr><td>キーの定数（<code>EXTRA_KEY_INT_VALUE</code> など）が、値を受け取る側のTestActivityにある理由</td><td>STEP 5の予告、STEP 6の<a href="../../docs/screen-transition-sample/index.html#key-in-test-activity">解説：キーの定数をTestActivityに置く理由</a>、STEP 8練習2・3</td><td>STEP 6でTest 2のLogcatを確かめたあと、流れの図で <code>putExtra</code>（start）と <code>getIntExtra</code>（onCreate）が同じ定数を使うことを指させる。「キーを使うのはTestActivityの中だけ」「キーの文字を書くのは1か所」を中心に説明する。MainActivityにはキーの文字が1つも出てこないことも確かめる。STEP 8練習2で、キーを直接書いて打ち間違えても赤いエラーにならず、既定値の0になることを体験させる。</td></tr>
+<tr><td>今回の渡し方の中で、実際によく使う渡し方</td><td>STEP 0「できるようになること」、STEP 9の<a href="../../docs/screen-transition-sample/index.html#common-way">解説：実際によく使う渡し方</a></td><td>3つの渡し方を比べたあとに示す。結論はTest 2の形（putExtraで、IDなど小さな値を1つずつ渡す）。大きなデータを丸ごと渡すより、見分けるための番号（ID）を渡し、開いた画面でデータを用意することが多い、と伝える。公式資料では、Intentで渡すデータを数KB程度に抑えるよう案内されている。</td></tr>
 </tbody></table>
 </section>
 <section><h2>4. STEPごとの照合コード</h2>

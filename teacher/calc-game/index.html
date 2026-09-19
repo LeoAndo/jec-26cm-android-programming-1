@@ -26,7 +26,7 @@
 </section>
 <section><h2>3. 90分×3コマの進行</h2>
 <table><thead><tr><th>コマ</th><th>時間配分</th><th>終了時の確認</th></tr></thead><tbody>
-<tr><td>1コマ目</td><td>STEP 0：5分、STEP 1：15分、STEP 2：20分、STEP 3：20分、STEP 4：15分、再実行：10分、ふり返り：5分</td><td>画面を作り、5つの値のフィールドの場所と役割を説明できる。</td></tr>
+<tr><td>1コマ目</td><td>STEP 0：5分、STEP 1：15分、STEP 2：20分、STEP 3：20分、STEP 4：15分、再実行：10分、理解確認：5分</td><td>画面を作り、5つの値のフィールドの場所と役割を説明できる。</td></tr>
 <tr><td>2コマ目</td><td>再開：5分、STEP 5：25分、STEP 6：15分、STEP 7：15分、STEP 8：20分、確認：10分</td><td>STOP/START、乱数、配列、正解数の変化を実演できる。</td></tr>
 <tr><td>3コマ目</td><td>STEP 9：25分、STEP 10：20分、STEP 11：15分、個別支援：30分</td><td>10問で終了し、変更を元に戻して完成版を説明できる。</td></tr>
 </tbody></table>
@@ -50,6 +50,8 @@
 <tr><td>STOP後にSTARTすると問題が変わらないのはなぜ？</td><td>START処理の <code>if (answer == 0)</code> を示し、answerが残っていると出題しないと説明する。</td></tr>
 <tr><td>なぜ数字ボタンを配列にした？</td><td>9個に同じリスナーをfor文で登録するため、と答える。</td></tr>
 <tr><td>10問目はどの分岐？</td><td><code>nowNo &lt;= 9</code> がfalseになりelseで結果を表示すると示す。</td></tr>
+<tr><td><code>nowNo</code> と <code>correctNo</code> の違いは？</td><td><code>nowNo</code> は今が何問目か、<code>correctNo</code> は正解した数。<code>nowNo</code> は正解でも不正解でも次の問題へ進むときに増え、<code>correctNo</code> は正解したときだけ増える、と答える。</td></tr>
+<tr><td>STOPの時間から続けるために保存した値は？</td><td><code>elapsedTimeMillis</code>（停止した時点までの時間）。STOPで保存し、STARTの <code>setBase</code> で今の時刻から引いている、と示す。</td></tr>
 <tr><td>回転したら？</td><td>この単元では状態を保存しないためゲームをやり直す、と理解している。</td></tr>
 </tbody></table>
 <p>エラー時は「STEP番号・ファイル・最初の赤い行・操作順」を聞きます。A02のLogcat検索は <code>package:jp.ac.jec.a02calcgame level:ERROR</code> です。</p>

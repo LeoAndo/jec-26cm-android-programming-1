@@ -16,7 +16,7 @@
 <li><a href="#step-6">06　startメソッドで値を渡す</a></li>
 <li><a href="#step-7">07　配列を渡す</a></li>
 <li><a href="#step-8">08　ミニ練習</a></li>
-<li><a href="#step-9">09　完成とふり返り</a></li></ol></nav>
+<li><a href="#step-9">09　完成</a></li></ol></nav>
 <div class="progress"><span data-progress-label>0 / 10 ステップ確認済み</span><progress value="0" max="10" aria-label="学習の進み具合"></progress><span class="muted">自分用のチェックです。</span></div>
 <div class="resources"><a href="#help">困ったとき</a><a href="#key-in-test-activity">解説：キーの定数が、なぜ受け取る側のTestActivityにある？</a><a href="#common-way">解説：実際によく使う渡し方は？</a><a href="#sample-project">完成プロジェクトを開く</a><a href="../hello-android/index.html">A01：HelloAndroid</a><a href="../calc-game/index.html">A02：CalcGame</a><a href="../rock-paper-scissors-game/index.html">A03：RockPaperScissorsGame</a><a href="../webview-app/index.html">A04：WebViewApp</a><a href="../bomb-game/index.html">A05：BombGame</a><a href="../common/emulator.html?from=screen-transition-sample">共通：エミュレータ</a><a href="../common/auto-import.html?from=screen-transition-sample">共通：Auto Import</a><a href="../common/logcat.html?from=screen-transition-sample">共通：Logcat</a><a href="../common/apk.html?from=screen-transition-sample">共通：APKの提出</a><a href="../common/dev-tips.html?from=screen-transition-sample">共通：開発Tips</a><a href="../common/other-versions.html?from=screen-transition-sample">共通：ちがうバージョン</a></div>
 </div></aside><main id="main"><div class="hero"><span class="unit">06</span><p class="eyebrow">SCREEN TRANSITION SAMPLE</p>
@@ -457,7 +457,7 @@ TestActivity  D  stringValue: 2</code></pre>
 intent.putExtra(&quot;intValue&quot;, 1);
 // TestActivity（受け取る側）
 var intValue = getIntent().getIntExtra(&quot;intvalue&quot;, 0);</code></pre>
-<p>受け取る側の <code>v</code> が小文字になっていても、赤いエラーにはなりません。<code>intValue: 0</code> と出るだけで、間違いに気付きにくくなります（STEP 8 練習2で試します）。A05 STEP 11のふり返り「数字を直接書く代わりに定数を使うと何がよいか」も思い出しましょう。Android Studioのstarterテンプレートも、開かれる側のクラスの中にstartを作ります。</p>
+<p>受け取る側の <code>v</code> が小文字になっていても、赤いエラーにはなりません。<code>intValue: 0</code> と出るだけで、間違いに気付きにくくなります（STEP 8 練習2で試します）。Android Studioのstarterテンプレートも、開かれる側のクラスの中にstartを作ります。</p>
 <details><summary>STEP 6のTestActivity.java全体で照合する</summary><div class="code-head">照合用 · TestActivity.java</div>
 <pre id="code-step6-test" tabindex="0"><code>package jp.ac.jec.a06screentransitionsample;
 
@@ -630,10 +630,10 @@ public class TestActivity extends AppCompatActivity {
 <details><summary>試したあとに答えを見る</summary><p><code>start</code> に赤い波線が出て、Runするとビルドエラーになります。<code>2</code> はintで、2つ目の引数はStringなので、渡した値に合うstartがないからです。Runの前に間違いに気付けることを説明できれば十分です。確認後は <code>&quot;2&quot;</code> に戻します。</p></details></div>
 <div class="note"><p class="box-title">完成版に戻してから確認</p><p>練習1の <code>1</code> と <code>"2"</code>、練習2の <code>EXTRA_KEY_INT_VALUE</code>、練習3の <code>"2"</code> を元に戻します。Runして、Test 2が intValue: 1・stringValue: 2 に戻ることを確かめます。</p></div>
 <div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-8"><span>3つの練習を予想してから試し、完成版に戻してTest 2の結果が元に戻ったことを確認した。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
-<div class="next"><a href="#step-9">次へ：完成とふり返り →</a></div>
+<div class="next"><a href="#step-9">次へ：完成 →</a></div>
 </section>
 <section id="step-9" aria-labelledby="title-9">
-<p class="step-meta">STEP 09 · 目安 15分</p><h2 id="title-9">完成とふり返り</h2>
+<p class="step-meta">STEP 09 · 目安 15分</p><h2 id="title-9">完成</h2>
 
 <h3>Test 1〜Test 3の結果を比べる</h3>
 <table><thead><tr><th>ボタン</th><th>呼び出し</th><th>渡したもの</th><th>値が出る行</th></tr></thead><tbody>
@@ -665,8 +665,6 @@ public class TestActivity extends AppCompatActivity {
 <tr><td>Test 2</td><td>intValue: 1、stringValue: 2。stringArrayValue は null。</td></tr>
 <tr><td>Test 3</td><td>stringArrayValue: [3, 4, 5]。</td></tr>
 </tbody></table>
-<h3>自分の言葉でふり返る</h3>
-<ol><li>キーの定数が、値を送るMainActivityではなくTestActivityにあるのはなぜですか。</li><li>Test 1で intValue が0、stringValue が null になるのはなぜですか。</li><li>同じ名前のstartが3つあっても、どれが呼ばれるかが決まるのはなぜですか。</li><li>実際のアプリでよく使う渡し方はどれですか。大きなデータを渡す代わりに、何を渡すとよいですか。</li><li>TestActivityからMainActivityに戻るコードを書いていないのに、戻れるのはなぜですか。</li></ol>
 <h3>保存</h3>
 <p>自分の <code>Documents/Android1/A06ScreenTransitionSample</code> を保存します。</p>
 <p>教材のチェックは自分用です。先生への送信はしません。印刷は <kbd>⌘ P</kbd> で行えます。</p>
