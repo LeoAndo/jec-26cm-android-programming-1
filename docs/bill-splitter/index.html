@@ -366,7 +366,7 @@ txtNumberOfPeople.setText("参加者は" + numberOfPeople + "人");</code></pre>
 <section id="step-7" aria-labelledby="title-7">
 <p class="step-meta">STEP 07 · 目安 15分</p><h2 id="title-7">割り勘の計算クラスを使う</h2>
 <p>割り勘の計算は、できあがった <code>BillSplitter.java</code> が行います。<strong>中身を読む必要はありません。</strong>使い方だけ覚えます。</p>
-<p>空のファイルを自分で作り、このページの下にあるコードをコピーして、丸ごと入れます。コードは<strong>読まずにコピーして構いません</strong>。読むのは、そのあとの <strong>③ 使い方</strong> だけです。</p>
+<p>空のファイルを自分で作り、このページの下にあるコードをコピーして、丸ごと入れます。コードは<strong>読まずにコピーして構いません</strong>。読むのは、そのあとの<a href="#use-splitter">③ 使い方</a>だけです。</p>
 <p>STEP 02のタイトル画像は、ファイルごとFinderでコピーしました。コードは文字なので、Finderを使わず、この教科書のページからそのままコピーできます。</p>
 <h3>① 空のファイルを作る</h3>
 <ol>
@@ -383,6 +383,7 @@ txtNumberOfPeople.setText("参加者は" + numberOfPeople + "人");</code></pre>
 <li><kbd>⌘ V</kbd> で貼り付けます。選んでいたところが消えて、<strong>ファイル全体</strong>がコピーしたコードに置き換わります。</li>
 <li>1行目が <code>package jp.ac.jec.a07billsplitter;</code> になっていることを確認します。</li>
 </ol>
+<p>コードは長いので、貼り付けが終わったら<a href="#use-splitter">③ 使い方</a>まで飛ばして構いません。</p>
 <div class="code-head">BillSplitter.java · 全体を置き換える</div>
 <pre id="code-billsplitter" tabindex="0"><code>package jp.ac.jec.a07billsplitter;
 
@@ -512,7 +513,7 @@ final class BillSplitter {
         return result.toString();
     }
 }</code></pre>
-<h3>③ 使い方</h3>
+<h3 id="use-splitter">③ 使い方</h3>
 <div class="code-head">呼び出し方</div>
 <pre tabindex="0"><code>var result = BillSplitter.calculateAndFormat(1234, participants);
 // result -&gt; "Sato: ￥411\nSuzuki: ￥411\nTanaka: ￥412\n合計: ￥1,234"</code></pre>
