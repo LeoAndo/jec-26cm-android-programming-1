@@ -1,30 +1,143 @@
 <!doctype html>
 <html lang="ja">
 <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>提出用APKの作り方 | Androidプログラミング1</title>
+<title>提出課題とAPKの作り方 | Androidプログラミング1</title>
 <link rel="stylesheet" href="../assets/textbook.css"><script src="../assets/textbook.js" defer></script></head>
 <body class="plain"><a class="skip" href="#main">本文へ移動</a>
 <header class="topbar"><span class="brand">JEC / Androidプログラミング1</span><a href="../hello-android/index.html" data-back>もとの教科書へ戻る</a></header>
-<main id="main"><div class="hero"><p class="eyebrow">ANDROID PROGRAMMING 1 / 共通資料・授業サポート</p><h1>提出用APKの作り方</h1><p class="lede">先生からAPKの提出を指示されたときに使います。授業で作ったアプリを、1つのファイルにまとめます。</p></div>
+<main id="main"><div class="hero"><p class="eyebrow">ANDROID PROGRAMMING 1 / 共通資料・授業サポート</p><h1>提出課題と<br>APKの作り方</h1><p class="lede">この授業の提出課題の説明です。自分で作ったアプリを3つ選び、アレンジを加えて、APKというファイルにして提出します。</p></div>
 
-<section><h2>1. APKとは</h2>
+<section id="assignment"><h2>1. 提出課題</h2>
+<div class="goal"><p class="box-title">提出するもの</p><p><strong>APKファイルを3つ。</strong>提出先は <strong>Google Classroom</strong> です。</p></div>
+<table><thead><tr><th>すること</th><th>内容</th></tr></thead><tbody>
+<tr><td>選ぶ</td><td>この授業で<strong>自分が作ったプロジェクト</strong>から、好きなものを<strong>3つ</strong>選びます。</td></tr>
+<tr><td>アレンジする</td><td>選んだ3つのそれぞれに、自分なりの変更を加えます。文字の色を変えるだけでも構いません。</td></tr>
+<tr><td>APKにする</td><td>3つのそれぞれから、<strong>APK</strong>（エーピーケー）を作ります。アプリを1つのファイルにまとめたものです。</td></tr>
+<tr><td>提出する</td><td>3つのAPKを、Google Classroomに提出します。</td></tr>
+</tbody></table>
+<h3>進め方</h3>
+<div class="flow"><strong>2. 3つ選ぶ</strong><span>→</span><strong>3. コピーを取る</strong><span>→</span><strong>4. アレンジする</strong><span>→</span><strong>5. APKを作る</strong><span>→</span><strong>6. 名前を変える</strong><span>→</span><strong>7. 提出する</strong></div>
+<p>番号は、下の見出しの番号と同じです。<strong>3〜6は、アプリ1つごとに行います。</strong>3つ選ぶので、同じ手順を3回くり返します。7の提出は、APKが3つそろってから1回で行います。</p>
+<div class="note"><p class="box-title">完成プロジェクト（見本）をそのまま出しても、提出にはなりません</p><p>教科書からダウンロードできる完成プロジェクトは、先生が作った見本です。提出するのは、<strong>自分で作ったプロジェクトにアレンジを加えたもの</strong>です。</p></div>
+<p>締め切りは、先生の案内に従ってください。</p></section>
+
+<section id="choose"><h2>2. アプリを3つ選ぶ</h2>
+<p>Finderで <strong>書類 → Android1</strong> を開きます。<code>A01HelloAndroid</code> や <code>A02CalcGame</code> のように、授業で自分が作ったプロジェクトのフォルダが並んでいます。この中から3つ選びます。</p>
+<p>どの単元のものでも選べます。気に入っているもの、もっと変えてみたいものを選んでください。</p>
+<div class="note"><p class="box-title"><code>samples</code> フォルダの中のものは、選べません</p><p><code>書類 → Android1 → samples</code> の中にあるのは、先生が作った完成プロジェクト（見本）です。選ぶのは、<code>Android1</code> のすぐ下にある、自分で作ったプロジェクトです。</p></div>
+<p>最後まで作れていない単元も、教科書を見ながら完成させれば選べます。3つそろわないときは、先生に相談してください。</p></section>
+
+<section id="backup"><h2>3. アレンジの前に、コピーを取っておく</h2>
+<p>アレンジを始めると、どこを変えたか分からなくなったり、アプリが動かなくなったりすることがあります。そうなっても<strong>元に戻せるように</strong>、先にプロジェクトをまるごとコピーしておきます。ここでは <code>A02CalcGame</code> を例にします。</p>
+<ol>
+<li>Finderで <strong>書類 → Android1</strong> を開きます。</li>
+<li>アレンジするプロジェクトのフォルダ（<code>A02CalcGame</code>）を右クリックします。</li>
+<li>出てきたメニューから <strong>複製</strong> を選びます。</li>
+</ol>
+<div class="check"><p class="box-title">成功の目印</p><p>同じ場所に <code>A02CalcGameのコピー</code> というフォルダができている。</p></div>
+<p>コピーのほうは、<strong>開かずにそのまま置いておきます。</strong>アレンジするのは、元の名前のほう（<code>A02CalcGame</code>）です。</p>
+<h3>元に戻したいとき</h3>
+<p>アレンジの途中で動かなくなり、直せなくなったら、コピーからやり直せます。</p>
+<ol>
+<li>Android Studioで、そのプロジェクトのウィンドウを閉じます。</li>
+<li>Finderで <strong>書類 → Android1</strong> を開きます。</li>
+<li>動かなくなったほうのフォルダを1回クリックして選び、<kbd>Enter</kbd> を押します。名前を変えられるようになるので、<code>A02CalcGame_old</code> に変えます。</li>
+<li>同じように、<code>A02CalcGameのコピー</code> の名前を <code>A02CalcGame</code> に変えます。</li>
+<li>Android Studioの <strong>Open</strong> から <code>A02CalcGame</code> を開き直します。</li>
+<li>もう一度アレンジを始める前に、上の「複製」の手順で、コピーを取り直します。</li>
+</ol>
+<p>動かなくなったほうは、消さずに名前を変えるだけにしておくと、あとで見比べられます。</p></section>
+
+<section id="arrange"><h2>4. アレンジする</h2>
+<p><strong>どこを、どれだけ変えるかは自由です。</strong>「何か所以上」という決まりはありません。文字の色を1か所変えるだけでも、アレンジです。もっとやってみたい人は、好きなだけ変えてください。</p>
+<h3>変えられるものの例</h3>
+<table><thead><tr><th>変えるもの</th><th>変える場所</th><th>書き方の例</th></tr></thead><tbody>
+<tr><td>文字の色</td><td><code>activity_main.xml</code> の、文字を出す部品（<code>TextView</code> など）</td><td><code>android:textColor="#FF0000"</code></td></tr>
+<tr><td>画面の背景の色</td><td><code>activity_main.xml</code> の、いちばん外側の部品</td><td><code>android:background="#FFF4D5"</code></td></tr>
+<tr><td>ボタンの色</td><td><code>activity_main.xml</code> の <code>Button</code></td><td><code>android:backgroundTint="#008000"</code></td></tr>
+<tr><td>表示する文字（文言）</td><td><code>activity_main.xml</code> の <code>android:text</code> や、Javaの <code>setText</code> の <code>" "</code> の中</td><td><code>android:text="こんにちは！"</code></td></tr>
+<tr><td>画像</td><td><code>res → drawable</code> の中の画像</td><td>自分で用意したPNG画像を、<strong>同じファイル名のまま</strong>入れ替える。名前が同じなら、ほかのコードは変えずに済む</td></tr>
+<tr><td>数値</td><td>Javaの中の数字</td><td>計算ゲームの問題の数など</td></tr>
+</tbody></table>
+<p>これは例です。表にないところを変えても構いません。</p>
+<div class="note"><p class="box-title">ボタンの色は <code>android:background</code> では変わりません</p><p>ボタンに <code>android:background</code> を書いても、色は変わらず、角の丸みだけがなくなります。ボタンの色を変えるときは、<code>android:backgroundTint</code> を使います。</p></div>
+<h3>例：文字の色を変える</h3>
+<p>授業では出てこなかった書き方なので、やり方を1つ示します。<code>A01HelloAndroid</code> の <code>Hello World!</code> の文字を、赤にします。</p>
+<ol>
+<li><code>app → res → layout → activity_main.xml</code> を開きます。</li>
+<li>エディタ右上の <strong>Code</strong> を選び、<code>Hello World!</code> と書いてある <code>TextView</code> を探します。</li>
+<li>いちばん下の行の <code>/&gt;</code> を消して改行し、<code>android:textColor="#FF0000"</code> の行を足します。<code>/&gt;</code> は、足した行の終わりに付け直します。</li>
+</ol>
+<div class="code-head">activity_main.xml · 変える前</div><pre tabindex="0"><code>        android:text="Hello World!" /&gt;</code></pre>
+<div class="code-head">activity_main.xml · 変えたあと</div><pre tabindex="0"><code>        android:text="Hello World!"
+        android:textColor="#FF0000" /&gt;</code></pre>
+<p><code>/&gt;</code> は「この部品の設定はここまで」という印です。足す行は、かならず <code>/&gt;</code> より前に入れます。</p>
+<ol start="4">
+<li><strong>Run ▶</strong> を押して、エミュレータで確かめます。</li>
+</ol>
+<div class="phones">
+<figure><a href="images/arrange-text-color-before.png"><img src="images/arrange-text-color-before.png" width="1080" height="2424" alt="変える前のA01HelloAndroidの画面。中央のHello World!の文字が黒で表示され、その下にボタンが並んでいる"></a><figcaption>① 変える前。文字は黒です。 <a href="images/arrange-text-color-before.png">画像を大きく開く</a></figcaption></figure>
+<figure><a href="images/arrange-text-color-after.png"><img src="images/arrange-text-color-after.png" width="1080" height="2424" alt="変えたあとのA01HelloAndroidの画面。中央のHello World!の文字が赤で表示されている。ボタンは変える前と同じ"></a><figcaption>② 1行足したあと。文字が赤になりました。 <a href="images/arrange-text-color-after.png">画像を大きく開く</a></figcaption></figure>
+</div>
+<p>色は、<code>#</code> のあとに6文字で書きます。</p>
+<table><thead><tr><th>色</th><th>書き方</th></tr></thead><tbody>
+<tr><td>赤</td><td><code>#FF0000</code></td></tr>
+<tr><td>青</td><td><code>#0000FF</code></td></tr>
+<tr><td>緑</td><td><code>#008000</code></td></tr>
+<tr><td>オレンジ</td><td><code>#FF8C00</code></td></tr>
+<tr><td>白</td><td><code>#FFFFFF</code></td></tr>
+<tr><td>黒</td><td><code>#000000</code></td></tr>
+</tbody></table>
+<p>色を書くと、その行の左端に、その色の小さな四角が出ます。四角をクリックすると、好きな色を選べます。</p>
+<h3>変えたら、すぐRunして確かめる</h3>
+<p>1か所変えたら <strong>Run ▶</strong> を押し、エミュレータで見た目と動きを確かめます。まとめて変えてからRunすると、動かなくなったときに、どこが原因か分からなくなります。</p>
+<div class="check"><p class="box-title">成功の目印</p><p>アレンジしたところが、エミュレータの画面で確かめられる。アプリが、アレンジの前と同じように最後まで動く。</p></div>
+<div class="note"><p class="box-title">変えると動かなくなりやすいところ</p><p>次の3つは、<strong>変えてはいけないわけではありません。</strong>ただ、1か所変えると、ほかの場所も合わせて直す必要があり、ビルドが通らなくなったり、アプリが起動しなくなったりすることがあります。</p><ul><li>クラスの名前（<code>MainActivity</code> など）</li><li>パッケージ名（<code>jp.ac.jec.a02calcgame</code> のように、<code>jp.ac.jec.</code> で始まる名前）</li><li><code>AndroidManifest.xml</code> の中身</li></ul><p>変えてみたいときは、手順3のコピーがあることを確かめてから始めてください。</p></div></section>
+
+<section id="build"><h2>5. APKを作る</h2>
 <p><strong>APK</strong>（エーピーケー）は、Androidにアプリをインストールするためのファイルです。今回は授業内で動作を確認する <strong>debug版</strong> を作ります。</p>
-<div class="goal"><p class="box-title">用意するもの</p><p>授業のプロジェクト、動作確認が終わったコード、先生が指定した提出先。</p></div>
-<ol><li>プロジェクト名が、提出するアプリのものになっているか確認します。</li><li>コードをRunし、その教材の完成チェックを行います。</li><li><strong>View → Tool Windows → Build Variants</strong> を開き、appの <strong>Active Build Variant</strong> が <strong>debug</strong> になっているか確認します。</li></ol></section>
-<section><h2>2. APKを生成（せいせい）する</h2>
+<div class="goal"><p class="box-title">用意するもの</p><p>アレンジが終わり、動作確認が済んだ、自分のプロジェクト。</p></div>
+<ol><li>プロジェクト名が、提出するアプリのものになっているか確認します。</li><li>コードをRunし、アレンジしたところを含めて、アプリが動くことを確かめます。</li><li><strong>View → Tool Windows → Build Variants</strong> を開き、appの <strong>Active Build Variant</strong> が <strong>debug</strong> になっているか確認します。</li></ol>
+<h3>APKを生成（せいせい）する</h3>
 <ol><li>上の <strong>Build</strong> メニューを開きます。</li><li><strong>Generate App Bundles or APKs → Generate APKs</strong> を選びます。表示が異なるバージョンでは、<strong>Build App Bundle(s) / APK(s) → Build APK(s)</strong> という名前の場合があります。</li><li>処理が終わるまで待ちます。</li><li>完了通知に <strong>locate</strong>（場所を開く）があればクリックします。</li></ol>
 <div class="note"><p class="box-title">Runを押す操作とは別です</p><p>提出するときは、このメニューからAPKを作ります。項目が見つからない場合は、メニューを開いたまま先生に見せてください。</p></div>
 <details><summary>教員と一緒に：メニューが見つからない場合</summary><p>プロジェクト直下のTerminalで、次のコマンドでもdebug APKを作れます。実行する場所に <code>gradlew</code> があることを確認します。</p><div class="code-head">Terminal · プロジェクト直下</div><pre tabindex="0"><code>./gradlew :app:assembleDebug</code></pre><p><code>BUILD SUCCESSFUL</code> を確認します。</p></details></section>
-<section><h2>3. ファイルを見つける</h2>
-<p>Finderで <code>書類（Documents） → Android1 → 提出するプロジェクト名</code> の順に開き、<strong>app → build → outputs → apk → debug</strong> の順に進みます。</p>
-<div class="code-head">HelloAndroidの場合の保存場所</div><pre tabindex="0"><code>A01HelloAndroid/app/build/outputs/apk/debug/app-debug.apk</code></pre>
-<ol><li><code>app-debug.apk</code> があることを確認します。</li><li>Finderの更新日時を見て、今作ったファイルか確認します。</li><li>提出用のフォルダにコピーします。元の場所のファイルは残します。</li><li>提出するファイル名を <strong>学籍番号_プロジェクト名.apk</strong> にします。HelloAndroidでは <code>自分の学籍番号_A01HelloAndroid.apk</code> です。「自分の学籍番号」を実際の番号に置き換え、区切りには半角の <code>_</code> を使います。<code>.apk</code> の部分は残します。</li></ol>
-</section>
-<section><h2>4. 提出を確認する</h2>
-<ol><li>先生が指定した提出先にAPKをアップロードします。</li><li>提出先で、ファイル名と提出完了の表示を確認します。</li><li>修正したときは、動作確認 → APK生成 → 再提出の順でやり直します。</li></ol>
-<div class="check"><p class="box-title">成功の目印</p><p>今日作った <code>.apk</code> が提出先に表示され、<code>学籍番号_プロジェクト名.apk</code> の名前になっている。</p></div>
-<p>このHTML教材のチェック欄だけでは、提出は完了しません。</p></section>
-<section><h2>公式資料</h2><p><a href="https://developer.android.com/studio/run?hl=ja">Android Developers：アプリのビルドと実行</a></p><p><a href="https://developer.android.com/build/building-cmdline?hl=ja">Android Developers：コマンドラインでAPKを作る</a></p></section>
 
-<footer class="footer"><p><a href="../hello-android/index.html" data-back>← もとの教科書へ戻る</a></p><p>対象：macOS / Android Studio Panda 2 | 2025.3.2 · 確認日：2026年9月15日</p></footer></main>
+<section id="rename"><h2>6. ファイルを見つけて、名前を変える</h2>
+<div class="note"><p class="box-title">APKのファイル名は、どのアプリでも同じです</p><p>できあがるファイルは、どのプロジェクトでも <code>app-debug.apk</code> という名前になります。3つとも同じ名前のまま提出すると、どれがどのアプリのものか、Google Classroomの画面で区別がつきません。<strong>APKを1つ作るたびに、すぐ名前を変えます。</strong></p></div>
+<p>はじめの1回だけ、提出するファイルを集めるフォルダを作ります。Finderで <strong>書類 → Android1</strong> を開き、上のメニューの <strong>ファイル → 新規フォルダ</strong> で、<code>提出用</code> という名前のフォルダを作ります。</p>
+<p>次に、作ったAPKを探します。Finderで <code>書類（Documents） → Android1 → 提出するプロジェクト名</code> の順に開き、<strong>app → build → outputs → apk → debug</strong> の順に進みます。</p>
+<div class="code-head">HelloAndroidの場合の保存場所</div><pre tabindex="0"><code>A01HelloAndroid/app/build/outputs/apk/debug/app-debug.apk</code></pre>
+<ol><li><code>app-debug.apk</code> があることを確認します。</li><li>Finderの更新日時を見て、今作ったファイルか確認します。</li><li><code>app-debug.apk</code> を選んで <kbd>⌘ C</kbd> を押し、<code>提出用</code> フォルダを開いて <kbd>⌘ V</kbd> を押します。コピーなので、元の場所のファイルは残ります。</li><li>コピーしたファイルの名前を、<strong>すぐに</strong> <strong>学籍番号_プロジェクト名.apk</strong> に変えます。ファイルを1回クリックして選び、<kbd>Enter</kbd> を押すと、名前を変えられます。HelloAndroidでは <code>自分の学籍番号_A01HelloAndroid.apk</code> です。「自分の学籍番号」を実際の番号に置き換え、区切りには半角の <code>_</code> を使います。<code>.apk</code> の部分は残します。</li></ol>
+<div class="note"><p class="box-title">置き換えるかどうか聞かれたら、置き換えずにやめます</p><p>名前を変える前に、次のアプリの <code>app-debug.apk</code> を <code>提出用</code> フォルダにコピーすると、同じ名前なので、Finderが置き換えてよいか聞いてきます。置き換えると、前のアプリのAPKが消えます。置き換えずにやめて、先に入っているファイルの名前を変えてください。</p></div>
+<p>ここまで（手順3〜6）を、残りのアプリでもくり返します。</p>
+<div class="check"><p class="box-title">成功の目印</p><p>3つのアプリが終わると、<code>提出用</code> フォルダに、名前のちがうAPKが3つ並ぶ。</p></div>
+<div class="code-head">提出用フォルダの中身の例（A02・A05・A09を選んだ場合）</div><pre tabindex="0"><code>自分の学籍番号_A02CalcGame.apk
+自分の学籍番号_A05BombGame.apk
+自分の学籍番号_A09MemoApp.apk</code></pre>
+</section>
+
+<section id="submit"><h2>7. Google Classroomに提出する</h2>
+<p>APKが3つそろってから、まとめて提出します。</p>
+<ol><li>Google Classroomでこの授業のクラスを開き、<strong>授業</strong> から提出課題を開きます。</li><li><strong>あなたの課題</strong> の <strong>追加または作成</strong> をクリックし、<strong>ファイル</strong> を選びます。</li><li><code>提出用</code> フォルダの3つのAPKを選び、アップロードします。</li><li>3つのファイル名が並んでいることを確認し、<strong>提出</strong> をクリックします。</li><li>表示が <strong>提出済み</strong> に変わったことを確認します。</li></ol>
+<p>ボタンの名前は、画面によって少し違うことがあります。見つからないときは、その画面のまま先生に見せてください。</p>
+<div class="check"><p class="box-title">成功の目印</p><p>3つのAPKが、それぞれ <code>学籍番号_プロジェクト名.apk</code> の名前で表示され、<strong>提出済み</strong> になっている。</p></div>
+<p>提出したあとでアプリを直したときは、動作確認 → APK生成 → 名前を変える、の順でやり直します。Google Classroomで <strong>提出を取り消し</strong> をクリックすると、ファイルを入れ替えて、もう一度提出できます。</p>
+<p>このHTML教材のチェック欄だけでは、提出は完了しません。</p></section>
+
+<section id="trouble"><h2>8. うまくいかないとき</h2>
+<table><thead><tr><th>起きたこと</th><th>やってみること</th></tr></thead><tbody>
+<tr><td>足した行が赤くなる</td><td><code>/&gt;</code> の位置を確認する。足した行が <code>/&gt;</code> より後ろにあると、エラーになる。</td></tr>
+<tr><td>ボタンの色が変わらない</td><td><code>android:background</code> ではなく、<code>android:backgroundTint</code> を使う。</td></tr>
+<tr><td>アレンジしたらエラーが出て、直せない</td><td>その画面のまま先生に見せる。やり直すときは、手順3の「元に戻したいとき」を見る。</td></tr>
+<tr><td><strong>Generate APKs</strong> が見つからない</td><td>手順5の「メニューが見つからない場合」を、先生と一緒に行う。</td></tr>
+<tr><td><code>app-debug.apk</code> がない・更新日時が古い</td><td>別のプロジェクト（<code>samples</code> の中の見本など）を開いたままAPKを作っていないか確認する。提出するプロジェクトを開き直し、手順5からやり直す。</td></tr>
+<tr><td>コピーするとき、置き換えるかどうか聞かれた</td><td>置き換えずにやめる。先に入っているファイルの名前を変えてから、もう一度コピーする。</td></tr>
+<tr><td>自分で作ったプロジェクトが3つそろわない</td><td>先生に相談する。</td></tr>
+</tbody></table>
+<p>表にないことが起きたら、その画面のまま先生に見せてください。</p></section>
+
+<section><h2>公式資料</h2><p><a href="https://developer.android.com/studio/run?hl=ja">Android Developers：アプリのビルドと実行</a></p><p><a href="https://developer.android.com/build/building-cmdline?hl=ja">Android Developers：コマンドラインでAPKを作る</a></p><p><a href="https://support.google.com/edu/classroom/answer/6020285?hl=ja">Google Classroom ヘルプ：課題を提出する</a></p></section>
+
+<footer class="footer"><p><a href="../hello-android/index.html" data-back>← もとの教科書へ戻る</a></p><p>対象：macOS / Android Studio Panda 2 | 2025.3.2 · 画像：教員提供 · 確認日：2026年9月20日</p></footer></main>
 <p class="sr-only" role="status" aria-live="polite" data-copy-status></p></body></html>
