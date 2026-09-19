@@ -234,6 +234,21 @@ class TeachingMaterialsCheckTest(unittest.TestCase):
             self.assertIn("docs/x/index.html:1", errors[0])
             self.assertIn("リンクがありません: downloads/title.png", errors[0])
 
+    def test_image_link_without_download_attribute_is_rejected(self):
+        """リンクはあっても download 属性がなければ検出する。属性の順番は問わない。"""
+        source = b"\x89PNG\r\n\x1a\n" + bytes(range(64))
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            self._image_root(root, source, '<p>1行目</p>\n<a class="button-link" href="downloads/title.png">title.png</a>')
+            errors = self._image_errors(root)
+            self.assertEqual(len(errors), 1, errors)
+            self.assertIn("docs/x/index.html:2", errors[0])
+            self.assertIn("download属性がありません: downloads/title.png", errors[0])
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            self._image_root(root, source, '<a download class="button-link" href="downloads/title.png">title.png</a>')
+            self.assertEqual(self._image_errors(root), [])
+
     def test_image_renamed_from_source_is_rejected(self):
         """学生は落としたファイルをそのままdrawableに入れるので、名前の違いも検出する。"""
         with tempfile.TemporaryDirectory() as temporary:

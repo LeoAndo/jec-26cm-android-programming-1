@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import argparse
 import html
+from html.parser import HTMLParser
 import json
 from pathlib import Path
 import posixpath
@@ -181,6 +182,26 @@ def check_project(root: Path, project: dict, errors: list[str]) -> None:
 
 
 
+class AnchorLinks(HTMLParser):
+    """<a> のリンク先を集める。download 属性が付いているものは別に覚える。"""
+
+    def __init__(self):
+        super().__init__()
+        self.hrefs: set[str] = set()
+        self.downloads: set[str] = set()
+
+    def handle_starttag(self, tag, attrs):
+        if tag != "a":
+            return
+        values = dict(attrs)
+        href = values.get("href")
+        if not href:
+            return
+        self.hrefs.add(href)
+        if "download" in values:
+            self.downloads.add(href)
+
+
 def check_images(root: Path, project: dict, errors: list[str]) -> None:
     """教科書から直接ダウンロードさせる画像が、完成プロジェクトの画像と同じか確かめる。
 
@@ -194,6 +215,9 @@ def check_images(root: Path, project: dict, errors: list[str]) -> None:
     textbook_name = project["docs"][0]
     textbook_path = root / textbook_name
     textbook = read(textbook_path) if textbook_path.is_file() else None
+    links = AnchorLinks()
+    if textbook is not None:
+        links.feed(textbook)
     for image in images:
         download_path = root / image["download"]
         source_path = root / image["source"]
@@ -212,8 +236,11 @@ def check_images(root: Path, project: dict, errors: list[str]) -> None:
                 add(errors, root, download_path, 1, f"配布画像を読み込めません: {error}")
         if textbook is not None:
             link = posixpath.relpath(image["download"], posixpath.dirname(textbook_name))
-            if f'href="{link}"' not in textbook:
+            if link not in links.hrefs:
                 add(errors, root, textbook_path, 1, f"配布画像へのリンクがありません: {link}")
+            elif link not in links.downloads:
+                # download がないと、httpで配信したときも保存されず、画像がブラウザに表示される。
+                add(errors, root, textbook_path, line_of(textbook, f'href="{link}"'), f"配布画像へのリンクにdownload属性がありません: {link}")
 
 
 def _split_unit(name: str) -> tuple[str, str]:
