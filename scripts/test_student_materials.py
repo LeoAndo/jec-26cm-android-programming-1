@@ -102,7 +102,8 @@ class PackageStudentMaterialsTest(unittest.TestCase):
         self.assertEqual(checksum.split()[1], self.archive.name)
         metadata = json.loads((self.root / "dist/release-metadata.json").read_text())
         self.assertEqual(metadata["asset"], self.archive.name)
-        self.assertEqual(metadata["version"][:len("materials-2026.09.20")], "materials-2026.09.20")
+        # 版タグの日付と、配布物の名前の日付がそろっている。
+        self.assertEqual(metadata["version"].rsplit("-", 1)[0], "materials-2026.09.20")
 
     def test_missing_link_rejects_package(self):
         (self.root / "docs/hello-android/index.html").write_text('<a href="../missing.html">資料</a>')
