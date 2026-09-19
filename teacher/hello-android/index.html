@@ -27,7 +27,17 @@
 <p>設定の確認先：<a href="../../A01HelloAndroid/app/build.gradle.kts">app/build.gradle.kts</a>、<a href="../../A01HelloAndroid/gradle/libs.versions.toml">gradle/libs.versions.toml</a>、<a href="../../A01HelloAndroid/gradle/wrapper/gradle-wrapper.properties">gradle-wrapper.properties</a>。</p>
 <p>新規テンプレートでMaterialのstyleが解決できない場合は、既存の <code>material</code> 依存関係のバージョンを上記と照合し、教員が設定を合わせてSyncします。この教材では、完成版にないライブラリを学生に追加させる工程は設けません。</p>
 </section>
-<section><h2>2. 90分×2コマの進行案</h2>
+<section><h2>2. この単元の教材方針</h2>
+<table><thead><tr><th>方針</th><th>理由</th><th>授業での扱い</th></tr></thead><tbody>
+<tr><td>ひな形の <code>ConstraintLayout</code> を、<code>LinearLayout</code> に<strong>全体ごと置き換える</strong></td><td>部品を縦に並べやすいため（教科書STEP 3の説明）。</td><td>STEP 3②で、古いXMLに追加させず、ファイル全体を置き換えさせる。<code>id/main</code> はひな形のJavaでも使っているので、消さずに残すよう伝える。</td></tr>
+<tr><td>表示する文字は <code>strings.xml</code> に移さず、XMLとJavaに<strong>直接書く</strong>。<code>Hardcoded string</code> などのLintの警告は直さない</td><td>プログラミング初心者向けの90分×2コマで、編集する場所と学習する概念を抑える構成にしているため。文字列リソースへ移すと、<code>strings.xml</code>・Java・XML・途中段階のコード・配布ZIPを合わせて変更し、説明する必要があり、この単元の学習目標に対して負担が大きい。多言語対応やリソース管理を扱う段階での改善として扱う。Lintの警告も、初学者向けの教材なので細かい修正・調整はしないと決めている（どちらもPR #1 での判断）。</td><td>STEP 3の「入力のポイント」で、「文字を直接書くと <code>Hardcoded string</code> という警告が出る場合があります。この単元では文字を直接書きます」と案内している。赤いエラーと警告を分けて見るよう伝える。</td></tr>
+<tr><td><code>findViewById</code> は、<code>var</code> と明示的なキャストで書く</td><td><code>var text = (TextView) findViewById(R.id.text);</code> の形。<code>var</code> は、コード量を減らすために全単元で使う（README 基本方針8）。キャストはJavaとしては冗長だが、消さない。その行だけを読んだ学生にも、部品の型が見えるようにするため。</td><td>STEP 4③の表で、<code>(TextView)</code>（キャスト）と <code>var</code> を1行ずつ説明している。A02以降の単元でも、同じ書き方を使う。</td></tr>
+<tr><td>ボタン「3」には<strong>処理を付けない</strong>（XMLにidがなく、Javaにクリック処理もない）</td><td>「1」はSnackbar、「2」はToast、「3」はボタンの見た目を比べるため、という構成にしているため。動作を足すと、教科書・途中段階のコード・完成版の学習内容を変えることになり、初学者向けの説明量も増える（PR #1 のレビューでの判断）。</td><td>STEP 0で「押してもメッセージは出ません」と先に伝える。STEP 7の表では「3」を「処理を追加しない」としており、③で「3」を押してメッセージが出ないことを確かめさせる。</td></tr>
+</tbody></table>
+<p>完成版を初回から公開して進める方針と、完成版にないライブラリを学生に追加させない方針は「1. 授業前の準備」に、授業の進め方は「4. 留学生・初心者への進め方」に書いています。画面再作成後の文字の保存を扱わないことは「6. 到達度の確認」にあります。</p>
+<div class="note"><p class="box-title">完成コードを説明するときの注意</p><p><code>var</code>、ラムダ式（<code>v -&gt; { … }</code>）、<code>findViewById</code> の明示キャストの書き方は変えません。単元をまたいで同じ形にそろえるためです（READMEの「完成コードの書き方（全単元共通）」）。</p></div>
+</section>
+<section><h2>3. 90分×2コマの進行案</h2>
 <table><thead><tr><th>コマ</th><th>時間配分</th><th>終了時の確認</th></tr></thead><tbody>
 <tr><td>1コマ目<br>合計90分</td><td>STEP 0：5分<br>STEP 1：15分<br>STEP 2：10分<br>STEP 3：20分<br>STEP 4：20分<br>再実行・個別支援：15分<br>ふり返り：5分</td><td>ボタンで文字を変更できる。XMLの役割とJavaの変更する行を指させる。</td></tr>
 <tr><td>2コマ目<br>合計90分</td><td>再開・文字変更の確認：5分<br>STEP 5：10分<br>STEP 6：15分<br>STEP 7：15分<br>STEP 8：15分<br>STEP 9：10分<br>提出・個別支援：20分</td><td>ログ・Snackbar・Toastを確認し、小変更の理由を説明できる。</td></tr>
@@ -35,7 +45,7 @@
 <p>1コマ目はSTEP 4で区切り、保存先と再開するプロジェクト名を確認します。2コマ目の最初に、全員が前回の文字変更を再現します。進みが速い学生は、変更する行と実行結果を自分で確認します。</p>
 <p>2コマ目の最後の20分は、APK生成・提出と個別支援に使います。APK提出がない回は再実行と口頭確認に充てます。ダウンロードや設定の調整が残った場合は、この時間を使い、終わらない学生の再開地点を記録します。</p>
 </section>
-<section><h2>3. 留学生・初心者への進め方</h2>
+<section><h2>4. 留学生・初心者への進め方</h2>
 <ul><li><strong>最初に完成動作を見せる。</strong> 1回の実演は「起動 → 変更 → 1 → 消えるのを待つ → 2」の順。操作と結果を同じ短い文で繰り返します。</li><li><strong>1回の指示は1つ。</strong> 「MainActivity.javaを開く」「追加する場所を見る」「2行追加する」と分けます。複数のファイルを同時に修正させません。</li><li><strong>コード入力と意味の説明を分ける。</strong> コピー後に、id・変数・処理の場所を指さして確認します。書き写しだけで完了とせず、予想と小変更で理解を見ます。</li><li><strong>英語のUI名を残す。</strong> 実画面と同じ表記を読み、日本語の短い意味を添えます。日本語の長い説明を暗記させません。</li><li><strong>止まれる場所を共有する。</strong> 各ステップの緑の確認欄で全員を待ちます。確認を終えた学生は、そのステップをもう一度自分で動かします。</li><li><strong>質問を定型にする。</strong> 「STEP __」「ファイル名」「赤い最初の行」。日本語で長く話せない場合は指さしや母語のメモから始められます。</li><li><strong>復習を授業内に置く。</strong> STEP 8・9を必須とし、予習や自宅でのやり直しを前提にしません。</li></ul>
 <h3>理解確認に使う短い問い</h3>
 <table><thead><tr><th>問い</th><th>見たい答え・行動</th></tr></thead><tbody>
@@ -45,7 +55,7 @@
 <tr><td>btn1の文字だけを変えたら？</td><td>Snackbarの文字も変わる。getTextを示せれば十分。</td></tr>
 </tbody></table>
 </section>
-<section><h2>4. 遅れた学生の再開地点</h2>
+<section><h2>5. 遅れた学生の再開地点</h2>
 <p>下記は教員の照合用コードです。途中段階の参照ファイルは教員が使い、学生には公開済みの完成プロジェクトと本人のコードを比べて、直す場所を案内します。修正後は実行してから次へ進みます。</p>
 <table><thead><tr><th>確認するステップ</th><th>XMLの内容</th><th>Javaの内容</th></tr></thead><tbody>
 <tr><td>出発点（STEP 1・2）</td><td><a href="code/01-activity_main.xml">01-activity_main.xml</a></td><td><a href="code/01-MainActivity.java">01-MainActivity.java</a></td></tr>
@@ -58,7 +68,7 @@
 <p>教員が下記の参照コードを開き、学生が現在のステップで書く部分を確認します。</p>
 <p>完成コードは <a href="../../A01HelloAndroid/app/src/main/java/jp/ac/jec/a01helloandroid/MainActivity.java">プロジェクトのJava</a> と <a href="../../A01HelloAndroid/app/src/main/res/layout/activity_main.xml">プロジェクトのXML</a> に対応します。</p>
 </section>
-<section><h2>5. 到達度の確認</h2>
+<section><h2>6. 到達度の確認</h2>
 <table><thead><tr><th>観点</th><th>授業内で確認する証拠</th></tr></thead><tbody>
 <tr><td>操作できる</td><td>学生自身がRunし、変更ボタン・1・2を押して見せる。</td></tr>
 <tr><td>場所が分かる</td><td>XMLのidとJavaのfindViewByIdの対応を1つ示す。</td></tr>
@@ -68,7 +78,7 @@
 <p>3のボタンに処理がないのは完成版の仕様です。画面再作成後の文字の保存はこの単元の対象に含めません。起動状態を確認するときはStop → Runで条件をそろえます。</p>
 <p>チェックの保存はブラウザのlocalStorageを使い、送信はしません。ブラウザ・ファイルの移動・保存設定で記録が消える場合があるため、成績や提出の記録には使わず、STEP 9の記録を回収してください。</p>
 </section>
-<section><h2>6. 教材の保守と確認</h2>
+<section><h2>7. 教材の保守と確認</h2>
 <ul><li>アプリを変更したら、本文の部分コード、完成コード、再開用コード、画像、練習の答えをまとめて確認します。<code>python3 scripts/package-hello-android.py</code> で配布用ZIPを再作成し、展開したプロジェクトも動作確認します。</li><li>アプリ画像は教員の <code>jec_26cm_android1_Pixel 9a</code> で撮影します。画像は出発点、STEP 3、完成版の起動直後、変更後、Snackbar、Toastの6状態です。</li><li>新規プロジェクト作成の3画像は教員提供資料を使用しています。</li><li>印刷時は補足・解答も展開されます。解答を配布したくない場合は、ブラウザで授業中に開く方式を使ってください。</li></ul>
 <p><a href="../../docs/common/auto-import.html">Auto Import</a> / <a href="../../docs/common/emulator.html">エミュレータ</a> / <a href="../../docs/common/logcat.html">Logcat</a> / <a href="../../docs/common/apk.html">APK生成</a> は次の単元でも使う共通資料です。</p>
 </section>

@@ -11,7 +11,20 @@
 <ul><li>学生用の入口は <code>docs/webview-app/index.html</code> です。完成版ZIPと画像を含む教材を、構成を保って配布します。</li><li>Android Studio Panda 2 | 2025.3.2、Java / Empty Views Activity、Minimum SDK API 31を確認します。作成先は <code>Documents/Android1/A04WebViewApp</code>、パッケージは <code>jp.ac.jec.a04webviewapp</code> です。</li><li>アプリの実行中にインターネット接続が必要です。教室のネットワークで、メニューの4サイト（Yahoo!ニュース、GitHub Copilot、映画「SLAM DUNK」公式サイト、OpenAI ChatGPT）とSTEP 9練習1の <code>https://www.jec.ac.jp/</code> が表示できるか、事前に確認します。2026年9月15日に <code>jec_26cm_android1_Pixel 9a</code> で確認した結果では、4サイトともJavaScriptのON/OFFのどちらでも表示できました（curlではOpenAIが403を返しますが、WebViewでは表示されます）。JavaScriptを有効にすると映画「SLAM DUNK」公式サイトでCookieの同意画面が出るため、教科書では「拒否」で閉じてよいと案内しています。GitHub CopilotはJavaScript無効だと本文の一部が表示されず、ON/OFFの違いが分かりやすいサイトです。</li><li>指定エミュレータ <strong>jec_26cm_android1_Pixel 9a</strong>（教材撮影用はAndroid 17）を縦向きで使います。STEP 8の「戻る」はAndroid 16以降の動作変更に関わるため、学生のエミュレータがAndroid 15以前の場合は、STEP 9練習3の結果が教科書と異なります（前のページに戻れる）。</li><li>完成版は <code>Documents/Android1/samples/A04WebViewApp</code> に置きます。学生の作成先と混同しないよう、Run前に保存先を確認します。</li><li>教員用の途中コードは <code>teacher/webview-app/code</code> にあります。学生には配布せず、現在のSTEPの照合に使います。</li></ul>
 <div class="note"><p class="box-title">今回の仕様上の制約</p><p>起動直後はページを読み込まず、白い画面から ⋮ でサイトを選びます。「JavaScript ON」は起動時にチェックなし（JavaScript無効）で、切り替えるたびに <code>reload()</code> します。各単元では画面回転時のデータ保持を扱いません。回転などでActivityが再生成された場合、表示中のページと戻る履歴は初期状態に戻ります。この観点は別単元の演習アプリで検証します。</p></div>
 </section>
-<section><h2>2. 90分×2コマの進行</h2>
+<section><h2>2. この単元の教材方針</h2>
+<table><thead><tr><th>方針</th><th>理由</th><th>授業での扱い</th></tr></thead><tbody>
+<tr><td>ActionBarを出すために、<code>values</code> と <code>values-night</code> の<strong>2つの <code>themes.xml</code> を両方とも</strong>変更させる。ダークテーマの説明はしない</td><td>STEP 6で作るメニュー（⋮）はActionBarに出るため、ひな形のテーマから <code>.NoActionBar</code> を外す。<code>values-night</code> が何のファイルかを説明すると、ダークテーマの話になる。README 基本方針13（ダークテーマ対応は学生に意識させない）に合わせ、この説明は教科書から外して教員用ガイドに置いた。</td><td>STEP 2①で「テーマの設定は2つのファイルにあるので、両方とも変更します」とだけ案内する。片方だけ変えたときに起きることは「3. 90分×2コマの進行」にある。</td></tr>
+<tr><td>レイアウトのidは <code>chk_javascript</code> / <code>web_view</code>（snake_case）、Javaの変数名は <code>checkBox</code> / <code>webView</code>（camelCase）にする</td><td>最初の版はidもcamelCase（<code>checkBox</code> / <code>webView</code>）で、全11単元のうちA04だけ書き方が違っていた。学生が単元をまたいでコードを見比べたときに違って見えるため、ほかの単元のsnake_caseにそろえた（issue #70）。<code>chk_javascript</code> は、ほかの単元と同じ「種類を表す接頭辞 + snake_case」の形で、何のスイッチかがidから読める。Javaの変数名はcamelCaseが正しく、ほかの単元も同じなので変えていない。</td><td>STEP 3のXMLでidを付け、STEP 4とSTEP 7の <code>findViewById</code> で使う。idと変数名で書き方が違う理由を聞かれたら、「XMLのidはsnake_case、Javaの変数名はcamelCaseで、ほかの単元も同じ」と答える。</td></tr>
+<tr><td><code>webView</code> だけ<strong>フィールド</strong>にし、<code>checkBox</code> は <code>var</code> のローカル変数にする</td><td><code>webView</code> は <code>onCreate</code> のほかに、メニューを押したときの <code>onOptionsItemSelected</code> からも使う。<code>onCreate</code> 以外のメソッドからも使うViewはフィールドにし、同じidに対して <code>findViewById</code> を2回呼ばない（READMEの「完成コードの書き方」Viewの取得2。A02CalcGameの <code>txtMessage</code> と同じ形）。</td><td>STEP 4①で「STEP 6で作るメニューのメソッドからも使うため、フィールドにする」と説明する。照合コード（STEP 4）の確認ポイントにも入れている。</td></tr>
+<tr><td>STEP 4で<strong>確認用の <code>loadUrl</code> を1行</strong>入れ、STEP 6で消す</td><td>メニューを作る前に、決まったURLのページを1つ表示して、WebViewとインターネットの許可が動くことを先に確かめるため。</td><td>STEP 4の注記「loadUrlの行は確認用です」で、仮の行だと伝える。STEP 6①で削除させる。照合コード（STEP 6）の確認ポイントにも入れている。</td></tr>
+<tr><td>メニューの4サイトは <code>enum AppMenuItem</code> で持ち、URLと表示名を<strong>配列2つに分けない</strong>。メニューのidには <code>ordinal()</code> を使う</td><td>配列2つは番号だけでつながっているため、足す位置のずれや足し忘れが赤いエラーにならない。enumなら1つのサイトの情報が1行にまとまり、サイトの追加もenumだけで済む。メニューのidには、enumが値を書いた順に付ける番号をそのまま使うので、番号を自分で書かずに済み、項目を増やしてもずれない。</td><td>STEP 5の「解説：enumを使わないと、何に困る？」で、配列2つの書き方と比べる。比較用の配列のコードは入力させない。進め方と問いかけは「3. 90分×2コマの進行」、期待する答えは「5. 理解確認と支援」にある。</td></tr>
+<tr><td>enumの名前は <code>AppMenuItem</code> にする（<code>Menu</code> や <code>MenuItem</code> にしない）</td><td><code>Menu</code> や <code>MenuItem</code> だと、Androidの <code>android.view.Menu</code> / <code>android.view.MenuItem</code> と名前が重なるため。<code>AppMenuItem.java</code> の冒頭のコメントに、この理由を残している。</td><td>STEP 5のコードの説明で、同じ理由を伝えている。STEP 6のimportで <code>MenuItem</code> の候補が複数出たときは、<code>android.view.MenuItem</code> を選ばせる。</td></tr>
+<tr><td><code>onOptionsItemSelected(@NonNull MenuItem item)</code> の <code>@NonNull</code> は<strong>消さない</strong></td><td>オーバーライドをAndroid Studioに自動生成させたときに付くアノテーションのため。全単元共通の方針では、学生が自分で打ち込むコードに <code>@NonNull</code> / <code>@Nullable</code> を書かせない。ただし、Android Studioが付けたものまで消させると「なぜ消すのか」の説明が必要になり、意識させない方針と逆の結果になる（READMEの「完成コードの書き方」nullに関するアノテーション7）。</td><td>STEP 6②のimportの案内に <code>androidx.annotation.NonNull</code> を入れている。コードの説明では「<code>item</code> にnullは来ないことを示す印」とだけ触れる。</td></tr>
+</tbody></table>
+<p>戻る操作（STEP 8）を <code>onKeyDown</code> ではなく <code>OnBackPressedCallback</code> で書いた判断は、この表に入れていません。経緯と、採用しなかった書き方を「<a href="#back-navigation">6. STEP 8の背景：戻る操作の実装を変更した理由</a>」にまとめています。</p>
+<div class="note"><p class="box-title">完成コードを説明するときの注意</p><p><code>var</code>、ラムダ式、<code>findViewById</code> の明示キャストの書き方は変えません。単元をまたいで同じ形にそろえるためです（READMEの「完成コードの書き方（全単元共通）」）。<code>AppMenuItem</code> の <code>private final</code> と、<code>new クラス名() { ... }</code> の書き方（<code>OnBackPressedCallback</code> と <code>WebViewClient</code>）も変えません。教科書で説明しています（<code>final</code> はSTEP 5の表、<code>new クラス名() { ... }</code> はSTEP 8の注記）。</p></div>
+</section>
+<section><h2>3. 90分×2コマの進行</h2>
 <table><thead><tr><th>コマ</th><th>時間配分</th><th>終了時の確認</th></tr></thead><tbody>
 <tr><td>1コマ目</td><td>STEP 0：5分、STEP 1：15分、STEP 2：15分、STEP 3：15分、STEP 4：15分、STEP 5：20分、再実行・ふり返り：5分</td><td>ActionBarとINTERNETの許可を設定し、WebViewにYahoo!ニュースを表示できる。AppMenuItemの値と番号、enumを使うメリットを1つ説明できる。</td></tr>
 <tr><td>2コマ目</td><td>再開：5分、STEP 6：15分、STEP 7：15分、STEP 8：20分、STEP 9：20分、STEP 10：10分、APK・個別支援：5分</td><td>メニュー・JavaScriptの切り替え・戻る操作を実演し、onKeyDownが使えない理由を説明できる。</td></tr>
@@ -19,7 +32,7 @@
 <p>STEP 2は、2つのthemes.xmlのうち片方だけ変更する、<code>uses-permission</code> を <code>&lt;application&gt;</code> の中に書く、といった誤りが起きやすい工程です。<code>values-night/themes.xml</code> は端末がダークテーマのときに使われるため、片方だけ変えるとダークテーマの端末でActionBarとメニューが出ません。README方針13に合わせ、教科書ではダークテーマに触れず「両方とも変更する」とだけ案内しています。<code>&lt;application&gt;</code> の中に許可を書くと、ビルド時に <code>AAPT: error: unexpected element &lt;uses-permission&gt; found in &lt;manifest&gt;&lt;application&gt;</code> になります。Runの前に、ActionBarが表示されることと、Manifestの追加位置を全員で確認します。STEP 5は、Java Classの作成ダイアログで <strong>Enum</strong> を選ぶことと、<code>app/src/main/java</code> の中に作ることを画面で示します。Runの確認後は「解説：enumを使わないと、何に困る？」から「enumの値の使い方」までを約5分で読ませます。配列の例のコードは入力しないことを伝えます。コードを画面で示したところで、下の表を読む前に「titlesは先頭、urlsは最後に足したら、『日本電子専門学校』を押すとどのサイトが開く？」と問いかけ、「困る場面」の表で答え合わせをします。そのあと、メリットの表①〜④で、enumならどう防げるかを確かめます。「enumの値の使い方」の表は開いて読む形（details）にしています。時間が足りない場合は、この表を2コマ目の再開時に読ませます（STEP 6からリンクしています）。再実行・ふり返りの5分では、保存して再Runしたあと、1コマ目の終わりの説明（値と番号、メリット1つ）を隣の人どうしで説明し合い、先生は数人に聞いて確認します。</p>
 <p>STEP 8は、コードを入れる前に「今のままだと戻る操作でホーム画面に戻ってしまう」ことを全員で確かめてから始めると、変更の目的が伝わりやすくなります。</p>
 </section>
-<section><h2>3. STEPごとの照合コード</h2>
+<section><h2>4. STEPごとの照合コード</h2>
 <table><thead><tr><th>到達地点</th><th>参照ファイル</th><th>教員の確認ポイント</th></tr></thead><tbody>
 <tr><td>出発点（STEP 1）</td><td><a href="code/01-MainActivity.java">01-MainActivity.java</a> / <a href="code/01-activity_main.xml">01-activity_main.xml</a></td><td>Hello World!をRunできる。</td></tr>
 <tr><td>設定（STEP 2）</td><td><a href="code/02-themes.xml">02-themes.xml</a> / <a href="code/02-themes-night.xml">02-themes-night.xml</a> / <a href="code/02-AndroidManifest.xml">02-AndroidManifest.xml</a></td><td>2つのテーマのparentが <code>Theme.Material3.DayNight</code>。INTERNETの許可が <code>&lt;application</code> の上にある。</td></tr>
@@ -32,7 +45,7 @@
 </tbody></table>
 <p>STEP 3のXML、STEP 5のenum、STEP 8のJavaは、完成プロジェクトの <a href="../../A04WebViewApp/app/src/main/res/layout/activity_main.xml">activity_main.xml</a>、<a href="../../A04WebViewApp/app/src/main/java/jp/ac/jec/a04webviewapp/AppMenuItem.java">AppMenuItem.java</a>、<a href="../../A04WebViewApp/app/src/main/java/jp/ac/jec/a04webviewapp/MainActivity.java">MainActivity.java</a> と同じ内容です。STEP 2の3ファイルも完成プロジェクトと同じです。</p>
 </section>
-<section><h2>4. 理解確認と支援</h2>
+<section><h2>5. 理解確認と支援</h2>
 <table><thead><tr><th>問い</th><th>期待する行動・答え</th></tr></thead><tbody>
 <tr><td>INTERNETの許可がないと？</td><td>「ウェブページへのアクセス不可」<code>net::ERR_CACHE_MISS</code> になる、と答える。Manifestの1行を指させる。</td></tr>
 <tr><td>メニューを押したとき、どのURLかはどう決まる？</td><td><code>menu.add</code> の2つ目の引数に <code>ordinal()</code> をidとして渡し、<code>values()[item.getItemId()]</code> で同じ値を取り出す、と示す。</td></tr>
@@ -46,16 +59,16 @@
 <p>エラー時は「STEP番号・ファイル・最初の赤い行・操作順」を聞きます。A04のLogcat検索は <code>package:jp.ac.jec.a04webviewapp level:ERROR</code> です。</p>
 <p>ページが表示されない場合は、エラー画面の文字でアプリ側（許可）とネットワーク側を切り分けます。<code>net::ERR_CACHE_MISS</code> はINTERNETの許可の行がない・つづりが違う・未保存のいずれか、それ以外のエラー名はMacやエミュレータの接続状態を先に確認します。許可の行の位置の誤りはビルドエラーとして現れます。</p>
 </section>
-<section id="back-navigation"><h2>5. STEP 8の背景：戻る操作の実装を変更した理由</h2>
+<section id="back-navigation"><h2>6. STEP 8の背景：戻る操作の実装を変更した理由</h2>
 <p>完成プロジェクトの最初の実装（PR #10のbb2b778）では、<code>onKeyDown</code> で <code>KEYCODE_BACK</code> を受け取り、<code>webView.goBack()</code> していました。Android 15以前の端末では動作しますが、<strong>targetSdk 36以上のアプリをAndroid 16以降で動かすと、予測型「戻る」が既定で有効になり、<code>onBackPressed</code> は呼ばれず、<code>KEYCODE_BACK</code> も届きません</strong>。</p>
 <ul><li>本プロジェクトは <code>targetSdk = 36</code>、教材撮影用の <code>jec_26cm_android1_Pixel 9a</code> はAndroid 17（API 37）です。bb2b778では、前のページがあっても戻る操作でホーム画面に戻ることを確認しました。</li><li>修正版は <code>OnBackPressedCallback(false)</code> を登録し、<code>WebViewClient#doUpdateVisitedHistory</code> で <code>canGoBack()</code> のときだけ有効にします。キー入力と左端からのスワイプの両方で、前のページに戻ること、最初のページではホーム画面に戻ることを確認しています。</li><li>コールバックを常に有効（<code>true</code>）にする書き方は、前のページがないときに戻る操作でホーム画面に戻れなくなり、そのプレビューも出なくなるため採用していません。</li><li><code>android:enableOnBackInvokedCallback="false"</code> で以前の動作に戻す方法は、公式資料で一時的な回避策とされているため、教材では「使わない」と紹介するだけにしています。</li></ul>
 <p>学生向けの解説は、教科書STEP 8の「解説：Android 16から『戻る』の受け取り方が変わった」にあります。ネット上の記事や公式のWebView資料には <code>onKeyDown</code> の例が残っているため、授業ではSTEP 9練習3で、学生自身が以前の書き方では戻れないことを確かめます。</p>
 <p class="muted">参照：<a href="https://developer.android.com/about/versions/16/behavior-changes-16">Android 16の動作変更</a>、<a href="https://developer.android.com/guide/navigation/custom-back/predictive-back-gesture">予測型「戻る」ジェスチャーのサポート</a>、<a href="https://developer.android.com/develop/ui/views/layout/webapps/webview">WebView内のページ履歴の移動</a>。</p>
 </section>
-<section><h2>6. 到達度と提出</h2>
+<section><h2>7. 到達度と提出</h2>
 <ul><li>学生自身が ⋮ から4つのサイトを開き、ページ内のリンクで移動し、戻る操作で前のページに戻れる。</li><li>INTERNETの許可・テーマの変更を行ったファイルを指させる。</li><li>AppMenuItemの値とordinal、メニューのidの対応を説明できる。</li><li>配列を2つ使う書き方と比べて、enumを使うメリット（打ち間違いがエラーになる、情報が1行にまとまる、追加がenumだけで済む、名前で読める）を1つ以上説明できる。</li><li><code>onKeyDown</code> ではなく <code>OnBackPressedCallback</code> を使う理由を、Android 16の変更と結び付けて説明できる。</li><li>STEP 9の変更を試したあと、完成版のコードに戻してRunする。</li><li>提出する場合は <a href="../../docs/common/apk.html">共通資料：APKの作り方</a>に従い、先生が指定した場所へ <code>学籍番号_A04WebViewApp.apk</code> を提出する。</li></ul>
 </section>
-<section><h2>7. 教材の保守と確認</h2>
+<section><h2>8. 教材の保守と確認</h2>
 <ul><li>完成コードを変更したら、教科書の部分コード、完成コード、<code>teacher/webview-app/code</code>、画像、練習の答えをまとめて確認し、<code>python3 scripts/package-hello-android.py --project A04WebViewApp --output docs/webview-app/downloads/A04WebViewApp.zip</code> で配布用ZIPを再作成します。</li><li>メニューのサイトは外部のWebページです。授業前に表示を確認し、サイトの閉鎖やURLの変更があった場合は <code>AppMenuItem</code>・教科書の表・STEP 5の解説（配列の例のコードと、値の使い方の表）・画像・<code>teacher/webview-app/code/05-AppMenuItem.java</code> をまとめて更新します。</li><li>アプリ画像5点（起動直後、メニューを開いた画面、Yahoo!ニュースのJavaScript無効・有効、SLAM DUNK）は、表示文字を <code>JavaScript ON</code> に直した完成版を、2026年9月15日に <code>jec_26cm_android1_Pixel 9a</code> で実行して撮影しました。新規プロジェクト作成の3点は教員提供資料です。ページの内容は撮影時点のものです。</li><li>画像にはニュースの見出しやサイトの画像が写っています。リポジトリはPublicのため、公開範囲に問題がないか、配布前に確認してください。</li><li>印刷時は補足・解答も展開されます。解答を配布したくない場合は、ブラウザで授業中に開く方式を使ってください。</li></ul>
 </section>
 <footer class="footer"><p><a href="../../docs/webview-app/index.html">← WebViewAppの教科書へ戻る</a></p><p>対象：macOS / Android Studio Panda 2 | 2025.3.2 · 確認日：2026年9月15日</p></footer>
