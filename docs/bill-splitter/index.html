@@ -541,14 +541,23 @@ final class BillSplitter {
 <tr><td>2. 数字に変えられない</td><td><code>Integer.parseInt</code> は、変えられないと例外を出してアプリが終了する。<code>try</code> で受け止める。</td></tr>
 <tr><td>3. 金額が人数より少ない</td><td>2円を3人で割ると0円の人が出る。ここを通れば「1以上」も自動的に満たされる。</td></tr>
 </tbody></table>
+<h3 id="why-not-shown">解説：入力チェック2のメッセージは、画面の操作では出ない</h3>
+<p>3つのうち、入力チェック2の「支払い金額は数字で入力してください」だけは、このアプリをどう操作しても表示されません。STEP 05のレイアウトで、金額の入力欄を2つの指定でしぼってあるためです。</p>
+<table><thead><tr><th>レイアウトの指定</th><th>起きること</th></tr></thead><tbody>
+<tr><td><code>android:inputType="number"</code></td><td>半角の数字しか入らない。文字や <code>-</code>、<code>.</code> は打っても入らない。</td></tr>
+<tr><td><code>android:maxLength="9"</code></td><td>9桁までしか入らない。10桁目からは打っても貼り付けても入らない。</td></tr>
+</tbody></table>
+<p><code>int</code> に入る最大の数は 2,147,483,647（10桁）です。9桁の最大 999,999,999 はこれより小さいので、入力欄に入る数字は必ず <code>Integer.parseInt</code> で変えられます。</p>
+<p>それでも <code>try</code> を書くのは、<strong>レイアウトとJavaは別のファイル</strong>だからです。あとでだれかが <code>maxLength</code> を消しても、Javaの側で受け止めていればアプリは終了しません。コメントの「桁数が多すぎる場合など」は、そのときのための備えを指しています。</p>
 <h3 id="why-check">解説：なぜ画面側でチェックするのか</h3>
 <p><code>BillSplitter</code> は計算だけを担当し、画面に出すメッセージを持っていません。<strong>ユーザーの入力ミスは画面側で止める</strong>、という分け方です。こうすると、計算の部分は他のアプリでもそのまま使えます。</p>
 <h3>Runで確かめる</h3>
+<p>画面で確かめるのは、入力チェック1と入力チェック3の2つです。</p>
 <ol><li>何も入力せずに <strong>計算実行</strong> を押します。</li></ol>
 <figure class="phone"><a href="images/app-split-error-empty-amount.png"><img src="images/app-split-error-empty-amount.png" width="1080" height="2424" loading="lazy" alt="金額を入れずに計算実行を押して、支払い金額を入力してくださいと表示されている"></a><figcaption>空のときのメッセージ。 <a href="images/app-split-error-empty-amount.png">画像を大きく開く</a></figcaption></figure>
 <ol start="2"><li>3人のときに <code>2</code> と入れて <strong>計算実行</strong> を押します。</li></ol>
 <figure class="phone"><a href="images/app-split-error-too-small.png"><img src="images/app-split-error-too-small.png" width="1080" height="2424" loading="lazy" alt="3人のときに2円と入力して計算実行を押し、3人で割るには3円以上を入力してくださいと表示されている"></a><figcaption>人数より少ない金額は計算しません。 <a href="images/app-split-error-too-small.png">画像を大きく開く</a></figcaption></figure>
-<div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-8"><span>3つの入力チェックを書き、それぞれのメッセージが出ることを確かめられた。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
+<div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-8"><span>3つの入力チェックを書き、入力チェック1と入力チェック3のメッセージが出ることを確かめられた。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
 <div class="next"><a href="#step-9">次へ：計算結果を表示する →</a></div></section>
 
 <section id="step-9" aria-labelledby="title-9">
@@ -589,9 +598,10 @@ txtParticipantList.setText(result);</code></pre>
 <tr><td>同じ名前を登録</td><td>参加者名が重複しています</td></tr>
 <tr><td>参加者が1人以下でワリカン画面へ</td><td>参加者を2人以上追加してください</td></tr>
 <tr><td>金額が空のまま計算実行</td><td>支払い金額を入力してください</td></tr>
-<tr><td>金額を数字に変えられない</td><td>支払い金額は数字で入力してください</td></tr>
+<tr><td>金額を数字に変えられない（<strong>画面の操作では出ない</strong>）</td><td>支払い金額は数字で入力してください</td></tr>
 <tr><td>金額が人数より少ない</td><td>○人で割るには○円以上を入力してください</td></tr>
 </tbody></table>
+<p>画面で出して確かめられるのは、6つのうち5つです。「支払い金額は数字で入力してください」は、金額の入力欄に半角の数字が9桁までしか入らないので表示されません（<a href="#why-not-shown">STEP 08の解説</a>）。出せなくても、操作のまちがいではありません。</p>
 <h3>保存</h3>
 <p>自分の <code>Documents/Android1/A07BillSplitter</code> を保存します。</p>
 <p>教材のチェックは自分用です。先生への送信はしません。印刷は <kbd>⌘ P</kbd> で行えます。</p>
