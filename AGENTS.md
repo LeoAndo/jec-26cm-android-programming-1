@@ -48,7 +48,7 @@
 | 触る場所 | 並行 |
 | --- | --- |
 | 単元ごとの場所だけ（例：`A09MemoApp/`、`docs/memo-app/`、`teacher/memo-app/`） | 別の単元のissueとは並行してよい。同じ単元のissue同士は直列 |
-| 共有ファイル：`README.md`、`config/`、`scripts/`、`docs/common/`、`docs/assets/`、`.github/`、`skills/`、`AGENTS.md` | 同時に開くPRは1本まで（ラベル `area:shared`） |
+| 共有ファイル：リポジトリ直下のファイル（`README.md`、`AGENTS.md`、`CLAUDE.md`、`.gitignore`）、`config/`、`scripts/`、`docs/common/`、`docs/assets/`、`.github/`、`skills/` | 同時に開くPRは1本まで（ラベル `area:shared`） |
 
 - 新しい単元の登録（§9）は必ず共有ファイルに当たる。2つの単元を同時に登録しない。
 - 教科書 `docs/<単元>/index.html` は後ろ向きにだけリンクする（topbarは直前の単元、サイドバーはそれ以前の全単元）。単元を挿入したときや、並行して作った単元をマージしたあとは、次の単元のページのリンクも確認する。CIはリンク切れしか見ないので、単元の並びのずれは検出できない。
