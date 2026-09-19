@@ -20,6 +20,10 @@ spec = importlib.util.spec_from_file_location("release", SCRIPTS / "release-stud
 release = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(release)
 
+# JSTでは翌日になる時刻。配布物の名前が版タグと同じJSTの日付になることを確かめる。
+FIXTURE_COMMITTED = "2026-09-19T15:30:00+00:00"
+FIXTURE_STEM = "android1-student-materials-2026-09-20"
+
 
 class PackageStudentMaterialsTest(unittest.TestCase):
     def setUp(self):
@@ -51,11 +55,17 @@ class PackageStudentMaterialsTest(unittest.TestCase):
         (self.root / "A01HelloAndroid/gradlew").chmod(0o755)
         self.git("init")
         self.git("add", ".")
-        self.git("-c", "user.name=Test", "-c", "user.email=test@example.invalid", "commit", "-m", "fixture")
-        self.archive = self.root / "dist/android1-student-materials.zip"
+        self.git(
+            "-c", "user.name=Test", "-c", "user.email=test@example.invalid", "commit", "-m", "fixture",
+            env={"GIT_AUTHOR_DATE": FIXTURE_COMMITTED, "GIT_COMMITTER_DATE": FIXTURE_COMMITTED},
+        )
+        self.archive = self.root / f"dist/{FIXTURE_STEM}.zip"
 
-    def git(self, *args):
-        return subprocess.run(["git", *args], cwd=self.root, check=True, capture_output=True)
+    def git(self, *args, env=None):
+        return subprocess.run(
+            ["git", *args], cwd=self.root, check=True, capture_output=True,
+            env={**os.environ, **env} if env else None,
+        )
 
     def package(self):
         return subprocess.run([sys.executable, "scripts/package-student-materials.py"], cwd=self.root, capture_output=True, text=True)
@@ -65,7 +75,7 @@ class PackageStudentMaterialsTest(unittest.TestCase):
         (self.root / "A01HelloAndroid/MainActivity.java").write_text("updated source")
         result = self.package()
         self.assertEqual(result.returncode, 0, result.stderr)
-        prefix = "android1-student-materials/"
+        prefix = f"{FIXTURE_STEM}/"
         with ZipFile(self.archive) as archive:
             names = archive.namelist()
             self.assertFalse(any("teacher" in name or "Panda2" in name or ".DS_Store" in name or "untracked" in name for name in names))
@@ -81,6 +91,18 @@ class PackageStudentMaterialsTest(unittest.TestCase):
         self.assertEqual(self.archive.read_bytes(), first)
         checksum = (self.root / "dist/SHA256SUMS.txt").read_text()
         self.assertEqual(checksum.split()[0], hashlib.sha256(first).hexdigest())
+
+    def test_asset_name_and_folder_carry_the_release_date(self):
+        self.assertEqual(self.package().returncode, 0)
+        with ZipFile(self.archive) as archive:
+            names = archive.namelist()
+        # 別の版を同じ場所に展開しても混ざらないよう、先頭フォルダにも日付を入れる。
+        self.assertTrue(all(name.startswith(f"{FIXTURE_STEM}/") for name in names), names)
+        checksum = (self.root / "dist/SHA256SUMS.txt").read_text()
+        self.assertEqual(checksum.split()[1], self.archive.name)
+        metadata = json.loads((self.root / "dist/release-metadata.json").read_text())
+        self.assertEqual(metadata["asset"], self.archive.name)
+        self.assertEqual(metadata["version"][:len("materials-2026.09.20")], "materials-2026.09.20")
 
     def test_missing_link_rejects_package(self):
         (self.root / "docs/hello-android/index.html").write_text('<a href="../missing.html">資料</a>')
@@ -107,9 +129,10 @@ class StudentReleaseTest(unittest.TestCase):
         self.addCleanup(temporary.cleanup)
         self.dist = Path(temporary.name)
         self.repo = "owner/repo"
-        self.metadata = {"version": "materials-2026.09.15-123456789abc", "revision": "123456789abc" * 3 + "1234", "asset": release.ASSETS[0]}
-        (self.dist / release.ASSETS[0]).write_bytes(b"student package")
-        (self.dist / "SHA256SUMS.txt").write_text(f"{hashlib.sha256(b'student package').hexdigest()}  {release.ASSETS[0]}\n")
+        self.asset = "android1-student-materials-2026-09-15.zip"
+        self.metadata = {"version": "materials-2026.09.15-123456789abc", "revision": "123456789abc" * 3 + "1234", "asset": self.asset}
+        (self.dist / self.asset).write_bytes(b"student package")
+        (self.dist / release.CHECKSUMS).write_text(f"{hashlib.sha256(b'student package').hexdigest()}  {self.asset}\n")
         (self.dist / "release-notes.md").write_text("学生向けノート")
         self.enterContext(patch.object(release, "DIST", self.dist))
         self.enterContext(patch.dict(os.environ, {"GITHUB_EVENT_NAME": "workflow_dispatch", "GITHUB_REF": "refs/heads/main", "STUDENT_NOTES": "STEP 4の説明修正。やり直し不要。"}))
@@ -133,6 +156,8 @@ class StudentReleaseTest(unittest.TestCase):
         self.assertEqual(commands, [("release", "create"), ("release", "upload"), ("release", "edit")])
         self.assertIn("--draft", self.gh.call_args_list[0].args)
         self.assertIn(self.metadata["revision"], self.gh.call_args_list[0].args)
+        # 添付するのは版の日付が入ったZIP。名前はrelease-metadata.jsonから受け取る。
+        self.assertIn(str(self.dist / self.asset), self.gh.call_args_list[1].args)
         self.assertIn("--draft=false", self.gh.call_args_list[-1].args)
 
     def test_upload_failure_does_not_publish(self):
@@ -178,7 +203,7 @@ class StudentReleaseTest(unittest.TestCase):
         self.gh.assert_not_called()
 
     def test_corrupt_package_cannot_publish(self):
-        (self.dist / release.ASSETS[0]).write_bytes(b"corrupt package")
+        (self.dist / self.asset).write_bytes(b"corrupt package")
         with self.assertRaisesRegex(ValueError, "チェックサム"):
             release.publish(self.repo, self.metadata)
         self.gh.assert_not_called()
@@ -187,6 +212,7 @@ class StudentReleaseTest(unittest.TestCase):
         with patch.object(release.subprocess, "check_output", return_value="- 直接修正 (abc123)"):
             release.prepare(self.repo, self.metadata)
         text = (self.dist / "release-notes.md").read_text()
+        self.assertIn(f"**{self.asset}**", text)
         self.assertIn("STEP 4の説明修正。やり直し不要。", text)
         self.assertIn("HelloAndroidの説明を修正 #2", text)
         self.assertIn("直接修正", text)
