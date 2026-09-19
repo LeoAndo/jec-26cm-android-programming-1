@@ -717,7 +717,9 @@ public class CardActivity extends AppCompatActivity {
 </code></pre>
 <table><thead><tr><th>書いたもの</th><th>意味</th></tr></thead><tbody>
 <tr><td><code>cardList.clear()</code> してから <code>addAll</code></td><td>LiveDataは変わるたびに呼ばれる。<strong>clearを忘れると、戻ってくるたびに一覧が二重になる</strong></td></tr>
+<tr><td><code>Snackbar.LENGTH_INDEFINITE</code> と <code>.setAction("単語を追加する", v -&gt; { … })</code></td><td>単語が1件もないときに出すメッセージ。<code>LENGTH_INDEFINITE</code> は、時間がたっても消えない設定。<code>setAction</code> は、メッセージの右にボタンを付ける。1つ目がボタンの文字、2つ目が押したときの処理で、ここでは単語を追加する画面を開く。すぐ下の <code>return</code> で、カードを出す処理には進まない</td></tr>
 <tr><td><code>cardIndex</code> の調整</td><td>いま見ているカードが最後より後ろにならないようにそろえる</td></tr>
+<tr><td><code>isVisible ? View.INVISIBLE : View.VISIBLE</code></td><td><code>btn_answer</code> のリスナの中。<code>isVisible</code> には、答え（日本語）がいま見えていれば <code>true</code>、隠れていれば <code>false</code> が入る。<code>条件 ? A : B</code> は三項演算子といい、<code>if</code> / <code>else</code> を1行で書いた形。条件が <code>true</code> なら <code>A</code>、<code>false</code> なら <code>B</code> になる。見えていれば隠し、隠れていれば見せる。次の行も同じ形で、ボタンの文字を切り替える</td></tr>
 <tr><td>6つのViewをフィールドにする</td><td><code>updateCardView()</code> からも使うので、<code>onCreate</code> で1回だけ探してフィールドに入れておく。<strong>同じidを2回 <code>findViewById</code> しない</strong></td></tr>
 <tr><td><code>updateCardView()</code></td><td>問題番号・英単語・日本語・ボタンの押せる／押せないを、まとめてそろえる</td></tr>
 <tr><td><code>setVisibility(View.INVISIBLE)</code></td><td>カードを送ったら、答えは隠した状態に戻す</td></tr>
