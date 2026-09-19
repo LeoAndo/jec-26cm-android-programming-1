@@ -39,7 +39,7 @@
 </tbody></table>
 <p>新しく覚えることは <code>append</code> だけです。残りはA07とA08で使ったものを組み合わせます。</p>
 <div class="note"><p class="box-title">1件だけ消す機能はありません</p><p>このアプリの削除は「全部消す」だけです。1件だけ消すには <code>RecyclerView</code> という部品が必要で、Androidプログラミング2で扱います。</p></div>
-<div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-0"><span>今日作るアプリの画面と、使う技術が今までの単元のどれで学んだものかを説明できた。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
+<div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-0"><span>今日作るアプリの画面を画像で確かめ、使う技術と学んだ単元を表で確認した。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
 <div class="next"><a href="#step-1">次へ：プロジェクトを作って実行 →</a></div></section>
 
 <section id="step-1" aria-labelledby="title-1">
@@ -76,7 +76,7 @@
 <figure><a href="images/drawable-files.png"><img src="images/drawable-files.png" width="868" height="522" loading="lazy" alt="drawableフォルダにic_launcher_background.xml、ic_launcher_foreground.xml、title_memo.pngが並んでいる"></a><figcaption>drawableに <code>title_memo.png</code> が増えれば成功。 <a href="images/drawable-files.png">画像を大きく開く</a></figcaption></figure>
 <div class="note"><p class="box-title">ファイル名は変えません</p><p>このあとXMLから <code>@drawable/title_memo</code> という名前で呼び出します。<strong>名前を変えると見つからなくなります。</strong>大文字や日本語も使えません。</p></div>
 <h3>Runで確かめる</h3><p>画面はまだ <strong>Hello World!</strong> のままです。エラーが出ずにRunできれば成功です。画像を使うのは次のSTEPです。</p>
-<div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-2"><span><code>drawable</code> に <code>title_memo.png</code> を置けた。ファイル名を変えてはいけない理由を説明できた。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
+<div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-2"><span><code>drawable</code> に <code>title_memo.png</code> を置けた。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
 <div class="next"><a href="#step-3">次へ：画面を作る →</a></div></section>
 
 <section id="step-3" aria-labelledby="title-3">
@@ -160,7 +160,7 @@
 <h3>Runで確かめる</h3>
 <p>タイトル画像、灰色の一覧、入力欄、2つのボタンが並べば成功です。押してもまだ何も起きません。</p>
 <figure class="phone"><a href="images/app-initial.png"><img src="images/app-initial.png" width="1080" height="2424" loading="lazy" alt="memorandumのタイトル画像、灰色の空のメモ一覧、入力欄、データ削除と追加のボタンが並んだ画面"></a><figcaption>STEP 03の完成。ボタンはまだ動きません。 <a href="images/app-initial.png">画像を大きく開く</a></figcaption></figure>
-<div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-3"><span>画面を作れた。一覧に <code>layout_weight</code> を付けた理由を説明できた。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
+<div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-3"><span>タイトル画像・灰色の一覧・入力欄・2つのボタンが並んだ画面をRunできた。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
 <div class="next"><a href="#step-4">次へ：メモを追加する →</a></div></section>
 
 <section id="step-4" aria-labelledby="title-4">
@@ -199,7 +199,7 @@
 <li>何回か追加して、行が増えていくことを確かめます。</li></ol>
 <figure class="phone"><a href="images/app-error-empty.png"><img src="images/app-error-empty.png" width="1080" height="2424" loading="lazy" alt="何も入力せずに追加を押したところ。画面下に黒い帯でメモを入力してくださいと表示されている"></a><figcaption>空のときは追加されず、下にメッセージが出ます。 <a href="images/app-error-empty.png">画像を大きく開く</a></figcaption></figure>
 <div class="note"><p class="box-title">まだ保存はされていません</p><p>アプリを完全に終了して開き直すと、メモは消えます。ここまでは<strong>画面の中だけ</strong>の話だからです。次のSTEPで保存します。</p></div>
-<div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-4"><span>メモを追加できた。<code>append</code> と <code>setText</code> の違い、<code>return;</code> の役割を説明できた。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
+<div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-4"><span>メモを追加すると一覧が1行ずつ増え、何も入力せずに押すと増えないことを確かめた。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
 <div class="next"><a href="#step-5">次へ：終了しても残るようにする →</a></div></section>
 
 <section id="step-5" aria-labelledby="title-5">
@@ -239,7 +239,7 @@
 <li>エミュレータで<strong>アプリ一覧（最近使ったアプリ）</strong>を開き、このアプリを上へスワイプして終了します。</li>
 <li>もう一度アプリのアイコンから起動します。<strong>メモが残っていれば成功です。</strong></li></ol>
 <figure class="phone"><a href="images/app-added.png"><img src="images/app-added.png" width="1080" height="2424" loading="lazy" alt="メモ一覧に、牛乳を買う、レポートを出す、9時に集合の3行が表示されている画面"></a><figcaption>終了して開き直しても、この状態のままです。 <a href="images/app-added.png">画像を大きく開く</a></figcaption></figure>
-<div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-5"><span>終了して開き直してもメモが残った。A07と違って <code>ArrayList</code> を使わない理由を説明できた。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
+<div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-5"><span>終了して開き直してもメモが残った。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
 <div class="next"><a href="#step-6">次へ：データを全部消す →</a></div></section>
 
 <section id="step-6" aria-labelledby="title-6">
@@ -260,7 +260,7 @@
 <div class="note"><p class="box-title">なぜ2つとも消すのか</p><p>保存されているデータ（ファイル）と、画面に表示している文字は<strong>別のもの</strong>です。<code>clear()</code> はファイルの中身を消すだけなので、画面は自分で消す必要があります。<code>setText(&quot;&quot;)</code> を書き忘れると、消したはずのメモが画面に残ったままになり、次に起動したときだけ消えている、という分かりにくい動きになります。</p></div>
 <h3>Runで確かめる</h3>
 <ol><li>メモを何件か追加します。</li><li><strong>データ削除</strong> を押します。一覧が空になれば成功です。</li><li>アプリを終了して開き直します。空のままなら、保存も消えています。</li></ol>
-<div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-6"><span>データ削除で一覧と保存の両方を消せた。2つを別々に消す理由を説明できた。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
+<div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-6"><span>データ削除で一覧と保存の両方を消せた。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
 <div class="next"><a href="#step-7">次へ：完成 →</a></div></section>
 
 <section id="step-7" aria-labelledby="title-7">
@@ -289,7 +289,7 @@
 <h3>保存</h3>
 <p>自分の <code>Documents/Android1/A09MemoApp</code> を保存します。</p>
 <p>教材のチェックは自分用です。先生への送信はしません。印刷は <kbd>⌘ P</kbd> で行えます。</p>
-<div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-7"><span>完成チェックを終え、追加・保存・削除の仕組みを説明できた。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
+<div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-7"><span>完成チェックの操作をすべて試し、ミニ練習3つのコードを元に戻した。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
 </section>
 
 <section id="help"><h2>困ったとき</h2><table><thead><tr><th>困ったこと</th><th>最初に確認する場所</th></tr></thead><tbody>

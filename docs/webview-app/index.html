@@ -52,7 +52,7 @@
 </tbody></table>
 
 <div class="note"><p class="box-title">画面回転について</p><p>各単元では画面回転時のデータ保持を扱いません。回転などでActivityが作り直されると、表示中のページと戻るための履歴は初期状態に戻ります。縦向きで使います。考え方と対処法は<a href="../common/dev-tips.html?from=webview-app#rotate">共通資料：開発Tips</a>のC章にあります。</p></div>
-<div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-0"><span>⋮ のメニュー、「JavaScript ON」、戻る操作の役割を画像と表で説明できた。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
+<div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-0"><span>完成アプリの操作の表で、⋮ のメニュー・「JavaScript ON」・戻る操作の結果を確認した。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
 <div class="next"><a href="#step-1">次へ：プロジェクトを作って実行 →</a></div>
 </section>
 <section id="step-1" aria-labelledby="title-1">
@@ -342,7 +342,7 @@ private String[] titles = new String[]{
 </details>
 <div class="note"><p class="box-title">enumでも番号を使う場面</p><p>STEP 6では、押した項目の番号を使い、<code>values()[番号]</code> で値を取り出します。この番号は自分で書きません。メニューを作るときも押したときも、enumが値を書いた順に付けた同じ番号（「値の番号」の表）を使うので、項目を増やしてもずれません。ただし <code>values()[7]</code> のように、ない番号を自分で書くと、enumでも実行中のエラーになります。</p></div>
 <div class="note"><p class="box-title">1コマ目はここまで</p><p>保存してからもう一度Runします。隣の人か先生に、enumの4つの値と番号（ordinal）の対応と、enumを使うメリットを1つ説明しましょう。次回も自分の <code>Documents/Android1/A04WebViewApp</code> を開きます。</p></div>
-<div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-5"><span>MainActivityと同じ場所にAppMenuItem.javaを作り、4つの値と番号の対応を表で確認した。配列を2つ使う書き方と比べて、enumのメリットを1つ説明できた。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
+<div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-5"><span>MainActivityと同じ場所にAppMenuItem.javaを作り、4つの値と番号の対応を表で確認した。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
 <div class="next"><a href="#step-6">次へ：メニューでページを切り替える →</a></div>
 </section>
 <section id="step-6" aria-labelledby="title-6">
@@ -392,7 +392,7 @@ public boolean onOptionsItemSelected(@NonNull MenuItem item) {
 <figure><a href="images/app-slamdunk.png"><img src="images/app-slamdunk.png" width="1080" height="2424" loading="lazy" alt="WebViewに映画「SLAM DUNK」公式サイトが表示されている"></a><figcaption>SLAM DUNKのサイトを表示。 <a href="images/app-slamdunk.png">画像を大きく開く</a></figcaption></figure>
 </div>
 <div class="note"><p class="box-title">⋮ が表示されないとき</p><p>STEP 2で2つのthemes.xmlから <code>.NoActionBar</code> を消したかを確認します。ActionBarがないと、オプションメニューも表示されません。</p></div>
-<div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-6"><span>⋮ に4つのサイト名が出て、押したサイトが表示された。押した項目とordinalの関係を説明できた。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
+<div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-6"><span>⋮ に4つのサイト名が出て、押したサイトが表示された。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
 <div class="next"><a href="#step-7">次へ：JavaScriptのON/OFFとズーム →</a></div>
 </section>
 <section id="step-7" aria-labelledby="title-7">
@@ -513,7 +513,7 @@ public boolean onKeyDown(int keyCode, KeyEvent event) {
 <p>この単元で <code>doUpdateVisitedHistory</code> を使い、前のページがあるときだけ <code>backCallback</code> を有効にしたのはこのためです。前のページがないときに無効にしておくと、Androidは「ホーム画面に戻る」ことを前もって知り、プレビューを表示できます。</p>
 <div class="note"><p class="box-title">以前の動きに戻す設定もあるが、使わない</p><p>AndroidManifest.xmlの <code>&lt;application&gt;</code> や <code>&lt;activity&gt;</code> に <code>android:enableOnBackInvokedCallback="false"</code> を書くと、一時的に以前の動きに戻せます。公式資料でも「一時的な回避策」とされているため、この授業では使いません。ネットの記事を参考にするときは、記事の書かれた時期と、対象のAndroidバージョンを確認しましょう。</p></div>
 <p class="muted">仕様の確認：<a href="https://developer.android.com/about/versions/16/behavior-changes-16">Android 16の動作変更（Android公式）</a>、<a href="https://developer.android.com/guide/navigation/custom-back/predictive-back-gesture">予測型「戻る」ジェスチャーのサポート（Android公式）</a>、<a href="https://developer.android.com/reference/androidx/activity/OnBackPressedCallback">OnBackPressedCallback（Android公式）</a>。</p>
-<div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-8"><span>リンク先から戻る操作で前のページに戻り、最初のページではホーム画面に戻ることを確認した。onKeyDownが使えない理由を説明できた。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
+<div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-8"><span>リンク先から戻る操作で前のページに戻り、最初のページではホーム画面に戻ることを確認した。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
 <div class="next"><a href="#step-9">次へ：ミニ練習 →</a></div>
 </section>
 <section id="step-9" aria-labelledby="title-9">
@@ -543,7 +543,7 @@ public boolean onKeyDown(int keyCode, KeyEvent event) {
 
 <h3>保存</h3><p>自分の <code>Documents/Android1/A04WebViewApp</code> を保存します。</p>
 <p>教材のチェックは自分用です。先生への送信はしません。印刷は <kbd>⌘ P</kbd> で行えます。</p>
-<div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-10"><span>完成チェックを終え、許可・WebView・enumとメニュー・JavaScript・戻る操作を説明できた。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
+<div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-10"><span>完成チェックの操作をすべて試し、表のとおりの結果になった。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
 </section>
 <section id="help"><h2>困ったとき</h2><table><thead><tr><th>困ったこと</th><th>最初に確認する場所</th></tr></thead><tbody>
 <tr><td>ActionBarや ⋮ が出ない</td><td>STEP 2で、2つのthemes.xmlの両方から <code>.NoActionBar</code> を消したか。STEP 6の <code>onCreateOptionsMenu</code> がonCreateの外にあり、<code>return true</code> か。</td></tr>

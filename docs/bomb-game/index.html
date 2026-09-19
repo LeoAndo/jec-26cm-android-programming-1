@@ -57,7 +57,7 @@
 
 <p>1度押した数字は、もう押せません。着火したあとでも、残りのスイッチを押さずにスイッチ以外の7個を押し終えればクリアです。このとき爆弾は火がついた画像のままです。再挑戦を押すと、スイッチの数字を選び直して最初の表示に戻ります。</p>
 <div class="note"><p class="box-title">画面回転について</p><p>各単元では画面回転時のデータ保持と横画面のレイアウトを扱いません。回転などでActivityが作り直されると、押したボタンと爆弾の状態は初期状態に戻り、スイッチの数字も選び直されます。横向きではメッセージや再挑戦ボタンが見えなくなる場合があるため、縦向きで使います。考え方と対処法は<a href="../common/dev-tips.html?from=bomb-game#rotate">共通資料：開発Tips</a>のC章にあります。</p></div>
-<div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-0"><span>導火線スイッチ・着火・爆発・クリアの意味と、それぞれの状態で押せるボタンを、画像と表で説明できた。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
+<div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-0"><span>完成アプリの状態の表で、着火・爆発・クリアのときの画像・メッセージ・押せるボタンを確認した。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
 <div class="next"><a href="#step-1">次へ：プロジェクトを作って実行 →</a></div>
 </section>
 <section id="step-1" aria-labelledby="title-1">
@@ -337,7 +337,7 @@ private void generateIgnitionNumbers() {
 <div class="code-head">読むところの例 · スイッチが6と8のとき</div><pre tabindex="0"><code>MainActivity  D  randomIgnitionNumber = 6
 MainActivity  D  randomIgnitionNumber = 8</code></pre>
 <div class="note"><p class="box-title">Logcatはスイッチの確認用</p><p>このログを見ると、どれがスイッチかわかります。STEP 7・9では、このログを見ながら着火・爆発・クリアを確実に試します。友達と遊ぶときは、Logcatを隠しておきましょう。</p></div>
-<div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-5"><span>Logcatに違う2つの数字が出て、Runし直すと数字が選び直されることを確認した。do-while文で作り直す条件を説明できた。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
+<div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-5"><span>Logcatに違う2つの数字が出て、Runし直すと数字が選び直されることを確認した。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
 <div class="next"><a href="#step-6">次へ：押したボタンを押せなくする →</a></div>
 </section>
 <section id="step-6" aria-labelledby="title-6">
@@ -554,7 +554,7 @@ if ((nowState == STATE_INITIAL &amp;&amp; disableButtonCount == 7) ||
 }</code></pre></details>
 <h3>Runで確かめる</h3><ol><li>Logcatでスイッチを確認し、スイッチ以外の7個をすべて押します。7個目で「クリア！」になり、数字はすべて押せなくなり、再挑戦が表示されます。爆弾は火のない画像のままです。</li><li>再挑戦を押し、新しいスイッチを確認します。スイッチを1つ押して着火させてから、スイッチ以外の7個を押します。7個目で「クリア！」になり、爆弾は火がついた画像のままです。</li><li>再挑戦を押し、スイッチを2つとも押すと、これまでどおり爆発します。</li></ol>
 <figure class="phone"><a href="images/app-clear.png"><img src="images/app-clear.png" width="1080" height="2424" loading="lazy" alt="火のない爆弾、クリア！の文字。数字ボタンはすべて灰色で、再挑戦ボタンが表示されている"></a><figcaption>着火前に、スイッチ以外の7個を押してクリアした画面（確認1）。着火後にクリアしたときは、火がついた画像のままです。 <a href="images/app-clear.png">画像を大きく開く</a></figcaption></figure>
-<div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-9"><span>着火前と着火後の両方でクリアになり、爆発もこれまでどおり動くことを確認した。7と8の違いを説明できた。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
+<div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-9"><span>着火前と着火後の両方でクリアになり、爆発もこれまでどおり動くことを確認した。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
 <div class="next"><a href="#step-10">次へ：ミニ練習 →</a></div>
 </section>
 <section id="step-10" aria-labelledby="title-10">
@@ -584,7 +584,7 @@ if ((nowState == STATE_INITIAL &amp;&amp; disableButtonCount == 7) ||
 
 <h3>保存</h3><p>自分の <code>Documents/Android1/A05BombGame</code> を保存します。</p>
 <p>教材のチェックは自分用です。先生への送信はしません。印刷は <kbd>⌘ P</kbd> で行えます。</p>
-<div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-11"><span>完成チェックを終え、メソッド・do-while文・定数と状態・anyMatch・クリアの条件を説明できた。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
+<div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-11"><span>完成チェックの操作をすべて試し、表のとおりの結果になった。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
 </section>
 <section id="help"><h2>困ったとき</h2><table><thead><tr><th>困ったこと</th><th>最初に確認する場所</th></tr></thead><tbody>
 <tr><td>@drawable/bomb_initial や R.drawable.bomb_ignited が赤い</td><td>drawableに3つのPNGがあるか確認。ファイル名は小文字で、<code>bomb_initial.png.png</code> のように拡張子が重なっていないか見る。</td></tr>

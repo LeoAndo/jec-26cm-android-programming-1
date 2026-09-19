@@ -52,7 +52,7 @@ TestActivity  D  stringArrayValue: null</code></pre>
 <tr><td>戻る操作</td><td>MainActivity</td><td>—</td></tr>
 </tbody></table>
 <div class="note"><p class="box-title">画面回転について</p><p>各単元では画面回転時のデータ保持と横画面のレイアウトを扱いません。縦向きで使います。考え方と対処法は<a href="../common/dev-tips.html?from=screen-transition-sample#rotate">共通資料：開発Tips</a>のC章にあります。</p></div>
-<div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-0"><span>Test 1〜Test 3を押すとTestActivityが開き、受け取った値をLogcatで見るアプリだと、画像と表で説明できた。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
+<div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-0"><span>完成アプリの操作の表で、Test 1〜Test 3がどの画面を開き、Logcatに何が出るかを確認した。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
 <div class="next"><a href="#step-1">次へ：プロジェクトを作って実行 →</a></div>
 </section>
 <section id="step-1" aria-labelledby="title-1">
@@ -369,7 +369,7 @@ public class TestActivity extends AppCompatActivity {
     }
 }</code></pre></details>
 <div class="note"><p class="box-title">1コマ目はここまで</p><p>保存してからもう一度Runし、Test 1のLogcatを確かめます。隣の人か先生に、キーと既定値の意味を説明しましょう。次回も自分の <code>Documents/Android1/A06ScreenTransitionSample</code> を開きます。</p></div>
-<div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-5"><span>Test 1でLogcatに既定値の2行が出ることを確認した。キーと既定値の意味を説明できた。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
+<div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-5"><span>Test 1でLogcatに既定値の2行が出ることを確認した。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
 <div class="next"><a href="#step-6">次へ：startメソッドで値を渡す →</a></div>
 </section>
 <section id="step-6" aria-labelledby="title-6">
@@ -506,7 +506,7 @@ public class TestActivity extends AppCompatActivity {
         context.startActivity(intent);
     }
 }</code></pre></details>
-<div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-6"><span>Test 2で intValue: 1・stringValue: 2 がLogcatに出ることを確認した。キーの定数をTestActivityに置く理由を説明できた。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
+<div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-6"><span>Test 2で intValue: 1・stringValue: 2 がLogcatに出ることを確認した。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
 <div class="next"><a href="#step-7">次へ：配列を渡す →</a></div>
 </section>
 <section id="step-7" aria-labelledby="title-7">
@@ -609,7 +609,7 @@ public class TestActivity extends AppCompatActivity {
         context.startActivity(intent);
     }
 }</code></pre></details>
-<div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-7"><span>Test 3で stringArrayValue: [3, 4, 5] がLogcatに出ることを確認した。オーバーロードでどのstartが呼ばれるかを説明できた。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
+<div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-7"><span>Test 3で stringArrayValue: [3, 4, 5] がLogcatに出ることを確認した。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
 <div class="next"><a href="#step-8">次へ：ミニ練習 →</a></div>
 </section>
 <section id="step-8" aria-labelledby="title-8">
@@ -668,7 +668,7 @@ public class TestActivity extends AppCompatActivity {
 <h3>保存</h3>
 <p>自分の <code>Documents/Android1/A06ScreenTransitionSample</code> を保存します。</p>
 <p>教材のチェックは自分用です。先生への送信はしません。印刷は <kbd>⌘ P</kbd> で行えます。</p>
-<div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-9"><span>完成チェックを終え、画面の追加・Intent・キーと既定値・キーの定数をTestActivityに置く理由・実際によく使う渡し方を説明できた。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
+<div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-9"><span>完成チェックの操作をすべて試し、表のとおりの結果になった。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
 </section>
 <section id="help"><h2>困ったとき</h2><table><thead><tr><th>困ったこと</th><th>最初に確認する場所</th></tr></thead><tbody>
 <tr><td>R.id.btn1などが赤い</td><td>activity_main.xmlのidがbtn1〜btn3か確認。<code>android:id="@+id/main"</code> を消していないかも見る。</td></tr>

@@ -41,7 +41,7 @@
 </tbody></table>
 <p>1234円を3人で割ると411.33…円です。1円より細かいお金は払えないので、<strong>411円・411円・412円</strong>のように、差が1円までになるように分けます。合計は必ず1234円に戻ります。</p>
 <div class="note"><p class="box-title">画面回転について</p><p>各単元では画面回転時のデータ保持と横画面のレイアウトを扱いません。回転などでActivityが作り直されると、登録した参加者と計算結果は初期状態に戻ります。横向きでは画面の下の部分が見えなくなる場合があるため、縦向きで使います。考え方と対処法は<a href="../common/dev-tips.html?from=bill-splitter#rotate">共通資料：開発Tips</a>のC章にあります。</p></div>
-<div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-0"><span>割り勘アプリが2つの画面でできていること、支払額の差が1円までになることを、画像と表で説明できた。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
+<div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-0"><span>2つの画面の画像で、1234円を3人で割ると411円・411円・412円になり、合計が1234円に戻ることを確認した。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
 <div class="next"><a href="#step-1">次へ：プロジェクトを作って実行 →</a></div></section>
 
 <section id="step-1" aria-labelledby="title-1">
@@ -504,7 +504,7 @@ final class BillSplitter {
 <div class="note"><p class="box-title">大事な約束</p><p>「金額は1以上」「2人以上」を守るのは<strong>呼び出す側の仕事</strong>です。守らずに呼ぶとアプリが終了します。次のSTEPで、その前にチェックを入れます。</p></div>
 <h3 id="how-split">解説：1円の端数はだれが払う？</h3>
 <p>1234円を3人で割ると411円あまり1円です。<code>BillSplitter</code> は、全員に411円を割り当ててから、あまった1円を1人に足します。だれが払うかは<strong>実行するたびに変わります</strong>。同じ金額でもう一度計算すると、412円の人が入れ替わります。</p>
-<div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-7"><span>BillSplitter.javaを自分のプロジェクトに置き、calculateAndFormatに何を渡すか説明できた。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
+<div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-7"><span>BillSplitter.javaを自分のプロジェクトに置き、赤いエラーが出ないことを確認した。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
 <div class="next"><a href="#step-8">次へ：入力チェックを作る →</a></div></section>
 
 <section id="step-8" aria-labelledby="title-8">
@@ -595,7 +595,7 @@ txtParticipantList.setText(result);</code></pre>
 <h3>保存</h3>
 <p>自分の <code>Documents/Android1/A07BillSplitter</code> を保存します。</p>
 <p>教材のチェックは自分用です。先生への送信はしません。印刷は <kbd>⌘ P</kbd> で行えます。</p>
-<div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-11"><span>完成チェックを終え、配列の受け渡し・キーの定数を受け取る側に置く理由・入力チェックを画面側に書く理由を説明できた。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
+<div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-11"><span>入力チェックの一覧にある6つのメッセージを、すべて画面に出せた。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
 </section>
 
 <section id="help"><h2>困ったとき</h2><table><thead><tr><th>困ったこと</th><th>最初に確認する場所</th></tr></thead><tbody>
