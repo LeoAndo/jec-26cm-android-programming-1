@@ -296,8 +296,25 @@ public abstract class AppDatabase extends RoomDatabase {
 <tr><td>Package name</td><td><code>jp.ac.jec.a11vocabularybook</code></td></tr>
 <tr><td>Source Language</td><td>Java</td></tr>
 </tbody></table>
-<figure><a href="images/new-activity-card-add.png"><img src="images/new-activity-card-add.png" width="1800" height="1358" loading="lazy" alt="New Android Activityのダイアログ。Activity NameはCardAddActivity、Layout Nameはactivity_card_add、Launcher Activityのチェックは外れている"></a><figcaption><strong>Launcher Activity にはチェックを入れません。</strong>入れるとアプリのアイコンが2つになります。 <a href="images/new-activity-card-add.png">画像を大きく開く</a></figcaption></figure>
+<figure><a href="images/new-activity-card-add.png"><img src="images/new-activity-card-add.png" width="1800" height="1358" loading="lazy" alt="New Android Activityのダイアログ。Activity NameはCardAddActivity、Layout Nameはactivity_card_add、Launcher Activityのチェックは外れている"></a><figcaption><strong>Launcher Activity にはチェックを入れません。</strong>理由はこのあとで説明します。 <a href="images/new-activity-card-add.png">画像を大きく開く</a></figcaption></figure>
 <div class="note"><p class="box-title">New → Java Classでは作りません</p><p>この作り方なら <code>AndroidManifest.xml</code> への登録も自動で行われます。<code>New → Java Class</code> で作ると登録されず、画面を開いたときにアプリが終了します。</p></div>
+<p>あわせて <code>app → src → main → AndroidManifest.xml</code> を開きます。<strong>Finish</strong> を押した直後に、次の3行が増えています。自動で追加されているので、<strong>入力しません</strong>。</p>
+<pre tabindex="0"><code>&lt;activity
+    android:name=&quot;.CardAddActivity&quot;
+    android:exported=&quot;false&quot; /&gt;</code></pre>
+<table><thead><tr><th>指定</th><th>意味</th></tr></thead><tbody>
+<tr><td>&lt;activity&gt;</td><td>アプリの画面をAndroidに知らせる。この登録がないと、画面を開いたときにアプリが終了する。</td></tr>
+<tr><td>android:name=".CardAddActivity"</td><td>登録するクラス。先頭の <code>.</code> は、パッケージ名 <code>jp.ac.jec.a11vocabularybook</code> を省いた書き方。</td></tr>
+<tr><td>android:exported="false"</td><td>ほかのアプリからこの画面を開けないようにする。<code>CardAddActivity</code> は自分のアプリの <code>MainActivity</code> からだけ開く。</td></tr>
+</tbody></table>
+<div class="note"><p class="box-title">なぜLauncher Activityにチェックを入れないのか</p>
+<p><code>MainActivity</code> の <code>&lt;activity&gt;</code> には <code>&lt;intent-filter&gt;</code>（<code>MAIN</code> と <code>LAUNCHER</code>）が書かれています。これは「アプリ一覧のアイコンから最初に開く画面」という印です。<code>CardAddActivity</code> は <code>MainActivity</code> から開くので、この印は要りません。</p>
+<p>Launcher Activityにチェックを入れると、<code>CardAddActivity</code> にもこの印が付いて、次の2つが起きます。</p>
+<ol>
+<li>アプリ一覧に、<strong>「A11VocabularyBook」という同じ名前のアイコンが2つ</strong>並びます。名前もアイコンも同じなので、どちらが本物か見分けられません。</li>
+<li><strong>Runしたときに、作ったばかりの何もない画面が起動することがあります。</strong>印の付いた画面が2つあるため、どちらから始まるかが決まらないからです。</li>
+</ol>
+<p>入れてしまったときは、<code>CardAddActivity</code> の <code>&lt;activity&gt;</code> から <code>&lt;intent-filter&gt;</code> を消して、<code>android:exported</code> を <code>false</code> に戻します。上の3行と同じ形になれば直っています。</p></div>
 <h3>① 画面を作る</h3>
 <pre id="code-card-add-xml"><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
 &lt;LinearLayout xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
@@ -469,6 +486,7 @@ public class CardAddActivity extends AppCompatActivity {
 <p class="step-meta">STEP 06 · 目安 15分</p><h2 id="title-6">カード画面を作る</h2>
 <p>3つ目の画面を追加します。STEP 05と同じ手順で、<strong>Activity Name</strong> を <code>CardActivity</code>、<strong>Layout Name</strong> を <code>activity_card</code> にします。</p>
 <figure><a href="images/new-activity-card.png"><img src="images/new-activity-card.png" width="1792" height="1358" loading="lazy" alt="New Android Activityのダイアログ。Activity NameはCardActivity、Layout Nameはactivity_card、Launcher Activityのチェックは外れている"></a><figcaption>ここでも <strong>Launcher Activity</strong> にはチェックを入れません。 <a href="images/new-activity-card.png">画像を大きく開く</a></figcaption></figure>
+<p><code>AndroidManifest.xml</code> に <code>&lt;activity android:name=&quot;.CardActivity&quot; android:exported=&quot;false&quot; /&gt;</code> が自動で増えるところも、Launcher Activityにチェックを入れない理由も、STEP 05と同じです。</p>
 <h3>① 画面を作る</h3>
 <pre id="code-card-xml"><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
 &lt;LinearLayout xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
@@ -722,6 +740,7 @@ public class MainActivity extends AppCompatActivity {
 <h2 id="title-help">困ったとき</h2>
 <table><thead><tr><th>症状</th><th>見るところ</th></tr></thead><tbody>
 <tr><td>ボタンを押すとアプリが終了する</td><td>STEP 05。画面を <code>New → Java Class</code> で作ると <code>AndroidManifest.xml</code> に登録されません。<code>New → Activity → Empty Views Activity</code> で作り直します</td></tr>
+<tr><td>アプリ一覧のアイコンが2つある（Runすると何もない画面から始まることがある）</td><td>STEP 05・06でLauncher Activityにチェックを入れた可能性があります。その画面の <code>&lt;activity&gt;</code> から <code>&lt;intent-filter&gt;</code> を消し、<code>android:exported="false"</code> にします</td></tr>
 <tr><td>一覧が二重に増える</td><td>STEP 06②。<code>cardList.clear()</code> を書いたか</td></tr>
 <tr><td><code>expected to find any of 'id' or 'version'</code></td><td>STEP 02②。<code>[libraries]</code> に書いたか</td></tr>
 <tr><td><code>ItemDao</code> の中で赤いエラーが出る</td><td>STEP 03②。<strong>Class ではなく Interface</strong> で作ったか</td></tr>
