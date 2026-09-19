@@ -21,6 +21,13 @@ import java.util.List;
 public class CardActivity extends AppCompatActivity {
     private final List<Item> cardList = new ArrayList<>();
     private int cardIndex;
+    // 次の6つは、onCreate以外のメソッド(updateCardView)からも使うためフィールドにする
+    private TextView txtQuestionNo;
+    private TextView txtEnglish;
+    private TextView txtJapanese;
+    private Button btnBack;
+    private Button btnNext;
+    private Button btnAnswer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,9 +40,12 @@ public class CardActivity extends AppCompatActivity {
             return insets;
         });
 
-        var btnBack = (Button) findViewById(R.id.btn_back);
-        var btnNext = (Button) findViewById(R.id.btn_next);
-        var btnAnswer = (Button) findViewById(R.id.btn_answer);
+        txtQuestionNo = (TextView) findViewById(R.id.txt_question_no);
+        txtEnglish = (TextView) findViewById(R.id.txt_english);
+        txtJapanese = (TextView) findViewById(R.id.txt_japanese);
+        btnBack = (Button) findViewById(R.id.btn_back);
+        btnNext = (Button) findViewById(R.id.btn_next);
+        btnAnswer = (Button) findViewById(R.id.btn_answer);
 
         var itemDao = AppDatabase.getInstance(this).itemDao();
 
@@ -67,7 +77,6 @@ public class CardActivity extends AppCompatActivity {
         });
 
         btnAnswer.setOnClickListener(v -> {
-            var txtJapanese = (TextView) findViewById(R.id.txt_japanese);
             var isVisible = (txtJapanese.getVisibility() == View.VISIBLE);
             txtJapanese.setVisibility(isVisible ? View.INVISIBLE : View.VISIBLE);
             btnAnswer.setText(isVisible ? "答えを表示する" : "答えを非表示にする");
@@ -87,10 +96,6 @@ public class CardActivity extends AppCompatActivity {
      */
     private void updateCardView() {
         var card = cardList.get(cardIndex);
-        var txtQuestionNo = (TextView) findViewById(R.id.txt_question_no);
-        var txtEnglish = (TextView) findViewById(R.id.txt_english);
-        var txtJapanese = (TextView) findViewById(R.id.txt_japanese);
-        var btnAnswer = (Button) findViewById(R.id.btn_answer);
 
         txtQuestionNo.setText((cardIndex + 1) + "問目/全" + cardList.size() + "問中");
         txtEnglish.setText(card.getEnglish());
@@ -100,7 +105,7 @@ public class CardActivity extends AppCompatActivity {
         txtJapanese.setVisibility(View.INVISIBLE);
         btnAnswer.setText("答えを表示する");
 
-        findViewById(R.id.btn_back).setEnabled(cardIndex > 0);
-        findViewById(R.id.btn_next).setEnabled(cardIndex < cardList.size() - 1);
+        btnBack.setEnabled(cardIndex > 0);
+        btnNext.setEnabled(cardIndex < cardList.size() - 1);
     }
 }
