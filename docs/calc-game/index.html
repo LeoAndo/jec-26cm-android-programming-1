@@ -151,7 +151,7 @@
 </tbody></table>
 
 <p><code>android:id="@+id/main"</code> はJavaのひな形でも使うため残します。各ボタンの <code>btn_start</code> などは、次にJavaから探すための名前です。</p>
-<div class="note"><p class="box-title">12dpの余白について</p><p>このXMLには <code>padding="12dp"</code> があります。ひな形のJavaにある <code>v.setPadding(...)</code> が実行時の余白を上書きするため、操作ボタンが横いっぱいに表示されることがあります。教材では、このひな形をそのまま使います。</p></div>
+<div class="note"><p class="box-title">操作ボタンが横いっぱいに表示されます</p><p>ひな形のJavaにある <code>v.setPadding(...)</code> が、一番外側の部品の余白を実行時に置き換えます。そのため、操作ボタンが横いっぱいに表示されます。教材では、このひな形をそのまま使います。余白を付けたいときは<a href="../common/dev-tips.html?from=calc-game#margin">共通資料：開発Tips</a>のA章を見ましょう。</p></div>
 
 <h3>Runで確かめる</h3><p>タイマーと3つの操作ボタンが縦に表示されます。STOPとRESETは灰色です。STARTを押してもまだ時間は動きません。問題文も空欄です。</p>
 <p>文字を直接書いたことによる <code>Hardcoded text</code> の警告は、A01と同様に授業ではそのまま進めます。赤いエラーでビルドできない場合は先に直します。</p>

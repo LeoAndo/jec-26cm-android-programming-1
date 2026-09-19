@@ -184,7 +184,7 @@
 
 <p>親の <code>orientation="vertical"</code> がタイトル・メッセージ・手の行を縦に並べ、手の行の <code>orientation="horizontal"</code> が3つの画像を横に並べます。A02の数字ボタンと同じ入れ子の形です。</p>
 <p>3つの手のidは <code>img_rock</code>・<code>img_scissors</code>・<code>img_paper</code> です。この <strong>グー → チョキ → パー</strong> の順番を、あとのJavaでも使います。<code>android:id="@+id/main"</code> はJavaのひな形でも使うため残します。</p>
-<div class="note"><p class="box-title">12dpの余白について</p><p>このXMLには <code>padding="12dp"</code> があります。ひな形のJavaにある <code>v.setPadding(...)</code> が実行時の余白を上書きするため、手の画像が画面の端まで表示されることがあります。教材では、このひな形をそのまま使います。</p></div>
+<div class="note"><p class="box-title">手の画像が画面の端まで表示されます</p><p>ひな形のJavaにある <code>v.setPadding(...)</code> が、一番外側の部品の余白を実行時に置き換えます。そのため、手の画像が画面の端まで表示されます。教材では、このひな形をそのまま使います。余白を付けたいときは<a href="../common/dev-tips.html?from=rock-paper-scissors-game#margin">共通資料：開発Tips</a>のA章を見ましょう。</p></div>
 
 <h3>Runで確かめる</h3><p>タイトル画像、「じゃんけんの手を選んでください」、グー・チョキ・パーの画像が上から表示されれば成功です。まだ画像を押しても何も起きません。</p>
 <p><code>@drawable/rock</code> などが赤いときは、STEP 2の画像の場所とファイル名を確認します。文字を直接書いたことによる <code>Hardcoded text</code> の警告は、A01・A02と同様に授業ではそのまま進めます。</p>
