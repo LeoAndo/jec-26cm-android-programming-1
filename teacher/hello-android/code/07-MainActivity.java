@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
 
         btn1.setOnClickListener(v -> {
             var btn1Str = btn1.getText().toString();
-            Snackbar.make(findViewById(R.id.main), btn1Str, Snackbar.LENGTH_SHORT).show();
+            Snackbar.make(v, btn1Str, Snackbar.LENGTH_SHORT).show();
         });
         btn2.setOnClickListener(v -> {
             var btn2Str = btn2.getText().toString();

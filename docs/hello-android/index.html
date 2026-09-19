@@ -195,7 +195,7 @@ button.setOnClickListener(v -&gt; {
 <tr><td><code>(TextView)</code></td><td>見つけた部品を、文字の部品として扱う指定（キャスト）。</td></tr>
 <tr><td><code>var text = …;</code></td><td>見つけた部品を <code>text</code> という名前で使えるようにする。この名前を<strong>変数（へんすう）</strong>といいます。<code>var</code> は、右側から変数の型を決めます。</td></tr>
 <tr><td><code>setOnClickListener</code></td><td>ボタンが押されたときに行う処理を登録する。</td></tr>
-<tr><td><code>v -&gt; { … }</code></td><td>クリックされたら、波かっこの中を実行する書き方。<code>v</code> は押された部品です。この処理では使いません。</td></tr>
+<tr><td><code>v -&gt; { … }</code></td><td>クリックされたら、波かっこの中を実行する書き方。<code>v</code> は押された部品です。この処理では使いませんが、STEP 7で使います。</td></tr>
 <tr><td><code>text.setText("Hello, Android!");</code></td><td><code>text</code> の表示文字を変える。<code>" "</code> の中が文字です。</td></tr>
 </tbody></table>
 <p><code>=</code> は右側の結果を左側の名前に入れる記号です。<code>;</code> は文の終わり。<code>( )</code> には必要な情報を渡し、<code>{ }</code> で処理の範囲を囲みます。</p>
@@ -361,7 +361,7 @@ var btn2 = (Button) findViewById(R.id.btn2);</code></pre>
 <div class="code-head">追加 · 変更ボタンの処理の下</div>
 <pre id="code-feedback" tabindex="0"><code>btn1.setOnClickListener(v -&gt; {
     var btn1Str = btn1.getText().toString();
-    Snackbar.make(findViewById(R.id.main), btn1Str, Snackbar.LENGTH_SHORT).show();
+    Snackbar.make(v, btn1Str, Snackbar.LENGTH_SHORT).show();
 });
 btn2.setOnClickListener(v -&gt; {
     var btn2Str = btn2.getText().toString();
@@ -370,7 +370,7 @@ btn2.setOnClickListener(v -&gt; {
 <p><code>btn1.getText()</code> と <code>btn2.getText()</code> で、ボタンに書かれた文字を取り出しています。数字の計算はしていません。</p>
 <table><thead><tr><th>部分</th><th>役割</th></tr></thead><tbody>
 <tr><td><code>Snackbar.make(…)</code></td><td>表示するSnackbarを作る。</td></tr>
-<tr><td><code>findViewById(R.id.main)</code></td><td>Snackbarの表示先を探すため、画面の部品を渡す。</td></tr>
+<tr><td><code>v</code></td><td>押された部品。Snackbarは、渡された部品と同じ画面に帯を出します。</td></tr>
 <tr><td><code>Toast.makeText(this, …)</code></td><td>表示するToastを作る。ここでの <code>this</code> は、今の画面を担当するMainActivity。</td></tr>
 <tr><td><code>btn1Str</code> / <code>btn2Str</code></td><td>メッセージとして表示する文字。</td></tr>
 <tr><td><code>LENGTH_SHORT</code></td><td>短い時間だけ表示する設定。</td></tr>
@@ -471,7 +471,7 @@ public class MainActivity extends AppCompatActivity {
 
         btn1.setOnClickListener(v -&gt; {
             var btn1Str = btn1.getText().toString();
-            Snackbar.make(findViewById(R.id.main), btn1Str, Snackbar.LENGTH_SHORT).show();
+            Snackbar.make(v, btn1Str, Snackbar.LENGTH_SHORT).show();
         });
         btn2.setOnClickListener(v -&gt; {
             var btn2Str = btn2.getText().toString();
