@@ -503,6 +503,16 @@ public class CardAddActivity extends AppCompatActivity {
         context.startActivity(starter);
     }
 }</code></pre>
+<p><code>var itemDao</code> の行から下を、上から順に読みます。</p>
+<table><thead><tr><th>行のあたり</th><th>やっていること</th></tr></thead><tbody>
+<tr><td><code>var itemDao = AppDatabase.getInstance(this).itemDao();</code></td><td>データベースを取り出して、窓口（Dao）を受け取る。STEP 03の③と②で作ったものを、ここで使う</td></tr>
+<tr><td><code>itemDao.getAll().observe(this, items -&gt; { … });</code></td><td><code>getAll()</code> が返すLiveDataを見張る。<code>this</code> はこの画面、<code>items</code> は届いた単語の一覧。一覧は、画面を開いたときにまず1回届き、そのあとは単語が増えるたびに届く。<strong>届くたびに <code>{ }</code> の中が呼ばれる</strong></td></tr>
+<tr><td><code>var text = new StringBuilder();</code></td><td><code>StringBuilder</code> は、文字を後ろにつなげていける入れ物。作ったときは空</td></tr>
+<tr><td><code>for (var item : items)</code> と <code>text.append(item).append("\n");</code></td><td>一覧から単語を1件ずつ取り出し、<code>append</code> で入れ物の後ろにつなげる。<code>append(item)</code> は、<code>Item</code> の <code>toString()</code>（STEP 03 ①）で <code>apple : りんご</code> の形の文字にしてからつなげる。<code>"\n"</code> は改行</td></tr>
+<tr><td><code>txtCardList.setText(text.toString());</code></td><td><code>text.toString()</code> で入れ物の中身を1つの文字列にして、一覧に出す</td></tr>
+<tr><td><code>btn_add</code> のリスナ</td><td>入力のどちらかが空なら止める → 同じ英単語がすでにあれば止める（<code>countByEnglish</code> で数える）→ <code>upsert</code> → 入力欄を空にする</td></tr>
+<tr><td><code>static void start(…)</code></td><td>この画面を開くためのメソッド。次の③で、メニュー画面から呼ぶ</td></tr>
+</tbody></table>
 <div class="note"><p class="box-title">一覧を出し直す処理を書いていません</p><p><code>itemDao.upsert(...)</code> のあとに <code>setText</code> がありません。<strong>これが今回の新しいところです。</strong><code>observe</code> でLiveDataを見張っているので、単語が増えると <code>observe</code> の中が自動でもう一度呼ばれます。</p></div>
 <h3>③ メニュー画面からこの画面を開く</h3>
 <p><code>MainActivity.java</code> の <code>onCreate</code> の最後に追加します。</p>
