@@ -209,8 +209,26 @@ var btnBillSplit = findViewById(R.id.btn_bill_split);</code></pre>
 <tr><td>Package name</td><td><code>jp.ac.jec.a07billsplitter</code></td></tr>
 <tr><td>Source Language</td><td>Java</td></tr>
 </tbody></table>
-<figure><a href="images/new-activity-settings.png"><img src="images/new-activity-settings.png" width="1796" height="1356" loading="lazy" alt="New Android Activityの設定画面。Activity NameにBillSplitActivity、Layout Nameにactivity_bill_split、Launcher Activityは未チェック"></a><figcaption>Launcher Activityにチェックを入れると、アプリのアイコンが2つになります。 <a href="images/new-activity-settings.png">画像を大きく開く</a></figcaption></figure>
+<figure><a href="images/new-activity-settings.png"><img src="images/new-activity-settings.png" width="1796" height="1356" loading="lazy" alt="New Android Activityの設定画面。Activity NameにBillSplitActivity、Layout Nameにactivity_bill_split、Launcher Activityは未チェック"></a><figcaption><strong>Launcher Activityにはチェックを入れません。</strong>理由はこのあとで説明します。 <a href="images/new-activity-settings.png">画像を大きく開く</a></figcaption></figure>
 <div class="note"><p class="box-title">New → Java Classでは作りません</p><p>この作り方なら <code>AndroidManifest.xml</code> への登録も自動で行われます。<strong>New → Java Class</strong> で作ると登録されず、画面を開いたときにアプリが終了します。</p></div>
+<h3>AndroidManifest.xmlに増えた3行を見る</h3>
+<p><code>app → src → main → AndroidManifest.xml</code> を開きます。<strong>Finish</strong> を押した直後に、次の3行が増えています。自動で追加されているので、<strong>入力しません</strong>。</p>
+<pre tabindex="0"><code>&lt;activity
+    android:name=&quot;.BillSplitActivity&quot;
+    android:exported=&quot;false&quot; /&gt;</code></pre>
+<table><thead><tr><th>指定</th><th>意味</th></tr></thead><tbody>
+<tr><td>&lt;activity&gt;</td><td>アプリの画面をAndroidに知らせる。この登録がないと、画面を開いたときにアプリが終了する。</td></tr>
+<tr><td>android:name=".BillSplitActivity"</td><td>登録するクラス。先頭の <code>.</code> は、パッケージ名 <code>jp.ac.jec.a07billsplitter</code> を省いた書き方。</td></tr>
+<tr><td>android:exported="false"</td><td>ほかのアプリからこの画面を開けないようにする。<code>BillSplitActivity</code> は自分のアプリの <code>MainActivity</code> からだけ開く。</td></tr>
+</tbody></table>
+<div class="note"><p class="box-title">なぜLauncher Activityにチェックを入れないのか</p>
+<p><code>MainActivity</code> の <code>&lt;activity&gt;</code> には <code>&lt;intent-filter&gt;</code>（<code>MAIN</code> と <code>LAUNCHER</code>）が書かれています。これは「アプリ一覧のアイコンから最初に開く画面」という印です。<code>BillSplitActivity</code> は <code>MainActivity</code> から開くので、この印は要りません。</p>
+<p>Launcher Activityにチェックを入れると、<code>BillSplitActivity</code> にもこの印が付いて、次の2つが起きます。</p>
+<ol>
+<li>アプリ一覧に、<strong>「A07BillSplitter」という同じ名前のアイコンが2つ</strong>並びます。名前もアイコンも同じなので、どちらが本物か見分けられません。</li>
+<li><strong>Runしたときに、作ったばかりの何もない画面が起動することがあります。</strong>印の付いた画面が2つあるため、どちらから始まるかが決まらないからです。</li>
+</ol>
+<p>入れてしまったときは、<code>BillSplitActivity</code> の <code>&lt;activity&gt;</code> から <code>&lt;intent-filter&gt;</code> を消して、<code>android:exported</code> を <code>false</code> に戻します。上の3行と同じ形になれば直っています。</p></div>
 <h3>ワリカン画面のレイアウト</h3>
 <p><code>res → layout → activity_bill_split.xml</code> を開き、<strong>Code</strong> にしてから、中身をすべて次のコードに置き換えます。</p>
 <div class="code-head">activity_bill_split.xml · 全文</div>
@@ -579,7 +597,7 @@ txtParticipantList.setText(result);</code></pre>
 <tr><td><code>start(…)</code> が赤い（MainActivity）</td><td>STEP 06①を <code>BillSplitActivity</code> に追加したか確認。<code>onCreate</code> の中に入れていないかも見る。</td></tr>
 <tr><td><code>startを追加したら赤いエラーがたくさん出る</code></td><td><code>start</code> を <code>onCreate</code> の中に書いていないか確認。<code>onCreate</code> の最後の <code>}</code> の下、クラスの最後の <code>}</code> の上に置く。</td></tr>
 <tr><td>ワリカン画面へを押すとアプリが終了する</td><td>Logcatを <code>level:ERROR</code> にして <code>ActivityNotFoundException</code> か確認。<code>AndroidManifest.xml</code> に <code>android:name=".BillSplitActivity"</code> の <code>&lt;activity&gt;</code> があるか見る。New → Java Classで作ると登録されない。</td></tr>
-<tr><td>アプリのアイコンが2つある</td><td>STEP 05でLauncher Activityにチェックを入れた可能性がある。<code>BillSplitActivity</code> の <code>&lt;activity&gt;</code> から <code>&lt;intent-filter&gt;</code> を消し、<code>android:exported="false"</code> にする。</td></tr>
+<tr><td>アプリ一覧のアイコンが2つある（Runすると何もない画面から始まることがある）</td><td>STEP 05でLauncher Activityにチェックを入れた可能性がある。<code>BillSplitActivity</code> の <code>&lt;activity&gt;</code> から <code>&lt;intent-filter&gt;</code> を消し、<code>android:exported="false"</code> にする。</td></tr>
 <tr><td>ワリカン画面が真っ白、または人数が出ない</td><td>STEP 06②を書いたか確認。<code>txt_number_of_people</code> の綴りも見る。</td></tr>
 <tr><td>計算実行を押しても何も出ない</td><td>STEP 09の2行を、入力チェックの<strong>下</strong>に書いたか確認。<code>return;</code> の上に書くと実行されない。</td></tr>
 <tr><td>参加者一覧が1人分しか出ない</td><td><code>append</code> ではなく <code>setText</code> になっていないか確認。<code>setText</code> は前の文字を消す。</td></tr>
