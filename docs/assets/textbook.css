@@ -28,7 +28,8 @@ button { cursor: pointer; }
 .sidebar li { margin: .18rem 0; }
 .sidebar li a { display: block; border-radius: 7px; text-decoration: none; color: var(--ink); padding: .4rem .55rem; font-size: .88rem; }
 .sidebar li a:hover, .sidebar a[aria-current="step"] { background: #e8efff; color: #133e9f; }
-.sidebar .resources a { display: block; font-size: .83rem; margin: .4rem 0; }
+.sidebar .resources a, .sidebar .resources [aria-current="page"] { display: block; font-size: .83rem; margin: .4rem 0; }
+.sidebar .resources [aria-current="page"] { font-weight: 750; }
 .progress { background: white; border: 1px solid var(--line); padding: .8rem; border-radius: 10px; font-size: .8rem; }
 progress { width: 100%; accent-color: var(--blue); display: block; margin-top: .4rem; }
 .muted, figcaption { color: var(--muted); }
