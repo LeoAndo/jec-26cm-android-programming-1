@@ -44,4 +44,7 @@
 <section><h2>5. 到達度と提出</h2>
 <ul><li>学生自身がSTARTから10問回答し、結果を表示できる。</li><li>正解数・問題番号・経過時間のフィールドを1つずつ指させる。</li><li>STOP/STARTで現問題を維持し、RESETで初期状態へ戻ることを実演できる。</li><li>STEP 10の変更を試したあと、完成版の値に戻してRunする。</li><li>提出する場合は <a href="../../docs/common/apk.html">共通資料：APKの作り方</a>に従い、先生が指定した場所へ <code>学籍番号_A02CalcGame.apk</code> を提出する。</li></ul>
 </section>
+<section><h2>6. 教材の保守と確認</h2>
+<ul><li>完成コードを変更したら、教科書の部分コード、完成コード、<code>teacher/calc-game/code</code>、画像、練習の答えをまとめて確認し、<code>python3 scripts/package-hello-android.py --project A02CalcGame --output docs/calc-game/downloads/A02CalcGame.zip</code> で配布用ZIPを再作成します。教科書のコードと完成プロジェクトの一致は <code>python3 scripts/check-teaching-materials.py</code> で確かめます。</li><li>アプリ画像5枚のうち、app-initial（起動直後。問題文は空欄でSTARTのみ有効）はSTEP 00とSTEP 03の確認の2箇所、app-playing（ゲーム中。1問目の式が出てSTOPのみ有効）はSTEP 00とSTEP 06の確認の2箇所で使っています（表示が同じため）。app-paused（STOP後。時間と問題を保持しSTART/RESETが有効）はSTEP 06、app-result（結果表示。正解数と時間は例でプレイごとに変わります）とapp-snackbar（終了後に数字ボタンを押すと出る「ゲーム中のみボタンを押せます」の案内）はSTEP 09で使っています。撮影に使ったエミュレータ・Android/APIバージョン・撮影日は、本PRでは確認できていません。</li><li>新規プロジェクト作成の3画像（new-project、empty-views-activity、project-settings）は教員提供資料を使用しています。</li><li>各STEPの照合コードは、完成プロジェクトのコピーにそのSTEPまでのファイルを入れ、STEP 01〜09のすべてで <code>assembleDebug</code> が通ることを確認しました（2026年9月19日）。完成コードを変更したら、照合コードも合わせて更新します。</li><li>印刷時は補足・解答も展開されます。解答を配布したくない場合は、ブラウザで授業中に開く方式を使ってください。</li></ul>
+</section>
 </main></body></html>
