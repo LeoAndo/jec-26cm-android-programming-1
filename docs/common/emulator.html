@@ -14,8 +14,8 @@
 <p>端末があった人は、<a href="#run">3. アプリを動かす</a>へ進みます。</p></section>
 <section id="create"><h2>2. 端末がないときに作る</h2>
 <p>ダウンロードには時間がかかるため、授業中は先に先生へ知らせてください。先生が準備した端末があれば、それを使います。</p>
-<ol><li>Device Managerの <strong>＋ → Create Virtual Device</strong> をクリックします。画面によっては <strong>Create Device</strong> と表示されます。</li><li>Phoneの一覧で <strong>Pixel 9a</strong> を選び、<strong>Next</strong>。</li><li>先生が指定したAndroidの <strong>System Image</strong>（端末を動かすためのデータ）を選びます。このアプリでは <strong>API 31以上</strong> が必要です。</li><li>ダウンロードの印がある場合はクリックし、画面の案内に従います。ダウンロードが終わったら次へ進みます。</li><li>端末名を <code>jec_26cm_android1_Pixel 9a</code> にして <strong>Finish</strong>。名前を後から変える画面では、作成後の編集から同じ名前にします。</li><li>一覧の <strong>▶</strong> で起動し、ホーム画面が出ることを確認します。</li></ol>
-<div class="note"><p class="box-title">選ぶものに迷ったとき</p><p>APIの数値と、Macの種類に合うSystem Imageを先生に確認します。教材撮影用の教員端末はAndroid 17（API 37.1、arm64）です。学生は先生が授業用に指定した、利用できるイメージを選びます。</p></div>
+<ol><li>Device Managerの <strong>＋ → Create Virtual Device</strong> をクリックします。画面によっては <strong>Create Device</strong> と表示されます。</li><li>Phoneの一覧で <strong>Pixel 9a</strong> を選び、<strong>Next</strong>。</li><li>Androidの <strong>System Image</strong>（端末を動かすためのデータ）は <strong>API 37.1</strong> を選びます。</li><li>ダウンロードの印がある場合はクリックし、画面の案内に従います。ダウンロードが終わったら次へ進みます。</li><li>端末名を <code>jec_26cm_android1_Pixel 9a</code> にして <strong>Finish</strong>。名前を後から変える画面では、作成後の編集から同じ名前にします。</li><li>一覧の <strong>▶</strong> で起動し、ホーム画面が出ることを確認します。</li></ol>
+<div class="note"><p class="box-title">System Imageを選ぶときの注意</p><p>一覧には <strong>37.2</strong> も並びます。選ぶのは <strong>37.1</strong> のほうです。37.1 は名前に <strong>16 KB Page Size</strong> と付いたものしかないので、それを選んでください。</p></div>
 </section>
 <section id="run"><h2>3. アプリを動かす</h2>
 <ol><li>Android Studio上部で、実行するものが <strong>app</strong> になっているか確認します。</li><li>端末の選択欄で <strong>jec_26cm_android1_Pixel 9a</strong> を選びます。</li><li>上部の <strong>Run ▶</strong> をクリックします。</li><li>ビルド（コードからアプリを作る処理）が終わるまで待ちます。アプリの画面が出たら、そのステップの「成功の目印」と比べます。</li></ol>
@@ -30,7 +30,7 @@
 <tr><td>端末の画面が黒い</td><td>端末の電源ボタンを1回押す。起動直後なら待つ。数分変わらなければ先生に知らせる。</td></tr>
 <tr><td>アプリが出ない</td><td>下のBuildやRunのエラーを確認する。別の端末を選んでいないかも確認する。</td></tr>
 <tr><td>Gradle Syncが失敗する</td><td>ネット接続とエラーメッセージを確認し、先生に見せる。SDK・JDKなどの設定は教員用資料で確認する。</td></tr>
-<tr><td>APIが低いと言われる</td><td>API 31以上の授業用端末を選び直す。</td></tr>
+<tr><td>APIが低いと言われる</td><td><strong>API 37.1</strong> で作った授業用端末 <code>jec_26cm_android1_Pixel 9a</code> を選び直す。</td></tr>
 <tr><td>ずっと起動中・offlineのまま</td><td>先生に端末名と状態を見せる。必要なら先生と一緒に端末を停止して起動し直す。</td></tr>
 </tbody></table><p>端末が動けば、開いていた教科書のステップに戻ります。</p></section>
 <section><h2>公式資料</h2><ul><li><a href="https://developer.android.com/studio/run/managing-avds?hl=ja">Android Developers：仮想デバイスの作成と管理</a></li><li><a href="https://developer.android.com/studio/run?hl=ja">Android Developers：アプリのビルドと実行</a></li></ul></section>
