@@ -32,7 +32,7 @@
 - [共通資料：Logcatの使い方](docs/common/logcat.html)
 - [共通資料：提出用APKの作り方](docs/common/apk.html)
 - [共通資料：開発Tips（画面の余白・キーボード・画面回転）](docs/common/dev-tips.html)
-- [共通資料：ちがうバージョンで進めるとき（サポート範囲と読み替え）](docs/common/other-versions.html)
+- [共通資料：ちがうAndroid Studioのバージョンで進めるとき（サポート範囲と読み替え）](docs/common/other-versions.html)
 - [教員用：HelloAndroidの授業の進め方・確認項目](teacher/hello-android/index.html)
 - [教員用：CalcGameの授業の進め方・確認項目](teacher/calc-game/index.html)
 - [教員用：RockPaperScissorsGameの授業の進め方・確認項目](teacher/rock-paper-scissors-game/index.html)
@@ -66,7 +66,7 @@
 | フォルダ | 役割 |
 | --- | --- |
 | `Panda2JavaEmptyViewActivity` | 教員が出発点を確認するためのJava / Empty Views Activityのひな形（学生には非公開）。授業の基準バージョン **Android Studio Panda 2 \| 2025.3.2** で作成 |
-| `Quail4JavaEmptyViewActivity` | 上と同じ設定を **Android Studio Quail 4** で作ったひな形（学生には非公開）。基準より新しい版との差分を確認するための比較用。結果は[共通資料：ちがうバージョンで進めるとき](docs/common/other-versions.html)に掲載 |
+| `Quail4JavaEmptyViewActivity` | 上と同じ設定を **Android Studio Quail 4** で作ったひな形（学生には非公開）。基準より新しい版との差分を確認するための比較用。結果は[共通資料：ちがうAndroid Studioのバージョンで進めるとき](docs/common/other-versions.html)に掲載 |
 | `A01HelloAndroid` | 完成プロジェクト。配布用ZIPを教科書に同梱し、初回から学生も参照可能 |
 | `A02CalcGame` | 完成プロジェクト。配布用ZIPを教科書に同梱し、初回から学生も参照可能 |
 | `A03RockPaperScissorsGame` | 完成プロジェクト。配布用ZIPを教科書に同梱し、初回から学生も参照可能。STEP 2の画像もこのZIPから取り出す |
