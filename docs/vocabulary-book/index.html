@@ -33,8 +33,8 @@
 </div>
 <h3>できるようになること</h3>
 <ul><li>3つの画面を行き来できる。</li><li>同じ英単語を2回登録できないようにできる。</li><li>登録した単語を、別の画面のカードとして表示できる。</li><li><strong>単語を追加したとき、一覧を出し直す処理を書かなくても表示が変わる</strong>仕組みを説明できる。</li></ul>
-<h3>今日の道具</h3>
-<table><thead><tr><th>道具</th><th>どこで使うか</th><th>学んだ単元</th></tr></thead><tbody>
+<h3>今日使う技術</h3>
+<table><thead><tr><th>技術</th><th>どこで使うか</th><th>学んだ単元</th></tr></thead><tbody>
 <tr><td>画面の追加と行き来</td><td>メニュー画面から2つの画面を開く。</td><td>A06・A07</td></tr>
 <tr><td><code>Room</code></td><td>単語を保存する。</td><td>A10</td></tr>
 <tr><td><code>Snackbar</code></td><td>入力が空のときと、同じ単語のときに知らせる。</td><td>A07</td></tr>
@@ -503,6 +503,16 @@ public class CardAddActivity extends AppCompatActivity {
         context.startActivity(starter);
     }
 }</code></pre>
+<p><code>var itemDao</code> の行から下を、上から順に読みます。</p>
+<table><thead><tr><th>行のあたり</th><th>やっていること</th></tr></thead><tbody>
+<tr><td><code>var itemDao = AppDatabase.getInstance(this).itemDao();</code></td><td>データベースを取り出して、窓口（Dao）を受け取る。STEP 03の③と②で作ったものを、ここで使う</td></tr>
+<tr><td><code>itemDao.getAll().observe(this, items -&gt; { … });</code></td><td><code>getAll()</code> が返すLiveDataを見張る。<code>this</code> はこの画面、<code>items</code> は届いた単語の一覧。一覧は、画面を開いたときにまず1回届き、そのあとは単語が増えるたびに届く。<strong>届くたびに <code>{ }</code> の中が呼ばれる</strong></td></tr>
+<tr><td><code>var text = new StringBuilder();</code></td><td><code>StringBuilder</code> は、文字を後ろにつなげていける入れ物。作ったときは空</td></tr>
+<tr><td><code>for (var item : items)</code> と <code>text.append(item).append("\n");</code></td><td>一覧から単語を1件ずつ取り出し、<code>append</code> で入れ物の後ろにつなげる。<code>append(item)</code> は、<code>Item</code> の <code>toString()</code>（STEP 03 ①）で <code>apple : りんご</code> の形の文字にしてからつなげる。<code>"\n"</code> は改行</td></tr>
+<tr><td><code>txtCardList.setText(text.toString());</code></td><td><code>text.toString()</code> で入れ物の中身を1つの文字列にして、一覧に出す</td></tr>
+<tr><td><code>btn_add</code> のリスナ</td><td>入力のどちらかが空なら止める → 同じ英単語がすでにあれば止める（<code>countByEnglish</code> で数える）→ <code>upsert</code> → 入力欄を空にする</td></tr>
+<tr><td><code>static void start(…)</code></td><td>この画面を開くためのメソッド。次の③で、メニュー画面から呼ぶ</td></tr>
+</tbody></table>
 <div class="note"><p class="box-title">一覧を出し直す処理を書いていません</p><p><code>itemDao.upsert(...)</code> のあとに <code>setText</code> がありません。<strong>これが今回の新しいところです。</strong><code>observe</code> でLiveDataを見張っているので、単語が増えると <code>observe</code> の中が自動でもう一度呼ばれます。</p></div>
 <h3>③ メニュー画面からこの画面を開く</h3>
 <p><code>MainActivity.java</code> の <code>onCreate</code> の最後に追加します。</p>
@@ -767,6 +777,8 @@ public class MainActivity extends AppCompatActivity {
 <li><code>CardActivity</code> の <code>cardList.clear()</code> を消してRunする。単語を追加してカード画面に戻ると、全何問中になるか。</li>
 <li><code>activity_card.xml</code> の <code>android:enabled="false"</code> を2つとも消してRunし、単語が0件の状態で <strong>次へ</strong> を押すとどうなるか確かめる。</li>
 </ol>
+<h3>保存</h3>
+<p>自分の <code>Documents/Android1/A11VocabularyBook</code> を保存します。</p>
 <div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-7"><span>3つの画面がつながり、LiveDataの働きを説明できた。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
 </section>
 

@@ -32,8 +32,8 @@
 <figure><a href="images/app-top-initial.png"><img src="images/app-top-initial.png" width="1080" height="2424" loading="lazy" alt="TOP画面。タイトル画像の下に名前の入力欄、登録ボタン、ワリカン画面へボタン、参加者一覧の見出しが並んでいる"></a><figcaption>1つ目の画面。参加者の名前を登録します。 <a href="images/app-top-initial.png">画像を大きく開く</a></figcaption></figure>
 <figure><a href="images/app-split-result.png"><img src="images/app-split-result.png" width="1080" height="2424" loading="lazy" alt="ワリカン画面。1234と入力し、Sato 411円、Suzuki 412円、Tanaka 411円、合計1234円と表示されている"></a><figcaption>2つ目の画面。1234円を3人で割った結果です。 <a href="images/app-split-result.png">画像を大きく開く</a></figcaption></figure>
 </div>
-<h3>今日の道具</h3>
-<table><thead><tr><th>道具</th><th>どこで使うか</th></tr></thead><tbody>
+<h3>今日使う技術</h3>
+<table><thead><tr><th>技術</th><th>どこで使うか</th></tr></thead><tbody>
 <tr><td><code>ArrayList</code></td><td>登録した参加者の名前をためておく。</td></tr>
 <tr><td>Intentで配列を渡す</td><td>A06のTest 3と同じ形。参加者の名前を次の画面へ渡す。</td></tr>
 <tr><td>入力チェック</td><td>おかしな入力のときは計算せず、Snackbarで知らせる。</td></tr>
@@ -592,6 +592,8 @@ txtParticipantList.setText(result);</code></pre>
 <tr><td>金額を数字に変えられない</td><td>支払い金額は数字で入力してください</td></tr>
 <tr><td>金額が人数より少ない</td><td>○人で割るには○円以上を入力してください</td></tr>
 </tbody></table>
+<h3>保存</h3>
+<p>自分の <code>Documents/Android1/A07BillSplitter</code> を保存します。</p>
 <div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-11"><span>完成チェックを終え、配列の受け渡し・キーの定数を受け取る側に置く理由・入力チェックを画面側に書く理由を説明できた。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
 </section>
 

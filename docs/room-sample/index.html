@@ -33,8 +33,8 @@
 </div>
 <h3>できるようになること</h3>
 <ul><li>入力したタイトルを、1件ずつ保存できる。</li><li>保存したデータに自動で付く <code>id</code> の意味を説明できる。</li><li><code>id</code> を指定して、1件だけ書き換えられる。</li><li><code>id</code> を指定して、1件だけ消せる。</li></ul>
-<h3>今日の道具</h3>
-<table><thead><tr><th>道具</th><th>どこで使うか</th><th>学んだ単元</th></tr></thead><tbody>
+<h3>今日使う技術</h3>
+<table><thead><tr><th>技術</th><th>どこで使うか</th><th>学んだ単元</th></tr></thead><tbody>
 <tr><td><code>EditText</code> と <code>Button</code></td><td>タイトルとidを入力して、保存・削除する。</td><td>A07</td></tr>
 <tr><td><code>Snackbar</code></td><td>入力が空のときに知らせる。</td><td>A07</td></tr>
 <tr><td><code>ScrollView</code></td><td>データが増えても一覧を見られるようにする。</td><td>A09</td></tr>
@@ -477,6 +477,8 @@ public class MainActivity extends AppCompatActivity {
 <li>id欄に <code>1</code> を入れ、タイトルを空にして <strong>保存</strong> を押すとどうなるか、試して理由を説明する。</li>
 <li><code>btn_upsert</code> のリスナから <code>txtItemList.setText(itemList(itemDao));</code> の1行を消してRunする。保存したデータはどうなっているか、アプリを開き直して確かめる。</li>
 </ol>
+<h3>保存</h3>
+<p>自分の <code>Documents/Android1/A10RoomSample</code> を保存します。</p>
 <div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-7"><span>保存・書き換え・削除ができ、アプリを終了しても残ることを確認した。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
 </section>
 
