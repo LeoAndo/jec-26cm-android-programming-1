@@ -14,7 +14,7 @@ from zipfile import ZIP_DEFLATED, ZipFile, ZipInfo
 
 
 ROOT = Path(__file__).resolve().parents[1]
-ASSET_NAME = "android1-student-materials.zip"
+ASSET_STEM = "android1-student-materials"
 EXCLUDED = {".git", ".idea", ".gradle", ".kotlin", "build", "local.properties", ".DS_Store", "__pycache__"}
 
 
@@ -46,8 +46,11 @@ def check_links(files):
 def build(output_dir):
     revision = subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=ROOT, text=True).strip()
     timestamp = subprocess.check_output(["git", "show", "-s", "--format=%ct", "HEAD"], cwd=ROOT, text=True).strip()
-    date = datetime.fromtimestamp(int(timestamp), timezone(timedelta(hours=9))).strftime("%Y.%m.%d")
-    version = f"materials-{date}-{revision[:12]}"
+    published = datetime.fromtimestamp(int(timestamp), timezone(timedelta(hours=9)))
+    version = f"materials-{published:%Y.%m.%d}-{revision[:12]}"
+    # 学生のダウンロードフォルダで版を見分けられるよう、版タグと同じ日付を名前に入れる。
+    stem = f"{ASSET_STEM}-{published:%Y-%m-%d}"
+    asset_name = f"{stem}.zip"
 
     # リポジトリ内の古いZIPをそのまま配布せず、現在の完成コードを反映する。
     projects = [("A01HelloAndroid", "docs/hello-android/downloads/A01HelloAndroid.zip")]
@@ -134,7 +137,7 @@ def build(output_dir):
         raise ValueError("VocabularyBookの完成プロジェクトが見つかりません。")
     check_links(files)
 
-    metadata = {"version": version, "revision": revision, "asset": ASSET_NAME}
+    metadata = {"version": version, "revision": revision, "asset": asset_name}
     metadata_text = json.dumps(metadata, ensure_ascii=False, indent=2) + "\n"
     files["VERSION.json"] = metadata_text.encode()
     files["はじめに.txt"] = (
@@ -160,16 +163,16 @@ def build(output_dir):
     ).encode()
 
     output_dir.mkdir(parents=True, exist_ok=True)
-    archive_path = output_dir / ASSET_NAME
+    archive_path = output_dir / asset_name
     with ZipFile(archive_path, "w", compression=ZIP_DEFLATED) as archive:
         for name, data in sorted(files.items()):
-            info = ZipInfo(f"android1-student-materials/{name}", date_time=(1980, 1, 1, 0, 0, 0))
+            info = ZipInfo(f"{stem}/{name}", date_time=(1980, 1, 1, 0, 0, 0))
             info.create_system = 3
             info.external_attr = 0o100644 << 16
             info.compress_type = ZIP_DEFLATED
             archive.writestr(info, data)
     digest = hashlib.sha256(archive_path.read_bytes()).hexdigest()
-    (output_dir / "SHA256SUMS.txt").write_text(f"{digest}  {ASSET_NAME}\n", encoding="utf-8")
+    (output_dir / "SHA256SUMS.txt").write_text(f"{digest}  {asset_name}\n", encoding="utf-8")
     (output_dir / "release-metadata.json").write_text(metadata_text, encoding="utf-8")
     print(f"作成しました：{archive_path}（{len(files)}ファイル、{version}）")
 

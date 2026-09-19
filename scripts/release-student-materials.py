@@ -5,13 +5,16 @@ import hashlib
 import json
 import os
 from pathlib import Path
+import re
 import subprocess
 from urllib.parse import quote
 
 
 ROOT = Path(__file__).resolve().parents[1]
 DIST = ROOT / "dist"
-ASSETS = ("android1-student-materials.zip", "SHA256SUMS.txt")
+CHECKSUMS = "SHA256SUMS.txt"
+# 配布ZIPの名前は版ごとに変わるので、release-metadata.jsonから受け取る。
+ASSET_PATTERN = re.compile(r"android1-student-materials-\d{4}-\d{2}-\d{2}\.zip")
 
 
 def gh(*args, payload=None):
@@ -50,7 +53,7 @@ def summary(text):
 
 
 def prepare(repo, metadata):
-    version, revision = metadata["version"], metadata["revision"]
+    version, revision, asset = metadata["version"], metadata["revision"], metadata["asset"]
     previous = previous_release(releases(repo), version)
     payload = {"tag_name": version, "target_commitish": revision, "configuration_file_path": ".github/release.yml"}
     commit_range = revision
@@ -68,7 +71,7 @@ def prepare(repo, metadata):
     body = (
         f"# Androidプログラミング1 教材 {version}\n\n"
         "## ダウンロードと開き方\n\n"
-        "1. Assetsの **android1-student-materials.zip** をダウンロードして展開します。\n"
+        f"1. Assetsの **{asset}** をダウンロードして展開します。\n"
         "2. 授業で使う単元の教科書をブラウザで開きます。\n\n"
         "   - `A01 HelloAndroid：docs/hello-android/index.html`\n"
         "   - `A02 CalcGame：docs/calc-game/index.html`\n"
@@ -94,13 +97,13 @@ def prepare(repo, metadata):
 
 
 def publish(repo, metadata):
-    version, revision = metadata["version"], metadata["revision"]
+    version, revision, asset = metadata["version"], metadata["revision"], metadata["asset"]
     # 公開処理はActionsのmainからの明示的な手動実行に限定する。
     if os.environ.get("GITHUB_EVENT_NAME") != "workflow_dispatch" or os.environ.get("GITHUB_REF") != "refs/heads/main":
         raise ValueError("公開はmainを選んだRun workflowから実行してください。")
-    checksum = (DIST / "SHA256SUMS.txt").read_text(encoding="utf-8").strip()
-    actual = hashlib.sha256((DIST / ASSETS[0]).read_bytes()).hexdigest()
-    if checksum != f"{actual}  {ASSETS[0]}":
+    checksum = (DIST / CHECKSUMS).read_text(encoding="utf-8").strip()
+    actual = hashlib.sha256((DIST / asset).read_bytes()).hexdigest()
+    if checksum != f"{actual}  {asset}":
         raise ValueError("教材ZIPのチェックサムが一致しません。")
 
     current = next((item for item in releases(repo) if item["tag_name"] == version), None)
@@ -124,7 +127,7 @@ def publish(repo, metadata):
         gh("release", "create", version, "--repo", repo, "--target", revision,
            "--title", f"Androidプログラミング1 教材 {version}", "--draft", "--notes-file", str(notes))
     # 添付が揃ってから公開する。失敗時は下書きに留まり、同じrunの再実行で再開できる。
-    gh("release", "upload", version, *(str(DIST / name) for name in ASSETS), "--repo", repo, "--clobber")
+    gh("release", "upload", version, *(str(DIST / name) for name in (asset, CHECKSUMS)), "--repo", repo, "--clobber")
     if api(f"repos/{repo}/commits/main")["sha"] != revision:
         raise ValueError("実行中にmainが更新されています。下書きの公開を中止しました。mainから新しくRun workflowを実行してください。")
     gh("release", "edit", version, "--repo", repo, "--draft=false", "--latest")
@@ -139,8 +142,10 @@ def main():
         repo = os.environ["GH_REPO"]
         metadata = json.loads((DIST / "release-metadata.json").read_text(encoding="utf-8"))
         revision = subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=ROOT, text=True).strip()
-        if metadata["revision"] != revision or metadata["asset"] != ASSETS[0]:
+        if metadata["revision"] != revision:
             raise ValueError("教材の生成元とワークフローのコミットが一致しません。")
+        if not ASSET_PATTERN.fullmatch(metadata["asset"]):
+            raise ValueError(f"配布ZIPの名前が想定の形式ではありません：{metadata['asset']}")
         {"prepare": prepare, "publish": publish}[args.action](repo, metadata)
     except (KeyError, OSError, ValueError, subprocess.CalledProcessError) as error:
         raise SystemExit(f"リリース処理に失敗しました：{error}") from None

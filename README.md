@@ -52,7 +52,7 @@
 
 ### 学生への配布
 
-学生には [最新の教材リリース](https://github.com/LeoAndo/jec-26cm-android-programming-1/releases/latest) の Assets にある **android1-student-materials.zip** を案内します（初回公開後から利用可能）。展開後、授業で使う単元の `docs/hello-android/index.html`、`docs/calc-game/index.html`、`docs/rock-paper-scissors-game/index.html`、`docs/webview-app/index.html`、`docs/bomb-game/index.html`、`docs/screen-transition-sample/index.html`、`docs/bill-splitter/index.html`、`docs/shared-preferences-sample/index.html`、`docs/memo-app/index.html`、`docs/room-sample/index.html`、`docs/vocabulary-book/index.html` のいずれかをブラウザで開きます。各教科書から完成プロジェクトのZIPをダウンロードでき、初回から参考資料として使えます。
+学生には [最新の教材リリース](https://github.com/LeoAndo/jec-26cm-android-programming-1/releases/latest) の Assets にあるZIPを案内します（初回公開後から利用可能）。ファイル名には `android1-student-materials-2026-09-19.zip` のように版の日付が入り、展開してできるフォルダも同じ名前になります。ダウンロードフォルダでどの版か分かり、別の版を同じ場所に展開しても混ざりません。展開後、授業で使う単元の `docs/hello-android/index.html`、`docs/calc-game/index.html`、`docs/rock-paper-scissors-game/index.html`、`docs/webview-app/index.html`、`docs/bomb-game/index.html`、`docs/screen-transition-sample/index.html`、`docs/bill-splitter/index.html`、`docs/shared-preferences-sample/index.html`、`docs/memo-app/index.html`、`docs/room-sample/index.html`、`docs/vocabulary-book/index.html` のいずれかをブラウザで開きます。各教科書から完成プロジェクトのZIPをダウンロードでき、初回から参考資料として使えます。
 
 学生用ZIPには `docs` 一式と開き方・版情報を収録します。`teacher` フォルダと `Panda2JavaEmptyViewActivity` は収録しません。GitHubが自動で表示する **Source code (zip)** はリポジトリ全体のため、学生用ZIPには使いません。なお、このリポジトリ自体はPublicなので、教員用ファイルもGitHub上では閲覧できます。
 
@@ -160,7 +160,7 @@ python3 -m unittest discover -s scripts -p 'test_*.py' -v
 python3 scripts/package-student-materials.py
 ```
 
-`dist/android1-student-materials.zip` が生成されます。対象はGit管理された `docs` のファイルで、完成版ZIPはソースから再生成します。新しい教材・画像は `git add` 後に実行してください。ローカルの編集内容も含むため、正式な配布版はGitHub Actionsから公開します。
+`dist/android1-student-materials-2026-09-19.zip` のように、版の日付（HEADのコミット日時をJSTにした日付。版タグと同じ日付）が入った名前で生成されます。対象はGit管理された `docs` のファイルで、完成版ZIPはソースから再生成します。新しい教材・画像は `git add` 後に実行してください。ローカルの編集内容も含むため、正式な配布版はGitHub Actionsから公開します。
 
 単元を追加するときは、完成プロジェクトのZIP生成処理と `はじめに.txt` の単元一覧を `scripts/package-student-materials.py` に、リリースノートの単元一覧を `scripts/release-student-materials.py` に追加してください。あわせて `config/teaching-materials.json`（`scan_roots`、指定AVD名の `required_in`、`projects`）とREADMEのリンク・表も更新します。HTML・画像・共通資料は `docs` 配下のGit管理ファイルが自動で含まれます。
 
