@@ -426,7 +426,7 @@ Non-Bundled Plugins:
 4. 次の3つは例外として認める。
    - ループでidを動的に引く場合（A02CalcGameの数字ボタン9個）。
    - 配列の初期化子の中でまとめて取得する場合（A03RockPaperScissorsGame、A05BombGame）。`onCreate` の冒頭で取得していれば準拠とみなす。
-   - 取得したViewをその場でリスナを付けるためだけに使い、以後参照しない場合（A06ScreenTransitionSampleの `btn1`〜`btn5`）。変数に入れず直接つないでよい。
+   - 取得したViewをその場でリスナを付けるためだけに使い、以後参照しない場合（A06ScreenTransitionSampleの `btn1`〜`btn3`）。変数に入れず直接つないでよい。
 
 ## レイアウトの余白
 5. 一番外側（`@+id/main` を付けた部品）に `android:padding` を書かない。ひな形の `setPadding` が実行時に置き換えるため指定は効かず、Android Studioのプレビューと実機で見た目が食い違う。余白が必要なときは、中の部品の `android:layout_margin` を使うか、内側にもう1つ入れ物を置いてそちらに `padding` を書く。学生向けの説明は[共通資料：開発Tips](docs/common/dev-tips.html)にある。
