@@ -352,6 +352,57 @@ class TeachingMaterialsCheckTest(unittest.TestCase):
             self.assertEqual(len(errors), 1, errors)
             self.assertIn("登録のない単元があります: A04：Four（../four/index.html）", errors[0])
 
+    def test_sidebar_with_duplicated_unit_is_rejected(self):
+        """単元を足すときのコピーで、同じ単元が2回並んだ状態を検出する。"""
+        with tempfile.TemporaryDirectory() as temporary:
+            textbooks = {folder: self._sidebar(folder) for _, folder in self.SIDEBAR_UNITS}
+            textbooks["two"] = self._sidebar("two", order=["one", "one", "two", "three"])
+            errors = self._sidebar_errors(Path(temporary), textbooks)
+            self.assertEqual(len(errors), 1, errors)
+            self.assertIn("projectsの順に並んでいません: A01：One、A01：One、A02：Two、A03：Three", errors[0])
+
+    def test_sidebar_with_link_around_current_unit_is_rejected(self):
+        """現在地をリンクで包むと、リンクにしない決まりをすり抜けるので検出する。"""
+        with tempfile.TemporaryDirectory() as temporary:
+            textbooks = {folder: self._sidebar(folder) for _, folder in self.SIDEBAR_UNITS}
+            textbooks["two"] = textbooks["two"].replace(
+                '<span aria-current="page">A02：Two</span>',
+                '<a href="../two/index.html"><span aria-current="page">A02：Two</span></a>', 1)
+            errors = self._sidebar_errors(Path(temporary), textbooks)
+            self.assertTrue(any("単元の中に、別のタグがあります: <span>" in error for error in errors), errors)
+            self.assertTrue(any("いま開いている単元がリンクになっています: A02：Two" in error for error in errors), errors)
+
+    def test_sidebar_ignores_topbar_and_nested_div(self):
+        """topbarの単元リンクは検査しない。resources の中の <div> は、サイドバーの終わりと取り違えない。"""
+        with tempfile.TemporaryDirectory() as temporary:
+            textbooks = {folder: self._sidebar(folder) for _, folder in self.SIDEBAR_UNITS}
+            textbooks["two"] = (
+                '<header class="topbar"><a href="../one/index.html">A01 One</a></header>\n'
+                + textbooks["two"].replace(
+                    '<a href="../one/index.html">A01：One</a>',
+                    '<div class="group"><a href="../one/index.html">A01：One</a></div>', 1))
+            errors = self._sidebar_errors(Path(temporary), textbooks)
+            self.assertEqual(errors, [])
+
+    def test_projects_out_of_unit_number_order_are_rejected(self):
+        """サイドバーは projects の順と照合するので、projects が単元番号順でなければ検出する。"""
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            self._project_root(root, {
+                "scan_roots": [],
+                "terms": [],
+                "projects": [{
+                    "name": name, "package": "p", "root": name,
+                    "docs": [f"docs/{name}/index.html", f"teacher/{name}/index.html"],
+                    "source_java": f"{name}/j.java", "source_xml": f"{name}/l.xml",
+                    "snippets": [], "archive": f"docs/{name}/downloads/{name}.zip",
+                } for name in ["A01One", "A03Three", "A02Two"]],
+            })
+            errors = [error for error in CHECKER.validate(root) if "単元番号順" in error]
+            self.assertEqual(len(errors), 1, errors)
+            self.assertIn("config/teaching-materials.json:1", errors[0])
+            self.assertIn("A03ThreeのあとにA02Twoがあります", errors[0])
+
     def test_textbook_without_sidebar_is_rejected(self):
         """サイドバーそのものがない教科書は、並びを確かめようがないので検出する。"""
         with tempfile.TemporaryDirectory() as temporary:

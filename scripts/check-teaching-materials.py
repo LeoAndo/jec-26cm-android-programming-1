@@ -290,6 +290,7 @@ class SidebarUnits(HTMLParser):
 
     ほかの単元は <a href="../<単元>/index.html">、いま開いている単元は
     <span aria-current="page"> で書く。「困ったとき」や共通資料へのリンクは集めない。
+    resources の外（topbarの直前の単元へのリンクなど）も集めない。
     """
 
     UNIT_HREF = re.compile(r"\.\./[^/?#]+/index\.html")
@@ -297,8 +298,11 @@ class SidebarUnits(HTMLParser):
     def __init__(self):
         super().__init__()
         self.found = False
+        self.line = 1  # <div class="resources"> の行
         self.units: list[tuple[str | None, str]] = []  # (リンク先。現在地は None, 表示名)
+        self.nested: list[str] = []  # 単元の項目の中に入っていたタグ
         self._depth = 0  # resources の中にいるあいだの <div> の深さ
+        self._tag: str | None = None  # いま集めている単元を開いたタグ
         self._href: str | None = None
         self._text: list[str] | None = None
 
@@ -308,15 +312,20 @@ class SidebarUnits(HTMLParser):
             if self._depth:
                 self._depth += 1
             elif "resources" in (values.get("class") or "").split():
+                if not self.found:
+                    self.line = self.getpos()[0]
                 self.found = True
                 self._depth = 1
             return
         if not self._depth:
             return
-        if tag == "a" and self.UNIT_HREF.fullmatch(values.get("href") or ""):
-            self._href, self._text = values["href"], []
+        if self._text is not None:
+            # 単元の項目は、文字だけの <a> か <span>。入れ子にすると、リンクと現在地を取り違える。
+            self.nested.append(tag)
+        elif tag == "a" and self.UNIT_HREF.fullmatch(values.get("href") or ""):
+            self._tag, self._href, self._text = tag, values["href"], []
         elif tag == "span" and values.get("aria-current") == "page":
-            self._href, self._text = None, []
+            self._tag, self._href, self._text = tag, None, []
 
     def handle_data(self, data):
         if self._text is not None:
@@ -325,9 +334,9 @@ class SidebarUnits(HTMLParser):
     def handle_endtag(self, tag):
         if tag == "div" and self._depth:
             self._depth -= 1
-        elif tag in ("a", "span") and self._text is not None:
+        elif tag == self._tag and self._text is not None:
             self.units.append((self._href, "".join(self._text).strip()))
-            self._text = None
+            self._tag = self._text = None
 
 
 def check_sidebar_units(root: Path, config: dict, errors: list[str]) -> None:
@@ -335,8 +344,19 @@ def check_sidebar_units(root: Path, config: dict, errors: list[str]) -> None:
 
     単元を足したのに、ほかの単元のサイドバーを直し忘れる事故を捕まえる。
     いま開いている単元はリンクにせず、現在地（aria-current="page"）として示す。
+    見るのは単元の並び・リンク先・表示名で、共通資料へのリンクとの位置関係は見ない。
+    topbar（直前の単元へのリンク）も見ない。
     """
     projects = config["projects"]
+    # サイドバーは projects の順と照合するので、projects そのものが単元番号順でなければならない。
+    numbered = []
+    for project in projects:
+        match = re.match(r"^A(\d+)", project["name"])
+        if match:
+            numbered.append((int(match.group(1)), project["name"]))
+    for (previous_number, previous_name), (number, name) in zip(numbered, numbered[1:]):
+        if number <= previous_number:
+            add(errors, root, CONFIG.as_posix(), 1, f"projectsが単元番号順に並んでいません: {previous_name}のあとに{name}があります")
     for current in projects:
         textbook_name = current["docs"][0]
         path = root / textbook_name
@@ -348,7 +368,9 @@ def check_sidebar_units(root: Path, config: dict, errors: list[str]) -> None:
         if not sidebar.found:
             add(errors, root, path, 1, 'サイドバー（<div class="resources">）がありません')
             continue
-        line = line_of(text, 'class="resources"')
+        line = sidebar.line
+        for tag in sidebar.nested:
+            add(errors, root, path, line, f"サイドバーの単元の中に、別のタグがあります: <{tag}>")
         expected: list[tuple[str | None, str]] = []
         for unit in projects:
             number, label = _split_unit(unit["name"])
