@@ -30,7 +30,7 @@
 - [共通資料：エミュレータの準備とアプリの実行](docs/common/emulator.html)
 - [共通資料：Auto Importの設定](docs/common/auto-import.html)
 - [共通資料：Logcatの使い方](docs/common/logcat.html)
-- [共通資料：提出用APKの作り方](docs/common/apk.html)
+- [共通資料：提出課題とAPKの作り方（自分で作ったアプリを3つ選んで提出する）](docs/common/apk.html)
 - [共通資料：開発Tips（画面の余白・キーボード・画面回転）](docs/common/dev-tips.html)
 - [共通資料：ちがうAndroid Studioのバージョンで進めるとき（サポート範囲と読み替え）](docs/common/other-versions.html)
 - [教員用：HelloAndroidの授業の進め方・確認項目](teacher/hello-android/index.html)
