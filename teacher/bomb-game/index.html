@@ -20,7 +20,7 @@
 <tr><td>ログは <code>Log.d</code> にそろえ、スイッチの確認に使う</td><td>A01・A03と<a href="../../docs/common/logcat.html">共通資料：Logcat</a>は、<code>Log.d</code> と <code>level:DEBUG</code> で統一している。最初の完成コードは、ここだけ <code>Log.i</code> だった。そろえると、検索欄がほかの単元と同じまま使え、「ここだけInfoの理由」の説明が要らない（PR #11、42e62e9）。</td><td>STEP 5で、ログが2行出ることを確かめる。STEP 7・9は、このログでスイッチを見ながら、着火・爆発・クリアを試す。</td></tr>
 <tr><td>9個の数字ボタンは、<strong>配列の初期化子の中で</strong> <code>findViewById</code> を呼ぶ</td><td>全単元共通のルールでは、<code>findViewById</code> は <code>onCreate</code> の冒頭でまとめて呼ぶ。配列の初期化子の中で呼ぶ形は、冒頭で取得していれば準拠とみなす例外として、READMEに明文化している（issue #21、PR #25）。</td><td>STEP 6①で、配列にまとめる形をそのまま示す。A03の <code>imageViews</code> と同じ書き方。</td></tr>
 <tr><td>画像3枚は別に配布せず、<strong>完成版ZIPから学生がコピー</strong>する</td><td>A03と同じ方式。完成版は初回から公開するので、画像を別に配ると二重管理になる（A03のPR #9）。</td><td>STEP 2は「A03と同じ手順」と伝え、貼り付け先が <code>samples</code> 側でないかを確認する。</td></tr>
-<tr><td>教科書の冒頭のタグは「A01〜A03の内容を使う」のまま</td><td>A04の教科書を追加したとき、「前の単元」のリンクはA04に変えたが、タグは変えなかった。学習内容はA01〜A03を使い、A04（WebView）の内容は使わないため（PR #17）。</td><td>STEP 0の冒頭で、A01〜A03の何を使うか（画面・配列とfor文・乱数・フィールド）を確認する。</td></tr>
+<tr><td>教科書の冒頭のタグは「A01〜A03の内容を使う」のまま</td><td>A04の教科書を追加したとき、上部にある前の単元へのリンクはA04に変えたが、タグは変えなかった。学習内容はA01〜A03を使い、A04（WebView）の内容は使わないため（PR #17）。</td><td>STEP 0の冒頭で、A01〜A03の何を使うか（画面・配列とfor文・乱数・フィールド）を確認する。</td></tr>
 </tbody></table>
 <div class="note"><p class="box-title">完成コードを説明するときの注意</p><p>クリア判定の <code>else { // ゲーム続行</code> には、爆発（ゲームオーバー）の表示も含まれます。教科書STEP 9では「クリアではないとき」と説明しています。<code>btnRetry</code> は、<code>txtMessage</code> や <code>imgBomb</code> と違ってキャストしていません。教科書STEP 6①は「クリック登録と表示の切り替えだけを使うため、A03と同じくキャストしない」と説明しています。<code>if (match) nowState++;</code> の <code>{ }</code> の省略は、STEP 7②の表で説明しています。Stream APIを含め、完成コードの書き方は変えません。教科書で説明します。</p></div>
 </section>
