@@ -69,14 +69,13 @@
 
 <section id="step-2" aria-labelledby="title-2">
 <p class="step-meta">STEP 02 · 目安 10分</p><h2 id="title-2">タイトル画像を入れる</h2>
-<p>TOP画面の上に置く<strong>タイトル画像</strong>を追加します。画像の <code>title_img.png</code> は、次のボタンからダウンロードします。</p>
-<ol><li><a class="button-link" href="downloads/title_img.png" download>title_img.png</a> を押します。教科書の開き方とブラウザによって、押したあとの動きが変わります。下の表を見て、<strong>ダウンロード</strong> フォルダに保存します。</li></ol>
-<table><thead><tr><th>ボタンを押したあと</th><th>すること</th></tr></thead><tbody>
-<tr><td>画像が大きく表示された</td><td>画像の上で右クリックし、画像を保存する項目を選びます。Chromeは <strong>名前を付けて画像を保存…</strong>、Safariは <strong>イメージを"ダウンロード"に保存</strong> です。保存先を聞かれたら、名前は変えずに <strong>ダウンロード</strong> フォルダへ保存します。保存したら、ブラウザの <strong>←</strong>（戻る）で教科書に戻ります。</td></tr>
-<tr><td>ダウンロードが始まった</td><td>そのままで大丈夫です。ブラウザが <strong>ダウンロード</strong> フォルダに保存しています。</td></tr>
-</tbody></table>
-<ol start="2"><li>Finderを開き、左側の <strong>ダウンロード</strong> をクリックします。<code>title_img.png</code> を選び、<kbd>⌘ C</kbd> でコピーします。</li><li>Android Studioの左側で <code>app → src → main → res → drawable</code> をクリックし、<kbd>⌘ V</kbd> で貼り付けます。</li><li>Copyのダイアログが出ます。New nameが <code>title_img.png</code>、To directoryの最後が <code>A07BillSplitter/app/src/main/res/drawable</code> になっていることを確認して <strong>OK</strong> を押します。</li></ol>
-<figure><a href="images/drawable-copy.png"><img src="images/drawable-copy.png" width="2050" height="836" loading="lazy" alt="Copyダイアログ。New nameにtitle_img.png、To directoryにA07BillSplitter/app/src/main/res/drawableが表示されている"></a><figcaption>貼り付け先がdrawableになっているか確認します。 <a href="images/drawable-copy.png">画像を大きく開く</a></figcaption></figure>
+<p>TOP画面の上に置く<strong>タイトル画像</strong>を追加します。画像の <code>title_img.png</code> は、教科書といっしょに配られた<strong>教材のフォルダ</strong>に入っています。Finderでコピーして、自分のプロジェクトに入れます。</p>
+<ol><li>Finderを開き、左側の <strong>書類</strong> をクリックします。教材のフォルダをダブルクリックで開きます。名前は <code>android1-student-materials-</code> のうしろに日付が付いた形で、日付は配られた回によって変わります。</li>
+<li>その中を <code>docs → bill-splitter → downloads</code> の順に開きます。<code>bill-splitter</code> は、いま読んでいるこの教科書（<code>index.html</code>）が入っているフォルダです。</li>
+<li><code>title_img.png</code> を選び、<kbd>⌘ C</kbd> でコピーします。同じフォルダには、完成プロジェクトの <code>A07BillSplitter.zip</code> と、STEP 07で使う <code>.java</code> のファイルも入っています。ここでは選びません。</li></ol>
+<div class="note"><p class="box-title">教材のフォルダが見つからないとき</p><p>教材のフォルダは、はじめの準備で「書類」へ移動したものです（<a href="../common/setup.html?from=bill-splitter#materials">共通資料：はじめの準備</a>の1.）。まだ移動していなければ、先にそちらを行います。同じ教材を2回ダウンロードして名前のうしろに <code>(1)</code> が付いたものがあるときは、自分で判断せず先生に見せてください。</p></div>
+<ol start="4"><li>Android Studioの左側で <code>app → src → main → res → drawable</code> をクリックし、<kbd>⌘ V</kbd> で貼り付けます。</li><li>Copyのダイアログが出ます。New nameが <code>title_img.png</code>、To directoryの最後が <code>A07BillSplitter/app/src/main/res/drawable</code> になっていることを確認して <strong>OK</strong> を押します。</li></ol>
+<figure><a href="images/drawable-copy.png"><img src="images/drawable-copy.png" width="2050" height="836" loading="lazy" alt="Copyダイアログ。New nameにtitle_img.png、To directoryにA07BillSplitter/app/src/main/res/drawableが表示されている"></a><figcaption>貼り付け先がdrawableになっているか確認します。この画面は先生の例です。<strong>Copy file</strong> のうしろ（コピー元の場所）は、自分の画面では教材のフォルダの中の場所になります。 <a href="images/drawable-copy.png">画像を大きく開く</a></figcaption></figure>
 <figure><a href="images/drawable-files.png"><img src="images/drawable-files.png" width="836" height="678" loading="lazy" alt="プロジェクト画面のdrawableフォルダに、ic_launcher_background.xml、ic_launcher_foreground.xml、title_img.pngが並んでいる"></a><figcaption>drawableの中に <code>title_img.png</code> が増えていれば成功です。 <a href="images/drawable-files.png">画像を大きく開く</a></figcaption></figure>
 <div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-2"><span>title_img.pngをres/drawableに入れ、プロジェクト画面で確認できた。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
 <div class="next"><a href="#step-3">次へ：TOP画面のレイアウトを作る →</a></div></section>

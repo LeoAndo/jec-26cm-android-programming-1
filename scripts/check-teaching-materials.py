@@ -182,45 +182,52 @@ def check_project(root: Path, project: dict, errors: list[str]) -> None:
 
 
 
-class AnchorLinks(HTMLParser):
-    """<a> のリンク先を集める。download 属性が付いているものは別に覚える。"""
+class SectionTexts(HTMLParser):
+    """<section> ごとに、中に書かれた文字を集める。入れ子の <section> は外側にまとめる。"""
 
     def __init__(self):
         super().__init__()
-        self.hrefs: set[str] = set()
-        self.downloads: set[str] = set()
+        self.texts: list[str] = []
+        self._depth = 0
+        self._parts: list[str] = []
 
     def handle_starttag(self, tag, attrs):
-        if tag != "a":
+        if tag == "section":
+            self._depth += 1
+
+    def handle_data(self, data):
+        if self._depth:
+            self._parts.append(data)
+
+    def handle_endtag(self, tag):
+        if tag != "section" or not self._depth:
             return
-        values = dict(attrs)
-        href = values.get("href")
-        if not href:
-            return
-        self.hrefs.add(href)
-        if "download" in values:
-            self.downloads.add(href)
+        self._depth -= 1
+        if not self._depth:
+            # 改行や字下げの違いで照合が外れないよう、空白は1つにまとめる。
+            self.texts.append(" ".join("".join(self._parts).split()))
+            self._parts = []
 
 
 def check_downloads(root: Path, project: dict, errors: list[str]) -> None:
-    """教科書の案内で学生が自分で手に入れるファイルが、完成プロジェクトのソースと同じか確かめる。
+    """教材のフォルダから学生が自分でコピーするファイルが、完成プロジェクトのソースと同じか確かめる。
 
     ZIPの検査が「ZIPの中身＝ソース」を保証するので、ここで「配布ファイル＝ソース」を確かめれば、
     学生がどこから取っても同じ中身になる。
-    手に入れ方は設定の guidance で分ける。"link"（既定）は教科書のダウンロードボタン、
-    "finder" は教材フォルダをFinderで開いてコピーさせる形で、ブラウザで保存できない
-    .java などに使う。どちらも、教科書から案内が消えたらここで検出する。
+    学生は、教材のフォルダをFinderで開いてコピーする。ダウンロードボタンにはしない。
+    教科書をファイルとして開いていると（file://）ブラウザが download 属性を無視し、
+    押しても保存されずに中身が表示されるだけだからである（issue #192）。
+    教科書から置き場所やファイル名の案内が消えたら、ここで検出する。
     """
     downloads = project.get("downloads", [])
     if not downloads:
         return
     sources = archive_sources(root, project["root"])
-    textbook_name = project["docs"][0]
-    textbook_path = root / textbook_name
-    textbook = read(textbook_path) if textbook_path.is_file() else None
-    links = AnchorLinks()
-    if textbook is not None:
-        links.feed(textbook)
+    textbook_path = root / project["docs"][0]
+    sections = SectionTexts()
+    if textbook_path.is_file():
+        sections.feed(read(textbook_path))
+    unguided_folders: set[str] = set()
     for item in downloads:
         download_path = root / item["download"]
         source_path = root / item["source"]
@@ -239,23 +246,21 @@ def check_downloads(root: Path, project: dict, errors: list[str]) -> None:
                     add(errors, root, download_path, 1, f"配布ファイルとソースの内容が一致しません: {item['source']}（ソースからコピーし直してください）")
             except OSError as error:
                 add(errors, root, download_path, 1, f"配布ファイルを読み込めません: {error}")
-        if textbook is None:
+        if not textbook_path.is_file():
             continue
-        if item.get("guidance", "link") == "finder":
-            # Finderで開かせるので、置き場所のフォルダとファイル名が教科書に書いてあること。
-            # 配布物の中での場所なので、リポジトリのパスをそのまま矢印でつないだ形で照合する。
-            folder = " → ".join(Path(item["download"]).parent.parts)
-            if folder not in textbook:
+        # Finderで開かせるので、置き場所のフォルダとファイル名が、同じSTEP（<section>）に書いてあること。
+        # 教科書のどこかにあればよい、とはしない。同じフォルダに別のSTEPで使うファイルも入るので
+        # （A07のタイトル画像と BillSplitter.java）、片方のSTEPから案内が消えても通ってしまう。
+        # 置き場所は配布物の中での場所なので、リポジトリのパスをそのまま矢印でつないだ形で照合する。
+        folder = " → ".join(Path(item["download"]).parent.parts)
+        guided = [text for text in sections.texts if folder in text]
+        if not guided:
+            # 同じフォルダのファイルが何枚あっても、直す場所は1つなので1回だけ出す。
+            if folder not in unguided_folders:
+                unguided_folders.add(folder)
                 add(errors, root, textbook_path, 1, f"配布ファイルの置き場所の案内がありません: {folder}")
-            if name not in textbook:
-                add(errors, root, textbook_path, 1, f"配布ファイルのファイル名の案内がありません: {name}")
-            continue
-        link = posixpath.relpath(item["download"], posixpath.dirname(textbook_name))
-        if link not in links.hrefs:
-            add(errors, root, textbook_path, 1, f"配布ファイルへのリンクがありません: {link}")
-        elif link not in links.downloads:
-            # download がないと、httpで配信したときも保存されず、ブラウザに中身が表示される。
-            add(errors, root, textbook_path, line_of(textbook, f'href="{link}"'), f"配布ファイルへのリンクにdownload属性がありません: {link}")
+        elif not any(name in text for text in guided):
+            add(errors, root, textbook_path, 1, f"配布ファイルのファイル名の案内がありません: {name}（置き場所 {folder} と同じSTEPに書いてください）")
 
 
 def _split_unit(name: str) -> tuple[str, str]:

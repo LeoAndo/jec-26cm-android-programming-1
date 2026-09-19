@@ -80,18 +80,16 @@ txtItemList.setText(itemList(itemDao));   // 自分で出し直す</code></pre>
 <section id="step-2" aria-labelledby="title-2">
 <p class="step-meta">STEP 02 · 目安 10分</p><h2 id="title-2">画像とRoomの準備</h2>
 <h3>① タイトル画像を入れる</h3>
-<p>タイトル画像の <code>logoeng.png</code> をダウンロードして、プロジェクトに入れます。A03・A05・A07・A09でやった手順と同じです。</p>
-<ol><li><a class="button-link" href="downloads/logoeng.png" download>logoeng.png</a> を押します。教科書の開き方とブラウザによって、押したあとの動きが変わります。下の表を見て、<strong>ダウンロード</strong> フォルダに保存します。</li></ol>
-<table><thead><tr><th>ボタンを押したあと</th><th>すること</th></tr></thead><tbody>
-<tr><td>画像が大きく表示された</td><td>画像の上で右クリックし、画像を保存する項目を選びます。Chromeは <strong>名前を付けて画像を保存…</strong>、Safariは <strong>イメージを"ダウンロード"に保存</strong> です。保存先を聞かれたら、名前は変えずに <strong>ダウンロード</strong> フォルダへ保存します。保存したら、ブラウザの <strong>←</strong>（戻る）で教科書に戻ります。</td></tr>
-<tr><td>ダウンロードが始まった</td><td>そのままで大丈夫です。ブラウザが <strong>ダウンロード</strong> フォルダに保存しています。</td></tr>
-</tbody></table>
-<ol start="2">
-<li>Finderを開き、左側の <strong>ダウンロード</strong> をクリックします。<code>logoeng.png</code> を選び、コピーします（<kbd>⌘ C</kbd>）。</li>
+<p>タイトル画像の <code>logoeng.png</code> は、教科書といっしょに配られた<strong>教材のフォルダ</strong>に入っています。Finderでコピーして、プロジェクトに入れます。A03・A05・A07・A09でやった手順と同じです。</p>
+<ol><li>Finderを開き、左側の <strong>書類</strong> をクリックします。教材のフォルダをダブルクリックで開きます。名前は <code>android1-student-materials-</code> のうしろに日付が付いた形で、日付は配られた回によって変わります。</li>
+<li>その中を <code>docs → vocabulary-book → downloads</code> の順に開きます。<code>vocabulary-book</code> は、いま読んでいるこの教科書（<code>index.html</code>）が入っているフォルダです。</li>
+<li><code>logoeng.png</code> を選び、コピーします（<kbd>⌘ C</kbd>）。同じフォルダにある <code>A11VocabularyBook.zip</code> は完成プロジェクトです。選びません。</li></ol>
+<div class="note"><p class="box-title">教材のフォルダが見つからないとき</p><p>教材のフォルダは、はじめの準備で「書類」へ移動したものです（<a href="../common/setup.html?from=vocabulary-book#materials">共通資料：はじめの準備</a>の1.）。まだ移動していなければ、先にそちらを行います。同じ教材を2回ダウンロードして名前のうしろに <code>(1)</code> が付いたものがあるときは、自分で判断せず先生に見せてください。</p></div>
+<ol start="4">
 <li>Android Studioのプロジェクト画面で <code>app/src/main/res/drawable</code> フォルダをクリックして選び、貼り付けます（<kbd>⌘ V</kbd>）。</li>
 <li>確認のウィンドウで <strong>New name</strong> が <code>logoeng.png</code>、<strong>To directory</strong> の末尾が <code>app/src/main/res/drawable</code> になっていることを確かめて <strong>OK</strong> を押します。</li>
 </ol>
-<figure><a href="images/drawable-copy.png"><img src="images/drawable-copy.png" width="2018" height="782" loading="lazy" alt="Project表示でdrawableフォルダを選び、Copyダイアログが開いている。New nameはlogoeng.png、To directoryの末尾はA11VocabularyBook/app/src/main/res/drawable"></a><figcaption>To directoryの末尾が A11VocabularyBook/app/src/main/res/drawable になっていればOK。画像のパスは先生の保存先の例です。 <a href="images/drawable-copy.png">画像を大きく開く</a></figcaption></figure>
+<figure><a href="images/drawable-copy.png"><img src="images/drawable-copy.png" width="2018" height="782" loading="lazy" alt="Project表示でdrawableフォルダを選び、Copyダイアログが開いている。New nameはlogoeng.png、To directoryの末尾はA11VocabularyBook/app/src/main/res/drawable"></a><figcaption>To directoryの末尾が A11VocabularyBook/app/src/main/res/drawable になっていればOK。この画面は先生の例です。<strong>Copy file</strong> のうしろ（コピー元の場所）は、自分の画面では教材のフォルダの中の場所になります。 <a href="images/drawable-copy.png">画像を大きく開く</a></figcaption></figure>
 <div class="note"><p class="box-title">ファイル名は変えません</p><p>このあとXMLから <code>@drawable/logoeng</code> という名前で呼び出します。<strong>名前を変えると見つからなくなります。</strong></p></div>
 <h3>② Roomを使えるようにする</h3>
 <p>Roomは、Android Studioに最初から入っている部品ではありません。<strong>使うと宣言してから</strong>使います。A10でも行った準備です。宣言は2つのファイルに分けて書きます。</p>

@@ -175,12 +175,17 @@ class TeachingMaterialsCheckTest(unittest.TestCase):
 
             self.assertTrue(any("実行権限が一致しません: Sample/gradlew" in error for error in errors))
 
-    def _image_root(self, root: Path, download: bytes, textbook: str,
-                    download_name: str = "title.png", guidance: str | None = None) -> None:
+    PNG = b"\x89PNG\r\n\x1a\n" + bytes(range(64))
+    # 置き場所とファイル名を、同じSTEP（<section>）に書いた教科書。
+    GUIDE = ('<section id="step-2"><ol><li>教材のフォルダの <code>docs → x → downloads</code> を開きます。</li>'
+             "<li><code>title.png</code> をコピーします。</li></ol></section>")
+
+    def _download_root(self, root: Path, download: bytes, textbook: str,
+                       download_name: str = "title.png") -> None:
         """配布ファイルの検査に必要な最小限のリポジトリを作る。"""
         source = root / "Sample/app/src/main/res/drawable/title.png"
         source.parent.mkdir(parents=True)
-        source.write_bytes(b"\x89PNG\r\n\x1a\n" + bytes(range(64)))
+        source.write_bytes(self.PNG)
         (root / "docs/x/downloads").mkdir(parents=True)
         (root / "docs/x/downloads" / download_name).write_bytes(download)
         (root / "docs/x/index.html").write_text(textbook, encoding="utf-8")
@@ -194,124 +199,108 @@ class TeachingMaterialsCheckTest(unittest.TestCase):
                 "docs": ["docs/x/index.html", "teacher/x/index.html"],
                 "source_java": "Sample/j.java", "source_xml": "Sample/l.xml",
                 "snippets": [], "archive": "docs/x/downloads/Sample.zip",
-                "downloads": [dict({
+                "downloads": [{
                     "download": f"docs/x/downloads/{download_name}",
                     "source": "Sample/app/src/main/res/drawable/title.png",
-                }, **({"guidance": guidance} if guidance else {}))],
+                }],
             }],
         })
 
-    def _image_errors(self, root: Path) -> list[str]:
+    def _download_errors(self, root: Path) -> list[str]:
         return [error for error in CHECKER.validate(root) if "配布ファイル" in error]
 
-    def test_image_identical_to_source_is_accepted(self):
+    def test_download_identical_to_source_is_accepted(self):
         with tempfile.TemporaryDirectory() as temporary:
             root = Path(temporary)
-            source = b"\x89PNG\r\n\x1a\n" + bytes(range(64))
-            self._image_root(root, source, '<a href="downloads/title.png" download>title.png</a>')
-            self.assertEqual(self._image_errors(root), [])
+            self._download_root(root, self.PNG, self.GUIDE)
+            self.assertEqual(self._download_errors(root), [])
 
-    def test_image_differing_by_one_byte_is_rejected(self):
+    def test_download_folder_written_as_separate_codes_is_accepted(self):
+        """置き場所は、フォルダ名を1つずつ <code> で囲んでも、途中で改行しても通る。"""
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            self._download_root(
+                root, self.PNG,
+                "<section><p><code>docs</code> →\n  <code>x</code> → <code>downloads</code> の title.png をコピーします。</p></section>")
+            self.assertEqual(self._download_errors(root), [])
+
+    def test_download_differing_by_one_byte_is_rejected(self):
         """配布ファイルが、完成プロジェクトのソースと1バイトでも違えば検出する。"""
         with tempfile.TemporaryDirectory() as temporary:
             root = Path(temporary)
-            changed = bytearray(b"\x89PNG\r\n\x1a\n" + bytes(range(64)))
+            changed = bytearray(self.PNG)
             changed[-1] ^= 0x01
-            self._image_root(root, bytes(changed), '<a href="downloads/title.png" download>title.png</a>')
-            errors = self._image_errors(root)
+            self._download_root(root, bytes(changed), self.GUIDE)
+            errors = self._download_errors(root)
             self.assertEqual(len(errors), 1, errors)
             self.assertIn("docs/x/downloads/title.png:1", errors[0])
             self.assertIn("内容が一致しません: Sample/app/src/main/res/drawable/title.png", errors[0])
 
-    def test_image_without_textbook_link_is_rejected(self):
-        """画像を置いただけで、教科書からリンクしていない状態を検出する。"""
-        with tempfile.TemporaryDirectory() as temporary:
-            root = Path(temporary)
-            source = b"\x89PNG\r\n\x1a\n" + bytes(range(64))
-            self._image_root(root, source, "<p>先生から配られた title.png を使います。</p>")
-            errors = self._image_errors(root)
-            self.assertEqual(len(errors), 1, errors)
-            self.assertIn("docs/x/index.html:1", errors[0])
-            self.assertIn("リンクがありません: downloads/title.png", errors[0])
-
-    def test_image_link_without_download_attribute_is_rejected(self):
-        """リンクはあっても download 属性がなければ検出する。属性の順番は問わない。"""
-        source = b"\x89PNG\r\n\x1a\n" + bytes(range(64))
-        with tempfile.TemporaryDirectory() as temporary:
-            root = Path(temporary)
-            self._image_root(root, source, '<p>1行目</p>\n<a class="button-link" href="downloads/title.png">title.png</a>')
-            errors = self._image_errors(root)
-            self.assertEqual(len(errors), 1, errors)
-            self.assertIn("docs/x/index.html:2", errors[0])
-            self.assertIn("download属性がありません: downloads/title.png", errors[0])
-        with tempfile.TemporaryDirectory() as temporary:
-            root = Path(temporary)
-            self._image_root(root, source, '<a download class="button-link" href="downloads/title.png">title.png</a>')
-            self.assertEqual(self._image_errors(root), [])
-
-    def test_image_renamed_from_source_is_rejected(self):
-        """学生は落としたファイルをそのままdrawableに入れるので、名前の違いも検出する。"""
-        with tempfile.TemporaryDirectory() as temporary:
-            root = Path(temporary)
-            source = b"\x89PNG\r\n\x1a\n" + bytes(range(64))
-            self._image_root(root, source, '<a href="downloads/Title.png" download>Title.png</a>',
-                             download_name="Title.png")
-            errors = self._image_errors(root)
-            self.assertEqual(len(errors), 1, errors)
-            self.assertIn("ファイル名が一致しません", errors[0])
-
-    def test_finder_guidance_is_accepted(self):
-        """Finderで開かせる形では、置き場所のフォルダとファイル名が書いてあれば通る。"""
-        with tempfile.TemporaryDirectory() as temporary:
-            root = Path(temporary)
-            source = b"\x89PNG\r\n\x1a\n" + bytes(range(64))
-            self._image_root(root, source,
-                             "<p>書類 → 教材フォルダ → <code>docs → x → downloads</code> の title.png をコピーします。</p>",
-                             guidance="finder")
-            self.assertEqual(self._image_errors(root), [])
-
-    def test_finder_guidance_without_folder_is_rejected(self):
+    def test_download_without_folder_guidance_is_rejected(self):
         """置き場所の案内が教科書から消えたら検出する。学生はファイルを見つけられない。"""
         with tempfile.TemporaryDirectory() as temporary:
             root = Path(temporary)
-            source = b"\x89PNG\r\n\x1a\n" + bytes(range(64))
-            self._image_root(root, source, "<p>title.png をコピーします。</p>", guidance="finder")
-            errors = self._image_errors(root)
+            self._download_root(root, self.PNG, "<section><p>先生から配られた title.png を使います。</p></section>")
+            errors = self._download_errors(root)
+            self.assertEqual(len(errors), 1, errors)
+            self.assertIn("docs/x/index.html:1", errors[0])
+            self.assertIn("置き場所の案内がありません: docs → x → downloads", errors[0])
+
+    def test_download_button_is_not_guidance(self):
+        """ダウンロードボタンだけでは通らない。file:// で開いた教科書では、押しても保存されない。"""
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            self._download_root(
+                root, self.PNG,
+                '<section><a class="button-link" href="downloads/title.png" download>title.png</a></section>')
+            errors = self._download_errors(root)
             self.assertEqual(len(errors), 1, errors)
             self.assertIn("置き場所の案内がありません: docs → x → downloads", errors[0])
 
-    def test_finder_guidance_without_file_name_is_rejected(self):
+    def test_download_without_file_name_is_rejected(self):
         """ファイル名の案内が消えたら検出する。"""
         with tempfile.TemporaryDirectory() as temporary:
             root = Path(temporary)
-            source = b"\x89PNG\r\n\x1a\n" + bytes(range(64))
-            self._image_root(root, source, "<p><code>docs → x → downloads</code> を開きます。</p>", guidance="finder")
-            errors = self._image_errors(root)
+            self._download_root(root, self.PNG, "<section><p><code>docs → x → downloads</code> を開きます。</p></section>")
+            errors = self._download_errors(root)
             self.assertEqual(len(errors), 1, errors)
             self.assertIn("ファイル名の案内がありません: title.png", errors[0])
 
-    def test_finder_guidance_differing_from_source_is_rejected(self):
-        """Finderで開かせる形でも、ソースとの一致は同じように検査する。"""
+    def test_download_guided_only_in_another_step_is_rejected(self):
+        """置き場所が別のSTEPにしか書かれていなければ検出する。
+
+        同じフォルダに別のSTEPで使うファイルも入っているとき（A07のタイトル画像と BillSplitter.java）、
+        片方のSTEPから置き場所の案内が消えても、教科書全体で探すと見つかってしまう。
+        """
         with tempfile.TemporaryDirectory() as temporary:
             root = Path(temporary)
-            changed = bytearray(b"\x89PNG\r\n\x1a\n" + bytes(range(64)))
-            changed[-1] ^= 0x01
-            self._image_root(root, bytes(changed),
-                             "<p><code>docs → x → downloads</code> の title.png をコピーします。</p>",
-                             guidance="finder")
-            errors = self._image_errors(root)
+            self._download_root(
+                root, self.PNG,
+                '<section id="step-2"><p>title.png をdrawableに入れます。</p></section>'
+                '<section id="step-7"><p><code>docs → x → downloads</code> の Other.java をコピーします。</p></section>')
+            errors = self._download_errors(root)
             self.assertEqual(len(errors), 1, errors)
-            self.assertIn("内容が一致しません: Sample/app/src/main/res/drawable/title.png", errors[0])
+            self.assertIn("ファイル名の案内がありません: title.png", errors[0])
+            self.assertIn("同じSTEP", errors[0])
 
-    def test_image_source_outside_archive_is_rejected(self):
+    def test_download_renamed_from_source_is_rejected(self):
+        """学生はコピーしたファイルをそのままdrawableに入れるので、名前の違いも検出する。"""
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            self._download_root(root, self.PNG, self.GUIDE.replace("title.png", "Title.png"),
+                                download_name="Title.png")
+            errors = self._download_errors(root)
+            self.assertEqual(len(errors), 1, errors)
+            self.assertIn("ファイル名が一致しません", errors[0])
+
+    def test_download_source_outside_archive_is_rejected(self):
         """元ファイルがGit管理されていなければ、完成プロジェクトZIPにも入らない。"""
         with tempfile.TemporaryDirectory() as temporary:
             root = Path(temporary)
-            source = b"\x89PNG\r\n\x1a\n" + bytes(range(64))
-            self._image_root(root, source, '<a href="downloads/title.png" download>title.png</a>')
+            self._download_root(root, self.PNG, self.GUIDE)
             subprocess.run(["git", "rm", "--cached", "-q", "Sample/app/src/main/res/drawable/title.png"],
                            cwd=root, check=True, capture_output=True)
-            errors = self._image_errors(root)
+            errors = self._download_errors(root)
             self.assertEqual(len(errors), 1, errors)
             self.assertIn("完成プロジェクトZIPに入るファイルではありません", errors[0])
 
