@@ -28,7 +28,7 @@
 <table><thead><tr><th>コマ</th><th>時間配分</th><th>終了時の確認</th></tr></thead><tbody>
 <tr><td>1コマ目</td><td>STEP 00：5分、STEP 01：15分、STEP 02：10分、STEP 03：20分、STEP 04：25分、再実行・個別支援：10分、ふり返り：5分</td><td>タイトル画像とレイアウトが表示され、参加者を登録できる。空のときと同じ名前のときにメッセージが出る。</td></tr>
 <tr><td>2コマ目</td><td>再開：5分、STEP 05：15分、STEP 06：20分、STEP 07：10分、個別支援：10分、確認：5分の見込みで、残り時間はSTEP 08の前半へ</td><td>2人以上のときだけワリカン画面が開き、<strong>参加者は○人</strong> が表示される。<code>BillSplitter</code> をプロジェクトに置けている。</td></tr>
-<tr><td>3コマ目</td><td>再開：5分、STEP 08：20分、STEP 09：10分、STEP 10：15分、STEP 11：15分、APK・個別支援：10分</td><td>3つの入力チェックが動き、計算結果と合計が表示される。合計が入力した金額と一致することを説明できる。</td></tr>
+<tr><td>3コマ目</td><td>再開：5分、STEP 08：20分、STEP 09：10分、STEP 10：15分、STEP 11：15分、個別支援：10分</td><td>3つの入力チェックが動き、計算結果と合計が表示される。合計が入力した金額と一致することを説明できる。</td></tr>
 </tbody></table>
 <p>STEP 05は、<strong>New → Java Class</strong> で作ってしまう誤りが起きやすい工程です。Java Classで作ると <code>AndroidManifest.xml</code> への登録とレイアウトが作られず、STEP 06で <code>ActivityNotFoundException</code> になりアプリが終了します。画面で <strong>New → Activity → Empty Views Activity</strong> を実演し、<strong>Launcher Activity</strong> のチェックを外すことも示します。作成後に <code>&lt;activity android:name=".BillSplitActivity" android:exported="false" /&gt;</code> が増えたことを全員で確かめます。</p>
 <p>STEP 06は、A06のTest 3（配列を渡す）と同じ形だと最初に伝えます。渡す側は <code>ArrayList</code>、受け取るのは配列なので、<code>toArray(new String[0])</code> が必要になる点だけ丁寧に扱います。<code>start</code> を <code>onCreate</code> の中に貼って赤いエラーが大量に出る誤りは、A06と同じく起きます。</p>
@@ -66,8 +66,8 @@
 <p>名前の入力中に、Androidの入力候補が「登録」ボタンに重なって押せないことがあります（<code>android:inputType="textPersonName"</code> のため）。候補以外の場所を一度タップしてから押すよう伝えます。教科書の「困ったとき」にも記載しています。</p>
 </section>
 
-<section><h2>6. 到達度と提出</h2>
-<ul><li>参加者を2人以上登録し、金額を入れて全員の支払額と合計を表示できる。</li><li>6つの入力チェック（教科書STEP 11の表）をすべて自分で再現できる。</li><li>表示された支払額の合計が、入力した金額と必ず一致することを確かめられる。</li><li>配布された <code>BillSplitter</code> を、中身を読まずに使い方だけで呼べている。前提条件を守るのは呼び出す側だと説明できる。</li><li>提出する場合は <a href="../../docs/common/apk.html">共通資料：APKの作り方</a>に従い、先生が指定した場所へ <code>学籍番号_A07BillSplitter.apk</code> を提出する。</li></ul>
+<section><h2>6. 到達度</h2>
+<ul><li>参加者を2人以上登録し、金額を入れて全員の支払額と合計を表示できる。</li><li>6つの入力チェック（教科書STEP 11の表）をすべて自分で再現できる。</li><li>表示された支払額の合計が、入力した金額と必ず一致することを確かめられる。</li><li>配布された <code>BillSplitter</code> を、中身を読まずに使い方だけで呼べている。前提条件を守るのは呼び出す側だと説明できる。</li></ul>
 </section>
 
 <section><h2>7. 教材の保守と確認</h2>

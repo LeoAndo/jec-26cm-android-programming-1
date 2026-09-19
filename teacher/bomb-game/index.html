@@ -28,7 +28,7 @@
 <table><thead><tr><th>コマ</th><th>時間配分</th><th>終了時の確認</th></tr></thead><tbody>
 <tr><td>1コマ目</td><td>STEP 0：5分、STEP 1：15分、STEP 2：15分、STEP 3：20分、STEP 4：10分、再実行・個別支援：20分、ふり返り：5分</td><td>drawableに3画像があり、完成版と同じ画面をRunできる。見えない再挑戦ボタンを含めてidを指させる。</td></tr>
 <tr><td>2コマ目</td><td>再開：5分、STEP 5：25分、STEP 6：15分、STEP 7：30分、再実行・確認：10分、ふり返り：5分</td><td>Logcatでスイッチの数字を確認し、着火と爆発を実演できる。</td></tr>
-<tr><td>3コマ目</td><td>再開：5分、STEP 8：15分、STEP 9：25分、STEP 10：20分、STEP 11：15分、APK・個別支援：10分</td><td>再挑戦とクリアを動かし、ミニ練習の変更を元に戻して完成版を説明できる。</td></tr>
+<tr><td>3コマ目</td><td>再開：5分、STEP 8：15分、STEP 9：25分、STEP 10：20分、STEP 11：15分、個別支援：10分</td><td>再挑戦とクリアを動かし、ミニ練習の変更を元に戻して完成版を説明できる。</td></tr>
 </tbody></table>
 <p>STEP 5は <code>int[]</code>、メソッド、do-while文、<code>distinct().count()</code> が一度に出るため、コード入力後に「くり返し」の表を読み合わせます。STEP 7は定数と <code>anyMatch</code> が新しいため、「スイッチが {3, 7} のとき」の表で、押した数字ごとに <code>match</code> を答えさせます。STEP 9は置き換え範囲を間違えやすい工程です。貼り付ける前に、選択範囲が <code>if (nowState == STATE_IGNITED) {</code> から else if の閉じ括弧までで、<code>});</code> を含まないことを確認させます。</p>
 </section>
@@ -58,8 +58,8 @@
 <p>エラー時は「STEP番号・ファイル・最初の赤い行・操作順」を聞きます。A05のLogcat検索は、エラーが <code>package:jp.ac.jec.a05bombgame level:ERROR</code>、STEP 5のスイッチのログが <code>package:jp.ac.jec.a05bombgame tag:MainActivity level:DEBUG</code> です。</p>
 <p>画像関係のエラーは、drawable以外への貼り付け、<code>samples</code> 側への貼り付け、ファイル名の変更（大文字・拡張子の重複）が主な原因です。<code>nowState</code> を <code>onCreate</code> の中で宣言すると、ラムダの中で変更できないエラーになります。フィールドの位置を確認させます。</p>
 </section>
-<section><h2>6. 到達度と提出</h2>
-<ul><li>学生自身が着火・爆発・クリアを操作し、再挑戦で何度も遊べる。</li><li><code>nowState</code> と <code>randomIgnitionNumbers</code> の役割と、フィールドにした理由を説明できる。</li><li>スイッチを固定したSTEP 10練習1で、着火・爆発・着火前後のクリアを確認できる。</li><li>STEP 10の変更を試したあと、完成版の値に戻してRunする。</li><li>提出する場合は <a href="../../docs/common/apk.html">共通資料：APKの作り方</a>に従い、先生が指定した場所へ <code>学籍番号_A05BombGame.apk</code> を提出する。</li></ul>
+<section><h2>6. 到達度</h2>
+<ul><li>学生自身が着火・爆発・クリアを操作し、再挑戦で何度も遊べる。</li><li><code>nowState</code> と <code>randomIgnitionNumbers</code> の役割と、フィールドにした理由を説明できる。</li><li>スイッチを固定したSTEP 10練習1で、着火・爆発・着火前後のクリアを確認できる。</li><li>STEP 10の変更を試したあと、完成版の値に戻してRunする。</li></ul>
 </section>
 <section><h2>7. 教材の保守と確認</h2>
 <ul><li>完成コードを変更したら、教科書の部分コード、完成コード、<code>teacher/bomb-game/code</code>、画像、練習の答えをまとめて確認し、<code>python3 scripts/package-hello-android.py --project A05BombGame --output docs/bomb-game/downloads/A05BombGame.zip</code> で配布用ZIPを再作成します。</li><li>アプリ画像は教員の <code>jec_26cm_android1_Pixel 9a</code> で撮影した、起動直後・1を押した後・着火・爆発・クリアの5状態です。</li><li>新規プロジェクト作成とdrawableへの画像追加の画像は教員提供資料を使用しています。</li><li>各STEPの照合コードは、完成プロジェクトのコピーに入れてビルドできることと、STEP 5〜8・STEP 10の練習の動作をエミュレータで確認しています。</li><li>印刷時は補足・解答も展開されます。解答を配布したくない場合は、ブラウザで授業中に開く方式を使ってください。</li></ul>

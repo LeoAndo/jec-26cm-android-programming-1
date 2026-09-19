@@ -28,7 +28,7 @@
 <section><h2>3. 90分×2コマの進行</h2>
 <table><thead><tr><th>コマ</th><th>時間配分</th><th>終了時の確認</th></tr></thead><tbody>
 <tr><td>1コマ目</td><td>STEP 00：5分、STEP 01：15分、STEP 02：15分、STEP 03：10分、STEP 04：20分、STEP 05：20分、個別支援：5分</td><td>applyを押すと6行の値が変わる。押す前は初期値が出ることを説明できる。</td></tr>
-<tr><td>2コマ目</td><td>再開：5分、STEP 06：15分、STEP 07：10分、STEP 08：20分、STEP 09：15分、STEP 10：15分、APK・個別支援：10分</td><td>終了して開き直しても値が残る。app.xmlの中身を表示でき、clearで <code>&lt;map /&gt;</code> になることを確かめられる。</td></tr>
+<tr><td>2コマ目</td><td>再開：5分、STEP 06：15分、STEP 07：10分、STEP 08：20分、STEP 09：15分、STEP 10：15分、個別支援：10分</td><td>終了して開き直しても値が残る。app.xmlの中身を表示でき、clearで <code>&lt;map /&gt;</code> になることを確かめられる。</td></tr>
 </tbody></table>
 <p>STEP 04は、<strong>まだ何も保存していない状態で読み出す</strong>ことに意味があります。ここを飛ばしてSTEP 05のapplyを先に押させると、初期値を見る機会がなくなります。順番どおり進めさせてください。</p>
 <p>STEP 06は、この単元でいちばん大事な確認です。<strong>アプリの終了は「最近使ったアプリ」から上へスワイプ</strong>で行わせます。戻る操作（◁）だけでは終了しないことがあり、「残った」ように見えて確認になりません。全員が終了→起動を2回できたことを確かめてから次へ進みます。</p>
@@ -67,8 +67,8 @@
 <p>③はNullPointerExceptionで起動直後に終了します。画面に何も出ないため学生は原因をつかみにくいので、<strong>onCreateの中の行の順番</strong>を最初に確認させてください。</p>
 </section>
 
-<section><h2>6. 到達度と提出</h2>
-<ul><li>applyで6種類の値を保存し、アプリを完全に終了して開き直しても残ることを自分で再現できる。</li><li>保存していない状態で <code>getXxx</code> が初期値を返すことを説明できる。「表示が0」と「0が保存されている」が別であることを説明できる。</li><li>show app.xmlでファイルのパスと中身を表示し、キーがname・値がvalueとして記録されていることを説明できる。</li><li>clearで全削除でき、そのあとファイルが <code>&lt;map /&gt;</code> になることを確かめられる。</li><li>提出する場合は <a href="../../docs/common/apk.html">共通資料：APKの作り方</a>に従い、先生が指定した場所へ <code>学籍番号_A08SharedPreferencesSample.apk</code> を提出する。</li></ul>
+<section><h2>6. 到達度</h2>
+<ul><li>applyで6種類の値を保存し、アプリを完全に終了して開き直しても残ることを自分で再現できる。</li><li>保存していない状態で <code>getXxx</code> が初期値を返すことを説明できる。「表示が0」と「0が保存されている」が別であることを説明できる。</li><li>show app.xmlでファイルのパスと中身を表示し、キーがname・値がvalueとして記録されていることを説明できる。</li><li>clearで全削除でき、そのあとファイルが <code>&lt;map /&gt;</code> になることを確かめられる。</li></ul>
 </section>
 
 <section><h2>7. 教材の保守と確認</h2>
