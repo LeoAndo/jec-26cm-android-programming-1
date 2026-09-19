@@ -75,8 +75,10 @@
 | 単元ごとの場所だけ（例：`A09MemoApp/`、`docs/memo-app/`、`teacher/memo-app/`） | 別の単元のissueとは並行してよい。同じ単元のissue同士は直列 |
 | 共有ファイル：リポジトリ直下のファイル（`README.md`、`AGENTS.md`、`CLAUDE.md`、`.gitignore`）、`config/`、`scripts/`、`docs/common/`、`docs/assets/`、`.github/`、`skills/` | 同時に開くPRは1本まで（ラベル `area:shared`） |
 
-- 新しい単元の登録（§9）は必ず共有ファイルに当たる。2つの単元を同時に登録しない。
-- 教科書 `docs/<単元>/index.html` は後ろ向きにだけリンクする（topbarは直前の単元、サイドバーはそれ以前の全単元）。単元を挿入したときや、並行して作った単元をマージしたあとは、次の単元のページのリンクも確認する。CIはリンク切れしか見ないので、単元の並びのずれは検出できない。
+- 新しい単元の登録（§9）は必ず共有ファイルに当たる。2つの単元を同時に登録しない。登録のPRは、既存の全単元の教科書のサイドバー（1行）も触る（§9の手順7）。ほかの単元のPRが開いているときは、その行が衝突しないことを§3の手順6で確かめる。
+- 教科書 `docs/<単元>/index.html` から他単元へのリンクは、topbarとサイドバーの2か所にある。どちらも本文ではなく導線で、README「授業用教科書の基本方針」7の対象外。サイドバーに先の単元へのリンクがあっても、方針違反ではない。
+  - **サイドバー**（`<div class="resources">` の1行）には、どの単元でも全単元を単元番号順に並べる。位置は「完成プロジェクトを開く」のあと、「共通：…」の前。いま開いている単元だけはリンクにせず、現在地として書く（A07なら `<span aria-current="page">A07：BillSplitter</span>`）。`scripts/check-teaching-materials.py` が、`config/teaching-materials.json` の `projects` の並びと照合する。単元を足して1冊でも直し忘れると、CIが落ちる。
+  - **topbar** は、直前の単元へのリンク1つだけにする（A01はなし）。こちらは検査されない。単元を挿入したときや、並行して作った単元をマージしたあとは、次の単元のtopbarが直前の単元を指しているかを目で確かめる。指す先が実在するかぎりリンク切れにはならないので、CIでは検出できない。
 
 ## 5. コミットのしかた
 
@@ -180,11 +182,11 @@
 
 1. `docs/<単元>/index.html`、`images/`、`downloads/<Project>.zip`。ZIPは `python3 scripts/package-hello-android.py --project <Project> --output <パス>` で作る（名前に反して全単元で使える）。
 2. `teacher/<単元>/index.html` と `teacher/<単元>/code/`（STEPごとの照合コード。`NN-File.ext` の形式で、全単元にある）。
-3. `config/teaching-materials.json`：`scan_roots`、指定AVD名の `required_in`（教科書と教員用ガイドの両方）、`projects`。`projects[].snippets` は `<pre id="…">` とソースをバイト単位で照合するので、コードは手で写さずソースから生成する。
+3. `config/teaching-materials.json`：`scan_roots`、指定AVD名の `required_in`（教科書と教員用ガイドの両方）、`projects`。`projects` は単元番号順に並べる（サイドバーの検査が、この並びを基準にする。§4）。`projects[].snippets` は `<pre id="…">` とソースをバイト単位で照合するので、コードは手で写さずソースから生成する。
 4. `scripts/package-student-materials.py`：完成プロジェクトのZIP生成、「完成プロジェクトが見つかりません」の検査、`はじめに.txt` の単元一覧。どれも直書き。
 5. `scripts/release-student-materials.py`：リリースノートの単元一覧（直書き）。
 6. `README.md`：教科書リンク、完成プロジェクトのリンク、教員用リンク、教科書一覧の文、保存先の文、フォルダ表、teacher一覧の文、ZIP再作成コマンド、「A01〜A0N」の表記。
-7. 前後の単元の教科書のリンク（§4）。
+7. 単元どうしのリンク（§4）。サイドバーは、**既存の全単元の教科書**に新しい単元へのリンクを単元番号順の位置へ足し、新しい単元の教科書には全単元を並べる（自単元は `<span aria-current="page">`）。1冊でも直し忘れると、`scripts/check-teaching-materials.py` が落ちる。topbarは、新しい単元に直前の単元へのリンクを置く。単元を途中に挿入したときは、次の単元のtopbarも新しい単元へ付け替える。topbarは検査されないので、目で確かめる。教材一式のissueの「触る範囲」には、既存の全単元の教科書（サイドバーの1行）も挙げておく。
 8. GitHubのラベル `area:A<NN>`。
 
 1,000行を超える教科書HTMLは、章ごとに分けて書いてから結合する（1回で書こうとすると、ツール呼び出しが長くなりすぎて止まる）。コードのスニペットは目印を置いておき、スクリプトでソースから読み込んでHTMLエスケープして差し込む。
