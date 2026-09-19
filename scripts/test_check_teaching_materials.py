@@ -175,6 +175,103 @@ class TeachingMaterialsCheckTest(unittest.TestCase):
 
             self.assertTrue(any("実行権限が一致しません: Sample/gradlew" in error for error in errors))
 
+    def _image_root(self, root: Path, download: bytes, textbook: str,
+                    download_name: str = "title.png") -> None:
+        """配布画像の検査に必要な最小限のリポジトリを作る。"""
+        source = root / "Sample/app/src/main/res/drawable/title.png"
+        source.parent.mkdir(parents=True)
+        source.write_bytes(b"\x89PNG\r\n\x1a\n" + bytes(range(64)))
+        (root / "docs/x/downloads").mkdir(parents=True)
+        (root / "docs/x/downloads" / download_name).write_bytes(download)
+        (root / "docs/x/index.html").write_text(textbook, encoding="utf-8")
+        subprocess.run(["git", "init"], cwd=root, check=True, capture_output=True)
+        subprocess.run(["git", "add", "Sample"], cwd=root, check=True, capture_output=True)
+        self._project_root(root, {
+            "scan_roots": [],
+            "terms": [],
+            "projects": [{
+                "name": "Sample", "package": "jp.example.sample", "root": "Sample",
+                "docs": ["docs/x/index.html", "teacher/x/index.html"],
+                "source_java": "Sample/j.java", "source_xml": "Sample/l.xml",
+                "snippets": [], "archive": "docs/x/downloads/Sample.zip",
+                "images": [{
+                    "download": f"docs/x/downloads/{download_name}",
+                    "source": "Sample/app/src/main/res/drawable/title.png",
+                }],
+            }],
+        })
+
+    def _image_errors(self, root: Path) -> list[str]:
+        return [error for error in CHECKER.validate(root) if "配布画像" in error]
+
+    def test_image_identical_to_source_is_accepted(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            source = b"\x89PNG\r\n\x1a\n" + bytes(range(64))
+            self._image_root(root, source, '<a href="downloads/title.png" download>title.png</a>')
+            self.assertEqual(self._image_errors(root), [])
+
+    def test_image_differing_by_one_byte_is_rejected(self):
+        """配布画像が、完成プロジェクトの画像と1バイトでも違えば検出する。"""
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            changed = bytearray(b"\x89PNG\r\n\x1a\n" + bytes(range(64)))
+            changed[-1] ^= 0x01
+            self._image_root(root, bytes(changed), '<a href="downloads/title.png" download>title.png</a>')
+            errors = self._image_errors(root)
+            self.assertEqual(len(errors), 1, errors)
+            self.assertIn("docs/x/downloads/title.png:1", errors[0])
+            self.assertIn("内容が一致しません: Sample/app/src/main/res/drawable/title.png", errors[0])
+
+    def test_image_without_textbook_link_is_rejected(self):
+        """画像を置いただけで、教科書からリンクしていない状態を検出する。"""
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            source = b"\x89PNG\r\n\x1a\n" + bytes(range(64))
+            self._image_root(root, source, "<p>先生から配られた title.png を使います。</p>")
+            errors = self._image_errors(root)
+            self.assertEqual(len(errors), 1, errors)
+            self.assertIn("docs/x/index.html:1", errors[0])
+            self.assertIn("リンクがありません: downloads/title.png", errors[0])
+
+    def test_image_link_without_download_attribute_is_rejected(self):
+        """リンクはあっても download 属性がなければ検出する。属性の順番は問わない。"""
+        source = b"\x89PNG\r\n\x1a\n" + bytes(range(64))
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            self._image_root(root, source, '<p>1行目</p>\n<a class="button-link" href="downloads/title.png">title.png</a>')
+            errors = self._image_errors(root)
+            self.assertEqual(len(errors), 1, errors)
+            self.assertIn("docs/x/index.html:2", errors[0])
+            self.assertIn("download属性がありません: downloads/title.png", errors[0])
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            self._image_root(root, source, '<a download class="button-link" href="downloads/title.png">title.png</a>')
+            self.assertEqual(self._image_errors(root), [])
+
+    def test_image_renamed_from_source_is_rejected(self):
+        """学生は落としたファイルをそのままdrawableに入れるので、名前の違いも検出する。"""
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            source = b"\x89PNG\r\n\x1a\n" + bytes(range(64))
+            self._image_root(root, source, '<a href="downloads/Title.png" download>Title.png</a>',
+                             download_name="Title.png")
+            errors = self._image_errors(root)
+            self.assertEqual(len(errors), 1, errors)
+            self.assertIn("ファイル名が一致しません", errors[0])
+
+    def test_image_source_outside_archive_is_rejected(self):
+        """元ファイルがGit管理されていなければ、完成プロジェクトZIPにも入らない。"""
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            source = b"\x89PNG\r\n\x1a\n" + bytes(range(64))
+            self._image_root(root, source, '<a href="downloads/title.png" download>title.png</a>')
+            subprocess.run(["git", "rm", "--cached", "-q", "Sample/app/src/main/res/drawable/title.png"],
+                           cwd=root, check=True, capture_output=True)
+            errors = self._image_errors(root)
+            self.assertEqual(len(errors), 1, errors)
+            self.assertIn("完成プロジェクトZIPに入るファイルではありません", errors[0])
+
 
 if __name__ == "__main__":
     unittest.main()

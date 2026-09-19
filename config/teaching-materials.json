@@ -161,7 +161,25 @@
           "source": "A03RockPaperScissorsGame/app/src/main/res/layout/activity_main.xml"
         }
       ],
-      "archive": "docs/rock-paper-scissors-game/downloads/A03RockPaperScissorsGame.zip"
+      "archive": "docs/rock-paper-scissors-game/downloads/A03RockPaperScissorsGame.zip",
+      "images": [
+        {
+          "download": "docs/rock-paper-scissors-game/downloads/title_image.png",
+          "source": "A03RockPaperScissorsGame/app/src/main/res/drawable/title_image.png"
+        },
+        {
+          "download": "docs/rock-paper-scissors-game/downloads/rock.png",
+          "source": "A03RockPaperScissorsGame/app/src/main/res/drawable/rock.png"
+        },
+        {
+          "download": "docs/rock-paper-scissors-game/downloads/scissors.png",
+          "source": "A03RockPaperScissorsGame/app/src/main/res/drawable/scissors.png"
+        },
+        {
+          "download": "docs/rock-paper-scissors-game/downloads/paper.png",
+          "source": "A03RockPaperScissorsGame/app/src/main/res/drawable/paper.png"
+        }
+      ]
     },
     {
       "name": "A04WebViewApp",
@@ -239,7 +257,21 @@
           "source": "A05BombGame/app/src/main/res/layout/activity_main.xml"
         }
       ],
-      "archive": "docs/bomb-game/downloads/A05BombGame.zip"
+      "archive": "docs/bomb-game/downloads/A05BombGame.zip",
+      "images": [
+        {
+          "download": "docs/bomb-game/downloads/bomb_initial.png",
+          "source": "A05BombGame/app/src/main/res/drawable/bomb_initial.png"
+        },
+        {
+          "download": "docs/bomb-game/downloads/bomb_ignited.png",
+          "source": "A05BombGame/app/src/main/res/drawable/bomb_ignited.png"
+        },
+        {
+          "download": "docs/bomb-game/downloads/bomb_exploded.png",
+          "source": "A05BombGame/app/src/main/res/drawable/bomb_exploded.png"
+        }
+      ]
     },
     {
       "name": "A06ScreenTransitionSample",
@@ -317,7 +349,13 @@
           "source": "A07BillSplitter/app/src/main/AndroidManifest.xml"
         }
       ],
-      "archive": "docs/bill-splitter/downloads/A07BillSplitter.zip"
+      "archive": "docs/bill-splitter/downloads/A07BillSplitter.zip",
+      "images": [
+        {
+          "download": "docs/bill-splitter/downloads/title_img.png",
+          "source": "A07BillSplitter/app/src/main/res/drawable/title_img.png"
+        }
+      ]
     },
     {
       "name": "A08SharedPreferencesSample",
@@ -370,7 +408,13 @@
           "source": "A09MemoApp/app/src/main/res/layout/activity_main.xml"
         }
       ],
-      "archive": "docs/memo-app/downloads/A09MemoApp.zip"
+      "archive": "docs/memo-app/downloads/A09MemoApp.zip",
+      "images": [
+        {
+          "download": "docs/memo-app/downloads/title_memo.png",
+          "source": "A09MemoApp/app/src/main/res/drawable/title_memo.png"
+        }
+      ]
     },
     {
       "name": "A10RoomSample",
@@ -493,7 +537,13 @@
           "source": "A11VocabularyBook/gradle/libs.versions.toml"
         }
       ],
-      "archive": "docs/vocabulary-book/downloads/A11VocabularyBook.zip"
+      "archive": "docs/vocabulary-book/downloads/A11VocabularyBook.zip",
+      "images": [
+        {
+          "download": "docs/vocabulary-book/downloads/logoeng.png",
+          "source": "A11VocabularyBook/app/src/main/res/drawable/logoeng.png"
+        }
+      ]
     }
   ]
 }

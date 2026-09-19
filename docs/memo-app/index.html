@@ -66,13 +66,18 @@
 
 <section id="step-2" aria-labelledby="title-2">
 <p class="step-meta">STEP 02 · 目安 10分</p><h2 id="title-2">タイトル画像を入れる</h2>
-<p>先生から配られる <code>title_memo.png</code> を、プロジェクトに入れます。A03・A05・A07でやった手順と同じです。</p>
-<ol>
-<li>Finderで <code>title_memo.png</code> をコピーします（<kbd>⌘ C</kbd>）。</li>
+<p>タイトル画像の <code>title_memo.png</code> をダウンロードして、プロジェクトに入れます。A03・A05・A07でやった手順と同じです。</p>
+<ol><li><a class="button-link" href="downloads/title_memo.png" download>title_memo.png</a> を押します。教科書の開き方とブラウザによって、押したあとの動きが変わります。下の表を見て、<strong>ダウンロード</strong> フォルダに保存します。</li></ol>
+<table><thead><tr><th>ボタンを押したあと</th><th>すること</th></tr></thead><tbody>
+<tr><td>画像が大きく表示された</td><td>画像の上で右クリックし、画像を保存する項目を選びます。Chromeは <strong>名前を付けて画像を保存…</strong>、Safariは <strong>イメージを"ダウンロード"に保存</strong> です。保存先を聞かれたら、名前は変えずに <strong>ダウンロード</strong> フォルダへ保存します。保存したら、ブラウザの <strong>←</strong>（戻る）で教科書に戻ります。</td></tr>
+<tr><td>ダウンロードが始まった</td><td>そのままで大丈夫です。ブラウザが <strong>ダウンロード</strong> フォルダに保存しています。</td></tr>
+</tbody></table>
+<ol start="2">
+<li>Finderを開き、左側の <strong>ダウンロード</strong> をクリックします。<code>title_memo.png</code> を選び、コピーします（<kbd>⌘ C</kbd>）。</li>
 <li>Android Studioのプロジェクト画面で <code>app/src/main/res/drawable</code> フォルダをクリックして選び、貼り付けます（<kbd>⌘ V</kbd>）。</li>
 <li>確認のウィンドウが出ます。<strong>New name</strong> が <code>title_memo.png</code>、<strong>To directory</strong> の末尾が <code>app/src/main/res/drawable</code> になっていることを確かめて <strong>OK</strong> を押します。</li></ol>
 <figure><a href="images/drawable-copy.png"><img src="images/drawable-copy.png" width="2058" height="792" loading="lazy" alt="Project表示でdrawableフォルダを選び、Copyダイアログが開いている。New nameはtitle_memo.png、To directoryの末尾はA09MemoApp/app/src/main/res/drawable"></a><figcaption>To directoryの末尾が A09MemoApp/app/src/main/res/drawable になっていればOK。画像のパスは先生の保存先の例です。 <a href="images/drawable-copy.png">画像を大きく開く</a></figcaption></figure>
-<ol start="4"><li><code>drawable</code> フォルダの中に <code>title_memo.png</code> が増えていれば成功です。</li></ol>
+<ol start="5"><li><code>drawable</code> フォルダの中に <code>title_memo.png</code> が増えていれば成功です。</li></ol>
 <figure><a href="images/drawable-files.png"><img src="images/drawable-files.png" width="868" height="522" loading="lazy" alt="drawableフォルダにic_launcher_background.xml、ic_launcher_foreground.xml、title_memo.pngが並んでいる"></a><figcaption>drawableに <code>title_memo.png</code> が増えれば成功。 <a href="images/drawable-files.png">画像を大きく開く</a></figcaption></figure>
 <div class="note"><p class="box-title">ファイル名は変えません</p><p>このあとXMLから <code>@drawable/title_memo</code> という名前で呼び出します。<strong>名前を変えると見つからなくなります。</strong>大文字や日本語も使えません。</p></div>
 <h3>Runで確かめる</h3><p>画面はまだ <strong>Hello World!</strong> のままです。エラーが出ずにRunできれば成功です。画像を使うのは次のSTEPです。</p>

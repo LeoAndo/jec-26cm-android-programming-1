@@ -42,7 +42,7 @@
 </tbody></table>
 
 <p>各コマに再実行と個別確認の時間を含みます。予習は不要です。</p>
-<div class="note"><p class="box-title">毎回、自分で新規作成します</p><p>作る場所は <code>Documents/Android1/A03RockPaperScissorsGame</code> です。<a href="#sample-project">完成プロジェクト</a>は初回から開けます。STEP 2で使う画像も、完成プロジェクトのZIPから取り出します。</p></div>
+<div class="note"><p class="box-title">毎回、自分で新規作成します</p><p>作る場所は <code>Documents/Android1/A03RockPaperScissorsGame</code> です。<a href="#sample-project">完成プロジェクト</a>は初回から開けます。STEP 2で使う画像は、STEP 2のボタンからダウンロードします。</p></div>
 
 <h3>完成アプリの操作</h3><table><thead><tr><th>状態</th><th>手の画像</th><th>勝負！</th><th>次の戦いへ</th><th>CPUの手</th></tr></thead><tbody>
 <tr><td>起動直後・次の戦いへの後</td><td>押せる</td><td>押せない</td><td>押せない</td><td>表示しない</td></tr>
@@ -102,11 +102,17 @@
 </tbody></table>
 
 <p>名前はファイル名から <code>.png</code> を取ったものです。drawableのファイル名には、<strong>小文字の英字・数字・_（アンダースコア）</strong> だけを使います。</p>
-<h3>① 完成プロジェクトのZIPから画像を取り出す</h3>
-<ol><li><a class="button-link" href="downloads/A03RockPaperScissorsGame.zip" download>完成プロジェクト A03RockPaperScissorsGame.zip</a> をダウンロードし、展開します。</li><li>できた <code>A03RockPaperScissorsGame</code> フォルダを、見本の置き場所 <code>/Users/ユーザ名/Documents/Android1/samples</code> に移動します。<code>samples</code> フォルダがなければ作ります。</li><li>Finderで <code>samples/A03RockPaperScissorsGame/app/src/main/res/drawable</code> を開きます。</li><li><kbd>⌘</kbd> を押しながら、<code>paper.png</code>・<code>rock.png</code>・<code>scissors.png</code>・<code>title_image.png</code> の4つをクリックして選び、<kbd>⌘ C</kbd> でコピーします。<code>ic_launcher</code> で始まるファイルは選びません。</li></ol>
+<h3>① 画像をダウンロードする</h3>
+<ol><li>次の4つのボタンを、1つずつ押します。教科書の開き方とブラウザによって、押したあとの動きが変わります。下の表を見て、4つとも <strong>ダウンロード</strong> フォルダに保存します。</li></ol>
+<p><a class="button-link" href="downloads/title_image.png" download>title_image.png</a> <a class="button-link" href="downloads/rock.png" download>rock.png</a> <a class="button-link" href="downloads/scissors.png" download>scissors.png</a> <a class="button-link" href="downloads/paper.png" download>paper.png</a></p>
+<table><thead><tr><th>ボタンを押したあと</th><th>すること</th></tr></thead><tbody>
+<tr><td>画像が大きく表示された</td><td>画像の上で右クリックし、画像を保存する項目を選びます。Chromeは <strong>名前を付けて画像を保存…</strong>、Safariは <strong>イメージを"ダウンロード"に保存</strong> です。保存先を聞かれたら、名前は変えずに <strong>ダウンロード</strong> フォルダへ保存します。保存したら、ブラウザの <strong>←</strong>（戻る）で教科書に戻ります。</td></tr>
+<tr><td>ダウンロードが始まった</td><td>そのままで大丈夫です。ブラウザが <strong>ダウンロード</strong> フォルダに保存しています。</td></tr>
+</tbody></table>
+<ol start="2"><li>Finderを開き、左側の <strong>ダウンロード</strong> をクリックします。</li><li><kbd>⌘</kbd> を押しながら、<code>paper.png</code>・<code>rock.png</code>・<code>scissors.png</code>・<code>title_image.png</code> の4つをクリックして選び、<kbd>⌘ C</kbd> でコピーします。<code>rock (1).png</code> のように番号が付いたファイルは、同じ画像を2回保存したものです。名前が違うので選びません。</li></ol>
 <h3>② 自分のプロジェクトに貼り付ける</h3>
-<ol><li>Android Studioに戻り、自分の <code>A03RockPaperScissorsGame</code> を開いていることを確認します。</li><li>Project表示で <code>app/src/main/res/drawable</code> フォルダをクリックして選び、<kbd>⌘ V</kbd> で貼り付けます。</li><li><strong>Copy</strong> の画面が出たら、<strong>To directory</strong> を確認します。末尾が <code>A03RockPaperScissorsGame/app/src/main/res/drawable</code> で、途中に <code>samples</code> がなければ <strong>OK</strong> を押します。</li></ol>
-<figure><a href="images/drawable-copy.png"><img src="images/drawable-copy.png" width="1970" height="928" loading="lazy" alt="Project表示でdrawableフォルダを選び、Copyダイアログが開いている。To directoryの末尾はapp/src/main/res/drawable"></a><figcaption>To directoryの末尾が A03RockPaperScissorsGame/app/src/main/res/drawable で、samples が入っていなければOK。画像のパスは先生の保存先の例です。 <a href="images/drawable-copy.png">画像を大きく開く</a></figcaption></figure>
+<ol><li>Android Studioに戻り、自分の <code>A03RockPaperScissorsGame</code> を開いていることを確認します。</li><li>Project表示で <code>app/src/main/res/drawable</code> フォルダをクリックして選び、<kbd>⌘ V</kbd> で貼り付けます。</li><li><strong>Copy</strong> の画面が出たら、<strong>To directory</strong> を確認します。末尾が <code>A03RockPaperScissorsGame/app/src/main/res/drawable</code> になっていれば <strong>OK</strong> を押します。見本（完成プロジェクト）を <code>samples</code> フォルダに置いて開いている人は、途中に <code>samples</code> が入っていないことも確かめます。入っていたら、見本の方に貼り付けようとしています。</li></ol>
+<figure><a href="images/drawable-copy.png"><img src="images/drawable-copy.png" width="1970" height="928" loading="lazy" alt="Project表示でdrawableフォルダを選び、Copyダイアログが開いている。To directoryの末尾はapp/src/main/res/drawable"></a><figcaption>To directoryの末尾が A03RockPaperScissorsGame/app/src/main/res/drawable になっていればOK。画像のパスは先生の保存先の例です。 <a href="images/drawable-copy.png">画像を大きく開く</a></figcaption></figure>
 <figure><a href="images/drawable-files.png"><img src="images/drawable-files.png" width="1096" height="1082" loading="lazy" alt="drawableフォルダにpaper.png、rock.png、scissors.png、title_image.pngの4つが追加されている"></a><figcaption>drawableに4つのPNGが並べば成功。 <a href="images/drawable-files.png">画像を大きく開く</a></figcaption></figure>
 
 <div class="note"><p class="box-title">貼り付けた場所を間違えたとき</p><p><code>layout</code> や <code>mipmap</code> など別のフォルダに入った画像は、Project表示で選んで <kbd>⌘ Delete</kbd> で削除し、もう一度 <code>drawable</code> に貼り付けます。見本の <code>samples</code> 側のプロジェクトには貼り付けません。</p></div>
@@ -505,7 +511,7 @@ switch (result) {
 <p><a href="../common/logcat.html?from=rock-paper-scissors-game">共通資料：Logcat</a>を使います。今回のパッケージは <code>jp.ac.jec.a03rockpaperscissorsgame</code> です。エラーを見るときは、STEP 8で入れた <code>tag:MainActivity</code> と <code>level:DEBUG</code> を消して、<code>package:jp.ac.jec.a03rockpaperscissorsgame level:ERROR</code> に置き換えます。A01・A02用のパッケージ名も残さないようにします。</p>
 <p>質問では「STEP番号・編集したファイル・最初の赤い行・押した順番」を伝えます。</p></section>
 <section id="sample-project"><h2>完成プロジェクトを開く</h2>
-<p>完成版は最初の授業から使える見本です。STEP 2の画像も、このZIPから取り出します。<a class="button-link" href="downloads/A03RockPaperScissorsGame.zip" download>完成プロジェクト A03RockPaperScissorsGame.zip</a></p>
+<p>完成版は最初の授業から使える見本です。STEP 2の画像は、このZIPの <code>app/src/main/res/drawable</code> にも入っています。<a class="button-link" href="downloads/A03RockPaperScissorsGame.zip" download>完成プロジェクト A03RockPaperScissorsGame.zip</a></p>
 <ol><li>ZIPを展開します。中に <code>A03RockPaperScissorsGame</code> フォルダができます。</li><li>見本は <code>/Users/ユーザ名/Documents/Android1/samples/A03RockPaperScissorsGame</code> に置きます。</li><li>Android Studioの <strong>Open</strong> で、<code>settings.gradle.kts</code> と <code>app</code> が入った <code>A03RockPaperScissorsGame</code> フォルダを選びます。</li><li>Sync後にRunして動きを確認します。授業の入力に戻るときは自分の <code>Documents/Android1/A03RockPaperScissorsGame</code> を開きます。</li></ol>
 <p>両方とも同じプロジェクト名なので、ウィンドウの保存先を確認しましょう。見本と自分のアプリは同じパッケージ名のため、端末上では同じアプリを更新します。切り替えるときは、確認したい方のプロジェクトからRunします。</p>
 <details><summary>完成したMainActivity.javaで照合する</summary><div class="code-head">完成版 · MainActivity.java</div>
