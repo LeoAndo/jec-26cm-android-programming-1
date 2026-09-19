@@ -471,6 +471,19 @@ public class MainActivity extends AppCompatActivity {
 <li>アプリを終了して開き直します。残っていれば成功です。</li>
 </ol>
 <figure class="phone"><a href="images/app-error-empty.png"><img src="images/app-error-empty.png" width="1080" height="2424" loading="lazy" alt="タイトルを空にして保存を押したときに、画面下にタイトルを入力してくださいのメッセージが出ている画面"></a><figcaption>タイトルを空のまま保存すると、メッセージが出て保存されません。 <a href="images/app-error-empty.png">画像を大きく開く</a></figcaption></figure>
+<h3>完成チェック</h3>
+<p>上から順に操作します。保存したデータが残っているとidが1から始まらないので、アプリを消してから始めます。</p>
+<p><strong>アプリを終了する</strong>ときは、エミュレータでアプリ一覧（最近使ったアプリ）を開き、このアプリを上へスワイプします。アプリ一覧は、画面下の横棒を上へスワイプしてから止めると出ます。</p>
+<table><thead><tr><th>操作</th><th>確認する結果</th></tr></thead><tbody>
+<tr><td>アプリを消してから初回起動</td><td>一覧が空で表示される。</td></tr>
+<tr><td>何も入れずに「保存」</td><td>「タイトルを入力してください」が出て、一覧は増えない。</td></tr>
+<tr><td>タイトルに CAR・BIKE・TRAIN を1件ずつ「保存」</td><td>保存のたびに1行増え、idが1・2・3と自動で付く。入力欄は空になる。</td></tr>
+<tr><td>id欄に 2、タイトルに BICYCLE と入れて「保存」</td><td>2行目だけが BICYCLE に書き換わる。行は増えない。</td></tr>
+<tr><td>id欄に 3 と入れて「削除」</td><td>3行目だけが消え、id欄が空になる。</td></tr>
+<tr><td>id欄が空のまま「削除」</td><td>「削除するidを入力してください」が出て、一覧は変わらない。</td></tr>
+<tr><td>id欄に 99 と入れて「削除」</td><td>「そのidのデータはありません」が出て、一覧は変わらない。</td></tr>
+<tr><td>アプリを終了して開き直す</td><td>残った2行がそのまま表示される。</td></tr>
+</tbody></table>
 <h3>練習</h3>
 <ol>
 <li>存在しないid（例：<code>99</code>）を入れて <strong>削除</strong> を押すとどうなるか、試して理由を説明する。</li>
@@ -480,7 +493,7 @@ public class MainActivity extends AppCompatActivity {
 <h3>保存</h3>
 <p>自分の <code>Documents/Android1/A10RoomSample</code> を保存します。</p>
 <p>教材のチェックは自分用です。先生への送信はしません。印刷は <kbd>⌘ P</kbd> で行えます。</p>
-<div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-7"><span>保存・書き換え・削除ができ、アプリを終了しても残ることを確認した。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
+<div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-7"><span>完成チェックの操作をすべて試し、表のとおりの結果になった。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
 </section>
 
 <section id="help" aria-labelledby="title-help">
