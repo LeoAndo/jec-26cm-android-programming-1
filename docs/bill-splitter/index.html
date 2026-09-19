@@ -72,7 +72,7 @@
 <p>TOP画面の上に置く<strong>タイトル画像</strong>を追加します。画像の <code>title_img.png</code> は、教科書といっしょに配られた<strong>教材のフォルダ</strong>に入っています。Finderでコピーして、自分のプロジェクトに入れます。</p>
 <ol><li>Finderを開き、左側の <strong>書類</strong> をクリックします。教材のフォルダをダブルクリックで開きます。名前は <code>android1-student-materials-</code> のうしろに日付が付いた形で、日付は配られた回によって変わります。</li>
 <li>その中を <code>docs → bill-splitter → downloads</code> の順に開きます。<code>bill-splitter</code> は、いま読んでいるこの教科書（<code>index.html</code>）が入っているフォルダです。</li>
-<li><code>title_img.png</code> を選び、<kbd>⌘ C</kbd> でコピーします。同じフォルダには、完成プロジェクトの <code>A07BillSplitter.zip</code> と、STEP 07で使う <code>.java</code> のファイルも入っています。ここでは選びません。</li></ol>
+<li><code>title_img.png</code> を選び、<kbd>⌘ C</kbd> でコピーします。同じフォルダには、完成プロジェクトの <code>A07BillSplitter.zip</code> も入っています。ここでは選びません。</li></ol>
 <div class="note"><p class="box-title">教材のフォルダが見つからないとき</p><p>教材のフォルダは、はじめの準備で「書類」へ移動したものです（<a href="../common/setup.html?from=bill-splitter#materials">共通資料：はじめの準備</a>の1.）。まだ移動していなければ、先にそちらを行います。同じ教材を2回ダウンロードして名前のうしろに <code>(1)</code> が付いたものがあるときは、自分で判断せず先生に見せてください。</p></div>
 <ol start="4"><li>Android Studioの左側で <code>app → src → main → res → drawable</code> をクリックし、<kbd>⌘ V</kbd> で貼り付けます。</li><li>Copyのダイアログが出ます。New nameが <code>title_img.png</code>、To directoryの最後が <code>A07BillSplitter/app/src/main/res/drawable</code> になっていることを確認して <strong>OK</strong> を押します。</li></ol>
 <figure><a href="images/drawable-copy.png"><img src="images/drawable-copy.png" width="2050" height="836" loading="lazy" alt="Copyダイアログ。New nameにtitle_img.png、To directoryにA07BillSplitter/app/src/main/res/drawableが表示されている"></a><figcaption>貼り付け先がdrawableになっているか確認します。この画面は先生の例です。<strong>Copy file</strong> のうしろ（コピー元の場所）は、自分の画面では教材のフォルダの中の場所になります。 <a href="images/drawable-copy.png">画像を大きく開く</a></figcaption></figure>
@@ -366,17 +366,25 @@ txtNumberOfPeople.setText("参加者は" + numberOfPeople + "人");</code></pre>
 <section id="step-7" aria-labelledby="title-7">
 <p class="step-meta">STEP 07 · 目安 15分</p><h2 id="title-7">割り勘の計算クラスを使う</h2>
 <p>割り勘の計算は、できあがった <code>BillSplitter.java</code> が行います。<strong>中身を読む必要はありません。</strong>使い方だけ覚えます。</p>
-<p>このファイルは、教科書といっしょに配られた<strong>教材のフォルダ</strong>に入っています。Finderでコピーして、自分のプロジェクトに入れます。</p>
+<p>空のファイルを自分で作り、このページの下にあるコードをコピーして、丸ごと入れます。コードは<strong>読まずにコピーして構いません</strong>。読むのは、そのあとの <strong>③ 使い方</strong> だけです。</p>
+<p>STEP 02のタイトル画像は、ファイルごとFinderでコピーしました。コードは文字なので、Finderを使わず、この教科書のページからそのままコピーできます。</p>
+<h3>① 空のファイルを作る</h3>
 <ol>
-<li>Finderを開き、左側の <strong>書類</strong> をクリックします。教材のフォルダをダブルクリックで開きます。名前は <code>android1-student-materials-</code> のうしろに日付が付いた形で、日付は配られた回によって変わります。</li>
-<li>その中を <code>docs → bill-splitter → downloads</code> の順に開きます。<code>BillSplitter.java</code> を選び、<kbd>⌘ C</kbd> でコピーします。</li>
-<li>Android Studioの左側で <code>app → src → main → java → jp.ac.jec.a07billsplitter</code> をクリックし、<kbd>⌘ V</kbd> で貼り付けます。<code>MainActivity.java</code> が入っているのと同じ場所です。</li>
-<li>STEP 02でタイトル画像を入れたときと同じ <strong>Copy</strong> のダイアログが出ます。New nameが <code>BillSplitter.java</code>、To directoryの最後が <code>A07BillSplitter/app/src/main/java/jp/ac/jec/a07billsplitter</code> になっていることを確認して <strong>OK</strong> を押します。</li>
-<li>増えた <code>BillSplitter.java</code> をダブルクリックで開き、1行目が <code>package jp.ac.jec.a07billsplitter;</code> になっていることを確認します。</li>
+<li>左側のプロジェクト画面で <code>app → src → main → java → jp.ac.jec.a07billsplitter</code>（<code>MainActivity.java</code> があるフォルダ）を右クリックし、<strong>New → Java Class</strong> を選びます。</li>
+<li><strong>New Java Class</strong> という小さなウィンドウが出ます。いちばん上の欄に、名前 <code>BillSplitter</code> を入力します。<code>.java</code> は付けません。</li>
+<li>その下の一覧（<code>Class</code>・<code>Interface</code>・<code>Enum</code> …）で <strong>Class</strong> を選び、<kbd>return</kbd> を押します。</li>
+<li><code>BillSplitter.java</code> ができて開きます。中には <code>package</code> の行と、空のクラスの宣言だけが入っています。</li>
 </ol>
-<div class="note"><p class="box-title">教材のフォルダが見つからないとき</p><p>教材のフォルダは、はじめの準備で「書類」へ移動したものです（<a href="../common/setup.html?from=bill-splitter#materials">共通資料：はじめの準備</a>の1.）。まだ移動していなければ、先にそちらを行います。同じ教材を2回ダウンロードして名前のうしろに <code>(1)</code> が付いたものがあるときは、自分で判断せず先生に見せてください。</p></div>
-<details><summary>BillSplitter.javaの中身を見る（読まなくてよい）</summary><div class="code-head">BillSplitter.java · 全文</div>
-<pre tabindex="0"><code>package jp.ac.jec.a07billsplitter;
+<div class="note"><p class="box-title">作る場所に注意</p><p><code>app → src</code> の下には <code>test</code> と <code>androidTest</code> もあり、その中にも同じ名前のパッケージがあります。必ず <code>app → src → main → java</code> の中の、<code>MainActivity.java</code> と同じ場所に作ります。場所を間違えると1行目の <code>package</code> が変わり、STEP 09で <code>BillSplitter</code> が赤くなります。</p></div>
+<h3>② 中身を全部入れ替える</h3>
+<ol>
+<li>下のコードの見出し <strong>BillSplitter.java · 全体を置き換える</strong> にある <strong>コピー</strong> ボタンを押します。<strong>コピーしました</strong> に変われば成功です。ブラウザによっては <strong>⌘ Cでコピー</strong> に変わり、コードが選ばれた状態になります。そのときは、そのまま <kbd>⌘ C</kbd> を押します。</li>
+<li>Android Studioに戻り、開いている <code>BillSplitter.java</code> の中をクリックして <kbd>⌘ A</kbd> で全部選びます。<strong>最初から入っている <code>package</code> の行とクラスの宣言も、いっしょに選びます。</strong>これを残したまま貼り付けると、同じものが2つ並んでエラーになります。</li>
+<li><kbd>⌘ V</kbd> で貼り付けます。選んでいたところが消えて、<strong>ファイル全体</strong>がコピーしたコードに置き換わります。</li>
+<li>1行目が <code>package jp.ac.jec.a07billsplitter;</code> になっていることを確認します。</li>
+</ol>
+<div class="code-head">BillSplitter.java · 全体を置き換える</div>
+<pre id="code-billsplitter" tabindex="0"><code>package jp.ac.jec.a07billsplitter;
 
 import android.icu.text.NumberFormat;
 
@@ -503,8 +511,8 @@ final class BillSplitter {
         result.append(&quot;合計: &quot;).append(currencyInstance.format(total));
         return result.toString();
     }
-}</code></pre></details>
-<h3>使い方</h3>
+}</code></pre>
+<h3>③ 使い方</h3>
 <div class="code-head">呼び出し方</div>
 <pre tabindex="0"><code>var result = BillSplitter.calculateAndFormat(1234, participants);
 // result -&gt; "Sato: ￥411\nSuzuki: ￥411\nTanaka: ￥412\n合計: ￥1,234"</code></pre>
@@ -798,7 +806,7 @@ public class BillSplitActivity extends AppCompatActivity {
         context.startActivity(starter);
     }
 }</code></pre></details>
-<details><summary>教材から入れたBillSplitter.javaで照合する</summary><div class="code-head">教材のファイル · BillSplitter.java</div>
+<details><summary>STEP 07で入れたBillSplitter.javaで照合する</summary><div class="code-head">STEP 07のファイル · BillSplitter.java</div>
 <pre id="code-complete-splitter-java" tabindex="0"><code>package jp.ac.jec.a07billsplitter;
 
 import android.icu.text.NumberFormat;
