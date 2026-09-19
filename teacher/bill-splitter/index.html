@@ -26,7 +26,7 @@
 
 <section><h2>3. 90分×3コマの進行</h2>
 <table><thead><tr><th>コマ</th><th>時間配分</th><th>終了時の確認</th></tr></thead><tbody>
-<tr><td>1コマ目</td><td>STEP 00：5分、STEP 01：15分、STEP 02：10分、STEP 03：20分、STEP 04：25分、再実行・個別支援：10分、ふり返り：5分</td><td>タイトル画像とレイアウトが表示され、参加者を登録できる。空のときと同じ名前のときにメッセージが出る。</td></tr>
+<tr><td>1コマ目</td><td>STEP 00：5分、STEP 01：15分、STEP 02：10分、STEP 03：20分、STEP 04：25分、再実行・個別支援：10分、理解確認：5分</td><td>タイトル画像とレイアウトが表示され、参加者を登録できる。空のときと同じ名前のときにメッセージが出る。</td></tr>
 <tr><td>2コマ目</td><td>再開：5分、STEP 05：15分、STEP 06：20分、STEP 07：10分、個別支援：10分、確認：5分の見込みで、残り時間はSTEP 08の前半へ</td><td>2人以上のときだけワリカン画面が開き、<strong>参加者は○人</strong> が表示される。<code>BillSplitter</code> をプロジェクトに置けている。</td></tr>
 <tr><td>3コマ目</td><td>再開：5分、STEP 08：20分、STEP 09：10分、STEP 10：15分、STEP 11：15分、個別支援：10分</td><td>3つの入力チェックが動き、計算結果と合計が表示される。合計が入力した金額と一致することを説明できる。</td></tr>
 </tbody></table>
@@ -47,7 +47,7 @@
 <tr><td>入力チェック（STEP 08）</td><td><a href="code/08-BillSplitActivity.java">08-BillSplitActivity.java</a></td><td>3つのチェックがこの順（未入力 → <code>parseInt</code> → 金額が人数未満）。<code>parseInt</code> が <code>try</code> の中にある。まだ計算はしない。</td></tr>
 <tr><td>完成（STEP 09）</td><td><a href="code/09-BillSplitActivity.java">09-BillSplitActivity.java</a></td><td>入力チェックの<strong>下</strong>に <code>calculateAndFormat</code> と <code>setText</code> の2行がある。</td></tr>
 </tbody></table>
-<p>STEP 02は画像の配置だけ、STEP 10は完成版のまま試す練習、STEP 11はふり返りのため、照合コードはありません。STEP 03・05・06・07・09のファイルは完成プロジェクトと同じ内容です（<a href="../../A07BillSplitter/app/src/main/res/layout/activity_main.xml">activity_main.xml</a>、<a href="../../A07BillSplitter/app/src/main/res/layout/activity_bill_split.xml">activity_bill_split.xml</a>、<a href="../../A07BillSplitter/app/src/main/AndroidManifest.xml">AndroidManifest.xml</a>、<a href="../../A07BillSplitter/app/src/main/java/jp/ac/jec/a07billsplitter/MainActivity.java">MainActivity.java</a>、<a href="../../A07BillSplitter/app/src/main/java/jp/ac/jec/a07billsplitter/BillSplitActivity.java">BillSplitActivity.java</a>、<a href="../../A07BillSplitter/app/src/main/java/jp/ac/jec/a07billsplitter/BillSplitter.java">BillSplitter.java</a>）。STEP 01・03・04のAndroidManifest.xmlはひな形のまま（MainActivityの <code>&lt;activity&gt;</code> だけ）なので、照合コードはありません。</p>
+<p>STEP 02は画像の配置だけ、STEP 10は完成版のまま試す練習、STEP 11は完成後のまとめのため、照合コードはありません。STEP 03・05・06・07・09のファイルは完成プロジェクトと同じ内容です（<a href="../../A07BillSplitter/app/src/main/res/layout/activity_main.xml">activity_main.xml</a>、<a href="../../A07BillSplitter/app/src/main/res/layout/activity_bill_split.xml">activity_bill_split.xml</a>、<a href="../../A07BillSplitter/app/src/main/AndroidManifest.xml">AndroidManifest.xml</a>、<a href="../../A07BillSplitter/app/src/main/java/jp/ac/jec/a07billsplitter/MainActivity.java">MainActivity.java</a>、<a href="../../A07BillSplitter/app/src/main/java/jp/ac/jec/a07billsplitter/BillSplitActivity.java">BillSplitActivity.java</a>、<a href="../../A07BillSplitter/app/src/main/java/jp/ac/jec/a07billsplitter/BillSplitter.java">BillSplitter.java</a>）。STEP 01・03・04のAndroidManifest.xmlはひな形のまま（MainActivityの <code>&lt;activity&gt;</code> だけ）なので、照合コードはありません。</p>
 </section>
 
 <section><h2>5. 理解確認と支援</h2>
@@ -59,6 +59,7 @@
 <tr><td>入力チェックを <code>BillSplitter</code> ではなく画面側に書いたのは？</td><td>計算クラスは画面に出す文言を持たない。ユーザーの入力ミスは画面側で止める、と答える。</td></tr>
 <tr><td>入力チェック3が「1以上」ではなく「人数以上」なのは？</td><td>金額が人数より少ないと支払額が0円の人が出るため。人数は2人以上なので、このチェックを通れば金額は必ず1以上になる、と答える。</td></tr>
 <tr><td><code>parseInt</code> を <code>try</code> で囲むのは？</td><td>数字に変えられないときに例外が出てアプリが終了するため、受け止めてメッセージを出す、と答える。</td></tr>
+<tr><td>A06で学んだ「配列を渡す」は、どこで使った？</td><td>MainActivityの「ワリカン画面へ」で、参加者名の配列を <code>BillSplitActivity.start</code> に渡すところ。受け取りは <code>onCreate</code> の <code>getStringArrayExtra</code>、と示す。</td></tr>
 <tr><td>計算結果の最後に合計の行があるのは？</td><td>表示された支払額を足すと入力した金額に戻ることを、その場で確かめられるため（検算）、と答える。</td></tr>
 </tbody></table>
 <p>エラー時は「STEP番号・ファイル・最初の赤い行・操作順」を聞きます。この単元のLogcat検索は <code>package:jp.ac.jec.a07billsplitter level:ERROR</code> です（<a href="../../docs/common/logcat.html">共通資料：Logcat</a>）。</p>

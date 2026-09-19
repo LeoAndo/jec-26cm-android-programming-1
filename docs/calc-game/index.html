@@ -18,7 +18,7 @@
 <li><a href="#step-8">08　答え合わせと次の問題</a></li>
 <li><a href="#step-9">09　10問で終了して結果を表示</a></li>
 <li><a href="#step-10">10　ミニ練習</a></li>
-<li><a href="#step-11">11　完成とふり返り</a></li></ol></nav>
+<li><a href="#step-11">11　完成</a></li></ol></nav>
 <div class="progress"><span data-progress-label>0 / 12 ステップ確認済み</span><progress value="0" max="12" aria-label="学習の進み具合"></progress><span class="muted">自分用のチェックです。</span></div>
 <div class="resources"><a href="#help">困ったとき</a><a href="#sample-project">完成プロジェクトを開く</a><a href="../hello-android/index.html">A01：HelloAndroid</a><a href="../common/emulator.html?from=calc-game">共通：エミュレータ</a><a href="../common/auto-import.html?from=calc-game">共通：Auto Import</a><a href="../common/logcat.html?from=calc-game">共通：Logcat</a><a href="../common/apk.html?from=calc-game">共通：APKの提出</a><a href="../common/dev-tips.html?from=calc-game">共通：開発Tips</a><a href="../common/other-versions.html?from=calc-game">共通：ちがうバージョン</a></div>
 </div></aside><main id="main"><div class="hero"><span class="unit">02</span><p class="eyebrow">CALC GAME</p>
@@ -538,10 +538,10 @@ for (var id : numberButtonIds) {
 <div class="task"><p class="box-title">練習3：状態を説明する</p><p>STOP後に数字を押したとき、正解数を増やさないのはどの行ですか。「押したら無効」になるまでの流れを指さしましょう。</p><details><summary>説明したあとに答えを見る</summary><p>STOPで <code>isPlaying = false</code> にします。数字の処理は <code>if (!isPlaying)</code> に入り、Snackbarを出し、<code>return</code> で終了します。採点の行には進みません。</p></details></div>
 <div class="note"><p class="box-title">完成版に戻してから確認</p><p>練習1の9、練習2の乱数の行を元に戻します。数字ボタンの <code>android:text</code> は1〜9のままにします。文字に変えると <code>Integer.parseInt</code> で数値に変換できなくなります。</p></div>
 <div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-10"><span>5問版と固定問題を試し、変更理由を説明してから完成版の値に戻した。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
-<div class="next"><a href="#step-11">次へ：完成とふり返り →</a></div>
+<div class="next"><a href="#step-11">次へ：完成 →</a></div>
 </section>
 <section id="step-11" aria-labelledby="title-11">
-<p class="step-meta">STEP 11 · 目安 15分</p><h2 id="title-11">完成とふり返り</h2>
+<p class="step-meta">STEP 11 · 目安 15分</p><h2 id="title-11">完成</h2>
 
 <h3>完成チェック</h3>
 <table><thead><tr><th>操作</th><th>確認する結果</th></tr></thead><tbody>
@@ -555,7 +555,6 @@ for (var id : numberButtonIds) {
 <tr><td>結果 → RESET → START</td><td>もう一度最初から遊べる。</td></tr>
 </tbody></table>
 
-<h3>自分の言葉でふり返る</h3><ol><li><code>nowNo</code> と <code>correctNo</code> は何が違いますか。</li><li>STOPの時間から続けるために、どの値を保存しましたか。</li><li>9個の数字ボタンに同じ処理を付けたのはどこですか。</li><li>なぜ <code>nowNo &lt;= 9</code> で10問になるのでしょうか。</li></ol>
 <h3>保存</h3><p>自分の <code>Documents/Android1/A02CalcGame</code> を保存します。</p>
 <p>教材のチェックは自分用です。先生への送信はしません。印刷は <kbd>⌘ P</kbd> で行えます。</p>
 <div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-11"><span>完成チェックを終え、フィールド・タイマー・繰り返し・終了判定を説明できた。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>

@@ -17,7 +17,7 @@
 <li><a href="#step-7">07　データを全部消す</a></li>
 <li><a href="#step-8">08　保存先のXMLファイルを見る</a></li>
 <li><a href="#step-9">09　ミニ練習</a></li>
-<li><a href="#step-10">10　完成とふり返り</a></li></ol></nav>
+<li><a href="#step-10">10　完成</a></li></ol></nav>
 <div class="progress"><span data-progress-label>0 / 11 ステップ確認済み</span><progress value="0" max="11" aria-label="学習の進み具合"></progress><span class="muted">自分用のチェックです。</span></div>
 <div class="resources"><a href="#help">困ったとき</a><a href="#apply-or-commit">解説：applyとcommitの違い</a><a href="#what-to-save">解説：何を保存してよいか</a><a href="#sample-project">完成プロジェクトを開く</a><a href="../hello-android/index.html">A01：HelloAndroid</a><a href="../calc-game/index.html">A02：CalcGame</a><a href="../rock-paper-scissors-game/index.html">A03：RockPaperScissorsGame</a><a href="../webview-app/index.html">A04：WebViewApp</a><a href="../bomb-game/index.html">A05：BombGame</a><a href="../screen-transition-sample/index.html">A06：ScreenTransitionSample</a><a href="../bill-splitter/index.html">A07：BillSplitter</a><a href="../common/emulator.html?from=shared-preferences-sample">共通：エミュレータ</a><a href="../common/auto-import.html?from=shared-preferences-sample">共通：Auto Import</a><a href="../common/logcat.html?from=shared-preferences-sample">共通：Logcat</a><a href="../common/apk.html?from=shared-preferences-sample">共通：APKの提出</a><a href="../common/dev-tips.html?from=shared-preferences-sample">共通：開発Tips</a><a href="../common/other-versions.html?from=shared-preferences-sample">共通：ちがうバージョン</a></div>
 </div></aside><main id="main"><div class="hero"><span class="unit">08</span><p class="eyebrow">SHARED PREFERENCES SAMPLE</p>
@@ -364,10 +364,10 @@
 <p>赤いエラーは出るでしょうか。applyを押したあと、<code>int_value</code> は何と表示されるでしょうか。予想してから試します。</p>
 <details><summary>試したあとに答えを見る</summary><p>赤いエラーは<strong>出ません</strong>。applyを押しても <code>int_value = 0</code> のままです。保存したキーは <code>"int_value"</code>、探したキーは <code>"intvalue"</code> で、見つからないため初期値の0が返るからです。show app.xmlを押すと <code>&lt;int name="int_value" value="1" /&gt;</code> はちゃんとあります。定数名を <code>INT_VALU</code> のように打ち間違えた場合は、すぐ赤いエラーになります。キーを定数にまとめる理由を説明できれば十分です。確認後は <code>INT_VALUE</code> に戻します。</p></details></div>
 <div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-9"><span>3つの練習を試し、初期値が使われる条件と、キーを定数にまとめる理由を説明できた。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
-<div class="next"><a href="#step-10">次へ：完成とふり返り →</a></div></section>
+<div class="next"><a href="#step-10">次へ：完成 →</a></div></section>
 
 <section id="step-10" aria-labelledby="title-10">
-<p class="step-meta">STEP 10 · 目安 15分</p><h2 id="title-10">完成とふり返り</h2>
+<p class="step-meta">STEP 10 · 目安 15分</p><h2 id="title-10">完成</h2>
 <h3>完成チェック</h3>
 <table><thead><tr><th>操作</th><th>確認する結果</th></tr></thead><tbody>
 <tr><td>アプリを消してから初回起動</td><td>6行が初期値（<code>0</code> / 空 / <code>false</code> / <code>0.0</code> / <code>0</code> / <code>[]</code>）で表示される。</td></tr>
@@ -378,15 +378,6 @@
 <tr><td>clear</td><td>6行が初期値に戻る。</td></tr>
 <tr><td>clearのあとにshow app.xml</td><td><code>&lt;map /&gt;</code> だけになる。</td></tr>
 </tbody></table>
-<h3>自分の言葉でふり返る</h3>
-<ol>
-<li>アプリを終了しても値が残るのはなぜですか。A07までのアプリとは何が違いますか。</li>
-<li><code>edit()</code> → <code>putInt</code> → <code>apply()</code> の3つのうち、どれを忘れると保存されませんか。</li>
-<li><code>getInt(INT_VALUE, 0)</code> の <code>0</code> はいつ使われますか。</li>
-<li>画面に <code>int_value = 0</code> と出ているとき、0が保存されているかどうかは、どうすれば確かめられますか。</li>
-<li>キーの文字を定数にまとめているのはなぜですか。直接書くと、どんな間違いに気付けなくなりますか。</li>
-<li><code>SharedPreferences</code> にパスワードを保存してはいけないのはなぜですか。</li>
-</ol>
 <h3>保存</h3>
 <p>自分の <code>Documents/Android1/A08SharedPreferencesSample</code> を保存します。</p>
 <p>教材のチェックは自分用です。先生への送信はしません。印刷は <kbd>⌘ P</kbd> で行えます。</p>

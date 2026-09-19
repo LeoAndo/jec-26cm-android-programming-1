@@ -18,7 +18,7 @@
 <li><a href="#step-8">08　再挑戦で最初に戻す</a></li>
 <li><a href="#step-9">09　クリアを判定する</a></li>
 <li><a href="#step-10">10　ミニ練習</a></li>
-<li><a href="#step-11">11　完成とふり返り</a></li></ol></nav>
+<li><a href="#step-11">11　完成</a></li></ol></nav>
 <div class="progress"><span data-progress-label>0 / 12 ステップ確認済み</span><progress value="0" max="12" aria-label="学習の進み具合"></progress><span class="muted">自分用のチェックです。</span></div>
 <div class="resources"><a href="#help">困ったとき</a><a href="#sample-project">完成プロジェクトを開く</a><a href="../hello-android/index.html">A01：HelloAndroid</a><a href="../calc-game/index.html">A02：CalcGame</a><a href="../rock-paper-scissors-game/index.html">A03：RockPaperScissorsGame</a><a href="../webview-app/index.html">A04：WebViewApp</a><a href="../common/emulator.html?from=bomb-game">共通：エミュレータ</a><a href="../common/auto-import.html?from=bomb-game">共通：Auto Import</a><a href="../common/logcat.html?from=bomb-game">共通：Logcat</a><a href="../common/apk.html?from=bomb-game">共通：APKの提出</a><a href="../common/dev-tips.html?from=bomb-game">共通：開発Tips</a><a href="../common/other-versions.html?from=bomb-game">共通：ちがうバージョン</a></div>
 </div></aside><main id="main"><div class="hero"><span class="unit">05</span><p class="eyebrow">BOMB GAME</p>
@@ -567,10 +567,10 @@ if ((nowState == STATE_INITIAL &amp;&amp; disableButtonCount == 7) ||
 <div class="task"><p class="box-title">練習3：状態を説明する</p><p>同じ数字を2回押せないのは、どの行のおかげですか。爆発したあとに数字を押せなくなるのは、どの行ですか。再挑戦でスイッチの数字が変わるのは、どの行ですか。</p><details><summary>説明したあとに答えを見る</summary><p>クリックの処理の最初の <code>button.setEnabled(false)</code> で、押したボタンを押せなくします。爆発したときは、<code>else if (nowState == STATE_EXPLODED)</code> の中の <code>Arrays.stream(numberButtons).forEach(b -&gt; b.setEnabled(false))</code> ですべて押せなくします。再挑戦の処理の <code>generateIgnitionNumbers()</code> が、乱数で新しいスイッチを作ります。</p></details></div>
 <div class="note"><p class="box-title">完成版に戻してから確認</p><p>練習1の乱数の行と、練習2の <code>8</code> を元に戻します。Auto Importの設定により、使わなくなった <code>ThreadLocalRandom</code> のimportが消えることがあります。戻したあとに赤字になったら、<kbd>⌥ Enter</kbd> でimportを追加します。</p></div>
 <div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-10"><span>スイッチを固定して着火・爆発・クリアを確かめ、8と比べる理由を説明してから完成版に戻した。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
-<div class="next"><a href="#step-11">次へ：完成とふり返り →</a></div>
+<div class="next"><a href="#step-11">次へ：完成 →</a></div>
 </section>
 <section id="step-11" aria-labelledby="title-11">
-<p class="step-meta">STEP 11 · 目安 15分</p><h2 id="title-11">完成とふり返り</h2>
+<p class="step-meta">STEP 11 · 目安 15分</p><h2 id="title-11">完成</h2>
 
 <h3>完成チェック</h3>
 <table><thead><tr><th>操作</th><th>確認する結果</th></tr></thead><tbody>
@@ -582,7 +582,6 @@ if ((nowState == STATE_INITIAL &amp;&amp; disableButtonCount == 7) ||
 <tr><td>再挑戦</td><td>最初の表示に戻り、再挑戦が見えなくなる。Logcatに新しい2つの数字が出る。</td></tr>
 </tbody></table>
 
-<h3>自分の言葉でふり返る</h3><ol><li><code>nowState</code> は何を覚えていて、いつ1増えますか。</li><li>do-while文で乱数を作り直すのは、どんなときですか。</li><li>クリアの条件で、着火前は7、着火後は8と比べるのはなぜですか。</li><li><code>2</code> と書く代わりに定数 <code>STATE_IGNITED</code> を使うと、何がよいですか。</li></ol>
 <h3>保存</h3><p>自分の <code>Documents/Android1/A05BombGame</code> を保存します。</p>
 <p>教材のチェックは自分用です。先生への送信はしません。印刷は <kbd>⌘ P</kbd> で行えます。</p>
 <div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-11"><span>完成チェックを終え、メソッド・do-while文・定数と状態・anyMatch・クリアの条件を説明できた。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>

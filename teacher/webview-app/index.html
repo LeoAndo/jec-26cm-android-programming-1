@@ -26,10 +26,10 @@
 </section>
 <section><h2>3. 90分×2コマの進行</h2>
 <table><thead><tr><th>コマ</th><th>時間配分</th><th>終了時の確認</th></tr></thead><tbody>
-<tr><td>1コマ目</td><td>STEP 0：5分、STEP 1：15分、STEP 2：15分、STEP 3：15分、STEP 4：15分、STEP 5：20分、再実行・ふり返り：5分</td><td>ActionBarとINTERNETの許可を設定し、WebViewにYahoo!ニュースを表示できる。AppMenuItemの値と番号、enumを使うメリットを1つ説明できる。</td></tr>
+<tr><td>1コマ目</td><td>STEP 0：5分、STEP 1：15分、STEP 2：15分、STEP 3：15分、STEP 4：15分、STEP 5：20分、再実行・理解確認：5分</td><td>ActionBarとINTERNETの許可を設定し、WebViewにYahoo!ニュースを表示できる。AppMenuItemの値と番号、enumを使うメリットを1つ説明できる。</td></tr>
 <tr><td>2コマ目</td><td>再開：5分、STEP 6：15分、STEP 7：15分、STEP 8：20分、STEP 9：20分、STEP 10：10分、個別支援：5分</td><td>メニュー・JavaScriptの切り替え・戻る操作を実演し、onKeyDownが使えない理由を説明できる。</td></tr>
 </tbody></table>
-<p>STEP 2は、2つのthemes.xmlのうち片方だけ変更する、<code>uses-permission</code> を <code>&lt;application&gt;</code> の中に書く、といった誤りが起きやすい工程です。<code>values-night/themes.xml</code> は端末がダークテーマのときに使われるため、片方だけ変えるとダークテーマの端末でActionBarとメニューが出ません。README方針13に合わせ、教科書ではダークテーマに触れず「両方とも変更する」とだけ案内しています。<code>&lt;application&gt;</code> の中に許可を書くと、ビルド時に <code>AAPT: error: unexpected element &lt;uses-permission&gt; found in &lt;manifest&gt;&lt;application&gt;</code> になります。Runの前に、ActionBarが表示されることと、Manifestの追加位置を全員で確認します。STEP 5は、Java Classの作成ダイアログで <strong>Enum</strong> を選ぶことと、<code>app/src/main/java</code> の中に作ることを画面で示します。Runの確認後は「解説：enumを使わないと、何に困る？」から「enumの値の使い方」までを約5分で読ませます。配列の例のコードは入力しないことを伝えます。コードを画面で示したところで、下の表を読む前に「titlesは先頭、urlsは最後に足したら、『日本電子専門学校』を押すとどのサイトが開く？」と問いかけ、「困る場面」の表で答え合わせをします。そのあと、メリットの表①〜④で、enumならどう防げるかを確かめます。「enumの値の使い方」の表は開いて読む形（details）にしています。時間が足りない場合は、この表を2コマ目の再開時に読ませます（STEP 6からリンクしています）。再実行・ふり返りの5分では、保存して再Runしたあと、1コマ目の終わりの説明（値と番号、メリット1つ）を隣の人どうしで説明し合い、先生は数人に聞いて確認します。</p>
+<p>STEP 2は、2つのthemes.xmlのうち片方だけ変更する、<code>uses-permission</code> を <code>&lt;application&gt;</code> の中に書く、といった誤りが起きやすい工程です。<code>values-night/themes.xml</code> は端末がダークテーマのときに使われるため、片方だけ変えるとダークテーマの端末でActionBarとメニューが出ません。README方針13に合わせ、教科書ではダークテーマに触れず「両方とも変更する」とだけ案内しています。<code>&lt;application&gt;</code> の中に許可を書くと、ビルド時に <code>AAPT: error: unexpected element &lt;uses-permission&gt; found in &lt;manifest&gt;&lt;application&gt;</code> になります。Runの前に、ActionBarが表示されることと、Manifestの追加位置を全員で確認します。STEP 5は、Java Classの作成ダイアログで <strong>Enum</strong> を選ぶことと、<code>app/src/main/java</code> の中に作ることを画面で示します。Runの確認後は「解説：enumを使わないと、何に困る？」から「enumの値の使い方」までを約5分で読ませます。配列の例のコードは入力しないことを伝えます。コードを画面で示したところで、下の表を読む前に「titlesは先頭、urlsは最後に足したら、『日本電子専門学校』を押すとどのサイトが開く？」と問いかけ、「困る場面」の表で答え合わせをします。そのあと、メリットの表①〜④で、enumならどう防げるかを確かめます。「enumの値の使い方」の表は開いて読む形（details）にしています。時間が足りない場合は、この表を2コマ目の再開時に読ませます（STEP 6からリンクしています）。再実行・理解確認の5分では、保存して再Runしたあと、1コマ目の終わりの説明（値と番号、メリット1つ）を隣の人どうしで説明し合い、先生は数人に聞いて確認します。</p>
 <p>STEP 8は、コードを入れる前に「今のままだと戻る操作でホーム画面に戻ってしまう」ことを全員で確かめてから始めると、変更の目的が伝わりやすくなります。</p>
 </section>
 <section><h2>4. STEPごとの照合コード</h2>
@@ -54,6 +54,7 @@
 <tr><td>setWebViewClientがないと？</td><td>ページ内のリンクでChromeが開く。STEP 9練習2の結果で説明する。</td></tr>
 <tr><td>なぜonKeyDownではなくOnBackPressedCallback？</td><td>targetSdk 36以上のアプリをAndroid 16以降で動かすと、KEYCODE_BACKが届かない。予測型「戻る」のため、戻る処理が有効かを先に登録する必要がある、と答える。</td></tr>
 <tr><td>最初は無効（false）にする理由は？</td><td>前のページがないときはAndroidの通常の戻る操作（ホーム画面に戻る・そのプレビュー）に任せるため。</td></tr>
+<tr><td>JavaScriptの設定を変えたあとに <code>reload()</code> を呼ぶのは？</td><td>今のページを読み込み直して、変えた設定をページに反映するため、と答える。<code>reload()</code> がないと、チェックを変えても表示中のページは変わらない。</td></tr>
 <tr><td>回転したら？</td><td>この単元では状態を保存しないため、表示中のページと履歴が初期状態に戻る、と理解している。</td></tr>
 </tbody></table>
 <p>エラー時は「STEP番号・ファイル・最初の赤い行・操作順」を聞きます。A04のLogcat検索は <code>package:jp.ac.jec.a04webviewapp level:ERROR</code> です。</p>

@@ -39,7 +39,7 @@
 </section>
 <section><h2>3. 90分×2コマの進行案</h2>
 <table><thead><tr><th>コマ</th><th>時間配分</th><th>終了時の確認</th></tr></thead><tbody>
-<tr><td>1コマ目<br>合計90分</td><td>STEP 0：5分<br>STEP 1：15分<br>STEP 2：10分<br>STEP 3：20分<br>STEP 4：20分<br>再実行・個別支援：15分<br>ふり返り：5分</td><td>ボタンで文字を変更できる。XMLの役割とJavaの変更する行を指させる。</td></tr>
+<tr><td>1コマ目<br>合計90分</td><td>STEP 0：5分<br>STEP 1：15分<br>STEP 2：10分<br>STEP 3：20分<br>STEP 4：20分<br>再実行・個別支援：15分<br>理解確認：5分</td><td>ボタンで文字を変更できる。XMLの役割とJavaの変更する行を指させる。</td></tr>
 <tr><td>2コマ目<br>合計90分</td><td>再開・文字変更の確認：5分<br>STEP 5：10分<br>STEP 6：15分<br>STEP 7：15分<br>STEP 8：15分<br>STEP 9：10分<br>個別支援：20分</td><td>ログ・Snackbar・Toastを確認し、小変更の理由を説明できる。</td></tr>
 </tbody></table>
 <p>1コマ目はSTEP 4で区切り、保存先と再開するプロジェクト名を確認します。2コマ目の最初に、全員が前回の文字変更を再現します。進みが速い学生は、変更する行と実行結果を自分で確認します。</p>
@@ -53,6 +53,8 @@
 <tr><td>textという名前はどこで付けた？</td><td>XMLの <code>@+id/text</code> とJavaの <code>R.id.text</code> を対応付ける。</td></tr>
 <tr><td>変更前の文字が出るのはいつ？</td><td>起動したとき。</td></tr>
 <tr><td>btn1の文字だけを変えたら？</td><td>Snackbarの文字も変わる。getTextを示せれば十分。</td></tr>
+<tr><td><code>setText</code> と <code>getText</code> は、それぞれ何をする？</td><td><code>setText</code> は文字を変える。<code>getText</code> は今の文字を取り出す、と答える。</td></tr>
+<tr><td>ボタンの処理が実行されるのは、起動時とクリック時のどちら？</td><td>クリック時。起動時には <code>setOnClickListener</code> でその処理を登録している、と答える。</td></tr>
 </tbody></table>
 </section>
 <section><h2>5. 遅れた学生の再開地点</h2>

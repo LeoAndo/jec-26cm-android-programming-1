@@ -17,7 +17,7 @@
 <li><a href="#step-7">07　JavaScriptのON/OFFとズーム</a></li>
 <li><a href="#step-8">08　戻る操作で前のページへ</a></li>
 <li><a href="#step-9">09　ミニ練習</a></li>
-<li><a href="#step-10">10　完成とふり返り</a></li></ol></nav>
+<li><a href="#step-10">10　完成</a></li></ol></nav>
 <div class="progress"><span data-progress-label>0 / 11 ステップ確認済み</span><progress value="0" max="11" aria-label="学習の進み具合"></progress><span class="muted">自分用のチェックです。</span></div>
 <div class="resources"><a href="#help">困ったとき</a><a href="#enum-why">解説：enumを使うメリット</a><a href="#back-android16">解説：Android 16以降の戻る操作</a><a href="#sample-project">完成プロジェクトを開く</a><a href="../hello-android/index.html">A01：HelloAndroid</a><a href="../calc-game/index.html">A02：CalcGame</a><a href="../rock-paper-scissors-game/index.html">A03：RockPaperScissorsGame</a><a href="../common/emulator.html?from=webview-app">共通：エミュレータ</a><a href="../common/auto-import.html?from=webview-app">共通：Auto Import</a><a href="../common/logcat.html?from=webview-app">共通：Logcat</a><a href="../common/apk.html?from=webview-app">共通：APKの提出</a><a href="../common/dev-tips.html?from=webview-app">共通：開発Tips</a><a href="../common/other-versions.html?from=webview-app">共通：ちがうバージョン</a></div>
 </div></aside><main id="main"><div class="hero"><span class="unit">04</span><p class="eyebrow">WEBVIEW APP</p>
@@ -525,10 +525,10 @@ public boolean onKeyDown(int keyCode, KeyEvent event) {
 <div class="task"><p class="box-title">練習3：以前の書き方（onKeyDown）を試す</p><p>STEP 8の解説にある <code>onKeyDown</code> のメソッドを、<code>onCreateOptionsMenu</code> の上（onCreateの外、MainActivityの中）に追加します。importは <code>android.view.KeyEvent</code> です。さらに、<code>getOnBackPressedDispatcher().addCallback(this, backCallback);</code> の行を <kbd>⌘ /</kbd> でコメントにします。⋮ でYahoo!ニュースを開き、記事のリンクを押してから戻る操作をすると、どうなるでしょうか。</p><details><summary>試したあとに答えを見る</summary><p>前のページがあっても、ホーム画面に戻ります。targetSdk 36のアプリをAndroid 16以降のエミュレータで動かしているため、<code>onKeyDown</code> に <code>KEYCODE_BACK</code> が届きません。先生の指示でAndroid 15以前のエミュレータを使っている場合は、<code>onKeyDown</code> でも前のページに戻れます。結果が違う理由を、STEP 8の表で確かめましょう。確認後は <code>onKeyDown</code> のメソッドを削除し、<code>addCallback</code> の行のコメントを外します。使わなくなった <code>KeyEvent</code> のimportが残っていたら削除します。</p></details></div>
 <div class="note"><p class="box-title">完成版に戻してから確認</p><p>練習1のJECの行（<code>CHAT_GPT(...)</code> の最後は <code>;</code> に戻す）、練習2のコメント、練習3の <code>onKeyDown</code> とコメントを元に戻します。メニューが4項目で、リンク先から戻る操作で前のページに戻ることをRunで確かめます。</p></div>
 <div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-9"><span>3つの練習を試して結果の理由を説明し、完成版のコードに戻した。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
-<div class="next"><a href="#step-10">次へ：完成とふり返り →</a></div>
+<div class="next"><a href="#step-10">次へ：完成 →</a></div>
 </section>
 <section id="step-10" aria-labelledby="title-10">
-<p class="step-meta">STEP 10 · 目安 10分</p><h2 id="title-10">完成とふり返り</h2>
+<p class="step-meta">STEP 10 · 目安 10分</p><h2 id="title-10">完成</h2>
 
 <h3>完成チェック</h3>
 <table><thead><tr><th>操作</th><th>確認する結果</th></tr></thead><tbody>
@@ -541,7 +541,6 @@ public boolean onKeyDown(int keyCode, KeyEvent event) {
 <tr><td>最初のページで戻る操作</td><td>ホーム画面に戻る。</td></tr>
 </tbody></table>
 
-<h3>自分の言葉でふり返る</h3><ol><li>INTERNETの許可は、どのファイルに書きましたか。書かないとどうなりましたか。</li><li>メニューの項目を増やすとき、変更するのはどのファイルですか。</li><li>URLと表示名を2つの配列で持つ書き方と比べて、enumを使うと何がよいですか。1つ挙げましょう。</li><li>JavaScriptの設定を変えたあと、<code>reload()</code> を呼ぶのはなぜですか。</li><li>Android 16以降で、<code>onKeyDown</code> ではなく <code>OnBackPressedCallback</code> を使うのはなぜですか。</li></ol>
 <h3>保存</h3><p>自分の <code>Documents/Android1/A04WebViewApp</code> を保存します。</p>
 <p>教材のチェックは自分用です。先生への送信はしません。印刷は <kbd>⌘ P</kbd> で行えます。</p>
 <div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-10"><span>完成チェックを終え、許可・WebView・enumとメニュー・JavaScript・戻る操作を説明できた。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>

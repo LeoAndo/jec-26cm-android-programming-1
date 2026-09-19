@@ -14,7 +14,7 @@
 <li><a href="#step-4">04　メモを追加する</a></li>
 <li><a href="#step-5">05　終了しても残るようにする</a></li>
 <li><a href="#step-6">06　データを全部消す</a></li>
-<li><a href="#step-7">07　完成とふり返り</a></li></ol></nav>
+<li><a href="#step-7">07　完成</a></li></ol></nav>
 <div class="progress"><span data-progress-label>0 / 8 ステップ確認済み</span><progress value="0" max="8" aria-label="学習の進み具合"></progress><span class="muted">自分用のチェックです。</span></div>
 <div class="resources"><a href="#help">困ったとき</a><a href="#why-textview">解説：なぜArrayListを使わないのか</a><a href="#sample-project">完成プロジェクトを開く</a><a href="../hello-android/index.html">A01：HelloAndroid</a><a href="../calc-game/index.html">A02：CalcGame</a><a href="../rock-paper-scissors-game/index.html">A03：RockPaperScissorsGame</a><a href="../webview-app/index.html">A04：WebViewApp</a><a href="../bomb-game/index.html">A05：BombGame</a><a href="../screen-transition-sample/index.html">A06：ScreenTransitionSample</a><a href="../bill-splitter/index.html">A07：BillSplitter</a><a href="../shared-preferences-sample/index.html">A08：SharedPreferencesSample</a><a href="../common/emulator.html?from=memo-app">共通：エミュレータ</a><a href="../common/auto-import.html?from=memo-app">共通：Auto Import</a><a href="../common/logcat.html?from=memo-app">共通：Logcat</a><a href="../common/apk.html?from=memo-app">共通：APKの提出</a><a href="../common/dev-tips.html?from=memo-app">共通：開発Tips</a><a href="../common/other-versions.html?from=memo-app">共通：ちがうバージョン</a></div>
 </div></aside><main id="main"><div class="hero"><span class="unit">09</span><p class="eyebrow">MEMO APP</p>
@@ -261,10 +261,10 @@
 <h3>Runで確かめる</h3>
 <ol><li>メモを何件か追加します。</li><li><strong>データ削除</strong> を押します。一覧が空になれば成功です。</li><li>アプリを終了して開き直します。空のままなら、保存も消えています。</li></ol>
 <div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-6"><span>データ削除で一覧と保存の両方を消せた。2つを別々に消す理由を説明できた。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
-<div class="next"><a href="#step-7">次へ：完成とふり返り →</a></div></section>
+<div class="next"><a href="#step-7">次へ：完成 →</a></div></section>
 
 <section id="step-7" aria-labelledby="title-7">
-<p class="step-meta">STEP 07 · 目安 10分</p><h2 id="title-7">完成とふり返り</h2>
+<p class="step-meta">STEP 07 · 目安 10分</p><h2 id="title-7">完成</h2>
 <h3>完成チェック</h3>
 <table><thead><tr><th>操作</th><th>確認する結果</th></tr></thead><tbody>
 <tr><td>アプリを消してから初回起動</td><td>一覧が空で表示される。</td></tr>
@@ -286,14 +286,6 @@
 <details><summary>試したあとに答えを見る</summary><p>メモが<strong>全部つながって1行</strong>になります（<code>牛乳を買うレポートを出す9時に集合</code>）。一覧が「1行ずつ」に見えていたのは、自分で改行を足していたからだと説明できれば十分です。確認後は戻します。</p></details></div>
 <div class="task"><p class="box-title">練習3：データ削除からsetTextを消してみる</p><p>STEP 06の <code>txtMemoList.setText(&quot;&quot;);</code> を消して、メモを追加してから「データ削除」を押します。</p>
 <details><summary>試したあとに答えを見る</summary><p>画面のメモは<strong>消えません。</strong>でもアプリを終了して開き直すと空になっています。保存（ファイル）と画面の表示は別物で、<code>clear()</code> はファイルしか消さないためです。確認後は戻します。</p></details></div>
-<h3>自分の言葉でふり返る</h3>
-<ol>
-<li><code>append</code> と <code>setText</code> は何が違いますか。</li>
-<li>空のときの <code>return;</code> を消すと、何が起きますか。</li>
-<li>アプリを終了してもメモが残るのはなぜですか。どの行が効いていますか。</li>
-<li>A07では <code>ArrayList</code> を使ったのに、A09では使っていないのはなぜですか。</li>
-<li>「データ削除」で2つのものを消しているのはなぜですか。</li>
-</ol>
 <h3>保存</h3>
 <p>自分の <code>Documents/Android1/A09MemoApp</code> を保存します。</p>
 <p>教材のチェックは自分用です。先生への送信はしません。印刷は <kbd>⌘ P</kbd> で行えます。</p>
