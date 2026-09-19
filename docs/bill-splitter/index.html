@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="JavaとXMLで作るA07BillSplitter。参加者をArrayListで集め、Intentで配列を渡して画面を切り替え、配られた計算クラスを使って割り勘の結果を表示するまでを小さなSTEPで学ぶ授業用教科書。">
+<meta name="description" content="JavaとXMLで作るA07BillSplitter。参加者をArrayListで集め、Intentで配列を渡して画面を切り替え、できあがった計算クラスを使って割り勘の結果を表示するまでを小さなSTEPで学ぶ授業用教科書。">
 <title>BillSplitter — 割り勘アプリを作ろう | Androidプログラミング1</title>
 <link rel="stylesheet" href="../assets/textbook.css"><script src="../assets/textbook.js" defer></script></head>
 <body data-progress-key="jec-android1-billsplitter-v1">
@@ -37,7 +37,7 @@
 <tr><td><code>ArrayList</code></td><td>登録した参加者の名前をためておく。</td></tr>
 <tr><td>Intentで配列を渡す</td><td>A06のTest 3と同じ形。参加者の名前を次の画面へ渡す。</td></tr>
 <tr><td>入力チェック</td><td>おかしな入力のときは計算せず、Snackbarで知らせる。</td></tr>
-<tr><td>配られたクラスを使う</td><td>割り勘の計算は <code>BillSplitter</code> が担当する。中身は読まなくてよい。</td></tr>
+<tr><td>できあがったクラスを使う</td><td>割り勘の計算は、教材に入っている <code>BillSplitter</code> が担当する。中身は読まなくてよい。</td></tr>
 </tbody></table>
 <p>1234円を3人で割ると411.33…円です。1円より細かいお金は払えないので、<strong>411円・411円・412円</strong>のように、差が1円までになるように分けます。合計は必ず1234円に戻ります。</p>
 <div class="note"><p class="box-title">画面回転について</p><p>各単元では画面回転時のデータ保持と横画面のレイアウトを扱いません。回転などでActivityが作り直されると、登録した参加者と計算結果は初期状態に戻ります。横向きでは画面の下の部分が見えなくなる場合があるため、縦向きで使います。考え方と対処法は<a href="../common/dev-tips.html?from=bill-splitter#rotate">共通資料：開発Tips</a>のC章にあります。</p></div>
@@ -365,10 +365,18 @@ txtNumberOfPeople.setText("参加者は" + numberOfPeople + "人");</code></pre>
 <div class="next"><a href="#step-7">次へ：割り勘の計算クラスを使う →</a></div></section>
 
 <section id="step-7" aria-labelledby="title-7">
-<p class="step-meta">STEP 07 · 目安 10分</p><h2 id="title-7">割り勘の計算クラスを使う</h2>
-<p>割り勘の計算は、先生から配られる <code>BillSplitter.java</code> が行います。<strong>中身を読む必要はありません。</strong>使い方だけ覚えます。</p>
-<ol><li>配られた <code>BillSplitter.java</code> を、<code>MainActivity.java</code> と同じ場所（<code>jp.ac.jec.a07billsplitter</code>）に置きます。</li><li>ファイルを開き、1行目が <code>package jp.ac.jec.a07billsplitter;</code> になっていることを確認します。</li></ol>
-<details><summary>BillSplitter.javaの中身を見る（読まなくてよい）</summary><div class="code-head">配布ファイル · BillSplitter.java</div>
+<p class="step-meta">STEP 07 · 目安 15分</p><h2 id="title-7">割り勘の計算クラスを使う</h2>
+<p>割り勘の計算は、できあがった <code>BillSplitter.java</code> が行います。<strong>中身を読む必要はありません。</strong>使い方だけ覚えます。</p>
+<p>このファイルは、教科書といっしょに配られた<strong>教材のフォルダ</strong>に入っています。Finderでコピーして、自分のプロジェクトに入れます。</p>
+<ol>
+<li>Finderを開き、左側の <strong>書類</strong> をクリックします。教材のフォルダをダブルクリックで開きます。名前は <code>android1-student-materials-</code> のうしろに日付が付いた形で、日付は配られた回によって変わります。</li>
+<li>その中を <code>docs → bill-splitter → downloads</code> の順に開きます。<code>BillSplitter.java</code> を選び、<kbd>⌘ C</kbd> でコピーします。</li>
+<li>Android Studioの左側で <code>app → src → main → java → jp.ac.jec.a07billsplitter</code> をクリックし、<kbd>⌘ V</kbd> で貼り付けます。<code>MainActivity.java</code> が入っているのと同じ場所です。</li>
+<li>STEP 02でタイトル画像を入れたときと同じ <strong>Copy</strong> のダイアログが出ます。New nameが <code>BillSplitter.java</code>、To directoryの最後が <code>A07BillSplitter/app/src/main/java/jp/ac/jec/a07billsplitter</code> になっていることを確認して <strong>OK</strong> を押します。</li>
+<li>増えた <code>BillSplitter.java</code> をダブルクリックで開き、1行目が <code>package jp.ac.jec.a07billsplitter;</code> になっていることを確認します。</li>
+</ol>
+<div class="note"><p class="box-title">教材のフォルダが見つからないとき</p><p>教材のフォルダは、はじめの準備で「書類」へ移動したものです（<a href="../common/setup.html?from=bill-splitter#materials">共通資料：はじめの準備</a>の1.）。まだ移動していなければ、先にそちらを行います。同じ教材を2回ダウンロードして名前のうしろに <code>(1)</code> が付いたものがあるときは、自分で判断せず先生に見せてください。</p></div>
+<details><summary>BillSplitter.javaの中身を見る（読まなくてよい）</summary><div class="code-head">BillSplitter.java · 全文</div>
 <pre tabindex="0"><code>package jp.ac.jec.a07billsplitter;
 
 import android.icu.text.NumberFormat;
@@ -791,7 +799,7 @@ public class BillSplitActivity extends AppCompatActivity {
         context.startActivity(starter);
     }
 }</code></pre></details>
-<details><summary>配布されたBillSplitter.javaで照合する</summary><div class="code-head">配布ファイル · BillSplitter.java</div>
+<details><summary>教材から入れたBillSplitter.javaで照合する</summary><div class="code-head">教材のファイル · BillSplitter.java</div>
 <pre id="code-complete-splitter-java" tabindex="0"><code>package jp.ac.jec.a07billsplitter;
 
 import android.icu.text.NumberFormat;

@@ -202,14 +202,17 @@ class AnchorLinks(HTMLParser):
             self.downloads.add(href)
 
 
-def check_images(root: Path, project: dict, errors: list[str]) -> None:
-    """教科書から直接ダウンロードさせる画像が、完成プロジェクトの画像と同じか確かめる。
+def check_downloads(root: Path, project: dict, errors: list[str]) -> None:
+    """教科書の案内で学生が自分で手に入れるファイルが、完成プロジェクトのソースと同じか確かめる。
 
-    ZIPの検査が「ZIPの中身＝ソース」を保証するので、ここで「配布画像＝ソース」を確かめれば、
-    学生がどちらから取っても同じ画像になる。
+    ZIPの検査が「ZIPの中身＝ソース」を保証するので、ここで「配布ファイル＝ソース」を確かめれば、
+    学生がどこから取っても同じ中身になる。
+    手に入れ方は設定の guidance で分ける。"link"（既定）は教科書のダウンロードボタン、
+    "finder" は教材フォルダをFinderで開いてコピーさせる形で、ブラウザで保存できない
+    .java などに使う。どちらも、教科書から案内が消えたらここで検出する。
     """
-    images = project.get("images", [])
-    if not images:
+    downloads = project.get("downloads", [])
+    if not downloads:
         return
     sources = archive_sources(root, project["root"])
     textbook_name = project["docs"][0]
@@ -218,29 +221,41 @@ def check_images(root: Path, project: dict, errors: list[str]) -> None:
     links = AnchorLinks()
     if textbook is not None:
         links.feed(textbook)
-    for image in images:
-        download_path = root / image["download"]
-        source_path = root / image["source"]
-        if Path(image["download"]).name != Path(image["source"]).name:
-            # 学生は落としたファイルをそのままdrawableに入れる。名前が違うと @drawable/… が解決できない。
-            add(errors, root, image["download"], 1, f"配布画像とソースのファイル名が一致しません: {image['source']}")
-        if image["source"] not in sources:
-            add(errors, root, image["source"], 1, "配布画像の元ファイルが、完成プロジェクトZIPに入るファイルではありません")
+    for item in downloads:
+        download_path = root / item["download"]
+        source_path = root / item["source"]
+        name = Path(item["download"]).name
+        if name != Path(item["source"]).name:
+            # 学生は手に入れたファイルをそのままプロジェクトに入れる。
+            # 名前が違うと @drawable/… やクラス名が解決できない。
+            add(errors, root, item["download"], 1, f"配布ファイルとソースのファイル名が一致しません: {item['source']}")
+        if item["source"] not in sources:
+            add(errors, root, item["source"], 1, "配布ファイルの元ファイルが、完成プロジェクトZIPに入るファイルではありません")
         elif not download_path.is_file():
-            add(errors, root, image["download"], 1, "配布画像がありません")
+            add(errors, root, item["download"], 1, "配布ファイルがありません")
         else:
             try:
                 if download_path.read_bytes() != source_path.read_bytes():
-                    add(errors, root, download_path, 1, f"配布画像とソースの内容が一致しません: {image['source']}（ソースからコピーし直してください）")
+                    add(errors, root, download_path, 1, f"配布ファイルとソースの内容が一致しません: {item['source']}（ソースからコピーし直してください）")
             except OSError as error:
-                add(errors, root, download_path, 1, f"配布画像を読み込めません: {error}")
-        if textbook is not None:
-            link = posixpath.relpath(image["download"], posixpath.dirname(textbook_name))
-            if link not in links.hrefs:
-                add(errors, root, textbook_path, 1, f"配布画像へのリンクがありません: {link}")
-            elif link not in links.downloads:
-                # download がないと、httpで配信したときも保存されず、画像がブラウザに表示される。
-                add(errors, root, textbook_path, line_of(textbook, f'href="{link}"'), f"配布画像へのリンクにdownload属性がありません: {link}")
+                add(errors, root, download_path, 1, f"配布ファイルを読み込めません: {error}")
+        if textbook is None:
+            continue
+        if item.get("guidance", "link") == "finder":
+            # Finderで開かせるので、置き場所のフォルダとファイル名が教科書に書いてあること。
+            # 配布物の中での場所なので、リポジトリのパスをそのまま矢印でつないだ形で照合する。
+            folder = " → ".join(Path(item["download"]).parent.parts)
+            if folder not in textbook:
+                add(errors, root, textbook_path, 1, f"配布ファイルの置き場所の案内がありません: {folder}")
+            if name not in textbook:
+                add(errors, root, textbook_path, 1, f"配布ファイルのファイル名の案内がありません: {name}")
+            continue
+        link = posixpath.relpath(item["download"], posixpath.dirname(textbook_name))
+        if link not in links.hrefs:
+            add(errors, root, textbook_path, 1, f"配布ファイルへのリンクがありません: {link}")
+        elif link not in links.downloads:
+            # download がないと、httpで配信したときも保存されず、ブラウザに中身が表示される。
+            add(errors, root, textbook_path, line_of(textbook, f'href="{link}"'), f"配布ファイルへのリンクにdownload属性がありません: {link}")
 
 
 def _split_unit(name: str) -> tuple[str, str]:
@@ -439,7 +454,7 @@ def validate(root: Path) -> list[str]:
     check_project_layout(root, config, errors)
     for project in config["projects"]:
         check_project(root, project, errors)
-        check_images(root, project, errors)
+        check_downloads(root, project, errors)
     return errors
 
 
