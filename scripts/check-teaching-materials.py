@@ -285,6 +285,99 @@ def check_registration(root: Path, config: dict, errors: list[str]) -> None:
                     add(errors, root, shown, 1, f"{name}の{needed}への参照がありません")
 
 
+class SidebarUnits(HTMLParser):
+    """教科書のサイドバー <div class="resources"> に並ぶ単元を、出てきた順に集める。
+
+    ほかの単元は <a href="../<単元>/index.html">、いま開いている単元は
+    <span aria-current="page"> で書く。「困ったとき」や共通資料へのリンクは集めない。
+    """
+
+    UNIT_HREF = re.compile(r"\.\./[^/?#]+/index\.html")
+
+    def __init__(self):
+        super().__init__()
+        self.found = False
+        self.units: list[tuple[str | None, str]] = []  # (リンク先。現在地は None, 表示名)
+        self._depth = 0  # resources の中にいるあいだの <div> の深さ
+        self._href: str | None = None
+        self._text: list[str] | None = None
+
+    def handle_starttag(self, tag, attrs):
+        values = dict(attrs)
+        if tag == "div":
+            if self._depth:
+                self._depth += 1
+            elif "resources" in (values.get("class") or "").split():
+                self.found = True
+                self._depth = 1
+            return
+        if not self._depth:
+            return
+        if tag == "a" and self.UNIT_HREF.fullmatch(values.get("href") or ""):
+            self._href, self._text = values["href"], []
+        elif tag == "span" and values.get("aria-current") == "page":
+            self._href, self._text = None, []
+
+    def handle_data(self, data):
+        if self._text is not None:
+            self._text.append(data)
+
+    def handle_endtag(self, tag):
+        if tag == "div" and self._depth:
+            self._depth -= 1
+        elif tag in ("a", "span") and self._text is not None:
+            self.units.append((self._href, "".join(self._text).strip()))
+            self._text = None
+
+
+def check_sidebar_units(root: Path, config: dict, errors: list[str]) -> None:
+    """どの教科書のサイドバーにも、全単元が projects の順で並んでいるか確かめる。
+
+    単元を足したのに、ほかの単元のサイドバーを直し忘れる事故を捕まえる。
+    いま開いている単元はリンクにせず、現在地（aria-current="page"）として示す。
+    """
+    projects = config["projects"]
+    for current in projects:
+        textbook_name = current["docs"][0]
+        path = root / textbook_name
+        if not path.is_file():
+            continue  # 教科書がないことは check_project が報告する。
+        text = read(path)
+        sidebar = SidebarUnits()
+        sidebar.feed(text)
+        if not sidebar.found:
+            add(errors, root, path, 1, 'サイドバー（<div class="resources">）がありません')
+            continue
+        line = line_of(text, 'class="resources"')
+        expected: list[tuple[str | None, str]] = []
+        for unit in projects:
+            number, label = _split_unit(unit["name"])
+            href = None if unit is current else posixpath.relpath(
+                unit["docs"][0], posixpath.dirname(textbook_name))
+            expected.append((href, f"{number}：{label}"))
+        if sidebar.units == expected:
+            continue
+        before = len(errors)
+        for href, shown in expected:
+            if (href, shown) in sidebar.units:
+                continue
+            if href is None:
+                add(errors, root, path, line, f'サイドバーに現在地がありません: <span aria-current="page">{shown}</span>')
+            else:
+                add(errors, root, path, line, f'サイドバーに単元へのリンクがありません: <a href="{href}">{shown}</a>')
+        for href, shown in sidebar.units:
+            if (href, shown) in expected:
+                continue
+            if href and posixpath.normpath(posixpath.join(posixpath.dirname(textbook_name), href)) == textbook_name:
+                add(errors, root, path, line, f"サイドバーで、いま開いている単元がリンクになっています: {shown}")
+            else:
+                add(errors, root, path, line, f"サイドバーに、登録のない単元があります: {shown}（{href or '現在地'}）")
+        if len(errors) == before:
+            # 過不足はないのに一致しない。順番が違うか、同じ単元が2回出ている。
+            actual = "、".join(shown for _, shown in sidebar.units)
+            add(errors, root, path, line, f"サイドバーの単元が、{CONFIG.as_posix()}のprojectsの順に並んでいません: {actual}")
+
+
 def check_project_layout(root: Path, config: dict, errors: list[str]) -> None:
     """単元プロジェクトの.gitignoreと、追跡してはいけないファイルを確かめる。"""
     setting = config.get("project_layout")
@@ -320,6 +413,7 @@ def validate(root: Path) -> list[str]:
     errors: list[str] = []
     check_terms(root, config, errors)
     check_registration(root, config, errors)
+    check_sidebar_units(root, config, errors)
     check_project_layout(root, config, errors)
     for project in config["projects"]:
         check_project(root, project, errors)

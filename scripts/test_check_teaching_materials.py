@@ -272,6 +272,96 @@ class TeachingMaterialsCheckTest(unittest.TestCase):
             self.assertEqual(len(errors), 1, errors)
             self.assertIn("完成プロジェクトZIPに入るファイルではありません", errors[0])
 
+    SIDEBAR_UNITS = [("A01One", "one"), ("A02Two", "two"), ("A03Three", "three")]
+
+    def _sidebar(self, current: str, order: list[str] | None = None, link_self: bool = False) -> str:
+        """3単元ぶんのサイドバーを作る。current はいま開いている単元のフォルダ名。"""
+        names = dict((folder, name) for name, folder in self.SIDEBAR_UNITS)
+        entries = []
+        for folder in order or [folder for _, folder in self.SIDEBAR_UNITS]:
+            label = f"{names[folder][:3]}：{names[folder][3:]}"
+            if folder == current and not link_self:
+                entries.append(f'<span aria-current="page">{label}</span>')
+            else:
+                entries.append(f'<a href="../{folder}/index.html">{label}</a>')
+        return ('<aside class="sidebar"><div class="progress"><span>0 / 3</span></div>\n'
+                '<div class="resources"><a href="#help">困ったとき</a>' + "".join(entries)
+                + f'<a href="../common/setup.html?from={current}">共通：はじめの準備</a></div></aside>')
+
+    def _sidebar_errors(self, root: Path, textbooks: dict[str, str]) -> list[str]:
+        """教科書を書き出して検査し、サイドバーについてのエラーだけを返す。"""
+        for folder, content in textbooks.items():
+            (root / "docs" / folder).mkdir(parents=True)
+            (root / "docs" / folder / "index.html").write_text(content, encoding="utf-8")
+        self._project_root(root, {
+            "scan_roots": [],
+            "terms": [],
+            "projects": [{
+                "name": name, "package": "p", "root": name,
+                "docs": [f"docs/{folder}/index.html", f"teacher/{folder}/index.html"],
+                "source_java": f"{name}/j.java", "source_xml": f"{name}/l.xml",
+                "snippets": [], "archive": f"docs/{folder}/downloads/{name}.zip",
+            } for name, folder in self.SIDEBAR_UNITS],
+        })
+        return [error for error in CHECKER.validate(root) if "サイドバー" in error]
+
+    def test_sidebar_listing_every_unit_is_accepted(self):
+        """どの単元でも全単元が並び、いま開いている単元だけが現在地になっている。"""
+        with tempfile.TemporaryDirectory() as temporary:
+            errors = self._sidebar_errors(Path(temporary), {
+                folder: self._sidebar(folder) for _, folder in self.SIDEBAR_UNITS
+            })
+            self.assertEqual(errors, [])
+
+    def test_sidebar_missing_later_unit_is_rejected(self):
+        """単元を足したのに、前の単元のサイドバーを直し忘れた状態を検出する。"""
+        with tempfile.TemporaryDirectory() as temporary:
+            textbooks = {folder: self._sidebar(folder) for _, folder in self.SIDEBAR_UNITS}
+            textbooks["one"] = self._sidebar("one", order=["one", "two"])
+            errors = self._sidebar_errors(Path(temporary), textbooks)
+            self.assertEqual(len(errors), 1, errors)
+            self.assertIn("docs/one/index.html:2", errors[0])
+            self.assertIn('単元へのリンクがありません: <a href="../three/index.html">A03：Three</a>', errors[0])
+
+    def test_sidebar_linking_current_unit_is_rejected(self):
+        """いま開いている単元は、リンクではなく現在地として示す。"""
+        with tempfile.TemporaryDirectory() as temporary:
+            textbooks = {folder: self._sidebar(folder) for _, folder in self.SIDEBAR_UNITS}
+            textbooks["two"] = self._sidebar("two", link_self=True)
+            errors = self._sidebar_errors(Path(temporary), textbooks)
+            self.assertEqual(len(errors), 2, errors)
+            self.assertIn('現在地がありません: <span aria-current="page">A02：Two</span>', errors[0])
+            self.assertIn("いま開いている単元がリンクになっています: A02：Two", errors[1])
+
+    def test_sidebar_in_wrong_order_is_rejected(self):
+        """過不足がなくても、projects の順に並んでいなければ検出する。"""
+        with tempfile.TemporaryDirectory() as temporary:
+            textbooks = {folder: self._sidebar(folder) for _, folder in self.SIDEBAR_UNITS}
+            textbooks["three"] = self._sidebar("three", order=["two", "one", "three"])
+            errors = self._sidebar_errors(Path(temporary), textbooks)
+            self.assertEqual(len(errors), 1, errors)
+            self.assertIn("projectsの順に並んでいません: A02：Two、A01：One、A03：Three", errors[0])
+
+    def test_sidebar_with_unregistered_unit_is_rejected(self):
+        """projects にない単元へのリンクが残っている状態を検出する。"""
+        with tempfile.TemporaryDirectory() as temporary:
+            textbooks = {folder: self._sidebar(folder) for _, folder in self.SIDEBAR_UNITS}
+            textbooks["one"] = textbooks["one"].replace(
+                '<a href="../common/', '<a href="../four/index.html">A04：Four</a><a href="../common/', 1)
+            errors = self._sidebar_errors(Path(temporary), textbooks)
+            self.assertEqual(len(errors), 1, errors)
+            self.assertIn("登録のない単元があります: A04：Four（../four/index.html）", errors[0])
+
+    def test_textbook_without_sidebar_is_rejected(self):
+        """サイドバーそのものがない教科書は、並びを確かめようがないので検出する。"""
+        with tempfile.TemporaryDirectory() as temporary:
+            textbooks = {folder: self._sidebar(folder) for _, folder in self.SIDEBAR_UNITS}
+            textbooks["two"] = "<main><h1>Two</h1></main>"
+            errors = self._sidebar_errors(Path(temporary), textbooks)
+            self.assertEqual(len(errors), 1, errors)
+            self.assertIn("docs/two/index.html:1", errors[0])
+            self.assertIn("サイドバー（<div class=\"resources\">）がありません", errors[0])
+
 
 if __name__ == "__main__":
     unittest.main()
