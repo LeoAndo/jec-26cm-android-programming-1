@@ -39,9 +39,16 @@
 3. 共有ファイル（§4）を触るissueなら、共有ファイルを触るPRがほかに開いていないことを確認する（`gh pr list --state open --label area:shared`）。
 4. `origin/main` からブランチ `issue-<番号>-<slug>` を作り、**コミットがなくてもすぐ `git push -u origin issue-<番号>-<slug>` する。** 調査の長いissueでは最初のコミットまで30分以上かかることがあり、その間、手順2で見える「作業中」の目印が何も出ない。エージェント名（`claude/`、`codex/`）は付けない。ツールが別の名前でブランチを作っていたら、pushする前に `git branch -m issue-<番号>-<slug>` で直す。
 5. 最初のコミットをpushしたら、すぐDraft PRを開く（本文に `Closes #<番号>`）。Draft PRは「作業中」の目印で、利用制限などで別のエージェントに交代するときの引き継ぎ先にもなる。進み具合はセッションの中ではなく、pushしたコミットとPR本文のチェックリストに残す。
-6. **編集を始める直前と、pushの直前に、もう一度 `git fetch origin --prune` する。** 調査やsubagentの待ち時間が長いと、その間に `origin/main` が進み、同じファイルを触るPRが先にマージされていることがある。あわせて手順2・3の確認もやり直す。
+6. **編集を始める直前と、pushの直前に、もう一度 `git fetch origin --prune` する。** 調査やsubagentの待ち時間が長いと、その間に `origin/main` が進み、同じファイルを触るPRが先にマージされていることがある。あわせて手順2・3の確認もやり直す。このとき、手順4で出した自分のブランチと自分のPRは数えない（`issue-<自分の番号>-` と自分のPR番号を除いて見る）。
    - まだコミットがなければ、`git merge --ff-only origin/main` で追従してから編集する。
-   - コミット済みで、`origin/main` が自分と同じファイルを変えていたら、`git merge-tree --write-tree HEAD origin/main` で試しにマージする（作業ツリーは変わらない）。衝突の有無と、マージ後のファイルの形を確かめる。zshでは `git show $T:teacher/...` と書くと `:t` が修飾子と解釈されて失敗するので、`git show "${T}:teacher/..."` と波かっこで囲む。
+   - コミット済みで、`origin/main` が自分と同じファイルを変えていたら、試しにマージして（作業ツリーは変わらない）、衝突の有無とマージ後のファイルの形を確かめる。
+
+     ```sh
+     T=$(git merge-tree --write-tree HEAD origin/main)   # 衝突があると終了コードが0以外になる
+     git show "${T}:teacher/<単元>/index.html"
+     ```
+
+     zshでは `git show $T:teacher/...` と書くと `:t` が修飾子と解釈されて失敗するので、`"${T}:..."` と波かっこで囲む。
    - push前ならrebaseしてよい。push済みなら履歴は書き換えず（§5）、必要なら `git merge origin/main` する。
 7. issueの「触る範囲」の外は触らない。範囲外で気付いたことは§6の手順でissueにする。
 8. コミットは§5、検証は§7の手順で行う。検証が済んだらDraftを外す。レビュー対応は§8。
@@ -134,12 +141,12 @@
 
   | bot | 出るもの | 指摘 |
   | --- | --- | --- |
-  | Cursor Bugbot | pushのたびに実行され、チェックが返る | 出る |
-  | CodeRabbit | チェックはSUCCESSだが、プランの上限に達すると「Review paused — included plan limit reached」のコメントだけ | 上限到達中は出ない |
-  | Devin Review | チェックがSUCCESSで返るだけ | 出ない |
+  | Cursor Bugbot | pushのたびに実行される。チェックは指摘なしで`SUCCESS`、指摘ありで`NEUTRAL`（`gh pr checks` では `skipping`）になる | 出る |
+  | CodeRabbit | 1時間あたりの回数に上限がある。枠が残っていればレビューし、使い切ると「Review paused — included plan limit reached」のコメントだけになる | 枠が残っていれば出る |
+  | Devin Review | チェックが`SUCCESS`で返るだけ | 出ない |
   | Copilot | レビューを1件投稿するが、内容は「クォータ上限のためレビューできない」 | 出ない |
 
-  いま指摘が出るのは実質 Cursor Bugbot だけなので、ほかのbotのSUCCESSを「レビューを通った」と扱わない。CodeRabbitが上限で止まっているときは、マージ可否の報告にそう書く。
+  **チェックの状態ではなく、投稿されたレビューの中身を読んで判断する。** Bugbotは指摘があるときほどチェックが`SUCCESS`にならず、Devin ReviewとCopilotは`SUCCESS`でも中身がない。CodeRabbitが上限で止まっているときは、マージ可否の報告にそう書く。
 - 指摘には、各スレッドにインラインで返信する。先頭に判断を書く。
 
   ```markdown
