@@ -433,5 +433,5 @@ Non-Bundled Plugins:
 
 ## nullに関するアノテーション
 6. 学生が教科書を見ながら自分で打ち込むコードには `@NonNull` / `@Nullable` を書かない。`androidx.annotation` のimportも自分では足さない。教科書の本文でも説明しない。
-7. **Android Studioが自動で付けたアノテーションはそのまま残す。** オーバーライドの自動生成（A04WebViewAppの `onOptionsItemSelected(@NonNull MenuItem item)`）や `toString()` の生成（A06ScreenTransitionSampleの `Person`）が該当する。IDEが出力したコードを学生に消させる作業は発生させない。
+7. **Android Studioが自動で付けたアノテーションはそのまま残す。** オーバーライドの自動生成（A04WebViewAppの `onOptionsItemSelected(@NonNull MenuItem item)`）が該当する。IDEが出力したコードを学生に消させる作業は発生させない。
 8. 配布する予定で学生が直接書かないコード（A07BillSplitterの `BillSplitter.java`）は例外とし、`@NonNull` / `@IntRange` / `@CheckResult` とそれを説明するJavadocをそのまま残す。教科書では「Android Studioへのヒント」とだけ触れる。
