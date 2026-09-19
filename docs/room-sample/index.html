@@ -111,7 +111,7 @@ android-application = { id = &quot;com.android.application&quot;, version.ref = 
 <tr><td><code>[libraries]</code> の中</td><td><code>room-runtime = ...</code></td><td>アプリが動くときに使う本体</td></tr>
 <tr><td><code>[libraries]</code> の中</td><td><code>room-compiler = ...</code></td><td>ビルドのときに、書いた命令からコードを自動で作る部品</td></tr>
 </tbody></table>
-<div class="note"><p class="box-title"><code>[plugins]</code> に書かないこと</p><p><code>[libraries]</code> と <code>[plugins]</code> は見た目が似ています。<code>[plugins]</code> のほうに書くと <code>expected to find any of 'id' or 'version'</code> というエラーでビルドが止まります。<strong>追記した行のすぐ上に <code>[libraries]</code> があるか</strong>を確かめてください。</p></div>
+<div class="note"><p class="box-title"><code>[plugins]</code> に書かないこと</p><p><code>[libraries]</code> と <code>[plugins]</code> は見た目が似ています。<code>[plugins]</code> のほうに書くと <code>expected to find any of 'id' or 'version'</code> というエラーでビルドが止まります。追記した2行から上へたどって、<strong>最初に出てくる見出しが <code>[libraries]</code> になっているか</strong>を確かめてください。</p></div>
 <h3>② 使うと宣言する場所</h3>
 <p><code>app/build.gradle.kts</code> を開き、<code>dependencies { }</code> の中に2行を追加します。</p>
 <pre id="code-gradle"><code>    implementation(libs.room.runtime)
@@ -364,7 +364,7 @@ public abstract class AppDatabase extends RoomDatabase {
 <tr><td><code>allowMainThreadQueries()</code></td><td>読み書きを画面と同じ流れで行う指定。<strong>この授業ではこれを付けます</strong></td></tr>
 </tbody></table>
 <div class="note"><p class="box-title">なぜ1つだけ作って使い回すのか</p><p>データベースを開く準備には時間がかかります。ボタンを押すたびに作り直すと、そのたびに待たされます。そこで<strong>最初の1回だけ作って、あとは同じものを返す</strong>書き方にします。この書き方を<strong>シングルトン</strong>といい、Roomの公式資料でもこの形がすすめられています。</p></div>
-<div class="note"><p class="box-title"><code>context.getApplicationContext()</code> を忘れない</p><p><code>getInstance</code> に渡しているのは <code>context.getApplicationContext()</code> です。ここを <code>context</code> のままにすると、画面を回すたびに<strong>古い画面が消えずに残り続けます</strong>。作ったデータベースはアプリが終わるまで残るため、画面ではなく<strong>アプリ全体</strong>を渡します。</p></div>
+<div class="note"><p class="box-title"><code>context.getApplicationContext()</code> を忘れない</p><p><code>Room.databaseBuilder(...)</code> の最初に渡しているのは、受け取った <code>context</code> そのままではなく <code>context.getApplicationContext()</code> です。ここを <code>context</code> のままにすると、画面を回すたびに<strong>古い画面が消えずに残り続けます</strong>。作ったデータベースはアプリが終わるまで残るため、画面ではなく<strong>アプリ全体</strong>を渡します。</p></div>
 <div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-6"><span>AppDatabaseを作り、1つだけ作って使い回す理由を説明できた。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
 <div class="next"><a href="#step-7">次へ：画面とつないで完成 →</a></div></section>
 
