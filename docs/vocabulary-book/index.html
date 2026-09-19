@@ -792,15 +792,17 @@ public class MainActivity extends AppCompatActivity {
 <tr><td>アプリを終了して開き直す</td><td>「単語帳画面へ」を押すと、登録した2件が残っていて、「1問目/全2問中」と apple が出る。</td></tr>
 </tbody></table>
 <h3>練習</h3>
+<p>上から順に試します。<strong>予想 → 変更 → Run → 説明 → 元に戻す</strong>の順で行います。3つともコードを書き換えるので、<strong>1つ試すごとに元に戻してから</strong>次へ進みます。</p>
 <ol>
-<li><code>CardAddActivity</code> の <code>observe</code> の中を消してRunする。単語を追加したとき、一覧はどうなるか。</li>
-<li><code>CardActivity</code> の <code>cardList.clear()</code> を消してRunする。単語を追加してカード画面に戻ると、全何問中になるか。</li>
-<li><code>activity_card.xml</code> の <code>android:enabled="false"</code> を2つとも消してRunし、単語が0件の状態で <strong>次へ</strong> を押すとどうなるか確かめる。</li>
+<li><code>CardAddActivity</code> の <code>observe</code> の中を消してRunする。単語を追加したとき、一覧はどうなるか。<strong>確かめたら元に戻す。</strong></li>
+<li><code>CardActivity</code> の <code>cardList.clear()</code> を消してRunする。単語を追加してカード画面に戻ると、全何問中になるか。<strong>確かめたら元に戻す。</strong></li>
+<li><code>activity_card.xml</code> の <code>android:enabled="false"</code> を2つとも消してRunし、単語が0件の状態で <strong>次へ</strong> を押すとどうなるか確かめる。<strong>確かめたら元に戻す。</strong></li>
 </ol>
+<div class="note"><p class="box-title">完成版に戻してから確認</p><p>練習1の <code>observe</code> の中、練習2の <code>cardList.clear()</code>、練習3の <code>android:enabled="false"</code>（<code>btn_back</code> と <code>btn_next</code> の2つ）を元に戻します。戻したらRunして、単語を追加するとその場で「登録ずみの単語」に出ること、カード画面が「全2問中」のように追加した件数を数えること、単語が0件のときに「前へ」「次へ」が押せないことを確かめます。<strong>練習3を戻さないままだと、単語が0件のときに「次へ」を押すとアプリが終了します。</strong></p></div>
 <h3>保存</h3>
 <p>自分の <code>Documents/Android1/A11VocabularyBook</code> を保存します。</p>
 <p>教材のチェックは自分用です。先生への送信はしません。印刷は <kbd>⌘ P</kbd> で行えます。</p>
-<div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-7"><span>完成チェックの操作をすべて試し、表のとおりの結果になった。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
+<div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-7"><span>完成チェックの操作をすべて試して表のとおりの結果になり、練習1〜3で消したコードを元に戻した。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
 </section>
 
 <section id="help" aria-labelledby="title-help">
