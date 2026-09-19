@@ -416,9 +416,6 @@ Non-Bundled Plugins:
 # 完成コードの書き方（全単元共通）
 完成プロジェクトのコードは、単元をまたいで同じ書き方にそろえる。教科書に掲載するコードと `teacher/<単元>/code` の照合コードも同じ形にする。
 
-## レイアウトの余白
-`android:padding` は書かない。ルートに書いても `ViewCompat.setOnApplyWindowInsetsListener` の中の `v.setPadding(...)` で上書きされて効かず、内側の入れ物に書くと、その単元だけ余白が付いて見た目が揃わなくなる。部品は端から並べる。
-
 ## Viewの取得（findViewById）
 1. `findViewById` は `onCreate` の冒頭（インセットのリスナ設定の直後）でまとめて呼び、`var` のローカル変数に入れる。命名は `txtXxx` / `edtXxx` / `btnXxx` / `imgXxx`。
 2. `onCreate` 以外のメソッドからも使うViewはフィールドにする（A02CalcGameの `txtMessage`、A04WebViewAppの `webView`）。同じidに対して `findViewById` を2回呼ばない。
@@ -429,7 +426,7 @@ Non-Bundled Plugins:
    - 取得したViewをその場でリスナを付けるためだけに使い、以後参照しない場合（A06ScreenTransitionSampleの `btn1`〜`btn3`）。変数に入れず直接つないでよい。
 
 ## レイアウトの余白
-5. 一番外側（`@+id/main` を付けた部品）に `android:padding` を書かない。ひな形の `setPadding` が実行時に置き換えるため指定は効かず、Android Studioのプレビューと実機で見た目が食い違う。余白が必要なときは、中の部品の `android:layout_margin` を使うか、内側にもう1つ入れ物を置いてそちらに `padding` を書く。学生向けの説明は[共通資料：開発Tips](docs/common/dev-tips.html)にある。
+5. `android:padding` は、一番外側（`@+id/main` を付けた部品）にも内側の入れ物にも書かない。一番外側に書いても、ひな形の `ViewCompat.setOnApplyWindowInsetsListener` の中の `v.setPadding(...)` が実行時に置き換えるため指定は効かず、Android Studioのプレビューと実機で見た目が食い違う。内側の入れ物に書くと、その単元だけ余白が付いて見た目が揃わなくなる。部品は端から並べ、間隔が必要なときは中の部品の `android:layout_margin` を使う。学生向けの説明は[共通資料：開発Tips](docs/common/dev-tips.html)にある。
 
 ## nullに関するアノテーション
 6. 学生が教科書を見ながら自分で打ち込むコードには `@NonNull` / `@Nullable` を書かない。`androidx.annotation` のimportも自分では足さない。教科書の本文でも説明しない。
