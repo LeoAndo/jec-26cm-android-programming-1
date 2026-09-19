@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="ja">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>授業を始めるまでの準備 | Androidプログラミング1</title>
+<link rel="stylesheet" href="../assets/textbook.css"><script src="../assets/textbook.js" defer></script></head>
+<body class="plain"><a class="skip" href="#main">本文へ移動</a>
+<header class="topbar"><span class="brand">JEC / Androidプログラミング1</span><a href="../hello-android/index.html" data-back>もとの教科書へ戻る</a></header>
+<main id="main"><div class="hero"><p class="eyebrow">ANDROID PROGRAMMING 1 / 共通資料・授業サポート</p><h1>授業を始めるまでの<br>準備</h1><p class="lede">教材を受け取ってから、最初のアプリが動くまで。上から順に1回だけ行います。2回目からは、教科書を開くところから始められます。</p></div>
+
+<section id="flow"><h2>この資料の流れ</h2>
+<div class="flow"><strong>① 教材を受け取る</strong><span>→</span><strong>② Android Studio</strong><span>→</span><strong>③ 置き場を作る</strong><span>→</span><strong>④ adbの準備</strong><span>→</span><strong>⑤ エミュレータ</strong><span>→</span><strong>⑥ 日本語にする</strong><span>→</span><strong>⑦ キーボード</strong><span>→</span><strong>⑧ ほかの設定</strong><span>→</span><strong>⑨ 動かして確かめる</strong></div>
+<p>番号は、下の見出しの番号と同じです。③・④・⑥では、Terminal（ターミナル）に文字を打ちます。そのほかは、FinderやAndroid Studio、エミュレータの画面を操作します。</p>
+<div class="note"><p class="box-title">つまずいたら、そこで止めて先生を呼んでください</p><p>各ステップに「成功の目印」があります。目印と違う画面になったら、先に進まずに、その画面のまま先生に見せてください。前に戻ってやり直すより早く終わります。</p></div>
+<div class="goal"><p class="box-title">この準備が終わると</p><p>自分のMacで、日本語が打てるAndroidの練習用端末が動き、A01の完成アプリを実行できる状態になります。</p></div></section>
+
+<section id="materials"><h2>1. 教材を受け取り、「書類」に置く</h2>
+<p>授業で使う教科書（きょうかしょ）は、Google Classroomで配られます。ファイルを1つダウンロードし、置き場所を決めるところまでを行います。</p>
+<ol>
+<li>Google Classroomを開き、先生が配布した教材のファイルを<strong>ダウンロード</strong>します。</li>
+<li>Finder（ファインダー）を開き、左側の <strong>ダウンロード</strong> をクリックします。</li>
+<li>いちばん上に、今ダウンロードしたものがあります。次の2つのどちらかです。</li>
+</ol>
+<table><thead><tr><th>ダウンロードにあるもの</th><th>すること</th></tr></thead><tbody>
+<tr><td>名前が <code>.zip</code> で終わるファイル</td><td><strong>ダブルクリック</strong>します。同じ名前のフォルダができます。</td></tr>
+<tr><td>すでにフォルダになっている</td><td>そのままで大丈夫です。ブラウザが自動で開いてくれています。</td></tr>
+</tbody></table>
+<p>どちらの場合も、最後は<strong>フォルダが1つある</strong>状態になります。名前には、次のように日付が入ります。</p>
+<div class="code-head">フォルダの名前の例</div><pre tabindex="0"><code>android1-student-materials-2026-09-19</code></pre>
+<p>日付の部分は、先生が配った教材がいつのものかを表します。配られた回によって変わるので、上と同じ日付でなくても構いません。</p>
+<ol start="4">
+<li>このフォルダを、Finderの左側の <strong>書類</strong> へドラッグして移動します。</li>
+<li>移動した先のフォルダをダブルクリックして開き、中身を確認します。</li>
+</ol>
+<div class="check"><p class="box-title">成功の目印</p><p>「書類」の中のフォルダを開くと、<code>docs</code> というフォルダと、<code>はじめに.txt</code>、<code>VERSION.json</code> の3つがある。</p></div>
+<div class="note"><p class="box-title">新しい版をもらったときも、同じことをします</p><p>授業の途中で教材が新しくなることがあります。そのときも、この手順のまま「書類」へ移動してください。フォルダ名の日付が違うので、前のものとは別のフォルダになり、<strong>混ざりません</strong>。古いほうは消さずに残しておいて大丈夫です。</p><p>授業中は、先生が「今日はこの日付のものを使います」と指定します。開く前に、フォルダ名の日付を確かめてください。</p></div>
+<div class="note"><p class="box-title">ダウンロードしたものが見つからない・名前が少し違う</p><p>同じ教材を2回ダウンロードすると、名前のうしろに <code>(1)</code> や <code>-2</code> が付くことがあります。このときは<strong>古いほうを開いてしまう</strong>ことがあり、画面には何のエラーも出ません。名前にそういう印が付いていたら、自分で判断せず先生に見せてください。</p></div></section>
+
+<section id="studio"><h2>2. Android Studioを開き、版（バージョン）を確かめる</h2>
+<p><strong>Android Studio</strong>（アンドロイド スタジオ）は、アプリを作るためのアプリです。授業で使うMacには、あらかじめ入っています。</p>
+<ol>
+<li>Launchpad（ランチパッド）かDockから <strong>Android Studio</strong> を開きます。</li>
+<li>最初に出る画面（Welcome画面）の<strong>左上</strong>を見ます。名前と版が2行で表示されています。</li>
+</ol>
+<figure><a href="images/android-studio-welcome-version.png"><img src="images/android-studio-welcome-version.png" width="444" height="154" alt="Android Studioの最初の画面の左上。Android Studioの下にPanda 2、縦棒、2025.3.2と2行で表示されている"></a><figcaption>授業で使うのは <strong>Panda 2 | 2025.3.2</strong> です。 <a href="images/android-studio-welcome-version.png">画像を大きく開く</a></figcaption></figure>
+<div class="check"><p class="box-title">成功の目印</p><p>最初の画面の左上が <strong>Android Studio / Panda 2 | 2025.3.2</strong> になっている。</p></div>
+<p>この画面は、まだ何も開いていないときに出ます。すでにプロジェクトが開いている場合は、そのウィンドウを閉じると出てきます。</p>
+<div class="note"><p class="box-title">版が違った・Android Studioが見つからない</p><p>版が違っても、多くの操作はそのまま進められます。画面の名前が教科書と違うときの読み替えは、<a href="other-versions.html" data-keep-from>共通資料：ちがうバージョンで進めるとき</a>にまとめてあります。Android Studioが見つからない場合は、先生に知らせてください。</p></div></section>
+
+<section id="workspace"><h2>3. 自分のプロジェクトの置き場を作る</h2>
+<p>この授業では、毎回自分でプロジェクト（アプリ1つ分のファイルのまとまり）を新しく作ります。その保存先を、先に用意しておきます。</p>
+<p>ここからは <strong>Terminal</strong>（ターミナル）を使います。文字で命令を打つためのアプリです。</p>
+<ol>
+<li><kbd>⌘ Command</kbd> + <kbd>Space</kbd> を押します。画面の中央に検索欄が出ます。</li>
+<li><strong>ターミナル</strong> と打ち、<kbd>Enter</kbd> を押します。黒っぽいウィンドウが開きます。</li>
+<li>次の1行をコピーして貼り付け、<kbd>Enter</kbd> を押します。</li>
+</ol>
+<div class="code-head">Terminal · 打ち込む</div><pre tabindex="0"><code>mkdir -p ~/Documents/Android1/samples</code></pre>
+<div class="check"><p class="box-title">成功の目印</p><p>何も表示されずに、次の入力待ちに戻る。<strong>出力がないのが成功です。</strong></p></div>
+<p>すでに同じ場所を作ってあっても、エラーにはなりません。2回実行しても問題ありません。</p>
+<div class="note"><p class="box-title">このあと、同じTerminalのウィンドウを使い続けます</p><p>手順4で行う設定は、<strong>いま開いたこのウィンドウの中だけ</strong>で効きます。準備が終わるまで、閉じないでください。</p></div></section>
+
+<section id="adb"><h2>4. SDKの場所を確かめ、adbを使えるようにする</h2>
+<p><strong>SDK</strong>（エスディーケー）は、Androidのアプリを作るために必要なプログラムやライブラリをまとめたものです。Android Studioが自動で入れています。まず、入っているかを確かめます。</p>
+<div class="code-head">Terminal · 打ち込む</div><pre tabindex="0"><code>ls ~/Library/Android/sdk</code></pre>
+<p>名前がたくさん並びます。その中に <code>platform-tools</code> があれば大丈夫です。</p>
+<div class="check"><p class="box-title">成功の目印</p><p>並んだ名前の中に <code>platform-tools</code> がある。</p></div>
+<div class="note"><p class="box-title"><code>No such file or directory</code> と出たとき</p><p>Android Studioの最初の準備が、まだ終わっていません。先に進まず、先生に知らせてください。</p></div>
+<h3>adbを呼べるようにする</h3>
+<p><strong>adb</strong>（エーディービー）は、Macからエミュレータへ指示を送るコマンドです。<code>platform-tools</code> の中にありますが、そのままでは名前を呼んでも見つかりません。次の1行で、<strong>いま開いているTerminalに置き場所を教えます</strong>。</p>
+<div class="code-head">Terminal · 打ち込む</div><pre tabindex="0"><code>export PATH="$PATH:$HOME/Library/Android/sdk/platform-tools"</code></pre>
+<p>この行も、成功すると何も表示されません。続けて、adbが呼べるようになったか確かめます。</p>
+<div class="code-head">Terminal · 打ち込む</div><pre tabindex="0"><code>adb devices</code></pre>
+<div class="code-head">出力（エミュレータをまだ作っていないとき）</div><pre tabindex="0"><code>List of devices attached
+
+</code></pre>
+<p>1行だけ出て、その下に何も並びません。エミュレータをまだ作っていないので、これで正しい状態です。</p>
+<p>その日の最初の1回だけ、上に次の2行が付くことがあります。<strong>これは正常です。</strong></p>
+<div class="code-head">出力（その日の最初の1回だけ）</div><pre tabindex="0"><code>* daemon not running; starting now at tcp:5037
+* daemon started successfully</code></pre>
+<div class="check"><p class="box-title">成功の目印</p><p><code>List of devices attached</code> と表示される。エラーが出ない。</p></div>
+<div class="note"><p class="box-title">この設定は、Terminalを閉じると消えます</p><p>手順4で打った <code>export</code> の行は、<strong>いま開いているウィンドウの中だけ</strong>で効きます。Terminalを閉じたり、新しいタブやウィンドウを開いたりすると、効果はなくなります。</p><p>そこで <code>adb</code> を使うと、次のように出ます。</p><div class="code-head">出力（置き場所を教える前）</div><pre tabindex="0"><code>zsh: command not found: adb</code></pre><p>これが出たら、<strong>上の <code>export</code> の行をもう一度実行してから</strong>、やり直してください。Macの設定を書き換える必要はありません。授業のたびに、この1行を打つだけです。</p></div></section>
+
+<section id="emulator"><h2>5. エミュレータを作る</h2>
+<p><strong>エミュレータ</strong>は、Macの中で動く練習用のAndroid端末です。作り方は共通資料にまとめてあります。</p>
+<p><a class="button-link" href="emulator.html" data-keep-from>共通資料：エミュレータの準備とアプリの実行 →</a></p>
+<p>そのページを開いて、次の2つを決めながら進めてください。</p>
+<table><thead><tr><th>決めるもの</th><th>この授業での指定</th></tr></thead><tbody>
+<tr><td>端末の名前</td><td><code>jec_26cm_android1_Pixel 9a</code></td></tr>
+<tr><td>System Image（端末を動かすデータ）</td><td><strong>API 37.1</strong></td></tr>
+</tbody></table>
+<div class="note"><p class="box-title">System Imageを選ぶときの注意</p><p>一覧には <strong>37.2</strong> も並びます。選ぶのは <strong>37.1</strong> のほうです。37.1 は名前に <strong>16 KB Page Size</strong> と付いたものしかないので、それを選んでください。</p><p>まだMacに入っていない場合は、ダウンロードから始まります。<strong>時間がかかるので、始める前に先生に知らせてください。</strong>先生が準備した端末があれば、それを使います。</p></div>
+<p>エミュレータが起動し、Androidのホーム画面が出たら、この資料に戻ってきてください。<strong>エミュレータは起動したままにしておきます。</strong></p>
+<div class="check"><p class="box-title">成功の目印</p><p>スマートフォンの形の画面が開き、ホーム画面のアイコンが見えている。</p></div></section>
+
+<section id="japanese"><h2>6. エミュレータの表示を日本語にする</h2>
+<p>作ったばかりのエミュレータは、英語で表示されています。日本語に変えます。手順3・4で使っていたTerminalに戻ってください。</p>
+<p>まず、Macからエミュレータが見えているか確かめます。</p>
+<div class="code-head">Terminal · 打ち込む</div><pre tabindex="0"><code>adb devices</code></pre>
+<div class="code-head">出力（エミュレータが起動しているとき）</div><pre tabindex="0"><code>List of devices attached
+emulator-5554	device</code></pre>
+<p>番号は <code>5554</code> でなくても構いません。1行増えていれば大丈夫です。</p>
+<p>次に、表示を日本語にします。</p>
+<div class="code-head">Terminal · 打ち込む</div><pre tabindex="0"><code>adb shell cmd locale set-device-locale ja-JP</code></pre>
+<p>この行も、成功すると何も表示されません。日本語になったか確かめます。</p>
+<div class="code-head">Terminal · 打ち込む</div><pre tabindex="0"><code>adb shell cmd locale get-device-locale</code></pre>
+<div class="code-head">出力</div><pre tabindex="0"><code>ja-JP</code></pre>
+<div class="phone"><figure><a href="images/locale-ja-settings.png"><img src="images/locale-ja-settings.png" width="1080" height="2424" alt="日本語になったエミュレータの設定アプリ。設定を検索、Google、ネットワークとインターネット、接続設定、アプリ、通知などの項目が日本語で並んでいる"></a><figcaption>エミュレータの設定アプリが日本語になります。 <a href="images/locale-ja-settings.png">画像を大きく開く</a></figcaption></figure></div>
+<div class="check"><p class="box-title">成功の目印</p><p><code>ja-JP</code> と表示される。エミュレータの画面の文字が日本語になっている。</p></div>
+<div class="note"><p class="box-title">この設定は残ります</p><p>エミュレータを止めて起動し直しても、日本語のままです。毎回やり直す必要はありません。キーボード（Gboard）も、同時に日本語になります。</p></div>
+<div class="note"><p class="box-title"><code>adb: more than one device/emulator</code> と出たとき</p><p>エミュレータが2つ以上起動しています。どれに指示を送ればよいか分からない、という意味です。使わないほうを閉じて、1つだけにしてから、もう一度実行してください。</p></div></section>
+
+<section id="keyboard"><h2>7. 日本語のキーボードを使えるようにする</h2>
+<p>手順6で、キーボード（<strong>Gboard</strong>）も日本語になりました。ただし、<strong>最初に1回だけ</strong>、キーボードの形を選ぶ画面が出ます。ここで選んでおくと、次からは出ません。</p>
+<p>エミュレータの画面で操作します。文字を入力できるところなら、どこでも構いません。</p>
+<ol>
+<li>エミュレータで、文字を入力する欄を<strong>タップ</strong>します。設定アプリの「設定を検索」の欄が分かりやすいです。</li>
+<li><strong>ひらがな　入力レイアウトの選択</strong> と出ます。左の <strong>12 キー</strong> が選ばれた状態のまま、右下の <strong>次へ</strong> をタップします。</li>
+</ol>
+<div class="phone"><figure><a href="images/gboard-hiragana-layout.png"><img src="images/gboard-hiragana-layout.png" width="1080" height="2424" alt="ひらがな　入力レイアウトの選択のダイアログ。左に12キー、右にQWERTYの絵が並び、左の12キーが青い枠で選ばれている。下にスキップと次へのボタンがある"></a><figcaption>左の <strong>12 キー</strong> のまま <strong>次へ</strong> をタップします。 <a href="images/gboard-hiragana-layout.png">画像を大きく開く</a></figcaption></figure></div>
+<ol start="3">
+<li>続けて <strong>アルファベット　入力レイアウトの選択</strong> が出たら、同じように <strong>12 キー</strong> のまま <strong>完了</strong> をタップします。この2ページ目は、出ないこともあります。</li>
+<li>キーボードが出ます。数字の電話のような形で、左下に <strong>あa1</strong> というキーがあります。</li>
+</ol>
+<div class="phones">
+<figure><a href="images/gboard-12key.png"><img src="images/gboard-12key.png" width="1080" height="2424" alt="12キーの日本語キーボード。あ、か、さ、た、な、は、ま、や、らのキーが並び、左下にあa1のキーがある"></a><figcaption>① 12キーのキーボード。左下が <strong>あa1</strong> です。 <a href="images/gboard-12key.png">画像を大きく開く</a></figcaption></figure>
+<figure><a href="images/gboard-hiragana-typed.png"><img src="images/gboard-hiragana-typed.png" width="1080" height="2424" alt="ひらがなのモードでappleと打った結果、入力欄にあっpぇと表示され、画面下に日本語言語パックはまだダウンロードされていませんというメッセージが出ている"></a><figcaption>② ひらがなのまま <code>apple</code> と打つと <strong>あっpぇ</strong> になります。 <a href="images/gboard-hiragana-typed.png">画像を大きく開く</a></figcaption></figure>
+</div>
+<div class="note"><p class="box-title">「日本語言語パックはまだダウンロードされていません」と出たとき</p><p>日本語を漢字に変換するためのデータを、いま取りにいっています。<strong>1〜2分待つと、漢字の候補が出るようになります。</strong>操作は要りません。Macがインターネットにつながっている必要があります。</p></div>
+<h3>ひらがなとアルファベットを切り替える（あa1キー）</h3>
+<p>この授業では、アプリに英語を入力する場面があります。ひらがなのモードのまま、Macのキーボードで <code>apple</code> と打つと、上の②のように <strong>あっpぇ</strong> になってしまいます。</p>
+<p>そのときは、キーボードの左下の <strong>あa1</strong> を押します。押すたびに、次の順で切り替わります。</p>
+<div class="flow"><strong>ひらがな</strong><span>→</span><strong>アルファベット</strong><span>→</span><strong>数字</strong><span>→</span><strong>ひらがな</strong><span>→</span><strong>…</strong></div>
+<div class="phones">
+<figure><a href="images/gboard-alphabet.png"><img src="images/gboard-alphabet.png" width="1080" height="2424" alt="あa1キーを1回押したあとのキーボード。ABC、DEF、GHI、JKL、MNO、PQRS、TUV、WXYZのキーが並ぶアルファベットのモードになっている"></a><figcaption>③ 1回押すと<strong>アルファベット</strong>。<code>apple</code> と打てます。 <a href="images/gboard-alphabet.png">画像を大きく開く</a></figcaption></figure>
+<figure><a href="images/gboard-number.png"><img src="images/gboard-number.png" width="1080" height="2424" alt="あa1キーをもう1回押したあとのキーボード。1から9と0のキーが並ぶ数字のモードになっている"></a><figcaption>④ もう1回押すと<strong>数字</strong>。ここでもう1回押すと、①のひらがなに戻ります。 <a href="images/gboard-number.png">画像を大きく開く</a></figcaption></figure>
+</div>
+<p>いま選ばれているモードは、<strong>あa1</strong> の中の文字が濃くなって分かります。ひらがなに戻したいのに数字が出るときは、もう1回押してください。</p>
+<div class="check"><p class="box-title">成功の目印</p><p><strong>あa1</strong> を押して、<code>apple</code> と英語で打てた。もう2回押して、ひらがなに戻せた。</p></div></section>
+
+<section id="others"><h2>8. そのほかの設定は、変えなくて大丈夫です</h2>
+<p>エミュレータの次の設定は、<strong>最初のままで教科書と同じ動きになります</strong>。触らないでください。</p>
+<table><thead><tr><th>設定</th><th>どうする</th></tr></thead><tbody>
+<tr><td>ナビゲーション（戻る・ホームの操作）</td><td>そのまま</td></tr>
+<tr><td>画面の回転</td><td>そのまま</td></tr>
+<tr><td>タイムゾーン（時計）</td><td>そのまま</td></tr>
+<tr><td>フォントサイズ（文字の大きさ）</td><td>そのまま</td></tr>
+</tbody></table>
+<div class="note"><p class="box-title">インターネット接続だけ確認してください</p><p>Macがインターネットにつながっている必要があります。キーボードの漢字の変換候補や、授業で作るアプリの動作に使います。</p></div></section>
+
+<section id="run"><h2>9. 動くことを確かめる</h2>
+<p>最後に、できあがった環境でアプリが動くことを確かめます。A01の<strong>完成プロジェクト</strong>（先生が作った見本）を開いて実行します。</p>
+<ol>
+<li>手順1で「書類」に置いた教材のフォルダを開き、<code>docs</code> → <code>hello-android</code> → <code>index.html</code> をダブルクリックします。ブラウザで教科書が開きます。</li>
+<li>教科書の<a href="../hello-android/index.html#sample-project">完成プロジェクトを開く</a>から、<code>A01HelloAndroid.zip</code> をダウンロードします。</li>
+<li>ダウンロードした <code>A01HelloAndroid.zip</code> をダブルクリックして展開します。<code>A01HelloAndroid</code> というフォルダができます。</li>
+<li>そのフォルダを、Finderで <strong>書類 → Android1 → samples</strong> へ移動します。手順3で作った場所です。</li>
+<li>Android Studioの最初の画面で <strong>Open</strong> をクリックし、いま移動した <code>A01HelloAndroid</code> フォルダを選びます。</li>
+<li>画面の下で <strong>Gradle Sync</strong> という処理が終わるまで待ちます。初回は数分かかります。</li>
+<li>上部の端末の選択欄で <code>jec_26cm_android1_Pixel 9a</code> を選び、<strong>Run ▶</strong> をクリックします。</li>
+</ol>
+<div class="check"><p class="box-title">成功の目印</p><p>エミュレータにアプリが表示され、<strong>Hello World!</strong> という文字と、その下にボタンが並んでいる。</p></div>
+<p>ここまでできたら、準備は終わりです。次の授業からは、教科書を開くところから始められます。</p>
+<p><a class="button-link" href="../hello-android/index.html">A01：はじめてのアプリ作りへ進む →</a></p></section>
+
+<section id="trouble"><h2>10. うまくいかないとき</h2>
+<table><thead><tr><th>出たもの・起きたこと</th><th>やってみること</th></tr></thead><tbody>
+<tr><td><code>zsh: command not found: adb</code></td><td>手順4の <code>export</code> の行をもう一度実行する。Terminalを開き直すと、毎回この状態に戻る。</td></tr>
+<tr><td><code>adb: more than one device/emulator</code></td><td>エミュレータが2つ以上起動している。1つだけにしてやり直す。</td></tr>
+<tr><td><code>adb devices</code> にエミュレータが出ない</td><td>エミュレータのホーム画面が出ているか確認する。起動の途中なら待つ。</td></tr>
+<tr><td><code>ls ~/Library/Android/sdk</code> で <code>No such file or directory</code></td><td>Android Studioの最初の準備が終わっていない。先生に知らせる。</td></tr>
+<tr><td>エミュレータが日本語にならない</td><td><code>adb shell cmd locale get-device-locale</code> の結果を確認する。<code>ja-JP</code> 以外なら、手順6をもう一度行う。</td></tr>
+<tr><td>漢字の候補が出ない</td><td>Macがインターネットにつながっているか確認し、1〜2分待つ。</td></tr>
+<tr><td>ダウンロードしたフォルダの名前に <code>(1)</code> や <code>-2</code> が付いている</td><td>古い教材を開いている可能性がある。自分で判断せず先生に見せる。</td></tr>
+<tr><td>Runが押せない・端末が選べない</td><td><a href="emulator.html" data-keep-from>共通資料：エミュレータの準備とアプリの実行</a>の「4. 動かないとき」を見る。</td></tr>
+</tbody></table>
+<p>表にないことが起きたら、その画面のまま先生に見せてください。Terminalの場合は、打った行と出た文字の両方が見えるようにしておくと早く分かります。</p></section>
+
+<section><h2>関連する共通資料</h2><ul>
+<li><a href="emulator.html" data-keep-from>エミュレータの準備とアプリの実行</a>（手順5で使います）</li>
+<li><a href="auto-import.html" data-keep-from>Auto Importの設定</a>（A01のSTEP 1で行います）</li>
+<li><a href="other-versions.html" data-keep-from>ちがうバージョンで進めるとき</a>（Android Studioの版が違うとき）</li>
+</ul></section>
+
+<footer class="footer"><p><a href="../hello-android/index.html" data-back>← もとの教科書へ戻る</a></p><p>対象：macOS / Android Studio Panda 2 | 2025.3.2 · 画像：教員提供 · 確認日：2026年9月20日</p></footer></main>
+<p class="sr-only" role="status" aria-live="polite" data-copy-status></p></body></html>

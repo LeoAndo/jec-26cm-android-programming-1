@@ -26,6 +26,7 @@
 - [完成プロジェクト（A10RoomSample）](docs/room-sample/downloads/A10RoomSample.zip)
 - [VocabularyBook：2つの画面でデータを共有しよう](docs/vocabulary-book/index.html)
 - [完成プロジェクト（A11VocabularyBook）](docs/vocabulary-book/downloads/A11VocabularyBook.zip)
+- [共通資料：授業を始めるまでの準備（教材の受け取りから最初の実行まで）](docs/common/setup.html)
 - [共通資料：エミュレータの準備とアプリの実行](docs/common/emulator.html)
 - [共通資料：Auto Importの設定](docs/common/auto-import.html)
 - [共通資料：Logcatの使い方](docs/common/logcat.html)
