@@ -60,13 +60,13 @@
 <div class="note"><p class="box-title">このあと、同じTerminalのウィンドウを使い続けます</p><p>手順4で行う設定は、<strong>いま開いたこのウィンドウの中だけ</strong>で効きます。準備が終わるまで、閉じないでください。</p></div></section>
 
 <section id="adb"><h2>4. SDKの場所を確かめ、adbを使えるようにする</h2>
-<p><strong>SDK</strong>（エスディーケー）は、Androidのアプリを作るために必要な道具のまとまりです。Android Studioが自動で入れています。まず、入っているかを確かめます。</p>
+<p><strong>SDK</strong>（エスディーケー）は、Androidのアプリを作るために必要なプログラムやライブラリをまとめたものです。Android Studioが自動で入れています。まず、入っているかを確かめます。</p>
 <div class="code-head">Terminal · 打ち込む</div><pre tabindex="0"><code>ls ~/Library/Android/sdk</code></pre>
 <p>名前がたくさん並びます。その中に <code>platform-tools</code> があれば大丈夫です。</p>
 <div class="check"><p class="box-title">成功の目印</p><p>並んだ名前の中に <code>platform-tools</code> がある。</p></div>
 <div class="note"><p class="box-title"><code>No such file or directory</code> と出たとき</p><p>Android Studioの最初の準備が、まだ終わっていません。先に進まず、先生に知らせてください。</p></div>
 <h3>adbを呼べるようにする</h3>
-<p><strong>adb</strong>（エーディービー）は、Macからエミュレータへ指示を送る道具です。<code>platform-tools</code> の中にありますが、そのままでは名前を呼んでも見つかりません。次の1行で、<strong>いま開いているTerminalに置き場所を教えます</strong>。</p>
+<p><strong>adb</strong>（エーディービー）は、Macからエミュレータへ指示を送るコマンドです。<code>platform-tools</code> の中にありますが、そのままでは名前を呼んでも見つかりません。次の1行で、<strong>いま開いているTerminalに置き場所を教えます</strong>。</p>
 <div class="code-head">Terminal · 打ち込む</div><pre tabindex="0"><code>export PATH="$PATH:$HOME/Library/Android/sdk/platform-tools"</code></pre>
 <p>この行も、成功すると何も表示されません。続けて、adbが呼べるようになったか確かめます。</p>
 <div class="code-head">Terminal · 打ち込む</div><pre tabindex="0"><code>adb devices</code></pre>
