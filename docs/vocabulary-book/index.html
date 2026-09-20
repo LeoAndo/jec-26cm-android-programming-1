@@ -820,8 +820,10 @@ public class MainActivity extends AppCompatActivity {
 </section>
 
 <section id="sample-project" aria-labelledby="title-sample">
-<h2 id="title-sample">完成プロジェクト</h2>
-<p>答え合わせ用です。<a href="downloads/A11VocabularyBook.zip">A11VocabularyBook.zip</a> を展開し、Android Studioの <strong>File → Open</strong> で開きます。授業の入力は自分で作ったプロジェクトに書きます。</p>
+<h2 id="title-sample">完成プロジェクトを開く</h2>
+<p>答え合わせ用の見本です。教科書といっしょに配られた<strong>教材のフォルダ</strong>に、そのまま開ける形で入っています。ダウンロードも展開も要りません。授業の入力は自分で作ったプロジェクトに書きます。</p>
+<ol><li>Android Studioの <strong>Open</strong>（プロジェクトを開いているときは <strong>File → Open</strong>）で、<strong>書類</strong>（<code>Documents</code>）にある教材のフォルダを開きます。名前は <code>android1-student-materials-</code> のうしろに日付が付いた形で、日付は配られた回によって変わります。いま読んでいるこの教科書が入っているフォルダです。</li><li>その中を <code>samples → A11VocabularyBook</code> の順に開き、<code>settings.gradle.kts</code> と <code>app</code> が入った <code>A11VocabularyBook</code> フォルダを選びます。</li><li>Sync後にRunして動きを確認します。授業の入力に戻るときは自分の <code>Documents/Android1/A11VocabularyBook</code> を開きます。</li></ol>
+<p>教材のフォルダが手元にないときは、同じ見本をZIPで受け取れます（<a href="downloads/A11VocabularyBook.zip" download>A11VocabularyBook.zip</a>）。展開してできた <code>A11VocabularyBook</code> フォルダを、同じようにOpenで選びます。</p>
 <details><summary>完成した <code>activity_main.xml</code></summary>
 <pre id="code-complete-xml"><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
 &lt;LinearLayout xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;

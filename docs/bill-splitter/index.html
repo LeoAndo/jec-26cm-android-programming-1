@@ -661,9 +661,10 @@ txtParticipantList.setText(result);</code></pre>
 <p>質問では「STEP番号・編集したファイル・最初の赤い行・押した順番」を伝えます。</p></section>
 
 <section id="sample-project"><h2>完成プロジェクトを開く</h2>
-<p>完成版は最初の授業から使える見本です。<a class="button-link" href="downloads/A07BillSplitter.zip" download>完成プロジェクト A07BillSplitter.zip</a></p>
-<ol><li>ZIPを展開します。中に <code>A07BillSplitter</code> フォルダができます。</li><li>見本は <code>/Users/ユーザ名/Documents/Android1/samples/A07BillSplitter</code> に置きます。</li><li>Android Studioの <strong>Open</strong> で、<code>settings.gradle.kts</code> と <code>app</code> が入った <code>A07BillSplitter</code> フォルダを選びます。</li><li>Sync後にRunして動きを確認します。授業の入力に戻るときは自分の <code>Documents/Android1/A07BillSplitter</code> を開きます。</li></ol>
+<p>完成版は最初の授業から使える見本です。教科書といっしょに配られた<strong>教材のフォルダ</strong>に、そのまま開ける形で入っています。ダウンロードも展開も要りません。</p>
+<ol><li>Android Studioの <strong>Open</strong>（プロジェクトを開いているときは <strong>File → Open</strong>）で、<strong>書類</strong>（<code>Documents</code>）にある教材のフォルダを開きます。名前は <code>android1-student-materials-</code> のうしろに日付が付いた形で、日付は配られた回によって変わります。いま読んでいるこの教科書が入っているフォルダです。</li><li>その中を <code>samples → A07BillSplitter</code> の順に開き、<code>settings.gradle.kts</code> と <code>app</code> が入った <code>A07BillSplitter</code> フォルダを選びます。</li><li>Sync後にRunして動きを確認します。授業の入力に戻るときは自分の <code>Documents/Android1/A07BillSplitter</code> を開きます。</li></ol>
 <p>両方とも同じプロジェクト名なので、ウィンドウの保存先を確認しましょう。見本と自分のアプリは同じパッケージ名のため、端末上では同じアプリを更新します。切り替えるときは、確認したい方のプロジェクトからRunします。</p>
+<p>教材のフォルダが手元にないときは、同じ見本をZIPで受け取れます（<a href="downloads/A07BillSplitter.zip" download>A07BillSplitter.zip</a>）。展開してできた <code>A07BillSplitter</code> フォルダを、同じようにOpenで選びます。</p>
 <details><summary>完成したMainActivity.javaで照合する</summary><div class="code-head">完成版 · MainActivity.java</div>
 <pre id="code-complete-main-java" tabindex="0"><code>package jp.ac.jec.a07billsplitter;
 

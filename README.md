@@ -53,9 +53,9 @@
 
 ### 学生への配布
 
-学生には [最新の教材リリース](https://github.com/LeoAndo/jec-26cm-android-programming-1/releases/latest) の Assets にあるZIPを案内します（初回公開後から利用可能）。ファイル名には `android1-student-materials-2026-09-19.zip` のように版の日付が入り、展開してできるフォルダも同じ名前になります。ダウンロードフォルダでどの版か分かり、別の版を同じ場所に展開しても混ざりません。展開後、はじめて授業を受ける学生は [共通資料：授業を始めるまでの準備](docs/common/setup.html) をブラウザで開き、上から順に準備します（同梱の `はじめに.txt` でも、単元一覧より前に案内しています）。準備が済んだら、授業で使う単元の `docs/hello-android/index.html`、`docs/calc-game/index.html`、`docs/rock-paper-scissors-game/index.html`、`docs/webview-app/index.html`、`docs/bomb-game/index.html`、`docs/screen-transition-sample/index.html`、`docs/bill-splitter/index.html`、`docs/shared-preferences-sample/index.html`、`docs/memo-app/index.html`、`docs/room-sample/index.html`、`docs/vocabulary-book/index.html` のいずれかをブラウザで開きます。各教科書から完成プロジェクトのZIPをダウンロードでき、初回から参考資料として使えます。
+学生には [最新の教材リリース](https://github.com/LeoAndo/jec-26cm-android-programming-1/releases/latest) の Assets にあるZIPを案内します（初回公開後から利用可能）。ファイル名には `android1-student-materials-2026-09-19.zip` のように版の日付が入り、展開してできるフォルダも同じ名前になります。ダウンロードフォルダでどの版か分かり、別の版を同じ場所に展開しても混ざりません。展開後、はじめて授業を受ける学生は [共通資料：授業を始めるまでの準備](docs/common/setup.html) をブラウザで開き、上から順に準備します（同梱の `はじめに.txt` でも、単元一覧より前に案内しています）。準備が済んだら、授業で使う単元の `docs/hello-android/index.html`、`docs/calc-game/index.html`、`docs/rock-paper-scissors-game/index.html`、`docs/webview-app/index.html`、`docs/bomb-game/index.html`、`docs/screen-transition-sample/index.html`、`docs/bill-splitter/index.html`、`docs/shared-preferences-sample/index.html`、`docs/memo-app/index.html`、`docs/room-sample/index.html`、`docs/vocabulary-book/index.html` のいずれかをブラウザで開きます。完成プロジェクトは、展開済みの見本として配布物の `samples` フォルダに入っています。Android Studioの Open で `samples/A01HelloAndroid` のように選ぶだけで開け、初回から参考資料として使えます（各教科書からZIPでも受け取れます）。
 
-学生用ZIPには `docs` 一式と開き方・版情報を収録します。`teacher` フォルダと `Panda2JavaEmptyViewActivity` は収録しません。GitHubが自動で表示する **Source code (zip)** はリポジトリ全体のため、学生用ZIPには使いません。なお、このリポジトリ自体はPublicなので、教員用ファイルもGitHub上では閲覧できます。
+学生用ZIPには `docs` 一式と、展開済みの完成プロジェクト（`samples`）、開き方・版情報を収録します。`teacher` フォルダと `Panda2JavaEmptyViewActivity` は収録しません。GitHubが自動で表示する **Source code (zip)** はリポジトリ全体のため、学生用ZIPには使いません。なお、このリポジトリ自体はPublicなので、教員用ファイルもGitHub上では閲覧できます。
 
 授業中は教員が指定した版を使います。授業ごとの案内には、内容が固定された個別リリースのURLを使ってください。更新版は別フォルダに展開し、学生自身のAndroid Studioプロジェクトは上書きしません。
 
@@ -79,7 +79,7 @@
 | `A10RoomSample` | 完成プロジェクト。配布用ZIPを教科書に同梱し、初回から学生も参照可能。配布する画像やクラスはなく、結果はすべてアプリの画面に表示する |
 | `A11VocabularyBook` | 完成プロジェクト。配布用ZIPを教科書に同梱し、初回から学生も参照可能。STEP 2の画像 `logoeng.png` もこのZIPから取り出す |
 
-教員用ガイドとステップごとの照合用コードは `teacher/hello-android`、`teacher/calc-game`、`teacher/rock-paper-scissors-game`、`teacher/webview-app`、`teacher/bomb-game`、`teacher/screen-transition-sample`、`teacher/bill-splitter`、`teacher/shared-preferences-sample`、`teacher/memo-app`、`teacher/room-sample`、`teacher/vocabulary-book` にまとめています。完成版の見本は `Documents/Android1/samples/A01HelloAndroid` / `A02CalcGame` / `A03RockPaperScissorsGame` / `A04WebViewApp` / `A05BombGame` / `A06ScreenTransitionSample` / `A07BillSplitter` / `A08SharedPreferencesSample` / `A09MemoApp` / `A10RoomSample` / `A11VocabularyBook`、授業で作るプロジェクトは `Documents/Android1/A01HelloAndroid` / `A02CalcGame` / `A03RockPaperScissorsGame` / `A04WebViewApp` / `A05BombGame` / `A06ScreenTransitionSample` / `A07BillSplitter` / `A08SharedPreferencesSample` / `A09MemoApp` / `A10RoomSample` / `A11VocabularyBook` に置きます。
+教員用ガイドとステップごとの照合用コードは `teacher/hello-android`、`teacher/calc-game`、`teacher/rock-paper-scissors-game`、`teacher/webview-app`、`teacher/bomb-game`、`teacher/screen-transition-sample`、`teacher/bill-splitter`、`teacher/shared-preferences-sample`、`teacher/memo-app`、`teacher/room-sample`、`teacher/vocabulary-book` にまとめています。完成版の見本は、配布物の `samples` フォルダに展開済みで入っています（`samples/A01HelloAndroid` / `A02CalcGame` / `A03RockPaperScissorsGame` / `A04WebViewApp` / `A05BombGame` / `A06ScreenTransitionSample` / `A07BillSplitter` / `A08SharedPreferencesSample` / `A09MemoApp` / `A10RoomSample` / `A11VocabularyBook`）。学生が自分で置き場所を作ったり、ZIPを展開したりする必要はありません。授業で作るプロジェクトは `Documents/Android1/A01HelloAndroid` / `A02CalcGame` / `A03RockPaperScissorsGame` / `A04WebViewApp` / `A05BombGame` / `A06ScreenTransitionSample` / `A07BillSplitter` / `A08SharedPreferencesSample` / `A09MemoApp` / `A10RoomSample` / `A11VocabularyBook` に置きます。
 
 ### 完成プロジェクトのZIPを更新する（教員用）
 
@@ -161,7 +161,7 @@ python3 -m unittest discover -s scripts -p 'test_*.py' -v
 python3 scripts/package-student-materials.py
 ```
 
-`dist/android1-student-materials-2026-09-19.zip` のように、版の日付（HEADのコミット日時をJSTにした日付。版タグと同じ日付）が入った名前で生成されます。対象はGit管理された `docs` のファイルで、完成版ZIPはソースから再生成します。新しい教材・画像は `git add` 後に実行してください。ローカルの編集内容も含むため、正式な配布版はGitHub Actionsから公開します。
+`dist/android1-student-materials-2026-09-19.zip` のように、版の日付（HEADのコミット日時をJSTにした日付。版タグと同じ日付）が入った名前で生成されます。対象はGit管理された `docs` のファイルで、完成版ZIPはソースから再生成します。再生成したZIPの中身は、展開済みの見本として `samples/` にも収録します（`samples/` はリポジトリにはなく、配布ZIPの中だけにできます。`gradlew` の実行権限も引き継ぎます）。新しい教材・画像は `git add` 後に実行してください。ローカルの編集内容も含むため、正式な配布版はGitHub Actionsから公開します。
 
 単元を追加するときは、完成プロジェクトのZIP生成処理と `はじめに.txt` の単元一覧を `scripts/package-student-materials.py` に、リリースノートの単元一覧を `scripts/release-student-materials.py` に追加してください。あわせて `config/teaching-materials.json`（`scan_roots`、指定AVD名の `required_in`、`projects`）とREADMEのリンク・表も更新します。各教科書のサイドバーには全単元を並べているので、既存の全単元の教科書のサイドバーにも新しい単元を足します（`scripts/check-teaching-materials.py` が `projects` の並びと照合するので、直し忘れるとCIが落ちます）。HTML・画像・共通資料は `docs` 配下のGit管理ファイルが自動で含まれます。
 
