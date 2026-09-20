@@ -73,8 +73,10 @@ img { max-width: 100%; height: auto; display: block; border-radius: 9px; border:
 figcaption { font-size: .78rem; margin-top: .6rem; line-height: 1.7; }
 .phones { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.5rem; }
 .phones figure { margin: .6rem 0; }
-.phones img { max-height: 460px; width: auto; margin: auto; }
-.phone img { max-height: 500px; width: auto; margin: auto; }
+/* スマホ画面の画像は、幅で大きさを決める。max-height と width: auto で決めると、画像が届くまで箱が0になり、届いたときにページが伸びて、ページ内リンクの飛び先がずれる。
+   画像は全て 1080×2424 なので、見せたい高さ H に対する幅は「枠線2px ＋ (H − 2px) × 1080 ÷ 2424」。下は順に H ＝ 460px・500px（720px以下では 350px）。 */
+.phones img { width: calc(2px + 458px * 1080 / 2424); margin: auto; }
+.phone img { width: calc(2px + 498px * 1080 / 2424); margin: auto; }
 .phone figcaption { text-align: center; }
 details { border: 1px solid var(--line); border-radius: 8px; margin: 1rem 0; padding: .85rem 1rem; }
 summary { cursor: pointer; font-weight: 650; }
@@ -103,7 +105,7 @@ details[open] > summary { margin-bottom: 1rem; }
   main { padding: 1.75rem 1rem 3rem; }
   h2 { font-size: 1.45rem; }
   .phones { gap: .8rem; }
-  .phones img { max-height: 350px; }
+  .phones img { width: calc(2px + 348px * 1080 / 2424); }
   th, td { padding: .6rem .3rem; }
 }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
@@ -124,6 +126,7 @@ details[open] > summary { margin-bottom: 1rem; }
   .code-head { color: black; background: #eee; border: 1px solid #ccc; }
   a { color: inherit; }
   img { max-height: 100mm !important; }
+  .phones img, .phone img { width: auto; }
   figure, .check, .goal, tr { break-inside: avoid; }
   details { padding: .6rem; }
 }
