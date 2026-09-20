@@ -8,8 +8,15 @@
 <main id="main"><div class="hero"><p class="eyebrow">ANDROID PROGRAMMING 1 / 共通資料・授業サポート</p><h1>エミュレータの準備と<br>アプリの実行</h1><p class="lede">Macの中でAndroid端末を動かします。一度準備すると、次の授業でも使えます。</p></div>
 
 <section id="start"><h2>1. すでにある端末を探す</h2>
-<p>エミュレータは、アプリを試すための練習用端末です。Android Studioでプロジェクトを開いてから操作します。</p>
-<ol><li>上のメニューで <strong>View → Tool Windows → Device Manager</strong> を選びます。</li><li>端末の一覧に <strong>jec_26cm_android1_Pixel 9a</strong> があるか確認します。名前の区切りが <code>_</code> で表示されることもあります。</li><li>見つかったら、その行の三角形 <strong>▶</strong> をクリックします。</li><li>Androidのホーム画面が出るまで待ちます。画面がロックされていたら、画面の下から上へドラッグします。</li></ol>
+<p>エミュレータは、アプリを試すための練習用端末です。端末を探すのも作るのも、Android Studioの <strong>Device Manager</strong>（端末を管理する画面）で行います。まだプロジェクトを開いていなくても使えます。</p>
+<ol><li>Device Managerを開きます。開き方は、いまAndroid Studioに出ている画面で決まります。次の2つのどちらかです。</li></ol>
+<table><thead><tr><th>いま出ている画面</th><th>Device Managerの開き方</th></tr></thead><tbody>
+<tr><td><strong>最初の画面（Welcome画面）</strong><br>まだプロジェクトを開いていない</td><td>右上の <strong>Open</strong> の右にある <strong>⋮</strong>（縦に並んだ3つの点）をクリックし、出てきたメニューで <strong>Virtual Device Manager</strong> を選びます。</td></tr>
+<tr><td><strong>プロジェクトを開いている</strong><br>コードを書く画面が出ている</td><td>上のメニューで <strong>View → Tool Windows → Device Manager</strong> を選びます。</td></tr>
+</tbody></table>
+<div class="note"><p class="box-title">最初の画面に ⋮ が見つからないとき</p><p>⋮ のかわりに、<strong>More Actions</strong> という文字が出ていることがあります。そのときは <strong>More Actions</strong> をクリックし、同じように <strong>Virtual Device Manager</strong> を選びます。</p></div>
+<p>どちらの場合も <strong>Device Manager</strong> が開き、端末の一覧が出ます。最初の画面から開いたときは、別のウィンドウで開きます。</p>
+<ol start="2"><li>端末の一覧に <strong>jec_26cm_android1_Pixel 9a</strong> があるか確認します。名前の区切りが <code>_</code> で表示されることもあります。</li><li>見つかったら、その行の三角形 <strong>▶</strong> をクリックします。</li><li>Androidのホーム画面が出るまで待ちます。画面がロックされていたら、画面の下から上へドラッグします。</li></ol>
 <div class="check"><p class="box-title">成功の目印</p><p>スマートフォンの形の画面が開き、ホーム画面のアイコンが見える。</p></div>
 <p>端末があった人は、<a href="#run">3. アプリを動かす</a>へ進みます。</p></section>
 <section id="create"><h2>2. 端末がないときに作る</h2>
@@ -18,6 +25,7 @@
 <div class="note"><p class="box-title">System Imageを選ぶときの注意</p><p>一覧には <strong>37.2</strong> も並びます。選ぶのは <strong>37.1</strong> のほうです。37.1 は名前に <strong>16 KB Page Size</strong> と付いたものしかないので、それを選んでください。</p></div>
 </section>
 <section id="run"><h2>3. アプリを動かす</h2>
+<p>ここからは、プロジェクトを開いてから行います。<a href="setup.html" data-keep-from>共通資料：授業を始めるまでの準備</a>の手順5から来た人は、ここでその資料に戻り、手順5の続きから進めます。エミュレータは起動したままにしておきます。</p>
 <ol><li>Android Studio上部で、実行するものが <strong>app</strong> になっているか確認します。</li><li>端末の選択欄で <strong>jec_26cm_android1_Pixel 9a</strong> を選びます。</li><li>上部の <strong>Run ▶</strong> をクリックします。</li><li>ビルド（コードからアプリを作る処理）が終わるまで待ちます。アプリの画面が出たら、そのステップの「成功の目印」と比べます。</li></ol>
 <div class="flow"><strong>端末を選ぶ</strong><span>→</span><strong>Run ▶</strong><span>→</span><strong>画面を見る</strong></div>
 <p>コードを変えるたびに、この順で実行します。元の文字から試したいときは、Android Studioの <strong>Stop ■</strong> でアプリを止め、もう一度 <strong>Run ▶</strong> を押します。</p>
