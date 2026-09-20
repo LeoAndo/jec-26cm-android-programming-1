@@ -72,9 +72,15 @@
     });
     // 共通資料どうしのリンクにも ?from= を引き継ぐ。
     // これがないと、別の共通資料へ移った時点で戻り先がA01に戻ってしまう。
+    // ?from= は # の前に入れる（setup.html#emulator → setup.html?from=calc-game#emulator）。
+    // # のうしろに足すと、# 以降の一部として扱われ、その位置へ移動できず、from も引き継がれない。
     document.querySelectorAll('a[data-keep-from]').forEach(link => {
       const href = link.getAttribute('href');
-      if (href && !href.includes('?')) link.setAttribute('href', `${href}?from=${backTo}`);
+      if (!href || href.includes('?')) return;
+      const hashAt = href.indexOf('#');
+      const page = hashAt < 0 ? href : href.slice(0, hashAt);
+      const hash = hashAt < 0 ? '' : href.slice(hashAt);
+      link.setAttribute('href', `${page}?from=${backTo}${hash}`);
     });
   }
 
