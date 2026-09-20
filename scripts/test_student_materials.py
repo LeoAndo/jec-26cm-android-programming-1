@@ -92,6 +92,23 @@ class PackageStudentMaterialsTest(unittest.TestCase):
         checksum = (self.root / "dist/SHA256SUMS.txt").read_text()
         self.assertEqual(checksum.split()[0], hashlib.sha256(first).hexdigest())
 
+    def test_extracted_samples_match_the_project_zip(self):
+        self.assertEqual(self.package().returncode, 0)
+        prefix = f"{FIXTURE_STEM}/"
+        with ZipFile(self.archive) as archive:
+            data = archive.read(prefix + "docs/hello-android/downloads/A01HelloAndroid.zip")
+            with ZipFile(io.BytesIO(data)) as project:
+                # 展開済みの見本は、教科書からリンクしているZIPと同じ中身。学生はOpenで選ぶだけで開ける。
+                for item in project.infolist():
+                    sample = archive.getinfo(prefix + "samples/" + item.filename)
+                    self.assertEqual(archive.read(sample), project.read(item))
+                    self.assertEqual(sample.external_attr >> 16, item.external_attr >> 16)
+                bundled = [name for name in archive.namelist() if name.startswith(prefix + "samples/")]
+                self.assertEqual(len(bundled), len(project.namelist()))
+            # 配布物の書き出しは権限を644にそろえるが、gradlew の実行権限だけは引き継ぐ。
+            self.assertEqual(archive.getinfo(prefix + "samples/A01HelloAndroid/gradlew").external_attr >> 16, 0o100755)
+            self.assertEqual(archive.getinfo(prefix + "samples/A01HelloAndroid/MainActivity.java").external_attr >> 16, 0o100644)
+
     def test_asset_name_and_folder_carry_the_release_date(self):
         self.assertEqual(self.package().returncode, 0)
         with ZipFile(self.archive) as archive:

@@ -1,9 +1,10 @@
-"""学生向けdocs一式を、完成プロジェクトを再生成してZIPにまとめる。"""
+"""学生向けのdocs一式と、展開済みの完成プロジェクト（samples）をZIPにまとめる。完成プロジェクトのZIPは再生成する。"""
 
 import argparse
 from datetime import datetime, timedelta, timezone
 import hashlib
 from html.parser import HTMLParser
+import io
 import json
 from pathlib import Path
 import posixpath
@@ -137,6 +138,22 @@ def build(output_dir):
         raise ValueError("VocabularyBookの完成プロジェクトが見つかりません。")
     check_links(files)
 
+    # 完成プロジェクトを、展開済みの見本として samples/ にも収録する。学生はダウンロードも展開もせず、
+    # Android StudioのOpenで選ぶだけになる。中身は配布物に入れるZIPと同じなので、新たにcommitするファイルはない。
+    # リンク検査のあとで足すので、検査の対象は今までどおり docs だけになる。
+    executables = set()
+    for _, archive_name in projects:
+        if archive_name not in files:
+            # 教科書をまだ足していない単元。ZIPを配らないので、見本も配らない。
+            continue
+        with ZipFile(io.BytesIO(files[archive_name])) as sample:
+            for item in sample.infolist():
+                name = f"samples/{item.filename}"
+                files[name] = sample.read(item)
+                # gradlew の実行権限を、配布物まで引き継ぐ。
+                if (item.external_attr >> 16) & 0o100:
+                    executables.add(name)
+
     metadata = {"version": version, "revision": revision, "asset": asset_name}
     metadata_text = json.dumps(metadata, ensure_ascii=False, indent=2) + "\n"
     files["VERSION.json"] = metadata_text.encode()
@@ -159,7 +176,8 @@ def build(output_dir):
         "   A09 MemoApp：docs/memo-app/index.html\n"
         "   A10 RoomSample：docs/room-sample/index.html\n"
         "   A11 VocabularyBook：docs/vocabulary-book/index.html\n"
-        "4. 完成プロジェクトは教科書内のリンクから開けます。\n\n"
+        "4. 完成プロジェクト（先生が作った見本）は、samples フォルダに入っています。展開は済んでいるので、\n"
+        "   Android StudioのOpenで samples/A01HelloAndroid のように選ぶだけで開けます。\n\n"
         "教科書・画像はオフラインで利用できます。Android Studioの準備やビルドにはネット接続が必要です。\n"
         "教材を更新するときは別のフォルダに展開し、自分で作ったAndroid Studioプロジェクトを上書きしないでください。\n"
         "授業中は先生が指定した版を使ってください。質問時には教材の版とSTEP番号を伝えてください。\n"
@@ -171,7 +189,7 @@ def build(output_dir):
         for name, data in sorted(files.items()):
             info = ZipInfo(f"{stem}/{name}", date_time=(1980, 1, 1, 0, 0, 0))
             info.create_system = 3
-            info.external_attr = 0o100644 << 16
+            info.external_attr = (0o100755 if name in executables else 0o100644) << 16
             info.compress_type = ZIP_DEFLATED
             archive.writestr(info, data)
     digest = hashlib.sha256(archive_path.read_bytes()).hexdigest()
