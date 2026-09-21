@@ -720,7 +720,7 @@
     },
     {
       "source": "コード",
-      "translation": "Код"
+      "translation": "コード — код"
     },
     {
       "source": "btn1を見つけて、押されたときの処理を登録する。あとで使わないので変数には入れず、見つけた部品に続けて書く。A02 STEP 4の <code>btnStart = findViewById(R.id.btn_start);</code> と同じで、<code>(Button)</code> のようなキャストはいらない。",
@@ -1789,6 +1789,13 @@
     {
       "source": "画像は授業用の提供資料を使用。Logcatの時刻や番号は実行ごとに変わります。",
       "translation": "Зурагт хичээлд зориулж өгсөн материалыг ашигласан. Logcat-ийн цаг болон дугаар ажиллуулах бүрд өөрчлөгдөнө."
+    }
+  ],
+  "overrides": [
+    {
+      "source": "コード",
+      "where": "th",
+      "translation": "Код"
     }
   ]
 }
