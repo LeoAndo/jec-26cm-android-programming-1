@@ -432,6 +432,10 @@ class Page:
         """このページの原文。同じ文は1回だけ、文書に出てくる順で並べる。"""
         return list(dict.fromkeys(segment.source for segment in self.segments))
 
+    def locations(self) -> set:
+        """原文と役割の組。STEP番号や出現順には結び付けない。"""
+        return {(segment.source, segment.where) for segment in self.segments}
+
 
 def read_page(root: Path, name: str) -> Page:
     try:
@@ -538,13 +542,27 @@ def _rewrite_link(value: str, page: str, language: str, source_root: str, pages:
     return urlunsplit(("", "", moved, url.query, url.fragment))
 
 
+@dataclass
+class Catalog:
+    entries: dict = field(default_factory=dict)  # 原文 → 全ページで共通の既定訳
+    overrides: dict = field(default_factory=dict)  # (原文, where) → このページだけの訳
+
+    def translation(self, source: str, where: str) -> str | None:
+        return self.overrides.get((source, where), self.entries.get(source))
+
+
 class _Localizer:
     def __init__(self, page: Page, translations: dict, language: str, source_root: str, pages: set):
         self.page = page
-        self.translations = translations
+        catalog = translations if isinstance(translations, Catalog) else Catalog(translations)
+        self.translations = catalog.entries
+        self.overrides = catalog.overrides
         self.language = language
         self.source_root = source_root
         self.pages = pages
+
+    def translation(self, source: str, where: str) -> str | None:
+        return self.overrides.get((source, where), self.translations.get(source))
 
     def start_tag(self, element: Element) -> str:
         """開始タグを、訳した属性・書き換えたリンク・言語の指定つきで作り直す。"""
@@ -553,7 +571,8 @@ class _Localizer:
         page = self.page.name
         values = {}
         for name in _translated_attributes(element):
-            translation = self.translations.get(normalize(_raw_attribute(text, element, name, page) or ""))
+            source = normalize(_raw_attribute(text, element, name, page) or "")
+            translation = self.translation(source, f"{element.tag} {name}")
             if translation is not None:
                 # 値は " で囲む。' も逃がして、訳文の中の文字列が属性に見えないようにする。
                 values[name] = translation.replace('"', "&quot;").replace("'", "&#39;")
@@ -597,7 +616,7 @@ class _Localizer:
             if segment.element is not None:
                 continue
             # 未翻訳の文も作り直す。中のリンク（画像を大きく開く、など）を書き換えるため。
-            translation = self.translations.get(segment.source)
+            translation = self.translation(segment.source, segment.where)
             rendered = self._restore(segment, translation if translation is not None else self._source(segment))
             replacements.append((segment.start, segment.end, rendered))
         self._start_tags(self.page.root, replacements)
@@ -705,10 +724,26 @@ def load_settings(root: Path) -> Settings:
     return Settings(root, config["source_root"], config["catalog_root"], languages, terms)
 
 
-def read_catalog(path: Path) -> dict:
-    """原文→訳文。ファイルがなければ空。形の検査は check_catalog が行う。"""
+def _read_overrides(data: dict, path: Path) -> dict:
+    overrides = data.get("overrides", [])
+    if not isinstance(overrides, list):
+        raise LocalizeError(f"{path}: overrides は source・where・translation の組の並びにしてください")
+    result = {}
+    for number, item in enumerate(overrides, 1):
+        if (not isinstance(item, dict) or set(item) != {"source", "where", "translation"}
+                or not all(isinstance(value, str) for value in item.values()) or not item["where"]):
+            raise LocalizeError(f"{path}: overrides の{number}番目は source・where・translation の組にしてください")
+        key = (item["source"], item["where"])
+        if key in result:
+            raise LocalizeError(f"{path}: 同じ原文と場所の指定が2回あります: {key}")
+        result[key] = item["translation"]
+    return result
+
+
+def read_catalog(path: Path) -> Catalog:
+    """既定訳と、このページでの訳し分け。従来の entries だけのカタログも読める。"""
     if not path.is_file():
-        return {}
+        return Catalog()
     try:
         data = json.loads(path.read_text(encoding="utf-8"))
         entries: dict = {}
@@ -717,16 +752,17 @@ def read_catalog(path: Path) -> dict:
                 # 後の訳で上書きすると、前の訳が黙って消える。check と同じ理由でここでも止める。
                 raise LocalizeError(f"{path}: 同じ原文が2回あります: {entry['source'][:30]}")
             entries[entry["source"]] = entry["translation"]
-        return entries
+        return Catalog(entries, _read_overrides(data, path))
     except (OSError, json.JSONDecodeError, KeyError, TypeError) as error:
         raise LocalizeError(f"{path}: 対訳カタログを読み込めません: {error}") from None
 
 
-def write_catalog(path: Path, page: str, language: str, entries: dict, sources: list) -> bool:
+def write_catalog(path: Path, page: str, language: str, catalog: Catalog, sources: list) -> bool:
     """文書に出てくる順で書く。ページにもうない原文の訳は、うしろに残す（外すのは sync）。"""
+    entries = catalog.entries
     ordered = {source: entries[source] for source in sources if source in entries}
     ordered.update({source: translation for source, translation in entries.items() if source not in ordered})
-    if not ordered:
+    if not ordered and not catalog.overrides:
         if path.is_file():
             path.unlink()  # 訳が1つもないカタログは置かない
             return True
@@ -736,6 +772,11 @@ def write_catalog(path: Path, page: str, language: str, entries: dict, sources: 
         "language": language,
         "entries": [{"source": source, "translation": translation} for source, translation in ordered.items()],
     }
+    if catalog.overrides:
+        data["overrides"] = [
+            {"source": source, "where": where, "translation": translation}
+            for (source, where), translation in catalog.overrides.items()
+        ]
     text = json.dumps(data, ensure_ascii=False, indent=2) + "\n"
     if path.is_file() and path.read_text(encoding="utf-8") == text:
         return False
@@ -758,7 +799,7 @@ def check_catalog(settings: Settings, path: Path, errors: list) -> None:
         return
     page = posixpath.join(settings.source_root, Path(*relative.parts[1:]).with_suffix(".html").as_posix())
     entries = data.get("entries") if isinstance(data, dict) else None
-    if not isinstance(entries, list) or not entries:
+    if not isinstance(entries, list) or (not entries and not data.get("overrides")):
         errors.append(f"{shown}:1: entries がありません（訳が1つもないカタログは置かない）")
         return
     if data.get("language") != language:
@@ -780,6 +821,27 @@ def check_catalog(settings: Settings, path: Path, errors: list) -> None:
             errors.append(f"{label}: 原文に余分な空白や改行があります（手で書き換えず、sync で作り直す）")
         errors.extend(f"{label}: {problem}"
                       for problem in validate(source, translation, settings.terms, settings.uses_han(language)))
+    try:
+        overrides = _read_overrides(data, Path(shown))
+    except LocalizeError as error:
+        errors.append(str(error))
+        return
+    original = None
+    if overrides and (settings.root / page).is_file():
+        try:
+            original = read_page(settings.root, page)
+        except LocalizeError:
+            pass  # 教材を取り出せない理由は check が報告する。
+    for (source, where), translation in overrides.items():
+        label = f"{shown}: overrides「{source[:30]}」({where})"
+        if source != normalize(source):
+            errors.append(f"{label}: 原文に余分な空白や改行があります")
+        errors.extend(f"{label}: {problem}"
+                      for problem in validate(source, translation, settings.terms, settings.uses_han(language)))
+        # 原文を編集・削除しただけではCIを落とさない。古い訳は status に出し、sync で外す。
+        # 現役の原文なのに役割が合わないものは、where の誤指定として報告する。
+        if original and source in original.sources() and (source, where) not in original.locations():
+            errors.append(f"{label}: この原文が指定された場所にありません")
 
 
 # ---------------------------------------------------------------------------
@@ -808,13 +870,16 @@ def sync(settings: Settings, languages: list, only: list, work_dir: Path, chunk_
         catalogs = {name: read_catalog(settings.catalog_path(code, name)) for name in settings.page_names()}
         # 同じ原文には同じ訳を使い回す。ほかのページで訳してあれば、それを入れる。
         memory: dict = {}
-        for entries in catalogs.values():
-            for source, translation in entries.items():
+        for catalog in catalogs.values():
+            for source, translation in catalog.entries.items():
                 memory.setdefault(source, translation)
         total_missing = total_filled = total_removed = 0
         listed: set = set()  # 作業ファイルに出した原文。同じ文は1回訳せば、merge が全ページに入れる
         for name, page in pages.items():
-            old = catalogs[name]
+            old_catalog = catalogs[name]
+            old = old_catalog.entries
+            overrides = {key: translation for key, translation in old_catalog.overrides.items()
+                         if key[0] in page.sources()}
             kept, missing = {}, []
             filled = 0
             for source in page.sources():
@@ -825,11 +890,15 @@ def sync(settings: Settings, languages: list, only: list, work_dir: Path, chunk_
                 elif source in memory and not validate(source, memory[source], settings.terms, han):
                     kept[source] = memory[source]
                     filled += 1
+                elif all(key in overrides and not validate(source, overrides[key], settings.terms, han)
+                         for key in page.locations() if key[0] == source):
+                    continue  # すべての場所に訳し分けがあり、既定訳がなくても未翻訳ではない。
                 elif source not in listed:
                     listed.add(source)
                     missing.append(source)
             removed = {source: translation for source, translation in old.items() if source not in kept}
-            write_catalog(settings.catalog_path(code, name), name, code, kept, page.sources())
+            removed_overrides = len(old_catalog.overrides) - len(overrides)
+            write_catalog(settings.catalog_path(code, name), name, code, Catalog(kept, overrides), page.sources())
             # 古い todo-*.json は消す。done-*.json は、まだ取り込んでいない訳が
             # 入っているかもしれないので消さない。古い done は、相手の todo が
             # なくなることで merge が読み飛ばす。
@@ -867,12 +936,12 @@ def sync(settings: Settings, languages: list, only: list, work_dir: Path, chunk_
                 }
                 (folder / f"todo-{number:03d}.json").write_text(
                     json.dumps(todo, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-            if missing or filled or removed:
+            if missing or filled or removed or removed_overrides:
                 print(f"{code} {name}: 未翻訳 {len(missing)}（作業ファイル {len(chunks)}）、"
-                      f"ほかのページの訳で補った文 {filled}、外した訳 {len(removed)}")
+                      f"ほかのページの訳で補った文 {filled}、外した訳 {len(removed) + removed_overrides}")
             total_missing += len(missing)
             total_filled += filled
-            total_removed += len(removed)
+            total_removed += len(removed) + removed_overrides
         print(f"{code}: 未翻訳 {total_missing}、補った文 {total_filled}、外した訳 {total_removed}"
               f"（作業ファイルは {_shown(settings.root, work_dir / code)}）")
 
@@ -944,13 +1013,13 @@ def merge(settings: Settings, code: str, files: list, work_dir: Path, overwrite:
             for name, page in pages.items():
                 if source not in page.sources():
                     continue
-                current = catalogs[name].get(source)
+                current = catalogs[name].entries.get(source)
                 if current == translation:
                     continue
                 if current is not None and not overwrite:
                     skipped += 1
                     continue
-                catalogs[name][source] = translation
+                catalogs[name].entries[source] = translation
                 changed.add(name)
                 added += 1
     if not dry_run:
@@ -971,8 +1040,8 @@ def merge(settings: Settings, code: str, files: list, work_dir: Path, overwrite:
 def _check_shared_translations(settings: Settings, errors: list) -> None:
     """同じ言語の中で、同じ原文に違う訳が付いていないか確かめる。
 
-    同じ原文はどのページでも同じ訳、というのがこのしくみの約束。カタログを手で直すと、
-    ページごとに1つずつ検査しても食い違いに気付けない。
+    既定訳はどのページでも同じ訳にする。場所別の overrides はここでは比べない。
+    カタログを手で直すと、ページごとに1つずつ検査しても食い違いに気付けない。
     """
     seen: dict = {}
     base = settings.root / settings.catalog_root
@@ -1012,16 +1081,20 @@ def check(settings: Settings) -> list:
 
 def progress(settings: Settings, languages: list) -> list:
     """言語ごとの、ページ別の進み具合。"""
-    pages = {name: read_page(settings.root, name).sources() for name in settings.page_names()}
+    pages = {name: read_page(settings.root, name) for name in settings.page_names()}
     report = []
     for code in languages:
         language = settings.language(code)
         rows = []
-        for name, sources in pages.items():
-            entries = read_catalog(settings.catalog_path(code, name))
-            translated = sum(1 for source in sources if source in entries)
+        for name, page in pages.items():
+            sources = page.sources()
+            catalog = read_catalog(settings.catalog_path(code, name))
+            locations = page.locations()
+            translated = sum(1 for source in sources
+                             if all(catalog.translation(*key) is not None for key in locations if key[0] == source))
             rows.append({"page": name, "total": len(sources), "translated": translated,
-                         "unused": sum(1 for source in entries if source not in sources)})
+                         "unused": sum(1 for source in catalog.entries if source not in sources)
+                         + sum(1 for key in catalog.overrides if key not in locations)})
         base = settings.root / settings.catalog_root / code
         known = {settings.catalog_path(code, name) for name in pages}
         orphans = [_shown(settings.root, path) for path in sorted(base.rglob("*.json")) if path not in known] if base.is_dir() else []
