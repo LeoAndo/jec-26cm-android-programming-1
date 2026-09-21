@@ -226,6 +226,42 @@ class LocalizeTest(unittest.TestCase):
     def render(self, html, translations, name="docs/unit/index.html"):
         return localize.localize(page_of(html, name), translations, "en", "docs", self.PAGES)
 
+    def test_untranslated_attributes_mark_the_element_language(self):
+        for tag, attribute in (("img", "alt"), ("button", "aria-label"),
+                               ("div", "title"), ("input", "placeholder")):
+            with self.subTest(attribute=attribute):
+                end = "" if tag in localize.VOID else f"</{tag}>"
+                source = f'<{tag} {attribute}="日本語の説明">{end}'
+                rendered = localize.localize(page_of(source), {}, "en", "docs", self.PAGES,
+                                             mark_untranslated=True)
+                self.assertIn(f'{attribute}="日本語の説明" lang="ja"', rendered)
+                translated = localize.localize(page_of(source), {"日本語の説明": "Description"},
+                                               "en", "docs", self.PAGES, mark_untranslated=True)
+                self.assertIn(f'{attribute}="Description"', translated)
+                self.assertNotIn('lang="ja"', translated)
+
+    def test_translated_attribute_keeps_language_inside_japanese_fallback(self):
+        source = '<p>説明：<img src="images/a.png" alt="図の説明" /></p>'
+        translated = localize.localize(page_of(source), {"図の説明": "Figure"},
+                                       "en", "docs", self.PAGES, mark_untranslated=True)
+        self.assertIn('alt="Figure"  lang="en"/>', translated)
+        fallback = localize.localize(page_of(source), {}, "en", "docs", self.PAGES,
+                                     mark_untranslated=True)
+        self.assertIn('alt="図の説明"  lang="ja"/>', fallback)
+        self.assertNotIn('/ lang=', fallback)
+        page_of(translated)
+
+    def test_untranslated_attributes_do_not_change_translated_descendant_language(self):
+        source = ('<section aria-label="操作の説明"><p>押します。</p>'
+                  '<p><a href="#next" title="次の説明">次へ</a>進みます。</p></section>')
+        translations = {"押します。": "Press it.",
+                        '<a1>次へ</a1>進みます。': '<a1>Next</a1>.'}
+        rendered = localize.localize(page_of(source), translations, "en", "docs", self.PAGES,
+                                     mark_untranslated=True)
+        self.assertIn('<section aria-label="操作の説明" lang="ja">', rendered)
+        self.assertIn('<p><span lang="en">Press it.</span></p>', rendered)
+        self.assertIn('<a href="#next" title="次の説明" lang="ja"><span lang="en">Next</span></a>', rendered)
+
     def test_without_translations_only_language_and_resource_links_change(self):
         html = (
             '<!doctype html>\n<html lang="ja">\n<head><link rel="stylesheet" href="../assets/textbook.css"></head>\n'

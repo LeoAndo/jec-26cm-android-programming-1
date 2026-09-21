@@ -560,7 +560,7 @@ class Catalog:
 
 class _Localizer:
     def __init__(self, page: Page, translations: dict, language: str, source_root: str, pages: set,
-                 android_docs_hl: str | None = None):
+                 android_docs_hl: str | None = None, *, mark_untranslated: bool = False):
         self.page = page
         catalog = translations if isinstance(translations, Catalog) else Catalog(translations)
         self.translations = catalog.entries
@@ -568,6 +568,9 @@ class _Localizer:
         self.language = language
         self.source_root = source_root
         self.pages = pages
+        self.mark_untranslated = mark_untranslated
+        self.fallback_elements = set()
+        self.fallback_attributes = {}
         self.android_docs_hl = android_docs_hl
 
     def translation(self, source: str, where: str) -> str | None:
@@ -594,6 +597,15 @@ class _Localizer:
                     values[name] = html.escape(moved, quote=True)
         if element.tag == "html" and element.attribute("lang") is not None:
             values["lang"] = self.language
+        attribute_language = self.language if self.mark_untranslated and any(
+            name in values for name in _translated_attributes(element)) else None
+        element_language = "ja" if id(element) in self.fallback_elements else attribute_language
+        if element_language is not None:
+            if element.attribute("lang") is None:
+                close = "/>" if raw.endswith("/>") else ">"
+                raw = raw[:-len(close)] + f' lang="{element_language}"' + close
+            else:
+                values["lang"] = element_language
         if not values:
             return raw
         # 属性の位置を見て、一度に組み立てる。置き換えた値をもう一度走査しないので、
@@ -607,27 +619,49 @@ class _Localizer:
         parts.append(raw[position:])
         return "".join(parts)
 
-    def _restore(self, segment: Segment, translation: str) -> str:
+    def _restore(self, segment: Segment, translation: str, *, translated: bool = False) -> str:
         """カタログの形の訳文を、HTMLに戻す。番号つきの目印は、元のタグに戻す。"""
         def replace(match):
             closing, _name, number, _self_closing = match.groups()
             if not number:
                 return match.group(0)
             element = segment.placeholders[int(number) - 1]
+            # 属性の日本語指定を、同じリンクなどの翻訳済み本文へ伝えない。
+            reset_language = (translated and id(element) in self.fallback_attributes
+                              and element.tag not in VOID)
             if closing:
-                return self.page.text[element.inner_end:element.end]
-            return self.start_tag(element)
+                return ('</span>' if reset_language else '') + self.page.text[element.inner_end:element.end]
+            return self.start_tag(element) + (f'<span lang="{self.language}">' if reset_language else '')
         return CATALOG_TAG.sub(replace, translation)
 
     def run(self) -> str:
         text = self.page.text
         replacements = []
+        if self.mark_untranslated:
+            for segment in self.page.segments:
+                if (segment.element is not None
+                        and self.translation(segment.source, segment.where) is None):
+                    element = segment.element
+                    self.fallback_attributes[id(element)] = element
+                    self.fallback_elements.add(id(element))
         for segment in self.page.segments:
             if segment.element is not None:
                 continue
             # 未翻訳の文も作り直す。中のリンク（画像を大きく開く、など）を書き換えるため。
             translation = self.translation(segment.source, segment.where)
-            rendered = self._restore(segment, translation if translation is not None else self._source(segment))
+            rendered = self._restore(segment, translation if translation is not None else self._source(segment),
+                                     translated=translation is not None)
+            if (self.mark_untranslated and translation is not None
+                    and any(element.inner_start <= segment.start and segment.end <= element.inner_end
+                            for element in self.fallback_attributes.values())
+                    and segment.where not in {"title", "option", "textarea"}):
+                rendered = f'<span lang="{self.language}">{rendered}</span>'
+            if self.mark_untranslated and translation is None:
+                # title/option/textarea には span を入れられないので、その要素に言語を付ける。
+                if segment.where in {"title", "option", "textarea"}:
+                    self._mark_fallback_container(self.page.root, segment)
+                else:
+                    rendered = f'<span lang="ja">{rendered}</span>'
             replacements.append((segment.start, segment.end, rendered))
         self._start_tags(self.page.root, replacements)
         parts, position = [], 0
@@ -636,6 +670,13 @@ class _Localizer:
             position = end
         parts.append(text[position:])
         return "".join(parts)
+
+    def _mark_fallback_container(self, element: Element, segment: Segment):
+        for child in element.children:
+            if isinstance(child, Element) and child.inner_start <= segment.start and child.inner_end >= segment.end:
+                if child.tag == segment.where:
+                    self.fallback_elements.add(id(child))
+                self._mark_fallback_container(child, segment)
 
     def _source(self, segment: Segment) -> str:
         """未翻訳の文。元の空白を保ちたいので、カタログの形ではなく元の文字列から、目印つきの形を作る。"""
@@ -668,8 +709,9 @@ class _Localizer:
 
 
 def localize(page: Page, translations: dict, language: str, source_root: str, pages: set,
-             android_docs_hl: str | None = None) -> str:
-    return _Localizer(page, translations, language, source_root, pages, android_docs_hl).run()
+             android_docs_hl: str | None = None, *, mark_untranslated: bool = False) -> str:
+    return _Localizer(page, translations, language, source_root, pages, android_docs_hl,
+                      mark_untranslated=mark_untranslated).run()
 
 
 # ---------------------------------------------------------------------------
@@ -1149,16 +1191,18 @@ def status(settings: Settings, languages: list, require_complete: bool) -> int:
     return 0
 
 
-def localized_pages(settings: Settings, code: str) -> dict:
+def localized_pages(settings: Settings, code: str, *, mark_untranslated: bool = False,
+                    page_names: list | None = None) -> dict:
     """その言語の全ページ。出力先のパス→HTML。訳のないページも、リンクが切れないように作る。"""
     android_docs_hl = settings.language(code).get("android_docs_hl", "en")
-    names = settings.page_names()
+    names = settings.page_names() if page_names is None else page_names
     result = {}
     for name in names:
         page = read_page(settings.root, name)
         translations = read_catalog(settings.catalog_path(code, name))
         result[output_name(name, code, settings.source_root)] = localize(
-            page, translations, code, settings.source_root, set(names), android_docs_hl)
+            page, translations, code, settings.source_root, set(names), android_docs_hl,
+            mark_untranslated=mark_untranslated)
     return result
 
 
