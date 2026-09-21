@@ -3,6 +3,10 @@
   "language": "en",
   "entries": [
     {
+      "source": "Logcatの使い方 | Androidプログラミング1",
+      "translation": "How to use Logcat | Android Programming 1"
+    },
+    {
       "source": "本文へ移動",
       "translation": "Skip to main content"
     },
@@ -19,20 +23,148 @@
       "translation": "ANDROID PROGRAMMING 1 / Shared guide · Class support"
     },
     {
+      "source": "Logcatの使い方",
+      "translation": "How to use Logcat"
+    },
+    {
+      "source": "アプリの中で何が起きたか、文字の記録で確かめます。",
+      "translation": "Use a text record to check what happened inside your app."
+    },
+    {
+      "source": "1. Logcatを開く",
+      "translation": "1. Open Logcat"
+    },
+    {
+      "source": "<strong>ログ</strong>は動作の記録です。<strong>Logcat</strong>（ログキャット）は、その記録をAndroid Studioで読むための画面です。ここではHelloAndroidを例にします。",
+      "translation": "A <strong>log</strong> is a record of what happened. <strong>Logcat</strong> is the screen in Android Studio where you read these records. Here, we use HelloAndroid as an example."
+    },
+    {
+      "source": "授業のプロジェクトを開き、エミュレータでアプリをRunします。",
+      "translation": "Open your class project and Run the app on the emulator."
+    },
+    {
+      "source": "上のメニューから <strong>View → Tool Windows → Logcat</strong> を選びます。",
+      "translation": "Select <strong>View → Tool Windows → Logcat</strong> from the menu at the top."
+    },
+    {
+      "source": "Logcatの端末欄で、アプリを動かしている <strong>jec_26cm_android1_Pixel 9a</strong> を選びます。",
+      "translation": "In the device field in Logcat, select <strong>jec_26cm_android1_Pixel 9a</strong>, where your app is running."
+    },
+    {
+      "source": "2. 見たいログだけを表示する",
+      "translation": "2. Show only the logs you want to see"
+    },
+    {
+      "source": "Logcatの検索欄の内容を全部選び、次の文字に置き換えます。",
+      "translation": "Select everything in the Logcat search field and replace it with the following text."
+    },
+    {
+      "source": "Logcatの検索欄 · HelloAndroid用",
+      "translation": "Logcat search field · For HelloAndroid"
+    },
+    {
+      "source": "検索の部分",
+      "translation": "Part of the search"
+    },
+    {
       "source": "意味",
       "translation": "Meaning"
+    },
+    {
+      "source": "このアプリのログを選ぶ。",
+      "translation": "Selects logs from this app."
+    },
+    {
+      "source": "MainActivityという目印を付けたログを選ぶ。",
+      "translation": "Selects logs with the MainActivity tag."
+    },
+    {
+      "source": "Debug以上の重要度のログを表示する。<code>Log.d</code> の記録を含む。",
+      "translation": "Shows logs with a severity of Debug or higher, including records from <code>Log.d</code>."
+    },
+    {
+      "source": "別の授業で使う場合は、packageとtagを、そのプロジェクトのものに変えます。",
+      "translation": "When using this in another class, change package and tag to those used by that project."
+    },
+    {
+      "source": "3. 操作の前後を比べる",
+      "translation": "3. Compare before and after an action"
+    },
+    {
+      "source": "Logcatにログの表示を一時停止するボタンがある場合は、停止していないことを確認します。",
+      "translation": "If Logcat has a button to pause the log display, check that it is not paused."
+    },
+    {
+      "source": "アプリをStopしてからRunし、<strong>Hello World!</strong> の行を探します。",
+      "translation": "Stop the app, then Run it and find the <strong>Hello World!</strong> line."
+    },
+    {
+      "source": "アプリの変更ボタンを押し、<strong>Hello, Android!</strong> の行を探します。",
+      "translation": "Press the change button in the app and find the <strong>Hello, Android!</strong> line."
+    },
+    {
+      "source": "メッセージの前後を比べます。時刻や数字は、自分の実行時の値で構いません。",
+      "translation": "Compare the messages before and after the action. The times and numbers can be the values from your own run."
+    },
+    {
+      "source": "読むところの例 · 時刻などを省いた説明用の表示",
+      "translation": "Example of what to read · A simplified display with times and other details omitted"
     },
     {
       "source": "成功の目印",
       "translation": "Signs of success"
     },
     {
+      "source": "起動時とクリック後で、ログの文字が違う。画面の表示文字とログのメッセージが一致する。",
+      "translation": "The log text differs between launch and after the click. The text on the screen matches the log message."
+    },
+    {
+      "source": "ログが流れて見えないときは一時停止して読みます。確認後は再開します。",
+      "translation": "If the logs scroll too fast to read, pause the display. Resume it after checking."
+    },
+    {
+      "source": "4. ログが出ないとき",
+      "translation": "4. If no log appears"
+    },
+    {
+      "source": "授業の端末を選んでいるか確認します。",
+      "translation": "Check that you have selected the device used in class."
+    },
+    {
+      "source": "検索欄をコピーし直します。日本語の全角スペースや、packageの打ち間違いを確認します。",
+      "translation": "Copy the text into the search field again. Check for Japanese full-width spaces or typing mistakes in package."
+    },
+    {
+      "source": "ログの一時停止を解除し、末尾へ移動します。",
+      "translation": "Resume the log display and move to the end."
+    },
+    {
+      "source": "Javaに <code>Log.d</code> を追加した後、Runしたか確認します。",
+      "translation": "Check that you used Run after adding <code>Log.d</code> to the Java code."
+    },
+    {
+      "source": "起動時のログを探すなら、アプリをStopしてからRunします。クリック後のログなら、ボタンをもう一度押します。",
+      "translation": "To find the launch log, Stop the app and then Run it. To find the log after a click, press the button again."
+    },
+    {
+      "source": "アプリがすぐ閉じるときは、検索欄を <code>package:jp.ac.jec.a01helloandroid level:ERROR</code> に変え、赤いエラーの最初の行を先生に見せます。MainActivityのtagで絞ったままだと、別のtagのエラーは見えません。",
+      "translation": "If the app closes immediately, change the search field to <code>package:jp.ac.jec.a01helloandroid level:ERROR</code> and show your teacher the first line of the red error. If you keep filtering by the MainActivity tag, you cannot see errors with other tags."
+    },
+    {
       "source": "公式資料",
       "translation": "Official documentation"
     },
     {
+      "source": "Android Developers：Logcatでログを表示する",
+      "translation": "Android Developers: View logs with Logcat"
+    },
+    {
       "source": "← もとの教科書へ戻る",
       "translation": "← Back to the textbook you came from"
+    },
+    {
+      "source": "対象：macOS / Android Studio Panda 2 | 2025.3.2 · 確認日：2026年9月15日",
+      "translation": "For: macOS / Android Studio Panda 2 | 2025.3.2 · Checked: September 15, 2026"
     }
   ]
 }

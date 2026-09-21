@@ -467,6 +467,10 @@
       "translation": "If MainActivity.kt was created"
     },
     {
+      "source": "この授業で開くのは <code>MainActivity.java</code> です。<code>.kt</code> しか見つからない場合は、先生に画面を見せてください。プロジェクトを作るときに、上の手順2で <strong>Empty Views Activity</strong> を、手順5の表で <strong>Java</strong> を選んだかどうかを、先生が確認します。どちらかが違っていたときは、先生といっしょにプロジェクトを作り直します。",
+      "translation": "In this class, open <code>MainActivity.java</code>. If you can only find a <code>.kt</code> file, show your teacher the screen. Your teacher will check whether you selected <strong>Empty Views Activity</strong> in step 2 above and <strong>Java</strong> in the table in step 5 when creating the project. If either choice was different, create the project again with your teacher."
+    },
+    {
       "source": "プロジェクトが開いたら、<a1>共通資料：Auto Importの設定</a1>を行います。この設定は、以降のJavaの入力で使います。",
       "translation": "When the project opens, do the steps in <a1>Shared guide: Setting up Auto Import</a1>. You will use this setting whenever you type Java from now on."
     },
@@ -669,6 +673,14 @@
     {
       "source": "<code>id/main</code> は、ひな形のJavaでも使っています。消さずに残します。記号は半角の <code>\"</code>、<code>&lt;</code>、<code>&gt;</code> を使います。",
       "translation": "<code>id/main</code> is also used in the Java of the template. Do not delete it. Keep it. For symbols, use the half-width <code>\"</code>, <code>&lt;</code>, and <code>&gt;</code>."
+    },
+    {
+      "source": "文字を直接書くと <code>Hardcoded string</code> という警告が出る場合があります。この単元では文字を直接書きます。警告が出ていてもRunできるので、直さずにそのまま進みます。",
+      "translation": "Writing text directly may cause a <code>Hardcoded string</code> warning. In this unit, we write the text directly. You can still Run the app with this warning, so leave it as it is and continue."
+    },
+    {
+      "source": "赤いエラーが出てRunできないときは、警告とは別の問題です。赤くなっている最初の場所を、先生に見せてください。",
+      "translation": "If a red error prevents you from running the app, that is a different problem from a warning. Show your teacher the first place marked in red."
     },
     {
       "source": "④ Runで確かめる",
@@ -1307,6 +1319,10 @@
       "translation": "No message appears."
     },
     {
+      "source": "表のとおりになったら、先生に画面を見せ、変更ボタン・1・2を順番に押します。",
+      "translation": "When the app behaves as shown in the table, show your teacher the screen and press the change button, 1, and 2 in order."
+    },
+    {
       "source": "完成したJava全体を確認する",
       "translation": "Check the whole finished Java code"
     },
@@ -1317,6 +1333,22 @@
     {
       "source": "MainActivity.java · 完成コード",
       "translation": "MainActivity.java · finished code"
+    },
+    {
+      "source": "② 保存",
+      "translation": "② Save"
+    },
+    {
+      "source": "その中の <code>Android1</code> フォルダを開き、<code>A01HelloAndroid</code> フォルダがあることを確かめます。",
+      "translation": "Open the <code>Android1</code> folder inside it and check that the <code>A01HelloAndroid</code> folder is there."
+    },
+    {
+      "source": "この <code>Documents/Android1/A01HelloAndroid</code> フォルダが、自分で作ったアプリです。あとの授業でもう一度開けるように、消したり、別の場所へ移動したり、名前を変えたりせずに、そのまま残します。",
+      "translation": "This <code>Documents/Android1/A01HelloAndroid</code> folder is the app you made. Leave it where it is so that you can open it again in a later class. Do not delete it, move it somewhere else, or rename it."
+    },
+    {
+      "source": "完成チェックを行い、先生に画面を見せた。保存されたフォルダの場所も確かめた。",
+      "translation": "I completed the final check and showed my teacher the screen. I also checked where the saved folder is."
     },
     {
       "source": "今日のまとめ",
@@ -1369,6 +1401,14 @@
     {
       "source": "② Android Studioで開く",
       "translation": "② Open it in Android Studio"
+    },
+    {
+      "source": "フォルダを選ぶ画面を出します。授業のプロジェクトを開いているときは、上のメニューから <strong>File → Open</strong> を選びます。プロジェクトを1つも開いていないときは、Android Studioの最初の画面（Welcome画面）が出ているので、その右上にある <strong>Open</strong> をクリックします。",
+      "translation": "Open the folder selection dialog. If your class project is open, select <strong>File → Open</strong> from the menu at the top. If no project is open, Android Studio shows its first screen (the Welcome screen). Click <strong>Open</strong> at the top right of that screen."
+    },
+    {
+      "source": "フォルダを選ぶ画面で、①で確かめた <code>samples</code> の中の <code>A01HelloAndroid</code> フォルダを選んで開きます。",
+      "translation": "In the folder selection dialog, select and open the <code>A01HelloAndroid</code> folder inside <code>samples</code>, whose location you checked in ①."
     },
     {
       "source": "開き方を聞かれたら <strong>New Window</strong> を選び、授業のプロジェクトと別のウィンドウで開きます。",
@@ -1537,6 +1577,10 @@
     {
       "source": "教材の対象：A01HelloAndroid / Android Studio Panda 2 | 2025.3.2<br>アプリ画像：教員の jec_26cm_android1_Pixel 9a エミュレータで撮影。プロジェクト作成の画像：教員提供。確認日：2026年9月15日。",
       "translation": "These course materials cover: A01HelloAndroid / Android Studio Panda 2 | 2025.3.2<br>App images: taken on the teacher's jec_26cm_android1_Pixel 9a emulator. Project creation images: provided by the teacher. Checked on: September 15, 2026."
+    },
+    {
+      "source": "チェックは自分用で、先生には送信されません。チェックの保存はブラウザの設定により使えない場合があります。JavaScriptを無効にしても本文とコードは読めます。印刷する場合は ⌘ P。補足・解答も展開して印刷されます（JavaScript無効時は手動で開いてください）。",
+      "translation": "The check marks are for your own use and are not sent to your teacher. Your browser settings may prevent them from being saved. You can read the text and code even with JavaScript disabled. To print, press ⌘ P. Notes and answers are also expanded for printing (open them manually if JavaScript is disabled)."
     }
   ],
   "overrides": [
