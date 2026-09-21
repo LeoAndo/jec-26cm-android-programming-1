@@ -206,7 +206,7 @@ python3 scripts/localize-student-materials.py status             # 言語×ペ�
 python3 scripts/localize-student-materials.py build --lang en    # dist/i18n-preview/docs/en/ に確認用のページを作る
 ```
 
-CIは、対訳カタログが壊れていないことを確かめ、未翻訳の文の数を Summary に出します。未翻訳があっても失敗にはしません。教科書のHTMLは、開始タグと終了タグを必ず対応させてください（`<p>` や `<li>` の閉じ忘れがあると、文を取り出せず、`check` が失敗します）。
+CIは、対訳カタログが壊れていないことを確かめ、未翻訳の文の数を Summary に出します。通常のPRとmainへのpushは未翻訳があっても失敗にはしません。`publish` のときだけ、配布対象の言語に未翻訳があれば公開を止めます（緊急公開の手順は上の「手動公開」を参照）。教科書のHTMLは、開始タグと終了タグを必ず対応させてください（`<p>` や `<li>` の閉じ忘れがあると、文を取り出せず、`check` が失敗します）。
 
 ---
 

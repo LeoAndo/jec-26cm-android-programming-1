@@ -479,6 +479,16 @@ class TranslationReleaseGateTest(unittest.TestCase):
         with patch.object(release, "summary"):
             self.assertEqual(release.missing_translations(release.check_translation_gate()), 0)
 
+    def test_changed_japanese_source_returns_to_untranslated(self):
+        (self.root / "i18n/en/index.json").write_text(json.dumps({
+            "source": "docs/index.html", "language": "en",
+            "entries": [{"source": "準備します。", "translation": "Get ready."}],
+        }, ensure_ascii=False))
+        (self.root / "docs/index.html").write_text('<html lang="ja"><p>アプリを起動します。</p></html>')
+        with patch.object(release, "summary"):
+            with self.assertRaisesRegex(ValueError, "未翻訳が1文"):
+                release.check_translation_gate()
+
     def test_missing_counts_are_written_to_github_summary_by_page(self):
         target = self.root / "summary.md"
         with patch.dict(os.environ, {"GITHUB_STEP_SUMMARY": str(target)}):
