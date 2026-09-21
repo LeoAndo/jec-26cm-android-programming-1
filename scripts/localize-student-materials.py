@@ -779,14 +779,6 @@ def _work_folder(work_dir: Path, language: str, page: str, source_root: str) -> 
     return work_dir / language / Path(posixpath.relpath(page, source_root)).with_suffix("")
 
 
-def _clear_work_files(folder: Path) -> None:
-    """作りかけの作業ファイルを消す。取り込み済みかどうかにかかわらず消してよい。"""
-    if not folder.is_dir():
-        return
-    for stale in sorted(folder.rglob("todo-*.json")) + sorted(folder.rglob("done-*.json")):
-        stale.unlink()
-
-
 def sync(settings: Settings, languages: list, only: list, work_dir: Path, chunk_size: int, chunk_chars: int) -> None:
     """カタログを今の日本語に合わせ、未翻訳の文を作業ファイルに書き出す。"""
     names = _selected_pages(settings, only)
@@ -794,10 +786,6 @@ def sync(settings: Settings, languages: list, only: list, work_dir: Path, chunk_
     for code in languages:
         language = settings.language(code)
         han = settings.uses_han(code)
-        if not only:
-            # ページを絞らないときは、この言語の作業ファイルをすべて作り直す。
-            # merge は done-*.json をフォルダの下から全部拾うので、消し残すと巻き戻る。
-            _clear_work_files(work_dir / code)
         catalogs = {name: read_catalog(settings.catalog_path(code, name)) for name in settings.page_names()}
         # 同じ原文には同じ訳を使い回す。ほかのページで訳してあれば、それを入れる。
         memory: dict = {}
@@ -823,11 +811,13 @@ def sync(settings: Settings, languages: list, only: list, work_dir: Path, chunk_
                     missing.append(source)
             removed = {source: translation for source, translation in old.items() if source not in kept}
             write_catalog(settings.catalog_path(code, name), name, code, kept, page.sources())
-            # 前回の done-*.json も消す。残すと、次の merge がそれを拾って古い訳に
-            # 巻き戻してしまう。まだ取り込んでいない訳があっても、その原文はカタログに
-            # ないので、下で未翻訳として作業ファイルに出し直される。
+            # 古い todo-*.json は消す。done-*.json は、まだ取り込んでいない訳が
+            # 入っているかもしれないので消さない。古い done は、相手の todo が
+            # なくなることで merge が読み飛ばす。
             folder = _work_folder(work_dir, code, name, settings.source_root)
-            _clear_work_files(folder)
+            if folder.is_dir():
+                for stale in folder.glob("todo-*.json"):
+                    stale.unlink()
             where = {}
             for segment in page.segments:
                 where.setdefault(segment.source, segment.where)
@@ -882,9 +872,22 @@ def merge(settings: Settings, code: str, files: list, work_dir: Path, overwrite:
     カタログへ入れるのは1か所でまとめて行う（同じカタログを同時に書き換えないため）。
     """
     han = settings.uses_han(code)
-    if not files:
-        files = sorted((work_dir / code).rglob("done-*.json"))
-    if not files:
+    stale_files = 0
+    if files:
+        # 明示されたファイルは、そのまま取り込む。
+        targets = [(Path(path), None) for path in files]
+    else:
+        # 作業フォルダから拾うときは、その回の todo-*.json に載っている訳だけを取り込む。
+        # 前の回の done-*.json が残っていても、相手の todo がないので読み飛ばす。
+        # これがないと、古い訳がカタログに入り直し、手で直した訳が巻き戻る。
+        targets = []
+        for done in sorted((work_dir / code).rglob("done-*.json")):
+            todo = done.with_name(done.name.replace("done-", "todo-", 1))
+            if todo.is_file():
+                targets.append((done, todo))
+            else:
+                stale_files += 1
+    if not targets:
         raise LocalizeError(f"訳した結果のファイルがありません: {_shown(settings.root, work_dir / code)} の done-*.json")
     pages = {name: read_page(settings.root, name) for name in settings.page_names()}
     index: dict = {}
@@ -893,18 +896,24 @@ def merge(settings: Settings, code: str, files: list, work_dir: Path, overwrite:
             if index.setdefault(segment_id(source), source) != source:
                 raise LocalizeError(f"別の原文が同じidになりました: {segment_id(source)}")
     catalogs = {name: read_catalog(settings.catalog_path(code, name)) for name in pages}
-    problems, passed, added, skipped = [], 0, 0, 0
+    problems, passed, added, skipped, stale = [], 0, 0, 0, 0
     changed: set = set()
-    for path in files:
+    for path, todo_path in targets:
         try:
             done = json.loads(Path(path).read_text(encoding="utf-8"))
-        except (OSError, json.JSONDecodeError) as error:
+            allowed = None if todo_path is None else {
+                item["id"] for item in json.loads(todo_path.read_text(encoding="utf-8"))["segments"]}
+        except (OSError, json.JSONDecodeError, KeyError, TypeError) as error:
             problems.append(f"{path}: JSONとして読み込めません: {error}")
             continue
         if not isinstance(done, dict) or not all(isinstance(value, str) for value in done.values()):
             problems.append(f"{path}: 「id: 訳文」の組だけを書いたJSONにしてください")
             continue
         for identifier, translation in done.items():
+            if allowed is not None and identifier not in allowed:
+                # この回の作業ファイルに載っていない訳。前の回の残りなので入れない。
+                stale += 1
+                continue
             source = index.get(identifier)
             if source is None:
                 problems.append(f"{path}: {identifier}: このidの原文がありません（日本語が変わったなら、sync からやり直す）")
@@ -933,12 +942,40 @@ def merge(settings: Settings, code: str, files: list, work_dir: Path, overwrite:
     # 同じ原文が複数のページにあると、1つの訳が何か所にも入る。訳した数と、入れた数は分けて出す。
     print(f"{code}: 検査に通った訳 {passed}、"
           + (f"カタログに入る数 {added}（--dry-run なので、入れていません）" if dry_run else f"カタログに入れた数 {added}")
-          + (f"、すでに別の訳があるので入れなかった数 {skipped}（入れ替えるなら --overwrite）" if skipped else ""))
+          + (f"、すでに別の訳があるので入れなかった数 {skipped}（入れ替えるなら --overwrite）" if skipped else "")
+          + (f"、前の回の残りなので読み飛ばした訳 {stale}" if stale else "")
+          + (f"、相手の todo がないので読み飛ばした作業ファイル {stale_files}" if stale_files else ""))
     if problems:
         print("検査に落ちた訳（カタログには入れていません）:", file=sys.stderr)
         print("\n".join(problems), file=sys.stderr)
         return 1
     return 0
+
+
+def _check_shared_translations(settings: Settings, errors: list) -> None:
+    """同じ言語の中で、同じ原文に違う訳が付いていないか確かめる。
+
+    同じ原文はどのページでも同じ訳、というのがこのしくみの約束。カタログを手で直すと、
+    ページごとに1つずつ検査しても食い違いに気付けない。
+    """
+    seen: dict = {}
+    base = settings.root / settings.catalog_root
+    for path in sorted(base.rglob("*.json")):
+        try:
+            data = json.loads(path.read_text(encoding="utf-8"))
+            entries = data["entries"]
+        except (OSError, json.JSONDecodeError, KeyError, TypeError):
+            continue  # 読めないカタログは check_catalog が報告する。
+        language = path.relative_to(base).parts[0]
+        for entry in entries:
+            if not isinstance(entry, dict) or "source" not in entry or "translation" not in entry:
+                continue
+            key = (language, entry["source"])
+            first = seen.setdefault(key, (path, entry["translation"]))
+            if first[1] != entry["translation"]:
+                errors.append(
+                    f"{path.relative_to(settings.root).as_posix()}: 同じ原文に、別の訳が付いています"
+                    f"「{entry['source'][:30]}」: {first[0].relative_to(settings.root).as_posix()} と違います")
 
 
 def check(settings: Settings) -> list:
@@ -953,6 +990,7 @@ def check(settings: Settings) -> list:
     if base.is_dir():
         for path in sorted(base.rglob("*.json")):
             check_catalog(settings, path, errors)
+        _check_shared_translations(settings, errors)
     return errors
 
 
@@ -1029,6 +1067,10 @@ def build(settings: Settings, languages: list, output: Path) -> None:
         ignore=lambda folder, names: [name for name in names if Path(folder) == settings.root / settings.source_root and name in codes],
     )
     for code in languages:
+        # 前に作ったページが残ると、消した単元のページが最新に見えてしまう。
+        target = output / settings.source_root / code
+        if target.exists():
+            shutil.rmtree(target)
         pages = localized_pages(settings, code)
         for name, text in pages.items():
             target = output / name

@@ -367,14 +367,44 @@ class CommandTest(unittest.TestCase):
         self.assertIn("訳文が空です", errors)
         self.assertFalse((self.root / "i18n").exists())
 
-    def test_sync_removes_finished_work_files_so_merge_cannot_revert(self):
-        # 前回の done-*.json が残ると、次の merge がそれを拾って古い訳に巻き戻す。
+    def translate_work(self, language="en", prefix="EN: "):
+        """作業ファイルの隣に、訳した結果を書く（訳す担当がやることと同じ形）。"""
+        written = []
+        for todo in sorted((self.work / language).rglob("todo-*.json")):
+            data = json.loads(todo.read_text(encoding="utf-8"))
+            done = todo.with_name(todo.name.replace("todo-", "done-", 1))
+            done.write_text(json.dumps({item["id"]: prefix + item["source"] for item in data["segments"]},
+                                       ensure_ascii=False), encoding="utf-8")
+            written.append(done)
+        return written
+
+    def test_merge_ignores_finished_files_left_over_from_an_earlier_sync(self):
+        # 前の回の done-*.json が残っていても、相手の todo がないので取り込まない。
+        # これがないと、カタログを手で直した訳が古い訳に巻き戻る。
         self.sync()
-        self.merge({"単元": "Unit"})
-        done = sorted(self.work.rglob("done-*.json"))
-        self.assertTrue(done)
+        self.translate_work()
+        self.quiet(localize.merge, self.settings(), "en", [], self.work, False)
+        catalog = self.settings().catalog_path("en", "docs/unit/index.html")
+        entries = localize.read_catalog(catalog)
+        self.assertEqual(entries["はじめての単元"], "EN: はじめての単元")
+
+        # 1文だけ手で直し、別の1文の日本語を直して、もう一度 sync する。
+        entries["はじめての単元"] = "EN hand-fixed"
+        localize.write_catalog(catalog, "docs/unit/index.html", "en", entries, list(entries))
+        self.write("docs/unit/index.html", (
+            '<html lang="ja"><head><link rel="stylesheet" href="../assets/textbook.css"><title>単元</title></head>'
+            "<body><h1>はじめての単元</h1><p>ここで止まって、確認</p><p>直した文です。</p></body></html>"
+        ))
         self.sync()
-        self.assertEqual(sorted(self.work.rglob("done-*.json")), [])
+        # 取り込み前の訳を失わないよう、古い done は残す。
+        self.assertTrue(sorted(self.work.rglob("done-*.json")))
+        self.translate_work()
+        result, output, _ = self.quiet(localize.merge, self.settings(), "en", [], self.work, True)
+
+        self.assertEqual(result, 0)
+        self.assertEqual(localize.read_catalog(catalog)["はじめての単元"], "EN hand-fixed")
+        self.assertEqual(localize.read_catalog(catalog)["直した文です。"], "EN: 直した文です。")
+        self.assertIn("読み飛ばした", output)
 
     def test_sync_drops_translations_that_no_longer_pass_the_check(self):
         # 用語集を足して検査に落ちるようになった訳は、訳し直しに回す。
@@ -389,6 +419,29 @@ class CommandTest(unittest.TestCase):
         item = self.todo()["<code>Run</code>を押します。"]
         self.assertIn("jec_26cm_android1_Pixel_9a", item["previous_translation"])
         self.assertEqual(localize.check(self.settings()), [])
+
+    def test_check_finds_the_same_source_translated_two_ways(self):
+        # 同じ原文はどのページでも同じ訳、というのがこのしくみの約束。
+        # カタログを手で直すと、1ページずつの検査では食い違いに気付けない。
+        self.sync()
+        self.merge({"ここで止まって、確認": "Stop here and check"})
+        path = self.settings().catalog_path("en", "docs/common/setup.html")
+        data = json.loads(path.read_text(encoding="utf-8"))
+        data["entries"][0]["translation"] = "When you need help"
+        path.write_text(json.dumps(data, ensure_ascii=False), encoding="utf-8")
+        self.assertIn("同じ原文に、別の訳が付いています", "\n".join(localize.check(self.settings())))
+
+    def test_build_replaces_pages_left_over_from_an_earlier_run(self):
+        self.sync()
+        self.merge({"はじめての単元": "Your first unit"})
+        output = self.root / "dist/i18n-preview"
+        self.quiet(localize.build, self.settings(), ["en"], output)
+        stale = output / "docs/en/gone/index.html"
+        stale.parent.mkdir(parents=True, exist_ok=True)
+        stale.write_text("<p>消した単元</p>", encoding="utf-8")
+        self.quiet(localize.build, self.settings(), ["en"], output)
+        self.assertFalse(stale.exists())
+        self.assertTrue((output / "docs/en/unit/index.html").is_file())
 
     def test_catalog_with_the_same_source_twice_is_rejected(self):
         # 後の訳で上書きすると、前の訳が黙って消える。
