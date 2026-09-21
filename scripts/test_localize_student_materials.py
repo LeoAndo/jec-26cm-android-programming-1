@@ -299,6 +299,24 @@ class LocalizeTest(unittest.TestCase):
         self.assertIn('src="../../common/images/a.png"', translated)
         self.assertIn('href="../unit/index.html"', translated)
 
+    def test_role_override_changes_headers_but_keeps_terminology(self):
+        html = ('<section id="step-1"><table><tr><th>コード</th><td>コード</td></tr></table></section>'
+                '<section id="step-2"><table><tr><th>コード</th></tr></table></section>')
+        catalog = localize.Catalog({"コード": "コード — code"}, {("コード", "th"): "Code"})
+        translated = self.render(html, catalog)
+        self.assertEqual(translated.count("<th>Code</th>"), 2)
+        self.assertIn("<td>コード — code</td>", translated)
+        # STEPを移すだけでは、番号やidを使っていない訳し分けは外れない。
+        moved = self.render(html.replace("step-1", "step-8").replace("step-2", "step-9"), catalog)
+        self.assertEqual(moved.count("<th>Code</th>"), 2)
+
+    def test_attribute_override_does_not_change_the_same_text_in_the_body(self):
+        html = '<p>画面<img src="a.png" alt="画面" title="画面">を見ます。</p><p>画面</p>'
+        catalog = localize.Catalog({"画面": "Screen"}, {("画面", "img alt"): "App screen"})
+        translated = self.render(html, catalog)
+        self.assertIn('alt="App screen" title="Screen"', translated)
+        self.assertIn("<p>Screen</p>", translated)
+
 
 class CommandTest(unittest.TestCase):
     def setUp(self):
@@ -352,7 +370,110 @@ class CommandTest(unittest.TestCase):
         return self.quiet(localize.merge, self.settings(), language, [done], self.work, overwrite)
 
     def catalog(self, name, language="en"):
-        return localize.read_catalog(self.settings().catalog_path(language, name))
+        return localize.read_catalog(self.settings().catalog_path(language, name)).entries
+
+    def write_overrides(self, overrides, name="docs/unit/index.html"):
+        path = self.settings().catalog_path("en", name)
+        data = json.loads(path.read_text(encoding="utf-8")) if path.is_file() else {
+            "source": name, "language": "en", "entries": [],
+        }
+        data["overrides"] = overrides
+        self.write(path.relative_to(self.root), json.dumps(data, ensure_ascii=False))
+        return path
+
+    def test_sync_and_merge_preserve_overrides_without_sharing_them(self):
+        self.sync()
+        self.merge({"ここで止まって、確認": "Stop here and check"})
+        path = self.write_overrides([{"source": "ここで止まって、確認", "where": "p", "translation": "Check your work"}])
+        self.sync()
+        result, _, errors = self.merge({"ここで止まって、確認": "Stop and check"}, overwrite=True)
+        self.assertEqual(result, 0, errors)
+        self.assertEqual(localize.read_catalog(path).overrides, {("ここで止まって、確認", "p"): "Check your work"})
+        output = localize.localized_pages(self.settings(), "en")
+        self.assertIn("<p>Check your work</p>", output["docs/en/unit/index.html"])
+        self.assertIn("<p>Stop and check</p>", output["docs/en/common/setup.html"])
+        self.assertEqual(self.catalog("docs/unit/index.html")["ここで止まって、確認"], "Stop and check")
+        self.assertEqual(localize.check(self.settings()), [])
+
+    def test_overrides_do_not_become_translation_memory_for_new_pages(self):
+        self.write_overrides([{"source": "ここで止まって、確認", "where": "p", "translation": "Check your work"}])
+        self.write("docs/other/index.html", "<p>ここで止まって、確認</p>")
+        self.sync()
+        self.assertEqual(self.catalog("docs/other/index.html"), {})
+        self.assertIn("ここで止まって、確認", self.todo())
+        output = localize.localized_pages(self.settings(), "en")
+        self.assertEqual(output["docs/en/other/index.html"], "<p>ここで止まって、確認</p>")
+
+    def test_changed_source_does_not_use_old_override_and_sync_removes_it(self):
+        self.write("docs/unit/index.html", "<table><tr><th>コード</th></tr></table>")
+        path = self.write_overrides([{"source": "コード", "where": "th", "translation": "Code"}])
+        self.write("docs/unit/index.html", "<table><tr><th>完成コード</th></tr></table>")
+        self.assertEqual(localize.check(self.settings()), [])
+        row = next(row for row in localize.progress(self.settings(), ["en"])[0]["rows"] if row["page"] == "docs/unit/index.html")
+        self.assertEqual((row["translated"], row["unused"]), (0, 1))
+        output = localize.localized_pages(self.settings(), "en")["docs/en/unit/index.html"]
+        self.assertIn("<th>完成コード</th>", output)
+        self.sync()
+        self.assertFalse(path.exists())
+        self.assertIn("完成コード", self.todo())
+
+    def test_invalid_location_is_reported_and_not_silently_removed_by_sync(self):
+        self.merge({"単元": "Unit"})
+        path = self.write_overrides([{"source": "単元", "where": "th", "translation": "Lesson"}])
+        self.assertIn("この原文が指定された場所にありません", "\n".join(localize.check(self.settings())))
+        self.sync()
+        self.assertEqual(localize.read_catalog(path).overrides, {("単元", "th"): "Lesson"})
+        self.assertIn("この原文が指定された場所にありません", "\n".join(localize.check(self.settings())))
+
+    def test_invalid_or_duplicate_override_is_rejected(self):
+        override = {"source": "単元", "where": "title", "translation": "Unit"}
+        for value in ({}, [{"source": "単元", "translation": "Unit"}],
+                      [{**override, "where": None}], [override, override]):
+            with self.subTest(overrides=value):
+                path = self.write_overrides(value)
+                self.assertTrue(localize.check(self.settings()))
+                with self.assertRaises(localize.LocalizeError):
+                    localize.read_catalog(path)
+
+    def test_override_translation_uses_the_same_validation_as_defaults(self):
+        self.write_overrides([{"source": "<code>Run</code>を押します。", "where": "p", "translation": "Press Start."}])
+        self.assertIn("訳文にタグが足りません", "\n".join(localize.check(self.settings())))
+
+    def test_sync_and_merge_repair_an_invalid_override(self):
+        source = "<code>Run</code>を押します。"
+        self.write_overrides([{"source": source, "where": "p", "translation": "Press Start."}])
+        self.assertIn("訳文にタグが足りません", "\n".join(localize.check(self.settings())))
+        self.sync()
+        self.assertIn(source, self.todo())
+        result, _, errors = self.merge({source: "Press <code>Run</code>."})
+        self.assertEqual(result, 0, errors)
+        self.assertEqual(localize.check(self.settings()), [])
+        output = localize.localized_pages(self.settings(), "en")["docs/en/unit/index.html"]
+        self.assertIn("Press <code>Run</code>.", output)
+        self.assertNotIn("Press Start.", output)
+
+    def test_progress_counts_only_sources_translated_in_every_location(self):
+        self.write("docs/unit/index.html", "<table><tr><th>コード</th><td>コード</td></tr></table>")
+        self.write_overrides([{"source": "コード", "where": "th", "translation": "Code"}])
+        rows = {row["page"]: row for row in localize.progress(self.settings(), ["en"])[0]["rows"]}
+        self.assertEqual((rows["docs/unit/index.html"]["total"], rows["docs/unit/index.html"]["translated"]), (1, 0))
+        self.sync()
+        self.assertIn("コード", self.todo())
+        self.write("docs/unit/index.html", "<section id=\"step-8\"><table><tr><th>コード</th></tr></table></section>")
+        self.sync()
+        self.assertNotIn("コード", self.todo())
+        self.assertEqual(localize.check(self.settings()), [])
+        rows = {row["page"]: row for row in localize.progress(self.settings(), ["en"])[0]["rows"]}
+        self.assertEqual((rows["docs/unit/index.html"]["translated"], rows["docs/unit/index.html"]["unused"]), (1, 0))
+
+    def test_legacy_catalog_round_trip_does_not_add_overrides(self):
+        self.merge({"単元": "Unit"})
+        path = self.settings().catalog_path("en", "docs/unit/index.html")
+        before = path.read_bytes()
+        catalog = localize.read_catalog(path)
+        self.assertEqual(catalog.overrides, {})
+        localize.write_catalog(path, "docs/unit/index.html", "en", catalog, ["単元"])
+        self.assertEqual(path.read_bytes(), before)
 
     def test_sync_writes_work_files_and_merge_fills_every_page_with_the_same_source(self):
         self.sync()
@@ -429,12 +550,12 @@ class CommandTest(unittest.TestCase):
         self.translate_work()
         self.quiet(localize.merge, self.settings(), "en", [], self.work, False)
         catalog = self.settings().catalog_path("en", "docs/unit/index.html")
-        entries = localize.read_catalog(catalog)
+        entries = localize.read_catalog(catalog).entries
         self.assertEqual(entries["はじめての単元"], "EN: はじめての単元")
 
         # 1文だけ手で直し、別の1文の日本語を直して、もう一度 sync する。
         entries["はじめての単元"] = "EN hand-fixed"
-        localize.write_catalog(catalog, "docs/unit/index.html", "en", entries, list(entries))
+        localize.write_catalog(catalog, "docs/unit/index.html", "en", localize.Catalog(entries), list(entries))
         self.write("docs/unit/index.html", (
             '<html lang="ja"><head><link rel="stylesheet" href="../assets/textbook.css"><title>単元</title></head>'
             "<body><h1>はじめての単元</h1><p>ここで止まって、確認</p><p>直した文です。</p></body></html>"
@@ -446,8 +567,8 @@ class CommandTest(unittest.TestCase):
         result, output, _ = self.quiet(localize.merge, self.settings(), "en", [], self.work, True)
 
         self.assertEqual(result, 0)
-        self.assertEqual(localize.read_catalog(catalog)["はじめての単元"], "EN hand-fixed")
-        self.assertEqual(localize.read_catalog(catalog)["直した文です。"], "EN: 直した文です。")
+        self.assertEqual(localize.read_catalog(catalog).entries["はじめての単元"], "EN hand-fixed")
+        self.assertEqual(localize.read_catalog(catalog).entries["直した文です。"], "EN: 直した文です。")
         self.assertIn("読み飛ばした", output)
 
     def test_merge_accepts_a_translation_that_moved_to_another_work_file(self):
@@ -459,7 +580,7 @@ class CommandTest(unittest.TestCase):
         result, output, errors = self.quiet(localize.merge, self.settings(), "en", [], self.work, False)
         self.assertEqual(result, 0, errors)
         self.assertNotIn("読み飛ばした", output)
-        self.assertEqual(localize.read_catalog(self.settings().catalog_path("en", "docs/unit/index.html"))["単元"],
+        self.assertEqual(localize.read_catalog(self.settings().catalog_path("en", "docs/unit/index.html")).entries["単元"],
                          "EN: 単元")
 
     def test_merge_skips_work_files_left_by_a_removed_page(self):
@@ -471,7 +592,7 @@ class CommandTest(unittest.TestCase):
         result, output, errors = self.quiet(localize.merge, self.settings(), "en", [], self.work, False)
         self.assertEqual(result, 0, errors)
         self.assertIn("読み飛ばした", output)
-        self.assertEqual(localize.read_catalog(self.settings().catalog_path("en", "docs/unit/index.html"))["単元"],
+        self.assertEqual(localize.read_catalog(self.settings().catalog_path("en", "docs/unit/index.html")).entries["単元"],
                          "EN: 単元")
 
     def test_sync_drops_translations_that_no_longer_pass_the_check(self):
@@ -654,6 +775,20 @@ class RepositoryTest(unittest.TestCase):
 
     def test_every_page_can_be_extracted_and_catalogs_are_valid(self):
         self.assertEqual(localize.check(self.settings), [])
+
+    def test_english_headers_and_version_table_are_separate_from_terminology(self):
+        output = localize.localized_pages(self.settings, "en")
+        for name in ("hello-android", "calc-game", "rock-paper-scissors-game", "bomb-game",
+                     "webview-app", "screen-transition-sample"):
+            source = (self.settings.root / f"docs/{name}/index.html").read_text(encoding="utf-8")
+            translated = output[f"docs/en/{name}/index.html"]
+            with self.subTest(page=name):
+                self.assertGreater(source.count("<th>コード</th>"), 0)
+                self.assertEqual(translated.count("<th>Code</th>"), source.count("<th>コード</th>"))
+        first_unit = output["docs/en/hello-android/index.html"]
+        self.assertIn("<td>コード — code</td>", first_unit)
+        self.assertIn("<td>エミュレータ — emulator</td>", first_unit)
+        self.assertIn("<td>Emulator</td>", output["docs/en/common/other-versions.html"])
 
     def test_code_blocks_are_identical_in_every_language(self):
         # <pre> とソースのバイト一致（check-teaching-materials.py）が、どの言語でも保たれる。
