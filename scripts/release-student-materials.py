@@ -2,11 +2,13 @@
 
 import argparse
 import hashlib
+import importlib.util
 import json
 import os
 from pathlib import Path
 import re
 import subprocess
+import sys
 from urllib.parse import quote
 
 
@@ -52,8 +54,84 @@ def summary(text):
             output.write(text + "\n")
 
 
+# 言語の有効・無効は config/i18n.json の distribute だけで決める。
+# ここには、同じZIPを開くための短い定型案内を置く。
+DOWNLOAD_GUIDANCE = {
+    "en": "Download **{asset}** from Assets and extract it. Open `index.html` in your browser, choose English, and start with the setup guide. Classes are taught in Japanese; translations help you understand the textbook.",
+    "zh-Hans": "从 Assets 下载 **{asset}** 并解压。在浏览器中打开 `index.html`，选择简体中文，然后从课前准备指南开始。课程使用日语授课，译文用于帮助理解教材。",
+    "zh-Hant-HK": "從 Assets 下載 **{asset}** 並解壓縮。在瀏覽器開啟 `index.html`，選擇繁體中文（香港），再從課前準備指南開始。課堂以日語授課，譯文用來協助理解教材。",
+    "my": "Assets မှ **{asset}** ကို ဒေါင်းလုဒ်လုပ်ပြီး ZIP ဖိုင်ကို ဖြည်ပါ။ ဘရောက်ဇာတွင် `index.html` ကိုဖွင့်၍ မြန်မာဘာသာကို ရွေးပြီး သင်တန်းအတွက် ပြင်ဆင်ခြင်းလမ်းညွှန်မှ စတင်ပါ။ သင်တန်းကို ဂျပန်ဘာသာဖြင့် သင်ကြားပြီး ဘာသာပြန်သည် စာအုပ်ကို နားလည်ရန် အထောက်အကူပြုပါသည်။",
+    "mn": "Assets хэсгээс **{asset}** файлыг татаж аваад задална уу. Хөтөч дээр `index.html` файлыг нээж, монгол хэлийг сонгоод хичээлийн бэлтгэлийн заавраас эхлээрэй. Хичээл япон хэлээр явагдана. Орчуулга нь сурах бичгийг ойлгоход тусална.",
+    "fr": "Téléchargez **{asset}** depuis Assets, puis décompressez le fichier. Ouvrez `index.html` dans votre navigateur, choisissez Français et commencez par le guide de préparation. Les cours se déroulent en japonais ; la traduction vous aide à comprendre le manuel.",
+}
+EXCEPTION_MARKER = "<!-- translation-release-exception -->"
+
+
+def translation_report():
+    """生成元と同じカタログを検査し、配布対象だけの進み具合を返す。"""
+    spec = importlib.util.spec_from_file_location("release_localize", ROOT / "scripts/localize-student-materials.py")
+    localize = importlib.util.module_from_spec(spec)
+    sys.modules[spec.name] = localize
+    spec.loader.exec_module(localize)
+    settings = localize.load_settings(ROOT)
+    errors = localize.check(settings)
+    if errors:
+        # 緊急公開でも、構造不正や壊れた訳を公開してはいけない。
+        raise ValueError("対訳カタログの検査に失敗しました：\n" + "\n".join(errors))
+    return localize.progress(settings, [language["code"] for language in settings.languages if language.get("distribute")])
+
+
+def missing_translations(report):
+    return sum(row["total"] - row["translated"] for item in report for row in item["rows"])
+
+
+def translation_table(report):
+    lines = ["| 言語 | ページ | 未翻訳 |", "| --- | --- | ---: |"]
+    for item in report:
+        language = item["language"]
+        total = sum(row["total"] - row["translated"] for row in item["rows"])
+        lines.append(f"| {language['code']}（{language['name']}） | **言語合計** | **{total}** |")
+        for row in item["rows"]:
+            lines.append(f"| {language['code']}（{language['name']}） | `{row['page']}` | {row['total'] - row['translated']} |")
+    if not report:
+        return "配布対象の翻訳言語はありません。"
+    return "\n".join(lines)
+
+
+def exception_notes(report):
+    if os.environ.get("ALLOW_UNTRANSLATED") != "true":
+        return ""
+    return (
+        f"{EXCEPTION_MARKER}\n## 未翻訳を含む緊急公開\n\n"
+        "公開ゲートを解除しています。未翻訳の文は日本語のまま表示されます。\n\n"
+        f"未翻訳の合計：**{missing_translations(report)}文**（同じ文が別ページにある場合はページごとに数えます）。\n\n"
+        f"{translation_table(report)}\n"
+    )
+
+
+def localized_download_guidance(report, asset):
+    lines = []
+    for item in report:
+        language = item["language"]
+        code = language["code"]
+        if code not in DOWNLOAD_GUIDANCE:
+            raise ValueError(f"公開案内がない配布言語です：{code}")
+        lines.extend([f"### {language['name']}", "", DOWNLOAD_GUIDANCE[code].format(asset=asset), ""])
+    return "\n".join(lines) + "\n" if lines else ""
+
+
+def check_translation_gate():
+    report = translation_report()
+    summary("## 公開前の翻訳確認\n\n" + translation_table(report))
+    missing = missing_translations(report)
+    if missing and os.environ.get("ALLOW_UNTRANSLATED") != "true":
+        raise ValueError(f"配布対象の言語に未翻訳が{missing}文あります。翻訳PRを反映してから公開してください。")
+    return report
+
+
 def prepare(repo, metadata):
     version, revision, asset = metadata["version"], metadata["revision"], metadata["asset"]
+    report = translation_report()
     previous = previous_release(releases(repo), version)
     payload = {"tag_name": version, "target_commitish": revision, "configuration_file_path": ".github/release.yml"}
     commit_range = revision
@@ -91,11 +169,13 @@ def prepare(repo, metadata):
         "   Android StudioのOpenで `samples/A01HelloAndroid` のように選ぶだけで開けます。\n\n"
         "教材を更新するときは別フォルダに展開し、自分で作ったプロジェクトを上書きしないでください。\n"
         "授業中は先生が指定した版を使ってください。\n\n"
+        f"{localized_download_guidance(report, asset)}"
         f"## 学生向けの補足\n\n{student_notes or '対象単元・作業のやり直しの要否は、先生の案内を確認してください。'}\n\n"
         f"## 変更履歴\n\n{generated}\n\n"
         f"<details>\n<summary>コミット一覧（直接mainに入った修正を含む）</summary>\n\n{commits or '追加のコミットはありません。'}\n\n</details>\n\n"
         f"教材の版：`{version}`  \nソース：`{revision}`\n"
     )
+    body += exception_notes(report)
     (DIST / "release-notes.md").write_text(body, encoding="utf-8")
     summary(f"## 教材の準備完了\n\n版：`{version}`\n\n`student-materials-ready`で始まる成果物にZIPとリリースノートを保存します。\n\n{body}")
 
@@ -124,7 +204,12 @@ def publish(repo, metadata):
     if current and current["target_commitish"] != revision:
         raise ValueError("既存の下書きが別のコミットを指しています。公開を中止しました。")
 
+    report = check_translation_gate()
     notes = DIST / "release-notes.md"
+    # prepare と publish の入力が違っていても、実際の公開判断と件数をノートに残す。
+    # 同じrunの再実行で追記を繰り返さない。
+    body = notes.read_text(encoding="utf-8").split(EXCEPTION_MARKER, 1)[0].rstrip() + "\n"
+    notes.write_text(body + exception_notes(report), encoding="utf-8")
     if current:
         gh("release", "edit", version, "--repo", repo, "--notes-file", str(notes))
     else:

@@ -153,8 +153,9 @@ class StudentReleaseTest(unittest.TestCase):
         (self.dist / release.CHECKSUMS).write_text(f"{hashlib.sha256(b'student package').hexdigest()}  {self.asset}\n")
         (self.dist / "release-notes.md").write_text("学生向けノート")
         self.enterContext(patch.object(release, "DIST", self.dist))
-        self.enterContext(patch.dict(os.environ, {"GITHUB_EVENT_NAME": "workflow_dispatch", "GITHUB_REF": "refs/heads/main", "STUDENT_NOTES": "STEP 4の説明修正。やり直し不要。"}))
-        self.enterContext(patch.object(release, "summary"))
+        self.enterContext(patch.dict(os.environ, {"GITHUB_EVENT_NAME": "workflow_dispatch", "GITHUB_REF": "refs/heads/main", "STUDENT_NOTES": "STEP 4の説明修正。やり直し不要。", "ALLOW_UNTRANSLATED": "false"}))
+        self.summary = self.enterContext(patch.object(release, "summary"))
+        self.translations = self.enterContext(patch.object(release, "translation_report", return_value=[]))
         self.gh = self.enterContext(patch.object(release, "gh", return_value=""))
         self.items = self.enterContext(patch.object(release, "releases", return_value=[]))
         self.api = self.enterContext(patch.object(release, "api", side_effect=self.api_response))
@@ -167,6 +168,69 @@ class StudentReleaseTest(unittest.TestCase):
         if path.endswith("/generate-notes"):
             return {"body": "* HelloAndroidの説明を修正 #2"}
         raise AssertionError(f"Unexpected API: {path}")
+
+    def incomplete_report(self):
+        return [{"language": {"code": "en", "name": "English", "distribute": True}, "rows": [
+            {"page": "docs/hello-android/index.html", "total": 4, "translated": 1},
+            {"page": "docs/common/setup.html", "total": 2, "translated": 1},
+        ]}]
+
+    def test_untranslated_publish_stops_before_release_mutation(self):
+        self.translations.return_value = self.incomplete_report()
+        with self.assertRaisesRegex(ValueError, "未翻訳が4文"):
+            release.publish(self.repo, self.metadata)
+        self.gh.assert_not_called()
+        report = self.summary.call_args.args[0]
+        self.assertIn("en（English） | `docs/hello-android/index.html` | 3", report)
+        self.assertIn("en（English） | `docs/common/setup.html` | 1", report)
+
+    def test_emergency_publish_records_actual_counts_without_duplicates(self):
+        self.translations.return_value = self.incomplete_report()
+        with patch.dict(os.environ, {"ALLOW_UNTRANSLATED": "true"}):
+            release.publish(self.repo, self.metadata)
+            release.publish(self.repo, self.metadata)
+        notes = (self.dist / "release-notes.md").read_text()
+        self.assertIn("公開ゲートを解除", notes)
+        self.assertIn("**4文**", notes)
+        self.assertIn("`docs/hello-android/index.html` | 3", notes)
+        self.assertEqual(notes.count(release.EXCEPTION_MARKER), 1)
+        self.assertIn("--draft=false", self.gh.call_args_list[-1].args)
+
+    def test_emergency_flag_does_not_bypass_invalid_catalog(self):
+        self.translations.side_effect = ValueError("対訳カタログの検査に失敗しました")
+        with patch.dict(os.environ, {"ALLOW_UNTRANSLATED": "true"}):
+            with self.assertRaisesRegex(ValueError, "対訳カタログ"):
+                release.publish(self.repo, self.metadata)
+        self.gh.assert_not_called()
+
+    def test_false_override_still_rejects_untranslated_content(self):
+        self.translations.return_value = self.incomplete_report()
+        with patch.dict(os.environ, {"ALLOW_UNTRANSLATED": "false"}):
+            with self.assertRaisesRegex(ValueError, "未翻訳"):
+                release.publish(self.repo, self.metadata)
+        self.gh.assert_not_called()
+
+    def test_prepare_with_untranslated_content_keeps_preparation_available(self):
+        self.translations.return_value = self.incomplete_report()
+        with patch.object(release.subprocess, "check_output", return_value="- 修正 (abc123)"):
+            release.prepare(self.repo, self.metadata)
+        notes = (self.dist / "release-notes.md").read_text()
+        self.assertIn("### English", notes)
+        self.assertIn("Open `index.html`", notes)
+        self.assertNotIn(release.EXCEPTION_MARKER, notes)
+        self.gh.assert_not_called()
+
+    def test_prepare_emergency_notes_record_counts(self):
+        self.translations.return_value = self.incomplete_report()
+        with patch.dict(os.environ, {"ALLOW_UNTRANSLATED": "true"}), patch.object(release.subprocess, "check_output", return_value=""):
+            release.prepare(self.repo, self.metadata)
+        self.assertIn("**4文**", (self.dist / "release-notes.md").read_text())
+
+    def test_each_distribution_language_has_native_opening_instructions(self):
+        report = [{"language": {"code": code, "name": code}, "rows": []} for code in release.DOWNLOAD_GUIDANCE]
+        notes = release.localized_download_guidance(report, self.asset)
+        self.assertEqual(notes.count("`index.html`"), 6)
+        self.assertEqual(notes.count(self.asset), 6)
 
     def test_first_publish_uploads_before_publication(self):
         release.publish(self.repo, self.metadata)
@@ -266,6 +330,56 @@ class StudentReleaseTest(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "タグが別のコミット"):
             release.publish(self.repo, self.metadata)
         self.gh.assert_not_called()
+
+
+class TranslationReleaseGateTest(unittest.TestCase):
+    def setUp(self):
+        temporary = tempfile.TemporaryDirectory()
+        self.addCleanup(temporary.cleanup)
+        self.root = Path(temporary.name)
+        for directory in ("scripts", "config", "docs", "i18n/en"):
+            (self.root / directory).mkdir(parents=True, exist_ok=True)
+        copy2(SCRIPTS / "localize-student-materials.py", self.root / "scripts/localize-student-materials.py")
+        self.config = {"source_language": "ja", "source_root": "docs", "catalog_root": "i18n", "languages": [
+            {"code": "en", "name": "English", "distribute": True},
+            {"code": "fr", "name": "Français", "distribute": False},
+        ]}
+        (self.root / "config/i18n.json").write_text(json.dumps(self.config))
+        (self.root / "docs/index.html").write_text('<html lang="ja"><p>準備します。</p></html>')
+        self.enterContext(patch.object(release, "ROOT", self.root))
+        self.enterContext(patch.dict(os.environ, {"ALLOW_UNTRANSLATED": "false"}))
+
+    def test_report_uses_only_languages_included_in_distribution(self):
+        report = release.translation_report()
+        self.assertEqual([item["language"]["code"] for item in report], ["en"])
+        self.assertEqual(release.missing_translations(report), 1)
+
+    def test_translated_distribution_ignores_untranslated_disabled_language(self):
+        (self.root / "i18n/en/index.json").write_text(json.dumps({
+            "source": "docs/index.html", "language": "en",
+            "entries": [{"source": "準備します。", "translation": "Get ready."}],
+        }, ensure_ascii=False))
+        with patch.object(release, "summary"):
+            self.assertEqual(release.missing_translations(release.check_translation_gate()), 0)
+
+    def test_missing_counts_are_written_to_github_summary_by_page(self):
+        target = self.root / "summary.md"
+        with patch.dict(os.environ, {"GITHUB_STEP_SUMMARY": str(target)}):
+            with self.assertRaisesRegex(ValueError, "未翻訳が1文"):
+                release.check_translation_gate()
+        self.assertIn("en（English） | `docs/index.html` | 1", target.read_text())
+
+    def test_emergency_override_does_not_skip_html_structure_check(self):
+        (self.root / "docs/index.html").write_text('<html lang="ja"><p>準備します。</html>')
+        with patch.dict(os.environ, {"ALLOW_UNTRANSLATED": "true"}):
+            with self.assertRaisesRegex(ValueError, "検査に失敗"):
+                release.check_translation_gate()
+
+    def test_emergency_override_does_not_skip_malformed_catalog(self):
+        (self.root / "i18n/en/index.json").write_text('{broken')
+        with patch.dict(os.environ, {"ALLOW_UNTRANSLATED": "true"}):
+            with self.assertRaisesRegex(ValueError, "検査に失敗"):
+                release.check_translation_gate()
 
 
 if __name__ == "__main__":

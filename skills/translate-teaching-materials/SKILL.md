@@ -1,6 +1,6 @@
 ---
 name: translate-teaching-materials
-description: Translate the Japanese student textbooks (docs/**/*.html) into the students' native languages through per-sentence translation catalogs (i18n/<language>/<page>.json). Use when asked to translate teaching materials, prepare translations before a release, fix a translation, or review a translation PR in this repository.
+description: Translate the Japanese student textbooks (docs/**/*.html) into the students' native languages through per-sentence translation catalogs under i18n/. Use when asked to translate teaching materials, prepare translations before a release, fix a translation, or review a translation PR in this repository.
 ---
 
 # Translate teaching materials
@@ -130,6 +130,17 @@ description: Translate the Japanese student textbooks (docs/**/*.html) into the 
 - 用語集 `i18n/<言語>/glossary.md` の訳語と「書き方の決まり」（引用符、見出しの大文字と小文字、チェック欄の文の形など）を使う。
 - **ほかのページの見出しを引用している文**（リンクの文字「共通資料：ログが出ないとき」など）は、そのページのカタログにある見出しの訳と同じにする。まだ訳されていなければ、訳した言い方を報告し、あとで照合する。
 - 同じ原文は、同じ訳になる（`merge` が、その原文を持つ全ページへ入れる）。ページによって訳し分けたいときは、まず原文のほうが曖昧でないかを疑う。
+
+## 配布前の差分翻訳
+
+日常のPRの翻訳は不要。配布準備を依頼されたら、次の順で進める。
+
+1. 最新のmainと配布準備のissueを確認する。`config/i18n.json` の `distribute: true` の言語を対象に、`status` で言語・ページごとの未翻訳を記録する。`distribute: false` の言語を、今回の配布のためだけに全文翻訳する必要はない。
+2. 対象言語ごとに `sync --lang <言語>` を実行し、上の手順で未翻訳の文だけを訳す。新しい単元と、既存ページのサイドバーに増えた文も対象になる。前回の訳が残っている文を好みで書き換えない。
+3. `area:i18n`、`size:*`、`enhancement` を付けた翻訳PRを開く。まだ学生用ZIPに入らない言語だけのPRには `skip-release-notes` も付ける。PR本文に配布対象の版、言語、変更前後の未翻訳件数を書く。**このPRを開いてから公開が終わるまでは、`docs/` を触るPRをマージしない。**
+4. 以下のレビューに加え、訳したのとは別のAIが今回の訳を日本語へ逆翻訳し、原文との違いを照合する。PR本文に担当、照合したページ、修正内容を残す。
+5. 最新のmainを取り込み、`check` と `status --require-complete` を実行する。未翻訳が増えたときは `sync` から差分だけをやり直す。対訳カタログの検査、AGENTS.md §7の3つの検証、配布ZIPの入口 `index.html` から各言語の表示・リンクを確認する。
+6. 翻訳PRをマージし、READMEの「手動公開」へ進む。公開自体は、オーナーから任されている場合に限る。Actionsは翻訳せず、対訳カタログから生成・検査するだけ。`allow_untranslated` は緊急修正のための入力なので、通常の配布準備では使わない。
 
 ## 翻訳PRのレビュー
 
