@@ -523,8 +523,15 @@ def output_name(page: str, language: str, source_root: str) -> str:
     return posixpath.join(source_root, language, posixpath.relpath(page, source_root))
 
 
-def _rewrite_link(value: str, page: str, language: str, source_root: str, pages: set) -> str:
+def _rewrite_link(value: str, page: str, language: str, source_root: str, pages: set,
+                  android_docs_hl: str | None = None) -> str:
     url = urlsplit(value)
+    if (language != "ja" and android_docs_hl is not None
+            and url.scheme in ("", "http", "https") and url.hostname == "developer.android.com"):
+        # ほかのパラメータの順序・空値・エスケープを保ち、hl=ja だけを置き換える。
+        query = re.sub(r"(^|&)hl=ja(?=&|$)", lambda match: f"{match[1]}hl={android_docs_hl}", url.query)
+        if query != url.query:
+            return urlunsplit((url.scheme, url.netloc, url.path, query, url.fragment))
     if url.scheme or url.netloc or not url.path:
         return value  # 外部のURLと、ページ内のリンク
     if url.path.startswith("/"):
@@ -552,7 +559,8 @@ class Catalog:
 
 
 class _Localizer:
-    def __init__(self, page: Page, translations: dict, language: str, source_root: str, pages: set):
+    def __init__(self, page: Page, translations: dict, language: str, source_root: str, pages: set,
+                 android_docs_hl: str | None = None):
         self.page = page
         catalog = translations if isinstance(translations, Catalog) else Catalog(translations)
         self.translations = catalog.entries
@@ -560,6 +568,7 @@ class _Localizer:
         self.language = language
         self.source_root = source_root
         self.pages = pages
+        self.android_docs_hl = android_docs_hl
 
     def translation(self, source: str, where: str) -> str | None:
         return self.overrides.get((source, where), self.translations.get(source))
@@ -579,7 +588,8 @@ class _Localizer:
         for name in LINK_ATTRIBUTES:
             value = _raw_attribute(text, element, name, page)
             if value is not None:
-                moved = _rewrite_link(html.unescape(value), page, self.language, self.source_root, self.pages)
+                moved = _rewrite_link(html.unescape(value), page, self.language, self.source_root, self.pages,
+                                      self.android_docs_hl)
                 if moved != html.unescape(value):
                     values[name] = html.escape(moved, quote=True)
         if element.tag == "html" and element.attribute("lang") is not None:
@@ -657,8 +667,9 @@ class _Localizer:
                 self._start_tags(child, replacements)
 
 
-def localize(page: Page, translations: dict, language: str, source_root: str, pages: set) -> str:
-    return _Localizer(page, translations, language, source_root, pages).run()
+def localize(page: Page, translations: dict, language: str, source_root: str, pages: set,
+             android_docs_hl: str | None = None) -> str:
+    return _Localizer(page, translations, language, source_root, pages, android_docs_hl).run()
 
 
 # ---------------------------------------------------------------------------
@@ -715,6 +726,10 @@ def load_settings(root: Path) -> Settings:
             raise LocalizeError(f"{CONFIG.as_posix()}: 言語コードの形が正しくありません: {code}")
         if codes.count(code) > 1:
             raise LocalizeError(f"{CONFIG.as_posix()}: 言語コードが重複しています: {code}")
+    for language in languages:
+        hl = language.get("android_docs_hl", "en")
+        if not isinstance(hl, str) or not LANGUAGE_CODE.fullmatch(hl):
+            raise LocalizeError(f"{CONFIG.as_posix()}: android_docs_hl の形が正しくありません: {hl}")
     terms = []
     if (root / TERMS_CONFIG).is_file():
         try:
@@ -1136,14 +1151,14 @@ def status(settings: Settings, languages: list, require_complete: bool) -> int:
 
 def localized_pages(settings: Settings, code: str) -> dict:
     """その言語の全ページ。出力先のパス→HTML。訳のないページも、リンクが切れないように作る。"""
-    settings.language(code)
+    android_docs_hl = settings.language(code).get("android_docs_hl", "en")
     names = settings.page_names()
     result = {}
     for name in names:
         page = read_page(settings.root, name)
         translations = read_catalog(settings.catalog_path(code, name))
         result[output_name(name, code, settings.source_root)] = localize(
-            page, translations, code, settings.source_root, set(names))
+            page, translations, code, settings.source_root, set(names), android_docs_hl)
     return result
 
 
