@@ -58,8 +58,36 @@ class ExtractTest(unittest.TestCase):
         self.assertEqual(sources_of(html), ["訳す"])
 
     def test_segment_needs_japanese_outside_protected_elements(self):
-        html = "<table><tr><td><code>テキストを変更</code></td><td>Java / XML</td><td><code>x</code>（すべて小文字）</td></tr></table>"
+        # 3つ目のセルは、日本語が <code> の中にしかない。保護を外すと、訳しようのない断片が混ざる。
+        html = ("<table><tr><td><code>テキストを変更</code></td><td>Java / XML</td>"
+                "<td><code>テキストを変更</code> / XML</td><td><code>x</code>（すべて小文字）</td></tr></table>")
         self.assertEqual(sources_of(html), ["<code>x</code>（すべて小文字）"])
+
+    def test_translate_no_inside_a_sentence_is_rejected(self):
+        # 文の途中だけを外すと、その文が断片に割れて訳せなくなる。<code> を使ってもらう。
+        with self.assertRaisesRegex(localize.LocalizeError, 'には translate="no" を付けられません'):
+            page_of('<p>AVD名は <span translate="no">jec_26cm_android1_Pixel 9a</span> です。</p>')
+
+    def test_comment_inside_a_sentence_is_rejected(self):
+        # コメントは木に残らないので、訳文で置き換えると消え、前後の文字が連結される。
+        with self.assertRaisesRegex(localize.LocalizeError, "文の途中にHTMLコメントは書けません"):
+            page_of("<p>あいう<!-- メモ -->えお</p>")
+        # 文の外のコメントは、そのまま残るので受け付ける。
+        self.assertEqual(sources_of("<p><!--前-->あいう</p><!--後-->"), ["あいう"])
+
+    def test_attribute_value_containing_another_attribute_is_not_confused(self):
+        page = page_of("""<p><img alt="かき方は src='sample.png' です" src="real.png"></p>""")
+        self.assertEqual(localize._raw_attribute(page.text, page.segments[0].element, "src"), "real.png")
+
+    def test_unquoted_link_and_lang_attributes_are_rejected(self):
+        for html, attribute in (
+            ('<html lang=ja><body><p>あ</p></body></html>', "lang"),
+            ("<p>あ<img src=images/a.png alt=\"図\"></p>", "src"),
+            ('<p><a href=x.html>あ</a></p>', "href"),
+        ):
+            with self.subTest(attribute=attribute), \
+                    self.assertRaisesRegex(localize.LocalizeError, f"{attribute} 属性は引用符で囲んでください"):
+                page_of(html)
 
     def test_attributes_are_extracted_in_document_order(self):
         html = (
@@ -105,8 +133,8 @@ class ExtractTest(unittest.TestCase):
 
 
 class ValidateTest(unittest.TestCase):
-    def problems(self, source, translation):
-        return localize.validate(source, translation, TERMS)
+    def problems(self, source, translation, han=False):
+        return localize.validate(source, translation, TERMS, han)
 
     def test_accepts_reordered_placeholders_and_entities(self):
         self.assertEqual(self.problems(
@@ -114,28 +142,38 @@ class ValidateTest(unittest.TestCase):
             "Use <code>a &lt; b</code> &amp; the <strong>reference</strong> <a1>sample</a1>.",
         ), [])
 
-    def test_kanji_only_text_may_stay_the_same(self):
-        # 中国語では、日本語と同じ字になる言葉がある。
-        self.assertEqual(self.problems("操作", "操作"), [])
+    def test_kanji_only_text_may_stay_the_same_only_in_han_languages(self):
+        # 中国語では、日本語と同じ字になる言葉がある。英語などでは、訳し忘れである。
+        self.assertEqual(self.problems("操作", "操作", han=True), [])
+        self.assertIn("訳されていません", "".join(self.problems("操作", "操作")))
+        self.assertIn("訳されていません", "".join(self.problems("共通：Logcat", "共通：Logcat")))
+
+    def test_raw_markup_characters_inside_protected_elements_are_allowed(self):
+        # <code> の中身は原文のまま残すので、そこに書かれた & や < は訳文の誤りではない。
+        # 見ないようにしないと、この原文はどう訳しても通らなくなる。
+        self.assertEqual(self.problems("<code>R&D</code> を開く。", "Open <code>R&D</code>."), [])
 
     def test_reports_each_kind_of_problem(self):
-        cases = {
-            "訳文が空です": ("確認", "  "),
-            "余分な空白や改行": ("確認", "Check \n it"),
-            "足りません: </a1> <a1>": ("<a1>見本</a1>です", "A sample"),
-            "余分にあります: </strong> <strong>": ("見本です", "A <strong>sample</strong>"),
-            "入れ子が正しくありません": ("<a1><strong>見本</strong></a1>", "<a1><strong>sample</a1></strong>"),
-            "&lt; と書く": ("小さい", "a < b"),
-            "&amp; と書く": ("質問と答え", "Q&A"),
-            "中身が、原文と違います": ("<code>テキストを変更</code>を押す", "Press <code>Change text</code>"),
-            "正式表記がありません": ("jec_26cm_android1_Pixel 9a を選ぶ", "Select the Pixel 9a"),
-            "禁止表記": ("選ぶ", "Select jec_26cm_android1_Pixel_9a"),
-            "訳されていません": ("できたらチェックします。", "できたらチェックします。"),
-        }
-        for message, (source, translation) in cases.items():
-            with self.subTest(message=message):
-                self.assertTrue(any(message in problem for problem in self.problems(source, translation)),
-                                self.problems(source, translation))
+        cases = (
+            ("訳文が空です", "確認", "  "),
+            ("余分な空白や改行", "確認", "Check \n it"),
+            ("足りません: </a1> <a1>", "<a1>見本</a1>です", "A sample"),
+            ("余分にあります: </strong> <strong>", "見本です", "A <strong>sample</strong>"),
+            ("入れ子が正しくありません", "<a1><strong>見本</strong></a1>", "<a1><strong>sample</a1></strong>"),
+            ("&lt; と書く", "小さい", "a < b"),
+            ("&amp; と書く", "質問と答え", "Q&A"),
+            ("中身が、原文と違います", "<code>テキストを変更</code>を押す", "Press <code>Change text</code>"),
+            ("中身が、原文と違います", "<kbd>実行</kbd>を押す", "Press <kbd>Run</kbd>"),
+            ("中身が、原文と違います", "<samp>成功</samp>と出る", "See <samp>OK</samp>"),
+            ("中身が、原文と違います", "<var>名前</var>を書く", "Write <var>name</var>"),
+            ("正式表記がありません", "jec_26cm_android1_Pixel 9a を選ぶ", "Select the Pixel 9a"),
+            ("禁止表記", "選ぶ", "Select jec_26cm_android1_Pixel_9a"),
+            ("訳されていません", "できたらチェックします。", "できたらチェックします。"),
+        )
+        for message, source, translation in cases:
+            with self.subTest(source=source):
+                found = self.problems(source, translation)
+                self.assertTrue(any(message in problem for problem in found), found)
 
 
 class LocalizeTest(unittest.TestCase):
@@ -191,6 +229,25 @@ class LocalizeTest(unittest.TestCase):
         html = '<p>図<img src="a.png" alt="画面">を見ます。</p>'
         translated = self.render(html, {"図<img1/>を見ます。": "See <img1/> here.", "画面": "Screen"})
         self.assertEqual(translated, '<p>See <img src="../../unit/a.png" alt="Screen"> here.</p>')
+
+    def test_root_relative_link_is_rejected(self):
+        # relpath に絶対パスを渡すと、実行したフォルダ次第で結果が変わる。
+        with self.assertRaisesRegex(localize.LocalizeError, "ルート相対のリンクは使えません"):
+            self.render('<p><a href="/docs/assets/textbook.css">あ</a></p>', {})
+
+    def test_page_link_written_as_a_folder_stays_in_the_same_language(self):
+        # ../other/ を資材とみなすと ../../ が付き、英語のページから日本語版へ戻ってしまう。
+        translated = self.render('<p>次は<a href="../other/">こちら</a>。</p>', {})
+        self.assertIn('href="../other/"', translated)
+
+    def test_translated_attribute_cannot_break_a_later_link_attribute(self):
+        # 置き換えた訳文をもう一度走査しないので、訳文の中の文字列は属性と取り違えられない。
+        translated = self.render('<p><img alt="画像の説明" src="images/a.png"></p>',
+                                 {"画像の説明": "screenshot src='other.png' end"})
+        self.assertEqual(
+            translated,
+            '<p><img alt="screenshot src=&#39;other.png&#39; end" src="../../unit/images/a.png"></p>',
+        )
 
     def test_common_page_moves_one_level_deeper_too(self):
         html = '<img src="images/a.png" alt="図"><a data-back href="../unit/index.html">もとの教科書へ戻る</a>'
@@ -310,6 +367,37 @@ class CommandTest(unittest.TestCase):
         self.assertIn("訳文が空です", errors)
         self.assertFalse((self.root / "i18n").exists())
 
+    def test_sync_removes_finished_work_files_so_merge_cannot_revert(self):
+        # 前回の done-*.json が残ると、次の merge がそれを拾って古い訳に巻き戻す。
+        self.sync()
+        self.merge({"単元": "Unit"})
+        done = sorted(self.work.rglob("done-*.json"))
+        self.assertTrue(done)
+        self.sync()
+        self.assertEqual(sorted(self.work.rglob("done-*.json")), [])
+
+    def test_sync_drops_translations_that_no_longer_pass_the_check(self):
+        # 用語集を足して検査に落ちるようになった訳は、訳し直しに回す。
+        # 残すと、CIは赤いのに作業ファイルが1つも作られない。
+        self.write("config/teaching-materials.json", json.dumps({"terms": []}))
+        self.sync()
+        self.merge({"<code>Run</code>を押します。": "Press <code>Run</code> on jec_26cm_android1_Pixel_9a."})
+        self.write("config/teaching-materials.json", json.dumps({"terms": TERMS}, ensure_ascii=False))
+        self.assertNotEqual(localize.check(self.settings()), [])
+        self.sync()
+        self.assertEqual(self.catalog("docs/unit/index.html"), {})
+        item = self.todo()["<code>Run</code>を押します。"]
+        self.assertIn("jec_26cm_android1_Pixel_9a", item["previous_translation"])
+        self.assertEqual(localize.check(self.settings()), [])
+
+    def test_catalog_with_the_same_source_twice_is_rejected(self):
+        # 後の訳で上書きすると、前の訳が黙って消える。
+        self.write("i18n/en/unit/index.json", json.dumps({"source": "docs/unit/index.html", "language": "en", "entries": [
+            {"source": "単元", "translation": "Unit"}, {"source": "単元", "translation": "Lesson"},
+        ]}, ensure_ascii=False))
+        with self.assertRaisesRegex(localize.LocalizeError, "同じ原文が2回あります"):
+            localize.progress(self.settings(), ["en"])
+
     def test_merge_reports_unknown_id(self):
         done = self.work / "en/done-001.json"
         done.parent.mkdir(parents=True)
@@ -341,9 +429,15 @@ class CommandTest(unittest.TestCase):
         self.write("i18n/de/unit/index.json", "{}")
         self.write("i18n/en/common/setup.json", "{")
         errors = "\n".join(localize.check(self.settings()))
+        self.write("i18n/fr/unit/index.json", json.dumps({"source": "docs/unit/index.html", "language": "fr", "entries": [
+            {"source": " 単元 ", "translation": "Unite"},
+        ]}, ensure_ascii=False))
+        self.write("i18n/fr/common/setup.json", json.dumps({"source": "docs/common/setup.html", "language": "fr", "entries": []}))
+        errors = "\n".join(localize.check(self.settings()))
         for message in ("language がフォルダの名前と違います", "source がファイルの場所と違います", "同じ原文が2回あります",
                         "訳文にタグが足りません", "source と translation の組になっていません",
-                        "config/i18n.jsonにない言語のフォルダです: de", "JSONとして読み込めません"):
+                        "config/i18n.jsonにない言語のフォルダです: de", "JSONとして読み込めません",
+                        "原文に余分な空白や改行があります", "entries がありません"):
             self.assertIn(message, errors)
 
     def test_check_reports_html_that_cannot_be_extracted(self):
@@ -365,6 +459,18 @@ class CommandTest(unittest.TestCase):
             self.assertEqual(self.quiet(localize.status, self.settings(), ["en", "fr"], False)[0], 0)
             self.assertEqual(self.quiet(localize.status, self.settings(), ["fr"], True)[0], 0)
         self.assertIn("| en（English） | 対象 | 1 / 6 | 5 | 0 |", summary.read_text(encoding="utf-8"))
+
+    def test_status_counts_translations_left_over_after_the_japanese_changed(self):
+        # 日本語を直すと、その訳は「使っていない訳」になる。check は見逃す設計なので、
+        # 古い訳に気付く道は、status のこの数字だけ。
+        self.sync()
+        self.merge({"単元": "Unit"})
+        self.write("docs/unit/index.html",
+                   '<html lang="ja"><head><title>直した題名</title></head><body><h1>直した見出し</h1></body></html>')
+        rows = {row["page"]: row for row in localize.progress(self.settings(), ["en"])[0]["rows"]}
+        self.assertEqual(rows["docs/unit/index.html"]["unused"], 1)
+        self.assertEqual(rows["docs/unit/index.html"]["translated"], 0)
+        self.assertEqual(localize.check(self.settings()), [])  # check は落とさない
 
     def test_status_lists_catalog_without_page(self):
         self.write("i18n/en/gone/index.json", json.dumps({"source": "docs/gone/index.html", "language": "en",

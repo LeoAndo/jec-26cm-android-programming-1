@@ -53,6 +53,8 @@ LINK_ATTRIBUTES = ("href", "src")
 # ひらがな・カタカナ・漢字。「・」（U+30FB）は、英字だけの文にも区切りとして出てくるので含めない。
 JAPANESE = re.compile(r"[\u3041-\u309f\u30a1-\u30fa\u30fc-\u30ff\u3400-\u4dbf\u4e00-\u9fff\uff66-\uff9f\u3005]")
 KANA = re.compile(r"[\u3041-\u309f\u30a1-\u30fa\u30fc-\u30ff\uff66-\uff9f]")
+# 開始タグの属性を1つずつ読むための形。名前だけの属性（値なし）も受ける。
+ATTRIBUTE = re.compile(r"""\s+([^\s/>=]+)(?:\s*=\s*(?:"([^"]*)"|'([^']*)'|([^\s"'=<>`]+)))?""")
 # カタログの中のタグ。属性のないタグはそのまま（<strong>）、属性つきのタグは番号つきの目印（<a1>）で書く。
 CATALOG_TAG = re.compile(r"<(/?)([a-z]+)(\d*)(/?)>")
 ENTITY = re.compile(r"&(?:[A-Za-z][A-Za-z0-9]*|#[0-9]+|#[xX][0-9A-Fa-f]+);")
@@ -243,16 +245,35 @@ def normalize(text: str) -> str:
     return ASCII_SPACES.sub(" ", text).strip(" \t\r\n\f")
 
 
-def _attribute_pattern(name: str) -> re.Pattern:
-    return re.compile(rf'(\s{re.escape(name)}\s*=\s*)(?:"([^"]*)"|\'([^\']*)\')', re.IGNORECASE)
+def _attribute_spans(raw: str, tag: str) -> dict:
+    """開始タグの属性を、名前 → (値の開始, 値の終わり, 引用符で囲まれているか) で返す。
+
+    値の中は読み飛ばすので、属性値の中に書かれた `src='…'` のような文字列を、
+    属性そのものと取り違えない。
+    """
+    spans: dict = {}
+    position = 1 + len(tag)
+    while (match := ATTRIBUTE.match(raw, position)) is not None:
+        for group, quoted in ((2, True), (3, True), (4, False)):
+            if match.group(group) is not None:
+                spans.setdefault(match.group(1).lower(), (match.start(group), match.end(group), quoted))
+                break
+        position = match.end()
+    return spans
 
 
-def _raw_attribute(text: str, element: Element, name: str) -> str | None:
+def _raw_attribute(text: str, element: Element, name: str, page: str = "") -> str | None:
     """開始タグに書いてあるままの属性値（&amp; などを戻していない形）。"""
-    match = _attribute_pattern(name).search(text[element.start:element.inner_start])
-    if not match:
+    raw = text[element.start:element.inner_start]
+    span = _attribute_spans(raw, element.tag).get(name)
+    if span is None:
         return None
-    return match.group(2) if match.group(2) is not None else match.group(3)
+    start, end, quoted = span
+    if not quoted:
+        # 引用符がないと値の終わりが決まらず、書き換えた結果が壊れる。
+        line = text.count("\n", 0, element.start) + 1
+        raise LocalizeError(f"{page}:{line}: {name} 属性は引用符で囲んでください")
+    return raw[start:end]
 
 
 def _translated_attributes(element: Element) -> list:
@@ -293,6 +314,12 @@ class _Extractor:
         run: list = []
         for child in container.children:
             if isinstance(child, Text) or child.inline:
+                if not isinstance(child, Text) and _untranslatable(child):
+                    # 文の途中だけを訳の対象から外すと、その文が断片に割れて訳せなくなる。
+                    line = self.text.count("\n", 0, child.start) + 1
+                    raise LocalizeError(
+                        f'{self.name}:{line}: 文の途中の <{child.tag}> には translate="no" を付けられません。'
+                        "訳さない文字は <code> で囲んでください")
                 run.append(child)
                 continue
             self._flush(run, container)
@@ -324,6 +351,10 @@ class _Extractor:
         if isinstance(run[-1], Text):
             raw = self.text[run[-1].start:end]
             end -= len(raw) - len(raw.rstrip())
+        if "<!--" in self.text[start:end]:
+            # コメントは木に残らないので、訳文で置き換えると消え、前後の文字が連結される。
+            line = self.text.count("\n", 0, start) + 1
+            raise LocalizeError(f"{self.name}:{line}: 文の途中にHTMLコメントは書けません（文の外に出してください）")
         placeholders: list = []
         source = normalize(self._serialize(run, placeholders, start, end))
         if not JAPANESE.search(plain_text(source)):
@@ -358,13 +389,14 @@ class _Extractor:
             if not isinstance(child, Element) or _untranslatable(child):
                 continue
             for name in _translated_attributes(child):
-                raw = _raw_attribute(self.text, child, name)
-                if raw is None:
-                    line = self.text.count("\n", 0, child.start) + 1
-                    raise LocalizeError(f"{self.name}:{line}: {name} 属性は引用符で囲んでください")
-                source = normalize(raw)
+                source = normalize(_raw_attribute(self.text, child, name, self.name) or "")
                 if JAPANESE.search(source):
                     self.segments.append(Segment(source, f"{child.tag} {name}", element=child, attribute=name))
+            # リンクと lang は生成時に書き換えるので、引用符をここで確かめておく。
+            # そうすれば check で捕まり、静かに書き換え漏れになることがない。
+            for name in LINK_ATTRIBUTES + (("lang",) if child.tag == "html" else ()):
+                if child.attribute(name) is not None:
+                    _raw_attribute(self.text, child, name, self.name)
             if child.tag not in PROTECTED:
                 self._attributes(child)
 
@@ -383,7 +415,10 @@ class Page:
 
 
 def read_page(root: Path, name: str) -> Page:
-    text = (root / name).read_text(encoding="utf-8")
+    try:
+        text = (root / name).read_text(encoding="utf-8")
+    except (OSError, UnicodeDecodeError) as error:
+        raise LocalizeError(f"{name}: 読み込めません: {error}") from None
     tree = parse(text, name)
     extractor = _Extractor(text, name)
     return Page(name, text, tree, extractor.run(tree), extractor.in_segment)
@@ -404,14 +439,20 @@ def _protected_contents(text: str) -> Counter:
     )
 
 
-def validate(source: str, translation: str, terms: list) -> list:
-    """原文と訳文だけを見て分かる誤りを返す。訳の良し悪しは見ない。"""
+def validate(source: str, translation: str, terms: list, han: bool = False) -> list:
+    """原文と訳文だけを見て分かる誤りを返す。訳の良し悪しは見ない。
+
+    han は、漢字を使う言語（中国語・広東語）かどうか。その言語では、訳しても原文と
+    同じ字になる言葉がある（「操作」など）ので、原文と同じ訳を誤りにしない。
+    """
     if not translation.strip():
         return ["訳文が空です"]
     errors = []
     if translation != normalize(translation):
         errors.append("訳文の前後か途中に、余分な空白や改行があります")
-    rest = ENTITY.sub("", CATALOG_TAG.sub("", translation))
+    # <code>・<kbd> の中身は原文のまま残すので、そこに書かれた < や & は見ない
+    # （中身が原文と同じかどうかは、このあと _protected_contents で照合する）。
+    rest = ENTITY.sub("", plain_text(translation))
     if "<" in rest:
         errors.append("訳文に、原文にない形のタグか「<」があります（文字としての < は &lt; と書く）")
     if "&" in rest:
@@ -441,7 +482,7 @@ def validate(source: str, translation: str, terms: list) -> list:
         for forbidden in term.get("forbidden", []):
             if forbidden in translation:
                 errors.append(f"{term['name']}は{term['canonical']}を使用してください（禁止表記: {forbidden}）")
-    if source == translation and KANA.search(plain_text(source)):
+    if source == translation and (not han or KANA.search(plain_text(source))):
         errors.append("訳文が原文と同じです（訳されていません）")
     return errors
 
@@ -463,8 +504,15 @@ def _rewrite_link(value: str, page: str, language: str, source_root: str, pages:
     url = urlsplit(value)
     if url.scheme or url.netloc or not url.path:
         return value  # 外部のURLと、ページ内のリンク
+    if url.path.startswith("/"):
+        # ルート相対のリンクは教材では使わない。relpath に絶対パスを渡すと、
+        # 実行したフォルダ次第で結果が変わってしまうので、ここで止める。
+        raise LocalizeError(f"{page}: ルート相対のリンクは使えません: {value}")
     target = posixpath.normpath(posixpath.join(posixpath.dirname(page), url.path))
-    if unquote(target) in pages:
+    decoded = unquote(target)
+    # ../<単元>/ のようにフォルダで書いたリンクも、同じ言語のページとして扱う。
+    # 資材とみなすと ../../ が付き、その言語のページから日本語版へ戻ってしまう。
+    if decoded in pages or posixpath.join(decoded, "index.html") in pages:
         return value  # 同じ言語のページ。相対位置が変わらないので、そのまま使える
     # 画像・CSS・JS・ZIPは複製せず、日本語版のものを指す。
     moved = posixpath.relpath(target, posixpath.dirname(output_name(page, language, source_root)))
@@ -483,22 +531,33 @@ class _Localizer:
         """開始タグを、訳した属性・書き換えたリンク・言語の指定つきで作り直す。"""
         text = self.page.text
         raw = text[element.start:element.inner_start]
+        page = self.page.name
         values = {}
         for name in _translated_attributes(element):
-            translation = self.translations.get(normalize(_raw_attribute(text, element, name) or ""))
+            translation = self.translations.get(normalize(_raw_attribute(text, element, name, page) or ""))
             if translation is not None:
-                values[name] = translation.replace('"', "&quot;")
+                # 値は " で囲む。' も逃がして、訳文の中の文字列が属性に見えないようにする。
+                values[name] = translation.replace('"', "&quot;").replace("'", "&#39;")
         for name in LINK_ATTRIBUTES:
-            value = _raw_attribute(text, element, name)
+            value = _raw_attribute(text, element, name, page)
             if value is not None:
-                moved = _rewrite_link(html.unescape(value), self.page.name, self.language, self.source_root, self.pages)
+                moved = _rewrite_link(html.unescape(value), page, self.language, self.source_root, self.pages)
                 if moved != html.unescape(value):
                     values[name] = html.escape(moved, quote=True)
         if element.tag == "html" and element.attribute("lang") is not None:
             values["lang"] = self.language
-        for name, value in values.items():
-            raw = _attribute_pattern(name).sub(lambda match: f'{match.group(1)}"{value}"', raw, count=1)
-        return raw
+        if not values:
+            return raw
+        # 属性の位置を見て、一度に組み立てる。置き換えた値をもう一度走査しないので、
+        # 訳文の中の文字列が、別の属性と取り違えられることがない。
+        spans = _attribute_spans(raw, element.tag)
+        parts, position = [], 0
+        for start, end, value in sorted(
+                (spans[name][0], spans[name][1], value) for name, value in values.items() if name in spans):
+            parts.extend((raw[position:start], value))
+            position = end
+        parts.append(raw[position:])
+        return "".join(parts)
 
     def _restore(self, segment: Segment, translation: str) -> str:
         """カタログの形の訳文を、HTMLに戻す。番号つきの目印は、元のタグに戻す。"""
@@ -585,6 +644,10 @@ class Settings:
             raise LocalizeError(f"{CONFIG.as_posix()}にない言語です: {code}（使えるのは {'、'.join(self.codes())}）")
         return found
 
+    def uses_han(self, code: str) -> bool:
+        """漢字を使う言語か。訳しても原文と同じ字になることがある（config/i18n.json の han）。"""
+        return bool(self.language(code).get("han"))
+
     def page_names(self) -> list:
         """翻訳の対象になる日本語のページ。確認用に作った各言語のページは数えない。"""
         base = self.root / self.source_root
@@ -606,6 +669,8 @@ def load_settings(root: Path) -> Settings:
     except (OSError, json.JSONDecodeError) as error:
         raise LocalizeError(f"{CONFIG.as_posix()}を読み込めません: {error}") from None
     languages = config["languages"]
+    if not isinstance(languages, list) or not all(isinstance(item, dict) and "code" in item for item in languages):
+        raise LocalizeError(f"{CONFIG.as_posix()}: languages は、code を持つオブジェクトの並びにしてください")
     codes = [language["code"] for language in languages]
     for code in codes:
         if not LANGUAGE_CODE.fullmatch(code):
@@ -614,7 +679,10 @@ def load_settings(root: Path) -> Settings:
             raise LocalizeError(f"{CONFIG.as_posix()}: 言語コードが重複しています: {code}")
     terms = []
     if (root / TERMS_CONFIG).is_file():
-        terms = json.loads((root / TERMS_CONFIG).read_text(encoding="utf-8")).get("terms", [])
+        try:
+            terms = json.loads((root / TERMS_CONFIG).read_text(encoding="utf-8")).get("terms", [])
+        except (OSError, json.JSONDecodeError) as error:
+            raise LocalizeError(f"{TERMS_CONFIG.as_posix()}を読み込めません: {error}") from None
     return Settings(root, config["source_root"], config["catalog_root"], languages, terms)
 
 
@@ -624,7 +692,13 @@ def read_catalog(path: Path) -> dict:
         return {}
     try:
         data = json.loads(path.read_text(encoding="utf-8"))
-        return {entry["source"]: entry["translation"] for entry in data["entries"]}
+        entries: dict = {}
+        for entry in data["entries"]:
+            if entry["source"] in entries:
+                # 後の訳で上書きすると、前の訳が黙って消える。check と同じ理由でここでも止める。
+                raise LocalizeError(f"{path}: 同じ原文が2回あります: {entry['source'][:30]}")
+            entries[entry["source"]] = entry["translation"]
+        return entries
     except (OSError, json.JSONDecodeError, KeyError, TypeError) as error:
         raise LocalizeError(f"{path}: 対訳カタログを読み込めません: {error}") from None
 
@@ -685,7 +759,8 @@ def check_catalog(settings: Settings, path: Path, errors: list) -> None:
         seen.add(source)
         if source != normalize(source):
             errors.append(f"{label}: 原文に余分な空白や改行があります（手で書き換えず、sync で作り直す）")
-        errors.extend(f"{label}: {problem}" for problem in validate(source, translation, settings.terms))
+        errors.extend(f"{label}: {problem}"
+                      for problem in validate(source, translation, settings.terms, settings.uses_han(language)))
 
 
 # ---------------------------------------------------------------------------
@@ -704,12 +779,25 @@ def _work_folder(work_dir: Path, language: str, page: str, source_root: str) -> 
     return work_dir / language / Path(posixpath.relpath(page, source_root)).with_suffix("")
 
 
+def _clear_work_files(folder: Path) -> None:
+    """作りかけの作業ファイルを消す。取り込み済みかどうかにかかわらず消してよい。"""
+    if not folder.is_dir():
+        return
+    for stale in sorted(folder.rglob("todo-*.json")) + sorted(folder.rglob("done-*.json")):
+        stale.unlink()
+
+
 def sync(settings: Settings, languages: list, only: list, work_dir: Path, chunk_size: int, chunk_chars: int) -> None:
     """カタログを今の日本語に合わせ、未翻訳の文を作業ファイルに書き出す。"""
     names = _selected_pages(settings, only)
     pages = {name: read_page(settings.root, name) for name in names}
     for code in languages:
         language = settings.language(code)
+        han = settings.uses_han(code)
+        if not only:
+            # ページを絞らないときは、この言語の作業ファイルをすべて作り直す。
+            # merge は done-*.json をフォルダの下から全部拾うので、消し残すと巻き戻る。
+            _clear_work_files(work_dir / code)
         catalogs = {name: read_catalog(settings.catalog_path(code, name)) for name in settings.page_names()}
         # 同じ原文には同じ訳を使い回す。ほかのページで訳してあれば、それを入れる。
         memory: dict = {}
@@ -723,9 +811,11 @@ def sync(settings: Settings, languages: list, only: list, work_dir: Path, chunk_
             kept, missing = {}, []
             filled = 0
             for source in page.sources():
-                if source in old:
+                # 用語集を足して検査に落ちるようになった訳は、残さず訳し直しに回す
+                # （残すとCIは赤いのに、作業ファイルが1つも作られない）。
+                if source in old and not validate(source, old[source], settings.terms, han):
                     kept[source] = old[source]
-                elif source in memory and not validate(source, memory[source], settings.terms):
+                elif source in memory and not validate(source, memory[source], settings.terms, han):
                     kept[source] = memory[source]
                     filled += 1
                 elif source not in listed:
@@ -733,10 +823,11 @@ def sync(settings: Settings, languages: list, only: list, work_dir: Path, chunk_
                     missing.append(source)
             removed = {source: translation for source, translation in old.items() if source not in kept}
             write_catalog(settings.catalog_path(code, name), name, code, kept, page.sources())
+            # 前回の done-*.json も消す。残すと、次の merge がそれを拾って古い訳に
+            # 巻き戻してしまう。まだ取り込んでいない訳があっても、その原文はカタログに
+            # ないので、下で未翻訳として作業ファイルに出し直される。
             folder = _work_folder(work_dir, code, name, settings.source_root)
-            if folder.is_dir():
-                for stale in folder.glob("todo-*.json"):
-                    stale.unlink()
+            _clear_work_files(folder)
             where = {}
             for segment in page.segments:
                 where.setdefault(segment.source, segment.where)
@@ -790,7 +881,7 @@ def merge(settings: Settings, code: str, files: list, work_dir: Path, overwrite:
     dry_run のときは検査だけ行う。ページごとに分かれて並行して訳すときは、各自が dry_run で確かめ、
     カタログへ入れるのは1か所でまとめて行う（同じカタログを同時に書き換えないため）。
     """
-    settings.language(code)
+    han = settings.uses_han(code)
     if not files:
         files = sorted((work_dir / code).rglob("done-*.json"))
     if not files:
@@ -819,7 +910,7 @@ def merge(settings: Settings, code: str, files: list, work_dir: Path, overwrite:
                 problems.append(f"{path}: {identifier}: このidの原文がありません（日本語が変わったなら、sync からやり直す）")
                 continue
             translation = normalize(translation)
-            found = validate(source, translation, settings.terms)
+            found = validate(source, translation, settings.terms, han)
             if found:
                 problems.extend(f"{path}: {identifier}「{source[:30]}」: {problem}" for problem in found)
                 continue
@@ -994,7 +1085,7 @@ def main() -> int:
             return status(settings, args.lang or settings.codes(), args.require_complete)
         elif args.command == "build":
             build(settings, args.lang, args.output or root / PREVIEW_DIR)
-    except (LocalizeError, OSError, KeyError) as error:
+    except (OSError, KeyError, TypeError, ValueError) as error:
         raise SystemExit(f"多言語展開の処理に失敗しました：{error}") from None
     return 0
 
