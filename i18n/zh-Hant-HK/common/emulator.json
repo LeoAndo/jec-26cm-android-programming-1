@@ -1,406 +1,406 @@
 {
   "source": "docs/common/emulator.html",
-  "language": "en",
+  "language": "zh-Hant-HK",
   "entries": [
     {
       "source": "エミュレータの準備と アプリの実行 | Androidプログラミング1",
-      "translation": "Setting up the emulator and running apps | Android Programming 1"
+      "translation": "準備模擬器與執行應用程式 | Android 程式設計 1"
     },
     {
       "source": "本文へ移動",
-      "translation": "Skip to main content"
+      "translation": "跳至正文"
     },
     {
       "source": "JEC / Androidプログラミング1",
-      "translation": "JEC / Android Programming 1"
+      "translation": "JEC / Android 程式設計 1"
     },
     {
       "source": "もとのページへ戻る",
-      "translation": "Back to the page you came from"
+      "translation": "返回原來的頁面"
     },
     {
       "source": "ANDROID PROGRAMMING 1 / 共通資料・授業サポート",
-      "translation": "ANDROID PROGRAMMING 1 / Shared guide · Class support"
+      "translation": "ANDROID PROGRAMMING 1 / 共通資料・課堂支援"
     },
     {
       "source": "エミュレータの準備と<br>アプリの実行",
-      "translation": "Setting up the emulator<br>and running apps"
+      "translation": "準備模擬器與<br>執行應用程式"
     },
     {
       "source": "Macの中でAndroid端末を動かします。一度準備すると、次の授業でも使えます。",
-      "translation": "Run an Android device inside your Mac. Once you set it up, you can use it in later classes too."
+      "translation": "在 Mac 內執行 Android 裝置。準備一次後，往後的課堂也可以使用。"
     },
     {
       "source": "1. すでにある端末を探す",
-      "translation": "1. Find an existing device"
+      "translation": "1. 尋找現有的裝置"
     },
     {
       "source": "エミュレータは、アプリを試すための練習用端末です。端末を探すのも作るのも、Android Studioの <strong>Device Manager</strong>（端末を管理する画面）で行います。まだプロジェクトを開いていなくても使えます。",
-      "translation": "An emulator is a practice device for trying out apps. You find and create devices in Android Studio's <strong>Device Manager</strong> (the screen for managing devices). You can use it even before opening a project."
+      "translation": "模擬器是用來測試應用程式的練習用裝置。尋找或建立裝置，都在 Android Studio 的 <strong>Device Manager</strong>（管理裝置的畫面）進行。即使尚未開啟專案，也可以使用。"
     },
     {
       "source": "Device Managerを開きます。開き方は、いまAndroid Studioに出ている画面で決まります。次の2つのどちらかです。",
-      "translation": "Open Device Manager. How you open it depends on the screen currently shown in Android Studio. Use one of the following two ways."
+      "translation": "開啟 Device Manager。開啟方法取決於 Android Studio 目前顯示的畫面。會是以下兩種情況之一。"
     },
     {
       "source": "いま出ている画面",
-      "translation": "The screen shown now"
+      "translation": "目前顯示的畫面"
     },
     {
       "source": "Device Managerの開き方",
-      "translation": "How to open Device Manager"
+      "translation": "如何開啟 Device Manager"
     },
     {
       "source": "<strong>最初の画面（Welcome画面）</strong><br>まだプロジェクトを開いていない",
-      "translation": "<strong>The first screen (Welcome screen)</strong><br>You have not opened a project yet"
+      "translation": "<strong>起始畫面（Welcome 畫面）</strong><br>尚未開啟專案"
     },
     {
       "source": "右上の <strong>Open</strong> の右にある <strong>⋮</strong>（縦に並んだ3つの点）をクリックし、出てきたメニューで <strong>Virtual Device Manager</strong> を選びます。",
-      "translation": "At the top right, click <strong>⋮</strong> (three vertical dots) to the right of <strong>Open</strong>. In the menu that appears, select <strong>Virtual Device Manager</strong>."
+      "translation": "按一下右上方 <strong>Open</strong> 右邊的 <strong>⋮</strong>（垂直排列的三個點），再在出現的選單中選取 <strong>Virtual Device Manager</strong>。"
     },
     {
       "source": "<strong>プロジェクトを開いている</strong><br>コードを書く画面が出ている",
-      "translation": "<strong>A project is open</strong><br>The screen for writing code is shown"
+      "translation": "<strong>已開啟專案</strong><br>顯示編寫程式碼的畫面"
     },
     {
       "source": "上のメニューで <strong>View → Tool Windows → Device Manager</strong> を選びます。",
-      "translation": "In the menu at the top, select <strong>View → Tool Windows → Device Manager</strong>."
+      "translation": "在上方選單選取 <strong>View → Tool Windows → Device Manager</strong>。"
     },
     {
       "source": "最初の画面に ⋮ が見つからないとき",
-      "translation": "If you cannot find ⋮ on the first screen"
+      "translation": "在起始畫面找不到 ⋮ 時"
     },
     {
       "source": "⋮ のかわりに、<strong>More Actions</strong> という文字が出ていることがあります。そのときは <strong>More Actions</strong> をクリックし、同じように <strong>Virtual Device Manager</strong> を選びます。",
-      "translation": "You may see the words <strong>More Actions</strong> instead of ⋮. If so, click <strong>More Actions</strong>, then select <strong>Virtual Device Manager</strong> in the same way."
+      "translation": "有時會顯示 <strong>More Actions</strong> 文字，而不是 ⋮。這時按一下 <strong>More Actions</strong>，同樣選取 <strong>Virtual Device Manager</strong>。"
     },
     {
       "source": "どちらの場合も <strong>Device Manager</strong> が開き、端末の一覧が出ます。最初の画面から開いたときは、別のウィンドウで開きます。",
-      "translation": "Either way, <strong>Device Manager</strong> opens and shows a list of devices. If you open it from the first screen, it opens in a separate window."
+      "translation": "兩種情況都會開啟 <strong>Device Manager</strong>，並顯示裝置列表。從起始畫面開啟時，會在另一個視窗顯示。"
     },
     {
       "source": "端末の一覧に <strong>jec_26cm_android1_Pixel 9a</strong> があるか確認します。名前の区切りが <code>_</code> で表示されることもあります。",
-      "translation": "Check whether <strong>jec_26cm_android1_Pixel 9a</strong> is in the device list. Separators in the name may appear as <code>_</code>."
+      "translation": "確認裝置列表中是否有 <strong>jec_26cm_android1_Pixel 9a</strong>。名稱的分隔位置有時會顯示為 <code>_</code>。"
     },
     {
       "source": "見つかったら、その行の三角形 <strong>▶</strong> をクリックします。",
-      "translation": "If you find it, click the triangle <strong>▶</strong> on that row."
+      "translation": "找到後，按一下該行的三角形 <strong>▶</strong>。"
     },
     {
       "source": "Androidのホーム画面が出るまで待ちます。画面がロックされていたら、画面の下から上へドラッグします。",
-      "translation": "Wait until the Android home screen appears. If the screen is locked, drag up from the bottom of the screen."
+      "translation": "等待 Android 主畫面出現。如果螢幕已鎖定，請從畫面下方向上拖曳。"
     },
     {
       "source": "成功の目印",
-      "translation": "Signs of success"
+      "translation": "成功的標誌"
     },
     {
       "source": "スマートフォンの形の画面が開き、ホーム画面のアイコンが見える。",
-      "translation": "A smartphone-shaped screen opens, and the icons on the home screen are visible."
+      "translation": "智能手機形狀的畫面已開啟，並看見主畫面的圖示。"
     },
     {
       "source": "端末があった人は、<a1>3. アプリを動かす</a1>へ進みます。",
-      "translation": "If the device was already there, go to <a1>3. Run the app</a1>."
+      "translation": "已有裝置的同學，請前往<a1>3. 執行應用程式</a1>。"
     },
     {
       "source": "2. 端末がないときに作る",
-      "translation": "2. Create a device if there is none"
+      "translation": "2. 沒有裝置時建立一個"
     },
     {
       "source": "ダウンロードには時間がかかるため、授業中は先に先生へ知らせてください。先生が準備した端末があれば、それを使います。",
-      "translation": "Downloading takes time, so tell your teacher first if you are in class. If there is a device your teacher has prepared, use that one."
+      "translation": "由於下載需要時間，上課時請先告訴老師。如果老師已準備好裝置，就使用該裝置。"
     },
     {
       "source": "Device Managerの <strong>＋ → Create Virtual Device</strong> をクリックします。画面によっては <strong>Create Device</strong> と表示されます。",
-      "translation": "In Device Manager, click <strong>+ → Create Virtual Device</strong>. On some screens, it is called <strong>Create Device</strong>."
+      "translation": "按一下 Device Manager 的 <strong>＋ → Create Virtual Device</strong>。某些畫面會顯示 <strong>Create Device</strong>。"
     },
     {
       "source": "Phoneの一覧で <strong>Pixel 9a</strong> を選び、<strong>Next</strong>。",
-      "translation": "Select <strong>Pixel 9a</strong> from the Phone list, then click <strong>Next</strong>."
+      "translation": "在 Phone 列表選取 <strong>Pixel 9a</strong>，再按 <strong>Next</strong>。"
     },
     {
       "source": "Androidの <strong>System Image</strong>（端末を動かすためのデータ）は <strong>API 37.1</strong> を選びます。",
-      "translation": "For the Android <strong>System Image</strong> (the data that runs the device), select <strong>API 37.1</strong>."
+      "translation": "Android 的 <strong>System Image</strong>（讓裝置運作的資料）請選取 <strong>API 37.1</strong>。"
     },
     {
       "source": "ダウンロードの印がある場合はクリックし、画面の案内に従います。ダウンロードが終わったら次へ進みます。",
-      "translation": "If you see a download icon, click it and follow the instructions on the screen. Continue when the download finishes."
+      "translation": "如果有下載圖示，按一下並按照畫面指示操作。下載完成後繼續下一步。"
     },
     {
       "source": "端末名を <code>jec_26cm_android1_Pixel 9a</code> にして <strong>Finish</strong>。名前を後から変える画面では、作成後の編集から同じ名前にします。",
-      "translation": "Name the device <code>jec_26cm_android1_Pixel 9a</code> and click <strong>Finish</strong>. If your screen only lets you rename it later, edit the device after creating it and use this same name."
+      "translation": "將裝置名稱設為 <code>jec_26cm_android1_Pixel 9a</code>，再按 <strong>Finish</strong>。如果畫面需要稍後更改名稱，就在建立後透過編輯改為相同的名稱。"
     },
     {
       "source": "一覧の <strong>▶</strong> で起動し、ホーム画面が出ることを確認します。",
-      "translation": "Launch it with <strong>▶</strong> in the list and check that the home screen appears."
+      "translation": "用列表中的 <strong>▶</strong> 啟動，確認主畫面出現。"
     },
     {
       "source": "System Imageを選ぶときの注意",
-      "translation": "Note on selecting the System Image"
+      "translation": "選取 System Image 時的注意事項"
     },
     {
       "source": "一覧には <strong>37.2</strong> も並びます。選ぶのは <strong>37.1</strong> のほうです。37.1 は名前に <strong>16 KB Page Size</strong> と付いたものしかないので、それを選んでください。",
-      "translation": "The list also shows <strong>37.2</strong>. The one to select is <strong>37.1</strong>. The only 37.1 item has <strong>16 KB Page Size</strong> in its name, so select that one."
+      "translation": "列表中也有 <strong>37.2</strong>，請選取 <strong>37.1</strong>。37.1 只有名稱附帶 <strong>16 KB Page Size</strong> 的項目，請選取該項目。"
     },
     {
       "source": "3. アプリを動かす",
-      "translation": "3. Run the app"
+      "translation": "3. 執行應用程式"
     },
     {
       "source": "ここからは、プロジェクトを開いてから行います。<a1>共通資料：授業を始めるまでの準備</a1>の手順5から来た人は、ここでその資料に戻り、手順5の続きから進めます。エミュレータは起動したままにしておきます。",
-      "translation": "Open a project before doing the steps from here on. If you came from step 5 of <a1>Shared guide: Setup before you start class</a1>, return to that guide now and continue from step 5. Leave the emulator running."
+      "translation": "以下步驟需先開啟專案。如果是從<a1>共通資料：上課前的準備</a1>的步驟 5 來到這裏，請在此返回該資料，繼續步驟 5 餘下的操作。讓模擬器保持啟動。"
     },
     {
       "source": "Android Studio上部で、実行するものが <strong>app</strong> になっているか確認します。",
-      "translation": "At the top of Android Studio, check that what to run is set to <strong>app</strong>."
+      "translation": "確認 Android Studio 上方要執行的項目是 <strong>app</strong>。"
     },
     {
       "source": "端末の選択欄で <strong>jec_26cm_android1_Pixel 9a</strong> を選びます。",
-      "translation": "Select <strong>jec_26cm_android1_Pixel 9a</strong> in the device selection field."
+      "translation": "在裝置選擇欄選取 <strong>jec_26cm_android1_Pixel 9a</strong>。"
     },
     {
       "source": "上部の <strong>Run ▶</strong> をクリックします。",
-      "translation": "Click <strong>Run ▶</strong> at the top."
+      "translation": "按一下上方的 <strong>Run ▶</strong>。"
     },
     {
       "source": "ビルド（コードからアプリを作る処理）が終わるまで待ちます。アプリの画面が出たら、そのステップの「成功の目印」と比べます。",
-      "translation": "Wait until the build (the process of making an app from code) finishes. When the app screen appears, compare it with the \"Signs of success\" for that step."
+      "translation": "等待建構（從程式碼製作應用程式的處理）完成。應用程式的畫面出現後，與該步驟的「成功的標誌」比較。"
     },
     {
       "source": "端末を選ぶ",
-      "translation": "Select the device"
+      "translation": "選取裝置"
     },
     {
       "source": "画面を見る",
-      "translation": "Look at the screen"
+      "translation": "查看畫面"
     },
     {
       "source": "コードを変えるたびに、この順で実行します。元の文字から試したいときは、Android Studioの <strong>Stop ■</strong> でアプリを止め、もう一度 <strong>Run ▶</strong> を押します。",
-      "translation": "Run the app in this order each time you change the code. To try it from the original text, stop the app with <strong>Stop ■</strong> in Android Studio, then press <strong>Run ▶</strong> again."
+      "translation": "每次修改程式碼後，都按這個順序執行。如果想從原本的文字開始測試，請在 Android Studio 按 <strong>Stop ■</strong> 停止應用程式，再按 <strong>Run ▶</strong>。"
     },
     {
       "source": "エミュレータの画面が見つからない場合は、<strong>View → Tool Windows → Running Devices</strong> を開きます。別ウィンドウで開く設定の場合は、Dockのエミュレータも確認します。",
-      "translation": "If you cannot find the emulator screen, open <strong>View → Tool Windows → Running Devices</strong>. If it is set to open in a separate window, also check the emulator in the Dock."
+      "translation": "如果找不到模擬器畫面，請開啟 <strong>View → Tool Windows → Running Devices</strong>。如果設定為在獨立視窗開啟，也請查看 Dock 中的模擬器。"
     },
     {
       "source": "4. アプリを終了する・アプリを消す",
-      "translation": "4. Close or remove an app"
+      "translation": "4. 結束應用程式與移除應用程式"
     },
     {
       "source": "データを保存する単元の「完成チェック」で使います。どちらもエミュレータの画面で操作します。",
-      "translation": "You use these actions in the \"Final check\" of units about saving data. Do both on the emulator screen."
+      "translation": "儲存資料的單元會在「完成檢查」中使用這些操作。兩者都在模擬器畫面上操作。"
     },
     {
       "source": "操作",
-      "translation": "Action"
+      "translation": "操作"
     },
     {
       "source": "保存したデータ",
-      "translation": "Saved data"
+      "translation": "已儲存的資料"
     },
     {
       "source": "使う場面",
-      "translation": "When to use it"
+      "translation": "使用情況"
     },
     {
       "source": "アプリを終了する",
-      "translation": "Close the app"
+      "translation": "結束應用程式"
     },
     {
       "source": "残る",
-      "translation": "Stays"
+      "translation": "保留"
     },
     {
       "source": "終了して開き直しても、データが残っているかを確かめる",
-      "translation": "Check that the data stays after you close and reopen the app"
+      "translation": "確認結束後重新開啟時，資料是否仍然保留"
     },
     {
       "source": "<a1>アプリを消す</a1>（アンインストール）",
-      "translation": "<a1>Remove the app</a1> (uninstall)"
+      "translation": "<a1>移除應用程式</a1>（解除安裝）"
     },
     {
       "source": "いっしょに消える",
-      "translation": "Is deleted along with the app"
+      "translation": "一併刪除"
     },
     {
       "source": "何も保存されていない、最初の状態から確かめる",
-      "translation": "Check from the initial state, with nothing saved"
+      "translation": "從未儲存任何資料的初始狀態開始確認"
     },
     {
       "source": "エミュレータでは、マウスで操作します。<strong>スワイプ</strong>は、マウスのボタンを押したまま動かして離す操作です。<strong>長押し</strong>は、マウスを動かさずに、ボタンを1秒ほど押したままにする操作です。",
-      "translation": "Use the mouse to operate the emulator. To <strong>swipe</strong>, hold the mouse button, move the mouse, and release it. To <strong>long-press</strong> (長押し), hold the mouse button for about one second without moving the mouse."
+      "translation": "在模擬器中使用滑鼠操作。<strong>滑動</strong>是按住滑鼠按鈕，移動後放開。<strong>長按</strong>（長押し）是不移動滑鼠，按住按鈕約一秒。"
     },
     {
       "source": "画面のいちばん下にある<strong>横棒</strong>を、上へスワイプします。画面のまん中あたりで<strong>止めてから</strong>離します。",
-      "translation": "Swipe the <strong>horizontal bar</strong> at the very bottom of the screen upward. <strong>Pause</strong> around the middle of the screen, then release it."
+      "translation": "將畫面最下方的<strong>橫線</strong>向上滑動。在畫面中央附近<strong>停一下後</strong>再放開。"
     },
     {
       "source": "<strong>最近使ったアプリ</strong>の画面になります。開いていたアプリが、小さくなって並びます。",
-      "translation": "The <strong>最近使ったアプリ</strong> (recent apps) screen appears. The apps you had open are shown as small screens next to each other."
+      "translation": "會出現<strong>最近使ったアプリ</strong>（最近使用的應用程式）畫面。已開啟的應用程式會縮小並排列出來。"
     },
     {
       "source": "終了したいアプリを、上へスワイプします。画面の外へ消えれば終了です。",
-      "translation": "Swipe the app you want to close upward. It is closed when it disappears off the screen."
+      "translation": "將想結束的應用程式向上滑動。從畫面移出並消失後，就已結束。"
     },
     {
       "source": "止めずにすばやくスワイプすると、ホーム画面に戻るだけで、手順2の画面は出ません。ホーム画面に戻っただけでは、アプリは終了していません。もう一度アプリを開いて、手順1からやり直します。",
-      "translation": "If you swipe quickly without pausing, you only return to the home screen. The screen in step 2 will not appear. Returning to the home screen does not close the app. Open the app again and start over from step 1."
+      "translation": "如果快速滑動而沒有停一下，只會返回主畫面，不會出現步驟 2 的畫面。只返回主畫面，應用程式並未結束。請重新開啟應用程式，從步驟 1 再做一次。"
     },
     {
       "source": "アプリを消す（アンインストール）",
-      "translation": "Remove the app (uninstall)"
+      "translation": "移除應用程式（解除安裝）"
     },
     {
       "source": "アプリといっしょに、そのアプリが保存したデータも消えます。",
-      "translation": "This deletes both the app and the data it has saved."
+      "translation": "應用程式及其儲存的資料都會一併刪除。"
     },
     {
       "source": "ホーム画面を出します。アプリが開いているときは、画面のいちばん下にある横棒を、上へすばやくスワイプします。",
-      "translation": "Go to the home screen. If an app is open, quickly swipe upward from the horizontal bar at the very bottom of the screen."
+      "translation": "顯示主畫面。如果應用程式已開啟，請將畫面最下方的橫線快速向上滑動。"
     },
     {
       "source": "ホーム画面の<strong>まん中あたり</strong>を、下から上へスワイプします。<strong>すべてのアプリ</strong>と書かれた一覧が出ます。いちばん下の横棒から始めると、一覧は出ません。",
-      "translation": "Swipe upward from <strong>around the middle</strong> of the home screen. A list labeled <strong>すべてのアプリ</strong> (All apps) appears. If you start from the horizontal bar at the very bottom, the list will not appear."
+      "translation": "在主畫面的<strong>中央附近</strong>由下向上滑動。會出現標示<strong>すべてのアプリ</strong>（所有應用程式）的列表。如果從最下方的橫線開始，列表不會出現。"
     },
     {
       "source": "消したいアプリのアイコンを<strong>長押し</strong>します。見つからないときは、一覧を上へスワイプして探します。",
-      "translation": "<strong>Long-press</strong> the icon of the app you want to remove. If you cannot find it, swipe upward through the list to look for it."
+      "translation": "<strong>長按</strong>想移除的應用程式圖示。如果找不到，請向上滑動列表尋找。"
     },
     {
       "source": "出てきたメニューの <strong>アプリ情報</strong> を押します（画像①）。",
-      "translation": "In the menu that appears, tap <strong>アプリ情報</strong> (App info) (image ①)."
+      "translation": "按出現選單中的 <strong>アプリ情報</strong>（應用程式資訊）（圖片①）。"
     },
     {
       "source": "ごみ箱の絵の <strong>アンインストール</strong> を押します（画像②）。",
-      "translation": "Tap <strong>アンインストール</strong> (Uninstall), which has a trash can icon (image ②)."
+      "translation": "按有垃圾桶圖示的 <strong>アンインストール</strong>（解除安裝）（圖片②）。"
     },
     {
       "source": "<strong>このアプリをアンインストールしますか？</strong> と出たら、右の <strong>アンインストール</strong> を押します。",
-      "translation": "When <strong>このアプリをアンインストールしますか？</strong> (Do you want to uninstall this app?) appears, tap <strong>アンインストール</strong> (Uninstall) on the right."
+      "translation": "出現 <strong>このアプリをアンインストールしますか？</strong>（要解除安裝這個應用程式嗎？）時，按右側的 <strong>アンインストール</strong>（解除安裝）。"
     },
     {
       "source": "すべてのアプリの一覧で、A08SharedPreferencesSampleのアイコンを長押ししたところ。アプリ情報、アプリを一時停止、ホーム画面に追加、バブルの4つが並んだメニューが出ている。アンインストールという項目はない",
-      "translation": "After long-pressing the A08SharedPreferencesSample icon in すべてのアプリ (All apps), a menu with four items appears: アプリ情報 (App info), Pause app, Add to Home screen, and Bubble. There is no アンインストール (Uninstall) item."
+      "translation": "在「すべてのアプリ」（所有應用程式）列表中長按 A08SharedPreferencesSample 的圖示。出現有「アプリ情報」（應用程式資訊）、暫停應用程式、加入主畫面、泡泡四個項目的選單。沒有「アンインストール」（解除安裝）項目"
     },
     {
       "source": "① 長押しで出るメニュー。<strong>アンインストール</strong> はここにはありません。<strong>アプリ情報</strong> を押します。 <a1>画像を大きく開く</a1>",
-      "translation": "① The menu that appears after a long press. <strong>アンインストール</strong> (Uninstall) is not here. Tap <strong>アプリ情報</strong> (App info). <a1>Open the full-size image</a1>"
+      "translation": "① 長按後出現的選單。這裏沒有 <strong>アンインストール</strong>（解除安裝）。請按 <strong>アプリ情報</strong>（應用程式資訊）。<a1>開啟大圖</a1>"
     },
     {
       "source": "アプリ情報の画面。アプリ名の下に、アーカイブ、アンインストール、強制停止の3つのボタンが横に並んでいる。まん中のアンインストールはごみ箱の絵",
-      "translation": "The アプリ情報 (App info) screen. Three buttons are lined up below the app name: Archive, アンインストール (Uninstall), and Force stop. The middle button, アンインストール (Uninstall), has a trash can icon."
+      "translation": "「アプリ情報」（應用程式資訊）畫面。應用程式名稱下方橫向排列封存、解除安裝、強制停止三個按鈕。中央的「アンインストール」（解除安裝）是垃圾桶圖示"
     },
     {
       "source": "② アプリ情報。3つ並んだボタンの、まん中が <strong>アンインストール</strong> です。 <a1>画像を大きく開く</a1>",
-      "translation": "② アプリ情報 (App info). The middle of the three buttons is <strong>アンインストール</strong> (Uninstall). <a1>Open the full-size image</a1>"
+      "translation": "② アプリ情報（應用程式資訊）。三個並排的按鈕中，中央的是 <strong>アンインストール</strong>（解除安裝）。<a1>開啟大圖</a1>"
     },
     {
       "source": "画面の下に <strong>「（アプリの名前）」をアンインストールしました</strong> と出て、すべてのアプリの一覧からアイコンが消える。",
-      "translation": "<strong>「（アプリの名前）」をアンインストールしました</strong> (\"[app name] has been uninstalled\") appears at the bottom of the screen, and the icon disappears from すべてのアプリ (All apps)."
+      "translation": "畫面下方顯示 <strong>「（アプリの名前）」をアンインストールしました</strong>（已解除安裝「應用程式名稱」），圖示從「すべてのアプリ」（所有應用程式）列表消失。"
     },
     {
       "source": "消したアプリは、Android Studioで <strong>Run ▶</strong> を押せば、もう一度入ります。保存したデータは空の状態から始まります。",
-      "translation": "Press <strong>Run ▶</strong> in Android Studio to install the removed app again. It starts with no saved data."
+      "translation": "在 Android Studio 按 <strong>Run ▶</strong>，就會重新安裝已移除的應用程式。儲存的資料會從空白狀態開始。"
     },
     {
       "source": "長押しのとき、マウスを動かさない",
-      "translation": "Keep the mouse still during a long press"
+      "translation": "長按時不要移動滑鼠"
     },
     {
       "source": "押したまま動かすと、アイコンを別の場所へ移す操作になります。メニューが出るまで、マウスを止めたまま待ちます。",
-      "translation": "If you move while holding the mouse button, you will move the icon to another place. Keep the mouse still and wait until the menu appears."
+      "translation": "如果按住並移動，會變成將圖示移到其他位置的操作。請保持滑鼠不動，等候選單出現。"
     },
     {
       "source": "5. 動かないとき",
-      "translation": "5. If it does not work"
+      "translation": "5. 無法運作時"
     },
     {
       "source": "状態",
-      "translation": "State"
+      "translation": "狀態"
     },
     {
       "source": "やってみること",
-      "translation": "What to try"
+      "translation": "可以嘗試的做法"
     },
     {
       "source": "No Devicesと出る",
-      "translation": "No Devices is shown"
+      "translation": "顯示 No Devices"
     },
     {
       "source": "Device Managerを開き、授業の端末を起動する。",
-      "translation": "Open Device Manager and launch the device used in class."
+      "translation": "開啟 Device Manager，啟動課堂使用的裝置。"
     },
     {
       "source": "Runが押せない",
-      "translation": "Cannot click Run"
+      "translation": "無法按 Run"
     },
     {
       "source": "Gradle Syncの進行中か確認する。終わっても押せなければ、上部でappを選び直す。",
-      "translation": "Check whether Gradle Sync is still running. If you still cannot click Run after it finishes, select app again at the top."
+      "translation": "確認 Gradle Sync 是否仍在進行。如果完成後仍不能按，請在上方重新選取 app。"
     },
     {
       "source": "端末の画面が黒い",
-      "translation": "The device screen is black"
+      "translation": "裝置螢幕是黑色"
     },
     {
       "source": "端末の電源ボタンを1回押す。起動直後なら待つ。数分変わらなければ先生に知らせる。",
-      "translation": "Press the power button on the device once. If the device has just launched, wait. If nothing changes after a few minutes, tell your teacher."
+      "translation": "按一次裝置的電源按鈕。如果剛啟動，請等待。如果幾分鐘後仍沒有變化，請告訴老師。"
     },
     {
       "source": "アプリが出ない",
-      "translation": "The app does not appear"
+      "translation": "應用程式沒有出現"
     },
     {
       "source": "下のBuildやRunのエラーを確認する。別の端末を選んでいないかも確認する。",
-      "translation": "Check the errors in Build or Run at the bottom. Also check that you have not selected a different device."
+      "translation": "確認下方 Build 或 Run 的錯誤。也確認是否選取了其他裝置。"
     },
     {
       "source": "Gradle Syncが失敗する",
-      "translation": "Gradle Sync fails"
+      "translation": "Gradle Sync 失敗"
     },
     {
       "source": "ネット接続とエラーメッセージを確認し、先生に見せる。SDK・JDKなどの設定は教員用資料で確認する。",
-      "translation": "Check your internet connection and the error message, and show it to your teacher. Settings such as SDK and JDK are checked using the teacher's guide."
+      "translation": "確認網絡連線和錯誤訊息，並給老師看。SDK、JDK 等設定請參閱教員用資料。"
     },
     {
       "source": "APIが低いと言われる",
-      "translation": "A message says the API level is too low"
+      "translation": "提示 API 版本過低"
     },
     {
       "source": "<strong>API 37.1</strong> で作った授業用端末 <code>jec_26cm_android1_Pixel 9a</code> を選び直す。",
-      "translation": "Select the class device <code>jec_26cm_android1_Pixel 9a</code> created with <strong>API 37.1</strong> again."
+      "translation": "重新選取使用 <strong>API 37.1</strong> 建立的課堂裝置 <code>jec_26cm_android1_Pixel 9a</code>。"
     },
     {
       "source": "ずっと起動中・offlineのまま",
-      "translation": "The device keeps launching or stays offline"
+      "translation": "一直在啟動，或一直保持 offline"
     },
     {
       "source": "先生に端末名と状態を見せる。必要なら先生と一緒に端末を停止して起動し直す。",
-      "translation": "Show your teacher the device name and its state. If needed, stop and restart the device together with your teacher."
+      "translation": "將裝置名稱和狀態給老師看。有需要時，與老師一起停止裝置再重新啟動。"
     },
     {
       "source": "端末が動けば、開いていた教科書のステップに戻ります。",
-      "translation": "When the device works, return to the step in the textbook you had open."
+      "translation": "裝置能夠運作後，返回原本開啟的教科書步驟。"
     },
     {
       "source": "公式資料",
-      "translation": "Official documentation"
+      "translation": "官方資料"
     },
     {
       "source": "Android Developers：仮想デバイスの作成と管理",
-      "translation": "Android Developers: Create and manage virtual devices"
+      "translation": "Android Developers：建立和管理虛擬裝置"
     },
     {
       "source": "Android Developers：アプリのビルドと実行",
-      "translation": "Android Developers: Build and run your app"
+      "translation": "Android Developers：建構與執行應用程式"
     },
     {
       "source": "← もとのページへ戻る",
-      "translation": "← Back to the page you came from"
+      "translation": "← 返回原來的頁面"
     },
     {
       "source": "対象：macOS / Android Studio Panda 2 | 2025.3.2 · 確認日：2026年9月20日",
-      "translation": "For: macOS / Android Studio Panda 2 | 2025.3.2 · Checked on: September 20, 2026"
+      "translation": "適用於：macOS / Android Studio Panda 2 | 2025.3.2 · 確認日期：2026 年 9 月 20 日"
     }
   ]
 }

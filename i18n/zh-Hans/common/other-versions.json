@@ -1,517 +1,517 @@
 {
   "source": "docs/common/other-versions.html",
-  "language": "en",
+  "language": "zh-Hans",
   "entries": [
     {
       "source": "ちがうAndroid Studioのバージョンで進めるとき | Androidプログラミング1",
-      "translation": "Using a different version of Android Studio | Android Programming 1"
+      "translation": "使用不同版本的Android Studio时 | Android编程1"
     },
     {
       "source": "本文へ移動",
-      "translation": "Skip to main content"
+      "translation": "跳转到正文"
     },
     {
       "source": "JEC / Androidプログラミング1",
-      "translation": "JEC / Android Programming 1"
+      "translation": "JEC / Android编程1"
     },
     {
       "source": "もとのページへ戻る",
-      "translation": "Back to the page you came from"
+      "translation": "返回原来的页面"
     },
     {
       "source": "ANDROID PROGRAMMING 1 / 共通資料・授業サポート",
-      "translation": "ANDROID PROGRAMMING 1 / Shared guide · Class support"
+      "translation": "ANDROID PROGRAMMING 1 / 通用资料与课堂支持"
     },
     {
       "source": "ちがうAndroid Studioの<br>バージョンで進めるとき",
-      "translation": "Using a different version<br>of Android Studio"
+      "translation": "使用不同版本的<br>Android Studio时"
     },
     {
       "source": "教科書は、学校の貸与パソコンと規定のバージョンを前提に書かれています。<br>自分のMacなど、ちがう環境で進める人のための読み替え資料です。",
-      "translation": "The textbook assumes you are using a computer loaned by the school and the required versions.<br>This guide helps you adapt the instructions if you are using a different environment, such as your own Mac."
+      "translation": "教材以学校借给学生的电脑和规定版本为前提编写。<br>这份资料帮助使用自己的Mac等不同环境的同学，按实际环境理解教材中的操作。"
     },
     {
       "source": "このページの内容",
-      "translation": "Contents of this page"
+      "translation": "本页内容"
     },
     {
       "source": "サポートの範囲",
-      "translation": "Scope of support"
+      "translation": "支持范围"
     },
     {
       "source": "教科書が前提にしているもの",
-      "translation": "What the textbook assumes"
+      "translation": "教材的前提条件"
     },
     {
       "source": "読み替えのポイント",
-      "translation": "How to adapt the instructions"
+      "translation": "按实际环境调整的要点"
     },
     {
       "source": "それでも合わないとき",
-      "translation": "If things still do not match"
+      "translation": "仍然不一致时"
     },
     {
       "source": "はじめに読んでください",
-      "translation": "Read this first"
+      "translation": "请先阅读"
     },
     {
       "source": "環境が人によって違うと、うまく動かないときの原因が「教科書のとおりに書けていない」のか「環境の違い」なのかを、その場で切り分けられません。実習の時間内に全員をフォローするために、<strong>基準となる環境を1つ決めています。</strong>",
-      "translation": "When everyone uses a different environment, it is hard to tell on the spot whether a problem comes from code that differs from the textbook or from a difference in the environment. To support everyone within class time, <strong>we use one standard environment.</strong>"
+      "translation": "如果每个人的环境不同，运行不正常时，就无法当场判断原因是“没有按照教材编写”，还是“环境不同”。为了在实习时间内帮助所有同学，<strong>我们统一规定了一个标准环境。</strong>"
     },
     {
       "source": "教科書は、その基準のバージョンで<strong>実際に動くことを確認して作っています。</strong>貸与パソコン以外や規定と違うバージョンでは、この確認が取れていません。",
-      "translation": "The textbook was created after <strong>checking that everything actually works with these standard versions.</strong> This has not been checked on computers other than the school's loan computers or with versions other than the required ones."
+      "translation": "教材是在标准版本中<strong>确认能够实际运行后编写的。</strong>学校出借的电脑以外的设备，或与规定不同的版本，尚未经过这项确认。"
     },
     {
       "source": "このページは、それでも自分の環境で進めたい人のための手がかりです。<strong>確実に授業についていきたい場合は、規定のバージョンに合わせてください。</strong>",
-      "translation": "This page provides guidance if you still want to use your own environment. <strong>Use the required versions if you want to make sure you can follow the class.</strong>"
+      "translation": "本页为仍希望使用自己环境的同学提供参考。<strong>如果希望顺利跟上课堂进度，请使用规定的版本。</strong>"
     },
     {
       "source": "1. サポートの範囲",
-      "translation": "1. Scope of support"
+      "translation": "1. 支持范围"
     },
     {
       "source": "1-1. 基準の環境と、それ以外",
-      "translation": "1-1. The standard environment and other environments"
+      "translation": "1-1. 标准环境与其他环境"
     },
     {
       "source": "扱い",
-      "translation": "How it is handled"
+      "translation": "处理方式"
     },
     {
       "source": "貸与パソコン＋規定のバージョン",
-      "translation": "School loan computer + required versions"
+      "translation": "学校出借的电脑＋规定版本"
     },
     {
       "source": "<strong>基準の環境です。</strong>教科書はこの環境で動作を確認しています。実習中のフォローもこの環境が前提です。",
-      "translation": "<strong>This is the standard environment.</strong> The textbook has been checked in this environment. Support during class also assumes you are using this environment."
+      "translation": "<strong>这是标准环境。</strong>教材已在此环境中验证运行。实习中的指导也以此环境为前提。"
     },
     {
       "source": "自分のMac、または規定と違うバージョン",
-      "translation": "Your own Mac or versions other than the required ones"
+      "translation": "自己的Mac，或与规定不同的版本"
     },
     {
       "source": "<strong>動作確認をしていません。</strong>このページを手がかりに自分で読み替えます。実習中に質問しても、時間内に解決できないことがあります。",
-      "translation": "<strong>This has not been tested.</strong> Use this page to adapt the instructions yourself. Even if you ask a question during class, it may not be possible to resolve it within the available time."
+      "translation": "<strong>尚未验证运行。</strong>请参考本页，自己按照实际环境调整理解。即使在实习中提问，也可能无法在课时内解决。"
     },
     {
       "source": "授業では使いません。教科書はmacOS前提で書かれています。",
-      "translation": "We do not use this in class. The textbook assumes macOS."
+      "translation": "课堂上不使用。教材以macOS为前提编写。"
     },
     {
       "source": "迷ったら基準の環境へ",
-      "translation": "If unsure, use the standard environment"
+      "translation": "拿不准时，请使用标准环境"
     },
     {
       "source": "環境の違いが原因の問題は、<strong>切り分けに時間がかかります。</strong>90分の実習の中で解決できないことも多く、そのぶん教科書を進める時間が減ります。困ったら早めに貸与パソコンへ戻してください。教科書のとおりに進めば、同じものができます。",
-      "translation": "For problems caused by differences in the environment, <strong>finding the cause takes time.</strong> They often cannot be resolved within a 90-minute class period, leaving less time to work through the textbook. If you get stuck, switch back to the school's loan computer early. Following the textbook will produce the same result."
+      "translation": "由环境差异导致的问题，<strong>需要花时间排查。</strong>许多问题无法在90分钟的实习中解决，也会减少学习教材的时间。遇到困难时，请尽早换回学校出借的电脑。按照教材操作，就能做出相同的项目。"
     },
     {
       "source": "2. 教科書が前提にしているもの",
-      "translation": "2. What the textbook assumes"
+      "translation": "2. 教材的前提条件"
     },
     {
       "source": "2-1. 開発環境",
-      "translation": "2-1. Development environment"
+      "translation": "2-1. 开发环境"
     },
     {
       "source": "項目",
-      "translation": "Item"
+      "translation": "项目"
     },
     {
       "source": "前提にしている内容",
-      "translation": "Assumed setup"
+      "translation": "前提内容"
     },
     {
       "source": "エミュレータ",
-      "translation": "エミュレータ — emulator"
+      "translation": "エミュレータ — 模拟器"
     },
     {
       "source": "教科書のスクリーンショットは、すべてこの環境で撮影しています。",
-      "translation": "All screenshots in the textbook were taken in this environment."
+      "translation": "教材中的所有截图都在此环境中拍摄。"
     },
     {
       "source": "2-2. プロジェクトを作るときの選択",
-      "translation": "2-2. Choices when creating a project"
+      "translation": "2-2. 创建项目时的选择"
     },
     {
       "source": "選ぶもの",
-      "translation": "What to select"
+      "translation": "选择内容"
     },
     {
       "source": "テンプレート",
-      "translation": "Template"
+      "translation": "模板"
     },
     {
       "source": "2-3. 完成プロジェクトが使っているもの",
-      "translation": "2-3. Versions used by the finished projects"
+      "translation": "2-3. 完成版项目使用的版本"
     },
     {
       "source": "各単元の完成プロジェクトは、次のバージョンで作られています。",
-      "translation": "The finished project for each unit was created with the following versions."
+      "translation": "各单元的完成版项目使用以下版本创建。"
     },
     {
       "source": "バージョン",
-      "translation": "Version"
+      "translation": "版本"
     },
     {
       "source": "3. 読み替えのポイント",
-      "translation": "3. How to adapt the instructions"
+      "translation": "3. 按实际环境调整的要点"
     },
     {
       "source": "3-1. 画面の見た目が違う",
-      "translation": "3-1. The screen looks different"
+      "translation": "3-1. 界面外观不同"
     },
     {
       "source": "Android Studioは版が上がると、ウィンドウの文言や項目の並びが変わることがあります。",
-      "translation": "New versions of Android Studio may change the wording in windows or the order of options."
+      "translation": "Android Studio升级版本后，窗口中的文字和项目排列可能发生变化。"
     },
     {
       "source": "合わせ方",
-      "translation": "How to match the settings"
+      "translation": "如何对应"
     },
     {
       "source": "<strong>スクリーンショットの見た目ではなく、「何を選ぶか」で合わせます。</strong>2-2の表の4項目さえ同じなら、画面の並びが違っても同じプロジェクトができます。項目が見つからないときは、ウィンドウ内を探すか、<strong>Previous</strong> で1つ前に戻って確認します。",
-      "translation": "<strong>Match what you select, rather than how the screenshot looks.</strong> If the four choices in the table in 2-2 are the same, you will create the same project even if the screen layout differs. If you cannot find an option, look around the window or click <strong>Previous</strong> to go back one step and check."
+      "translation": "<strong>请根据“要选择什么”来对应，而不是按照截图的外观。</strong>只要2-2表中的4项相同，即使界面排列不同，也能创建相同的项目。找不到某个选项时，请在窗口内寻找，或点击 <strong>Previous</strong> 返回上一步检查。"
     },
     {
       "source": "テンプレートの名前が変わっている場合は、<strong>Views</strong> という語が入っているものを選びます。<code>Empty Activity</code>（Viewsが付かないもの）はJetpack Composeという別のしくみで、教科書のXMLと合いません。",
-      "translation": "If the template name has changed, select one containing <strong>Views</strong>. <code>Empty Activity</code> (without Views) uses a different system called Jetpack Compose and does not match the XML in this textbook."
+      "translation": "如果模板名称发生变化，请选择名称中包含 <strong>Views</strong> 的模板。<code>Empty Activity</code>（没有Views的模板）使用名为Jetpack Compose的另一种机制，与教材中的XML不一致。"
     },
     {
       "source": "3-2. 完成プロジェクトを開くと更新をすすめられる",
-      "translation": "3-2. You are prompted to upgrade when opening a finished project"
+      "translation": "3-2. 打开完成版项目后提示更新"
     },
     {
       "source": "新しいAndroid Studioで完成プロジェクトを開くと、<strong>Android Gradle Pluginのアップグレード</strong>をすすめる案内（AGP Upgrade Assistant）が出ることがあります。",
-      "translation": "When you open a finished project in a newer Android Studio, a prompt (AGP Upgrade Assistant) may suggest <strong>upgrading the Android Gradle Plugin</strong>."
+      "translation": "用新版Android Studio打开完成版项目时，可能会出现建议<strong>升级Android Gradle Plugin</strong>的提示（AGP Upgrade Assistant）。"
     },
     {
       "source": "授業中は更新しません",
-      "translation": "Do not upgrade during class"
+      "translation": "课堂上不更新"
     },
     {
       "source": "更新すると <code>build.gradle.kts</code> などの中身が書き換わり、教科書に載っているコードと差が出ます。<strong>案内が出ても閉じてください。</strong>完成プロジェクトは「答え合わせ用の見本」なので、そのまま読めれば十分です。",
-      "translation": "Upgrading changes files such as <code>build.gradle.kts</code>, making them differ from the code in the textbook. <strong>Close the upgrade prompt if it appears.</strong> The finished project is a sample for checking your work, so being able to read it as it is is enough."
+      "translation": "更新后，<code>build.gradle.kts</code> 等文件的内容会被改写，与教材中的代码产生差异。<strong>即使出现提示，也请关闭。</strong>完成版项目是“核对答案用的示例”，能够按原样阅读就足够了。"
     },
     {
       "source": "自分で作るプロジェクトのほうは、新しいAndroid Studioが選んだバージョンのままで構いません。教科書が指定しているのは2-2の4項目だけです。",
-      "translation": "For projects you create yourself, you can keep the versions selected by the newer Android Studio. The textbook only specifies the four choices in 2-2."
+      "translation": "自己创建的项目可以保留新版Android Studio选择的版本。教材只规定了2-2中的4个选项。"
     },
     {
       "source": "3-3. エミュレータの名前が違う",
-      "translation": "3-3. The emulator has a different name"
+      "translation": "3-3. 模拟器名称不同"
     },
     {
       "source": "自分のMacには <code>jec_26cm_android1_Pixel 9a</code> がありません。<a1>共通資料：エミュレータの準備とアプリの実行</a1>の手順で、同じ設定のものを自分で作ってください。名前は同じにしておくと、教科書の記述をそのまま読めます。",
-      "translation": "Your own Mac does not have <code>jec_26cm_android1_Pixel 9a</code>. Follow <a1>Shared guide: Setting up the emulator and running apps</a1> to create one with the same settings. Giving it the same name lets you follow the textbook without adjusting the name."
+      "translation": "自己的Mac中没有 <code>jec_26cm_android1_Pixel 9a</code>。请按照<a1>通用资料：模拟器的准备与应用的运行</a1>中的步骤，自己创建设置相同的模拟器。使用相同的名称，就能直接对照教材阅读。"
     },
     {
       "source": "3-4. Quail 4 との違い（実際に比べた結果）",
-      "translation": "3-4. Differences in Quail 4 (results of an actual comparison)"
+      "translation": "3-4. 与Quail 4的差异（实际比较结果）"
     },
     {
       "source": "教員が <strong>Android Studio Quail 4</strong> で同じ設定のひな形プロジェクトを作り、Panda 2 のものと1ファイルずつ比べました。結果は次のとおりです。",
-      "translation": "The teacher created a template project in <strong>Android Studio Quail 4</strong> with the same settings, then compared it with the Panda 2 project file by file. Here are the results."
+      "translation": "老师使用 <strong>Android Studio Quail 4</strong> 创建了相同设置的模板项目，并与Panda 2创建的项目逐个文件进行了比较。结果如下。"
     },
     {
       "source": "同じだったもの",
-      "translation": "What was the same"
+      "translation": "相同的部分"
     },
     {
       "source": "ファイル",
-      "translation": "File"
+      "translation": "文件"
     },
     {
       "source": "結果",
-      "translation": "Result"
+      "translation": "结果"
     },
     {
       "source": "<strong>完全に同じ</strong>（パッケージ名の行を除く）",
-      "translation": "<strong>Exactly the same</strong> (except for the package name line)"
+      "translation": "<strong>完全相同</strong>（包名所在行除外）"
     },
     {
       "source": "完全に同じ",
-      "translation": "Exactly the same"
+      "translation": "完全相同"
     },
     {
       "source": "同じ（テーマ名を除く）",
-      "translation": "The same (except for the theme name)"
+      "translation": "相同（主题名称除外）"
     },
     {
       "source": "どちらも <code>minSdk = 31</code>。ウィザードで API 31 を選べば同じになる",
-      "translation": "Both use <code>minSdk = 31</code>. Selecting API 31 in the wizard gives the same setting."
+      "translation": "两者都是 <code>minSdk = 31</code>。在向导中选择API 31，结果就相同"
     },
     {
       "source": "ここが大事です",
-      "translation": "The key point"
+      "translation": "这里是关键"
     },
     {
       "source": "<strong>教科書で入力するコードは、Quail 4 でもそのまま使えます。</strong>ひな形の <code>MainActivity.java</code> も <code>activity_main.xml</code> も中身が同じだからです。<code>android:id=\"@+id/main\"</code> も、インセットの処理も、Panda 2 と同じ形で作られます。",
-      "translation": "<strong>You can use the code you enter from the textbook unchanged in Quail 4.</strong> The contents of both template files, <code>MainActivity.java</code> and <code>activity_main.xml</code>, are the same. Both <code>android:id=\"@+id/main\"</code> and the code that handles insets are generated in the same form as in Panda 2."
+      "translation": "<strong>教材中输入的代码，在Quail 4中也可以原样使用。</strong>因为模板中的 <code>MainActivity.java</code> 和 <code>activity_main.xml</code> 内容相同。<code>android:id=\"@+id/main\"</code> 和窗口边衬区的处理也与Panda 2生成的形式相同。"
     },
     {
       "source": "違ったもの",
-      "translation": "What was different"
+      "translation": "不同的部分"
     },
     {
       "source": "違いはすべて<strong>ビルドの設定</strong>にありました。授業では触らない部分です。",
-      "translation": "All the differences were in <strong>build settings</strong>. These are parts we do not change in class."
+      "translation": "所有差异都在<strong>构建设置</strong>中。这些部分课堂上不会修改。"
     },
     {
       "source": "R8のルールを書くファイル",
-      "translation": "File for R8 rules"
+      "translation": "编写R8规则的文件"
     },
     {
       "source": "指定なし",
-      "translation": "Not specified"
+      "translation": "未指定"
     },
     {
       "source": "<code>android:windowSoftInputMode=\"adjustResize\"</code> が自動で付く",
-      "translation": "<code>android:windowSoftInputMode=\"adjustResize\"</code> is added automatically"
+      "translation": "自动添加 <code>android:windowSoftInputMode=\"adjustResize\"</code>"
     },
     {
       "source": "使うライブラリ",
-      "translation": "Libraries used"
+      "translation": "使用的库"
     },
     {
       "source": "ライブラリの版",
-      "translation": "Library versions"
+      "translation": "库的版本"
     },
     {
       "source": "appcompat 1.8.0 / material 1.14.0 など",
-      "translation": "appcompat 1.8.0 / material 1.14.0, and others"
+      "translation": "appcompat 1.8.0 / material 1.14.0等"
     },
     {
       "source": "appcompat 1.6.1 / material 1.10.0 など（<strong>やや古い</strong>）",
-      "translation": "appcompat 1.6.1 / material 1.10.0, and others (<strong>slightly older</strong>)"
+      "translation": "appcompat 1.6.1 / material 1.10.0等（<strong>稍旧</strong>）"
     },
     {
       "source": "Minimum SDK だけは自分で選びます",
-      "translation": "You must select Minimum SDK yourself"
+      "translation": "只有Minimum SDK需要自己选择"
     },
     {
       "source": "教科書は <strong>API 31</strong> を前提にしています。新規作成のときに自分で API 31 を選べば、Quail 4 でも <code>minSdk = 31</code> になります（比較に使ったひな形で確認しました）。作ったあとで確かめるときは <code>app/build.gradle.kts</code> の <code>minSdk</code> を見ます。",
-      "translation": "The textbook assumes <strong>API 31</strong>. If you select API 31 when creating a project, Quail 4 also uses <code>minSdk = 31</code> (confirmed in the template used for the comparison). To check after creating the project, look at <code>minSdk</code> in <code>app/build.gradle.kts</code>."
+      "translation": "教材以 <strong>API 31</strong> 为前提。新建时自己选择API 31，即使使用Quail 4，也会得到 <code>minSdk = 31</code>（已在用于比较的模板中确认）。创建后想检查时，请查看 <code>app/build.gradle.kts</code> 中的 <code>minSdk</code>。"
     },
     {
       "source": "上の表の違い（AGP・Gradle・compileSdk・targetSdk・R8のファイル名・ライブラリ）は、<strong>そのままで構いません。</strong>教科書はこれらに依存していません。新しいバージョンが選んだ値のまま進めてください。",
-      "translation": "<strong>You can leave the differences in the table above as they are</strong> (AGP, Gradle, compileSdk, targetSdk, the R8 file name, and libraries). The textbook does not depend on these settings. Continue with the values selected by the newer version."
+      "translation": "上表中的差异（AGP、Gradle、compileSdk、targetSdk、R8文件名、库），<strong>保持不变即可。</strong>教材不依赖这些设置。请按新版本选择的值继续操作。"
     },
     {
       "source": "なお Quail 4 のひな形は、そのまま <code>assembleDebug</code> が通ることを確認しています。",
-      "translation": "We also confirmed that the unchanged Quail 4 template passes <code>assembleDebug</code>."
+      "translation": "此外，已经确认Quail 4的模板无需修改即可通过 <code>assembleDebug</code>。"
     },
     {
       "source": "3-5. Javaのバージョンのこと（JVM / toolchainVersion / compileOptions）",
-      "translation": "3-5. Java versions (JVM / toolchainVersion / compileOptions)"
+      "translation": "3-5. 关于Java版本（JVM / toolchainVersion / compileOptions）"
     },
     {
       "source": "先に結論です。教科書に出てくるJavaの書き方は、Quail 4 でもそのまま使えます。",
-      "translation": "The conclusion first: You can use the Java code in the textbook unchanged in Quail 4."
+      "translation": "先说结论：教材中的Java写法，在Quail 4中也可以原样使用。"
     },
     {
       "source": "Javaは2か所で使われています",
-      "translation": "Java is used in two places"
+      "translation": "Java用于两个地方"
     },
     {
       "source": "まぎらわしいのですが、Androidアプリ作りでは「Java」が2つの役割で出てきます。調べるときに使う言葉もあわせて載せます。",
-      "translation": "This can be confusing, but \"Java\" has two roles in Android app development. The terms you can use to look them up are included below."
+      "translation": "这有些容易混淆：制作Android应用时，“Java”有两种作用。下面也列出了查资料时会用到的词。"
     },
     {
       "source": "どこで使うJavaか",
-      "translation": "What this Java is used for"
+      "translation": "用于何处的Java"
     },
     {
       "source": "設定の名前と場所",
-      "translation": "Setting name and location"
+      "translation": "设置名称与位置"
     },
     {
       "source": "<strong>自分が書くコード</strong>のJava。<code>MainActivity.java</code> に書く <code>var</code> やラムダ式など。",
-      "translation": "Java for <strong>the code you write</strong>, such as <code>var</code> and lambda expressions in <code>MainActivity.java</code>."
+      "translation": "<strong>自己编写的代码</strong>所用的Java。例如在 <code>MainActivity.java</code> 中编写的 <code>var</code>、Lambda表达式等。"
     },
     {
       "source": "<code>compileOptions</code> の <code>sourceCompatibility</code> / <code>targetCompatibility</code><br>（<code>app/build.gradle.kts</code>）",
-      "translation": "<code>sourceCompatibility</code> / <code>targetCompatibility</code> in <code>compileOptions</code><br>(<code>app/build.gradle.kts</code>)"
+      "translation": "<code>compileOptions</code> 中的 <code>sourceCompatibility</code> / <code>targetCompatibility</code><br>（<code>app/build.gradle.kts</code>）"
     },
     {
       "source": "<strong>アプリを組み立てるビルドツール（Gradle）を動かす</strong>ためのJava。この実行環境を <strong>JVM</strong> と呼びます。学生が直接書くことはありません。",
-      "translation": "Java for <strong>running the build tool (Gradle) that assembles the app</strong>. This runtime environment is called the <strong>JVM</strong>. Students do not write this part directly."
+      "translation": "用于<strong>运行构建应用的工具（Gradle）</strong>的Java。这个运行环境称为 <strong>JVM</strong>。学生不会直接编写它。"
     },
     {
       "source": "Panda 2 と Quail 4 で違うのは、<strong>②のほうだけ</strong>です。",
-      "translation": "<strong>Only ②</strong> differs between Panda 2 and Quail 4."
+      "translation": "Panda 2与Quail 4的差异<strong>只在②</strong>。"
     },
     {
       "source": "① 自分が書くコードのJava<br>（<code>compileOptions</code>）",
-      "translation": "① Java for the code you write<br>(<code>compileOptions</code>)"
+      "translation": "① 自己编写的代码所用的Java<br>（<code>compileOptions</code>）"
     },
     {
       "source": "<code>JavaVersion.VERSION_11</code>（同じ）",
-      "translation": "<code>JavaVersion.VERSION_11</code> (the same)"
+      "translation": "<code>JavaVersion.VERSION_11</code>（相同）"
     },
     {
       "source": "② Gradleを動かすJVM<br>（<code>toolchainVersion</code>）",
-      "translation": "② The JVM that runs Gradle<br>(<code>toolchainVersion</code>)"
+      "translation": "② 运行Gradle的JVM<br>（<code>toolchainVersion</code>）"
     },
     {
       "source": "だから、コードの書き方は変わりません",
-      "translation": "That is why the way you write code does not change"
+      "translation": "因此，代码的写法不会改变"
     },
     {
       "source": "①の <code>compileOptions</code> が同じ Java 11 なので、<strong>教科書のコードをそのまま入力して大丈夫です。</strong>「Javaのバージョンが違うから書き方も変えないといけないのでは」と心配する必要はありません。",
-      "translation": "Since <code>compileOptions</code> in ① uses the same Java 11, <strong>you can enter the textbook's code unchanged.</strong> You do not need to worry that a different Java version means you must write the code differently."
+      "translation": "①中的 <code>compileOptions</code> 同样是Java 11，因此<strong>直接输入教材中的代码即可。</strong>不用担心“Java版本不同，是不是也要改变写法”。"
     },
     {
       "source": "起きること：最初のビルドに時間がかかります（Gradle toolchain のダウンロード）",
-      "translation": "What happens: The first build takes time (downloading the Gradle toolchain)"
+      "translation": "会发生的情况：首次构建需要较长时间（下载Gradle toolchain）"
     },
     {
       "source": "<code>gradle/gradle-daemon-jvm.properties</code> には「②にどのバージョンを使うか」が <code>toolchainVersion</code> として書き込まれています。そのバージョンが自分のパソコンに無いと、<strong>Gradleが自動でダウンロードします</strong>（Gradle の <strong>toolchain 自動プロビジョニング</strong>という仕組みです）。",
-      "translation": "In <code>gradle/gradle-daemon-jvm.properties</code>, <code>toolchainVersion</code> specifies which version to use for ②. If that version is not on your computer, <strong>Gradle downloads it automatically</strong>. This Gradle feature is called <strong>toolchain auto-provisioning</strong>."
+      "translation": "<code>gradle/gradle-daemon-jvm.properties</code> 中通过 <code>toolchainVersion</code> 记录“②使用哪个版本”。如果电脑上没有该版本，<strong>Gradle会自动下载</strong>（这是Gradle的 <strong>toolchain自动配置</strong>机制）。"
     },
     {
       "source": "授業で配る<strong>完成プロジェクトは <code>toolchainVersion=21</code></strong> です。Quail 4 が持っているのは25なので、完成プロジェクトを開くと<strong>JDK 21 のダウンロードが始まることがあります。</strong>",
-      "translation": "The <strong>finished projects distributed in class use <code>toolchainVersion=21</code></strong>. Quail 4 has version 25, so opening a finished project <strong>may start a JDK 21 download.</strong>"
+      "translation": "课堂上发放的<strong>完成版项目设置为 <code>toolchainVersion=21</code></strong>。Quail 4自带的是25，因此打开完成版项目时，<strong>可能会开始下载JDK 21。</strong>"
     },
     {
       "source": "こうなったときは、待ってください",
-      "translation": "If this happens, wait"
+      "translation": "出现这种情况时，请等待"
     },
     {
       "source": "<strong>初回のビルドだけ、数分かかることがあります。</strong>止まってしまったわけではありません。",
-      "translation": "<strong>The first build may take a few minutes.</strong> It has not stopped working."
+      "translation": "<strong>只有首次构建可能需要几分钟。</strong>并不是卡住了。"
     },
     {
       "source": "このとき<strong>インターネットにつながっている必要があります。</strong>つながっていないと失敗します。",
-      "translation": "<strong>You need an internet connection</strong> for this. Without one, it will fail."
+      "translation": "此时<strong>必须连接互联网。</strong>没有联网就会失败。"
     },
     {
       "source": "<strong>2回目からは速くなります。</strong>一度ダウンロードしたものが <code>~/.gradle/jdks</code> に保存され、使い回されるためです。",
-      "translation": "<strong>Later builds will be faster.</strong> The download is saved in <code>~/.gradle/jdks</code> and reused."
+      "translation": "<strong>从第2次开始就会加快。</strong>因为下载过的内容保存在 <code>~/.gradle/jdks</code> 中，可以重复使用。"
     },
     {
       "source": "画面下のビルドの表示に <code>Downloading</code> や <code>toolchain</code> という文字が出ていれば、この待ち時間です。エラーを調べるときは <strong>Gradle toolchain</strong> や <strong>toolchain auto-provisioning</strong> という言葉で検索すると情報が見つかります。",
-      "translation": "If you see <code>Downloading</code> or <code>toolchain</code> in the build output at the bottom of the screen, this is what you are waiting for. When investigating errors, search for <strong>Gradle toolchain</strong> or <strong>toolchain auto-provisioning</strong> to find information."
+      "translation": "如果屏幕下方的构建信息显示 <code>Downloading</code> 或 <code>toolchain</code>，就是在等待这个过程。排查错误时，搜索 <strong>Gradle toolchain</strong> 或 <strong>toolchain auto-provisioning</strong> 就能找到相关资料。"
     },
     {
       "source": "自分で新しく作ったプロジェクトのほうは、Quail 4 が自分の持っているバージョン（<code>toolchainVersion=25</code>）を書き込むので、このダウンロードは起きません。",
-      "translation": "For new projects you create yourself, Quail 4 writes its own version (<code>toolchainVersion=25</code>), so this download does not happen."
+      "translation": "自己新建项目时，Quail 4会写入它自带的版本（<code>toolchainVersion=25</code>），因此不会进行这次下载。"
     },
     {
       "source": "先生向け：確認した内容",
-      "translation": "For teachers: What was checked"
+      "translation": "教师参考：已确认的内容"
     },
     {
       "source": "各プロジェクトの <code>gradle/gradle-daemon-jvm.properties</code> の <code>toolchainVersion</code> を比較しました。A01〜A11 と <code>Panda2JavaEmptyViewActivity</code> はすべて <code>21</code>、<code>Quail4JavaEmptyViewActivity</code> は <code>25</code> です。<code>app/build.gradle.kts</code> の <code>compileOptions</code> は、どちらも <code>sourceCompatibility</code> / <code>targetCompatibility</code> とも <code>JavaVersion.VERSION_11</code> で一致しています。",
-      "translation": "We compared <code>toolchainVersion</code> in each project's <code>gradle/gradle-daemon-jvm.properties</code>. A01–A11 and <code>Panda2JavaEmptyViewActivity</code> all use <code>21</code>, while <code>Quail4JavaEmptyViewActivity</code> uses <code>25</code>. In <code>app/build.gradle.kts</code>, <code>compileOptions</code> matches in both: <code>sourceCompatibility</code> and <code>targetCompatibility</code> are both <code>JavaVersion.VERSION_11</code>."
+      "translation": "比较了各项目 <code>gradle/gradle-daemon-jvm.properties</code> 中的 <code>toolchainVersion</code>。A01～A11和 <code>Panda2JavaEmptyViewActivity</code> 都是 <code>21</code>，<code>Quail4JavaEmptyViewActivity</code> 是 <code>25</code>。两者在 <code>app/build.gradle.kts</code> 的 <code>compileOptions</code> 中，<code>sourceCompatibility</code> / <code>targetCompatibility</code> 均为 <code>JavaVersion.VERSION_11</code>，完全一致。"
     },
     {
       "source": "JDK 25 が入っていないMacで <code>Quail4JavaEmptyViewActivity</code> をビルドしたところ、Gradleが Eclipse Adoptium 25.0.3 を <code>~/.gradle/jdks</code> へ自動取得したうえで <code>assembleDebug</code> が成功しました（2026年9月17日）。",
-      "translation": "When we built <code>Quail4JavaEmptyViewActivity</code> on a Mac without JDK 25, Gradle automatically downloaded Eclipse Adoptium 25.0.3 to <code>~/.gradle/jdks</code>, then <code>assembleDebug</code> succeeded (September 17, 2026)."
+      "translation": "在没有安装JDK 25的Mac上构建 <code>Quail4JavaEmptyViewActivity</code> 时，Gradle先自动将Eclipse Adoptium 25.0.3下载到 <code>~/.gradle/jdks</code>，随后成功执行了 <code>assembleDebug</code>（2026年9月17日）。"
     },
     {
       "source": "4. それでも合わないとき",
-      "translation": "4. If things still do not match"
+      "translation": "4. 仍然不一致时"
     },
     {
       "source": "4-1. 判断のしかた",
-      "translation": "4-1. How to decide what to do"
+      "translation": "4-1. 如何判断"
     },
     {
       "source": "状況",
-      "translation": "Situation"
+      "translation": "情况"
     },
     {
       "source": "どうするか",
-      "translation": "What to do"
+      "translation": "处理方法"
     },
     {
       "source": "画面の文言が違うだけ",
-      "translation": "Only the wording on the screen is different"
+      "translation": "只是界面上的文字不同"
     },
     {
       "source": "3-1のとおり、選ぶ内容で合わせる。",
-      "translation": "Match the selected options as described in 3-1."
+      "translation": "按照3-1，根据要选择的内容来对应。"
     },
     {
       "source": "教科書のコードを入れても赤いエラーが消えない",
-      "translation": "Red errors remain after you enter the textbook's code"
+      "translation": "输入教材中的代码后，红色错误仍未消失"
     },
     {
       "source": "各単元の「困ったとき」を見る。それでも直らなければ規定のバージョンに切り替える。",
-      "translation": "See \"If you get stuck\" in the unit. If that does not fix it, switch to the required version."
+      "translation": "查看各单元的“遇到问题时”。如果仍未解决，请切换到规定版本。"
     },
     {
       "source": "Runできない・ビルドが通らない",
-      "translation": "You cannot run the app or the build fails"
+      "translation": "无法Run，或无法通过构建"
     },
     {
       "source": "<strong>規定のバージョンに切り替える。</strong>環境の違いが原因のことが多く、授業時間内では切り分けられません。",
-      "translation": "<strong>Switch to the required version.</strong> Differences in the environment are often the cause, and cannot be investigated fully within class time."
+      "translation": "<strong>切换到规定版本。</strong>这类问题通常由环境差异导致，无法在课堂时间内排查清楚。"
     },
     {
       "source": "提出期限が近い",
-      "translation": "The submission deadline is close"
+      "translation": "接近提交期限"
     },
     {
       "source": "迷わず貸与パソコンで作り直す。教科書どおりに進めば同じものができます。",
-      "translation": "Start over on the school's loan computer without hesitation. Following the textbook will produce the same result."
+      "translation": "直接用学校出借的电脑重新制作。按照教材操作，就能做出相同的项目。"
     },
     {
       "source": "4-2. 確かめたこと・確かめていないこと",
-      "translation": "4-2. What was and was not checked"
+      "translation": "4-2. 已确认与未确认的内容"
     },
     {
       "source": "内容",
-      "translation": "Details"
+      "translation": "内容"
     },
     {
       "source": "確かめたこと",
-      "translation": "What was checked"
+      "translation": "已确认的内容"
     },
     {
       "source": "Quail 4 で作ったひな形プロジェクトと、Panda 2 のものを1ファイルずつ比べた（3-4の表）。Quail 4 のひな形が <code>assembleDebug</code> で通ること、そのときGradleが JDK 25 を自動取得したこと（3-5）も確認した。<strong>さらに、Quail 4 の設定（3-4の表のとおり）にした各単元のプロジェクトへ、STEPごとのコードを順に入れて、全11単元・77か所でビルドを確かめた。Quail 4 だから起きる失敗は1件もなかった。</strong>A10・A11で使うRoomは、ビルドのときにコードを自動で作る部品（<code>annotationProcessor</code>）を使う。これもJDK 25で問題なく動いた。",
-      "translation": "We compared a Quail 4 template project with the Panda 2 project file by file (table in 3-4). We also confirmed that the Quail 4 template passes <code>assembleDebug</code> and that Gradle automatically downloads JDK 25 when doing so (3-5). <strong>We then applied the Quail 4 settings (from the table in 3-4) to each unit's project, entered the code for each STEP in order, and checked builds at 77 points across all 11 units. There were no failures caused by using Quail 4.</strong> Room, used in A10 and A11, uses a component that generates code during the build (<code>annotationProcessor</code>). This also worked without problems on JDK 25."
+      "translation": "逐个文件比较了Quail 4与Panda 2创建的模板项目（3-4的表）。也确认了Quail 4模板能够通过 <code>assembleDebug</code>，以及当时Gradle自动下载了JDK 25（3-5）。<strong>此外，将各单元项目改为Quail 4的设置（如3-4的表所示），依次放入每个STEP的代码，对全部11个单元、77处进行了构建验证。没有出现任何因Quail 4而导致的失败。</strong>A10、A11使用的Room会用到在构建时自动生成代码的组件（<code>annotationProcessor</code>）。这个组件在JDK 25下也能正常运行。"
     },
     {
       "source": "確かめていないこと",
-      "translation": "What was not checked"
+      "translation": "未确认的内容"
     },
     {
       "source": "<strong>エミュレータで実際に動かした確認は、Panda 2 で行っています。</strong>Quail 4 では、コードが組み立てられるところまでを確かめました。Android Studio の画面そのもの（メニューの位置や表示）は版によって変わるため、教科書のスクリーンショットと違って見えることがあります。Quail 4 以外のバージョン（さらに新しい版など）も試していません。3-1〜3-3の読み替えは、一般的な注意点としてまとめたものです。",
-      "translation": "<strong>Actual behavior in the emulator was checked using Panda 2.</strong> With Quail 4, we checked that the code could be built. Android Studio's own screens (menu positions and labels) vary by version, so they may look different from the textbook's screenshots. We have not tried versions other than Quail 4, such as even newer versions. The guidance in 3-1–3-3 describes general points to keep in mind."
+      "translation": "<strong>在模拟器中实际运行的验证使用的是Panda 2。</strong>Quail 4只确认到代码能够构建完成。Android Studio界面本身（菜单的位置和显示）会随版本变化，因此可能与教材截图不同。也没有尝试Quail 4以外的版本（例如更新的版本）。3-1～3-3按实际环境调整的说明，是作为一般注意事项整理的。"
     },
     {
       "source": "気づいたことを教えてください",
-      "translation": "Let us know what you notice"
+      "translation": "请告诉我们你的发现"
     },
     {
       "source": "ちがうAndroid Studioのバージョンで進めて気づいたことがあれば、<strong>先生に知らせてください。</strong>次の版でこのページに反映します。そのとき「<strong>Android Studioのバージョン</strong>」「<strong>起きたこと</strong>」「<strong>教科書のどのSTEPか</strong>」の3つを伝えてもらえると助かります。",
-      "translation": "If you notice something while using a different version of Android Studio, <strong>tell your teacher.</strong> We will update this page in the next version. Please include these three details: <strong>the Android Studio version</strong>, <strong>what happened</strong>, and <strong>which STEP in the textbook</strong>."
+      "translation": "使用不同版本的Android Studio时，如果发现了什么，<strong>请告诉老师。</strong>我们会在下一版中更新本页。告知时，请提供“<strong>Android Studio的版本</strong>”“<strong>发生了什么</strong>”“<strong>教材中的哪个STEP</strong>”这3项信息。"
     },
     {
       "source": "公式資料",
-      "translation": "Official documentation"
+      "translation": "官方资料"
     },
     {
       "source": "<a1>Android Studio リリースノート</a1>／<a2>AGP Upgrade Assistant</a2>／<a3>プロジェクトを作成する</a3>",
-      "translation": "<a1>Android Studio release notes</a1> / <a2>AGP Upgrade Assistant</a2> / <a3>Create a project</a3>"
+      "translation": "<a1>Android Studio版本说明</a1>／<a2>AGP Upgrade Assistant</a2>／<a3>创建项目</a3>"
     },
     {
       "source": "← もとのページへ戻る",
-      "translation": "← Back to the page you came from"
+      "translation": "← 返回原来的页面"
     },
     {
       "source": "対象：macOS / Android Studio Panda 2 | 2025.3.2 · 確認日：2026年9月17日",
-      "translation": "For: macOS / Android Studio Panda 2 | 2025.3.2 · Checked: September 17, 2026"
+      "translation": "适用环境：macOS / Android Studio Panda 2 | 2025.3.2 · 确认日期：2026年9月17日"
     }
   ],
   "overrides": [
     {
       "source": "エミュレータ",
       "where": "td",
-      "translation": "Emulator"
+      "translation": "模拟器"
     }
   ]
 }

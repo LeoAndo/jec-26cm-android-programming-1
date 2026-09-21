@@ -1,482 +1,482 @@
 {
   "source": "docs/common/dev-tips.html",
-  "language": "en",
+  "language": "zh-Hans",
   "entries": [
     {
       "source": "開発Tips | Androidプログラミング1",
-      "translation": "Development tips | Android Programming 1"
+      "translation": "开发技巧 | Android编程1"
     },
     {
       "source": "本文へ移動",
-      "translation": "Skip to main content"
+      "translation": "跳转到正文"
     },
     {
       "source": "JEC / Androidプログラミング1",
-      "translation": "JEC / Android Programming 1"
+      "translation": "JEC / Android编程1"
     },
     {
       "source": "もとのページへ戻る",
-      "translation": "Back to the page you came from"
+      "translation": "返回原来的页面"
     },
     {
       "source": "ANDROID PROGRAMMING 1 / 共通資料・授業サポート",
-      "translation": "ANDROID PROGRAMMING 1 / Shared guide · Class support"
+      "translation": "ANDROID PROGRAMMING 1 / 通用资料与课堂支持"
     },
     {
       "source": "開発Tips",
-      "translation": "Development tips"
+      "translation": "开发技巧"
     },
     {
       "source": "授業で「なぜこうなるの？」が出やすい話題をまとめています。<br>どれも各単元では扱いませんが、自分のアプリを作るときに役立ちます。",
-      "translation": "This guide covers topics that often make students ask, \"Why does this happen?\"<br>They are not covered in the individual units, but they will help when you make your own apps."
+      "translation": "这里汇总了课堂上容易让人问“为什么会这样？”的话题。<br>各单元都不会讲解这些内容，但在制作自己的应用时会派上用场。"
     },
     {
       "source": "このページの内容",
-      "translation": "Contents of this page"
+      "translation": "本页内容"
     },
     {
       "source": "画面の余白が消える",
-      "translation": "Screen spacing disappears"
+      "translation": "屏幕的间距消失了"
     },
     {
       "source": "キーボードが部品を隠す",
-      "translation": "The keyboard hides components"
+      "translation": "键盘遮住了控件"
     },
     {
       "source": "画面を回すとデータが消える",
-      "translation": "Data disappears when you rotate the screen"
+      "translation": "旋转屏幕后数据消失了"
     },
     {
       "source": "動作を確かめた環境",
-      "translation": "Environment used to check the behavior"
+      "translation": "已验证运行情况的环境"
     },
     {
       "source": "このページに書いた<strong>画面の見え方</strong>は、次の1台で確認したものです。メーカーごとの端末やOSバージョンによる違いは検証していません。手元の端末で違う動きをしたら、先生に知らせてください。",
-      "translation": "The <strong>appearance of the screen</strong> described on this page was checked on the one device below. Differences between manufacturers and OS versions have not been tested. If your device behaves differently, tell your teacher."
+      "translation": "本页描述的<strong>屏幕显示效果</strong>是在下面这台设备上确认的。没有验证不同厂商的设备或OS版本之间的差异。如果你手上的设备表现不同，请告诉老师。"
     },
     {
       "source": "項目",
-      "translation": "Item"
+      "translation": "项目"
     },
     {
       "source": "内容",
-      "translation": "Details"
+      "translation": "内容"
     },
     {
       "source": "端末",
-      "translation": "Device"
+      "translation": "设备"
     },
     {
       "source": "Android Studioのエミュレータ <code>jec_26cm_android1_Pixel 9a</code>（Pixel 9a）",
-      "translation": "The Android Studio emulator <code>jec_26cm_android1_Pixel 9a</code> (Pixel 9a)"
+      "translation": "Android Studio的模拟器 <code>jec_26cm_android1_Pixel 9a</code>（Pixel 9a）"
     },
     {
       "source": "Androidのバージョン",
-      "translation": "Android version"
+      "translation": "Android版本"
     },
     {
       "source": "ビルド番号",
-      "translation": "Build number"
+      "translation": "构建编号"
     },
     {
       "source": "確認日",
-      "translation": "Checked on"
+      "translation": "确认日期"
     },
     {
       "source": "2026年9月16日",
-      "translation": "September 16, 2026"
+      "translation": "2026年9月16日"
     },
     {
       "source": "いっぽう、次の3つはAndroidの仕組みとして決まっている動きです。<strong>端末による差はありません。</strong>",
-      "translation": "The following three behaviors, however, are part of how Android works. <strong>They do not differ between devices.</strong>"
+      "translation": "另一方面，下面3种行为由Android的机制决定。<strong>不会因设备而不同。</strong>"
     },
     {
       "source": "<code>setPadding</code> は余白を<strong>足すのではなく置き換える</strong>（Aの原因）",
-      "translation": "<code>setPadding</code> <strong>replaces the spacing instead of adding to it</strong> (the cause in A)"
+      "translation": "<code>setPadding</code> 会<strong>替换间距，而不是增加间距</strong>（A的原因）"
     },
     {
       "source": "<code>WindowInsetsCompat.Type.systemBars()</code> に<strong>キーボードは含まれない</strong>（Bの原因）",
-      "translation": "<code>WindowInsetsCompat.Type.systemBars()</code> <strong>does not include the keyboard</strong> (the cause in B)"
+      "translation": "<code>WindowInsetsCompat.Type.systemBars()</code> <strong>不包含键盘</strong>（B的原因）"
     },
     {
       "source": "画面を回すと<strong>Activityが作り直される</strong>（Cの原因）",
-      "translation": "<strong>The Activity is recreated</strong> when you rotate the screen (the cause in C)"
+      "translation": "旋转屏幕时，<strong>Activity会重新创建</strong>（C的原因）"
     },
     {
       "source": "A. 画面の余白が消える",
-      "translation": "A. Screen spacing disappears"
+      "translation": "A. 屏幕的间距消失了"
     },
     {
       "source": "A-1. 何が起きているか",
-      "translation": "A-1. What is happening"
+      "translation": "A-1. 发生了什么"
     },
     {
       "source": "授業で作るアプリには、どの単元にも次のコードがあります。プロジェクトを新規作成したときにAndroid Studioが入れるコードです。",
-      "translation": "The apps you make in class have the following code in every unit. Android Studio adds this code when you create a new project."
+      "translation": "课堂上制作的应用中，每个单元都有下面这段代码。这是新建项目时Android Studio加入的代码。"
     },
     {
       "source": "MainActivity.java · どの単元にもあるひな形",
-      "translation": "MainActivity.java · the template code in every unit"
+      "translation": "MainActivity.java · 每个单元都有的模板"
     },
     {
       "source": "これは、画面の上の時計や電池が並ぶ帯（ステータスバー）と、下の帯（ナビゲーションバー）に部品が隠れないよう、<code>@+id/main</code> の部品に余白を入れる処理です。",
-      "translation": "This code adds space inside the <code>@+id/main</code> component so that components are not hidden by the bar with the clock and battery at the top (the status bar) or the bar at the bottom (the navigation bar)."
+      "translation": "这段处理为 <code>@+id/main</code> 控件添加间距，避免控件被屏幕顶部显示时间和电量的区域（状态栏），以及底部的区域（导航栏）遮住。"
     },
     {
       "source": "大事なのは <code>setPadding</code> の動きです。<strong>足し算ではなく、置き換えです。</strong>もともと入っていた余白は、この行が動いた時点で消えます。",
-      "translation": "The key is how <code>setPadding</code> works. <strong>It replaces the spacing instead of adding to it.</strong> Any spacing that was there before disappears when this line runs."
+      "translation": "关键在于 <code>setPadding</code> 的行为。<strong>它执行的是替换，而不是相加。</strong>这一行执行时，原有的间距就会消失。"
     },
     {
       "source": "だから、ここに書いた余白は消えます",
-      "translation": "This is why spacing set here disappears"
+      "translation": "所以，写在这里的间距会消失"
     },
     {
       "source": "レイアウトの一番外側（<code>@+id/main</code> が付いた部品）に <code>android:padding</code> を書いても、実機では <code>setPadding</code> に上書きされます。縦向きの端末では左右のシステムバーが <code>0</code> なので、<strong>左右の余白は0になり、部品が画面の端にくっつきます</strong>。",
-      "translation": "Even if you write <code>android:padding</code> on the outermost component in the layout (the one with <code>@+id/main</code>), <code>setPadding</code> overwrites it on the device. When the device is upright, the system bar insets on the left and right are <code>0</code>, so <strong>the spacing on both sides becomes 0, and the components touch the edges of the screen</strong>."
+      "translation": "即使在布局最外层（带有 <code>@+id/main</code> 的控件）写上 <code>android:padding</code>，实际运行时也会被 <code>setPadding</code> 覆盖。竖屏设备左右的系统栏为 <code>0</code>，所以<strong>左右间距会变成0，控件紧贴屏幕边缘</strong>。"
     },
     {
       "source": "見分け方",
-      "translation": "How to recognize it"
+      "translation": "如何判断"
     },
     {
       "source": "Android Studioの<strong>Previewには余白が見えるのに、Runすると消える</strong>。これならこの現象です。Previewはレイアウトだけを描くので、<code>setPadding</code> が動かないためです。",
-      "translation": "In Android Studio, <strong>you can see the spacing in Preview, but it disappears when you run the app</strong>. If this happens, this is the cause. Preview only draws the layout, so <code>setPadding</code> does not run there."
+      "translation": "Android Studio的<strong>Preview中能看到间距，但Run后间距消失了</strong>。如果是这样，就是这种现象。因为Preview只绘制布局，不会执行 <code>setPadding</code>。"
     },
     {
       "source": "A-2. 余白を入れたいとき",
-      "translation": "A-2. How to add spacing"
+      "translation": "A-2. 想添加间距时"
     },
     {
       "source": "3つのやり方があります。授業のアプリでは<strong>方法1</strong>がいちばん簡単です。",
-      "translation": "There are three ways. For the apps in class, <strong>method 1</strong> is the easiest."
+      "translation": "有3种方法。课堂上的应用使用<strong>方法1</strong>最简单。"
     },
     {
       "source": "方法1：部品のほうに <code>layout_margin</code> を書く（おすすめ）",
-      "translation": "Method 1: Write <code>layout_margin</code> on the component (recommended)"
+      "translation": "方法1：为控件设置 <code>layout_margin</code>（推荐）"
     },
     {
       "source": "一番外側ではなく、<strong>中の部品</strong>に余白を指定します。<code>setPadding</code> が書き換えるのは一番外側の部品だけなので、中の部品の指定は消えません。",
-      "translation": "Set the spacing on <strong>the components inside</strong>, instead of on the outermost one. <code>setPadding</code> only changes the outermost component, so the settings on the inner components stay."
+      "translation": "为<strong>内部的控件</strong>指定间距，而不是最外层。<code>setPadding</code> 只改写最外层控件，因此内部控件的设置不会消失。"
     },
     {
       "source": "activity_main.xml · 中のボタンに余白を付ける",
-      "translation": "activity_main.xml · add a margin to the button inside"
+      "translation": "activity_main.xml · 为内部按钮添加间距"
     },
     {
       "source": "書き方",
-      "translation": "How to write it"
+      "translation": "写法"
     },
     {
       "source": "意味",
-      "translation": "Meaning"
+      "translation": "含义"
     },
     {
       "source": "上下左右に12dpの余白。",
-      "translation": "A margin of 12dp on all four sides."
+      "translation": "上下左右各留12dp的间距。"
     },
     {
       "source": "左右だけに余白。",
-      "translation": "Margins on the left and right only."
+      "translation": "只在左右留间距。"
     },
     {
       "source": "上だけに余白。",
-      "translation": "A margin at the top only."
+      "translation": "只在上方留间距。"
     },
     {
       "source": "<code>padding</code> は「部品の内側」、<code>margin</code> は「部品の外側」の余白です。ボタンの文字とボタンの枠のすき間を広げたいときは <code>padding</code>、ボタンと画面の端のすき間を空けたいときは <code>margin</code> を使います。",
-      "translation": "<code>padding</code> is space \"inside a component,\" and <code>margin</code> is space \"outside a component.\" Use <code>padding</code> to widen the gap between the text on a button and its border. Use <code>margin</code> to make a gap between a button and the edge of the screen."
+      "translation": "<code>padding</code> 是“控件内部”的间距，<code>margin</code> 是“控件外部”的间距。想扩大按钮文字与按钮边框之间的距离时，使用 <code>padding</code>；想在按钮与屏幕边缘之间留出距离时，使用 <code>margin</code>。"
     },
     {
       "source": "方法2：一番外側の内側に、もう1つ入れ物を置く",
-      "translation": "Method 2: Place another container inside the outermost one"
+      "translation": "方法2：在最外层内部再放一个容器"
     },
     {
       "source": "部品が多くて1つずつ指定するのが大変なときは、<code>@+id/main</code> の<strong>内側</strong>にもう1つ <code>LinearLayout</code> を置き、そちらに <code>padding</code> を書きます。書き換えられるのは外側だけなので、内側の余白は残ります。",
-      "translation": "If you have many components and setting each one is too much work, place another <code>LinearLayout</code> <strong>inside</strong> <code>@+id/main</code> and write <code>padding</code> on it. Only the outer container is changed, so the spacing inside stays."
+      "translation": "控件很多、逐个指定很麻烦时，可以在 <code>@+id/main</code> 的<strong>内部</strong>再放一个 <code>LinearLayout</code>，为它设置 <code>padding</code>。只有外层会被改写，因此内层的间距会保留。"
     },
     {
       "source": "activity_main.xml · 入れ物を2重にする",
-      "translation": "activity_main.xml · put one container inside another"
+      "translation": "activity_main.xml · 将容器嵌套为两层"
     },
     {
       "source": "入れ物が1つ増えるぶん、XMLは読みにくくなります。部品が少ないうちは方法1で足ります。",
-      "translation": "The extra container makes the XML harder to read. Method 1 is enough while you have only a few components."
+      "translation": "增加一个容器后，XML会更难读。控件较少时，方法1就足够了。"
     },
     {
       "source": "方法3：ひな形のコードを書き換える",
-      "translation": "Method 3: Change the template code"
+      "translation": "方法3：改写模板代码"
     },
     {
       "source": "ひな形の <code>setPadding</code> に、自分の余白を足して渡します。<strong>授業では使いません。</strong>ひな形のコードは単元を通して同じ形で説明しているためです。参考として、書き方だけ示します。",
-      "translation": "Add your own spacing to the values passed to <code>setPadding</code> in the template. <strong>We do not use this in class.</strong> This is because the template code is explained in the same form throughout the units. The code below is only a reference."
+      "translation": "把自己需要的间距加上后，传给模板中的 <code>setPadding</code>。<strong>课堂上不使用这种方法。</strong>因为各单元都按相同的形式讲解模板代码。这里仅列出写法供参考。"
     },
     {
       "source": "MainActivity.java · 参考",
-      "translation": "MainActivity.java · reference"
+      "translation": "MainActivity.java · 参考"
     },
     {
       "source": "XMLの <code>12dp</code> は、端末ごとの細かさに合わせてピクセルに直す必要があります。Javaでは自動で直らないため、この1行が増えます。",
-      "translation": "The <code>12dp</code> used in XML needs to be converted to pixels to match the density of each device. Java does not convert it automatically, so this extra line is needed."
+      "translation": "XML中的 <code>12dp</code> 需要根据设备的像素密度换算为像素。Java不会自动换算，因此需要增加这一行。"
     },
     {
       "source": "A-3. まとめ",
-      "translation": "A-3. Summary"
+      "translation": "A-3. 总结"
     },
     {
       "source": "やりたいこと",
-      "translation": "What you want to do"
+      "translation": "想做的事"
     },
     {
       "source": "どこに書くか",
-      "translation": "Where to write it"
+      "translation": "写在哪里"
     },
     {
       "source": "部品と画面の端のすき間を空けたい",
-      "translation": "Make a gap between a component and the edge of the screen"
+      "translation": "想在控件与屏幕边缘之间留出距离"
     },
     {
       "source": "その部品に <code>android:layout_margin</code>（方法1）",
-      "translation": "Write <code>android:layout_margin</code> on that component (method 1)"
+      "translation": "为该控件设置 <code>android:layout_margin</code>（方法1）"
     },
     {
       "source": "画面全体に同じ余白を入れたい",
-      "translation": "Add the same spacing around the whole screen"
+      "translation": "想为整个屏幕添加相同的间距"
     },
     {
       "source": "内側にもう1つ入れ物を置き、そこに <code>android:padding</code>（方法2）",
-      "translation": "Place another container inside and write <code>android:padding</code> on it (method 2)"
+      "translation": "在内部再放一个容器，为它设置 <code>android:padding</code>（方法2）"
     },
     {
       "source": "一番外側（<code>@+id/main</code>）に <code>android:padding</code>",
-      "translation": "<code>android:padding</code> on the outermost component (<code>@+id/main</code>)"
+      "translation": "在最外层（<code>@+id/main</code>）设置 <code>android:padding</code>"
     },
     {
       "source": "<strong>効きません。</strong>実機では消えます",
-      "translation": "<strong>It does not work.</strong> The spacing disappears on the device."
+      "translation": "<strong>不起作用。</strong>实际运行时会消失"
     },
     {
       "source": "授業で配られる完成プロジェクトでは、一番外側に <code>android:padding</code> を書いていません。効かない指定を残すと、Previewと実機で見た目が食い違い、原因を探すのが難しくなるためです。",
-      "translation": "The finished projects handed out in class do not have <code>android:padding</code> on the outermost component. Leaving a setting that does not work makes Preview look different from the device and makes the cause harder to find."
+      "translation": "课堂上发放的完成版项目没有在最外层设置 <code>android:padding</code>。保留不起作用的设置会让Preview与实际运行时的显示效果不一致，难以找到原因。"
     },
     {
       "source": "B. キーボードが部品を隠す",
-      "translation": "B. The keyboard hides components"
+      "translation": "B. 键盘遮住了控件"
     },
     {
       "source": "B-1. 何が起きているか",
-      "translation": "B-1. What is happening"
+      "translation": "B-1. 发生了什么"
     },
     {
       "source": "入力欄（<code>EditText</code>）をタップすると、画面の下半分にキーボードが出ます。このとき、<strong>画面の下のほうに置いたボタンがキーボードの裏に入り、押せなくなることがあります。</strong>",
-      "translation": "When you tap an input field (<code>EditText</code>), the keyboard appears in the lower half of the screen. <strong>A button near the bottom of the screen may then be hidden behind the keyboard, so you cannot press it.</strong>"
+      "translation": "点击输入框（<code>EditText</code>）后，键盘会出现在屏幕下半部分。此时，<strong>放在屏幕下方的按钮可能被键盘遮住，无法点击。</strong>"
     },
     {
       "source": "原因は、A-1で見たひな形のコードです。",
-      "translation": "The cause is the template code you saw in A-1."
+      "translation": "原因就是A-1中看到的模板代码。"
     },
     {
       "source": "<code>systemBars()</code> は、ステータスバーとナビゲーションバーの2つだけを指します。<strong>キーボードは含まれません。</strong>そのためキーボードのぶんの余白が確保されず、部品がキーボードの下に潜り込みます。",
-      "translation": "<code>systemBars()</code> refers only to the status bar and the navigation bar. <strong>It does not include the keyboard.</strong> No space is reserved for the keyboard, so components end up behind it."
+      "translation": "<code>systemBars()</code> 只表示状态栏和导航栏。<strong>不包含键盘。</strong>因此不会为键盘预留间距，控件就会被键盘遮住。"
     },
     {
       "source": "入力欄をタップする前はボタンが見えているのに、<strong>タップしたあとに見えなくなる</strong>。これならこの現象です。キーボードを閉じれば、また押せるようになります。",
-      "translation": "You can see the button before you tap the input field, but <strong>it disappears after you tap</strong>. If this happens, this is the cause. Closing the keyboard lets you press the button again."
+      "translation": "点击输入框前能看到按钮，但<strong>点击后就看不到了</strong>。如果是这样，就是这种现象。关闭键盘后，按钮就又可以点击了。"
     },
     {
       "source": "B-2. 直し方",
-      "translation": "B-2. How to fix it"
+      "translation": "B-2. 修改方法"
     },
     {
       "source": "ひな形の1行に、キーボード（<code>ime</code>）を足します。変更はこの1か所だけです。",
-      "translation": "Add the keyboard (<code>ime</code>) to one line of the template. This is the only place to change."
+      "translation": "在模板的一行中加入键盘（<code>ime</code>）。只需修改这一处。"
     },
     {
       "source": "MainActivity.java · キーボードも数に入れる",
-      "translation": "MainActivity.java · include the keyboard too"
+      "translation": "MainActivity.java · 将键盘也计算在内"
     },
     {
       "source": "<code>|</code> は「どちらも」という意味の記号です。これで、ステータスバー・ナビゲーションバー・キーボードの3つを避ける余白が入ります。キーボードが出ると画面の中身が上に詰まり、ボタンが見えたままになります。",
-      "translation": "<code>|</code> is a symbol meaning \"both.\" This adds space to avoid all three: the status bar, the navigation bar, and the keyboard. When the keyboard appears, the screen content fits into the space above it, keeping the button visible."
+      "translation": "<code>|</code> 是表示“两者都包括”的符号。这样就会添加避开状态栏、导航栏和键盘这3者的间距。键盘出现时，屏幕内容会向上收拢，按钮仍然可见。"
     },
     {
       "source": "AndroidManifest.xmlの変更は要りません",
-      "translation": "No change to AndroidManifest.xml is needed"
+      "translation": "不需要修改AndroidManifest.xml"
     },
     {
       "source": "<code>android:windowSoftInputMode</code> を書き足す方法も見かけますが、この1行だけで直ることを確認しています。",
-      "translation": "You may also see a method that adds <code>android:windowSoftInputMode</code>, but we have checked that changing this one line is enough to fix it."
+      "translation": "也能见到添加 <code>android:windowSoftInputMode</code> 的方法，不过已经确认，只修改这一行就可以解决。"
     },
     {
       "source": "B-3. レイアウト側でできること",
-      "translation": "B-3. What you can do in the layout"
+      "translation": "B-3. 布局方面可以做的调整"
     },
     {
       "source": "やり方",
-      "translation": "Method"
+      "translation": "方法"
     },
     {
       "source": "効果",
-      "translation": "Effect"
+      "translation": "效果"
     },
     {
       "source": "ボタンを入力欄より<strong>上</strong>に置く",
-      "translation": "Place the button <strong>above</strong> the input field"
+      "translation": "把按钮放在输入框的<strong>上方</strong>"
     },
     {
       "source": "キーボードは画面の下から出るので、上にある部品は隠れにくい。コードの変更は不要。",
-      "translation": "The keyboard appears from the bottom of the screen, so components near the top are less likely to be hidden. No code change is needed."
+      "translation": "键盘从屏幕下方出现，因此上方的控件不容易被遮住。不需要修改代码。"
     },
     {
       "source": "全体を <code>ScrollView</code> に入れる",
-      "translation": "Put everything inside a <code>ScrollView</code>"
+      "translation": "把整体放入 <code>ScrollView</code>"
     },
     {
       "source": "キーボードが出ても、スクロールすれば下の部品に届く。",
-      "translation": "Even when the keyboard appears, you can scroll to reach the components below."
+      "translation": "即使键盘出现，也可以通过滚动操作下方的控件。"
     },
     {
       "source": "B-2の1行を足す",
-      "translation": "Add the line from B-2"
+      "translation": "加入B-2中的那一行"
     },
     {
       "source": "いちばん確実。部品の並びを変えなくてよい。",
-      "translation": "The most reliable method. You do not need to change the order of the components."
+      "translation": "最可靠。不需要改变控件的排列。"
     },
     {
       "source": "授業で配られる完成プロジェクトでは、この対応を入れていません。単元ごとの学習内容に集中するためです。自分でアプリを作るときに、入力欄の下にボタンを置きたくなったら思い出してください。",
-      "translation": "The finished projects handed out in class do not include this change, so that you can focus on the topic of each unit. Remember this when you make your own app and want to place a button below an input field."
+      "translation": "课堂上发放的完成版项目没有加入这项处理，是为了集中学习各单元的内容。自己制作应用时，如果想在输入框下方放置按钮，请想起这个方法。"
     },
     {
       "source": "C. 画面を回すとデータが消える",
-      "translation": "C. Data disappears when you rotate the screen"
+      "translation": "C. 旋转屏幕后数据消失了"
     },
     {
       "source": "C-1. 何が起きているか",
-      "translation": "C-1. What is happening"
+      "translation": "C-1. 发生了什么"
     },
     {
       "source": "端末を横向きにすると、<strong>Activityがいったん壊されて、作り直されます。</strong>新しく <code>onCreate</code> が動くので、それまで変数に入れていた値や、ボタンの押せる・押せないといった状態は消えます。",
-      "translation": "When you turn the device sideways, <strong>the Activity is destroyed and then recreated.</strong> <code>onCreate</code> runs again, so values stored in variables and states such as whether a button can be pressed are lost."
+      "translation": "把设备转为横屏时，<strong>Activity会先被销毁，然后重新创建。</strong>由于 <code>onCreate</code> 会重新执行，原来保存在变量中的值，以及按钮能否点击等状态都会消失。"
     },
     {
       "source": "授業のアプリで実際に確かめた結果です。",
-      "translation": "These are the results of checking the apps used in class."
+      "translation": "下面是在课堂应用中实际确认的结果。"
     },
     {
       "source": "アプリ",
-      "translation": "App"
+      "translation": "应用"
     },
     {
       "source": "回す前",
-      "translation": "Before rotation"
+      "translation": "旋转前"
     },
     {
       "source": "回した後",
-      "translation": "After rotation"
+      "translation": "旋转后"
     },
     {
       "source": "1と2のボタンを押して、押せない状態にした",
-      "translation": "Pressed the 1 and 2 buttons so that they could no longer be pressed"
+      "translation": "点击了1和2按钮，使它们变为不可点击的状态"
     },
     {
       "source": "<strong>9個とも押せる状態に戻る</strong>（ゲームの進行が消える）",
-      "translation": "<strong>All nine buttons can be pressed again</strong> (the game progress is lost)"
+      "translation": "<strong>9个按钮都恢复为可点击的状态</strong>（游戏进度消失）"
     },
     {
       "source": "メモを1件追加した",
-      "translation": "Added one memo"
+      "translation": "添加了1条备忘录"
     },
     {
       "source": "メモは残っている",
-      "translation": "The memo is still there"
+      "translation": "备忘录仍然保留"
     },
     {
       "source": "なぜA09だけ残るのか",
-      "translation": "Why only A09 keeps the data"
+      "translation": "为什么只有A09能保留"
     },
     {
       "source": "A09は <code>onCreate</code> で毎回 <code>SharedPreferences</code> からメモを読み直しています。Activityが作り直されても、<strong>ファイルに保存したデータは消えない</strong>ので、読み直せば同じ内容が出ます。変数の中だけに持っていたA05は、読み直す先がないため消えます。",
-      "translation": "A09 reads the memos from <code>SharedPreferences</code> every time <code>onCreate</code> runs. Even if the Activity is recreated, <strong>data saved in a file is not lost</strong>, so reading it again shows the same content. A05 kept its data only in variables, with no saved data to read again, so it is lost."
+      "translation": "A09每次都会在 <code>onCreate</code> 中从 <code>SharedPreferences</code> 重新读取备忘录。即使Activity重新创建，<strong>保存在文件中的数据也不会消失</strong>，所以重新读取就会显示相同的内容。A05只把数据保存在变量中，没有可以重新读取的地方，因此数据消失了。"
     },
     {
       "source": "C-2. 残したいときのやり方",
-      "translation": "C-2. How to keep the data"
+      "translation": "C-2. 想保留数据时的方法"
     },
     {
       "source": "いつまで残るか",
-      "translation": "How long it stays"
+      "translation": "能保留到什么时候"
     },
     {
       "source": "使いどころ",
-      "translation": "When to use it"
+      "translation": "适用场景"
     },
     {
       "source": "<code>SharedPreferences</code> に保存する",
-      "translation": "Save it in <code>SharedPreferences</code>"
+      "translation": "保存到 <code>SharedPreferences</code>"
     },
     {
       "source": "アプリを終了しても、端末を再起動しても残る",
-      "translation": "It stays even after you close the app or restart the device"
+      "translation": "即使退出应用或重启设备，也会保留"
     },
     {
       "source": "設定やメモなど、次に開いたときも欲しいもの。A08・A09で学んだ方法。",
-      "translation": "Things you want the next time you open the app, such as settings and memos. This is the method you learned in A08 and A09."
+      "translation": "设置、备忘录等下次打开时仍需要的内容。A08、A09中学过的方法。"
     },
     {
       "source": "<code>onSaveInstanceState</code> に入れる",
-      "translation": "Put it in <code>onSaveInstanceState</code>"
+      "translation": "放入 <code>onSaveInstanceState</code>"
     },
     {
       "source": "回転などの作り直しの間だけ。アプリを終了すると消える",
-      "translation": "Only while the screen is recreated, such as during rotation. It is lost when you close the app."
+      "translation": "只在旋转等重新创建过程中保留。退出应用后就会消失"
     },
     {
       "source": "入力途中の内容や、ゲームの途中経過。",
-      "translation": "Text you are still entering or progress in a game."
+      "translation": "尚未输入完的内容、游戏的中途进度等。"
     },
     {
       "source": "<code>ViewModel</code> を使う",
-      "translation": "Use a <code>ViewModel</code>"
+      "translation": "使用 <code>ViewModel</code>"
     },
     {
       "source": "同上（作り直しをまたいで残る）",
-      "translation": "Same as above (it survives recreation)"
+      "translation": "同上（重新创建前后仍会保留）"
     },
     {
       "source": "本格的なアプリ向け。Androidプログラミング2で扱います。",
-      "translation": "For more advanced apps. We cover this in Android Programming 2."
+      "translation": "适合正式开发的应用。将在Android编程2中讲解。"
     },
     {
       "source": "いちばん簡単なのは1つ目です。「作り直されても困らないように、大事なものは保存しておく」と考えると分かりやすくなります。",
-      "translation": "The first method is the easiest. Think of it as \"save important things so that recreation is not a problem.\""
+      "translation": "最简单的是第1种方法。可以这样理解：“先保存重要的内容，这样即使重新创建也不会有问题。”"
     },
     {
       "source": "C-3. 授業での扱い",
-      "translation": "C-3. How we handle this in class"
+      "translation": "C-3. 课堂上的处理方式"
     },
     {
       "source": "各単元では<strong>画面回転時のデータ保持と、横向きのレイアウトを扱いません。</strong>単元ごとの学習内容に集中するためです。授業中は端末を縦向きで使ってください。",
-      "translation": "The individual units <strong>do not cover keeping data during screen rotation or layouts for a sideways screen.</strong> This lets you focus on the topic of each unit. Keep the device upright during class."
+      "translation": "各单元<strong>不讲解旋转屏幕时的数据保留和横屏布局。</strong>这是为了集中学习各单元的内容。课堂上请竖屏使用设备。"
     },
     {
       "source": "横向きにすると、部品が画面からはみ出して見えなくなることがあります。これも上と同じ理由で、各単元では対応していません。",
-      "translation": "When you turn the device sideways, some components may go outside the screen and become invisible. The individual units do not handle this either, for the same reason as above."
+      "translation": "转为横屏时，控件可能会超出屏幕范围而看不到。出于同样的原因，各单元也没有处理这种情况。"
     },
     {
       "source": "公式資料",
-      "translation": "Official documentation"
+      "translation": "官方资料"
     },
     {
       "source": "<a1>Android Developers：アプリでedge-to-edgeを表示する</a1>／<a2>レイアウトを作成する</a2>／<a3>ソフトウェア キーボードの表示に合わせる</a3>／<a4>アクティビティのライフサイクル</a4>",
-      "translation": "<a1>Android Developers: Display content edge-to-edge in your app</a1> / <a2>Create a layout</a2> / <a3>Adjust to the software keyboard</a3> / <a4>The Activity lifecycle</a4>"
+      "translation": "<a1>Android Developers：在应用中显示edge-to-edge</a1>／<a2>创建布局</a2>／<a3>适应软键盘的显示</a3>／<a4>Activity的生命周期</a4>"
     },
     {
       "source": "← もとのページへ戻る",
-      "translation": "← Back to the page you came from"
+      "translation": "← 返回原来的页面"
     },
     {
       "source": "対象：macOS / Android Studio Panda 2 | 2025.3.2 · 確認日：2026年9月16日",
-      "translation": "For: macOS / Android Studio Panda 2 | 2025.3.2 · Checked on: September 16, 2026"
+      "translation": "适用环境：macOS / Android Studio Panda 2 | 2025.3.2 · 确认日期：2026年9月16日"
     }
   ]
 }

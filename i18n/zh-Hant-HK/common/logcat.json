@@ -1,170 +1,170 @@
 {
   "source": "docs/common/logcat.html",
-  "language": "en",
+  "language": "zh-Hant-HK",
   "entries": [
     {
       "source": "Logcatの使い方 | Androidプログラミング1",
-      "translation": "How to use Logcat | Android Programming 1"
+      "translation": "Logcat 的使用方法 | Android 程式設計 1"
     },
     {
       "source": "本文へ移動",
-      "translation": "Skip to main content"
+      "translation": "跳至正文"
     },
     {
       "source": "JEC / Androidプログラミング1",
-      "translation": "JEC / Android Programming 1"
+      "translation": "JEC / Android 程式設計 1"
     },
     {
       "source": "もとのページへ戻る",
-      "translation": "Back to the page you came from"
+      "translation": "返回原來的頁面"
     },
     {
       "source": "ANDROID PROGRAMMING 1 / 共通資料・授業サポート",
-      "translation": "ANDROID PROGRAMMING 1 / Shared guide · Class support"
+      "translation": "ANDROID PROGRAMMING 1 / 共通資料・課堂支援"
     },
     {
       "source": "Logcatの使い方",
-      "translation": "How to use Logcat"
+      "translation": "Logcat 的使用方法"
     },
     {
       "source": "アプリの中で何が起きたか、文字の記録で確かめます。",
-      "translation": "Use a text record to check what happened inside your app."
+      "translation": "透過文字記錄，確認應用程式內發生了甚麼事。"
     },
     {
       "source": "1. Logcatを開く",
-      "translation": "1. Open Logcat"
+      "translation": "1. 開啟 Logcat"
     },
     {
       "source": "<strong>ログ</strong>は動作の記録です。<strong>Logcat</strong>（ログキャット）は、その記録をAndroid Studioで読むための画面です。ここではHelloAndroidを例にします。",
-      "translation": "A <strong>log</strong> is a record of what happened. <strong>Logcat</strong> is the screen in Android Studio where you read these records. Here, we use HelloAndroid as an example."
+      "translation": "<strong>日誌</strong>是運作的記錄。<strong>Logcat</strong> 是在 Android Studio 內閱讀這些記錄的畫面。這裏以 HelloAndroid 為例。"
     },
     {
       "source": "授業のプロジェクトを開き、エミュレータでアプリをRunします。",
-      "translation": "Open your class project and Run the app on the emulator."
+      "translation": "開啟課堂使用的專案，用 Run 在模擬器中執行應用程式。"
     },
     {
       "source": "上のメニューから <strong>View → Tool Windows → Logcat</strong> を選びます。",
-      "translation": "Select <strong>View → Tool Windows → Logcat</strong> from the menu at the top."
+      "translation": "從頂部選單選取 <strong>View → Tool Windows → Logcat</strong>。"
     },
     {
       "source": "Logcatの端末欄で、アプリを動かしている <strong>jec_26cm_android1_Pixel 9a</strong> を選びます。",
-      "translation": "In the device field in Logcat, select <strong>jec_26cm_android1_Pixel 9a</strong>, where your app is running."
+      "translation": "在 Logcat 的裝置欄選取正在執行應用程式的 <strong>jec_26cm_android1_Pixel 9a</strong>。"
     },
     {
       "source": "2. 見たいログだけを表示する",
-      "translation": "2. Show only the logs you want to see"
+      "translation": "2. 只顯示想看的日誌"
     },
     {
       "source": "Logcatの検索欄の内容を全部選び、次の文字に置き換えます。",
-      "translation": "Select everything in the Logcat search field and replace it with the following text."
+      "translation": "選取 Logcat 搜尋欄內的全部內容，換成以下文字。"
     },
     {
       "source": "Logcatの検索欄 · HelloAndroid用",
-      "translation": "Logcat search field · For HelloAndroid"
+      "translation": "Logcat 搜尋欄 · HelloAndroid 用"
     },
     {
       "source": "検索の部分",
-      "translation": "Part of the search"
+      "translation": "搜尋條件的部分"
     },
     {
       "source": "意味",
-      "translation": "Meaning"
+      "translation": "意思"
     },
     {
       "source": "このアプリのログを選ぶ。",
-      "translation": "Selects logs from this app."
+      "translation": "選取這個應用程式的日誌。"
     },
     {
       "source": "MainActivityという目印を付けたログを選ぶ。",
-      "translation": "Selects logs with the MainActivity tag."
+      "translation": "選取帶有 MainActivity 標記的日誌。"
     },
     {
       "source": "Debug以上の重要度のログを表示する。<code>Log.d</code> の記録を含む。",
-      "translation": "Shows logs with a severity of Debug or higher, including records from <code>Log.d</code>."
+      "translation": "顯示重要程度為 Debug 或以上的日誌。包含 <code>Log.d</code> 的記錄。"
     },
     {
       "source": "別の授業で使う場合は、packageとtagを、そのプロジェクトのものに変えます。",
-      "translation": "When using this in another class, change package and tag to those used by that project."
+      "translation": "在其他課堂使用時，將 package 和 tag 改成該專案的值。"
     },
     {
       "source": "3. 操作の前後を比べる",
-      "translation": "3. Compare before and after an action"
+      "translation": "3. 比較操作前後"
     },
     {
       "source": "Logcatにログの表示を一時停止するボタンがある場合は、停止していないことを確認します。",
-      "translation": "If Logcat has a button to pause the log display, check that it is not paused."
+      "translation": "若 Logcat 有暫停顯示日誌的按鈕，請確認目前沒有暫停。"
     },
     {
       "source": "アプリをStopしてからRunし、<strong>Hello World!</strong> の行を探します。",
-      "translation": "Stop the app, then Run it and find the <strong>Hello World!</strong> line."
+      "translation": "先按 Stop 停止應用程式，再按 Run，找出 <strong>Hello World!</strong> 那一行。"
     },
     {
       "source": "アプリの変更ボタンを押し、<strong>Hello, Android!</strong> の行を探します。",
-      "translation": "Press the change button in the app and find the <strong>Hello, Android!</strong> line."
+      "translation": "按應用程式的更改按鈕，找出 <strong>Hello, Android!</strong> 那一行。"
     },
     {
       "source": "メッセージの前後を比べます。時刻や数字は、自分の実行時の値で構いません。",
-      "translation": "Compare the messages before and after the action. The times and numbers can be the values from your own run."
+      "translation": "比較操作前後的訊息。時間和數字以自己執行時的值為準即可。"
     },
     {
       "source": "読むところの例 · 時刻などを省いた説明用の表示",
-      "translation": "Example of what to read · A simplified display with times and other details omitted"
+      "translation": "閱讀部分的範例 · 為方便說明，已省略時間等內容"
     },
     {
       "source": "成功の目印",
-      "translation": "Signs of success"
+      "translation": "成功的標誌"
     },
     {
       "source": "起動時とクリック後で、ログの文字が違う。画面の表示文字とログのメッセージが一致する。",
-      "translation": "The log text differs between launch and after the click. The text on the screen matches the log message."
+      "translation": "啟動時與按一下之後的日誌文字不同。畫面顯示的文字與日誌訊息一致。"
     },
     {
       "source": "ログが流れて見えないときは一時停止して読みます。確認後は再開します。",
-      "translation": "If the logs scroll too fast to read, pause the display. Resume it after checking."
+      "translation": "若日誌不斷捲動而看不清楚，便暫停後閱讀。確認後再繼續。"
     },
     {
       "source": "4. ログが出ないとき",
-      "translation": "4. If no log appears"
+      "translation": "4. 沒有顯示日誌時"
     },
     {
       "source": "授業の端末を選んでいるか確認します。",
-      "translation": "Check that you have selected the device used in class."
+      "translation": "確認已選取課堂使用的裝置。"
     },
     {
       "source": "検索欄をコピーし直します。日本語の全角スペースや、packageの打ち間違いを確認します。",
-      "translation": "Copy the text into the search field again. Check for Japanese full-width spaces or typing mistakes in package."
+      "translation": "重新複製搜尋欄的內容。檢查有沒有日文全形空格，以及 package 有沒有輸入錯誤。"
     },
     {
       "source": "ログの一時停止を解除し、末尾へ移動します。",
-      "translation": "Resume the log display and move to the end."
+      "translation": "取消暫停日誌，移到最末端。"
     },
     {
       "source": "Javaに <code>Log.d</code> を追加した後、Runしたか確認します。",
-      "translation": "Check that you used Run after adding <code>Log.d</code> to the Java code."
+      "translation": "確認在 Java 加入 <code>Log.d</code> 後已按 Run。"
     },
     {
       "source": "起動時のログを探すなら、アプリをStopしてからRunします。クリック後のログなら、ボタンをもう一度押します。",
-      "translation": "To find the launch log, Stop the app and then Run it. To find the log after a click, press the button again."
+      "translation": "若要找啟動時的日誌，先按 Stop 停止應用程式，再按 Run。若要找按一下之後的日誌，便再按一次按鈕。"
     },
     {
       "source": "アプリがすぐ閉じるときは、検索欄を <code>package:jp.ac.jec.a01helloandroid level:ERROR</code> に変え、赤いエラーの最初の行を先生に見せます。MainActivityのtagで絞ったままだと、別のtagのエラーは見えません。",
-      "translation": "If the app closes immediately, change the search field to <code>package:jp.ac.jec.a01helloandroid level:ERROR</code> and show your teacher the first line of the red error. If you keep filtering by the MainActivity tag, you cannot see errors with other tags."
+      "translation": "若應用程式隨即關閉，將搜尋欄改為 <code>package:jp.ac.jec.a01helloandroid level:ERROR</code>，讓老師查看紅色錯誤的第一行。若仍以 MainActivity 的 tag 篩選，就看不到其他 tag 的錯誤。"
     },
     {
       "source": "公式資料",
-      "translation": "Official documentation"
+      "translation": "官方資料"
     },
     {
       "source": "Android Developers：Logcatでログを表示する",
-      "translation": "Android Developers: View logs with Logcat"
+      "translation": "Android Developers：用 Logcat 顯示日誌"
     },
     {
       "source": "← もとのページへ戻る",
-      "translation": "← Back to the page you came from"
+      "translation": "← 返回原來的頁面"
     },
     {
       "source": "対象：macOS / Android Studio Panda 2 | 2025.3.2 · 確認日：2026年9月15日",
-      "translation": "For: macOS / Android Studio Panda 2 | 2025.3.2 · Checked: September 15, 2026"
+      "translation": "適用於：macOS / Android Studio Panda 2 | 2025.3.2 · 確認日期：2026年9月15日"
     }
   ]
 }

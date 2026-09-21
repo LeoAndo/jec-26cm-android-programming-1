@@ -1,0 +1,1626 @@
+{
+  "source": "docs/bill-splitter/index.html",
+  "language": "zh-Hant-HK",
+  "entries": [
+    {
+      "source": "JavaとXMLで作るA07BillSplitter。参加者をArrayListで集め、Intentで配列を渡して画面を切り替え、できあがった計算クラスを使って割り勘の結果を表示するまでを小さなSTEPで学ぶ授業用教科書。",
+      "translation": "以 Java 和 XML 製作 A07BillSplitter。這本課堂教科書以小步驟教授如何用 ArrayList 收集參加者、用 Intent 傳遞陣列並切換畫面，以及使用現成的計算類別顯示分攤結果。"
+    },
+    {
+      "source": "BillSplitter — 割り勘アプリを作ろう | Androidプログラミング1",
+      "translation": "BillSplitter — 製作分攤費用應用程式 | Android 程式設計 1"
+    },
+    {
+      "source": "本文へ移動",
+      "translation": "跳至正文"
+    },
+    {
+      "source": "JEC / Androidプログラミング1",
+      "translation": "JEC / Android 程式設計 1"
+    },
+    {
+      "source": "CONTENTS / 学習の順番",
+      "translation": "CONTENTS / 學習順序"
+    },
+    {
+      "source": "学習ステップ",
+      "translation": "學習步驟"
+    },
+    {
+      "source": "00　今日のゴール",
+      "translation": "00　今天的目標"
+    },
+    {
+      "source": "01　プロジェクトを作って実行",
+      "translation": "01　建立專案並執行"
+    },
+    {
+      "source": "02　タイトル画像を入れる",
+      "translation": "02　加入標題圖片"
+    },
+    {
+      "source": "03　TOP画面のレイアウトを作る",
+      "translation": "03　製作 TOP 畫面的版面配置"
+    },
+    {
+      "source": "04　参加者を登録する",
+      "translation": "04　登記參加者"
+    },
+    {
+      "source": "05　ワリカン画面を作る",
+      "translation": "05　製作分攤畫面"
+    },
+    {
+      "source": "06　参加者リストを渡して画面を切り替える",
+      "translation": "06　傳遞參加者列表並切換畫面"
+    },
+    {
+      "source": "07　割り勘の計算クラスを使う",
+      "translation": "07　使用分攤費用的計算類別"
+    },
+    {
+      "source": "08　入力チェックを作る",
+      "translation": "08　編寫輸入檢查"
+    },
+    {
+      "source": "09　計算結果を表示する",
+      "translation": "09　顯示計算結果"
+    },
+    {
+      "source": "10　ミニ練習",
+      "translation": "10　小練習"
+    },
+    {
+      "source": "11　完成",
+      "translation": "11　完成"
+    },
+    {
+      "source": "0 / 12 ステップ確認済み",
+      "translation": "已確認 0 / 12 個步驟"
+    },
+    {
+      "source": "学習の進み具合",
+      "translation": "學習進度"
+    },
+    {
+      "source": "自分用のチェックです。",
+      "translation": "這是給自己的檢查。"
+    },
+    {
+      "source": "困ったとき",
+      "translation": "遇到困難時"
+    },
+    {
+      "source": "解説：なぜ画面側でチェックするのか",
+      "translation": "解說：為何在畫面端檢查"
+    },
+    {
+      "source": "解説：1円の端数はだれが払う？",
+      "translation": "解說：誰來支付剩餘的 1 日圓？"
+    },
+    {
+      "source": "完成プロジェクトを開く",
+      "translation": "開啟完成專案"
+    },
+    {
+      "source": "共通：はじめの準備",
+      "translation": "共通：開始前的準備"
+    },
+    {
+      "source": "共通：エミュレータ",
+      "translation": "共通：模擬器"
+    },
+    {
+      "source": "共通：Auto Import",
+      "translation": "共通：Auto Import"
+    },
+    {
+      "source": "共通：Logcat",
+      "translation": "共通：Logcat"
+    },
+    {
+      "source": "共通：APKの提出",
+      "translation": "共通：提交 APK"
+    },
+    {
+      "source": "共通：開発Tips",
+      "translation": "共通：開發技巧"
+    },
+    {
+      "source": "共通：Android Studioのバージョン",
+      "translation": "共通：Android Studio 版本"
+    },
+    {
+      "source": "割り勘アプリを<br>作ろう",
+      "translation": "製作分攤費用<br>應用程式"
+    },
+    {
+      "source": "参加者を登録する。金額を入れる。1円もずれずに分ける。<br>A06で学んだ「配列を渡す」を、使えるアプリにします。",
+      "translation": "登記參加者，輸入金額，分攤後一日圓也不差。<br>將 A06 學過的「傳遞陣列」用於實用的應用程式。"
+    },
+    {
+      "source": "A06の次の単元",
+      "translation": "A06 之後的單元"
+    },
+    {
+      "source": "90分 × 3コマ目安",
+      "translation": "約 90 分鐘 × 3 節課"
+    },
+    {
+      "source": "Macで学ぶ",
+      "translation": "使用 Mac 學習"
+    },
+    {
+      "source": "STEP 00 · 目安 5分",
+      "translation": "STEP 00 · 約 5 分鐘"
+    },
+    {
+      "source": "今日のゴール",
+      "translation": "今天的目標"
+    },
+    {
+      "source": "飲み会やランチの支払いを、参加者で分けるアプリを作ります。名前を登録する画面と、金額を入れて結果を見る画面の、2つの画面でできています。",
+      "translation": "製作將聚餐或午餐費用分攤給參加者的應用程式。由登記姓名的畫面，以及輸入金額並查看結果的畫面組成。"
+    },
+    {
+      "source": "TOP画面。タイトル画像の下に名前の入力欄、登録ボタン、ワリカン画面へボタン、参加者一覧の見出しが並んでいる",
+      "translation": "TOP 畫面。標題圖片下方排列姓名輸入欄、「登録」（登記）按鈕、「ワリカン画面へ」（前往分攤畫面）按鈕和「参加者一覧」（參加者列表）標題"
+    },
+    {
+      "source": "1つ目の画面。参加者の名前を登録します。 <a1>画像を大きく開く</a1>",
+      "translation": "第一個畫面。登記參加者姓名。<a1>開啟大圖</a1>"
+    },
+    {
+      "source": "ワリカン画面。1234と入力し、Sato 411円、Suzuki 412円、Tanaka 411円、合計1234円と表示されている",
+      "translation": "分攤畫面。輸入 1234 後，顯示 Sato 411 日圓、Suzuki 412 日圓、Tanaka 411 日圓，合共 1234 日圓"
+    },
+    {
+      "source": "2つ目の画面。1234円を3人で割った結果です。 <a1>画像を大きく開く</a1>",
+      "translation": "第二個畫面。將 1234 日圓分給 3 人的結果。<a1>開啟大圖</a1>"
+    },
+    {
+      "source": "今日使う技術",
+      "translation": "今天使用的技術"
+    },
+    {
+      "source": "技術",
+      "translation": "技術"
+    },
+    {
+      "source": "どこで使うか",
+      "translation": "在哪裏使用"
+    },
+    {
+      "source": "登録した参加者の名前をためておく。",
+      "translation": "儲存已登記的參加者姓名。"
+    },
+    {
+      "source": "Intentで配列を渡す",
+      "translation": "用 Intent 傳遞陣列"
+    },
+    {
+      "source": "A06のTest 3と同じ形。参加者の名前を次の画面へ渡す。",
+      "translation": "與 A06 的 Test 3 相同。將參加者姓名傳給下一個畫面。"
+    },
+    {
+      "source": "入力チェック",
+      "translation": "輸入檢查"
+    },
+    {
+      "source": "おかしな入力のときは計算せず、Snackbarで知らせる。",
+      "translation": "輸入不正確時不計算，並用 Snackbar 提示。"
+    },
+    {
+      "source": "できあがったクラスを使う",
+      "translation": "使用現成的類別"
+    },
+    {
+      "source": "割り勘の計算は、教材に入っている <code>BillSplitter</code> が担当する。中身は読まなくてよい。",
+      "translation": "教材內的 <code>BillSplitter</code> 負責計算分攤費用。不必閱讀內部程式碼。"
+    },
+    {
+      "source": "1234円を3人で割ると411.33…円です。1円より細かいお金は払えないので、<strong>411円・411円・412円</strong>のように、差が1円までになるように分けます。合計は必ず1234円に戻ります。",
+      "translation": "1234 日圓除以 3 人等於 411.33… 日圓。因為無法支付小於 1 日圓的金額，所以會像 <strong>411 日圓、411 日圓、412 日圓</strong>一樣分配，讓差額不超過 1 日圓。總額一定仍是 1234 日圓。"
+    },
+    {
+      "source": "画面回転について",
+      "translation": "關於螢幕旋轉"
+    },
+    {
+      "source": "各単元では画面回転時のデータ保持と横画面のレイアウトを扱いません。回転などでActivityが作り直されると、登録した参加者と計算結果は初期状態に戻ります。横向きでは画面の下の部分が見えなくなる場合があるため、縦向きで使います。考え方と対処法は<a1>共通資料：開発Tips</a1>のC章にあります。",
+      "translation": "各單元不處理螢幕旋轉時保留資料及橫向版面配置。旋轉等操作令 Activity 重新建立時，已登記的參加者和計算結果會返回初始狀態。橫向時可能看不到畫面下方，因此請直向使用。概念及處理方法見<a1>共通資料：開發技巧</a1>的 C 章。"
+    },
+    {
+      "source": "ここで止まって、確認",
+      "translation": "在這裏停下來確認"
+    },
+    {
+      "source": "2つの画面の画像で、1234円を3人で割ると411円・411円・412円になり、合計が1234円に戻ることを確認した。",
+      "translation": "已從兩個畫面的圖片確認，1234 日圓分給 3 人時，金額為 411、411、412 日圓，總額仍是 1234 日圓。"
+    },
+    {
+      "source": "できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。",
+      "translation": "完成後勾選。遇到困難時，請將 STEP 編號和畫面給老師看。"
+    },
+    {
+      "source": "次へ：プロジェクトを作って実行 →",
+      "translation": "下一步：建立專案並執行 →"
+    },
+    {
+      "source": "STEP 01 · 目安 15分",
+      "translation": "STEP 01 · 約 15 分鐘"
+    },
+    {
+      "source": "プロジェクトを作って実行",
+      "translation": "建立專案並執行"
+    },
+    {
+      "source": "授業環境はMacと <strong>Android Studio Panda 2 | 2025.3.2</strong> です。A06までとは別のプロジェクトを作ります。",
+      "translation": "課堂環境為 Mac 和 <strong>Android Studio Panda 2 | 2025.3.2</strong>。建立一個與 A06 及之前單元不同的專案。"
+    },
+    {
+      "source": "毎回、自分で新規作成します",
+      "translation": "每次都自行建立新專案"
+    },
+    {
+      "source": "作る場所は <code>Documents/Android1/A07BillSplitter</code> です。<a1>完成プロジェクト</a1>は答え合わせ用で、授業の入力は自分で作ったプロジェクトに書きます。",
+      "translation": "建立位置為 <code>Documents/Android1/A07BillSplitter</code>。<a1>完成專案</a1>用來核對答案，課堂輸入的程式碼要寫在自己建立的專案。"
+    },
+    {
+      "source": "Android Studioの <strong>New Project</strong> をクリックします。別のプロジェクトを開いているときは <strong>File → New → New Project</strong> を選びます。",
+      "translation": "按一下 Android Studio 的 <strong>New Project</strong>。如果正開啟其他專案，請選取 <strong>File → New → New Project</strong>。"
+    },
+    {
+      "source": "Android StudioのWelcome画面。右上にNew Flutter Project、New Project、Openのボタンが並んでいる",
+      "translation": "Android Studio 的 Welcome 畫面。右上方排列 New Flutter Project、New Project、Open 按鈕"
+    },
+    {
+      "source": "右上のNew Projectをクリック。 <a1>画像を大きく開く</a1>",
+      "translation": "按一下右上方的 New Project。<a1>開啟大圖</a1>"
+    },
+    {
+      "source": "<strong>Phone and Tablet → Empty Views Activity → Next</strong> の順に選びます。名前に <strong>Views</strong> があることを確認します。",
+      "translation": "依次選取 <strong>Phone and Tablet → Empty Views Activity → Next</strong>。確認名稱包含 <strong>Views</strong>。"
+    },
+    {
+      "source": "テンプレート一覧でEmpty Views Activityが選択されている",
+      "translation": "範本列表已選取 Empty Views Activity"
+    },
+    {
+      "source": "Empty Views Activityを選択。Empty Activityとは別です。 <a1>画像を大きく開く</a1>",
+      "translation": "選取 Empty Views Activity。它與 Empty Activity 不同。<a1>開啟大圖</a1>"
+    },
+    {
+      "source": "次の表のとおりに入力・選択して <strong>Finish</strong> を押します。",
+      "translation": "按照下表輸入和選取，再按 <strong>Finish</strong>。"
+    },
+    {
+      "source": "項目",
+      "translation": "項目"
+    },
+    {
+      "source": "入力・選択する内容",
+      "translation": "要輸入或選取的內容"
+    },
+    {
+      "source": "<code>jp.ac.jec.a07billsplitter</code>（すべて小文字）",
+      "translation": "<code>jp.ac.jec.a07billsplitter</code>（全部小寫）"
+    },
+    {
+      "source": "New Projectの設定画面。NameにA07BillSplitter、Package nameにjp.ac.jec.a07billsplitter、LanguageにJava、Minimum SDKにAPI 31が入っている",
+      "translation": "New Project 設定畫面。Name 為 A07BillSplitter、Package name 為 jp.ac.jec.a07billsplitter、Language 為 Java、Minimum SDK 為 API 31"
+    },
+    {
+      "source": "入力後の画面。画像の保存先は先生の環境のものです。自分のDocuments以下を指定します。 <a1>画像を大きく開く</a1>",
+      "translation": "輸入後的畫面。圖片中的儲存位置屬於老師的環境。請指定自己 Documents 之下的位置。<a1>開啟大圖</a1>"
+    },
+    {
+      "source": "Sync（歯車の読み込み）が終わるまで待ちます。",
+      "translation": "等待 Sync（齒輪載入）完成。"
+    },
+    {
+      "source": "端末欄で <strong>jec_26cm_android1_Pixel 9a</strong> を選び、<strong>Run</strong>（▶）を押します。白い画面に <strong>Hello World!</strong> が出れば成功です。",
+      "translation": "在裝置欄選取 <strong>jec_26cm_android1_Pixel 9a</strong>，按 <strong>Run</strong>（▶）。白色畫面出現 <strong>Hello World!</strong> 就表示成功。"
+    },
+    {
+      "source": "エミュレータが出てこないときは<a1>共通資料：エミュレータ</a1>を見ます。",
+      "translation": "模擬器沒有出現時，請參閱<a1>共通資料：模擬器</a1>。"
+    },
+    {
+      "source": "自分の保存先にA07BillSplitterを作り、Hello World!を表示できた。",
+      "translation": "已在自己的儲存位置建立 A07BillSplitter，並能夠顯示 Hello World!。"
+    },
+    {
+      "source": "次へ：タイトル画像を入れる →",
+      "translation": "下一步：加入標題圖片 →"
+    },
+    {
+      "source": "STEP 02 · 目安 10分",
+      "translation": "STEP 02 · 約 10 分鐘"
+    },
+    {
+      "source": "タイトル画像を入れる",
+      "translation": "加入標題圖片"
+    },
+    {
+      "source": "TOP画面の上に置く<strong>タイトル画像</strong>を追加します。画像の <code>title_img.png</code> は、教科書といっしょに配られた<strong>教材のフォルダ</strong>に入っています。Finderでコピーして、自分のプロジェクトに入れます。",
+      "translation": "加入放在 TOP 畫面上方的<strong>標題圖片</strong>。圖片 <code>title_img.png</code> 位於與教科書一起派發的<strong>教材資料夾</strong>。用 Finder 複製到自己的專案。"
+    },
+    {
+      "source": "Finderを開き、左側の <strong>書類</strong> をクリックします。教材のフォルダをダブルクリックで開きます。名前は <code>android1-student-materials-</code> のうしろに日付が付いた形で、日付は配られた回によって変わります。",
+      "translation": "開啟 Finder，按一下左側的 <strong>書類</strong>（文件）。按兩下開啟教材資料夾。名稱是 <code>android1-student-materials-</code> 後面加上日期，日期會隨派發批次改變。"
+    },
+    {
+      "source": "その中を <code>docs → bill-splitter → downloads</code> の順に開きます。<code>bill-splitter</code> は、いま読んでいるこの教科書（<code>index.html</code>）が入っているフォルダです。",
+      "translation": "在裏面依次開啟 <code>docs → bill-splitter → downloads</code>。<code>bill-splitter</code> 是存放目前這本教科書（<code>index.html</code>）的資料夾。"
+    },
+    {
+      "source": "<code>title_img.png</code> を選び、<kbd>⌘ C</kbd> でコピーします。同じフォルダには、完成プロジェクトの <code>A07BillSplitter.zip</code> も入っています。ここでは選びません。",
+      "translation": "選取 <code>title_img.png</code>，用 <kbd>⌘ C</kbd> 複製。同一資料夾也有完成專案 <code>A07BillSplitter.zip</code>，這裏不要選取它。"
+    },
+    {
+      "source": "教材のフォルダが見つからないとき",
+      "translation": "找不到教材資料夾時"
+    },
+    {
+      "source": "教材のフォルダは、はじめの準備で「書類」へ移動したものです（<a1>共通資料：はじめの準備</a1>の1.）。まだ移動していなければ、先にそちらを行います。同じ教材を2回ダウンロードして名前のうしろに <code>(1)</code> が付いたものがあるときは、自分で判断せず先生に見せてください。",
+      "translation": "教材資料夾是在開始前的準備中移至「書類」（文件）的資料夾（<a1>共通資料：開始前的準備</a1>的第 1 節）。如果尚未移動，請先完成該步驟。如果同一教材下載了兩次，名稱後面有 <code>(1)</code>，請不要自行判斷，先給老師看。"
+    },
+    {
+      "source": "Android Studioの左側で <code>app → src → main → res → drawable</code> をクリックし、<kbd>⌘ V</kbd> で貼り付けます。",
+      "translation": "在 Android Studio 左側按一下 <code>app → src → main → res → drawable</code>，用 <kbd>⌘ V</kbd> 貼上。"
+    },
+    {
+      "source": "Copyのダイアログが出ます。New nameが <code>title_img.png</code>、To directoryの最後が <code>A07BillSplitter/app/src/main/res/drawable</code> になっていることを確認して <strong>OK</strong> を押します。",
+      "translation": "會出現 Copy 對話框。確認 New name 為 <code>title_img.png</code>，To directory 結尾為 <code>A07BillSplitter/app/src/main/res/drawable</code>，再按 <strong>OK</strong>。"
+    },
+    {
+      "source": "Copyダイアログ。New nameにtitle_img.png、To directoryにA07BillSplitter/app/src/main/res/drawableが表示されている",
+      "translation": "Copy 對話框。New name 顯示 title_img.png，To directory 顯示 A07BillSplitter/app/src/main/res/drawable"
+    },
+    {
+      "source": "貼り付け先がdrawableになっているか確認します。この画面は先生の例です。<strong>Copy file</strong> のうしろ（コピー元の場所）は、自分の画面では教材のフォルダの中の場所になります。 <a1>画像を大きく開く</a1>",
+      "translation": "確認貼上的目的地是 drawable。這個畫面是老師的例子。你畫面上的 <strong>Copy file</strong> 後方（複製來源位置），會是教材資料夾內的位置。<a1>開啟大圖</a1>"
+    },
+    {
+      "source": "プロジェクト画面のdrawableフォルダに、ic_launcher_background.xml、ic_launcher_foreground.xml、title_img.pngが並んでいる",
+      "translation": "專案畫面的 drawable 資料夾內排列着 ic_launcher_background.xml、ic_launcher_foreground.xml、title_img.png"
+    },
+    {
+      "source": "drawableの中に <code>title_img.png</code> が増えていれば成功です。 <a1>画像を大きく開く</a1>",
+      "translation": "drawable 內多了 <code>title_img.png</code> 就表示成功。<a1>開啟大圖</a1>"
+    },
+    {
+      "source": "title_img.pngをres/drawableに入れ、プロジェクト画面で確認できた。",
+      "translation": "已將 title_img.png 放入 res/drawable，並能夠在專案畫面確認。"
+    },
+    {
+      "source": "次へ：TOP画面のレイアウトを作る →",
+      "translation": "下一步：製作 TOP 畫面的版面配置 →"
+    },
+    {
+      "source": "STEP 03 · 目安 20分",
+      "translation": "STEP 03 · 約 20 分鐘"
+    },
+    {
+      "source": "TOP画面のレイアウトを作る",
+      "translation": "製作 TOP 畫面的版面配置"
+    },
+    {
+      "source": "<code>app → src → main → res → layout → activity_main.xml</code> を開き、左上の <strong>Code</strong> を選びます。中身をすべて消して、次のコードに置き換えます。",
+      "translation": "開啟 <code>app → src → main → res → layout → activity_main.xml</code>，選取左上方的 <strong>Code</strong>。刪除所有內容，換成以下程式碼。"
+    },
+    {
+      "source": "activity_main.xml · 全文",
+      "translation": "activity_main.xml · 全文"
+    },
+    {
+      "source": "置いた部品",
+      "translation": "已放置的元件"
+    },
+    {
+      "source": "部品",
+      "translation": "元件"
+    },
+    {
+      "source": "役割",
+      "translation": "作用"
+    },
+    {
+      "source": "（なし）",
+      "translation": "（無）"
+    },
+    {
+      "source": "STEP 02で入れたタイトル画像を表示する。",
+      "translation": "顯示 STEP 02 加入的標題圖片。"
+    },
+    {
+      "source": "参加者の名前を入力する。",
+      "translation": "輸入參加者姓名。"
+    },
+    {
+      "source": "入力した名前を登録する。",
+      "translation": "登記輸入的姓名。"
+    },
+    {
+      "source": "ワリカン画面へ進む。",
+      "translation": "前往分攤畫面。"
+    },
+    {
+      "source": "登録した名前を並べて表示する。",
+      "translation": "依次顯示已登記的姓名。"
+    },
+    {
+      "source": "一番外側の <code>LinearLayout</code> には <code>android:id=\"@+id/main\"</code> が付いています。この <code>main</code> は、画面の上下の余白（ステータスバーの下など）を自動で空ける処理で使います。消さないようにします。",
+      "translation": "最外層的 <code>LinearLayout</code> 有 <code>android:id=\"@+id/main\"</code>。這個 <code>main</code> 用於自動在畫面上下保留空間（例如狀態列下方）的處理。請不要刪除。"
+    },
+    {
+      "source": "Runすると、STEP 00の1枚目と同じ画面になります。まだボタンを押しても何も起きません。",
+      "translation": "Run 後會出現與 STEP 00 第一張圖片相同的畫面。目前按按鈕仍不會發生任何事。"
+    },
+    {
+      "source": "TOP画面のレイアウトを作り、タイトル画像・入力欄・ボタン2つ・参加者一覧を表示できた。",
+      "translation": "已製作 TOP 畫面配置，並能夠顯示標題圖片、輸入欄、兩個按鈕及參加者列表。"
+    },
+    {
+      "source": "次へ：参加者を登録する →",
+      "translation": "下一步：登記參加者 →"
+    },
+    {
+      "source": "STEP 04 · 目安 25分",
+      "translation": "STEP 04 · 約 25 分鐘"
+    },
+    {
+      "source": "参加者を登録する",
+      "translation": "登記參加者"
+    },
+    {
+      "source": "<code>MainActivity.java</code> を開きます。<code>onCreate</code> の中の、<code>ViewCompat.setOnApplyWindowInsetsListener(…);</code> で終わる行の<strong>下</strong>に書いていきます。",
+      "translation": "開啟 <code>MainActivity.java</code>。在 <code>onCreate</code> 內，以 <code>ViewCompat.setOnApplyWindowInsetsListener(…);</code> 結尾那一行的<strong>下方</strong>繼續編寫。"
+    },
+    {
+      "source": "① 名前をためる入れ物と、画面の部品を用意する",
+      "translation": "① 準備儲存姓名的容器和畫面元件"
+    },
+    {
+      "source": "MainActivity.java · onCreateの中",
+      "translation": "MainActivity.java · onCreate 內"
+    },
+    {
+      "source": "<code>ArrayList</code> は、あとから増やせる入れ物です。ここに参加者の名前をためます。",
+      "translation": "<code>ArrayList</code> 是可以在之後增加內容的容器。用它儲存參加者姓名。"
+    },
+    {
+      "source": "<code>findViewById</code> は <code>onCreate</code> の最初にまとめて書きます。あとから何度も呼ばずに済み、どの部品を使うアプリなのかが上から読めます。",
+      "translation": "將 <code>findViewById</code> 集中寫在 <code>onCreate</code> 開頭。這樣之後就不必重複呼叫，也可以從上方讀出應用程式使用哪些元件。"
+    },
+    {
+      "source": "赤い字になったら <kbd>⌥ Enter</kbd> を押し、<code>java.util.ArrayList</code>・<code>android.widget.EditText</code>・<code>android.widget.TextView</code> を選びます。<a1>共通資料：Auto Import</a1>も見ます。",
+      "translation": "文字變紅時，按 <kbd>⌥ Enter</kbd>，選取 <code>java.util.ArrayList</code>、<code>android.widget.EditText</code>、<code>android.widget.TextView</code>。也請參閱<a1>共通資料：Auto Import</a1>。"
+    },
+    {
+      "source": "② 登録ボタンの処理を書く",
+      "translation": "② 編寫登記按鈕的處理"
+    },
+    {
+      "source": "MainActivity.java · ①の下",
+      "translation": "MainActivity.java · ① 下方"
+    },
+    {
+      "source": "書いたこと",
+      "translation": "編寫的內容"
+    },
+    {
+      "source": "意味",
+      "translation": "意思"
+    },
+    {
+      "source": "入力欄が空のときは登録しない。",
+      "translation": "輸入欄空白時不登記。"
+    },
+    {
+      "source": "同じ名前がすでにあるときは登録しない。",
+      "translation": "已有相同姓名時不登記。"
+    },
+    {
+      "source": "メッセージを出して、ここで処理をやめる。下の登録は行われない。",
+      "translation": "顯示訊息後，在這裏停止處理。不會執行下方的登記。"
+    },
+    {
+      "source": "一覧の<strong>末尾に追加</strong>する。<code>setText</code> だと前の名前が消える。",
+      "translation": "<strong>加到列表末端</strong>。若用 <code>setText</code>，之前的姓名會消失。"
+    },
+    {
+      "source": "入力欄を空にして、次の名前を入れやすくする。",
+      "translation": "清空輸入欄，方便輸入下一個姓名。"
+    },
+    {
+      "source": "<code>\"\\n\"</code> は改行です。1人1行で並びます。",
+      "translation": "<code>\"\\n\"</code> 代表換行。每人佔一行。"
+    },
+    {
+      "source": "③ Runで確かめる",
+      "translation": "③ 用 Run 確認"
+    },
+    {
+      "source": "何も入力せずに <strong>登録</strong> を押します。",
+      "translation": "不輸入任何內容，按 <strong>登録</strong>（登記）。"
+    },
+    {
+      "source": "名前を入れずに登録を押したところ。画面下に参加者名を入力してくださいと表示されている",
+      "translation": "未輸入姓名就按「登録」（登記）後，畫面下方顯示「参加者名を入力してください」（請輸入參加者姓名）"
+    },
+    {
+      "source": "空のときは登録されず、下にメッセージが出ます。 <a1>画像を大きく開く</a1>",
+      "translation": "空白時不會登記，下方會顯示訊息。<a1>開啟大圖</a1>"
+    },
+    {
+      "source": "<code>Sato</code>・<code>Suzuki</code>・<code>Tanaka</code> の順に登録します。",
+      "translation": "依次登記 <code>Sato</code>、<code>Suzuki</code>、<code>Tanaka</code>。"
+    },
+    {
+      "source": "参加者一覧にSato、Suzuki、Tanakaの3人が縦に並んでいる",
+      "translation": "參加者列表中，Sato、Suzuki、Tanaka 三人垂直排列"
+    },
+    {
+      "source": "登録した順に1行ずつ増えます。 <a1>画像を大きく開く</a1>",
+      "translation": "按照登記次序逐行增加。<a1>開啟大圖</a1>"
+    },
+    {
+      "source": "もう一度 <code>Sato</code> を登録します。",
+      "translation": "再次登記 <code>Sato</code>。"
+    },
+    {
+      "source": "すでに登録済みのSatoをもう一度登録しようとして、参加者名が重複していますと表示されている",
+      "translation": "嘗試再次登記已登記的 Sato，顯示「参加者名が重複しています」（參加者姓名重複）"
+    },
+    {
+      "source": "同じ名前は登録されません。一覧も増えません。 <a1>画像を大きく開く</a1>",
+      "translation": "不會登記相同姓名，列表也不會增加。<a1>開啟大圖</a1>"
+    },
+    {
+      "source": "参加者を登録でき、空のときと同じ名前のときにメッセージが出ることを確かめられた。",
+      "translation": "已能夠登記參加者，並確認空白及姓名相同時會顯示訊息。"
+    },
+    {
+      "source": "次へ：ワリカン画面を作る →",
+      "translation": "下一步：製作分攤畫面 →"
+    },
+    {
+      "source": "STEP 05 · 目安 15分",
+      "translation": "STEP 05 · 約 15 分鐘"
+    },
+    {
+      "source": "ワリカン画面を作る",
+      "translation": "製作分攤畫面"
+    },
+    {
+      "source": "2つ目の画面を追加します。A06のTestActivityと同じ作り方です。",
+      "translation": "加入第二個畫面。建立方法與 A06 的 TestActivity 相同。"
+    },
+    {
+      "source": "左側のプロジェクト画面で <code>app → src → main → java → jp.ac.jec.a07billsplitter</code> を右クリックします。",
+      "translation": "在左側專案畫面，以右鍵按一下 <code>app → src → main → java → jp.ac.jec.a07billsplitter</code>。"
+    },
+    {
+      "source": "<strong>New → Activity → Empty Views Activity</strong> を選びます。",
+      "translation": "選取 <strong>New → Activity → Empty Views Activity</strong>。"
+    },
+    {
+      "source": "パッケージを右クリックして、New、Activity、Empty Views Activityと選んでいるメニュー",
+      "translation": "以右鍵按套件後，依次選取 New、Activity、Empty Views Activity 的選單"
+    },
+    {
+      "source": "作る場所は <code>jp.ac.jec.a07billsplitter</code> です。 <a1>画像を大きく開く</a1>",
+      "translation": "建立位置為 <code>jp.ac.jec.a07billsplitter</code>。<a1>開啟大圖</a1>"
+    },
+    {
+      "source": "次の表のとおりに入力して <strong>Finish</strong> を押します。<strong>Launcher Activityにはチェックを入れません。</strong>",
+      "translation": "按照下表輸入，再按 <strong>Finish</strong>。<strong>不要勾選 Launcher Activity。</strong>"
+    },
+    {
+      "source": "チェックを入れる",
+      "translation": "勾選"
+    },
+    {
+      "source": "チェックを入れない",
+      "translation": "不要勾選"
+    },
+    {
+      "source": "New Android Activityの設定画面。Activity NameにBillSplitActivity、Layout Nameにactivity_bill_split、Launcher Activityは未チェック",
+      "translation": "New Android Activity 設定畫面。Activity Name 為 BillSplitActivity，Layout Name 為 activity_bill_split，Launcher Activity 未勾選"
+    },
+    {
+      "source": "<strong>Launcher Activityにはチェックを入れません。</strong>理由はこのあとで説明します。 <a1>画像を大きく開く</a1>",
+      "translation": "<strong>不要勾選 Launcher Activity。</strong>原因會在後面說明。<a1>開啟大圖</a1>"
+    },
+    {
+      "source": "New → Java Classでは作りません",
+      "translation": "不要用 New → Java Class 建立"
+    },
+    {
+      "source": "この作り方なら <code>AndroidManifest.xml</code> への登録も自動で行われます。<strong>New → Java Class</strong> で作ると登録されず、画面を開いたときにアプリが終了します。",
+      "translation": "用這個方法建立時，也會自動登記到 <code>AndroidManifest.xml</code>。若用 <strong>New → Java Class</strong> 建立，則不會登記，開啟畫面時應用程式會結束。"
+    },
+    {
+      "source": "AndroidManifest.xmlに増えた3行を見る",
+      "translation": "查看 AndroidManifest.xml 新增的三行"
+    },
+    {
+      "source": "<code>app → src → main → AndroidManifest.xml</code> を開きます。<strong>Finish</strong> を押した直後に、次の3行が増えています。自動で追加されているので、<strong>入力しません</strong>。",
+      "translation": "開啟 <code>app → src → main → AndroidManifest.xml</code>。按 <strong>Finish</strong> 後，會立即新增以下三行。它們是自動加入的，<strong>不必輸入</strong>。"
+    },
+    {
+      "source": "指定",
+      "translation": "指定內容"
+    },
+    {
+      "source": "アプリの画面をAndroidに知らせる。この登録がないと、画面を開いたときにアプリが終了する。",
+      "translation": "告訴 Android 應用程式有哪些畫面。沒有這項登記，開啟畫面時應用程式會結束。"
+    },
+    {
+      "source": "登録するクラス。先頭の <code>.</code> は、パッケージ名 <code>jp.ac.jec.a07billsplitter</code> を省いた書き方。",
+      "translation": "要登記的類別。開頭的 <code>.</code> 是省略套件名稱 <code>jp.ac.jec.a07billsplitter</code> 的寫法。"
+    },
+    {
+      "source": "ほかのアプリからこの画面を開けないようにする。<code>BillSplitActivity</code> は自分のアプリの <code>MainActivity</code> からだけ開く。",
+      "translation": "禁止其他應用程式開啟這個畫面。<code>BillSplitActivity</code> 只會從自己應用程式的 <code>MainActivity</code> 開啟。"
+    },
+    {
+      "source": "なぜLauncher Activityにチェックを入れないのか",
+      "translation": "為何不要勾選 Launcher Activity"
+    },
+    {
+      "source": "<code>MainActivity</code> の <code>&lt;activity&gt;</code> には <code>&lt;intent-filter&gt;</code>（<code>MAIN</code> と <code>LAUNCHER</code>）が書かれています。これは「アプリ一覧のアイコンから最初に開く画面」という印です。<code>BillSplitActivity</code> は <code>MainActivity</code> から開くので、この印は要りません。",
+      "translation": "<code>MainActivity</code> 的 <code>&lt;activity&gt;</code> 內有 <code>&lt;intent-filter&gt;</code>（<code>MAIN</code> 和 <code>LAUNCHER</code>）。這是「從應用程式列表的圖示開啟時，首先顯示的畫面」的標記。<code>BillSplitActivity</code> 由 <code>MainActivity</code> 開啟，因此不需要這個標記。"
+    },
+    {
+      "source": "Launcher Activityにチェックを入れると、<code>BillSplitActivity</code> にもこの印が付いて、次の2つが起きます。",
+      "translation": "勾選 Launcher Activity 後，<code>BillSplitActivity</code> 也會有這個標記，並出現以下兩種情況。"
+    },
+    {
+      "source": "アプリ一覧に、<strong>「A07BillSplitter」という同じ名前のアイコンが2つ</strong>並びます。名前もアイコンも同じなので、どちらが本物か見分けられません。",
+      "translation": "應用程式列表中會排列<strong>兩個同樣名為「A07BillSplitter」的圖示</strong>。名稱和圖示都相同，無法分辨哪個才是正確的。"
+    },
+    {
+      "source": "<strong>Runしたときに、作ったばかりの何もない画面が起動することがあります。</strong>印の付いた画面が2つあるため、どちらから始まるかが決まらないからです。",
+      "translation": "<strong>Run 時，有時會啟動剛建立的空白畫面。</strong>因為有兩個畫面附有標記，無法確定從哪個畫面開始。"
+    },
+    {
+      "source": "入れてしまったときは、<code>BillSplitActivity</code> の <code>&lt;activity&gt;</code> から <code>&lt;intent-filter&gt;</code> を消して、<code>android:exported</code> を <code>false</code> に戻します。上の3行と同じ形になれば直っています。",
+      "translation": "如果已勾選，請從 <code>BillSplitActivity</code> 的 <code>&lt;activity&gt;</code> 中刪除 <code>&lt;intent-filter&gt;</code>，將 <code>android:exported</code> 改回 <code>false</code>。與上面的三行相同就已修正。"
+    },
+    {
+      "source": "ワリカン画面のレイアウト",
+      "translation": "分攤畫面的版面配置"
+    },
+    {
+      "source": "<code>res → layout → activity_bill_split.xml</code> を開き、<strong>Code</strong> にしてから、中身をすべて次のコードに置き換えます。",
+      "translation": "開啟 <code>res → layout → activity_bill_split.xml</code>，切換至 <strong>Code</strong>，再將所有內容換成以下程式碼。"
+    },
+    {
+      "source": "activity_bill_split.xml · 全文",
+      "translation": "activity_bill_split.xml · 全文"
+    },
+    {
+      "source": "受け取った人数を表示する。",
+      "translation": "顯示收到的人數。"
+    },
+    {
+      "source": "合計金額を入力する。",
+      "translation": "輸入總金額。"
+    },
+    {
+      "source": "計算を実行する。",
+      "translation": "執行計算。"
+    },
+    {
+      "source": "計算結果を表示する。",
+      "translation": "顯示計算結果。"
+    },
+    {
+      "source": "金額の入力欄には <code>android:inputType=\"number\"</code> と <code>android:maxLength=\"9\"</code> を付けています。数字だけのキーボードが出て、9桁までしか入りません。",
+      "translation": "金額輸入欄設有 <code>android:inputType=\"number\"</code> 和 <code>android:maxLength=\"9\"</code>。會出現只有數字的鍵盤，而且最多只能輸入 9 位數字。"
+    },
+    {
+      "source": "BillSplitActivityとactivity_bill_split.xmlを作り、Launcher Activityにチェックを入れていないことを確認できた。",
+      "translation": "已建立 BillSplitActivity 和 activity_bill_split.xml，並確認沒有勾選 Launcher Activity。"
+    },
+    {
+      "source": "次へ：参加者リストを渡して画面を切り替える →",
+      "translation": "下一步：傳遞參加者列表並切換畫面 →"
+    },
+    {
+      "source": "STEP 06 · 目安 20分",
+      "translation": "STEP 06 · 約 20 分鐘"
+    },
+    {
+      "source": "参加者リストを渡して画面を切り替える",
+      "translation": "傳遞參加者列表並切換畫面"
+    },
+    {
+      "source": "A06のTest 3でやった<strong>配列を渡す</strong>形です。渡す側と受け取る側の両方を書きます。",
+      "translation": "採用 A06 的 Test 3 學過的<strong>傳遞陣列</strong>方式。傳送端和接收端都要編寫。"
+    },
+    {
+      "source": "① 受け取る側（BillSplitActivity）にstartメソッドを作る",
+      "translation": "① 在接收端（BillSplitActivity）建立 start 方法"
+    },
+    {
+      "source": "<code>BillSplitActivity.java</code> を開きます。クラスの最初と、<code>onCreate</code> の<strong>外</strong>に次を書きます。",
+      "translation": "開啟 <code>BillSplitActivity.java</code>。在類別開頭及 <code>onCreate</code> <strong>外面</strong>編寫以下內容。"
+    },
+    {
+      "source": "BillSplitActivity.java · クラスの最初",
+      "translation": "BillSplitActivity.java · 類別開頭"
+    },
+    {
+      "source": "BillSplitActivity.java · onCreateの最後の } の下、クラスの最後の } の上",
+      "translation": "BillSplitActivity.java · onCreate 最後的 } 下方、類別最後的 } 上方"
+    },
+    {
+      "source": "クラス名を付けて <code>BillSplitActivity.start(…)</code> と呼べるメソッド。この画面を開く手順を、開かれる側であるこの画面自身が持つ。",
+      "translation": "加上類別名稱就能以 <code>BillSplitActivity.start(…)</code> 呼叫的方法。開啟這個畫面的步驟，由被開啟的畫面本身持有。"
+    },
+    {
+      "source": "画面（Activity）を受け取るための型。呼ぶ側が <code>this</code> を渡すと、ここに入る。",
+      "translation": "用來接收畫面（Activity）的類型。呼叫端傳入 <code>this</code> 時，會存入這裏。"
+    },
+    {
+      "source": "今の画面から <code>BillSplitActivity</code> を開くための指示（Intent）を作る。",
+      "translation": "建立從目前畫面開啟 <code>BillSplitActivity</code> 的指示（Intent）。"
+    },
+    {
+      "source": "キーを付けて、渡したい値をIntentに入れる。",
+      "translation": "附上鍵，將要傳遞的值放入 Intent。"
+    },
+    {
+      "source": "IntentをAndroidに渡して、画面を開いてもらう。",
+      "translation": "將 Intent 交給 Android，讓它開啟畫面。"
+    },
+    {
+      "source": "キーの文字（<code>\"participants\"</code>）は、受け取る側であるこの画面が持ちます。渡す側は <code>start</code> を呼ぶだけでよく、キーを間違えようがありません。",
+      "translation": "鍵的文字（<code>\"participants\"</code>）由接收端的這個畫面持有。傳送端只需呼叫 <code>start</code>，因此不會弄錯鍵。"
+    },
+    {
+      "source": "② 受け取って人数を表示する",
+      "translation": "② 接收並顯示人數"
+    },
+    {
+      "source": "<code>onCreate</code> の中の、<code>ViewCompat.setOnApplyWindowInsetsListener(…);</code> の下に書きます。",
+      "translation": "寫在 <code>onCreate</code> 內的 <code>ViewCompat.setOnApplyWindowInsetsListener(…);</code> 下方。"
+    },
+    {
+      "source": "BillSplitActivity.java · onCreateの中",
+      "translation": "BillSplitActivity.java · onCreate 內"
+    },
+    {
+      "source": "<code>getIntent()</code> は、この画面を開いたときのIntent（①の <code>start</code> で作って <code>startActivity</code> に渡したもの）を返します。<code>getStringArrayExtra(EXTRA_KEY_PARTICIPANTS)</code> は、そのIntentから、①で <code>putExtra</code> したのと同じキーの配列を取り出します。値が入っていないと <code>null</code> を返します。<code>Objects.requireNonNull</code> は、<code>null</code> だったらその場でアプリを止める書き方です。ここが <code>null</code> になるのは渡し忘れというプログラムの間違いのときだけなので、すぐ気づけるようにしておきます。",
+      "translation": "<code>getIntent()</code> 回傳開啟這個畫面時的 Intent（在①的 <code>start</code> 建立，再傳給 <code>startActivity</code> 的物件）。<code>getStringArrayExtra(EXTRA_KEY_PARTICIPANTS)</code> 從該 Intent 取出陣列，使用的鍵與①中 <code>putExtra</code> 時相同。沒有值時會回傳 <code>null</code>。<code>Objects.requireNonNull</code> 是在值為 <code>null</code> 時立即停止應用程式的寫法。這裏只有在忘記傳值這種程式錯誤發生時，才會變成 <code>null</code>，所以讓問題能立即被發現。"
+    },
+    {
+      "source": "③ 渡す側（MainActivity）から呼ぶ",
+      "translation": "③ 從傳送端（MainActivity）呼叫"
+    },
+    {
+      "source": "<code>MainActivity.java</code> の、STEP 04で書いた <code>btnAdd.setOnClickListener(…);</code> の下に書きます。",
+      "translation": "在 <code>MainActivity.java</code> 中，寫在 STEP 04 的 <code>btnAdd.setOnClickListener(…);</code> 下方。"
+    },
+    {
+      "source": "MainActivity.java · ②の下",
+      "translation": "MainActivity.java · ② 下方"
+    },
+    {
+      "source": "<code>participants</code> は <code>ArrayList</code> ですが、Intentで渡すのは<strong>配列</strong>です。<code>toArray(new String[0])</code> で <code>String[]</code> に変えて渡します。",
+      "translation": "<code>participants</code> 是 <code>ArrayList</code>，但透過 Intent 傳遞的是<strong>陣列</strong>。用 <code>toArray(new String[0])</code> 轉成 <code>String[]</code> 後傳遞。"
+    },
+    {
+      "source": "1人では割り勘になりません。2人未満のときは画面を切り替えずにメッセージを出します。",
+      "translation": "一個人無法分攤費用。少於兩人時不切換畫面，而是顯示訊息。"
+    },
+    {
+      "source": "④ Runで確かめる",
+      "translation": "④ 用 Run 確認"
+    },
+    {
+      "source": "参加者を1人だけ登録して <strong>ワリカン画面へ</strong> を押します。",
+      "translation": "只登記一位參加者，按 <strong>ワリカン画面へ</strong>（前往分攤畫面）。"
+    },
+    {
+      "source": "参加者が1人のときにワリカン画面へを押して、参加者を2人以上追加してくださいと表示されている",
+      "translation": "只有一位參加者時按「ワリカン画面へ」（前往分攤畫面），顯示「参加者を2人以上追加してください」（請加入至少兩位參加者）"
+    },
+    {
+      "source": "1人のときは画面が切り替わりません。 <a1>画像を大きく開く</a1>",
+      "translation": "一人時不會切換畫面。<a1>開啟大圖</a1>"
+    },
+    {
+      "source": "3人登録してから <strong>ワリカン画面へ</strong> を押します。",
+      "translation": "登記三人後，按 <strong>ワリカン画面へ</strong>（前往分攤畫面）。"
+    },
+    {
+      "source": "ワリカン画面。上に参加者は3人、その下に支払額（￥）のラベルと金額の入力欄、計算実行ボタン、計算結果の見出しがある",
+      "translation": "分攤畫面。上方顯示「参加者は3人」（參加者有三人），下方有「支払額（￥）」（支付金額）的標籤、金額輸入欄、「計算実行」（執行計算）按鈕和「計算結果」（計算結果）標題"
+    },
+    {
+      "source": "渡した人数が <strong>参加者は3人</strong> と表示されます。 <a1>画像を大きく開く</a1>",
+      "translation": "傳入的人數會顯示為 <strong>参加者は3人</strong>（參加者有三人）。<a1>開啟大圖</a1>"
+    },
+    {
+      "source": "2人以上のときだけワリカン画面が開き、渡した人数を表示できた。",
+      "translation": "已能夠只在兩人或以上時開啟分攤畫面，並顯示傳入的人數。"
+    },
+    {
+      "source": "次へ：割り勘の計算クラスを使う →",
+      "translation": "下一步：使用分攤費用的計算類別 →"
+    },
+    {
+      "source": "STEP 07 · 目安 15分",
+      "translation": "STEP 07 · 約 15 分鐘"
+    },
+    {
+      "source": "割り勘の計算クラスを使う",
+      "translation": "使用分攤費用的計算類別"
+    },
+    {
+      "source": "割り勘の計算は、できあがった <code>BillSplitter.java</code> が行います。<strong>中身を読む必要はありません。</strong>使い方だけ覚えます。",
+      "translation": "現成的 <code>BillSplitter.java</code> 負責計算分攤費用。<strong>不必閱讀內部程式碼。</strong>只需記住使用方法。"
+    },
+    {
+      "source": "空のファイルを自分で作り、このページの下にあるコードをコピーして、丸ごと入れます。コードは<strong>読まずにコピーして構いません</strong>。読むのは、そのあとの<a1>③ 使い方</a1>だけです。",
+      "translation": "自行建立空白檔案，複製本頁下方的程式碼，完整貼入。程式碼<strong>可以不閱讀，直接複製</strong>。只需閱讀之後的<a1>③ 使用方法</a1>。"
+    },
+    {
+      "source": "STEP 02のタイトル画像は、ファイルごとFinderでコピーしました。コードは文字なので、Finderを使わず、この教科書のページからそのままコピーできます。",
+      "translation": "STEP 02 的標題圖片是用 Finder 複製整個檔案。程式碼是文字，因此不必使用 Finder，可以直接從這本教科書的頁面複製。"
+    },
+    {
+      "source": "① 空のファイルを作る",
+      "translation": "① 建立空白檔案"
+    },
+    {
+      "source": "左側のプロジェクト画面で <code>app → src → main → java → jp.ac.jec.a07billsplitter</code>（<code>MainActivity.java</code> があるフォルダ）を右クリックし、<strong>New → Java Class</strong> を選びます。",
+      "translation": "在左側專案畫面，以右鍵按一下 <code>app → src → main → java → jp.ac.jec.a07billsplitter</code>（<code>MainActivity.java</code> 所在的資料夾），選取 <strong>New → Java Class</strong>。"
+    },
+    {
+      "source": "<strong>New Java Class</strong> という小さなウィンドウが出ます。いちばん上の欄に、名前 <code>BillSplitter</code> を入力します。<code>.java</code> は付けません。",
+      "translation": "會出現名為 <strong>New Java Class</strong> 的小視窗。在最上方欄位輸入名稱 <code>BillSplitter</code>，不要加上 <code>.java</code>。"
+    },
+    {
+      "source": "その下の一覧（<code>Class</code>・<code>Interface</code>・<code>Enum</code> …）で <strong>Class</strong> を選び、<kbd>return</kbd> を押します。",
+      "translation": "在下方列表（<code>Class</code>、<code>Interface</code>、<code>Enum</code>…）選取 <strong>Class</strong>，按 <kbd>return</kbd>。"
+    },
+    {
+      "source": "<code>BillSplitter.java</code> ができて開きます。中には <code>package</code> の行と、空のクラスの宣言だけが入っています。",
+      "translation": "<code>BillSplitter.java</code> 會建立並開啟。裏面只有 <code>package</code> 那一行，以及空白類別的宣告。"
+    },
+    {
+      "source": "作る場所に注意",
+      "translation": "注意建立的位置"
+    },
+    {
+      "source": "<code>app → src</code> の下には <code>test</code> と <code>androidTest</code> もあり、その中にも同じ名前のパッケージがあります。必ず <code>app → src → main → java</code> の中の、<code>MainActivity.java</code> と同じ場所に作ります。場所を間違えると1行目の <code>package</code> が変わり、STEP 09で <code>BillSplitter</code> が赤くなります。",
+      "translation": "<code>app → src</code> 下方也有 <code>test</code> 和 <code>androidTest</code>，裏面同樣有同名套件。必須建立在 <code>app → src → main → java</code> 內，與 <code>MainActivity.java</code> 相同的位置。位置錯誤會令第一行的 <code>package</code> 不同，STEP 09 的 <code>BillSplitter</code> 便會變紅。"
+    },
+    {
+      "source": "② 中身を全部入れ替える",
+      "translation": "② 替換全部內容"
+    },
+    {
+      "source": "下のコードの見出し <strong>BillSplitter.java · 全体を置き換える</strong> にある <strong>コピー</strong> ボタンを押します。<strong>コピーしました</strong> に変われば成功です。ブラウザによっては <strong>⌘ Cでコピー</strong> に変わり、コードが選ばれた状態になります。そのときは、そのまま <kbd>⌘ C</kbd> を押します。",
+      "translation": "按下方程式碼標題 <strong>BillSplitter.java · 替換全部內容</strong> 旁的 <strong>コピー</strong>（複製）按鈕。變成 <strong>コピーしました</strong>（已複製）就表示成功。某些瀏覽器會變成 <strong>⌘ Cでコピー</strong>（按 ⌘ C 複製），並選取程式碼。這時直接按 <kbd>⌘ C</kbd>。"
+    },
+    {
+      "source": "Android Studioに戻り、開いている <code>BillSplitter.java</code> の中をクリックして <kbd>⌘ A</kbd> で全部選びます。<strong>最初から入っている <code>package</code> の行とクラスの宣言も、いっしょに選びます。</strong>これを残したまま貼り付けると、同じものが2つ並んでエラーになります。",
+      "translation": "返回 Android Studio，按一下已開啟的 <code>BillSplitter.java</code> 內部，用 <kbd>⌘ A</kbd> 全選。<strong>也要一起選取原本已有的 <code>package</code> 那一行和類別宣告。</strong>如果保留它們再貼上，就會有兩份相同內容而發生錯誤。"
+    },
+    {
+      "source": "<kbd>⌘ V</kbd> で貼り付けます。選んでいたところが消えて、<strong>ファイル全体</strong>がコピーしたコードに置き換わります。",
+      "translation": "用 <kbd>⌘ V</kbd> 貼上。已選取的內容會消失，<strong>整個檔案</strong>會被複製的程式碼取代。"
+    },
+    {
+      "source": "1行目が <code>package jp.ac.jec.a07billsplitter;</code> になっていることを確認します。",
+      "translation": "確認第一行是 <code>package jp.ac.jec.a07billsplitter;</code>。"
+    },
+    {
+      "source": "コードは長いので、貼り付けが終わったら<a1>③ 使い方</a1>まで飛ばして構いません。",
+      "translation": "程式碼較長，貼上完成後可以直接跳到<a1>③ 使用方法</a1>。"
+    },
+    {
+      "source": "BillSplitter.java · 全体を置き換える",
+      "translation": "BillSplitter.java · 替換全部內容"
+    },
+    {
+      "source": "③ 使い方",
+      "translation": "③ 使用方法"
+    },
+    {
+      "source": "呼び出し方",
+      "translation": "呼叫方法"
+    },
+    {
+      "source": "渡すもの",
+      "translation": "要傳遞的項目"
+    },
+    {
+      "source": "内容",
+      "translation": "內容"
+    },
+    {
+      "source": "1つ目",
+      "translation": "第一項"
+    },
+    {
+      "source": "合計金額（整数）。<strong>1以上</strong>であること。",
+      "translation": "總金額（整數）。必須<strong>大於或等於 1</strong>。"
+    },
+    {
+      "source": "2つ目",
+      "translation": "第二項"
+    },
+    {
+      "source": "参加者の名前の配列。<strong>2人以上</strong>であること。",
+      "translation": "參加者姓名的陣列。必須有<strong>兩人或以上</strong>。"
+    },
+    {
+      "source": "戻り値",
+      "translation": "回傳值"
+    },
+    {
+      "source": "そのまま <code>setText</code> できる文字列。改行も入っている。",
+      "translation": "可以直接用 <code>setText</code> 顯示的字串。也包含換行。"
+    },
+    {
+      "source": "大事な約束",
+      "translation": "重要約定"
+    },
+    {
+      "source": "「金額は1以上」「2人以上」を守るのは<strong>呼び出す側の仕事</strong>です。守らずに呼ぶとアプリが終了します。次のSTEPで、その前にチェックを入れます。",
+      "translation": "確保「金額大於或等於 1」和「兩人或以上」是<strong>呼叫端的責任</strong>。不遵守就呼叫，應用程式會結束。下一個 STEP 會在呼叫前加入檢查。"
+    },
+    {
+      "source": "1234円を3人で割ると411円あまり1円です。<code>BillSplitter</code> は、全員に411円を割り当ててから、あまった1円を1人に足します。だれが払うかは<strong>実行するたびに変わります</strong>。同じ金額でもう一度計算すると、412円の人が入れ替わります。",
+      "translation": "1234 日圓除以三人，是每人 411 日圓，剩餘 1 日圓。<code>BillSplitter</code> 先將每人的金額設為 411 日圓，再將剩餘的 1 日圓加到其中一人。由誰支付，會<strong>隨每次執行而改變</strong>。用相同金額再次計算時，支付 412 日圓的人會改變。"
+    },
+    {
+      "source": "BillSplitter.javaを自分のプロジェクトに置き、赤いエラーが出ないことを確認した。",
+      "translation": "已將 BillSplitter.java 放到自己的專案，並確認沒有紅色錯誤。"
+    },
+    {
+      "source": "次へ：入力チェックを作る →",
+      "translation": "下一步：編寫輸入檢查 →"
+    },
+    {
+      "source": "STEP 08 · 目安 20分",
+      "translation": "STEP 08 · 約 20 分鐘"
+    },
+    {
+      "source": "入力チェックを作る",
+      "translation": "編寫輸入檢查"
+    },
+    {
+      "source": "<code>BillSplitActivity.java</code> の <code>onCreate</code> の中、STEP 06②で書いたコードの下に書きます。計算する前に、3つのことを確かめます。",
+      "translation": "在 <code>BillSplitActivity.java</code> 的 <code>onCreate</code> 內，寫在 STEP 06② 的程式碼下方。計算前先確認三件事。"
+    },
+    {
+      "source": "BillSplitActivity.java · 計算実行ボタンの処理",
+      "translation": "BillSplitActivity.java ·「計算実行」（執行計算）按鈕的處理"
+    },
+    {
+      "source": "チェック",
+      "translation": "檢查"
+    },
+    {
+      "source": "なぜ必要か",
+      "translation": "為何需要"
+    },
+    {
+      "source": "1. 未入力",
+      "translation": "1. 未輸入"
+    },
+    {
+      "source": "空の文字は数字に変えられない。",
+      "translation": "空白字串不能轉成數字。"
+    },
+    {
+      "source": "2. 数字に変えられない",
+      "translation": "2. 不能轉成數字"
+    },
+    {
+      "source": "<code>Integer.parseInt</code> は、変えられないと例外を出してアプリが終了する。<code>try</code> で受け止める。",
+      "translation": "<code>Integer.parseInt</code> 無法轉換時會拋出例外，令應用程式結束。用 <code>try</code> 處理。"
+    },
+    {
+      "source": "3. 金額が人数より少ない",
+      "translation": "3. 金額少於人數"
+    },
+    {
+      "source": "2円を3人で割ると0円の人が出る。ここを通れば「1以上」も自動的に満たされる。",
+      "translation": "2 日圓分給三人，會有人分到 0 日圓。通過這項檢查時，也自動符合「大於或等於 1」。"
+    },
+    {
+      "source": "解説：入力チェック2のメッセージは、画面の操作では出ない",
+      "translation": "解說：輸入檢查 2 的訊息無法透過畫面操作顯示"
+    },
+    {
+      "source": "3つのうち、入力チェック2の「支払い金額は数字で入力してください」だけは、このアプリをどう操作しても表示されません。STEP 05のレイアウトで、金額の入力欄を2つの指定でしぼってあるためです。",
+      "translation": "三項之中，只有輸入檢查 2 的「支払い金額は数字で入力してください」（請以數字輸入支付金額），無論如何操作這個應用程式都不會顯示。因為 STEP 05 的版面配置已用兩項設定限制金額輸入欄。"
+    },
+    {
+      "source": "レイアウトの指定",
+      "translation": "版面配置的設定"
+    },
+    {
+      "source": "起きること",
+      "translation": "會發生的事"
+    },
+    {
+      "source": "半角の数字しか入らない。文字や <code>-</code>、<code>.</code> は打っても入らない。",
+      "translation": "只能輸入半形數字。即使輸入文字、<code>-</code> 或 <code>.</code>，也不會進入欄位。"
+    },
+    {
+      "source": "9桁までしか入らない。10桁目からは打っても貼り付けても入らない。",
+      "translation": "最多只能輸入 9 位數字。第 10 位起，無論鍵入或貼上都不會進入欄位。"
+    },
+    {
+      "source": "<code>int</code> に入る最大の数は 2,147,483,647（10桁）です。9桁の最大 999,999,999 はこれより小さいので、入力欄に入る数字は必ず <code>Integer.parseInt</code> で変えられます。",
+      "translation": "<code>int</code> 能容納的最大數值是 2,147,483,647（10 位數）。9 位數的最大值 999,999,999 比它小，所以輸入欄中的數字一定可以用 <code>Integer.parseInt</code> 轉換。"
+    },
+    {
+      "source": "それでも <code>try</code> を書くのは、<strong>レイアウトとJavaは別のファイル</strong>だからです。あとでだれかが <code>maxLength</code> を消しても、Javaの側で受け止めていればアプリは終了しません。コメントの「桁数が多すぎる場合など」は、そのときのための備えを指しています。",
+      "translation": "仍然編寫 <code>try</code>，是因為<strong>版面配置和 Java 位於不同檔案</strong>。即使之後有人刪除 <code>maxLength</code>，只要 Java 端有處理，應用程式就不會結束。註解的「桁数が多すぎる場合など」（例如位數過多時）就是為這種情況預作準備。"
+    },
+    {
+      "source": "<code>BillSplitter</code> は計算だけを担当し、画面に出すメッセージを持っていません。<strong>ユーザーの入力ミスは画面側で止める</strong>、という分け方です。こうすると、計算の部分は他のアプリでもそのまま使えます。",
+      "translation": "<code>BillSplitter</code> 只負責計算，並不包含畫面上顯示的訊息。分工方式是<strong>在畫面端攔截使用者的輸入錯誤</strong>。這樣計算部分就能原樣用於其他應用程式。"
+    },
+    {
+      "source": "Runで確かめる",
+      "translation": "用 Run 確認"
+    },
+    {
+      "source": "画面で確かめるのは、入力チェック1と入力チェック3の2つです。",
+      "translation": "在畫面上確認的是輸入檢查 1 和輸入檢查 3 這兩項。"
+    },
+    {
+      "source": "何も入力せずに <strong>計算実行</strong> を押します。",
+      "translation": "不輸入任何內容，按 <strong>計算実行</strong>（執行計算）。"
+    },
+    {
+      "source": "金額を入れずに計算実行を押して、支払い金額を入力してくださいと表示されている",
+      "translation": "未輸入金額就按「計算実行」（執行計算），顯示「支払い金額を入力してください」（請輸入支付金額）"
+    },
+    {
+      "source": "空のときのメッセージ。 <a1>画像を大きく開く</a1>",
+      "translation": "空白時的訊息。<a1>開啟大圖</a1>"
+    },
+    {
+      "source": "3人のときに <code>2</code> と入れて <strong>計算実行</strong> を押します。",
+      "translation": "三人時輸入 <code>2</code>，按 <strong>計算実行</strong>（執行計算）。"
+    },
+    {
+      "source": "3人のときに2円と入力して計算実行を押し、3人で割るには3円以上を入力してくださいと表示されている",
+      "translation": "三人時輸入 2 日圓並按「計算実行」（執行計算），顯示「3人で割るには3円以上を入力してください」（三人分攤請輸入至少 3 日圓）"
+    },
+    {
+      "source": "人数より少ない金額は計算しません。 <a1>画像を大きく開く</a1>",
+      "translation": "金額少於人數時不計算。<a1>開啟大圖</a1>"
+    },
+    {
+      "source": "3つの入力チェックを書き、入力チェック1と入力チェック3のメッセージが出ることを確かめられた。",
+      "translation": "已編寫三項輸入檢查，並確認能顯示輸入檢查 1 和輸入檢查 3 的訊息。"
+    },
+    {
+      "source": "次へ：計算結果を表示する →",
+      "translation": "下一步：顯示計算結果 →"
+    },
+    {
+      "source": "STEP 09 · 目安 10分",
+      "translation": "STEP 09 · 約 10 分鐘"
+    },
+    {
+      "source": "計算結果を表示する",
+      "translation": "顯示計算結果"
+    },
+    {
+      "source": "チェックを全部通ったときだけ計算します。STEP 08で書いた入力チェック3の <code>}</code> の下、リスナの最後に追加します。",
+      "translation": "只有通過全部檢查時才計算。加在 STEP 08 的輸入檢查 3 的 <code>}</code> 下方，即監聽器末端。"
+    },
+    {
+      "source": "BillSplitActivity.java · 入力チェックの下",
+      "translation": "BillSplitActivity.java · 輸入檢查下方"
+    },
+    {
+      "source": "3人のときに <code>1234</code> と入れて <strong>計算実行</strong> を押します。",
+      "translation": "三人時輸入 <code>1234</code>，按 <strong>計算実行</strong>（執行計算）。"
+    },
+    {
+      "source": "1234円を3人で割った結果。Sato 411円、Suzuki 412円、Tanaka 411円、合計1234円",
+      "translation": "將 1234 日圓分給三人的結果。Sato 411 日圓、Suzuki 412 日圓、Tanaka 411 日圓，合共 1234 日圓"
+    },
+    {
+      "source": "411円・412円・411円。合計は入力した1234円に戻ります。 <a1>画像を大きく開く</a1>",
+      "translation": "411、412、411 日圓，總額仍是輸入的 1234 日圓。<a1>開啟大圖</a1>"
+    },
+    {
+      "source": "もう一度 <strong>計算実行</strong> を押します。412円の人が変わることを確かめます。",
+      "translation": "再次按 <strong>計算実行</strong>（執行計算），確認支付 412 日圓的人會改變。"
+    },
+    {
+      "source": "金額を <code>999999999</code>（9桁）にして押します。",
+      "translation": "將金額改為 <code>999999999</code>（9 位數）後按按鈕。"
+    },
+    {
+      "source": "999999999円を3人で割った結果。3人とも333,333,333円、合計999,999,999円",
+      "translation": "將 999999999 日圓分給三人的結果。三人都是 333,333,333 日圓，合共 999,999,999 日圓"
+    },
+    {
+      "source": "3で割り切れるので、3人とも同じ金額です。 <a1>画像を大きく開く</a1>",
+      "translation": "因為能被 3 整除，所以三人的金額相同。<a1>開啟大圖</a1>"
+    },
+    {
+      "source": "金額に <code>,</code> が入るのは、<code>BillSplitter</code> が日本円の表示に整えているためです。",
+      "translation": "金額中有 <code>,</code>，是因為 <code>BillSplitter</code> 將它整理為日圓的顯示格式。"
+    },
+    {
+      "source": "計算結果と合計を表示でき、合計が入力した金額と一致することを確かめられた。",
+      "translation": "已能夠顯示計算結果及總額，並確認總額與輸入的金額相同。"
+    },
+    {
+      "source": "次へ：ミニ練習 →",
+      "translation": "下一步：小練習 →"
+    },
+    {
+      "source": "STEP 10 · 目安 15分",
+      "translation": "STEP 10 · 約 15 分鐘"
+    },
+    {
+      "source": "ミニ練習",
+      "translation": "小練習"
+    },
+    {
+      "source": "できた人は試してみましょう。コードは変えません。",
+      "translation": "完成後請試一試。不必修改程式碼。"
+    },
+    {
+      "source": "<strong>割り切れる金額</strong>を入れます。3人で <code>1200</code> 円のとき、全員いくらになりますか。",
+      "translation": "輸入<strong>可以整除的金額</strong>。三人分攤 <code>1200</code> 日圓時，每人是多少？"
+    },
+    {
+      "source": "<strong>端数が2円出る金額</strong>を入れます。3人で <code>1235</code> 円のとき、412円の人は何人になりますか。",
+      "translation": "輸入<strong>餘數為 2 日圓的金額</strong>。三人分攤 <code>1235</code> 日圓時，有多少人支付 412 日圓？"
+    },
+    {
+      "source": "参加者を<strong>15人</strong>登録して、<code>123456</code> 円を計算します。合計の行を確かめます。",
+      "translation": "登記 <strong>15 人</strong>，計算 <code>123456</code> 日圓。確認總額那一行。"
+    },
+    {
+      "source": "15人で123456円を割った結果。8230円と8231円が並び、合計123,456円と表示されている",
+      "translation": "15 人分攤 123456 日圓的結果。排列着 8230 日圓和 8231 日圓，顯示合共 123,456 日圓"
+    },
+    {
+      "source": "15人でも、差は1円までです。 <a1>画像を大きく開く</a1>",
+      "translation": "即使有 15 人，差額也不超過 1 日圓。<a1>開啟大圖</a1>"
+    },
+    {
+      "source": "参加者名に<strong>同じ名前</strong>を入れようとするとどうなりますか。STEP 04のチェックを思い出します。",
+      "translation": "嘗試輸入<strong>相同姓名</strong>作為參加者姓名時，會發生甚麼事？回想 STEP 04 的檢查。"
+    },
+    {
+      "source": "ミニ練習を試し、どの金額でも支払額の合計が入力した金額に戻ることを確かめられた。",
+      "translation": "已嘗試小練習，並確認任何金額的各人支付總額都等於輸入金額。"
+    },
+    {
+      "source": "次へ：完成 →",
+      "translation": "下一步：完成 →"
+    },
+    {
+      "source": "STEP 11 · 目安 15分",
+      "translation": "STEP 11 · 約 15 分鐘"
+    },
+    {
+      "source": "完成",
+      "translation": "完成"
+    },
+    {
+      "source": "2つの画面の役割",
+      "translation": "兩個畫面的作用"
+    },
+    {
+      "source": "画面",
+      "translation": "畫面"
+    },
+    {
+      "source": "やること",
+      "translation": "要做的事"
+    },
+    {
+      "source": "使ったもの",
+      "translation": "使用的項目"
+    },
+    {
+      "source": "参加者を登録する。2人以上でワリカン画面へ渡す。",
+      "translation": "登記參加者。兩人或以上時傳給分攤畫面。"
+    },
+    {
+      "source": "金額を受け取り、チェックしてから計算・表示する。",
+      "translation": "接收金額，檢查後計算並顯示。"
+    },
+    {
+      "source": "入力チェックの一覧",
+      "translation": "輸入檢查列表"
+    },
+    {
+      "source": "いつ",
+      "translation": "時機"
+    },
+    {
+      "source": "表示されるメッセージ",
+      "translation": "顯示的訊息"
+    },
+    {
+      "source": "名前が空のまま登録",
+      "translation": "姓名空白時登記"
+    },
+    {
+      "source": "参加者名を入力してください",
+      "translation": "参加者名を入力してください（請輸入參加者姓名）"
+    },
+    {
+      "source": "同じ名前を登録",
+      "translation": "登記相同姓名"
+    },
+    {
+      "source": "参加者名が重複しています",
+      "translation": "参加者名が重複しています（參加者姓名重複）"
+    },
+    {
+      "source": "参加者が1人以下でワリカン画面へ",
+      "translation": "參加者一人或以下時前往分攤畫面"
+    },
+    {
+      "source": "参加者を2人以上追加してください",
+      "translation": "参加者を2人以上追加してください（請加入至少兩位參加者）"
+    },
+    {
+      "source": "金額が空のまま計算実行",
+      "translation": "金額空白時執行計算"
+    },
+    {
+      "source": "支払い金額を入力してください",
+      "translation": "支払い金額を入力してください（請輸入支付金額）"
+    },
+    {
+      "source": "金額を数字に変えられない（<strong>画面の操作では出ない</strong>）",
+      "translation": "無法將金額轉成數字（<strong>不能透過畫面操作顯示</strong>）"
+    },
+    {
+      "source": "支払い金額は数字で入力してください",
+      "translation": "支払い金額は数字で入力してください（請以數字輸入支付金額）"
+    },
+    {
+      "source": "金額が人数より少ない",
+      "translation": "金額少於人數"
+    },
+    {
+      "source": "○人で割るには○円以上を入力してください",
+      "translation": "○人で割るには○円以上を入力してください（○ 人分攤請輸入至少 ○ 日圓）"
+    },
+    {
+      "source": "画面で出して確かめられるのは、6つのうち5つです。「支払い金額は数字で入力してください」は、金額の入力欄に半角の数字が9桁までしか入らないので表示されません（<a1>STEP 08の解説</a1>）。出せなくても、操作のまちがいではありません。",
+      "translation": "六項之中，能在畫面顯示並確認的有五項。「支払い金額は数字で入力してください」（請以數字輸入支付金額）不會顯示，因為金額輸入欄只能輸入最多 9 位半形數字（<a1>STEP 08 的解說</a1>）。無法顯示也不代表操作錯誤。"
+    },
+    {
+      "source": "完成チェック",
+      "translation": "完成檢查"
+    },
+    {
+      "source": "Runし直して、上から順に操作します。入力チェックのメッセージは、上の一覧のうち画面で出せる5つを確かめます。",
+      "translation": "重新 Run，由上至下操作。輸入檢查訊息請確認上表中能在畫面顯示的五項。"
+    },
+    {
+      "source": "操作",
+      "translation": "操作"
+    },
+    {
+      "source": "確認する結果",
+      "translation": "要確認的結果"
+    },
+    {
+      "source": "起動直後",
+      "translation": "剛啟動時"
+    },
+    {
+      "source": "タイトル画像、名前の入力欄、「登録」「ワリカン画面へ」、「参加者一覧」の見出しが出る。一覧は空。",
+      "translation": "顯示標題圖片、姓名輸入欄、「登録」（登記）、「ワリカン画面へ」（前往分攤畫面）和「参加者一覧」（參加者列表）標題。列表為空。"
+    },
+    {
+      "source": "何も入れずに「登録」",
+      "translation": "不輸入任何內容，按「登録」（登記）"
+    },
+    {
+      "source": "「参加者名を入力してください」が出て、一覧は増えない。",
+      "translation": "顯示「参加者名を入力してください」（請輸入參加者姓名），列表不增加。"
+    },
+    {
+      "source": "Sato を登録 →「ワリカン画面へ」",
+      "translation": "登記 Sato →「ワリカン画面へ」（前往分攤畫面）"
+    },
+    {
+      "source": "一覧に Sato が出て、入力欄が空になる。1人のときは「参加者を2人以上追加してください」が出て、画面は切り替わらない。",
+      "translation": "列表顯示 Sato，輸入欄清空。一人時顯示「参加者を2人以上追加してください」（請加入至少兩位參加者），不切換畫面。"
+    },
+    {
+      "source": "Suzuki・Tanaka を登録 → もう一度 Sato を登録",
+      "translation": "登記 Suzuki、Tanaka → 再次登記 Sato"
+    },
+    {
+      "source": "一覧が3行になる。2回目の Sato は「参加者名が重複しています」が出て、一覧は増えない。",
+      "translation": "列表變成三行。第二次登記 Sato 時顯示「参加者名が重複しています」（參加者姓名重複），列表不增加。"
+    },
+    {
+      "source": "「ワリカン画面へ」",
+      "translation": "「ワリカン画面へ」（前往分攤畫面）"
+    },
+    {
+      "source": "画面が切り替わり、「参加者は3人」と出る。",
+      "translation": "畫面切換，顯示「参加者は3人」（參加者有三人）。"
+    },
+    {
+      "source": "何も入れずに「計算実行」",
+      "translation": "不輸入任何內容，按「計算実行」（執行計算）"
+    },
+    {
+      "source": "「支払い金額を入力してください」が出て、「計算結果」の下は空のまま。",
+      "translation": "顯示「支払い金額を入力してください」（請輸入支付金額），「計算結果」（計算結果）下方仍為空白。"
+    },
+    {
+      "source": "2 と入れて「計算実行」",
+      "translation": "輸入 2，按「計算実行」（執行計算）"
+    },
+    {
+      "source": "「3人で割るには3円以上を入力してください」が出て、「計算結果」の下は空のまま。",
+      "translation": "顯示「3人で割るには3円以上を入力してください」（三人分攤請輸入至少 3 日圓），「計算結果」（計算結果）下方仍為空白。"
+    },
+    {
+      "source": "1234 に変えて「計算実行」",
+      "translation": "改為 1234，按「計算実行」（執行計算）"
+    },
+    {
+      "source": "Sato・Suzuki・Tanaka の支払額が出る。411円が2人、412円が1人で、合計は入力した1234円に戻る。",
+      "translation": "顯示 Sato、Suzuki、Tanaka 的支付金額。兩人為 411 日圓，一人為 412 日圓，總額仍是輸入的 1234 日圓。"
+    },
+    {
+      "source": "保存",
+      "translation": "儲存"
+    },
+    {
+      "source": "Android Studioは、書いたコードを自動でファイルに保存します。保存の操作は要りません。ここでは、保存された場所を確かめます。",
+      "translation": "Android Studio 會自動將寫好的程式碼儲存到檔案，不必操作儲存。這裏確認儲存的位置。"
+    },
+    {
+      "source": "Finderを開き、左側の <strong>書類</strong>（<code>Documents</code>）をクリックします。",
+      "translation": "開啟 Finder，按一下左側的 <strong>書類</strong>（文件，<code>Documents</code>）。"
+    },
+    {
+      "source": "その中の <code>Android1</code> フォルダを開き、<code>A07BillSplitter</code> フォルダがあることを確かめます。",
+      "translation": "開啟其中的 <code>Android1</code> 資料夾，確認有 <code>A07BillSplitter</code> 資料夾。"
+    },
+    {
+      "source": "この <code>Documents/Android1/A07BillSplitter</code> フォルダが、自分で作ったアプリです。あとの授業でもう一度開けるように、消したり、別の場所へ移動したり、名前を変えたりせずに、そのまま残します。",
+      "translation": "這個 <code>Documents/Android1/A07BillSplitter</code> 資料夾就是自己製作的應用程式。為了在之後的課堂重新開啟，請保持原樣，不要刪除、移至其他位置或改名。"
+    },
+    {
+      "source": "教材のチェックは自分用です。先生への送信はしません。印刷は <kbd>⌘ P</kbd> で行えます。",
+      "translation": "教材的勾選供自己檢查，不會傳送給老師。可用 <kbd>⌘ P</kbd> 列印。"
+    },
+    {
+      "source": "完成チェックの操作をすべて試し、表のとおりの結果になった。",
+      "translation": "已嘗試完成檢查的所有操作，結果與表格相同。"
+    },
+    {
+      "source": "困ったこと",
+      "translation": "遇到的問題"
+    },
+    {
+      "source": "最初に確認する場所",
+      "translation": "首先確認的位置"
+    },
+    {
+      "source": "<code>R.id.edt_participant_name</code> などが赤い",
+      "translation": "<code>R.id.edt_participant_name</code> 等變紅"
+    },
+    {
+      "source": "レイアウトのidと同じ綴りか確認。<code>android:id=\"@+id/main\"</code> を消していないかも見る。",
+      "translation": "確認拼法與版面配置的 id 相同。也確認沒有刪除 <code>android:id=\"@+id/main\"</code>。"
+    },
+    {
+      "source": "<code>BillSplitter</code> が赤い",
+      "translation": "<code>BillSplitter</code> 變紅"
+    },
+    {
+      "source": "STEP 07で <code>BillSplitter.java</code> を置いたか、場所が <code>MainActivity.java</code> と同じか確認。1行目の <code>package</code> も見る。",
+      "translation": "確認 STEP 07 已加入 <code>BillSplitter.java</code>，而且位置與 <code>MainActivity.java</code> 相同。也檢查第一行的 <code>package</code>。"
+    },
+    {
+      "source": "<code>Snackbar</code>・<code>ArrayList</code>・<code>Objects</code>・<code>EditText</code>・<code>TextView</code> が赤い",
+      "translation": "<code>Snackbar</code>、<code>ArrayList</code>、<code>Objects</code>、<code>EditText</code>、<code>TextView</code> 變紅"
+    },
+    {
+      "source": "<kbd>⌥ Enter</kbd> で <code>com.google.android.material.snackbar.Snackbar</code>、<code>java.util.ArrayList</code>、<code>java.util.Objects</code>、<code>android.widget.EditText</code>、<code>android.widget.TextView</code> を選ぶ。",
+      "translation": "用 <kbd>⌥ Enter</kbd> 選取 <code>com.google.android.material.snackbar.Snackbar</code>、<code>java.util.ArrayList</code>、<code>java.util.Objects</code>、<code>android.widget.EditText</code>、<code>android.widget.TextView</code>。"
+    },
+    {
+      "source": "<code>start(…)</code> が赤い（MainActivity）",
+      "translation": "<code>start(…)</code> 變紅（MainActivity）"
+    },
+    {
+      "source": "STEP 06①を <code>BillSplitActivity</code> に追加したか確認。<code>onCreate</code> の中に入れていないかも見る。",
+      "translation": "確認已將 STEP 06① 加入 <code>BillSplitActivity</code>。也檢查是否放在 <code>onCreate</code> 內。"
+    },
+    {
+      "source": "<code>start</code> を <code>onCreate</code> の中に書いていないか確認。<code>onCreate</code> の最後の <code>}</code> の下、クラスの最後の <code>}</code> の上に置く。",
+      "translation": "確認沒有將 <code>start</code> 寫在 <code>onCreate</code> 內。應放在 <code>onCreate</code> 最後的 <code>}</code> 下方、類別最後的 <code>}</code> 上方。"
+    },
+    {
+      "source": "ワリカン画面へを押すとアプリが終了する",
+      "translation": "按「ワリカン画面へ」（前往分攤畫面）後應用程式結束"
+    },
+    {
+      "source": "Logcatを <code>level:ERROR</code> にして <code>ActivityNotFoundException</code> か確認。<code>AndroidManifest.xml</code> に <code>android:name=\".BillSplitActivity\"</code> の <code>&lt;activity&gt;</code> があるか見る。New → Java Classで作ると登録されない。",
+      "translation": "將 Logcat 設為 <code>level:ERROR</code>，確認是否為 <code>ActivityNotFoundException</code>。查看 <code>AndroidManifest.xml</code> 是否有 <code>android:name=\".BillSplitActivity\"</code> 的 <code>&lt;activity&gt;</code>。用 New → Java Class 建立時不會登記。"
+    },
+    {
+      "source": "アプリ一覧のアイコンが2つある（Runすると何もない画面から始まることがある）",
+      "translation": "應用程式列表有兩個圖示（Run 時有時從空白畫面開始）"
+    },
+    {
+      "source": "STEP 05でLauncher Activityにチェックを入れた可能性がある。<code>BillSplitActivity</code> の <code>&lt;activity&gt;</code> から <code>&lt;intent-filter&gt;</code> を消し、<code>android:exported=\"false\"</code> にする。",
+      "translation": "可能在 STEP 05 勾選了 Launcher Activity。從 <code>BillSplitActivity</code> 的 <code>&lt;activity&gt;</code> 刪除 <code>&lt;intent-filter&gt;</code>，並設為 <code>android:exported=\"false\"</code>。"
+    },
+    {
+      "source": "ワリカン画面が真っ白、または人数が出ない",
+      "translation": "分攤畫面全白，或沒有人數"
+    },
+    {
+      "source": "STEP 06②を書いたか確認。<code>txt_number_of_people</code> の綴りも見る。",
+      "translation": "確認已編寫 STEP 06②。也檢查 <code>txt_number_of_people</code> 的拼法。"
+    },
+    {
+      "source": "計算実行を押しても何も出ない",
+      "translation": "按「計算実行」（執行計算）後沒有顯示任何內容"
+    },
+    {
+      "source": "STEP 09の2行を、入力チェックの<strong>下</strong>に書いたか確認。<code>return;</code> の上に書くと実行されない。",
+      "translation": "確認 STEP 09 的兩行寫在輸入檢查<strong>下方</strong>。寫在 <code>return;</code> 上方時不會執行。"
+    },
+    {
+      "source": "参加者一覧が1人分しか出ない",
+      "translation": "參加者列表只顯示一人"
+    },
+    {
+      "source": "<code>append</code> ではなく <code>setText</code> になっていないか確認。<code>setText</code> は前の文字を消す。",
+      "translation": "確認是否誤用了 <code>setText</code> 而非 <code>append</code>。<code>setText</code> 會刪除之前的文字。"
+    },
+    {
+      "source": "登録しても入力欄に文字が残る",
+      "translation": "登記後輸入欄仍有文字"
+    },
+    {
+      "source": "STEP 04②の最後の <code>edtParticipantName.setText(\"\")</code> があるか確認。",
+      "translation": "確認有 STEP 04② 最後的 <code>edtParticipantName.setText(\"\")</code>。"
+    },
+    {
+      "source": "金額の欄に文字が入ってしまう",
+      "translation": "金額欄可以輸入文字"
+    },
+    {
+      "source": "<code>activity_bill_split.xml</code> の <code>android:inputType=\"number\"</code> を確認。",
+      "translation": "檢查 <code>activity_bill_split.xml</code> 的 <code>android:inputType=\"number\"</code>。"
+    },
+    {
+      "source": "名前の入力中に候補が出て、ボタンが押せない",
+      "translation": "輸入姓名時出現候選字，無法按按鈕"
+    },
+    {
+      "source": "キーボードの候補が重なっている。候補以外の場所をタップしてから押す。",
+      "translation": "鍵盤的候選字遮住了按鈕。先輕按候選字以外的位置，再按按鈕。"
+    },
+    {
+      "source": "直したのに動きが変わらない",
+      "translation": "修改後行為沒有改變"
+    },
+    {
+      "source": "ウィンドウの保存先が <code>Documents/Android1/A07BillSplitter</code> か確認。samples側を開いていないか見る。",
+      "translation": "確認視窗的儲存位置是 <code>Documents/Android1/A07BillSplitter</code>。檢查是否開啟了 samples 中的專案。"
+    },
+    {
+      "source": "<a1>共通資料：Logcat</a1>を使います。今回のパッケージは <code>jp.ac.jec.a07billsplitter</code> です。エラーを見るときは <code>package:jp.ac.jec.a07billsplitter level:ERROR</code> にします。前の単元のパッケージ名も残さないようにします。",
+      "translation": "使用<a1>共通資料：Logcat</a1>。本次套件是 <code>jp.ac.jec.a07billsplitter</code>。查看錯誤時設為 <code>package:jp.ac.jec.a07billsplitter level:ERROR</code>。也不要保留上一單元的套件名稱。"
+    },
+    {
+      "source": "質問では「STEP番号・編集したファイル・最初の赤い行・押した順番」を伝えます。",
+      "translation": "提問時說明「STEP 編號、編輯的檔案、第一行紅色錯誤、按的順序」。"
+    },
+    {
+      "source": "完成版は最初の授業から使える見本です。教科書といっしょに配られた<strong>教材のフォルダ</strong>に、そのまま開ける形で入っています。ダウンロードも展開も要りません。",
+      "translation": "完成版是第一堂課就能使用的範例，存放在與教科書一起派發的<strong>教材資料夾</strong>，可以直接開啟，不必下載或解壓縮。"
+    },
+    {
+      "source": "Android Studioの <strong>Open</strong>（プロジェクトを開いているときは <strong>File → Open</strong>）で、<strong>書類</strong>（<code>Documents</code>）にある教材のフォルダを開きます。名前は <code>android1-student-materials-</code> のうしろに日付が付いた形で、日付は配られた回によって変わります。いま読んでいるこの教科書が入っているフォルダです。",
+      "translation": "用 Android Studio 的 <strong>Open</strong>（已開啟專案時用 <strong>File → Open</strong>），開啟 <strong>書類</strong>（文件，<code>Documents</code>）中的教材資料夾。名稱是 <code>android1-student-materials-</code> 後面加上日期，日期隨派發批次改變。就是存放目前這本教科書的資料夾。"
+    },
+    {
+      "source": "その中を <code>samples → A07BillSplitter</code> の順に開き、<code>settings.gradle.kts</code> と <code>app</code> が入った <code>A07BillSplitter</code> フォルダを選びます。",
+      "translation": "在其中依次開啟 <code>samples → A07BillSplitter</code>，選取包含 <code>settings.gradle.kts</code> 和 <code>app</code> 的 <code>A07BillSplitter</code> 資料夾。"
+    },
+    {
+      "source": "Sync後にRunして動きを確認します。授業の入力に戻るときは自分の <code>Documents/Android1/A07BillSplitter</code> を開きます。",
+      "translation": "Sync 後 Run，確認運作。返回課堂編寫程式碼時，開啟自己的 <code>Documents/Android1/A07BillSplitter</code>。"
+    },
+    {
+      "source": "両方とも同じプロジェクト名なので、ウィンドウの保存先を確認しましょう。見本と自分のアプリは同じパッケージ名のため、端末上では同じアプリを更新します。切り替えるときは、確認したい方のプロジェクトからRunします。",
+      "translation": "兩者的專案名稱相同，請確認視窗的儲存位置。範例和自己的應用程式套件名稱相同，因此會更新裝置上的同一應用程式。切換時，從想確認的專案執行 Run。"
+    },
+    {
+      "source": "教材のフォルダが手元にないときは、同じ見本をZIPで受け取れます（<a1>A07BillSplitter.zip</a1>）。展開してできた <code>A07BillSplitter</code> フォルダを、同じようにOpenで選びます。",
+      "translation": "如果手上沒有教材資料夾，也可取得同一範例的 ZIP（<a1>A07BillSplitter.zip</a1>）。解壓縮後，同樣用 Open 選取 <code>A07BillSplitter</code> 資料夾。"
+    },
+    {
+      "source": "完成したMainActivity.javaで照合する",
+      "translation": "與完成的 MainActivity.java 核對"
+    },
+    {
+      "source": "完成版 · MainActivity.java",
+      "translation": "完成版 · MainActivity.java"
+    },
+    {
+      "source": "完成したBillSplitActivity.javaで照合する",
+      "translation": "與完成的 BillSplitActivity.java 核對"
+    },
+    {
+      "source": "完成版 · BillSplitActivity.java",
+      "translation": "完成版 · BillSplitActivity.java"
+    },
+    {
+      "source": "STEP 07で入れたBillSplitter.javaで照合する",
+      "translation": "與 STEP 07 加入的 BillSplitter.java 核對"
+    },
+    {
+      "source": "STEP 07のファイル · BillSplitter.java",
+      "translation": "STEP 07 的檔案 · BillSplitter.java"
+    },
+    {
+      "source": "完成したactivity_main.xmlで照合する",
+      "translation": "與完成的 activity_main.xml 核對"
+    },
+    {
+      "source": "完成版 · activity_main.xml",
+      "translation": "完成版 · activity_main.xml"
+    },
+    {
+      "source": "完成したactivity_bill_split.xmlで照合する",
+      "translation": "與完成的 activity_bill_split.xml 核對"
+    },
+    {
+      "source": "完成版 · activity_bill_split.xml",
+      "translation": "完成版 · activity_bill_split.xml"
+    },
+    {
+      "source": "完成したAndroidManifest.xmlで照合する",
+      "translation": "與完成的 AndroidManifest.xml 核對"
+    },
+    {
+      "source": "完成版 · AndroidManifest.xml",
+      "translation": "完成版 · AndroidManifest.xml"
+    },
+    {
+      "source": "Androidプログラミング1 · A07BillSplitter / 本文・画像・操作機能はオフラインで利用できます。Android Studioの初回準備・ビルドと公式資料の閲覧にはネット接続が必要です。",
+      "translation": "Android 程式設計 1 · A07BillSplitter / 正文、圖片和操作功能可離線使用。Android Studio 的初始準備、建構及瀏覽官方資料需要網絡連線。"
+    },
+    {
+      "source": "画像は授業用の提供資料を使用。スクリーンショットの参加者名は例です。",
+      "translation": "圖片使用課堂提供的資料。螢幕截圖中的參加者姓名只是例子。"
+    }
+  ]
+}

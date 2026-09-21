@@ -1,0 +1,2009 @@
+{
+  "source": "docs/webview-app/index.html",
+  "language": "zh-Hans",
+  "entries": [
+    {
+      "source": "JavaとXMLで作るA04WebViewApp。WebView、インターネットの許可、enumとオプションメニュー、JavaScriptの設定、Android 16以降の戻る操作を小さなSTEPで学ぶ授業用教科書。",
+      "translation": "使用Java和XML制作A04WebViewApp。通过小步骤学习WebView、互联网权限、enum与选项菜单、JavaScript设置，以及Android 16及以后的返回操作的课堂教材。"
+    },
+    {
+      "source": "WebViewApp — アプリの中でWebページを表示しよう | Androidプログラミング1",
+      "translation": "WebViewApp — 在应用中显示网页 | Android编程1"
+    },
+    {
+      "source": "本文へ移動",
+      "translation": "跳转到正文"
+    },
+    {
+      "source": "JEC / Androidプログラミング1",
+      "translation": "JEC / Android编程1"
+    },
+    {
+      "source": "CONTENTS / 学習の順番",
+      "translation": "CONTENTS / 学习顺序"
+    },
+    {
+      "source": "学習ステップ",
+      "translation": "学习步骤"
+    },
+    {
+      "source": "00　今日のゴール",
+      "translation": "00　今天的目标"
+    },
+    {
+      "source": "01　プロジェクトを作って実行",
+      "translation": "01　创建项目并运行"
+    },
+    {
+      "source": "02　ActionBarとインターネットの許可",
+      "translation": "02　ActionBar与互联网权限"
+    },
+    {
+      "source": "03　CheckBoxとWebViewを置く",
+      "translation": "03　放置CheckBox和WebView"
+    },
+    {
+      "source": "04　WebViewでページを表示",
+      "translation": "04　用WebView显示网页"
+    },
+    {
+      "source": "05　メニューの項目をenumで作る",
+      "translation": "05　用enum创建菜单项"
+    },
+    {
+      "source": "06　メニューでページを切り替える",
+      "translation": "06　通过菜单切换网页"
+    },
+    {
+      "source": "07　JavaScriptのON/OFFとズーム",
+      "translation": "07　JavaScript的ON/OFF与缩放"
+    },
+    {
+      "source": "08　戻る操作で前のページへ",
+      "translation": "08　通过返回操作回到上一页"
+    },
+    {
+      "source": "09　ミニ練習",
+      "translation": "09　小练习"
+    },
+    {
+      "source": "10　完成",
+      "translation": "10　完成"
+    },
+    {
+      "source": "0 / 11 ステップ確認済み",
+      "translation": "已检查0 / 11个步骤"
+    },
+    {
+      "source": "学習の進み具合",
+      "translation": "学习进度"
+    },
+    {
+      "source": "自分用のチェックです。",
+      "translation": "用于自己检查。"
+    },
+    {
+      "source": "困ったとき",
+      "translation": "遇到问题时"
+    },
+    {
+      "source": "解説：enumを使うメリット",
+      "translation": "讲解：使用enum的好处"
+    },
+    {
+      "source": "解説：Android 16以降の戻る操作",
+      "translation": "讲解：Android 16及以后的返回操作"
+    },
+    {
+      "source": "完成プロジェクトを開く",
+      "translation": "打开完成版项目"
+    },
+    {
+      "source": "共通：はじめの準備",
+      "translation": "通用：初始准备"
+    },
+    {
+      "source": "共通：エミュレータ",
+      "translation": "通用：模拟器"
+    },
+    {
+      "source": "共通：Auto Import",
+      "translation": "通用：Auto Import"
+    },
+    {
+      "source": "共通：Logcat",
+      "translation": "通用：Logcat"
+    },
+    {
+      "source": "共通：APKの提出",
+      "translation": "通用：提交APK"
+    },
+    {
+      "source": "共通：開発Tips",
+      "translation": "通用：开发技巧"
+    },
+    {
+      "source": "共通：Android Studioのバージョン",
+      "translation": "通用：Android Studio版本"
+    },
+    {
+      "source": "アプリの中で<br>Webページを表示しよう",
+      "translation": "在应用中<br>显示网页"
+    },
+    {
+      "source": "ページを開く。メニューで切り替える。前のページに戻る。<br>WebViewを使って、小さなブラウザアプリへ。",
+      "translation": "打开网页。通过菜单切换。返回上一页。<br>用WebView制作一个小型浏览器应用。"
+    },
+    {
+      "source": "A03の次の単元",
+      "translation": "A03之后的单元"
+    },
+    {
+      "source": "90分 × 2コマ目安",
+      "translation": "参考时间：90分钟 × 2课时"
+    },
+    {
+      "source": "Macで学ぶ",
+      "translation": "使用Mac学习"
+    },
+    {
+      "source": "インターネット接続が必要",
+      "translation": "需要连接互联网"
+    },
+    {
+      "source": "STEP 00 · 目安 5分",
+      "translation": "STEP 00 · 参考时间5分钟"
+    },
+    {
+      "source": "今日のゴール",
+      "translation": "今天的目标"
+    },
+    {
+      "source": "これまでの単元では、ボタンや画像など、アプリの中に用意した部品を表示しました。今回は <strong>WebView（ウェブビュー）</strong> を使い、<strong>インターネットのWebページをアプリの中に表示する</strong>アプリを作ります。右上のメニューでサイトを切り替え、チェックボックスでJavaScriptのON/OFFを切り替えます。",
+      "translation": "前面的单元显示了按钮、图片等在应用中准备的控件。这次使用<strong>WebView</strong>，制作一个<strong>在应用中显示互联网网页</strong>的应用。通过右上角的菜单切换网站，通过复选框切换JavaScript的ON/OFF。"
+    },
+    {
+      "source": "アプリの使い方",
+      "translation": "应用的使用方法"
+    },
+    {
+      "source": "⋮ でサイトを選ぶ",
+      "translation": "通过⋮选择网站"
+    },
+    {
+      "source": "ページを表示",
+      "translation": "显示网页"
+    },
+    {
+      "source": "リンクで移動",
+      "translation": "通过链接跳转"
+    },
+    {
+      "source": "戻る操作で前のページへ",
+      "translation": "通过返回操作回到上一页"
+    },
+    {
+      "source": "起動直後。ActionBarにA04WebViewAppと縦に3つの点のメニュー、チェックなしのJavaScript ON、その下は白い画面",
+      "translation": "刚启动时。ActionBar中显示A04WebViewApp和竖排三个点的菜单，JavaScript ON未勾选，下方是白色屏幕"
+    },
+    {
+      "source": "① 起動直後。まだページは表示しません。 <a1>画像を大きく開く</a1>",
+      "translation": "① 刚启动时。尚未显示网页。<a1>查看大图</a1>"
+    },
+    {
+      "source": "JavaScript ONにチェックがあり、WebViewにYahoo!ニュースのトップページが表示されている",
+      "translation": "JavaScript ON已勾选，WebView中显示Yahoo!ニュース（Yahoo!新闻）的首页"
+    },
+    {
+      "source": "② メニューからYahoo!ニュースを表示（JavaScript ON）。 <a1>画像を大きく開く</a1>",
+      "translation": "② 从菜单显示Yahoo!ニュース（Yahoo!新闻）（JavaScript ON）。<a1>查看大图</a1>"
+    },
+    {
+      "source": "できるようになること",
+      "translation": "学完后能够做的事"
+    },
+    {
+      "source": "インターネットの許可を追加し、WebViewでWebページを表示する。",
+      "translation": "添加互联网权限，用WebView显示网页。"
+    },
+    {
+      "source": "enumでメニューの項目をまとめ、オプションメニューからページを切り替える。",
+      "translation": "用enum集中管理菜单项，从选项菜单切换网页。"
+    },
+    {
+      "source": "JavaScriptのON/OFFを切り替え、Android 16以降でも動く方法で、戻る操作を前のページへの移動にする。",
+      "translation": "切换JavaScript的ON/OFF，以Android 16及以后也能运行的方式，让返回操作回到上一页。"
+    },
+    {
+      "source": "90分×2コマで進めます",
+      "translation": "按90分钟×2课时进行"
+    },
+    {
+      "source": "授業",
+      "translation": "课时"
+    },
+    {
+      "source": "範囲",
+      "translation": "范围"
+    },
+    {
+      "source": "終了時にできること",
+      "translation": "课时结束时能够做的事"
+    },
+    {
+      "source": "1コマ目",
+      "translation": "第1课时"
+    },
+    {
+      "source": "アプリの設定と画面を作り、WebViewでページを表示し、メニューの項目を用意する。",
+      "translation": "设置应用并制作屏幕，用WebView显示网页，准备菜单项。"
+    },
+    {
+      "source": "2コマ目",
+      "translation": "第2课时"
+    },
+    {
+      "source": "メニュー・JavaScript・戻る操作を追加し、ミニ練習・動作確認を行う。",
+      "translation": "添加菜单、JavaScript和返回操作，进行小练习并检查运行情况。"
+    },
+    {
+      "source": "各コマに再実行と個別確認の時間を含みます。予習は不要です。",
+      "translation": "各课时都包含重新运行和个别检查的时间。无需预习。"
+    },
+    {
+      "source": "毎回、自分で新規作成します",
+      "translation": "每次都自己新建项目"
+    },
+    {
+      "source": "作る場所は <code>Documents/Android1/A04WebViewApp</code> です。<a1>完成プロジェクト</a1>は初回から開けます。自分のコードを比べるときに使いましょう。",
+      "translation": "创建位置为<code>Documents/Android1/A04WebViewApp</code>。从第一节课起就可以打开<a1>完成版项目</a1>，用来与自己的代码比较。"
+    },
+    {
+      "source": "インターネット接続が必要です",
+      "translation": "需要连接互联网"
+    },
+    {
+      "source": "このアプリは、実行中にインターネットのページを読み込みます。Macがネットにつながっていることを確認します。ニュースの見出しなどのページの内容は、画像と違って構いません。サイト側の更新で、見た目が変わることもあります。",
+      "translation": "此应用在运行时读取互联网上的网页。请确认Mac已联网。新闻标题等网页内容可以与图片不同。网站更新也可能改变外观。"
+    },
+    {
+      "source": "完成アプリの操作",
+      "translation": "完成版应用的操作"
+    },
+    {
+      "source": "操作",
+      "translation": "操作"
+    },
+    {
+      "source": "結果",
+      "translation": "结果"
+    },
+    {
+      "source": "起動直後",
+      "translation": "刚启动时"
+    },
+    {
+      "source": "ActionBarに「A04WebViewApp」と <strong>⋮</strong>。「JavaScript ON」はチェックなし。下は白い画面。",
+      "translation": "ActionBar中显示“A04WebViewApp”和<strong>⋮</strong>。“JavaScript ON”未勾选，下方是白色屏幕。"
+    },
+    {
+      "source": "⋮ → サイト名",
+      "translation": "⋮ → 网站名称"
+    },
+    {
+      "source": "そのサイトをアプリの中に表示する。",
+      "translation": "在应用中显示该网站。"
+    },
+    {
+      "source": "ページ内のリンク",
+      "translation": "网页内的链接"
+    },
+    {
+      "source": "Chromeは開かず、アプリの中で移動する。",
+      "translation": "在应用中跳转，不打开Chrome。"
+    },
+    {
+      "source": "「JavaScript ON」を切り替える",
+      "translation": "切换“JavaScript ON”"
+    },
+    {
+      "source": "JavaScriptの有効・無効を変えて、今のページを読み込み直す。",
+      "translation": "更改JavaScript的启用或禁用状态，重新加载当前网页。"
+    },
+    {
+      "source": "戻る操作",
+      "translation": "返回操作"
+    },
+    {
+      "source": "前のページがあれば戻る。なければホーム画面に戻る。",
+      "translation": "有上一页时返回上一页，没有时返回主屏幕。"
+    },
+    {
+      "source": "画面回転について",
+      "translation": "关于屏幕旋转"
+    },
+    {
+      "source": "各単元では画面回転時のデータ保持を扱いません。回転などでActivityが作り直されると、表示中のページと戻るための履歴は初期状態に戻ります。縦向きで使います。考え方と対処法は<a1>共通資料：開発Tips</a1>のC章にあります。",
+      "translation": "各单元不讲解屏幕旋转时的数据保留。如果Activity因旋转等原因重新创建，当前网页和返回所需的历史记录会恢复初始状态。请竖屏使用。相关思路与处理方法见<a1>通用资料：开发技巧</a1>的C章。"
+    },
+    {
+      "source": "ここで止まって、確認",
+      "translation": "先停下来，检查一下"
+    },
+    {
+      "source": "完成アプリの操作の表で、⋮ のメニュー・「JavaScript ON」・戻る操作の結果を確認した。",
+      "translation": "已根据完成版应用的操作表，确认⋮菜单、“JavaScript ON”和返回操作的结果。"
+    },
+    {
+      "source": "できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。",
+      "translation": "完成后勾选。遇到问题时，请把STEP编号和屏幕展示给老师。"
+    },
+    {
+      "source": "次へ：プロジェクトを作って実行 →",
+      "translation": "下一步：创建项目并运行 →"
+    },
+    {
+      "source": "STEP 01 · 目安 15分",
+      "translation": "STEP 01 · 参考时间15分钟"
+    },
+    {
+      "source": "プロジェクトを作って実行",
+      "translation": "创建项目并运行"
+    },
+    {
+      "source": "授業環境はMacと <strong>Android Studio Panda 2 | 2025.3.2</strong> です。これまでの単元とは別のプロジェクトを作ります。",
+      "translation": "课堂环境为Mac和 <strong>Android Studio Panda 2 | 2025.3.2</strong>。请创建独立于之前单元的新项目。"
+    },
+    {
+      "source": "Android Studioの <strong>New Project</strong> をクリックします。別のプロジェクトを開いているときは <strong>File → New → New Project</strong> を選びます。",
+      "translation": "点击Android Studio的<strong>New Project</strong>。已打开其他项目时，选择<strong>File → New → New Project</strong>。"
+    },
+    {
+      "source": "Android StudioのWelcome画面。右上にNew Projectボタン",
+      "translation": "Android Studio的Welcome界面。右上方是New Project按钮"
+    },
+    {
+      "source": "右上のNew Projectをクリック。 <a1>画像を大きく開く</a1>",
+      "translation": "点击右上角的New Project。<a1>查看大图</a1>"
+    },
+    {
+      "source": "<strong>Phone and Tablet → Empty Views Activity → Next</strong> の順に選びます。名前に <strong>Views</strong> があることを確認します。",
+      "translation": "依次选择<strong>Phone and Tablet → Empty Views Activity → Next</strong>。确认名称中有<strong>Views</strong>。"
+    },
+    {
+      "source": "テンプレート一覧でEmpty Views Activityが選択されている",
+      "translation": "模板列表中已选择Empty Views Activity"
+    },
+    {
+      "source": "Empty Views Activityを選択。 <a1>画像を大きく開く</a1>",
+      "translation": "选择Empty Views Activity。<a1>查看大图</a1>"
+    },
+    {
+      "source": "項目",
+      "translation": "项目"
+    },
+    {
+      "source": "入力・選択する内容",
+      "translation": "要输入或选择的内容"
+    },
+    {
+      "source": "<code>jp.ac.jec.a04webviewapp</code>（すべて小文字）",
+      "translation": "<code>jp.ac.jec.a04webviewapp</code>（全部小写）"
+    },
+    {
+      "source": "A04WebViewAppの新規設定。パッケージjp.ac.jec.a04webviewapp、Java、API 31",
+      "translation": "A04WebViewApp的新建设置。包名为jp.ac.jec.a04webviewapp，Java，API 31"
+    },
+    {
+      "source": "画像の保存先は先生の例です。自分のDocuments/Android1/A04WebViewAppに読み替えます。 <a1>画像を大きく開く</a1>",
+      "translation": "图片中的保存位置是老师的示例。请对应为自己的Documents/Android1/A04WebViewApp。<a1>查看大图</a1>"
+    },
+    {
+      "source": "Finderの <strong>移動 → ホーム</strong> で自分のユーザ名を確認します。書類（Documents）に <code>Android1</code> フォルダがなければ作ります。",
+      "translation": "在Finder的 <strong>移動 → ホーム</strong>（前往 → 个人）中确认自己的用户名。如果書類（文稿，Documents）中没有 <code>Android1</code> 文件夹，请创建它。"
+    },
+    {
+      "source": "表の値と保存先を確認し、<strong>Finish</strong> をクリックします。<code>ユーザ名</code> は自分の名前に置き換えます。",
+      "translation": "确认表中的值和保存位置，点击 <strong>Finish</strong>。将 <code>ユーザ名</code>（用户名）替换为自己的用户名。"
+    },
+    {
+      "source": "<strong>Gradle Sync</strong> が完了するまで待ちます。",
+      "translation": "等待 <strong>Gradle Sync</strong> 完成。"
+    },
+    {
+      "source": "<a1>共通資料：Auto Import</a1>のJava設定を確認します。",
+      "translation": "检查<a1>通用资料：Auto Import</a1>中的Java设置。"
+    },
+    {
+      "source": "この単元で使う場所",
+      "translation": "本单元使用的位置"
+    },
+    {
+      "source": "役割",
+      "translation": "作用"
+    },
+    {
+      "source": "Project表示で開く場所",
+      "translation": "在Project视图中打开的位置"
+    },
+    {
+      "source": "見た目の設定（テーマ）",
+      "translation": "外观设置（主题）"
+    },
+    {
+      "source": "<code>app/src/main/res/values/themes.xml</code> と <code>app/src/main/res/values-night/themes.xml</code>",
+      "translation": "<code>app/src/main/res/values/themes.xml</code>和<code>app/src/main/res/values-night/themes.xml</code>"
+    },
+    {
+      "source": "アプリの設定（許可）",
+      "translation": "应用设置（权限）"
+    },
+    {
+      "source": "画面（XML）",
+      "translation": "界面（XML）"
+    },
+    {
+      "source": "動き（Java）",
+      "translation": "行为（Java）"
+    },
+    {
+      "source": "メニューの項目（Java）",
+      "translation": "菜单项（Java）"
+    },
+    {
+      "source": "<code>app/src/main/java/jp/ac/jec/a04webviewapp/AppMenuItem.java</code>（STEP 5で作る）",
+      "translation": "<code>app/src/main/java/jp/ac/jec/a04webviewapp/AppMenuItem.java</code>（在STEP 5创建）"
+    },
+    {
+      "source": "左の一覧が見えないときは <strong>View → Tool Windows → Project</strong> を開きます。一覧の上の表示名が <strong>Project</strong> になっていることを確認します。パッケージのフォルダが <code>jp.ac.jec.a04webviewapp</code> とまとめて表示される場合もあります。",
+      "translation": "如果看不到左侧列表，打开<strong>View → Tool Windows → Project</strong>。确认列表上方的显示名称是<strong>Project</strong>。包的文件夹也可能合并显示为<code>jp.ac.jec.a04webviewapp</code>。"
+    },
+    {
+      "source": "変更前に1回Runする",
+      "translation": "修改前先Run一次"
+    },
+    {
+      "source": "<a1>共通資料：エミュレータ</a1>に従って端末を起動します。",
+      "translation": "按照<a1>通用资料：模拟器</a1>启动设备。"
+    },
+    {
+      "source": "上部で <strong>app</strong> と <strong>jec_26cm_android1_Pixel 9a</strong> を選び、<strong>Run ▶</strong> を押します。",
+      "translation": "在上方选择 <strong>app</strong> 和 <strong>jec_26cm_android1_Pixel 9a</strong>，点击 <strong>Run ▶</strong>。"
+    },
+    {
+      "source": "<strong>Hello World!</strong> が表示されれば成功です。",
+      "translation": "显示 <strong>Hello World!</strong> 就成功了。"
+    },
+    {
+      "source": "MainActivity.ktができたとき",
+      "translation": "生成了MainActivity.kt时"
+    },
+    {
+      "source": "この授業で開くのは <code>MainActivity.java</code> です。<code>.kt</code> しか見つからない場合は、先生に画面を見せてください。プロジェクトを作るときに、上の手順2で <strong>Empty Views Activity</strong> を、手順4で確認した表のとおりに <strong>Java</strong> を選んだかどうかを、先生が確認します。どちらかが違っていたときは、先生といっしょにプロジェクトを作り直します。",
+      "translation": "课堂上要打开的是 <code>MainActivity.java</code>。如果只找到 <code>.kt</code>，请把屏幕给老师看。老师会检查创建项目时，是否在上面的步骤2选择了 <strong>Empty Views Activity</strong>，并按步骤4检查的表格选择了 <strong>Java</strong>。如果任意一项选错，请与老师一起重新创建项目。"
+    },
+    {
+      "source": "自分の保存先にA04WebViewAppを作り、Hello World!を表示できた。",
+      "translation": "已在自己的保存位置创建A04WebViewApp，并能显示Hello World!。"
+    },
+    {
+      "source": "次へ：ActionBarとインターネットの許可 →",
+      "translation": "下一步：ActionBar与互联网权限 →"
+    },
+    {
+      "source": "STEP 02 · 目安 15分",
+      "translation": "STEP 02 · 参考时间 15分钟"
+    },
+    {
+      "source": "ActionBarとインターネットの許可",
+      "translation": "ActionBar与互联网权限"
+    },
+    {
+      "source": "変更するファイル：res/values/themes.xml、res/values-night/themes.xml、AndroidManifest.xml",
+      "translation": "要修改的文件：res/values/themes.xml、res/values-night/themes.xml、AndroidManifest.xml"
+    },
+    {
+      "source": "Javaを書く前に、アプリの設定を2つ変えます。",
+      "translation": "编写Java之前，先修改两项应用设置。"
+    },
+    {
+      "source": "変更",
+      "translation": "修改内容"
+    },
+    {
+      "source": "理由",
+      "translation": "原因"
+    },
+    {
+      "source": "テーマから <code>NoActionBar</code> を外す",
+      "translation": "从主题中去掉<code>NoActionBar</code>"
+    },
+    {
+      "source": "画面上部に <strong>ActionBar（アクションバー）</strong> を表示する。STEP 6で作るメニュー（⋮）はActionBarに出る。",
+      "translation": "在屏幕顶部显示<strong>ActionBar</strong>。STEP 6创建的菜单（⋮）会显示在ActionBar中。"
+    },
+    {
+      "source": "インターネットの許可を追加する",
+      "translation": "添加互联网权限"
+    },
+    {
+      "source": "アプリがインターネットに接続できるようにする。WebViewでページを読み込むために必要。",
+      "translation": "让应用可以连接互联网。WebView加载网页时需要此权限。"
+    },
+    {
+      "source": "① テーマのNoActionBarを外す（2つのファイル）",
+      "translation": "① 去掉主题中的NoActionBar（两个文件）"
+    },
+    {
+      "source": "Project表示で <code>app/src/main/res/values/themes.xml</code> を開きます。<code>parent</code> の値の末尾にある <strong><code>.NoActionBar</code> だけを消します</strong>。ほかの文字は変えません。",
+      "translation": "在Project视图中打开<code>app/src/main/res/values/themes.xml</code>。<strong>只删除<code>parent</code>值末尾的<code>.NoActionBar</code></strong>。不修改其他文字。"
+    },
+    {
+      "source": "変更前：Theme.Material3.DayNight.NoActionBar",
+      "translation": "修改前：Theme.Material3.DayNight.NoActionBar"
+    },
+    {
+      "source": "変更後：Theme.Material3.DayNight",
+      "translation": "修改后：Theme.Material3.DayNight"
+    },
+    {
+      "source": "values/themes.xml · 変更後の全体（照合用）",
+      "translation": "values/themes.xml · 修改后的完整内容（供核对）"
+    },
+    {
+      "source": "次に <code>app/src/main/res/values-night/themes.xml</code> も開き、同じように <code>.NoActionBar</code> を消します。テーマの設定は2つのファイルにあるので、<strong>両方とも</strong>変更します。",
+      "translation": "接着也打开<code>app/src/main/res/values-night/themes.xml</code>，同样删除<code>.NoActionBar</code>。主题设置位于两个文件中，因此<strong>两个都要</strong>修改。"
+    },
+    {
+      "source": "values-night/themes.xmlの変更後の全体で照合する",
+      "translation": "与修改后的values-night/themes.xml完整内容核对"
+    },
+    {
+      "source": "values-night/themes.xml · 変更後の全体（照合用）",
+      "translation": "values-night/themes.xml · 修改后的完整内容（供核对）"
+    },
+    {
+      "source": "<code>Base.Theme.A04WebViewApp</code> の部分はプロジェクト名から作られます。ファイル全体を貼り付けるのではなく、<code>.NoActionBar</code> を消す方法で変更しましょう。",
+      "translation": "<code>Base.Theme.A04WebViewApp</code>部分根据项目名生成。请通过删除<code>.NoActionBar</code>来修改，而不是粘贴整个文件。"
+    },
+    {
+      "source": "② インターネットの許可を追加する",
+      "translation": "② 添加互联网权限"
+    },
+    {
+      "source": "<code>app/src/main/AndroidManifest.xml</code> を開きます。<code>&lt;manifest</code> の開始タグ（<code>xmlns:tools=...&gt;</code> で終わる部分）の下、<code>&lt;application</code> の<strong>上</strong>に1行追加します。",
+      "translation": "打开<code>app/src/main/AndroidManifest.xml</code>。在<code>&lt;manifest</code>开始标签（以<code>xmlns:tools=...&gt;</code>结尾的部分）的下方、<code>&lt;application</code>的<strong>上方</strong>添加一行。"
+    },
+    {
+      "source": "追加 · &lt;application の上",
+      "translation": "添加 · &lt;application上方"
+    },
+    {
+      "source": "コード",
+      "translation": "コード — 代码"
+    },
+    {
+      "source": "意味",
+      "translation": "含义"
+    },
+    {
+      "source": "アプリの名前・アイコン・画面・必要な機能などを、Androidに伝える設定ファイル。",
+      "translation": "向Android说明应用名称、图标、屏幕和所需功能等信息的配置文件。"
+    },
+    {
+      "source": "アプリが使う機能（権限）を宣言する。",
+      "translation": "声明应用使用的功能（权限）。"
+    },
+    {
+      "source": "インターネットへの接続。インストール時に自動で許可され、確認の画面は出ない。",
+      "translation": "连接互联网。安装时会自动授予权限，不会显示确认屏幕。"
+    },
+    {
+      "source": "変更後のAndroidManifest.xml全体で照合する",
+      "translation": "与修改后的AndroidManifest.xml完整内容核对"
+    },
+    {
+      "source": "AndroidManifest.xml · 変更後の全体（照合用）",
+      "translation": "AndroidManifest.xml · 修改后的完整内容（供核对）"
+    },
+    {
+      "source": "Runで確かめる",
+      "translation": "通过Run检查"
+    },
+    {
+      "source": "画面上部に「A04WebViewApp」と書かれたActionBarが表示されます。Hello World!はまだ残っています。インターネットの許可の効果は、STEP 4でページを表示するときに確かめます。",
+      "translation": "屏幕顶部会显示写有“A04WebViewApp”的ActionBar。Hello World!仍然保留。互联网权限的效果将在STEP 4显示网页时检查。"
+    },
+    {
+      "source": "ActionBarが出ないとき",
+      "translation": "没有显示ActionBar时"
+    },
+    {
+      "source": "2つのthemes.xmlの両方で <code>.NoActionBar</code> を消したか、保存したかを確認します。<code>Theme.Material3.DayNight</code> の後ろに <code>.</code> だけが残っていないかも見ます。",
+      "translation": "检查两个themes.xml是否都已删除<code>.NoActionBar</code>并保存。也要检查<code>Theme.Material3.DayNight</code>后面是否残留了单独的<code>.</code>。"
+    },
+    {
+      "source": "ActionBarが表示され、AndroidManifest.xmlにINTERNETの許可を1行追加した。",
+      "translation": "已显示ActionBar，并在AndroidManifest.xml中添加了一行INTERNET权限。"
+    },
+    {
+      "source": "次へ：CheckBoxとWebViewを置く →",
+      "translation": "下一步：放置CheckBox和WebView →"
+    },
+    {
+      "source": "STEP 03 · 目安 15分",
+      "translation": "STEP 03 · 参考时间15分钟"
+    },
+    {
+      "source": "CheckBoxとWebViewを置く",
+      "translation": "放置CheckBox和WebView"
+    },
+    {
+      "source": "変更するファイル：app/src/main/res/layout/activity_main.xml",
+      "translation": "要修改的文件：app/src/main/res/layout/activity_main.xml"
+    },
+    {
+      "source": "画面は、上にチェックボックス、その下にWebViewを置くだけです。<strong>Code</strong> 表示に切り替え、XMLの中で <kbd>⌘ A</kbd> → 貼り付けを行い、<strong>ファイル全体を置き換えます</strong>。",
+      "translation": "屏幕只需在上方放置复选框，下方放置WebView。切换到<strong>Code</strong>视图，在XML中按<kbd>⌘ A</kbd> → 粘贴，<strong>替换整个文件</strong>。"
+    },
+    {
+      "source": "activity_main.xml · 全体を置き換える",
+      "translation": "activity_main.xml · 替换全部内容"
+    },
+    {
+      "source": "新しい部品・指定",
+      "translation": "新的控件与设置"
+    },
+    {
+      "source": "CheckBox（チェックボックス）",
+      "translation": "CheckBox (チェックボックス)"
+    },
+    {
+      "source": "チェックのあり・なしを切り替える部品。STEP 7でJavaScriptの設定に使う。",
+      "translation": "切换勾选与未勾选状态的控件。在STEP 7中用于JavaScript设置。"
+    },
+    {
+      "source": "WebView（ウェブビュー）",
+      "translation": "WebView (ウェブビュー)"
+    },
+    {
+      "source": "Webページを表示する部品。アプリの中に小さなブラウザを置くイメージ。",
+      "translation": "显示网页的控件。可以理解为在应用中放置一个小型浏览器。"
+    },
+    {
+      "source": "中の部品を、上からCheckBox → WebViewの順に縦に並べる。",
+      "translation": "将内部控件从上到下按CheckBox → WebView的顺序纵向排列。"
+    },
+    {
+      "source": "WebViewの layout_height=\"match_parent\"",
+      "translation": "WebView的layout_height=\"match_parent\""
+    },
+    {
+      "source": "CheckBoxの下の、残りの高さいっぱいに広げる。",
+      "translation": "填满CheckBox下方剩余的高度。"
+    },
+    {
+      "source": "<code>android:id=\"@+id/main\"</code> はJavaのひな形でも使うため残します。<code>chk_javascript</code> と <code>web_view</code> は、次にJavaから探すための名前です。大文字・小文字も区別します。",
+      "translation": "<code>android:id=\"@+id/main\"</code>也用于Java模板，因此要保留。<code>chk_javascript</code>和<code>web_view</code>是之后从Java中查找控件时使用的名称。名称区分大小写。"
+    },
+    {
+      "source": "文字を直接書いたことによる <code>Hardcoded text</code> の警告は、これまでの単元と同様にそのまま進めます。",
+      "translation": "直接写文字产生的 <code>Hardcoded text</code> 警告与之前单元一样，保持原样继续操作。"
+    },
+    {
+      "source": "ActionBarの下に「JavaScript ON」のチェックボックスが表示され、その下は白い画面です。チェックは付けたり外したりできますが、まだ何も起きません。",
+      "translation": "ActionBar下方显示“JavaScript ON”复选框，再下方是白色屏幕。可以勾选或取消勾选，但暂时不会发生任何变化。"
+    },
+    {
+      "source": "ActionBarの下にJavaScript ONのチェックボックスがあり、その下は白い画面",
+      "translation": "ActionBar下方有JavaScript ON复选框，再下方是白色屏幕"
+    },
+    {
+      "source": "このSTEPの画面。白い部分がWebViewです。 <a1>画像を大きく開く</a1>",
+      "translation": "本STEP的屏幕。白色部分是WebView。<a1>查看大图</a1>"
+    },
+    {
+      "source": "チェックボックスと白いWebViewが表示され、chk_javascriptとweb_viewのidを確認した。",
+      "translation": "已显示复选框和白色WebView，并确认了chk_javascript和web_view这两个id。"
+    },
+    {
+      "source": "次へ：WebViewでページを表示 →",
+      "translation": "下一步：用WebView显示网页 →"
+    },
+    {
+      "source": "STEP 04 · 目安 15分",
+      "translation": "STEP 04 · 参考时间15分钟"
+    },
+    {
+      "source": "WebViewでページを表示",
+      "translation": "用WebView显示网页"
+    },
+    {
+      "source": "変更するファイル：MainActivity.java",
+      "translation": "要修改的文件：MainActivity.java"
+    },
+    {
+      "source": "まず、決まったURLのページを1つ表示して、WebViewとインターネットの許可が動くことを確かめます。",
+      "translation": "先显示一个固定URL的网页，确认WebView和互联网权限可以正常工作。"
+    },
+    {
+      "source": "① フィールドを追加する",
+      "translation": "① 添加字段"
+    },
+    {
+      "source": "<code>public class MainActivity extends AppCompatActivity {</code> のすぐ下の空行に追加します。<code>@Override</code> より上です。",
+      "translation": "添加到<code>public class MainActivity extends AppCompatActivity {</code>正下方的空行中，位于<code>@Override</code>上方。"
+    },
+    {
+      "source": "追加 · MainActivityのフィールド",
+      "translation": "添加 · MainActivity的字段"
+    },
+    {
+      "source": "importは <code>android.webkit.WebView</code> です。<code>webView</code> は、STEP 6で作るメニューのメソッドからも使うため、onCreateの外の<strong>フィールド</strong>にします。",
+      "translation": "import为<code>android.webkit.WebView</code>。STEP 6创建的菜单方法也需要使用<code>webView</code>，因此将它设为onCreate外部的<strong>字段</strong>。"
+    },
+    {
+      "source": "② onCreateの中でページを読み込む",
+      "translation": "② 在onCreate中加载网页"
+    },
+    {
+      "source": "<code>onCreate</code> の中で、ひな形の <code>return insets;</code> に続く <code>});</code> の下、<code>onCreate</code> を閉じる <code>}</code> より上に追加します。",
+      "translation": "在<code>onCreate</code>内部，模板中的<code>return insets;</code>后面的<code>});</code>下方、结束<code>onCreate</code>的<code>}</code>上方添加。"
+    },
+    {
+      "source": "追加 · onCreateの中",
+      "translation": "添加 · onCreate内部"
+    },
+    {
+      "source": "importは <code>android.webkit.WebViewClient</code> です。",
+      "translation": "import为<code>android.webkit.WebViewClient</code>。"
+    },
+    {
+      "source": "XMLのWebViewを取得し、フィールドに入れる。フィールドの型がWebViewなので、varは書かない。",
+      "translation": "获取XML中的WebView，放入字段。字段的类型是WebView，因此不写var。"
+    },
+    {
+      "source": "ページ内のリンクを、Chromeなど別のアプリではなく、このWebViewの中で開くようにする。",
+      "translation": "让网页内的链接在这个WebView中打开，而不是在Chrome等其他应用中打开。"
+    },
+    {
+      "source": "指定したURLのページを読み込んで表示する。",
+      "translation": "加载并显示指定URL的网页。"
+    },
+    {
+      "source": "loadUrlの行は確認用です",
+      "translation": "loadUrl这一行用于检查"
+    },
+    {
+      "source": "行の後ろのコメントのとおり、この1行は表示を確かめるための仮の行です。STEP 6でメニューから開く形に変えるときに削除します。",
+      "translation": "如行末注释所述，这一行是用于确认显示的临时代码。在STEP 6改为从菜单打开网页时删除它。"
+    },
+    {
+      "source": "起動するとYahoo!ニュースが表示されます。上部に「現在JavaScriptが無効になっています」と出るのは、WebViewの初期設定でJavaScriptが無効だからです。STEP 7で切り替えられるようにします。",
+      "translation": "启动后会显示Yahoo!ニュース（Yahoo!新闻）。顶部出现「現在JavaScriptが無効になっています」（当前已禁用JavaScript），是因为WebView默认禁用JavaScript。在STEP 7中会让它可以切换。"
+    },
+    {
+      "source": "JavaScript ONはチェックなし。Yahoo!ニュースの上部に、現在JavaScriptが無効になっていますという案内が表示されている",
+      "translation": "JavaScript ON未勾选。Yahoo!ニュース（Yahoo!新闻）顶部显示「現在JavaScriptが無効になっています」（当前已禁用JavaScript）的提示"
+    },
+    {
+      "source": "JavaScriptが無効のため、サイトの案内が出ます。 <a1>画像を大きく開く</a1>",
+      "translation": "由于JavaScript已禁用，网站会显示提示。<a1>查看大图</a1>"
+    },
+    {
+      "source": "「ウェブページへのアクセス不可」と出たとき",
+      "translation": "出现「ウェブページへのアクセス不可」（无法访问网页）时"
+    },
+    {
+      "source": "<code>net::ERR_CACHE_MISS</code> と表示される場合は、STEP 2のINTERNETの許可の行がないか、つづりが違うか、保存されていません。<code>AndroidManifest.xml</code> を確認して保存し、もう一度Runします。別のエラー名のときは、Macがインターネットにつながっているかを確認します。",
+      "translation": "如果显示<code>net::ERR_CACHE_MISS</code>，说明STEP 2中的INTERNET权限行缺失、拼写错误或未保存。检查并保存<code>AndroidManifest.xml</code>，再执行Run。如果是其他错误名称，请检查Mac是否联网。"
+    },
+    {
+      "source": "許可の行を <code>&lt;application&gt;</code> の中に書いた場合は、ページの表示までは進まず、ビルドの時点で <code>unexpected element &lt;uses-permission&gt; found in &lt;manifest&gt;&lt;application&gt;</code> というエラーになります。行を <code>&lt;application</code> の上に移動します。",
+      "translation": "如果把权限行写在<code>&lt;application&gt;</code>内，还没到显示网页时，就会在构建时出现<code>unexpected element &lt;uses-permission&gt; found in &lt;manifest&gt;&lt;application&gt;</code>错误。请把这一行移到<code>&lt;application</code>上方。"
+    },
+    {
+      "source": "Yahoo!ニュースがアプリの中に表示され、JavaScriptが無効という案内を確認した。",
+      "translation": "已在应用中显示Yahoo!ニュース（Yahoo!新闻），并确认了JavaScript已禁用的提示。"
+    },
+    {
+      "source": "次へ：メニューの項目をenumで作る →",
+      "translation": "下一步：用enum创建菜单项 →"
+    },
+    {
+      "source": "STEP 05 · 目安 20分",
+      "translation": "STEP 05 · 参考时间 20分钟"
+    },
+    {
+      "source": "メニューの項目をenumで作る",
+      "translation": "用enum创建菜单项"
+    },
+    {
+      "source": "新しく作るファイル：app/src/main/java/jp/ac/jec/a04webviewapp/AppMenuItem.java",
+      "translation": "要新建的文件：app/src/main/java/jp/ac/jec/a04webviewapp/AppMenuItem.java"
+    },
+    {
+      "source": "メニューに出す4つのサイトを用意します。1つのサイトには「URL」と「メニューに表示する名前」の2つの情報があります。これを <strong>enum（イーナム、列挙型）</strong> でまとめます。",
+      "translation": "准备菜单中显示的4个网站。每个网站有“URL”和“菜单中显示的名称”两项信息。用<strong>enum（枚举类型）</strong>将它们集中管理。"
+    },
+    {
+      "source": "① ファイルを作る",
+      "translation": "① 创建文件"
+    },
+    {
+      "source": "Project表示で <code>app/src/main/java/jp/ac/jec/a04webviewapp</code>（<code>MainActivity</code> がある場所）を右クリックします。",
+      "translation": "在Project视图中右键点击<code>app/src/main/java/jp/ac/jec/a04webviewapp</code>（<code>MainActivity</code>所在位置）。"
+    },
+    {
+      "source": "<strong>New → Java Class</strong> を選びます。",
+      "translation": "选择<strong>New → Java Class</strong>。"
+    },
+    {
+      "source": "名前の欄に <code>AppMenuItem</code> と入力し、下の一覧から <strong>Enum</strong> を選んで <kbd>Enter</kbd> を押します。",
+      "translation": "在名称栏输入<code>AppMenuItem</code>，从下方列表选择<strong>Enum</strong>，按<kbd>Enter</kbd>。"
+    },
+    {
+      "source": "<code>AppMenuItem.java</code> が開きます。",
+      "translation": "<code>AppMenuItem.java</code>会打开。"
+    },
+    {
+      "source": "作る場所に注意",
+      "translation": "注意创建位置"
+    },
+    {
+      "source": "<code>app/src/test</code> や <code>app/src/androidTest</code> の中にも同じ名前のパッケージがあります。必ず <code>app/src/main/java</code> の中の、<code>MainActivity</code> と同じ場所に作ります。",
+      "translation": "<code>app/src/test</code>和<code>app/src/androidTest</code>内也有同名的包。务必在<code>app/src/main/java</code>内、与<code>MainActivity</code>相同的位置创建。"
+    },
+    {
+      "source": "② 中身を置き換える",
+      "translation": "② 替换内容"
+    },
+    {
+      "source": "開いた <code>AppMenuItem.java</code> の中で <kbd>⌘ A</kbd> → 貼り付けを行い、<strong>ファイル全体を置き換えます</strong>。",
+      "translation": "在打开的<code>AppMenuItem.java</code>中按<kbd>⌘ A</kbd> → 粘贴，<strong>替换整个文件</strong>。"
+    },
+    {
+      "source": "AppMenuItem.java · 全体を置き換える",
+      "translation": "AppMenuItem.java · 替换整个文件"
+    },
+    {
+      "source": "決まった種類だけを並べる型。今回はメニューの4項目。",
+      "translation": "只列出固定种类的类型。这次是菜单中的4项。"
+    },
+    {
+      "source": "YAHOO(...)、GITHUB_COPILOT(...) など",
+      "translation": "YAHOO(...)、GITHUB_COPILOT(...)等"
+    },
+    {
+      "source": "enumの値。値ごとに、URLと表示する名前を持つ。",
+      "translation": "enum的值。每个值都包含URL和显示名称。"
+    },
+    {
+      "source": "値ごとに覚えておくURL。<code>final</code> は、一度入れたら変えないという指定。",
+      "translation": "每个值保存的URL。<code>final</code>表示赋值一次后不再更改。"
+    },
+    {
+      "source": "コンストラクタ。値を作るときに <code>( )</code> の中のURLと名前を受け取り、フィールドに入れる。",
+      "translation": "构造方法。创建值时接收<code>( )</code>内的URL和名称，放入字段。"
+    },
+    {
+      "source": "左の <code>this.url</code> はフィールド、右の <code>url</code> は受け取った値。",
+      "translation": "左侧的<code>this.url</code>是字段，右侧的<code>url</code>是收到的值。"
+    },
+    {
+      "source": "覚えたURL・名前を、MainActivityから読むためのメソッド。",
+      "translation": "供MainActivity读取已保存的URL和名称的方法。"
+    },
+    {
+      "source": "値と値の間は <code>,</code>（カンマ）で区切り、最後の <code>CHAT_GPT(...)</code> の後ろだけ <code>;</code>（セミコロン）にします。コメントにあるとおり、<code>Menu</code> や <code>MenuItem</code> という名前はAndroidのクラスと重なるため、<code>AppMenuItem</code> という名前にしています。",
+      "translation": "值之间用<code>,</code>（逗号）分隔，只有最后的<code>CHAT_GPT(...)</code>后面使用<code>;</code>（分号）。如注释所述，<code>Menu</code>和<code>MenuItem</code>会与Android的类重名，因此命名为<code>AppMenuItem</code>。"
+    },
+    {
+      "source": "値の番号（ordinal）",
+      "translation": "值的编号（ordinal）"
+    },
+    {
+      "source": "enumの値には、書いた順に0から番号が付きます。この番号は <code>ordinal()</code> で取り出せます。<code>AppMenuItem.values()</code> は、4つの値を書いた順に入れた配列を返します。どちらもSTEP 6で使います。",
+      "translation": "enum的值按书写顺序从0开始编号。可以用<code>ordinal()</code>取出编号。<code>AppMenuItem.values()</code>返回按书写顺序放入4个值的数组。两者都会在STEP 6使用。"
+    },
+    {
+      "source": "値",
+      "translation": "值"
+    },
+    {
+      "source": "Yahoo!ニュース",
+      "translation": "Yahoo!ニュース（Yahoo!新闻）"
+    },
+    {
+      "source": "映画「SLAM DUNK」公式サイト",
+      "translation": "映画「SLAM DUNK」公式サイト（电影《SLAM DUNK》官方网站）"
+    },
+    {
+      "source": "まだどこからも使っていないので、画面は変わりません。エラーなくRunでき、STEP 4と同じくYahoo!ニュースが表示されれば成功です。",
+      "translation": "因为还没有在任何地方使用它，屏幕不会改变。能够无错误地Run，并与STEP 4一样显示Yahoo!ニュース（Yahoo!新闻），就表示成功。"
+    },
+    {
+      "source": "解説：enumを使わないと、何に困る？",
+      "translation": "讲解：不用enum会遇到什么问题？"
+    },
+    {
+      "source": "A03のじゃんけんで手を番号（0:グー 1:チョキ 2:パー）で表したように、enumを使わず、番号と配列でメニューを作ることもできます。",
+      "translation": "就像A03的猜拳用编号表示手势（0：石头，1：剪刀，2：布）一样，也可以不用enum，而用编号和数组创建菜单。"
+    },
+    {
+      "source": "次のコードは、MainActivityに書いた場合の比べるための例で、<strong>入力しません</strong>。AppMenuItemの <code>url</code>・<code>title</code> とは別のものです。文字列（String）の配列2つに、URLと表示名を分けて入れます。",
+      "translation": "下面的代码是假设写在MainActivity中的对比示例，<strong>不需要输入</strong>。它与AppMenuItem的<code>url</code>、<code>title</code>不同。把URL和显示名称分别放入两个字符串（String）数组。"
+    },
+    {
+      "source": "⋮ のメニューには、<code>titles</code> を上から順に並べます。押したときは、上から何番目か（0から数える）を調べ、同じ番号の <code>urls[番号]</code> を開きます。2つの配列は、番号だけでつながっています。",
+      "translation": "⋮菜单会从上到下依次排列<code>titles</code>。点击时，检查它是从上往下的第几项（从0计数），打开相同编号的<code>urls[番号]</code>。两个数组只通过编号联系在一起。"
+    },
+    {
+      "source": "困る場面",
+      "translation": "出现问题的情况"
+    },
+    {
+      "source": "起きること",
+      "translation": "会发生什么"
+    },
+    {
+      "source": "サイトを増やすとき、<code>titles</code> には先頭、<code>urls</code> には最後に足した",
+      "translation": "添加网站时，在<code>titles</code>开头添加，却在<code>urls</code>末尾添加"
+    },
+    {
+      "source": "1つずれたサイトが開く。例えば「日本電子専門学校」を押すと、Yahoo!ニュースが開く。赤いエラーは出ない。",
+      "translation": "会打开错位一个的网站。例如，点击「日本電子専門学校」（日本电子专门学校）却打开Yahoo!ニュース（Yahoo!新闻）。不会出现红色错误。"
+    },
+    {
+      "source": "<code>titles</code> には足したが、<code>urls</code> に足し忘れた",
+      "translation": "添加了<code>titles</code>，却忘记添加<code>urls</code>"
+    },
+    {
+      "source": "5つ目を押すと、<code>urls[4]</code> がないので実行中にエラー（ArrayIndexOutOfBoundsException）になり、アプリが閉じる。押すまで気付けない。",
+      "translation": "点击第5项时，因为没有<code>urls[4]</code>，运行中会出现错误（ArrayIndexOutOfBoundsException），应用关闭。点击之前无法发现。"
+    },
+    {
+      "source": "enumを使うメリット",
+      "translation": "使用enum的好处"
+    },
+    {
+      "source": "enum（列挙型）は、<strong>選べる値を決めて、1つずつ名前を付けた型</strong>です。自動販売機のボタンのように、決めた値の中からしか選べません。",
+      "translation": "enum（枚举类型；日语为列挙型、れっきょがた）是<strong>规定可选值，并分别为它们命名的类型</strong>。像自动售货机的按钮一样，只能从预先规定的值中选择。"
+    },
+    {
+      "source": "メリット",
+      "translation": "好处"
+    },
+    {
+      "source": "配列を2つ使うと",
+      "translation": "使用两个数组时"
+    },
+    {
+      "source": "enum（AppMenuItem）なら",
+      "translation": "使用enum（AppMenuItem）时"
+    },
+    {
+      "source": "① 打ち間違いに気付ける",
+      "translation": "① 能发现输入错误"
+    },
+    {
+      "source": "<code>urls[7]</code> のように、ない番号を書いても赤いエラーにならない。",
+      "translation": "即使像<code>urls[7]</code>这样写了不存在的编号，也不会出现红色错误。"
+    },
+    {
+      "source": "<code>AppMenuItem.</code> まで入力すると候補が出る。<code>AppMenuItem.YAHO</code> のような打ち間違いは、Runの前に赤いエラーになる。",
+      "translation": "输入到<code>AppMenuItem.</code>时会出现候选项。像<code>AppMenuItem.YAHO</code>这样的输入错误，会在Run之前显示为红色错误。"
+    },
+    {
+      "source": "② 情報が1か所にまとまる",
+      "translation": "② 信息集中在一处"
+    },
+    {
+      "source": "別々の配列に足すので、位置がずれることがある（上の表）。",
+      "translation": "分别添加到不同的数组中，位置可能错开（见上表）。"
+    },
+    {
+      "source": "<code>YAHOO(...)</code> の1行に、URLと表示名を並べて書くので、組がずれない。",
+      "translation": "在<code>YAHOO(...)</code>这一行并列写入URL和显示名称，因此不会配错。"
+    },
+    {
+      "source": "③ 追加がenumだけで済む",
+      "translation": "③ 添加时只需修改enum"
+    },
+    {
+      "source": "2つの配列の、同じ番号の位置に1つずつ足す。",
+      "translation": "在两个数组中相同编号的位置各添加一项。"
+    },
+    {
+      "source": "<code>values()</code> で全部の値を順に取り出すので、enumに値を1行足すだけ（前の行の <code>;</code> は <code>,</code> に変える）。MainActivityは変えない（STEP 9 練習1）。",
+      "translation": "用<code>values()</code>依次取出全部值，因此只需在enum中添加一行值（把前一行的<code>;</code>改成<code>,</code>）。不修改MainActivity（STEP 9练习1）。"
+    },
+    {
+      "source": "④ 名前で意味が読める",
+      "translation": "④ 从名称就能读懂含义"
+    },
+    {
+      "source": "<code>urls[2]</code> が何のサイトか、数えないと分からない。",
+      "translation": "不数一遍就不知道<code>urls[2]</code>是哪个网站。"
+    },
+    {
+      "source": "<code>AppMenuItem.SLAM_DUNK_MOVIE</code> と書けば、どのサイトか読める。",
+      "translation": "写成<code>AppMenuItem.SLAM_DUNK_MOVIE</code>就能看出是哪个网站。"
+    },
+    {
+      "source": "ただし、URLの文字の打ち間違いは、enumでもエラーになりません。直すのは <code>AppMenuItem.java</code> の1か所です。",
+      "translation": "不过，即使使用enum，URL中的拼写错误也不会报错。只需修改<code>AppMenuItem.java</code>这一处。"
+    },
+    {
+      "source": "enumの値の使い方",
+      "translation": "如何使用enum的值"
+    },
+    {
+      "source": "enumの値は <code>型の名前.値の名前</code> で書きます。<code>.</code>（ドット）は「〜の」と読みます。例えば <code>AppMenuItem.YAHOO.getUrl()</code> は、「AppMenuItemのYAHOOの、URLを取り出す」という意味です。",
+      "translation": "enum的值写作<code>型の名前.値の名前</code>（类型名.值名）。<code>.</code>（点）读作“的”。例如，<code>AppMenuItem.YAHOO.getUrl()</code>表示“取出AppMenuItem中的YAHOO的URL”。"
+    },
+    {
+      "source": "ほかの書き方と結果を表で確かめる",
+      "translation": "用表格检查其他写法与结果"
+    },
+    {
+      "source": "書き方",
+      "translation": "写法"
+    },
+    {
+      "source": "4つの値から、YAHOOを選ぶ。",
+      "translation": "从4个值中选择YAHOO。"
+    },
+    {
+      "source": "YAHOO（Yahoo!ニュースのURLと表示名を持つ値）",
+      "translation": "YAHOO（保存Yahoo!ニュース〔Yahoo!新闻〕的URL和显示名称的值）"
+    },
+    {
+      "source": "YAHOOの、URLを取り出す。",
+      "translation": "取出YAHOO的URL。"
+    },
+    {
+      "source": "SLAM_DUNK_MOVIEの、番号を取り出す（上の「値の番号」の表）。",
+      "translation": "取出SLAM_DUNK_MOVIE的编号（见上方“值的编号”表）。"
+    },
+    {
+      "source": "値を書いた順に入れた配列から、2番を取り出す。",
+      "translation": "从按书写顺序存放值的数组中取出编号2。"
+    },
+    {
+      "source": "STEP 6の <code>menuItem.getTitle()</code> のように、値を入れた変数からもメソッドを呼べます。",
+      "translation": "也可以像STEP 6中的<code>menuItem.getTitle()</code>一样，通过保存值的变量调用方法。"
+    },
+    {
+      "source": "enumでも番号を使う場面",
+      "translation": "使用enum时也需要编号的情况"
+    },
+    {
+      "source": "STEP 6では、押した項目の番号を使い、<code>values()[番号]</code> で値を取り出します。この番号は自分で書きません。メニューを作るときも押したときも、enumが値を書いた順に付けた同じ番号（「値の番号」の表）を使うので、項目を増やしてもずれません。ただし <code>values()[7]</code> のように、ない番号を自分で書くと、enumでも実行中のエラーになります。",
+      "translation": "STEP 6使用点击项的编号，通过<code>values()[番号]</code>取出值。不需要自己编写这个编号。创建菜单和点击菜单时，都使用enum按书写顺序分配的同一编号（见“值的编号”表），因此增加项目也不会错位。不过，如果自己写成<code>values()[7]</code>这种不存在的编号，即使使用enum也会在运行时报错。"
+    },
+    {
+      "source": "1コマ目はここまで",
+      "translation": "第1课时到这里结束"
+    },
+    {
+      "source": "もう一度Runします。隣の人か先生に、enumの4つの値と番号（ordinal）の対応と、enumを使うメリットを1つ説明しましょう。次回も自分の <code>Documents/Android1/A04WebViewApp</code> を開きます。",
+      "translation": "再执行一次Run。向旁边的同学或老师说明enum的4个值与编号（ordinal）的对应关系，以及使用enum的一个好处。下次也打开自己的<code>Documents/Android1/A04WebViewApp</code>。"
+    },
+    {
+      "source": "MainActivityと同じ場所にAppMenuItem.javaを作り、4つの値と番号の対応を表で確認した。",
+      "translation": "已在MainActivity相同位置创建AppMenuItem.java，并通过表格确认4个值与编号的对应关系。"
+    },
+    {
+      "source": "次へ：メニューでページを切り替える →",
+      "translation": "下一步：通过菜单切换网页 →"
+    },
+    {
+      "source": "STEP 06 · 目安 15分",
+      "translation": "STEP 06 · 参考时间 15分钟"
+    },
+    {
+      "source": "メニューでページを切り替える",
+      "translation": "通过菜单切换网页"
+    },
+    {
+      "source": "前回の画面をRunして確認してから始めます。ActionBarの右上の <strong>⋮</strong>（オプションメニュー）に、STEP 5の4つのサイトを出します。",
+      "translation": "先Run检查上次的屏幕，再开始操作。将STEP 5的4个网站显示在ActionBar右上角的<strong>⋮</strong>（选项菜单）中。"
+    },
+    {
+      "source": "① 確認用の1行を削除する",
+      "translation": "① 删除用于检查的一行"
+    },
+    {
+      "source": "<code>onCreate</code> の中の、次の1行を削除します。すぐ上の <code>setWebViewClient</code> の行は残します。",
+      "translation": "删除<code>onCreate</code>中的以下一行。保留它正上方的<code>setWebViewClient</code>这一行。"
+    },
+    {
+      "source": "削除：webView.loadUrl(\"https://news.yahoo.co.jp/\"); // 表示の確認用。STEP 6で削除する",
+      "translation": "删除：webView.loadUrl(\"https://news.yahoo.co.jp/\"); // 表示の確認用。STEP 6で削除する（用于检查显示。在STEP 6删除）"
+    },
+    {
+      "source": "② メニューのメソッドを2つ追加する",
+      "translation": "② 添加两个菜单方法"
+    },
+    {
+      "source": "ファイルの末尾にある2つの <code>}</code> を見つけます。上は <code>onCreate</code>、下は <code>MainActivity</code> を閉じています。<strong>その2つの間</strong>に追加します。",
+      "translation": "找到文件末尾的两个<code>}</code>。上方的用于结束<code>onCreate</code>，下方的用于结束<code>MainActivity</code>。在<strong>这两个之间</strong>添加。"
+    },
+    {
+      "source": "追加 · onCreateの外、MainActivityの中",
+      "translation": "添加 · onCreate外部、MainActivity内部"
+    },
+    {
+      "source": "importは <code>android.view.Menu</code>、<code>android.view.MenuItem</code>、<code>androidx.annotation.NonNull</code> です。<code>MenuItem</code> の候補が複数出たときは <code>android.view.MenuItem</code> を選びます。",
+      "translation": "import为<code>android.view.Menu</code>、<code>android.view.MenuItem</code>和<code>androidx.annotation.NonNull</code>。如果<code>MenuItem</code>出现多个候选项，选择<code>android.view.MenuItem</code>。"
+    },
+    {
+      "source": "メソッド",
+      "translation": "方法"
+    },
+    {
+      "source": "呼ばれるとき",
+      "translation": "何时调用"
+    },
+    {
+      "source": "していること",
+      "translation": "正在做什么"
+    },
+    {
+      "source": "メニューを用意するとき",
+      "translation": "准备菜单时"
+    },
+    {
+      "source": "enumの値を順に取り出し、メニューに1項目ずつ追加する。<code>true</code> を返すとメニューが表示される。",
+      "translation": "依次取出enum的值，逐项添加到菜单中。返回<code>true</code>后会显示菜单。"
+    },
+    {
+      "source": "メニューの項目を押したとき",
+      "translation": "点击菜单项时"
+    },
+    {
+      "source": "押した項目のidからenumの値を取り出し、そのURLを読み込む。<code>true</code> は「この処理で終わり」という意味。",
+      "translation": "根据点击项的id取出enum的值，加载其URL。<code>true</code>表示“处理到此结束”。"
+    },
+    {
+      "source": "menu.add( ) の引数",
+      "translation": "menu.add( )的参数"
+    },
+    {
+      "source": "1つ目　Menu.NONE",
+      "translation": "第1个　Menu.NONE"
+    },
+    {
+      "source": "グループ。今回は使わない。",
+      "translation": "分组。这次不使用。"
+    },
+    {
+      "source": "2つ目　menuItem.ordinal()",
+      "translation": "第2个　menuItem.ordinal()"
+    },
+    {
+      "source": "項目のid。押したときに、どの項目かを見分ける番号（0〜3）。",
+      "translation": "项目的id。点击时用于区分项目的编号（0～3）。"
+    },
+    {
+      "source": "3つ目　Menu.NONE",
+      "translation": "第3个　Menu.NONE"
+    },
+    {
+      "source": "並び順の指定。今回は使わず、追加した順に並ぶ。",
+      "translation": "指定排列顺序。这次不使用，按添加顺序排列。"
+    },
+    {
+      "source": "4つ目　menuItem.getTitle()",
+      "translation": "第4个　menuItem.getTitle()"
+    },
+    {
+      "source": "メニューに表示する文字。",
+      "translation": "菜单中显示的文字。"
+    },
+    {
+      "source": "メニューを押したときの流れ",
+      "translation": "点击菜单后的流程"
+    },
+    {
+      "source": "「映画「SLAM DUNK」公式サイト」を押す",
+      "translation": "点击「映画「SLAM DUNK」公式サイト」（电影《SLAM DUNK》官方网站）"
+    },
+    {
+      "source": "item.getItemId() は 2",
+      "translation": "item.getItemId()为2"
+    },
+    {
+      "source": "AppMenuItem.values()[2] は SLAM_DUNK_MOVIE",
+      "translation": "AppMenuItem.values()[2]为SLAM_DUNK_MOVIE"
+    },
+    {
+      "source": "そのURLをloadUrl",
+      "translation": "对该URL执行loadUrl"
+    },
+    {
+      "source": "<code>values()</code>・<code>ordinal()</code>・<code>getUrl()</code> の読み方は、<a1>STEP 5の「enumの値の使い方」</a1>で確かめられます。",
+      "translation": "<code>values()</code>、<code>ordinal()</code>和<code>getUrl()</code>的理解方式，可以在<a1>STEP 5的“如何使用enum的值”</a1>中确认。"
+    },
+    {
+      "source": "<code>@Override</code> は、親クラス（AppCompatActivity）のメソッドを上書きする印です。名前を打ち間違えると赤いエラーで気付けます。<code>@NonNull</code> は「<code>item</code> にnullは来ない」ことを示す印です。",
+      "translation": "<code>@Override</code>表示覆盖父类（AppCompatActivity）的方法。名称输入错误时，会显示红色错误以便发现。<code>@NonNull</code>表示“<code>item</code>不会为null”。"
+    },
+    {
+      "source": "起動直後は白い画面です（確認用のloadUrlを削除したため）。",
+      "translation": "刚启动时是白色屏幕（因为已删除用于检查的loadUrl）。"
+    },
+    {
+      "source": "右上の <strong>⋮</strong> を押すと、4つのサイト名が表示されます。",
+      "translation": "按右上角的<strong>⋮</strong>，会显示4个网站名称。"
+    },
+    {
+      "source": "「映画「SLAM DUNK」公式サイト」を押すと、そのページが表示されます。ほかの項目も試します。",
+      "translation": "点击「映画「SLAM DUNK」公式サイト」（电影《SLAM DUNK》官方网站）后会显示该网页。也试试其他项目。"
+    },
+    {
+      "source": "右上のメニューが開き、Yahoo!ニュース、GitHub Copilot、映画「SLAM DUNK」公式サイト、OpenAI ChatGPTの4項目が並んでいる",
+      "translation": "右上角菜单已打开，列出Yahoo!ニュース（Yahoo!新闻）、GitHub Copilot、映画「SLAM DUNK」公式サイト（电影《SLAM DUNK》官方网站）、OpenAI ChatGPT这4项"
+    },
+    {
+      "source": "⋮ を押したところ。enumに書いた順に並びます。 <a1>画像を大きく開く</a1>",
+      "translation": "按下⋮后。按enum中书写的顺序排列。<a1>查看大图</a1>"
+    },
+    {
+      "source": "WebViewに映画「SLAM DUNK」公式サイトが表示されている",
+      "translation": "WebView中显示映画「SLAM DUNK」公式サイト（电影《SLAM DUNK》官方网站）"
+    },
+    {
+      "source": "SLAM DUNKのサイトを表示。 <a1>画像を大きく開く</a1>",
+      "translation": "显示SLAM DUNK网站。<a1>查看大图</a1>"
+    },
+    {
+      "source": "⋮ が表示されないとき",
+      "translation": "未显示⋮时"
+    },
+    {
+      "source": "STEP 2で2つのthemes.xmlから <code>.NoActionBar</code> を消したかを確認します。ActionBarがないと、オプションメニューも表示されません。",
+      "translation": "检查STEP 2中是否已从两个themes.xml中删除<code>.NoActionBar</code>。如果没有ActionBar，也不会显示选项菜单。"
+    },
+    {
+      "source": "⋮ に4つのサイト名が出て、押したサイトが表示された。",
+      "translation": "⋮中已显示4个网站名称，并显示了点击的网站。"
+    },
+    {
+      "source": "次へ：JavaScriptのON/OFFとズーム →",
+      "translation": "下一步：JavaScript的ON/OFF与缩放 →"
+    },
+    {
+      "source": "STEP 07 · 目安 15分",
+      "translation": "STEP 07 · 参考时间15分钟"
+    },
+    {
+      "source": "JavaScriptのON/OFFとズーム",
+      "translation": "JavaScript的ON/OFF与缩放"
+    },
+    {
+      "source": "<strong>JavaScript</strong> は、Webページの中で動くプログラミング言語です。多くのサイトは、メニューの開閉や表示の切り替えなどにJavaScriptを使います。WebViewは初期設定でJavaScriptが<strong>無効</strong>なので、チェックボックスで切り替えられるようにします。",
+      "translation": "<strong>JavaScript</strong>是在网页中运行的编程语言。许多网站使用JavaScript来展开或收起菜单、切换显示等。WebView默认<strong>禁用</strong>JavaScript，因此让它可以通过复选框切换。"
+    },
+    {
+      "source": "① CheckBoxを取得する",
+      "translation": "① 获取CheckBox"
+    },
+    {
+      "source": "<code>onCreate</code> の <code>webView = (WebView) findViewById(R.id.web_view);</code> の<strong>すぐ下</strong>に追加します。",
+      "translation": "添加到<code>onCreate</code>内的<code>webView = (WebView) findViewById(R.id.web_view);</code><strong>正下方</strong>。"
+    },
+    {
+      "source": "追加 · webView = findViewById(...); の下",
+      "translation": "添加 · webView = findViewById(...);下方"
+    },
+    {
+      "source": "importは <code>android.widget.CheckBox</code> です。<code>(CheckBox)</code> は、チェックの状態を読むためにCheckBoxとして扱う指定です。",
+      "translation": "import为<code>android.widget.CheckBox</code>。<code>(CheckBox)</code>表示将其作为CheckBox使用，以读取勾选状态。"
+    },
+    {
+      "source": "② 起動時の設定をそろえる",
+      "translation": "② 统一启动时的设置"
+    },
+    {
+      "source": "<code>webView.setWebViewClient(new WebViewClient());</code> の<strong>すぐ下</strong>に追加します。",
+      "translation": "添加到<code>webView.setWebViewClient(new WebViewClient());</code>的<strong>正下方</strong>。"
+    },
+    {
+      "source": "追加 · setWebViewClientの行の下",
+      "translation": "添加 · setWebViewClient这一行的下方"
+    },
+    {
+      "source": "③ チェックを切り替えたときの処理とズーム",
+      "translation": "③ 切换勾选状态时的处理与缩放"
+    },
+    {
+      "source": "<code>onCreate</code> の最後、<code>onCreate</code> を閉じる <code>}</code> の直前に追加します。",
+      "translation": "添加到<code>onCreate</code>末尾、结束<code>onCreate</code>的<code>}</code>前面。"
+    },
+    {
+      "source": "追加 · onCreateの最後",
+      "translation": "添加 · onCreate末尾"
+    },
+    {
+      "source": "WebViewの設定を取り出す。",
+      "translation": "获取WebView的设置。"
+    },
+    {
+      "source": "起動時のチェックの状態に合わせる。最初はチェックなしなので無効。",
+      "translation": "与启动时的勾选状态保持一致。开始时未勾选，因此禁用。"
+    },
+    {
+      "source": "チェックが切り替わったときの処理。<code>isChecked</code> は切り替えた後の状態（true：チェックあり）。<code>buttonView</code> は押されたCheckBoxで、今回は使わない。",
+      "translation": "切换勾选状态时的处理。<code>isChecked</code>是切换后的状态（true：已勾选）。<code>buttonView</code>是被点击的CheckBox，这次不使用。"
+    },
+    {
+      "source": "今のページを読み込み直し、変えた設定をページに反映する。",
+      "translation": "重新加载当前网页，让修改后的设置应用到网页。"
+    },
+    {
+      "source": "2本指で広げる・つまむ操作（ピンチ）で、ページを拡大・縮小できるようにする。",
+      "translation": "允许通过双指展开或捏合（双指缩放）来放大、缩小网页。"
+    },
+    {
+      "source": "⋮ → Yahoo!ニュースを開きます。チェックなしでは「現在JavaScriptが無効になっています」が出ます。",
+      "translation": "打开⋮ → Yahoo!ニュース（Yahoo!新闻）。未勾选时会显示「現在JavaScriptが無効になっています」（当前已禁用JavaScript）。"
+    },
+    {
+      "source": "「JavaScript ON」にチェックを付けます。ページが読み込み直され、案内が消えます。",
+      "translation": "勾选“JavaScript ON”。网页会重新加载，提示消失。"
+    },
+    {
+      "source": "チェックを外すと、もう一度読み込み直され、案内が出ます。",
+      "translation": "取消勾选后，网页再次加载，提示出现。"
+    },
+    {
+      "source": "チェックなし。Yahoo!ニュースにJavaScriptが無効という案内が出ている",
+      "translation": "未勾选。Yahoo!ニュース（Yahoo!新闻）显示JavaScript已禁用的提示"
+    },
+    {
+      "source": "チェックなし：JavaScriptが無効。 <a1>画像を大きく開く</a1>",
+      "translation": "未勾选：JavaScript已禁用。<a1>查看大图</a1>"
+    },
+    {
+      "source": "チェックあり。Yahoo!ニュースの案内が消え、タブと記事の一覧が表示されている",
+      "translation": "已勾选。Yahoo!ニュース（Yahoo!新闻）的提示消失，显示标签页和新闻列表"
+    },
+    {
+      "source": "チェックあり：案内が消えます。 <a1>画像を大きく開く</a1>",
+      "translation": "已勾选：提示消失。<a1>查看大图</a1>"
+    },
+    {
+      "source": "「Cookie」の確認画面が出たとき",
+      "translation": "出现“Cookie”确认屏幕时"
+    },
+    {
+      "source": "JavaScriptを有効にすると、サイトによっては、Cookie（クッキー）の使い方を確認する画面がページの上に表示されます。映画「SLAM DUNK」公式サイトなどで表示されます。授業での確認では「拒否」を押して閉じて構いません。",
+      "translation": "启用JavaScript后，某些网站会在网页上方显示确认Cookie使用方式的屏幕。映画「SLAM DUNK」公式サイト（电影《SLAM DUNK》官方网站）等网站会显示此屏幕。课堂检查时，可以按「拒否」（拒绝）将其关闭。"
+    },
+    {
+      "source": "余裕があれば、ページを拡大してみます。エミュレータでは <kbd>⌘</kbd> を押しながら画面をドラッグすると、2本指の操作になります。サイト側で拡大を制限している場合は、拡大できないこともあります。",
+      "translation": "有余力时，试着放大网页。在模拟器中按住<kbd>⌘</kbd>拖动屏幕，就相当于双指操作。如果网站限制缩放，也可能无法放大。"
+    },
+    {
+      "source": "JavaScriptを有効にするときの注意",
+      "translation": "启用JavaScript时的注意事项"
+    },
+    {
+      "source": "JavaScriptを有効にすると、表示したページのプログラムがアプリの中で動きます。どんなURLでも開けるアプリでは、有効にするかを慎重に決めるのが基本です。今回のアプリはメニューにある決まったサイトを開きますが、ページ内のリンクをたどると、ほかのサイトもJavaScriptが有効なままアプリの中で開きます。",
+      "translation": "启用JavaScript后，所显示网页的程序会在应用中运行。对于能打开任意URL的应用，原则上应谨慎决定是否启用。本次应用打开菜单中的固定网站，但沿着网页内的链接访问其他网站时，它们也会在JavaScript保持启用的状态下在应用中打开。"
+    },
+    {
+      "source": "仕様の確認：<a1>WebSettings（Android公式）</a1>。",
+      "translation": "查阅规格：<a1>WebSettings（Android官方）</a1>。"
+    },
+    {
+      "source": "チェックの切り替えでページが読み込み直され、JavaScriptの案内が消える・出ることを確認した。",
+      "translation": "已确认切换勾选状态会重新加载网页，JavaScript提示会消失或出现。"
+    },
+    {
+      "source": "次へ：戻る操作で前のページへ →",
+      "translation": "下一步：通过返回操作回到上一页 →"
+    },
+    {
+      "source": "STEP 08 · 目安 20分",
+      "translation": "STEP 08 · 参考时间20分钟"
+    },
+    {
+      "source": "リンクで別のページに移動したあと、戻る操作をしたら前のページに戻るようにします。<strong>戻る操作</strong>とは、画面の左端（または右端）から内側へのスワイプや、エミュレータのツールバーの戻るボタン（◁）のことです。",
+      "translation": "通过链接跳转到其他网页后，让返回操作回到上一页。<strong>返回操作</strong>（戻る操作、もどるそうさ）是指从屏幕左边缘（或右边缘）向内滑动，或点击模拟器工具栏中的返回按钮（◁）。"
+    },
+    {
+      "source": "まず、今の動きを確かめる",
+      "translation": "先检查当前的运行情况"
+    },
+    {
+      "source": "Runして、⋮ → Yahoo!ニュースを開き、記事のリンクを1つ押します。",
+      "translation": "Run后打开⋮ → Yahoo!ニュース（Yahoo!新闻），点击一个新闻链接。"
+    },
+    {
+      "source": "戻る操作をします。前のページがあるのに、<strong>ホーム画面に戻ってしまいます</strong>。",
+      "translation": "执行返回操作。虽然有上一页，却<strong>回到了主屏幕</strong>。"
+    },
+    {
+      "source": "① 戻る処理を登録する",
+      "translation": "① 注册返回处理"
+    },
+    {
+      "source": "<code>onCreate</code> の <code>webView.setWebViewClient(new WebViewClient());</code> の行の<strong>上</strong>に追加します。<code>var checkBox = ...;</code> より下です。",
+      "translation": "添加到<code>onCreate</code>中的<code>webView.setWebViewClient(new WebViewClient());</code>这一行的<strong>上方</strong>，位于<code>var checkBox = ...;</code>下方。"
+    },
+    {
+      "source": "追加 · setWebViewClientの行の上",
+      "translation": "添加 · setWebViewClient这一行的上方"
+    },
+    {
+      "source": "importは <code>androidx.activity.OnBackPressedCallback</code> です。",
+      "translation": "import为<code>androidx.activity.OnBackPressedCallback</code>。"
+    },
+    {
+      "source": "② WebViewClientを置き換える",
+      "translation": "② 替换WebViewClient"
+    },
+    {
+      "source": "<code>webView.setWebViewClient(new WebViewClient());</code> の1行を、次のコードに<strong>置き換えます</strong>。すぐ下の <code>setJavaScriptEnabled</code> の行は残します。",
+      "translation": "将<code>webView.setWebViewClient(new WebViewClient());</code>这一行<strong>替换</strong>为以下代码。保留紧接下方的<code>setJavaScriptEnabled</code>这一行。"
+    },
+    {
+      "source": "置き換え · setWebViewClientの行",
+      "translation": "替换 · setWebViewClient这一行"
+    },
+    {
+      "source": "しくみ",
+      "translation": "运行原理"
+    },
+    {
+      "source": "戻る操作のときに行う処理。<code>(false)</code> は「最初は無効」という意味。",
+      "translation": "执行返回操作时的处理。<code>(false)</code>表示“开始时禁用”。"
+    },
+    {
+      "source": "有効なときに戻る操作をすると呼ばれる。<code>webView.goBack()</code> で前のページに戻る。",
+      "translation": "处于启用状态时，执行返回操作就会调用它。用<code>webView.goBack()</code>返回上一页。"
+    },
+    {
+      "source": "この画面（Activity）に、戻る処理を登録する。",
+      "translation": "为此屏幕（Activity）注册返回处理。"
+    },
+    {
+      "source": "STEP 4のWebViewClientに、履歴が変わったときの処理を足したもの。リンクをWebViewの中で開く働きはそのまま。",
+      "translation": "在STEP 4的WebViewClient中添加历史记录改变时的处理。在WebView中打开链接的作用保持不变。"
+    },
+    {
+      "source": "ページを開いた・戻ったなど、閲覧の履歴が変わるたびに呼ばれる。",
+      "translation": "每次打开网页、返回等操作使浏览历史发生改变时都会调用。"
+    },
+    {
+      "source": "前のページがあれば（<code>canGoBack()</code> がtrue）戻る処理を有効に、なければ無効にする。",
+      "translation": "有上一页（<code>canGoBack()</code>为true）时启用返回处理，否则禁用。"
+    },
+    {
+      "source": "状態",
+      "translation": "状态"
+    },
+    {
+      "source": "戻る操作の結果",
+      "translation": "返回操作的结果"
+    },
+    {
+      "source": "起動直後・最初のページだけ",
+      "translation": "刚启动时或只有第一个网页"
+    },
+    {
+      "source": "無効",
+      "translation": "禁用"
+    },
+    {
+      "source": "Androidの通常の戻る操作になり、ホーム画面に戻る。",
+      "translation": "执行Android通常的返回操作，回到主屏幕。"
+    },
+    {
+      "source": "リンクやメニューで次のページを開いた後",
+      "translation": "通过链接或菜单打开下一页之后"
+    },
+    {
+      "source": "有効",
+      "translation": "启用"
+    },
+    {
+      "source": "<code>handleOnBackPressed</code> が呼ばれ、前のページに戻る。",
+      "translation": "调用<code>handleOnBackPressed</code>，返回上一页。"
+    },
+    {
+      "source": "最初のページまで戻った後",
+      "translation": "返回到第一个网页之后"
+    },
+    {
+      "source": "無効（戻ったときに更新）",
+      "translation": "禁用（返回时更新）"
+    },
+    {
+      "source": "次の戻る操作でホーム画面に戻る。",
+      "translation": "下次返回操作会回到主屏幕。"
+    },
+    {
+      "source": "new クラス名() { ... } の書き方",
+      "translation": "new クラス名() { ... }的写法（クラス名意为类名）"
+    },
+    {
+      "source": "これまでの <code>v -&gt; { ... }</code>（ラムダ式）は、書く処理が1つだけの型に使える省略形です。<code>OnBackPressedCallback</code> と <code>WebViewClient</code> はクラスなので、<code>new クラス名() { ... }</code> の形で、その場で中身を書き換えます。<code>@Override</code> の付いたメソッドが、書き換えた部分です。",
+      "translation": "之前的<code>v -&gt; { ... }</code>（Lambda表达式）是用于只需编写一项处理的类型的简写。<code>OnBackPressedCallback</code>和<code>WebViewClient</code>是类，因此使用<code>new クラス名() { ... }</code>（クラス名意为类名）的形式，在这里改写内部内容。带有<code>@Override</code>的方法就是改写的部分。"
+    },
+    {
+      "source": "⋮ → Yahoo!ニュースを開き、記事のリンクを押します。",
+      "translation": "打开⋮ → Yahoo!ニュース（Yahoo!新闻），点击新闻链接。"
+    },
+    {
+      "source": "戻る操作をします。Yahoo!ニュースのトップに戻ります。",
+      "translation": "执行返回操作，会回到Yahoo!ニュース（Yahoo!新闻）的首页。"
+    },
+    {
+      "source": "もう一度戻る操作をします。前のページがないので、ホーム画面に戻ります。",
+      "translation": "再执行一次返回操作。由于没有上一页，会回到主屏幕。"
+    },
+    {
+      "source": "もう一度起動し、⋮ で2つのサイトを続けて開いてから戻る操作をします。1つ前のサイトに戻ります。",
+      "translation": "重新启动，通过⋮连续打开两个网站，再执行返回操作。会回到上一个网站。"
+    },
+    {
+      "source": "解説：Android 16から「戻る」の受け取り方が変わった",
+      "translation": "讲解：从Android 16起，接收“返回”的方式发生了变化"
+    },
+    {
+      "source": "インターネットの記事や以前の教材では、WebViewで前のページに戻る処理を、次のように <code>onKeyDown</code> で書く例がよく見られます。Android公式のWebViewの資料にも、この書き方が載っています。",
+      "translation": "网上的文章和以前的学习资料中，经常可以看到如下使用<code>onKeyDown</code>实现WebView返回上一页的示例。Android官方WebView资料中也有这种写法。"
+    },
+    {
+      "source": "参考 · 以前の書き方（STEP 9 練習3で試す）",
+      "translation": "参考 · 以前的写法（在STEP 9练习3中尝试）"
+    },
+    {
+      "source": "この書き方は、<strong>targetSdkが36（Android 16）以上のアプリを、Android 16以降の端末で動かすと働きません</strong>。戻る操作をしても <code>onKeyDown</code> に <code>KeyEvent.KEYCODE_BACK</code> が届かず、<code>onBackPressed</code> も呼ばれません。そのため、前のページがあってもホーム画面に戻ります。",
+      "translation": "这种写法在<strong>targetSdk为36（Android 16）及以上的应用运行于Android 16及以后的设备上时不起作用</strong>。即使执行返回操作，<code>onKeyDown</code>也收不到<code>KeyEvent.KEYCODE_BACK</code>，<code>onBackPressed</code>也不会被调用。因此，即使有上一页，也会回到主屏幕。"
+    },
+    {
+      "source": "アプリのtargetSdk",
+      "translation": "应用的targetSdk"
+    },
+    {
+      "source": "端末のAndroid",
+      "translation": "设备的Android版本"
+    },
+    {
+      "source": "onKeyDownでKEYCODE_BACKを受け取る",
+      "translation": "通过onKeyDown接收KEYCODE_BACK"
+    },
+    {
+      "source": "35以下",
+      "translation": "35及以下"
+    },
+    {
+      "source": "どのバージョンでも",
+      "translation": "任何版本"
+    },
+    {
+      "source": "受け取れる（※1）",
+      "translation": "可以接收（※1）"
+    },
+    {
+      "source": "動く",
+      "translation": "可以运行"
+    },
+    {
+      "source": "36以上",
+      "translation": "36及以上"
+    },
+    {
+      "source": "Android 15以前",
+      "translation": "Android 15及以前"
+    },
+    {
+      "source": "Android 16以降",
+      "translation": "Android 16及以后"
+    },
+    {
+      "source": "<strong>受け取れない</strong>（※2）",
+      "translation": "<strong>无法接收</strong>（※2）"
+    },
+    {
+      "source": "※1 AndroidManifest.xmlで予測型「戻る」を自分で有効にした（<code>android:enableOnBackInvokedCallback=\"true\"</code>）アプリを除きます。<br>※2 下の「以前の動きに戻す設定」（<code>android:enableOnBackInvokedCallback=\"false\"</code>）を書いたアプリを除きます。",
+      "translation": "※1 不包括在AndroidManifest.xml中自行启用预测性返回（<code>android:enableOnBackInvokedCallback=\"true\"</code>）的应用。<br>※2 不包括写入下方“恢复以前行为的设置”（<code>android:enableOnBackInvokedCallback=\"false\"</code>）的应用。"
+    },
+    {
+      "source": "授業のプロジェクトは <code>app/build.gradle.kts</code> で <code>targetSdk = 36</code> です。教材撮影用の <strong>jec_26cm_android1_Pixel 9a</strong> はAndroid 17です。このため、<code>onKeyDown</code> の方法では前のページに戻れません。<code>OnBackPressedCallback</code> は、Android 15以前の端末でもそのまま動きます。",
+      "translation": "课堂项目在<code>app/build.gradle.kts</code>中设为<code>targetSdk = 36</code>。拍摄教材图片所用的<strong>jec_26cm_android1_Pixel 9a</strong>运行Android 17。因此，用<code>onKeyDown</code>的方法无法返回上一页。<code>OnBackPressedCallback</code>在Android 15及以前的设备上也能直接运行。"
+    },
+    {
+      "source": "なぜ変わったのか：予測型「戻る」",
+      "translation": "为什么改变：预测性返回"
+    },
+    {
+      "source": "Androidには、Android 13から <strong>予測型「戻る」（Predictive Back）</strong> という仕組みが段階的に入っています。戻るジェスチャーを始めると、指を離す前に「戻った先」（ホーム画面や前の画面）をプレビューで見せる仕組みです。",
+      "translation": "从Android 13开始，Android逐步加入了<strong>预测性返回（Predictive Back；日语为予測型「戻る」、よそくがた「もどる」）</strong>机制。开始返回手势后，在手指松开之前，就会预览“返回后的位置”（主屏幕或上一个屏幕）。"
+    },
+    {
+      "source": "プレビューを出すには、<strong>アプリが戻る操作を自分で処理するかどうかを、操作が始まる前に</strong>Androidが知っている必要があります。<code>onKeyDown</code> は、戻る操作が起きてから「処理するか」をアプリが決める方法なので、先にプレビューを出せません。そこでAndroid 16からは、targetSdk 36以上のアプリに対してこの受け取り方をやめ、<code>OnBackPressedCallback</code> のように<strong>「戻る処理が今有効かどうか」を先に登録しておく方法</strong>を使うことになりました。",
+      "translation": "要显示预览，Android需要<strong>在操作开始前，知道应用是否会自行处理返回操作</strong>。<code>onKeyDown</code>是返回操作发生后才由应用决定“是否处理”的方式，因此无法提前显示预览。所以从Android 16开始，对于targetSdk为36及以上的应用，不再采用这种接收方式，而是像<code>OnBackPressedCallback</code>一样，使用<strong>提前注册“返回处理当前是否启用”的方法</strong>。"
+    },
+    {
+      "source": "この単元で <code>doUpdateVisitedHistory</code> を使い、前のページがあるときだけ <code>backCallback</code> を有効にしたのはこのためです。前のページがないときに無効にしておくと、Androidは「ホーム画面に戻る」ことを前もって知り、プレビューを表示できます。",
+      "translation": "这就是本单元使用<code>doUpdateVisitedHistory</code>，只在有上一页时才启用<code>backCallback</code>的原因。没有上一页时将其禁用，Android就能提前知道“将返回主屏幕”，从而显示预览。"
+    },
+    {
+      "source": "以前の動きに戻す設定もあるが、使わない",
+      "translation": "也有恢复以前行为的设置，但这里不使用"
+    },
+    {
+      "source": "AndroidManifest.xmlの <code>&lt;application&gt;</code> や <code>&lt;activity&gt;</code> に <code>android:enableOnBackInvokedCallback=\"false\"</code> を書くと、一時的に以前の動きに戻せます。公式資料でも「一時的な回避策」とされているため、この授業では使いません。ネットの記事を参考にするときは、記事の書かれた時期と、対象のAndroidバージョンを確認しましょう。",
+      "translation": "在AndroidManifest.xml的<code>&lt;application&gt;</code>或<code>&lt;activity&gt;</code>中写入<code>android:enableOnBackInvokedCallback=\"false\"</code>，可以暂时恢复以前的行为。官方资料也将它视为“临时解决方法”，因此本课程不使用。参考网上文章时，请检查文章的发布时间和针对的Android版本。"
+    },
+    {
+      "source": "仕様の確認：<a1>Android 16の動作変更（Android公式）</a1>、<a2>予測型「戻る」ジェスチャーのサポート（Android公式）</a2>、<a3>OnBackPressedCallback（Android公式）</a3>。",
+      "translation": "查阅规格：<a1>Android 16的行为变更（Android官方）</a1>、<a2>支持预测性返回手势（Android官方）</a2>、<a3>OnBackPressedCallback（Android官方）</a3>。"
+    },
+    {
+      "source": "リンク先から戻る操作で前のページに戻り、最初のページではホーム画面に戻ることを確認した。",
+      "translation": "已确认在链接打开的网页中执行返回操作会回到上一页，而在第一个网页中执行时会回到主屏幕。"
+    },
+    {
+      "source": "次へ：ミニ練習 →",
+      "translation": "下一步：小练习 →"
+    },
+    {
+      "source": "STEP 09 · 目安 20分",
+      "translation": "STEP 09 · 参考时间20分钟"
+    },
+    {
+      "source": "ミニ練習",
+      "translation": "小练习"
+    },
+    {
+      "source": "まず戻る操作まで完成させます。そのあと、次の小変更を1つずつ試します。<strong>予想 → 変更 → Run → 説明 → 元に戻す</strong>の順で行います。",
+      "translation": "先完成到返回操作的部分，再逐一尝试以下小修改。按<strong>预测 → 修改 → Run → 说明 → 恢复原状</strong>的顺序操作。"
+    },
+    {
+      "source": "練習1：メニューにサイトを1つ増やす",
+      "translation": "练习1：在菜单中增加一个网站"
+    },
+    {
+      "source": "<code>AppMenuItem.java</code> の <code>CHAT_GPT(...)</code> の行の最後の <code>;</code> を <code>,</code> に変え、その下に <code>JEC(\"https://www.jec.ac.jp/\", \"日本電子専門学校\");</code> を追加します。MainActivityは変えません。メニューはどうなるでしょうか。",
+      "translation": "将<code>AppMenuItem.java</code>中<code>CHAT_GPT(...)</code>这一行末尾的<code>;</code>改为<code>,</code>，在下方添加<code>JEC(\"https://www.jec.ac.jp/\", \"日本電子専門学校\");</code>。不修改MainActivity。菜单会发生什么变化？"
+    },
+    {
+      "source": "試したあとに答えを見る",
+      "translation": "尝试后查看答案"
+    },
+    {
+      "source": "⋮ の5つ目に「日本電子専門学校」が出て、押すと学校のサイトが表示されます。<code>onCreateOptionsMenu</code> は <code>AppMenuItem.values()</code> をfor文で回すため、enumの値を増やすだけで項目が増えます。idは <code>ordinal()</code> の4になり、<code>values()[4]</code> でJECを取り出せます。URLと表示名を同じ1行に書くので、配列を2つ使う書き方のように「2つの配列の、同じ番号の位置に1つずつ足す」必要もありません（<a1>enumを使うメリット</a1>の②③）。確認後は元に戻します。",
+      "translation": "⋮的第5项会显示「日本電子専門学校」（日本电子专门学校），点击后会显示学校网站。<code>onCreateOptionsMenu</code>用for语句遍历<code>AppMenuItem.values()</code>，所以只需增加enum的值，菜单项就会增加。id会成为<code>ordinal()</code>的4，可以用<code>values()[4]</code>取出JEC。URL和显示名称写在同一行，也就不必像使用两个数组时那样“在两个数组相同编号的位置各添加一项”（见<a1>使用enum的好处</a1>中的②③）。确认后恢复原状。"
+    },
+    {
+      "source": "練習2：WebViewClientを外すと？",
+      "translation": "练习2：去掉WebViewClient会怎样？"
+    },
+    {
+      "source": "<code>webView.setWebViewClient(new WebViewClient() {</code> から <code>});</code> までの7行を選び、<kbd>⌘ /</kbd> でコメントにします。⋮ → Yahoo!ニュースを開き、記事のリンクを押すとどうなるか、予想してから試します。",
+      "translation": "选中从<code>webView.setWebViewClient(new WebViewClient() {</code>到<code>});</code>的7行，用<kbd>⌘ /</kbd>将其注释掉。预测打开⋮ → Yahoo!ニュース（Yahoo!新闻）并点击新闻链接后会发生什么，再尝试。"
+    },
+    {
+      "source": "メニューから開いたページはアプリの中に表示されますが、ページ内のリンクを押すと <strong>Chrome</strong> が開きます。初めてChromeを開くときは、Chromeの初期設定の画面が出ることがあります。サイトによっては、メニューから開いた最初のページでもChromeが開きます。WebViewClientを設定すると、リンクをWebViewの中で開きます。また、戻る処理を有効にする <code>doUpdateVisitedHistory</code> も動かないため、戻る操作でホーム画面に戻ります。確認後は同じ7行を選んで <kbd>⌘ /</kbd> を押し、コメントを外します。",
+      "translation": "从菜单打开的网页会显示在应用中，但点击网页内的链接会打开<strong>Chrome</strong>。首次打开Chrome时，可能出现Chrome的初始设置屏幕。某些网站甚至在从菜单打开第一个网页时就会打开Chrome。设置WebViewClient后，链接会在WebView中打开。另外，用于启用返回处理的<code>doUpdateVisitedHistory</code>也不会执行，因此返回操作会回到主屏幕。确认后，选中同样的7行，按<kbd>⌘ /</kbd>取消注释。"
+    },
+    {
+      "source": "練習3：以前の書き方（onKeyDown）を試す",
+      "translation": "练习3：尝试以前的写法（onKeyDown）"
+    },
+    {
+      "source": "STEP 8の解説にある <code>onKeyDown</code> のメソッドを、<code>onCreateOptionsMenu</code> の上（onCreateの外、MainActivityの中）に追加します。importは <code>android.view.KeyEvent</code> です。さらに、<code>getOnBackPressedDispatcher().addCallback(this, backCallback);</code> の行を <kbd>⌘ /</kbd> でコメントにします。⋮ でYahoo!ニュースを開き、記事のリンクを押してから戻る操作をすると、どうなるでしょうか。",
+      "translation": "将STEP 8讲解中的<code>onKeyDown</code>方法添加到<code>onCreateOptionsMenu</code>上方（onCreate外、MainActivity内）。import为<code>android.view.KeyEvent</code>。再用<kbd>⌘ /</kbd>注释掉<code>getOnBackPressedDispatcher().addCallback(this, backCallback);</code>这一行。通过⋮打开Yahoo!ニュース（Yahoo!新闻），点击新闻链接后执行返回操作，会发生什么？"
+    },
+    {
+      "source": "前のページがあっても、ホーム画面に戻ります。targetSdk 36のアプリをAndroid 16以降のエミュレータで動かしているため、<code>onKeyDown</code> に <code>KEYCODE_BACK</code> が届きません。先生の指示でAndroid 15以前のエミュレータを使っている場合は、<code>onKeyDown</code> でも前のページに戻れます。結果が違う理由を、STEP 8の表で確かめましょう。確認後は <code>onKeyDown</code> のメソッドを削除し、<code>addCallback</code> の行のコメントを外します。使わなくなった <code>KeyEvent</code> のimportが残っていたら削除します。",
+      "translation": "即使有上一页，也会回到主屏幕。因为targetSdk为36的应用运行在Android 16及以后的模拟器上，<code>onKeyDown</code>收不到<code>KEYCODE_BACK</code>。如果按照老师指示使用Android 15及以前的模拟器，<code>onKeyDown</code>也能返回上一页。请用STEP 8的表格确认结果不同的原因。确认后删除<code>onKeyDown</code>方法，取消<code>addCallback</code>这一行的注释。如果仍有不再使用的<code>KeyEvent</code>的import，也将其删除。"
+    },
+    {
+      "source": "完成版に戻してから確認",
+      "translation": "恢复为完成版后再检查"
+    },
+    {
+      "source": "練習1のJECの行（<code>CHAT_GPT(...)</code> の最後は <code>;</code> に戻す）、練習2のコメント、練習3の <code>onKeyDown</code> とコメントを元に戻します。メニューが4項目で、リンク先から戻る操作で前のページに戻ることをRunで確かめます。",
+      "translation": "恢复练习1中的JEC行（将<code>CHAT_GPT(...)</code>末尾恢复为<code>;</code>）、练习2中的注释，以及练习3中的<code>onKeyDown</code>和注释。通过Run确认菜单有4项，并且从链接打开的网页执行返回操作能回到上一页。"
+    },
+    {
+      "source": "3つの練習を試して、メニューが5項目になること・リンクでChromeが開くこと・戻る操作でホーム画面に戻ることを確かめ、完成版のコードに戻した。",
+      "translation": "已尝试3个练习，确认菜单变为5项、链接会打开Chrome、返回操作会回到主屏幕，并恢复了完成版代码。"
+    },
+    {
+      "source": "次へ：完成 →",
+      "translation": "下一步：完成 →"
+    },
+    {
+      "source": "STEP 10 · 目安 10分",
+      "translation": "STEP 10 · 参考时间10分钟"
+    },
+    {
+      "source": "完成",
+      "translation": "完成"
+    },
+    {
+      "source": "完成チェック",
+      "translation": "完成检查"
+    },
+    {
+      "source": "確認する結果",
+      "translation": "要确认的结果"
+    },
+    {
+      "source": "ActionBarに「A04WebViewApp」と ⋮。「JavaScript ON」はチェックなし。下は白い画面。",
+      "translation": "ActionBar中显示“A04WebViewApp”和⋮。“JavaScript ON”未勾选，下方是白色屏幕。"
+    },
+    {
+      "source": "⋮ を押す",
+      "translation": "按下⋮"
+    },
+    {
+      "source": "Yahoo!ニュース、GitHub Copilot、映画「SLAM DUNK」公式サイト、OpenAI ChatGPTの4項目が出る。",
+      "translation": "显示Yahoo!ニュース（Yahoo!新闻）、GitHub Copilot、映画「SLAM DUNK」公式サイト（电影《SLAM DUNK》官方网站）和OpenAI ChatGPT这4项。"
+    },
+    {
+      "source": "各項目を押す",
+      "translation": "点击各个项目"
+    },
+    {
+      "source": "そのサイトがアプリの中に表示される。",
+      "translation": "该网站显示在应用中。"
+    },
+    {
+      "source": "ページ内のリンクを押す",
+      "translation": "点击网页内的链接"
+    },
+    {
+      "source": "「JavaScript ON」を付ける・外す",
+      "translation": "勾选或取消勾选“JavaScript ON”"
+    },
+    {
+      "source": "ページが読み込み直される。Yahoo!ニュースでは、JavaScriptが無効という案内が消える・出る。",
+      "translation": "网页会重新加载。在Yahoo!ニュース（Yahoo!新闻）中，JavaScript已禁用的提示会消失或出现。"
+    },
+    {
+      "source": "リンク先で戻る操作",
+      "translation": "在链接打开的网页中执行返回操作"
+    },
+    {
+      "source": "前のページに戻る。",
+      "translation": "返回上一页。"
+    },
+    {
+      "source": "最初のページで戻る操作",
+      "translation": "在第一个网页中执行返回操作"
+    },
+    {
+      "source": "ホーム画面に戻る。",
+      "translation": "返回主屏幕。"
+    },
+    {
+      "source": "保存",
+      "translation": "保存"
+    },
+    {
+      "source": "Android Studioは、書いたコードを自動でファイルに保存します。保存の操作は要りません。ここでは、保存された場所を確かめます。",
+      "translation": "Android Studio会自动将编写的代码保存到文件中，无须执行保存操作。这里检查保存的位置。"
+    },
+    {
+      "source": "Finderを開き、左側の <strong>書類</strong>（<code>Documents</code>）をクリックします。",
+      "translation": "打开Finder，点击左侧的<strong>書類</strong>（文稿，<code>Documents</code>）。"
+    },
+    {
+      "source": "その中の <code>Android1</code> フォルダを開き、<code>A04WebViewApp</code> フォルダがあることを確かめます。",
+      "translation": "打开其中的<code>Android1</code>文件夹，确认有<code>A04WebViewApp</code>文件夹。"
+    },
+    {
+      "source": "この <code>Documents/Android1/A04WebViewApp</code> フォルダが、自分で作ったアプリです。あとの授業でもう一度開けるように、消したり、別の場所へ移動したり、名前を変えたりせずに、そのまま残します。",
+      "translation": "这个<code>Documents/Android1/A04WebViewApp</code>文件夹就是自己制作的应用。为了以后上课时可以再次打开，请原样保留，不要删除、移到其他位置或改名。"
+    },
+    {
+      "source": "教材のチェックは自分用です。先生への送信はしません。印刷は <kbd>⌘ P</kbd> で行えます。",
+      "translation": "学习资料中的勾选用于自己检查，不会发送给老师。可以按<kbd>⌘ P</kbd>打印。"
+    },
+    {
+      "source": "完成チェックの操作をすべて試し、表のとおりの結果になった。",
+      "translation": "已尝试完成检查中的全部操作，结果与表格一致。"
+    },
+    {
+      "source": "困ったこと",
+      "translation": "遇到的问题"
+    },
+    {
+      "source": "最初に確認する場所",
+      "translation": "首先检查的位置"
+    },
+    {
+      "source": "ActionBarや ⋮ が出ない",
+      "translation": "没有显示ActionBar或⋮"
+    },
+    {
+      "source": "STEP 2で、2つのthemes.xmlの両方から <code>.NoActionBar</code> を消したか。STEP 6の <code>onCreateOptionsMenu</code> がonCreateの外にあり、<code>return true</code> か。",
+      "translation": "在STEP 2中，是否已从两个themes.xml中删除<code>.NoActionBar</code>。STEP 6的<code>onCreateOptionsMenu</code>是否位于onCreate外，是否写了<code>return true</code>。"
+    },
+    {
+      "source": "「ウェブページへのアクセス不可」「net::ERR_CACHE_MISS」",
+      "translation": "「ウェブページへのアクセス不可」（无法访问网页）、“net::ERR_CACHE_MISS”"
+    },
+    {
+      "source": "AndroidManifest.xmlのINTERNETの許可の行があるか、つづりが <code>android.permission.INTERNET</code> か。修正したらRunし直す。",
+      "translation": "AndroidManifest.xml中是否有INTERNET权限行，拼写是否为<code>android.permission.INTERNET</code>。修改后重新Run。"
+    },
+    {
+      "source": "ビルドで「unexpected element &lt;uses-permission&gt; found in &lt;manifest&gt;&lt;application&gt;」",
+      "translation": "构建时出现“unexpected element &lt;uses-permission&gt; found in &lt;manifest&gt;&lt;application&gt;”"
+    },
+    {
+      "source": "許可の行が <code>&lt;application&gt;</code> の中にある。<code>&lt;application</code> の上に移動する。",
+      "translation": "权限行位于<code>&lt;application&gt;</code>内。将它移到<code>&lt;application</code>上方。"
+    },
+    {
+      "source": "「ウェブページへのアクセス不可」で別のエラー名",
+      "translation": "显示「ウェブページへのアクセス不可」（无法访问网页），但错误名称不同"
+    },
+    {
+      "source": "Macがインターネットにつながっているか。URLのつづりを確認する。",
+      "translation": "Mac是否连接互联网。检查URL的拼写。"
+    },
+    {
+      "source": "R.id.web_view / R.id.chk_javascript が赤い",
+      "translation": "R.id.web_view / R.id.chk_javascript显示为红色"
+    },
+    {
+      "source": "XMLのid。<code>web_view</code>・<code>chk_javascript</code> の大文字・小文字まで一致するか。最初のXMLエラーを直してビルドする。",
+      "translation": "检查XML中的id。<code>web_view</code>和<code>chk_javascript</code>是否完全一致，包括大小写。修复第一个XML错误后构建。"
+    },
+    {
+      "source": "AppMenuItem が赤い",
+      "translation": "AppMenuItem显示为红色"
+    },
+    {
+      "source": "STEP 5のファイル名が <code>AppMenuItem.java</code> か。<code>app/src/main/java</code> の、MainActivityと同じ場所に作ったか。",
+      "translation": "STEP 5的文件名是否为<code>AppMenuItem.java</code>。是否创建在<code>app/src/main/java</code>内、与MainActivity相同的位置。"
+    },
+    {
+      "source": "Menu・MenuItemが赤い",
+      "translation": "Menu、MenuItem显示为红色"
+    },
+    {
+      "source": "<code>android.view.Menu</code> と <code>android.view.MenuItem</code> をimportする。<kbd>⌥ Enter</kbd> で候補を確認する。",
+      "translation": "import <code>android.view.Menu</code>和<code>android.view.MenuItem</code>。用<kbd>⌥ Enter</kbd>检查候选项。"
+    },
+    {
+      "source": "リンクを押すとChromeが開く",
+      "translation": "点击链接会打开Chrome"
+    },
+    {
+      "source": "<code>setWebViewClient</code> の行があるか（STEP 4・STEP 8）。コメントにしたままになっていないか。",
+      "translation": "是否有<code>setWebViewClient</code>这一行（STEP 4、STEP 8）。是否仍处于注释状态。"
+    },
+    {
+      "source": "JavaScriptの案内が消えない",
+      "translation": "JavaScript提示没有消失"
+    },
+    {
+      "source": "STEP 7の③がonCreateの中にあるか。<code>webView.reload()</code> があるか。",
+      "translation": "STEP 7的③是否位于onCreate内。是否有<code>webView.reload()</code>。"
+    },
+    {
+      "source": "backCallback が赤い",
+      "translation": "backCallback显示为红色"
+    },
+    {
+      "source": "STEP 8の①のコードが、②の <code>setWebViewClient</code> より上にあるか。",
+      "translation": "STEP 8的①代码是否位于②的<code>setWebViewClient</code>上方。"
+    },
+    {
+      "source": "戻る操作でホーム画面に戻ってしまう",
+      "translation": "返回操作却回到了主屏幕"
+    },
+    {
+      "source": "リンクなどで2ページ目を開いてから試しているか。<code>addCallback</code> の行と、<code>doUpdateVisitedHistory</code> の <code>setEnabled</code> を確認する。",
+      "translation": "是否已通过链接等方式打开第二个网页后再尝试。检查<code>addCallback</code>这一行，以及<code>doUpdateVisitedHistory</code>中的<code>setEnabled</code>。"
+    },
+    {
+      "source": "起動時に終了する",
+      "translation": "启动时就退出"
+    },
+    {
+      "source": "setContentViewがfindViewByIdより先か、id/mainを残したかを確認。Logcatで最初の例外を見る。",
+      "translation": "检查setContentView是否在findViewById之前，以及是否保留了id/main。在Logcat中查看第一个异常。"
+    },
+    {
+      "source": "起動すると白い画面のまま",
+      "translation": "启动后一直是白色屏幕"
+    },
+    {
+      "source": "STEP 6以降は、起動直後の白い画面が正常。⋮ からサイトを選ぶ。",
+      "translation": "从STEP 6起，刚启动时的白色屏幕是正常的。请从⋮中选择网站。"
+    },
+    {
+      "source": "ページの表示が崩れる・一部が出ない",
+      "translation": "网页显示错乱或部分内容未显示"
+    },
+    {
+      "source": "JavaScriptが必要なページのことがある。「JavaScript ON」にしてみる。サイト側の更新で見た目が変わることもある。",
+      "translation": "网页可能需要JavaScript。试着启用“JavaScript ON”。网站更新也可能改变外观。"
+    },
+    {
+      "source": "<a1>共通資料：Logcat</a1>を使います。今回のパッケージは <code>jp.ac.jec.a04webviewapp</code> です。エラーを見るときは <code>package:jp.ac.jec.a04webviewapp level:ERROR</code> にします。これまでの単元のパッケージ名や <code>tag:MainActivity</code> を残さないようにします。",
+      "translation": "使用<a1>通用资料：Logcat</a1>。本次包名是<code>jp.ac.jec.a04webviewapp</code>。查看错误时设为<code>package:jp.ac.jec.a04webviewapp level:ERROR</code>。不要保留前面单元的包名或<code>tag:MainActivity</code>。"
+    },
+    {
+      "source": "質問では「STEP番号・編集したファイル・最初の赤い行・押した順番」を伝えます。",
+      "translation": "提问时，请说明“STEP编号、修改的文件、第一行红字、点击的顺序”。"
+    },
+    {
+      "source": "完成版は最初の授業から使える見本です。教科書といっしょに配られた<strong>教材のフォルダ</strong>に、そのまま開ける形で入っています。ダウンロードも展開も要りません。",
+      "translation": "完成版是从第一节课起就能使用的示例。它在与教材一起发放的<strong>学习资料文件夹</strong>中，可以直接打开。无须下载或解压。"
+    },
+    {
+      "source": "Android Studioの <strong>Open</strong>（プロジェクトを開いているときは <strong>File → Open</strong>）で、<strong>書類</strong>（<code>Documents</code>）にある教材のフォルダを開きます。名前は <code>android1-student-materials-</code> のうしろに日付が付いた形で、日付は配られた回によって変わります。いま読んでいるこの教科書が入っているフォルダです。",
+      "translation": "通过Android Studio的<strong>Open</strong>（已打开项目时使用<strong>File → Open</strong>），打开<strong>書類</strong>（文稿，<code>Documents</code>）中的学习资料文件夹。名称为<code>android1-student-materials-</code>后加日期，日期随发放批次而变。就是包含当前这份教材的文件夹。"
+    },
+    {
+      "source": "その中を <code>samples → A04WebViewApp</code> の順に開き、<code>settings.gradle.kts</code> と <code>app</code> が入った <code>A04WebViewApp</code> フォルダを選びます。",
+      "translation": "依次打开其中的<code>samples → A04WebViewApp</code>，选择包含<code>settings.gradle.kts</code>和<code>app</code>的<code>A04WebViewApp</code>文件夹。"
+    },
+    {
+      "source": "Sync後にRunして動きを確認します。授業の入力に戻るときは自分の <code>Documents/Android1/A04WebViewApp</code> を開きます。",
+      "translation": "Sync后Run，检查运行情况。返回课堂输入代码时，打开自己的<code>Documents/Android1/A04WebViewApp</code>。"
+    },
+    {
+      "source": "両方とも同じプロジェクト名なので、ウィンドウの保存先を確認しましょう。見本と自分のアプリは同じパッケージ名のため、端末上では同じアプリを更新します。切り替えるときは、確認したい方のプロジェクトからRunします。",
+      "translation": "两个项目的名称相同，请检查窗口的保存位置。示例与自己的应用包名相同，因此会更新设备上的同一个应用。切换时，请从想要检查的项目执行Run。"
+    },
+    {
+      "source": "教材のフォルダが手元にないときは、同じ見本をZIPで受け取れます（<a1>A04WebViewApp.zip</a1>）。展開してできた <code>A04WebViewApp</code> フォルダを、同じようにOpenで選びます。",
+      "translation": "如果手边没有学习资料文件夹，也可以获取相同示例的ZIP文件（<a1>A04WebViewApp.zip</a1>）。同样通过Open选择解压后生成的<code>A04WebViewApp</code>文件夹。"
+    },
+    {
+      "source": "完成したMainActivity.javaで照合する",
+      "translation": "与完成的MainActivity.java核对"
+    },
+    {
+      "source": "完成版 · MainActivity.java",
+      "translation": "完成版 · MainActivity.java"
+    },
+    {
+      "source": "完成したAppMenuItem.javaで照合する",
+      "translation": "与完成的AppMenuItem.java核对"
+    },
+    {
+      "source": "完成版 · AppMenuItem.java",
+      "translation": "完成版 · AppMenuItem.java"
+    },
+    {
+      "source": "完成したactivity_main.xmlで照合する",
+      "translation": "与完成的activity_main.xml核对"
+    },
+    {
+      "source": "完成版 · activity_main.xml",
+      "translation": "完成版 · activity_main.xml"
+    },
+    {
+      "source": "Androidプログラミング1 · A04WebViewApp / 本文・画像・操作機能はオフラインで利用できます。Android Studioの初回準備・ビルド、公式資料の閲覧、アプリでのページ表示にはネット接続が必要です。",
+      "translation": "Android编程1 · A04WebViewApp / 正文、图片和操作功能可以离线使用。Android Studio的初始准备与构建、查阅官方资料以及应用中显示网页需要联网。"
+    },
+    {
+      "source": "画像は授業用の提供資料と、教材撮影用のエミュレータで撮影した画面を使用。Webページの内容は撮影時点のもので、各サイトの更新によって変わります。各サイトの名称・内容の権利は、それぞれの権利者に帰属します。",
+      "translation": "图片使用课堂提供的资料，以及教材拍摄用模拟器的屏幕截图。网页内容为拍摄时的内容，会随各网站更新而改变。各网站名称及内容的权利归各自权利人所有。"
+    }
+  ],
+  "overrides": [
+    {
+      "source": "コード",
+      "where": "th",
+      "translation": "代码"
+    }
+  ]
+}

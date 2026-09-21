@@ -1,0 +1,1126 @@
+{
+  "source": "docs/memo-app/index.html",
+  "language": "zh-Hans",
+  "entries": [
+    {
+      "source": "JavaとXMLで作るA09MemoApp。A08で学んだSharedPreferencesを使って、アプリを終了しても消えないメモ帳を作る授業用教科書。",
+      "translation": "用Java和XML制作A09MemoApp。使用A08学到的SharedPreferences，制作退出应用后内容也不会消失的记事本的课堂教材。"
+    },
+    {
+      "source": "MemoApp — 消えないメモ帳を作ろう | Androidプログラミング1",
+      "translation": "MemoApp — 制作内容不会消失的记事本 | Android编程1"
+    },
+    {
+      "source": "本文へ移動",
+      "translation": "跳转到正文"
+    },
+    {
+      "source": "JEC / Androidプログラミング1",
+      "translation": "JEC / Android编程1"
+    },
+    {
+      "source": "CONTENTS / 学習の順番",
+      "translation": "CONTENTS / 学习顺序"
+    },
+    {
+      "source": "学習ステップ",
+      "translation": "学习步骤"
+    },
+    {
+      "source": "00　今日のゴール",
+      "translation": "00　今天的目标"
+    },
+    {
+      "source": "01　プロジェクトを作って実行",
+      "translation": "01　创建项目并运行"
+    },
+    {
+      "source": "02　タイトル画像を入れる",
+      "translation": "02　添加标题图片"
+    },
+    {
+      "source": "03　画面を作る",
+      "translation": "03　制作屏幕"
+    },
+    {
+      "source": "04　メモを追加する",
+      "translation": "04　添加备忘录"
+    },
+    {
+      "source": "05　終了しても残るようにする",
+      "translation": "05　退出后也保留内容"
+    },
+    {
+      "source": "06　データを全部消す",
+      "translation": "06　删除全部数据"
+    },
+    {
+      "source": "07　完成",
+      "translation": "07　完成"
+    },
+    {
+      "source": "0 / 8 ステップ確認済み",
+      "translation": "已检查0 / 8个步骤"
+    },
+    {
+      "source": "学習の進み具合",
+      "translation": "学习进度"
+    },
+    {
+      "source": "自分用のチェックです。",
+      "translation": "用于自己检查。"
+    },
+    {
+      "source": "困ったとき",
+      "translation": "遇到问题时"
+    },
+    {
+      "source": "解説：なぜArrayListを使わないのか",
+      "translation": "说明：为什么不使用ArrayList"
+    },
+    {
+      "source": "完成プロジェクトを開く",
+      "translation": "打开完成版项目"
+    },
+    {
+      "source": "共通：はじめの準備",
+      "translation": "通用：初始准备"
+    },
+    {
+      "source": "共通：エミュレータ",
+      "translation": "通用：模拟器"
+    },
+    {
+      "source": "共通：Auto Import",
+      "translation": "通用：Auto Import"
+    },
+    {
+      "source": "共通：Logcat",
+      "translation": "通用：Logcat"
+    },
+    {
+      "source": "共通：APKの提出",
+      "translation": "通用：提交APK"
+    },
+    {
+      "source": "共通：開発Tips",
+      "translation": "通用：开发技巧"
+    },
+    {
+      "source": "共通：Android Studioのバージョン",
+      "translation": "通用：Android Studio版本"
+    },
+    {
+      "source": "消えないメモ帳を<br>作ろう",
+      "translation": "制作内容不会消失的<br>记事本"
+    },
+    {
+      "source": "メモを書く。一覧に増える。アプリを閉じても残っている。<br>A08で学んだ保存を、毎日使えるアプリにします。",
+      "translation": "写下备忘录，添加到列表。关闭应用后，内容也仍然保留。<br>把A08学到的保存功能，做成每天都能使用的应用。"
+    },
+    {
+      "source": "A08の次の単元",
+      "translation": "A08之后的单元"
+    },
+    {
+      "source": "90分 × 1コマ目安",
+      "translation": "参考时间：90分钟 × 1课时"
+    },
+    {
+      "source": "Macで学ぶ",
+      "translation": "使用Mac学习"
+    },
+    {
+      "source": "STEP 00 · 目安 5分",
+      "translation": "STEP 00 · 参考时间5分钟"
+    },
+    {
+      "source": "今日のゴール",
+      "translation": "今天的目标"
+    },
+    {
+      "source": "メモを書いて一覧にためるアプリを作ります。A08では値を保存する練習をしましたが、今回はそれを<strong>実際に使えるアプリ</strong>にします。",
+      "translation": "制作一个将备忘录写入并积累在列表中的应用。A08练习了保存值，这次将其做成<strong>实际可用的应用</strong>。"
+    },
+    {
+      "source": "memorandumのタイトル画像、灰色のメモ一覧、メモを入力してくださいの入力欄、データ削除と追加のボタンが並んだ画面。一覧は空",
+      "translation": "屏幕中排列着memorandum标题图片、灰色备忘录列表、显示「メモを入力してください」（请输入备忘录）的输入框，以及「データ削除」（删除数据）和「追加」（添加）按钮。列表为空"
+    },
+    {
+      "source": "起動したところ。まだメモはありません。 <a1>画像を大きく開く</a1>",
+      "translation": "刚启动后的状态。还没有备忘录。<a1>查看大图</a1>"
+    },
+    {
+      "source": "メモ一覧に、牛乳を買う、レポートを出す、9時に集合の3行が表示されている画面",
+      "translation": "备忘录列表显示3行：「牛乳を買う」（买牛奶）、「レポートを出す」（交报告）、「9時に集合」（9点集合）"
+    },
+    {
+      "source": "メモを3つ追加したところ。 <a1>画像を大きく開く</a1>",
+      "translation": "添加3条备忘录后的状态。<a1>查看大图</a1>"
+    },
+    {
+      "source": "できるようになること",
+      "translation": "学完后能够做的事"
+    },
+    {
+      "source": "入力した文字を、一覧に1行ずつ増やせる。",
+      "translation": "能够将输入的文字逐行添加到列表。"
+    },
+    {
+      "source": "何も入れずに押されたときに、メッセージで知らせて止められる。",
+      "translation": "能够在未输入内容就按按钮时，显示消息提示并停止处理。"
+    },
+    {
+      "source": "アプリを終了しても、書いたメモが残るようにできる。",
+      "translation": "能够让写下的备忘录在退出应用后仍然保留。"
+    },
+    {
+      "source": "保存したメモをまとめて消せる。",
+      "translation": "能够一次删除所有已保存的备忘录。"
+    },
+    {
+      "source": "今日使う技術",
+      "translation": "今天使用的技术"
+    },
+    {
+      "source": "技術",
+      "translation": "技术"
+    },
+    {
+      "source": "どこで使うか",
+      "translation": "在哪里使用"
+    },
+    {
+      "source": "学んだ単元",
+      "translation": "学过的单元"
+    },
+    {
+      "source": "<code>EditText</code> と <code>Button</code>",
+      "translation": "<code>EditText</code>和<code>Button</code>"
+    },
+    {
+      "source": "メモを入力して、追加する。",
+      "translation": "输入并添加备忘录。"
+    },
+    {
+      "source": "入力が空のときに知らせる。",
+      "translation": "输入为空时进行提示。"
+    },
+    {
+      "source": "一覧に1行ずつ足す。<strong>今回の新顔です。</strong>",
+      "translation": "向列表逐行添加。<strong>这是本次的新内容。</strong>"
+    },
+    {
+      "source": "メモを保存して、次に開いたときに読み出す。",
+      "translation": "保存备忘录，在下次打开时读取。"
+    },
+    {
+      "source": "新しく覚えることは <code>append</code> だけです。残りはA07とA08で使ったものを組み合わせます。",
+      "translation": "新学的内容只有<code>append</code>。其余部分是将A07和A08用过的功能组合起来。"
+    },
+    {
+      "source": "1件だけ消す機能はありません",
+      "translation": "没有只删除一条的功能"
+    },
+    {
+      "source": "このアプリの削除は「全部消す」だけです。1件だけ消すには <code>RecyclerView</code> という部品が必要で、Androidプログラミング2で扱います。",
+      "translation": "这个应用只能“全部删除”。只删除一条需要名为<code>RecyclerView</code>的控件，将在Android编程2中学习。"
+    },
+    {
+      "source": "ここで止まって、確認",
+      "translation": "先停下来，检查一下"
+    },
+    {
+      "source": "今日作るアプリの画面を画像で確かめ、使う技術と学んだ単元を表で確認した。",
+      "translation": "已通过图片确认今天要制作的应用屏幕，并通过表格确认使用的技术与学过的单元。"
+    },
+    {
+      "source": "できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。",
+      "translation": "完成后勾选。遇到问题时，请把STEP编号和屏幕展示给老师。"
+    },
+    {
+      "source": "次へ：プロジェクトを作って実行 →",
+      "translation": "下一步：创建项目并运行 →"
+    },
+    {
+      "source": "STEP 01 · 目安 10分",
+      "translation": "STEP 01 · 参考时间10分钟"
+    },
+    {
+      "source": "プロジェクトを作って実行",
+      "translation": "创建项目并运行"
+    },
+    {
+      "source": "授業環境はMacと <strong>Android Studio Panda 2 | 2025.3.2</strong> です。A08までとは別のプロジェクトを作ります。",
+      "translation": "课堂环境是Mac和<strong>Android Studio Panda 2 | 2025.3.2</strong>。要创建一个与A08及之前单元不同的项目。"
+    },
+    {
+      "source": "毎回、自分で新規作成します",
+      "translation": "每次都自己新建项目"
+    },
+    {
+      "source": "作る場所は <code>Documents/Android1/A09MemoApp</code> です。<a1>完成プロジェクト</a1>は答え合わせ用で、授業の入力は自分で作ったプロジェクトに書きます。",
+      "translation": "创建位置为<code>Documents/Android1/A09MemoApp</code>。<a1>完成版项目</a1>用于核对，课堂中输入的代码要写入自己创建的项目。"
+    },
+    {
+      "source": "Android Studioの <strong>New Project</strong> をクリックします。別のプロジェクトを開いているときは <strong>File → New → New Project</strong> を選びます。",
+      "translation": "点击Android Studio的<strong>New Project</strong>。已打开其他项目时，选择<strong>File → New → New Project</strong>。"
+    },
+    {
+      "source": "<strong>Phone and Tablet → Empty Views Activity → Next</strong> の順に選びます。名前に <strong>Views</strong> があることを確認します。",
+      "translation": "依次选择<strong>Phone and Tablet → Empty Views Activity → Next</strong>。确认名称中有<strong>Views</strong>。"
+    },
+    {
+      "source": "テンプレート一覧でEmpty Views Activityが選択されている",
+      "translation": "模板列表中已选择Empty Views Activity"
+    },
+    {
+      "source": "Empty Views Activityを選択。Empty Activityとは別です。 <a1>画像を大きく開く</a1>",
+      "translation": "选择Empty Views Activity。它与Empty Activity不同。<a1>查看大图</a1>"
+    },
+    {
+      "source": "次の表のとおりに入力・選択して <strong>Finish</strong> を押します。",
+      "translation": "按下表输入、选择后，点击<strong>Finish</strong>。"
+    },
+    {
+      "source": "項目",
+      "translation": "项目"
+    },
+    {
+      "source": "入力・選択する内容",
+      "translation": "要输入或选择的内容"
+    },
+    {
+      "source": "<code>jp.ac.jec.a09memoapp</code>（すべて小文字）",
+      "translation": "<code>jp.ac.jec.a09memoapp</code>（全部小写）"
+    },
+    {
+      "source": "A09MemoAppの新規設定。パッケージjp.ac.jec.a09memoapp、Java、API 31、Kotlin DSL",
+      "translation": "A09MemoApp的新建设置。包名为jp.ac.jec.a09memoapp，使用Java、API 31和Kotlin DSL"
+    },
+    {
+      "source": "入力後の画面。画像の保存先は先生の例です。自分の <code>Documents/Android1/A09MemoApp</code> に読み替えます。 <a1>画像を大きく開く</a1>",
+      "translation": "输入后的屏幕。图片中的保存位置是老师的示例。请替换为自己的<code>Documents/Android1/A09MemoApp</code>。<a1>查看大图</a1>"
+    },
+    {
+      "source": "Sync（歯車の読み込み）が終わるまで待ちます。",
+      "translation": "等待Sync（齿轮加载过程）结束。"
+    },
+    {
+      "source": "端末欄で <strong>jec_26cm_android1_Pixel 9a</strong> を選び、<strong>Run</strong>（▶）を押します。白い画面に <strong>Hello World!</strong> が出れば成功です。",
+      "translation": "在设备栏选择<strong>jec_26cm_android1_Pixel 9a</strong>，点击<strong>Run</strong>（▶）。白色屏幕中显示<strong>Hello World!</strong>就表示成功。"
+    },
+    {
+      "source": "エミュレータが出てこないときは<a1>共通資料：エミュレータ</a1>を見ます。",
+      "translation": "模拟器没有出现时，请查看<a1>通用资料：模拟器</a1>。"
+    },
+    {
+      "source": "自分の保存先にA09MemoAppを作り、Hello World!を表示できた。",
+      "translation": "已在自己的保存位置创建A09MemoApp，并显示了Hello World!。"
+    },
+    {
+      "source": "次へ：タイトル画像を入れる →",
+      "translation": "下一步：添加标题图片 →"
+    },
+    {
+      "source": "STEP 02 · 目安 10分",
+      "translation": "STEP 02 · 参考时间10分钟"
+    },
+    {
+      "source": "タイトル画像を入れる",
+      "translation": "添加标题图片"
+    },
+    {
+      "source": "タイトル画像の <code>title_memo.png</code> は、教科書といっしょに配られた<strong>教材のフォルダ</strong>に入っています。Finderでコピーして、プロジェクトに入れます。A03・A05・A07でやった手順と同じです。",
+      "translation": "标题图片<code>title_memo.png</code>位于与教材一起发放的<strong>学习资料文件夹</strong>中。通过Finder复制并放入项目。步骤与A03、A05、A07中做过的相同。"
+    },
+    {
+      "source": "Finderを開き、左側の <strong>書類</strong> をクリックします。教材のフォルダをダブルクリックで開きます。名前は <code>android1-student-materials-</code> のうしろに日付が付いた形で、日付は配られた回によって変わります。",
+      "translation": "打开Finder，点击左侧的<strong>書類</strong>（文稿）。双击打开学习资料文件夹。名称为<code>android1-student-materials-</code>后加日期，日期随发放批次而变。"
+    },
+    {
+      "source": "その中を <code>docs → memo-app → downloads</code> の順に開きます。<code>memo-app</code> は、いま読んでいるこの教科書（<code>index.html</code>）が入っているフォルダです。",
+      "translation": "在其中依次打开<code>docs → memo-app → downloads</code>。<code>memo-app</code>就是存放当前这本教材（<code>index.html</code>）的文件夹。"
+    },
+    {
+      "source": "<code>title_memo.png</code> を選び、コピーします（<kbd>⌘ C</kbd>）。同じフォルダにある <code>A09MemoApp.zip</code> は完成プロジェクトです。選びません。",
+      "translation": "选择<code>title_memo.png</code>并复制（<kbd>⌘ C</kbd>）。同一文件夹中的<code>A09MemoApp.zip</code>是完成版项目，不要选中它。"
+    },
+    {
+      "source": "教材のフォルダが見つからないとき",
+      "translation": "找不到学习资料文件夹时"
+    },
+    {
+      "source": "教材のフォルダは、はじめの準備で「書類」へ移動したものです（<a1>共通資料：はじめの準備</a1>の1.）。まだ移動していなければ、先にそちらを行います。同じ教材を2回ダウンロードして名前のうしろに <code>(1)</code> が付いたものがあるときは、自分で判断せず先生に見せてください。",
+      "translation": "学习资料文件夹是在初始准备时移到「書類」（文稿）的文件夹（见<a1>通用资料：初始准备</a1>的1.）。如果尚未移动，请先完成该操作。如果同一份学习资料下载两次，导致名称末尾带有<code>(1)</code>，请不要自行判断，展示给老师查看。"
+    },
+    {
+      "source": "Android Studioのプロジェクト画面で <code>app/src/main/res/drawable</code> フォルダをクリックして選び、貼り付けます（<kbd>⌘ V</kbd>）。",
+      "translation": "在Android Studio的项目视图中，点击选中<code>app/src/main/res/drawable</code>文件夹并粘贴（<kbd>⌘ V</kbd>）。"
+    },
+    {
+      "source": "確認のウィンドウが出ます。<strong>New name</strong> が <code>title_memo.png</code>、<strong>To directory</strong> の末尾が <code>app/src/main/res/drawable</code> になっていることを確かめて <strong>OK</strong> を押します。",
+      "translation": "会出现确认窗口。检查<strong>New name</strong>是否为<code>title_memo.png</code>，<strong>To directory</strong>的末尾是否为<code>app/src/main/res/drawable</code>，然后点击<strong>OK</strong>。"
+    },
+    {
+      "source": "Project表示でdrawableフォルダを選び、Copyダイアログが開いている。New nameはtitle_memo.png、To directoryの末尾はA09MemoApp/app/src/main/res/drawable",
+      "translation": "在Project视图中选中drawable文件夹，Copy对话框已打开。New name为title_memo.png，To directory的末尾为A09MemoApp/app/src/main/res/drawable"
+    },
+    {
+      "source": "To directoryの末尾が A09MemoApp/app/src/main/res/drawable になっていればOK。この画面は先生の例です。<strong>Copy file</strong> のうしろ（コピー元の場所）は、自分の画面では教材のフォルダの中の場所になります。 <a1>画像を大きく開く</a1>",
+      "translation": "To directory的末尾为A09MemoApp/app/src/main/res/drawable即可。这个屏幕是老师的示例。在自己的屏幕中，<strong>Copy file</strong>后面（复制来源位置）会显示学习资料文件夹内的位置。<a1>查看大图</a1>"
+    },
+    {
+      "source": "<code>drawable</code> フォルダの中に <code>title_memo.png</code> が増えていれば成功です。",
+      "translation": "<code>drawable</code>文件夹中增加了<code>title_memo.png</code>就表示成功。"
+    },
+    {
+      "source": "drawableフォルダにic_launcher_background.xml、ic_launcher_foreground.xml、title_memo.pngが並んでいる",
+      "translation": "drawable文件夹中排列着ic_launcher_background.xml、ic_launcher_foreground.xml和title_memo.png"
+    },
+    {
+      "source": "drawableに <code>title_memo.png</code> が増えれば成功。 <a1>画像を大きく開く</a1>",
+      "translation": "drawable中增加<code>title_memo.png</code>就表示成功。<a1>查看大图</a1>"
+    },
+    {
+      "source": "ファイル名は変えません",
+      "translation": "不要修改文件名"
+    },
+    {
+      "source": "このあとXMLから <code>@drawable/title_memo</code> という名前で呼び出します。<strong>名前を変えると見つからなくなります。</strong>大文字や日本語も使えません。",
+      "translation": "之后会在XML中通过<code>@drawable/title_memo</code>这个名称调用。<strong>修改名称就会导致找不到图片。</strong>也不能使用大写字母或日语。"
+    },
+    {
+      "source": "Runで確かめる",
+      "translation": "通过Run检查"
+    },
+    {
+      "source": "画面はまだ <strong>Hello World!</strong> のままです。エラーが出ずにRunできれば成功です。画像を使うのは次のSTEPです。",
+      "translation": "屏幕仍然是<strong>Hello World!</strong>。能够Run且没有错误就表示成功。下一个STEP才会使用图片。"
+    },
+    {
+      "source": "<code>drawable</code> に <code>title_memo.png</code> を置けた。",
+      "translation": "已将<code>title_memo.png</code>放入<code>drawable</code>。"
+    },
+    {
+      "source": "次へ：画面を作る →",
+      "translation": "下一步：制作屏幕 →"
+    },
+    {
+      "source": "STEP 03 · 目安 15分",
+      "translation": "STEP 03 · 参考时间15分钟"
+    },
+    {
+      "source": "画面を作る",
+      "translation": "制作屏幕"
+    },
+    {
+      "source": "<code>app/src/main/res/layout/activity_main.xml</code> を開き、中身をすべて次のコードに置き換えます。",
+      "translation": "打开<code>app/src/main/res/layout/activity_main.xml</code>，将全部内容替换为以下代码。"
+    },
+    {
+      "source": "activity_main.xml（全体を置き換え）",
+      "translation": "activity_main.xml（替换全部内容）"
+    },
+    {
+      "source": "書いた内容の意味",
+      "translation": "所写内容的含义"
+    },
+    {
+      "source": "書いたところ",
+      "translation": "编写的部分"
+    },
+    {
+      "source": "意味",
+      "translation": "含义"
+    },
+    {
+      "source": "<code>ImageView</code> の <code>@drawable/title_memo</code>",
+      "translation": "<code>ImageView</code>中的<code>@drawable/title_memo</code>"
+    },
+    {
+      "source": "STEP 02で置いた画像を表示する。",
+      "translation": "显示STEP 02放入的图片。"
+    },
+    {
+      "source": "メモの一覧。<code>background</code> で灰色にして、どこまでが一覧か分かるようにしている。",
+      "translation": "备忘录列表。通过<code>background</code>将背景设为灰色，让列表范围清晰可见。"
+    },
+    {
+      "source": "中身がはみ出したときにスクロールできるようにする入れ物。メモが増えて画面に入りきらなくなっても、指でなぞれば続きを読める。A07の参加者一覧と同じ形。",
+      "translation": "让内容溢出时可以滚动的容器。即使备忘录增加后无法在屏幕中全部显示，也可以用手指滑动阅读后面的内容。与A07的参加者列表结构相同。"
+    },
+    {
+      "source": "<code>layout_height=\"0dp\"</code> と <code>layout_weight=\"1\"</code>",
+      "translation": "<code>layout_height=\"0dp\"</code>和<code>layout_weight=\"1\"</code>"
+    },
+    {
+      "source": "一覧が<strong>残りの高さを全部使う</strong>という指定。ScrollViewのほうに付ける。メモが増えても減っても、入力欄とボタンの位置が変わらない。",
+      "translation": "指定列表<strong>使用全部剩余高度</strong>。应设置在ScrollView上。无论备忘录增加还是减少，输入框和按钮的位置都不会变化。"
+    },
+    {
+      "source": "中身が短いときでも、ScrollViewの高さいっぱいまで広げる。これがないと、メモが少ないときに灰色の背景が途中までしか広がらない。",
+      "translation": "即使内容较短，也将其展开至ScrollView的整个高度。没有这个设置时，备忘录较少时的灰色背景只能延伸到中途。"
+    },
+    {
+      "source": "<code>edt_memo</code> の <code>hint</code>",
+      "translation": "<code>edt_memo</code>的<code>hint</code>"
+    },
+    {
+      "source": "何も入力していないときに薄く出る案内。入力すると消える。",
+      "translation": "未输入任何内容时以浅色显示的提示。输入后消失。"
+    },
+    {
+      "source": "ふつうの1行の文字入力。",
+      "translation": "普通的单行文本输入。"
+    },
+    {
+      "source": "横向きの <code>LinearLayout</code>",
+      "translation": "横向的<code>LinearLayout</code>"
+    },
+    {
+      "source": "ボタン2つを横に並べる入れ物。中の2つに <code>layout_weight=\"1\"</code> を付けて、幅を半分ずつにしている。",
+      "translation": "将2个按钮横向排列的容器。给内部两个按钮设置<code>layout_weight=\"1\"</code>，使它们各占一半宽度。"
+    },
+    {
+      "source": "枠線だけのボタンの見た目。",
+      "translation": "只有边框的按钮外观。"
+    },
+    {
+      "source": "<code>android:id=\"@+id/main\"</code> は消しません。ひな形のJavaが <code>findViewById(R.id.main)</code> で使っています。文字を直接書いたことによる <code>Hardcoded text</code> の警告は、これまでの単元と同様にそのまま進めます。",
+      "translation": "不要删除<code>android:id=\"@+id/main\"</code>。Java模板中的<code>findViewById(R.id.main)</code>会用到它。与之前的单元一样，由直接写入文字产生的<code>Hardcoded text</code>警告，可以保持原样继续操作。"
+    },
+    {
+      "source": "タイトル画像、灰色の一覧、入力欄、2つのボタンが並べば成功です。押してもまだ何も起きません。",
+      "translation": "标题图片、灰色列表、输入框和2个按钮排列出来，就表示成功。此时按按钮还不会发生任何变化。"
+    },
+    {
+      "source": "memorandumのタイトル画像、灰色の空のメモ一覧、入力欄、データ削除と追加のボタンが並んだ画面",
+      "translation": "屏幕中排列着memorandum标题图片、灰色的空备忘录列表、输入框，以及「データ削除」（删除数据）和「追加」（添加）按钮"
+    },
+    {
+      "source": "STEP 03の完成。ボタンはまだ動きません。 <a1>画像を大きく開く</a1>",
+      "translation": "STEP 03完成。按钮还没有功能。<a1>查看大图</a1>"
+    },
+    {
+      "source": "タイトル画像・灰色の一覧・入力欄・2つのボタンが並んだ画面をRunできた。",
+      "translation": "已通过Run显示标题图片、灰色列表、输入框和2个按钮排列在一起的屏幕。"
+    },
+    {
+      "source": "次へ：メモを追加する →",
+      "translation": "下一步：添加备忘录 →"
+    },
+    {
+      "source": "STEP 04 · 目安 20分",
+      "translation": "STEP 04 · 参考时间20分钟"
+    },
+    {
+      "source": "メモを追加する",
+      "translation": "添加备忘录"
+    },
+    {
+      "source": "まずは保存のことを考えず、<strong>画面の中だけでメモを増やせる</strong>ようにします。",
+      "translation": "首先暂不考虑保存，让应用<strong>只在屏幕中增加备忘录</strong>。"
+    },
+    {
+      "source": "① 部品を受け取る",
+      "translation": "① 获取控件"
+    },
+    {
+      "source": "<code>MainActivity.java</code> を開き、<code>onCreate</code> の中（インセットの処理の下）に書きます。",
+      "translation": "打开<code>MainActivity.java</code>，在<code>onCreate</code>内部（处理系统栏边距的代码下方）编写。"
+    },
+    {
+      "source": "MainActivity.java · onCreateの中",
+      "translation": "MainActivity.java · onCreate内"
+    },
+    {
+      "source": "<code>TextView</code> と <code>EditText</code> が赤いときは <kbd>⌥ Enter</kbd> で <code>android.widget.TextView</code>、<code>android.widget.EditText</code> を選びます（<a1>共通資料：Auto Import</a1>）。",
+      "translation": "如果<code>TextView</code>和<code>EditText</code>变红，按<kbd>⌥ Enter</kbd>选择<code>android.widget.TextView</code>、<code>android.widget.EditText</code>（<a1>通用资料：Auto Import</a1>）。"
+    },
+    {
+      "source": "② 追加ボタンの処理を書く",
+      "translation": "② 编写「追加」（添加）按钮的处理"
+    },
+    {
+      "source": "MainActivity.java · onCreateの中（①の下）",
+      "translation": "MainActivity.java · onCreate内部（①下方）"
+    },
+    {
+      "source": "<code>Snackbar</code> が赤いときは <kbd>⌥ Enter</kbd> で <code>com.google.android.material.snackbar.Snackbar</code> を選びます。",
+      "translation": "如果<code>Snackbar</code>变红，按<kbd>⌥ Enter</kbd>选择<code>com.google.android.material.snackbar.Snackbar</code>。"
+    },
+    {
+      "source": "行",
+      "translation": "代码行"
+    },
+    {
+      "source": "入力欄の文字を取り出す。<code>getText()</code> の戻り値はそのままでは文字列として扱えないので <code>toString()</code> を付ける（A07と同じ）。",
+      "translation": "取出输入框中的文字。<code>getText()</code>的返回值不能直接当作字符串使用，因此加上<code>toString()</code>（与A07相同）。"
+    },
+    {
+      "source": "空かどうかを調べる。空ならメッセージを出して <code>return;</code> で処理をやめる。",
+      "translation": "检查是否为空。如果为空，显示消息并用<code>return;</code>停止处理。"
+    },
+    {
+      "source": "この先を実行しない、という意味。<strong>これがないと空のメモが追加されます。</strong>",
+      "translation": "表示不执行后续内容。<strong>如果没有它，就会添加空的备忘录。</strong>"
+    },
+    {
+      "source": "<strong>今回の新顔。</strong>いまの表示の<strong>後ろに足す</strong>。<code>setText</code> だと前の内容が消えて1件しか残らない。",
+      "translation": "<strong>本次的新内容。</strong>在当前显示内容的<strong>后面追加</strong>。如果使用<code>setText</code>，之前的内容会被清除，只剩一条。"
+    },
+    {
+      "source": "改行。これがないと全部が1行につながる。",
+      "translation": "换行。如果没有它，所有内容都会连成一行。"
+    },
+    {
+      "source": "入力欄を空に戻す。次のメモをすぐ書ける。",
+      "translation": "清空输入框，方便马上编写下一条备忘录。"
+    },
+    {
+      "source": "何も入力せずに <strong>追加</strong> を押します。画面の下にメッセージが出て、一覧は増えません。",
+      "translation": "不输入任何内容，按<strong>追加</strong>（添加）。屏幕下方会显示消息，列表不会增加。"
+    },
+    {
+      "source": "メモを入力して <strong>追加</strong> を押します。一覧に1行増え、入力欄が空になります。",
+      "translation": "输入备忘录，按<strong>追加</strong>（添加）。列表增加一行，输入框变空。"
+    },
+    {
+      "source": "何回か追加して、行が増えていくことを確かめます。",
+      "translation": "添加几次，检查行数是否逐渐增加。"
+    },
+    {
+      "source": "何も入力せずに追加を押したところ。画面下に黒い帯でメモを入力してくださいと表示されている",
+      "translation": "未输入任何内容就按「追加」（添加）后的屏幕。下方黑色条形消息显示「メモを入力してください」（请输入备忘录）"
+    },
+    {
+      "source": "空のときは追加されず、下にメッセージが出ます。 <a1>画像を大きく開く</a1>",
+      "translation": "为空时不会添加，下方会显示消息。<a1>查看大图</a1>"
+    },
+    {
+      "source": "まだ保存はされていません",
+      "translation": "还没有保存"
+    },
+    {
+      "source": "アプリを完全に終了して開き直すと、メモは消えます。ここまでは<strong>画面の中だけ</strong>の話だからです。次のSTEPで保存します。",
+      "translation": "完全退出应用后重新打开，备忘录会消失。因为目前只是在<strong>屏幕内部</strong>进行操作。下一个STEP会进行保存。"
+    },
+    {
+      "source": "メモを追加すると一覧が1行ずつ増え、何も入力せずに押すと増えないことを確かめた。",
+      "translation": "已确认添加备忘录时列表逐行增加，未输入内容就按按钮时不会增加。"
+    },
+    {
+      "source": "次へ：終了しても残るようにする →",
+      "translation": "下一步：退出后也保留内容 →"
+    },
+    {
+      "source": "STEP 05 · 目安 15分",
+      "translation": "STEP 05 · 参考时间15分钟"
+    },
+    {
+      "source": "アプリを終了しても残るようにする",
+      "translation": "退出应用后也保留内容"
+    },
+    {
+      "source": "ここが今回の中心です。A08で学んだ <code>SharedPreferences</code> を使います。",
+      "translation": "这是本次的重点。使用A08学到的<code>SharedPreferences</code>。"
+    },
+    {
+      "source": "① 保存に使う名前を決める",
+      "translation": "① 确定保存时使用的名称"
+    },
+    {
+      "source": "<code>public class MainActivity extends AppCompatActivity {</code> のすぐ下に書きます。",
+      "translation": "紧接在<code>public class MainActivity extends AppCompatActivity {</code>下方编写。"
+    },
+    {
+      "source": "MainActivity.java · クラスの先頭",
+      "translation": "MainActivity.java · 类的开头"
+    },
+    {
+      "source": "A08と同じで、<strong>キーは定数にまとめます。</strong>直接書くと、打ち間違えても赤いエラーにならず、値だけが見つからなくなります。",
+      "translation": "与A08一样，<strong>将键统一定义为常量。</strong>如果直接写入，即使拼写错误也不会出现红色错误，只会找不到值。"
+    },
+    {
+      "source": "② 保存されているメモを表示する",
+      "translation": "② 显示已保存的备忘录"
+    },
+    {
+      "source": "STEP 04①の2行の<strong>下</strong>、追加ボタンの処理の<strong>上</strong>に書きます。",
+      "translation": "写在STEP 04①的两行代码<strong>下方</strong>、「追加」（添加）按钮处理的<strong>上方</strong>。"
+    },
+    {
+      "source": "保存されていないときは第2引数の <code>&quot;&quot;</code>（空の文字）が返るので、初回は一覧が空のままになります。",
+      "translation": "没有保存内容时，会返回第2个参数<code>&quot;&quot;</code>（空字符串），因此首次打开时列表保持为空。"
+    },
+    {
+      "source": "③ 追加のときに保存する",
+      "translation": "③ 添加时保存"
+    },
+    {
+      "source": "STEP 04で書いた <code>append</code> の<strong>下</strong>、<code>edtMemo.setText(&quot;&quot;)</code> の<strong>上</strong>に3行を足します。",
+      "translation": "在STEP 04编写的<code>append</code><strong>下方</strong>、<code>edtMemo.setText(&quot;&quot;)</code><strong>上方</strong>添加3行。"
+    },
+    {
+      "source": "MainActivity.java · 追加ボタンの処理の中",
+      "translation": "MainActivity.java · 「追加」（添加）按钮处理内部"
+    },
+    {
+      "source": "A08と同じ <code>edit()</code> → <code>putString</code> → <code>apply()</code> の3ステップです。<code>apply()</code> を忘れると保存されません。",
+      "translation": "与A08相同，分为<code>edit()</code> → <code>putString</code> → <code>apply()</code>这3步。忘记<code>apply()</code>就不会保存。"
+    },
+    {
+      "source": "保存しているのは <code>txtMemoList.getText().toString()</code>、つまり<strong>画面に表示している文字そのもの</strong>です。改行も含めて、まるごと1つの文字列として保存しています。",
+      "translation": "保存的是<code>txtMemoList.getText().toString()</code>，也就是<strong>屏幕上显示的文字本身</strong>。包括换行在内，全部作为一个字符串保存。"
+    },
+    {
+      "source": "A07では参加者を <code>ArrayList</code> にためていました。あれは<strong>同じ名前がすでにあるか</strong>を調べたり、<strong>何人いるか</strong>を数えたりする必要があったからです。今回のメモにはそうした判定がありません。",
+      "translation": "A07将参加者积累在<code>ArrayList</code>中，是因为需要检查<strong>是否已经有相同名称</strong>，以及统计<strong>有多少人</strong>。本次备忘录没有这些判断。"
+    },
+    {
+      "source": "ためる場所",
+      "translation": "积累内容的位置"
+    },
+    {
+      "source": "<code>ArrayList</code> と画面の両方",
+      "translation": "<code>ArrayList</code>和屏幕两处"
+    },
+    {
+      "source": "画面だけ",
+      "translation": "仅屏幕"
+    },
+    {
+      "source": "理由",
+      "translation": "原因"
+    },
+    {
+      "source": "重複チェックと人数チェックに必要",
+      "translation": "重复检查和人数检查需要使用"
+    },
+    {
+      "source": "判定をしないので不要",
+      "translation": "不进行判断，因此不需要"
+    },
+    {
+      "source": "更新する場所",
+      "translation": "更新的位置"
+    },
+    {
+      "source": "2か所",
+      "translation": "2处"
+    },
+    {
+      "source": "1か所",
+      "translation": "1处"
+    },
+    {
+      "source": "必要のないものを持たないほうが、コードは短く読みやすくなります。「<strong>判定が必要になったら、データを別に持つ</strong>」と覚えておきましょう。",
+      "translation": "不保留不需要的东西，可以让代码更短、更易读。请记住：“<strong>需要判断时，再单独保存数据</strong>”。"
+    },
+    {
+      "source": "メモを2〜3件追加します。",
+      "translation": "添加2～3条备忘录。"
+    },
+    {
+      "source": "エミュレータで<strong>アプリ一覧（最近使ったアプリ）</strong>を開き、このアプリを上へスワイプして終了します。画面下の横棒を上へスワイプしてから止めると出ます。",
+      "translation": "在模拟器中打开<strong>アプリ一覧（最近使ったアプリ）</strong>（应用列表，即最近使用的应用），将这个应用向上滑动以退出。从屏幕底部的横条向上滑动后停住，就会显示这个列表。"
+    },
+    {
+      "source": "もう一度アプリのアイコンから起動します。<strong>メモが残っていれば成功です。</strong>",
+      "translation": "再次通过应用图标启动。<strong>备忘录仍然保留就表示成功。</strong>"
+    },
+    {
+      "source": "終了して開き直しても、この状態のままです。 <a1>画像を大きく開く</a1>",
+      "translation": "退出后重新打开，也会保持这个状态。<a1>查看大图</a1>"
+    },
+    {
+      "source": "終了して開き直してもメモが残った。",
+      "translation": "已确认退出后重新打开，备忘录仍然保留。"
+    },
+    {
+      "source": "次へ：データを全部消す →",
+      "translation": "下一步：删除全部数据 →"
+    },
+    {
+      "source": "STEP 06 · 目安 5分",
+      "translation": "STEP 06 · 参考时间5分钟"
+    },
+    {
+      "source": "データを全部消す",
+      "translation": "删除全部数据"
+    },
+    {
+      "source": "「データ削除」ボタンの処理を、追加ボタンの処理（<code>});</code> まで）の<strong>下</strong>に書きます。これで完成です。",
+      "translation": "在「追加」（添加）按钮处理（直到<code>});</code>）的<strong>下方</strong>，编写「データ削除」（删除数据）按钮的处理。这样就完成了。"
+    },
+    {
+      "source": "保存されているデータをすべて消す予約をする。",
+      "translation": "安排删除全部已保存的数据。"
+    },
+    {
+      "source": "ここで確定する。これを忘れると消えない。",
+      "translation": "在这里确认执行。忘记它就不会删除。"
+    },
+    {
+      "source": "<strong>画面の表示も消す。</strong>保存を消しただけでは、画面に出ている文字はそのまま残る。",
+      "translation": "<strong>同时清除屏幕显示。</strong>只删除保存内容，屏幕上的文字仍会保留。"
+    },
+    {
+      "source": "なぜ2つとも消すのか",
+      "translation": "为什么两处都要删除"
+    },
+    {
+      "source": "保存されているデータ（ファイル）と、画面に表示している文字は<strong>別のもの</strong>です。<code>clear()</code> はファイルの中身を消すだけなので、画面は自分で消す必要があります。<code>setText(&quot;&quot;)</code> を書き忘れると、消したはずのメモが画面に残ったままになり、次に起動したときだけ消えている、という分かりにくい動きになります。",
+      "translation": "已保存的数据（文件）与屏幕上显示的文字是<strong>不同的东西</strong>。<code>clear()</code>只会清除文件内容，因此屏幕需要自己清除。忘记写<code>setText(&quot;&quot;)</code>时，本应删除的备忘录仍会留在屏幕上，下次启动才消失，这样的行为会让人难以理解。"
+    },
+    {
+      "source": "メモを何件か追加します。",
+      "translation": "添加几条备忘录。"
+    },
+    {
+      "source": "<strong>データ削除</strong> を押します。一覧が空になれば成功です。",
+      "translation": "按<strong>データ削除</strong>（删除数据）。列表变空就表示成功。"
+    },
+    {
+      "source": "アプリを終了して開き直します。空のままなら、保存も消えています。",
+      "translation": "退出应用后重新打开。如果仍为空，说明保存内容也已删除。"
+    },
+    {
+      "source": "データ削除で一覧と保存の両方を消せた。",
+      "translation": "已通过「データ削除」（删除数据）同时清除列表和保存内容。"
+    },
+    {
+      "source": "次へ：完成 →",
+      "translation": "下一步：完成 →"
+    },
+    {
+      "source": "STEP 07 · 目安 10分",
+      "translation": "STEP 07 · 参考时间10分钟"
+    },
+    {
+      "source": "完成",
+      "translation": "完成"
+    },
+    {
+      "source": "完成チェック",
+      "translation": "完成检查"
+    },
+    {
+      "source": "上から順に操作します。保存したメモが残っていると一覧が空にならないので、アプリを消してから始めます。消し方は<a1>共通資料：エミュレータ</a1>の「アプリを消す」にあります。",
+      "translation": "从上到下依次操作。如果已保存的备忘录还在，列表就不会为空，因此先卸载应用再开始。卸载方法见<a1>通用资料：模拟器</a1>中的“删除应用”。"
+    },
+    {
+      "source": "<strong>アプリを終了する</strong>やり方は、STEP 05の「Runで確かめる」と同じです。",
+      "translation": "<strong>退出应用</strong>的方法与STEP 05的“通过Run检查”相同。"
+    },
+    {
+      "source": "操作",
+      "translation": "操作"
+    },
+    {
+      "source": "確認する結果",
+      "translation": "要确认的结果"
+    },
+    {
+      "source": "アプリを消してから初回起動",
+      "translation": "卸载应用后的首次启动"
+    },
+    {
+      "source": "一覧が空で表示される。",
+      "translation": "列表显示为空。"
+    },
+    {
+      "source": "何も入れずに「追加」",
+      "translation": "不输入内容，按「追加」（添加）"
+    },
+    {
+      "source": "下にメッセージが出て、一覧は増えない。",
+      "translation": "下方显示消息，列表不会增加。"
+    },
+    {
+      "source": "メモを入れて「追加」",
+      "translation": "输入备忘录，按「追加」（添加）"
+    },
+    {
+      "source": "一覧に1行増え、入力欄が空になる。",
+      "translation": "列表增加一行，输入框变空。"
+    },
+    {
+      "source": "続けて何件か追加",
+      "translation": "接着添加几条"
+    },
+    {
+      "source": "行が1行ずつ増えていく。",
+      "translation": "行数逐行增加。"
+    },
+    {
+      "source": "アプリを終了して開き直す",
+      "translation": "退出应用后重新打开"
+    },
+    {
+      "source": "メモが残っている。",
+      "translation": "备忘录仍然保留。"
+    },
+    {
+      "source": "「データ削除」",
+      "translation": "「データ削除」（删除数据）"
+    },
+    {
+      "source": "一覧が空になる。",
+      "translation": "列表变空。"
+    },
+    {
+      "source": "削除のあと終了して開き直す",
+      "translation": "删除后退出并重新打开"
+    },
+    {
+      "source": "空のまま。",
+      "translation": "仍为空。"
+    },
+    {
+      "source": "ミニ練習",
+      "translation": "小练习"
+    },
+    {
+      "source": "<strong>予想 → 変更 → Run → 説明 → 元に戻す</strong>の順で試します。",
+      "translation": "按照<strong>预测 → 修改 → Run → 说明 → 恢复原样</strong>的顺序尝试。"
+    },
+    {
+      "source": "練習1：appendをsetTextに変えてみる",
+      "translation": "练习1：尝试将append改为setText"
+    },
+    {
+      "source": "STEP 04の <code>txtMemoList.append(edtMemoStr + &quot;\\n&quot;);</code> を次のように変えます。",
+      "translation": "将STEP 04的<code>txtMemoList.append(edtMemoStr + &quot;\\n&quot;);</code>改为以下内容。"
+    },
+    {
+      "source": "練習1 · 変更後の行",
+      "translation": "练习1 · 修改后的代码行"
+    },
+    {
+      "source": "メモを3件追加すると、一覧はどうなるでしょうか。予想してから試します。",
+      "translation": "添加3条备忘录后，列表会怎样？先预测，再尝试。"
+    },
+    {
+      "source": "試したあとに答えを見る",
+      "translation": "尝试后查看答案"
+    },
+    {
+      "source": "<strong>最後に追加した1件だけ</strong>が残ります。<code>setText</code> は「置き換える」、<code>append</code> は「後ろに足す」ためです。保存される内容も1件だけになります。確認後は <code>append</code> に戻します。",
+      "translation": "只会保留<strong>最后添加的一条</strong>。因为<code>setText</code>是“替换”，而<code>append</code>是“追加到后面”。保存的内容也只剩一条。检查后改回<code>append</code>。"
+    },
+    {
+      "source": "練習2：改行を消してみる",
+      "translation": "练习2：尝试删除换行"
+    },
+    {
+      "source": "同じ行の <code>+ &quot;\\n&quot;</code> を消します。",
+      "translation": "删除同一行中的<code>+ &quot;\\n&quot;</code>。"
+    },
+    {
+      "source": "メモが<strong>全部つながって1行</strong>になります（<code>牛乳を買うレポートを出す9時に集合</code>）。一覧が「1行ずつ」に見えていたのは、自分で改行を足していたからだと説明できれば十分です。確認後は戻します。",
+      "translation": "备忘录会<strong>全部连成一行</strong>（<code>牛乳を買うレポートを出す9時に集合</code>，即“买牛奶交报告9点集合”）。只要能说明列表看起来“逐行排列”是因为自己添加了换行，就可以。检查后恢复原样。"
+    },
+    {
+      "source": "練習3：データ削除からsetTextを消してみる",
+      "translation": "练习3：尝试从「データ削除」（删除数据）处理中删除setText"
+    },
+    {
+      "source": "STEP 06の <code>txtMemoList.setText(&quot;&quot;);</code> を消して、メモを追加してから「データ削除」を押します。",
+      "translation": "删除STEP 06的<code>txtMemoList.setText(&quot;&quot;);</code>，添加备忘录后按「データ削除」（删除数据）。"
+    },
+    {
+      "source": "画面のメモは<strong>消えません。</strong>でもアプリを終了して開き直すと空になっています。保存（ファイル）と画面の表示は別物で、<code>clear()</code> はファイルしか消さないためです。確認後は戻します。",
+      "translation": "屏幕上的备忘录<strong>不会消失。</strong>但是退出应用后重新打开，列表就会为空。因为保存内容（文件）和屏幕显示是不同的东西，<code>clear()</code>只会清除文件。检查后恢复原样。"
+    },
+    {
+      "source": "保存",
+      "translation": "保存"
+    },
+    {
+      "source": "Android Studioは、書いたコードを自動でファイルに保存します。保存の操作は要りません。ここでは、保存された場所を確かめます。",
+      "translation": "Android Studio会自动将编写的代码保存到文件中，无须执行保存操作。这里检查保存的位置。"
+    },
+    {
+      "source": "Finderを開き、左側の <strong>書類</strong>（<code>Documents</code>）をクリックします。",
+      "translation": "打开Finder，点击左侧的<strong>書類</strong>（文稿，<code>Documents</code>）。"
+    },
+    {
+      "source": "その中の <code>Android1</code> フォルダを開き、<code>A09MemoApp</code> フォルダがあることを確かめます。",
+      "translation": "打开其中的<code>Android1</code>文件夹，确认有<code>A09MemoApp</code>文件夹。"
+    },
+    {
+      "source": "この <code>Documents/Android1/A09MemoApp</code> フォルダが、自分で作ったアプリです。あとの授業でもう一度開けるように、消したり、別の場所へ移動したり、名前を変えたりせずに、そのまま残します。",
+      "translation": "这个<code>Documents/Android1/A09MemoApp</code>文件夹就是自己制作的应用。为了之后的课堂能够重新打开，请原样保留，不要删除、移动到其他位置或修改名称。"
+    },
+    {
+      "source": "教材のチェックは自分用です。先生への送信はしません。印刷は <kbd>⌘ P</kbd> で行えます。",
+      "translation": "学习资料中的勾选用于自己检查，不会发送给老师。可以按<kbd>⌘ P</kbd>打印。"
+    },
+    {
+      "source": "完成チェックの操作をすべて試して表のとおりの結果になり、ミニ練習3つのコードを元に戻した。",
+      "translation": "已尝试完成检查中的所有操作，结果与表格一致，并已将3个小练习的代码恢复原样。"
+    },
+    {
+      "source": "困ったこと",
+      "translation": "遇到的问题"
+    },
+    {
+      "source": "最初に確認する場所",
+      "translation": "首先检查的位置"
+    },
+    {
+      "source": "<code>TextView</code>、<code>EditText</code>、<code>Snackbar</code> が赤い",
+      "translation": "<code>TextView</code>、<code>EditText</code>、<code>Snackbar</code>变红了"
+    },
+    {
+      "source": "<kbd>⌥ Enter</kbd> で <code>android.widget.TextView</code>、<code>android.widget.EditText</code>、<code>com.google.android.material.snackbar.Snackbar</code> を選ぶ。",
+      "translation": "通过<kbd>⌥ Enter</kbd>选择<code>android.widget.TextView</code>、<code>android.widget.EditText</code>、<code>com.google.android.material.snackbar.Snackbar</code>。"
+    },
+    {
+      "source": "<code>R.id.txt_memo_list</code> などが赤い",
+      "translation": "<code>R.id.txt_memo_list</code>等变红了"
+    },
+    {
+      "source": "activity_main.xmlのidが <code>txt_memo_list</code> / <code>edt_memo</code> / <code>btn_add</code> / <code>btn_clear</code> か確認。<code>android:id=\"@+id/main\"</code> を消していないかも見る。",
+      "translation": "检查activity_main.xml中的id是否为<code>txt_memo_list</code> / <code>edt_memo</code> / <code>btn_add</code> / <code>btn_clear</code>。也要检查是否删除了<code>android:id=\"@+id/main\"</code>。"
+    },
+    {
+      "source": "<code>@drawable/title_memo</code> が赤い",
+      "translation": "<code>@drawable/title_memo</code>变红了"
+    },
+    {
+      "source": "STEP 02で <code>drawable</code> に置けているか、ファイル名が <code>title_memo.png</code> か確認する。",
+      "translation": "检查是否在STEP 02放入了<code>drawable</code>，以及文件名是否为<code>title_memo.png</code>。"
+    },
+    {
+      "source": "<code>prefs</code> が赤い（追加や削除の中）",
+      "translation": "<code>prefs</code>变红了（在添加或删除处理中）"
+    },
+    {
+      "source": "STEP 05②の <code>var prefs = ...</code> を、ボタンの処理より<strong>上</strong>に書いたか確認する。",
+      "translation": "检查是否将STEP 05②的<code>var prefs = ...</code>写在按钮处理的<strong>上方</strong>。"
+    },
+    {
+      "source": "追加を押しても一覧が増えない",
+      "translation": "按「追加」（添加）后列表没有增加"
+    },
+    {
+      "source": "<code>append</code> を書いたか、<code>R.id.btn_add</code> の名前が合っているか確認する。",
+      "translation": "检查是否写了<code>append</code>，以及<code>R.id.btn_add</code>的名称是否正确。"
+    },
+    {
+      "source": "1件しか表示されない",
+      "translation": "只显示一条"
+    },
+    {
+      "source": "<code>setText</code> になっていないか確認する。追加は <code>append</code>。",
+      "translation": "检查是否写成了<code>setText</code>。添加应使用<code>append</code>。"
+    },
+    {
+      "source": "メモが全部つながって1行になる",
+      "translation": "所有备忘录连成一行"
+    },
+    {
+      "source": "<code>+ \"\\n\"</code> を書いたか確認する。",
+      "translation": "检查是否写了<code>+ \"\\n\"</code>。"
+    },
+    {
+      "source": "終了するとメモが消える",
+      "translation": "退出后备忘录消失"
+    },
+    {
+      "source": "STEP 05③の3行を書いたか、<code>edit.apply();</code> があるか確認する。",
+      "translation": "检查是否写了STEP 05③的3行，以及是否有<code>edit.apply();</code>。"
+    },
+    {
+      "source": "データ削除しても画面が消えない",
+      "translation": "按「データ削除」（删除数据）后，屏幕内容没有消失"
+    },
+    {
+      "source": "STEP 06の <code>txtMemoList.setText(\"\");</code> を書いたか確認する。",
+      "translation": "检查是否写了STEP 06的<code>txtMemoList.setText(\"\");</code>。"
+    },
+    {
+      "source": "空のメモが追加されてしまう",
+      "translation": "添加了空的备忘录"
+    },
+    {
+      "source": "<code>return;</code> を書いたか確認する。",
+      "translation": "检查是否写了<code>return;</code>。"
+    },
+    {
+      "source": "キーボードでボタンが隠れる",
+      "translation": "键盘挡住了按钮"
+    },
+    {
+      "source": "キーボードを閉じてから押します。理由と対処は<a1>共通資料：開発Tips</a1>にあります。",
+      "translation": "关闭键盘后再按按钮。原因和处理方法见<a1>通用资料：开发技巧</a1>。"
+    },
+    {
+      "source": "直したのに動きが変わらない",
+      "translation": "修改后运行情况没有变化"
+    },
+    {
+      "source": "ウィンドウの保存先が <code>Documents/Android1/A09MemoApp</code> か確認する。samples側を開いていないか見る。",
+      "translation": "检查窗口的保存位置是否为<code>Documents/Android1/A09MemoApp</code>。确认是否打开了samples中的项目。"
+    },
+    {
+      "source": "質問では「STEP番号・編集したファイル・最初の赤い行・押した順番」を伝えます。",
+      "translation": "提问时，请说明“STEP编号、修改的文件、第一行红字、点击的顺序”。"
+    },
+    {
+      "source": "完成版は最初の授業から使える見本です。教科書といっしょに配られた<strong>教材のフォルダ</strong>に、そのまま開ける形で入っています。ダウンロードも展開も要りません。",
+      "translation": "完成版是从第一节课起就能使用的示例。它在与教材一起发放的<strong>学习资料文件夹</strong>中，可以直接打开。无须下载或解压。"
+    },
+    {
+      "source": "Android Studioの <strong>Open</strong>（プロジェクトを開いているときは <strong>File → Open</strong>）で、<strong>書類</strong>（<code>Documents</code>）にある教材のフォルダを開きます。名前は <code>android1-student-materials-</code> のうしろに日付が付いた形で、日付は配られた回によって変わります。いま読んでいるこの教科書が入っているフォルダです。",
+      "translation": "通过Android Studio的<strong>Open</strong>（已打开项目时使用<strong>File → Open</strong>），打开<strong>書類</strong>（文稿，<code>Documents</code>）中的学习资料文件夹。名称为<code>android1-student-materials-</code>后加日期，日期随发放批次而变。就是包含当前这份教材的文件夹。"
+    },
+    {
+      "source": "その中を <code>samples → A09MemoApp</code> の順に開き、<code>settings.gradle.kts</code> と <code>app</code> が入った <code>A09MemoApp</code> フォルダを選びます。",
+      "translation": "在其中依次打开<code>samples → A09MemoApp</code>，选择包含<code>settings.gradle.kts</code>和<code>app</code>的<code>A09MemoApp</code>文件夹。"
+    },
+    {
+      "source": "Sync後にRunして動きを確認します。授業の入力に戻るときは自分の <code>Documents/Android1/A09MemoApp</code> を開きます。",
+      "translation": "Sync后Run，检查运行情况。返回课堂输入代码时，打开自己的<code>Documents/Android1/A09MemoApp</code>。"
+    },
+    {
+      "source": "両方とも同じプロジェクト名なので、ウィンドウの保存先を確認しましょう。見本と自分のアプリは同じパッケージ名 <code>jp.ac.jec.a09memoapp</code> のため、端末上では同じアプリを更新します。<strong>保存したメモも共有されます。</strong>",
+      "translation": "两个项目名称相同，因此请检查窗口的保存位置。示例与自己的应用使用相同包名<code>jp.ac.jec.a09memoapp</code>，所以在设备上会更新同一个应用。<strong>已保存的备忘录也会共享。</strong>"
+    },
+    {
+      "source": "STEP 02で使う <code>title_memo.png</code> は、この見本の <code>app/src/main/res/drawable/title_memo.png</code> にも入っています。",
+      "translation": "STEP 02使用的<code>title_memo.png</code>也在这个示例的<code>app/src/main/res/drawable/title_memo.png</code>中。"
+    },
+    {
+      "source": "教材のフォルダが手元にないときは、同じ見本をZIPで受け取れます（<a1>A09MemoApp.zip</a1>）。展開してできた <code>A09MemoApp</code> フォルダを、同じようにOpenで選びます。",
+      "translation": "如果手头没有学习资料文件夹，也可以通过ZIP获取相同示例（<a1>A09MemoApp.zip</a1>）。将解压后生成的<code>A09MemoApp</code>文件夹，同样通过Open选择。"
+    },
+    {
+      "source": "完成したMainActivity.javaで照合する",
+      "translation": "与完成的MainActivity.java核对"
+    },
+    {
+      "source": "完成版 · MainActivity.java",
+      "translation": "完成版 · MainActivity.java"
+    },
+    {
+      "source": "完成したactivity_main.xmlで照合する",
+      "translation": "与完成的activity_main.xml核对"
+    },
+    {
+      "source": "完成版 · activity_main.xml",
+      "translation": "完成版 · activity_main.xml"
+    },
+    {
+      "source": "Androidプログラミング1 · A09MemoApp / 本文・画像・操作機能はオフラインで利用できます。Android Studioの初回準備・ビルドと公式資料の閲覧にはネット接続が必要です。",
+      "translation": "Android编程1 · A09MemoApp / 正文、图片和操作功能可离线使用。Android Studio的初始准备、构建，以及查看官方资料需要连接互联网。"
+    },
+    {
+      "source": "画像は授業用の提供資料を使用。スクリーンショットのメモは例です。",
+      "translation": "图片使用课堂提供的资料。截图中的备忘录是示例。"
+    }
+  ]
+}

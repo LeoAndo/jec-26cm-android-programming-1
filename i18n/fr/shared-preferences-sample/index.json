@@ -1,0 +1,1362 @@
+{
+  "source": "docs/shared-preferences-sample/index.html",
+  "language": "fr",
+  "entries": [
+    {
+      "source": "JavaとXMLで作るA08SharedPreferencesSample。SharedPreferencesでデータを端末に保存し、アプリを終了しても残ることを画面で確かめ、保存先のXMLファイルの中身まで見るところまでを小さなSTEPで学ぶ授業用教科書。",
+      "translation": "A08SharedPreferencesSample en Java et XML. Manuel de cours organisé en petits STEP pour enregistrer des données sur l'appareil avec SharedPreferences, vérifier à l'écran qu'elles restent présentes après la fermeture de l'application et examiner le contenu du fichier XML qui les contient."
+    },
+    {
+      "source": "SharedPreferencesSample — データを保存しよう | Androidプログラミング1",
+      "translation": "SharedPreferencesSample — Enregistrons des données | Programmation Android 1"
+    },
+    {
+      "source": "本文へ移動",
+      "translation": "Aller au contenu principal"
+    },
+    {
+      "source": "JEC / Androidプログラミング1",
+      "translation": "JEC / Programmation Android 1"
+    },
+    {
+      "source": "CONTENTS / 学習の順番",
+      "translation": "CONTENTS / Ordre d'apprentissage"
+    },
+    {
+      "source": "学習ステップ",
+      "translation": "Étapes d'apprentissage"
+    },
+    {
+      "source": "00　今日のゴール",
+      "translation": "00 Objectif du jour"
+    },
+    {
+      "source": "01　プロジェクトを作って実行",
+      "translation": "01 Créer et exécuter le projet"
+    },
+    {
+      "source": "02　画面を作る",
+      "translation": "02 Créer l'écran"
+    },
+    {
+      "source": "03　SharedPreferencesを用意する",
+      "translation": "03 Préparer SharedPreferences"
+    },
+    {
+      "source": "04　保存されている値を画面に出す",
+      "translation": "04 Afficher les valeurs enregistrées"
+    },
+    {
+      "source": "05　データを保存する",
+      "translation": "05 Enregistrer des données"
+    },
+    {
+      "source": "06　アプリを終了しても残ることを確かめる",
+      "translation": "06 Vérifier que les données restent après la fermeture"
+    },
+    {
+      "source": "07　データを全部消す",
+      "translation": "07 Effacer toutes les données"
+    },
+    {
+      "source": "08　保存先のXMLファイルを見る",
+      "translation": "08 Examiner le fichier XML de stockage"
+    },
+    {
+      "source": "09　ミニ練習",
+      "translation": "09 Mini-exercices"
+    },
+    {
+      "source": "10　完成",
+      "translation": "10 Terminer"
+    },
+    {
+      "source": "0 / 11 ステップ確認済み",
+      "translation": "0 / 11 étapes vérifiées"
+    },
+    {
+      "source": "学習の進み具合",
+      "translation": "Progression de l'apprentissage"
+    },
+    {
+      "source": "自分用のチェックです。",
+      "translation": "Ces cases servent à votre propre suivi."
+    },
+    {
+      "source": "困ったとき",
+      "translation": "En cas de difficulté"
+    },
+    {
+      "source": "解説：applyとcommitの違い",
+      "translation": "Explication : différence entre apply et commit"
+    },
+    {
+      "source": "解説：何を保存してよいか",
+      "translation": "Explication : quelles données enregistrer ?"
+    },
+    {
+      "source": "完成プロジェクトを開く",
+      "translation": "Ouvrir le projet terminé"
+    },
+    {
+      "source": "共通：はじめの準備",
+      "translation": "Guide commun : Préparation initiale"
+    },
+    {
+      "source": "共通：エミュレータ",
+      "translation": "Guide commun : Émulateur"
+    },
+    {
+      "source": "共通：Auto Import",
+      "translation": "Guide commun : Auto Import"
+    },
+    {
+      "source": "共通：Logcat",
+      "translation": "Guide commun : Logcat"
+    },
+    {
+      "source": "共通：APKの提出",
+      "translation": "Guide commun : Remise de l'APK"
+    },
+    {
+      "source": "共通：開発Tips",
+      "translation": "Guide commun : Conseils de développement"
+    },
+    {
+      "source": "共通：Android Studioのバージョン",
+      "translation": "Guide commun : Version d'Android Studio"
+    },
+    {
+      "source": "アプリを閉じても<br>消えないデータ",
+      "translation": "Des données conservées<br>après la fermeture de l'application"
+    },
+    {
+      "source": "値を保存する。アプリを終了する。もう一度開くと、値が残っている。<br>保存先のファイルの中身まで、自分の目で確かめます。",
+      "translation": "Vous enregistrez des valeurs, fermez l'application, puis la rouvrez : les valeurs sont toujours présentes.<br>Vous vérifierez vous-mêmes jusqu'au contenu du fichier qui les contient."
+    },
+    {
+      "source": "A07の次の単元",
+      "translation": "Unité suivant A07"
+    },
+    {
+      "source": "90分 × 2コマ目安",
+      "translation": "Environ 2 séances de 90 min"
+    },
+    {
+      "source": "Macで学ぶ",
+      "translation": "Apprendre sur Mac"
+    },
+    {
+      "source": "STEP 00 · 目安 5分",
+      "translation": "STEP 00 · Durée indicative : 5 min"
+    },
+    {
+      "source": "今日のゴール",
+      "translation": "Objectif du jour"
+    },
+    {
+      "source": "これまでの単元で作ったアプリは、終了すると入力した内容が消えていました。今回は<strong>アプリを終了しても消えないデータ</strong>の保存を学びます。使うのは <code>SharedPreferences</code> です。",
+      "translation": "Dans les applications des unités précédentes, le contenu saisi disparaissait à la fermeture. Cette fois, vous apprendrez à enregistrer <strong>des données qui restent présentes après la fermeture de l'application</strong>, avec <code>SharedPreferences</code>."
+    },
+    {
+      "source": "画面はボタン4つと表示欄だけです。ボタンを押すたびに、いま保存されている内容が表示欄に出ます。",
+      "translation": "L'écran comporte seulement quatre boutons et une zone d'affichage. Chaque appui sur un bouton y affiche le contenu actuellement enregistré."
+    },
+    {
+      "source": "アプリの画面。apply、get、clear、show app.xmlの4つのボタンの下に、int_value = 1、string_value = Hello、boolean_value = true、float_value = 1.0、long_value = 1、string_set_value = [Hello, World] と表示されている",
+      "translation": "Écran de l'application. Sous les quatre boutons apply, get, clear et show app.xml figurent int_value = 1, string_value = Hello, boolean_value = true, float_value = 1.0, long_value = 1 et string_set_value = [Hello, World]"
+    },
+    {
+      "source": "applyを押したあと。6種類の値が保存されています。 <a1>画像を大きく開く</a1>",
+      "translation": "Après un appui sur apply. Six types de valeurs sont enregistrés. <a1>Ouvrir l'image en grand</a1>"
+    },
+    {
+      "source": "show app.xmlを押した画面。ファイルのパスに続いて、mapタグの中にstring、boolean、set、float、long、intの各タグが並んだXMLが表示されている",
+      "translation": "Écran après un appui sur show app.xml. Après le chemin du fichier, le XML affiche les balises string, boolean, set, float, long et int dans la balise map"
+    },
+    {
+      "source": "保存先のファイルの中身です。データはXMLで残っています。 <a1>画像を大きく開く</a1>",
+      "translation": "Le contenu du fichier de stockage. Les données sont conservées en XML. <a1>Ouvrir l'image en grand</a1>"
+    },
+    {
+      "source": "できるようになること",
+      "translation": "Ce que vous saurez faire"
+    },
+    {
+      "source": "アプリを終了しても消えないデータを、<code>SharedPreferences</code> で保存できる。",
+      "translation": "Enregistrer avec <code>SharedPreferences</code> des données qui restent après la fermeture de l'application."
+    },
+    {
+      "source": "保存されていないときに <code>getInt</code> などが返す<strong>初期値</strong>を説明できる。",
+      "translation": "Expliquer la <strong>valeur par défaut</strong> renvoyée par <code>getInt</code> et les autres méthodes lorsqu'aucune donnée n'est enregistrée."
+    },
+    {
+      "source": "保存したデータをまとめて消せる。",
+      "translation": "Effacer toutes les données enregistrées à la fois."
+    },
+    {
+      "source": "データがどこに、どんな形で保存されているかを説明できる。",
+      "translation": "Expliquer où et sous quelle forme les données sont enregistrées."
+    },
+    {
+      "source": "今日使う技術",
+      "translation": "Techniques utilisées aujourd'hui"
+    },
+    {
+      "source": "技術",
+      "translation": "Technique"
+    },
+    {
+      "source": "どこで使うか",
+      "translation": "Utilisation"
+    },
+    {
+      "source": "保存先のファイル名を指定して、読み書きする入口を受け取る。",
+      "translation": "Indiquer le nom du fichier de stockage et obtenir le point d'accès pour lire et écrire."
+    },
+    {
+      "source": "<code>edit()</code> と <code>putInt</code> ほか",
+      "translation": "<code>edit()</code>, <code>putInt</code> et les autres méthodes"
+    },
+    {
+      "source": "保存したい値を、キー（名前）を付けて書き込む。",
+      "translation": "Écrire les valeurs à enregistrer en leur attribuant une clé (un nom)."
+    },
+    {
+      "source": "書き込みを確定する。これを呼ぶまで保存されない。",
+      "translation": "Valider l'écriture. Rien n'est enregistré tant que cette méthode n'est pas appelée."
+    },
+    {
+      "source": "<code>getInt</code> ほか",
+      "translation": "<code>getInt</code> et les autres méthodes"
+    },
+    {
+      "source": "キーを指定して読み出す。データがないときは初期値が返る。",
+      "translation": "Lire en indiquant une clé. Si la donnée n'existe pas, la valeur par défaut est renvoyée."
+    },
+    {
+      "source": "保存したデータをすべて消す。",
+      "translation": "Effacer toutes les données enregistrées."
+    },
+    {
+      "source": "画面回転について",
+      "translation": "À propos de la rotation de l'écran"
+    },
+    {
+      "source": "各単元では画面回転時のデータ保持と横画面のレイアウトを扱いません。縦向きで使います。なお今回のデータは <code>SharedPreferences</code> に入っているので、回転してもアプリを終了しても残ります。消えるのは画面に表示していた文字だけで、保存したデータではありません。",
+      "translation": "Ces unités n'abordent pas la conservation des données lors d'une rotation ni le layout en paysage. Utilisez le mode portrait. Les données de cette unité se trouvent dans <code>SharedPreferences</code> : elles restent donc présentes après une rotation ou la fermeture de l'application. Seul le texte affiché à l'écran disparaît, pas les données enregistrées."
+    },
+    {
+      "source": "ここで止まって、確認",
+      "translation": "Arrêtez-vous ici et vérifiez"
+    },
+    {
+      "source": "今回作るアプリの画面を画像で確かめ、保存・読み出し・削除に使う技術を表で確認した。",
+      "translation": "J'ai observé les images de l'application à créer et vérifié dans le tableau les techniques d'enregistrement, de lecture et de suppression."
+    },
+    {
+      "source": "できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。",
+      "translation": "Cochez une fois terminé. En cas de difficulté, montrez le numéro du STEP et votre écran à l'enseignant."
+    },
+    {
+      "source": "次へ：プロジェクトを作って実行 →",
+      "translation": "Suite : Créer et exécuter le projet →"
+    },
+    {
+      "source": "STEP 01 · 目安 15分",
+      "translation": "STEP 01 · Durée indicative : 15 min"
+    },
+    {
+      "source": "プロジェクトを作って実行",
+      "translation": "Créer et exécuter le projet"
+    },
+    {
+      "source": "授業環境はMacと <strong>Android Studio Panda 2 | 2025.3.2</strong> です。A07までとは別のプロジェクトを作ります。",
+      "translation": "L'environnement du cours est un Mac avec <strong>Android Studio Panda 2 | 2025.3.2</strong>. Créez un projet distinct de ceux des unités jusqu'à A07."
+    },
+    {
+      "source": "毎回、自分で新規作成します",
+      "translation": "Créez vous-même un nouveau projet à chaque fois"
+    },
+    {
+      "source": "作る場所は <code>Documents/Android1/A08SharedPreferencesSample</code> です。<a1>完成プロジェクト</a1>は答え合わせ用で、授業の入力は自分で作ったプロジェクトに書きます。",
+      "translation": "Créez-le dans <code>Documents/Android1/A08SharedPreferencesSample</code>. Le <a1>projet terminé</a1> sert à vérifier votre travail ; saisissez le code du cours dans votre propre projet."
+    },
+    {
+      "source": "Android Studioの <strong>New Project</strong> をクリックします。別のプロジェクトを開いているときは <strong>File → New → New Project</strong> を選びます。",
+      "translation": "Cliquez sur <strong>New Project</strong> dans Android Studio. Si un autre projet est ouvert, choisissez <strong>File → New → New Project</strong>."
+    },
+    {
+      "source": "<strong>Phone and Tablet → Empty Views Activity → Next</strong> の順に選びます。名前に <strong>Views</strong> があることを確認します。",
+      "translation": "Sélectionnez successivement <strong>Phone and Tablet → Empty Views Activity → Next</strong>. Vérifiez que le nom contient <strong>Views</strong>."
+    },
+    {
+      "source": "テンプレート一覧でEmpty Views Activityが選択されている",
+      "translation": "Empty Views Activity est sélectionné dans la liste des modèles"
+    },
+    {
+      "source": "Empty Views Activityを選択。Empty Activityとは別です。 <a1>画像を大きく開く</a1>",
+      "translation": "Sélectionnez Empty Views Activity. Il est différent d'Empty Activity. <a1>Ouvrir l'image en grand</a1>"
+    },
+    {
+      "source": "次の表のとおりに入力・選択して <strong>Finish</strong> を押します。",
+      "translation": "Saisissez et sélectionnez les valeurs du tableau suivant, puis cliquez sur <strong>Finish</strong>."
+    },
+    {
+      "source": "項目",
+      "translation": "Élément"
+    },
+    {
+      "source": "入力・選択する内容",
+      "translation": "Valeur à saisir ou à sélectionner"
+    },
+    {
+      "source": "<code>jp.ac.jec.a08sharedpreferencessample</code>（すべて小文字）",
+      "translation": "<code>jp.ac.jec.a08sharedpreferencessample</code> (tout en minuscules)"
+    },
+    {
+      "source": "New Projectの設定画面。NameにA08SharedPreferencesSample、Package nameにjp.ac.jec.a08sharedpreferencessample、LanguageにJava、Minimum SDKにAPI 31が入っている",
+      "translation": "Écran de réglages New Project : Name contient A08SharedPreferencesSample, Package name contient jp.ac.jec.a08sharedpreferencessample, Language est Java et Minimum SDK est API 31"
+    },
+    {
+      "source": "入力後の画面。画像の保存先は先生の環境のものです。自分のDocuments以下を指定します。 <a1>画像を大きく開く</a1>",
+      "translation": "Écran après la saisie. L'emplacement de l'image correspond à l'environnement de l'enseignant. Choisissez un emplacement dans votre propre dossier Documents. <a1>Ouvrir l'image en grand</a1>"
+    },
+    {
+      "source": "Sync（歯車の読み込み）が終わるまで待ちます。",
+      "translation": "Attendez la fin de Sync (chargement avec l'engrenage)."
+    },
+    {
+      "source": "端末欄で <strong>jec_26cm_android1_Pixel 9a</strong> を選び、<strong>Run</strong>（▶）を押します。白い画面に <strong>Hello World!</strong> が出れば成功です。",
+      "translation": "Dans le champ de l'appareil, sélectionnez <strong>jec_26cm_android1_Pixel 9a</strong>, puis cliquez sur <strong>Run</strong> (▶). Si <strong>Hello World!</strong> apparaît sur un écran blanc, l'opération a réussi."
+    },
+    {
+      "source": "エミュレータが出てこないときは<a1>共通資料：エミュレータ</a1>を見ます。",
+      "translation": "Si l'émulateur n'apparaît pas, consultez le <a1>Guide commun : Émulateur</a1>."
+    },
+    {
+      "source": "自分の保存先にA08SharedPreferencesSampleを作り、Hello World!を表示できた。",
+      "translation": "J'ai créé A08SharedPreferencesSample à mon emplacement et affiché Hello World!."
+    },
+    {
+      "source": "次へ：画面を作る →",
+      "translation": "Suite : Créer l'écran →"
+    },
+    {
+      "source": "STEP 02 · 目安 15分",
+      "translation": "STEP 02 · Durée indicative : 15 min"
+    },
+    {
+      "source": "画面を作る",
+      "translation": "Créer l'écran"
+    },
+    {
+      "source": "ボタン4つと、結果を出す表示欄を並べます。<code>app/src/main/res/layout/activity_main.xml</code> を開き、中身をすべて次のコードに置き換えます。",
+      "translation": "Placez quatre boutons et une zone pour afficher les résultats. Ouvrez <code>app/src/main/res/layout/activity_main.xml</code> et remplacez tout son contenu par le code suivant."
+    },
+    {
+      "source": "activity_main.xml（全体を置き換え）",
+      "translation": "activity_main.xml (remplacer tout le contenu)"
+    },
+    {
+      "source": "書いた内容の意味",
+      "translation": "Signification du code écrit"
+    },
+    {
+      "source": "書いたところ",
+      "translation": "Partie écrite"
+    },
+    {
+      "source": "意味",
+      "translation": "Signification"
+    },
+    {
+      "source": "中身を縦に並べる。ConstraintLayoutから書き換えている。",
+      "translation": "Aligne le contenu verticalement. Remplace ConstraintLayout."
+    },
+    {
+      "source": "中身を左右の中央に寄せる。上下には寄せない。",
+      "translation": "Centre le contenu horizontalement, sans le centrer verticalement."
+    },
+    {
+      "source": "消しません。ひな形のJavaが <code>findViewById(R.id.main)</code> で使っています（A01と同じ）。",
+      "translation": "Ne le supprimez pas. Le Java du modèle l'utilise avec <code>findViewById(R.id.main)</code>, comme en A01."
+    },
+    {
+      "source": "Javaから見つけるための名前。STEP 05以降で1つずつ使う。",
+      "translation": "Noms permettant de retrouver les composants depuis Java. Ils seront utilisés un à un à partir du STEP 05."
+    },
+    {
+      "source": "結果を出す表示欄。最初は空です。",
+      "translation": "Zone d'affichage des résultats. Elle est vide au départ."
+    },
+    {
+      "source": "<code>layout_height=\"0dp\"</code> と <code>layout_weight=\"1\"</code>",
+      "translation": "<code>layout_height=\"0dp\"</code> et <code>layout_weight=\"1\"</code>"
+    },
+    {
+      "source": "表示欄が<strong>残りの高さを全部使う</strong>という指定。表示する文字が長くても短くても大きさが変わらないので、上のボタンの位置がずれません。",
+      "translation": "Indique que la zone d'affichage <strong>occupe toute la hauteur restante</strong>. Sa taille reste identique quelle que soit la longueur du texte, et les boutons au-dessus ne se déplacent pas."
+    },
+    {
+      "source": "なぜ表示欄にweightを付けるのか",
+      "translation": "Pourquoi donner un weight à la zone d'affichage ?"
+    },
+    {
+      "source": "<code>layout_height=\"wrap_content\"</code>（中身の分だけ）にすると、表示する文字が増えたときに表示欄が大きくなり、上のボタンが動いてしまいます。ボタンを何度も押す教材なので、押す場所が変わらないようにしています。",
+      "translation": "Avec <code>layout_height=\"wrap_content\"</code> (juste la taille du contenu), la zone grandit quand le texte augmente et les boutons au-dessus se déplacent. Comme vous appuierez souvent sur ces boutons, leur position doit rester fixe."
+    },
+    {
+      "source": "文字を直接書いたことによる <code>Hardcoded text</code> の警告は、これまでの単元と同様にそのまま進めます。",
+      "translation": "Comme dans les unités précédentes, poursuivez malgré les avertissements <code>Hardcoded text</code> dus au texte écrit directement."
+    },
+    {
+      "source": "Runで確かめる",
+      "translation": "Vérifier avec Run"
+    },
+    {
+      "source": "apply・get・clear・show app.xmlの4つのボタンが画面の上に縦に並べば成功です。押しても、まだ何も起きません。",
+      "translation": "Si les quatre boutons apply, get, clear et show app.xml sont alignés verticalement en haut de l'écran, cette étape a réussi. Appuyer dessus ne produit encore aucun effet."
+    },
+    {
+      "source": "4つのボタンapply、get、clear、show app.xmlが縦に並び、その下は何も表示されていない画面",
+      "translation": "Écran avec quatre boutons alignés verticalement, apply, get, clear et show app.xml, et rien d'affiché en dessous"
+    },
+    {
+      "source": "STEP 02の完成。表示欄はまだ空です。 <a1>画像を大きく開く</a1>",
+      "translation": "STEP 02 terminé. La zone d'affichage est encore vide. <a1>Ouvrir l'image en grand</a1>"
+    },
+    {
+      "source": "4つのボタンが並んだ画面をRunできた。",
+      "translation": "J'ai exécuté avec Run l'écran contenant les quatre boutons."
+    },
+    {
+      "source": "次へ：SharedPreferencesを用意する →",
+      "translation": "Suite : Préparer SharedPreferences →"
+    },
+    {
+      "source": "STEP 03 · 目安 10分",
+      "translation": "STEP 03 · Environ 10 min"
+    },
+    {
+      "source": "SharedPreferencesを用意する",
+      "translation": "Préparer SharedPreferences"
+    },
+    {
+      "source": "<code>MainActivity.java</code> を開きます。まず、保存に使う名前を定数にまとめ、読み書きの入口を受け取ります。",
+      "translation": "Ouvrez <code>MainActivity.java</code>. Regroupez d'abord les noms utilisés pour l'enregistrement dans des constantes et récupérez le point d'accès pour lire et écrire."
+    },
+    {
+      "source": "① クラスの先頭に定数とフィールドを追加する",
+      "translation": "① Ajouter les constantes et le champ au début de la classe"
+    },
+    {
+      "source": "<code>public class MainActivity extends AppCompatActivity {</code> のすぐ下に書きます。",
+      "translation": "Écrivez ce code juste sous <code>public class MainActivity extends AppCompatActivity {</code>."
+    },
+    {
+      "source": "MainActivity.java · クラスの先頭",
+      "translation": "MainActivity.java · Début de la classe"
+    },
+    {
+      "source": "② onCreateの最後に1行追加する",
+      "translation": "② Ajouter une ligne à la fin d'onCreate"
+    },
+    {
+      "source": "MainActivity.java · onCreateの中（いちばん下）",
+      "translation": "MainActivity.java · Dans onCreate (tout en bas)"
+    },
+    {
+      "source": "<code>SharedPreferences</code> が赤いときは <kbd>⌥ Enter</kbd> で <code>android.content.SharedPreferences</code> を選びます（<a1>共通資料：Auto Import</a1>）。",
+      "translation": "Si <code>SharedPreferences</code> est en rouge, utilisez <kbd>⌥ Enter</kbd> pour sélectionner <code>android.content.SharedPreferences</code> (<a1>Guide commun : Auto Import</a1>)."
+    },
+    {
+      "source": "保存先のファイル名。このあと <code>app.xml</code> というファイルができます。",
+      "translation": "Nom du fichier de stockage. Un fichier nommé <code>app.xml</code> sera ensuite créé."
+    },
+    {
+      "source": "<code>INT_VALUE = \"int_value\"</code> など6つ",
+      "translation": "Six constantes, dont <code>INT_VALUE = \"int_value\"</code>"
+    },
+    {
+      "source": "値に付ける名前（<strong>キー</strong>）。保存するときと読み出すときに同じものを使います。",
+      "translation": "Nom donné à une valeur : sa <strong>clé</strong>. Utilisez la même clé pour enregistrer et lire."
+    },
+    {
+      "source": "キーの文字を1か所にまとめる書き方。打ち間違えを防げます（STEP 09の練習3で確かめます）。",
+      "translation": "Écriture qui regroupe les textes des clés en un seul endroit. Elle évite les fautes de saisie, comme vous le vérifierez dans l'exercice 3 du STEP 09."
+    },
+    {
+      "source": "このアプリだけが読み書きできる、という指定。ほかのアプリからは見えません。",
+      "translation": "Indique que seule cette application peut lire et écrire les données. Les autres applications ne peuvent pas y accéder."
+    },
+    {
+      "source": "読み書きの入口。onCreateの外のメソッドからも使うので、フィールドにしています。",
+      "translation": "Point d'accès pour lire et écrire. C'est un champ car il est aussi utilisé depuis des méthodes en dehors d'onCreate."
+    },
+    {
+      "source": "キーは自由に決めてよい？",
+      "translation": "Peut-on choisir librement les clés ?"
+    },
+    {
+      "source": "キーの文字は自分で決められます。ただし<strong>保存したときと読み出すときで同じ</strong>でなければ、値は見つかりません。この教材では値の種類がわかる名前（<code>int_value</code> など）にしています。",
+      "translation": "Vous pouvez choisir le texte des clés. Toutefois, il doit être <strong>identique lors de l'enregistrement et de la lecture</strong>, sinon la valeur ne sera pas trouvée. Dans ce manuel, les noms indiquent le type de valeur, par exemple <code>int_value</code>."
+    },
+    {
+      "source": "画面の見た目は変わりません。赤いエラーが出ずにRunできれば成功です。",
+      "translation": "L'apparence de l'écran ne change pas. Si vous pouvez exécuter avec Run sans erreur rouge, cette étape a réussi."
+    },
+    {
+      "source": "保存先のファイル名の定数を1つ、キーの定数を6つ書き、<code>getSharedPreferences</code> でprefsを受け取れた。",
+      "translation": "J'ai écrit une constante pour le nom du fichier de stockage et six pour les clés, puis récupéré prefs avec <code>getSharedPreferences</code>."
+    },
+    {
+      "source": "次へ：保存されている値を画面に出す →",
+      "translation": "Suite : Afficher les valeurs enregistrées →"
+    },
+    {
+      "source": "STEP 04 · 目安 20分",
+      "translation": "STEP 04 · Environ 20 min"
+    },
+    {
+      "source": "保存されている値を画面に出す",
+      "translation": "Afficher les valeurs enregistrées"
+    },
+    {
+      "source": "まだ何も保存していません。その状態で読み出すと何が返るのかを、先に確かめます。",
+      "translation": "Rien n'est encore enregistré. Vérifiez d'abord ce que la lecture renvoie dans cet état."
+    },
+    {
+      "source": "① 読み出してまとめるメソッドを追加する",
+      "translation": "① Ajouter une méthode pour lire et regrouper les valeurs"
+    },
+    {
+      "source": "<code>onCreate</code> の最後の <code>}</code> の<strong>下</strong>、クラスの最後の <code>}</code> の<strong>上</strong>に書きます。onCreateの中ではありません。",
+      "translation": "Écrivez ce code <strong>sous</strong> la dernière <code>}</code> d'<code>onCreate</code> et <strong>au-dessus</strong> de la dernière <code>}</code> de la classe. Il ne doit pas être dans onCreate."
+    },
+    {
+      "source": "MainActivity.java · onCreateの外",
+      "translation": "MainActivity.java · En dehors d'onCreate"
+    },
+    {
+      "source": "<code>Set</code> が赤いときは <kbd>⌥ Enter</kbd> で <code>java.util.Set</code> を選びます。",
+      "translation": "Si <code>Set</code> est en rouge, utilisez <kbd>⌥ Enter</kbd> pour sélectionner <code>java.util.Set</code>."
+    },
+    {
+      "source": "② onCreateで表示欄に出す",
+      "translation": "② Afficher les valeurs depuis onCreate"
+    },
+    {
+      "source": "<code>prefs = getSharedPreferences(...)</code> の行の<strong>上</strong>に表示欄を受け取る行を、<strong>下</strong>に表示する行を追加します。",
+      "translation": "Ajoutez la ligne qui récupère la zone d'affichage <strong>au-dessus</strong> de <code>prefs = getSharedPreferences(...)</code> et celle qui affiche les valeurs <strong>en dessous</strong>."
+    },
+    {
+      "source": "MainActivity.java · onCreateの中",
+      "translation": "MainActivity.java · Dans onCreate"
+    },
+    {
+      "source": "getXxxの第2引数は「初期値」",
+      "translation": "Le deuxième argument de getXxx est la « valeur par défaut »"
+    },
+    {
+      "source": "<code>prefs.getInt(INT_VALUE, 0)</code> の <code>0</code> は、<strong>そのキーのデータが保存されていないときに返る値</strong>です。種類ごとに、教材では次の初期値を渡しています。",
+      "translation": "Dans <code>prefs.getInt(INT_VALUE, 0)</code>, <code>0</code> est <strong>la valeur renvoyée lorsqu'aucune donnée n'est enregistrée pour cette clé</strong>. Ce manuel utilise les valeurs par défaut suivantes selon le type."
+    },
+    {
+      "source": "メソッド",
+      "translation": "Méthode"
+    },
+    {
+      "source": "渡した初期値",
+      "translation": "Valeur par défaut passée"
+    },
+    {
+      "source": "データがないときの表示",
+      "translation": "Affichage en l'absence de données"
+    },
+    {
+      "source": "<code>\"\"</code>（空の文字）",
+      "translation": "<code>\"\"</code> (chaîne vide)"
+    },
+    {
+      "source": "<code>string_value = </code>（右側が空）",
+      "translation": "<code>string_value = </code> (rien à droite)"
+    },
+    {
+      "source": "<code>Set.of()</code>（空の集まり）",
+      "translation": "<code>Set.of()</code> (ensemble vide)"
+    },
+    {
+      "source": "初期値は自分で決められます。STEP 09の練習2で変えてみます。",
+      "translation": "Vous pouvez choisir les valeurs par défaut. Vous les modifierez dans l'exercice 2 du STEP 09."
+    },
+    {
+      "source": "起動しただけで、6行が表示されれば成功です。まだ保存していないので、すべて初期値です。",
+      "translation": "Si les six lignes apparaissent dès le lancement, cette étape a réussi. Comme rien n'a encore été enregistré, toutes les valeurs sont celles par défaut."
+    },
+    {
+      "source": "4つのボタンの下に、int_value = 0、string_value =、boolean_value = false、float_value = 0.0、long_value = 0、string_set_value = [] と表示されている画面",
+      "translation": "Sous les quatre boutons, l'écran affiche int_value = 0, string_value =, boolean_value = false, float_value = 0.0, long_value = 0 et string_set_value = []"
+    },
+    {
+      "source": "データがないときの表示。すべて渡した初期値です。 <a1>画像を大きく開く</a1>",
+      "translation": "Affichage en l'absence de données. Toutes les valeurs sont les valeurs par défaut passées. <a1>Ouvrir l'image en grand</a1>"
+    },
+    {
+      "source": "起動すると6行が表示され、表のとおりの初期値になっていることを確認した。",
+      "translation": "J'ai vérifié que six lignes s'affichent au lancement avec les valeurs par défaut du tableau."
+    },
+    {
+      "source": "次へ：データを保存する →",
+      "translation": "Suite : Enregistrer des données →"
+    },
+    {
+      "source": "STEP 05 · 目安 20分",
+      "translation": "STEP 05 · Environ 20 min"
+    },
+    {
+      "source": "データを保存する",
+      "translation": "Enregistrer des données"
+    },
+    {
+      "source": "applyボタンに、6種類の値を保存する処理を書きます。<code>txtOutput.setText(currentValues());</code> の<strong>下</strong>に追加します。",
+      "translation": "Écrivez le traitement du bouton apply pour enregistrer six types de valeurs. Ajoutez-le <strong>sous</strong> <code>txtOutput.setText(currentValues());</code>."
+    },
+    {
+      "source": "保存の3ステップ",
+      "translation": "Les trois étapes de l'enregistrement"
+    },
+    {
+      "source": "順番",
+      "translation": "Ordre"
+    },
+    {
+      "source": "書くこと",
+      "translation": "Code à écrire"
+    },
+    {
+      "source": "書き込み用の <code>Editor</code> を受け取る。読み出しと違い、保存には必ず必要。",
+      "translation": "Récupère un <code>Editor</code> pour écrire. Contrairement à la lecture, l'enregistrement le nécessite toujours."
+    },
+    {
+      "source": "<code>putInt</code> / <code>putString</code> ほか",
+      "translation": "<code>putInt</code> / <code>putString</code> et les autres méthodes"
+    },
+    {
+      "source": "キーと値の組を、種類に合ったメソッドで書き込む。<strong>この時点ではまだ保存されていない。</strong>",
+      "translation": "Écrit les paires clé-valeur avec la méthode correspondant à leur type. <strong>À ce stade, rien n'est encore enregistré.</strong>"
+    },
+    {
+      "source": "ここで確定する。忘れると何も保存されない。",
+      "translation": "Valide l'enregistrement. Si vous l'oubliez, rien n'est enregistré."
+    },
+    {
+      "source": "値の種類ごとにメソッドが分かれています。<code>1.0f</code> の <code>f</code>、<code>1L</code> の <code>L</code> は、floatとlongであることを表す印です。",
+      "translation": "Chaque type de valeur a sa méthode. Le <code>f</code> de <code>1.0f</code> et le <code>L</code> de <code>1L</code> indiquent respectivement les types float et long."
+    },
+    {
+      "source": "保存を確定するメソッドは2つあります。",
+      "translation": "Deux méthodes permettent de valider l'enregistrement."
+    },
+    {
+      "source": "戻り値",
+      "translation": "Valeur de retour"
+    },
+    {
+      "source": "なし",
+      "translation": "Aucune"
+    },
+    {
+      "source": "<code>boolean</code>（成功したかどうか）",
+      "translation": "<code>boolean</code> (indique si l'opération a réussi)"
+    },
+    {
+      "source": "ファイルへの書き込み",
+      "translation": "Écriture dans le fichier"
+    },
+    {
+      "source": "別の処理にまかせる（呼び出しはすぐ終わる）",
+      "translation": "Confiée à un autre traitement (l'appel se termine immédiatement)"
+    },
+    {
+      "source": "書き終わるまで待つ",
+      "translation": "Attend la fin de l'écriture"
+    },
+    {
+      "source": "ふだん使うのは",
+      "translation": "Méthode utilisée habituellement"
+    },
+    {
+      "source": "こちら",
+      "translation": "Celle-ci"
+    },
+    {
+      "source": "保存できたかどうかを、その場で確かめたいときだけ",
+      "translation": "Uniquement pour vérifier immédiatement si l'enregistrement a réussi"
+    },
+    {
+      "source": "どちらを使っても、画面に出る結果は同じです。<code>apply()</code> でも、書き込みは<strong>この直後に別の処理が引き受けている</strong>ので、値がなくなることはありません。この教材では <code>apply()</code> を使います。",
+      "translation": "Les deux méthodes donnent le même résultat à l'écran. Avec <code>apply()</code> aussi, <strong>un autre traitement prend immédiatement en charge l'écriture</strong> : les valeurs ne sont donc pas perdues. Ce manuel utilise <code>apply()</code>."
+    },
+    {
+      "source": "applyを押すと、6行の値が変わります。",
+      "translation": "Appuyez sur apply : les valeurs des six lignes changent."
+    },
+    {
+      "source": "applyを押したあとの画面。int_value = 1、string_value = Hello、boolean_value = true、float_value = 1.0、long_value = 1、string_set_value = [Hello, World] と表示されている",
+      "translation": "Écran après un appui sur apply : int_value = 1, string_value = Hello, boolean_value = true, float_value = 1.0, long_value = 1 et string_set_value = [Hello, World]"
+    },
+    {
+      "source": "applyを押したあと。初期値から、保存した値に変わりました。 <a1>画像を大きく開く</a1>",
+      "translation": "Après un appui sur apply. Les valeurs enregistrées ont remplacé les valeurs par défaut. <a1>Ouvrir l'image en grand</a1>"
+    },
+    {
+      "source": "<code>string_set_value</code> が <code>[World, Hello]</code> のように逆の順で出ることがあります。<code>Set</code> は順番を約束しない入れ物なので、どちらでも正解です。",
+      "translation": "<code>string_set_value</code> peut apparaître dans l'ordre inverse, comme <code>[World, Hello]</code>. Un <code>Set</code> est un conteneur qui ne garantit pas l'ordre : les deux résultats sont corrects."
+    },
+    {
+      "source": "applyを押すと6行の値が変わった。",
+      "translation": "J'ai appuyé sur apply et les valeurs des six lignes ont changé."
+    },
+    {
+      "source": "次へ：アプリを終了しても残ることを確かめる →",
+      "translation": "Suite : Vérifier que les données restent après la fermeture →"
+    },
+    {
+      "source": "STEP 06 · 目安 15分",
+      "translation": "STEP 06 · Durée indicative : 15 min"
+    },
+    {
+      "source": "アプリを終了しても残ることを確かめる",
+      "translation": "Vérifier que les données restent après la fermeture de l'application"
+    },
+    {
+      "source": "ここが今回のいちばん大事なところです。まず、読み出すだけのボタンを追加します。",
+      "translation": "C'est le point le plus important de cette unité. Ajoutez d'abord un bouton qui lit seulement les données."
+    },
+    {
+      "source": "① getボタンの処理を追加する",
+      "translation": "① Ajouter le traitement du bouton get"
+    },
+    {
+      "source": "applyの処理（<code>});</code> まで）の<strong>下</strong>に追加します。",
+      "translation": "Ajoutez ce code <strong>sous</strong> le traitement d'apply, après son <code>});</code>."
+    },
+    {
+      "source": "読み出しだけなので <code>edit()</code> は要りません。処理が1つだけなので <code>{ }</code> を書かずに1行で済ませています。",
+      "translation": "Comme il s'agit seulement d'une lecture, <code>edit()</code> est inutile. Il n'y a qu'une opération : une ligne suffit, sans <code>{ }</code>."
+    },
+    {
+      "source": "② アプリを完全に終了して、開き直す",
+      "translation": "② Fermer complètement l'application, puis la rouvrir"
+    },
+    {
+      "source": "applyを押して、値が保存された状態にします。",
+      "translation": "Appuyez sur apply pour que les valeurs soient enregistrées."
+    },
+    {
+      "source": "エミュレータで<strong>アプリ一覧（最近使ったアプリ）</strong>を開き、このアプリを上へスワイプして終了します。画面下の横棒を上へスワイプしてから止めると出ます。",
+      "translation": "Dans l'émulateur, ouvrez la <strong>liste des applications (最近使ったアプリ, applications récentes)</strong> et balayez cette application vers le haut pour la fermer. Pour ouvrir cette liste, balayez vers le haut à partir de la barre horizontale en bas de l'écran, puis arrêtez-vous."
+    },
+    {
+      "source": "もう一度アプリのアイコンから起動します。",
+      "translation": "Relancez l'application à partir de son icône."
+    },
+    {
+      "source": "起動した時点で、<strong>applyで保存した値がそのまま表示されていれば成功です</strong>。getを押しても同じ値が出ます。",
+      "translation": "Dès le lancement, <strong>si les valeurs enregistrées avec apply sont affichées telles quelles, cette étape a réussi</strong>. Appuyer sur get affiche les mêmes valeurs."
+    },
+    {
+      "source": "なぜ残るのか",
+      "translation": "Pourquoi les données sont-elles conservées ?"
+    },
+    {
+      "source": "<code>apply()</code> のときに、値が端末の中のファイルに書き込まれたからです。アプリを終了してもファイルは消えません。次に起動したとき、<code>getInt</code> などがそのファイルから読み出しています。そのファイルはSTEP 08で実際に見ます。",
+      "translation": "Parce que <code>apply()</code> a écrit les valeurs dans un fichier de l'appareil. Fermer l'application ne supprime pas ce fichier. Au lancement suivant, <code>getInt</code> et les autres méthodes y lisent les valeurs. Vous verrez ce fichier au STEP 08."
+    },
+    {
+      "source": "これまでの単元との違い",
+      "translation": "Différence avec les unités précédentes"
+    },
+    {
+      "source": "A02の得点やA07の参加者一覧は、アプリを終了すると消えていました。あれはメモリの上にだけあったからです。今回は<strong>ファイルに書いている</strong>ので、終了しても、端末を再起動しても残ります。",
+      "translation": "Le score d'A02 et la liste des participants d'A07 disparaissaient à la fermeture de l'application, car ils n'existaient qu'en mémoire. Cette fois, les données sont <strong>écrites dans un fichier</strong> : elles restent après la fermeture et même après le redémarrage de l'appareil."
+    },
+    {
+      "source": "終了 → 起動を2回くり返して、毎回同じ値が出ることを確かめます。",
+      "translation": "Répétez deux fois Fermeture → Lancement et vérifiez que les mêmes valeurs apparaissent à chaque fois."
+    },
+    {
+      "source": "アプリを完全に終了して開き直しても、値が残ることを確かめた。",
+      "translation": "J'ai vérifié que les valeurs restent présentes après avoir complètement fermé puis rouvert l'application."
+    },
+    {
+      "source": "次へ：データを全部消す →",
+      "translation": "Suite : Effacer toutes les données →"
+    },
+    {
+      "source": "STEP 07 · 目安 10分",
+      "translation": "STEP 07 · Environ 10 min"
+    },
+    {
+      "source": "データを全部消す",
+      "translation": "Effacer toutes les données"
+    },
+    {
+      "source": "保存したデータを消す処理を、clearボタンに書きます。getの行の<strong>下</strong>に追加します。",
+      "translation": "Écrivez le traitement du bouton clear pour effacer les données enregistrées. Ajoutez-le <strong>sous</strong> la ligne de get."
+    },
+    {
+      "source": "消すときも <code>edit()</code> → 操作 → <code>apply()</code> の3ステップは同じです。<code>clear()</code> を呼んだだけでは消えません。",
+      "translation": "Pour effacer aussi, les trois étapes restent <code>edit()</code> → opération → <code>apply()</code>. Appeler seulement <code>clear()</code> ne suffit pas."
+    },
+    {
+      "source": "applyを押して、値が入った状態にします。",
+      "translation": "Appuyez sur apply pour enregistrer les valeurs."
+    },
+    {
+      "source": "clearを押します。6行がすべて<strong>初期値に戻れば成功です</strong>（STEP 04と同じ表示）。",
+      "translation": "Appuyez sur clear. Si les six lignes <strong>reviennent toutes aux valeurs par défaut, l'opération a réussi</strong>, avec le même affichage qu'au STEP 04."
+    },
+    {
+      "source": "もう一度applyを押すと、また値が入ります。",
+      "translation": "Appuyez de nouveau sur apply pour réenregistrer les valeurs."
+    },
+    {
+      "source": "clearを押したあとの画面。int_value = 0、string_value =、boolean_value = false、float_value = 0.0、long_value = 0、string_set_value = [] と、すべて初期値に戻っている",
+      "translation": "Écran après un appui sur clear : toutes les valeurs sont revenues à celles par défaut, int_value = 0, string_value =, boolean_value = false, float_value = 0.0, long_value = 0 et string_set_value = []"
+    },
+    {
+      "source": "clearのあと。データが消えたので、また初期値が返ります。 <a1>画像を大きく開く</a1>",
+      "translation": "Après clear. Les données ont été effacées, les valeurs par défaut sont donc à nouveau renvoyées. <a1>Ouvrir l'image en grand</a1>"
+    },
+    {
+      "source": "「消えた」と「初期値」は違う",
+      "translation": "Distinguer « effacé » et « valeur par défaut »"
+    },
+    {
+      "source": "画面に <code>int_value = 0</code> と出ていても、それは「0が保存されている」のではなく「<strong>何も保存されていないので初期値の0が返った</strong>」という意味です。この2つは画面では見分けられません。STEP 08でファイルを見ると、はっきり違いがわかります。",
+      "translation": "Quand <code>int_value = 0</code> s'affiche ici, cela ne signifie pas que 0 est enregistré, mais que <strong>rien n'est enregistré et que la valeur par défaut 0 a été renvoyée</strong>. L'écran ne permet pas de distinguer ces deux cas. L'examen du fichier au STEP 08 rendra la différence claire."
+    },
+    {
+      "source": "clearで全データを消せ、6行が初期値に戻った。",
+      "translation": "J'ai effacé toutes les données avec clear et les six lignes sont revenues aux valeurs par défaut."
+    },
+    {
+      "source": "次へ：保存先のXMLファイルを見る →",
+      "translation": "Suite : Examiner le fichier XML de stockage →"
+    },
+    {
+      "source": "STEP 08 · 目安 20分",
+      "translation": "STEP 08 · Durée indicative : 20 min"
+    },
+    {
+      "source": "保存先のXMLファイルを見る",
+      "translation": "Examiner le fichier XML de stockage"
+    },
+    {
+      "source": "データは端末の中のファイルに入っています。そのファイルを読んで、画面に出します。",
+      "translation": "Les données se trouvent dans un fichier de l'appareil. Lisez ce fichier et affichez-le à l'écran."
+    },
+    {
+      "source": "① ファイルを読むメソッドを追加する",
+      "translation": "① Ajouter une méthode de lecture du fichier"
+    },
+    {
+      "source": "<code>currentValues()</code> の<strong>下</strong>、クラスの最後の <code>}</code> の<strong>上</strong>に書きます。",
+      "translation": "Écrivez ce code <strong>sous</strong> <code>currentValues()</code> et <strong>au-dessus</strong> de la dernière <code>}</code> de la classe."
+    },
+    {
+      "source": "<code>File</code>・<code>Files</code>・<code>StandardCharsets</code>・<code>IOException</code> が赤いときは <kbd>⌥ Enter</kbd> で <code>java.io.File</code>、<code>java.nio.file.Files</code>、<code>java.nio.charset.StandardCharsets</code>、<code>java.io.IOException</code> を選びます。",
+      "translation": "Si <code>File</code>, <code>Files</code>, <code>StandardCharsets</code> ou <code>IOException</code> sont en rouge, utilisez <kbd>⌥ Enter</kbd> pour sélectionner <code>java.io.File</code>, <code>java.nio.file.Files</code>, <code>java.nio.charset.StandardCharsets</code> et <code>java.io.IOException</code>."
+    },
+    {
+      "source": "② show app.xmlボタンの処理を追加する",
+      "translation": "② Ajouter le traitement du bouton show app.xml"
+    },
+    {
+      "source": "clearの処理（<code>});</code> まで）の<strong>下</strong>に追加します。これでonCreateは完成です。",
+      "translation": "Ajoutez ce code <strong>sous</strong> le traitement de clear, après son <code>});</code>. onCreate sera alors terminé."
+    },
+    {
+      "source": "applyを押します。",
+      "translation": "Appuyez sur apply."
+    },
+    {
+      "source": "show app.xmlを押します。ファイルの場所と、中身のXMLが表示されます。",
+      "translation": "Appuyez sur show app.xml. Le chemin du fichier et son contenu XML apparaissent."
+    },
+    {
+      "source": "show app.xmlを押した画面。パスのあとに、mapタグの中にstring、boolean、set、float、long、intの各タグが並んだXMLが表示されている",
+      "translation": "Écran après un appui sur show app.xml. Après le chemin, le XML affiche les balises string, boolean, set, float, long et int dans la balise map"
+    },
+    {
+      "source": "applyのあと。保存した6つの値がタグになっています。 <a1>画像を大きく開く</a1>",
+      "translation": "Après apply. Les six valeurs enregistrées apparaissent sous forme de balises. <a1>Ouvrir l'image en grand</a1>"
+    },
+    {
+      "source": "読み取れること",
+      "translation": "Ce que vous pouvez y lire"
+    },
+    {
+      "source": "画面に出たもの",
+      "translation": "Élément affiché"
+    },
+    {
+      "source": "このアプリ専用の場所。ほかのアプリからは読めません。",
+      "translation": "Emplacement réservé à cette application. Les autres applications ne peuvent pas le lire."
+    },
+    {
+      "source": "<code>FILE_NAME = \"app\"</code> と書いたので <code>app.xml</code> になっています。",
+      "translation": "Le fichier s'appelle <code>app.xml</code> parce que vous avez écrit <code>FILE_NAME = \"app\"</code>."
+    },
+    {
+      "source": "<strong>キーがname、値がvalue</strong>。種類ごとにタグ名が違います（int / long / float / boolean / string / set）。",
+      "translation": "<strong>name contient la clé, value contient la valeur</strong>. Le nom de la balise dépend du type : int / long / float / boolean / string / set."
+    },
+    {
+      "source": "<code>&lt;set&gt;</code> の中の <code>&lt;string&gt;</code> が2つ",
+      "translation": "Deux balises <code>&lt;string&gt;</code> dans <code>&lt;set&gt;</code>"
+    },
+    {
+      "source": "<code>Set.of(\"Hello\", \"World\")</code> の2つが入っています。",
+      "translation": "Contient les deux éléments de <code>Set.of(\"Hello\", \"World\")</code>."
+    },
+    {
+      "source": "clearするとどうなるか",
+      "translation": "Que se passe-t-il avec clear ?"
+    },
+    {
+      "source": "clearを押します。",
+      "translation": "Appuyez sur clear."
+    },
+    {
+      "source": "もう一度show app.xmlを押します。",
+      "translation": "Appuyez de nouveau sur show app.xml."
+    },
+    {
+      "source": "clearしたあとにshow app.xmlを押した画面。同じパスのあとに、XML宣言とmapタグだけが表示されている",
+      "translation": "Écran après clear puis show app.xml. Après le même chemin, seuls la déclaration XML et la balise map sont affichés"
+    },
+    {
+      "source": "clearのあと。ファイルは残り、中身が空になります。 <a1>画像を大きく開く</a1>",
+      "translation": "Après clear. Le fichier reste présent, mais son contenu devient vide. <a1>Ouvrir l'image en grand</a1>"
+    },
+    {
+      "source": "<code>&lt;map /&gt;</code> だけになりました。<strong>ファイルそのものは消えず、中身が空になる</strong>ことがわかります。STEP 07で見た「消えた」と「初期値」の違いが、ここではっきりします。",
+      "translation": "Il ne reste que <code>&lt;map /&gt;</code>. Vous voyez que <strong>le fichier lui-même n'est pas supprimé ; son contenu devient vide</strong>. La différence entre « effacé » et « valeur par défaut » vue au STEP 07 devient claire ici."
+    },
+    {
+      "source": "<code>SharedPreferences</code> は<strong>小さくて単純な設定</strong>のための入れ物です。",
+      "translation": "<code>SharedPreferences</code> est un conteneur pour <strong>de petits réglages simples</strong>."
+    },
+    {
+      "source": "向いているもの",
+      "translation": "Usages adaptés"
+    },
+    {
+      "source": "向いていないもの",
+      "translation": "Usages inadaptés"
+    },
+    {
+      "source": "音量やダークモードの設定、最後に開いたタブ、チュートリアルを見たかどうか",
+      "translation": "Réglages du volume ou du mode sombre, dernier onglet ouvert, indication qu'un tutoriel a été consulté"
+    },
+    {
+      "source": "写真や動画（大きすぎる）",
+      "translation": "Photos et vidéos (trop volumineuses)"
+    },
+    {
+      "source": "ログイン中かどうかの目印",
+      "translation": "Indication qu'une session est ouverte"
+    },
+    {
+      "source": "何百件もの記録（一覧や検索にはデータベースを使う）",
+      "translation": "Des centaines d'enregistrements (utilisez une base de données pour les listes et les recherches)"
+    },
+    {
+      "source": "ゲームのハイスコア",
+      "translation": "Meilleur score d'un jeu"
+    },
+    {
+      "source": "パスワードやクレジットカード番号",
+      "translation": "Mots de passe et numéros de carte bancaire"
+    },
+    {
+      "source": "パスワードを入れてはいけない理由",
+      "translation": "Pourquoi ne pas y mettre de mots de passe ?"
+    },
+    {
+      "source": "いま見たとおり、中身は<strong>ただのXMLファイル</strong>です。暗号化されていません。ふつうの端末ではほかのアプリから読めませんが、それでも大事な情報を平文で置く場所ではありません。",
+      "translation": "Comme vous venez de le voir, il s'agit d'<strong>un simple fichier XML</strong>, sans chiffrement. Sur un appareil ordinaire, les autres applications ne peuvent pas le lire, mais ce n'est pas pour autant un endroit où stocker des informations importantes en clair."
+    },
+    {
+      "source": "app.xmlの中身を表示してキーと値を確かめ、clearでファイルが空になることも確かめた。",
+      "translation": "J'ai affiché le contenu d'app.xml pour vérifier les clés et les valeurs, et confirmé que clear vide le fichier."
+    },
+    {
+      "source": "次へ：ミニ練習 →",
+      "translation": "Suite : Mini-exercice →"
+    },
+    {
+      "source": "STEP 09 · 目安 15分",
+      "translation": "STEP 09 · Environ 15 min"
+    },
+    {
+      "source": "ミニ練習",
+      "translation": "Mini-exercice"
+    },
+    {
+      "source": "まずSTEP 08まで完成させます。そのあと、次の小変更を1つずつ試します。<strong>予想 → 変更 → Run → 説明 → 元に戻す</strong>の順で行います。",
+      "translation": "Terminez d'abord jusqu'au STEP 08. Essayez ensuite les petites modifications suivantes, une par une, dans cet ordre : <strong>Prévoir → Modifier → Run → Expliquer → Rétablir</strong>."
+    },
+    {
+      "source": "練習1：保存する値を変える",
+      "translation": "Exercice 1 : modifier les valeurs enregistrées"
+    },
+    {
+      "source": "applyの処理の2行を、次のように変えます。",
+      "translation": "Modifiez les deux lignes du traitement d'apply comme suit."
+    },
+    {
+      "source": "練習1 · 変更後の2行",
+      "translation": "Exercice 1 · Les deux lignes après modification"
+    },
+    {
+      "source": "applyを押したあと、show app.xmlを押すと、XMLのどこが変わるでしょうか。予想してから試します。",
+      "translation": "Si vous appuyez sur apply puis sur show app.xml, quelles parties du XML changent ? Prévoyez le résultat, puis essayez."
+    },
+    {
+      "source": "試したあとに答えを見る",
+      "translation": "Voir la réponse après avoir essayé"
+    },
+    {
+      "source": "<code>&lt;int name=\"int_value\" value=\"100\" /&gt;</code> と <code>&lt;string name=\"string_value\"&gt;Android&lt;/string&gt;</code> の2つが変わり、ほかの4つは同じです。キーは変えていないので、同じ名前の値が上書きされます。確認後は <code>1</code> と <code>\"Hello\"</code> に戻します。",
+      "translation": "Les deux éléments <code>&lt;int name=\"int_value\" value=\"100\" /&gt;</code> et <code>&lt;string name=\"string_value\"&gt;Android&lt;/string&gt;</code> changent ; les quatre autres restent identiques. Les clés n'ayant pas changé, les valeurs portant les mêmes noms sont remplacées. Après vérification, remettez <code>1</code> et <code>\"Hello\"</code>."
+    },
+    {
+      "source": "練習2：初期値を変える",
+      "translation": "Exercice 2 : modifier la valeur par défaut"
+    },
+    {
+      "source": "<code>currentValues()</code> の1行目を、次のように変えます（第2引数が <code>-1</code> です）。",
+      "translation": "Modifiez la première ligne de <code>currentValues()</code> comme suit : le deuxième argument est <code>-1</code>."
+    },
+    {
+      "source": "練習2 · 変更後の行",
+      "translation": "Exercice 2 · Ligne après modification"
+    },
+    {
+      "source": "clearを押したあと、<code>int_value</code> は何と表示されるでしょうか。applyを押したあとはどうでしょうか。予想してから試します。",
+      "translation": "Quelle valeur s'affiche pour <code>int_value</code> après clear ? Et après apply ? Prévoyez les résultats, puis essayez."
+    },
+    {
+      "source": "clearのあとは <code>int_value = -1</code>、applyのあとは <code>int_value = 1</code> です。初期値は<strong>データがないときだけ</strong>使われ、保存されていればその値が返ります。「0だから保存されていない」とは限らないこと、逆に「0が保存されている」こともあることを説明できれば十分です。確認後は <code>0</code> に戻します。",
+      "translation": "Après clear, vous obtenez <code>int_value = -1</code> ; après apply, <code>int_value = 1</code>. La valeur par défaut est utilisée <strong>uniquement en l'absence de données</strong>. Si une valeur est enregistrée, c'est elle qui est renvoyée. Il suffit de pouvoir expliquer que 0 ne signifie pas forcément qu'aucune donnée n'est enregistrée, et que 0 peut aussi être une valeur enregistrée. Après vérification, remettez <code>0</code>."
+    },
+    {
+      "source": "練習3：キーを直接書いて、打ち間違える",
+      "translation": "Exercice 3 : écrire la clé directement avec une faute de saisie"
+    },
+    {
+      "source": "<code>currentValues()</code> の1行目を、さらに次のように変えます（<code>_</code> がありません）。",
+      "translation": "Modifiez encore la première ligne de <code>currentValues()</code> comme suit : le <code>_</code> manque."
+    },
+    {
+      "source": "練習3 · 変更後の行",
+      "translation": "Exercice 3 · Ligne après modification"
+    },
+    {
+      "source": "赤いエラーは出るでしょうか。applyを押したあと、<code>int_value</code> は何と表示されるでしょうか。予想してから試します。",
+      "translation": "Une erreur rouge apparaîtra-t-elle ? Quelle valeur s'affichera pour <code>int_value</code> après apply ? Prévoyez les résultats, puis essayez."
+    },
+    {
+      "source": "赤いエラーは<strong>出ません</strong>。applyを押しても <code>int_value = 0</code> のままです。保存したキーは <code>\"int_value\"</code>、探したキーは <code>\"intvalue\"</code> で、見つからないため初期値の0が返るからです。show app.xmlを押すと <code>&lt;int name=\"int_value\" value=\"1\" /&gt;</code> はちゃんとあります。定数名を <code>INT_VALU</code> のように打ち間違えた場合は、すぐ赤いエラーになります。キーを定数にまとめる理由を説明できれば十分です。確認後は <code>INT_VALUE</code> に戻します。",
+      "translation": "<strong>Aucune</strong> erreur rouge n'apparaît. Même après apply, <code>int_value = 0</code> reste affiché. La clé enregistrée est <code>\"int_value\"</code>, mais celle recherchée est <code>\"intvalue\"</code>. Comme elle est introuvable, la valeur par défaut 0 est renvoyée. Avec show app.xml, <code>&lt;int name=\"int_value\" value=\"1\" /&gt;</code> est bien présent. En revanche, une faute dans le nom de constante, comme <code>INT_VALU</code>, provoque immédiatement une erreur rouge. Il suffit de pouvoir expliquer pourquoi les clés sont regroupées dans des constantes. Après vérification, remettez <code>INT_VALUE</code>."
+    },
+    {
+      "source": "3つの練習を試し、表示がどう変わるかを確かめてから、コードを元に戻した。",
+      "translation": "J'ai essayé les trois exercices, observé les changements d'affichage, puis rétabli le code."
+    },
+    {
+      "source": "次へ：完成 →",
+      "translation": "Suite : Terminé →"
+    },
+    {
+      "source": "STEP 10 · 目安 15分",
+      "translation": "STEP 10 · Durée indicative : 15 min"
+    },
+    {
+      "source": "完成",
+      "translation": "Terminé"
+    },
+    {
+      "source": "完成チェック",
+      "translation": "Vérification finale"
+    },
+    {
+      "source": "上から順に操作します。保存したデータが残っていると、起動したときに初期値が出ないので、アプリを消してから始めます。消し方は<a1>共通資料：エミュレータ</a1>の「アプリを消す」にあります。",
+      "translation": "Effectuez les opérations de haut en bas. Si des données enregistrées restent présentes, les valeurs par défaut n'apparaîtront pas au lancement : commencez donc par supprimer l'application. La procédure se trouve dans « Supprimer l'application » du <a1>Guide commun : Émulateur</a1>."
+    },
+    {
+      "source": "<strong>アプリを終了する</strong>やり方は、STEP 06の②と同じです。",
+      "translation": "Pour <strong>fermer l'application</strong>, procédez comme au STEP 06②."
+    },
+    {
+      "source": "操作",
+      "translation": "Action"
+    },
+    {
+      "source": "確認する結果",
+      "translation": "Résultat à vérifier"
+    },
+    {
+      "source": "アプリを消してから初回起動",
+      "translation": "Premier lancement après la suppression de l'application"
+    },
+    {
+      "source": "6行が初期値（<code>0</code> / 空 / <code>false</code> / <code>0.0</code> / <code>0</code> / <code>[]</code>）で表示される。",
+      "translation": "Les six lignes affichent les valeurs par défaut : <code>0</code> / vide / <code>false</code> / <code>0.0</code> / <code>0</code> / <code>[]</code>."
+    },
+    {
+      "source": "6行が <code>1</code> / <code>Hello</code> / <code>true</code> / <code>1.0</code> / <code>1</code> / <code>[Hello, World]</code> に変わる。",
+      "translation": "Les six lignes deviennent <code>1</code> / <code>Hello</code> / <code>true</code> / <code>1.0</code> / <code>1</code> / <code>[Hello, World]</code>."
+    },
+    {
+      "source": "applyのあとと同じ6行が出る。",
+      "translation": "Les mêmes six lignes qu'après apply s'affichent."
+    },
+    {
+      "source": "アプリを終了して開き直す",
+      "translation": "Fermer puis rouvrir l'application"
+    },
+    {
+      "source": "起動しただけで、applyで保存した値が出る。",
+      "translation": "Les valeurs enregistrées avec apply s'affichent dès le lancement."
+    },
+    {
+      "source": "パスと、6つのタグが入ったXMLが出る。",
+      "translation": "Le chemin et le XML contenant les six balises s'affichent."
+    },
+    {
+      "source": "6行が初期値に戻る。",
+      "translation": "Les six lignes reviennent aux valeurs par défaut."
+    },
+    {
+      "source": "clearのあとにshow app.xml",
+      "translation": "show app.xml après clear"
+    },
+    {
+      "source": "<code>&lt;map /&gt;</code> だけになる。",
+      "translation": "Il ne reste que <code>&lt;map /&gt;</code>."
+    },
+    {
+      "source": "保存",
+      "translation": "Enregistrement"
+    },
+    {
+      "source": "Android Studioは、書いたコードを自動でファイルに保存します。保存の操作は要りません。ここでは、保存された場所を確かめます。",
+      "translation": "Android Studio enregistre automatiquement le code dans les fichiers. Vous n'avez aucune opération de sauvegarde à effectuer. Vérifiez ici l'emplacement des fichiers enregistrés."
+    },
+    {
+      "source": "Finderを開き、左側の <strong>書類</strong>（<code>Documents</code>）をクリックします。",
+      "translation": "Ouvrez le Finder et cliquez sur <strong>書類</strong> (<code>Documents</code>) à gauche."
+    },
+    {
+      "source": "その中の <code>Android1</code> フォルダを開き、<code>A08SharedPreferencesSample</code> フォルダがあることを確かめます。",
+      "translation": "Ouvrez le dossier <code>Android1</code> à l'intérieur et vérifiez qu'il contient le dossier <code>A08SharedPreferencesSample</code>."
+    },
+    {
+      "source": "この <code>Documents/Android1/A08SharedPreferencesSample</code> フォルダが、自分で作ったアプリです。あとの授業でもう一度開けるように、消したり、別の場所へ移動したり、名前を変えたりせずに、そのまま残します。",
+      "translation": "Ce dossier <code>Documents/Android1/A08SharedPreferencesSample</code> contient l'application que vous avez créée. Conservez-le tel quel, sans le supprimer, le déplacer ni le renommer, pour pouvoir le rouvrir lors d'un prochain cours."
+    },
+    {
+      "source": "教材のチェックは自分用です。先生への送信はしません。印刷は <kbd>⌘ P</kbd> で行えます。",
+      "translation": "Les cases du manuel servent à votre propre suivi. Elles ne sont pas envoyées à l'enseignant. Vous pouvez imprimer avec <kbd>⌘ P</kbd>."
+    },
+    {
+      "source": "完成チェックの操作をすべて試し、表のとおりの結果になった。",
+      "translation": "J'ai essayé toutes les actions de la vérification finale et obtenu les résultats indiqués dans le tableau."
+    },
+    {
+      "source": "困ったこと",
+      "translation": "Difficulté"
+    },
+    {
+      "source": "最初に確認する場所",
+      "translation": "Premier point à vérifier"
+    },
+    {
+      "source": "<code>SharedPreferences</code> が赤い",
+      "translation": "<code>SharedPreferences</code> est en rouge"
+    },
+    {
+      "source": "<kbd>⌥ Enter</kbd> で <code>android.content.SharedPreferences</code> を選ぶ。",
+      "translation": "Avec <kbd>⌥ Enter</kbd>, sélectionnez <code>android.content.SharedPreferences</code>."
+    },
+    {
+      "source": "<code>Set</code>、<code>File</code>、<code>Files</code>、<code>StandardCharsets</code>、<code>IOException</code>、<code>TextView</code> が赤い",
+      "translation": "<code>Set</code>, <code>File</code>, <code>Files</code>, <code>StandardCharsets</code>, <code>IOException</code> et <code>TextView</code> sont en rouge"
+    },
+    {
+      "source": "<kbd>⌥ Enter</kbd> で <code>java.util.Set</code>、<code>java.io.File</code>、<code>java.nio.file.Files</code>、<code>java.nio.charset.StandardCharsets</code>、<code>java.io.IOException</code>、<code>android.widget.TextView</code> を選ぶ。",
+      "translation": "Avec <kbd>⌥ Enter</kbd>, sélectionnez <code>java.util.Set</code>, <code>java.io.File</code>, <code>java.nio.file.Files</code>, <code>java.nio.charset.StandardCharsets</code>, <code>java.io.IOException</code> et <code>android.widget.TextView</code>."
+    },
+    {
+      "source": "<code>R.id.btn_apply</code> などが赤い",
+      "translation": "<code>R.id.btn_apply</code> ou d'autres noms sont en rouge"
+    },
+    {
+      "source": "activity_main.xmlのidが <code>btn_apply</code> / <code>btn_get</code> / <code>btn_clear</code> / <code>btn_xml</code> / <code>txt_output</code> か確認。<code>android:id=\"@+id/main\"</code> を消していないかも見る。",
+      "translation": "Vérifiez que les id d'activity_main.xml sont <code>btn_apply</code> / <code>btn_get</code> / <code>btn_clear</code> / <code>btn_xml</code> / <code>txt_output</code>. Vérifiez aussi que <code>android:id=\"@+id/main\"</code> n'a pas été supprimé."
+    },
+    {
+      "source": "<code>currentValues()</code> や <code>readPrefsXml()</code> を追加したら、赤いエラーがたくさん出る",
+      "translation": "De nombreuses erreurs rouges apparaissent après l'ajout de <code>currentValues()</code> ou <code>readPrefsXml()</code>"
+    },
+    {
+      "source": "onCreateの中に入れていないか確認。onCreateの最後の <code>}</code> の下、クラスの最後の <code>}</code> の上に置く。",
+      "translation": "Vérifiez que ces méthodes ne sont pas dans onCreate. Placez-les sous la dernière <code>}</code> d'onCreate et au-dessus de la dernière <code>}</code> de la classe."
+    },
+    {
+      "source": "<code>prefs</code> が赤い、またはnullでアプリが終了する",
+      "translation": "<code>prefs</code> est en rouge ou vaut null et l'application se ferme"
+    },
+    {
+      "source": "STEP 03の <code>prefs = getSharedPreferences(FILE_NAME, MODE_PRIVATE);</code> を書いたか、<code>txtOutput.setText(currentValues());</code> より<strong>上</strong>にあるか確認する。",
+      "translation": "Vérifiez que vous avez écrit <code>prefs = getSharedPreferences(FILE_NAME, MODE_PRIVATE);</code> au STEP 03 et que cette ligne est <strong>au-dessus</strong> de <code>txtOutput.setText(currentValues());</code>."
+    },
+    {
+      "source": "<code>txtOutput</code> が赤い（applyなどの中）",
+      "translation": "<code>txtOutput</code> est en rouge dans apply ou un autre traitement"
+    },
+    {
+      "source": "<code>var txtOutput = (TextView) findViewById(R.id.txt_output);</code> をonCreateの中に書いたか確認する。",
+      "translation": "Vérifiez que <code>var txtOutput = (TextView) findViewById(R.id.txt_output);</code> est écrit dans onCreate."
+    },
+    {
+      "source": "ボタンを押しても何も起きない",
+      "translation": "Appuyer sur un bouton ne produit aucun effet"
+    },
+    {
+      "source": "そのボタンの処理を追加したか、<code>R.id</code> の名前を取り違えていないか確認する。",
+      "translation": "Vérifiez que vous avez ajouté le traitement de ce bouton et utilisé le bon nom dans <code>R.id</code>."
+    },
+    {
+      "source": "applyを押しても値が変わらない",
+      "translation": "Les valeurs ne changent pas après apply"
+    },
+    {
+      "source": "<code>editor.apply();</code> を書いたか確認する。putだけでは保存されない。",
+      "translation": "Vérifiez que vous avez écrit <code>editor.apply();</code>. Les appels put seuls n'enregistrent rien."
+    },
+    {
+      "source": "アプリを終了すると値が消える",
+      "translation": "Les valeurs disparaissent à la fermeture de l'application"
+    },
+    {
+      "source": "アプリのデータを消していないか確認する（設定 → アプリ → ストレージを消去）。エミュレータを作り直した場合も消える。",
+      "translation": "Vérifiez que vous n'avez pas effacé les données de l'application : 設定 → アプリ → ストレージを消去 (Paramètres → Applications → Effacer le stockage). Recréer l'émulateur les efface également."
+    },
+    {
+      "source": "show app.xmlで <code>(file not found)</code> と出る",
+      "translation": "show app.xml affiche <code>(file not found)</code>"
+    },
+    {
+      "source": "まだ一度もapplyしていない状態。applyを押してから、もう一度show app.xmlを押す。",
+      "translation": "Vous n'avez encore jamais utilisé apply. Appuyez sur apply, puis de nouveau sur show app.xml."
+    },
+    {
+      "source": "clearしたのに <code>int_value = 0</code> と出る",
+      "translation": "<code>int_value = 0</code> apparaît malgré clear"
+    },
+    {
+      "source": "正常です。データが消えたので、初期値の0が返っています（STEP 07）。",
+      "translation": "C'est normal. Les données ont été effacées, la valeur par défaut 0 est donc renvoyée (STEP 07)."
+    },
+    {
+      "source": "<code>string_set_value</code> の並びが画像と違う",
+      "translation": "L'ordre de <code>string_set_value</code> diffère de l'image"
+    },
+    {
+      "source": "正常です。<code>Set</code> は順番を約束しません。",
+      "translation": "C'est normal. Un <code>Set</code> ne garantit pas l'ordre."
+    },
+    {
+      "source": "表示欄の文字が画面の下からはみ出す",
+      "translation": "Le texte de la zone d'affichage dépasse en bas de l'écran"
+    },
+    {
+      "source": "activity_main.xmlの <code>txt_output</code> が <code>layout_height=\"0dp\"</code> と <code>layout_weight=\"1\"</code> になっているか確認する。",
+      "translation": "Dans activity_main.xml, vérifiez que <code>txt_output</code> a <code>layout_height=\"0dp\"</code> et <code>layout_weight=\"1\"</code>."
+    },
+    {
+      "source": "ボタンを押すたびにボタンの位置が動く",
+      "translation": "Les boutons se déplacent à chaque appui"
+    },
+    {
+      "source": "同上。<code>wrap_content</code> のままだと、表示する文字の量で位置が変わる。",
+      "translation": "Même vérification que ci-dessus. Avec <code>wrap_content</code>, leur position change selon la quantité de texte affichée."
+    },
+    {
+      "source": "直したのに動きが変わらない",
+      "translation": "Le comportement ne change pas après une correction"
+    },
+    {
+      "source": "ウィンドウの保存先が <code>Documents/Android1/A08SharedPreferencesSample</code> か確認する。samples側を開いていないか見る。",
+      "translation": "Vérifiez que la fenêtre correspond au chemin <code>Documents/Android1/A08SharedPreferencesSample</code>. Vérifiez que vous n'avez pas ouvert le projet dans samples."
+    },
+    {
+      "source": "質問では「STEP番号・編集したファイル・最初の赤い行・押した順番」を伝えます。",
+      "translation": "Pour poser une question, indiquez « le numéro du STEP, le fichier modifié, la première ligne rouge et l'ordre des boutons pressés »."
+    },
+    {
+      "source": "完成版は最初の授業から使える見本です。教科書といっしょに配られた<strong>教材のフォルダ</strong>に、そのまま開ける形で入っています。ダウンロードも展開も要りません。",
+      "translation": "La version terminée est un modèle utilisable dès le premier cours. Elle se trouve, prête à ouvrir, dans le <strong>dossier des supports de cours</strong> distribué avec le manuel. Aucun téléchargement ni extraction n'est nécessaire."
+    },
+    {
+      "source": "Android Studioの <strong>Open</strong>（プロジェクトを開いているときは <strong>File → Open</strong>）で、<strong>書類</strong>（<code>Documents</code>）にある教材のフォルダを開きます。名前は <code>android1-student-materials-</code> のうしろに日付が付いた形で、日付は配られた回によって変わります。いま読んでいるこの教科書が入っているフォルダです。",
+      "translation": "Avec <strong>Open</strong> dans Android Studio (ou <strong>File → Open</strong> si un projet est ouvert), ouvrez le dossier des supports de cours dans <strong>書類</strong> (<code>Documents</code>). Son nom commence par <code>android1-student-materials-</code> suivi d'une date, qui varie selon la distribution. Il s'agit du dossier contenant le manuel que vous lisez actuellement."
+    },
+    {
+      "source": "その中を <code>samples → A08SharedPreferencesSample</code> の順に開き、<code>settings.gradle.kts</code> と <code>app</code> が入った <code>A08SharedPreferencesSample</code> フォルダを選びます。",
+      "translation": "Ouvrez <code>samples → A08SharedPreferencesSample</code> dans cet ordre, puis sélectionnez le dossier <code>A08SharedPreferencesSample</code> contenant <code>settings.gradle.kts</code> et <code>app</code>."
+    },
+    {
+      "source": "Sync後にRunして動きを確認します。授業の入力に戻るときは自分の <code>Documents/Android1/A08SharedPreferencesSample</code> を開きます。",
+      "translation": "Après Sync, utilisez Run pour vérifier le comportement. Pour reprendre la saisie du cours, ouvrez votre propre <code>Documents/Android1/A08SharedPreferencesSample</code>."
+    },
+    {
+      "source": "両方とも同じプロジェクト名なので、ウィンドウの保存先を確認しましょう。見本と自分のアプリは同じパッケージ名のため、端末上では同じアプリを更新します。<strong>保存したデータも共有されます</strong>。切り替えるときは、確認したい方のプロジェクトからRunします。",
+      "translation": "Les deux projets portent le même nom : vérifiez le chemin de la fenêtre. L'exemple et votre application portent le même nom de package, ils mettent donc à jour la même application sur l'appareil. <strong>Les données enregistrées sont aussi partagées</strong>. Pour passer de l'un à l'autre, utilisez Run depuis le projet à vérifier."
+    },
+    {
+      "source": "教材のフォルダが手元にないときは、同じ見本をZIPで受け取れます（<a1>A08SharedPreferencesSample.zip</a1>）。展開してできた <code>A08SharedPreferencesSample</code> フォルダを、同じようにOpenで選びます。",
+      "translation": "Si vous n'avez pas le dossier des supports de cours, vous pouvez obtenir le même exemple en ZIP (<a1>A08SharedPreferencesSample.zip</a1>). Sélectionnez de la même manière avec Open le dossier <code>A08SharedPreferencesSample</code> obtenu après décompression."
+    },
+    {
+      "source": "完成したMainActivity.javaで照合する",
+      "translation": "Comparer avec le MainActivity.java terminé"
+    },
+    {
+      "source": "完成版 · MainActivity.java",
+      "translation": "Version terminée · MainActivity.java"
+    },
+    {
+      "source": "完成したactivity_main.xmlで照合する",
+      "translation": "Comparer avec le activity_main.xml terminé"
+    },
+    {
+      "source": "完成版 · activity_main.xml",
+      "translation": "Version terminée · activity_main.xml"
+    },
+    {
+      "source": "Androidプログラミング1 · A08SharedPreferencesSample / 本文・画像・操作機能はオフラインで利用できます。Android Studioの初回準備・ビルドと公式資料の閲覧にはネット接続が必要です。",
+      "translation": "Programmation Android 1 · A08SharedPreferencesSample / Le texte, les images et les fonctions du manuel sont utilisables hors ligne. Une connexion Internet est nécessaire pour la préparation initiale et le build dans Android Studio ainsi que pour consulter la documentation officielle."
+    },
+    {
+      "source": "画像は授業用の提供資料を使用。",
+      "translation": "Les images sont fournies pour le cours."
+    }
+  ]
+}
