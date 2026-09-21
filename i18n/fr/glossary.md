@@ -129,3 +129,4 @@
 | 窓口（Dao） | point d'accès | |
 | リスナ | écouteur | |
 | 三項演算子 | opérateur ternaire | |
+| 薄く出る（hintの文字） | estompé | 色を足さない。`gris` / `grisé` は「押せない・無効」の意味で使っているので避ける |
