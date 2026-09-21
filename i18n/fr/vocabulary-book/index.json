@@ -1,0 +1,1314 @@
+{
+  "source": "docs/vocabulary-book/index.html",
+  "language": "fr",
+  "entries": [
+    {
+      "source": "JavaとXMLで作るA11VocabularyBook。A10で学んだRoomを2つの画面で共有し、LiveDataで一覧が自動で最新になる単語帳アプリを作る授業用教科書。",
+      "translation": "A11VocabularyBook en Java et XML. Manuel de cours pour créer un carnet de vocabulaire qui partage entre deux écrans la base Room étudiée en A10 et actualise automatiquement la liste avec LiveData."
+    },
+    {
+      "source": "VocabularyBook — 2つの画面でデータを共有しよう | Androidプログラミング1",
+      "translation": "VocabularyBook — Partageons des données entre deux écrans | Programmation Android 1"
+    },
+    {
+      "source": "本文へ移動",
+      "translation": "Aller au contenu principal"
+    },
+    {
+      "source": "JEC / Androidプログラミング1",
+      "translation": "JEC / Programmation Android 1"
+    },
+    {
+      "source": "CONTENTS / 学習の順番",
+      "translation": "CONTENTS / Ordre d'apprentissage"
+    },
+    {
+      "source": "学習ステップ",
+      "translation": "Étapes d'apprentissage"
+    },
+    {
+      "source": "00　今日のゴール",
+      "translation": "00 Objectif du jour"
+    },
+    {
+      "source": "01　プロジェクトを作って実行",
+      "translation": "01 Créer et exécuter le projet"
+    },
+    {
+      "source": "02　画像とRoomの準備",
+      "translation": "02 Préparer les images et Room"
+    },
+    {
+      "source": "03　データベースの3ファイルを作る",
+      "translation": "03 Créer les trois fichiers de la base de données"
+    },
+    {
+      "source": "04　メニュー画面を作る",
+      "translation": "04 Créer l'écran de menu"
+    },
+    {
+      "source": "05　単語を追加する画面を作る",
+      "translation": "05 Créer l'écran d'ajout de mots"
+    },
+    {
+      "source": "06　カード画面を作る",
+      "translation": "06 Créer l'écran des cartes"
+    },
+    {
+      "source": "07　完成",
+      "translation": "07 Terminer"
+    },
+    {
+      "source": "0 / 8 ステップ確認済み",
+      "translation": "0 / 8 étapes vérifiées"
+    },
+    {
+      "source": "学習の進み具合",
+      "translation": "Progression de l'apprentissage"
+    },
+    {
+      "source": "自分用のチェックです。",
+      "translation": "Ces cases servent à votre propre suivi."
+    },
+    {
+      "source": "困ったとき",
+      "translation": "En cas de difficulté"
+    },
+    {
+      "source": "解説：LiveDataは何が便利か",
+      "translation": "Explication : quel est l'intérêt de LiveData ?"
+    },
+    {
+      "source": "完成プロジェクトを開く",
+      "translation": "Ouvrir le projet terminé"
+    },
+    {
+      "source": "共通：はじめの準備",
+      "translation": "Guide commun : Préparation initiale"
+    },
+    {
+      "source": "共通：エミュレータ",
+      "translation": "Guide commun : Émulateur"
+    },
+    {
+      "source": "共通：Auto Import",
+      "translation": "Guide commun : Auto Import"
+    },
+    {
+      "source": "共通：Logcat",
+      "translation": "Guide commun : Logcat"
+    },
+    {
+      "source": "共通：APKの提出",
+      "translation": "Guide commun : Remise de l'APK"
+    },
+    {
+      "source": "共通：開発Tips",
+      "translation": "Guide commun : Conseils de développement"
+    },
+    {
+      "source": "共通：Android Studioのバージョン",
+      "translation": "Guide commun : Version d'Android Studio"
+    },
+    {
+      "source": "2つの画面で<br>データを共有しよう",
+      "translation": "Partageons des données<br>entre deux écrans"
+    },
+    {
+      "source": "A10では1つの画面でRoomを使いました。<br>今回は<strong>画面を2つ</strong>にして、片方で登録した単語を、もう片方がすぐ使えるようにします。",
+      "translation": "En A10, vous avez utilisé Room sur un seul écran.<br>Cette fois, vous utiliserez <strong>deux écrans</strong> : les mots enregistrés sur l'un seront immédiatement utilisables sur l'autre."
+    },
+    {
+      "source": "A10の次の単元",
+      "translation": "Unité suivant A10"
+    },
+    {
+      "source": "90分 × 1コマ目安",
+      "translation": "Environ 1 séance de 90 minutes"
+    },
+    {
+      "source": "Macで学ぶ",
+      "translation": "Apprendre sur Mac"
+    },
+    {
+      "source": "STEP 00 · 目安 5分",
+      "translation": "STEP 00 · Durée indicative : 5 min"
+    },
+    {
+      "source": "今日のゴール",
+      "translation": "Objectif du jour"
+    },
+    {
+      "source": "英単語と日本語を登録して、カードでめくって覚える単語帳アプリを作ります。画面は3つです。",
+      "translation": "Vous allez créer un carnet de vocabulaire pour enregistrer des mots anglais avec leur traduction japonaise et les mémoriser en parcourant des cartes. Il comporte trois écrans."
+    },
+    {
+      "source": "ENGLISHのロゴ画像と、単語帳画面へ・単語を追加するの2つのボタンが並んだメニュー画面",
+      "translation": "Écran de menu avec le logo ENGLISH et les boutons 単語帳画面へ (ouvrir les cartes) et 単語を追加する (ajouter un mot)"
+    },
+    {
+      "source": "メニュー画面。ここから2つの画面へ行きます。 <a1>画像を大きく開く</a1>",
+      "translation": "Écran de menu. Il permet d'accéder aux deux autres écrans. <a1>Ouvrir l'image en grand</a1>"
+    },
+    {
+      "source": "英単語と日本語の入力欄、追加するボタン、登録ずみの単語としてapple・study・libraryの3行が表示されている画面",
+      "translation": "Écran avec les champs de saisie du mot anglais et du japonais, le bouton 追加する (Ajouter) et trois lignes, apple, study et library, sous 登録ずみの単語 (mots enregistrés)"
+    },
+    {
+      "source": "単語を追加する画面。下に登録ずみの単語が出ます。 <a1>画像を大きく開く</a1>",
+      "translation": "Écran d'ajout de mots. Les mots déjà enregistrés apparaissent en dessous. <a1>Ouvrir l'image en grand</a1>"
+    },
+    {
+      "source": "1問目/全3問中とappleが表示され、答えを表示するボタンと前へ・次へのボタンが並んだカード画面。前へは押せない状態",
+      "translation": "Écran des cartes affichant 1問目/全3問中 (question 1 sur 3) et apple, avec les boutons 答えを表示する (afficher la réponse), 前へ (précédent) et 次へ (suivant). 前へ (précédent) est désactivé"
+    },
+    {
+      "source": "カード画面。答えはまだ隠れています。 <a1>画像を大きく開く</a1>",
+      "translation": "Écran des cartes. La réponse est encore cachée. <a1>Ouvrir l'image en grand</a1>"
+    },
+    {
+      "source": "答えを表示するを押したあと、appleの下にりんごが表示され、ボタンが答えを非表示にするに変わっている画面",
+      "translation": "Après un appui sur 答えを表示する (afficher la réponse), りんご (pomme) apparaît sous apple et le bouton devient 答えを非表示にする (masquer la réponse)"
+    },
+    {
+      "source": "答えを表示したところ。 <a1>画像を大きく開く</a1>",
+      "translation": "Après l'affichage de la réponse. <a1>Ouvrir l'image en grand</a1>"
+    },
+    {
+      "source": "できるようになること",
+      "translation": "Ce que vous saurez faire"
+    },
+    {
+      "source": "3つの画面を行き来できる。",
+      "translation": "Naviguer entre trois écrans."
+    },
+    {
+      "source": "同じ英単語を2回登録できないようにできる。",
+      "translation": "Empêcher l'enregistrement d'un même mot anglais deux fois."
+    },
+    {
+      "source": "登録した単語を、別の画面のカードとして表示できる。",
+      "translation": "Afficher les mots enregistrés sous forme de cartes sur un autre écran."
+    },
+    {
+      "source": "<strong>単語を追加したとき、一覧を出し直す処理を書かなくても表示が変わる</strong>仕組みを説明できる。",
+      "translation": "Expliquer le mécanisme qui <strong>actualise l'affichage lorsqu'un mot est ajouté, sans écrire de traitement pour réafficher la liste</strong>."
+    },
+    {
+      "source": "今日使う技術",
+      "translation": "Techniques utilisées aujourd'hui"
+    },
+    {
+      "source": "技術",
+      "translation": "Technique"
+    },
+    {
+      "source": "どこで使うか",
+      "translation": "Utilisation"
+    },
+    {
+      "source": "学んだ単元",
+      "translation": "Unité où la technique a été étudiée"
+    },
+    {
+      "source": "画面の追加と行き来",
+      "translation": "Ajouter des écrans et naviguer entre eux"
+    },
+    {
+      "source": "メニュー画面から2つの画面を開く。",
+      "translation": "Ouvrir deux écrans depuis le menu."
+    },
+    {
+      "source": "単語を保存する。",
+      "translation": "Enregistrer les mots."
+    },
+    {
+      "source": "入力が空のときと、同じ単語のときに知らせる。",
+      "translation": "Signaler une saisie vide ou un mot déjà présent."
+    },
+    {
+      "source": "単語が増えたときに、自動で表示を変える。<strong>今回の新顔です。</strong>",
+      "translation": "Actualiser automatiquement l'affichage lors de l'ajout d'un mot. <strong>C'est la nouveauté de cette unité.</strong>"
+    },
+    {
+      "source": "新しく覚えることは <strong><code>LiveData</code></strong> だけです。残りはA06・A07・A10で使ったものを組み合わせます。",
+      "translation": "La seule nouveauté à apprendre est <strong><code>LiveData</code></strong>. Pour le reste, vous combinerez les éléments utilisés en A06, A07 et A10."
+    },
+    {
+      "source": "A10では、保存したあとに毎回この1行を書きました。",
+      "translation": "En A10, vous avez écrit cette ligne après chaque enregistrement."
+    },
+    {
+      "source": "画面が1つならこれで足ります。<strong>画面が2つになると困ります。</strong>単語を追加する画面で保存しても、カード画面は「保存された」ことを知りません。書き忘れると、古い内容が出たままになります。",
+      "translation": "Cela suffit avec un seul écran. <strong>Avec deux écrans, un problème apparaît.</strong> Même si l'écran d'ajout enregistre un mot, l'écran des cartes ne sait pas qu'un enregistrement a eu lieu. Si vous oubliez cette ligne, l'ancien contenu reste affiché."
+    },
+    {
+      "source": "<code>LiveData</code> は、<strong>データが変わったことを、見張っている画面に自分から知らせる</strong>仕組みです。一度 <code>observe</code> しておけば、あとは保存するだけで表示が変わります。",
+      "translation": "<code>LiveData</code> est un mécanisme qui <strong>prévient lui-même les écrans observateurs lorsque les données changent</strong>. Après avoir appelé <code>observe</code> une fois, il suffit d'enregistrer pour que l'affichage change."
+    },
+    {
+      "source": "A10のやり方",
+      "translation": "Méthode d'A10"
+    },
+    {
+      "source": "LiveData（今回）",
+      "translation": "LiveData (cette unité)"
+    },
+    {
+      "source": "保存したあと",
+      "translation": "Après l'enregistrement"
+    },
+    {
+      "source": "<code>setText</code> を自分で書く",
+      "translation": "Écrire soi-même <code>setText</code>"
+    },
+    {
+      "source": "書かない",
+      "translation": "Ne rien écrire"
+    },
+    {
+      "source": "書き忘れると",
+      "translation": "Si vous oubliez de l'écrire"
+    },
+    {
+      "source": "古い表示のまま残る",
+      "translation": "L'ancien affichage reste présent"
+    },
+    {
+      "source": "起きない",
+      "translation": "Cela ne se produit pas"
+    },
+    {
+      "source": "画面が2つのとき",
+      "translation": "Avec deux écrans"
+    },
+    {
+      "source": "どちらの画面にも書く必要がある",
+      "translation": "Il faut l'écrire dans les deux écrans"
+    },
+    {
+      "source": "見張っている画面がすべて変わる",
+      "translation": "Tous les écrans observateurs sont actualisés"
+    },
+    {
+      "source": "ここで止まって、確認",
+      "translation": "Arrêtez-vous ici et vérifiez"
+    },
+    {
+      "source": "メニュー画面・単語を追加する画面・カード画面の3つを画像で確かめ、A10のやり方とLiveDataの違いを表で確認した。",
+      "translation": "J'ai observé les images du menu, de l'écran d'ajout et des cartes, puis vérifié dans le tableau la différence entre la méthode d'A10 et LiveData."
+    },
+    {
+      "source": "できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。",
+      "translation": "Cochez une fois terminé. En cas de difficulté, montrez le numéro du STEP et votre écran à l'enseignant."
+    },
+    {
+      "source": "次へ：プロジェクトを作って実行 →",
+      "translation": "Suite : Créer et exécuter le projet →"
+    },
+    {
+      "source": "STEP 01 · 目安 10分",
+      "translation": "STEP 01 · Environ 10 min"
+    },
+    {
+      "source": "プロジェクトを作って実行",
+      "translation": "Créer et exécuter le projet"
+    },
+    {
+      "source": "授業環境はMacと <strong>Android Studio Panda 2 | 2025.3.2</strong> です。A10までとは別のプロジェクトを作ります。",
+      "translation": "L'environnement du cours est un Mac avec <strong>Android Studio Panda 2 | 2025.3.2</strong>. Créez un projet distinct de ceux des unités jusqu'à A10."
+    },
+    {
+      "source": "毎回、自分で新規作成します",
+      "translation": "Créez vous-même un nouveau projet à chaque fois"
+    },
+    {
+      "source": "作る場所は <code>Documents/Android1/A11VocabularyBook</code> です。<a1>完成プロジェクト</a1>は答え合わせ用で、授業の入力は自分で作ったプロジェクトに書きます。",
+      "translation": "Créez-le dans <code>Documents/Android1/A11VocabularyBook</code>. Le <a1>projet terminé</a1> sert à vérifier votre travail ; saisissez le code du cours dans votre propre projet."
+    },
+    {
+      "source": "Android Studioの <strong>New Project</strong> をクリックします。別のプロジェクトを開いているときは <strong>File → New → New Project</strong> を選びます。",
+      "translation": "Cliquez sur <strong>New Project</strong> dans Android Studio. Si un autre projet est ouvert, choisissez <strong>File → New → New Project</strong>."
+    },
+    {
+      "source": "<strong>Phone and Tablet → Empty Views Activity → Next</strong> の順に選びます。名前に <strong>Views</strong> があることを確認します。",
+      "translation": "Sélectionnez successivement <strong>Phone and Tablet → Empty Views Activity → Next</strong>. Vérifiez que le nom contient <strong>Views</strong>."
+    },
+    {
+      "source": "テンプレート一覧でEmpty Views Activityが選択されている",
+      "translation": "Empty Views Activity est sélectionné dans la liste des modèles"
+    },
+    {
+      "source": "Empty Views Activityを選択。Empty Activityとは別です。 <a1>画像を大きく開く</a1>",
+      "translation": "Sélectionnez Empty Views Activity. Il est différent d'Empty Activity. <a1>Ouvrir l'image en grand</a1>"
+    },
+    {
+      "source": "次の表のとおりに入力・選択して <strong>Finish</strong> を押します。",
+      "translation": "Saisissez et sélectionnez les valeurs du tableau suivant, puis cliquez sur <strong>Finish</strong>."
+    },
+    {
+      "source": "項目",
+      "translation": "Élément"
+    },
+    {
+      "source": "入力・選択する内容",
+      "translation": "Valeur à saisir ou à sélectionner"
+    },
+    {
+      "source": "<code>jp.ac.jec.a11vocabularybook</code>（すべて小文字）",
+      "translation": "<code>jp.ac.jec.a11vocabularybook</code> (tout en minuscules)"
+    },
+    {
+      "source": "A11VocabularyBookの新規設定。パッケージjp.ac.jec.a11vocabularybook、Java、API 31、Kotlin DSL",
+      "translation": "Réglages du nouveau projet A11VocabularyBook : package jp.ac.jec.a11vocabularybook, Java, API 31, Kotlin DSL"
+    },
+    {
+      "source": "入力後の画面。画像の保存先は先生の例です。自分の <code>Documents/Android1/A11VocabularyBook</code> に読み替えます。 <a1>画像を大きく開く</a1>",
+      "translation": "Écran après la saisie. Le chemin de l'image est l'exemple de l'enseignant. Remplacez-le par votre propre <code>Documents/Android1/A11VocabularyBook</code>. <a1>Ouvrir l'image en grand</a1>"
+    },
+    {
+      "source": "Sync（歯車の読み込み）が終わるまで待ちます。",
+      "translation": "Attendez la fin de Sync (chargement avec l'engrenage)."
+    },
+    {
+      "source": "端末欄で <strong>jec_26cm_android1_Pixel 9a</strong> を選び、<strong>Run</strong>（▶）を押します。白い画面に <strong>Hello World!</strong> が出れば成功です。",
+      "translation": "Dans le champ de l'appareil, sélectionnez <strong>jec_26cm_android1_Pixel 9a</strong>, puis cliquez sur <strong>Run</strong> (▶). Si <strong>Hello World!</strong> apparaît sur un écran blanc, l'opération a réussi."
+    },
+    {
+      "source": "エミュレータが出てこないときは<a1>共通資料：エミュレータ</a1>を見ます。",
+      "translation": "Si l'émulateur n'apparaît pas, consultez le <a1>Guide commun : Émulateur</a1>."
+    },
+    {
+      "source": "自分の保存先にA11VocabularyBookを作り、Hello World!を表示できた。",
+      "translation": "J'ai créé A11VocabularyBook à mon emplacement et affiché Hello World!."
+    },
+    {
+      "source": "次へ：画像とRoomの準備 →",
+      "translation": "Suite : Préparer les images et Room →"
+    },
+    {
+      "source": "STEP 02 · 目安 10分",
+      "translation": "STEP 02 · Durée indicative : 10 min"
+    },
+    {
+      "source": "画像とRoomの準備",
+      "translation": "Préparer les images et Room"
+    },
+    {
+      "source": "① タイトル画像を入れる",
+      "translation": "① Ajouter l'image de titre"
+    },
+    {
+      "source": "タイトル画像の <code>logoeng.png</code> は、教科書といっしょに配られた<strong>教材のフォルダ</strong>に入っています。Finderでコピーして、プロジェクトに入れます。A03・A05・A07・A09でやった手順と同じです。",
+      "translation": "L'image de titre <code>logoeng.png</code> se trouve dans le <strong>dossier des supports de cours</strong> distribué avec le manuel. Copiez-la avec Finder dans le projet. La procédure est la même qu'en A03, A05, A07 et A09."
+    },
+    {
+      "source": "Finderを開き、左側の <strong>書類</strong> をクリックします。教材のフォルダをダブルクリックで開きます。名前は <code>android1-student-materials-</code> のうしろに日付が付いた形で、日付は配られた回によって変わります。",
+      "translation": "Ouvrez le Finder et cliquez sur <strong>書類</strong> (Documents) à gauche. Ouvrez le dossier des supports de cours par un double-clic. Son nom commence par <code>android1-student-materials-</code> suivi d'une date, qui varie selon la distribution."
+    },
+    {
+      "source": "その中を <code>docs → vocabulary-book → downloads</code> の順に開きます。<code>vocabulary-book</code> は、いま読んでいるこの教科書（<code>index.html</code>）が入っているフォルダです。",
+      "translation": "À l'intérieur, ouvrez <code>docs → vocabulary-book → downloads</code> dans cet ordre. <code>vocabulary-book</code> est le dossier contenant le manuel que vous lisez (<code>index.html</code>)."
+    },
+    {
+      "source": "<code>logoeng.png</code> を選び、コピーします（<kbd>⌘ C</kbd>）。同じフォルダにある <code>A11VocabularyBook.zip</code> は完成プロジェクトです。選びません。",
+      "translation": "Sélectionnez <code>logoeng.png</code> et copiez-le (<kbd>⌘ C</kbd>). Le fichier <code>A11VocabularyBook.zip</code> dans le même dossier est le projet terminé. Ne le sélectionnez pas."
+    },
+    {
+      "source": "教材のフォルダが見つからないとき",
+      "translation": "Si le dossier des supports de cours est introuvable"
+    },
+    {
+      "source": "教材のフォルダは、はじめの準備で「書類」へ移動したものです（<a1>共通資料：はじめの準備</a1>の1.）。まだ移動していなければ、先にそちらを行います。同じ教材を2回ダウンロードして名前のうしろに <code>(1)</code> が付いたものがあるときは、自分で判断せず先生に見せてください。",
+      "translation": "Il s'agit du dossier déplacé vers 「書類」 (Documents) lors de la préparation initiale (partie 1 du <a1>Guide commun : Préparation initiale</a1>). Si vous ne l'avez pas encore déplacé, faites-le d'abord. Si vous avez téléchargé deux fois les mêmes supports et qu'un nom se termine par <code>(1)</code>, montrez-le à l'enseignant au lieu de décider seul."
+    },
+    {
+      "source": "Android Studioのプロジェクト画面で <code>app/src/main/res/drawable</code> フォルダをクリックして選び、貼り付けます（<kbd>⌘ V</kbd>）。",
+      "translation": "Dans la vue du projet d'Android Studio, cliquez sur le dossier <code>app/src/main/res/drawable</code> pour le sélectionner, puis collez (<kbd>⌘ V</kbd>)."
+    },
+    {
+      "source": "確認のウィンドウで <strong>New name</strong> が <code>logoeng.png</code>、<strong>To directory</strong> の末尾が <code>app/src/main/res/drawable</code> になっていることを確かめて <strong>OK</strong> を押します。",
+      "translation": "Dans la fenêtre de confirmation, vérifiez que <strong>New name</strong> est <code>logoeng.png</code> et que <strong>To directory</strong> se termine par <code>app/src/main/res/drawable</code>, puis cliquez sur <strong>OK</strong>."
+    },
+    {
+      "source": "Project表示でdrawableフォルダを選び、Copyダイアログが開いている。New nameはlogoeng.png、To directoryの末尾はA11VocabularyBook/app/src/main/res/drawable",
+      "translation": "Le dossier drawable est sélectionné dans la vue Project et la boîte de dialogue Copy est ouverte. New name indique logoeng.png et To directory se termine par A11VocabularyBook/app/src/main/res/drawable"
+    },
+    {
+      "source": "To directoryの末尾が A11VocabularyBook/app/src/main/res/drawable になっていればOK。この画面は先生の例です。<strong>Copy file</strong> のうしろ（コピー元の場所）は、自分の画面では教材のフォルダの中の場所になります。 <a1>画像を大きく開く</a1>",
+      "translation": "Si To directory se termine par A11VocabularyBook/app/src/main/res/drawable, c'est correct. Cet écran est l'exemple de l'enseignant. Après <strong>Copy file</strong> (l'emplacement source), votre écran indique un emplacement dans le dossier des supports de cours. <a1>Ouvrir l'image en grand</a1>"
+    },
+    {
+      "source": "ファイル名は変えません",
+      "translation": "Ne changez pas le nom du fichier"
+    },
+    {
+      "source": "このあとXMLから <code>@drawable/logoeng</code> という名前で呼び出します。<strong>名前を変えると見つからなくなります。</strong>",
+      "translation": "Le XML utilisera ensuite le nom <code>@drawable/logoeng</code>. <strong>Si vous changez le nom, l'image ne sera plus trouvée.</strong>"
+    },
+    {
+      "source": "② Roomを使えるようにする",
+      "translation": "② Préparer l'utilisation de Room"
+    },
+    {
+      "source": "Roomは、Android Studioに最初から入っている部品ではありません。<strong>使うと宣言してから</strong>使います。A10でも行った準備です。宣言は2つのファイルに分けて書きます。",
+      "translation": "Room n'est pas fourni par défaut dans Android Studio. Il faut <strong>déclarer son utilisation avant de l'utiliser</strong>. C'est la préparation déjà effectuée en A10. Écrivez les déclarations dans deux fichiers."
+    },
+    {
+      "source": "1つ目は <code>gradle/libs.versions.toml</code> です。<strong>どの部品をどのバージョンで使うか</strong>を一覧にしておくファイルで、Android Studioがひな形として用意しています。開いて、次の<strong>3行</strong>を足します。",
+      "translation": "Le premier est <code>gradle/libs.versions.toml</code>. Ce fichier, fourni comme modèle par Android Studio, répertorie <strong>les composants utilisés et leur version</strong>. Ouvrez-le et ajoutez les <strong>trois lignes</strong> suivantes."
+    },
+    {
+      "source": "追記する場所",
+      "translation": "Emplacement de l'ajout"
+    },
+    {
+      "source": "追記する行",
+      "translation": "Ligne à ajouter"
+    },
+    {
+      "source": "意味",
+      "translation": "Signification"
+    },
+    {
+      "source": "<code>[versions]</code> の最後",
+      "translation": "À la fin de <code>[versions]</code>"
+    },
+    {
+      "source": "Roomのバージョンに <code>room</code> という名前を付ける",
+      "translation": "Donne le nom <code>room</code> à la version de Room"
+    },
+    {
+      "source": "<code>[libraries]</code> の最後",
+      "translation": "À la fin de <code>[libraries]</code>"
+    },
+    {
+      "source": "アプリが動くときに使う本体",
+      "translation": "Bibliothèque utilisée pendant l'exécution de l'application"
+    },
+    {
+      "source": "ビルドのときに、書いた命令からコードを自動で作る部品",
+      "translation": "Composant qui génère automatiquement du code à partir de vos instructions pendant le build"
+    },
+    {
+      "source": "<code>...</code> と省略した部分は、次の全体から写します。足したあとのファイルは、次のとおりになります。",
+      "translation": "Recopiez les parties abrégées par <code>...</code> depuis le fichier complet ci-dessous. Après les ajouts, le fichier se présente ainsi."
+    },
+    {
+      "source": "<code>libs.versions.toml</code>（全体）",
+      "translation": "<code>libs.versions.toml</code> (fichier complet)"
+    },
+    {
+      "source": "<code>[plugins]</code> に書かないこと",
+      "translation": "N'écrivez pas dans <code>[plugins]</code>"
+    },
+    {
+      "source": "<code>[libraries]</code> と <code>[plugins]</code> は見た目が似ています。<code>[plugins]</code> のほうに書くと <code>expected to find any of 'id' or 'version'</code> というエラーでビルドが止まります。追記した2行から上へたどって、<strong>最初に出てくる見出しが <code>[libraries]</code> になっているか</strong>を確かめてください。",
+      "translation": "<code>[libraries]</code> et <code>[plugins]</code> se ressemblent. Si vous écrivez dans <code>[plugins]</code>, le build s'arrête avec l'erreur <code>expected to find any of 'id' or 'version'</code>. Remontez depuis les deux lignes ajoutées et <strong>vérifiez que le premier en-tête rencontré est <code>[libraries]</code></strong>."
+    },
+    {
+      "source": "2つ目は <code>app/build.gradle.kts</code> です。開いて、<code>dependencies { }</code> の中の最後に2行を追加します。",
+      "translation": "Le deuxième fichier est <code>app/build.gradle.kts</code>. Ouvrez-le et ajoutez deux lignes à la fin du bloc <code>dependencies { }</code>."
+    },
+    {
+      "source": "<code>libs.room.runtime</code> の <code>libs.</code> は、先ほど追記した <code>libs.versions.toml</code> のことです。<code>room-runtime</code> のハイフンは、ここでは<strong>ドット</strong>（<code>room.runtime</code>）に変わります。",
+      "translation": "Dans <code>libs.room.runtime</code>, <code>libs.</code> désigne le fichier <code>libs.versions.toml</code> que vous venez de compléter. Le trait d'union de <code>room-runtime</code> devient ici un <strong>point</strong> : <code>room.runtime</code>."
+    },
+    {
+      "source": "画面の上に <strong>Sync Now</strong> というリンクが出ます。押して、読み込みが終わるまで待ちます。エラーが出なければ成功です。",
+      "translation": "Un lien <strong>Sync Now</strong> apparaît en haut de l'écran. Cliquez dessus et attendez la fin du chargement. Si aucune erreur n'apparaît, c'est réussi."
+    },
+    {
+      "source": "画像をdrawableに置き、Roomの追記をしてエラーなくSyncできた。",
+      "translation": "J'ai placé l'image dans drawable, ajouté les déclarations de Room et effectué Sync sans erreur."
+    },
+    {
+      "source": "次へ：データベースの3ファイルを作る →",
+      "translation": "Suite : Créer les trois fichiers de la base de données →"
+    },
+    {
+      "source": "STEP 03 · 目安 15分",
+      "translation": "STEP 03 · Environ 15 min"
+    },
+    {
+      "source": "データベースの3ファイルを作る",
+      "translation": "Créer les trois fichiers de la base de données"
+    },
+    {
+      "source": "A10で作った3つ（<code>Item</code> / <code>ItemDao</code> / <code>AppDatabase</code>）を、今回の内容で作り直します。3つとも <strong>New → Java Class</strong> で作ります。<strong><code>ItemDao</code> だけ <code>Interface</code></strong> を選びます。",
+      "translation": "Recréez les trois éléments d'A10 (<code>Item</code> / <code>ItemDao</code> / <code>AppDatabase</code>) avec le contenu de cette unité. Utilisez <strong>New → Java Class</strong> pour les trois. Choisissez <strong><code>Interface</code> uniquement pour <code>ItemDao</code></strong>."
+    },
+    {
+      "source": "Roomは、データを<strong>表</strong>の形で保存します。「1行にどんな項目があるか」を決めるのが <code>Item</code> クラスです。今回は、1件が「英単語」と「日本語」の2つを持ちます。",
+      "translation": "Room enregistre les données sous forme de <strong>table</strong>. La classe <code>Item</code> définit les éléments d'une ligne. Cette fois, chaque enregistrement contient deux textes : le mot anglais et le japonais."
+    },
+    {
+      "source": "左側のプロジェクト画面で <code>app → src → main → java → jp.ac.jec.a11vocabularybook</code>（<code>MainActivity</code> があるフォルダ）を右クリックし、<strong>New → Java Class</strong> を選びます。",
+      "translation": "Dans la vue du projet à gauche, faites un clic droit sur <code>app → src → main → java → jp.ac.jec.a11vocabularybook</code> (le dossier contenant <code>MainActivity</code>) et sélectionnez <strong>New → Java Class</strong>."
+    },
+    {
+      "source": "<strong>New Java Class</strong> という小さなウィンドウが出ます。いちばん上の欄に、名前 <code>Item</code> を入力します。",
+      "translation": "Une petite fenêtre <strong>New Java Class</strong> apparaît. Saisissez le nom <code>Item</code> dans le champ du haut."
+    },
+    {
+      "source": "その下の一覧（<code>Class</code>・<code>Interface</code>・<code>Enum</code> …）で <strong>Class</strong> を選び、<kbd>return</kbd> を押します。",
+      "translation": "Dans la liste en dessous (<code>Class</code>, <code>Interface</code>, <code>Enum</code>…), choisissez <strong>Class</strong>, puis appuyez sur <kbd>return</kbd>."
+    },
+    {
+      "source": "できた <code>Item.java</code> の中身を、すべて次のコードに置き換えます。",
+      "translation": "Remplacez tout le contenu du fichier <code>Item.java</code> créé par le code suivant."
+    },
+    {
+      "source": "書いたもの",
+      "translation": "Code écrit"
+    },
+    {
+      "source": "このクラスが<strong>表1つ分</strong>であるという印。クラス名 <code>Item</code> がそのまま表の名前になる",
+      "translation": "Indique que cette classe représente <strong>une table</strong>. Le nom de classe <code>Item</code> devient directement celui de la table"
+    },
+    {
+      "source": "この項目（<code>internalId</code>）が<strong>行を見分ける番号</strong>。<code>autoGenerate = true</code> で、保存するたびに1・2・3…と自動で増える",
+      "translation": "Cet élément (<code>internalId</code>) est <strong>le numéro qui distingue les lignes</strong>. Avec <code>autoGenerate = true</code>, il augmente automatiquement à chaque enregistrement : 1, 2, 3…"
+    },
+    {
+      "source": "保存したい2つの文字。表の項目は、番号とこの2つ",
+      "translation": "Les deux textes à enregistrer. La table contient le numéro et ces deux éléments"
+    },
+    {
+      "source": "1件を <code>apple : りんご</code> の形の文字にする。STEP 05で一覧を表示するときに使われる",
+      "translation": "Transforme un enregistrement en texte sous la forme <code>apple : りんご</code>. Utilisé pour afficher la liste au STEP 05"
+    },
+    {
+      "source": "<code>@NonNull</code> はここだけ書きます",
+      "translation": "Nous écrivons <code>@NonNull</code> uniquement ici"
+    },
+    {
+      "source": "この授業では <code>@NonNull</code> を自分で書きません。ただし <code>@Entity</code> のフィールドに付けた <code>@NonNull</code> は、Javaの注意書きではなく<strong>「この列は空にできない」という表の決まりそのもの</strong>です。外すと表の形が変わってしまうので、ここだけは書きます。",
+      "translation": "Dans ce cours, vous n'écrivez normalement pas <code>@NonNull</code> vous-même. Cependant, placé sur un champ d'une <code>@Entity</code>, <code>@NonNull</code> n'est pas une simple indication Java : <strong>il définit la règle de la table selon laquelle cette colonne ne peut pas être nulle</strong>. Le supprimer modifierait la structure de la table ; vous l'écrivez donc ici."
+    },
+    {
+      "source": "次に「どう読み書きするか」を書きます。<strong>Dao</strong> は Data Access Object の略で、データベースへの<strong>窓口</strong>です。",
+      "translation": "Écrivez ensuite comment lire et écrire les données. <strong>Dao</strong> signifie Data Access Object : c'est le <strong>point d'accès</strong> à la base de données."
+    },
+    {
+      "source": "①と同じ手順で <strong>New → Java Class</strong> を開き、名前に <code>ItemDao</code> と入力します。<strong>ここだけは、一覧で <code>Interface</code> を選びます。</strong><code>Class</code> のまま作ると、中身を書いたときに赤いエラーになります。できた <code>ItemDao.java</code> の中身を、すべて次のコードに置き換えます。",
+      "translation": "Comme en ①, ouvrez <strong>New → Java Class</strong> et saisissez <code>ItemDao</code> comme nom. <strong>Cette fois seulement, sélectionnez <code>Interface</code> dans la liste.</strong> Si vous gardez <code>Class</code>, des erreurs rouges apparaîtront quand vous écrirez le contenu. Remplacez tout le contenu du fichier <code>ItemDao.java</code> créé par le code suivant."
+    },
+    {
+      "source": "このインタフェースがデータベースへの窓口であるという印",
+      "translation": "Indique que cette interface est le point d'accès à la base de données"
+    },
+    {
+      "source": "表の中身を全部取り出す命令。<code>item</code> は <code>Item</code> クラスから作られた表の名前",
+      "translation": "Commande qui récupère tout le contenu de la table. <code>item</code> est le nom de la table créée à partir de la classe <code>Item</code>"
+    },
+    {
+      "source": "<strong>今回の新顔。</strong>ただの <code>List</code> ではなく <code>LiveData</code> で受け取ると、中身が変わったときに知らせてもらえる",
+      "translation": "<strong>La nouveauté de cette unité.</strong> Recevoir les données dans un <code>LiveData</code> au lieu d'une simple <code>List</code> permet d'être averti quand leur contenu change"
+    },
+    {
+      "source": "<code>@Query(\"SELECT COUNT(*) ...\")</code> と <code>countByEnglish</code>",
+      "translation": "<code>@Query(\"SELECT COUNT(*) ...\")</code> et <code>countByEnglish</code>"
+    },
+    {
+      "source": "同じ英単語が何件あるか数える。<code>:english</code> はメソッドの引数のこと。重複チェックに使う",
+      "translation": "Compte les occurrences du même mot anglais. <code>:english</code> désigne le paramètre de la méthode. Sert à vérifier les doublons"
+    },
+    {
+      "source": "A10でも使った命令。<strong>あれば書き換え、なければ追加</strong>（upsert は update と insert を合わせた言葉）。今回は単語の追加に使う",
+      "translation": "Commande déjà utilisée en A10 : <strong>modifie si l'élément existe, ajoute sinon</strong> (upsert combine update et insert). Ici, elle sert à ajouter des mots"
+    },
+    {
+      "source": "メソッドに <code>{ }</code> がない",
+      "translation": "La méthode n'a pas de <code>{ }</code>"
+    },
+    {
+      "source": "中身は、<strong>ビルドするときにRoomが自動で作る</strong>。STEP 02で足した <code>room-compiler</code> がその仕事をする。書くのは「何をしたいか」だけ",
+      "translation": "<strong>Room génère automatiquement le contenu lors du build</strong>. C'est le rôle de <code>room-compiler</code> ajouté au STEP 02. Vous écrivez uniquement ce que vous voulez faire"
+    },
+    {
+      "source": "<code>=</code> であって <code>LIKE</code> ではありません",
+      "translation": "Utilisez <code>=</code>, pas <code>LIKE</code>"
+    },
+    {
+      "source": "<code>WHERE english = :english</code> は「ぴったり同じ」という意味です。<code>LIKE</code> にすると <code>%</code> や <code>_</code> が特別な文字として扱われ、ちがう単語にも当たってしまいます。",
+      "translation": "<code>WHERE english = :english</code> signifie « exactement identique ». Avec <code>LIKE</code>, <code>%</code> et <code>_</code> sont traités comme des caractères spéciaux et peuvent aussi correspondre à des mots différents."
+    },
+    {
+      "source": "表（<code>Item</code>）と窓口（<code>ItemDao</code>）ができました。最後に、この2つをまとめる<strong>データベース本体</strong>を作ります。",
+      "translation": "La table (<code>Item</code>) et son point d'accès (<code>ItemDao</code>) sont prêts. Créez enfin <strong>la base de données elle-même</strong> pour les réunir."
+    },
+    {
+      "source": "①と同じ手順で <strong>New → Java Class</strong> を開き、名前に <code>AppDatabase</code> と入力します。種類は <strong>Class</strong> です。できた <code>AppDatabase.java</code> の中身を、すべて次のコードに置き換えます。",
+      "translation": "Comme en ①, ouvrez <strong>New → Java Class</strong> et saisissez le nom <code>AppDatabase</code>. Choisissez <strong>Class</strong>. Remplacez tout le contenu du fichier <code>AppDatabase.java</code> créé par le code suivant."
+    },
+    {
+      "source": "このデータベースが <code>Item</code> の表を持つという宣言。<code>version</code> は表の形を変えたときに増やす番号",
+      "translation": "Déclare que cette base de données contient la table <code>Item</code>. <code>version</code> est un numéro à augmenter lorsque la structure de la table change"
+    },
+    {
+      "source": "中身はRoomが自動で作るので <code>abstract</code>（中身を書かない）にする。②のメソッドに <code>{ }</code> がないのと同じ理由",
+      "translation": "Comme Room génère automatiquement le contenu, utilisez <code>abstract</code> (sans écrire le contenu). C'est la même raison que l'absence de <code>{ }</code> dans les méthodes de ②"
+    },
+    {
+      "source": "データベースを取り出すメソッド。最初の1回だけ作って、あとは同じものを返す",
+      "translation": "Méthode qui récupère la base de données. Elle la crée uniquement au premier appel, puis renvoie toujours la même"
+    },
+    {
+      "source": "端末に作られるファイルの名前",
+      "translation": "Nom du fichier créé sur l'appareil"
+    },
+    {
+      "source": "読み書きを画面と同じ流れで行う指定。この授業ではこれを付ける",
+      "translation": "Autorise la lecture et l'écriture dans le même fil d'exécution que l'écran. Ce cours utilise ce réglage"
+    },
+    {
+      "source": "<code>context.getApplicationContext()</code> を忘れない",
+      "translation": "N'oubliez pas <code>context.getApplicationContext()</code>"
+    },
+    {
+      "source": "<code>Room.databaseBuilder(...)</code> の最初に渡しているのは、受け取った <code>context</code> そのままではなく <code>context.getApplicationContext()</code> です。ここを <code>context</code> のままにすると、画面を閉じたり回したりするたびに<strong>古い画面が消えずに残り続けます</strong>。作ったデータベースはアプリが終わるまで残るため、画面ではなく<strong>アプリ全体</strong>を渡します。A10でも同じ形で書きました。",
+      "translation": "Le premier argument de <code>Room.databaseBuilder(...)</code> est <code>context.getApplicationContext()</code>, et non le <code>context</code> reçu directement. Si vous gardez <code>context</code>, <strong>les anciens écrans restent en mémoire</strong> chaque fois que vous fermez ou faites pivoter l'écran. La base créée reste présente jusqu'à la fin de l'application : passez donc <strong>l'application entière</strong>, et non l'écran. Vous avez utilisé la même écriture en A10."
+    },
+    {
+      "source": "3つのファイルを作り、getAllがLiveDataで受け取る形になっていることを確認した。",
+      "translation": "J'ai créé les trois fichiers et vérifié que getAll permet de recevoir les données sous forme de LiveData."
+    },
+    {
+      "source": "次へ：メニュー画面を作る →",
+      "translation": "Suite : Créer l'écran de menu →"
+    },
+    {
+      "source": "STEP 04 · 目安 10分",
+      "translation": "STEP 04 · Durée indicative : 10 min"
+    },
+    {
+      "source": "メニュー画面を作る",
+      "translation": "Créer l'écran de menu"
+    },
+    {
+      "source": "まず入口の画面を作ります。ボタンはまだ何もしません。",
+      "translation": "Créez d'abord l'écran d'entrée. Les boutons n'effectuent encore aucune action."
+    },
+    {
+      "source": "<code>app/src/main/res/layout/activity_main.xml</code> を開き、中身をすべて置き換えます。",
+      "translation": "Ouvrez <code>app/src/main/res/layout/activity_main.xml</code> et remplacez tout son contenu."
+    },
+    {
+      "source": "Runで確かめる",
+      "translation": "Vérifier avec Run"
+    },
+    {
+      "source": "ロゴ画像と2つのボタンが出れば成功です。押しても何も起きません。",
+      "translation": "Si le logo et les deux boutons apparaissent, cette étape a réussi. Appuyer dessus ne produit aucun effet."
+    },
+    {
+      "source": "メニュー画面を表示できた。",
+      "translation": "J'ai affiché l'écran de menu."
+    },
+    {
+      "source": "次へ：単語を追加する画面を作る →",
+      "translation": "Suite : Créer l'écran d'ajout de mots →"
+    },
+    {
+      "source": "STEP 05 · 目安 20分",
+      "translation": "STEP 05 · Environ 20 min"
+    },
+    {
+      "source": "単語を追加する画面を作る",
+      "translation": "Créer l'écran d'ajout de mots"
+    },
+    {
+      "source": "2つ目の画面を追加します。A06・A07と同じ作り方です。",
+      "translation": "Ajoutez le deuxième écran, comme en A06 et A07."
+    },
+    {
+      "source": "左側のプロジェクト画面で <code>app → src → main → java → jp.ac.jec.a11vocabularybook</code> を右クリックします。",
+      "translation": "Dans la vue du projet à gauche, faites un clic droit sur <code>app → src → main → java → jp.ac.jec.a11vocabularybook</code>."
+    },
+    {
+      "source": "<strong>New → Activity → Empty Views Activity</strong> を選びます。",
+      "translation": "Sélectionnez <strong>New → Activity → Empty Views Activity</strong>."
+    },
+    {
+      "source": "パッケージを右クリックしてNew、Activity、Empty Views Activityと辿ったメニュー",
+      "translation": "Menu ouvert par un clic droit sur le package, puis New, Activity et Empty Views Activity"
+    },
+    {
+      "source": "<strong>New → Java Class ではありません。</strong>Activity → Empty Views Activity を選びます。 <a1>画像を大きく開く</a1>",
+      "translation": "<strong>N'utilisez pas New → Java Class.</strong> Sélectionnez Activity → Empty Views Activity. <a1>Ouvrir l'image en grand</a1>"
+    },
+    {
+      "source": "次の表のとおりに入力して <strong>Finish</strong> を押します。",
+      "translation": "Saisissez les éléments du tableau suivant, puis cliquez sur <strong>Finish</strong>."
+    },
+    {
+      "source": "チェックを入れる",
+      "translation": "Cocher"
+    },
+    {
+      "source": "チェックを入れない",
+      "translation": "Ne pas cocher"
+    },
+    {
+      "source": "New Android Activityのダイアログ。Activity NameはCardAddActivity、Layout Nameはactivity_card_add、Launcher Activityのチェックは外れている",
+      "translation": "Boîte de dialogue New Android Activity : Activity Name est CardAddActivity, Layout Name est activity_card_add et Launcher Activity n'est pas coché"
+    },
+    {
+      "source": "<strong>Launcher Activity にはチェックを入れません。</strong>理由はこのあとで説明します。 <a1>画像を大きく開く</a1>",
+      "translation": "<strong>Ne cochez pas Launcher Activity.</strong> La raison est expliquée ci-dessous. <a1>Ouvrir l'image en grand</a1>"
+    },
+    {
+      "source": "New → Java Classでは作りません",
+      "translation": "Ne créez pas cet écran avec New → Java Class"
+    },
+    {
+      "source": "この作り方なら <code>AndroidManifest.xml</code> への登録も自動で行われます。<code>New → Java Class</code> で作ると登録されず、画面を開いたときにアプリが終了します。",
+      "translation": "Cette méthode ajoute aussi automatiquement l'écran à <code>AndroidManifest.xml</code>. Avec <code>New → Java Class</code>, cet ajout n'a pas lieu et l'application se ferme à l'ouverture de l'écran."
+    },
+    {
+      "source": "あわせて <code>app → src → main → AndroidManifest.xml</code> を開きます。<strong>Finish</strong> を押した直後に、次の3行が増えています。自動で追加されているので、<strong>入力しません</strong>。",
+      "translation": "Ouvrez aussi <code>app → src → main → AndroidManifest.xml</code>. Juste après votre clic sur <strong>Finish</strong>, les trois lignes suivantes y ont été ajoutées. Cet ajout est automatique : <strong>ne les saisissez pas</strong>."
+    },
+    {
+      "source": "指定",
+      "translation": "Réglage"
+    },
+    {
+      "source": "アプリの画面をAndroidに知らせる。この登録がないと、画面を開いたときにアプリが終了する。",
+      "translation": "Déclare l'écran de l'application auprès d'Android. Sans cette déclaration, l'application se ferme à l'ouverture de l'écran."
+    },
+    {
+      "source": "登録するクラス。先頭の <code>.</code> は、パッケージ名 <code>jp.ac.jec.a11vocabularybook</code> を省いた書き方。",
+      "translation": "Classe à déclarer. Le <code>.</code> initial abrège le nom du package <code>jp.ac.jec.a11vocabularybook</code>."
+    },
+    {
+      "source": "ほかのアプリからこの画面を開けないようにする。<code>CardAddActivity</code> は自分のアプリの <code>MainActivity</code> からだけ開く。",
+      "translation": "Empêche les autres applications d'ouvrir cet écran. <code>CardAddActivity</code> s'ouvre seulement depuis <code>MainActivity</code> de votre application."
+    },
+    {
+      "source": "なぜLauncher Activityにチェックを入れないのか",
+      "translation": "Pourquoi ne pas cocher Launcher Activity ?"
+    },
+    {
+      "source": "<code>MainActivity</code> の <code>&lt;activity&gt;</code> には <code>&lt;intent-filter&gt;</code>（<code>MAIN</code> と <code>LAUNCHER</code>）が書かれています。これは「アプリ一覧のアイコンから最初に開く画面」という印です。<code>CardAddActivity</code> は <code>MainActivity</code> から開くので、この印は要りません。",
+      "translation": "La balise <code>&lt;activity&gt;</code> de <code>MainActivity</code> contient un <code>&lt;intent-filter&gt;</code> avec <code>MAIN</code> et <code>LAUNCHER</code>. Cela désigne l'écran ouvert en premier depuis l'icône de la liste des applications. <code>CardAddActivity</code> s'ouvre depuis <code>MainActivity</code> et n'a donc pas besoin de cette indication."
+    },
+    {
+      "source": "Launcher Activityにチェックを入れると、<code>CardAddActivity</code> にもこの印が付いて、次の2つが起きます。",
+      "translation": "Si vous cochez Launcher Activity, <code>CardAddActivity</code> reçoit aussi cette indication et deux problèmes apparaissent."
+    },
+    {
+      "source": "アプリ一覧に、<strong>「A11VocabularyBook」という同じ名前のアイコンが2つ</strong>並びます。名前もアイコンも同じなので、どちらが本物か見分けられません。",
+      "translation": "La liste des applications contient <strong>deux icônes portant le même nom « A11VocabularyBook »</strong>. Le nom et l'icône étant identiques, vous ne pouvez pas les distinguer."
+    },
+    {
+      "source": "<strong>Runしたときに、作ったばかりの何もない画面が起動することがあります。</strong>印の付いた画面が2つあるため、どちらから始まるかが決まらないからです。",
+      "translation": "<strong>Run peut alors lancer l'écran vide que vous venez de créer.</strong> Deux écrans possèdent cette indication, et celui à ouvrir en premier n'est plus déterminé."
+    },
+    {
+      "source": "入れてしまったときは、<code>CardAddActivity</code> の <code>&lt;activity&gt;</code> から <code>&lt;intent-filter&gt;</code> を消して、<code>android:exported</code> を <code>false</code> に戻します。上の3行と同じ形になれば直っています。",
+      "translation": "Si vous l'avez coché, supprimez <code>&lt;intent-filter&gt;</code> de la balise <code>&lt;activity&gt;</code> de <code>CardAddActivity</code> et remettez <code>android:exported</code> à <code>false</code>. Quand vous retrouvez les trois lignes ci-dessus, le problème est corrigé."
+    },
+    {
+      "source": "① 画面を作る",
+      "translation": "① Créer l'écran"
+    },
+    {
+      "source": "② 中身を書く",
+      "translation": "② Écrire le contenu"
+    },
+    {
+      "source": "<code>var itemDao</code> の行から下を、上から順に読みます。",
+      "translation": "Lisez les lignes de haut en bas à partir de <code>var itemDao</code>."
+    },
+    {
+      "source": "行のあたり",
+      "translation": "Ligne ou emplacement"
+    },
+    {
+      "source": "やっていること",
+      "translation": "Action effectuée"
+    },
+    {
+      "source": "データベースを取り出して、窓口（Dao）を受け取る。STEP 03の③と②で作ったものを、ここで使う",
+      "translation": "Récupère la base de données puis son point d'accès (Dao). Utilise les éléments créés au STEP 03③ et ②"
+    },
+    {
+      "source": "<code>getAll()</code> が返すLiveDataを見張る。<code>this</code> はこの画面、<code>items</code> は届いた単語の一覧。一覧は、画面を開いたときにまず1回届き、そのあとは単語が増えるたびに届く。<strong>届くたびに <code>{ }</code> の中が呼ばれる</strong>",
+      "translation": "Observe le LiveData renvoyé par <code>getAll()</code>. <code>this</code> désigne cet écran et <code>items</code> la liste des mots reçue. La liste arrive une première fois à l'ouverture de l'écran, puis à chaque ajout de mot. <strong>À chaque réception, le contenu de <code>{ }</code> est exécuté</strong>"
+    },
+    {
+      "source": "<code>StringBuilder</code> は、文字を後ろにつなげていける入れ物。作ったときは空",
+      "translation": "<code>StringBuilder</code> est un conteneur auquel on peut ajouter du texte à la fin. Il est vide à sa création"
+    },
+    {
+      "source": "<code>for (var item : items)</code> と <code>text.append(item).append(\"\\n\");</code>",
+      "translation": "<code>for (var item : items)</code> et <code>text.append(item).append(\"\\n\");</code>"
+    },
+    {
+      "source": "一覧から単語を1件ずつ取り出し、<code>append</code> で入れ物の後ろにつなげる。<code>append(item)</code> は、<code>Item</code> の <code>toString()</code>（STEP 03 ①）で <code>apple : りんご</code> の形の文字にしてからつなげる。<code>\"\\n\"</code> は改行",
+      "translation": "Prend les mots de la liste un par un et les ajoute à la fin du conteneur avec <code>append</code>. <code>append(item)</code> appelle <code>toString()</code> d'<code>Item</code> (STEP 03①) pour produire un texte de la forme <code>apple : りんご</code>, puis l'ajoute. <code>\"\\n\"</code> est un saut de ligne"
+    },
+    {
+      "source": "<code>text.toString()</code> で入れ物の中身を1つの文字列にして、一覧に出す",
+      "translation": "Transforme le contenu du conteneur en une seule chaîne avec <code>text.toString()</code> et l'affiche dans la liste"
+    },
+    {
+      "source": "<code>btn_add</code> のリスナ",
+      "translation": "L'écouteur de <code>btn_add</code>"
+    },
+    {
+      "source": "入力のどちらかが空なら止める → 同じ英単語がすでにあれば止める（<code>countByEnglish</code> で数える）→ <code>upsert</code> → 入力欄を空にする",
+      "translation": "Arrêter si l'un des champs est vide → arrêter si le mot anglais existe déjà (le compter avec <code>countByEnglish</code>) → <code>upsert</code> → vider les champs de saisie"
+    },
+    {
+      "source": "この画面を開くためのメソッド。次の③で、メニュー画面から呼ぶ",
+      "translation": "Méthode qui ouvre cet écran. Elle sera appelée depuis le menu en ③ ci-dessous"
+    },
+    {
+      "source": "一覧を出し直す処理を書いていません",
+      "translation": "Aucun traitement de réaffichage de la liste n'est écrit"
+    },
+    {
+      "source": "<code>itemDao.upsert(...)</code> のあとに <code>setText</code> がありません。<strong>これが今回の新しいところです。</strong><code>observe</code> でLiveDataを見張っているので、単語が増えると <code>observe</code> の中が自動でもう一度呼ばれます。",
+      "translation": "Il n'y a pas de <code>setText</code> après <code>itemDao.upsert(...)</code>. <strong>C'est la nouveauté de cette unité.</strong> Comme <code>observe</code> observe le LiveData, le contenu d'<code>observe</code> est automatiquement exécuté de nouveau lorsqu'un mot est ajouté à la liste."
+    },
+    {
+      "source": "③ メニュー画面からこの画面を開く",
+      "translation": "③ Ouvrir cet écran depuis le menu"
+    },
+    {
+      "source": "<code>MainActivity.java</code> の <code>onCreate</code> の最後に追加します。",
+      "translation": "Ajoutez ce code à la fin d'<code>onCreate</code> dans <code>MainActivity.java</code>."
+    },
+    {
+      "source": "画面を開く処理は、<strong>開かれる側のクラスに <code>start</code> という名前で書きます。</strong>A07の <code>BillSplitActivity.start(...)</code> と同じ形です。ここで呼んでいるのは、②で <code>CardAddActivity.java</code> の最後に書いた <code>start</code> です。",
+      "translation": "Écrivez le traitement d'ouverture <strong>dans la classe de l'écran à ouvrir, sous le nom <code>start</code>.</strong> C'est la même forme que <code>BillSplitActivity.start(...)</code> en A07. Ici, vous appelez le <code>start</code> écrit à la fin de <code>CardAddActivity.java</code> en ②."
+    },
+    {
+      "source": "クラス名を付けて <code>CardAddActivity.start(…)</code> と呼べるメソッド。この画面を開く手順を、開かれる側であるこの画面自身が持つ。",
+      "translation": "Méthode appelée avec le nom de classe : <code>CardAddActivity.start(…)</code>. L'écran à ouvrir contient lui-même la procédure de son ouverture."
+    },
+    {
+      "source": "画面（Activity）を受け取るための型。呼ぶ側が <code>this</code> を渡すと、ここに入る。",
+      "translation": "Type permettant de recevoir un écran (Activity). Lorsque l'appelant transmet <code>this</code>, sa valeur arrive ici."
+    },
+    {
+      "source": "今の画面から <code>CardAddActivity</code> を開くための指示（Intent）を作る。",
+      "translation": "Crée une instruction (Intent) pour ouvrir <code>CardAddActivity</code> depuis l'écran actuel."
+    },
+    {
+      "source": "IntentをAndroidに渡して、画面を開いてもらう。",
+      "translation": "Transmet l'Intent à Android pour lui demander d'ouvrir l'écran."
+    },
+    {
+      "source": "<strong>単語を追加する</strong> を押して、この画面が出ることを確認します。",
+      "translation": "Appuyez sur <strong>単語を追加する</strong> (Ajouter un mot) et vérifiez que cet écran apparaît."
+    },
+    {
+      "source": "英単語に <code>apple</code>、日本語に <code>りんご</code> を入れて <strong>追加する</strong>。下の一覧に増えます。",
+      "translation": "Saisissez <code>apple</code> comme mot anglais et <code>りんご</code> (pomme) comme japonais, puis appuyez sur <strong>追加する</strong> (Ajouter). Le mot apparaît dans la liste en dessous."
+    },
+    {
+      "source": "同じ <code>apple</code> をもう一度登録してみます。メッセージが出て、一覧は増えません。",
+      "translation": "Essayez d'enregistrer de nouveau <code>apple</code>. Un message apparaît et la liste n'augmente pas."
+    },
+    {
+      "source": "英単語にapple、日本語にringoを入れて追加するを押したときに、すでに登録されている単語ですのメッセージが出て、一覧が3行のままの画面",
+      "translation": "Après la saisie d'apple en anglais et de ringo dans le champ japonais, un appui sur 追加する (Ajouter) affiche すでに登録されている単語です (ce mot est déjà enregistré). La liste reste à trois lignes"
+    },
+    {
+      "source": "同じ英単語は登録されません。一覧も増えません。 <a1>画像を大きく開く</a1>",
+      "translation": "Le même mot anglais n'est pas enregistré de nouveau et la liste n'augmente pas. <a1>Ouvrir l'image en grand</a1>"
+    },
+    {
+      "source": "単語を登録でき、同じ英単語が登録できないことを確かめた。",
+      "translation": "J'ai enregistré un mot et vérifié que le même mot anglais ne peut pas être enregistré une deuxième fois."
+    },
+    {
+      "source": "次へ：カード画面を作る →",
+      "translation": "Suite : Créer l'écran des cartes →"
+    },
+    {
+      "source": "STEP 06 · 目安 15分",
+      "translation": "STEP 06 · Durée indicative : 15 min"
+    },
+    {
+      "source": "カード画面を作る",
+      "translation": "Créer l'écran des cartes"
+    },
+    {
+      "source": "3つ目の画面を追加します。STEP 05と同じ手順で、<strong>Activity Name</strong> を <code>CardActivity</code>、<strong>Layout Name</strong> を <code>activity_card</code> にします。",
+      "translation": "Ajoutez le troisième écran. Procédez comme au STEP 05, avec <strong>Activity Name</strong> égal à <code>CardActivity</code> et <strong>Layout Name</strong> égal à <code>activity_card</code>."
+    },
+    {
+      "source": "New Android Activityのダイアログ。Activity NameはCardActivity、Layout Nameはactivity_card、Launcher Activityのチェックは外れている",
+      "translation": "Boîte de dialogue New Android Activity : Activity Name est CardActivity, Layout Name est activity_card et Launcher Activity n'est pas coché"
+    },
+    {
+      "source": "ここでも <strong>Launcher Activity</strong> にはチェックを入れません。 <a1>画像を大きく開く</a1>",
+      "translation": "Ici aussi, ne cochez pas <strong>Launcher Activity</strong>. <a1>Ouvrir l'image en grand</a1>"
+    },
+    {
+      "source": "<code>AndroidManifest.xml</code> に <code>&lt;activity android:name=&quot;.CardActivity&quot; android:exported=&quot;false&quot; /&gt;</code> が自動で増えるところも、Launcher Activityにチェックを入れない理由も、STEP 05と同じです。",
+      "translation": "L'ajout automatique de <code>&lt;activity android:name=&quot;.CardActivity&quot; android:exported=&quot;false&quot; /&gt;</code> à <code>AndroidManifest.xml</code> et la raison de ne pas cocher Launcher Activity sont les mêmes qu'au STEP 05."
+    },
+    {
+      "source": "<code>btn_back</code> と <code>btn_next</code> に <code>android:enabled=\"false\"</code> が付いています。<strong>単語が届く前に押されると落ちる</strong>ので、最初は押せない状態から始めます。",
+      "translation": "<code>btn_back</code> et <code>btn_next</code> portent <code>android:enabled=\"false\"</code>. Ils sont désactivés au départ car <strong>un appui avant la réception des mots ferait planter l'application</strong>."
+    },
+    {
+      "source": "<code>cardList.clear()</code> してから <code>addAll</code>",
+      "translation": "<code>cardList.clear()</code>, puis <code>addAll</code>"
+    },
+    {
+      "source": "LiveDataは変わるたびに呼ばれる。<strong>clearを忘れると、戻ってくるたびに一覧が二重になる</strong>",
+      "translation": "Le traitement est appelé à chaque changement du LiveData. <strong>Si vous oubliez clear, la liste se double chaque fois que vous revenez à l'écran</strong>"
+    },
+    {
+      "source": "<code>Snackbar.LENGTH_INDEFINITE</code> と <code>.setAction(\"単語を追加する\", v -&gt; { … })</code>",
+      "translation": "<code>Snackbar.LENGTH_INDEFINITE</code> et <code>.setAction(\"単語を追加する\", v -&gt; { … })</code>"
+    },
+    {
+      "source": "単語が1件もないときに出すメッセージ。<code>LENGTH_INDEFINITE</code> は、時間がたっても消えない設定。<code>setAction</code> は、メッセージの右にボタンを付ける。1つ目がボタンの文字、2つ目が押したときの処理で、ここでは単語を追加する画面を開く。すぐ下の <code>return</code> で、カードを出す処理には進まない",
+      "translation": "Message affiché lorsqu'il n'y a aucun mot. <code>LENGTH_INDEFINITE</code> empêche sa disparition avec le temps. <code>setAction</code> ajoute un bouton à droite du message : le premier argument est son texte, le deuxième le traitement de l'appui, qui ouvre ici l'écran d'ajout de mots. Le <code>return</code> juste en dessous empêche de poursuivre vers l'affichage des cartes"
+    },
+    {
+      "source": "<code>cardIndex</code> の調整",
+      "translation": "Ajustement de <code>cardIndex</code>"
+    },
+    {
+      "source": "いま見ているカードが最後より後ろにならないようにそろえる",
+      "translation": "Ajuste l'index pour que la carte actuelle ne dépasse pas la dernière"
+    },
+    {
+      "source": "<code>btn_answer</code> のリスナの中。<code>isVisible</code> には、答え（日本語）がいま見えていれば <code>true</code>、隠れていれば <code>false</code> が入る。<code>条件 ? A : B</code> は三項演算子といい、<code>if</code> / <code>else</code> を1行で書いた形。条件が <code>true</code> なら <code>A</code>、<code>false</code> なら <code>B</code> になる。見えていれば隠し、隠れていれば見せる。次の行も同じ形で、ボタンの文字を切り替える",
+      "translation": "Dans l'écouteur de <code>btn_answer</code>. <code>isVisible</code> vaut <code>true</code> si la réponse japonaise est visible et <code>false</code> si elle est cachée. <code>条件 ? A : B</code> est appelé opérateur ternaire (三項演算子, さんこうえんざんし) : c'est une écriture d'<code>if</code> / <code>else</code> sur une ligne. Si la condition vaut <code>true</code>, le résultat est <code>A</code> ; si elle vaut <code>false</code>, c'est <code>B</code>. La réponse visible est cachée et la réponse cachée est affichée. La ligne suivante utilise la même forme pour changer le texte du bouton"
+    },
+    {
+      "source": "6つのViewをフィールドにする",
+      "translation": "Déclarer les six View comme champs"
+    },
+    {
+      "source": "<code>updateCardView()</code> からも使うので、<code>onCreate</code> で1回だけ探してフィールドに入れておく。<strong>同じidを2回 <code>findViewById</code> しない</strong>",
+      "translation": "Comme <code>updateCardView()</code> les utilise aussi, cherchez-les une seule fois dans <code>onCreate</code> et conservez-les dans des champs. <strong>N'appelez pas deux fois <code>findViewById</code> pour le même id</strong>"
+    },
+    {
+      "source": "問題番号・英単語・日本語・ボタンの押せる／押せないを、まとめてそろえる",
+      "translation": "Met à jour ensemble le numéro de question, le mot anglais, le japonais et l'activation des boutons"
+    },
+    {
+      "source": "カードを送ったら、答えは隠した状態に戻す",
+      "translation": "Quand vous changez de carte, masque de nouveau la réponse"
+    },
+    {
+      "source": "<strong>単語帳画面へ</strong> を押します。1問目が出ます。<strong>前へ</strong> は押せません。",
+      "translation": "Appuyez sur <strong>単語帳画面へ</strong> (Ouvrir les cartes). La première question apparaît. <strong>前へ</strong> (Précédent) est désactivé."
+    },
+    {
+      "source": "<strong>答えを表示する</strong> を押すと日本語が出て、ボタンの文字が変わります。",
+      "translation": "Appuyez sur <strong>答えを表示する</strong> (Afficher la réponse) : le japonais apparaît et le texte du bouton change."
+    },
+    {
+      "source": "<strong>次へ</strong> を押すと2問目になり、<strong>答えはまた隠れます</strong>。",
+      "translation": "Appuyez sur <strong>次へ</strong> (Suivant) : la deuxième question apparaît et <strong>la réponse est de nouveau cachée</strong>."
+    },
+    {
+      "source": "最後のカードでは <strong>次へ</strong> が押せなくなります。",
+      "translation": "Sur la dernière carte, <strong>次へ</strong> (Suivant) est désactivé."
+    },
+    {
+      "source": "次へを押したあと、2問目/全3問中とstudyが表示され、答えは隠れた状態に戻っているカード画面。前へと次へはどちらも押せる",
+      "translation": "Écran des cartes après un appui sur 次へ (Suivant). Il affiche 2問目/全3問中 (question 2 sur 3) et study ; la réponse est de nouveau cachée. 前へ (Précédent) et 次へ (Suivant) sont tous deux activés"
+    },
+    {
+      "source": "次へを押したところ。2問目になり、答えはまた隠れています。 <a1>画像を大きく開く</a1>",
+      "translation": "Après un appui sur 次へ (Suivant). La deuxième question apparaît et la réponse est de nouveau cachée. <a1>Ouvrir l'image en grand</a1>"
+    },
+    {
+      "source": "単語が1件もないときに、単語がありませんのメッセージと単語を追加するボタンが画面下に出ているカード画面",
+      "translation": "Écran des cartes sans aucun mot, avec le message 単語がありません (aucun mot) et le bouton 単語を追加する (ajouter un mot) en bas"
+    },
+    {
+      "source": "単語が1件もないとき。メッセージから追加画面へ行けます。 <a1>画像を大きく開く</a1>",
+      "translation": "Lorsqu'il n'y a aucun mot. Le message permet d'accéder à l'écran d'ajout. <a1>Ouvrir l'image en grand</a1>"
+    },
+    {
+      "source": "カードを送れて、答えの表示・非表示が切り替わることを確かめた。",
+      "translation": "J'ai vérifié que je peux parcourir les cartes et afficher ou masquer la réponse."
+    },
+    {
+      "source": "次へ：完成 →",
+      "translation": "Suite : Terminé →"
+    },
+    {
+      "source": "STEP 07 · 目安 15分",
+      "translation": "STEP 07 · Durée indicative : 15 min"
+    },
+    {
+      "source": "完成",
+      "translation": "Terminé"
+    },
+    {
+      "source": "完成した <code>MainActivity.java</code> です。",
+      "translation": "Voici le fichier <code>MainActivity.java</code> terminé."
+    },
+    {
+      "source": "完成チェック",
+      "translation": "Vérification finale"
+    },
+    {
+      "source": "上から順に操作します。単語が1件もない状態から確かめるので、アプリを消してから始めます。消し方は<a1>共通資料：エミュレータ</a1>の「アプリを消す」にあります。",
+      "translation": "Effectuez les opérations de haut en bas. Vous allez vérifier le fonctionnement sans aucun mot : commencez donc par supprimer l'application. La procédure se trouve dans « Supprimer l'application » du <a1>Guide commun : Émulateur</a1>."
+    },
+    {
+      "source": "表の<strong>戻る操作</strong>は、画面の端から内側へのスワイプ、またはエミュレータの ◁ です。キーボードが出ているときは、1回目でキーボードが閉じるので、もう一度行います。<strong>アプリを終了する</strong>ときは、エミュレータでアプリ一覧（最近使ったアプリ）を開き、このアプリを上へスワイプします。アプリ一覧は、画面下の横棒を上へスワイプしてから止めると出ます。",
+      "translation": "Dans le tableau, l'<strong>action de retour</strong> désigne un balayage du bord de l'écran vers l'intérieur ou le bouton ◁ de l'émulateur. Si le clavier est affiché, le premier retour le ferme : répétez alors l'action. Pour <strong>fermer l'application</strong>, ouvrez la liste des applications récentes (最近使ったアプリ) dans l'émulateur et balayez l'application vers le haut. Pour ouvrir cette liste, balayez vers le haut depuis la barre horizontale en bas de l'écran, puis arrêtez-vous."
+    },
+    {
+      "source": "操作",
+      "translation": "Action"
+    },
+    {
+      "source": "確認する結果",
+      "translation": "Résultat à vérifier"
+    },
+    {
+      "source": "アプリを消してから初回起動",
+      "translation": "Premier lancement après la suppression de l'application"
+    },
+    {
+      "source": "ロゴ画像と、「単語帳画面へ」「単語を追加する」の2つのボタンが出る。",
+      "translation": "Le logo et les boutons 「単語帳画面へ」 (Ouvrir les cartes) et 「単語を追加する」 (Ajouter un mot) apparaissent."
+    },
+    {
+      "source": "「単語帳画面へ」→ メッセージの右の「単語を追加する」",
+      "translation": "「単語帳画面へ」 (Ouvrir les cartes) → 「単語を追加する」 (Ajouter un mot) à droite du message"
+    },
+    {
+      "source": "「単語がありません」と出て、「前へ」「次へ」は押せない。「単語を追加する」を押すと、単語を追加する画面に切り替わる。「登録ずみの単語」の下は空。",
+      "translation": "「単語がありません」 (Aucun mot) apparaît et 「前へ」 (Précédent) et 「次へ」 (Suivant) sont désactivés. Appuyer sur 「単語を追加する」 (Ajouter un mot) ouvre l'écran d'ajout. La zone sous 「登録ずみの単語」 (Mots enregistrés) est vide."
+    },
+    {
+      "source": "何も入れずに「追加する」",
+      "translation": "Appuyer sur 「追加する」 (Ajouter) sans rien saisir"
+    },
+    {
+      "source": "「英単語と日本語の両方を入力してください」が出て、一覧は増えない。",
+      "translation": "「英単語と日本語の両方を入力してください」 (Saisissez le mot anglais et le japonais) apparaît et la liste n'augmente pas."
+    },
+    {
+      "source": "apple と りんご を「追加する」",
+      "translation": "Ajouter apple et りんご (pomme) avec 「追加する」 (Ajouter)"
+    },
+    {
+      "source": "押してすぐ、一覧に「apple : りんご」が出る。2つの入力欄は空になる。",
+      "translation": "Dès l'appui, 「apple : りんご」 (apple : pomme) apparaît dans la liste. Les deux champs de saisie deviennent vides."
+    },
+    {
+      "source": "study と 勉強する も追加 → もう一度 apple と りんご を追加",
+      "translation": "Ajouter aussi study et 勉強する (étudier) → ajouter de nouveau apple et りんご (pomme)"
+    },
+    {
+      "source": "一覧が2行になる。2回目の apple は「すでに登録されている単語です」が出て、一覧は増えない。",
+      "translation": "La liste contient deux lignes. Au deuxième ajout d'apple, 「すでに登録されている単語です」 (Ce mot est déjà enregistré) apparaît et la liste n'augmente pas."
+    },
+    {
+      "source": "戻る操作",
+      "translation": "Action de retour"
+    },
+    {
+      "source": "カード画面に戻る。「単語がありません」は消えていて、「1問目/全2問中」と apple が出ている。",
+      "translation": "L'écran des cartes réapparaît. 「単語がありません」 (Aucun mot) a disparu ; 「1問目/全2問中」 (question 1 sur 2) et apple sont affichés."
+    },
+    {
+      "source": "「答えを表示する」→「次へ」",
+      "translation": "「答えを表示する」 (Afficher la réponse) → 「次へ」 (Suivant)"
+    },
+    {
+      "source": "りんご が出て、ボタンが「答えを非表示にする」に変わる。「次へ」で2問目の study になり、答えはまた隠れる。「次へ」は押せなくなる。",
+      "translation": "りんご (pomme) apparaît et le bouton devient 「答えを非表示にする」 (Masquer la réponse). 「次へ」 (Suivant) affiche la deuxième question, study, et cache de nouveau la réponse. 「次へ」 (Suivant) est alors désactivé."
+    },
+    {
+      "source": "アプリを終了して開き直す",
+      "translation": "Fermer puis rouvrir l'application"
+    },
+    {
+      "source": "「単語帳画面へ」を押すと、登録した2件が残っていて、「1問目/全2問中」と apple が出る。",
+      "translation": "En appuyant sur 「単語帳画面へ」 (Ouvrir les cartes), vous retrouvez les deux mots enregistrés : 「1問目/全2問中」 (question 1 sur 2) et apple s'affichent."
+    },
+    {
+      "source": "練習",
+      "translation": "Exercices"
+    },
+    {
+      "source": "上から順に試します。<strong>予想 → 変更 → Run → 説明 → 元に戻す</strong>の順で行います。3つともコードを書き換えるので、<strong>1つ試すごとに元に戻してから</strong>次へ進みます。",
+      "translation": "Essayez les exercices de haut en bas, dans l'ordre <strong>Prévoir → Modifier → Run → Expliquer → Rétablir</strong>. Les trois exercices modifient le code : <strong>rétablissez-le après chaque essai</strong> avant de passer au suivant."
+    },
+    {
+      "source": "<code>CardAddActivity</code> の <code>observe</code> の中を消してRunする。単語を追加したとき、一覧はどうなるか。<strong>確かめたら元に戻す。</strong>",
+      "translation": "Effacez le contenu d'<code>observe</code> dans <code>CardAddActivity</code>, puis utilisez Run. Que devient la liste lorsque vous ajoutez un mot ? <strong>Rétablissez le code après vérification.</strong>"
+    },
+    {
+      "source": "<code>CardActivity</code> の <code>cardList.clear()</code> を消してRunする。単語を追加してカード画面に戻ると、全何問中になるか。<strong>確かめたら元に戻す。</strong>",
+      "translation": "Supprimez <code>cardList.clear()</code> dans <code>CardActivity</code>, puis utilisez Run. Quel nombre total de questions apparaît après l'ajout d'un mot et le retour aux cartes ? <strong>Rétablissez le code après vérification.</strong>"
+    },
+    {
+      "source": "<code>activity_card.xml</code> の <code>android:enabled=\"false\"</code> を2つとも消してRunし、単語が0件の状態で <strong>次へ</strong> を押すとどうなるか確かめる。<strong>確かめたら元に戻す。</strong>",
+      "translation": "Supprimez les deux <code>android:enabled=\"false\"</code> dans <code>activity_card.xml</code>, puis utilisez Run. Sans aucun mot enregistré, appuyez sur <strong>次へ</strong> (Suivant) pour observer le résultat. <strong>Rétablissez le code après vérification.</strong>"
+    },
+    {
+      "source": "完成版に戻してから確認",
+      "translation": "Vérifier après avoir rétabli la version terminée"
+    },
+    {
+      "source": "練習1の <code>observe</code> の中、練習2の <code>cardList.clear()</code>、練習3の <code>android:enabled=\"false\"</code>（<code>btn_back</code> と <code>btn_next</code> の2つ）を元に戻します。戻したらRunして、単語を追加するとその場で「登録ずみの単語」に出ること、カード画面が「全2問中」のように追加した件数を数えること、単語が0件のときに「前へ」「次へ」が押せないことを確かめます。<strong>練習3を戻さないままだと、単語が0件のときに「次へ」を押すとアプリが終了します。</strong>",
+      "translation": "Rétablissez le contenu d'<code>observe</code> de l'exercice 1, <code>cardList.clear()</code> de l'exercice 2 et les deux <code>android:enabled=\"false\"</code> de l'exercice 3, pour <code>btn_back</code> et <code>btn_next</code>. Utilisez ensuite Run et vérifiez qu'un mot ajouté apparaît immédiatement sous 「登録ずみの単語」 (Mots enregistrés), que l'écran des cartes compte les mots ajoutés, par exemple 「全2問中」 (sur 2 questions), et que 「前へ」 (Précédent) et 「次へ」 (Suivant) sont désactivés sans aucun mot. <strong>Si vous ne rétablissez pas l'exercice 3, appuyer sur 「次へ」 (Suivant) sans aucun mot fait fermer l'application.</strong>"
+    },
+    {
+      "source": "保存",
+      "translation": "Enregistrement"
+    },
+    {
+      "source": "Android Studioは、書いたコードを自動でファイルに保存します。保存の操作は要りません。ここでは、保存された場所を確かめます。",
+      "translation": "Android Studio enregistre automatiquement le code dans les fichiers. Vous n'avez aucune opération de sauvegarde à effectuer. Vérifiez ici l'emplacement des fichiers enregistrés."
+    },
+    {
+      "source": "Finderを開き、左側の <strong>書類</strong>（<code>Documents</code>）をクリックします。",
+      "translation": "Ouvrez le Finder et cliquez sur <strong>書類</strong> (<code>Documents</code>) à gauche."
+    },
+    {
+      "source": "その中の <code>Android1</code> フォルダを開き、<code>A11VocabularyBook</code> フォルダがあることを確かめます。",
+      "translation": "Ouvrez le dossier <code>Android1</code> à l'intérieur et vérifiez qu'il contient le dossier <code>A11VocabularyBook</code>."
+    },
+    {
+      "source": "この <code>Documents/Android1/A11VocabularyBook</code> フォルダが、自分で作ったアプリです。あとの授業でもう一度開けるように、消したり、別の場所へ移動したり、名前を変えたりせずに、そのまま残します。",
+      "translation": "Ce dossier <code>Documents/Android1/A11VocabularyBook</code> contient l'application que vous avez créée. Conservez-le tel quel, sans le supprimer, le déplacer ni le renommer, pour pouvoir le rouvrir lors d'un prochain cours."
+    },
+    {
+      "source": "教材のチェックは自分用です。先生への送信はしません。印刷は <kbd>⌘ P</kbd> で行えます。",
+      "translation": "Les cases du manuel servent à votre propre suivi. Elles ne sont pas envoyées à l'enseignant. Vous pouvez imprimer avec <kbd>⌘ P</kbd>."
+    },
+    {
+      "source": "完成チェックの操作をすべて試して表のとおりの結果になり、練習1〜3で消したコードを元に戻した。",
+      "translation": "J'ai essayé toutes les opérations de la vérification finale, obtenu les résultats du tableau et rétabli le code supprimé dans les exercices 1 à 3."
+    },
+    {
+      "source": "症状",
+      "translation": "Symptôme"
+    },
+    {
+      "source": "見るところ",
+      "translation": "Où regarder"
+    },
+    {
+      "source": "ボタンを押すとアプリが終了する",
+      "translation": "L'application se ferme à l'appui sur un bouton"
+    },
+    {
+      "source": "STEP 05。画面を <code>New → Java Class</code> で作ると <code>AndroidManifest.xml</code> に登録されません。<code>New → Activity → Empty Views Activity</code> で作り直します",
+      "translation": "STEP 05. Créer l'écran avec <code>New → Java Class</code> ne l'ajoute pas à <code>AndroidManifest.xml</code>. Recréez-le avec <code>New → Activity → Empty Views Activity</code>"
+    },
+    {
+      "source": "アプリ一覧のアイコンが2つある（Runすると何もない画面から始まることがある）",
+      "translation": "Deux icônes figurent dans la liste des applications (Run démarre parfois sur un écran vide)"
+    },
+    {
+      "source": "STEP 05・06でLauncher Activityにチェックを入れた可能性があります。その画面の <code>&lt;activity&gt;</code> から <code>&lt;intent-filter&gt;</code> を消し、<code>android:exported=\"false\"</code> にします",
+      "translation": "Vous avez peut-être coché Launcher Activity au STEP 05 ou 06. Supprimez <code>&lt;intent-filter&gt;</code> de la balise <code>&lt;activity&gt;</code> de cet écran et définissez <code>android:exported=\"false\"</code>"
+    },
+    {
+      "source": "一覧が二重に増える",
+      "translation": "La liste se double"
+    },
+    {
+      "source": "STEP 06②。<code>cardList.clear()</code> を書いたか",
+      "translation": "STEP 06②. Vérifiez la présence de <code>cardList.clear()</code>"
+    },
+    {
+      "source": "STEP 02②。<code>[libraries]</code> に書いたか",
+      "translation": "STEP 02②. Vérifiez que les lignes sont dans <code>[libraries]</code>"
+    },
+    {
+      "source": "<code>ItemDao</code> の中で赤いエラーが出る",
+      "translation": "Erreurs rouges dans <code>ItemDao</code>"
+    },
+    {
+      "source": "STEP 03②。<strong>Class ではなく Interface</strong> で作ったか",
+      "translation": "STEP 03②. Vérifiez que vous avez choisi <strong>Interface et non Class</strong>"
+    },
+    {
+      "source": "同じ単語が登録できてしまう",
+      "translation": "Le même mot peut être enregistré plusieurs fois"
+    },
+    {
+      "source": "STEP 03②。<code>countByEnglish</code> が <code>=</code> になっているか",
+      "translation": "STEP 03②. Vérifiez que <code>countByEnglish</code> utilise <code>=</code>"
+    },
+    {
+      "source": "ロゴ画像が見つからない",
+      "translation": "Le logo est introuvable"
+    },
+    {
+      "source": "STEP 02①。ファイル名を <code>logoeng.png</code> のままにしたか",
+      "translation": "STEP 02①. Vérifiez que vous avez gardé le nom <code>logoeng.png</code>"
+    },
+    {
+      "source": "importの赤い波線が消えない",
+      "translation": "Le soulignement rouge des imports ne disparaît pas"
+    },
+    {
+      "source": "共通資料：Auto Import",
+      "translation": "Guide commun : Auto Import"
+    },
+    {
+      "source": "エミュレータが出てこない",
+      "translation": "L'émulateur n'apparaît pas"
+    },
+    {
+      "source": "共通資料：エミュレータ",
+      "translation": "Guide commun : Émulateur"
+    },
+    {
+      "source": "画面を回すと見ていたカードが1問目に戻る",
+      "translation": "Après une rotation, la carte affichée revient à la première question"
+    },
+    {
+      "source": "<a1>共通資料：開発Tips</a1> のC章。登録した単語は消えません",
+      "translation": "Section C du <a1>Guide commun : Conseils de développement</a1>. Les mots enregistrés ne disparaissent pas"
+    },
+    {
+      "source": "答え合わせ用の見本です。教科書といっしょに配られた<strong>教材のフォルダ</strong>に、そのまま開ける形で入っています。ダウンロードも展開も要りません。授業の入力は自分で作ったプロジェクトに書きます。",
+      "translation": "C'est un exemple pour vérifier votre travail. Il est prêt à ouvrir dans le <strong>dossier des supports de cours</strong> distribué avec le manuel. Aucun téléchargement ni extraction n'est nécessaire. Saisissez le code du cours dans votre propre projet."
+    },
+    {
+      "source": "Android Studioの <strong>Open</strong>（プロジェクトを開いているときは <strong>File → Open</strong>）で、<strong>書類</strong>（<code>Documents</code>）にある教材のフォルダを開きます。名前は <code>android1-student-materials-</code> のうしろに日付が付いた形で、日付は配られた回によって変わります。いま読んでいるこの教科書が入っているフォルダです。",
+      "translation": "Avec <strong>Open</strong> dans Android Studio (ou <strong>File → Open</strong> si un projet est ouvert), ouvrez le dossier des supports de cours dans <strong>書類</strong> (<code>Documents</code>). Son nom commence par <code>android1-student-materials-</code> suivi d'une date, qui varie selon la distribution. Il s'agit du dossier contenant le manuel que vous lisez actuellement."
+    },
+    {
+      "source": "その中を <code>samples → A11VocabularyBook</code> の順に開き、<code>settings.gradle.kts</code> と <code>app</code> が入った <code>A11VocabularyBook</code> フォルダを選びます。",
+      "translation": "Ouvrez <code>samples → A11VocabularyBook</code> dans cet ordre, puis sélectionnez le dossier <code>A11VocabularyBook</code> contenant <code>settings.gradle.kts</code> et <code>app</code>."
+    },
+    {
+      "source": "Sync後にRunして動きを確認します。授業の入力に戻るときは自分の <code>Documents/Android1/A11VocabularyBook</code> を開きます。",
+      "translation": "Après Sync, utilisez Run pour vérifier le comportement. Pour reprendre la saisie du cours, ouvrez votre propre <code>Documents/Android1/A11VocabularyBook</code>."
+    },
+    {
+      "source": "教材のフォルダが手元にないときは、同じ見本をZIPで受け取れます（<a1>A11VocabularyBook.zip</a1>）。展開してできた <code>A11VocabularyBook</code> フォルダを、同じようにOpenで選びます。",
+      "translation": "Si vous n'avez pas le dossier des supports de cours, vous pouvez obtenir le même exemple en ZIP (<a1>A11VocabularyBook.zip</a1>). Sélectionnez de la même manière avec Open le dossier <code>A11VocabularyBook</code> obtenu après décompression."
+    },
+    {
+      "source": "完成した <code>activity_main.xml</code>",
+      "translation": "Fichier <code>activity_main.xml</code> terminé"
+    },
+    {
+      "source": "Androidプログラミング1 · A11VocabularyBook / 本文・画像・操作機能はオフラインで利用できます。Android Studioの初回準備・ビルドと公式資料の閲覧にはネット接続が必要です。",
+      "translation": "Programmation Android 1 · A11VocabularyBook / Le texte, les images et les fonctions du manuel sont utilisables hors ligne. Une connexion Internet est nécessaire pour la préparation initiale et le build dans Android Studio ainsi que pour consulter la documentation officielle."
+    },
+    {
+      "source": "画像は授業用の提供資料を使用。スクリーンショットの単語は例です。",
+      "translation": "Les images sont fournies pour le cours. Les mots des captures d'écran sont des exemples."
+    }
+  ]
+}
