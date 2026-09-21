@@ -85,7 +85,7 @@
 <p>左の一覧が見えないときは <strong>View → Tool Windows → Project</strong> を開きます。一覧の上の表示名が <strong>Project</strong> になっていることを確認します。パッケージのフォルダが <code>jp.ac.jec.a03rockpaperscissorsgame</code> とまとめて表示される場合もあります。</p>
 <h3>変更前に1回Runする</h3>
 <ol><li><a href="../common/emulator.html?from=rock-paper-scissors-game">共通資料：エミュレータ</a>に従って端末を起動します。</li><li>上部で <strong>app</strong> と <strong>jec_26cm_android1_Pixel 9a</strong> を選び、<strong>Run ▶</strong> を押します。</li><li><strong>Hello World!</strong> が表示されれば成功です。</li></ol>
-<div class="note"><p class="box-title">MainActivity.ktができたとき</p><p>先生に画面を見せ、Empty Views Activity / Javaの選択を確認します。</p></div>
+<div class="note"><p class="box-title">MainActivity.ktができたとき</p><p>この授業で開くのは <code>MainActivity.java</code> です。<code>.kt</code> しか見つからない場合は、先生に画面を見せてください。プロジェクトを作るときに、上の手順2で <strong>Empty Views Activity</strong> を、手順4で確認した表のとおりに <strong>Java</strong> を選んだかどうかを、先生が確認します。どちらかが違っていたときは、先生といっしょにプロジェクトを作り直します。</p></div>
 <div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-1"><span>自分の保存先にA03RockPaperScissorsGameを作り、Hello World!を表示できた。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
 <div class="next"><a href="#step-2">次へ：画像をdrawableに追加 →</a></div>
 </section>
@@ -248,7 +248,7 @@
 <p><code>tools:ignore="ButtonStyle"</code> はエディタの警告を抑える指定で、クリックの処理ではありません。「CPUの手」の文字はJavaで変えないため、idを付けていません。</p>
 <h3>Runで確かめる</h3><p>画面の下に「勝負！」「次の戦いへ」と「CPUの手」が表示されます。2つのボタンは灰色で押せません。</p>
 <figure class="phone"><a href="images/app-initial.png"><img src="images/app-initial.png" width="1080" height="2424" loading="lazy" alt="タイトル、メッセージ、3つの手、灰色の勝負！と次の戦いへ、CPUの手の見出しが並ぶ"></a><figcaption>このSTEPの画面。CPUの手の下はまだ空欄です。 <a href="images/app-initial.png">画像を大きく開く</a></figcaption></figure>
-<div class="note"><p class="box-title">1コマ目はここまで</p><p>保存してからもう一度Runします。画面の部品のidを、先生に1つずつ指さして説明しましょう。次回も自分の <code>Documents/Android1/A03RockPaperScissorsGame</code> を開きます。</p></div>
+<div class="note"><p class="box-title">1コマ目はここまで</p><p>もう一度Runします。画面の部品のidを、先生に1つずつ指さして説明しましょう。次回も自分の <code>Documents/Android1/A03RockPaperScissorsGame</code> を開きます。</p></div>
 <div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-4"><span>2つのボタンが押せない状態で表示されることをRunで確認し、XMLでimg_cpuが「CPUの手」のTextViewの下にあることを確認した（画面ではまだ見えない）。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
 <div class="next"><a href="#step-5">次へ：手を選ぶ（配列とfor文） →</a></div>
 </section>
@@ -392,7 +392,7 @@ var imageViews = new ImageView[]{
 
 <p>ここでは <code>selectedHand</code> を-1に戻していません。手を選ぶまで勝負！を押せないため、前の番号が勝負に使われることはありません。</p>
 <h3>Runで確かめる</h3><ol><li>手を選ぶ → 勝負！ → 次の戦いへ の順に押します。</li><li>赤い背景とCPUの手が消え、2つのボタンが押せない状態に戻ります。</li><li>もう一度、別の手を選んで勝負！できます。2〜3回くり返します。</li></ol>
-<div class="note"><p class="box-title">2コマ目はここまで</p><p>保存してからもう一度Runします。次回はRunして、選ぶ → 勝負！ → 次の戦いへ をくり返せることを確かめてからSTEP 8へ進みます。</p></div>
+<div class="note"><p class="box-title">2コマ目はここまで</p><p>もう一度Runします。次回はRunして、選ぶ → 勝負！ → 次の戦いへ をくり返せることを確かめてからSTEP 8へ進みます。</p></div>
 <div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-7"><span>次の戦いへで起動直後と同じ表示に戻り、何度も勝負できることを確認した。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
 <div class="next"><a href="#step-8">次へ：勝ち負けと連勝数 →</a></div>
 </section>
@@ -484,7 +484,10 @@ switch (result) {
 <tr><td>Logcat</td><td>勝負！のたびに、選んだ手・CPUの手・結果の番号が出る。</td></tr>
 </tbody></table>
 
-<h3>保存</h3><p>自分の <code>Documents/Android1/A03RockPaperScissorsGame</code> を保存します。</p>
+<h3>保存</h3>
+<p>Android Studioは、書いたコードを自動でファイルに保存します。保存の操作は要りません。ここでは、保存された場所を確かめます。</p>
+<ol><li>Finderを開き、左側の <strong>書類</strong>（<code>Documents</code>）をクリックします。</li><li>その中の <code>Android1</code> フォルダを開き、<code>A03RockPaperScissorsGame</code> フォルダがあることを確かめます。</li></ol>
+<p>この <code>Documents/Android1/A03RockPaperScissorsGame</code> フォルダが、自分で作ったアプリです。あとの授業でもう一度開けるように、消したり、別の場所へ移動したり、名前を変えたりせずに、そのまま残します。</p>
 <p>教材のチェックは自分用です。先生への送信はしません。印刷は <kbd>⌘ P</kbd> で行えます。</p>
 <div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-10"><span>完成チェックの操作をすべて試し、表のとおりの結果になった。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
 </section>

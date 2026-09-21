@@ -87,7 +87,7 @@
 <p>左の一覧が見えないときは <strong>View → Tool Windows → Project</strong> を開きます。一覧の上の表示名が <strong>Project</strong> になっていることを確認します。パッケージのフォルダが <code>jp.ac.jec.a04webviewapp</code> とまとめて表示される場合もあります。</p>
 <h3>変更前に1回Runする</h3>
 <ol><li><a href="../common/emulator.html?from=webview-app">共通資料：エミュレータ</a>に従って端末を起動します。</li><li>上部で <strong>app</strong> と <strong>jec_26cm_android1_Pixel 9a</strong> を選び、<strong>Run ▶</strong> を押します。</li><li><strong>Hello World!</strong> が表示されれば成功です。</li></ol>
-<div class="note"><p class="box-title">MainActivity.ktができたとき</p><p>先生に画面を見せ、Empty Views Activity / Javaの選択を確認します。</p></div>
+<div class="note"><p class="box-title">MainActivity.ktができたとき</p><p>この授業で開くのは <code>MainActivity.java</code> です。<code>.kt</code> しか見つからない場合は、先生に画面を見せてください。プロジェクトを作るときに、上の手順2で <strong>Empty Views Activity</strong> を、手順4で確認した表のとおりに <strong>Java</strong> を選んだかどうかを、先生が確認します。どちらかが違っていたときは、先生といっしょにプロジェクトを作り直します。</p></div>
 <div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-1"><span>自分の保存先にA04WebViewAppを作り、Hello World!を表示できた。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
 <div class="next"><a href="#step-2">次へ：ActionBarとインターネットの許可 →</a></div>
 </section>
@@ -341,7 +341,7 @@ private String[] titles = new String[]{
 <p>STEP 6の <code>menuItem.getTitle()</code> のように、値を入れた変数からもメソッドを呼べます。</p>
 </details>
 <div class="note"><p class="box-title">enumでも番号を使う場面</p><p>STEP 6では、押した項目の番号を使い、<code>values()[番号]</code> で値を取り出します。この番号は自分で書きません。メニューを作るときも押したときも、enumが値を書いた順に付けた同じ番号（「値の番号」の表）を使うので、項目を増やしてもずれません。ただし <code>values()[7]</code> のように、ない番号を自分で書くと、enumでも実行中のエラーになります。</p></div>
-<div class="note"><p class="box-title">1コマ目はここまで</p><p>保存してからもう一度Runします。隣の人か先生に、enumの4つの値と番号（ordinal）の対応と、enumを使うメリットを1つ説明しましょう。次回も自分の <code>Documents/Android1/A04WebViewApp</code> を開きます。</p></div>
+<div class="note"><p class="box-title">1コマ目はここまで</p><p>もう一度Runします。隣の人か先生に、enumの4つの値と番号（ordinal）の対応と、enumを使うメリットを1つ説明しましょう。次回も自分の <code>Documents/Android1/A04WebViewApp</code> を開きます。</p></div>
 <div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-5"><span>MainActivityと同じ場所にAppMenuItem.javaを作り、4つの値と番号の対応を表で確認した。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
 <div class="next"><a href="#step-6">次へ：メニューでページを切り替える →</a></div>
 </section>
@@ -541,13 +541,16 @@ public boolean onKeyDown(int keyCode, KeyEvent event) {
 <tr><td>最初のページで戻る操作</td><td>ホーム画面に戻る。</td></tr>
 </tbody></table>
 
-<h3>保存</h3><p>自分の <code>Documents/Android1/A04WebViewApp</code> を保存します。</p>
+<h3>保存</h3>
+<p>Android Studioは、書いたコードを自動でファイルに保存します。保存の操作は要りません。ここでは、保存された場所を確かめます。</p>
+<ol><li>Finderを開き、左側の <strong>書類</strong>（<code>Documents</code>）をクリックします。</li><li>その中の <code>Android1</code> フォルダを開き、<code>A04WebViewApp</code> フォルダがあることを確かめます。</li></ol>
+<p>この <code>Documents/Android1/A04WebViewApp</code> フォルダが、自分で作ったアプリです。あとの授業でもう一度開けるように、消したり、別の場所へ移動したり、名前を変えたりせずに、そのまま残します。</p>
 <p>教材のチェックは自分用です。先生への送信はしません。印刷は <kbd>⌘ P</kbd> で行えます。</p>
 <div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-10"><span>完成チェックの操作をすべて試し、表のとおりの結果になった。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
 </section>
 <section id="help"><h2>困ったとき</h2><table><thead><tr><th>困ったこと</th><th>最初に確認する場所</th></tr></thead><tbody>
 <tr><td>ActionBarや ⋮ が出ない</td><td>STEP 2で、2つのthemes.xmlの両方から <code>.NoActionBar</code> を消したか。STEP 6の <code>onCreateOptionsMenu</code> がonCreateの外にあり、<code>return true</code> か。</td></tr>
-<tr><td>「ウェブページへのアクセス不可」「net::ERR_CACHE_MISS」</td><td>AndroidManifest.xmlのINTERNETの許可の行があるか、つづりが <code>android.permission.INTERNET</code> か。保存してRunし直す。</td></tr>
+<tr><td>「ウェブページへのアクセス不可」「net::ERR_CACHE_MISS」</td><td>AndroidManifest.xmlのINTERNETの許可の行があるか、つづりが <code>android.permission.INTERNET</code> か。修正したらRunし直す。</td></tr>
 <tr><td>ビルドで「unexpected element &lt;uses-permission&gt; found in &lt;manifest&gt;&lt;application&gt;」</td><td>許可の行が <code>&lt;application&gt;</code> の中にある。<code>&lt;application</code> の上に移動する。</td></tr>
 <tr><td>「ウェブページへのアクセス不可」で別のエラー名</td><td>Macがインターネットにつながっているか。URLのつづりを確認する。</td></tr>
 <tr><td>R.id.web_view / R.id.chk_javascript が赤い</td><td>XMLのid。<code>web_view</code>・<code>chk_javascript</code> の大文字・小文字まで一致するか。最初のXMLエラーを直してビルドする。</td></tr>
