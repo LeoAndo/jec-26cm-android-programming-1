@@ -86,7 +86,7 @@
 <p>左の一覧が見えないときは <strong>View → Tool Windows → Project</strong> を開きます。パッケージのフォルダが <code>jp.ac.jec.a02calcgame</code> とまとめて表示される場合もあります。</p>
 <h3>変更前に1回Runする</h3>
 <ol><li><a href="../common/emulator.html?from=calc-game">共通資料：エミュレータ</a>に従って端末を起動します。</li><li>上部で <strong>app</strong> と <strong>jec_26cm_android1_Pixel 9a</strong> を選び、<strong>Run ▶</strong> を押します。</li><li><strong>Hello World!</strong> が表示されれば成功です。</li></ol>
-<div class="note"><p class="box-title">MainActivity.ktができたとき</p><p>先生に画面を見せ、Empty Views Activity / Javaの選択を確認します。</p></div>
+<div class="note"><p class="box-title">MainActivity.ktができたとき</p><p>この授業で開くのは <code>MainActivity.java</code> です。<code>.kt</code> しか見つからない場合は、先生に画面を見せてください。プロジェクトを作るときに、上の手順2で <strong>Empty Views Activity</strong> を、手順4で確認した表のとおりに <strong>Java</strong> を選んだかどうかを、先生が確認します。どちらかが違っていたときは、先生といっしょにプロジェクトを作り直します。</p></div>
 <div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-1"><span>自分の保存先にA02CalcGameを作り、Hello World!を表示できた。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
 <div class="next"><a href="#step-2">次へ：タイマーと操作ボタン →</a></div>
 </section>
@@ -302,7 +302,7 @@ var btnReset = findViewById(R.id.btn_reset);</code></pre>
 <p><code>(Chronometer)</code> と <code>(TextView)</code> は、それぞれの部品の機能を使う指定です。操作ボタンは、Viewが持つクリック登録と有効・無効の切り替えだけを使うため、ここではキャストしていません。</p>
 <p>Auto Importで <code>android.widget.Chronometer</code> と <code>android.widget.TextView</code> を追加します。赤字が残るときは名前にカーソルを置いて <kbd>⌥ Enter</kbd> で候補を確認します。</p>
 <div class="note"><p class="box-title">追加場所を指さして確認</p><p>6つのフィールドは <strong>onCreateの外</strong>、5つの部品を取得する行は <strong>onCreateの中</strong> です。Runして画面が変わらなくても成功です。</p></div>
-<div class="note"><p class="box-title">1コマ目はここまで</p><p>保存してからもう一度Runします。先生に <code>nowNo</code> と <code>correctNo</code> の役割を説明しましょう。次回も自分の <code>Documents/Android1/A02CalcGame</code> を開きます。</p></div>
+<div class="note"><p class="box-title">1コマ目はここまで</p><p>もう一度Runします。先生に <code>nowNo</code> と <code>correctNo</code> の役割を説明しましょう。次回も自分の <code>Documents/Android1/A02CalcGame</code> を開きます。</p></div>
 <div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-4"><span>フィールドとローカル変数の場所を区別し、5つの値の役割を表で確認した。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
 <div class="next"><a href="#step-5">次へ：開始・停止・リセット →</a></div>
 </section>
@@ -468,7 +468,7 @@ startQuestion();</code></pre>
 <p>問題番号を増やす行は <code>if (number == answer)</code> の<strong>外</strong>です。不正解でも次の問題へ進みます。正誤を比べてから <code>startQuestion()</code> を呼ぶ順番を守ります。</p>
 <h3>Runで確かめる</h3><ol><li>STARTし、正しい答えを1回押します。「正解数: 1」が出て2問目になります。</li><li>2問目で間違った数字を押します。「正解数: 1」のままで3問目になります。</li><li>STOP → RESETで問題文を消します。STARTして、再び1問目から始まることを確認します。</li></ol>
 <div class="note"><p class="box-title">このSTEPは採点の途中確認</p><p>この段階では問題数の上限がなく、回答するたびに次の問題になります。確認は2〜3問で止めましょう。次のSTEPで10問終了の処理を入れ、確認用Snackbarを取り除きます。</p></div>
-<div class="note"><p class="box-title">2コマ目はここまで</p><p>STOPして保存します。次回はRunして、正解数と問題番号の増え方を確かめてからSTEP 9へ進みます。</p></div>
+<div class="note"><p class="box-title">2コマ目はここまで</p><p>STOPを押します。次回はRunして、正解数と問題番号の増え方を確かめてからSTEP 9へ進みます。</p></div>
 <div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-8"><span>正解なら正解数が増え、不正解でも問題番号が進むことを確認した。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
 <div class="next"><a href="#step-9">次へ：10問で終了して結果を表示 →</a></div>
 </section>
@@ -555,7 +555,10 @@ for (var id : numberButtonIds) {
 <tr><td>結果 → RESET → START</td><td>もう一度最初から遊べる。</td></tr>
 </tbody></table>
 
-<h3>保存</h3><p>自分の <code>Documents/Android1/A02CalcGame</code> を保存します。</p>
+<h3>保存</h3>
+<p>Android Studioは、書いたコードを自動でファイルに保存します。保存の操作は要りません。ここでは、保存された場所を確かめます。</p>
+<ol><li>Finderを開き、左側の <strong>書類</strong>（<code>Documents</code>）をクリックします。</li><li>その中の <code>Android1</code> フォルダを開き、<code>A02CalcGame</code> フォルダがあることを確かめます。</li></ol>
+<p>この <code>Documents/Android1/A02CalcGame</code> フォルダが、自分で作ったアプリです。あとの授業でもう一度開けるように、消したり、別の場所へ移動したり、名前を変えたりせずに、そのまま残します。</p>
 <p>教材のチェックは自分用です。先生への送信はしません。印刷は <kbd>⌘ P</kbd> で行えます。</p>
 <div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-11"><span>完成チェックの操作をすべて試し、表のとおりの結果になった。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
 </section>
