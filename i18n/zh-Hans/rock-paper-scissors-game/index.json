@@ -148,7 +148,7 @@
     },
     {
       "source": "A01・A02で学んだ「XMLで画面を作る」「Javaでクリックを処理する」「フィールドで値を覚える」を使い、<strong>CPUとじゃんけんをするゲーム</strong>を作ります。手の画像を押して選び、「勝負！」で結果を表示します。勝ち続けると連勝数が増えます。",
-      "translation": "运用A01、A02学到的“用XML制作屏幕”“用Java处理点击”和“用字段记录值”，制作<strong>与CPU猜拳的游戏</strong>。按下手势图片进行选择，按「勝負！」（对战！）显示结果。连续获胜时，连胜次数会增加。"
+      "translation": "运用A01、A02学到的“用XML制作界面”“用Java处理点击”和“用字段记录值”，制作<strong>与CPU猜拳的游戏</strong>。按下手势图片进行选择，按「勝負！」（对战！）显示结果。连续获胜时，连胜次数会增加。"
     },
     {
       "source": "ゲームの流れ",
@@ -172,7 +172,7 @@
     },
     {
       "source": "起動直後。タイトル画像、じゃんけんの手を選んでください、グー・チョキ・パーの画像、押せない勝負！と次の戦いへ、CPUの手の見出し",
-      "translation": "刚启动后的屏幕。排列着标题图片、「じゃんけんの手を選んでください」（请选择猜拳手势）、石头、剪刀、布的图片，不可按的「勝負！」（对战！）和「次の戦いへ」（下一轮对战），以及「CPUの手」（CPU的手势）标题"
+      "translation": "刚启动后的界面。排列着标题图片、「じゃんけんの手を選んでください」（请选择猜拳手势）、石头、剪刀、布的图片，不可按的「勝負！」（对战！）和「次の戦いへ」（下一轮对战），以及「CPUの手」（CPU的手势）标题"
     },
     {
       "source": "① 起動直後。勝負！と次の戦いへはまだ押せません。 <a1>画像を大きく開く</a1>",
@@ -504,7 +504,7 @@
     },
     {
       "source": "画面上部のタイトル",
-      "translation": "屏幕顶部的标题"
+      "translation": "界面顶部的标题"
     },
     {
       "source": "（使わない）",
@@ -752,7 +752,7 @@
     },
     {
       "source": "このSTEPの画面。CPUの手の下はまだ空欄です。 <a1>画像を大きく開く</a1>",
-      "translation": "本STEP的屏幕。「CPUの手」（CPU的手势）下方仍为空白。<a1>查看大图</a1>"
+      "translation": "本STEP的界面。「CPUの手」（CPU的手势）下方仍为空白。<a1>查看大图</a1>"
     },
     {
       "source": "1コマ目はここまで",
@@ -760,11 +760,11 @@
     },
     {
       "source": "もう一度Runします。画面の部品のidを、先生に1つずつ指さして説明しましょう。次回も自分の <code>Documents/Android1/A03RockPaperScissorsGame</code> を開きます。",
-      "translation": "再次Run。请逐个指出屏幕控件的id，并向老师说明。下次也打开自己的<code>Documents/Android1/A03RockPaperScissorsGame</code>。"
+      "translation": "再次Run。请逐个指出界面控件的id，并向老师说明。下次也打开自己的<code>Documents/Android1/A03RockPaperScissorsGame</code>。"
     },
     {
       "source": "2つのボタンが押せない状態で表示されることをRunで確認し、XMLでimg_cpuが「CPUの手」のTextViewの下にあることを確認した（画面ではまだ見えない）。",
-      "translation": "已通过Run确认2个按钮以不可按状态显示，并在XML中确认img_cpu位于「CPUの手」（CPU的手势）的TextView下方（屏幕中仍看不到）。"
+      "translation": "已通过Run确认2个按钮以不可按状态显示，并在XML中确认img_cpu位于「CPUの手」（CPU的手势）的TextView下方（界面中仍看不到）。"
     },
     {
       "source": "次へ：手を選ぶ（配列とfor文） →",
@@ -784,7 +784,7 @@
     },
     {
       "source": "前回の画面をRunして確認してから始めます。押した手の背景を赤くし、<strong>何番の手を選んだか</strong>をフィールドに覚えます。",
-      "translation": "先Run并确认上一课时的屏幕，再开始。将按下的手势背景改为红色，用字段记录<strong>选中了哪个编号的手势</strong>。"
+      "translation": "先Run并确认上一课时的界面，再开始。将按下的手势背景改为红色，用字段记录<strong>选中了哪个编号的手势</strong>。"
     },
     {
       "source": "① クラスの中、onCreateの外に1行追加",
@@ -804,7 +804,7 @@
     },
     {
       "source": "② 画面の部品を取得する",
-      "translation": "② 获取屏幕上的控件"
+      "translation": "② 获取界面上的控件"
     },
     {
       "source": "<code>onCreate</code> の中で、ひな形の <code>return insets;</code> に続く <code>});</code> の下、<code>onCreate</code> を閉じる <code>}</code> より上に追加します。",
@@ -948,7 +948,7 @@
     },
     {
       "source": "外側の拡張for文は画面を作るときに3回実行され、3つの画像に同じ処理を登録します。内側の番号付きfor文は、<strong>画像を押したとき</strong>に実行されます。",
-      "translation": "外层的扩展for语句在创建屏幕时执行3次，为3张图片注册相同处理。内层带编号的for语句在<strong>按下图片时</strong>执行。"
+      "translation": "外层的扩展for语句在创建界面时执行3次，为3张图片注册相同处理。内层带编号的for语句在<strong>按下图片时</strong>执行。"
     },
     {
       "source": "グーを押すと、グーの背景が赤になり、勝負！が押せるようになります。",
@@ -968,7 +968,7 @@
     },
     {
       "source": "グーを選んだ画面。勝負！が押せるようになります。 <a1>画像を大きく開く</a1>",
-      "translation": "选择石头后的屏幕。「勝負！」（对战！）变为可按状态。<a1>查看大图</a1>"
+      "translation": "选择石头后的界面。「勝負！」（对战！）变为可按状态。<a1>查看大图</a1>"
     },
     {
       "source": "押した手だけが赤くなり、別の手を押すと赤が移ることを確認した。selectedHand = i の行を指させた。",
@@ -1316,7 +1316,7 @@
     },
     {
       "source": "何回か勝負します。画面の結果と、ログの番号が上の表と同じか確かめます。",
-      "translation": "进行几次对战。检查屏幕结果与日志编号是否符合上表。"
+      "translation": "进行几次对战。检查界面上的结果与日志编号是否符合上表。"
     },
     {
       "source": "勝ったあとに次の戦いへを押し、もう一度勝つと「2連勝中！」になります。",
@@ -1380,7 +1380,7 @@
     },
     {
       "source": "練習1の行を <code>var cpu = 2;</code>（CPUはいつもパー）にし、計算式を <code>(selectedHand - cpu) % 3</code> に変えます。グーで勝負すると、画面とLogcatの <code>result</code> はどうなるでしょうか。",
-      "translation": "将练习1的那一行改为<code>var cpu = 2;</code>（CPU一直出布），把计算式改为<code>(selectedHand - cpu) % 3</code>。自己出石头对战时，屏幕和Logcat中的<code>result</code>会怎样？"
+      "translation": "将练习1的那一行改为<code>var cpu = 2;</code>（CPU一直出布），把计算式改为<code>(selectedHand - cpu) % 3</code>。自己出石头对战时，界面和Logcat中的<code>result</code>会怎样？"
     },
     {
       "source": "<code>(0 - 2) % 3</code> は −2 です。0・1・2のどのcaseにも当てはまらないため、メッセージは「じゃんけんの手を選んでください」のまま変わりません。Logcatには <code>result: -2</code> と出ます。マイナスにならないよう3を足している、と説明できれば十分です。確認後は <code>+ 3</code> と乱数の行を元に戻します。",
