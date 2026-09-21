@@ -1,0 +1,1126 @@
+{
+  "source": "docs/memo-app/index.html",
+  "language": "mn",
+  "entries": [
+    {
+      "source": "JavaとXMLで作るA09MemoApp。A08で学んだSharedPreferencesを使って、アプリを終了しても消えないメモ帳を作る授業用教科書。",
+      "translation": "Java ба XML ашиглан бүтээх A09MemoApp. A08-д сурсан SharedPreferences-ийг ашиглан аппыг хаасан ч арилдаггүй тэмдэглэлийн дэвтэр бүтээх хичээлийн сурах бичиг."
+    },
+    {
+      "source": "MemoApp — 消えないメモ帳を作ろう | Androidプログラミング1",
+      "translation": "MemoApp — Арилдаггүй тэмдэглэлийн дэвтэр бүтээцгээе | Android програмчлал 1"
+    },
+    {
+      "source": "本文へ移動",
+      "translation": "Үндсэн агуулга руу очих"
+    },
+    {
+      "source": "JEC / Androidプログラミング1",
+      "translation": "JEC / Android програмчлал 1"
+    },
+    {
+      "source": "CONTENTS / 学習の順番",
+      "translation": "CONTENTS / Суралцах дараалал"
+    },
+    {
+      "source": "学習ステップ",
+      "translation": "Суралцах алхмууд"
+    },
+    {
+      "source": "00　今日のゴール",
+      "translation": "00 Өнөөдрийн зорилго"
+    },
+    {
+      "source": "01　プロジェクトを作って実行",
+      "translation": "01 Төсөл үүсгээд ажиллуулах"
+    },
+    {
+      "source": "02　タイトル画像を入れる",
+      "translation": "02 Гарчгийн зураг оруулах"
+    },
+    {
+      "source": "03　画面を作る",
+      "translation": "03 Дэлгэц бүтээх"
+    },
+    {
+      "source": "04　メモを追加する",
+      "translation": "04 Тэмдэглэл нэмэх"
+    },
+    {
+      "source": "05　終了しても残るようにする",
+      "translation": "05 Хаасан ч үлдэхээр болгох"
+    },
+    {
+      "source": "06　データを全部消す",
+      "translation": "06 Бүх өгөгдлийг устгах"
+    },
+    {
+      "source": "07　完成",
+      "translation": "07 Дуусгах"
+    },
+    {
+      "source": "0 / 8 ステップ確認済み",
+      "translation": "0 / 8 алхмыг шалгасан"
+    },
+    {
+      "source": "学習の進み具合",
+      "translation": "Суралцах явц"
+    },
+    {
+      "source": "自分用のチェックです。",
+      "translation": "Энэ нь өөртөө зориулсан шалгалт юм."
+    },
+    {
+      "source": "困ったとき",
+      "translation": "Асуудал гарвал"
+    },
+    {
+      "source": "解説：なぜArrayListを使わないのか",
+      "translation": "Тайлбар: Яагаад ArrayList ашиглахгүй вэ"
+    },
+    {
+      "source": "完成プロジェクトを開く",
+      "translation": "Бэлэн төслийг нээх"
+    },
+    {
+      "source": "共通：はじめの準備",
+      "translation": "Нийтлэг: Эхний бэлтгэл"
+    },
+    {
+      "source": "共通：エミュレータ",
+      "translation": "Нийтлэг: Эмулятор"
+    },
+    {
+      "source": "共通：Auto Import",
+      "translation": "Нийтлэг: Auto Import"
+    },
+    {
+      "source": "共通：Logcat",
+      "translation": "Нийтлэг: Logcat"
+    },
+    {
+      "source": "共通：APKの提出",
+      "translation": "Нийтлэг: APK илгээх"
+    },
+    {
+      "source": "共通：開発Tips",
+      "translation": "Нийтлэг: Хөгжүүлэлтийн зөвлөмж"
+    },
+    {
+      "source": "共通：Android Studioのバージョン",
+      "translation": "Нийтлэг: Android Studio-ийн хувилбар"
+    },
+    {
+      "source": "消えないメモ帳を<br>作ろう",
+      "translation": "Арилдаггүй тэмдэглэлийн дэвтэр<br>бүтээцгээе"
+    },
+    {
+      "source": "メモを書く。一覧に増える。アプリを閉じても残っている。<br>A08で学んだ保存を、毎日使えるアプリにします。",
+      "translation": "Тэмдэглэл бичнэ. Жагсаалтад нэмэгдэнэ. Аппыг хаасан ч үлдэнэ.<br>A08-д сурсан хадгалах аргаар өдөр бүр ашиглаж болох апп бүтээнэ."
+    },
+    {
+      "source": "A08の次の単元",
+      "translation": "A08-ийн дараах бүлэг"
+    },
+    {
+      "source": "90分 × 1コマ目安",
+      "translation": "Ойролцоогоор 90 минут × 1 хичээлийн цаг"
+    },
+    {
+      "source": "Macで学ぶ",
+      "translation": "Mac дээр сурах"
+    },
+    {
+      "source": "STEP 00 · 目安 5分",
+      "translation": "STEP 00 · ойролцоогоор 5 минут"
+    },
+    {
+      "source": "今日のゴール",
+      "translation": "Өнөөдрийн зорилго"
+    },
+    {
+      "source": "メモを書いて一覧にためるアプリを作ります。A08では値を保存する練習をしましたが、今回はそれを<strong>実際に使えるアプリ</strong>にします。",
+      "translation": "Тэмдэглэл бичээд жагсаалтад цуглуулах апп бүтээнэ. A08-д утга хадгалах дасгал хийсэн бол энэ удаа түүнийг <strong>бодитоор ашиглаж болох апп</strong> болгоно."
+    },
+    {
+      "source": "memorandumのタイトル画像、灰色のメモ一覧、メモを入力してくださいの入力欄、データ削除と追加のボタンが並んだ画面。一覧は空",
+      "translation": "memorandum гарчгийн зураг, саарал тэмдэглэлийн жагсаалт, 「メモを入力してください」 (тэмдэглэл оруулна уу) талбар, 「データ削除」 (өгөгдөл устгах), 「追加」 (нэмэх) товчнуудтай дэлгэц. Жагсаалт хоосон"
+    },
+    {
+      "source": "起動したところ。まだメモはありません。 <a1>画像を大きく開く</a1>",
+      "translation": "Эхлүүлсэн байдал. Одоогоор тэмдэглэл байхгүй. <a1>Зургийг томоор нээх</a1>"
+    },
+    {
+      "source": "メモ一覧に、牛乳を買う、レポートを出す、9時に集合の3行が表示されている画面",
+      "translation": "Тэмдэглэлийн жагсаалтад 「牛乳を買う」 (сүү авах), 「レポートを出す」 (тайлан өгөх), 「9時に集合」 (9 цагт цуглах) гэсэн 3 мөр харагдах дэлгэц"
+    },
+    {
+      "source": "メモを3つ追加したところ。 <a1>画像を大きく開く</a1>",
+      "translation": "3 тэмдэглэл нэмсэн байдал. <a1>Зургийг томоор нээх</a1>"
+    },
+    {
+      "source": "できるようになること",
+      "translation": "Хийж чаддаг болох зүйл"
+    },
+    {
+      "source": "入力した文字を、一覧に1行ずつ増やせる。",
+      "translation": "Оруулсан бичвэрийг жагсаалтад нэг нэг мөрөөр нэмж чадна."
+    },
+    {
+      "source": "何も入れずに押されたときに、メッセージで知らせて止められる。",
+      "translation": "Юу ч оруулахгүйгээр дарахад мэдэгдэл гаргаж үйлдлийг зогсоож чадна."
+    },
+    {
+      "source": "アプリを終了しても、書いたメモが残るようにできる。",
+      "translation": "Аппыг хаасан ч бичсэн тэмдэглэл үлдэхээр болгож чадна."
+    },
+    {
+      "source": "保存したメモをまとめて消せる。",
+      "translation": "Хадгалсан тэмдэглэлийг бүгдийг нь устгаж чадна."
+    },
+    {
+      "source": "今日使う技術",
+      "translation": "Өнөөдөр ашиглах технологи"
+    },
+    {
+      "source": "技術",
+      "translation": "Технологи"
+    },
+    {
+      "source": "どこで使うか",
+      "translation": "Хаана ашиглах вэ"
+    },
+    {
+      "source": "学んだ単元",
+      "translation": "Сурсан бүлэг"
+    },
+    {
+      "source": "<code>EditText</code> と <code>Button</code>",
+      "translation": "<code>EditText</code> ба <code>Button</code>"
+    },
+    {
+      "source": "メモを入力して、追加する。",
+      "translation": "Тэмдэглэл оруулаад нэмнэ."
+    },
+    {
+      "source": "入力が空のときに知らせる。",
+      "translation": "Оролт хоосон үед мэдэгдэнэ."
+    },
+    {
+      "source": "一覧に1行ずつ足す。<strong>今回の新顔です。</strong>",
+      "translation": "Жагсаалтад нэг нэг мөр нэмнэ. <strong>Энэ удаагийн шинэ зүйл.</strong>"
+    },
+    {
+      "source": "メモを保存して、次に開いたときに読み出す。",
+      "translation": "Тэмдэглэлийг хадгалаад дараагийн удаа нээхэд уншина."
+    },
+    {
+      "source": "新しく覚えることは <code>append</code> だけです。残りはA07とA08で使ったものを組み合わせます。",
+      "translation": "Шинээр сурах зүйл зөвхөн <code>append</code> юм. Бусдыг A07 болон A08-д ашигласан зүйлсийг хослуулж хийнэ."
+    },
+    {
+      "source": "1件だけ消す機能はありません",
+      "translation": "Зөвхөн 1 тэмдэглэл устгах боломж байхгүй"
+    },
+    {
+      "source": "このアプリの削除は「全部消す」だけです。1件だけ消すには <code>RecyclerView</code> という部品が必要で、Androidプログラミング2で扱います。",
+      "translation": "Энэ аппын устгах үйлдэл зөвхөн «бүгдийг устгах» юм. Зөвхөн 1 тэмдэглэл устгахад <code>RecyclerView</code> гэдэг бүрэлдэхүүн хэрэгтэй. Үүнийг Android програмчлал 2-т үзнэ."
+    },
+    {
+      "source": "ここで止まって、確認",
+      "translation": "Энд түр зогсоод шалгана уу"
+    },
+    {
+      "source": "今日作るアプリの画面を画像で確かめ、使う技術と学んだ単元を表で確認した。",
+      "translation": "Өнөөдөр бүтээх аппын дэлгэцийг зургаар харж, ашиглах технологи болон сурсан бүлгийг хүснэгтээс шалгасан."
+    },
+    {
+      "source": "できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。",
+      "translation": "Хийж чадсан бол чагтална уу. Асуудал гарвал STEP-ийн дугаар болон дэлгэцийг багшид үзүүлнэ үү."
+    },
+    {
+      "source": "次へ：プロジェクトを作って実行 →",
+      "translation": "Дараах: Төсөл үүсгээд ажиллуулах →"
+    },
+    {
+      "source": "STEP 01 · 目安 10分",
+      "translation": "STEP 01 · ойролцоогоор 10 минут"
+    },
+    {
+      "source": "プロジェクトを作って実行",
+      "translation": "Төсөл үүсгээд ажиллуулах"
+    },
+    {
+      "source": "授業環境はMacと <strong>Android Studio Panda 2 | 2025.3.2</strong> です。A08までとは別のプロジェクトを作ります。",
+      "translation": "Хичээлд Mac болон <strong>Android Studio Panda 2 | 2025.3.2</strong> ашиглана. A08 хүртэлхээс тусдаа төсөл үүсгэнэ."
+    },
+    {
+      "source": "毎回、自分で新規作成します",
+      "translation": "Бүр удаа өөрөө шинээр үүсгэнэ"
+    },
+    {
+      "source": "作る場所は <code>Documents/Android1/A09MemoApp</code> です。<a1>完成プロジェクト</a1>は答え合わせ用で、授業の入力は自分で作ったプロジェクトに書きます。",
+      "translation": "Үүсгэх газар нь <code>Documents/Android1/A09MemoApp</code>. <a1>Бэлэн төсөл</a1> нь хариугаа тулгах зориулалттай. Хичээлийн кодыг өөрийн үүсгэсэн төсөлд бичнэ."
+    },
+    {
+      "source": "Android Studioの <strong>New Project</strong> をクリックします。別のプロジェクトを開いているときは <strong>File → New → New Project</strong> を選びます。",
+      "translation": "Android Studio-ийн <strong>New Project</strong>-ийг дарна уу. Өөр төсөл нээлттэй бол <strong>File → New → New Project</strong>-ийг сонгоно уу."
+    },
+    {
+      "source": "<strong>Phone and Tablet → Empty Views Activity → Next</strong> の順に選びます。名前に <strong>Views</strong> があることを確認します。",
+      "translation": "<strong>Phone and Tablet → Empty Views Activity → Next</strong> гэсэн дарааллаар сонгоно уу. Нэрэнд нь <strong>Views</strong> байгааг шалгана уу."
+    },
+    {
+      "source": "テンプレート一覧でEmpty Views Activityが選択されている",
+      "translation": "Загварын жагсаалтаас Empty Views Activity сонгосон байна"
+    },
+    {
+      "source": "Empty Views Activityを選択。Empty Activityとは別です。 <a1>画像を大きく開く</a1>",
+      "translation": "Empty Views Activity-ийг сонгоно уу. Энэ нь Empty Activity-ээс өөр. <a1>Зургийг томоор нээх</a1>"
+    },
+    {
+      "source": "次の表のとおりに入力・選択して <strong>Finish</strong> を押します。",
+      "translation": "Дараах хүснэгтийн дагуу оруулж, сонгоод <strong>Finish</strong>-ийг дарна уу."
+    },
+    {
+      "source": "項目",
+      "translation": "Зүйл"
+    },
+    {
+      "source": "入力・選択する内容",
+      "translation": "Оруулах, сонгох утга"
+    },
+    {
+      "source": "<code>jp.ac.jec.a09memoapp</code>（すべて小文字）",
+      "translation": "<code>jp.ac.jec.a09memoapp</code> (бүгд жижиг үсэг)"
+    },
+    {
+      "source": "A09MemoAppの新規設定。パッケージjp.ac.jec.a09memoapp、Java、API 31、Kotlin DSL",
+      "translation": "A09MemoApp-ийн шинэ тохиргоо. Багц jp.ac.jec.a09memoapp, Java, API 31, Kotlin DSL"
+    },
+    {
+      "source": "入力後の画面。画像の保存先は先生の例です。自分の <code>Documents/Android1/A09MemoApp</code> に読み替えます。 <a1>画像を大きく開く</a1>",
+      "translation": "Оруулсны дараах дэлгэц. Зураг дахь хадгалах газар нь багшийн жишээ. Өөрийн <code>Documents/Android1/A09MemoApp</code> гэж ойлгоно уу. <a1>Зургийг томоор нээх</a1>"
+    },
+    {
+      "source": "Sync（歯車の読み込み）が終わるまで待ちます。",
+      "translation": "Sync (арааны дүрстэй ачаалалт) дуусахыг хүлээнэ үү."
+    },
+    {
+      "source": "端末欄で <strong>jec_26cm_android1_Pixel 9a</strong> を選び、<strong>Run</strong>（▶）を押します。白い画面に <strong>Hello World!</strong> が出れば成功です。",
+      "translation": "Төхөөрөмжийн талбараас <strong>jec_26cm_android1_Pixel 9a</strong>-ийг сонгоод <strong>Run</strong> (▶)-ийг дарна уу. Цагаан дэлгэц дээр <strong>Hello World!</strong> гарвал амжилттай болсон."
+    },
+    {
+      "source": "エミュレータが出てこないときは<a1>共通資料：エミュレータ</a1>を見ます。",
+      "translation": "Эмулятор харагдахгүй бол <a1>Нийтлэг заавар: Эмулятор</a1>-ыг үзнэ үү."
+    },
+    {
+      "source": "自分の保存先にA09MemoAppを作り、Hello World!を表示できた。",
+      "translation": "Өөрийн хадгалах газарт A09MemoApp үүсгээд Hello World!-ийг харуулж чадсан."
+    },
+    {
+      "source": "次へ：タイトル画像を入れる →",
+      "translation": "Дараах: Гарчгийн зураг оруулах →"
+    },
+    {
+      "source": "STEP 02 · 目安 10分",
+      "translation": "STEP 02 · ойролцоогоор 10 минут"
+    },
+    {
+      "source": "タイトル画像を入れる",
+      "translation": "Гарчгийн зураг оруулах"
+    },
+    {
+      "source": "タイトル画像の <code>title_memo.png</code> は、教科書といっしょに配られた<strong>教材のフォルダ</strong>に入っています。Finderでコピーして、プロジェクトに入れます。A03・A05・A07でやった手順と同じです。",
+      "translation": "Гарчгийн <code>title_memo.png</code> зураг нь сурах бичигтэй хамт өгсөн <strong>сургалтын материалын хавтас</strong> дотор бий. Finder-ээр хуулаад төсөлд оруулна. A03, A05, A07-д хийсэнтэй ижил дараалалтай."
+    },
+    {
+      "source": "Finderを開き、左側の <strong>書類</strong> をクリックします。教材のフォルダをダブルクリックで開きます。名前は <code>android1-student-materials-</code> のうしろに日付が付いた形で、日付は配られた回によって変わります。",
+      "translation": "Finder-ийг нээгээд зүүн талын <strong>書類</strong> (Баримт бичиг)-ийг дарна уу. Сургалтын материалын хавтсыг хоёр дарж нээнэ үү. Нэр нь <code>android1-student-materials-</code>-ийн ард огноо залгасан хэлбэртэй. Огноо нь материал тараасан удаа бүрд өөр байна."
+    },
+    {
+      "source": "その中を <code>docs → memo-app → downloads</code> の順に開きます。<code>memo-app</code> は、いま読んでいるこの教科書（<code>index.html</code>）が入っているフォルダです。",
+      "translation": "Дотор нь <code>docs → memo-app → downloads</code> дарааллаар нээнэ үү. <code>memo-app</code> нь одоо уншиж буй энэ сурах бичиг (<code>index.html</code>) байгаа хавтас юм."
+    },
+    {
+      "source": "<code>title_memo.png</code> を選び、コピーします（<kbd>⌘ C</kbd>）。同じフォルダにある <code>A09MemoApp.zip</code> は完成プロジェクトです。選びません。",
+      "translation": "<code>title_memo.png</code>-ийг сонгоод хуулна уу (<kbd>⌘ C</kbd>). Ижил хавтас дахь <code>A09MemoApp.zip</code> нь бэлэн төсөл. Түүнийг сонгохгүй."
+    },
+    {
+      "source": "教材のフォルダが見つからないとき",
+      "translation": "Сургалтын материалын хавтас олдохгүй байвал"
+    },
+    {
+      "source": "教材のフォルダは、はじめの準備で「書類」へ移動したものです（<a1>共通資料：はじめの準備</a1>の1.）。まだ移動していなければ、先にそちらを行います。同じ教材を2回ダウンロードして名前のうしろに <code>(1)</code> が付いたものがあるときは、自分で判断せず先生に見せてください。",
+      "translation": "Сургалтын материалын хавтас нь эхний бэлтгэлээр 「書類」 (Баримт бичиг) рүү зөөсөн хавтас юм (<a1>Нийтлэг заавар: Эхний бэлтгэл</a1>-ийн 1). Зөөгөөгүй бол эхлээд тэр алхмыг хийнэ үү. Ижил материалыг 2 удаа татаж, нэрийн ард нь <code>(1)</code> залгасан хавтас байвал өөрөө шийдэхгүй, багшид үзүүлнэ үү."
+    },
+    {
+      "source": "Android Studioのプロジェクト画面で <code>app/src/main/res/drawable</code> フォルダをクリックして選び、貼り付けます（<kbd>⌘ V</kbd>）。",
+      "translation": "Android Studio-ийн төслийн дэлгэцэд <code>app/src/main/res/drawable</code> хавтсыг дарж сонгоод буулгана уу (<kbd>⌘ V</kbd>)."
+    },
+    {
+      "source": "確認のウィンドウが出ます。<strong>New name</strong> が <code>title_memo.png</code>、<strong>To directory</strong> の末尾が <code>app/src/main/res/drawable</code> になっていることを確かめて <strong>OK</strong> を押します。",
+      "translation": "Баталгаажуулах цонх гарна. <strong>New name</strong> нь <code>title_memo.png</code>, <strong>To directory</strong>-ийн төгсгөл нь <code>app/src/main/res/drawable</code> байгааг шалгаад <strong>OK</strong>-ийг дарна уу."
+    },
+    {
+      "source": "Project表示でdrawableフォルダを選び、Copyダイアログが開いている。New nameはtitle_memo.png、To directoryの末尾はA09MemoApp/app/src/main/res/drawable",
+      "translation": "Project харагдацад drawable хавтсыг сонгоод Copy харилцах цонх нээгдсэн байна. New name нь title_memo.png, To directory-ийн төгсгөл нь A09MemoApp/app/src/main/res/drawable"
+    },
+    {
+      "source": "To directoryの末尾が A09MemoApp/app/src/main/res/drawable になっていればOK。この画面は先生の例です。<strong>Copy file</strong> のうしろ（コピー元の場所）は、自分の画面では教材のフォルダの中の場所になります。 <a1>画像を大きく開く</a1>",
+      "translation": "To directory-ийн төгсгөл A09MemoApp/app/src/main/res/drawable байвал зөв. Энэ дэлгэц нь багшийн жишээ. Өөрийн дэлгэцэд <strong>Copy file</strong>-ийн ард (хуулж буй эх байрлалд) сургалтын материалын хавтас доторх байрлал гарна. <a1>Зургийг томоор нээх</a1>"
+    },
+    {
+      "source": "<code>drawable</code> フォルダの中に <code>title_memo.png</code> が増えていれば成功です。",
+      "translation": "<code>drawable</code> хавтас дотор <code>title_memo.png</code> нэмэгдсэн байвал амжилттай болсон."
+    },
+    {
+      "source": "drawableフォルダにic_launcher_background.xml、ic_launcher_foreground.xml、title_memo.pngが並んでいる",
+      "translation": "drawable хавтас дотор ic_launcher_background.xml, ic_launcher_foreground.xml, title_memo.png байна"
+    },
+    {
+      "source": "drawableに <code>title_memo.png</code> が増えれば成功。 <a1>画像を大きく開く</a1>",
+      "translation": "drawable-д <code>title_memo.png</code> нэмэгдсэн байвал амжилттай болсон. <a1>Зургийг томоор нээх</a1>"
+    },
+    {
+      "source": "ファイル名は変えません",
+      "translation": "Файлын нэрийг өөрчлөхгүй"
+    },
+    {
+      "source": "このあとXMLから <code>@drawable/title_memo</code> という名前で呼び出します。<strong>名前を変えると見つからなくなります。</strong>大文字や日本語も使えません。",
+      "translation": "Дараа нь XML-ээс <code>@drawable/title_memo</code> нэрээр дуудна. <strong>Нэрийг өөрчилбөл олдохгүй болно.</strong> Том үсэг болон япон бичвэр ч ашиглаж болохгүй."
+    },
+    {
+      "source": "Runで確かめる",
+      "translation": "Run ашиглан шалгах"
+    },
+    {
+      "source": "画面はまだ <strong>Hello World!</strong> のままです。エラーが出ずにRunできれば成功です。画像を使うのは次のSTEPです。",
+      "translation": "Дэлгэц одоогоор <strong>Hello World!</strong> хэвээр байна. Алдаагүй Run хийж чадвал амжилттай болсон. Зургийг дараагийн STEP-д ашиглана."
+    },
+    {
+      "source": "<code>drawable</code> に <code>title_memo.png</code> を置けた。",
+      "translation": "<code>drawable</code>-д <code>title_memo.png</code>-ийг байрлуулж чадсан."
+    },
+    {
+      "source": "次へ：画面を作る →",
+      "translation": "Дараах: дэлгэц бүтээх →"
+    },
+    {
+      "source": "STEP 03 · 目安 15分",
+      "translation": "STEP 03 · ойролцоогоор 15 минут"
+    },
+    {
+      "source": "画面を作る",
+      "translation": "Дэлгэц бүтээх"
+    },
+    {
+      "source": "<code>app/src/main/res/layout/activity_main.xml</code> を開き、中身をすべて次のコードに置き換えます。",
+      "translation": "<code>app/src/main/res/layout/activity_main.xml</code>-ийг нээгээд доторхыг бүхэлд нь дараах кодоор солино уу."
+    },
+    {
+      "source": "activity_main.xml（全体を置き換え）",
+      "translation": "activity_main.xml (бүхэлд нь солих)"
+    },
+    {
+      "source": "書いた内容の意味",
+      "translation": "Бичсэн агуулгын утга"
+    },
+    {
+      "source": "書いたところ",
+      "translation": "Бичсэн хэсэг"
+    },
+    {
+      "source": "意味",
+      "translation": "Утга"
+    },
+    {
+      "source": "<code>ImageView</code> の <code>@drawable/title_memo</code>",
+      "translation": "<code>ImageView</code>-ийн <code>@drawable/title_memo</code>"
+    },
+    {
+      "source": "STEP 02で置いた画像を表示する。",
+      "translation": "STEP 02-т байрлуулсан зургийг харуулна."
+    },
+    {
+      "source": "メモの一覧。<code>background</code> で灰色にして、どこまでが一覧か分かるようにしている。",
+      "translation": "Тэмдэглэлийн жагсаалт. Жагсаалтын хүрээг ойлгомжтой болгохын тулд <code>background</code>-аар саарал болгосон."
+    },
+    {
+      "source": "中身がはみ出したときにスクロールできるようにする入れ物。メモが増えて画面に入りきらなくなっても、指でなぞれば続きを読める。A07の参加者一覧と同じ形。",
+      "translation": "Доторх нь багтахгүй бол гүйлгэж болох агуулах бүрэлдэхүүн. Тэмдэглэл олшроод дэлгэцэд багтахгүй болсон ч хуруугаараа гүйлгээд үргэлжлэлийг уншиж болно. A07-ийн оролцогчдын жагсаалттай ижил хэлбэртэй."
+    },
+    {
+      "source": "<code>layout_height=\"0dp\"</code> と <code>layout_weight=\"1\"</code>",
+      "translation": "<code>layout_height=\"0dp\"</code> ба <code>layout_weight=\"1\"</code>"
+    },
+    {
+      "source": "一覧が<strong>残りの高さを全部使う</strong>という指定。ScrollViewのほうに付ける。メモが増えても減っても、入力欄とボタンの位置が変わらない。",
+      "translation": "Жагсаалт <strong>үлдсэн өндрийг бүхэлд нь ашиглана</strong> гэсэн тохируулга. Үүнийг ScrollView-д өгнө. Тэмдэглэл нэмэгдсэн ч, багассан ч оруулах талбар болон товчны байрлал өөрчлөгдөхгүй."
+    },
+    {
+      "source": "中身が短いときでも、ScrollViewの高さいっぱいまで広げる。これがないと、メモが少ないときに灰色の背景が途中までしか広がらない。",
+      "translation": "Агуулга богино байсан ч ScrollView-ийн бүтэн өндөр хүртэл сунгана. Үүнгүй бол тэмдэглэл цөөн үед саарал дэвсгэр зөвхөн замын дунд хүртэл үргэлжилнэ."
+    },
+    {
+      "source": "<code>edt_memo</code> の <code>hint</code>",
+      "translation": "<code>edt_memo</code>-ийн <code>hint</code>"
+    },
+    {
+      "source": "何も入力していないときに薄く出る案内。入力すると消える。",
+      "translation": "Юу ч оруулаагүй үед бүдэг харагдах заавар. Оруулж эхлэхэд арилна."
+    },
+    {
+      "source": "ふつうの1行の文字入力。",
+      "translation": "Ердийн нэг мөр бичвэр оруулах."
+    },
+    {
+      "source": "横向きの <code>LinearLayout</code>",
+      "translation": "Хэвтээ <code>LinearLayout</code>"
+    },
+    {
+      "source": "ボタン2つを横に並べる入れ物。中の2つに <code>layout_weight=\"1\"</code> を付けて、幅を半分ずつにしている。",
+      "translation": "2 товчийг хажуугаар нь зэрэгцүүлэх агуулах бүрэлдэхүүн. Доторх 2 товчинд <code>layout_weight=\"1\"</code> өгч өргөнийг хагас хагасаар хуваасан."
+    },
+    {
+      "source": "枠線だけのボタンの見た目。",
+      "translation": "Зөвхөн хүрээтэй товчны харагдах байдал."
+    },
+    {
+      "source": "<code>android:id=\"@+id/main\"</code> は消しません。ひな形のJavaが <code>findViewById(R.id.main)</code> で使っています。文字を直接書いたことによる <code>Hardcoded text</code> の警告は、これまでの単元と同様にそのまま進めます。",
+      "translation": "<code>android:id=\"@+id/main\"</code>-ийг устгахгүй. Загварын Java код үүнийг <code>findViewById(R.id.main)</code>-д ашигладаг. Бичвэрийг шууд бичсэнээс гарах <code>Hardcoded text</code> анхааруулгыг өмнөх бүлгүүдийн адил хэвээр үлдээгээд үргэлжлүүлнэ."
+    },
+    {
+      "source": "タイトル画像、灰色の一覧、入力欄、2つのボタンが並べば成功です。押してもまだ何も起きません。",
+      "translation": "Гарчгийн зураг, саарал жагсаалт, оруулах талбар, 2 товч байрласан байвал амжилттай болсон. Дарсан ч одоогоор юу ч болохгүй."
+    },
+    {
+      "source": "memorandumのタイトル画像、灰色の空のメモ一覧、入力欄、データ削除と追加のボタンが並んだ画面",
+      "translation": "memorandum гарчгийн зураг, саарал хоосон тэмдэглэлийн жагсаалт, оруулах талбар, 「データ削除」 (өгөгдөл устгах), 「追加」 (нэмэх) товчнуудтай дэлгэц"
+    },
+    {
+      "source": "STEP 03の完成。ボタンはまだ動きません。 <a1>画像を大きく開く</a1>",
+      "translation": "STEP 03 дууссан байдал. Товчнууд одоогоор ажиллахгүй. <a1>Зургийг томоор нээх</a1>"
+    },
+    {
+      "source": "タイトル画像・灰色の一覧・入力欄・2つのボタンが並んだ画面をRunできた。",
+      "translation": "Гарчгийн зураг, саарал жагсаалт, оруулах талбар, 2 товчтой дэлгэцийг Run хийж чадсан."
+    },
+    {
+      "source": "次へ：メモを追加する →",
+      "translation": "Дараах: Тэмдэглэл нэмэх →"
+    },
+    {
+      "source": "STEP 04 · 目安 20分",
+      "translation": "STEP 04 · Ойролцоогоор 20 минут"
+    },
+    {
+      "source": "メモを追加する",
+      "translation": "Тэмдэглэл нэмэх"
+    },
+    {
+      "source": "まずは保存のことを考えず、<strong>画面の中だけでメモを増やせる</strong>ようにします。",
+      "translation": "Эхлээд хадгалахыг бодолгүйгээр <strong>зөвхөн дэлгэц дотор тэмдэглэл нэмж болдог</strong> болгоно."
+    },
+    {
+      "source": "① 部品を受け取る",
+      "translation": "① Бүрэлдэхүүнийг авах"
+    },
+    {
+      "source": "<code>MainActivity.java</code> を開き、<code>onCreate</code> の中（インセットの処理の下）に書きます。",
+      "translation": "<code>MainActivity.java</code>-ийг нээгээд <code>onCreate</code> дотор (инсетийн үйлдлийн доор) бичнэ үү."
+    },
+    {
+      "source": "MainActivity.java · onCreateの中",
+      "translation": "MainActivity.java · onCreate дотор"
+    },
+    {
+      "source": "<code>TextView</code> と <code>EditText</code> が赤いときは <kbd>⌥ Enter</kbd> で <code>android.widget.TextView</code>、<code>android.widget.EditText</code> を選びます（<a1>共通資料：Auto Import</a1>）。",
+      "translation": "<code>TextView</code> болон <code>EditText</code> улаан байвал <kbd>⌥ Enter</kbd>-ээр <code>android.widget.TextView</code>, <code>android.widget.EditText</code>-ийг сонгоно уу (<a1>Нийтлэг заавар: Auto Import</a1>)."
+    },
+    {
+      "source": "② 追加ボタンの処理を書く",
+      "translation": "② 「追加」 (нэмэх) товчны үйлдлийг бичих"
+    },
+    {
+      "source": "MainActivity.java · onCreateの中（①の下）",
+      "translation": "MainActivity.java · onCreate дотор (①-ийн доор)"
+    },
+    {
+      "source": "<code>Snackbar</code> が赤いときは <kbd>⌥ Enter</kbd> で <code>com.google.android.material.snackbar.Snackbar</code> を選びます。",
+      "translation": "<code>Snackbar</code> улаан байвал <kbd>⌥ Enter</kbd>-ээр <code>com.google.android.material.snackbar.Snackbar</code>-ийг сонгоно уу."
+    },
+    {
+      "source": "行",
+      "translation": "Мөр"
+    },
+    {
+      "source": "入力欄の文字を取り出す。<code>getText()</code> の戻り値はそのままでは文字列として扱えないので <code>toString()</code> を付ける（A07と同じ）。",
+      "translation": "Оруулах талбарын бичвэрийг авна. <code>getText()</code>-ийн буцаах утгыг шууд тэмдэгт мөр болгон ашиглаж болохгүй тул <code>toString()</code> нэмнэ (A07-той ижил)."
+    },
+    {
+      "source": "空かどうかを調べる。空ならメッセージを出して <code>return;</code> で処理をやめる。",
+      "translation": "Хоосон эсэхийг шалгана. Хоосон бол мэдэгдэл гаргаад <code>return;</code>-ээр үйлдлийг зогсооно."
+    },
+    {
+      "source": "この先を実行しない、という意味。<strong>これがないと空のメモが追加されます。</strong>",
+      "translation": "Үүнээс цааш ажиллуулахгүй гэсэн утгатай. <strong>Үүнгүй бол хоосон тэмдэглэл нэмэгдэнэ.</strong>"
+    },
+    {
+      "source": "<strong>今回の新顔。</strong>いまの表示の<strong>後ろに足す</strong>。<code>setText</code> だと前の内容が消えて1件しか残らない。",
+      "translation": "<strong>Энэ удаагийн шинэ зүйл.</strong> Одоо харагдаж буй зүйлийн <strong>араас нэмнэ</strong>. <code>setText</code> ашиглавал өмнөх агуулга арилж, зөвхөн 1 тэмдэглэл үлдэнэ."
+    },
+    {
+      "source": "改行。これがないと全部が1行につながる。",
+      "translation": "Мөр шилжүүлэх. Үүнгүй бол бүгд нэг мөрөнд залгагдана."
+    },
+    {
+      "source": "入力欄を空に戻す。次のメモをすぐ書ける。",
+      "translation": "Оруулах талбарыг дахин хоосолно. Дараагийн тэмдэглэлийг шууд бичиж болно."
+    },
+    {
+      "source": "何も入力せずに <strong>追加</strong> を押します。画面の下にメッセージが出て、一覧は増えません。",
+      "translation": "Юу ч оруулахгүйгээр <strong>追加</strong> (нэмэх)-ийг дарна уу. Дэлгэцийн доор мэдэгдэл гарч, жагсаалт нэмэгдэхгүй."
+    },
+    {
+      "source": "メモを入力して <strong>追加</strong> を押します。一覧に1行増え、入力欄が空になります。",
+      "translation": "Тэмдэглэл оруулаад <strong>追加</strong> (нэмэх)-ийг дарна уу. Жагсаалтад 1 мөр нэмэгдэж, оруулах талбар хоосорно."
+    },
+    {
+      "source": "何回か追加して、行が増えていくことを確かめます。",
+      "translation": "Хэд хэдэн удаа нэмж, мөр нэмэгдэж байгааг шалгана уу."
+    },
+    {
+      "source": "何も入力せずに追加を押したところ。画面下に黒い帯でメモを入力してくださいと表示されている",
+      "translation": "Юу ч оруулахгүйгээр 「追加」 (нэмэх)-ийг дарсан байдал. Дэлгэцийн доод талын хар мөрөнд 「メモを入力してください」 (тэмдэглэл оруулна уу) гэж харагдана"
+    },
+    {
+      "source": "空のときは追加されず、下にメッセージが出ます。 <a1>画像を大きく開く</a1>",
+      "translation": "Хоосон бол нэмэгдэхгүй, доор мэдэгдэл гарна. <a1>Зургийг томоор нээх</a1>"
+    },
+    {
+      "source": "まだ保存はされていません",
+      "translation": "Одоогоор хадгалаагүй байна"
+    },
+    {
+      "source": "アプリを完全に終了して開き直すと、メモは消えます。ここまでは<strong>画面の中だけ</strong>の話だからです。次のSTEPで保存します。",
+      "translation": "Аппыг бүрэн хаагаад дахин нээвэл тэмдэглэл арилна. Учир нь өдий хүртэлх нь <strong>зөвхөн дэлгэц доторх</strong> үйлдэл юм. Дараагийн STEP-д хадгална."
+    },
+    {
+      "source": "メモを追加すると一覧が1行ずつ増え、何も入力せずに押すと増えないことを確かめた。",
+      "translation": "Тэмдэглэл нэмэхэд жагсаалт нэг нэг мөрөөр нэмэгдэж, юу ч оруулахгүйгээр дарахад нэмэгдэхгүйг шалгасан."
+    },
+    {
+      "source": "次へ：終了しても残るようにする →",
+      "translation": "Дараах: Хаасан ч үлдэхээр болгох →"
+    },
+    {
+      "source": "STEP 05 · 目安 15分",
+      "translation": "STEP 05 · ойролцоогоор 15 минут"
+    },
+    {
+      "source": "アプリを終了しても残るようにする",
+      "translation": "Аппыг хаасан ч үлдэхээр болгох"
+    },
+    {
+      "source": "ここが今回の中心です。A08で学んだ <code>SharedPreferences</code> を使います。",
+      "translation": "Энэ удаагийн гол хэсэг энд байна. A08-д сурсан <code>SharedPreferences</code>-ийг ашиглана."
+    },
+    {
+      "source": "① 保存に使う名前を決める",
+      "translation": "① Хадгалахад ашиглах нэрийг шийдэх"
+    },
+    {
+      "source": "<code>public class MainActivity extends AppCompatActivity {</code> のすぐ下に書きます。",
+      "translation": "<code>public class MainActivity extends AppCompatActivity {</code>-ийн яг доор бичнэ үү."
+    },
+    {
+      "source": "MainActivity.java · クラスの先頭",
+      "translation": "MainActivity.java · Классын эхэнд"
+    },
+    {
+      "source": "A08と同じで、<strong>キーは定数にまとめます。</strong>直接書くと、打ち間違えても赤いエラーにならず、値だけが見つからなくなります。",
+      "translation": "A08-тай ижил, <strong>түлхүүрүүдийг тогтмол болгон нэг дор тодорхойлно.</strong> Шууд бичвэл алдаж бичсэн ч улаан алдаа гарахгүй, зөвхөн утга олдохгүй болно."
+    },
+    {
+      "source": "② 保存されているメモを表示する",
+      "translation": "② Хадгалсан тэмдэглэлийг харуулах"
+    },
+    {
+      "source": "STEP 04①の2行の<strong>下</strong>、追加ボタンの処理の<strong>上</strong>に書きます。",
+      "translation": "STEP 04①-ийн 2 мөрийн <strong>доор</strong>, нэмэх товчны үйлдлийн <strong>дээр</strong> бичнэ үү."
+    },
+    {
+      "source": "保存されていないときは第2引数の <code>&quot;&quot;</code>（空の文字）が返るので、初回は一覧が空のままになります。",
+      "translation": "Хадгалаагүй үед хоёр дахь аргумент болох <code>&quot;&quot;</code> (хоосон тэмдэгт мөр) буцах тул эхний удаа жагсаалт хоосон хэвээр байна."
+    },
+    {
+      "source": "③ 追加のときに保存する",
+      "translation": "③ Нэмэх үед хадгалах"
+    },
+    {
+      "source": "STEP 04で書いた <code>append</code> の<strong>下</strong>、<code>edtMemo.setText(&quot;&quot;)</code> の<strong>上</strong>に3行を足します。",
+      "translation": "STEP 04-т бичсэн <code>append</code>-ийн <strong>доор</strong>, <code>edtMemo.setText(&quot;&quot;)</code>-ийн <strong>дээр</strong> 3 мөр нэмнэ үү."
+    },
+    {
+      "source": "MainActivity.java · 追加ボタンの処理の中",
+      "translation": "MainActivity.java · 「追加」 (нэмэх) товчны үйлдэл дотор"
+    },
+    {
+      "source": "A08と同じ <code>edit()</code> → <code>putString</code> → <code>apply()</code> の3ステップです。<code>apply()</code> を忘れると保存されません。",
+      "translation": "A08-тай ижил <code>edit()</code> → <code>putString</code> → <code>apply()</code> гэсэн 3 алхамтай. <code>apply()</code>-ийг мартвал хадгалагдахгүй."
+    },
+    {
+      "source": "保存しているのは <code>txtMemoList.getText().toString()</code>、つまり<strong>画面に表示している文字そのもの</strong>です。改行も含めて、まるごと1つの文字列として保存しています。",
+      "translation": "Хадгалж буй зүйл нь <code>txtMemoList.getText().toString()</code>, өөрөөр хэлбэл <strong>дэлгэц дээр харагдаж буй бичвэр өөрөө</strong> юм. Мөр шилжүүлэх тэмдэгтэй нь хамт бүхэлд нь нэг тэмдэгт мөр болгон хадгалдаг."
+    },
+    {
+      "source": "A07では参加者を <code>ArrayList</code> にためていました。あれは<strong>同じ名前がすでにあるか</strong>を調べたり、<strong>何人いるか</strong>を数えたりする必要があったからです。今回のメモにはそうした判定がありません。",
+      "translation": "A07-д оролцогчдыг <code>ArrayList</code>-д цуглуулсан. Учир нь <strong>ижил нэр аль хэдийн байгаа эсэхийг</strong> шалгах, <strong>хэдэн хүн байгааг</strong> тоолох шаардлагатай байсан. Энэ удаагийн тэмдэглэлд тийм шалгалт байхгүй."
+    },
+    {
+      "source": "ためる場所",
+      "translation": "Цуглуулах газар"
+    },
+    {
+      "source": "<code>ArrayList</code> と画面の両方",
+      "translation": "<code>ArrayList</code> болон дэлгэцэд хоёуланд нь"
+    },
+    {
+      "source": "画面だけ",
+      "translation": "Зөвхөн дэлгэцэд"
+    },
+    {
+      "source": "理由",
+      "translation": "Шалтгаан"
+    },
+    {
+      "source": "重複チェックと人数チェックに必要",
+      "translation": "Давхардал болон хүний тоог шалгахад хэрэгтэй"
+    },
+    {
+      "source": "判定をしないので不要",
+      "translation": "Шалгалт хийхгүй тул шаардлагагүй"
+    },
+    {
+      "source": "更新する場所",
+      "translation": "Шинэчлэх газар"
+    },
+    {
+      "source": "2か所",
+      "translation": "2 газар"
+    },
+    {
+      "source": "1か所",
+      "translation": "1 газар"
+    },
+    {
+      "source": "必要のないものを持たないほうが、コードは短く読みやすくなります。「<strong>判定が必要になったら、データを別に持つ</strong>」と覚えておきましょう。",
+      "translation": "Хэрэггүй зүйл агуулахгүй байвал код богино, уншихад хялбар болно. «<strong>Шалгах шаардлага гарвал өгөгдлийг тусад нь хадгална</strong>» гэж санаарай."
+    },
+    {
+      "source": "メモを2〜3件追加します。",
+      "translation": "2–3 тэмдэглэл нэмнэ үү."
+    },
+    {
+      "source": "エミュレータで<strong>アプリ一覧（最近使ったアプリ）</strong>を開き、このアプリを上へスワイプして終了します。画面下の横棒を上へスワイプしてから止めると出ます。",
+      "translation": "Эмулятор дээр <strong>аппын жагсаалтыг (саяхан ашигласан аппууд)</strong> нээгээд энэ аппыг дээш шударч хаана уу. Дэлгэцийн доорх хэвтээ зураасыг дээш шудраад түр барихад гарна."
+    },
+    {
+      "source": "もう一度アプリのアイコンから起動します。<strong>メモが残っていれば成功です。</strong>",
+      "translation": "Аппын дүрснээс дахин эхлүүлнэ үү. <strong>Тэмдэглэл үлдсэн байвал амжилттай болсон.</strong>"
+    },
+    {
+      "source": "終了して開き直しても、この状態のままです。 <a1>画像を大きく開く</a1>",
+      "translation": "Хаагаад дахин нээсэн ч энэ төлөв хэвээр байна. <a1>Зургийг томоор нээх</a1>"
+    },
+    {
+      "source": "終了して開き直してもメモが残った。",
+      "translation": "Хаагаад дахин нээсэн ч тэмдэглэл үлдсэн."
+    },
+    {
+      "source": "次へ：データを全部消す →",
+      "translation": "Дараах: Бүх өгөгдлийг устгах →"
+    },
+    {
+      "source": "STEP 06 · 目安 5分",
+      "translation": "STEP 06 · ойролцоогоор 5 минут"
+    },
+    {
+      "source": "データを全部消す",
+      "translation": "Бүх өгөгдлийг устгах"
+    },
+    {
+      "source": "「データ削除」ボタンの処理を、追加ボタンの処理（<code>});</code> まで）の<strong>下</strong>に書きます。これで完成です。",
+      "translation": "「データ削除」 (өгөгдөл устгах) товчны үйлдлийг нэмэх товчны үйлдлийн (<code>});</code> хүртэлх хэсгийн) <strong>доор</strong> бичнэ үү. Ингээд дуусна."
+    },
+    {
+      "source": "保存されているデータをすべて消す予約をする。",
+      "translation": "Хадгалсан бүх өгөгдлийг устгахаар бэлтгэнэ."
+    },
+    {
+      "source": "ここで確定する。これを忘れると消えない。",
+      "translation": "Энд баталгаажуулна. Үүнийг мартвал устахгүй."
+    },
+    {
+      "source": "<strong>画面の表示も消す。</strong>保存を消しただけでは、画面に出ている文字はそのまま残る。",
+      "translation": "<strong>Дэлгэц дээрхийг мөн арилгана.</strong> Зөвхөн хадгалсан өгөгдлийг устгавал дэлгэц дээрх бичвэр хэвээр үлдэнэ."
+    },
+    {
+      "source": "なぜ2つとも消すのか",
+      "translation": "Яагаад хоёуланг нь устгах вэ"
+    },
+    {
+      "source": "保存されているデータ（ファイル）と、画面に表示している文字は<strong>別のもの</strong>です。<code>clear()</code> はファイルの中身を消すだけなので、画面は自分で消す必要があります。<code>setText(&quot;&quot;)</code> を書き忘れると、消したはずのメモが画面に残ったままになり、次に起動したときだけ消えている、という分かりにくい動きになります。",
+      "translation": "Хадгалсан өгөгдөл (файл) болон дэлгэц дээр харуулж буй бичвэр нь <strong>тусдаа зүйлс</strong>. <code>clear()</code> нь зөвхөн файлын агуулгыг устгадаг тул дэлгэц дээрхийг өөрөө арилгах шаардлагатай. <code>setText(&quot;&quot;)</code>-ийг бичихээ мартвал устгасан гэж бодсон тэмдэглэл дэлгэц дээр үлдэж, дараагийн удаа эхлүүлэхэд л алга болох ойлгомжгүй үйлдэлтэй болно."
+    },
+    {
+      "source": "メモを何件か追加します。",
+      "translation": "Хэдэн тэмдэглэл нэмнэ үү."
+    },
+    {
+      "source": "<strong>データ削除</strong> を押します。一覧が空になれば成功です。",
+      "translation": "<strong>データ削除</strong> (өгөгдөл устгах)-ийг дарна уу. Жагсаалт хоосорвол амжилттай болсон."
+    },
+    {
+      "source": "アプリを終了して開き直します。空のままなら、保存も消えています。",
+      "translation": "Аппыг хаагаад дахин нээнэ үү. Хоосон хэвээр байвал хадгалсан өгөгдөл ч устсан байна."
+    },
+    {
+      "source": "データ削除で一覧と保存の両方を消せた。",
+      "translation": "「データ削除」 (өгөгдөл устгах)-аар жагсаалт болон хадгалсан өгөгдлийг хоёуланг нь устгаж чадсан."
+    },
+    {
+      "source": "次へ：完成 →",
+      "translation": "Дараах: Дуусгах →"
+    },
+    {
+      "source": "STEP 07 · 目安 10分",
+      "translation": "STEP 07 · ойролцоогоор 10 минут"
+    },
+    {
+      "source": "完成",
+      "translation": "Дуусгах"
+    },
+    {
+      "source": "完成チェック",
+      "translation": "Эцсийн шалгалт"
+    },
+    {
+      "source": "上から順に操作します。保存したメモが残っていると一覧が空にならないので、アプリを消してから始めます。消し方は<a1>共通資料：エミュレータ</a1>の「アプリを消す」にあります。",
+      "translation": "Дээрээс нь дарааллаар үйлдэнэ үү. Хадгалсан тэмдэглэл байвал жагсаалт хоосрохгүй тул аппыг устгаад эхэлнэ. Устгах арга нь <a1>Нийтлэг заавар: Эмулятор</a1>-ын «Аппыг устгах» хэсэгт бий."
+    },
+    {
+      "source": "<strong>アプリを終了する</strong>やり方は、STEP 05の「Runで確かめる」と同じです。",
+      "translation": "<strong>Аппыг хаах</strong> арга нь STEP 05-ын «Run ашиглан шалгах»-тай ижил."
+    },
+    {
+      "source": "操作",
+      "translation": "Үйлдэл"
+    },
+    {
+      "source": "確認する結果",
+      "translation": "Шалгах үр дүн"
+    },
+    {
+      "source": "アプリを消してから初回起動",
+      "translation": "Аппыг устгасны дараа анх эхлүүлэх"
+    },
+    {
+      "source": "一覧が空で表示される。",
+      "translation": "Жагсаалт хоосон харагдана."
+    },
+    {
+      "source": "何も入れずに「追加」",
+      "translation": "Юу ч оруулахгүйгээр 「追加」 (нэмэх)"
+    },
+    {
+      "source": "下にメッセージが出て、一覧は増えない。",
+      "translation": "Доор мэдэгдэл гарч, жагсаалт нэмэгдэхгүй."
+    },
+    {
+      "source": "メモを入れて「追加」",
+      "translation": "Тэмдэглэл оруулаад 「追加」 (нэмэх)"
+    },
+    {
+      "source": "一覧に1行増え、入力欄が空になる。",
+      "translation": "Жагсаалтад 1 мөр нэмэгдэж, оруулах талбар хоосорно."
+    },
+    {
+      "source": "続けて何件か追加",
+      "translation": "Үргэлжлүүлэн хэдэн тэмдэглэл нэмэх"
+    },
+    {
+      "source": "行が1行ずつ増えていく。",
+      "translation": "Мөр нэг нэгээр нэмэгдэнэ."
+    },
+    {
+      "source": "アプリを終了して開き直す",
+      "translation": "Аппыг хаагаад дахин нээх"
+    },
+    {
+      "source": "メモが残っている。",
+      "translation": "Тэмдэглэл үлдсэн байна."
+    },
+    {
+      "source": "「データ削除」",
+      "translation": "「データ削除」 (өгөгдөл устгах)"
+    },
+    {
+      "source": "一覧が空になる。",
+      "translation": "Жагсаалт хоосорно."
+    },
+    {
+      "source": "削除のあと終了して開き直す",
+      "translation": "Устгасны дараа хаагаад дахин нээх"
+    },
+    {
+      "source": "空のまま。",
+      "translation": "Хоосон хэвээр."
+    },
+    {
+      "source": "ミニ練習",
+      "translation": "Жижиг дасгал"
+    },
+    {
+      "source": "<strong>予想 → 変更 → Run → 説明 → 元に戻す</strong>の順で試します。",
+      "translation": "<strong>Таамаглах → Өөрчлөх → Run → Тайлбарлах → Буцааж хэвэнд нь оруулах</strong> дарааллаар туршина уу."
+    },
+    {
+      "source": "練習1：appendをsetTextに変えてみる",
+      "translation": "Дасгал 1: append-ийг setText болгон өөрчлөх"
+    },
+    {
+      "source": "STEP 04の <code>txtMemoList.append(edtMemoStr + &quot;\\n&quot;);</code> を次のように変えます。",
+      "translation": "STEP 04-ийн <code>txtMemoList.append(edtMemoStr + &quot;\\n&quot;);</code>-ийг дараах байдлаар өөрчилнө үү."
+    },
+    {
+      "source": "練習1 · 変更後の行",
+      "translation": "Дасгал 1 · Өөрчилсний дараах мөр"
+    },
+    {
+      "source": "メモを3件追加すると、一覧はどうなるでしょうか。予想してから試します。",
+      "translation": "3 тэмдэглэл нэмбэл жагсаалт яах бол? Эхлээд таамаглаад дараа нь туршина уу."
+    },
+    {
+      "source": "試したあとに答えを見る",
+      "translation": "Туршсаны дараа хариуг харах"
+    },
+    {
+      "source": "<strong>最後に追加した1件だけ</strong>が残ります。<code>setText</code> は「置き換える」、<code>append</code> は「後ろに足す」ためです。保存される内容も1件だけになります。確認後は <code>append</code> に戻します。",
+      "translation": "<strong>Зөвхөн хамгийн сүүлд нэмсэн 1 тэмдэглэл</strong> үлдэнэ. Учир нь <code>setText</code> «орлуулах», <code>append</code> «араас нэмэх» үйлдэлтэй. Хадгалагдах агуулга ч зөвхөн 1 тэмдэглэл болно. Шалгасны дараа <code>append</code> болгож буцаана уу."
+    },
+    {
+      "source": "練習2：改行を消してみる",
+      "translation": "Дасгал 2: Мөр шилжүүлэх тэмдгийг арилгах"
+    },
+    {
+      "source": "同じ行の <code>+ &quot;\\n&quot;</code> を消します。",
+      "translation": "Ижил мөрийн <code>+ &quot;\\n&quot;</code>-ийг арилгана уу."
+    },
+    {
+      "source": "メモが<strong>全部つながって1行</strong>になります（<code>牛乳を買うレポートを出す9時に集合</code>）。一覧が「1行ずつ」に見えていたのは、自分で改行を足していたからだと説明できれば十分です。確認後は戻します。",
+      "translation": "Тэмдэглэл <strong>бүгд залгагдаж нэг мөр</strong> болно (<code>牛乳を買うレポートを出す9時に集合</code>). Жагсаалт «нэг нэг мөрөөр» харагдаж байсан нь өөрөө мөр шилжүүлэх тэмдэг нэмсэн учраас гэдгийг тайлбарлаж чадвал хангалттай. Шалгасны дараа буцаана уу."
+    },
+    {
+      "source": "練習3：データ削除からsetTextを消してみる",
+      "translation": "Дасгал 3: Өгөгдөл устгах үйлдлээс setText-ийг хасах"
+    },
+    {
+      "source": "STEP 06の <code>txtMemoList.setText(&quot;&quot;);</code> を消して、メモを追加してから「データ削除」を押します。",
+      "translation": "STEP 06-ийн <code>txtMemoList.setText(&quot;&quot;);</code>-ийг арилгаад тэмдэглэл нэмсний дараа 「データ削除」 (өгөгдөл устгах)-ийг дарна уу."
+    },
+    {
+      "source": "画面のメモは<strong>消えません。</strong>でもアプリを終了して開き直すと空になっています。保存（ファイル）と画面の表示は別物で、<code>clear()</code> はファイルしか消さないためです。確認後は戻します。",
+      "translation": "Дэлгэц дээрх тэмдэглэл <strong>арилахгүй.</strong> Харин аппыг хаагаад дахин нээвэл хоосон байна. Учир нь хадгалсан өгөгдөл (файл) болон дэлгэцийн дүрслэл тусдаа зүйл бөгөөд <code>clear()</code> зөвхөн файлыг цэвэрлэдэг. Шалгасны дараа буцаана уу."
+    },
+    {
+      "source": "保存",
+      "translation": "Хадгалах"
+    },
+    {
+      "source": "Android Studioは、書いたコードを自動でファイルに保存します。保存の操作は要りません。ここでは、保存された場所を確かめます。",
+      "translation": "Android Studio бичсэн кодыг файлд автоматаар хадгална. Хадгалах үйлдэл хийх шаардлагагүй. Энд хадгалагдсан газрыг шалгана."
+    },
+    {
+      "source": "Finderを開き、左側の <strong>書類</strong>（<code>Documents</code>）をクリックします。",
+      "translation": "Finder-ийг нээгээд зүүн талын <strong>書類</strong> (Баримт бичиг, <code>Documents</code>)-ийг дарна уу."
+    },
+    {
+      "source": "その中の <code>Android1</code> フォルダを開き、<code>A09MemoApp</code> フォルダがあることを確かめます。",
+      "translation": "Доторх <code>Android1</code> хавтсыг нээгээд <code>A09MemoApp</code> хавтас байгааг шалгана уу."
+    },
+    {
+      "source": "この <code>Documents/Android1/A09MemoApp</code> フォルダが、自分で作ったアプリです。あとの授業でもう一度開けるように、消したり、別の場所へ移動したり、名前を変えたりせずに、そのまま残します。",
+      "translation": "Энэ <code>Documents/Android1/A09MemoApp</code> хавтас нь өөрийн хийсэн апп юм. Дараагийн хичээлд дахин нээж болохоор устгахгүй, өөр газар зөөхгүй, нэрийг нь солихгүй, хэвээр үлдээнэ үү."
+    },
+    {
+      "source": "教材のチェックは自分用です。先生への送信はしません。印刷は <kbd>⌘ P</kbd> で行えます。",
+      "translation": "Сургалтын материалын чагт нь өөртөө зориулсан. Багш руу илгээхгүй. <kbd>⌘ P</kbd>-ээр хэвлэж болно."
+    },
+    {
+      "source": "完成チェックの操作をすべて試して表のとおりの結果になり、ミニ練習3つのコードを元に戻した。",
+      "translation": "Эцсийн шалгалтын бүх үйлдлийг туршаад хүснэгтэд заасан үр дүн гарсан. Жижиг 3 дасгалын кодыг буцааж хэвэнд нь оруулсан."
+    },
+    {
+      "source": "困ったこと",
+      "translation": "Асуудал"
+    },
+    {
+      "source": "最初に確認する場所",
+      "translation": "Эхлээд шалгах газар"
+    },
+    {
+      "source": "<code>TextView</code>、<code>EditText</code>、<code>Snackbar</code> が赤い",
+      "translation": "<code>TextView</code>, <code>EditText</code>, <code>Snackbar</code> улаан байна"
+    },
+    {
+      "source": "<kbd>⌥ Enter</kbd> で <code>android.widget.TextView</code>、<code>android.widget.EditText</code>、<code>com.google.android.material.snackbar.Snackbar</code> を選ぶ。",
+      "translation": "<kbd>⌥ Enter</kbd>-ээр <code>android.widget.TextView</code>, <code>android.widget.EditText</code>, <code>com.google.android.material.snackbar.Snackbar</code>-ийг сонгоно уу."
+    },
+    {
+      "source": "<code>R.id.txt_memo_list</code> などが赤い",
+      "translation": "<code>R.id.txt_memo_list</code> зэрэг нь улаан байна"
+    },
+    {
+      "source": "activity_main.xmlのidが <code>txt_memo_list</code> / <code>edt_memo</code> / <code>btn_add</code> / <code>btn_clear</code> か確認。<code>android:id=\"@+id/main\"</code> を消していないかも見る。",
+      "translation": "activity_main.xml-ийн id нь <code>txt_memo_list</code> / <code>edt_memo</code> / <code>btn_add</code> / <code>btn_clear</code> мөн эсэхийг шалгана уу. <code>android:id=\"@+id/main\"</code>-ийг устгаагүйг мөн харна уу."
+    },
+    {
+      "source": "<code>@drawable/title_memo</code> が赤い",
+      "translation": "<code>@drawable/title_memo</code> улаан байна"
+    },
+    {
+      "source": "STEP 02で <code>drawable</code> に置けているか、ファイル名が <code>title_memo.png</code> か確認する。",
+      "translation": "STEP 02-т <code>drawable</code>-д байрлуулсан эсэх, файлын нэр <code>title_memo.png</code> мөн эсэхийг шалгана уу."
+    },
+    {
+      "source": "<code>prefs</code> が赤い（追加や削除の中）",
+      "translation": "<code>prefs</code> улаан байна (нэмэх эсвэл устгах үйлдэл дотор)"
+    },
+    {
+      "source": "STEP 05②の <code>var prefs = ...</code> を、ボタンの処理より<strong>上</strong>に書いたか確認する。",
+      "translation": "STEP 05②-ийн <code>var prefs = ...</code>-ийг товчны үйлдлийн <strong>дээр</strong> бичсэн эсэхийг шалгана уу."
+    },
+    {
+      "source": "追加を押しても一覧が増えない",
+      "translation": "「追加」 (нэмэх)-ийг дарсан ч жагсаалт нэмэгдэхгүй"
+    },
+    {
+      "source": "<code>append</code> を書いたか、<code>R.id.btn_add</code> の名前が合っているか確認する。",
+      "translation": "<code>append</code>-ийг бичсэн эсэх, <code>R.id.btn_add</code> нэр таарч байгаа эсэхийг шалгана уу."
+    },
+    {
+      "source": "1件しか表示されない",
+      "translation": "Зөвхөн 1 тэмдэглэл харагдана"
+    },
+    {
+      "source": "<code>setText</code> になっていないか確認する。追加は <code>append</code>。",
+      "translation": "<code>setText</code> болоогүйг шалгана уу. Нэмэхэд <code>append</code> ашиглана."
+    },
+    {
+      "source": "メモが全部つながって1行になる",
+      "translation": "Тэмдэглэл бүгд залгагдаж нэг мөр болно"
+    },
+    {
+      "source": "<code>+ \"\\n\"</code> を書いたか確認する。",
+      "translation": "<code>+ \"\\n\"</code>-ийг бичсэн эсэхийг шалгана уу."
+    },
+    {
+      "source": "終了するとメモが消える",
+      "translation": "Хаахад тэмдэглэл арилна"
+    },
+    {
+      "source": "STEP 05③の3行を書いたか、<code>edit.apply();</code> があるか確認する。",
+      "translation": "STEP 05③-ийн 3 мөрийг бичсэн эсэх, <code>edit.apply();</code> байгаа эсэхийг шалгана уу."
+    },
+    {
+      "source": "データ削除しても画面が消えない",
+      "translation": "Өгөгдлийг устгасан ч дэлгэц дээрх нь арилахгүй"
+    },
+    {
+      "source": "STEP 06の <code>txtMemoList.setText(\"\");</code> を書いたか確認する。",
+      "translation": "STEP 06-ийн <code>txtMemoList.setText(\"\");</code>-ийг бичсэн эсэхийг шалгана уу."
+    },
+    {
+      "source": "空のメモが追加されてしまう",
+      "translation": "Хоосон тэмдэглэл нэмэгдчихдэг"
+    },
+    {
+      "source": "<code>return;</code> を書いたか確認する。",
+      "translation": "<code>return;</code>-ийг бичсэн эсэхийг шалгана уу."
+    },
+    {
+      "source": "キーボードでボタンが隠れる",
+      "translation": "Гар товчнуудыг халхална"
+    },
+    {
+      "source": "キーボードを閉じてから押します。理由と対処は<a1>共通資料：開発Tips</a1>にあります。",
+      "translation": "Гарыг хаасны дараа дарна уу. Шалтгаан болон шийдэх арга нь <a1>Нийтлэг заавар: Хөгжүүлэлтийн зөвлөмж</a1>-д бий."
+    },
+    {
+      "source": "直したのに動きが変わらない",
+      "translation": "Зассан ч үйлдэл өөрчлөгдөхгүй"
+    },
+    {
+      "source": "ウィンドウの保存先が <code>Documents/Android1/A09MemoApp</code> か確認する。samples側を開いていないか見る。",
+      "translation": "Цонхны хадгалах газар <code>Documents/Android1/A09MemoApp</code> мөн эсэхийг шалгана уу. samples талын төслийг нээгээгүйг харна уу."
+    },
+    {
+      "source": "質問では「STEP番号・編集したファイル・最初の赤い行・押した順番」を伝えます。",
+      "translation": "Асуухдаа «STEP-ийн дугаар, зассан файл, эхний улаан мөр, дарсан дараалал»-ыг хэлнэ үү."
+    },
+    {
+      "source": "完成版は最初の授業から使える見本です。教科書といっしょに配られた<strong>教材のフォルダ</strong>に、そのまま開ける形で入っています。ダウンロードも展開も要りません。",
+      "translation": "Бэлэн хувилбар нь эхний хичээлээс ашиглаж болох жишээ юм. Сурах бичигтэй хамт өгсөн <strong>сургалтын материалын хавтас</strong> дотор шууд нээж болох хэлбэрээр бий. Татах, задлах шаардлагагүй."
+    },
+    {
+      "source": "Android Studioの <strong>Open</strong>（プロジェクトを開いているときは <strong>File → Open</strong>）で、<strong>書類</strong>（<code>Documents</code>）にある教材のフォルダを開きます。名前は <code>android1-student-materials-</code> のうしろに日付が付いた形で、日付は配られた回によって変わります。いま読んでいるこの教科書が入っているフォルダです。",
+      "translation": "Android Studio-ийн <strong>Open</strong>-оор (төсөл нээлттэй бол <strong>File → Open</strong>) <strong>書類</strong> (Баримт бичиг, <code>Documents</code>) доторх сургалтын материалын хавтсыг нээнэ үү. Нэр нь <code>android1-student-materials-</code>-ийн ард огноо залгасан хэлбэртэй, огноо нь тараасан удаа бүрд өөр байна. Энэ нь одоо уншиж буй сурах бичиг байгаа хавтас юм."
+    },
+    {
+      "source": "その中を <code>samples → A09MemoApp</code> の順に開き、<code>settings.gradle.kts</code> と <code>app</code> が入った <code>A09MemoApp</code> フォルダを選びます。",
+      "translation": "Дотор нь <code>samples → A09MemoApp</code> дарааллаар нээгээд <code>settings.gradle.kts</code> болон <code>app</code> агуулсан <code>A09MemoApp</code> хавтсыг сонгоно уу."
+    },
+    {
+      "source": "Sync後にRunして動きを確認します。授業の入力に戻るときは自分の <code>Documents/Android1/A09MemoApp</code> を開きます。",
+      "translation": "Sync дууссаны дараа Run хийж үйлдлийг шалгана уу. Хичээлийн код бичихэд буцахдаа өөрийн <code>Documents/Android1/A09MemoApp</code>-ийг нээнэ үү."
+    },
+    {
+      "source": "両方とも同じプロジェクト名なので、ウィンドウの保存先を確認しましょう。見本と自分のアプリは同じパッケージ名 <code>jp.ac.jec.a09memoapp</code> のため、端末上では同じアプリを更新します。<strong>保存したメモも共有されます。</strong>",
+      "translation": "Хоёулаа ижил төслийн нэртэй тул цонхны хадгалах газрыг шалгаарай. Жишээ болон өөрийн апп ижил <code>jp.ac.jec.a09memoapp</code> багцын нэртэй учраас төхөөрөмж дээр нэг аппыг шинэчилнэ. <strong>Хадгалсан тэмдэглэл ч хамт ашиглагдана.</strong>"
+    },
+    {
+      "source": "STEP 02で使う <code>title_memo.png</code> は、この見本の <code>app/src/main/res/drawable/title_memo.png</code> にも入っています。",
+      "translation": "STEP 02-т ашиглах <code>title_memo.png</code> нь энэ жишээний <code>app/src/main/res/drawable/title_memo.png</code>-д ч бий."
+    },
+    {
+      "source": "教材のフォルダが手元にないときは、同じ見本をZIPで受け取れます（<a1>A09MemoApp.zip</a1>）。展開してできた <code>A09MemoApp</code> フォルダを、同じようにOpenで選びます。",
+      "translation": "Сургалтын материалын хавтас байхгүй бол ижил жишээг ZIP-ээр авч болно (<a1>A09MemoApp.zip</a1>). Задлахад үүссэн <code>A09MemoApp</code> хавтсыг мөн адил Open-оор сонгоно уу."
+    },
+    {
+      "source": "完成したMainActivity.javaで照合する",
+      "translation": "Бэлэн MainActivity.java-тай тулгах"
+    },
+    {
+      "source": "完成版 · MainActivity.java",
+      "translation": "Бэлэн хувилбар · MainActivity.java"
+    },
+    {
+      "source": "完成したactivity_main.xmlで照合する",
+      "translation": "Бэлэн activity_main.xml-тай тулгах"
+    },
+    {
+      "source": "完成版 · activity_main.xml",
+      "translation": "Бэлэн хувилбар · activity_main.xml"
+    },
+    {
+      "source": "Androidプログラミング1 · A09MemoApp / 本文・画像・操作機能はオフラインで利用できます。Android Studioの初回準備・ビルドと公式資料の閲覧にはネット接続が必要です。",
+      "translation": "Android програмчлал 1 · A09MemoApp / Үндсэн агуулга, зураг, үйлдлийн боломжуудыг офлайн ашиглаж болно. Android Studio-ийн эхний бэлтгэл, бүтээлт болон албан ёсны баримт бичиг үзэхэд интернэт холболт шаардлагатай."
+    },
+    {
+      "source": "画像は授業用の提供資料を使用。スクリーンショットのメモは例です。",
+      "translation": "Зурагт хичээлд зориулж өгсөн материалыг ашигласан. Дэлгэцийн зураг дахь тэмдэглэл нь жишээ юм."
+    }
+  ]
+}
