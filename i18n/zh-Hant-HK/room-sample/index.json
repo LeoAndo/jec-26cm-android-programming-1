@@ -1,0 +1,1126 @@
+{
+  "source": "docs/room-sample/index.html",
+  "language": "zh-Hant-HK",
+  "entries": [
+    {
+      "source": "JavaとXMLで作るA10RoomSample。Roomを使って、アプリを終了しても消えないデータを、あとから書き換えたり消したりできるようにする授業用教科書。",
+      "translation": "使用 Java 和 XML 製作 A10RoomSample 的課堂教科書。利用 Room 儲存結束應用程式後也不會消失的資料，並能在之後修改或刪除。"
+    },
+    {
+      "source": "RoomSample — データベースに保存しよう | Androidプログラミング1",
+      "translation": "RoomSample — 把資料儲存到資料庫 | Android 程式設計 1"
+    },
+    {
+      "source": "本文へ移動",
+      "translation": "跳至正文"
+    },
+    {
+      "source": "JEC / Androidプログラミング1",
+      "translation": "JEC / Android 程式設計 1"
+    },
+    {
+      "source": "CONTENTS / 学習の順番",
+      "translation": "CONTENTS / 學習順序"
+    },
+    {
+      "source": "学習ステップ",
+      "translation": "學習步驟"
+    },
+    {
+      "source": "00　今日のゴール",
+      "translation": "00　今天的目標"
+    },
+    {
+      "source": "01　プロジェクトを作って実行",
+      "translation": "01　建立專案並執行"
+    },
+    {
+      "source": "02　Roomを使えるようにする",
+      "translation": "02　準備使用 Room"
+    },
+    {
+      "source": "03　画面を作る",
+      "translation": "03　製作畫面"
+    },
+    {
+      "source": "04　保存するデータの形を決める",
+      "translation": "04　決定要儲存的資料結構"
+    },
+    {
+      "source": "05　読み書きの命令を書く",
+      "translation": "05　編寫讀寫指令"
+    },
+    {
+      "source": "06　データベース本体を作る",
+      "translation": "06　建立資料庫本體"
+    },
+    {
+      "source": "07　画面とつないで完成",
+      "translation": "07　連接畫面並完成"
+    },
+    {
+      "source": "0 / 8 ステップ確認済み",
+      "translation": "0 / 8 個步驟已確認"
+    },
+    {
+      "source": "学習の進み具合",
+      "translation": "學習進度"
+    },
+    {
+      "source": "自分用のチェックです。",
+      "translation": "這是給自己的檢查。"
+    },
+    {
+      "source": "困ったとき",
+      "translation": "遇到困難時"
+    },
+    {
+      "source": "解説：SharedPreferencesとの違い",
+      "translation": "解說：與 SharedPreferences 的差異"
+    },
+    {
+      "source": "完成プロジェクトを開く",
+      "translation": "開啟完成專案"
+    },
+    {
+      "source": "共通：はじめの準備",
+      "translation": "共通：開始前的準備"
+    },
+    {
+      "source": "共通：エミュレータ",
+      "translation": "共通：模擬器"
+    },
+    {
+      "source": "共通：Auto Import",
+      "translation": "共通：Auto Import"
+    },
+    {
+      "source": "共通：Logcat",
+      "translation": "共通：Logcat"
+    },
+    {
+      "source": "共通：APKの提出",
+      "translation": "共通：提交 APK"
+    },
+    {
+      "source": "共通：開発Tips",
+      "translation": "共通：開發技巧"
+    },
+    {
+      "source": "共通：Android Studioのバージョン",
+      "translation": "共通：Android Studio 版本"
+    },
+    {
+      "source": "データベースに<br>保存しよう",
+      "translation": "把資料儲存到<br>資料庫"
+    },
+    {
+      "source": "A09では「メモをぜんぶまとめて1つの文字列」で保存しました。<br>今回は1件ずつ番号を付けて保存し、あとから<strong>書き換え・削除</strong>ができるようにします。",
+      "translation": "A09 把「全部備忘錄合成一個字串」儲存。<br>這次會逐筆加上編號後儲存，讓資料可以在之後<strong>修改或刪除</strong>。"
+    },
+    {
+      "source": "A09の次の単元",
+      "translation": "A09 之後的單元"
+    },
+    {
+      "source": "90分 × 1コマ目安",
+      "translation": "約 90 分鐘 × 1 節課"
+    },
+    {
+      "source": "Macで学ぶ",
+      "translation": "使用 Mac 學習"
+    },
+    {
+      "source": "STEP 00 · 目安 5分",
+      "translation": "STEP 00 · 約 5 分鐘"
+    },
+    {
+      "source": "今日のゴール",
+      "translation": "今天的目標"
+    },
+    {
+      "source": "データを1件ずつ保存して、一覧に表示するアプリを作ります。保存したデータには <strong>id</strong> という番号が自動で付きます。その番号を指定すると、あとから<strong>書き換え</strong>たり<strong>削除</strong>したりできます。",
+      "translation": "製作一個逐筆儲存資料並顯示在列表中的應用程式。儲存的資料會自動附上稱為 <strong>id</strong> 的編號。指定該編號，就可以在之後<strong>修改</strong>或<strong>刪除</strong>資料。"
+    },
+    {
+      "source": "id入力欄、タイトル入力欄、保存と削除のボタン、保存されているデータの見出しが並んだ画面。一覧は空",
+      "translation": "畫面排列着 id 輸入欄、標題輸入欄、「保存」（儲存）和「削除」（刪除）按鈕，以及「保存されているデータ」（已儲存的資料）標題。列表是空的"
+    },
+    {
+      "source": "起動したところ。まだデータはありません。 <a1>画像を大きく開く</a1>",
+      "translation": "剛啟動時，還沒有資料。<a1>開啟大圖</a1>"
+    },
+    {
+      "source": "保存されているデータに、internalId=1 title=CAR、internalId=2 title=BIKE、internalId=3 title=TRAINの3行が表示されている画面",
+      "translation": "「保存されているデータ」（已儲存的資料）中顯示 internalId=1 title=CAR、internalId=2 title=BIKE、internalId=3 title=TRAIN 三行的畫面"
+    },
+    {
+      "source": "3件保存したところ。idが1・2・3と自動で増えます。 <a1>画像を大きく開く</a1>",
+      "translation": "儲存了三筆資料後，id 會自動增加為 1、2、3。<a1>開啟大圖</a1>"
+    },
+    {
+      "source": "id欄に2を入れてタイトルをBICYCLEにして保存したあと、2行目がinternalId=2 title=BICYCLEに変わっている画面",
+      "translation": "在 id 欄輸入 2，標題改為 BICYCLE 並儲存後，第二行變成 internalId=2 title=BICYCLE 的畫面"
+    },
+    {
+      "source": "id 2 を指定して保存すると、その1件だけ書き換わります。 <a1>画像を大きく開く</a1>",
+      "translation": "指定 id 2 再儲存時，只會修改該筆資料。<a1>開啟大圖</a1>"
+    },
+    {
+      "source": "id 3を削除したあと、一覧がinternalId=1とinternalId=2の2行になっている画面",
+      "translation": "刪除 id 3 後，列表變成 internalId=1 和 internalId=2 兩行的畫面"
+    },
+    {
+      "source": "id 3 を削除したところ。1件だけ消せます。 <a1>画像を大きく開く</a1>",
+      "translation": "刪除 id 3 後。可以只刪除一筆資料。<a1>開啟大圖</a1>"
+    },
+    {
+      "source": "できるようになること",
+      "translation": "將學會的事"
+    },
+    {
+      "source": "入力したタイトルを、1件ずつ保存できる。",
+      "translation": "能夠逐筆儲存輸入的標題。"
+    },
+    {
+      "source": "保存したデータに自動で付く <code>id</code> の意味を説明できる。",
+      "translation": "能夠解釋儲存資料時自動加上的 <code>id</code> 的意思。"
+    },
+    {
+      "source": "<code>id</code> を指定して、1件だけ書き換えられる。",
+      "translation": "能夠指定 <code>id</code>，只修改一筆資料。"
+    },
+    {
+      "source": "<code>id</code> を指定して、1件だけ消せる。",
+      "translation": "能夠指定 <code>id</code>，只刪除一筆資料。"
+    },
+    {
+      "source": "今日使う技術",
+      "translation": "今天使用的技術"
+    },
+    {
+      "source": "技術",
+      "translation": "技術"
+    },
+    {
+      "source": "どこで使うか",
+      "translation": "在哪裏使用"
+    },
+    {
+      "source": "学んだ単元",
+      "translation": "學過的單元"
+    },
+    {
+      "source": "<code>EditText</code> と <code>Button</code>",
+      "translation": "<code>EditText</code> 和 <code>Button</code>"
+    },
+    {
+      "source": "タイトルとidを入力して、保存・削除する。",
+      "translation": "輸入標題和 id，進行儲存或刪除。"
+    },
+    {
+      "source": "入力が空のときに知らせる。",
+      "translation": "在沒有輸入內容時通知使用者。"
+    },
+    {
+      "source": "データが増えても一覧を見られるようにする。",
+      "translation": "讓資料增加後仍能查看列表。"
+    },
+    {
+      "source": "データを1件ずつ保存する。<strong>今回の新顔です。</strong>",
+      "translation": "逐筆儲存資料。<strong>這是本次新學的技術。</strong>"
+    },
+    {
+      "source": "新しく覚えることは <strong>Room</strong> だけです。残りはA07とA09で使ったものを組み合わせます。",
+      "translation": "需要新學的只有 <strong>Room</strong>。其餘是把 A07 和 A09 用過的功能組合起來。"
+    },
+    {
+      "source": "解説：A09のSharedPreferencesと何が違うのか",
+      "translation": "解說：與 A09 的 SharedPreferences 有甚麼不同"
+    },
+    {
+      "source": "A09では、メモの一覧を<strong>まとめて1つの文字列</strong>にして保存しました。この方法だと「3件目だけ書き換える」「2件目だけ消す」ができません。全部を読み出して、自分で切り分けて、また全部を書き戻すことになります。",
+      "translation": "A09 把備忘錄列表<strong>合成一個字串</strong>儲存。這種方法無法直接「只修改第三筆」或「只刪除第二筆」。需要把全部內容讀出，自行分開，再把全部內容寫回。"
+    },
+    {
+      "source": "Roomは、データを<strong>1件ずつ、表の1行として</strong>保存します。1行ごとに番号（id）が付くので、番号を指定して1件だけ書き換え・削除ができます。データが増えても、必要な1行だけを触れます。",
+      "translation": "Room 把資料<strong>逐筆儲存為資料表中的一行</strong>。每一行都有編號（id），所以可以指定編號，只修改或刪除一筆。即使資料增加，也可以只處理需要的那一行。"
+    },
+    {
+      "source": "Room（今回）",
+      "translation": "Room（本次）"
+    },
+    {
+      "source": "保存の形",
+      "translation": "儲存形式"
+    },
+    {
+      "source": "名前と値の組。値は1つの文字列",
+      "translation": "名稱和值的組合。值是一個字串"
+    },
+    {
+      "source": "表。1件が1行",
+      "translation": "資料表。一筆資料佔一行"
+    },
+    {
+      "source": "1件だけ書き換え",
+      "translation": "只修改一筆"
+    },
+    {
+      "source": "できない",
+      "translation": "不可以"
+    },
+    {
+      "source": "できる",
+      "translation": "可以"
+    },
+    {
+      "source": "1件だけ削除",
+      "translation": "只刪除一筆"
+    },
+    {
+      "source": "向いているもの",
+      "translation": "適用的資料"
+    },
+    {
+      "source": "設定値、ログイン状態など少ないデータ",
+      "translation": "設定值、登入狀態等少量資料"
+    },
+    {
+      "source": "件数が増えるデータ",
+      "translation": "筆數會增加的資料"
+    },
+    {
+      "source": "ここで止まって、確認",
+      "translation": "在這裏停下來確認"
+    },
+    {
+      "source": "今日作るアプリの画面を画像で確かめ、A09のSharedPreferencesとの違いを表で確認した。",
+      "translation": "已從圖片確認今天要製作的應用程式畫面，並從表格確認與 A09 的 SharedPreferences 的差異。"
+    },
+    {
+      "source": "できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。",
+      "translation": "完成後勾選。遇到困難時，請將 STEP 編號和畫面給老師看。"
+    },
+    {
+      "source": "次へ：プロジェクトを作って実行 →",
+      "translation": "下一步：建立專案並執行 →"
+    },
+    {
+      "source": "STEP 01 · 目安 10分",
+      "translation": "STEP 01 · 約 10 分鐘"
+    },
+    {
+      "source": "プロジェクトを作って実行",
+      "translation": "建立專案並執行"
+    },
+    {
+      "source": "授業環境はMacと <strong>Android Studio Panda 2 | 2025.3.2</strong> です。A09までとは別のプロジェクトを作ります。",
+      "translation": "課堂環境是 Mac 和 <strong>Android Studio Panda 2 | 2025.3.2</strong>。建立一個與 A09 及之前各單元不同的專案。"
+    },
+    {
+      "source": "毎回、自分で新規作成します",
+      "translation": "每次都自行建立新專案"
+    },
+    {
+      "source": "作る場所は <code>Documents/Android1/A10RoomSample</code> です。<a1>完成プロジェクト</a1>は答え合わせ用で、授業の入力は自分で作ったプロジェクトに書きます。",
+      "translation": "建立位置是 <code>Documents/Android1/A10RoomSample</code>。<a1>完成專案</a1>用來核對答案，課堂上輸入的內容要寫在自己建立的專案中。"
+    },
+    {
+      "source": "Android Studioの <strong>New Project</strong> をクリックします。別のプロジェクトを開いているときは <strong>File → New → New Project</strong> を選びます。",
+      "translation": "按一下 Android Studio 的 <strong>New Project</strong>。如果正開啟其他專案，請選取 <strong>File → New → New Project</strong>。"
+    },
+    {
+      "source": "<strong>Phone and Tablet → Empty Views Activity → Next</strong> の順に選びます。名前に <strong>Views</strong> があることを確認します。",
+      "translation": "依次選取 <strong>Phone and Tablet → Empty Views Activity → Next</strong>。確認名稱包含 <strong>Views</strong>。"
+    },
+    {
+      "source": "テンプレート一覧でEmpty Views Activityが選択されている",
+      "translation": "範本列表已選取 Empty Views Activity"
+    },
+    {
+      "source": "Empty Views Activityを選択。Empty Activityとは別です。 <a1>画像を大きく開く</a1>",
+      "translation": "選取 Empty Views Activity。它與 Empty Activity 不同。<a1>開啟大圖</a1>"
+    },
+    {
+      "source": "次の表のとおりに入力・選択して <strong>Finish</strong> を押します。",
+      "translation": "按照下表輸入和選取，再按 <strong>Finish</strong>。"
+    },
+    {
+      "source": "項目",
+      "translation": "項目"
+    },
+    {
+      "source": "入力・選択する内容",
+      "translation": "要輸入或選取的內容"
+    },
+    {
+      "source": "<code>jp.ac.jec.a10roomsample</code>（すべて小文字）",
+      "translation": "<code>jp.ac.jec.a10roomsample</code>（全部小寫）"
+    },
+    {
+      "source": "A10RoomSampleの新規設定。パッケージjp.ac.jec.a10roomsample、Java、API 31、Kotlin DSL",
+      "translation": "A10RoomSample 的新專案設定。套件為 jp.ac.jec.a10roomsample，使用 Java、API 31、Kotlin DSL"
+    },
+    {
+      "source": "入力後の画面。画像の保存先は先生の例です。自分の <code>Documents/Android1/A10RoomSample</code> に読み替えます。 <a1>画像を大きく開く</a1>",
+      "translation": "輸入後的畫面。圖片中的儲存位置是老師的例子，請換成自己的 <code>Documents/Android1/A10RoomSample</code>。<a1>開啟大圖</a1>"
+    },
+    {
+      "source": "Sync（歯車の読み込み）が終わるまで待ちます。",
+      "translation": "等待 Sync（齒輪載入）完成。"
+    },
+    {
+      "source": "端末欄で <strong>jec_26cm_android1_Pixel 9a</strong> を選び、<strong>Run</strong>（▶）を押します。白い画面に <strong>Hello World!</strong> が出れば成功です。",
+      "translation": "在裝置欄選取 <strong>jec_26cm_android1_Pixel 9a</strong>，按 <strong>Run</strong>（▶）。白色畫面出現 <strong>Hello World!</strong> 就表示成功。"
+    },
+    {
+      "source": "エミュレータが出てこないときは<a1>共通資料：エミュレータ</a1>を見ます。",
+      "translation": "模擬器沒有出現時，請參閱<a1>共通資料：模擬器</a1>。"
+    },
+    {
+      "source": "自分の保存先にA10RoomSampleを作り、Hello World!を表示できた。",
+      "translation": "已在自己的儲存位置建立 A10RoomSample，並能顯示 Hello World!。"
+    },
+    {
+      "source": "次へ：Roomを使えるようにする →",
+      "translation": "下一步：準備使用 Room →"
+    },
+    {
+      "source": "STEP 02 · 目安 10分",
+      "translation": "STEP 02 · 約 10 分鐘"
+    },
+    {
+      "source": "Roomを使えるようにする",
+      "translation": "準備使用 Room"
+    },
+    {
+      "source": "Roomは、Android Studioに最初から入っている部品ではありません。<strong>使うと宣言してから</strong>使います。この宣言を2つのファイルに分けて書きます。",
+      "translation": "Room 並不是 Android Studio 原本就有的元件。需要<strong>先宣告要使用</strong>，才可以使用。這個宣告會分別寫在兩個檔案中。"
+    },
+    {
+      "source": "① バージョンを書く場所",
+      "translation": "① 填寫版本的位置"
+    },
+    {
+      "source": "<code>gradle/libs.versions.toml</code> を開きます。ここは<strong>どの部品をどのバージョンで使うか</strong>を一覧にしておくファイルです。Android Studioがひな形として用意しています。",
+      "translation": "開啟 <code>gradle/libs.versions.toml</code>。這個檔案用來列出<strong>哪些元件使用哪些版本</strong>。Android Studio 已準備好範本。"
+    },
+    {
+      "source": "3か所に追記します。<strong>行を足す場所を間違えないように</strong>、見出し（<code>[versions]</code> など）をよく見てください。",
+      "translation": "在三處加入內容。請仔細查看標題（例如 <code>[versions]</code>），<strong>不要把新增的行放錯位置</strong>。"
+    },
+    {
+      "source": "<code>libs.versions.toml</code>（全体）",
+      "translation": "<code>libs.versions.toml</code>（全部內容）"
+    },
+    {
+      "source": "追記する場所",
+      "translation": "加入內容的位置"
+    },
+    {
+      "source": "追記する行",
+      "translation": "要加入的行"
+    },
+    {
+      "source": "意味",
+      "translation": "意思"
+    },
+    {
+      "source": "<code>[versions]</code> の中",
+      "translation": "<code>[versions]</code> 內"
+    },
+    {
+      "source": "Roomのバージョンに <code>room</code> という名前を付ける",
+      "translation": "為 Room 的版本加上 <code>room</code> 這個名稱"
+    },
+    {
+      "source": "<code>[libraries]</code> の中",
+      "translation": "<code>[libraries]</code> 內"
+    },
+    {
+      "source": "アプリが動くときに使う本体",
+      "translation": "應用程式運作時使用的本體"
+    },
+    {
+      "source": "ビルドのときに、書いた命令からコードを自動で作る部品",
+      "translation": "建構時根據所寫指令自動產生程式碼的元件"
+    },
+    {
+      "source": "<code>[plugins]</code> に書かないこと",
+      "translation": "不要寫在 <code>[plugins]</code> 內"
+    },
+    {
+      "source": "<code>[libraries]</code> と <code>[plugins]</code> は見た目が似ています。<code>[plugins]</code> のほうに書くと <code>expected to find any of 'id' or 'version'</code> というエラーでビルドが止まります。追記した2行から上へたどって、<strong>最初に出てくる見出しが <code>[libraries]</code> になっているか</strong>を確かめてください。",
+      "translation": "<code>[libraries]</code> 和 <code>[plugins]</code> 看起來相似。寫在 <code>[plugins]</code> 內會出現 <code>expected to find any of 'id' or 'version'</code> 錯誤，令建構停止。請從新增的兩行往上查看，確認<strong>最先遇到的標題是 <code>[libraries]</code></strong>。"
+    },
+    {
+      "source": "② 使うと宣言する場所",
+      "translation": "② 宣告要使用的位置"
+    },
+    {
+      "source": "<code>app/build.gradle.kts</code> を開き、<code>dependencies { }</code> の中に2行を追加します。",
+      "translation": "開啟 <code>app/build.gradle.kts</code>，在 <code>dependencies { }</code> 內加入兩行。"
+    },
+    {
+      "source": "<code>libs.room.runtime</code> の <code>libs.</code> は、①で書いた <code>libs.versions.toml</code> のことです。<code>room-runtime</code> のハイフンは、ここでは <strong>ドット</strong>（<code>room.runtime</code>）に変わります。",
+      "translation": "<code>libs.room.runtime</code> 中的 <code>libs.</code>，是指①所寫的 <code>libs.versions.toml</code>。<code>room-runtime</code> 中的連字號，在這裏會變成<strong>點號</strong>（<code>room.runtime</code>）。"
+    },
+    {
+      "source": "Syncする",
+      "translation": "進行 Sync"
+    },
+    {
+      "source": "画面の上に <strong>Sync Now</strong> というリンクが出ます。押して、読み込みが終わるまで待ちます。エラーが出なければ成功です。",
+      "translation": "畫面上方會出現 <strong>Sync Now</strong> 連結。按下後等待載入完成。沒有錯誤就代表成功。"
+    },
+    {
+      "source": "ここではまだ画面は変わりません",
+      "translation": "畫面暫時不會改變"
+    },
+    {
+      "source": "部品を用意しただけなので、Runしても <strong>Hello World!</strong> のままです。エラーなくSyncできていればSTEP 02は合格です。",
+      "translation": "現在只是準備好元件，所以即使 Run，仍然是 <strong>Hello World!</strong>。能夠完成 Sync 而沒有錯誤，就通過了 STEP 02。"
+    },
+    {
+      "source": "libs.versions.tomlとbuild.gradle.ktsに追記して、エラーなくSyncできた。",
+      "translation": "已在 libs.versions.toml 和 build.gradle.kts 加入內容，並能完成 Sync 而沒有錯誤。"
+    },
+    {
+      "source": "次へ：画面を作る →",
+      "translation": "下一步：製作畫面 →"
+    },
+    {
+      "source": "STEP 03 · 目安 10分",
+      "translation": "STEP 03 · 約 10 分鐘"
+    },
+    {
+      "source": "画面を作る",
+      "translation": "製作畫面"
+    },
+    {
+      "source": "入力欄2つ、ボタン2つ、一覧の表示欄を並べます。<code>app/src/main/res/layout/activity_main.xml</code> を開き、中身をすべて次のコードに置き換えます。",
+      "translation": "排列兩個輸入欄、兩個按鈕，以及顯示列表的區域。開啟 <code>app/src/main/res/layout/activity_main.xml</code>，把全部內容換成以下程式碼。"
+    },
+    {
+      "source": "部品",
+      "translation": "元件"
+    },
+    {
+      "source": "役割",
+      "translation": "作用"
+    },
+    {
+      "source": "書き換え・削除したいデータの番号を入れる。空なら新規追加",
+      "translation": "輸入要修改或刪除的資料編號。留空則新增資料"
+    },
+    {
+      "source": "保存するタイトルを入れる",
+      "translation": "輸入要儲存的標題"
+    },
+    {
+      "source": "保存する",
+      "translation": "儲存"
+    },
+    {
+      "source": "削除する",
+      "translation": "刪除"
+    },
+    {
+      "source": "保存されているデータを表示する",
+      "translation": "顯示已儲存的資料"
+    },
+    {
+      "source": "気をつけるところ",
+      "translation": "注意事項"
+    },
+    {
+      "source": "いちばん外側が <code>ScrollView</code> です。データが増えても下まで見られるようにするためです（A09と同じ考え方）。",
+      "translation": "最外層是 <code>ScrollView</code>。目的是在資料增加後仍能看到最下方（與 A09 的想法相同）。"
+    },
+    {
+      "source": "<code>edt_id</code> には <code>android:inputType=\"number\"</code> を付けます。数字だけのキーボードが出て、文字を入れられなくなります。",
+      "translation": "在 <code>edt_id</code> 加上 <code>android:inputType=\"number\"</code>。會顯示只有數字的鍵盤，不能輸入文字。"
+    },
+    {
+      "source": "ボタン2つは <code>layout_width=\"0dp\"</code> と <code>layout_weight=\"1\"</code> で横に半分ずつ並びます。",
+      "translation": "兩個按鈕透過 <code>layout_width=\"0dp\"</code> 和 <code>layout_weight=\"1\"</code> 橫向排列，各佔一半寬度。"
+    },
+    {
+      "source": "Runで確かめる",
+      "translation": "用 Run 確認"
+    },
+    {
+      "source": "入力欄2つとボタン2つ、「保存されているデータ」の見出しが出れば成功です。ボタンを押してもまだ何も起きません。",
+      "translation": "兩個輸入欄、兩個按鈕，以及「保存されているデータ」（已儲存的資料）標題出現就代表成功。現在按下按鈕仍不會有任何反應。"
+    },
+    {
+      "source": "画面の部品を並べて、Runで表示できた。",
+      "translation": "已排列畫面元件，並能用 Run 顯示。"
+    },
+    {
+      "source": "次へ：保存するデータの形を決める →",
+      "translation": "下一步：決定要儲存的資料結構 →"
+    },
+    {
+      "source": "STEP 04 · 目安 15分",
+      "translation": "STEP 04 · 約 15 分鐘"
+    },
+    {
+      "source": "保存するデータの形を決める",
+      "translation": "決定要儲存的資料結構"
+    },
+    {
+      "source": "Roomは、データを<strong>表</strong>の形で保存します。まず「1行にどんな項目があるか」を決めます。これを書くのが <code>Item</code> クラスです。",
+      "translation": "Room 以<strong>資料表</strong>的形式儲存資料。先決定「每一行有哪些項目」。這些內容會寫在 <code>Item</code> 類別中。"
+    },
+    {
+      "source": "① クラスを作る",
+      "translation": "① 建立類別"
+    },
+    {
+      "source": "プロジェクト画面で <code>app/src/main/java/jp/ac/jec/a10roomsample</code> を右クリックし、<strong>New → Java Class</strong> を選びます。",
+      "translation": "在專案畫面以滑鼠右鍵按一下 <code>app/src/main/java/jp/ac/jec/a10roomsample</code>，選取 <strong>New → Java Class</strong>。"
+    },
+    {
+      "source": "パッケージを右クリックしてNewを開き、Java Classが選択されているメニュー",
+      "translation": "以滑鼠右鍵按一下套件並開啟 New，已選取 Java Class 的選單"
+    },
+    {
+      "source": "MainActivityと同じフォルダ（パッケージ）を右クリックします。 <a1>画像を大きく開く</a1>",
+      "translation": "以滑鼠右鍵按一下與 MainActivity 相同的資料夾（套件）。<a1>開啟大圖</a1>"
+    },
+    {
+      "source": "名前に <code>Item</code> と入力し、下の一覧で <strong>Class</strong> を選んで <kbd>return</kbd> を押します。",
+      "translation": "在名稱輸入 <code>Item</code>，從下方列表選取 <strong>Class</strong>，再按 <kbd>return</kbd>。"
+    },
+    {
+      "source": "New Java Classのダイアログ。名前はItem、種類はClassが選択されている",
+      "translation": "New Java Class 對話框。名稱是 Item，種類已選取 Class"
+    },
+    {
+      "source": "種類は <strong>Class</strong> です。 <a1>画像を大きく開く</a1>",
+      "translation": "種類是 <strong>Class</strong>。<a1>開啟大圖</a1>"
+    },
+    {
+      "source": "② 中身を書く",
+      "translation": "② 編寫內容"
+    },
+    {
+      "source": "できた <code>Item.java</code> の中身を、すべて次のコードに置き換えます。",
+      "translation": "把剛建立的 <code>Item.java</code> 的全部內容換成以下程式碼。"
+    },
+    {
+      "source": "書いたもの",
+      "translation": "所寫的內容"
+    },
+    {
+      "source": "このクラスが<strong>表1つ分</strong>であるという印。クラス名 <code>Item</code> がそのまま表の名前になる",
+      "translation": "表示這個類別相當於<strong>一個資料表</strong>的標記。類別名稱 <code>Item</code> 直接成為資料表名稱"
+    },
+    {
+      "source": "この項目が<strong>行を見分ける番号</strong>。<code>autoGenerate = true</code> で、保存するたびに1・2・3…と自動で増える",
+      "translation": "這個項目是<strong>用來分辨各行的編號</strong>。設為 <code>autoGenerate = true</code> 後，每次儲存會自動增加為 1、2、3……"
+    },
+    {
+      "source": "自動で付く番号。画面の <code>edt_id</code> に入れるのはこの番号",
+      "translation": "自動加上的編號。畫面的 <code>edt_id</code> 就是輸入這個編號"
+    },
+    {
+      "source": "保存したい文字。表の項目はこの2つだけ",
+      "translation": "想儲存的文字。資料表只有這兩個項目"
+    },
+    {
+      "source": "<code>@NonNull</code> はここだけ書きます",
+      "translation": "只在這裏寫上 <code>@NonNull</code>"
+    },
+    {
+      "source": "この授業では <code>@NonNull</code> を自分で書きません。ただし <code>@Entity</code> のフィールドに付けた <code>@NonNull</code> は、Javaの注意書きではなく<strong>「この列は空にできない」という表の決まりそのもの</strong>です。外すと表の形が変わってしまうので、ここだけは書きます。",
+      "translation": "這門課不需要自行寫 <code>@NonNull</code>。但加在 <code>@Entity</code> 欄位上的 <code>@NonNull</code>，並不是 Java 的提示，而是<strong>資料表本身「這一欄不能為空」的規則</strong>。移除後會改變資料表結構，所以只有這裏需要寫上。"
+    },
+    {
+      "source": "<code>toString()</code> は表示のために使います",
+      "translation": "<code>toString()</code> 用於顯示"
+    },
+    {
+      "source": "STEP 07で一覧を表示するときに、<code>Item</code> をそのまま文字にして並べます。画面に出ている <code>Item{internalId=1, title='CAR'}</code> という表示は、このメソッドが作っています。",
+      "translation": "STEP 07 顯示列表時，會把 <code>Item</code> 直接轉成文字來排列。畫面上的 <code>Item{internalId=1, title='CAR'}</code> 就是由這個方法產生。"
+    },
+    {
+      "source": "Itemクラスを作り、表の項目が <code>internalId</code> と <code>title</code> の2つだけになっていることを確認した。",
+      "translation": "已建立 Item 類別，並確認資料表只有 <code>internalId</code> 和 <code>title</code> 兩個項目。"
+    },
+    {
+      "source": "次へ：読み書きの命令を書く →",
+      "translation": "下一步：編寫讀寫指令 →"
+    },
+    {
+      "source": "STEP 05 · 目安 15分",
+      "translation": "STEP 05 · 約 15 分鐘"
+    },
+    {
+      "source": "読み書きの命令を書く",
+      "translation": "編寫讀寫指令"
+    },
+    {
+      "source": "次に「どう読み書きするか」を書きます。これが <code>ItemDao</code> です。<strong>Dao</strong> は Data Access Object の略で、データベースへの<strong>窓口</strong>です。",
+      "translation": "接着編寫「如何讀寫」，這就是 <code>ItemDao</code>。<strong>Dao</strong> 是 Data Access Object 的縮寫，是通往資料庫的<strong>窗口</strong>。"
+    },
+    {
+      "source": "① インタフェースを作る",
+      "translation": "① 建立介面"
+    },
+    {
+      "source": "STEP 04と同じ手順で <strong>New → Java Class</strong> を開き、名前に <code>ItemDao</code> と入力します。<strong>ここだけは一覧で <code>Interface</code> を選びます。</strong>",
+      "translation": "按照 STEP 04 的步驟開啟 <strong>New → Java Class</strong>，名稱輸入 <code>ItemDao</code>。<strong>只有這裏要在列表選取 <code>Interface</code>。</strong>"
+    },
+    {
+      "source": "New Java Classのダイアログ。名前はItemDao、種類はInterfaceが選択されている",
+      "translation": "New Java Class 對話框。名稱是 ItemDao，種類已選取 Interface"
+    },
+    {
+      "source": "<strong>Class ではなく Interface</strong> を選びます。間違えると中身を書いたときに赤いエラーになります。 <a1>画像を大きく開く</a1>",
+      "translation": "選取 <strong>Interface，而不是 Class</strong>。選錯後，編寫內容時會出現紅色錯誤。<a1>開啟大圖</a1>"
+    },
+    {
+      "source": "このインタフェースがデータベースへの窓口であるという印",
+      "translation": "表示這個介面是通往資料庫的窗口的標記"
+    },
+    {
+      "source": "表の中身を全部取り出す。<code>item</code> は <code>Item</code> クラスから作られた表の名前",
+      "translation": "取出資料表的全部內容。<code>item</code> 是從 <code>Item</code> 類別建立的資料表名稱"
+    },
+    {
+      "source": "番号を1つ指定して、その1件を取り出す。<code>:internalId</code> はメソッドの引数のこと",
+      "translation": "指定一個編號，取出該筆資料。<code>:internalId</code> 是指方法的參數"
+    },
+    {
+      "source": "<strong>あれば書き換え、なければ追加</strong>。upsert は update と insert を合わせた言葉",
+      "translation": "<strong>已有資料就修改，沒有就新增</strong>。upsert 是結合 update 和 insert 的詞語"
+    },
+    {
+      "source": "渡した1件を消す",
+      "translation": "刪除傳入的一筆資料"
+    },
+    {
+      "source": "中身（処理）を書かなくてよい理由",
+      "translation": "不需要編寫內容（處理）的原因"
+    },
+    {
+      "source": "メソッドに <code>{ }</code> がありません。<strong>ビルドするときにRoomが自動で中身を作ります。</strong>STEP 02で追加した <code>room-compiler</code> がその仕事をしています。私たちが書くのは「何をしたいか」だけです。",
+      "translation": "方法沒有 <code>{ }</code>。<strong>建構時，Room 會自動產生內容。</strong>這是 STEP 02 加入的 <code>room-compiler</code> 的工作。我們只需寫「想做甚麼」。"
+    },
+    {
+      "source": "なぜ <code>@Upsert</code> だけなのか",
+      "translation": "為甚麼只使用 <code>@Upsert</code>"
+    },
+    {
+      "source": "Roomには <code>@Insert</code>（追加）と <code>@Update</code>（書き換え）もあります。この授業では、2つを使い分ける判断を増やさないために <code>@Upsert</code> 1つにまとめています。idが空なら追加、idを入れたら書き換え、という<strong>画面の動きがそのままメソッド1つに対応</strong>します。",
+      "translation": "Room 也有 <code>@Insert</code>（新增）和 <code>@Update</code>（修改）。這門課為了避免增加選擇兩者的判斷，所以統一使用 <code>@Upsert</code>。id 留空就新增、輸入 id 就修改，這種<strong>畫面上的行為直接對應一個方法</strong>。"
+    },
+    {
+      "source": "ItemDaoをInterfaceで作り、どのメソッドにも中身の <code>{ }</code> がないことを確認した。",
+      "translation": "已用 Interface 建立 ItemDao，並確認所有方法都沒有內容的 <code>{ }</code>。"
+    },
+    {
+      "source": "次へ：データベース本体を作る →",
+      "translation": "下一步：建立資料庫本體 →"
+    },
+    {
+      "source": "STEP 06 · 目安 10分",
+      "translation": "STEP 06 · 約 10 分鐘"
+    },
+    {
+      "source": "データベース本体を作る",
+      "translation": "建立資料庫本體"
+    },
+    {
+      "source": "表（<code>Item</code>）と窓口（<code>ItemDao</code>）ができました。最後に、それをまとめる<strong>データベース本体</strong>を作ります。",
+      "translation": "已建立資料表（<code>Item</code>）和窗口（<code>ItemDao</code>）。最後建立把兩者組合起來的<strong>資料庫本體</strong>。"
+    },
+    {
+      "source": "STEP 04と同じ手順で <strong>New → Java Class</strong> を開き、名前に <code>AppDatabase</code> と入力します。種類は <strong>Class</strong> です。",
+      "translation": "按照 STEP 04 的步驟開啟 <strong>New → Java Class</strong>，名稱輸入 <code>AppDatabase</code>。種類是 <strong>Class</strong>。"
+    },
+    {
+      "source": "New Java Classのダイアログ。名前はAppDatabase、種類はClassが選択されている",
+      "translation": "New Java Class 對話框。名稱是 AppDatabase，種類已選取 Class"
+    },
+    {
+      "source": "このデータベースが <code>Item</code> の表を持つという宣言。<code>version</code> は表の形を変えたときに増やす番号",
+      "translation": "宣告這個資料庫包含 <code>Item</code> 資料表。<code>version</code> 是在改變資料表結構時增加的編號"
+    },
+    {
+      "source": "中身はRoomが自動で作るので <code>abstract</code>（中身を書かない）にする",
+      "translation": "內容由 Room 自動產生，所以設為 <code>abstract</code>（不編寫內容）"
+    },
+    {
+      "source": "データベースを取り出すメソッド。<strong>1つだけ作って使い回します</strong>",
+      "translation": "取得資料庫的方法。<strong>只建立一個，之後重複使用</strong>"
+    },
+    {
+      "source": "端末に作られるファイルの名前",
+      "translation": "在裝置上建立的檔案名稱"
+    },
+    {
+      "source": "読み書きを画面と同じ流れで行う指定。<strong>この授業ではこれを付けます</strong>",
+      "translation": "讓讀寫與畫面在同一個流程中執行的設定。<strong>這門課會加上這個設定</strong>"
+    },
+    {
+      "source": "なぜ1つだけ作って使い回すのか",
+      "translation": "為甚麼只建立一個並重複使用"
+    },
+    {
+      "source": "データベースを開く準備には時間がかかります。ボタンを押すたびに作り直すと、そのたびに待たされます。そこで<strong>最初の1回だけ作って、あとは同じものを返す</strong>書き方にします。この書き方を<strong>シングルトン</strong>といい、Roomの公式資料でもこの形がすすめられています。",
+      "translation": "開啟資料庫的準備需要時間。如果每次按下按鈕都重新建立，就每次都要等待。因此採用<strong>只在第一次建立，之後回傳同一個物件</strong>的寫法。這種寫法稱為<strong>單例</strong>，Room 官方資料也建議使用這種形式。"
+    },
+    {
+      "source": "<code>context.getApplicationContext()</code> を忘れない",
+      "translation": "不要忘記 <code>context.getApplicationContext()</code>"
+    },
+    {
+      "source": "<code>Room.databaseBuilder(...)</code> の最初に渡しているのは、受け取った <code>context</code> そのままではなく <code>context.getApplicationContext()</code> です。ここを <code>context</code> のままにすると、画面を回すたびに<strong>古い画面が消えずに残り続けます</strong>。作ったデータベースはアプリが終わるまで残るため、画面ではなく<strong>アプリ全体</strong>を渡します。",
+      "translation": "<code>Room.databaseBuilder(...)</code> 的第一個參數，並不是直接傳入收到的 <code>context</code>，而是 <code>context.getApplicationContext()</code>。如果保持使用 <code>context</code>，每次旋轉畫面時，<strong>舊畫面都不會消失，會一直留下來</strong>。由於建立的資料庫會保留至應用程式結束，所以傳入的是<strong>整個應用程式</strong>，而不是畫面。"
+    },
+    {
+      "source": "AppDatabaseを作り、<code>Room.databaseBuilder</code> に <code>context.getApplicationContext()</code> を渡していることを確認した。",
+      "translation": "已建立 AppDatabase，並確認傳給 <code>Room.databaseBuilder</code> 的是 <code>context.getApplicationContext()</code>。"
+    },
+    {
+      "source": "次へ：画面とつないで完成 →",
+      "translation": "下一步：連接畫面並完成 →"
+    },
+    {
+      "source": "STEP 07 · 目安 25分",
+      "translation": "STEP 07 · 約 25 分鐘"
+    },
+    {
+      "source": "画面とつないで完成",
+      "translation": "連接畫面並完成"
+    },
+    {
+      "source": "部品がそろいました。<code>MainActivity.java</code> の中身を、すべて次のコードに置き換えます。",
+      "translation": "元件已齊備。把 <code>MainActivity.java</code> 的全部內容換成以下程式碼。"
+    },
+    {
+      "source": "読むときの順番",
+      "translation": "閱讀次序"
+    },
+    {
+      "source": "行のあたり",
+      "translation": "程式碼位置"
+    },
+    {
+      "source": "やっていること",
+      "translation": "正在做的事"
+    },
+    {
+      "source": "データベースを取り出して、窓口（Dao）を受け取る",
+      "translation": "取得資料庫，再取得窗口（Dao）"
+    },
+    {
+      "source": "起動したときに、保存されているデータを一覧に出す",
+      "translation": "啟動時，把已儲存的資料顯示在列表"
+    },
+    {
+      "source": "<code>btn_upsert</code> のリスナ",
+      "translation": "<code>btn_upsert</code> 的監聽器"
+    },
+    {
+      "source": "タイトルが空なら止める → <code>Item</code> を作る → idが入っていれば <code>setInternalId</code> → <code>upsert</code> → 一覧を出し直す",
+      "translation": "標題為空就停止 → 建立 <code>Item</code> → 已輸入 id 就執行 <code>setInternalId</code> → <code>upsert</code> → 重新顯示列表"
+    },
+    {
+      "source": "<code>btn_delete</code> のリスナ",
+      "translation": "<code>btn_delete</code> 的監聽器"
+    },
+    {
+      "source": "idが空なら止める → その番号のデータを探す → 見つからなければ止める → <code>delete</code> → 一覧を出し直す",
+      "translation": "id 為空就停止 → 尋找該編號的資料 → 找不到就停止 → <code>delete</code> → 重新顯示列表"
+    },
+    {
+      "source": "全部のデータを1行ずつつなげて、1つの文字列にする",
+      "translation": "把全部資料逐行連接成一個字串"
+    },
+    {
+      "source": "保存したあとに毎回 <code>setText</code> し直しています",
+      "translation": "每次儲存後都會重新執行 <code>setText</code>"
+    },
+    {
+      "source": "データベースに書いても、画面は自動では変わりません。<strong>「書いた」と「画面に出す」は別の仕事</strong>です。A09で「保存と表示は別物」と学んだのと同じです。",
+      "translation": "即使寫入資料庫，畫面也不會自動改變。<strong>「寫入」和「顯示在畫面上」是不同的工作</strong>。這與 A09 學過的「儲存和顯示是不同的東西」相同。"
+    },
+    {
+      "source": "タイトルに <code>CAR</code> と入れて <strong>保存</strong>。一覧に <code>Item{internalId=1, title='CAR'}</code> が出ます。",
+      "translation": "在標題輸入 <code>CAR</code>，按 <strong>保存</strong>（儲存）。列表會顯示 <code>Item{internalId=1, title='CAR'}</code>。"
+    },
+    {
+      "source": "続けて <code>BIKE</code>、<code>TRAIN</code> を保存。idが2・3と増えます。",
+      "translation": "接着儲存 <code>BIKE</code>、<code>TRAIN</code>。id 會增加為 2、3。"
+    },
+    {
+      "source": "id欄に <code>2</code>、タイトルに <code>BICYCLE</code> を入れて <strong>保存</strong>。<strong>2行目だけ</strong>書き換わります。",
+      "translation": "在 id 欄輸入 <code>2</code>，標題輸入 <code>BICYCLE</code>，按 <strong>保存</strong>（儲存）。<strong>只會修改第二行</strong>。"
+    },
+    {
+      "source": "id欄に <code>3</code> を入れて <strong>削除</strong>。<strong>3行目だけ</strong>消えます。",
+      "translation": "在 id 欄輸入 <code>3</code>，按 <strong>削除</strong>（刪除）。<strong>只會刪除第三行</strong>。"
+    },
+    {
+      "source": "アプリを終了して開き直します。残っていれば成功です。終了するには、エミュレータでアプリ一覧（最近使ったアプリ）を開き、このアプリを上へスワイプします。アプリ一覧は、画面下の横棒を上へスワイプしてから止めると出ます。",
+      "translation": "結束應用程式後重新開啟。資料仍然保留就代表成功。要結束時，在模擬器開啟應用程式列表（最近使ったアプリ：最近使用的應用程式），將這個應用程式向上滑動。把畫面底部的橫線向上滑動，再停一下，就會出現應用程式列表。"
+    },
+    {
+      "source": "タイトルを空にして保存を押したときに、画面下にタイトルを入力してくださいのメッセージが出ている画面",
+      "translation": "標題留空並按「保存」（儲存）時，畫面下方出現「タイトルを入力してください」（請輸入標題）訊息的畫面"
+    },
+    {
+      "source": "タイトルを空のまま保存すると、メッセージが出て保存されません。 <a1>画像を大きく開く</a1>",
+      "translation": "標題留空便儲存時，會顯示訊息，不會儲存。<a1>開啟大圖</a1>"
+    },
+    {
+      "source": "完成チェック",
+      "translation": "完成檢查"
+    },
+    {
+      "source": "上から順に操作します。保存したデータが残っているとidが1から始まらないので、アプリを消してから始めます。消し方は<a1>共通資料：エミュレータ</a1>の「アプリを消す」にあります。",
+      "translation": "由上至下按順序操作。如果還保留着已儲存的資料，id 就不會從 1 開始，所以先移除應用程式再開始。移除方法見<a1>共通資料：模擬器</a1>的「移除應用程式」。"
+    },
+    {
+      "source": "<strong>アプリを終了する</strong>ときは、エミュレータでアプリ一覧（最近使ったアプリ）を開き、このアプリを上へスワイプします。アプリ一覧は、画面下の横棒を上へスワイプしてから止めると出ます。",
+      "translation": "要<strong>結束應用程式</strong>時，在模擬器開啟應用程式列表（最近使ったアプリ：最近使用的應用程式），將這個應用程式向上滑動。把畫面底部的橫線向上滑動，再停一下，就會出現應用程式列表。"
+    },
+    {
+      "source": "操作",
+      "translation": "操作"
+    },
+    {
+      "source": "確認する結果",
+      "translation": "要確認的結果"
+    },
+    {
+      "source": "アプリを消してから初回起動",
+      "translation": "移除應用程式後首次啟動"
+    },
+    {
+      "source": "一覧が空で表示される。",
+      "translation": "顯示空白列表。"
+    },
+    {
+      "source": "何も入れずに「保存」",
+      "translation": "不輸入任何內容便按「保存」（儲存）"
+    },
+    {
+      "source": "「タイトルを入力してください」が出て、一覧は増えない。",
+      "translation": "顯示「タイトルを入力してください」（請輸入標題），列表不會增加。"
+    },
+    {
+      "source": "タイトルに CAR・BIKE・TRAIN を1件ずつ「保存」",
+      "translation": "在標題逐一輸入 CAR、BIKE、TRAIN，按「保存」（儲存）"
+    },
+    {
+      "source": "保存のたびに1行増え、idが1・2・3と自動で付く。入力欄は空になる。",
+      "translation": "每次儲存增加一行，id 自動加上 1、2、3。輸入欄會清空。"
+    },
+    {
+      "source": "id欄に 2、タイトルに BICYCLE と入れて「保存」",
+      "translation": "id 欄輸入 2，標題輸入 BICYCLE，按「保存」（儲存）"
+    },
+    {
+      "source": "2行目だけが BICYCLE に書き換わる。行は増えない。",
+      "translation": "只有第二行改為 BICYCLE，不會增加行數。"
+    },
+    {
+      "source": "id欄に 3 と入れて「削除」",
+      "translation": "id 欄輸入 3，按「削除」（刪除）"
+    },
+    {
+      "source": "3行目だけが消え、id欄が空になる。",
+      "translation": "只有第三行消失，id 欄會清空。"
+    },
+    {
+      "source": "id欄が空のまま「削除」",
+      "translation": "id 欄留空，按「削除」（刪除）"
+    },
+    {
+      "source": "「削除するidを入力してください」が出て、一覧は変わらない。",
+      "translation": "顯示「削除するidを入力してください」（請輸入要刪除的 id），列表不變。"
+    },
+    {
+      "source": "id欄に 99 と入れて「削除」",
+      "translation": "id 欄輸入 99，按「削除」（刪除）"
+    },
+    {
+      "source": "「そのidのデータはありません」が出て、一覧は変わらない。",
+      "translation": "顯示「そのidのデータはありません」（沒有該 id 的資料），列表不變。"
+    },
+    {
+      "source": "アプリを終了して開き直す",
+      "translation": "結束應用程式後重新開啟"
+    },
+    {
+      "source": "残った2行がそのまま表示される。",
+      "translation": "剩下的兩行會保持原樣顯示。"
+    },
+    {
+      "source": "練習",
+      "translation": "練習"
+    },
+    {
+      "source": "上から順に試します。<strong>予想 → 試す → 説明</strong>の順で行います。コードを書き換える3は、確かめたあとに<strong>元に戻します</strong>。",
+      "translation": "由上至下按順序嘗試。依照<strong>預測 → 嘗試 → 解釋</strong>的順序進行。第 3 項會修改程式碼，確認後要<strong>還原</strong>。"
+    },
+    {
+      "source": "存在しないid（例：<code>99</code>）を入れて <strong>削除</strong> を押すとどうなるか、試して理由を説明する。",
+      "translation": "嘗試輸入不存在的 id（例如 <code>99</code>）後按 <strong>削除</strong>（刪除），觀察結果並解釋原因。"
+    },
+    {
+      "source": "id欄に <code>1</code> を入れ、タイトルを空にして <strong>保存</strong> を押すとどうなるか、試して理由を説明する。",
+      "translation": "嘗試在 id 欄輸入 <code>1</code>，標題留空後按 <strong>保存</strong>（儲存），觀察結果並解釋原因。"
+    },
+    {
+      "source": "<code>btn_upsert</code> のリスナから <code>txtItemList.setText(itemList(itemDao));</code> の1行を消してRunする。保存したデータはどうなっているか、アプリを開き直して確かめる。<strong>確かめたら、消した1行を元に戻す。</strong>",
+      "translation": "從 <code>btn_upsert</code> 的監聽器刪除 <code>txtItemList.setText(itemList(itemDao));</code> 這一行，再 Run。重新開啟應用程式，確認已儲存的資料變成怎樣。<strong>確認後，把刪除的一行還原。</strong>"
+    },
+    {
+      "source": "完成版に戻してから確認",
+      "translation": "還原至完成版後再確認"
+    },
+    {
+      "source": "練習3で消した <code>txtItemList.setText(itemList(itemDao));</code> の1行を、<code>btn_upsert</code> のリスナの <code>itemDao.upsert(item);</code> の次に戻します。戻したらRunして、タイトルを入れて<strong>保存</strong>を押すと、その場で一覧が1行増えることを確かめます。戻さないままだと、保存を押しても一覧が変わらないアプリが手元に残ります。",
+      "translation": "把練習 3 刪除的 <code>txtItemList.setText(itemList(itemDao));</code> 這一行，放回 <code>btn_upsert</code> 監聽器內的 <code>itemDao.upsert(item);</code> 下一行。還原後 Run，輸入標題並按<strong>保存</strong>（儲存），確認列表立即增加一行。如果不還原，留下的應用程式在按下「保存」（儲存）後，列表仍不會改變。"
+    },
+    {
+      "source": "保存",
+      "translation": "儲存"
+    },
+    {
+      "source": "Android Studioは、書いたコードを自動でファイルに保存します。保存の操作は要りません。ここでは、保存された場所を確かめます。",
+      "translation": "Android Studio 會自動將寫好的程式碼儲存到檔案，不必操作儲存。這裏確認儲存的位置。"
+    },
+    {
+      "source": "Finderを開き、左側の <strong>書類</strong>（<code>Documents</code>）をクリックします。",
+      "translation": "開啟 Finder，按一下左側的 <strong>書類</strong>（文件，<code>Documents</code>）。"
+    },
+    {
+      "source": "その中の <code>Android1</code> フォルダを開き、<code>A10RoomSample</code> フォルダがあることを確かめます。",
+      "translation": "開啟裏面的 <code>Android1</code> 資料夾，確認有 <code>A10RoomSample</code> 資料夾。"
+    },
+    {
+      "source": "この <code>Documents/Android1/A10RoomSample</code> フォルダが、自分で作ったアプリです。あとの授業でもう一度開けるように、消したり、別の場所へ移動したり、名前を変えたりせずに、そのまま残します。",
+      "translation": "這個 <code>Documents/Android1/A10RoomSample</code> 資料夾就是自己製作的應用程式。為了在之後的課堂重新開啟，請保持原樣，不要刪除、移到其他位置或更改名稱。"
+    },
+    {
+      "source": "教材のチェックは自分用です。先生への送信はしません。印刷は <kbd>⌘ P</kbd> で行えます。",
+      "translation": "教材的勾選供自己檢查，不會傳送給老師。可用 <kbd>⌘ P</kbd> 列印。"
+    },
+    {
+      "source": "完成チェックの操作をすべて試して表のとおりの結果になり、練習3で消した1行を元に戻した。",
+      "translation": "已嘗試完成檢查的全部操作，結果與表格相同，並已把練習 3 刪除的一行還原。"
+    },
+    {
+      "source": "症状",
+      "translation": "症狀"
+    },
+    {
+      "source": "見るところ",
+      "translation": "要查看的地方"
+    },
+    {
+      "source": "<code>expected to find any of 'id' or 'version'</code> でビルドが止まる",
+      "translation": "建構因 <code>expected to find any of 'id' or 'version'</code> 而停止"
+    },
+    {
+      "source": "STEP 02①。<code>room-runtime</code> と <code>room-compiler</code> を <code>[plugins]</code> ではなく <code>[libraries]</code> に書いているか",
+      "translation": "STEP 02①。檢查 <code>room-runtime</code> 和 <code>room-compiler</code> 是否寫在 <code>[libraries]</code>，而不是 <code>[plugins]</code>"
+    },
+    {
+      "source": "<code>Cannot resolve symbol 'Room'</code> などの赤い波線",
+      "translation": "<code>Cannot resolve symbol 'Room'</code> 等紅色波浪線"
+    },
+    {
+      "source": "STEP 02。Syncが終わっているか。<code>Sync Now</code> を押したか",
+      "translation": "STEP 02。Sync 是否已完成，是否已按 <code>Sync Now</code>"
+    },
+    {
+      "source": "<code>ItemDao</code> の中で赤いエラーが出る",
+      "translation": "<code>ItemDao</code> 內出現紅色錯誤"
+    },
+    {
+      "source": "STEP 05①。<strong>Class ではなく Interface</strong> で作ったか",
+      "translation": "STEP 05①。是否以 <strong>Interface 而不是 Class</strong> 建立"
+    },
+    {
+      "source": "STEP 04②。<code>Item</code> のコンストラクタが <code>public</code> か。<code>title</code> のゲッターとセッターがあるか",
+      "translation": "STEP 04②。<code>Item</code> 的建構子是否為 <code>public</code>，是否有 <code>title</code> 的 getter 和 setter"
+    },
+    {
+      "source": "保存しても一覧が変わらない",
+      "translation": "儲存後列表沒有改變"
+    },
+    {
+      "source": "STEP 07。<code>setText(itemList(itemDao))</code> をリスナの中に書いたか",
+      "translation": "STEP 07。是否已把 <code>setText(itemList(itemDao))</code> 寫在監聽器內"
+    },
+    {
+      "source": "importの赤い波線が消えない",
+      "translation": "import 的紅色波浪線沒有消失"
+    },
+    {
+      "source": "共通資料：Auto Import",
+      "translation": "共通資料：Auto Import"
+    },
+    {
+      "source": "エミュレータが出てこない",
+      "translation": "模擬器沒有出現"
+    },
+    {
+      "source": "共通資料：エミュレータ",
+      "translation": "共通資料：模擬器"
+    },
+    {
+      "source": "画面を回すと入力した文字が消える",
+      "translation": "旋轉畫面後，輸入的文字消失"
+    },
+    {
+      "source": "<a1>共通資料：開発Tips</a1> のC章。保存したデータは消えません",
+      "translation": "<a1>共通資料：開發技巧</a1>的 C 章。已儲存的資料不會消失"
+    },
+    {
+      "source": "答え合わせ用の見本です。教科書といっしょに配られた<strong>教材のフォルダ</strong>に、そのまま開ける形で入っています。ダウンロードも展開も要りません。授業の入力は自分で作ったプロジェクトに書きます。",
+      "translation": "這是用來核對答案的範例，位於與教科書一起派發的<strong>教材資料夾</strong>，可以直接開啟。不必下載或解壓縮。課堂上輸入的內容要寫在自己建立的專案中。"
+    },
+    {
+      "source": "Android Studioの <strong>Open</strong>（プロジェクトを開いているときは <strong>File → Open</strong>）で、<strong>書類</strong>（<code>Documents</code>）にある教材のフォルダを開きます。名前は <code>android1-student-materials-</code> のうしろに日付が付いた形で、日付は配られた回によって変わります。いま読んでいるこの教科書が入っているフォルダです。",
+      "translation": "用 Android Studio 的 <strong>Open</strong>（已開啟專案時用 <strong>File → Open</strong>），開啟 <strong>書類</strong>（文件，<code>Documents</code>）中的教材資料夾。名稱是 <code>android1-student-materials-</code> 後面加上日期，日期隨派發批次改變。就是存放目前這本教科書的資料夾。"
+    },
+    {
+      "source": "その中を <code>samples → A10RoomSample</code> の順に開き、<code>settings.gradle.kts</code> と <code>app</code> が入った <code>A10RoomSample</code> フォルダを選びます。",
+      "translation": "在裏面依序開啟 <code>samples → A10RoomSample</code>，選取包含 <code>settings.gradle.kts</code> 和 <code>app</code> 的 <code>A10RoomSample</code> 資料夾。"
+    },
+    {
+      "source": "Sync後にRunして動きを確認します。授業の入力に戻るときは自分の <code>Documents/Android1/A10RoomSample</code> を開きます。",
+      "translation": "Sync 後按 Run 確認運作。返回課堂輸入時，開啟自己的 <code>Documents/Android1/A10RoomSample</code>。"
+    },
+    {
+      "source": "教材のフォルダが手元にないときは、同じ見本をZIPで受け取れます（<a1>A10RoomSample.zip</a1>）。展開してできた <code>A10RoomSample</code> フォルダを、同じようにOpenで選びます。",
+      "translation": "手上沒有教材資料夾時，可以取得同一範例的 ZIP（<a1>A10RoomSample.zip</a1>）。解壓縮後，同樣用 Open 選取產生的 <code>A10RoomSample</code> 資料夾。"
+    },
+    {
+      "source": "完成した <code>MainActivity.java</code>",
+      "translation": "完成的 <code>MainActivity.java</code>"
+    },
+    {
+      "source": "完成した <code>activity_main.xml</code>",
+      "translation": "完成的 <code>activity_main.xml</code>"
+    },
+    {
+      "source": "Androidプログラミング1 · A10RoomSample / 本文・画像・操作機能はオフラインで利用できます。Android Studioの初回準備・ビルドと公式資料の閲覧にはネット接続が必要です。",
+      "translation": "Android 程式設計 1 · A10RoomSample / 正文、圖片和操作功能均可離線使用。Android Studio 的初始準備、建構，以及瀏覽官方資料需要連接網絡。"
+    },
+    {
+      "source": "スクリーンショットのデータは例です。",
+      "translation": "螢幕截圖中的資料只是例子。"
+    }
+  ]
+}
