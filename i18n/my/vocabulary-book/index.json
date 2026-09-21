@@ -1,0 +1,1314 @@
+{
+  "source": "docs/vocabulary-book/index.html",
+  "language": "my",
+  "entries": [
+    {
+      "source": "JavaとXMLで作るA11VocabularyBook。A10で学んだRoomを2つの画面で共有し、LiveDataで一覧が自動で最新になる単語帳アプリを作る授業用教科書。",
+      "translation": "Java နှင့် XML ဖြင့် ရေးသားသော A11VocabularyBook။ A10 တွင် သင်ယူခဲ့သော Room ကို မျက်နှာပြင် 2 ခုတွင် မျှဝေသုံးပြီး LiveData ဖြင့် စာရင်းကို အလိုအလျောက် နောက်ဆုံးအခြေအနေ ဖြစ်စေသော ဝေါဟာရစာအုပ် app ကို ရေးသားသည့် အတန်းသုံး သင်ရိုးစာအုပ်။"
+    },
+    {
+      "source": "VocabularyBook — 2つの画面でデータを共有しよう | Androidプログラミング1",
+      "translation": "VocabularyBook — မျက်နှာပြင် 2 ခုဖြင့် ဒေတာကို မျှဝေကြမည် | Android ပရိုဂရမ်းမင်း 1"
+    },
+    {
+      "source": "本文へ移動",
+      "translation": "အဓိကအကြောင်းအရာသို့ ကျော်သွားရန်"
+    },
+    {
+      "source": "JEC / Androidプログラミング1",
+      "translation": "JEC / Android ပရိုဂရမ်းမင်း 1"
+    },
+    {
+      "source": "CONTENTS / 学習の順番",
+      "translation": "CONTENTS / သင်ယူရမည့် အစီအစဉ်"
+    },
+    {
+      "source": "学習ステップ",
+      "translation": "သင်ယူရမည့် အဆင့်များ"
+    },
+    {
+      "source": "00　今日のゴール",
+      "translation": "00 ယနေ့၏ ရည်မှန်းချက်"
+    },
+    {
+      "source": "01　プロジェクトを作って実行",
+      "translation": "01 project ဖန်တီး၍ run လုပ်ခြင်း"
+    },
+    {
+      "source": "02　画像とRoomの準備",
+      "translation": "02　ပုံနှင့် Room ကို ပြင်ဆင်ခြင်း"
+    },
+    {
+      "source": "03　データベースの3ファイルを作る",
+      "translation": "03　database ၏ ဖိုင် 3 ခုကို ဖန်တီးခြင်း"
+    },
+    {
+      "source": "04　メニュー画面を作る",
+      "translation": "04　menu မျက်နှာပြင်ကို ဖန်တီးခြင်း"
+    },
+    {
+      "source": "05　単語を追加する画面を作る",
+      "translation": "05　စကားလုံး ထည့်သည့် မျက်နှာပြင်ကို ဖန်တီးခြင်း"
+    },
+    {
+      "source": "06　カード画面を作る",
+      "translation": "06　ကတ် မျက်နှာပြင်ကို ဖန်တီးခြင်း"
+    },
+    {
+      "source": "07　完成",
+      "translation": "07　ပြီးစီးခြင်း"
+    },
+    {
+      "source": "0 / 8 ステップ確認済み",
+      "translation": "0 / 8 အဆင့် စစ်ဆေးပြီးပြီ"
+    },
+    {
+      "source": "学習の進み具合",
+      "translation": "သင်ယူမှု တိုးတက်မှု"
+    },
+    {
+      "source": "自分用のチェックです。",
+      "translation": "ဤစစ်ဆေးချက်များသည် မိမိအတွက်သာ ဖြစ်သည်။"
+    },
+    {
+      "source": "困ったとき",
+      "translation": "အခက်အခဲရှိလျှင်"
+    },
+    {
+      "source": "解説：LiveDataは何が便利か",
+      "translation": "ရှင်းလင်းချက်: LiveData သည် ဘာကြောင့် အသုံးဝင်သနည်း"
+    },
+    {
+      "source": "完成プロジェクトを開く",
+      "translation": "ပြီးစီးထားသော project ကို ဖွင့်ရန်"
+    },
+    {
+      "source": "共通：はじめの準備",
+      "translation": "အများသုံး: စတင်ရန် ပြင်ဆင်ခြင်း"
+    },
+    {
+      "source": "共通：エミュレータ",
+      "translation": "အများသုံး: emulator"
+    },
+    {
+      "source": "共通：Auto Import",
+      "translation": "အများသုံး: Auto Import"
+    },
+    {
+      "source": "共通：Logcat",
+      "translation": "အများသုံး: Logcat"
+    },
+    {
+      "source": "共通：APKの提出",
+      "translation": "အများသုံး: APK တင်သွင်းခြင်း"
+    },
+    {
+      "source": "共通：開発Tips",
+      "translation": "အများသုံး: app ရေးသားရာတွင် အသုံးဝင်သောအချက်များ"
+    },
+    {
+      "source": "共通：Android Studioのバージョン",
+      "translation": "အများသုံး: Android Studio ၏ version"
+    },
+    {
+      "source": "2つの画面で<br>データを共有しよう",
+      "translation": "မျက်နှာပြင် 2 ခုဖြင့်<br>ဒေတာကို မျှဝေကြမည်"
+    },
+    {
+      "source": "A10では1つの画面でRoomを使いました。<br>今回は<strong>画面を2つ</strong>にして、片方で登録した単語を、もう片方がすぐ使えるようにします。",
+      "translation": "A10 တွင် မျက်နှာပြင် 1 ခုဖြင့် Room ကို သုံးခဲ့သည်။<br>ယခုအကြိမ်တွင် <strong>မျက်နှာပြင် 2 ခု</strong> ပြုလုပ်ပြီး တစ်ဖက်တွင် မှတ်ပုံတင်ထားသော စကားလုံးကို အခြားတစ်ဖက်က ချက်ချင်း သုံးနိုင်အောင် ပြုလုပ်မည်။"
+    },
+    {
+      "source": "A10の次の単元",
+      "translation": "A10 ၏ နောက်သင်ခန်းစာ"
+    },
+    {
+      "source": "90分 × 1コマ目安",
+      "translation": "90 မိနစ် × 1 ချိန်ခန့်"
+    },
+    {
+      "source": "Macで学ぶ",
+      "translation": "Mac ဖြင့် သင်ယူမည်"
+    },
+    {
+      "source": "STEP 00 · 目安 5分",
+      "translation": "STEP 00 · ခန့်မှန်း 5 မိနစ်"
+    },
+    {
+      "source": "今日のゴール",
+      "translation": "ယနေ့၏ ရည်မှန်းချက်"
+    },
+    {
+      "source": "英単語と日本語を登録して、カードでめくって覚える単語帳アプリを作ります。画面は3つです。",
+      "translation": "အင်္ဂလိပ်စကားလုံးနှင့် ဂျပန်ဘာသာကို မှတ်ပုံတင်ပြီး ကတ်များကို လှန်ကာ အလွတ်ကျက်နိုင်သော ဝေါဟာရစာအုပ် app ကို ရေးသားမည်။ မျက်နှာပြင် 3 ခု ရှိသည်။"
+    },
+    {
+      "source": "ENGLISHのロゴ画像と、単語帳画面へ・単語を追加するの2つのボタンが並んだメニュー画面",
+      "translation": "ENGLISH logo ပုံနှင့် 「単語帳画面へ」 (ဝေါဟာရစာအုပ် မျက်နှာပြင်သို့)၊ 「単語を追加する」 (စကားလုံး ထည့်ရန်) ခလုတ် 2 ခု စီတန်းထားသော menu မျက်နှာပြင်"
+    },
+    {
+      "source": "メニュー画面。ここから2つの画面へ行きます。 <a1>画像を大きく開く</a1>",
+      "translation": "menu မျက်နှာပြင်။ ဤနေရာမှ မျက်နှာပြင် 2 ခုသို့ သွားနိုင်သည်။ <a1>ပုံကို အရွယ်အစားအပြည့်ဖြင့် ဖွင့်ပါ</a1>"
+    },
+    {
+      "source": "英単語と日本語の入力欄、追加するボタン、登録ずみの単語としてapple・study・libraryの3行が表示されている画面",
+      "translation": "「英単語」 (အင်္ဂလိပ်စကားလုံး) နှင့် 「日本語」 (ဂျပန်ဘာသာ) ရိုက်ထည့်ရန် အကွက်များ၊ 「追加する」 (ထည့်ရန်) ခလုတ်၊ 「登録ずみの単語」 (မှတ်ပုံတင်ပြီးသော စကားလုံးများ) အဖြစ် apple၊ study၊ library စာကြောင်း 3 ကြောင်း ပေါ်နေသော မျက်နှာပြင်"
+    },
+    {
+      "source": "単語を追加する画面。下に登録ずみの単語が出ます。 <a1>画像を大きく開く</a1>",
+      "translation": "စကားလုံး ထည့်သည့် မျက်နှာပြင်။ အောက်တွင် မှတ်ပုံတင်ပြီးသော စကားလုံးများ ပေါ်မည်။ <a1>ပုံကို အရွယ်အစားအပြည့်ဖြင့် ဖွင့်ပါ</a1>"
+    },
+    {
+      "source": "1問目/全3問中とappleが表示され、答えを表示するボタンと前へ・次へのボタンが並んだカード画面。前へは押せない状態",
+      "translation": "「1問目/全3問中」 (မေးခွန်း 1 / စုစုပေါင်း 3) နှင့် apple ပေါ်နေပြီး 「答えを表示する」 (အဖြေကို ပြရန်) ခလုတ်၊ 「前へ」 (ယခင်) နှင့် 「次へ」 (နောက်တစ်ခု) ခလုတ်များ စီတန်းထားသော ကတ် မျက်နှာပြင်။ 「前へ」 ကို မနှိပ်နိုင်သည့် အခြေအနေ"
+    },
+    {
+      "source": "カード画面。答えはまだ隠れています。 <a1>画像を大きく開く</a1>",
+      "translation": "ကတ် မျက်နှာပြင်။ အဖြေကို မပြသေးပါ။ <a1>ပုံကို အရွယ်အစားအပြည့်ဖြင့် ဖွင့်ပါ</a1>"
+    },
+    {
+      "source": "答えを表示するを押したあと、appleの下にりんごが表示され、ボタンが答えを非表示にするに変わっている画面",
+      "translation": "「答えを表示する」 (အဖြေကို ပြရန်) ကို နှိပ်ပြီးနောက် apple ၏ အောက်တွင် 「りんご」 (ပန်းသီး) ပေါ်လာပြီး ခလုတ်သည် 「答えを非表示にする」 (အဖြေကို ဖျောက်ရန်) သို့ ပြောင်းသွားသော မျက်နှာပြင်"
+    },
+    {
+      "source": "答えを表示したところ。 <a1>画像を大きく開く</a1>",
+      "translation": "အဖြေကို ပြထားသည့် အခြေအနေ။ <a1>ပုံကို အရွယ်အစားအပြည့်ဖြင့် ဖွင့်ပါ</a1>"
+    },
+    {
+      "source": "できるようになること",
+      "translation": "လုပ်တတ်လာမည့်အရာများ"
+    },
+    {
+      "source": "3つの画面を行き来できる。",
+      "translation": "မျက်နှာပြင် 3 ခုကြား သွားလာနိုင်သည်။"
+    },
+    {
+      "source": "同じ英単語を2回登録できないようにできる。",
+      "translation": "တူညီသော အင်္ဂလိပ်စကားလုံးကို 2 ကြိမ် မှတ်ပုံမတင်နိုင်အောင် ပြုလုပ်နိုင်သည်။"
+    },
+    {
+      "source": "登録した単語を、別の画面のカードとして表示できる。",
+      "translation": "မှတ်ပုံတင်ထားသော စကားလုံးများကို အခြားမျက်နှာပြင်တွင် ကတ်အဖြစ် ပြနိုင်သည်။"
+    },
+    {
+      "source": "<strong>単語を追加したとき、一覧を出し直す処理を書かなくても表示が変わる</strong>仕組みを説明できる。",
+      "translation": "<strong>စကားလုံး ထည့်လိုက်သည့်အခါ စာရင်းကို ပြန်ထုတ်သည့် လုပ်ဆောင်ချက် မရေးဘဲနှင့် ဖော်ပြချက် ပြောင်းသွားသည့်</strong> စနစ်ကို ရှင်းပြနိုင်သည်။"
+    },
+    {
+      "source": "今日使う技術",
+      "translation": "ယနေ့ အသုံးပြုမည့် နည်းပညာများ"
+    },
+    {
+      "source": "技術",
+      "translation": "နည်းပညာ"
+    },
+    {
+      "source": "どこで使うか",
+      "translation": "ဘယ်နေရာတွင် သုံးသလဲ"
+    },
+    {
+      "source": "学んだ単元",
+      "translation": "သင်ယူခဲ့သော သင်ခန်းစာ"
+    },
+    {
+      "source": "画面の追加と行き来",
+      "translation": "မျက်နှာပြင် ထည့်ခြင်းနှင့် အသွားအလာ"
+    },
+    {
+      "source": "メニュー画面から2つの画面を開く。",
+      "translation": "menu မျက်နှာပြင်မှ မျက်နှာပြင် 2 ခုကို ဖွင့်ရန်။"
+    },
+    {
+      "source": "単語を保存する。",
+      "translation": "စကားလုံးများကို သိမ်းဆည်းရန်။"
+    },
+    {
+      "source": "入力が空のときと、同じ単語のときに知らせる。",
+      "translation": "ရိုက်ထည့်မှု ဗလာဖြစ်သည့်အခါနှင့် တူညီသော စကားလုံး ဖြစ်သည့်အခါ အသိပေးရန်။"
+    },
+    {
+      "source": "単語が増えたときに、自動で表示を変える。<strong>今回の新顔です。</strong>",
+      "translation": "စကားလုံး တိုးလာသည့်အခါ ဖော်ပြချက်ကို အလိုအလျောက် ပြောင်းရန်။ <strong>ဤအကြိမ်တွင် အသစ်ဝင်လာသည့်အရာ ဖြစ်သည်။</strong>"
+    },
+    {
+      "source": "新しく覚えることは <strong><code>LiveData</code></strong> だけです。残りはA06・A07・A10で使ったものを組み合わせます。",
+      "translation": "အသစ် မှတ်သားရမည့်အရာမှာ <strong><code>LiveData</code></strong> တစ်ခုသာ ဖြစ်သည်။ ကျန်အရာများမှာ A06၊ A07၊ A10 တွင် သုံးခဲ့သည့်အရာများကို ပေါင်းစပ်ခြင်း ဖြစ်သည်။"
+    },
+    {
+      "source": "A10では、保存したあとに毎回この1行を書きました。",
+      "translation": "A10 တွင် သိမ်းဆည်းပြီးနောက် အကြိမ်တိုင်း ဤစာကြောင်း 1 ကြောင်းကို ရေးခဲ့သည်။"
+    },
+    {
+      "source": "画面が1つならこれで足ります。<strong>画面が2つになると困ります。</strong>単語を追加する画面で保存しても、カード画面は「保存された」ことを知りません。書き忘れると、古い内容が出たままになります。",
+      "translation": "မျက်နှာပြင် 1 ခုသာ ဆိုလျှင် ဤနည်းဖြင့် လုံလောက်သည်။ <strong>မျက်နှာပြင် 2 ခု ဖြစ်လာလျှင် အခက်တွေ့မည်။</strong> စကားလုံး ထည့်သည့် မျက်နှာပြင်တွင် သိမ်းဆည်းလိုက်သော်လည်း ကတ် မျက်နှာပြင်က “သိမ်းဆည်းပြီးပြီ” ဆိုသည်ကို မသိပါ။ ရေးရန် မေ့သွားလျှင် အဟောင်းအတိုင်း ဆက်ပေါ်နေမည်။"
+    },
+    {
+      "source": "<code>LiveData</code> は、<strong>データが変わったことを、見張っている画面に自分から知らせる</strong>仕組みです。一度 <code>observe</code> しておけば、あとは保存するだけで表示が変わります。",
+      "translation": "<code>LiveData</code> သည် <strong>ဒေတာ ပြောင်းလဲသွားကြောင်းကို စောင့်ကြည့်နေသော မျက်နှာပြင်သို့ သူ့ဘာသာသူ အသိပေးသည့်</strong> စနစ် ဖြစ်သည်။ တစ်ကြိမ် <code>observe</code> လုပ်ထားလျှင် နောက်ပိုင်းတွင် သိမ်းဆည်းလိုက်ရုံဖြင့် ဖော်ပြချက် ပြောင်းသွားမည်။"
+    },
+    {
+      "source": "A10のやり方",
+      "translation": "A10 ၏ နည်းလမ်း"
+    },
+    {
+      "source": "LiveData（今回）",
+      "translation": "LiveData (ဤအကြိမ်)"
+    },
+    {
+      "source": "保存したあと",
+      "translation": "သိမ်းဆည်းပြီးနောက်"
+    },
+    {
+      "source": "<code>setText</code> を自分で書く",
+      "translation": "<code>setText</code> ကို ကိုယ်တိုင် ရေးရသည်"
+    },
+    {
+      "source": "書かない",
+      "translation": "မရေးရပါ"
+    },
+    {
+      "source": "書き忘れると",
+      "translation": "ရေးရန် မေ့သွားလျှင်"
+    },
+    {
+      "source": "古い表示のまま残る",
+      "translation": "ဖော်ပြချက် အဟောင်းအတိုင်း ကျန်နေမည်"
+    },
+    {
+      "source": "起きない",
+      "translation": "မဖြစ်ပေါ်ပါ"
+    },
+    {
+      "source": "画面が2つのとき",
+      "translation": "မျက်နှာပြင် 2 ခု ရှိသည့်အခါ"
+    },
+    {
+      "source": "どちらの画面にも書く必要がある",
+      "translation": "မျက်နှာပြင် နှစ်ခုလုံးတွင် ရေးရန် လိုအပ်သည်"
+    },
+    {
+      "source": "見張っている画面がすべて変わる",
+      "translation": "စောင့်ကြည့်နေသော မျက်နှာပြင်အားလုံး ပြောင်းသွားမည်"
+    },
+    {
+      "source": "ここで止まって、確認",
+      "translation": "ဤနေရာတွင် ရပ်ပြီး စစ်ဆေးပါ"
+    },
+    {
+      "source": "メニュー画面・単語を追加する画面・カード画面の3つを画像で確かめ、A10のやり方とLiveDataの違いを表で確認した。",
+      "translation": "menu မျက်နှာပြင်၊ စကားလုံး ထည့်သည့် မျက်နှာပြင်၊ ကတ် မျက်နှာပြင် 3 ခုကို ပုံများဖြင့် စစ်ဆေးပြီး A10 ၏ နည်းလမ်းနှင့် LiveData ၏ ကွာခြားချက်ကို ဇယားဖြင့် စစ်ဆေးပြီးပြီ။"
+    },
+    {
+      "source": "できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。",
+      "translation": "ပြီးလျှင် အမှန်ခြစ် ခြစ်ပါ။ အခက်အခဲရှိလျှင် STEP နံပါတ်နှင့် မျက်နှာပြင်ကို ဆရာအား ပြပါ။"
+    },
+    {
+      "source": "次へ：プロジェクトを作って実行 →",
+      "translation": "နောက်တစ်ဆင့်: project ဖန်တီး၍ run လုပ်ခြင်း →"
+    },
+    {
+      "source": "STEP 01 · 目安 10分",
+      "translation": "STEP 01 · ခန့်မှန်း 10 မိနစ်"
+    },
+    {
+      "source": "プロジェクトを作って実行",
+      "translation": "project ဖန်တီး၍ run လုပ်ခြင်း"
+    },
+    {
+      "source": "授業環境はMacと <strong>Android Studio Panda 2 | 2025.3.2</strong> です。A10までとは別のプロジェクトを作ります。",
+      "translation": "အတန်း၏ ပတ်ဝန်းကျင်မှာ Mac နှင့် <strong>Android Studio Panda 2 | 2025.3.2</strong> ဖြစ်သည်။ A10 အထိ ပြုလုပ်ခဲ့သော project များနှင့် သီးခြားဖြစ်သော project အသစ်တစ်ခု ဖန်တီးမည်။"
+    },
+    {
+      "source": "毎回、自分で新規作成します",
+      "translation": "အကြိမ်တိုင်း ကိုယ်တိုင် အသစ် ဖန်တီးပါ"
+    },
+    {
+      "source": "作る場所は <code>Documents/Android1/A11VocabularyBook</code> です。<a1>完成プロジェクト</a1>は答え合わせ用で、授業の入力は自分で作ったプロジェクトに書きます。",
+      "translation": "ဖန်တီးမည့်နေရာမှာ <code>Documents/Android1/A11VocabularyBook</code> ဖြစ်သည်။ <a1>ပြီးစီးထားသော project</a1> သည် အဖြေတိုက်ရန် ဖြစ်ပြီး အတန်းတွင် ရိုက်ထည့်ရမည့်အရာများကို ကိုယ်တိုင်ဖန်တီးထားသော project တွင် ရေးပါ။"
+    },
+    {
+      "source": "Android Studioの <strong>New Project</strong> をクリックします。別のプロジェクトを開いているときは <strong>File → New → New Project</strong> を選びます。",
+      "translation": "Android Studio ၏ <strong>New Project</strong> ကို ကလစ်နှိပ်ပါ။ အခြား project တစ်ခုကို ဖွင့်ထားလျှင် <strong>File → New → New Project</strong> ကို ရွေးပါ။"
+    },
+    {
+      "source": "<strong>Phone and Tablet → Empty Views Activity → Next</strong> の順に選びます。名前に <strong>Views</strong> があることを確認します。",
+      "translation": "<strong>Phone and Tablet → Empty Views Activity → Next</strong> အစီအစဉ်အတိုင်း ရွေးပါ။ အမည်တွင် <strong>Views</strong> ပါဝင်ကြောင်း စစ်ဆေးပါ။"
+    },
+    {
+      "source": "テンプレート一覧でEmpty Views Activityが選択されている",
+      "translation": "template စာရင်းတွင် Empty Views Activity ကို ရွေးထားသည်"
+    },
+    {
+      "source": "Empty Views Activityを選択。Empty Activityとは別です。 <a1>画像を大きく開く</a1>",
+      "translation": "Empty Views Activity ကို ရွေးပါ။ Empty Activity နှင့် မတူပါ။ <a1>ပုံကို အရွယ်အစားအပြည့်ဖြင့် ဖွင့်ပါ</a1>"
+    },
+    {
+      "source": "次の表のとおりに入力・選択して <strong>Finish</strong> を押します。",
+      "translation": "အောက်ပါ ဇယားအတိုင်း ရိုက်ထည့်၊ ရွေးချယ်ပြီး <strong>Finish</strong> ကို နှိပ်ပါ။"
+    },
+    {
+      "source": "項目",
+      "translation": "အချက်"
+    },
+    {
+      "source": "入力・選択する内容",
+      "translation": "ရိုက်ထည့်ရန် / ရွေးရန် အကြောင်းအရာ"
+    },
+    {
+      "source": "<code>jp.ac.jec.a11vocabularybook</code>（すべて小文字）",
+      "translation": "<code>jp.ac.jec.a11vocabularybook</code> (အားလုံး စာလုံးအသေး)"
+    },
+    {
+      "source": "A11VocabularyBookの新規設定。パッケージjp.ac.jec.a11vocabularybook、Java、API 31、Kotlin DSL",
+      "translation": "A11VocabularyBook ၏ project အသစ် သတ်မှတ်ချက်များ။ package jp.ac.jec.a11vocabularybook၊ Java၊ API 31၊ Kotlin DSL"
+    },
+    {
+      "source": "入力後の画面。画像の保存先は先生の例です。自分の <code>Documents/Android1/A11VocabularyBook</code> に読み替えます。 <a1>画像を大きく開く</a1>",
+      "translation": "ရိုက်ထည့်ပြီးနောက် မျက်နှာပြင်။ ပုံထဲရှိ သိမ်းဆည်းမည့်နေရာမှာ ဆရာ၏ နမူနာ ဖြစ်သည်။ မိမိ၏ <code>Documents/Android1/A11VocabularyBook</code> ဟု ဖတ်ပါ။ <a1>ပုံကို အရွယ်အစားအပြည့်ဖြင့် ဖွင့်ပါ</a1>"
+    },
+    {
+      "source": "Sync（歯車の読み込み）が終わるまで待ちます。",
+      "translation": "Sync (ဂီယာပုံ loading) ပြီးဆုံးသည်အထိ စောင့်ပါ။"
+    },
+    {
+      "source": "端末欄で <strong>jec_26cm_android1_Pixel 9a</strong> を選び、<strong>Run</strong>（▶）を押します。白い画面に <strong>Hello World!</strong> が出れば成功です。",
+      "translation": "စက်ရွေးသည့် အကွက်တွင် <strong>jec_26cm_android1_Pixel 9a</strong> ကို ရွေးပြီး <strong>Run</strong> (▶) ကို နှိပ်ပါ။ အဖြူရောင် မျက်နှာပြင်ပေါ်တွင် <strong>Hello World!</strong> ပေါ်လာလျှင် အောင်မြင်ပါပြီ။"
+    },
+    {
+      "source": "エミュレータが出てこないときは<a1>共通資料：エミュレータ</a1>を見ます。",
+      "translation": "emulator မပေါ်လာလျှင် <a1>အများသုံးလမ်းညွှန်: emulator</a1> ကို ကြည့်ပါ။"
+    },
+    {
+      "source": "自分の保存先にA11VocabularyBookを作り、Hello World!を表示できた。",
+      "translation": "မိမိ၏ သိမ်းဆည်းမည့်နေရာတွင် A11VocabularyBook ကို ဖန်တီးပြီး Hello World! ကို ဖော်ပြနိုင်ပြီးပြီ။"
+    },
+    {
+      "source": "次へ：画像とRoomの準備 →",
+      "translation": "နောက်တစ်ဆင့်: ပုံနှင့် Room ကို ပြင်ဆင်ခြင်း →"
+    },
+    {
+      "source": "STEP 02 · 目安 10分",
+      "translation": "STEP 02 · ခန့်မှန်း 10 မိနစ်"
+    },
+    {
+      "source": "画像とRoomの準備",
+      "translation": "ပုံနှင့် Room ကို ပြင်ဆင်ခြင်း"
+    },
+    {
+      "source": "① タイトル画像を入れる",
+      "translation": "① ခေါင်းစဉ်ပုံကို ထည့်ခြင်း"
+    },
+    {
+      "source": "タイトル画像の <code>logoeng.png</code> は、教科書といっしょに配られた<strong>教材のフォルダ</strong>に入っています。Finderでコピーして、プロジェクトに入れます。A03・A05・A07・A09でやった手順と同じです。",
+      "translation": "ခေါင်းစဉ်ပုံဖြစ်သော <code>logoeng.png</code> သည် သင်ရိုးစာအုပ်နှင့်အတူ ဝေပေးထားသော <strong>သင်ထောက်ကူပစ္စည်းဖိုင်တွဲ</strong> ထဲတွင် ရှိသည်။ Finder ဖြင့် မိတ္တူကူးပြီး project ထဲသို့ ထည့်ပါ။ A03၊ A05၊ A07၊ A09 တွင် လုပ်ခဲ့သော အဆင့်များနှင့် တူညီသည်။"
+    },
+    {
+      "source": "Finderを開き、左側の <strong>書類</strong> をクリックします。教材のフォルダをダブルクリックで開きます。名前は <code>android1-student-materials-</code> のうしろに日付が付いた形で、日付は配られた回によって変わります。",
+      "translation": "Finder ကို ဖွင့်ပြီး ဘယ်ဘက်ရှိ <strong>書類</strong> (Documents) ကို ကလစ်နှိပ်ပါ။ သင်ထောက်ကူပစ္စည်း ဖိုင်တွဲကို နှစ်ချက်နှိပ်၍ ဖွင့်ပါ။ အမည်မှာ <code>android1-student-materials-</code> ၏ နောက်တွင် ရက်စွဲ ပါသော ပုံစံဖြစ်ပြီး ရက်စွဲသည် ဖြန့်ပေးသည့် အကြိမ်အလိုက် ကွာသည်။"
+    },
+    {
+      "source": "その中を <code>docs → vocabulary-book → downloads</code> の順に開きます。<code>vocabulary-book</code> は、いま読んでいるこの教科書（<code>index.html</code>）が入っているフォルダです。",
+      "translation": "ထိုအထဲတွင် <code>docs → vocabulary-book → downloads</code> အစဉ်လိုက် ဖွင့်ပါ။ <code>vocabulary-book</code> သည် ယခုဖတ်နေသော ဤသင်ရိုးစာအုပ် (<code>index.html</code>) ရှိသည့် ဖိုင်တွဲ ဖြစ်သည်။"
+    },
+    {
+      "source": "<code>logoeng.png</code> を選び、コピーします（<kbd>⌘ C</kbd>）。同じフォルダにある <code>A11VocabularyBook.zip</code> は完成プロジェクトです。選びません。",
+      "translation": "<code>logoeng.png</code> ကို ရွေးပြီး မိတ္တူကူးပါ (<kbd>⌘ C</kbd>)။ ဖိုင်တွဲတူထဲရှိ <code>A11VocabularyBook.zip</code> သည် ပြီးစီးထားသော project ဖြစ်သည်။ မရွေးပါနှင့်။"
+    },
+    {
+      "source": "教材のフォルダが見つからないとき",
+      "translation": "သင်ထောက်ကူပစ္စည်း ဖိုင်တွဲကို ရှာမတွေ့လျှင်"
+    },
+    {
+      "source": "教材のフォルダは、はじめの準備で「書類」へ移動したものです（<a1>共通資料：はじめの準備</a1>の1.）。まだ移動していなければ、先にそちらを行います。同じ教材を2回ダウンロードして名前のうしろに <code>(1)</code> が付いたものがあるときは、自分で判断せず先生に見せてください。",
+      "translation": "သင်ထောက်ကူပစ္စည်း ဖိုင်တွဲသည် စတင်ရန် ပြင်ဆင်ခြင်းတွင် 「書類」 (Documents) ထဲသို့ ရွှေ့ထားသော ဖိုင်တွဲ ဖြစ်သည် (<a1>အများသုံးလမ်းညွှန်: စတင်ရန် ပြင်ဆင်ခြင်း</a1> ၏ 1.)။ မရွှေ့ရသေးလျှင် ထိုအဆင့်ကို အရင် လုပ်ပါ။ တူညီသော သင်ထောက်ကူပစ္စည်းကို 2 ကြိမ် download လုပ်မိ၍ အမည်၏ နောက်တွင် <code>(1)</code> ပါသည့်အရာ ရှိလျှင် ကိုယ်တိုင် မဆုံးဖြတ်ဘဲ ဆရာကို ပြပါ။"
+    },
+    {
+      "source": "Android Studioのプロジェクト画面で <code>app/src/main/res/drawable</code> フォルダをクリックして選び、貼り付けます（<kbd>⌘ V</kbd>）。",
+      "translation": "Android Studio ၏ project မျက်နှာပြင်တွင် <code>app/src/main/res/drawable</code> ဖိုင်တွဲကို ကလစ်နှိပ်၍ ရွေးပြီး paste လုပ်ပါ (<kbd>⌘ V</kbd>)။"
+    },
+    {
+      "source": "確認のウィンドウで <strong>New name</strong> が <code>logoeng.png</code>、<strong>To directory</strong> の末尾が <code>app/src/main/res/drawable</code> になっていることを確かめて <strong>OK</strong> を押します。",
+      "translation": "အတည်ပြုရန် window တွင် <strong>New name</strong> သည် <code>logoeng.png</code> ဖြစ်ပြီး <strong>To directory</strong> ၏ အဆုံးသည် <code>app/src/main/res/drawable</code> ဖြစ်နေကြောင်း စစ်ဆေးပြီး <strong>OK</strong> ကို နှိပ်ပါ။"
+    },
+    {
+      "source": "Project表示でdrawableフォルダを選び、Copyダイアログが開いている。New nameはlogoeng.png、To directoryの末尾はA11VocabularyBook/app/src/main/res/drawable",
+      "translation": "Project ဖော်ပြမှုတွင် drawable ဖိုင်တွဲကို ရွေးထားပြီး Copy dialog ပွင့်နေသည်။ New name မှာ logoeng.png၊ To directory ၏ အဆုံးမှာ A11VocabularyBook/app/src/main/res/drawable"
+    },
+    {
+      "source": "To directoryの末尾が A11VocabularyBook/app/src/main/res/drawable になっていればOK。この画面は先生の例です。<strong>Copy file</strong> のうしろ（コピー元の場所）は、自分の画面では教材のフォルダの中の場所になります。 <a1>画像を大きく開く</a1>",
+      "translation": "To directory ၏ အဆုံးသည် A11VocabularyBook/app/src/main/res/drawable ဖြစ်နေလျှင် အဆင်ပြေပါပြီ။ ဤမျက်နှာပြင်မှာ ဆရာ၏ နမူနာ ဖြစ်သည်။ <strong>Copy file</strong> ၏ နောက်တွင်ရှိသည့်အရာ (မိတ္တူကူးမည့် မူရင်းနေရာ) သည် မိမိမျက်နှာပြင်တွင် သင်ထောက်ကူပစ္စည်းဖိုင်တွဲထဲရှိ နေရာ ဖြစ်မည်။ <a1>ပုံကို အရွယ်အစားအပြည့်ဖြင့် ဖွင့်ပါ</a1>"
+    },
+    {
+      "source": "ファイル名は変えません",
+      "translation": "ဖိုင်အမည်ကို မပြောင်းပါနှင့်"
+    },
+    {
+      "source": "このあとXMLから <code>@drawable/logoeng</code> という名前で呼び出します。<strong>名前を変えると見つからなくなります。</strong>",
+      "translation": "နောက်ပိုင်းတွင် XML မှ <code>@drawable/logoeng</code> ဟူသော အမည်ဖြင့် ခေါ်သုံးမည်။ <strong>အမည်ကို ပြောင်းလျှင် ရှာမတွေ့တော့ပါ။</strong>"
+    },
+    {
+      "source": "② Roomを使えるようにする",
+      "translation": "② Room ကို သုံးနိုင်အောင် ပြုလုပ်ခြင်း"
+    },
+    {
+      "source": "Roomは、Android Studioに最初から入っている部品ではありません。<strong>使うと宣言してから</strong>使います。A10でも行った準備です。宣言は2つのファイルに分けて書きます。",
+      "translation": "Room သည် Android Studio ထဲတွင် အစကတည်းက ပါဝင်သော အစိတ်အပိုင်း မဟုတ်ပါ။ <strong>သုံးမည်ဟု ကြေညာပြီးမှ</strong> သုံးရသည်။ A10 တွင်လည်း လုပ်ခဲ့သော ပြင်ဆင်မှု ဖြစ်သည်။ ကြေညာချက်ကို ဖိုင် 2 ခုတွင် ခွဲရေးရမည်။"
+    },
+    {
+      "source": "1つ目は <code>gradle/libs.versions.toml</code> です。<strong>どの部品をどのバージョンで使うか</strong>を一覧にしておくファイルで、Android Studioがひな形として用意しています。開いて、次の<strong>3行</strong>を足します。",
+      "translation": "ပထမတစ်ခုမှာ <code>gradle/libs.versions.toml</code> ဖြစ်သည်။ <strong>မည်သည့်အစိတ်အပိုင်းကို မည်သည့် version ဖြင့် သုံးမည်</strong> ဆိုသည်ကို စာရင်းပြုစုထားသော ဖိုင်ဖြစ်ပြီး Android Studio က ပုံစံနမူနာအဖြစ် ပြင်ဆင်ပေးထားသည်။ ဖွင့်ပြီး အောက်ပါ <strong>စာကြောင်း 3 ကြောင်း</strong> ကို ထည့်ပါ။"
+    },
+    {
+      "source": "追記する場所",
+      "translation": "ထပ်ရေးမည့်နေရာ"
+    },
+    {
+      "source": "追記する行",
+      "translation": "ထပ်ရေးမည့် စာကြောင်း"
+    },
+    {
+      "source": "意味",
+      "translation": "အဓိပ္ပာယ်"
+    },
+    {
+      "source": "<code>[versions]</code> の最後",
+      "translation": "<code>[versions]</code> ၏ အဆုံး"
+    },
+    {
+      "source": "Roomのバージョンに <code>room</code> という名前を付ける",
+      "translation": "Room ၏ version ကို <code>room</code> ဟူသော အမည် တပ်ပေးသည်"
+    },
+    {
+      "source": "<code>[libraries]</code> の最後",
+      "translation": "<code>[libraries]</code> ၏ အဆုံး"
+    },
+    {
+      "source": "アプリが動くときに使う本体",
+      "translation": "app အလုပ်လုပ်နေချိန်တွင် သုံးသော အဓိက အစိတ်အပိုင်း"
+    },
+    {
+      "source": "ビルドのときに、書いた命令からコードを自動で作る部品",
+      "translation": "build လုပ်ချိန်တွင် ရေးထားသော ညွှန်ကြားချက်များမှ code ကို အလိုအလျောက် ဖန်တီးပေးသော အစိတ်အပိုင်း"
+    },
+    {
+      "source": "<code>...</code> と省略した部分は、次の全体から写します。足したあとのファイルは、次のとおりになります。",
+      "translation": "<code>...</code> ဖြင့် ချုံ့ထားသော အပိုင်းကို အောက်ပါ တစ်ခုလုံးမှ ကူးယူရေးပါ။ ထည့်ပြီးနောက် ဖိုင်သည် အောက်ပါအတိုင်း ဖြစ်မည်။"
+    },
+    {
+      "source": "<code>libs.versions.toml</code>（全体）",
+      "translation": "<code>libs.versions.toml</code> (တစ်ဖိုင်လုံး)"
+    },
+    {
+      "source": "<code>[plugins]</code> に書かないこと",
+      "translation": "<code>[plugins]</code> တွင် မရေးပါနှင့်"
+    },
+    {
+      "source": "<code>[libraries]</code> と <code>[plugins]</code> は見た目が似ています。<code>[plugins]</code> のほうに書くと <code>expected to find any of 'id' or 'version'</code> というエラーでビルドが止まります。追記した2行から上へたどって、<strong>最初に出てくる見出しが <code>[libraries]</code> になっているか</strong>を確かめてください。",
+      "translation": "<code>[libraries]</code> နှင့် <code>[plugins]</code> သည် အမြင်အားဖြင့် ဆင်တူသည်။ <code>[plugins]</code> ဘက်တွင် ရေးမိလျှင် <code>expected to find any of 'id' or 'version'</code> ဟူသော error ဖြင့် build ရပ်သွားမည်။ ထပ်ရေးထားသော စာကြောင်း 2 ကြောင်းမှ အပေါ်သို့ လိုက်ကြည့်ပြီး <strong>ပထမဆုံး တွေ့ရသော ခေါင်းစဉ်သည် <code>[libraries]</code> ဟုတ်မဟုတ်</strong> စစ်ဆေးပါ။"
+    },
+    {
+      "source": "2つ目は <code>app/build.gradle.kts</code> です。開いて、<code>dependencies { }</code> の中の最後に2行を追加します。",
+      "translation": "ဒုတိယတစ်ခုမှာ <code>app/build.gradle.kts</code> ဖြစ်သည်။ ဖွင့်ပြီး <code>dependencies { }</code> ၏ အတွင်း အဆုံးတွင် စာကြောင်း 2 ကြောင်း ထည့်ပါ။"
+    },
+    {
+      "source": "<code>libs.room.runtime</code> の <code>libs.</code> は、先ほど追記した <code>libs.versions.toml</code> のことです。<code>room-runtime</code> のハイフンは、ここでは<strong>ドット</strong>（<code>room.runtime</code>）に変わります。",
+      "translation": "<code>libs.room.runtime</code> ရှိ <code>libs.</code> သည် ယခင်က ထည့်ရေးခဲ့သော <code>libs.versions.toml</code> ကို ဆိုလိုသည်။ <code>room-runtime</code> ၏ hyphen သည် ဤနေရာတွင် <strong>အစက်</strong> (<code>room.runtime</code>) သို့ ပြောင်းသွားသည်။"
+    },
+    {
+      "source": "画面の上に <strong>Sync Now</strong> というリンクが出ます。押して、読み込みが終わるまで待ちます。エラーが出なければ成功です。",
+      "translation": "မျက်နှာပြင်အပေါ်တွင် <strong>Sync Now</strong> ဟူသော link ပေါ်လာမည်။ နှိပ်ပြီး ဖတ်ယူမှု ပြီးသည်အထိ စောင့်ပါ။ error မပေါ်လျှင် အောင်မြင်ပြီ ဖြစ်သည်။"
+    },
+    {
+      "source": "画像をdrawableに置き、Roomの追記をしてエラーなくSyncできた。",
+      "translation": "ပုံကို drawable ထဲ ထည့်ပြီး Room အတွက် ထပ်ရေးကာ error မရှိဘဲ Sync လုပ်နိုင်ပြီးပြီ။"
+    },
+    {
+      "source": "次へ：データベースの3ファイルを作る →",
+      "translation": "နောက်တစ်ဆင့်: database ၏ ဖိုင် 3 ခုကို ဖန်တီးခြင်း →"
+    },
+    {
+      "source": "STEP 03 · 目安 15分",
+      "translation": "STEP 03 · ခန့်မှန်း 15 မိနစ်"
+    },
+    {
+      "source": "データベースの3ファイルを作る",
+      "translation": "database ၏ ဖိုင် 3 ခုကို ဖန်တီးခြင်း"
+    },
+    {
+      "source": "A10で作った3つ（<code>Item</code> / <code>ItemDao</code> / <code>AppDatabase</code>）を、今回の内容で作り直します。3つとも <strong>New → Java Class</strong> で作ります。<strong><code>ItemDao</code> だけ <code>Interface</code></strong> を選びます。",
+      "translation": "A10 တွင် ဖန်တီးခဲ့သော 3 ခု (<code>Item</code> / <code>ItemDao</code> / <code>AppDatabase</code>) ကို ယခုအကြိမ် အကြောင်းအရာဖြင့် ပြန်ဖန်တီးမည်။ 3 ခုလုံးကို <strong>New → Java Class</strong> ဖြင့် ဖန်တီးပါ။ <strong><code>ItemDao</code> အတွက်သာ <code>Interface</code></strong> ကို ရွေးပါ။"
+    },
+    {
+      "source": "Roomは、データを<strong>表</strong>の形で保存します。「1行にどんな項目があるか」を決めるのが <code>Item</code> クラスです。今回は、1件が「英単語」と「日本語」の2つを持ちます。",
+      "translation": "Room သည် ဒေတာကို <strong>ဇယား</strong> ပုံစံဖြင့် သိမ်းဆည်းသည်။ “စာကြောင်း 1 ကြောင်းတွင် မည်သည့်အကွက်များ ပါဝင်မည်” ကို သတ်မှတ်ပေးသည်မှာ <code>Item</code> class ဖြစ်သည်။ ယခုအကြိမ်တွင် တစ်ကြောင်းလျှင် 「英単語」 (အင်္ဂလိပ်စကားလုံး) နှင့် 「日本語」 (ဂျပန်ဘာသာ) ဟူ၍ 2 ခု ရှိသည်။"
+    },
+    {
+      "source": "左側のプロジェクト画面で <code>app → src → main → java → jp.ac.jec.a11vocabularybook</code>（<code>MainActivity</code> があるフォルダ）を右クリックし、<strong>New → Java Class</strong> を選びます。",
+      "translation": "ဘယ်ဘက်ရှိ project မျက်နှာပြင်တွင် <code>app → src → main → java → jp.ac.jec.a11vocabularybook</code> (<code>MainActivity</code> ရှိသော ဖိုင်တွဲ) ကို ညာဘက်ကလစ်နှိပ်ပြီး <strong>New → Java Class</strong> ကို ရွေးပါ။"
+    },
+    {
+      "source": "<strong>New Java Class</strong> という小さなウィンドウが出ます。いちばん上の欄に、名前 <code>Item</code> を入力します。",
+      "translation": "<strong>New Java Class</strong> ဟူသော window ငယ် ပေါ်လာမည်။ အပေါ်ဆုံးအကွက်တွင် အမည် <code>Item</code> ကို ရိုက်ထည့်ပါ။"
+    },
+    {
+      "source": "その下の一覧（<code>Class</code>・<code>Interface</code>・<code>Enum</code> …）で <strong>Class</strong> を選び、<kbd>return</kbd> を押します。",
+      "translation": "၎င်း၏ အောက်ရှိ စာရင်း (<code>Class</code>၊ <code>Interface</code>၊ <code>Enum</code> …) တွင် <strong>Class</strong> ကို ရွေးပြီး <kbd>return</kbd> ကို နှိပ်ပါ။"
+    },
+    {
+      "source": "できた <code>Item.java</code> の中身を、すべて次のコードに置き換えます。",
+      "translation": "ဖန်တီးပြီးသော <code>Item.java</code> ၏ အကြောင်းအရာ အားလုံးကို အောက်ပါ code ဖြင့် အစားထိုးပါ။"
+    },
+    {
+      "source": "書いたもの",
+      "translation": "ရေးထားသောအရာ"
+    },
+    {
+      "source": "このクラスが<strong>表1つ分</strong>であるという印。クラス名 <code>Item</code> がそのまま表の名前になる",
+      "translation": "ဤ class သည် <strong>ဇယား 1 ခုစာ</strong> ဖြစ်ကြောင်း အမှတ်အသား။ class အမည် <code>Item</code> သည် ဇယား၏ အမည် အတိအကျ ဖြစ်သွားသည်"
+    },
+    {
+      "source": "この項目（<code>internalId</code>）が<strong>行を見分ける番号</strong>。<code>autoGenerate = true</code> で、保存するたびに1・2・3…と自動で増える",
+      "translation": "ဤအကွက် (<code>internalId</code>) သည် <strong>စာကြောင်းများကို ခွဲခြားပေးသည့် နံပါတ်</strong> ဖြစ်သည်။ <code>autoGenerate = true</code> ကြောင့် သိမ်းဆည်းတိုင်း 1၊ 2၊ 3… ဟု အလိုအလျောက် တိုးသွားမည်"
+    },
+    {
+      "source": "保存したい2つの文字。表の項目は、番号とこの2つ",
+      "translation": "သိမ်းဆည်းလိုသော စာသား 2 ခု။ ဇယား၏ အကွက်များမှာ နံပါတ်နှင့် ဤ 2 ခု ဖြစ်သည်"
+    },
+    {
+      "source": "1件を <code>apple : りんご</code> の形の文字にする。STEP 05で一覧を表示するときに使われる",
+      "translation": "တစ်ကြောင်းကို <code>apple : りんご</code> ပုံစံ စာသားအဖြစ် ပြောင်းပေးသည်။ STEP 05 တွင် စာရင်းကို ဖော်ပြသည့်အခါ သုံးမည်"
+    },
+    {
+      "source": "<code>@NonNull</code> はここだけ書きます",
+      "translation": "<code>@NonNull</code> ကို ဤနေရာတွင်သာ ရေးပါ"
+    },
+    {
+      "source": "この授業では <code>@NonNull</code> を自分で書きません。ただし <code>@Entity</code> のフィールドに付けた <code>@NonNull</code> は、Javaの注意書きではなく<strong>「この列は空にできない」という表の決まりそのもの</strong>です。外すと表の形が変わってしまうので、ここだけは書きます。",
+      "translation": "ဤအတန်းတွင် <code>@NonNull</code> ကို ကိုယ်တိုင် မရေးပါ။ သို့သော် <code>@Entity</code> ၏ field တွင် တပ်ထားသော <code>@NonNull</code> သည် Java ၏ မှတ်ချက် မဟုတ်ဘဲ <strong>“ဤကော်လံကို ဗလာ မထားနိုင်” ဟူသော ဇယား၏ စည်းမျဉ်း ကိုယ်တိုင်</strong> ဖြစ်သည်။ ဖယ်လိုက်လျှင် ဇယား၏ ပုံစံ ပြောင်းသွားမည်ဖြစ်၍ ဤနေရာတွင်သာ ရေးပါ။"
+    },
+    {
+      "source": "次に「どう読み書きするか」を書きます。<strong>Dao</strong> は Data Access Object の略で、データベースへの<strong>窓口</strong>です。",
+      "translation": "ဆက်လက်၍ “မည်သို့ ဖတ်ရေးမည်” ဆိုသည်ကို ရေးမည်။ <strong>Dao</strong> သည် Data Access Object ၏ အတိုကောက်ဖြစ်ပြီး database သို့ ဝင်ရောက်ရန် <strong>ဝင်ပေါက်</strong> ဖြစ်သည်။"
+    },
+    {
+      "source": "①と同じ手順で <strong>New → Java Class</strong> を開き、名前に <code>ItemDao</code> と入力します。<strong>ここだけは、一覧で <code>Interface</code> を選びます。</strong><code>Class</code> のまま作ると、中身を書いたときに赤いエラーになります。できた <code>ItemDao.java</code> の中身を、すべて次のコードに置き換えます。",
+      "translation": "① နှင့် တူညီသော အဆင့်များဖြင့် <strong>New → Java Class</strong> ကို ဖွင့်ပြီး အမည်တွင် <code>ItemDao</code> ဟု ရိုက်ထည့်ပါ။ <strong>ဤနေရာတွင်သာ စာရင်းထဲမှ <code>Interface</code> ကို ရွေးပါ။</strong> <code>Class</code> အတိုင်း ဖန်တီးလျှင် အတွင်းအကြောင်းအရာကို ရေးသည့်အခါ အနီရောင် error ဖြစ်မည်။ ဖန်တီးပြီးသော <code>ItemDao.java</code> ၏ အတွင်းအကြောင်းအရာအားလုံးကို အောက်ပါ code ဖြင့် အစားထိုးပါ။"
+    },
+    {
+      "source": "このインタフェースがデータベースへの窓口であるという印",
+      "translation": "ဤ interface သည် database သို့ ဝင်ပေါက် ဖြစ်ကြောင်း အမှတ်အသား"
+    },
+    {
+      "source": "表の中身を全部取り出す命令。<code>item</code> は <code>Item</code> クラスから作られた表の名前",
+      "translation": "ဇယားထဲရှိ အကြောင်းအရာအားလုံးကို ထုတ်ယူသည့် အမိန့်။ <code>item</code> သည် <code>Item</code> class မှ ဖန်တီးထားသော ဇယား၏ အမည် ဖြစ်သည်"
+    },
+    {
+      "source": "<strong>今回の新顔。</strong>ただの <code>List</code> ではなく <code>LiveData</code> で受け取ると、中身が変わったときに知らせてもらえる",
+      "translation": "<strong>ဤအကြိမ်တွင် အသစ်ဝင်လာသည့်အရာ။</strong> သာမန် <code>List</code> မဟုတ်ဘဲ <code>LiveData</code> ဖြင့် လက်ခံလျှင် အတွင်းအကြောင်းအရာ ပြောင်းသွားသည့်အခါ အသိပေးခံရမည်"
+    },
+    {
+      "source": "<code>@Query(\"SELECT COUNT(*) ...\")</code> と <code>countByEnglish</code>",
+      "translation": "<code>@Query(\"SELECT COUNT(*) ...\")</code> နှင့် <code>countByEnglish</code>"
+    },
+    {
+      "source": "同じ英単語が何件あるか数える。<code>:english</code> はメソッドの引数のこと。重複チェックに使う",
+      "translation": "တူညီသော အင်္ဂလိပ်စကားလုံး မည်မျှ ရှိသည်ကို ရေတွက်သည်။ <code>:english</code> သည် method ၏ parameter ကို ဆိုလိုသည်။ ထပ်နေခြင်း စစ်ဆေးရန် သုံးသည်"
+    },
+    {
+      "source": "A10でも使った命令。<strong>あれば書き換え、なければ追加</strong>（upsert は update と insert を合わせた言葉）。今回は単語の追加に使う",
+      "translation": "A10 တွင်လည်း သုံးခဲ့သော အမိန့်။ <strong>ရှိပြီးသားဆိုလျှင် ပြန်ရေး၊ မရှိလျှင် ထည့်</strong> (upsert သည် update နှင့် insert ကို ပေါင်းထားသော စကားလုံး)။ ယခုအကြိမ်တွင် စကားလုံး ထည့်ရန် သုံးသည်"
+    },
+    {
+      "source": "メソッドに <code>{ }</code> がない",
+      "translation": "method တွင် <code>{ }</code> မရှိခြင်း"
+    },
+    {
+      "source": "中身は、<strong>ビルドするときにRoomが自動で作る</strong>。STEP 02で足した <code>room-compiler</code> がその仕事をする。書くのは「何をしたいか」だけ",
+      "translation": "အတွင်းအကြောင်းအရာကို <strong>build လုပ်သည့်အခါ Room က အလိုအလျောက် ဖန်တီးပေးသည်</strong>။ STEP 02 တွင် ထည့်ခဲ့သော <code>room-compiler</code> က ထိုအလုပ်ကို လုပ်သည်။ ရေးရမည်မှာ “ဘာလုပ်လိုသည်” ဆိုသည်သာ ဖြစ်သည်"
+    },
+    {
+      "source": "<code>=</code> であって <code>LIKE</code> ではありません",
+      "translation": "<code>=</code> ဖြစ်ပြီး <code>LIKE</code> မဟုတ်ပါ"
+    },
+    {
+      "source": "<code>WHERE english = :english</code> は「ぴったり同じ」という意味です。<code>LIKE</code> にすると <code>%</code> や <code>_</code> が特別な文字として扱われ、ちがう単語にも当たってしまいます。",
+      "translation": "<code>WHERE english = :english</code> သည် “အတိအကျ တူညီသည်” ဟု အဓိပ္ပာယ်ရသည်။ <code>LIKE</code> ဟု ပြောင်းလျှင် <code>%</code> နှင့် <code>_</code> ကို အထူးစာလုံးများအဖြစ် သတ်မှတ်သဖြင့် မတူညီသော စကားလုံးများကိုပါ ထိမိသွားမည်။"
+    },
+    {
+      "source": "表（<code>Item</code>）と窓口（<code>ItemDao</code>）ができました。最後に、この2つをまとめる<strong>データベース本体</strong>を作ります。",
+      "translation": "ဇယား (<code>Item</code>) နှင့် ဝင်ပေါက် (<code>ItemDao</code>) ပြီးပါပြီ။ နောက်ဆုံးတွင် ဤ 2 ခုကို စုစည်းပေးသည့် <strong>database ကိုယ်ထည်</strong> ကို ဖန်တီးမည်။"
+    },
+    {
+      "source": "①と同じ手順で <strong>New → Java Class</strong> を開き、名前に <code>AppDatabase</code> と入力します。種類は <strong>Class</strong> です。できた <code>AppDatabase.java</code> の中身を、すべて次のコードに置き換えます。",
+      "translation": "① နှင့် တူညီသော အဆင့်များဖြင့် <strong>New → Java Class</strong> ကို ဖွင့်ပြီး အမည်တွင် <code>AppDatabase</code> ဟု ရိုက်ထည့်ပါ။ အမျိုးအစားမှာ <strong>Class</strong> ဖြစ်သည်။ ဖန်တီးပြီးသော <code>AppDatabase.java</code> ၏ အတွင်းအကြောင်းအရာအားလုံးကို အောက်ပါ code ဖြင့် အစားထိုးပါ။"
+    },
+    {
+      "source": "このデータベースが <code>Item</code> の表を持つという宣言。<code>version</code> は表の形を変えたときに増やす番号",
+      "translation": "ဤ database တွင် <code>Item</code> ၏ ဇယား ပါဝင်ကြောင်း ကြေညာချက်။ <code>version</code> သည် ဇယား၏ ပုံစံကို ပြောင်းသည့်အခါ တိုးပေးရမည့် နံပါတ် ဖြစ်သည်"
+    },
+    {
+      "source": "中身はRoomが自動で作るので <code>abstract</code>（中身を書かない）にする。②のメソッドに <code>{ }</code> がないのと同じ理由",
+      "translation": "အတွင်းအကြောင်းအရာကို Room က အလိုအလျောက် ဖန်တီးပေးသဖြင့် <code>abstract</code> (အတွင်းအကြောင်းအရာ မရေးပါ) ဟု ထားသည်။ ② ရှိ method တွင် <code>{ }</code> မရှိသည့် အကြောင်းရင်းနှင့် တူညီသည်"
+    },
+    {
+      "source": "データベースを取り出すメソッド。最初の1回だけ作って、あとは同じものを返す",
+      "translation": "database ကို ထုတ်ယူသည့် method။ ပထမ 1 ကြိမ်သာ ဖန်တီးပြီး နောက်ပိုင်းတွင် အတူတူကိုပင် ပြန်ပေးသည်"
+    },
+    {
+      "source": "端末に作られるファイルの名前",
+      "translation": "စက်ထဲတွင် ဖန်တီးမည့် ဖိုင်၏ အမည်"
+    },
+    {
+      "source": "読み書きを画面と同じ流れで行う指定。この授業ではこれを付ける",
+      "translation": "ဖတ်ခြင်း၊ ရေးခြင်းကို မျက်နှာပြင်နှင့် တူညီသော လမ်းကြောင်းတွင် လုပ်ဆောင်ရန် သတ်မှတ်ချက်။ ဤအတန်းတွင် ဤအရာကို ထည့်ရေးသည်"
+    },
+    {
+      "source": "<code>context.getApplicationContext()</code> を忘れない",
+      "translation": "<code>context.getApplicationContext()</code> ကို မမေ့ပါနှင့်"
+    },
+    {
+      "source": "<code>Room.databaseBuilder(...)</code> の最初に渡しているのは、受け取った <code>context</code> そのままではなく <code>context.getApplicationContext()</code> です。ここを <code>context</code> のままにすると、画面を閉じたり回したりするたびに<strong>古い画面が消えずに残り続けます</strong>。作ったデータベースはアプリが終わるまで残るため、画面ではなく<strong>アプリ全体</strong>を渡します。A10でも同じ形で書きました。",
+      "translation": "<code>Room.databaseBuilder(...)</code> ၏ ပထမဆုံးနေရာတွင် ပေးပို့နေသည်မှာ လက်ခံရရှိထားသော <code>context</code> အတိုင်း မဟုတ်ဘဲ <code>context.getApplicationContext()</code> ဖြစ်သည်။ ဤနေရာကို <code>context</code> အတိုင်း ထားလျှင် မျက်နှာပြင်ကို ပိတ်တိုင်း၊ လှည့်တိုင်း <strong>မျက်နှာပြင်အဟောင်းများ မပျောက်ဘဲ ကျန်နေမည်</strong>။ ဖန်တီးထားသော database သည် app ပိတ်သည်အထိ ကျန်နေသဖြင့် မျက်နှာပြင်ကို မဟုတ်ဘဲ <strong>app တစ်ခုလုံး</strong> ကို ပေးပို့သည်။ A10 တွင်လည်း တူညီသော ပုံစံဖြင့် ရေးခဲ့သည်။"
+    },
+    {
+      "source": "3つのファイルを作り、getAllがLiveDataで受け取る形になっていることを確認した。",
+      "translation": "ဖိုင် 3 ခုကို ဖန်တီးပြီး getAll သည် LiveData ဖြင့် လက်ခံသည့် ပုံစံ ဖြစ်နေကြောင်း စစ်ဆေးပြီးပြီ။"
+    },
+    {
+      "source": "次へ：メニュー画面を作る →",
+      "translation": "နောက်တစ်ဆင့်: menu မျက်နှာပြင်ကို ဖန်တီးခြင်း →"
+    },
+    {
+      "source": "STEP 04 · 目安 10分",
+      "translation": "STEP 04 · ခန့်မှန်းခြေ 10 မိနစ်"
+    },
+    {
+      "source": "メニュー画面を作る",
+      "translation": "menu မျက်နှာပြင်ကို ဖန်တီးခြင်း"
+    },
+    {
+      "source": "まず入口の画面を作ります。ボタンはまだ何もしません。",
+      "translation": "ဦးစွာ အစပြုသည့် မျက်နှာပြင်ကို ဖန်တီးမည်။ ခလုတ်များက ဘာမှ မလုပ်သေးပါ။"
+    },
+    {
+      "source": "<code>app/src/main/res/layout/activity_main.xml</code> を開き、中身をすべて置き換えます。",
+      "translation": "<code>app/src/main/res/layout/activity_main.xml</code> ကို ဖွင့်ပြီး အတွင်းအကြောင်းအရာအားလုံးကို အစားထိုးပါ။"
+    },
+    {
+      "source": "Runで確かめる",
+      "translation": "Run ဖြင့် စစ်ဆေးပါ"
+    },
+    {
+      "source": "ロゴ画像と2つのボタンが出れば成功です。押しても何も起きません。",
+      "translation": "logo ပုံနှင့် ခလုတ် 2 ခု ပေါ်လာလျှင် အောင်မြင်ပါပြီ။ နှိပ်သော်လည်း ဘာမှ ဖြစ်မလာပါ။"
+    },
+    {
+      "source": "メニュー画面を表示できた。",
+      "translation": "menu မျက်နှာပြင်ကို ဖော်ပြနိုင်ပြီးပြီ။"
+    },
+    {
+      "source": "次へ：単語を追加する画面を作る →",
+      "translation": "နောက်တစ်ဆင့်: စကားလုံး ထည့်သည့် မျက်နှာပြင်ကို ဖန်တီးခြင်း →"
+    },
+    {
+      "source": "STEP 05 · 目安 20分",
+      "translation": "STEP 05 · ခန့်မှန်းကြာချိန် 20 မိနစ်"
+    },
+    {
+      "source": "単語を追加する画面を作る",
+      "translation": "စကားလုံး ထည့်သည့် မျက်နှာပြင်ကို ဖန်တီးခြင်း"
+    },
+    {
+      "source": "2つ目の画面を追加します。A06・A07と同じ作り方です。",
+      "translation": "ဒုတိယ မျက်နှာပြင်ကို ထည့်မည်။ A06၊ A07 နှင့် တူညီသော ဖန်တီးနည်း ဖြစ်သည်။"
+    },
+    {
+      "source": "左側のプロジェクト画面で <code>app → src → main → java → jp.ac.jec.a11vocabularybook</code> を右クリックします。",
+      "translation": "ဘယ်ဘက်ရှိ project မျက်နှာပြင်တွင် <code>app → src → main → java → jp.ac.jec.a11vocabularybook</code> ကို ညာဘက်ကလစ်နှိပ်ပါ။"
+    },
+    {
+      "source": "<strong>New → Activity → Empty Views Activity</strong> を選びます。",
+      "translation": "<strong>New → Activity → Empty Views Activity</strong> ကို ရွေးပါ။"
+    },
+    {
+      "source": "パッケージを右クリックしてNew、Activity、Empty Views Activityと辿ったメニュー",
+      "translation": "package ကို ညာဘက်ကလစ်နှိပ်ပြီး New၊ Activity၊ Empty Views Activity အစဉ်လိုက် ရွေးသွားထားသော menu"
+    },
+    {
+      "source": "<strong>New → Java Class ではありません。</strong>Activity → Empty Views Activity を選びます。 <a1>画像を大きく開く</a1>",
+      "translation": "<strong>New → Java Class မဟုတ်ပါ။</strong> Activity → Empty Views Activity ကို ရွေးပါ။ <a1>ပုံကို အရွယ်အစားအပြည့်ဖြင့် ဖွင့်ပါ</a1>"
+    },
+    {
+      "source": "次の表のとおりに入力して <strong>Finish</strong> を押します。",
+      "translation": "အောက်ပါဇယားအတိုင်း ရိုက်ထည့်ပြီး <strong>Finish</strong> ကို နှိပ်ပါ။"
+    },
+    {
+      "source": "チェックを入れる",
+      "translation": "အမှန်ခြစ် ခြစ်ပါ"
+    },
+    {
+      "source": "チェックを入れない",
+      "translation": "အမှန်ခြစ် မခြစ်ပါနှင့်"
+    },
+    {
+      "source": "New Android Activityのダイアログ。Activity NameはCardAddActivity、Layout Nameはactivity_card_add、Launcher Activityのチェックは外れている",
+      "translation": "New Android Activity ၏ dialog။ Activity Name မှာ CardAddActivity၊ Layout Name မှာ activity_card_add ဖြစ်ပြီး Launcher Activity ၏ အမှန်ခြစ်ကို ဖြုတ်ထားသည်"
+    },
+    {
+      "source": "<strong>Launcher Activity にはチェックを入れません。</strong>理由はこのあとで説明します。 <a1>画像を大きく開く</a1>",
+      "translation": "<strong>Launcher Activity တွင် အမှန်ခြစ် မထည့်ပါနှင့်။</strong> အကြောင်းရင်းကို နောက်တွင် ရှင်းပြမည်။ <a1>ပုံကို အရွယ်အစားအပြည့်ဖြင့် ဖွင့်ပါ</a1>"
+    },
+    {
+      "source": "New → Java Classでは作りません",
+      "translation": "New → Java Class ဖြင့် မဖန်တီးပါနှင့်"
+    },
+    {
+      "source": "この作り方なら <code>AndroidManifest.xml</code> への登録も自動で行われます。<code>New → Java Class</code> で作ると登録されず、画面を開いたときにアプリが終了します。",
+      "translation": "ဤဖန်တီးနည်းဖြင့် ဆိုလျှင် <code>AndroidManifest.xml</code> တွင် မှတ်ပုံတင်ခြင်းကိုလည်း အလိုအလျောက် လုပ်ပေးသည်။ <code>New → Java Class</code> ဖြင့် ဖန်တီးလျှင် မှတ်ပုံတင်မည် မဟုတ်သဖြင့် မျက်နှာပြင်ကို ဖွင့်သည့်အခါ app ပိတ်သွားမည်။"
+    },
+    {
+      "source": "あわせて <code>app → src → main → AndroidManifest.xml</code> を開きます。<strong>Finish</strong> を押した直後に、次の3行が増えています。自動で追加されているので、<strong>入力しません</strong>。",
+      "translation": "ထို့အပြင် <code>app → src → main → AndroidManifest.xml</code> ကို ဖွင့်ပါ။ <strong>Finish</strong> ကို နှိပ်ပြီးသည်နှင့် အောက်ပါ စာကြောင်း 3 ကြောင်း တိုးလာသည်။ အလိုအလျောက် ထည့်ပြီးဖြစ်သဖြင့် <strong>မရိုက်ထည့်ပါနှင့်</strong>။"
+    },
+    {
+      "source": "指定",
+      "translation": "သတ်မှတ်ချက်"
+    },
+    {
+      "source": "アプリの画面をAndroidに知らせる。この登録がないと、画面を開いたときにアプリが終了する。",
+      "translation": "app ၏ မျက်နှာပြင်ကို Android အား အသိပေးသည်။ ဤမှတ်ပုံတင်ခြင်း မရှိလျှင် မျက်နှာပြင်ကို ဖွင့်သည့်အခါ app ပိတ်သွားမည်။"
+    },
+    {
+      "source": "登録するクラス。先頭の <code>.</code> は、パッケージ名 <code>jp.ac.jec.a11vocabularybook</code> を省いた書き方。",
+      "translation": "မှတ်ပုံတင်မည့် class။ အစရှိ <code>.</code> သည် package အမည် <code>jp.ac.jec.a11vocabularybook</code> ကို ချုံ့ထားသော ရေးနည်း ဖြစ်သည်။"
+    },
+    {
+      "source": "ほかのアプリからこの画面を開けないようにする。<code>CardAddActivity</code> は自分のアプリの <code>MainActivity</code> からだけ開く。",
+      "translation": "အခြား app များမှ ဤမျက်နှာပြင်ကို မဖွင့်နိုင်အောင် ပြုလုပ်သည်။ <code>CardAddActivity</code> ကို မိမိ app ၏ <code>MainActivity</code> မှသာ ဖွင့်သည်။"
+    },
+    {
+      "source": "なぜLauncher Activityにチェックを入れないのか",
+      "translation": "Launcher Activity တွင် အဘယ်ကြောင့် အမှန်ခြစ် မခြစ်ရသနည်း"
+    },
+    {
+      "source": "<code>MainActivity</code> の <code>&lt;activity&gt;</code> には <code>&lt;intent-filter&gt;</code>（<code>MAIN</code> と <code>LAUNCHER</code>）が書かれています。これは「アプリ一覧のアイコンから最初に開く画面」という印です。<code>CardAddActivity</code> は <code>MainActivity</code> から開くので、この印は要りません。",
+      "translation": "<code>MainActivity</code> ၏ <code>&lt;activity&gt;</code> တွင် <code>&lt;intent-filter&gt;</code> (<code>MAIN</code> နှင့် <code>LAUNCHER</code>) ကို ရေးထားသည်။ ဤအရာသည် “app စာရင်းရှိ icon မှ ပထမဆုံး ဖွင့်မည့် မျက်နှာပြင်” ဟူသော အမှတ်အသား ဖြစ်သည်။ <code>CardAddActivity</code> ကို <code>MainActivity</code> မှ ဖွင့်သဖြင့် ဤအမှတ်အသား မလိုအပ်ပါ။"
+    },
+    {
+      "source": "Launcher Activityにチェックを入れると、<code>CardAddActivity</code> にもこの印が付いて、次の2つが起きます。",
+      "translation": "Launcher Activity တွင် အမှန်ခြစ် ထည့်လိုက်လျှင် <code>CardAddActivity</code> တွင်လည်း ဤအမှတ်အသား ပါလာပြီး အောက်ပါ 2 ခု ဖြစ်ပေါ်မည်။"
+    },
+    {
+      "source": "アプリ一覧に、<strong>「A11VocabularyBook」という同じ名前のアイコンが2つ</strong>並びます。名前もアイコンも同じなので、どちらが本物か見分けられません。",
+      "translation": "app စာရင်းတွင် <strong>「A11VocabularyBook」 ဟူသော အမည်တူ icon 2 ခု</strong> စီတန်းနေမည်။ အမည်ရော icon ပါ တူညီသဖြင့် မည်သည့်ဟာက အစစ်ဖြစ်ကြောင်း ခွဲခြား၍ မရပါ။"
+    },
+    {
+      "source": "<strong>Runしたときに、作ったばかりの何もない画面が起動することがあります。</strong>印の付いた画面が2つあるため、どちらから始まるかが決まらないからです。",
+      "translation": "<strong>Run လုပ်သည့်အခါ ဖန်တီးထားခါစ ဘာမျှမရှိသော မျက်နှာပြင် ပွင့်လာတတ်သည်။</strong>အမှတ်အသား ပါသော မျက်နှာပြင် 2 ခု ရှိသဖြင့် မည်သည့်မျက်နှာပြင်မှ စမည်ကို မဆုံးဖြတ်နိုင်သောကြောင့် ဖြစ်သည်။"
+    },
+    {
+      "source": "入れてしまったときは、<code>CardAddActivity</code> の <code>&lt;activity&gt;</code> から <code>&lt;intent-filter&gt;</code> を消して、<code>android:exported</code> を <code>false</code> に戻します。上の3行と同じ形になれば直っています。",
+      "translation": "အမှန်ခြစ် ထည့်မိပြီး ဖြစ်လျှင် <code>CardAddActivity</code> ၏ <code>&lt;activity&gt;</code> မှ <code>&lt;intent-filter&gt;</code> ကို ဖျက်ပြီး <code>android:exported</code> ကို <code>false</code> သို့ ပြန်ပြောင်းပါ။ အထက်ပါ စာကြောင်း 3 ကြောင်းနှင့် တူညီသော ပုံစံ ဖြစ်သွားလျှင် ပြင်ပြီး ဖြစ်သည်။"
+    },
+    {
+      "source": "① 画面を作る",
+      "translation": "① မျက်နှာပြင်ကို ဖန်တီးခြင်း"
+    },
+    {
+      "source": "② 中身を書く",
+      "translation": "② အကြောင်းအရာကို ရေးခြင်း"
+    },
+    {
+      "source": "<code>var itemDao</code> の行から下を、上から順に読みます。",
+      "translation": "<code>var itemDao</code> ရှိသော စာကြောင်းမှ အောက်ပိုင်းကို အပေါ်မှ အစဉ်လိုက် ဖတ်ပါ။"
+    },
+    {
+      "source": "行のあたり",
+      "translation": "ကြည့်ရမည့် စာကြောင်း"
+    },
+    {
+      "source": "やっていること",
+      "translation": "လုပ်နေသည့်အရာ"
+    },
+    {
+      "source": "データベースを取り出して、窓口（Dao）を受け取る。STEP 03の③と②で作ったものを、ここで使う",
+      "translation": "database ကို ထုတ်ယူပြီး ဝင်ပေါက် (Dao) ကို လက်ခံသည်။ STEP 03 ၏ ③ နှင့် ② တွင် ဖန်တီးခဲ့သည့်အရာများကို ဤနေရာတွင် သုံးသည်"
+    },
+    {
+      "source": "<code>getAll()</code> が返すLiveDataを見張る。<code>this</code> はこの画面、<code>items</code> は届いた単語の一覧。一覧は、画面を開いたときにまず1回届き、そのあとは単語が増えるたびに届く。<strong>届くたびに <code>{ }</code> の中が呼ばれる</strong>",
+      "translation": "<code>getAll()</code> ပြန်ပေးသော LiveData ကို စောင့်ကြည့်သည်။ <code>this</code> သည် ဤမျက်နှာပြင်၊ <code>items</code> သည် ရောက်လာသော စကားလုံးစာရင်း ဖြစ်သည်။ စာရင်းသည် မျက်နှာပြင်ကို ဖွင့်သည့်အခါ ပထမ 1 ကြိမ် ရောက်လာပြီး ထို့နောက် စကားလုံး တိုးတိုင်း ရောက်လာသည်။ <strong>ရောက်တိုင်း <code>{ }</code> အတွင်းရှိအရာကို ခေါ်သည်</strong>"
+    },
+    {
+      "source": "<code>StringBuilder</code> は、文字を後ろにつなげていける入れ物。作ったときは空",
+      "translation": "<code>StringBuilder</code> သည် စာသားများကို နောက်မှ ဆက်တွဲသွားနိုင်သော ထည့်စရာ container ဖြစ်သည်။ ဖန်တီးစဉ်တွင် ဗလာ ဖြစ်သည်"
+    },
+    {
+      "source": "<code>for (var item : items)</code> と <code>text.append(item).append(\"\\n\");</code>",
+      "translation": "<code>for (var item : items)</code> နှင့် <code>text.append(item).append(\"\\n\");</code>"
+    },
+    {
+      "source": "一覧から単語を1件ずつ取り出し、<code>append</code> で入れ物の後ろにつなげる。<code>append(item)</code> は、<code>Item</code> の <code>toString()</code>（STEP 03 ①）で <code>apple : りんご</code> の形の文字にしてからつなげる。<code>\"\\n\"</code> は改行",
+      "translation": "စာရင်းမှ စကားလုံးများကို တစ်ခုချင်း ထုတ်ယူပြီး <code>append</code> ဖြင့် ထည့်စရာ container ၏ နောက်တွင် ဆက်တွဲသည်။ <code>append(item)</code> သည် <code>Item</code> ၏ <code>toString()</code> (STEP 03 ①) ဖြင့် <code>apple : りんご</code> ပုံစံ စာသားအဖြစ် ပြောင်းပြီးမှ ဆက်တွဲသည်။ <code>\"\\n\"</code> သည် စာကြောင်းအသစ် ဖြစ်သည်"
+    },
+    {
+      "source": "<code>text.toString()</code> で入れ物の中身を1つの文字列にして、一覧に出す",
+      "translation": "<code>text.toString()</code> ဖြင့် ထည့်စရာ container ၏ အတွင်းအကြောင်းအရာကို စာသားတစ်ခုအဖြစ် ပြောင်းပြီး စာရင်းတွင် ဖော်ပြသည်"
+    },
+    {
+      "source": "<code>btn_add</code> のリスナ",
+      "translation": "<code>btn_add</code> ၏ listener"
+    },
+    {
+      "source": "入力のどちらかが空なら止める → 同じ英単語がすでにあれば止める（<code>countByEnglish</code> で数える）→ <code>upsert</code> → 入力欄を空にする",
+      "translation": "ရိုက်ထည့်မှု တစ်ခုခု ဗလာဖြစ်လျှင် ရပ် → တူညီသော အင်္ဂလိပ်စကားလုံး ရှိပြီးသား ဖြစ်လျှင် ရပ် (<code>countByEnglish</code> ဖြင့် ရေတွက်သည်) → <code>upsert</code> → ရိုက်ထည့်ရန် အကွက်များကို ဗလာ ပြန်လုပ်သည်"
+    },
+    {
+      "source": "この画面を開くためのメソッド。次の③で、メニュー画面から呼ぶ",
+      "translation": "ဤမျက်နှာပြင်ကို ဖွင့်ရန် method။ နောက်ထပ် ③ တွင် menu မျက်နှာပြင်မှ ခေါ်မည်"
+    },
+    {
+      "source": "一覧を出し直す処理を書いていません",
+      "translation": "စာရင်းကို ပြန်ထုတ်သည့် လုပ်ဆောင်ချက်ကို မရေးထားပါ"
+    },
+    {
+      "source": "<code>itemDao.upsert(...)</code> のあとに <code>setText</code> がありません。<strong>これが今回の新しいところです。</strong><code>observe</code> でLiveDataを見張っているので、単語が増えると <code>observe</code> の中が自動でもう一度呼ばれます。",
+      "translation": "<code>itemDao.upsert(...)</code> ၏ နောက်တွင် <code>setText</code> မရှိပါ။ <strong>ဤအရာသည် ယခုအကြိမ်၏ အသစ်အဆန်း ဖြစ်သည်။</strong> <code>observe</code> ဖြင့် LiveData ကို စောင့်ကြည့်နေသဖြင့် စကားလုံး တိုးလာလျှင် <code>observe</code> အတွင်းရှိအရာကို အလိုအလျောက် နောက်တစ်ကြိမ် ပြန်ခေါ်မည်။"
+    },
+    {
+      "source": "③ メニュー画面からこの画面を開く",
+      "translation": "③ menu မျက်နှာပြင်မှ ဤမျက်နှာပြင်ကို ဖွင့်ခြင်း"
+    },
+    {
+      "source": "<code>MainActivity.java</code> の <code>onCreate</code> の最後に追加します。",
+      "translation": "<code>MainActivity.java</code> ၏ <code>onCreate</code> အဆုံးတွင် ထည့်ပါ။"
+    },
+    {
+      "source": "画面を開く処理は、<strong>開かれる側のクラスに <code>start</code> という名前で書きます。</strong>A07の <code>BillSplitActivity.start(...)</code> と同じ形です。ここで呼んでいるのは、②で <code>CardAddActivity.java</code> の最後に書いた <code>start</code> です。",
+      "translation": "မျက်နှာပြင်ကို ဖွင့်သည့် လုပ်ဆောင်ချက်ကို <strong>ဖွင့်ခံရမည့်ဘက်ရှိ class တွင် <code>start</code> ဟူသော အမည်ဖြင့် ရေးပါ။</strong> A07 ၏ <code>BillSplitActivity.start(...)</code> နှင့် တူညီသော ပုံစံ ဖြစ်သည်။ ဤနေရာတွင် ခေါ်နေသည်မှာ ② တွင် <code>CardAddActivity.java</code> ၏ အဆုံး၌ ရေးခဲ့သော <code>start</code> ဖြစ်သည်။"
+    },
+    {
+      "source": "クラス名を付けて <code>CardAddActivity.start(…)</code> と呼べるメソッド。この画面を開く手順を、開かれる側であるこの画面自身が持つ。",
+      "translation": "class အမည်ကို ထည့်၍ <code>CardAddActivity.start(…)</code> ဟု ခေါ်နိုင်သော method။ ဤမျက်နှာပြင်ကို ဖွင့်သည့် အဆင့်များကို ဖွင့်ခံရမည့်ဘက်ဖြစ်သော ဤမျက်နှာပြင် ကိုယ်တိုင်က ပိုင်ဆိုင်သည်။"
+    },
+    {
+      "source": "画面（Activity）を受け取るための型。呼ぶ側が <code>this</code> を渡すと、ここに入る。",
+      "translation": "မျက်နှာပြင် (Activity) ကို လက်ခံရန် အမျိုးအစား (type)။ ခေါ်သည့်ဘက်မှ <code>this</code> ကို ပေးပို့လျှင် ဤနေရာသို့ ရောက်သည်။"
+    },
+    {
+      "source": "今の画面から <code>CardAddActivity</code> を開くための指示（Intent）を作る。",
+      "translation": "ယခုမျက်နှာပြင်မှ <code>CardAddActivity</code> ကို ဖွင့်ရန် ညွှန်ကြားချက် (Intent) ကို ဖန်တီးသည်။"
+    },
+    {
+      "source": "IntentをAndroidに渡して、画面を開いてもらう。",
+      "translation": "Intent ကို Android သို့ ပေးပို့ပြီး မျက်နှာပြင်ကို ဖွင့်ခိုင်းသည်။"
+    },
+    {
+      "source": "<strong>単語を追加する</strong> を押して、この画面が出ることを確認します。",
+      "translation": "<strong>単語を追加する</strong> (စကားလုံး ထည့်ရန်) ကို နှိပ်ပြီး ဤမျက်နှာပြင် ပေါ်လာကြောင်း စစ်ဆေးပါ။"
+    },
+    {
+      "source": "英単語に <code>apple</code>、日本語に <code>りんご</code> を入れて <strong>追加する</strong>。下の一覧に増えます。",
+      "translation": "「英単語」 (အင်္ဂလိပ်စကားလုံး) တွင် <code>apple</code>၊ 「日本語」 (ဂျပန်ဘာသာ) တွင် <code>りんご</code> (ပန်းသီး) ကို ထည့်ပြီး <strong>追加する</strong> (ထည့်ရန်) ကို နှိပ်ပါ။ အောက်ရှိ စာရင်းတွင် တိုးလာမည်။"
+    },
+    {
+      "source": "同じ <code>apple</code> をもう一度登録してみます。メッセージが出て、一覧は増えません。",
+      "translation": "တူညီသော <code>apple</code> ကို နောက်တစ်ကြိမ် မှတ်ပုံတင်ကြည့်ပါ။ message ပေါ်လာပြီး စာရင်းမှာ မတိုးပါ။"
+    },
+    {
+      "source": "英単語にapple、日本語にringoを入れて追加するを押したときに、すでに登録されている単語ですのメッセージが出て、一覧が3行のままの画面",
+      "translation": "「英単語」 (အင်္ဂလိပ်စကားလုံး) တွင် apple၊ 「日本語」 (ဂျပန်ဘာသာ) တွင် ringo ကို ထည့်ပြီး 「追加する」 (ထည့်ရန်) ကို နှိပ်လိုက်သည့်အခါ 「すでに登録されている単語です」 (မှတ်ပုံတင်ပြီးသား စကားလုံး ဖြစ်သည်) message ပေါ်လာပြီး စာရင်းမှာ စာကြောင်း 3 ကြောင်းအတိုင်း ကျန်နေသော မျက်နှာပြင်"
+    },
+    {
+      "source": "同じ英単語は登録されません。一覧も増えません。 <a1>画像を大きく開く</a1>",
+      "translation": "တူညီသော အင်္ဂလိပ်စကားလုံးကို မှတ်ပုံတင်မည် မဟုတ်ပါ။ စာရင်းလည်း မတိုးပါ။ <a1>ပုံကို အရွယ်အစားအပြည့်ဖြင့် ဖွင့်ပါ</a1>"
+    },
+    {
+      "source": "単語を登録でき、同じ英単語が登録できないことを確かめた。",
+      "translation": "စကားလုံးကို မှတ်ပုံတင်နိုင်ပြီး တူညီသော အင်္ဂလိပ်စကားလုံးကို မှတ်ပုံမတင်နိုင်ကြောင်း စစ်ဆေးပြီးပြီ။"
+    },
+    {
+      "source": "次へ：カード画面を作る →",
+      "translation": "နောက်တစ်ဆင့်: ကတ် မျက်နှာပြင်ကို ဖန်တီးခြင်း →"
+    },
+    {
+      "source": "STEP 06 · 目安 15分",
+      "translation": "STEP 06 · ခန့်မှန်းခြေ 15 မိနစ်"
+    },
+    {
+      "source": "カード画面を作る",
+      "translation": "ကတ် မျက်နှာပြင်ကို ဖန်တီးခြင်း"
+    },
+    {
+      "source": "3つ目の画面を追加します。STEP 05と同じ手順で、<strong>Activity Name</strong> を <code>CardActivity</code>、<strong>Layout Name</strong> を <code>activity_card</code> にします。",
+      "translation": "တတိယ မျက်နှာပြင်ကို ထည့်မည်။ STEP 05 နှင့် တူညီသော အဆင့်များဖြင့် <strong>Activity Name</strong> ကို <code>CardActivity</code>၊ <strong>Layout Name</strong> ကို <code>activity_card</code> ဟု သတ်မှတ်ပါ။"
+    },
+    {
+      "source": "New Android Activityのダイアログ。Activity NameはCardActivity、Layout Nameはactivity_card、Launcher Activityのチェックは外れている",
+      "translation": "New Android Activity ၏ dialog။ Activity Name မှာ CardActivity၊ Layout Name မှာ activity_card ဖြစ်ပြီး Launcher Activity ၏ အမှန်ခြစ်ကို ဖြုတ်ထားသည်"
+    },
+    {
+      "source": "ここでも <strong>Launcher Activity</strong> にはチェックを入れません。 <a1>画像を大きく開く</a1>",
+      "translation": "ဤနေရာတွင်လည်း <strong>Launcher Activity</strong> တွင် အမှန်ခြစ် မထည့်ပါနှင့်။ <a1>ပုံကို အရွယ်အစားအပြည့်ဖြင့် ဖွင့်ပါ</a1>"
+    },
+    {
+      "source": "<code>AndroidManifest.xml</code> に <code>&lt;activity android:name=&quot;.CardActivity&quot; android:exported=&quot;false&quot; /&gt;</code> が自動で増えるところも、Launcher Activityにチェックを入れない理由も、STEP 05と同じです。",
+      "translation": "<code>AndroidManifest.xml</code> တွင် <code>&lt;activity android:name=&quot;.CardActivity&quot; android:exported=&quot;false&quot; /&gt;</code> အလိုအလျောက် တိုးလာသည့်အချက်ရော Launcher Activity တွင် အမှန်ခြစ် မထည့်ရသည့် အကြောင်းရင်းပါ STEP 05 နှင့် တူညီသည်။"
+    },
+    {
+      "source": "<code>btn_back</code> と <code>btn_next</code> に <code>android:enabled=\"false\"</code> が付いています。<strong>単語が届く前に押されると落ちる</strong>ので、最初は押せない状態から始めます。",
+      "translation": "<code>btn_back</code> နှင့် <code>btn_next</code> တွင် <code>android:enabled=\"false\"</code> ပါရှိသည်။ <strong>စကားလုံးများ မရောက်မီ နှိပ်လိုက်လျှင် app ပိတ်သွားမည်</strong> ဖြစ်သဖြင့် အစပိုင်းတွင် မနှိပ်နိုင်သော အခြေအနေမှ စတင်သည်။"
+    },
+    {
+      "source": "<code>cardList.clear()</code> してから <code>addAll</code>",
+      "translation": "<code>cardList.clear()</code> လုပ်ပြီးမှ <code>addAll</code>"
+    },
+    {
+      "source": "LiveDataは変わるたびに呼ばれる。<strong>clearを忘れると、戻ってくるたびに一覧が二重になる</strong>",
+      "translation": "LiveData ကို ပြောင်းတိုင်း ခေါ်သည်။ <strong>clear ကို မေ့သွားလျှင် ပြန်လာတိုင်း စာရင်းသည် နှစ်ထပ် ဖြစ်သွားမည်</strong>"
+    },
+    {
+      "source": "<code>Snackbar.LENGTH_INDEFINITE</code> と <code>.setAction(\"単語を追加する\", v -&gt; { … })</code>",
+      "translation": "<code>Snackbar.LENGTH_INDEFINITE</code> နှင့် <code>.setAction(\"単語を追加する\", v -&gt; { … })</code>"
+    },
+    {
+      "source": "単語が1件もないときに出すメッセージ。<code>LENGTH_INDEFINITE</code> は、時間がたっても消えない設定。<code>setAction</code> は、メッセージの右にボタンを付ける。1つ目がボタンの文字、2つ目が押したときの処理で、ここでは単語を追加する画面を開く。すぐ下の <code>return</code> で、カードを出す処理には進まない",
+      "translation": "စကားလုံး တစ်ခုမှ မရှိသည့်အခါ ပြမည့် message။ <code>LENGTH_INDEFINITE</code> သည် အချိန်ကြာသော်လည်း မပျောက်စေသော သတ်မှတ်ချက် ဖြစ်သည်။ <code>setAction</code> သည် message ၏ ညာဘက်တွင် ခလုတ်တစ်ခု ထည့်ပေးသည်။ ပထမတစ်ခုမှာ ခလုတ်၏ စာသား၊ ဒုတိယတစ်ခုမှာ နှိပ်လိုက်သည့်အခါ လုပ်ဆောင်ချက် ဖြစ်ပြီး ဤနေရာတွင် စကားလုံး ထည့်သည့် မျက်နှာပြင်ကို ဖွင့်သည်။ အောက်နားရှိ <code>return</code> ကြောင့် ကတ်ကို ပြသည့် လုပ်ဆောင်ချက်သို့ မဆက်သွားပါ"
+    },
+    {
+      "source": "<code>cardIndex</code> の調整",
+      "translation": "<code>cardIndex</code> ကို ညှိခြင်း"
+    },
+    {
+      "source": "いま見ているカードが最後より後ろにならないようにそろえる",
+      "translation": "ယခုကြည့်နေသော ကတ်သည် နောက်ဆုံးကတ်ထက် ကျော်မသွားအောင် ညှိပေးသည်"
+    },
+    {
+      "source": "<code>btn_answer</code> のリスナの中。<code>isVisible</code> には、答え（日本語）がいま見えていれば <code>true</code>、隠れていれば <code>false</code> が入る。<code>条件 ? A : B</code> は三項演算子といい、<code>if</code> / <code>else</code> を1行で書いた形。条件が <code>true</code> なら <code>A</code>、<code>false</code> なら <code>B</code> になる。見えていれば隠し、隠れていれば見せる。次の行も同じ形で、ボタンの文字を切り替える",
+      "translation": "<code>btn_answer</code> ၏ listener အတွင်း။ <code>isVisible</code> ထဲတွင် အဖြေ (ဂျပန်ဘာသာ) ကို ယခု မြင်နေရလျှင် <code>true</code>၊ ဖျောက်ထားလျှင် <code>false</code> ဝင်သည်။ <code>条件 ? A : B</code> ကို ternary operator (三項演算子) ဟုခေါ်ပြီး <code>if</code> / <code>else</code> ကို စာကြောင်း 1 ကြောင်းဖြင့် ရေးထားသော ပုံစံ ဖြစ်သည်။ အခြေအနေသည် <code>true</code> ဖြစ်လျှင် <code>A</code>၊ <code>false</code> ဖြစ်လျှင် <code>B</code> ဖြစ်သည်။ မြင်နေရလျှင် ဖျောက်ပြီး ဖျောက်ထားလျှင် ပြသည်။ နောက်စာကြောင်းလည်း တူညီသော ပုံစံဖြစ်ပြီး ခလုတ်၏ စာသားကို ပြောင်းပေးသည်"
+    },
+    {
+      "source": "6つのViewをフィールドにする",
+      "translation": "View 6 ခုကို field အဖြစ် ထားခြင်း"
+    },
+    {
+      "source": "<code>updateCardView()</code> からも使うので、<code>onCreate</code> で1回だけ探してフィールドに入れておく。<strong>同じidを2回 <code>findViewById</code> しない</strong>",
+      "translation": "<code>updateCardView()</code> မှလည်း သုံးသဖြင့် <code>onCreate</code> တွင် 1 ကြိမ်သာ ရှာပြီး field ထဲ ထည့်ထားသည်။ <strong>တူညီသော id ကို 2 ကြိမ် <code>findViewById</code> မလုပ်ပါနှင့်</strong>"
+    },
+    {
+      "source": "問題番号・英単語・日本語・ボタンの押せる／押せないを、まとめてそろえる",
+      "translation": "မေးခွန်းနံပါတ်၊ အင်္ဂလိပ်စကားလုံး၊ ဂျပန်ဘာသာ၊ ခလုတ်များ နှိပ်နိုင်/မနှိပ်နိုင် ဆိုသည်တို့ကို စုပေါင်း၍ ညှိပေးသည်"
+    },
+    {
+      "source": "カードを送ったら、答えは隠した状態に戻す",
+      "translation": "ကတ်ကို ရွှေ့လိုက်လျှင် အဖြေကို ဖျောက်ထားသည့် အခြေအနေသို့ ပြန်ထားသည်"
+    },
+    {
+      "source": "<strong>単語帳画面へ</strong> を押します。1問目が出ます。<strong>前へ</strong> は押せません。",
+      "translation": "<strong>単語帳画面へ</strong> (ဝေါဟာရစာအုပ် မျက်နှာပြင်သို့) ကို နှိပ်ပါ။ မေးခွန်း 1 ပေါ်လာမည်။ <strong>前へ</strong> (ယခင်) ကို မနှိပ်နိုင်ပါ။"
+    },
+    {
+      "source": "<strong>答えを表示する</strong> を押すと日本語が出て、ボタンの文字が変わります。",
+      "translation": "<strong>答えを表示する</strong> (အဖြေကို ပြရန်) ကို နှိပ်လျှင် ဂျပန်ဘာသာ ပေါ်လာပြီး ခလုတ်၏ စာသား ပြောင်းသွားမည်။"
+    },
+    {
+      "source": "<strong>次へ</strong> を押すと2問目になり、<strong>答えはまた隠れます</strong>。",
+      "translation": "<strong>次へ</strong> (နောက်တစ်ခု) ကို နှိပ်လျှင် မေးခွန်း 2 သို့ ရောက်ပြီး <strong>အဖြေသည် ထပ်မံ ပျောက်သွားမည်</strong>။"
+    },
+    {
+      "source": "最後のカードでは <strong>次へ</strong> が押せなくなります。",
+      "translation": "နောက်ဆုံးကတ်တွင် <strong>次へ</strong> (နောက်တစ်ခု) ကို မနှိပ်နိုင်တော့ပါ။"
+    },
+    {
+      "source": "次へを押したあと、2問目/全3問中とstudyが表示され、答えは隠れた状態に戻っているカード画面。前へと次へはどちらも押せる",
+      "translation": "「次へ」 (နောက်တစ်ခု) ကို နှိပ်ပြီးနောက် 「2問目/全3問中」 (မေးခွန်း 2 / စုစုပေါင်း 3) နှင့် study ပေါ်နေပြီး အဖြေမှာ ဖျောက်ထားသည့် အခြေအနေသို့ ပြန်ရောက်နေသော ကတ် မျက်နှာပြင်။ 「前へ」 (ယခင်) နှင့် 「次へ」 နှစ်ခုလုံးကို နှိပ်နိုင်သည်"
+    },
+    {
+      "source": "次へを押したところ。2問目になり、答えはまた隠れています。 <a1>画像を大きく開く</a1>",
+      "translation": "「次へ」 (နောက်တစ်ခု) ကို နှိပ်လိုက်သည့် အခြေအနေ။ မေးခွန်း 2 သို့ ရောက်ပြီး အဖြေသည် ထပ်မံ ပျောက်သွားသည်။ <a1>ပုံကို အရွယ်အစားအပြည့်ဖြင့် ဖွင့်ပါ</a1>"
+    },
+    {
+      "source": "単語が1件もないときに、単語がありませんのメッセージと単語を追加するボタンが画面下に出ているカード画面",
+      "translation": "စကားလုံး တစ်ခုမှ မရှိသည့်အခါ 「単語がありません」 (စကားလုံး မရှိပါ) message နှင့် 「単語を追加する」 (စကားလုံး ထည့်ရန်) ခလုတ်တို့ မျက်နှာပြင်အောက်တွင် ပေါ်နေသော ကတ် မျက်နှာပြင်"
+    },
+    {
+      "source": "単語が1件もないとき。メッセージから追加画面へ行けます。 <a1>画像を大きく開く</a1>",
+      "translation": "စကားလုံး တစ်ခုမှ မရှိသည့်အခါ။ message မှတစ်ဆင့် စကားလုံး ထည့်သည့် မျက်နှာပြင်သို့ သွားနိုင်သည်။ <a1>ပုံကို အရွယ်အစားအပြည့်ဖြင့် ဖွင့်ပါ</a1>"
+    },
+    {
+      "source": "カードを送れて、答えの表示・非表示が切り替わることを確かめた。",
+      "translation": "ကတ်များကို ရွှေ့နိုင်ပြီး အဖြေကို ပြခြင်း၊ ဖျောက်ခြင်း ပြောင်းလဲနိုင်ကြောင်း စစ်ဆေးပြီးပြီ။"
+    },
+    {
+      "source": "次へ：完成 →",
+      "translation": "နောက်တစ်ဆင့်: ပြီးစီးခြင်း →"
+    },
+    {
+      "source": "STEP 07 · 目安 15分",
+      "translation": "STEP 07 · ခန့်မှန်းခြေ 15 မိနစ်"
+    },
+    {
+      "source": "完成",
+      "translation": "ပြီးစီးခြင်း"
+    },
+    {
+      "source": "完成した <code>MainActivity.java</code> です。",
+      "translation": "ပြီးစီးသွားသော <code>MainActivity.java</code> ဖြစ်သည်။"
+    },
+    {
+      "source": "完成チェック",
+      "translation": "ပြီးစီးမှု စစ်ဆေးခြင်း"
+    },
+    {
+      "source": "上から順に操作します。単語が1件もない状態から確かめるので、アプリを消してから始めます。消し方は<a1>共通資料：エミュレータ</a1>の「アプリを消す」にあります。",
+      "translation": "အပေါ်မှ အစဉ်လိုက် လုပ်ဆောင်ပါ။ စကားလုံး တစ်ခုမှ မရှိသည့် အခြေအနေမှ စတင် စစ်ဆေးမည် ဖြစ်သဖြင့် app ကို ဖျက်ပြီးမှ စပါ။ ဖျက်နည်းကို <a1>အများသုံးလမ်းညွှန်: emulator</a1> ရှိ “app ကို ဖယ်ရှားပါ” တွင် ကြည့်နိုင်သည်။"
+    },
+    {
+      "source": "表の<strong>戻る操作</strong>は、画面の端から内側へのスワイプ、またはエミュレータの ◁ です。キーボードが出ているときは、1回目でキーボードが閉じるので、もう一度行います。<strong>アプリを終了する</strong>ときは、エミュレータでアプリ一覧（最近使ったアプリ）を開き、このアプリを上へスワイプします。アプリ一覧は、画面下の横棒を上へスワイプしてから止めると出ます。",
+      "translation": "ဇယားရှိ <strong>နောက်သို့ ပြန်ခြင်း</strong> ကို မျက်နှာပြင်၏ အနားမှ အတွင်းဘက်သို့ swipe လုပ်ခြင်း သို့မဟုတ် emulator ၏ ◁ ဖြင့် လုပ်သည်။ ကီးဘုတ် ပေါ်နေလျှင် ပထမတစ်ကြိမ်တွင် ကီးဘုတ် ပိတ်သွားမည် ဖြစ်၍ နောက်တစ်ကြိမ် ထပ်လုပ်ပါ။ <strong>app ကို ပိတ်ရန်</strong> အတွက် emulator တွင် app စာရင်း (最近使ったアプリ၊ မကြာသေးမီက သုံးခဲ့သော app များ) ကို ဖွင့်ပြီး ဤ app ကို အပေါ်သို့ swipe လုပ်ပါ။ app စာရင်းသည် မျက်နှာပြင်အောက်ရှိ အလျားလိုက်မျဉ်းကို အပေါ်သို့ swipe လုပ်ပြီး ရပ်လိုက်လျှင် ပေါ်လာမည်။"
+    },
+    {
+      "source": "操作",
+      "translation": "လုပ်ဆောင်ချက်"
+    },
+    {
+      "source": "確認する結果",
+      "translation": "စစ်ဆေးရမည့် ရလဒ်"
+    },
+    {
+      "source": "アプリを消してから初回起動",
+      "translation": "app ကို ဖယ်ရှားပြီးနောက် ပထမဆုံးအကြိမ် ဖွင့်ခြင်း"
+    },
+    {
+      "source": "ロゴ画像と、「単語帳画面へ」「単語を追加する」の2つのボタンが出る。",
+      "translation": "logo ပုံနှင့် 「単語帳画面へ」 (ဝေါဟာရစာအုပ် မျက်နှာပြင်သို့)၊ 「単語を追加する」 (စကားလုံး ထည့်ရန်) ခလုတ် 2 ခု ပေါ်လာမည်။"
+    },
+    {
+      "source": "「単語帳画面へ」→ メッセージの右の「単語を追加する」",
+      "translation": "「単語帳画面へ」 (ဝေါဟာရစာအုပ် မျက်နှာပြင်သို့) → message ၏ ညာဘက်ရှိ 「単語を追加する」 (စကားလုံး ထည့်ရန်)"
+    },
+    {
+      "source": "「単語がありません」と出て、「前へ」「次へ」は押せない。「単語を追加する」を押すと、単語を追加する画面に切り替わる。「登録ずみの単語」の下は空。",
+      "translation": "「単語がありません」 (စကားလုံး မရှိပါ) ဟု ပေါ်လာပြီး 「前へ」 (ယခင်)၊ 「次へ」 (နောက်တစ်ခု) ကို မနှိပ်နိုင်ပါ။ 「単語を追加する」 (စကားလုံး ထည့်ရန်) ကို နှိပ်လျှင် စကားလုံး ထည့်သည့် မျက်နှာပြင်သို့ ပြောင်းသွားမည်။ 「登録ずみの単語」 (မှတ်ပုံတင်ပြီးသော စကားလုံးများ) ၏ အောက်သည် ဗလာ ဖြစ်သည်။"
+    },
+    {
+      "source": "何も入れずに「追加する」",
+      "translation": "ဘာမှ မထည့်ဘဲ 「追加する」 (ထည့်ရန်) ကို နှိပ်ခြင်း"
+    },
+    {
+      "source": "「英単語と日本語の両方を入力してください」が出て、一覧は増えない。",
+      "translation": "「英単語と日本語の両方を入力してください」 (အင်္ဂလိပ်စကားလုံးနှင့် ဂျပန်ဘာသာ နှစ်ခုလုံးကို ရိုက်ထည့်ပါ) ဟု ပေါ်လာပြီး စာရင်းမှာ မတိုးပါ။"
+    },
+    {
+      "source": "apple と りんご を「追加する」",
+      "translation": "apple နှင့် りんご (ပန်းသီး) ကို 「追加する」 (ထည့်ရန်) ဖြင့် ထည့်ခြင်း"
+    },
+    {
+      "source": "押してすぐ、一覧に「apple : りんご」が出る。2つの入力欄は空になる。",
+      "translation": "နှိပ်လိုက်သည်နှင့် စာရင်းတွင် 「apple : りんご」 ပေါ်လာမည်။ ရိုက်ထည့်ရန် အကွက် 2 ခုမှာ ဗလာ ဖြစ်သွားမည်။"
+    },
+    {
+      "source": "study と 勉強する も追加 → もう一度 apple と りんご を追加",
+      "translation": "study နှင့် 勉強する (လေ့လာသည်) ကိုလည်း ထည့်ပါ → နောက်တစ်ကြိမ် apple နှင့် りんご (ပန်းသီး) ကို ထပ်ထည့်ပါ"
+    },
+    {
+      "source": "一覧が2行になる。2回目の apple は「すでに登録されている単語です」が出て、一覧は増えない。",
+      "translation": "စာရင်းသည် စာကြောင်း 2 ကြောင်း ဖြစ်လာမည်။ ဒုတိယအကြိမ် apple အတွက် 「すでに登録されている単語です」 (မှတ်ပုံတင်ပြီးသား စကားလုံး ဖြစ်သည်) ဟု ပေါ်လာပြီး စာရင်းမှာ မတိုးပါ။"
+    },
+    {
+      "source": "戻る操作",
+      "translation": "နောက်သို့ပြန်ခြင်း"
+    },
+    {
+      "source": "カード画面に戻る。「単語がありません」は消えていて、「1問目/全2問中」と apple が出ている。",
+      "translation": "ကတ် မျက်နှာပြင်သို့ ပြန်ရောက်မည်။ 「単語がありません」 (စကားလုံး မရှိပါ) ပျောက်သွားပြီး 「1問目/全2問中」 (မေးခွန်း 1 / စုစုပေါင်း 2) နှင့် apple ပေါ်နေသည်။"
+    },
+    {
+      "source": "「答えを表示する」→「次へ」",
+      "translation": "「答えを表示する」 (အဖြေကို ပြရန်) → 「次へ」 (နောက်တစ်ခု)"
+    },
+    {
+      "source": "りんご が出て、ボタンが「答えを非表示にする」に変わる。「次へ」で2問目の study になり、答えはまた隠れる。「次へ」は押せなくなる。",
+      "translation": "りんご (ပန်းသီး) ပေါ်လာပြီး ခလုတ်သည် 「答えを非表示にする」 (အဖြေကို ဖျောက်ရန်) သို့ ပြောင်းသွားမည်။ 「次へ」 (နောက်တစ်ခု) ဖြင့် မေးခွန်း 2 ဖြစ်သော study သို့ ရောက်ပြီး အဖြေသည် ထပ်မံ ပျောက်သွားမည်။ 「次へ」 ကို မနှိပ်နိုင်တော့ပါ။"
+    },
+    {
+      "source": "アプリを終了して開き直す",
+      "translation": "app ကို ပိတ်ပြီး ပြန်ဖွင့်ခြင်း"
+    },
+    {
+      "source": "「単語帳画面へ」を押すと、登録した2件が残っていて、「1問目/全2問中」と apple が出る。",
+      "translation": "「単語帳画面へ」 (ဝေါဟာရစာအုပ် မျက်နှာပြင်သို့) ကို နှိပ်လျှင် မှတ်ပုံတင်ခဲ့သော 2 ခု ကျန်နေပြီး 「1問目/全2問中」 (မေးခွန်း 1 / စုစုပေါင်း 2) နှင့် apple ပေါ်လာမည်။"
+    },
+    {
+      "source": "練習",
+      "translation": "လေ့ကျင့်ခန်း"
+    },
+    {
+      "source": "上から順に試します。<strong>予想 → 変更 → Run → 説明 → 元に戻す</strong>の順で行います。3つともコードを書き換えるので、<strong>1つ試すごとに元に戻してから</strong>次へ進みます。",
+      "translation": "အပေါ်မှ အစဉ်လိုက် စမ်းပါ။ <strong>ခန့်မှန်း → ပြောင်း → Run → ရှင်းပြ → မူလအတိုင်း ပြန်ထား</strong> အစဉ်လိုက် လုပ်ပါ။ 3 ခုလုံးသည် code ကို ပြင်ရသဖြင့် <strong>တစ်ခု စမ်းပြီးတိုင်း မူလအတိုင်း ပြန်ထားပြီးမှ</strong> နောက်တစ်ခုသို့ ဆက်သွားပါ။"
+    },
+    {
+      "source": "<code>CardAddActivity</code> の <code>observe</code> の中を消してRunする。単語を追加したとき、一覧はどうなるか。<strong>確かめたら元に戻す。</strong>",
+      "translation": "<code>CardAddActivity</code> ၏ <code>observe</code> အတွင်းရှိအရာကို ဖျက်ပြီး Run လုပ်ပါ။ စကားလုံး ထည့်လိုက်သည့်အခါ စာရင်းသည် မည်သို့ ဖြစ်သနည်း။ <strong>စစ်ဆေးပြီးလျှင် မူလအတိုင်း ပြန်ထားပါ။</strong>"
+    },
+    {
+      "source": "<code>CardActivity</code> の <code>cardList.clear()</code> を消してRunする。単語を追加してカード画面に戻ると、全何問中になるか。<strong>確かめたら元に戻す。</strong>",
+      "translation": "<code>CardActivity</code> ၏ <code>cardList.clear()</code> ကို ဖျက်ပြီး Run လုပ်ပါ။ စကားလုံး ထည့်ပြီး ကတ် မျက်နှာပြင်သို့ ပြန်သွားလျှင် စုစုပေါင်း မေးခွန်း ဘယ်နှစ်ခု ဖြစ်သနည်း။ <strong>စစ်ဆေးပြီးလျှင် မူလအတိုင်း ပြန်ထားပါ။</strong>"
+    },
+    {
+      "source": "<code>activity_card.xml</code> の <code>android:enabled=\"false\"</code> を2つとも消してRunし、単語が0件の状態で <strong>次へ</strong> を押すとどうなるか確かめる。<strong>確かめたら元に戻す。</strong>",
+      "translation": "<code>activity_card.xml</code> ၏ <code>android:enabled=\"false\"</code> 2 ခုလုံးကို ဖျက်ပြီး Run လုပ်ကာ စကားလုံး 0 ခု ရှိသည့် အခြေအနေတွင် <strong>次へ</strong> (နောက်တစ်ခု) ကို နှိပ်လျှင် မည်သို့ ဖြစ်သည်ကို စစ်ဆေးပါ။ <strong>စစ်ဆေးပြီးလျှင် မူလအတိုင်း ပြန်ထားပါ။</strong>"
+    },
+    {
+      "source": "完成版に戻してから確認",
+      "translation": "ပြီးစီးထားသော ပုံစံသို့ ပြန်ထားပြီးမှ စစ်ဆေးပါ"
+    },
+    {
+      "source": "練習1の <code>observe</code> の中、練習2の <code>cardList.clear()</code>、練習3の <code>android:enabled=\"false\"</code>（<code>btn_back</code> と <code>btn_next</code> の2つ）を元に戻します。戻したらRunして、単語を追加するとその場で「登録ずみの単語」に出ること、カード画面が「全2問中」のように追加した件数を数えること、単語が0件のときに「前へ」「次へ」が押せないことを確かめます。<strong>練習3を戻さないままだと、単語が0件のときに「次へ」を押すとアプリが終了します。</strong>",
+      "translation": "လေ့ကျင့်ခန်း 1 ၏ <code>observe</code> အတွင်းရှိအရာ၊ လေ့ကျင့်ခန်း 2 ၏ <code>cardList.clear()</code>၊ လေ့ကျင့်ခန်း 3 ၏ <code>android:enabled=\"false\"</code> (<code>btn_back</code> နှင့် <code>btn_next</code> ၏ 2 ခု) ကို မူလအတိုင်း ပြန်ထားပါ။ ပြန်ထားပြီးလျှင် Run လုပ်၍ စကားလုံး ထည့်လိုက်သည်နှင့် 「登録ずみの単語」 (မှတ်ပုံတင်ပြီးသော စကားလုံးများ) တွင် ချက်ချင်း ပေါ်လာခြင်း၊ ကတ် မျက်နှာပြင်က 「全2問中」 (စုစုပေါင်း 2) ကဲ့သို့ ထည့်ထားသော အရေအတွက်ကို ရေတွက်ခြင်း၊ စကားလုံး 0 ခု ရှိသည့်အခါ 「前へ」 (ယခင်)၊ 「次へ」 (နောက်တစ်ခု) ကို မနှိပ်နိုင်ခြင်းတို့ကို စစ်ဆေးပါ။ <strong>လေ့ကျင့်ခန်း 3 ကို မူလအတိုင်း ပြန်မထားလျှင် စကားလုံး 0 ခု ရှိသည့်အခါ 「次へ」 ကို နှိပ်လိုက်လျှင် app ပိတ်သွားမည်။</strong>"
+    },
+    {
+      "source": "保存",
+      "translation": "သိမ်းဆည်းခြင်း"
+    },
+    {
+      "source": "Android Studioは、書いたコードを自動でファイルに保存します。保存の操作は要りません。ここでは、保存された場所を確かめます。",
+      "translation": "Android Studio သည် ရေးထားသော code ကို ဖိုင်ထဲသို့ အလိုအလျောက် သိမ်းဆည်းပေးသည်။ သိမ်းဆည်းရန် လုပ်ဆောင်စရာ မလိုပါ။ ဤနေရာတွင် သိမ်းဆည်းထားသည့် နေရာကို စစ်ဆေးမည်။"
+    },
+    {
+      "source": "Finderを開き、左側の <strong>書類</strong>（<code>Documents</code>）をクリックします。",
+      "translation": "Finder ကို ဖွင့်ပြီး ဘယ်ဘက်ရှိ <strong>書類</strong> (<code>Documents</code>) ကို နှိပ်ပါ။"
+    },
+    {
+      "source": "その中の <code>Android1</code> フォルダを開き、<code>A11VocabularyBook</code> フォルダがあることを確かめます。",
+      "translation": "ထိုအထဲရှိ <code>Android1</code> ဖိုင်တွဲကို ဖွင့်ပြီး <code>A11VocabularyBook</code> ဖိုင်တွဲ ရှိကြောင်း စစ်ဆေးပါ။"
+    },
+    {
+      "source": "この <code>Documents/Android1/A11VocabularyBook</code> フォルダが、自分で作ったアプリです。あとの授業でもう一度開けるように、消したり、別の場所へ移動したり、名前を変えたりせずに、そのまま残します。",
+      "translation": "ဤ <code>Documents/Android1/A11VocabularyBook</code> ဖိုင်တွဲသည် ကိုယ်တိုင် ဖန်တီးထားသော app ဖြစ်သည်။ နောင်အတန်းများတွင် ထပ်မံ ဖွင့်နိုင်ရန် မဖျက်ဘဲ၊ အခြားနေရာသို့ မရွှေ့ဘဲ၊ အမည်လည်း မပြောင်းဘဲ ထိုအတိုင်း ထားပါ။"
+    },
+    {
+      "source": "教材のチェックは自分用です。先生への送信はしません。印刷は <kbd>⌘ P</kbd> で行えます。",
+      "translation": "သင်ထောက်ကူပစ္စည်းများရှိ အမှန်ခြစ်များသည် ကိုယ်ပိုင်အသုံးပြုရန်သာ ဖြစ်သည်။ ဆရာထံ ပို့ခြင်း မရှိပါ။ print ထုတ်ရန် <kbd>⌘ P</kbd> ကို သုံးနိုင်သည်။"
+    },
+    {
+      "source": "完成チェックの操作をすべて試して表のとおりの結果になり、練習1〜3で消したコードを元に戻した。",
+      "translation": "ပြီးစီးမှု စစ်ဆေးခြင်းရှိ လုပ်ဆောင်ချက်အားလုံးကို စမ်းပြီး ဇယားအတိုင်း ရလဒ် ထွက်လာကာ လေ့ကျင့်ခန်း 1〜3 တွင် ဖျက်ခဲ့သော code ကို မူလအတိုင်း ပြန်ထားပြီးပြီ။"
+    },
+    {
+      "source": "症状",
+      "translation": "လက္ခဏာ"
+    },
+    {
+      "source": "見るところ",
+      "translation": "ကြည့်ရမည့်နေရာ"
+    },
+    {
+      "source": "ボタンを押すとアプリが終了する",
+      "translation": "ခလုတ်ကို နှိပ်လျှင် app ပိတ်သွားခြင်း"
+    },
+    {
+      "source": "STEP 05。画面を <code>New → Java Class</code> で作ると <code>AndroidManifest.xml</code> に登録されません。<code>New → Activity → Empty Views Activity</code> で作り直します",
+      "translation": "STEP 05။ မျက်နှာပြင်ကို <code>New → Java Class</code> ဖြင့် ဖန်တီးလျှင် <code>AndroidManifest.xml</code> တွင် မှတ်ပုံတင်မည် မဟုတ်ပါ။ <code>New → Activity → Empty Views Activity</code> ဖြင့် ပြန်ဖန်တီးပါ"
+    },
+    {
+      "source": "アプリ一覧のアイコンが2つある（Runすると何もない画面から始まることがある）",
+      "translation": "app စာရင်းတွင် icon 2 ခု ရှိနေသည် (run လုပ်လျှင် ဘာမျှမရှိသော မျက်နှာပြင်မှ စတင်တတ်သည်)"
+    },
+    {
+      "source": "STEP 05・06でLauncher Activityにチェックを入れた可能性があります。その画面の <code>&lt;activity&gt;</code> から <code>&lt;intent-filter&gt;</code> を消し、<code>android:exported=\"false\"</code> にします",
+      "translation": "STEP 05၊ 06 တွင် Launcher Activity ၌ အမှန်ခြစ် ထည့်မိခဲ့နိုင်သည်။ ထိုမျက်နှာပြင်၏ <code>&lt;activity&gt;</code> မှ <code>&lt;intent-filter&gt;</code> ကို ဖျက်ပြီး <code>android:exported=\"false\"</code> ဟု ပြောင်းပါ"
+    },
+    {
+      "source": "一覧が二重に増える",
+      "translation": "စာရင်းသည် နှစ်ထပ် တိုးသွားခြင်း"
+    },
+    {
+      "source": "STEP 06②。<code>cardList.clear()</code> を書いたか",
+      "translation": "STEP 06②။ <code>cardList.clear()</code> ကို ရေးထားသလား"
+    },
+    {
+      "source": "STEP 02②。<code>[libraries]</code> に書いたか",
+      "translation": "STEP 02②။ <code>[libraries]</code> တွင် ရေးထားသလား"
+    },
+    {
+      "source": "<code>ItemDao</code> の中で赤いエラーが出る",
+      "translation": "<code>ItemDao</code> ထဲတွင် အနီရောင် error ပေါ်သည်"
+    },
+    {
+      "source": "STEP 03②。<strong>Class ではなく Interface</strong> で作ったか",
+      "translation": "STEP 03②။ <strong>Class မဟုတ်ဘဲ Interface</strong> ဖြင့် ဖန်တီးထားသလား"
+    },
+    {
+      "source": "同じ単語が登録できてしまう",
+      "translation": "တူညီသော စကားလုံးကို မှတ်ပုံတင်၍ ရနေခြင်း"
+    },
+    {
+      "source": "STEP 03②。<code>countByEnglish</code> が <code>=</code> になっているか",
+      "translation": "STEP 03②။ <code>countByEnglish</code> သည် <code>=</code> ဖြစ်နေသလား"
+    },
+    {
+      "source": "ロゴ画像が見つからない",
+      "translation": "logo ပုံကို ရှာမတွေ့ခြင်း"
+    },
+    {
+      "source": "STEP 02①。ファイル名を <code>logoeng.png</code> のままにしたか",
+      "translation": "STEP 02①။ ဖိုင်အမည်ကို <code>logoeng.png</code> အတိုင်း ထားခဲ့သလား"
+    },
+    {
+      "source": "importの赤い波線が消えない",
+      "translation": "import ၏ အနီရောင် လှိုင်းမျဉ်း မပျောက်ပါ"
+    },
+    {
+      "source": "共通資料：Auto Import",
+      "translation": "အများသုံးလမ်းညွှန်: Auto Import"
+    },
+    {
+      "source": "エミュレータが出てこない",
+      "translation": "emulator မပေါ်လာပါ"
+    },
+    {
+      "source": "共通資料：エミュレータ",
+      "translation": "အများသုံးလမ်းညွှန်: emulator"
+    },
+    {
+      "source": "画面を回すと見ていたカードが1問目に戻る",
+      "translation": "မျက်နှာပြင်ကို လှည့်လိုက်လျှင် ကြည့်နေသော ကတ်သည် မေးခွန်း 1 သို့ ပြန်ရောက်သွားခြင်း"
+    },
+    {
+      "source": "<a1>共通資料：開発Tips</a1> のC章。登録した単語は消えません",
+      "translation": "<a1>အများသုံးလမ်းညွှန်: app ရေးသားရာတွင် အသုံးဝင်သောအချက်များ</a1> ၏ အခန်း C။ မှတ်ပုံတင်ထားသော စကားလုံးများ မပျောက်ပါ"
+    },
+    {
+      "source": "答え合わせ用の見本です。教科書といっしょに配られた<strong>教材のフォルダ</strong>に、そのまま開ける形で入っています。ダウンロードも展開も要りません。授業の入力は自分で作ったプロジェクトに書きます。",
+      "translation": "အဖြေတိုက်ရန် နမူနာ ဖြစ်သည်။ သင်ရိုးစာအုပ်နှင့်အတူ ဖြန့်ပေးထားသော <strong>သင်ထောက်ကူပစ္စည်း folder</strong> ထဲတွင် တိုက်ရိုက် ဖွင့်နိုင်သည့်ပုံစံဖြင့် ရှိသည်။ download လုပ်ရန်နှင့် ဖိုင်ဖြည်ရန် မလိုပါ။ အတန်းတွင် ရိုက်ထည့်ရမည့်အရာများကို ကိုယ်တိုင် ဖန်တီးထားသော project ထဲတွင် ရေးပါ။"
+    },
+    {
+      "source": "Android Studioの <strong>Open</strong>（プロジェクトを開いているときは <strong>File → Open</strong>）で、<strong>書類</strong>（<code>Documents</code>）にある教材のフォルダを開きます。名前は <code>android1-student-materials-</code> のうしろに日付が付いた形で、日付は配られた回によって変わります。いま読んでいるこの教科書が入っているフォルダです。",
+      "translation": "Android Studio ၏ <strong>Open</strong> (project ဖွင့်ထားလျှင် <strong>File → Open</strong>) ဖြင့် <strong>書類</strong> (<code>Documents</code>) ထဲရှိ သင်ထောက်ကူ folder ကို ဖွင့်ပါ။ အမည်မှာ <code>android1-student-materials-</code> ၏ နောက်တွင် ရက်စွဲ ပါသောပုံစံ ဖြစ်ပြီး ရက်စွဲသည် ဖြန့်ပေးသည့် အကြိမ်အလိုက် ကွဲပြားသည်။ ယခု ဖတ်နေသော ဤသင်ရိုးစာအုပ် ပါဝင်သည့် folder ဖြစ်သည်။"
+    },
+    {
+      "source": "その中を <code>samples → A11VocabularyBook</code> の順に開き、<code>settings.gradle.kts</code> と <code>app</code> が入った <code>A11VocabularyBook</code> フォルダを選びます。",
+      "translation": "ထိုအထဲတွင် <code>samples → A11VocabularyBook</code> အစဉ်လိုက် ဖွင့်ပြီး <code>settings.gradle.kts</code> နှင့် <code>app</code> ပါဝင်သော <code>A11VocabularyBook</code> ဖိုင်တွဲကို ရွေးပါ။"
+    },
+    {
+      "source": "Sync後にRunして動きを確認します。授業の入力に戻るときは自分の <code>Documents/Android1/A11VocabularyBook</code> を開きます。",
+      "translation": "Sync ပြီးနောက် Run လုပ်၍ လုပ်ဆောင်ပုံကို စစ်ဆေးပါ။ အတန်းတွင် ရိုက်ထည့်ရန် ပြန်သွားသည့်အခါ မိမိ၏ <code>Documents/Android1/A11VocabularyBook</code> ကို ဖွင့်ပါ။"
+    },
+    {
+      "source": "教材のフォルダが手元にないときは、同じ見本をZIPで受け取れます（<a1>A11VocabularyBook.zip</a1>）。展開してできた <code>A11VocabularyBook</code> フォルダを、同じようにOpenで選びます。",
+      "translation": "သင်ထောက်ကူပစ္စည်းဖိုင်တွဲ လက်ထဲတွင် မရှိလျှင် တူညီသော နမူနာကို ZIP ဖြင့် ရယူနိုင်သည် (<a1>A11VocabularyBook.zip</a1>)။ ဖြည်ထုတ်ပြီး ရလာသော <code>A11VocabularyBook</code> ဖိုင်တွဲကို အလားတူ Open ဖြင့် ရွေးပါ။"
+    },
+    {
+      "source": "完成した <code>activity_main.xml</code>",
+      "translation": "ပြီးစီးထားသော <code>activity_main.xml</code>"
+    },
+    {
+      "source": "Androidプログラミング1 · A11VocabularyBook / 本文・画像・操作機能はオフラインで利用できます。Android Studioの初回準備・ビルドと公式資料の閲覧にはネット接続が必要です。",
+      "translation": "Android ပရိုဂရမ်းမင်း 1 · A11VocabularyBook / စာကိုယ်၊ ပုံများနှင့် လုပ်ဆောင်ချက်များကို offline တွင် အသုံးပြုနိုင်သည်။ Android Studio ၏ ပထမဆုံးအကြိမ် ပြင်ဆင်ခြင်း၊ build လုပ်ခြင်းနှင့် တရားဝင် စာရွက်စာတမ်းများ ကြည့်ရှုခြင်းအတွက် internet ချိတ်ဆက်မှု လိုအပ်သည်။"
+    },
+    {
+      "source": "画像は授業用の提供資料を使用。スクリーンショットの単語は例です。",
+      "translation": "ပုံများကို အတန်းအတွက် ပေးထားသော ပစ္စည်းများမှ အသုံးပြုထားသည်။ screenshot ရှိ စကားလုံးများမှာ နမူနာများ ဖြစ်သည်။"
+    }
+  ]
+}
