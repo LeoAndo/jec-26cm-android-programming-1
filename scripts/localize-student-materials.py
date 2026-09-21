@@ -231,9 +231,16 @@ def segment_id(source: str) -> str:
     return hashlib.sha256(source.encode("utf-8")).hexdigest()[:12]
 
 
+ASCII_SPACES = re.compile(r"[ \t\r\n\f]+")
+
+
 def normalize(text: str) -> str:
-    """改行や字下げの違いで原文が変わったことにならないよう、空白は1つにまとめる。"""
-    return " ".join(text.split())
+    """改行や字下げの違いで原文が変わったことにならないよう、空白は1つにまとめる。
+
+    まとめるのはASCIIの空白だけ。ノーブレークスペース（フランス語の「:」「?」の前）や
+    全角スペースは、その言語の書き方の一部なので、そのまま残す。
+    """
+    return ASCII_SPACES.sub(" ", text).strip(" \t\r\n\f")
 
 
 def _attribute_pattern(name: str) -> re.Pattern:
@@ -795,7 +802,7 @@ def merge(settings: Settings, code: str, files: list, work_dir: Path, overwrite:
             if index.setdefault(segment_id(source), source) != source:
                 raise LocalizeError(f"別の原文が同じidになりました: {segment_id(source)}")
     catalogs = {name: read_catalog(settings.catalog_path(code, name)) for name in pages}
-    problems, added, skipped = [], 0, 0
+    problems, passed, added, skipped = [], 0, 0, 0
     changed: set = set()
     for path in files:
         try:
@@ -816,6 +823,7 @@ def merge(settings: Settings, code: str, files: list, work_dir: Path, overwrite:
             if found:
                 problems.extend(f"{path}: {identifier}「{source[:30]}」: {problem}" for problem in found)
                 continue
+            passed += 1
             for name, page in pages.items():
                 if source not in page.sources():
                     continue
@@ -831,8 +839,10 @@ def merge(settings: Settings, code: str, files: list, work_dir: Path, overwrite:
     if not dry_run:
         for name in sorted(changed):
             write_catalog(settings.catalog_path(code, name), name, code, catalogs[name], pages[name].sources())
-    print(f"{code}: {'検査に通った訳（カタログには入れていません）' if dry_run else 'カタログに入れた訳'} {added}"
-          + (f"、すでに別の訳があるので入れなかった訳 {skipped}（入れ替えるなら --overwrite）" if skipped else ""))
+    # 同じ原文が複数のページにあると、1つの訳が何か所にも入る。訳した数と、入れた数は分けて出す。
+    print(f"{code}: 検査に通った訳 {passed}、"
+          + (f"カタログに入る数 {added}（--dry-run なので、入れていません）" if dry_run else f"カタログに入れた数 {added}")
+          + (f"、すでに別の訳があるので入れなかった数 {skipped}（入れ替えるなら --overwrite）" if skipped else ""))
     if problems:
         print("検査に落ちた訳（カタログには入れていません）:", file=sys.stderr)
         print("\n".join(problems), file=sys.stderr)

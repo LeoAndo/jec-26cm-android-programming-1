@@ -1,0 +1,1598 @@
+{
+  "source": "docs/hello-android/index.html",
+  "language": "en",
+  "entries": [
+    {
+      "source": "JavaとXMLで作るHelloAndroid。操作する場所と成功の確認を、小さいステップで学ぶ授業用教科書。",
+      "translation": "HelloAndroid, built with Java and XML. A class textbook that teaches, in small steps, where to work and how to check that it worked."
+    },
+    {
+      "source": "HelloAndroid — はじめてのアプリ作り | Androidプログラミング1",
+      "translation": "HelloAndroid — Building Your First App | Android Programming 1"
+    },
+    {
+      "source": "本文へ移動",
+      "translation": "Skip to main content"
+    },
+    {
+      "source": "JEC / Androidプログラミング1",
+      "translation": "JEC / Android Programming 1"
+    },
+    {
+      "source": "授業用教科書 · Java + XML",
+      "translation": "Class textbook · Java + XML"
+    },
+    {
+      "source": "CONTENTS / 学習の順番",
+      "translation": "CONTENTS / Order of learning"
+    },
+    {
+      "source": "学習ステップ",
+      "translation": "Learning steps"
+    },
+    {
+      "source": "00　今日のゴール",
+      "translation": "00 Today's goals"
+    },
+    {
+      "source": "01　プロジェクトを作る",
+      "translation": "01 Create the project"
+    },
+    {
+      "source": "02　ファイルと実行",
+      "translation": "02 Files and Run"
+    },
+    {
+      "source": "03　文字とボタン",
+      "translation": "03 Text and a button"
+    },
+    {
+      "source": "04　クリックで文字を変える",
+      "translation": "04 Change the text with a click"
+    },
+    {
+      "source": "05　Logcatで確認",
+      "translation": "05 Check with Logcat"
+    },
+    {
+      "source": "06　横に並べる",
+      "translation": "06 Line up side by side"
+    },
+    {
+      "source": "07　SnackbarとToast",
+      "translation": "07 Snackbar and Toast"
+    },
+    {
+      "source": "08　ミニ練習",
+      "translation": "08 Mini exercises"
+    },
+    {
+      "source": "09　完成",
+      "translation": "09 Finished"
+    },
+    {
+      "source": "0 / 10 ステップ確認済み",
+      "translation": "0 / 10 steps checked"
+    },
+    {
+      "source": "学習の進み具合",
+      "translation": "Learning progress"
+    },
+    {
+      "source": "自分用のチェックです。",
+      "translation": "These checks are for your own use."
+    },
+    {
+      "source": "困ったとき",
+      "translation": "If you get stuck"
+    },
+    {
+      "source": "完成プロジェクトを開く",
+      "translation": "Open the finished project"
+    },
+    {
+      "source": "共通：はじめの準備",
+      "translation": "Shared: First-time setup"
+    },
+    {
+      "source": "共通：エミュレータ",
+      "translation": "Shared: Emulator"
+    },
+    {
+      "source": "共通：Logcat",
+      "translation": "Shared: Logcat"
+    },
+    {
+      "source": "共通：APKの提出",
+      "translation": "Shared: Submitting an APK"
+    },
+    {
+      "source": "共通：開発Tips",
+      "translation": "Shared: Development tips"
+    },
+    {
+      "source": "共通：Android Studioのバージョン",
+      "translation": "Shared: Android Studio versions"
+    },
+    {
+      "source": "共通：Auto Import",
+      "translation": "Shared: Auto Import"
+    },
+    {
+      "source": "はじめての<br>アプリ作り",
+      "translation": "Building your<br>first app"
+    },
+    {
+      "source": "ボタンを押す。文字が変わる。<br>小さい「できた」を、ひとつずつ。",
+      "translation": "Press a button. The text changes.<br>One small \"I did it!\" at a time."
+    },
+    {
+      "source": "Macで学ぶ",
+      "translation": "Learn on a Mac"
+    },
+    {
+      "source": "90分 × 2コマ目安",
+      "translation": "About 90 min × 2 class periods"
+    },
+    {
+      "source": "予習なしで始められる",
+      "translation": "No preparation needed to start"
+    },
+    {
+      "source": "STEP 00 · 目安 5分",
+      "translation": "STEP 00 · about 5 min"
+    },
+    {
+      "source": "今日できるようになること",
+      "translation": "What you will be able to do today"
+    },
+    {
+      "source": "スマートフォンのアプリは、<strong>画面</strong>と<strong>動き</strong>を組み合わせて作ります。今日は、ボタンを押すと文字が変わるアプリを作ります。",
+      "translation": "A smartphone app is made by combining a <strong>screen</strong> and <strong>behavior</strong>. Today, you will make an app where the text changes when you press a button."
+    },
+    {
+      "source": "XMLで画面を作り、Javaで動きを付け、エミュレータで確かめる",
+      "translation": "Build the screen in XML, add behavior in Java, and check it on the emulator"
+    },
+    {
+      "source": "XML：画面を作る",
+      "translation": "XML: build the screen"
+    },
+    {
+      "source": "Java：動きを付ける",
+      "translation": "Java: add behavior"
+    },
+    {
+      "source": "動かして確かめる",
+      "translation": "Run it and check"
+    },
+    {
+      "source": "完成アプリの起動直後。Hello World!の下にテキストを変更するボタンと1、2、3のボタンがある",
+      "translation": "The finished app right after launch. Below Hello World!, there are the 「テキストを変更する」 (Change text) button and the 1, 2, and 3 buttons."
+    },
+    {
+      "source": "① 完成アプリを起動したとき：<strong>Hello World!</strong> <a1>画像を大きく開く</a1>",
+      "translation": "① When you launch the finished app: <strong>Hello World!</strong> <a1>Open the full-size image</a1>"
+    },
+    {
+      "source": "テキストを変更するボタンを押した後、Hello, Android!と表示されている",
+      "translation": "After the 「テキストを変更する」 (Change text) button is pressed, Hello, Android! is displayed."
+    },
+    {
+      "source": "② 変更ボタンを押したあと：<strong>Hello, Android!</strong> <a1>画像を大きく開く</a1>",
+      "translation": "② After you press the change button: <strong>Hello, Android!</strong> <a1>Open the full-size image</a1>"
+    },
+    {
+      "source": "ゴールは3つ",
+      "translation": "Three goals"
+    },
+    {
+      "source": "自分のMacでアプリを起動（きどう）できる。",
+      "translation": "You can launch the app on your own Mac."
+    },
+    {
+      "source": "ボタンを押して、画面の文字を変えられる。",
+      "translation": "You can press a button to change the text on the screen."
+    },
+    {
+      "source": "「1」でSnackbar、「2」でToastを表示できる。",
+      "translation": "You can show a Snackbar with \"1\" and a Toast with \"2\"."
+    },
+    {
+      "source": "「3」は、ボタンの見た目を比べるために置きます。押してもメッセージは出ません。",
+      "translation": "\"3\" is there so that you can compare how the buttons look. No message appears when you press it."
+    },
+    {
+      "source": "2コマで進めます（1コマ90分）",
+      "translation": "We take 2 class periods (90 min each)"
+    },
+    {
+      "source": "授業",
+      "translation": "Class"
+    },
+    {
+      "source": "進めるところ",
+      "translation": "What we cover"
+    },
+    {
+      "source": "できるようになること",
+      "translation": "What you will be able to do"
+    },
+    {
+      "source": "1コマ目",
+      "translation": "Period 1"
+    },
+    {
+      "source": "プロジェクトを作り、ボタンで文字を変える。",
+      "translation": "Create a project and change the text with a button."
+    },
+    {
+      "source": "2コマ目",
+      "translation": "Period 2"
+    },
+    {
+      "source": "ログと短いメッセージを確認し、自分で少し変える。",
+      "translation": "Check logs and short messages, and make small changes on your own."
+    },
+    {
+      "source": "各コマに、操作をやり直す時間と、先生と一緒に確認する時間があります。",
+      "translation": "Each class period has time to redo the steps and time to check your work together with the teacher."
+    },
+    {
+      "source": "この授業では、毎回、<strong>自分でAndroid Studioからプロジェクトを新規作成</strong>します。今回はSTEP 1から <code>A01HelloAndroid</code> を作ります。",
+      "translation": "In this class, <strong>you create a new project yourself in Android Studio</strong> every time. This time, you create <code>A01HelloAndroid</code>, starting from STEP 1."
+    },
+    {
+      "source": "<a1>完成プロジェクト</a1>は、最初の授業からいつでも見られる参考資料です。自分で作ったコードと比べたり、動きを確かめたりするときに使います。",
+      "translation": "The <a1>finished project</a1> is a reference that you can look at any time, from the first class on. Use it to compare with the code you wrote or to check how the app behaves."
+    },
+    {
+      "source": "この教科書の進め方",
+      "translation": "How to use this textbook"
+    },
+    {
+      "source": "先生の説明を聞く → 小さい範囲を入力する → Runで動かす → チェックする。この順で進めます。家で予習していなくても始められます。",
+      "translation": "Listen to the teacher's explanation → type a small part → run it with Run → check it off. We go in this order. You can start even if you have not prepared at home."
+    },
+    {
+      "source": "分からない言葉に印を付けましょう。「STEP 4の、varが分かりません」のように、ステップ番号と言葉だけでも質問できます。",
+      "translation": "Mark the words you do not understand. You can ask a question with just the step number and the word, like 「STEP 4の、varが分かりません」 (\"I don't understand var in STEP 4\")."
+    },
+    {
+      "source": "まず使う言葉",
+      "translation": "Words we use first"
+    },
+    {
+      "source": "言葉・読み方",
+      "translation": "Word and how to read it"
+    },
+    {
+      "source": "この授業での意味",
+      "translation": "Meaning in this class"
+    },
+    {
+      "source": "プロジェクト",
+      "translation": "プロジェクト — project"
+    },
+    {
+      "source": "1つのアプリを作るためのファイルの集まり。",
+      "translation": "A collection of files for making one app."
+    },
+    {
+      "source": "コード",
+      "translation": "コード — code"
+    },
+    {
+      "source": "コンピュータへの指示を書いた文。",
+      "translation": "Text that gives instructions to the computer."
+    },
+    {
+      "source": "XML（エックスエムエル）",
+      "translation": "XML (エックスエムエル)"
+    },
+    {
+      "source": "文字やボタンの位置・見た目を書くファイル。",
+      "translation": "A file that describes the position and appearance of text and buttons."
+    },
+    {
+      "source": "Java（ジャバ）",
+      "translation": "Java (ジャバ)"
+    },
+    {
+      "source": "ボタンを押したときの動きなどを書く言語。",
+      "translation": "A language for writing things like what happens when a button is pressed."
+    },
+    {
+      "source": "実行（じっこう） / Run（ラン）",
+      "translation": "実行（じっこう） / Run（ラン） — run"
+    },
+    {
+      "source": "作ったアプリを動かすこと。",
+      "translation": "To make the app you built run."
+    },
+    {
+      "source": "エミュレータ",
+      "translation": "エミュレータ — emulator"
+    },
+    {
+      "source": "Macの中で動く、練習用のAndroid端末。",
+      "translation": "An Android device for practice that runs inside your Mac."
+    },
+    {
+      "source": "ここで止まって、確認（かくにん）",
+      "translation": "Stop here and check"
+    },
+    {
+      "source": "今日作るアプリの「文字を変えるボタン」を、上の画像で指させた。",
+      "translation": "I was able to point to the \"button that changes the text\" of today's app in the images above."
+    },
+    {
+      "source": "できたらチェックします。できないときは、この画面を先生に見せましょう。",
+      "translation": "Check the box when you have done it. If you cannot do it, show this screen to the teacher."
+    },
+    {
+      "source": "次へ：プロジェクトを作る →",
+      "translation": "Next: Create the project →"
+    },
+    {
+      "source": "STEP 01 · 目安 15分",
+      "translation": "STEP 01 · about 15 min"
+    },
+    {
+      "source": "プロジェクトを作る",
+      "translation": "Create the project"
+    },
+    {
+      "source": "このステップのゴール",
+      "translation": "Goal of this step"
+    },
+    {
+      "source": "<code>A01HelloAndroid</code> をAndroid Studioで開きます。",
+      "translation": "Open <code>A01HelloAndroid</code> in Android Studio."
+    },
+    {
+      "source": "授業では <strong>Android Studio Panda 2 | 2025.3.2</strong> とMacを使います。最初の準備にはインターネット接続が必要です。",
+      "translation": "In class, we use <strong>Android Studio Panda 2 | 2025.3.2</strong> and a Mac. The first-time setup needs an internet connection."
+    },
+    {
+      "source": "Android Studioの「Java / Empty Views Activity」のひな形から、自分のプロジェクトを新しく作ります。",
+      "translation": "Create your own new project from the \"Java / Empty Views Activity\" template in Android Studio."
+    },
+    {
+      "source": "Android Studioを開き、<strong>New Project</strong>（新しいプロジェクト）をクリックします。別のプロジェクトが開いていたら、上のメニューから <strong>File → New → New Project</strong> を選びます。",
+      "translation": "Open Android Studio and click <strong>New Project</strong>. If another project is open, select <strong>File → New → New Project</strong> from the menu at the top."
+    },
+    {
+      "source": "Android Studioの最初の画面。右上のNew Projectが赤い枠で示されている",
+      "translation": "The first screen of Android Studio. New Project at the top right is marked with a red frame."
+    },
+    {
+      "source": "New Projectをクリックします。赤い枠が目印です。 <a1>画像を大きく開く</a1>",
+      "translation": "Click New Project. The red frame marks it. <a1>Open the full-size image</a1>"
+    },
+    {
+      "source": "<strong>Phone and Tablet → Empty Views Activity → Next</strong> の順に選びます。<strong>Views</strong> の文字を確認してください。",
+      "translation": "Select <strong>Phone and Tablet → Empty Views Activity → Next</strong> in this order. Make sure that you see the word <strong>Views</strong>."
+    },
+    {
+      "source": "Phone and Tabletの一覧で、中央にあるEmpty Views Activityを選択している",
+      "translation": "In the Phone and Tablet list, Empty Views Activity in the center is selected."
+    },
+    {
+      "source": "選ぶ名前は「Empty Views Activity」です。 <a1>画像を大きく開く</a1>",
+      "translation": "The name to select is \"Empty Views Activity\". <a1>Open the full-size image</a1>"
+    },
+    {
+      "source": "Finderの <strong>移動 → ホーム</strong> を開き、ホームフォルダの名前（自分のユーザ名）を確認します。",
+      "translation": "In Finder, open <strong>移動 → ホーム</strong> (Go → Home), and check the name of your home folder (your user name)."
+    },
+    {
+      "source": "その中の <strong>書類（Documents）</strong> を開きます。<code>Android1</code> フォルダがなければ、<strong>ファイル → 新規フォルダ</strong> で作り、名前を <code>Android1</code> にします。",
+      "translation": "Inside it, open <strong>書類 (Documents)</strong>. If there is no <code>Android1</code> folder, create one with <strong>ファイル → 新規フォルダ</strong> (File → New Folder) and name it <code>Android1</code>."
+    },
+    {
+      "source": "Android Studioに戻り、次の表に合わせて入力します。",
+      "translation": "Go back to Android Studio and fill in the screen as shown in the following table."
+    },
+    {
+      "source": "画面の項目",
+      "translation": "Item on the screen"
+    },
+    {
+      "source": "入力・選択する内容",
+      "translation": "What to enter or select"
+    },
+    {
+      "source": "Name（名前）",
+      "translation": "Name"
+    },
+    {
+      "source": "Package name（アプリを区別する名前）",
+      "translation": "Package name (a name that identifies the app)"
+    },
+    {
+      "source": "<code>jp.ac.jec.a01helloandroid</code>（すべて小文字）",
+      "translation": "<code>jp.ac.jec.a01helloandroid</code> (all lowercase)"
+    },
+    {
+      "source": "Save location（保存する場所）",
+      "translation": "Save location"
+    },
+    {
+      "source": "<code>/Users/ユーザ名/Documents/Android1/A01HelloAndroid</code><br>「ユーザ名」を、自分のMacのユーザ名に読み替えます。",
+      "translation": "<code>/Users/ユーザ名/Documents/Android1/A01HelloAndroid</code><br>Replace 「ユーザ名」 (user name) with the user name of your own Mac."
+    },
+    {
+      "source": "Language（言語）",
+      "translation": "Language"
+    },
+    {
+      "source": "Minimum SDK（動作するAndroidの下限）",
+      "translation": "Minimum SDK (the oldest Android version the app runs on)"
+    },
+    {
+      "source": "<strong>Kotlin DSL（build.gradle.kts）</strong>。アプリを書く言語のJavaとは別の設定です。",
+      "translation": "<strong>Kotlin DSL (build.gradle.kts)</strong>. This setting is separate from Java, the language you write the app in."
+    },
+    {
+      "source": "プロジェクト設定。名前A01HelloAndroid、パッケージjp.ac.jec.a01helloandroid、言語Java、Minimum SDKはAPI 31",
+      "translation": "Project settings. The name is A01HelloAndroid, the package is jp.ac.jec.a01helloandroid, the language is Java, and the Minimum SDK is API 31."
+    },
+    {
+      "source": "画像のSave locationは先生の例です。学生は <code>/Users/ユーザ名/Documents/Android1/A01HelloAndroid</code> に読み替えます。 <a1>画像を大きく開く</a1>",
+      "translation": "The Save location in the image is the teacher's example. Students use <code>/Users/ユーザ名/Documents/Android1/A01HelloAndroid</code> instead. <a1>Open the full-size image</a1>"
+    },
+    {
+      "source": "Finishを押す前に、保存先を確認",
+      "translation": "Check the save location before you click Finish"
+    },
+    {
+      "source": "ユーザ名が <code>cmstudent</code> の場合は、<code>/Users/cmstudent/Documents/Android1/A01HelloAndroid</code> です。<code>ユーザ名</code> という文字をそのまま入力しません。",
+      "translation": "If your user name is <code>cmstudent</code>, it is <code>/Users/cmstudent/Documents/Android1/A01HelloAndroid</code>. Do not type the text <code>ユーザ名</code> (user name) as it is."
+    },
+    {
+      "source": "保存先の最後が <code>Documents/Android1/A01HelloAndroid</code> になっていることを確認します。すでに同名のプロジェクトがあるときは、先生に画面を見せます。",
+      "translation": "Check that the save location ends with <code>Documents/Android1/A01HelloAndroid</code>. If a project with the same name already exists, show your screen to the teacher."
+    },
+    {
+      "source": "<strong>Finish</strong>（完了）をクリックします。",
+      "translation": "Click <strong>Finish</strong>."
+    },
+    {
+      "source": "<strong>Gradle Sync</strong>（必要な設定や部品をそろえる処理）が終わるまで待ちます。下の進行表示が終わり、失敗を示す赤い表示がなければ次へ進みます。",
+      "translation": "Wait until <strong>Gradle Sync</strong> (a process that gets the needed settings and parts ready) finishes. When the progress display at the bottom finishes and no red message shows a failure, go on to the next step."
+    },
+    {
+      "source": "MainActivity.ktができたとき",
+      "translation": "If MainActivity.kt was created"
+    },
+    {
+      "source": "この授業で開くのは <code>MainActivity.java</code> です。<code>.kt</code> しか見つからない場合は、先生に画面を見せてください。Empty Views Activity / Javaの選択を確認します。",
+      "translation": "The file you open in this class is <code>MainActivity.java</code>. If you can find only <code>.kt</code>, show your screen to the teacher. We will check that Empty Views Activity / Java was selected."
+    },
+    {
+      "source": "プロジェクトが開いたら、<a1>共通資料：Auto Importの設定</a1>を行います。この設定は、以降のJavaの入力で使います。",
+      "translation": "When the project opens, do the steps in <a1>Shared guide: Setting up Auto Import</a1>. You will use this setting whenever you type Java from now on."
+    },
+    {
+      "source": "プロジェクト名と保存先を確認し、MainActivity.javaを開いた。Auto Importも設定できた。",
+      "translation": "I checked the project name and the save location, and opened MainActivity.java. I also set up Auto Import."
+    },
+    {
+      "source": "次へ：ファイルを見つけて動かす →",
+      "translation": "Next: Find the files and run the app →"
+    },
+    {
+      "source": "STEP 02 · 目安 10分",
+      "translation": "STEP 02 · about 10 min"
+    },
+    {
+      "source": "ファイルを見つけて動かす",
+      "translation": "Find the files and run the app"
+    },
+    {
+      "source": "まず、何も変えずに実行します。最初の画面を確かめてから、コードを変えます。",
+      "translation": "First, run the app without changing anything. Check the first screen, and then change the code."
+    },
+    {
+      "source": "① 使うファイルを2つ見つける",
+      "translation": "① Find the two files you will use"
+    },
+    {
+      "source": "左のフォルダ一覧を開きます。見えないときは <strong>View → Tool Windows → Project</strong>。",
+      "translation": "Open the folder list on the left. If you cannot see it, select <strong>View → Tool Windows → Project</strong>."
+    },
+    {
+      "source": "一覧の上が <strong>Project</strong> になっていることを確認します。Panda 2では、最初からProject表示です。",
+      "translation": "Check that the top of the list says <strong>Project</strong>. In Panda 2, the Project view is shown from the start."
+    },
+    {
+      "source": "<code>A01HelloAndroid → app → src → main → res → layout → activity_main.xml</code> をダブルクリックします。",
+      "translation": "Double-click <code>A01HelloAndroid → app → src → main → res → layout → activity_main.xml</code>."
+    },
+    {
+      "source": "<code>A01HelloAndroid → app → src → main → java → jp → ac → jec → a01helloandroid → MainActivity.java</code> を開きます。<code>jp.ac.jec.a01helloandroid</code> のように、途中のフォルダがまとめて表示される場合もあります。",
+      "translation": "Open <code>A01HelloAndroid → app → src → main → java → jp → ac → jec → a01helloandroid → MainActivity.java</code>. Sometimes the folders in the middle are shown together, like <code>jp.ac.jec.a01helloandroid</code>."
+    },
+    {
+      "source": "ファイル",
+      "translation": "File"
+    },
+    {
+      "source": "何を書く？",
+      "translation": "What do you write in it?"
+    },
+    {
+      "source": "文字やボタンを、どこに置くか。",
+      "translation": "Where to place the text and the buttons."
+    },
+    {
+      "source": "ボタンを押したら、何をするか。",
+      "translation": "What to do when a button is pressed."
+    },
+    {
+      "source": "どちらも <code>app/src/main</code> の中です。<code>src/test</code> と <code>src/androidTest</code> は今回の編集場所ではありません。",
+      "translation": "Both are inside <code>app/src/main</code>. You do not edit <code>src/test</code> or <code>src/androidTest</code> this time."
+    },
+    {
+      "source": "② Runで動かす",
+      "translation": "② Run the app with Run"
+    },
+    {
+      "source": "<a1>共通資料：エミュレータの準備とアプリの実行</a1> を開き、端末を起動します。",
+      "translation": "Open <a1>Shared guide: Setting up the emulator and running an app</a1>, and launch the device."
+    },
+    {
+      "source": "Android Studioの上部で実行するものを <strong>app</strong>、端末を <strong>jec_26cm_android1_Pixel 9a</strong> にします。",
+      "translation": "At the top of Android Studio, set what to run to <strong>app</strong> and the device to <strong>jec_26cm_android1_Pixel 9a</strong>."
+    },
+    {
+      "source": "三角形の <strong>Run ▶</strong> をクリックします。",
+      "translation": "Click the triangle-shaped <strong>Run ▶</strong>."
+    },
+    {
+      "source": "端末画面に <strong>Hello World!</strong> だけが出れば成功です。最初の起動は時間がかかることがあります。",
+      "translation": "If only <strong>Hello World!</strong> appears on the device screen, it worked. The first launch may take some time."
+    },
+    {
+      "source": "出発点の画面。中央にHello World!だけが表示されている",
+      "translation": "The starting screen. Only Hello World! is displayed in the center."
+    },
+    {
+      "source": "STEP 2の成功画面：まだボタンはありません。 <a1>画像を大きく開く</a1>",
+      "translation": "The success screen for STEP 2: there are no buttons yet. <a1>Open the full-size image</a1>"
+    },
+    {
+      "source": "変更前のアプリで、Hello World!だけを表示できた。",
+      "translation": "I was able to display only Hello World! in the app before any changes."
+    },
+    {
+      "source": "次へ：画面を作る →",
+      "translation": "Next: Build the screen →"
+    },
+    {
+      "source": "STEP 03 · 目安 20分",
+      "translation": "STEP 03 · about 20 min"
+    },
+    {
+      "source": "文字とボタンを置く",
+      "translation": "Place text and a button"
+    },
+    {
+      "source": "画面の中央に、文字と「テキストを変更する」ボタンを縦に並べます。",
+      "translation": "Line up the text and the 「テキストを変更する」 (Change text) button vertically in the center of the screen."
+    },
+    {
+      "source": "変更するファイル：app/src/main/res/layout/activity_main.xml",
+      "translation": "File to change: app/src/main/res/layout/activity_main.xml"
+    },
+    {
+      "source": "① XMLを文字で表示する",
+      "translation": "① Show the XML as text"
+    },
+    {
+      "source": "<code>activity_main.xml</code> を開き、エディタ右上の <strong>Code</strong> を選びます。Codeは文字で編集する表示、Designは見た目で編集する表示です。アイコンだけの場合は、マウスを重ねて名前を確認します。",
+      "translation": "Open <code>activity_main.xml</code> and select <strong>Code</strong> at the top right of the editor. Code is the view where you edit as text, and Design is the view where you edit by appearance. If you see only icons, hover the mouse over them to check their names."
+    },
+    {
+      "source": "② ファイル全体を、次の内容に置き換える",
+      "translation": "② Replace the whole file with the following content"
+    },
+    {
+      "source": "XMLの中をクリックし、<kbd>⌘ A</kbd> で全部選びます。下のコードをコピーし、<kbd>⌘ V</kbd> で貼り付けます。",
+      "translation": "Click inside the XML and press <kbd>⌘ A</kbd> to select everything. Copy the code below and paste it with <kbd>⌘ V</kbd>."
+    },
+    {
+      "source": "ここでは、ひな形の <code>ConstraintLayout</code> を、縦に並べやすい <code>LinearLayout</code> に変えます。古いXMLに追加せず、<strong>全体を置き換えます</strong>。",
+      "translation": "Here, we change the <code>ConstraintLayout</code> of the template to <code>LinearLayout</code>, which makes it easy to line things up vertically. Do not add to the old XML. <strong>Replace the whole file</strong>."
+    },
+    {
+      "source": "activity_main.xml · 全体を置き換える",
+      "translation": "activity_main.xml · replace the whole file"
+    },
+    {
+      "source": "③ 変えたところを読む",
+      "translation": "③ Read what changed"
+    },
+    {
+      "source": "意味",
+      "translation": "Meaning"
+    },
+    {
+      "source": "<code>LinearLayout</code>（リニアレイアウト）",
+      "translation": "<code>LinearLayout</code>"
+    },
+    {
+      "source": "部品を一列に並べる入れ物。",
+      "translation": "A container that lines up components in a single line."
+    },
+    {
+      "source": "中の部品を縦に並べる。",
+      "translation": "Lines up the components inside it vertically."
+    },
+    {
+      "source": "中の部品を中央に置く。",
+      "translation": "Places the components inside it in the center."
+    },
+    {
+      "source": "文字を表示する部品 / 押せる部品。",
+      "translation": "A component that displays text / a component that you can press."
+    },
+    {
+      "source": "部品に <code>text</code> という名前を付ける。あとでJavaから探すための目印。",
+      "translation": "Gives the component the name <code>text</code>. It is a marker for finding the component from Java later."
+    },
+    {
+      "source": "画面に表示する文字。部品のidとは別。",
+      "translation": "The text to display on the screen. It is separate from the id of the component."
+    },
+    {
+      "source": "親の入れ物の大きさに合わせる。",
+      "translation": "Matches the size of the parent container."
+    },
+    {
+      "source": "中身に必要な大きさにする。",
+      "translation": "Makes it just as big as its content needs."
+    },
+    {
+      "source": "上にすき間を作る。<code>dp</code> は画面上の大きさを指定する単位。",
+      "translation": "Makes a gap above. <code>dp</code> is a unit for specifying sizes on the screen."
+    },
+    {
+      "source": "用意された見た目の設定を使う。",
+      "translation": "Uses a ready-made appearance setting."
+    },
+    {
+      "source": "<code>&lt;LinearLayout&gt;</code> で入れ物を始め、<code>&lt;/LinearLayout&gt;</code> で閉じます。<code>&lt;TextView … /&gt;</code> の <code>/&gt;</code> は、その部品の終わりです。",
+      "translation": "<code>&lt;LinearLayout&gt;</code> starts the container, and <code>&lt;/LinearLayout&gt;</code> closes it. The <code>/&gt;</code> of <code>&lt;TextView … /&gt;</code> is the end of that component."
+    },
+    {
+      "source": "入力のポイント",
+      "translation": "Tips for typing"
+    },
+    {
+      "source": "<code>id/main</code> は、ひな形のJavaでも使っています。消さずに残します。記号は半角の <code>\"</code>、<code>&lt;</code>、<code>&gt;</code> を使います。",
+      "translation": "<code>id/main</code> is also used in the Java of the template. Do not delete it. Keep it. For symbols, use the half-width <code>\"</code>, <code>&lt;</code>, and <code>&gt;</code>."
+    },
+    {
+      "source": "文字を直接書くと <code>Hardcoded string</code> という警告が出る場合があります。この単元では文字を直接書きます。赤いエラーで実行できない場合は、警告と分けて先生に見せてください。",
+      "translation": "When you write text directly, a warning called <code>Hardcoded string</code> may appear. In this unit, we write text directly. If you cannot run the app because of a red error, treat it separately from the warning and show it to the teacher."
+    },
+    {
+      "source": "④ Runで確かめる",
+      "translation": "④ Check with Run"
+    },
+    {
+      "source": "<strong>Run ▶</strong>。Hello World!の下にボタンが出ます。今は押しても文字が変わりません。動きは次のステップで付けます。",
+      "translation": "Click <strong>Run ▶</strong>. A button appears below Hello World! on the screen. For now, the text does not change when you press it. We add the behavior in the next step."
+    },
+    {
+      "source": "STEP 3の画面。中央にHello World!とテキストを変更するボタンが縦に並んでいる",
+      "translation": "The STEP 3 screen. Hello World! and the 「テキストを変更する」 (Change text) button are lined up vertically in the center."
+    },
+    {
+      "source": "STEP 3の成功画面：文字とボタンの2つが並びます。 <a1>画像を大きく開く</a1>",
+      "translation": "The success screen for STEP 3: two things, the text and the button, are lined up. <a1>Open the full-size image</a1>"
+    },
+    {
+      "source": "Hello World!と、その下の「テキストを変更する」ボタンが中央に出た。",
+      "translation": "Hello World! and, below it, the 「テキストを変更する」 (Change text) button appeared in the center."
+    },
+    {
+      "source": "次へ：ボタンに動きを付ける →",
+      "translation": "Next: Add behavior to the button →"
+    },
+    {
+      "source": "STEP 04 · 目安 20分",
+      "translation": "STEP 04 · about 20 min"
+    },
+    {
+      "source": "ボタンを押して文字を変える",
+      "translation": "Press the button to change the text"
+    },
+    {
+      "source": "変更するファイル：app/src/main/java/jp/ac/jec/a01helloandroid/MainActivity.java",
+      "translation": "File to change: app/src/main/java/jp/ac/jec/a01helloandroid/MainActivity.java"
+    },
+    {
+      "source": "<code>MainActivity</code> は、このアプリの画面を担当します。<code>onCreate</code>（オン・クリエイト）は、その画面を作るときに呼ばれる<strong>メソッド</strong>です。メソッドは、いくつかの処理に名前を付けたまとまりです。",
+      "translation": "<code>MainActivity</code> is in charge of the screen of this app. <code>onCreate</code> is a <strong>method</strong> that is called when that screen is created. A method is a group of several steps that has been given a name."
+    },
+    {
+      "source": "Javaを入力すると、設定したAuto Importが必要なimport文を追加します。設定がまだの場合は、<a1>共通資料</a1>で確認します。",
+      "translation": "As you type Java, the Auto Import that you set up adds the import statements you need. If you have not set it up yet, check the <a1>shared guide</a1>."
+    },
+    {
+      "source": "① 追加する場所を見つける",
+      "translation": "① Find the place to add the code"
+    },
+    {
+      "source": "ひな形の <code>ViewCompat.setOnApplyWindowInsetsListener</code> から始まる部分を見つけます。その末尾の <code>return insets;</code> と <code>});</code> の<strong>下</strong>に追加します。<code>onCreate</code> の最後の <code>}</code> より<strong>上</strong>です。",
+      "translation": "Find the part of the template that starts with <code>ViewCompat.setOnApplyWindowInsetsListener</code>. Add the code <strong>below</strong> the <code>return insets;</code> and <code>});</code> at the end of that part. This is <strong>above</strong> the last <code>}</code> of <code>onCreate</code>."
+    },
+    {
+      "source": "場所の目印 · この枠は入力しません",
+      "translation": "Marker for the place · do not type what is in this box"
+    },
+    {
+      "source": "上のひな形の部分は、画面の端の余白を調整します。今日はそのまま使います。",
+      "translation": "The template part above adjusts the space at the edges of the screen. Today, we use it as it is."
+    },
+    {
+      "source": "② 次のコードを追加する",
+      "translation": "② Add the following code"
+    },
+    {
+      "source": "追加 · onCreateの中",
+      "translation": "Add · inside onCreate"
+    },
+    {
+      "source": "③ 1行ずつ意味を確かめる",
+      "translation": "③ Check the meaning line by line"
+    },
+    {
+      "source": "XMLで <code>@+id/text</code> と名前を付けた部品を探す。<code>R</code> はAndroidが用意する資源の一覧。自分でRファイルは作りません。",
+      "translation": "Finds the component that you named <code>@+id/text</code> in the XML. <code>R</code> is a list of resources that Android prepares. You do not create the R file yourself."
+    },
+    {
+      "source": "見つけた部品を、文字の部品として扱う指定（キャスト）。",
+      "translation": "Tells Java to treat the component it found as a text component (a cast)."
+    },
+    {
+      "source": "見つけた部品を <code>text</code> という名前で使えるようにする。この名前を<strong>変数（へんすう）</strong>といいます。<code>var</code> は、右側から変数の型を決めます。",
+      "translation": "Makes the component it found usable under the name <code>text</code>. This name is called a <strong>variable</strong> (変数, へんすう). <code>var</code> decides the type of the variable from the right side."
+    },
+    {
+      "source": "ボタンが押されたときに行う処理を登録する。",
+      "translation": "Registers what to do when the button is pressed."
+    },
+    {
+      "source": "クリックされたら、波かっこの中を実行する書き方。<code>v</code> は押された部品です。この処理では使いませんが、STEP 7で使います。",
+      "translation": "A way of writing that runs what is inside the curly braces when the button is clicked. <code>v</code> is the component that was pressed. We do not use it here, but we use it in STEP 7."
+    },
+    {
+      "source": "<code>text</code> の表示文字を変える。<code>\" \"</code> の中が文字です。",
+      "translation": "Changes the text that <code>text</code> displays. The text is what is inside <code>\" \"</code>."
+    },
+    {
+      "source": "<code>=</code> は右側の結果を左側の名前に入れる記号です。<code>;</code> は文の終わり。<code>( )</code> には必要な情報を渡し、<code>{ }</code> で処理の範囲を囲みます。",
+      "translation": "<code>=</code> is a symbol that puts the result on the right side into the name on the left side. <code>;</code> is the end of a statement. You pass the needed information in <code>( )</code>, and you use <code>{ }</code> to enclose the range of the steps."
+    },
+    {
+      "source": "押す前に予想する",
+      "translation": "Predict before you press"
+    },
+    {
+      "source": "アプリを起動しただけでHello, Android!に変わるでしょうか。予想をメモしてから、Runで確かめましょう。",
+      "translation": "Will the text change to Hello, Android! just by launching the app? Write down your prediction, and then check with Run."
+    },
+    {
+      "source": "確かめたあとに答えを見る",
+      "translation": "See the answer after you check"
+    },
+    {
+      "source": "起動したときはHello World!。変更ボタンを押すとHello, Android!になります。<code>setText</code> がクリックの処理の中にあるからです。",
+      "translation": "The text is Hello World! when the app launches. It becomes Hello, Android! when you press the change button. This is because <code>setText</code> is inside the code that runs on a click."
+    },
+    {
+      "source": "Runします。",
+      "translation": "Run the app."
+    },
+    {
+      "source": "最初は <strong>Hello World!</strong> と表示されることを確認します。",
+      "translation": "Check that <strong>Hello World!</strong> is displayed at first."
+    },
+    {
+      "source": "<strong>テキストを変更する</strong> を1回押します。",
+      "translation": "Press <strong>テキストを変更する</strong> (Change text) once."
+    },
+    {
+      "source": "<strong>Hello, Android!</strong> に変われば成功です。もう1回押しても、同じ文字が表示されます。",
+      "translation": "If it changes to <strong>Hello, Android!</strong>, it worked. If you press it one more time, the same text is displayed."
+    },
+    {
+      "source": "変更ボタンを押して、Hello World!をHello, Android!に変えられた。",
+      "translation": "I pressed the change button and changed Hello World! to Hello, Android!"
+    },
+    {
+      "source": "1コマ目はここまで",
+      "translation": "Period 1 ends here"
+    },
+    {
+      "source": "残りの時間で、Stop → Run → 変更ボタンを押す操作をもう一度行います。先生に「文字を変える行」を見せましょう。できたステップと困ったところをメモします。",
+      "translation": "In the remaining time, do Stop → Run → press the change button once more. Show your teacher \"the line that changes the text\". Write down the steps you finished and the places where you got stuck."
+    },
+    {
+      "source": "2コマ目はこのプロジェクトを開き、文字変更を確認してからSTEP 5へ進みます。家での予習は必要ありません。",
+      "translation": "In Period 2, open this project, check that the text changes, and then go on to STEP 5. You do not need to prepare at home."
+    },
+    {
+      "source": "2コマ目へ：Logcatで文字を確認する →",
+      "translation": "To Period 2: Check the text in Logcat →"
+    },
+    {
+      "source": "STEP 05 · 目安 10分",
+      "translation": "STEP 05 · about 10 min"
+    },
+    {
+      "source": "Logcatで動きを見る",
+      "translation": "See what the app does in Logcat"
+    },
+    {
+      "source": "<strong>ログ</strong>は、開発者が動きを確認するための記録です。アプリの画面に出る文字とは別に、Android Studioの <strong>Logcat</strong>（ログキャット）で読みます。",
+      "translation": "A <strong>log</strong> is a record that developers use to check what the app does. It is separate from the text shown on the app screen. You read it in <strong>Logcat</strong> in Android Studio."
+    },
+    {
+      "source": "変更するファイル：MainActivity.java",
+      "translation": "File to change: MainActivity.java"
+    },
+    {
+      "source": "① STEP 4で追加した部分を置き換える",
+      "translation": "① Replace the part you added in STEP 4"
+    },
+    {
+      "source": "<code>var text = …</code> から、変更ボタンの処理の最後の <code>});</code> までを、次のコードに置き換えます。上のひな形と、下の2つの <code>}</code> は残します。",
+      "translation": "Replace everything from <code>var text = …</code> to the last <code>});</code> of the change button's code with the code below. Keep the template code above it and the two <code>}</code> below it."
+    },
+    {
+      "source": "置き換え · STEP 4で追加した部分",
+      "translation": "Replace · the part you added in STEP 4"
+    },
+    {
+      "source": "② 新しい4行の意味",
+      "translation": "② What the four new lines mean"
+    },
+    {
+      "source": "<code>getText()</code>：今表示されている文字を取り出す。",
+      "translation": "<code>getText()</code>: gets the text that is shown now."
+    },
+    {
+      "source": "<code>toString()</code>：取り出した値を <code>String</code>（文字列）の形にする。",
+      "translation": "<code>toString()</code>: turns the value you got into a <code>String</code> (a string of text)."
+    },
+    {
+      "source": "<code>var string = …</code> / <code>var updateString = …</code>：取り出した文字に名前を付ける。<code>text</code> は画面の部品、<code>string</code> は取り出した文字です。",
+      "translation": "<code>var string = …</code> / <code>var updateString = …</code>: gives a name to the text you got. <code>text</code> is the component on the screen, and <code>string</code> is the text you got."
+    },
+    {
+      "source": "<code>Log.d(\"MainActivity\", string)</code>：目印 <code>MainActivity</code> を付けて、<code>string</code> の内容をログに出す。<code>d</code> はDebug（動作確認用）です。",
+      "translation": "<code>Log.d(\"MainActivity\", string)</code>: writes the contents of <code>string</code> to the log with the tag <code>MainActivity</code>. <code>d</code> stands for Debug (for checking how the app works)."
+    },
+    {
+      "source": "③ Logcatを開いてRunする",
+      "translation": "③ Open Logcat and run the app"
+    },
+    {
+      "source": "<a1>共通資料：Logcatの使い方</a1> に従ってLogcatを開きます。",
+      "translation": "Open Logcat by following <a1>Shared guide: How to use Logcat</a1>."
+    },
+    {
+      "source": "検索欄に <code>package:jp.ac.jec.a01helloandroid tag:MainActivity level:DEBUG</code> と入力します。",
+      "translation": "Enter <code>package:jp.ac.jec.a01helloandroid tag:MainActivity level:DEBUG</code> in the search box."
+    },
+    {
+      "source": "Runします。ログに <code>Hello World!</code> が出ます。",
+      "translation": "Run the app. <code>Hello World!</code> appears in the log."
+    },
+    {
+      "source": "変更ボタンを押します。新しい行に <code>Hello, Android!</code> が出ます。",
+      "translation": "Press the change button. <code>Hello, Android!</code> appears on a new line."
+    },
+    {
+      "source": "時刻や行の数は同じでなくて構いません。<strong>メッセージの文字</strong>を比べます。",
+      "translation": "The times and the number of lines do not have to be the same. Compare <strong>the text of the messages</strong>."
+    },
+    {
+      "source": "Logcatで、起動時とクリック後の2種類の文字を見つけた。",
+      "translation": "In Logcat, I found two kinds of text: one from launch and one from after the click."
+    },
+    {
+      "source": "次へ：ボタンを横に並べる →",
+      "translation": "Next: Line up the buttons side by side →"
+    },
+    {
+      "source": "STEP 06 · 目安 15分",
+      "translation": "STEP 06 · about 15 min"
+    },
+    {
+      "source": "3つのボタンを横に並べる",
+      "translation": "Line up three buttons side by side"
+    },
+    {
+      "source": "変更するファイル：activity_main.xml",
+      "translation": "File to change: activity_main.xml"
+    },
+    {
+      "source": "縦に並ぶ入れ物の中に、横に並ぶ小さい入れ物を追加します。",
+      "translation": "Inside the container that lines things up vertically, add a small container that lines things up horizontally."
+    },
+    {
+      "source": "画面の組み立て図 · 入力しません",
+      "translation": "Diagram of the screen structure · do not type this"
+    },
+    {
+      "source": "① ファイルの最後に追加する",
+      "translation": "① Add to the end of the file"
+    },
+    {
+      "source": "最後の <code>&lt;/LinearLayout&gt;</code> の<strong>直前</strong>に、次のコードを追加します。「テキストを変更する」ボタンの <code>/&gt;</code> より下です。",
+      "translation": "Add the code below <strong>just before</strong> the last <code>&lt;/LinearLayout&gt;</code>. This is below the <code>/&gt;</code> of the 「テキストを変更する」 (Change text) button."
+    },
+    {
+      "source": "追加 · 外側のLinearLayoutを閉じる直前",
+      "translation": "Add · just before the outer LinearLayout closes"
+    },
+    {
+      "source": "追加後は、ファイルの下に <code>&lt;/LinearLayout&gt;</code> が2つあります。1つは横の入れ物、もう1つは外側の縦の入れ物を閉じます。",
+      "translation": "After you add it, there are two <code>&lt;/LinearLayout&gt;</code> at the bottom of the file. One closes the horizontal container, and the other closes the outer vertical container."
+    },
+    {
+      "source": "② 縦と横の違いを読む",
+      "translation": "② Read the difference between vertical and horizontal"
+    },
+    {
+      "source": "設定",
+      "translation": "Setting"
+    },
+    {
+      "source": "この入れ物の中の部品を横に並べる。",
+      "translation": "Lines up the components in this container horizontally."
+    },
+    {
+      "source": "「2」のボタンの左右にすき間を作る。",
+      "translation": "Makes gaps on the left and right of the \"2\" button."
+    },
+    {
+      "source": "枠線のあるボタン。",
+      "translation": "A button with an outline."
+    },
+    {
+      "source": "背景に色が付くボタン。",
+      "translation": "A button with a colored background."
+    },
+    {
+      "source": "影が付くボタン。",
+      "translation": "A button with a shadow."
+    },
+    {
+      "source": "<code>style</code> の長い名前は、用意された見た目の名前です。今日は暗記せず、正しくコピーして見た目を比べます。",
+      "translation": "The long names in <code>style</code> are the names of ready-made looks. Today, do not memorize them. Copy them correctly and compare how they look."
+    },
+    {
+      "source": "追加する場所が分からない：この時点のXML全体",
+      "translation": "Not sure where to add it: the whole XML at this point"
+    },
+    {
+      "source": "下の内容で、この時点のXMLを確認できます。",
+      "translation": "You can check the XML at this point with the code below."
+    },
+    {
+      "source": "activity_main.xml · STEP 6の全体",
+      "translation": "activity_main.xml · the whole file at STEP 6"
+    },
+    {
+      "source": "③ Runで確かめる",
+      "translation": "③ Check with Run"
+    },
+    {
+      "source": "変更ボタンの下に、<strong>1・2・3</strong> が左から右へ並びます。この時点では、数字のボタンを押してもメッセージは出ません。",
+      "translation": "Below the change button, <strong>1, 2, 3</strong> line up from left to right. At this point, no message appears when you press the number buttons."
+    },
+    {
+      "source": "1・2・3のボタンを横に並べ、見た目の違いを確認できた。",
+      "translation": "I lined up the 1, 2, and 3 buttons side by side and checked how they look different."
+    },
+    {
+      "source": "次へ：短いメッセージを出す →",
+      "translation": "Next: Show short messages →"
+    },
+    {
+      "source": "STEP 07 · 目安 15分",
+      "translation": "STEP 07 · about 15 min"
+    },
+    {
+      "source": "SnackbarとToastを表示する",
+      "translation": "Show a Snackbar and a Toast"
+    },
+    {
+      "source": "数字のボタンを押したら、その数字を短いメッセージとして表示します。",
+      "translation": "When you press a number button, the app shows that number as a short message."
+    },
+    {
+      "source": "押すボタン",
+      "translation": "Button to press"
+    },
+    {
+      "source": "使うもの・読み方",
+      "translation": "What to use and how to read it"
+    },
+    {
+      "source": "今回の見え方",
+      "translation": "How it looks this time"
+    },
+    {
+      "source": "Snackbar（スナックバー）",
+      "translation": "Snackbar (スナックバー)"
+    },
+    {
+      "source": "アプリの下に「1」の帯が出て、しばらくすると消える。",
+      "translation": "A bar with \"1\" appears at the bottom of the app and disappears after a while."
+    },
+    {
+      "source": "Toast（トースト）",
+      "translation": "Toast (トースト)"
+    },
+    {
+      "source": "画面の下の方に、アプリのアイコンと「2」が出て消える。",
+      "translation": "The app icon and \"2\" appear near the bottom of the screen, then disappear."
+    },
+    {
+      "source": "処理を追加しない",
+      "translation": "No code is added"
+    },
+    {
+      "source": "メッセージは出ない。見た目を比べるためのボタン。",
+      "translation": "No message appears. This button is for comparing looks."
+    },
+    {
+      "source": "① 数字のボタンを探す2行を追加する",
+      "translation": "① Add two lines that find the number buttons"
+    },
+    {
+      "source": "<code>var button = (Button) findViewById(R.id.button);</code> のすぐ下に追加します。",
+      "translation": "Add them right below <code>var button = (Button) findViewById(R.id.button);</code>."
+    },
+    {
+      "source": "追加 · var buttonの次",
+      "translation": "Add · after var button"
+    },
+    {
+      "source": "② 数字のボタンの動きを追加する",
+      "translation": "② Add behavior to the number buttons"
+    },
+    {
+      "source": "変更ボタンの <code>button.setOnClickListener</code> の閉じる <code>});</code> の<strong>下</strong>、<code>onCreate</code> の最後の <code>}</code> より<strong>上</strong>に追加します。変更ボタンの処理は残します。",
+      "translation": "Add it <strong>below</strong> the closing <code>});</code> of the change button's <code>button.setOnClickListener</code>, and <strong>above</strong> the last <code>}</code> of <code>onCreate</code>. Keep the code for the change button."
+    },
+    {
+      "source": "追加 · 変更ボタンの処理の下",
+      "translation": "Add · below the code for the change button"
+    },
+    {
+      "source": "<code>btn1.getText()</code> と <code>btn2.getText()</code> で、ボタンに書かれた文字を取り出しています。数字の計算はしていません。",
+      "translation": "<code>btn1.getText()</code> and <code>btn2.getText()</code> get the text written on the buttons. The code does no calculation with the numbers."
+    },
+    {
+      "source": "部分",
+      "translation": "Part"
+    },
+    {
+      "source": "役割",
+      "translation": "What it does"
+    },
+    {
+      "source": "表示するSnackbarを作る。",
+      "translation": "Creates the Snackbar to show."
+    },
+    {
+      "source": "押された部品。Snackbarは、渡された部品と同じ画面に帯を出します。",
+      "translation": "The component that was pressed. The Snackbar shows its bar on the same screen as the component you pass to it."
+    },
+    {
+      "source": "表示するToastを作る。ここでの <code>this</code> は、今の画面を担当するMainActivity。",
+      "translation": "Creates the Toast to show. Here, <code>this</code> is the MainActivity in charge of the current screen."
+    },
+    {
+      "source": "メッセージとして表示する文字。",
+      "translation": "The text to show as the message."
+    },
+    {
+      "source": "短い時間だけ表示する設定。",
+      "translation": "A setting that shows the message for only a short time."
+    },
+    {
+      "source": "作ったメッセージを実際に表示する。忘れると表示されない。",
+      "translation": "Actually shows the message you created. If you forget it, nothing is shown."
+    },
+    {
+      "source": "③ 1つずつ押して確かめる",
+      "translation": "③ Press them one at a time and check"
+    },
+    {
+      "source": "「1」を押します。下の帯に「1」が出たら、消えるまで待ちます。",
+      "translation": "Press \"1\". When \"1\" appears in the bar at the bottom, wait until it disappears."
+    },
+    {
+      "source": "「2」を押します。小さな表示に「2」が出たら、消えるまで待ちます。",
+      "translation": "Press \"2\". When \"2\" appears in a small message, wait until it disappears."
+    },
+    {
+      "source": "「3」を押します。メッセージが出ないことを確かめます。",
+      "translation": "Press \"3\". Check that no message appears."
+    },
+    {
+      "source": "数字1を押すと画面の下に黒い帯のSnackbarが現れ、1と表示される",
+      "translation": "When the number 1 is pressed, a Snackbar with a black bar appears at the bottom of the screen and shows 1"
+    },
+    {
+      "source": "「1」→ Snackbar <a1>画像を大きく開く</a1>",
+      "translation": "\"1\" → Snackbar <a1>Open the full-size image</a1>"
+    },
+    {
+      "source": "数字2を押すと下の方にアプリアイコン付きのToastが現れ、2と表示される",
+      "translation": "When the number 2 is pressed, a Toast with the app icon appears near the bottom and shows 2"
+    },
+    {
+      "source": "「2」→ Toast <a1>画像を大きく開く</a1>",
+      "translation": "\"2\" → Toast <a1>Open the full-size image</a1>"
+    },
+    {
+      "source": "画像は変更ボタンを押した後に撮影しています。上の文字がHello World!のままでも、数字のメッセージが出ればこのステップは成功です。色やアイコンの形は、端末の設定で少し違うことがあります。",
+      "translation": "These images were taken after the change button was pressed. Even if the text at the top is still Hello World!, this step is a success if the number message appears. The colors and the icon shape may differ a little depending on the device settings."
+    },
+    {
+      "source": "1でSnackbar、2でToastを表示できた。3ではメッセージが出ないことも確認した。",
+      "translation": "I showed a Snackbar with 1 and a Toast with 2. I also checked that 3 shows no message."
+    },
+    {
+      "source": "次へ：授業内のミニ練習 →",
+      "translation": "Next: Mini exercises in class →"
+    },
+    {
+      "source": "STEP 08 · 目安 15分",
+      "translation": "STEP 08 · about 15 min"
+    },
+    {
+      "source": "少し変えて、確かめる",
+      "translation": "Change a little and check"
+    },
+    {
+      "source": "ここからは、自分で小さい変更をします。<strong>1つ変える → 予想する → Runする</strong>の順です。答えは、試してから開きましょう。",
+      "translation": "From here, you make small changes yourself. The order is <strong>change one thing → predict → Run</strong>. Open the answer only after you try."
+    },
+    {
+      "source": "練習A · 自分の言葉に変える（必須・5分）",
+      "translation": "Exercise A · Change it to your own words (required · 5 min)"
+    },
+    {
+      "source": "やること",
+      "translation": "What to do"
+    },
+    {
+      "source": "変更ボタンを押したら <strong>こんにちは、Android!</strong> と表示されるようにします。どのファイルの、どの文字を変えますか。",
+      "translation": "Make the app show <strong>こんにちは、Android!</strong> (こんにちは means \"Hello\") when you press the change button. Which text in which file do you change?"
+    },
+    {
+      "source": "ヒント",
+      "translation": "Hint"
+    },
+    {
+      "source": "クリックしたときの処理にある <code>setText</code> を探します。<code>\" \"</code> の中を変えます。",
+      "translation": "Find <code>setText</code> in the code that runs on a click. Change what is inside <code>\" \"</code>."
+    },
+    {
+      "source": "試したあと：答えと理由",
+      "translation": "After you try: the answer and the reason"
+    },
+    {
+      "source": "練習A · 変更する1行",
+      "translation": "Exercise A · the one line to change"
+    },
+    {
+      "source": "Javaのクリック処理を変えます。XMLのHello World!は、起動時の文字です。Runしてボタンを押し、画面とLogcatの両方で確かめましょう。",
+      "translation": "Change the click code in the Java. Hello World! in the XML is the text at launch. Run the app, press the button, and check both the screen and Logcat."
+    },
+    {
+      "source": "練習B · 文字を取り出すしくみ（必須・5分）",
+      "translation": "Exercise B · How getting the text works (required · 5 min)"
+    },
+    {
+      "source": "XMLの <code>id/btn1</code> のボタンだけ、<code>android:text=\"1\"</code> を <code>android:text=\"できた\"</code> に変えます。JavaはそのままでRunします。ボタンを押すと、Snackbarに何が出るでしょうか。",
+      "translation": "In the XML, only for the <code>id/btn1</code> button, change <code>android:text=\"1\"</code> to <code>android:text=\"できた\"</code> (できた means \"I did it!\"). Leave the Java as it is and run the app. When you press the button, what appears in the Snackbar?"
+    },
+    {
+      "source": "ボタンもSnackbarも「できた」になります。Javaが <code>btn1.getText().toString()</code> で、ボタンに表示されている文字を取り出しているからです。",
+      "translation": "Both the button and the Snackbar show 「できた」 (I did it!). This is because the Java uses <code>btn1.getText().toString()</code> to get the text shown on the button."
+    },
+    {
+      "source": "練習C · 余白を比べる（時間が余ったら）",
+      "translation": "Exercise C · Compare margins (if you have time)"
+    },
+    {
+      "source": "変更ボタンの <code>layout_marginTop</code> を <code>12dp</code> から <code>24dp</code> に変えます。Runして、文字とボタンのすき間を比べてください。",
+      "translation": "For the change button, change <code>layout_marginTop</code> from <code>12dp</code> to <code>24dp</code>. Run the app and compare the gap between the text and the button."
+    },
+    {
+      "source": "最後の5分 · 元に戻し、記録する",
+      "translation": "Last 5 minutes · Change it back and make a note"
+    },
+    {
+      "source": "練習Aの文字を <code>Hello, Android!</code> に戻します。",
+      "translation": "Change the text from Exercise A back to <code>Hello, Android!</code>."
+    },
+    {
+      "source": "練習Bのボタンを <code>1</code> に戻します。",
+      "translation": "Change the button from Exercise B back to <code>1</code>."
+    },
+    {
+      "source": "練習Cをした人は余白を <code>12dp</code> に戻します。",
+      "translation": "If you did Exercise C, change the margin back to <code>12dp</code>."
+    },
+    {
+      "source": "Runし、「＿＿を変えたので、＿＿が変わりました」と、変更したことを1つメモします。",
+      "translation": "Run the app. Then write one note about what you changed, like this: \"I changed ____, so ____ changed.\""
+    },
+    {
+      "source": "練習A・Bを動かし、変更した場所と結果を1つ記録できた。最後に元の表示へ戻した。",
+      "translation": "I ran Exercises A and B and wrote down one place I changed and its result. At the end, I changed the display back to the original."
+    },
+    {
+      "source": "次へ：完成 →",
+      "translation": "Next: Finished →"
+    },
+    {
+      "source": "STEP 09 · 目安 10分",
+      "translation": "STEP 09 · about 10 min"
+    },
+    {
+      "source": "完成",
+      "translation": "Finished"
+    },
+    {
+      "source": "① 完成チェック",
+      "translation": "① Final check"
+    },
+    {
+      "source": "Runし、上から順に操作します。最初の文字に戻したいときは、Android Studioの <strong>Stop ■</strong> を押してから <strong>Run ▶</strong> を押します。",
+      "translation": "Run the app and do the actions in order from the top. To go back to the first text, click <strong>Stop ■</strong> in Android Studio, then click <strong>Run ▶</strong>."
+    },
+    {
+      "source": "操作",
+      "translation": "Action"
+    },
+    {
+      "source": "成功したとき",
+      "translation": "When it works"
+    },
+    {
+      "source": "起動する",
+      "translation": "Launch the app"
+    },
+    {
+      "source": "Hello World!、変更ボタン、1・2・3が出る。LogcatにHello World!が出る。",
+      "translation": "Hello World!, the change button, and 1, 2, 3 appear. Hello World! appears in Logcat."
+    },
+    {
+      "source": "変更ボタンを押す",
+      "translation": "Press the change button"
+    },
+    {
+      "source": "画面がHello, Android!になり、Logcatにも同じ文字が出る。",
+      "translation": "The screen changes to Hello, Android!, and the same text appears in Logcat."
+    },
+    {
+      "source": "1を押す",
+      "translation": "Press 1"
+    },
+    {
+      "source": "Snackbarに1が出て、しばらくすると消える。",
+      "translation": "1 appears in a Snackbar and disappears after a while."
+    },
+    {
+      "source": "2を押す",
+      "translation": "Press 2"
+    },
+    {
+      "source": "Toastに2が出て、しばらくすると消える。",
+      "translation": "2 appears in a Toast and disappears after a while."
+    },
+    {
+      "source": "3を押す",
+      "translation": "Press 3"
+    },
+    {
+      "source": "メッセージは出ない。",
+      "translation": "No message appears."
+    },
+    {
+      "source": "② 授業の記録を残す",
+      "translation": "② Keep a record of the class"
+    },
+    {
+      "source": "次の4項目を、先生が指定する用紙や提出先に書きます。このページのチェックは自分用で、先生には送信されません。",
+      "translation": "Write the following four items on the sheet or in the submission place that your teacher specifies. The checks on this page are for you only. They are not sent to your teacher."
+    },
+    {
+      "source": "学籍番号・氏名",
+      "translation": "Student ID number and name"
+    },
+    {
+      "source": "できたステップ：STEP ＿＿まで",
+      "translation": "Steps I finished: up to STEP ____"
+    },
+    {
+      "source": "説明できること：「＿＿を変えると、＿＿になる」",
+      "translation": "What I can explain: \"When I change ____, it becomes ____\""
+    },
+    {
+      "source": "まだ困っていること：「STEP ＿＿の＿＿」／困っていなければ「なし」",
+      "translation": "What I am still stuck on: \"____ in STEP ____\" / if nothing, \"None\""
+    },
+    {
+      "source": "先生に画面を見せ、変更ボタン・1・2を順番に押します。",
+      "translation": "Show your screen to your teacher and press the change button, 1, and 2 in order."
+    },
+    {
+      "source": "完成したJava全体を確認する",
+      "translation": "Check the whole finished Java code"
+    },
+    {
+      "source": "ここまで入力したJavaを確認できます。XMLの全体は<a1>STEP 6の完成XML</a1>です。package名は <code>jp.ac.jec.a01helloandroid</code> を使います。",
+      "translation": "You can check the Java you have typed so far. For the whole XML, see <a1>the finished XML in STEP 6</a1>. Use <code>jp.ac.jec.a01helloandroid</code> as the package name."
+    },
+    {
+      "source": "MainActivity.java · 完成コード",
+      "translation": "MainActivity.java · finished code"
+    },
+    {
+      "source": "③ 保存",
+      "translation": "③ Save"
+    },
+    {
+      "source": "自分の <code>Documents/Android1/A01HelloAndroid</code> を保存します。",
+      "translation": "Save your own <code>Documents/Android1/A01HelloAndroid</code>."
+    },
+    {
+      "source": "完成チェックを行い、授業の記録を残した。",
+      "translation": "I did the final check and kept a record of the class."
+    },
+    {
+      "source": "今日のまとめ",
+      "translation": "Today's summary"
+    },
+    {
+      "source": "<strong>XMLで部品を置く → idで探す → クリックの処理を書く。</strong><br>この3つを使って、自分で動かせるアプリを作りました。",
+      "translation": "<strong>Place components in XML → find them by id → write the click code.</strong><br>Using these three things, you made an app that you can operate yourself."
+    },
+    {
+      "source": "REFERENCE · 最初の授業から使える見本",
+      "translation": "REFERENCE · A sample you can use from the first class"
+    },
+    {
+      "source": "完成プロジェクトを開いて比べる",
+      "translation": "Open the finished project and compare"
+    },
+    {
+      "source": "授業は、毎回自分で新規作成したプロジェクトで進めます。完成版は、動作確認とコード比較のための見本です。見本は、教科書といっしょに配られた<strong>教材のフォルダ</strong>に、そのまま開ける形で入っています。ダウンロードも展開も要りません。",
+      "translation": "In every class, you work in a project that you create yourself. The finished version is a sample for checking how the app works and for comparing code. The sample is in the <strong>course materials folder</strong> that was handed out with the textbook, ready to open as it is. You do not need to download or unzip anything."
+    },
+    {
+      "source": "① 見本の場所を確かめる",
+      "translation": "① Check where the sample is"
+    },
+    {
+      "source": "Finderを開き、左側の <strong>書類</strong>（<code>Documents</code>）をクリックします。教材のフォルダをダブルクリックで開きます。名前は <code>android1-student-materials-</code> のうしろに日付が付いた形で、日付は配られた回によって変わります。いま読んでいるこの教科書が入っているフォルダです。",
+      "translation": "Open Finder and click <strong>書類</strong> (<code>Documents</code>) on the left. Double-click the course materials folder to open it. Its name is <code>android1-student-materials-</code> followed by a date, and the date changes with each handout. It is the folder that contains this textbook you are reading now."
+    },
+    {
+      "source": "その中の <code>samples</code> フォルダを開きます。<code>A01HelloAndroid</code> フォルダが見本です。場所を確かめるだけで、移動はしません。",
+      "translation": "Open the <code>samples</code> folder inside it. The <code>A01HelloAndroid</code> folder is the sample. Just check where it is. Do not move it."
+    },
+    {
+      "source": "使うもの",
+      "translation": "What you use"
+    },
+    {
+      "source": "フォルダの場所（ユーザ名と教材のフォルダは、自分のものに読み替える）",
+      "translation": "Folder location (replace ユーザ名 (user name) and 教材のフォルダ (course materials folder) with your own)"
+    },
+    {
+      "source": "授業で作るプロジェクト",
+      "translation": "The project you make in class"
+    },
+    {
+      "source": "完成版の見本",
+      "translation": "The finished sample"
+    },
+    {
+      "source": "② Android Studioで開く",
+      "translation": "② Open it in Android Studio"
+    },
+    {
+      "source": "<strong>File → Open</strong> で、①で確かめた <code>samples</code> の中の <code>A01HelloAndroid</code> フォルダを選びます。最初の画面なら <strong>Open</strong> をクリックします。",
+      "translation": "Choose <strong>File → Open</strong> and select the <code>A01HelloAndroid</code> folder inside the <code>samples</code> folder that you checked in ①. If you are on the first screen, click <strong>Open</strong>."
+    },
+    {
+      "source": "開き方を聞かれたら <strong>New Window</strong> を選び、授業のプロジェクトと別のウィンドウで開きます。",
+      "translation": "If you are asked how to open it, select <strong>New Window</strong> to open it in a separate window from your class project."
+    },
+    {
+      "source": "Gradle Syncが終わったら、Project表示で、調べたいファイルを開きます。",
+      "translation": "When Gradle Sync finishes, open the file you want to look at in the Project view."
+    },
+    {
+      "source": "動きを見たいときは <strong>Run ▶</strong> を押します。",
+      "translation": "To see how it works, click <strong>Run ▶</strong>."
+    },
+    {
+      "source": "③ 今のステップの部分だけを比べる",
+      "translation": "③ Compare only the part for your current step"
+    },
+    {
+      "source": "たとえばSTEP 4で困ったら、<code>MainActivity.java</code> の <code>button.setOnClickListener</code> の部分を見ます。今のステップと同じidや処理を探して比べましょう。",
+      "translation": "For example, if you get stuck in STEP 4, look at the <code>button.setOnClickListener</code> part of <code>MainActivity.java</code>. Find the same ids and code as in your current step and compare them."
+    },
+    {
+      "source": "見終わったら、授業で作っている <code>Documents/Android1/A01HelloAndroid</code> のウィンドウに戻ります。直す場所を1つ確認し、Runして結果を確かめます。分からないときは、先生に2つのコードを見せましょう。",
+      "translation": "When you finish looking, go back to the window of <code>Documents/Android1/A01HelloAndroid</code>, the project you are making in class. Find one place to fix, run the app, and check the result. If you are not sure, show both versions of the code to your teacher."
+    },
+    {
+      "source": "教材のフォルダが手元にないときは、同じ見本をZIPで受け取れます（<a1>A01HelloAndroid.zip</a1>）。展開してできた <code>A01HelloAndroid</code> フォルダを、②と同じように開きます。",
+      "translation": "If you do not have the course materials folder, you can get the same sample as a ZIP file (<a1>A01HelloAndroid.zip</a1>). Unzip it, then open the <code>A01HelloAndroid</code> folder that it creates, in the same way as in ②."
+    },
+    {
+      "source": "HELP · 困ったらここ",
+      "translation": "HELP · Look here if you get stuck"
+    },
+    {
+      "source": "止まった場所から、一緒に直す",
+      "translation": "Let's fix it together, from where you stopped"
+    },
+    {
+      "source": "赤くなっている最初の行を見ます。<strong>2分考えても分からなければ</strong>、先生に「ステップ番号・ファイル名・画面」を見せましょう。",
+      "translation": "Look at the first line that is red. <strong>If you still do not understand after thinking for 2 minutes</strong>, show your teacher \"the step number, the file name, and your screen\"."
+    },
+    {
+      "source": "困ったこと",
+      "translation": "Problem"
+    },
+    {
+      "source": "最初に確認すること",
+      "translation": "What to check first"
+    },
+    {
+      "source": "ファイルが見つからない",
+      "translation": "Cannot find a file"
+    },
+    {
+      "source": "左上のプロジェクト名と、Project一覧の表示方法を確認。STEP 2の場所をたどる。",
+      "translation": "Check the project name at the top left and the view mode of the Project list. Follow the path in STEP 2."
+    },
+    {
+      "source": "XMLが赤い",
+      "translation": "The XML is red"
+    },
+    {
+      "source": "<code>\"</code> の閉じ忘れ、<code>/&gt;</code>、<code>&lt;/LinearLayout&gt;</code> を確認。Code表示で、最初の赤い場所を先生に見せる。",
+      "translation": "Check for a missing closing <code>\"</code>, and check <code>/&gt;</code> and <code>&lt;/LinearLayout&gt;</code>. In the Code view, show the first red place to your teacher."
+    },
+    {
+      "source": "TextView / Button / Log / Toast / Snackbarが赤い",
+      "translation": "TextView / Button / Log / Toast / Snackbar is red"
+    },
+    {
+      "source": "<a1>共通資料：自動で追加されないとき</a1>でAuto Importの設定と候補を確認する。",
+      "translation": "Check the Auto Import settings and suggestions in <a1>Shared guide: When imports are not added automatically</a1>."
+    },
+    {
+      "source": "R.id.text / btn1 / btn2が赤い",
+      "translation": "R.id.text / btn1 / btn2 is red"
+    },
+    {
+      "source": "XMLのidとJavaの名前を一文字ずつ比較する。大文字と小文字も区別する。XMLのエラーを先に直す。",
+      "translation": "Compare the id in the XML and the name in the Java one character at a time. Uppercase and lowercase letters are different, too. Fix XML errors first."
+    },
+    {
+      "source": "R全体が赤い",
+      "translation": "R is red everywhere"
+    },
+    {
+      "source": "XMLの最初のエラーを確認。<code>import android.R;</code> があれば、その行を削除する。package名も確認する。",
+      "translation": "Check the first error in the XML. If there is an <code>import android.R;</code> line, delete that line. Also check the package name."
+    },
+    {
+      "source": "波かっこやセミコロンのエラー",
+      "translation": "Errors about curly braces or semicolons"
+    },
+    {
+      "source": "追加コードがonCreateの中にあるか確認する。教材のコードと、前後の <code>});</code> と <code>}</code> を比べる。",
+      "translation": "Check that the code you added is inside onCreate. Compare the <code>});</code> and <code>}</code> before and after it with the code in the course materials."
+    },
+    {
+      "source": "アプリがすぐ閉じる",
+      "translation": "The app closes right away"
+    },
+    {
+      "source": "<code>setContentView</code> より下で部品を探しているか、XMLに必要なidがあるか確認。Logcatの赤いエラーを先生に見せる。",
+      "translation": "Check that you find the components below <code>setContentView</code>, and that the XML has the ids you need. Show the red error in Logcat to your teacher."
+    },
+    {
+      "source": "押しても文字が変わらない",
+      "translation": "The text does not change when you press the button"
+    },
+    {
+      "source": "Runしたか、正しいアプリを見ているか確認。XMLのid/buttonとJavaのR.id.buttonを比べる。",
+      "translation": "Check that you ran the app and that you are looking at the right app. Compare id/button in the XML with R.id.button in the Java."
+    },
+    {
+      "source": "Snackbar / Toastが出ない",
+      "translation": "Snackbar / Toast does not appear"
+    },
+    {
+      "source": "1か2を押したか、最後に <code>.show()</code> があるか確認。短時間で消えるので押した直後を見る。",
+      "translation": "Check that you pressed 1 or 2, and that <code>.show()</code> is at the end. The message disappears quickly, so watch right after you press."
+    },
+    {
+      "source": "styleが見つからない",
+      "translation": "The style cannot be found"
+    },
+    {
+      "source": "名前をコピーし直す。直らなければ先生に見せる。先生がMaterialのバージョンを確認する。",
+      "translation": "Copy the name again. If that does not fix it, show your teacher. Your teacher will check the Material version."
+    },
+    {
+      "source": "ログが見つからない",
+      "translation": "Cannot find the log"
+    },
+    {
+      "source": "<a1>共通資料の「ログが出ないとき」</a1>へ。",
+      "translation": "Go to <a1>\"When no log appears\" in the shared guide</a1>."
+    },
+    {
+      "source": "Runできない・端末がない",
+      "translation": "Cannot run · no device"
+    },
+    {
+      "source": "<a1>共通資料の「動かないとき」</a1>へ。エラー文を消さずに先生に見せる。",
+      "translation": "Go to <a1>\"When it does not work\" in the shared guide</a1>. Do not clear the error message. Show it to your teacher."
+    },
+    {
+      "source": "一度にいくつも直すと、何が変わったか分かりにくくなります。1か所直して、もう一度Runしましょう。",
+      "translation": "If you fix many things at once, it is hard to tell what changed. Fix one place, then run the app again."
+    },
+    {
+      "source": "もっと知りたいとき",
+      "translation": "If you want to learn more"
+    },
+    {
+      "source": "授業はこの教科書だけで進められます。次の公式資料は、あとから調べたい人向けです。",
+      "translation": "You can do the class with this textbook alone. The official documents below are for people who want to look things up later."
+    },
+    {
+      "source": "Android Developers：プロジェクトを作成する",
+      "translation": "Android Developers: Create a project"
+    },
+    {
+      "source": "Android Developers：Snackbarを表示する",
+      "translation": "Android Developers: Show a Snackbar"
+    },
+    {
+      "source": "教材の対象：A01HelloAndroid / Android Studio Panda 2 | 2025.3.2<br>アプリ画像：教員の jec_26cm_android1_Pixel 9a エミュレータで撮影。プロジェクト作成の画像：教員提供。確認日：2026年9月15日。",
+      "translation": "These course materials cover: A01HelloAndroid / Android Studio Panda 2 | 2025.3.2<br>App images: taken on the teacher's jec_26cm_android1_Pixel 9a emulator. Project creation images: provided by the teacher. Checked on: September 15, 2026."
+    },
+    {
+      "source": "チェックの保存はブラウザの設定により使えない場合があります。JavaScriptを無効にしても本文とコードは読めます。印刷する場合は ⌘ P。補足・解答も展開して印刷されます（JavaScript無効時は手動で開いてください）。",
+      "translation": "Saving your checks may not work, depending on your browser settings. You can read the text and the code even with JavaScript turned off. To print, press ⌘ P. Notes and answers are also expanded and printed (with JavaScript off, open them by hand)."
+    }
+  ]
+}

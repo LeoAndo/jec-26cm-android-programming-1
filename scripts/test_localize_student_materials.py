@@ -78,6 +78,11 @@ class ExtractTest(unittest.TestCase):
         self.assertEqual(len(page.segments), 2)
         self.assertEqual(page.sources(), ["一行目 二行目"])
 
+    def test_only_ascii_whitespace_is_normalized(self):
+        # 全角スペースとノーブレークスペースは、書き方の一部なので残す。
+        self.assertEqual(sources_of("<p>00\u3000今日の\n  ゴール</p>"), ["00\u3000今日の ゴール"])
+        self.assertEqual(localize.validate("質問はありますか。", "Avez-vous des questions\u00a0?", TERMS), [])
+
     def test_inline_element_with_block_child_is_a_boundary(self):
         self.assertEqual(sources_of('<a href="x.html">前<div>中</div></a>'), ["前", "中"])
 
@@ -301,7 +306,7 @@ class CommandTest(unittest.TestCase):
         done.write_text(json.dumps({localize.segment_id("単元"): "Unit", localize.segment_id("準備をします。"): ""}), encoding="utf-8")
         result, output, errors = self.quiet(localize.merge, self.settings(), "en", [done], self.work, False, True)
         self.assertEqual(result, 1)
-        self.assertIn("検査に通った訳（カタログには入れていません） 1", output)
+        self.assertIn("検査に通った訳 1、カタログに入る数 1（--dry-run なので、入れていません）", output)
         self.assertIn("訳文が空です", errors)
         self.assertFalse((self.root / "i18n").exists())
 
@@ -317,7 +322,7 @@ class CommandTest(unittest.TestCase):
         self.sync()
         self.merge({"単元": "Unit"})
         _, output, _ = self.merge({"単元": "Lesson"})
-        self.assertIn("入れなかった訳 1", output)
+        self.assertIn("入れなかった数 1", output)
         self.assertEqual(self.catalog("docs/unit/index.html")["単元"], "Unit")
         self.merge({"単元": "Lesson"}, overwrite=True)
         self.assertEqual(self.catalog("docs/unit/index.html")["単元"], "Lesson")
