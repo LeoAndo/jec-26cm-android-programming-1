@@ -1,5 +1,5 @@
 const assert = require('node:assert/strict');
-const { readFileSync } = require('node:fs');
+const { readFileSync, readdirSync } = require('node:fs');
 const path = require('node:path');
 const test = require('node:test');
 const vm = require('node:vm');
@@ -7,13 +7,26 @@ const source = readFileSync(path.join(__dirname, '../docs/assets/textbook.js'), 
 const key = 'jec-test';
 
 function page(storage = {}, href = 'file:///docs/unit/index.html?from=setup#step-1', options = {}) {
-  const inputs = ['step-1', 'step-2'].map(id => ({ dataset: { check: id }, checked: false,
+  let location = new URL(href), resize, height = 42;
+  const anchor = value => {
+    const spec = typeof value === 'string' ? { href: value } : value;
+    const attributes = { href: spec.href };
+    return {
+      get href() { return new URL(attributes.href, location).href; },
+      set href(value) { attributes.href = value; },
+      getAttribute(name) { return attributes[name] ?? null; },
+      setAttribute(name, value) { attributes[name] = value; },
+      closest(selector) { return selector === 'section[id]' && spec.section ? { id: spec.section } : null; },
+      addEventListener(type, action) { this[type] = action; }
+    };
+  };
+  const inputs = (options.checkIds ?? ['step-1', 'step-2']).map(id => ({ dataset: { check: id }, checked: false,
     addEventListener(type, action) { this[type] = action; } }));
-  const links = [{ href: '../en/unit/index.html', getAttribute() { return this.href; },
-    addEventListener(type, action) { this[type] = action; } }];
+  const links = (options.languageLinks ?? ['../en/unit/index.html']).map(anchor);
+  const backLinks = (options.backLinks ?? []).map(anchor);
+  const commonLinks = (options.commonLinks ?? []).map(anchor);
   const progress = { value: 0 };
   const label = { textContent: '' };
-  let location = new URL(href), resize, height = 42;
   const styles = {}, classes = new Set();
   const nav = { getBoundingClientRect: () => ({ height }) };
   const document = {
@@ -25,7 +38,8 @@ function page(storage = {}, href = 'file:///docs/unit/index.html?from=setup#step
     },
     querySelectorAll(selector) {
       return ({ '[data-check]': inputs, 'a[data-language-link]': links,
-        'main section[id]': [{ id: 'step-1', getBoundingClientRect: () => ({ top: 80 }) }] })[selector] || [];
+        'a[data-back]': backLinks, 'a[data-keep-from]': commonLinks,
+        'main section[id]': options.sections ?? [{ id: 'step-1', getBoundingClientRect: () => ({ top: 80 }) }] })[selector] || [];
     }
   };
   class ResizeObserver { constructor(callback) { resize = callback; } observe() {} }
@@ -39,6 +53,8 @@ function page(storage = {}, href = 'file:///docs/unit/index.html?from=setup#step
     checked: () => inputs.map(input => input.checked),
     change(index, value) { inputs[index].checked = value; inputs[index].change(); },
     switch() { links[0].click(); return links[0].href; },
+    common(index = 0) { commonLinks[index].click?.(); return new URL(commonLinks[index].href); },
+    back(index = 0) { backLinks[index].click?.(); return new URL(backLinks[index].href); },
     url: () => location,
     resize(value) { height = value; resize(); }, styles, classes, label, progress
   };
@@ -52,6 +68,163 @@ test('新しい別言語ページから戻っても、保存済みの進捗を�
   assert.equal(target.url().searchParams.get('from'), 'setup');
   assert.equal(target.url().hash, '#step-1');
   assert.equal(target.url().searchParams.has('checks'), false);
+});
+
+function commonPage(href, options = {}) {
+  // ページを開くたびに別の保存領域・実行環境を作り、新しいタブや再読込でも使えることを確かめる。
+  return page({}, href, { checkIds: [], sections: [],
+    backLinks: ['../hello-android/index.html', '../hello-android/index.html'],
+    languageLinks: [], ...options });
+}
+
+for (const base of ['file:///Users/student/Documents/android1-student-materials-2026-09-20/docs/common/',
+  'https://example.test/android1/docs/common/']) {
+  test(`${new URL(base).protocol} で直接開いた準備からエミュレータへ進み、同じ手順へ戻る`, () => {
+    const setup = commonPage(`${base}setup.html`, {
+      commonLinks: [{ href: 'emulator.html', section: 'emulator' }]
+    });
+    const destination = setup.common();
+    assert.deepEqual(destination.searchParams.getAll('back'), ['setup.html#emulator']);
+    const emulator = commonPage(destination.href);
+    for (const index of [0, 1]) {
+      const back = emulator.back(index);
+      assert.equal(back.href, `${base}setup.html#emulator`);
+      assert.equal(commonPage(back.href).back().href, new URL('../hello-android/index.html', base).href);
+    }
+  });
+}
+
+test('単元から共通資料を複数進んでも、1つずつ戻ったあと元の単元へ戻る', () => {
+  const base = 'file:///docs/common/';
+  const setup = commonPage(`${base}setup.html?from=calc-game`, {
+    commonLinks: [{ href: 'other-versions.html', section: 'studio' }]
+  });
+  const versions = commonPage(setup.common().href, {
+    commonLinks: [{ href: 'emulator.html', section: 'baseline' }]
+  });
+  const emulator = commonPage(versions.common().href);
+  const first = emulator.back();
+  assert.equal(first.pathname, '/docs/common/other-versions.html');
+  assert.equal(first.hash, '#baseline');
+  assert.equal(first.searchParams.get('from'), 'calc-game');
+  assert.deepEqual(first.searchParams.getAll('back'), ['setup.html#studio']);
+  const second = commonPage(first.href).back();
+  assert.equal(second.pathname, '/docs/common/setup.html');
+  assert.equal(second.hash, '#studio');
+  assert.equal(second.searchParams.get('from'), 'calc-game');
+  assert.deepEqual(second.searchParams.getAll('back'), []);
+  assert.equal(commonPage(second.href).back().href, 'file:///docs/calc-game/index.html');
+});
+
+test('本文のリンクで前の資料へ戻ると、その先の履歴を除いて循環を防ぐ', () => {
+  const target = new URL('file:///docs/common/emulator.html?from=memo-app');
+  target.searchParams.append('back', 'setup.html#studio');
+  target.searchParams.append('back', 'other-versions.html#baseline');
+  const emulator = commonPage(target.href, {
+    commonLinks: ['setup.html#emulator', 'other-versions.html#reading']
+  });
+  const setup = emulator.common(0);
+  assert.equal(setup.hash, '#emulator');
+  assert.equal(setup.searchParams.get('from'), 'memo-app');
+  assert.deepEqual(setup.searchParams.getAll('back'), []);
+  assert.equal(commonPage(setup.href).back().href, 'file:///docs/memo-app/index.html');
+  const versions = emulator.common(1);
+  assert.equal(versions.hash, '#reading');
+  assert.deepEqual(versions.searchParams.getAll('back'), ['setup.html#studio']);
+  assert.equal(commonPage(versions.href).back().pathname, '/docs/common/setup.html');
+});
+
+test('行先のクエリとハッシュを残し、囲むsectionがなければ現在のハッシュへ戻る', () => {
+  const setup = commonPage('file:///docs/common/setup.html?from=calc-game#keyboard', {
+    commonLinks: ['emulator.html?mode=prepare#run']
+  });
+  const target = setup.common();
+  assert.equal(target.searchParams.get('mode'), 'prepare');
+  assert.equal(target.searchParams.get('from'), 'calc-game');
+  assert.equal(target.hash, '#run');
+  assert.deepEqual(target.searchParams.getAll('back'), ['setup.html#keyboard']);
+  assert.equal(commonPage(target.href).back().hash, '#keyboard');
+});
+
+test('言語を替えても共通資料を1つずつ戻れ、選んだ言語の単元まで戻れる', () => {
+  const target = new URL('file:///docs/common/emulator.html?from=room-sample#run');
+  target.searchParams.append('back', 'setup.html#studio');
+  target.searchParams.append('back', 'other-versions.html#baseline');
+  const japanese = commonPage(target.href, { languageLinks: ['../en/common/emulator.html'] });
+  const englishUrl = new URL(japanese.switch());
+  assert.equal(englishUrl.pathname, '/docs/en/common/emulator.html');
+  assert.equal(englishUrl.hash, '#run');
+  assert.equal(englishUrl.searchParams.get('from'), 'room-sample');
+  assert.deepEqual(englishUrl.searchParams.getAll('back'), ['setup.html#studio', 'other-versions.html#baseline']);
+  const versions = commonPage(englishUrl.href).back();
+  assert.equal(versions.pathname, '/docs/en/common/other-versions.html');
+  const setup = commonPage(versions.href).back();
+  assert.equal(setup.pathname, '/docs/en/common/setup.html');
+  assert.equal(commonPage(setup.href).back().href, 'file:///docs/en/room-sample/index.html');
+});
+
+test('不正な戻り先を含む履歴は全体を無視し、次の遷移では安全な履歴を作り直す', () => {
+  for (const bad of ['../setup.html', 'https://example.test/setup.html', '//example.test/setup.html',
+    'setup.html?from=other', 'setup.html#bad/fragment', '', 'setup.html%23emulator']) {
+    const target = new URL('file:///docs/common/emulator.html?from=calc-game');
+    target.searchParams.append('back', 'setup.html#emulator');
+    target.searchParams.append('back', bad);
+    const current = commonPage(target.href, {
+      commonLinks: ['other-versions.html'], languageLinks: ['../en/common/emulator.html']
+    });
+    assert.equal(current.back().href, 'file:///docs/calc-game/index.html', bad);
+    assert.deepEqual(new URL(current.switch()).searchParams.getAll('back'), [], bad);
+    assert.deepEqual(current.common().searchParams.getAll('back'), ['emulator.html'], bad);
+  }
+});
+
+test('直接開いた資料の既定リンクを残し、不正な単元名で上書きしない', () => {
+  for (const from of ['', '../calc-game', 'https://example.test/', 'calc-game/index.html']) {
+    const target = new URL('file:///docs/common/auto-import.html');
+    if (from) target.searchParams.set('from', from);
+    const current = commonPage(target.href, { backLinks: ['../hello-android/index.html#step-1'] });
+    assert.equal(current.back().href, 'file:///docs/hello-android/index.html#step-1');
+  }
+});
+
+test('Auto ImportからA01へ戻るときだけ、既定のSTEP 1への復帰位置を残す', () => {
+  for (const base of ['file:///docs/common/', 'https://example.test/docs/en/common/']) {
+    for (const unit of ['hello-android', 'calc-game']) {
+      const current = commonPage(`${base}auto-import.html?from=${unit}`, {
+        backLinks: Array(3).fill('../hello-android/index.html#step-1')
+      });
+      const expected = new URL(`../${unit}/index.html${unit === 'hello-android' ? '#step-1' : ''}`, base);
+      for (const index of [0, 1, 2]) assert.equal(current.back(index).href, expected.href);
+    }
+  }
+});
+
+test('実際のHTMLで、単元と共通資料のリンクに戻り先の指定漏れがない', () => {
+  const root = path.join(__dirname, '..');
+  const projects = JSON.parse(readFileSync(path.join(root, 'config/teaching-materials.json'), 'utf8')).projects;
+  const textbooks = projects.flatMap(project => project.docs.filter(file => file.startsWith('docs/')));
+  const common = readdirSync(path.join(root, 'docs/common')).filter(file => file.endsWith('.html'))
+    .map(file => `docs/common/${file}`);
+  for (const file of [...textbooks, ...common]) {
+    const source = readFileSync(path.join(root, file), 'utf8');
+    const current = new URL(`file:///${file}`);
+    for (const [tag] of source.matchAll(/<a\b[^>]*>[\s\S]*?<\/a>/g)) {
+      const href = /\bhref="([^"]+)"/.exec(tag)?.[1];
+      if (!href) continue;
+      const target = new URL(href.replaceAll('&amp;', '&'), current);
+      if (file.startsWith('docs/common/') && tag.includes('戻る')
+          && target.protocol === 'file:' && target.pathname.endsWith('/index.html')) {
+        assert.match(tag, /\bdata-back(?:\s|=|>)/, `${file}: ${href}`);
+      }
+      if (target.protocol !== 'file:' || !target.pathname.startsWith('/docs/common/')
+          || !target.pathname.endsWith('.html') || target.pathname === current.pathname) continue;
+      if (file.startsWith('docs/common/')) {
+        assert.match(tag, /\bdata-keep-from(?:\s|=|>)/, `${file}: ${href}`);
+      } else {
+        assert.equal(target.searchParams.get('from'), path.basename(path.dirname(file)), `${file}: ${href}`);
+      }
+    }
+  }
 });
 
 test('ページ別保存でもチェックと解除を双方向に引き継ぐ', () => {

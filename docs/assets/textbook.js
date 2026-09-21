@@ -116,27 +116,47 @@
     document.querySelectorAll('main section[id]').forEach(section => observer.observe(section));
   }
 
-  // 共通資料の「もとの教科書へ戻る」は、開く前に見ていた単元へ戻す。
-  // 単元側のリンクが ?from=<単元フォルダ名> を付けている。
-  // 付いていないとき（共通資料を直接開いたとき）は、hrefのリンク先をそのまま使う。
-  const backTo = new URLSearchParams(window.location.search).get('from');
-  if (backTo && /^[a-z0-9-]+$/.test(backTo)) {
-    document.querySelectorAll('a[data-back]').forEach(link => {
-      link.setAttribute('href', `../${backTo}/index.html`);
-    });
-    // 共通資料どうしのリンクにも ?from= を引き継ぐ。
-    // これがないと、別の共通資料へ移った時点で戻り先がA01に戻ってしまう。
-    // ?from= は # の前に入れる（setup.html#emulator → setup.html?from=calc-game#emulator）。
-    // # のうしろに足すと、# 以降の一部として扱われ、その位置へ移動できず、from も引き継がれない。
-    document.querySelectorAll('a[data-keep-from]').forEach(link => {
-      const href = link.getAttribute('href');
-      if (!href || href.includes('?')) return;
-      const hashAt = href.indexOf('#');
-      const page = hashAt < 0 ? href : href.slice(0, hashAt);
-      const hash = hashAt < 0 ? '' : href.slice(hashAt);
-      link.setAttribute('href', `${page}?from=${backTo}${hash}`);
-    });
-  }
+  // from は最初の単元、back は共通資料をたどった順の「ファイル名#節」。
+  // URLに持たせることで、file://・新しいタブ・言語切替でも直前へ戻れる。
+  const from = parameters.get('from');
+  const backTo = from && /^[a-z0-9-]+$/.test(from) ? from : null;
+  const backValues = parameters.getAll('back');
+  const backPages = backValues.every(value => /^[a-z0-9-]+\.html(?:#[a-z0-9-]+)?$/.test(value)) ? backValues : [];
+  const setNavigation = (target, pages) => {
+    if (backTo) target.searchParams.set('from', backTo);
+    target.searchParams.delete('back');
+    pages.forEach(page => target.searchParams.append('back', page));
+  };
+  document.querySelectorAll('a[data-back]').forEach(link => {
+    if (backPages.length) {
+      const target = new URL(backPages.at(-1), window.location.href);
+      setNavigation(target, backPages.slice(0, -1));
+      link.setAttribute('href', target.href);
+    } else if (backTo) {
+      const target = new URL(`../${backTo}/index.html`, window.location.href);
+      const fallback = new URL(link.getAttribute('href'), window.location.href);
+      // 同じ単元なら、Auto ImportのSTEP 1など既定の復帰位置も残す。
+      if (fallback.pathname === target.pathname) target.hash = fallback.hash;
+      link.setAttribute('href', target.href);
+    }
+    // 戻り先がない直接起動では、HTMLにある既定のリンクを使う。
+  });
+  document.querySelectorAll('a[data-keep-from]').forEach(link => {
+    const href = link.getAttribute('href');
+    if (!href) return;
+    const current = new URL(window.location.href);
+    const target = new URL(href, current);
+    const directory = new URL('.', current);
+    const filename = current.pathname.split('/').at(-1);
+    if (!/\/common\/$/.test(directory.pathname) || !/^[a-z0-9-]+\.html$/.test(filename)
+        || new URL('.', target).href !== directory.href || !/^[a-z0-9-]+\.html$/.test(target.pathname.split('/').at(-1))) return;
+    const section = link.closest('section[id]');
+    const previous = `${filename}${section ? `#${section.id}` : current.hash}`;
+    // 本文の「setupへ戻る」などで既に読んだページへ戻るときは、履歴を巻き戻す。
+    const previousIndex = backPages.findIndex(page => new URL(page, current).pathname === target.pathname);
+    setNavigation(target, previousIndex < 0 ? [...backPages, previous] : backPages.slice(0, previousIndex));
+    link.setAttribute('href', target.href);
+  });
 
   // 言語名が折り返しても、固定メニューの下に目次とSTEPを表示する。
   const languageNav = document.querySelector('.language-nav');
@@ -153,8 +173,7 @@
     const base = link.getAttribute('href');
     const updateTarget = () => {
       const target = new URL(base, window.location.href);
-      const from = new URLSearchParams(window.location.search).get('from');
-      if (from && /^[a-z0-9-]+$/.test(from)) target.searchParams.set('from', from);
+      setNavigation(target, backPages);
       loadSaved();
       if (checks.length && Object.keys(records).length) target.searchParams.set('checks', JSON.stringify(records));
       const section = [...document.querySelectorAll('main section[id]')].filter(item => item.getBoundingClientRect().top <= window.innerHeight / 3).at(-1);
