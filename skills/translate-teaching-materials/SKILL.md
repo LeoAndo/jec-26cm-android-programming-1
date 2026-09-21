@@ -129,6 +129,7 @@ description: Translate the Japanese student textbooks (docs/**/*.html) into the 
 
   意味を添えると、画面に出る別の文字と同じになって紛らわしいときは、言葉で説明する（`こんにちは、Android!` に `(Hello, Android!)` と添えると、もとの表示 `Hello, Android!` と区別が付かない。`(こんにちは means "Hello")` と書く）。
 - **`<code>` の中の日本語の置き換え語を、本文で指すとき。** `<code>/Users/ユーザ名/…</code>` の `ユーザ名` のように、学生が自分のものに読み替える言葉は、本文でも日本語のまま書き、意味をかっこで添える（replace `ユーザ名` (user name) with your own）。
+- **教科書自身のUI（コピーボタン、言語切替、進捗表示）は、この対象ではない。** ボタンのラベルは `config/i18n.json` の `languages[].ui` からその言語の文字が入るので、本文でも日本語ではなくその言語のラベルをそのまま書く（`<strong>コピー</strong>` ではなく `<strong>Copy</strong>`／`<strong>複製</strong>`）。値は `ui` の `copy`・`copied`・`copy_shortcut` と完全に一致させる。
 - **先生に質問するときの日本語の例文。** 「STEP 4の、varが分かりません」のように、学生が日本語で口にするための例文は、日本語のまま残し、意味をかっこで添える。授業は日本語で進むためである。
 
 同じ言葉が、画面の表示名としても、ふつうの言葉としても出てくることがある。`左側の <strong>ダウンロード</strong> をクリック` はFinderの表示名なので `<strong>ダウンロード</strong> (Downloads)` と残し、`教材のファイルをダウンロードします` は動作なので download と訳す。表示名に添えるかっこ書きは、同じページに何度出てきても、文ごとに毎回添える（文は1つずつ独立して使い回されるため）。
