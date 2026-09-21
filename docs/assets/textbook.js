@@ -133,7 +133,11 @@
       setNavigation(target, backPages.slice(0, -1));
       link.setAttribute('href', target.href);
     } else if (backTo) {
-      link.setAttribute('href', `../${backTo}/index.html`);
+      const target = new URL(`../${backTo}/index.html`, window.location.href);
+      const fallback = new URL(link.getAttribute('href'), window.location.href);
+      // 同じ単元なら、Auto ImportのSTEP 1など既定の復帰位置も残す。
+      if (fallback.pathname === target.pathname) target.hash = fallback.hash;
+      link.setAttribute('href', target.href);
     }
     // 戻り先がない直接起動では、HTMLにある既定のリンクを使う。
   });

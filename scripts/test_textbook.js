@@ -187,6 +187,18 @@ test('直接開いた資料の既定リンクを残し、不正な単元名で�
   }
 });
 
+test('Auto ImportからA01へ戻るときだけ、既定のSTEP 1への復帰位置を残す', () => {
+  for (const base of ['file:///docs/common/', 'https://example.test/docs/en/common/']) {
+    for (const unit of ['hello-android', 'calc-game']) {
+      const current = commonPage(`${base}auto-import.html?from=${unit}`, {
+        backLinks: Array(3).fill('../hello-android/index.html#step-1')
+      });
+      const expected = new URL(`../${unit}/index.html${unit === 'hello-android' ? '#step-1' : ''}`, base);
+      for (const index of [0, 1, 2]) assert.equal(current.back(index).href, expected.href);
+    }
+  }
+});
+
 test('実際のHTMLで、単元と共通資料のリンクに戻り先の指定漏れがない', () => {
   const root = path.join(__dirname, '..');
   const projects = JSON.parse(readFileSync(path.join(root, 'config/teaching-materials.json'), 'utf8')).projects;
