@@ -87,3 +87,45 @@
 | 提出課題とAPKの作り方 | Travail à rendre et création d'un APK |
 | 課題とAPKの作り方 | Travail à rendre et création d'un APK |
 | ちがうAndroid Studioのバージョンで進めるとき | Utiliser une autre version d'Android Studio |
+
+## 用語の補足
+
+| 日本語 | 訳 | メモ |
+| --- | --- | --- |
+| もとのページへ戻る | Revenir à la page d'origine | 前の単元という意味にしない |
+| タップ | toucher | エミュレータのタッチ操作 |
+| 展開する | décompresser | ZIP |
+| 変換候補 | propositions de conversion | 漢字は propositions de kanji |
+| アレンジする | personnaliser | |
+| 提出する | rendre le travail | |
+| メモ | note | |
+| ログ | journal | tagは tag |
+| 導火線 | mèche | |
+| 導火線スイッチ | interrupteur de la mèche | |
+| クリア | victoire | 表示「クリア！」は原文＋(Gagné !) |
+| 再挑戦 | Réessayer | 画面ラベルは日本語併記 |
+| ステータスバー | barre d'état | |
+| ナビゲーションバー | barre de navigation | |
+| ビルド | build | 原文がその操作を説明するときは訳す |
+| レイアウト | layout | |
+
+| 割り勘 | partage de l'addition | 日本円で説明 |
+| 入力チェック | contrôle de saisie | |
+| 参加者 | participant | |
+| 戻り値 | valeur de retour | |
+| 初期値 | valeur par défaut / valeur initiale | 保存値がないときのgetXxxは valeur par défaut |
+| 既定値 | valeur par défaut | |
+| 定数 | constante | |
+| 文字列 | chaîne de caractères | |
+| タイマー | chronomètre | 計算ゲーム |
+| 拡張for文 | boucle for améliorée | |
+| 手（じゃんけん） | geste | グー=pierre、チョキ=ciseaux、パー=feuille、0/1/2の順を保持 |
+| 連勝数 | victoires consécutives | |
+| 余り | reste | |
+| 戻る操作 | action de retour | |
+| 列挙型 | type énuméré | |
+| 表（データベース） | table | |
+| 1件 | enregistrement | データベース |
+| 窓口（Dao） | point d'accès | |
+| リスナ | écouteur | |
+| 三項演算子 | opérateur ternaire | |

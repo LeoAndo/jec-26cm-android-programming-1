@@ -1,0 +1,1705 @@
+{
+  "source": "docs/rock-paper-scissors-game/index.html",
+  "language": "fr",
+  "entries": [
+    {
+      "source": "JavaとXMLで作るA03RockPaperScissorsGame。画像の追加、配列とfor文、乱数、switch文による勝敗判定、連勝数を小さなSTEPで学ぶ授業用教科書。",
+      "translation": "A03RockPaperScissorsGame avec Java et XML. Un manuel de cours pour apprendre l'ajout d'images, les tableaux et les boucles for, les nombres aléatoires, la détermination du résultat avec switch et les victoires consécutives par petits STEP."
+    },
+    {
+      "source": "RockPaperScissorsGame — じゃんけんゲームを作ろう | Androidプログラミング1",
+      "translation": "RockPaperScissorsGame — Créer un jeu de pierre-feuille-ciseaux | Programmation Android 1"
+    },
+    {
+      "source": "本文へ移動",
+      "translation": "Aller au contenu principal"
+    },
+    {
+      "source": "JEC / Androidプログラミング1",
+      "translation": "JEC / Programmation Android 1"
+    },
+    {
+      "source": "CONTENTS / 学習の順番",
+      "translation": "CONTENTS / Ordre d'apprentissage"
+    },
+    {
+      "source": "学習ステップ",
+      "translation": "Étapes d'apprentissage"
+    },
+    {
+      "source": "00　今日のゴール",
+      "translation": "00 Objectif du jour"
+    },
+    {
+      "source": "01　プロジェクトを作って実行",
+      "translation": "01 Créer et exécuter le projet"
+    },
+    {
+      "source": "02　画像をdrawableに追加",
+      "translation": "02 Ajouter les images à drawable"
+    },
+    {
+      "source": "03　タイトルと3つの手を並べる",
+      "translation": "03 Disposer le titre et les trois gestes"
+    },
+    {
+      "source": "04　ボタンとCPUの手の場所",
+      "translation": "04 Emplacement des boutons et du geste du CPU"
+    },
+    {
+      "source": "05　手を選ぶ（配列とfor文）",
+      "translation": "05 Choisir un geste (tableau et boucle for)"
+    },
+    {
+      "source": "06　CPUの手を出す",
+      "translation": "06 Afficher le geste du CPU"
+    },
+    {
+      "source": "07　次の戦いへ戻す",
+      "translation": "07 Revenir à la manche suivante"
+    },
+    {
+      "source": "08　勝ち負けと連勝数",
+      "translation": "08 Résultat et victoires consécutives"
+    },
+    {
+      "source": "09　ミニ練習",
+      "translation": "09 Mini-exercices"
+    },
+    {
+      "source": "10　完成",
+      "translation": "10 Terminer"
+    },
+    {
+      "source": "0 / 11 ステップ確認済み",
+      "translation": "0 / 11 étapes vérifiées"
+    },
+    {
+      "source": "学習の進み具合",
+      "translation": "Progression de l'apprentissage"
+    },
+    {
+      "source": "自分用のチェックです。",
+      "translation": "Ces cases servent à votre propre suivi."
+    },
+    {
+      "source": "困ったとき",
+      "translation": "En cas de difficulté"
+    },
+    {
+      "source": "完成プロジェクトを開く",
+      "translation": "Ouvrir le projet terminé"
+    },
+    {
+      "source": "共通：はじめの準備",
+      "translation": "Guide commun : Préparation initiale"
+    },
+    {
+      "source": "共通：エミュレータ",
+      "translation": "Guide commun : Émulateur"
+    },
+    {
+      "source": "共通：Auto Import",
+      "translation": "Guide commun : Auto Import"
+    },
+    {
+      "source": "共通：Logcat",
+      "translation": "Guide commun : Logcat"
+    },
+    {
+      "source": "共通：APKの提出",
+      "translation": "Guide commun : Remise de l'APK"
+    },
+    {
+      "source": "共通：開発Tips",
+      "translation": "Guide commun : Conseils de développement"
+    },
+    {
+      "source": "共通：Android Studioのバージョン",
+      "translation": "Guide commun : Version d'Android Studio"
+    },
+    {
+      "source": "じゃんけんゲームを<br>作ろう",
+      "translation": "Créer un jeu de<br>pierre-feuille-ciseaux"
+    },
+    {
+      "source": "手を選ぶ。CPUと勝負する。勝ちを数える。<br>画像と配列を使って、何度も遊べるゲームへ。",
+      "translation": "Choisir un geste. Affronter le CPU. Compter les victoires.<br>Utilisez des images et des tableaux pour créer un jeu auquel vous pouvez rejouer."
+    },
+    {
+      "source": "A02の次の単元",
+      "translation": "Unité suivant A02"
+    },
+    {
+      "source": "90分 × 3コマ目安",
+      "translation": "Durée indicative : 3 séances de 90 min"
+    },
+    {
+      "source": "Macで学ぶ",
+      "translation": "Apprendre sur Mac"
+    },
+    {
+      "source": "STEP 00 · 目安 5分",
+      "translation": "STEP 00 · Durée indicative : 5 min"
+    },
+    {
+      "source": "今日のゴール",
+      "translation": "Objectif du jour"
+    },
+    {
+      "source": "A01・A02で学んだ「XMLで画面を作る」「Javaでクリックを処理する」「フィールドで値を覚える」を使い、<strong>CPUとじゃんけんをするゲーム</strong>を作ります。手の画像を押して選び、「勝負！」で結果を表示します。勝ち続けると連勝数が増えます。",
+      "translation": "Avec les acquis d'A01 et A02, créer l'écran en XML, traiter les clics en Java et mémoriser des valeurs dans des champs, vous créez un <strong>jeu de pierre-feuille-ciseaux contre le CPU</strong>. Appuyez sur une image pour choisir un geste, puis sur 「勝負！」 (jouer !) pour afficher le résultat. Les victoires successives augmentent le compteur de victoires consécutives."
+    },
+    {
+      "source": "ゲームの流れ",
+      "translation": "Déroulement du jeu"
+    },
+    {
+      "source": "手の画像を押す",
+      "translation": "Appuyer sur l'image d'un geste"
+    },
+    {
+      "source": "勝負！",
+      "translation": "勝負！ (jouer !)"
+    },
+    {
+      "source": "結果を見る",
+      "translation": "Voir le résultat"
+    },
+    {
+      "source": "次の戦いへ",
+      "translation": "次の戦いへ (manche suivante)"
+    },
+    {
+      "source": "起動直後。タイトル画像、じゃんけんの手を選んでください、グー・チョキ・パーの画像、押せない勝負！と次の戦いへ、CPUの手の見出し",
+      "translation": "Juste après le lancement : image du titre, 「じゃんけんの手を選んでください」 (choisissez un geste), images pierre, ciseaux et feuille, boutons 「勝負！」 (jouer !) et 「次の戦いへ」 (manche suivante) désactivés, et titre 「CPUの手」 (geste du CPU)"
+    },
+    {
+      "source": "① 起動直後。勝負！と次の戦いへはまだ押せません。 <a1>画像を大きく開く</a1>",
+      "translation": "① Juste après le lancement. 「勝負！」 (jouer !) et 「次の戦いへ」 (manche suivante) sont encore indisponibles. <a1>Ouvrir l'image en grand</a1>"
+    },
+    {
+      "source": "グーを選んで勝負した結果。グーの背景が赤、あなたの勝ち 1連勝中！、CPUの手はチョキ、次の戦いへだけが有効",
+      "translation": "Résultat après avoir choisi pierre. Son fond est rouge, 「あなたの勝ち 1連勝中！」 (vous gagnez, 1 victoire consécutive !) s'affiche, le CPU a choisi ciseaux et seul 「次の戦いへ」 (manche suivante) est activé"
+    },
+    {
+      "source": "② グーで勝負！。CPUはチョキで、あなたの勝ちです。 <a1>画像を大きく開く</a1>",
+      "translation": "② Appui sur 「勝負！」 (jouer !) avec pierre. Le CPU a choisi ciseaux : vous gagnez. <a1>Ouvrir l'image en grand</a1>"
+    },
+    {
+      "source": "できるようになること",
+      "translation": "Ce que vous saurez faire"
+    },
+    {
+      "source": "画像をプロジェクトに追加し、ImageViewで表示する。",
+      "translation": "Ajouter des images au projet et les afficher dans des ImageView."
+    },
+    {
+      "source": "配列とfor文で3つの画像に同じクリック処理を付け、選んだ手の番号を覚える。",
+      "translation": "Utiliser un tableau et une boucle for pour associer le même traitement du clic aux trois images et mémoriser le numéro du geste choisi."
+    },
+    {
+      "source": "乱数でCPUの手を決め、計算式とswitch文で勝ち・負け・引き分けと連勝数を表示する。",
+      "translation": "Choisir aléatoirement le geste du CPU et utiliser une formule et switch pour afficher victoire, défaite ou égalité, ainsi que les victoires consécutives."
+    },
+    {
+      "source": "手の番号は <strong>0：グー、1：チョキ、2：パー</strong> です。CPUの手は毎回ランダムに決まるため、画像と違う結果になっても構いません。",
+      "translation": "Les numéros des gestes sont <strong>0 : pierre, 1 : ciseaux, 2 : feuille</strong>. Le geste du CPU étant aléatoire à chaque manche, le résultat peut différer de celui de l'image."
+    },
+    {
+      "source": "90分×3コマで進めます",
+      "translation": "Trois séances de 90 minutes"
+    },
+    {
+      "source": "授業",
+      "translation": "Cours"
+    },
+    {
+      "source": "範囲",
+      "translation": "Étapes"
+    },
+    {
+      "source": "終了時にできること",
+      "translation": "Ce que vous saurez faire à la fin"
+    },
+    {
+      "source": "1コマ目",
+      "translation": "Séance 1"
+    },
+    {
+      "source": "画像を追加し、ゲームの画面を作る。",
+      "translation": "Ajouter les images et créer l'écran du jeu."
+    },
+    {
+      "source": "2コマ目",
+      "translation": "Séance 2"
+    },
+    {
+      "source": "手を選び、CPUの手を出し、次の戦いへ戻せることを確かめる。",
+      "translation": "Choisir un geste, afficher celui du CPU et vérifier le retour à la manche suivante."
+    },
+    {
+      "source": "3コマ目",
+      "translation": "Séance 3"
+    },
+    {
+      "source": "勝敗と連勝数を表示し、ミニ練習・動作確認を行う。",
+      "translation": "Afficher le résultat et les victoires consécutives, puis effectuer les mini-exercices et vérifier le fonctionnement."
+    },
+    {
+      "source": "各コマに再実行と個別確認の時間を含みます。予習は不要です。",
+      "translation": "Chaque séance comprend du temps pour relancer l'application et effectuer des vérifications individuelles. Aucune préparation préalable n'est nécessaire."
+    },
+    {
+      "source": "毎回、自分で新規作成します",
+      "translation": "Créez vous-même un nouveau projet à chaque fois"
+    },
+    {
+      "source": "作る場所は <code>Documents/Android1/A03RockPaperScissorsGame</code> です。<a1>完成プロジェクト</a1>は初回から開けます。STEP 2で使う画像は、教材のフォルダに入っています。STEP 2でFinderからコピーします。",
+      "translation": "Créez le projet dans <code>Documents/Android1/A03RockPaperScissorsGame</code>. Le <a1>projet terminé</a1> est disponible dès le premier cours. Les images du STEP 2 sont dans le dossier des supports. Vous les copierez avec Finder au STEP 2."
+    },
+    {
+      "source": "完成アプリの操作",
+      "translation": "Utiliser l'application terminée"
+    },
+    {
+      "source": "状態",
+      "translation": "État"
+    },
+    {
+      "source": "手の画像",
+      "translation": "Images des gestes"
+    },
+    {
+      "source": "CPUの手",
+      "translation": "CPUの手 (geste du CPU)"
+    },
+    {
+      "source": "起動直後・次の戦いへの後",
+      "translation": "Juste après le lancement ou après 「次の戦いへ」 (manche suivante)"
+    },
+    {
+      "source": "押せる",
+      "translation": "Appui possible"
+    },
+    {
+      "source": "押せない",
+      "translation": "Appui impossible"
+    },
+    {
+      "source": "表示しない",
+      "translation": "Non affiché"
+    },
+    {
+      "source": "手を選んだ後",
+      "translation": "Après le choix d'un geste"
+    },
+    {
+      "source": "押せる（選び直せる）",
+      "translation": "Appui possible (choix modifiable)"
+    },
+    {
+      "source": "勝負！の後",
+      "translation": "Après 「勝負！」 (jouer !)"
+    },
+    {
+      "source": "押しても変わらない",
+      "translation": "Un appui ne change rien"
+    },
+    {
+      "source": "表示する",
+      "translation": "Visible"
+    },
+    {
+      "source": "選んだ手は背景が赤くなります。次の戦いへを押すと、連勝数を覚えたまま、起動直後と同じ表示に戻ります。",
+      "translation": "Le geste choisi prend un fond rouge. 「次の戦いへ」 (manche suivante) rétablit l'affichage initial tout en conservant le nombre de victoires consécutives."
+    },
+    {
+      "source": "画面回転について",
+      "translation": "À propos de la rotation de l'écran"
+    },
+    {
+      "source": "各単元では画面回転時のデータ保持と横画面のレイアウトを扱いません。回転などでActivityが作り直されると、選んだ手と連勝数は初期状態に戻ります。横向きでは画面の下の部分が見えなくなる場合があるため、縦向きで使います。考え方と対処法は<a1>共通資料：開発Tips</a1>のC章にあります。",
+      "translation": "Les unités ne traitent pas la conservation des données lors d'une rotation ni la disposition en paysage. Si l'Activity est recréée, par exemple après une rotation, le geste choisi et le compteur de victoires reviennent à leur état initial. Utilisez le mode portrait : en paysage, le bas de l'écran peut être masqué. Les explications et solutions se trouvent au chapitre C du <a1>Guide commun : Conseils de développement</a1>."
+    },
+    {
+      "source": "ここで止まって、確認",
+      "translation": "Arrêtez-vous ici et vérifiez"
+    },
+    {
+      "source": "完成アプリの操作の表で、手の画像・勝負！・次の戦いへが押せる状態を確認した。",
+      "translation": "J'ai vérifié dans le tableau d'utilisation de l'application terminée dans quels états les images, 「勝負！」 (jouer !) et 「次の戦いへ」 (manche suivante) peuvent être pressés."
+    },
+    {
+      "source": "できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。",
+      "translation": "Cochez une fois terminé. En cas de difficulté, montrez le numéro du STEP et votre écran à l'enseignant."
+    },
+    {
+      "source": "次へ：プロジェクトを作って実行 →",
+      "translation": "Suite : Créer et exécuter le projet →"
+    },
+    {
+      "source": "STEP 01 · 目安 15分",
+      "translation": "STEP 01 · Durée indicative : 15 min"
+    },
+    {
+      "source": "プロジェクトを作って実行",
+      "translation": "Créer et exécuter le projet"
+    },
+    {
+      "source": "授業環境はMacと <strong>Android Studio Panda 2 | 2025.3.2</strong> です。A01・A02とは別のプロジェクトを作ります。",
+      "translation": "Le cours utilise un Mac et <strong>Android Studio Panda 2 | 2025.3.2</strong>. Créez un projet distinct d'A01 et d'A02."
+    },
+    {
+      "source": "Android Studioの <strong>New Project</strong> をクリックします。別のプロジェクトを開いているときは <strong>File → New → New Project</strong> を選びます。",
+      "translation": "Cliquez sur <strong>New Project</strong> dans Android Studio. Si un autre projet est ouvert, choisissez <strong>File → New → New Project</strong>."
+    },
+    {
+      "source": "Android StudioのWelcome画面。右上にNew Projectボタン",
+      "translation": "Écran Welcome d'Android Studio, avec le bouton New Project en haut à droite"
+    },
+    {
+      "source": "右上のNew Projectをクリック。 <a1>画像を大きく開く</a1>",
+      "translation": "Cliquez sur New Project en haut à droite. <a1>Ouvrir l'image en grand</a1>"
+    },
+    {
+      "source": "<strong>Phone and Tablet → Empty Views Activity → Next</strong> の順に選びます。名前に <strong>Views</strong> があることを確認します。",
+      "translation": "Sélectionnez successivement <strong>Phone and Tablet → Empty Views Activity → Next</strong>. Vérifiez que le nom contient <strong>Views</strong>."
+    },
+    {
+      "source": "テンプレート一覧でEmpty Views Activityが選択されている",
+      "translation": "Empty Views Activity est sélectionné dans la liste des modèles"
+    },
+    {
+      "source": "Empty Views Activityを選択。 <a1>画像を大きく開く</a1>",
+      "translation": "Sélectionnez Empty Views Activity. <a1>Ouvrir l'image en grand</a1>"
+    },
+    {
+      "source": "項目",
+      "translation": "Élément"
+    },
+    {
+      "source": "入力・選択する内容",
+      "translation": "Valeur à saisir ou à sélectionner"
+    },
+    {
+      "source": "<code>jp.ac.jec.a03rockpaperscissorsgame</code>（すべて小文字）",
+      "translation": "<code>jp.ac.jec.a03rockpaperscissorsgame</code> (tout en minuscules)"
+    },
+    {
+      "source": "A03RockPaperScissorsGameの新規設定。パッケージjp.ac.jec.a03rockpaperscissorsgame、Java、API 31",
+      "translation": "Création d'A03RockPaperScissorsGame : package jp.ac.jec.a03rockpaperscissorsgame, Java, API 31"
+    },
+    {
+      "source": "画像の保存先は先生の例です。自分のDocuments/Android1/A03RockPaperScissorsGameに読み替えます。 <a1>画像を大きく開く</a1>",
+      "translation": "L'emplacement sur l'image est l'exemple de l'enseignant. Utilisez votre propre Documents/Android1/A03RockPaperScissorsGame. <a1>Ouvrir l'image en grand</a1>"
+    },
+    {
+      "source": "Finderの <strong>移動 → ホーム</strong> で自分のユーザ名を確認します。書類（Documents）に <code>Android1</code> フォルダがなければ作ります。",
+      "translation": "Dans le Finder, ouvrez <strong>移動 → ホーム</strong> (Aller → Départ) pour vérifier votre nom d'utilisateur. Créez le dossier <code>Android1</code> dans 書類 (Documents) s'il n'existe pas."
+    },
+    {
+      "source": "表の値と保存先を確認し、<strong>Finish</strong> をクリックします。<code>ユーザ名</code> は自分の名前に置き換えます。",
+      "translation": "Vérifiez les valeurs du tableau et l'emplacement, puis cliquez sur <strong>Finish</strong>. Remplacez <code>ユーザ名</code> (nom d'utilisateur) par votre propre nom."
+    },
+    {
+      "source": "<strong>Gradle Sync</strong> が完了するまで待ちます。",
+      "translation": "Attendez la fin de <strong>Gradle Sync</strong>."
+    },
+    {
+      "source": "<a1>共通資料：Auto Import</a1>のJava設定を確認します。",
+      "translation": "Vérifiez les réglages Java du <a1>Guide commun : Auto Import</a1>."
+    },
+    {
+      "source": "この単元で使う場所",
+      "translation": "Emplacements utilisés dans cette unité"
+    },
+    {
+      "source": "役割",
+      "translation": "Rôle"
+    },
+    {
+      "source": "Project表示で開く場所",
+      "translation": "Emplacement à ouvrir dans la vue Project"
+    },
+    {
+      "source": "画像",
+      "translation": "Images"
+    },
+    {
+      "source": "画面（XML）",
+      "translation": "Écran (XML)"
+    },
+    {
+      "source": "動き（Java）",
+      "translation": "Comportement (Java)"
+    },
+    {
+      "source": "左の一覧が見えないときは <strong>View → Tool Windows → Project</strong> を開きます。一覧の上の表示名が <strong>Project</strong> になっていることを確認します。パッケージのフォルダが <code>jp.ac.jec.a03rockpaperscissorsgame</code> とまとめて表示される場合もあります。",
+      "translation": "Si la liste de gauche n'est pas visible, ouvrez <strong>View → Tool Windows → Project</strong>. Vérifiez que le mode sélectionné en haut est <strong>Project</strong>. Les dossiers du package peuvent être regroupés sous <code>jp.ac.jec.a03rockpaperscissorsgame</code>."
+    },
+    {
+      "source": "変更前に1回Runする",
+      "translation": "Lancer une fois avec Run avant les modifications"
+    },
+    {
+      "source": "<a1>共通資料：エミュレータ</a1>に従って端末を起動します。",
+      "translation": "Lancez l'appareil en suivant le <a1>Guide commun : Émulateur</a1>."
+    },
+    {
+      "source": "上部で <strong>app</strong> と <strong>jec_26cm_android1_Pixel 9a</strong> を選び、<strong>Run ▶</strong> を押します。",
+      "translation": "En haut, sélectionnez <strong>app</strong> et <strong>jec_26cm_android1_Pixel 9a</strong>, puis cliquez sur <strong>Run ▶</strong>."
+    },
+    {
+      "source": "<strong>Hello World!</strong> が表示されれば成功です。",
+      "translation": "Si <strong>Hello World!</strong> s'affiche, l'opération a réussi."
+    },
+    {
+      "source": "MainActivity.ktができたとき",
+      "translation": "Si MainActivity.kt a été créé"
+    },
+    {
+      "source": "この授業で開くのは <code>MainActivity.java</code> です。<code>.kt</code> しか見つからない場合は、先生に画面を見せてください。プロジェクトを作るときに、上の手順2で <strong>Empty Views Activity</strong> を、手順4で確認した表のとおりに <strong>Java</strong> を選んだかどうかを、先生が確認します。どちらかが違っていたときは、先生といっしょにプロジェクトを作り直します。",
+      "translation": "Dans ce cours, vous devez ouvrir <code>MainActivity.java</code>. Si vous ne trouvez qu'un fichier <code>.kt</code>, montrez votre écran à l'enseignant. Il vérifiera que vous avez choisi <strong>Empty Views Activity</strong> à l'étape 2 ci-dessus et <strong>Java</strong> conformément au tableau vérifié à l'étape 4 lors de la création du projet. Si l'un des deux choix était différent, recréez le projet avec l'enseignant."
+    },
+    {
+      "source": "自分の保存先にA03RockPaperScissorsGameを作り、Hello World!を表示できた。",
+      "translation": "J'ai créé A03RockPaperScissorsGame à mon emplacement et affiché Hello World!"
+    },
+    {
+      "source": "次へ：画像をdrawableに追加 →",
+      "translation": "Suite : Ajouter les images à drawable →"
+    },
+    {
+      "source": "STEP 02 · 目安 15分",
+      "translation": "STEP 02 · Durée indicative : 15 min"
+    },
+    {
+      "source": "画像をdrawableに追加",
+      "translation": "Ajouter les images à drawable"
+    },
+    {
+      "source": "追加する場所：app/src/main/res/drawable",
+      "translation": "Emplacement d'ajout : app/src/main/res/drawable"
+    },
+    {
+      "source": "ゲームで使う4つの画像を、自分のプロジェクトに入れます。<code>res/drawable</code> は、アプリで表示する画像を置くフォルダです。",
+      "translation": "Ajoutez à votre projet les quatre images utilisées dans le jeu. <code>res/drawable</code> est le dossier des images affichées par l'application."
+    },
+    {
+      "source": "ファイル名",
+      "translation": "Nom du fichier"
+    },
+    {
+      "source": "使う場所",
+      "translation": "Emplacement d'utilisation"
+    },
+    {
+      "source": "XMLでの名前",
+      "translation": "Nom dans le XML"
+    },
+    {
+      "source": "Javaでの名前",
+      "translation": "Nom dans Java"
+    },
+    {
+      "source": "画面上部のタイトル",
+      "translation": "Titre en haut de l'écran"
+    },
+    {
+      "source": "（使わない）",
+      "translation": "(Non utilisé)"
+    },
+    {
+      "source": "グー",
+      "translation": "グー (pierre)"
+    },
+    {
+      "source": "チョキ",
+      "translation": "チョキ (ciseaux)"
+    },
+    {
+      "source": "パー",
+      "translation": "パー (feuille)"
+    },
+    {
+      "source": "名前はファイル名から <code>.png</code> を取ったものです。drawableのファイル名には、<strong>小文字の英字・数字・_（アンダースコア）</strong> だけを使います。",
+      "translation": "Le nom correspond au nom du fichier sans <code>.png</code>. Dans les noms des fichiers de drawable, utilisez uniquement <strong>des lettres latines minuscules, des chiffres et _ (tiret bas)</strong>."
+    },
+    {
+      "source": "① 教材のフォルダから画像をコピーする",
+      "translation": "① Copier les images depuis le dossier des supports de cours"
+    },
+    {
+      "source": "4つの画像は、教科書といっしょに配られた<strong>教材のフォルダ</strong>に入っています。Finderで開いて、4つまとめてコピーします。",
+      "translation": "Les quatre images se trouvent dans le <strong>dossier des supports de cours</strong> distribué avec le manuel. Ouvrez-le dans Finder et copiez les quatre images ensemble."
+    },
+    {
+      "source": "Finderを開き、左側の <strong>書類</strong> をクリックします。教材のフォルダをダブルクリックで開きます。名前は <code>android1-student-materials-</code> のうしろに日付が付いた形で、日付は配られた回によって変わります。",
+      "translation": "Ouvrez le Finder et cliquez sur <strong>書類</strong> (Documents) à gauche. Ouvrez le dossier des supports de cours par un double-clic. Son nom commence par <code>android1-student-materials-</code> suivi d'une date, qui varie selon la distribution."
+    },
+    {
+      "source": "その中を <code>docs → rock-paper-scissors-game → downloads</code> の順に開きます。<code>rock-paper-scissors-game</code> は、いま読んでいるこの教科書（<code>index.html</code>）が入っているフォルダです。",
+      "translation": "Ouvrez successivement <code>docs → rock-paper-scissors-game → downloads</code>. <code>rock-paper-scissors-game</code> est le dossier contenant ce manuel (<code>index.html</code>)."
+    },
+    {
+      "source": "<kbd>⌘</kbd> を押しながら、<code>paper.png</code>・<code>rock.png</code>・<code>scissors.png</code>・<code>title_image.png</code> の4つをクリックして選び、<kbd>⌘ C</kbd> でコピーします。同じフォルダにある <code>A03RockPaperScissorsGame.zip</code> は完成プロジェクトです。選びません。",
+      "translation": "Tout en maintenant <kbd>⌘</kbd>, cliquez sur les quatre fichiers <code>paper.png</code>, <code>rock.png</code>, <code>scissors.png</code> et <code>title_image.png</code>, puis copiez-les avec <kbd>⌘ C</kbd>. Le fichier <code>A03RockPaperScissorsGame.zip</code> dans ce dossier est le projet terminé. Ne le sélectionnez pas."
+    },
+    {
+      "source": "教材のフォルダが見つからないとき",
+      "translation": "Si le dossier des supports de cours est introuvable"
+    },
+    {
+      "source": "教材のフォルダは、はじめの準備で「書類」へ移動したものです（<a1>共通資料：はじめの準備</a1>の1.）。まだ移動していなければ、先にそちらを行います。同じ教材を2回ダウンロードして名前のうしろに <code>(1)</code> が付いたものがあるときは、自分で判断せず先生に見せてください。",
+      "translation": "Il s'agit du dossier déplacé vers 「書類」 (Documents) lors de la préparation initiale (partie 1 du <a1>Guide commun : Préparation initiale</a1>). Si vous ne l'avez pas encore déplacé, faites-le d'abord. Si vous avez téléchargé deux fois les mêmes supports et qu'un nom se termine par <code>(1)</code>, montrez-le à l'enseignant au lieu de décider seul."
+    },
+    {
+      "source": "② 自分のプロジェクトに貼り付ける",
+      "translation": "② Coller dans votre propre projet"
+    },
+    {
+      "source": "Android Studioに戻り、自分の <code>A03RockPaperScissorsGame</code> を開いていることを確認します。",
+      "translation": "Revenez à Android Studio et vérifiez que votre propre <code>A03RockPaperScissorsGame</code> est ouvert."
+    },
+    {
+      "source": "Project表示で <code>app/src/main/res/drawable</code> フォルダをクリックして選び、<kbd>⌘ V</kbd> で貼り付けます。",
+      "translation": "Dans la vue Project, cliquez sur le dossier <code>app/src/main/res/drawable</code> pour le sélectionner, puis collez avec <kbd>⌘ V</kbd>."
+    },
+    {
+      "source": "<strong>Copy</strong> の画面が出たら、<strong>To directory</strong> を確認します。末尾が <code>A03RockPaperScissorsGame/app/src/main/res/drawable</code> になっていれば <strong>OK</strong> を押します。見本（完成プロジェクト）も開いている人は、途中に <code>samples</code> が入っていないことも確かめます。入っていたら、見本の方に貼り付けようとしています。",
+      "translation": "Si la fenêtre <strong>Copy</strong> apparaît, vérifiez <strong>To directory</strong>. Si le chemin se termine par <code>A03RockPaperScissorsGame/app/src/main/res/drawable</code>, cliquez sur <strong>OK</strong>. Si l'exemple (projet terminé) est aussi ouvert, vérifiez que le chemin ne contient pas <code>samples</code>. Sinon, vous êtes sur le point de coller dans l'exemple."
+    },
+    {
+      "source": "Project表示でdrawableフォルダを選び、Copyダイアログが開いている。To directoryの末尾はapp/src/main/res/drawable",
+      "translation": "Le dossier drawable est sélectionné dans Project et la boîte de dialogue Copy est ouverte. To directory se termine par app/src/main/res/drawable"
+    },
+    {
+      "source": "To directoryの末尾が A03RockPaperScissorsGame/app/src/main/res/drawable になっていればOK。画像のパスは先生の保存先の例です。 <a1>画像を大きく開く</a1>",
+      "translation": "Si To directory se termine par A03RockPaperScissorsGame/app/src/main/res/drawable, cliquez sur OK. Le chemin de l'image est celui de l'enseignant. <a1>Ouvrir l'image en grand</a1>"
+    },
+    {
+      "source": "drawableフォルダにpaper.png、rock.png、scissors.png、title_image.pngの4つが追加されている",
+      "translation": "Quatre fichiers ont été ajoutés à drawable : paper.png, rock.png, scissors.png et title_image.png"
+    },
+    {
+      "source": "drawableに4つのPNGが並べば成功。 <a1>画像を大きく開く</a1>",
+      "translation": "Si les quatre PNG apparaissent dans drawable, c'est réussi. <a1>Ouvrir l'image en grand</a1>"
+    },
+    {
+      "source": "貼り付けた場所を間違えたとき",
+      "translation": "Si vous avez collé au mauvais endroit"
+    },
+    {
+      "source": "<code>layout</code> や <code>mipmap</code> など別のフォルダに入った画像は、Project表示で選んで <kbd>⌘ Delete</kbd> で削除し、もう一度 <code>drawable</code> に貼り付けます。見本の <code>samples</code> 側のプロジェクトには貼り付けません。",
+      "translation": "Si vous avez placé les images dans un autre dossier, par exemple <code>layout</code> ou <code>mipmap</code>, sélectionnez-les dans la vue Project, supprimez-les avec <kbd>⌘ Delete</kbd>, puis collez-les à nouveau dans <code>drawable</code>. Ne les collez pas dans le projet modèle du dossier <code>samples</code>."
+    },
+    {
+      "source": "Runで確かめる",
+      "translation": "Vérifier avec Run"
+    },
+    {
+      "source": "画像を追加しただけでは、画面は変わりません。Runして <strong>Hello World!</strong> が表示され、ビルドエラーが出なければ成功です。",
+      "translation": "L'ajout des images ne change pas encore l'écran. Lancez avec Run : si <strong>Hello World!</strong> s'affiche sans erreur de build, l'opération a réussi."
+    },
+    {
+      "source": "自分のプロジェクトのdrawableに4つのPNGを追加し、Runしてもエラーが出ないことを確認した。",
+      "translation": "J'ai ajouté les quatre PNG au drawable de mon projet et vérifié que Run ne produit aucune erreur."
+    },
+    {
+      "source": "次へ：タイトルと3つの手を並べる →",
+      "translation": "Suite : Disposer le titre et les trois gestes →"
+    },
+    {
+      "source": "STEP 03 · 目安 20分",
+      "translation": "STEP 03 · Durée indicative : 20 min"
+    },
+    {
+      "source": "タイトルと3つの手を並べる",
+      "translation": "Disposer le titre et les trois gestes"
+    },
+    {
+      "source": "変更するファイル：app/src/main/res/layout/activity_main.xml",
+      "translation": "Fichier à modifier : app/src/main/res/layout/activity_main.xml"
+    },
+    {
+      "source": "まず上半分を作ります。<strong>Code</strong> 表示に切り替え、XMLの中で <kbd>⌘ A</kbd> → 貼り付けを行い、<strong>ファイル全体を置き換えます</strong>。",
+      "translation": "Commencez par la moitié supérieure. Passez en mode <strong>Code</strong>, puis faites <kbd>⌘ A</kbd> dans le XML et collez le code pour <strong>remplacer tout le fichier</strong>."
+    },
+    {
+      "source": "activity_main.xml · 全体を置き換える",
+      "translation": "activity_main.xml · Remplacer tout le fichier"
+    },
+    {
+      "source": "新しい指定",
+      "translation": "Nouveau réglage"
+    },
+    {
+      "source": "意味",
+      "translation": "Signification"
+    },
+    {
+      "source": "ImageView（イメージビュー）",
+      "translation": "ImageView (イメージビュー)"
+    },
+    {
+      "source": "画像を表示する部品。",
+      "translation": "Composant qui affiche une image."
+    },
+    {
+      "source": "STEP 2で追加した <code>rock.png</code> を表示する。<code>.png</code> は書かない。",
+      "translation": "Affiche <code>rock.png</code>, ajouté au STEP 2. N'écrivez pas <code>.png</code>."
+    },
+    {
+      "source": "画面読み上げ用の説明文。この単元では説明文を付けない指定にして、警告を出さないようにする。",
+      "translation": "Texte descriptif pour le lecteur d'écran. Dans cette unité, on indique qu'il n'y a pas de description pour éviter un avertissement."
+    },
+    {
+      "source": "Material 3の「大きめの本文」の文字スタイルを使う。",
+      "translation": "Utilise le style de texte « grand corps de texte » de Material 3."
+    },
+    {
+      "source": "android:layout_width=\"0dp\" と android:layout_weight=\"1\"",
+      "translation": "android:layout_width=\"0dp\" et android:layout_weight=\"1\""
+    },
+    {
+      "source": "横幅を比率で分ける。3つとも1なので、横幅を3等分する。",
+      "translation": "Répartit la largeur proportionnellement. Les trois valeurs sont 1 : la largeur est divisée en trois parts égales."
+    },
+    {
+      "source": "親の <code>orientation=\"vertical\"</code> がタイトル・メッセージ・手の行を縦に並べ、手の行の <code>orientation=\"horizontal\"</code> が3つの画像を横に並べます。A02の数字ボタンと同じ入れ子の形です。",
+      "translation": "Le <code>orientation=\"vertical\"</code> du parent empile le titre, le message et la rangée de gestes. Le <code>orientation=\"horizontal\"</code> de cette rangée aligne les trois images. C'est la même imbrication que pour les boutons numérotés d'A02."
+    },
+    {
+      "source": "3つの手のidは <code>img_rock</code>・<code>img_scissors</code>・<code>img_paper</code> です。この <strong>グー → チョキ → パー</strong> の順番を、あとのJavaでも使います。<code>android:id=\"@+id/main\"</code> はJavaのひな形でも使うため残します。",
+      "translation": "Les id des trois gestes sont <code>img_rock</code>, <code>img_scissors</code> et <code>img_paper</code>. Vous utiliserez ensuite en Java le même ordre : <strong>pierre → ciseaux → feuille</strong>. Conservez <code>android:id=\"@+id/main\"</code>, car le modèle Java l'utilise aussi."
+    },
+    {
+      "source": "手の画像が画面の端まで表示されます",
+      "translation": "Les images des gestes vont jusqu'aux bords de l'écran"
+    },
+    {
+      "source": "ひな形のJavaにある <code>v.setPadding(...)</code> が、一番外側の部品の余白を実行時に置き換えます。そのため、手の画像が画面の端まで表示されます。教材では、このひな形をそのまま使います。余白を付けたいときは<a1>共通資料：開発Tips</a1>のA章を見ましょう。",
+      "translation": "Le <code>v.setPadding(...)</code> du modèle Java remplace la marge intérieure du composant extérieur lors de l'exécution. Les images des gestes vont donc jusqu'aux bords de l'écran. Ce manuel conserve le modèle tel quel. Pour ajouter des marges, consultez le chapitre A du <a1>Guide commun : Conseils de développement</a1>."
+    },
+    {
+      "source": "タイトル画像、「じゃんけんの手を選んでください」、グー・チョキ・パーの画像が上から表示されれば成功です。まだ画像を押しても何も起きません。",
+      "translation": "L'étape est réussie si l'image du titre, 「じゃんけんの手を選んでください」 (choisissez un geste), puis les images pierre, ciseaux et feuille apparaissent de haut en bas. Appuyer sur une image ne produit encore aucun effet."
+    },
+    {
+      "source": "<code>@drawable/rock</code> などが赤いときは、STEP 2の画像の場所とファイル名を確認します。文字を直接書いたことによる <code>Hardcoded text</code> の警告は、A01・A02と同様に授業ではそのまま進めます。",
+      "translation": "Si <code>@drawable/rock</code> ou un nom similaire est rouge, vérifiez l'emplacement et le nom des images du STEP 2. Comme dans A01 et A02, continuez sans corriger l'avertissement <code>Hardcoded text</code> dû au texte écrit directement."
+    },
+    {
+      "source": "タイトル・メッセージ・3つの手が表示され、layout_weightで横幅を3等分していることを確認した。",
+      "translation": "J'ai affiché le titre, le message et les trois gestes, et vérifié que layout_weight partage la largeur en trois parts égales."
+    },
+    {
+      "source": "次へ：ボタンとCPUの手の場所 →",
+      "translation": "Suite : Emplacement des boutons et du geste du CPU →"
+    },
+    {
+      "source": "STEP 04 · 目安 15分",
+      "translation": "STEP 04 · Environ 15 min"
+    },
+    {
+      "source": "ボタンとCPUの手の場所",
+      "translation": "Emplacement des boutons et du geste du CPU"
+    },
+    {
+      "source": "変更するファイル：activity_main.xml",
+      "translation": "Fichier à modifier : activity_main.xml"
+    },
+    {
+      "source": "下半分に、2つのボタンとCPUの手を表示する場所を作ります。XMLの<strong>最後の <code>&lt;/LinearLayout&gt;</code> の直前</strong>に追加します。STEP 3のタイトルや手の画像は残します。",
+      "translation": "Dans la moitié inférieure, créez les deux boutons et la zone d'affichage du geste du CPU. Ajoutez-les <strong>juste avant le dernier <code>&lt;/LinearLayout&gt;</code></strong> du XML. Conservez le titre et les images du STEP 3."
+    },
+    {
+      "source": "追加 · 最後の閉じタグの直前",
+      "translation": "Ajout · Juste avant la dernière balise de fermeture"
+    },
+    {
+      "source": "指定",
+      "translation": "Réglage"
+    },
+    {
+      "source": "「勝負！」と「次の戦いへ」のボタン。Javaから探すための名前。",
+      "translation": "Noms des boutons 「勝負！」 (jouer !) et 「次の戦いへ」 (manche suivante), pour les retrouver depuis Java."
+    },
+    {
+      "source": "最初はボタンを押せないようにする。",
+      "translation": "Rend le bouton indisponible au départ."
+    },
+    {
+      "source": "勝負！の右側に12dpのすき間を作る。2つのボタンの幅は <code>layout_weight</code> で半分ずつ。",
+      "translation": "Crée un espace de 12dp à droite de 「勝負！」 (jouer !). <code>layout_weight</code> attribue la moitié de la largeur à chaque bouton."
+    },
+    {
+      "source": "CPUの手を表示する場所。<code>android:src</code> がないので、最初は何も見えない。画像はJavaで設定する。",
+      "translation": "Zone d'affichage du geste du CPU. Sans <code>android:src</code>, rien n'est visible au début. L'image est définie en Java."
+    },
+    {
+      "source": "<code>tools:ignore=\"ButtonStyle\"</code> はエディタの警告を抑える指定で、クリックの処理ではありません。「CPUの手」の文字はJavaで変えないため、idを付けていません。",
+      "translation": "<code>tools:ignore=\"ButtonStyle\"</code> masque un avertissement de l'éditeur ; ce n'est pas un traitement du clic. Le texte 「CPUの手」 (geste du CPU) n'a pas d'id, car il n'est pas modifié en Java."
+    },
+    {
+      "source": "画面の下に「勝負！」「次の戦いへ」と「CPUの手」が表示されます。2つのボタンは灰色で押せません。",
+      "translation": "「勝負！」 (jouer !), 「次の戦いへ」 (manche suivante) et 「CPUの手」 (geste du CPU) apparaissent en bas de l'écran. Les deux boutons sont grisés et indisponibles."
+    },
+    {
+      "source": "タイトル、メッセージ、3つの手、灰色の勝負！と次の戦いへ、CPUの手の見出しが並ぶ",
+      "translation": "Le titre, le message, les trois gestes, les boutons grisés 「勝負！」 (jouer !) et 「次の戦いへ」 (manche suivante), puis le titre 「CPUの手」 (geste du CPU) sont disposés à l'écran"
+    },
+    {
+      "source": "このSTEPの画面。CPUの手の下はまだ空欄です。 <a1>画像を大きく開く</a1>",
+      "translation": "Écran de ce STEP. La zone sous 「CPUの手」 (geste du CPU) est encore vide. <a1>Ouvrir l'image en grand</a1>"
+    },
+    {
+      "source": "1コマ目はここまで",
+      "translation": "Fin de la séance 1"
+    },
+    {
+      "source": "もう一度Runします。画面の部品のidを、先生に1つずつ指さして説明しましょう。次回も自分の <code>Documents/Android1/A03RockPaperScissorsGame</code> を開きます。",
+      "translation": "Exécutez à nouveau avec Run. Montrez les id des composants un par un à l'enseignant et expliquez-les. Au prochain cours, ouvrez encore votre <code>Documents/Android1/A03RockPaperScissorsGame</code>."
+    },
+    {
+      "source": "2つのボタンが押せない状態で表示されることをRunで確認し、XMLでimg_cpuが「CPUの手」のTextViewの下にあることを確認した（画面ではまだ見えない）。",
+      "translation": "J'ai vérifié avec Run que les deux boutons sont affichés mais indisponibles, et dans le XML qu'img_cpu se trouve sous le TextView 「CPUの手」 (geste du CPU), même s'il est encore invisible à l'écran."
+    },
+    {
+      "source": "次へ：手を選ぶ（配列とfor文） →",
+      "translation": "Suite : Choisir un geste (tableau et boucle for) →"
+    },
+    {
+      "source": "STEP 05 · 目安 30分",
+      "translation": "STEP 05 · Environ 30 min"
+    },
+    {
+      "source": "手を選ぶ（配列とfor文）",
+      "translation": "Choisir un geste (tableau et boucle for)"
+    },
+    {
+      "source": "変更するファイル：MainActivity.java",
+      "translation": "Fichier à modifier : MainActivity.java"
+    },
+    {
+      "source": "前回の画面をRunして確認してから始めます。押した手の背景を赤くし、<strong>何番の手を選んだか</strong>をフィールドに覚えます。",
+      "translation": "Commencez par vérifier l'écran précédent avec Run. Rendez rouge le fond du geste pressé et mémorisez dans un champ <strong>le numéro du geste choisi</strong>."
+    },
+    {
+      "source": "① クラスの中、onCreateの外に1行追加",
+      "translation": "① Ajouter une ligne dans la classe, hors de onCreate"
+    },
+    {
+      "source": "<code>public class MainActivity extends AppCompatActivity {</code> のすぐ下、<code>@Override</code> より上に追加します。",
+      "translation": "Ajoutez-la juste sous <code>public class MainActivity extends AppCompatActivity {</code>, au-dessus de <code>@Override</code>."
+    },
+    {
+      "source": "追加 · MainActivityのフィールド",
+      "translation": "Ajout · Champ de MainActivity"
+    },
+    {
+      "source": "<code>selectedHand</code> は、選んだ手の番号を覚えるフィールドです。<code>-1</code> は「まだ選んでいない」という意味です。この値は、クリックの処理（<code>v -&gt; { ... }</code>）の中で書き換えます。<code>onCreate</code> の中で作ったローカル変数は、クリックの処理の中で変更できないため、フィールドにします。A02の <code>correctNo</code> などと同じ理由です。あとで出てくる <code>imageViews</code> や <code>btnStart</code> は、クリックの処理の中で読むだけなので、ローカル変数のままで構いません。",
+      "translation": "<code>selectedHand</code> est le champ qui mémorise le numéro du geste choisi. <code>-1</code> signifie « aucun choix ». Cette valeur est modifiée dans le traitement du clic (<code>v -&gt; { ... }</code>). Une variable locale créée dans <code>onCreate</code> ne pouvant pas y être modifiée, utilisez un champ, comme pour <code>correctNo</code> dans A02. Les futurs <code>imageViews</code> et <code>btnStart</code> sont seulement lus dans le traitement du clic : ils peuvent rester des variables locales."
+    },
+    {
+      "source": "② 画面の部品を取得する",
+      "translation": "② Récupérer les composants de l'écran"
+    },
+    {
+      "source": "<code>onCreate</code> の中で、ひな形の <code>return insets;</code> に続く <code>});</code> の下、<code>onCreate</code> を閉じる <code>}</code> より上に追加します。",
+      "translation": "Dans <code>onCreate</code>, ajoutez le code sous le <code>});</code> qui suit <code>return insets;</code> dans le modèle, et au-dessus du <code>}</code> qui ferme <code>onCreate</code>."
+    },
+    {
+      "source": "追加 · onCreateの中",
+      "translation": "Ajout · Dans onCreate"
+    },
+    {
+      "source": "コード",
+      "translation": "コード — code"
+    },
+    {
+      "source": "表示する画像を変えるため、ImageViewとして扱う。",
+      "translation": "Traite le composant comme un ImageView pour modifier l'image affichée."
+    },
+    {
+      "source": "クリック登録と有効・無効の切り替えだけを使うため、A02と同じくキャストしない。",
+      "translation": "Comme dans A02, aucune conversion de type n'est nécessaire : seuls l'enregistrement du clic et l'activation ou désactivation sont utilisés."
+    },
+    {
+      "source": "3つの手の画像を、ImageViewの配列にまとめる。",
+      "translation": "Regroupe les trois images de gestes dans un tableau d'ImageView."
+    },
+    {
+      "source": "配列の番号は0から始まります。<code>{ }</code> に書いた順番で、<code>imageViews[0]</code> がグー、<code>imageViews[1]</code> がチョキ、<code>imageViews[2]</code> がパーです。この番号が、そのまま手の番号になります。",
+      "translation": "Les indices d'un tableau commencent à 0. Dans l'ordre écrit entre <code>{ }</code>, <code>imageViews[0]</code> est pierre, <code>imageViews[1]</code> est ciseaux et <code>imageViews[2]</code> est feuille. Cet indice devient directement le numéro du geste."
+    },
+    {
+      "source": "Auto Importで <code>android.widget.ImageView</code> と <code>android.widget.TextView</code> を追加します。赤字が残るときは名前にカーソルを置いて <kbd>⌥ Enter</kbd> で候補を確認します。<code>txtMessage</code> などが灰色で表示されるのは、まだ使っていないためです。",
+      "translation": "Ajoutez <code>android.widget.ImageView</code> et <code>android.widget.TextView</code> avec Auto Import. Si un nom reste rouge, placez-y le curseur et consultez les propositions avec <kbd>⌥ Enter</kbd>. <code>txtMessage</code> et les autres noms grisés ne sont pas encore utilisés."
+    },
+    {
+      "source": "③ 3つの画像にクリック処理を付ける",
+      "translation": "③ Associer un traitement du clic aux trois images"
+    },
+    {
+      "source": "②で追加した配列の <code>};</code> の下に追加します。",
+      "translation": "Ajoutez le code sous le <code>};</code> du tableau ajouté en ②."
+    },
+    {
+      "source": "追加 · 配列imageViewsの下",
+      "translation": "Ajout · Sous le tableau imageViews"
+    },
+    {
+      "source": "<code>Color</code> のimportは <code>android.graphics.Color</code> です。",
+      "translation": "L'import de <code>Color</code> est <code>android.graphics.Color</code>."
+    },
+    {
+      "source": "配列から画像を1つずつ取り出し、クリック処理を登録する。A02の数字ボタンと同じ拡張for文。",
+      "translation": "Extrait les images du tableau une par une et enregistre le traitement du clic. C'est la même boucle for améliorée que pour les boutons numérotés d'A02."
+    },
+    {
+      "source": "押された画像。",
+      "translation": "Image pressée."
+    },
+    {
+      "source": "手を選んだので、勝負！を押せるようにする。",
+      "translation": "Un geste ayant été choisi, rend 「勝負！」 (jouer !) disponible."
+    },
+    {
+      "source": "<code>i</code> を0・1・2と変えながら繰り返す。<code>imageViews.length</code> は配列の数（3）。",
+      "translation": "Répète en faisant prendre à <code>i</code> les valeurs 0, 1 et 2. <code>imageViews.length</code> est le nombre d'éléments du tableau (3)."
+    },
+    {
+      "source": "i番目の画像が、押された画像と同じ部品かを比べる。",
+      "translation": "Vérifie si l'image d'indice i est le composant pressé."
+    },
+    {
+      "source": "押された画像の背景を赤にする。",
+      "translation": "Rend rouge le fond de l'image pressée."
+    },
+    {
+      "source": "押された画像の番号をフィールドに覚える。",
+      "translation": "Mémorise dans le champ le numéro de l'image pressée."
+    },
+    {
+      "source": "押されていない画像の背景を消す。前に選んだ赤もここで消える。",
+      "translation": "Efface le fond des images non pressées. Le rouge du choix précédent disparaît aussi ici."
+    },
+    {
+      "source": "番号付きのfor文を読む",
+      "translation": "Lire la boucle for avec un indice"
+    },
+    {
+      "source": "var i = 0（最初に1回）",
+      "translation": "var i = 0 (une fois au départ)"
+    },
+    {
+      "source": "i &lt; 3 なら中を実行",
+      "translation": "Si i &lt; 3, exécuter le bloc"
+    },
+    {
+      "source": "i++（1増やす）",
+      "translation": "i++ (augmenter de 1)"
+    },
+    {
+      "source": "条件に戻る",
+      "translation": "Revenir à la condition"
+    },
+    {
+      "source": "チョキを押したとき",
+      "translation": "Lors d'un appui sur ciseaux"
+    },
+    {
+      "source": "実行すること",
+      "translation": "Opération à exécuter"
+    },
+    {
+      "source": "i = 0（グー）",
+      "translation": "i = 0 (pierre)"
+    },
+    {
+      "source": "グーの背景を消す。",
+      "translation": "Efface le fond de pierre."
+    },
+    {
+      "source": "i = 1（チョキ）",
+      "translation": "i = 1 (ciseaux)"
+    },
+    {
+      "source": "チョキの背景を赤にし、<code>selectedHand</code> を1にする。",
+      "translation": "Rend rouge le fond de ciseaux et affecte 1 à <code>selectedHand</code>."
+    },
+    {
+      "source": "i = 2（パー）",
+      "translation": "i = 2 (feuille)"
+    },
+    {
+      "source": "パーの背景を消す。",
+      "translation": "Efface le fond de feuille."
+    },
+    {
+      "source": "（条件 3 &lt; 3 がfalse）",
+      "translation": "(La condition 3 &lt; 3 est false)"
+    },
+    {
+      "source": "繰り返しを終える。",
+      "translation": "Termine la répétition."
+    },
+    {
+      "source": "外側の拡張for文は画面を作るときに3回実行され、3つの画像に同じ処理を登録します。内側の番号付きfor文は、<strong>画像を押したとき</strong>に実行されます。",
+      "translation": "La boucle for améliorée extérieure s'exécute trois fois à la création de l'écran et enregistre le même traitement sur les trois images. La boucle for intérieure, avec un indice, s'exécute <strong>lorsque vous appuyez sur une image</strong>."
+    },
+    {
+      "source": "グーを押すと、グーの背景が赤になり、勝負！が押せるようになります。",
+      "translation": "Appuyez sur pierre : son fond devient rouge et 「勝負！」 (jouer !) devient disponible."
+    },
+    {
+      "source": "続けてパーを押すと、赤がパーに移ります。赤い手はいつも1つだけです。",
+      "translation": "Appuyez ensuite sur feuille : le rouge passe à feuille. Un seul geste est rouge à la fois."
+    },
+    {
+      "source": "勝負！を押しても、まだ何も起きません。",
+      "translation": "Appuyer sur 「勝負！」 (jouer !) ne produit encore aucun effet."
+    },
+    {
+      "source": "グーの背景が赤くなり、勝負！だけが押せる状態",
+      "translation": "Le fond de pierre est rouge et seul 「勝負！」 (jouer !) est disponible"
+    },
+    {
+      "source": "グーを選んだ画面。勝負！が押せるようになります。 <a1>画像を大きく開く</a1>",
+      "translation": "Écran après le choix de pierre. 「勝負！」 (jouer !) devient disponible. <a1>Ouvrir l'image en grand</a1>"
+    },
+    {
+      "source": "押した手だけが赤くなり、別の手を押すと赤が移ることを確認した。selectedHand = i の行を指させた。",
+      "translation": "J'ai vérifié que seul le geste pressé devient rouge et que le rouge se déplace si je choisis un autre geste. J'ai montré la ligne selectedHand = i."
+    },
+    {
+      "source": "次へ：CPUの手を出す →",
+      "translation": "Suite : Afficher le geste du CPU →"
+    },
+    {
+      "source": "STEP 06 · 目安 20分",
+      "translation": "STEP 06 · Durée indicative : 20 min"
+    },
+    {
+      "source": "CPUの手を出す",
+      "translation": "Afficher le geste du CPU"
+    },
+    {
+      "source": "勝負！を押したら、手を選べないようにしてから、CPUの手をランダムに決めて表示します。勝ち負けの判定はSTEP 8で追加します。",
+      "translation": "Après un appui sur 「勝負！」 (jouer !), empêchez de choisir un autre geste, puis choisissez aléatoirement le geste du CPU et affichez-le. La détermination du résultat sera ajoutée au STEP 8."
+    },
+    {
+      "source": "STEP 5の3つの画像の処理を閉じる、<strong>拡張for文の最後の <code>}</code></strong> の下に追加します。<code>onCreate</code> を閉じる <code>}</code> より上です。",
+      "translation": "Ajoutez le code sous <strong>le dernier <code>}</code> de la boucle for améliorée</strong> qui termine le traitement des trois images du STEP 5. Cet emplacement est au-dessus du <code>}</code> qui ferme <code>onCreate</code>."
+    },
+    {
+      "source": "追加 · 画像のfor文の下",
+      "translation": "Ajout · Sous la boucle for des images"
+    },
+    {
+      "source": "importは <code>android.view.View</code> と <code>java.util.concurrent.ThreadLocalRandom</code> です。",
+      "translation": "Les imports sont <code>android.view.View</code> et <code>java.util.concurrent.ThreadLocalRandom</code>."
+    },
+    {
+      "source": "3つの画像を押せないようにする。勝負のあとに手を選び直せない。",
+      "translation": "Empêche d'appuyer sur les trois images et donc de changer de geste après la manche."
+    },
+    {
+      "source": "勝負！を押せなくし、次の戦いへを押せるようにする。",
+      "translation": "Désactive 「勝負！」 (jouer !) et active 「次の戦いへ」 (manche suivante)."
+    },
+    {
+      "source": "<strong>0以上、3未満</strong>の整数を選ぶ。CPUの手は0・1・2のどれか。",
+      "translation": "Choisit un entier <strong>supérieur ou égal à 0 et strictement inférieur à 3</strong>. Le geste du CPU est 0, 1 ou 2."
+    },
+    {
+      "source": "3つの画像のidを配列にまとめる。[0]グー、[1]チョキ、[2]パー。",
+      "translation": "Regroupe les id des trois images dans un tableau : [0] pierre, [1] ciseaux, [2] feuille."
+    },
+    {
+      "source": "CPUの手の画像を見える状態にする。",
+      "translation": "Rend visible l'image du geste du CPU."
+    },
+    {
+      "source": "選ばれた番号の画像を表示する。<code>cpu</code> が1なら <code>scissors.png</code>。",
+      "translation": "Affiche l'image du numéro choisi. Si <code>cpu</code> vaut 1, il s'agit de <code>scissors.png</code>."
+    },
+    {
+      "source": "A02の <code>nextInt(1, 10)</code> は1〜9でした。今回の <code>nextInt(3)</code> は0から始まるので、配列の番号にそのまま使えます。画像idの配列も、STEP 5の <code>imageViews</code> と同じ <strong>グー → チョキ → パー</strong> の順番です。",
+      "translation": "Dans A02, <code>nextInt(1, 10)</code> donnait 1 à 9. Ici, <code>nextInt(3)</code> commence à 0 : le résultat peut servir directement d'indice du tableau. Le tableau des id d'images suit aussi l'ordre <strong>pierre → ciseaux → feuille</strong>, comme <code>imageViews</code> au STEP 5."
+    },
+    {
+      "source": "2つのitemは別の変数",
+      "translation": "Les deux item sont des variables distinctes"
+    },
+    {
+      "source": "for文の <code>(var item : imageViews)</code> の <code>item</code> は、for文の <code>{ }</code> の中だけで使える名前です。for文の下の <code>var item = new int[]{...}</code> は、画像idの配列を入れる別の変数です。",
+      "translation": "Le <code>item</code> de <code>(var item : imageViews)</code> n'est utilisable qu'entre les <code>{ }</code> de cette boucle for. Sous la boucle, <code>var item = new int[]{...}</code> crée une autre variable contenant le tableau des id d'images."
+    },
+    {
+      "source": "手を選んで勝負！を押すと、「CPUの手」の下に画像が出ます。",
+      "translation": "Choisissez un geste, puis appuyez sur 「勝負！」 (jouer !) : une image apparaît sous 「CPUの手」 (geste du CPU)."
+    },
+    {
+      "source": "勝負！は押せなくなり、次の戦いへが押せるようになります。",
+      "translation": "「勝負！」 (jouer !) devient indisponible et 「次の戦いへ」 (manche suivante) devient disponible."
+    },
+    {
+      "source": "手の画像を押しても、赤い背景は動きません。",
+      "translation": "Appuyer sur une image de geste ne déplace plus le fond rouge."
+    },
+    {
+      "source": "メッセージはまだ変わりません。次の戦いへを押しても、まだ何も起きません。",
+      "translation": "Le message ne change pas encore. 「次の戦いへ」 (manche suivante) ne produit encore aucun effet."
+    },
+    {
+      "source": "もう一度試すときは、<strong>Run ▶</strong> でアプリを起動し直します。何回か試し、CPUの手が変わることを確認します。",
+      "translation": "Pour réessayer, relancez l'application avec <strong>Run ▶</strong>. Faites plusieurs essais et vérifiez que le geste du CPU change."
+    },
+    {
+      "source": "仕様の確認：<a1>ThreadLocalRandom.nextInt</a1>、<a2>ImageView.setImageResource</a2>、<a3>View.setVisibility（Android公式）</a3>。",
+      "translation": "Pour vérifier les spécifications : <a1>ThreadLocalRandom.nextInt</a1>, <a2>ImageView.setImageResource</a2> et <a3>View.setVisibility (documentation officielle Android)</a3>."
+    },
+    {
+      "source": "勝負！でCPUの手が表示され、そのあと手を選び直せないことを確認した。nextInt(3)で出る数を言えた。",
+      "translation": "J'ai vérifié que 「勝負！」 (jouer !) affiche le geste du CPU et qu'il est ensuite impossible de changer mon choix. J'ai indiqué les nombres possibles avec nextInt(3)."
+    },
+    {
+      "source": "次へ：次の戦いへ戻す →",
+      "translation": "Suite : Revenir à la manche suivante →"
+    },
+    {
+      "source": "STEP 07 · 目安 15分",
+      "translation": "STEP 07 · Durée indicative : 15 min"
+    },
+    {
+      "source": "次の戦いへ戻す",
+      "translation": "Revenir à la manche suivante"
+    },
+    {
+      "source": "次の戦いへを押したら、起動直後と同じ表示に戻し、もう一度手を選べるようにします。",
+      "translation": "Après un appui sur 「次の戦いへ」 (manche suivante), rétablissez l'affichage initial et permettez de choisir à nouveau un geste."
+    },
+    {
+      "source": "STEP 5の画像のfor文の最後の <code>}</code> の下、STEP 6で追加した <code>btnStart.setOnClickListener(v -&gt; {</code> の行の<strong>上</strong>に追加します。完成版と同じ順番にするためです。",
+      "translation": "Ajoutez le code sous le dernier <code>}</code> de la boucle for des images du STEP 5, et <strong>au-dessus</strong> de la ligne <code>btnStart.setOnClickListener(v -&gt; {</code> ajoutée au STEP 6. Vous suivrez ainsi le même ordre que la version terminée."
+    },
+    {
+      "source": "追加 · 勝負！の処理の上",
+      "translation": "Ajout · Au-dessus du traitement de 「勝負！」 (jouer !)"
+    },
+    {
+      "source": "元に戻すもの",
+      "translation": "Ce qui est rétabli"
+    },
+    {
+      "source": "選んだ手の赤い背景を消す。",
+      "translation": "Efface le fond rouge du geste choisi."
+    },
+    {
+      "source": "勝負！で押せなくした画像を、また押せるようにする。",
+      "translation": "Rend à nouveau disponibles les images désactivées par 「勝負！」 (jouer !)."
+    },
+    {
+      "source": "手を選ぶまで、2つのボタンを押せない状態にする。",
+      "translation": "Désactive les deux boutons tant qu'aucun geste n'est choisi."
+    },
+    {
+      "source": "CPUの手を見えなくする。表示する場所は残る。",
+      "translation": "Masque le geste du CPU tout en conservant son emplacement."
+    },
+    {
+      "source": "txtMessage.setText(\"じゃんけんの手を選んでください\")",
+      "translation": "txtMessage.setText(\"じゃんけんの手を選んでください\") (affiche « choisissez un geste »)"
+    },
+    {
+      "source": "メッセージを最初の文に戻す。",
+      "translation": "Rétablit le message initial."
+    },
+    {
+      "source": "ここでは <code>selectedHand</code> を-1に戻していません。手を選ぶまで勝負！を押せないため、前の番号が勝負に使われることはありません。",
+      "translation": "Ici, <code>selectedHand</code> n'est pas rétabli à -1. Comme 「勝負！」 (jouer !) reste indisponible jusqu'au choix d'un geste, l'ancien numéro ne sera pas utilisé pour la manche."
+    },
+    {
+      "source": "手を選ぶ → 勝負！ → 次の戦いへ の順に押します。",
+      "translation": "Suivez cet ordre : choisir un geste → 「勝負！」 (jouer !) → 「次の戦いへ」 (manche suivante)."
+    },
+    {
+      "source": "赤い背景とCPUの手が消え、2つのボタンが押せない状態に戻ります。",
+      "translation": "Le fond rouge et le geste du CPU disparaissent, et les deux boutons redeviennent indisponibles."
+    },
+    {
+      "source": "もう一度、別の手を選んで勝負！できます。2〜3回くり返します。",
+      "translation": "Vous pouvez choisir un autre geste et appuyer à nouveau sur 「勝負！」 (jouer !). Répétez deux ou trois fois."
+    },
+    {
+      "source": "2コマ目はここまで",
+      "translation": "Fin de la séance 2"
+    },
+    {
+      "source": "もう一度Runします。次回はRunして、選ぶ → 勝負！ → 次の戦いへ をくり返せることを確かめてからSTEP 8へ進みます。",
+      "translation": "Exécutez à nouveau avec Run. Au prochain cours, utilisez Run et vérifiez que vous pouvez répéter choisir → 「勝負！」 (jouer !) → 「次の戦いへ」 (manche suivante), puis passez au STEP 8."
+    },
+    {
+      "source": "次の戦いへで起動直後と同じ表示に戻り、何度も勝負できることを確認した。",
+      "translation": "J'ai vérifié que 「次の戦いへ」 (manche suivante) rétablit l'affichage initial et permet de rejouer plusieurs fois."
+    },
+    {
+      "source": "次へ：勝ち負けと連勝数 →",
+      "translation": "Suite : Résultat et victoires consécutives →"
+    },
+    {
+      "source": "STEP 08 · 目安 25分",
+      "translation": "STEP 08 · Environ 25 min"
+    },
+    {
+      "source": "勝ち負けと連勝数",
+      "translation": "Résultat et victoires consécutives"
+    },
+    {
+      "source": "最後に、選んだ手とCPUの手を比べて結果を表示します。勝ち続けた回数も数えます。",
+      "translation": "Enfin, comparez votre geste à celui du CPU pour afficher le résultat. Comptez aussi les victoires successives."
+    },
+    {
+      "source": "① 連勝数のフィールドを追加",
+      "translation": "① Ajouter le champ des victoires consécutives"
+    },
+    {
+      "source": "STEP 5で追加した <code>private int selectedHand = -1; ...</code> の<strong>すぐ下</strong>に追加します。",
+      "translation": "Ajoutez-le <strong>juste sous</strong> <code>private int selectedHand = -1; ...</code>, ajouté au STEP 5."
+    },
+    {
+      "source": "追加 · selectedHandの下",
+      "translation": "Ajout · Sous selectedHand"
+    },
+    {
+      "source": "<code>winCount</code> は連続で勝った回数です。初期値を書かないので0から始まります。次の戦いへを押しても、このフィールドは0に戻しません。",
+      "translation": "<code>winCount</code> est le nombre de victoires consécutives. Sans valeur initiale explicite, il commence à 0. Un appui sur 「次の戦いへ」 (manche suivante) ne remet pas ce champ à 0."
+    },
+    {
+      "source": "② 結果を判定して表示する",
+      "translation": "② Déterminer et afficher le résultat"
+    },
+    {
+      "source": "勝負！の処理の中で、<code>imgCpu.setImageResource(item[cpu]);</code> の下、勝負！の処理を閉じる <code>});</code> より上に追加します。",
+      "translation": "Dans le traitement de 「勝負！」 (jouer !), ajoutez le code sous <code>imgCpu.setImageResource(item[cpu]);</code> et au-dessus du <code>});</code> qui ferme ce traitement."
+    },
+    {
+      "source": "追加 · 勝負！のsetImageResourceの下",
+      "translation": "Ajout · Sous setImageResource dans 「勝負！」 (jouer !)"
+    },
+    {
+      "source": "追加のimportは <code>android.util.Log</code> です。",
+      "translation": "L'import supplémentaire est <code>android.util.Log</code>."
+    },
+    {
+      "source": "計算式で勝ち負けを決める",
+      "translation": "Déterminer le résultat avec une formule"
+    },
+    {
+      "source": "グーはチョキに、チョキはパーに、パーはグーに勝ちます。番号で見ると <strong>0 → 1 → 2 → 0</strong> の順に、左の手が右の手に勝ちます。<code>%</code> は割り算の<strong>余り</strong>を求める記号です。たとえば <code>5 % 3</code> は2です。",
+      "translation": "Pierre bat ciseaux, ciseaux bat feuille et feuille bat pierre. Avec les numéros, dans l'ordre <strong>0 → 1 → 2 → 0</strong>, chaque geste bat celui à sa droite. <code>%</code> donne le <strong>reste</strong> (余り, あまり) d'une division. Par exemple, <code>5 % 3</code> vaut 2."
+    },
+    {
+      "source": "あなた ＼ CPU",
+      "translation": "Vous ＼ CPU"
+    },
+    {
+      "source": "0：グー",
+      "translation": "0 : pierre"
+    },
+    {
+      "source": "1：チョキ",
+      "translation": "1 : ciseaux"
+    },
+    {
+      "source": "2：パー",
+      "translation": "2 : feuille"
+    },
+    {
+      "source": "(0 − 0 + 3) % 3 = 0<br>引き分け",
+      "translation": "(0 − 0 + 3) % 3 = 0<br>Égalité"
+    },
+    {
+      "source": "(0 − 1 + 3) % 3 = 2<br>勝ち",
+      "translation": "(0 − 1 + 3) % 3 = 2<br>Victoire"
+    },
+    {
+      "source": "(0 − 2 + 3) % 3 = 1<br>負け",
+      "translation": "(0 − 2 + 3) % 3 = 1<br>Défaite"
+    },
+    {
+      "source": "(1 − 0 + 3) % 3 = 1<br>負け",
+      "translation": "(1 − 0 + 3) % 3 = 1<br>Défaite"
+    },
+    {
+      "source": "(1 − 1 + 3) % 3 = 0<br>引き分け",
+      "translation": "(1 − 1 + 3) % 3 = 0<br>Égalité"
+    },
+    {
+      "source": "(1 − 2 + 3) % 3 = 2<br>勝ち",
+      "translation": "(1 − 2 + 3) % 3 = 2<br>Victoire"
+    },
+    {
+      "source": "(2 − 0 + 3) % 3 = 2<br>勝ち",
+      "translation": "(2 − 0 + 3) % 3 = 2<br>Victoire"
+    },
+    {
+      "source": "(2 − 1 + 3) % 3 = 1<br>負け",
+      "translation": "(2 − 1 + 3) % 3 = 1<br>Défaite"
+    },
+    {
+      "source": "(2 − 2 + 3) % 3 = 0<br>引き分け",
+      "translation": "(2 − 2 + 3) % 3 = 0<br>Égalité"
+    },
+    {
+      "source": "結果は <strong>0：引き分け、1：負け、2：勝ち</strong> の3つだけです。<code>selectedHand - cpu</code> は −2〜2 になります。Javaでは <code>-1 % 3</code> が −1 になるため、先に3を足してから余りを求めます。",
+      "translation": "Il n'y a que trois résultats : <strong>0 : égalité, 1 : défaite, 2 : victoire</strong>. <code>selectedHand - cpu</code> va de −2 à 2. En Java, <code>-1 % 3</code> vaut −1 : ajoutez donc 3 avant de calculer le reste."
+    },
+    {
+      "source": "switch文で表示を分ける",
+      "translation": "Choisir l'affichage avec switch"
+    },
+    {
+      "source": "<code>result</code> の値によって、実行する場所を選ぶ。",
+      "translation": "Choisit le bloc à exécuter selon la valeur de <code>result</code>."
+    },
+    {
+      "source": "<code>result</code> が0のときに、ここから実行する。",
+      "translation": "Commence l'exécution ici lorsque <code>result</code> vaut 0."
+    },
+    {
+      "source": "そのcaseの処理を終え、switch文を抜ける。書き忘れると下のcaseも実行される。",
+      "translation": "Termine le traitement de ce case et sort de switch. Sans break, le case suivant est aussi exécuté."
+    },
+    {
+      "source": "引き分け・負けのとき、連勝数を0に戻す。",
+      "translation": "Remet les victoires consécutives à 0 en cas d'égalité ou de défaite."
+    },
+    {
+      "source": "勝ったとき、連勝数を1増やしてから表示する。",
+      "translation": "En cas de victoire, augmente le compteur de 1 avant de l'afficher."
+    },
+    {
+      "source": "選んだ手・CPUの手・結果の番号をLogcatに出す。A01で使ったログと同じ。",
+      "translation": "Écrit dans Logcat les numéros du geste choisi, du geste du CPU et du résultat. C'est le même journal que dans A01."
+    },
+    {
+      "source": "A02のif文は「条件がtrueかfalseか」で分けました。switch文は「1つの値が0か1か2か」で分けるときに読みやすくなります。",
+      "translation": "Le if d'A02 choisissait selon que la condition était true ou false. switch rend le code plus lisible lorsque vous distinguez les valeurs 0, 1 et 2 d'une même variable."
+    },
+    {
+      "source": "グーとチョキで勝ち。あなたの勝ち 1連勝中！と表示され、次の戦いへだけが有効",
+      "translation": "Victoire de pierre contre ciseaux. 「あなたの勝ち 1連勝中！」 (vous gagnez, 1 victoire consécutive !) s'affiche et seul 「次の戦いへ」 (manche suivante) est activé"
+    },
+    {
+      "source": "1回目の勝ち。グー（0）とチョキ（1）で結果は2。 <a1>画像を大きく開く</a1>",
+      "translation": "Première victoire. Pierre (0) contre ciseaux (1) donne le résultat 2. <a1>Ouvrir l'image en grand</a1>"
+    },
+    {
+      "source": "次の戦いへのあと、チョキでパーに勝ち、あなたの勝ち 2連勝中！と表示されている",
+      "translation": "Après 「次の戦いへ」 (manche suivante), ciseaux bat feuille et 「あなたの勝ち 2連勝中！」 (vous gagnez, 2 victoires consécutives !) s'affiche"
+    },
+    {
+      "source": "次の戦いへのあと、チョキでパーに勝つと2連勝。 <a1>画像を大きく開く</a1>",
+      "translation": "Après 「次の戦いへ」 (manche suivante), battre feuille avec ciseaux donne deux victoires consécutives. <a1>Ouvrir l'image en grand</a1>"
+    },
+    {
+      "source": "<a1>共通資料：Logcat</a1>に従ってLogcatを開き、検索欄を次の文字にします。",
+      "translation": "Ouvrez Logcat en suivant le <a1>Guide commun : Logcat</a1>, puis remplacez le contenu du champ de recherche par le texte suivant."
+    },
+    {
+      "source": "Logcatの検索欄 · RockPaperScissorsGame用",
+      "translation": "Champ de recherche de Logcat · Pour RockPaperScissorsGame"
+    },
+    {
+      "source": "何回か勝負します。画面の結果と、ログの番号が上の表と同じか確かめます。",
+      "translation": "Jouez plusieurs manches. Vérifiez que le résultat à l'écran et les numéros du journal correspondent au tableau ci-dessus."
+    },
+    {
+      "source": "勝ったあとに次の戦いへを押し、もう一度勝つと「2連勝中！」になります。",
+      "translation": "Après une victoire, appuyez sur 「次の戦いへ」 (manche suivante). Une nouvelle victoire affiche 「2連勝中！」 (2 victoires consécutives !)."
+    },
+    {
+      "source": "引き分けか負けのあとに勝つと、「1連勝中！」から数え直します。",
+      "translation": "Si vous gagnez après une égalité ou une défaite, le compteur reprend à 「1連勝中！」 (1 victoire consécutive !)."
+    },
+    {
+      "source": "読むところの例 · グーでCPUがチョキのとき",
+      "translation": "Exemple de lecture · Pierre contre un CPU qui choisit ciseaux"
+    },
+    {
+      "source": "連勝は運で決まります",
+      "translation": "Les victoires consécutives dépendent du hasard"
+    },
+    {
+      "source": "CPUの手はランダムなので、すぐに2連勝できるとは限りません。確実に確かめる方法はSTEP 9の練習1で試します。",
+      "translation": "Le geste du CPU est aléatoire : vous n'obtiendrez pas forcément deux victoires consécutives immédiatement. L'exercice 1 du STEP 9 propose une méthode de vérification certaine."
+    },
+    {
+      "source": "勝ち・負け・引き分けの表示とログの番号が表と一致し、勝つたびに連勝数が増えることを確認した。",
+      "translation": "J'ai vérifié que victoire, défaite et égalité, ainsi que les numéros du journal, correspondent au tableau, et que chaque victoire augmente le compteur de victoires consécutives."
+    },
+    {
+      "source": "次へ：ミニ練習 →",
+      "translation": "Suite : Mini-exercice →"
+    },
+    {
+      "source": "STEP 09 · 目安 20分",
+      "translation": "STEP 09 · Environ 20 min"
+    },
+    {
+      "source": "ミニ練習",
+      "translation": "Mini-exercice"
+    },
+    {
+      "source": "まず勝敗が表示されるところまで完成させます。そのあと、次の小変更を1つずつ試します。<strong>予想 → 変更 → Run → 説明 → 元に戻す</strong>の順で行います。",
+      "translation": "Terminez d'abord le jeu jusqu'à l'affichage du résultat. Essayez ensuite les petites modifications suivantes, une par une, dans cet ordre : <strong>prévoir → modifier → Run → expliquer → rétablir</strong>."
+    },
+    {
+      "source": "練習1：CPUの手を固定して表を確かめる",
+      "translation": "Exercice 1 : fixer le geste du CPU et vérifier le tableau"
+    },
+    {
+      "source": "勝負！の処理の <code>var cpu = ThreadLocalRandom.current().nextInt(3);</code> の行を <code>var cpu = 0;</code> に変えます。CPUはいつもグーです。グー・チョキ・パーで勝負すると、それぞれどの結果になるか予想してから試します。最後に、<strong>Run ▶ で起動し直してから</strong>（連勝数0から）、パーで勝負！ → 結果を見る → 次の戦いへ を3回くり返します。3回目の勝負！のあと、何連勝中と表示されるでしょうか。",
+      "translation": "Dans le traitement de 「勝負！」 (jouer !), remplacez <code>var cpu = ThreadLocalRandom.current().nextInt(3);</code> par <code>var cpu = 0;</code>. Le CPU choisit toujours pierre. Prévoyez les résultats de pierre, ciseaux et feuille, puis essayez. Enfin, <strong>relancez avec Run ▶</strong> (pour partir de zéro victoire), puis répétez trois fois : choisir feuille et 「勝負！」 (jouer !) → voir le résultat → 「次の戦いへ」 (manche suivante). Combien de victoires consécutives seront affichées après le troisième 「勝負！」 (jouer !) ?"
+    },
+    {
+      "source": "試したあとに答えを見る",
+      "translation": "Voir la réponse après avoir essayé"
+    },
+    {
+      "source": "グーは引き分け、チョキは負け、パーは勝ちです。起動し直してからパーで3回続けて勝つと、3回目の勝負！のあとに「3連勝中！」と表示されます。起動し直さずに続けると、直前の勝ちも数に入ります。途中でグーかチョキを選ぶと0に戻ります。確認後は <code>ThreadLocalRandom.current().nextInt(3)</code> に戻します。",
+      "translation": "Pierre donne une égalité, ciseaux une défaite et feuille une victoire. Après un redémarrage, trois victoires de suite avec feuille affichent 「3連勝中！」 (3 victoires consécutives !) après le troisième 「勝負！」 (jouer !). Sans redémarrer, la victoire précédente compte aussi. Choisir pierre ou ciseaux en cours de route remet le compteur à 0. Après vérification, rétablissez <code>ThreadLocalRandom.current().nextInt(3)</code>."
+    },
+    {
+      "source": "練習2：「+ 3」を消すとどうなる？",
+      "translation": "Exercice 2 : que se passe-t-il sans « + 3 » ?"
+    },
+    {
+      "source": "練習1の行を <code>var cpu = 2;</code>（CPUはいつもパー）にし、計算式を <code>(selectedHand - cpu) % 3</code> に変えます。グーで勝負すると、画面とLogcatの <code>result</code> はどうなるでしょうか。",
+      "translation": "Remplacez la ligne de l'exercice 1 par <code>var cpu = 2;</code> (le CPU choisit toujours feuille) et la formule par <code>(selectedHand - cpu) % 3</code>. Si vous jouez pierre, qu'afficheront l'écran et le <code>result</code> de Logcat ?"
+    },
+    {
+      "source": "<code>(0 - 2) % 3</code> は −2 です。0・1・2のどのcaseにも当てはまらないため、メッセージは「じゃんけんの手を選んでください」のまま変わりません。Logcatには <code>result: -2</code> と出ます。マイナスにならないよう3を足している、と説明できれば十分です。確認後は <code>+ 3</code> と乱数の行を元に戻します。",
+      "translation": "<code>(0 - 2) % 3</code> vaut −2. Aucun case 0, 1 ou 2 ne correspond : le message reste 「じゃんけんの手を選んでください」 (choisissez un geste). Logcat affiche <code>result: -2</code>. Il suffit de pouvoir expliquer que l'ajout de 3 évite un résultat négatif. Après vérification, rétablissez <code>+ 3</code> et la ligne du nombre aléatoire."
+    },
+    {
+      "source": "練習3：状態を説明する",
+      "translation": "Exercice 3 : expliquer les états"
+    },
+    {
+      "source": "勝負！のあとに手の画像を押しても選び直せないのは、どの行のおかげですか。次の戦いへのあとに、また選べるようになるのはどの行ですか。連勝数が0に戻る行も指さしましょう。",
+      "translation": "Quelle ligne empêche de changer de geste après 「勝負！」 (jouer !) ? Quelle ligne autorise à nouveau le choix après 「次の戦いへ」 (manche suivante) ? Montrez aussi la ligne qui remet le compteur de victoires à 0."
+    },
+    {
+      "source": "説明したあとに答えを見る",
+      "translation": "Voir la réponse après avoir expliqué"
+    },
+    {
+      "source": "勝負！の処理の <code>item.setClickable(false)</code> で押せなくし、次の戦いへの処理の <code>imageView.setClickable(true)</code> で戻します。連勝数は、switch文の <code>case 0</code> と <code>case 1</code> にある <code>winCount = 0</code> で0に戻ります。",
+      "translation": "<code>item.setClickable(false)</code> dans 「勝負！」 (jouer !) empêche les appuis ; <code>imageView.setClickable(true)</code> dans 「次の戦いへ」 (manche suivante) les réactive. Le compteur de victoires revient à 0 grâce à <code>winCount = 0</code> dans les <code>case 0</code> et <code>case 1</code> de switch."
+    },
+    {
+      "source": "完成版に戻してから確認",
+      "translation": "Vérifier après avoir rétabli la version terminée"
+    },
+    {
+      "source": "練習1・2の乱数の行と <code>+ 3</code> を元に戻します。Auto Importの設定により、使わなくなった <code>ThreadLocalRandom</code> のimportが消えることがあります。戻したあとに赤字になったら、<kbd>⌥ Enter</kbd> でimportを追加します。",
+      "translation": "Rétablissez la ligne du nombre aléatoire des exercices 1 et 2 ainsi que <code>+ 3</code>. Auto Import peut avoir supprimé l'import de <code>ThreadLocalRandom</code> devenu inutilisé. Si le nom est rouge après restauration, ajoutez l'import avec <kbd>⌥ Enter</kbd>."
+    },
+    {
+      "source": "CPUの手を固定して表の結果と「3連勝中！」の表示を確かめ、+ 3を消すとLogcatに result: -2 が出ることも確かめて、完成版に戻した。",
+      "translation": "J'ai fixé le geste du CPU pour vérifier le tableau et 「3連勝中！」 (3 victoires consécutives !). J'ai aussi vérifié que retirer + 3 produit result: -2 dans Logcat, puis rétabli la version terminée."
+    },
+    {
+      "source": "次へ：完成 →",
+      "translation": "Suite : Terminé →"
+    },
+    {
+      "source": "STEP 10 · 目安 15分",
+      "translation": "STEP 10 · Durée indicative : 15 min"
+    },
+    {
+      "source": "完成",
+      "translation": "Terminé"
+    },
+    {
+      "source": "完成チェック",
+      "translation": "Vérification finale"
+    },
+    {
+      "source": "操作",
+      "translation": "Action"
+    },
+    {
+      "source": "確認する結果",
+      "translation": "Résultat à vérifier"
+    },
+    {
+      "source": "起動直後",
+      "translation": "Juste après le lancement"
+    },
+    {
+      "source": "タイトル、「じゃんけんの手を選んでください」、3つの手。勝負！と次の戦いへは押せない。CPUの手は空欄。",
+      "translation": "Titre, 「じゃんけんの手を選んでください」 (choisissez un geste) et trois gestes. 「勝負！」 (jouer !) et 「次の戦いへ」 (manche suivante) sont indisponibles. La zone du geste du CPU est vide."
+    },
+    {
+      "source": "手を押す",
+      "translation": "Appuyer sur un geste"
+    },
+    {
+      "source": "押した手だけ背景が赤い。別の手を押すと赤が移る。勝負！が押せる。",
+      "translation": "Seul le geste pressé a un fond rouge. Un autre choix déplace le rouge. 「勝負！」 (jouer !) est disponible."
+    },
+    {
+      "source": "CPUの手と結果が出る。勝負！は押せず、次の戦いへが押せる。手の画像を押しても選び直せない。",
+      "translation": "Le geste du CPU et le résultat apparaissent. 「勝負！」 (jouer !) est indisponible, 「次の戦いへ」 (manche suivante) est disponible. Appuyer sur les images ne permet plus de changer de geste."
+    },
+    {
+      "source": "勝ち → 次の戦いへ → 勝ち",
+      "translation": "Victoire → 「次の戦いへ」 (manche suivante) → victoire"
+    },
+    {
+      "source": "「2連勝中！」になる。",
+      "translation": "「2連勝中！」 (2 victoires consécutives !) s'affiche."
+    },
+    {
+      "source": "引き分け・負けのあとに勝つ",
+      "translation": "Gagner après une égalité ou une défaite"
+    },
+    {
+      "source": "「1連勝中！」から数え直す。",
+      "translation": "Le compteur reprend à 「1連勝中！」 (1 victoire consécutive !)."
+    },
+    {
+      "source": "赤い背景・CPUの手が消え、メッセージが最初の文に戻る。2つのボタンは押せない。",
+      "translation": "Le fond rouge et le geste du CPU disparaissent, le message initial revient et les deux boutons sont indisponibles."
+    },
+    {
+      "source": "勝負！のたびに、選んだ手・CPUの手・結果の番号が出る。",
+      "translation": "À chaque 「勝負！」 (jouer !), les numéros du geste choisi, du geste du CPU et du résultat apparaissent."
+    },
+    {
+      "source": "保存",
+      "translation": "Enregistrement"
+    },
+    {
+      "source": "Android Studioは、書いたコードを自動でファイルに保存します。保存の操作は要りません。ここでは、保存された場所を確かめます。",
+      "translation": "Android Studio enregistre automatiquement le code dans les fichiers. Vous n'avez aucune opération de sauvegarde à effectuer. Vérifiez ici l'emplacement des fichiers enregistrés."
+    },
+    {
+      "source": "Finderを開き、左側の <strong>書類</strong>（<code>Documents</code>）をクリックします。",
+      "translation": "Ouvrez le Finder et cliquez sur <strong>書類</strong> (<code>Documents</code>) à gauche."
+    },
+    {
+      "source": "その中の <code>Android1</code> フォルダを開き、<code>A03RockPaperScissorsGame</code> フォルダがあることを確かめます。",
+      "translation": "Ouvrez le dossier <code>Android1</code> qui s'y trouve et vérifiez la présence du dossier <code>A03RockPaperScissorsGame</code>."
+    },
+    {
+      "source": "この <code>Documents/Android1/A03RockPaperScissorsGame</code> フォルダが、自分で作ったアプリです。あとの授業でもう一度開けるように、消したり、別の場所へ移動したり、名前を変えたりせずに、そのまま残します。",
+      "translation": "Le dossier <code>Documents/Android1/A03RockPaperScissorsGame</code> est votre application. Pour pouvoir le rouvrir lors d'un prochain cours, conservez-le tel quel, sans le supprimer, le déplacer ni le renommer."
+    },
+    {
+      "source": "教材のチェックは自分用です。先生への送信はしません。印刷は <kbd>⌘ P</kbd> で行えます。",
+      "translation": "Les cases du manuel servent à votre propre suivi. Elles ne sont pas envoyées à l'enseignant. Vous pouvez imprimer avec <kbd>⌘ P</kbd>."
+    },
+    {
+      "source": "完成チェックの操作をすべて試し、表のとおりの結果になった。",
+      "translation": "J'ai essayé toutes les actions de la vérification finale et obtenu les résultats indiqués dans le tableau."
+    },
+    {
+      "source": "困ったこと",
+      "translation": "Difficulté"
+    },
+    {
+      "source": "最初に確認する場所",
+      "translation": "Premier point à vérifier"
+    },
+    {
+      "source": "@drawable/rock や R.drawable.rock が赤い",
+      "translation": "@drawable/rock ou R.drawable.rock est rouge"
+    },
+    {
+      "source": "drawableに4つのPNGがあるか確認。ファイル名は小文字で、<code>rock.png.png</code> のように拡張子が重なっていないか見る。",
+      "translation": "Vérifiez la présence des quatre PNG dans drawable. Les noms doivent être en minuscules et ne pas répéter l'extension, comme dans <code>rock.png.png</code>."
+    },
+    {
+      "source": "画像の名前でビルドエラーになる",
+      "translation": "Le nom d'une image provoque une erreur de build"
+    },
+    {
+      "source": "drawableのファイル名に大文字・ハイフン・空白がないか確認。見本のファイル名と同じにする。",
+      "translation": "Vérifiez que les noms de fichiers dans drawable ne contiennent ni majuscule, ni tiret, ni espace. Utilisez les mêmes noms que dans le modèle."
+    },
+    {
+      "source": "貼り付けたのに画像が見つからない",
+      "translation": "Les images restent introuvables après les avoir collées"
+    },
+    {
+      "source": "Copy画面のTo directoryを確認。<code>samples</code> 側や別のフォルダに貼っていないか、Project表示で探す。",
+      "translation": "Vérifiez To directory dans la fenêtre Copy. Cherchez dans la vue Project si les images ont été collées dans <code>samples</code> ou dans un autre dossier."
+    },
+    {
+      "source": "R.idが赤い",
+      "translation": "R.id apparaît en rouge"
+    },
+    {
+      "source": "XMLのidが一致するか確認。img_rock、btn_start、img_cpuなど。最初のXMLエラーを直してビルドする。",
+      "translation": "Vérifiez la correspondance des id du XML, notamment img_rock, btn_start et img_cpu. Corrigez la première erreur XML, puis compilez."
+    },
+    {
+      "source": "起動時に終了する",
+      "translation": "L'application se ferme au lancement"
+    },
+    {
+      "source": "setContentViewがfindViewByIdより先か、id/mainを残したかを確認。Logcatで最初の例外を見る。",
+      "translation": "Vérifiez que setContentView précède findViewById et que id/main est conservé. Regardez la première exception dans Logcat."
+    },
+    {
+      "source": "Colorが赤字になる",
+      "translation": "Color est en rouge"
+    },
+    {
+      "source": "<code>android.graphics.Color</code> をimportする。<kbd>⌥ Enter</kbd> で候補を確認する。",
+      "translation": "Importez <code>android.graphics.Color</code>. Consultez les propositions avec <kbd>⌥ Enter</kbd>."
+    },
+    {
+      "source": "手を押しても赤くならない",
+      "translation": "Le geste pressé ne devient pas rouge"
+    },
+    {
+      "source": "STEP 5の外側のfor文でsetOnClickListenerしているか確認。<code>v.setBackgroundColor(Color.RED)</code> がifの中、<code>setBackground(null)</code> がelseの中にあり、入れ替わっていないか確認。",
+      "translation": "Vérifiez la présence de setOnClickListener dans la boucle for extérieure du STEP 5. Vérifiez que <code>v.setBackgroundColor(Color.RED)</code> est dans if et <code>setBackground(null)</code> dans else, sans les inverser."
+    },
+    {
+      "source": "赤い手が2つになる",
+      "translation": "Deux gestes sont rouges"
+    },
+    {
+      "source": "内側のfor文のelseにある <code>setBackground(null)</code> を確認。",
+      "translation": "Vérifiez <code>setBackground(null)</code> dans le else de la boucle for intérieure."
+    },
+    {
+      "source": "勝負！が押せない",
+      "translation": "「勝負！」 (jouer !) est indisponible"
+    },
+    {
+      "source": "手を選んだか確認。STEP 5の <code>btnStart.setEnabled(true)</code> を確認。",
+      "translation": "Vérifiez qu'un geste a été choisi et contrôlez <code>btnStart.setEnabled(true)</code> au STEP 5."
+    },
+    {
+      "source": "CPUの手が出ない",
+      "translation": "Le geste du CPU n'apparaît pas"
+    },
+    {
+      "source": "STEP 6の <code>setVisibility(View.VISIBLE)</code> と <code>setImageResource</code> を確認。",
+      "translation": "Vérifiez <code>setVisibility(View.VISIBLE)</code> et <code>setImageResource</code> au STEP 6."
+    },
+    {
+      "source": "勝ち負けが逆になる",
+      "translation": "Victoire et défaite sont inversées"
+    },
+    {
+      "source": "imageViewsと画像idの配列が、どちらもグー・チョキ・パーの順か確認。計算式が <code>selectedHand - cpu</code> の順か確認。",
+      "translation": "Vérifiez que imageViews et le tableau des id d'images suivent tous deux l'ordre pierre, ciseaux, feuille. Vérifiez l'ordre <code>selectedHand - cpu</code> dans la formule."
+    },
+    {
+      "source": "メッセージが変わらない",
+      "translation": "Le message ne change pas"
+    },
+    {
+      "source": "計算式の <code>+ 3</code>、caseの番号、STEP 8のコードが勝負！の処理の中にあるかを確認。",
+      "translation": "Vérifiez <code>+ 3</code> dans la formule, les numéros des case et la présence du code du STEP 8 dans le traitement de 「勝負！」 (jouer !)."
+    },
+    {
+      "source": "連勝数が増えない・変数をlambdaで変更できない",
+      "translation": "Le compteur de victoires n'augmente pas ou une variable ne peut pas être modifiée dans une lambda"
+    },
+    {
+      "source": "selectedHand（STEP 5）とwinCount（STEP 8）をonCreate内で宣言していないか確認。どちらもonCreateの外のフィールドにする。",
+      "translation": "Vérifiez que selectedHand (STEP 5) et winCount (STEP 8) ne sont pas déclarés dans onCreate. Tous deux doivent être des champs en dehors d'onCreate."
+    },
+    {
+      "source": "次の戦いへのあと手を選べない",
+      "translation": "Impossible de choisir un geste après 「次の戦いへ」 (manche suivante)"
+    },
+    {
+      "source": "STEP 7の <code>setClickable(true)</code> を確認。",
+      "translation": "Vérifiez <code>setClickable(true)</code> au STEP 7."
+    },
+    {
+      "source": "画面の下が見えない",
+      "translation": "Le bas de l'écran n'est pas visible"
+    },
+    {
+      "source": "エミュレータを縦向きにする。この単元では横向きの表示を扱わない。",
+      "translation": "Placez l'émulateur en mode portrait. Cette unité ne traite pas de l'affichage en mode paysage."
+    },
+    {
+      "source": "<a1>共通資料：Logcat</a1>を使います。今回のパッケージは <code>jp.ac.jec.a03rockpaperscissorsgame</code> です。エラーを見るときは、STEP 8で入れた <code>tag:MainActivity</code> と <code>level:DEBUG</code> を消して、<code>package:jp.ac.jec.a03rockpaperscissorsgame level:ERROR</code> に置き換えます。A01・A02用のパッケージ名も残さないようにします。",
+      "translation": "Utilisez le <a1>Guide commun : Logcat</a1>. Le package est <code>jp.ac.jec.a03rockpaperscissorsgame</code>. Pour consulter les erreurs, retirez <code>tag:MainActivity</code> et <code>level:DEBUG</code> ajoutés au STEP 8, puis utilisez <code>package:jp.ac.jec.a03rockpaperscissorsgame level:ERROR</code>. Ne conservez pas non plus les noms de package d'A01 ou d'A02."
+    },
+    {
+      "source": "質問では「STEP番号・編集したファイル・最初の赤い行・押した順番」を伝えます。",
+      "translation": "Pour poser une question, indiquez « le numéro du STEP, le fichier modifié, la première ligne rouge et l'ordre des boutons pressés »."
+    },
+    {
+      "source": "完成版は最初の授業から使える見本です。教科書といっしょに配られた<strong>教材のフォルダ</strong>に、そのまま開ける形で入っています。ダウンロードも展開も要りません。STEP 2の画像は、この見本の <code>app/src/main/res/drawable</code> にも入っています。",
+      "translation": "La version terminée est un modèle utilisable dès le premier cours. Elle se trouve, prête à ouvrir, dans le <strong>dossier des supports de cours</strong> distribué avec le manuel. Aucun téléchargement ni extraction n'est nécessaire. Les images du STEP 2 figurent aussi dans <code>app/src/main/res/drawable</code> de ce modèle."
+    },
+    {
+      "source": "Android Studioの <strong>Open</strong>（プロジェクトを開いているときは <strong>File → Open</strong>）で、<strong>書類</strong>（<code>Documents</code>）にある教材のフォルダを開きます。名前は <code>android1-student-materials-</code> のうしろに日付が付いた形で、日付は配られた回によって変わります。いま読んでいるこの教科書が入っているフォルダです。",
+      "translation": "Avec <strong>Open</strong> dans Android Studio (ou <strong>File → Open</strong> si un projet est ouvert), ouvrez le dossier des supports de cours dans <strong>書類</strong> (<code>Documents</code>). Son nom commence par <code>android1-student-materials-</code> suivi d'une date, qui varie selon la distribution. Il s'agit du dossier contenant le manuel que vous lisez actuellement."
+    },
+    {
+      "source": "その中を <code>samples → A03RockPaperScissorsGame</code> の順に開き、<code>settings.gradle.kts</code> と <code>app</code> が入った <code>A03RockPaperScissorsGame</code> フォルダを選びます。",
+      "translation": "Ouvrez successivement <code>samples → A03RockPaperScissorsGame</code> et sélectionnez le dossier <code>A03RockPaperScissorsGame</code> contenant <code>settings.gradle.kts</code> et <code>app</code>."
+    },
+    {
+      "source": "Sync後にRunして動きを確認します。授業の入力に戻るときは自分の <code>Documents/Android1/A03RockPaperScissorsGame</code> を開きます。",
+      "translation": "Après Sync, exécutez avec Run pour vérifier le comportement. Pour reprendre la saisie du cours, ouvrez votre <code>Documents/Android1/A03RockPaperScissorsGame</code>."
+    },
+    {
+      "source": "両方とも同じプロジェクト名なので、ウィンドウの保存先を確認しましょう。見本と自分のアプリは同じパッケージ名のため、端末上では同じアプリを更新します。切り替えるときは、確認したい方のプロジェクトからRunします。",
+      "translation": "Les deux projets portent le même nom : vérifiez l'emplacement de la fenêtre. Le modèle et votre application ont le même nom de package et mettent donc à jour la même application sur l'appareil. Pour passer de l'un à l'autre, lancez Run depuis le projet que vous voulez vérifier."
+    },
+    {
+      "source": "教材のフォルダが手元にないときは、同じ見本をZIPで受け取れます（<a1>A03RockPaperScissorsGame.zip</a1>）。展開してできた <code>A03RockPaperScissorsGame</code> フォルダを、同じようにOpenで選びます。",
+      "translation": "Si vous n'avez pas le dossier des supports, le même exemple est disponible en ZIP (<a1>A03RockPaperScissorsGame.zip</a1>). Sélectionnez de la même façon avec Open le dossier <code>A03RockPaperScissorsGame</code> obtenu après décompression."
+    },
+    {
+      "source": "完成したMainActivity.javaで照合する",
+      "translation": "Comparer avec le MainActivity.java terminé"
+    },
+    {
+      "source": "完成版 · MainActivity.java",
+      "translation": "Version terminée · MainActivity.java"
+    },
+    {
+      "source": "完成したactivity_main.xmlで照合する",
+      "translation": "Comparer avec le activity_main.xml terminé"
+    },
+    {
+      "source": "完成版 · activity_main.xml",
+      "translation": "Version terminée · activity_main.xml"
+    },
+    {
+      "source": "Androidプログラミング1 · A03RockPaperScissorsGame / 本文・画像・操作機能はオフラインで利用できます。Android Studioの初回準備・ビルドと公式資料の閲覧にはネット接続が必要です。",
+      "translation": "Programmation Android 1 · A03RockPaperScissorsGame / Le texte, les images et les fonctions interactives sont utilisables hors ligne. La préparation initiale d'Android Studio, la compilation et la consultation des documents officiels nécessitent Internet."
+    },
+    {
+      "source": "画像は授業用の提供資料を使用。CPUの手・勝敗・連勝数は操作によって変わります。",
+      "translation": "Les images proviennent des documents fournis pour le cours. Le geste du CPU, le résultat et les victoires consécutives varient selon les actions."
+    }
+  ],
+  "overrides": [
+    {
+      "source": "コード",
+      "where": "th",
+      "translation": "Code"
+    }
+  ]
+}
