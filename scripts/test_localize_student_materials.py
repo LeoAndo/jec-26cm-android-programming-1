@@ -79,6 +79,13 @@ class ExtractTest(unittest.TestCase):
         page = page_of("""<p><img alt="かき方は src='sample.png' です" src="real.png"></p>""")
         self.assertEqual(localize._raw_attribute(page.text, page.segments[0].element, "src"), "real.png")
 
+    def test_root_relative_link_is_rejected_while_reading_the_page(self):
+        # 生成のときではなく check で捕まえる。行番号が出ないと直す場所が分からない。
+        with self.assertRaisesRegex(localize.LocalizeError, "ルート相対のリンクは使えません"):
+            page_of('<p>\n<a href="/docs/assets/textbook.css">あ</a></p>')
+        # 外部のURLはパスが / で始まるので、混同しない。
+        self.assertEqual(sources_of('<p><a href="https://developer.android.com/x#y(a,%20b)">公式</a></p>'), ["公式"])
+
     def test_unquoted_link_and_lang_attributes_are_rejected(self):
         for html, attribute in (
             ('<html lang=ja><body><p>あ</p></body></html>', "lang"),
@@ -405,6 +412,30 @@ class CommandTest(unittest.TestCase):
         self.assertEqual(localize.read_catalog(catalog)["はじめての単元"], "EN hand-fixed")
         self.assertEqual(localize.read_catalog(catalog)["直した文です。"], "EN: 直した文です。")
         self.assertIn("読み飛ばした", output)
+
+    def test_merge_accepts_a_translation_that_moved_to_another_work_file(self):
+        # sync のたびに文の分け方は変わる。done-001 の訳が todo-002 に移っても取り込む。
+        self.sync()
+        self.translate_work()
+        moved = sorted(self.work.rglob("todo-*.json"))[0]
+        moved.rename(moved.with_name("todo-009.json"))
+        result, output, errors = self.quiet(localize.merge, self.settings(), "en", [], self.work, False)
+        self.assertEqual(result, 0, errors)
+        self.assertNotIn("読み飛ばした", output)
+        self.assertEqual(localize.read_catalog(self.settings().catalog_path("en", "docs/unit/index.html"))["単元"],
+                         "EN: 単元")
+
+    def test_merge_skips_work_files_left_by_a_removed_page(self):
+        # 単元を消しても作業ファイルは残る。その訳で merge 全体を失敗させない。
+        self.write("docs/gone/index.html", '<html lang="ja"><body><p>消える単元の文。</p></body></html>')
+        self.sync()
+        self.translate_work()
+        (self.root / "docs/gone/index.html").unlink()
+        result, output, errors = self.quiet(localize.merge, self.settings(), "en", [], self.work, False)
+        self.assertEqual(result, 0, errors)
+        self.assertIn("読み飛ばした", output)
+        self.assertEqual(localize.read_catalog(self.settings().catalog_path("en", "docs/unit/index.html"))["単元"],
+                         "EN: 単元")
 
     def test_sync_drops_translations_that_no_longer_pass_the_check(self):
         # 用語集を足して検査に落ちるようになった訳は、訳し直しに回す。

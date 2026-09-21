@@ -392,11 +392,19 @@ class _Extractor:
                 source = normalize(_raw_attribute(self.text, child, name, self.name) or "")
                 if JAPANESE.search(source):
                     self.segments.append(Segment(source, f"{child.tag} {name}", element=child, attribute=name))
-            # リンクと lang は生成時に書き換えるので、引用符をここで確かめておく。
-            # そうすれば check で捕まり、静かに書き換え漏れになることがない。
+            # リンクと lang は生成時に書き換えるので、書き方をここで確かめておく。
+            # 生成のときに気付くのでは遅い（行番号が出ず、CIの check も通ってしまう）。
             for name in LINK_ATTRIBUTES + (("lang",) if child.tag == "html" else ()):
-                if child.attribute(name) is not None:
-                    _raw_attribute(self.text, child, name, self.name)
+                if child.attribute(name) is None:
+                    continue
+                raw = _raw_attribute(self.text, child, name, self.name)
+                if name == "lang":
+                    continue
+                url = urlsplit(html.unescape(raw or ""))
+                # 外部のURLは対象外。パスが / で始まるのは当たり前なので、見るのは相対のリンクだけ。
+                if not url.scheme and not url.netloc and url.path.startswith("/"):
+                    line = self.text.count("\n", 0, child.start) + 1
+                    raise LocalizeError(f"{self.name}:{line}: ルート相対のリンクは使えません: {raw}")
             if child.tag not in PROTECTED:
                 self._attributes(child)
 
@@ -872,21 +880,8 @@ def merge(settings: Settings, code: str, files: list, work_dir: Path, overwrite:
     カタログへ入れるのは1か所でまとめて行う（同じカタログを同時に書き換えないため）。
     """
     han = settings.uses_han(code)
-    stale_files = 0
-    if files:
-        # 明示されたファイルは、そのまま取り込む。
-        targets = [(Path(path), None) for path in files]
-    else:
-        # 作業フォルダから拾うときは、その回の todo-*.json に載っている訳だけを取り込む。
-        # 前の回の done-*.json が残っていても、相手の todo がないので読み飛ばす。
-        # これがないと、古い訳がカタログに入り直し、手で直した訳が巻き戻る。
-        targets = []
-        for done in sorted((work_dir / code).rglob("done-*.json")):
-            todo = done.with_name(done.name.replace("done-", "todo-", 1))
-            if todo.is_file():
-                targets.append((done, todo))
-            else:
-                stale_files += 1
+    explicit = bool(files)
+    targets = [Path(path) for path in files] if explicit else sorted((work_dir / code).rglob("done-*.json"))
     if not targets:
         raise LocalizeError(f"訳した結果のファイルがありません: {_shown(settings.root, work_dir / code)} の done-*.json")
     pages = {name: read_page(settings.root, name) for name in settings.page_names()}
@@ -895,15 +890,26 @@ def merge(settings: Settings, code: str, files: list, work_dir: Path, overwrite:
         for source in page.sources():
             if index.setdefault(segment_id(source), source) != source:
                 raise LocalizeError(f"別の原文が同じidになりました: {segment_id(source)}")
+    allowed = None
+    if not explicit:
+        # 作業フォルダから拾うときは、いまの todo-*.json に載っていて、かつ今の教材にある
+        # 原文の訳だけを取り込む。ファイルごとに対にはしない。sync のたびに文の分け方が
+        # 変わるので、done-001 の訳が todo-002 に移ることがあるためである。
+        # これで、前の回の残りも、消した単元の作業ファイルも読み飛ばせる。
+        allowed = set()
+        for todo in sorted((work_dir / code).rglob("todo-*.json")):
+            try:
+                allowed.update(item["id"] for item in json.loads(todo.read_text(encoding="utf-8"))["segments"])
+            except (OSError, json.JSONDecodeError, KeyError, TypeError):
+                continue  # 読めない作業ファイルは、ここでは無視する。
+        allowed &= set(index)
     catalogs = {name: read_catalog(settings.catalog_path(code, name)) for name in pages}
     problems, passed, added, skipped, stale = [], 0, 0, 0, 0
     changed: set = set()
-    for path, todo_path in targets:
+    for path in targets:
         try:
             done = json.loads(Path(path).read_text(encoding="utf-8"))
-            allowed = None if todo_path is None else {
-                item["id"] for item in json.loads(todo_path.read_text(encoding="utf-8"))["segments"]}
-        except (OSError, json.JSONDecodeError, KeyError, TypeError) as error:
+        except (OSError, json.JSONDecodeError) as error:
             problems.append(f"{path}: JSONとして読み込めません: {error}")
             continue
         if not isinstance(done, dict) or not all(isinstance(value, str) for value in done.values()):
@@ -911,7 +917,7 @@ def merge(settings: Settings, code: str, files: list, work_dir: Path, overwrite:
             continue
         for identifier, translation in done.items():
             if allowed is not None and identifier not in allowed:
-                # この回の作業ファイルに載っていない訳。前の回の残りなので入れない。
+                # いまの作業ファイルに載っていない訳。前の回の残りなので入れない。
                 stale += 1
                 continue
             source = index.get(identifier)
@@ -943,8 +949,7 @@ def merge(settings: Settings, code: str, files: list, work_dir: Path, overwrite:
     print(f"{code}: 検査に通った訳 {passed}、"
           + (f"カタログに入る数 {added}（--dry-run なので、入れていません）" if dry_run else f"カタログに入れた数 {added}")
           + (f"、すでに別の訳があるので入れなかった数 {skipped}（入れ替えるなら --overwrite）" if skipped else "")
-          + (f"、前の回の残りなので読み飛ばした訳 {stale}" if stale else "")
-          + (f"、相手の todo がないので読み飛ばした作業ファイル {stale_files}" if stale_files else ""))
+          + (f"、前の回の残りなので読み飛ばした訳 {stale}" if stale else ""))
     if problems:
         print("検査に落ちた訳（カタログには入れていません）:", file=sys.stderr)
         print("\n".join(problems), file=sys.stderr)
