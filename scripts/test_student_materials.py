@@ -31,9 +31,13 @@ class PackageStudentMaterialsTest(unittest.TestCase):
         self.addCleanup(temporary.cleanup)
         self.root = Path(temporary.name)
         (self.root / "scripts").mkdir()
-        for script in ("check-teaching-materials.py", "package-hello-android.py", "package-student-materials.py"):
+        for script in ("check-teaching-materials.py", "package-hello-android.py", "package-student-materials.py", "localize-student-materials.py"):
             copy2(SCRIPTS / script, self.root / "scripts" / script)
         (self.root / "config").mkdir()
+        config = json.loads((SCRIPTS.parent / "config/i18n.json").read_text())
+        for language in config["languages"]:
+            language["distribute"] = False
+        (self.root / "config/i18n.json").write_text(json.dumps(config, ensure_ascii=False))
         (self.root / "config/teaching-materials.json").write_text(
             json.dumps({"scan_roots": [], "terms": [], "projects": []}), encoding="utf-8"
         )
@@ -69,6 +73,119 @@ class PackageStudentMaterialsTest(unittest.TestCase):
 
     def package(self):
         return subprocess.run([sys.executable, "scripts/package-student-materials.py"], cwd=self.root, capture_output=True, text=True)
+
+    def enable_translation(self):
+        path = self.root / "config/i18n.json"
+        config = json.loads(path.read_text())
+        config["languages"][0]["distribute"] = True
+        path.write_text(json.dumps(config, ensure_ascii=False))
+        (self.root / "docs/assets").mkdir()
+        for name in ("textbook.js", "textbook.css"):
+            copy2(SCRIPTS.parent / "docs/assets" / name, self.root / "docs/assets" / name)
+        source = ('<!doctype html><html lang="ja"><head><title>準備</title>'
+                  '<link rel="stylesheet" href="../assets/textbook.css">'
+                  '<script src="../assets/textbook.js" defer></script></head>'
+                  '<body data-progress-key="jec-test-v1"><main><section id="step1"><h1>日本語の見出し</h1>'
+                  '<p>訳した文</p><p>未翻訳の文<strong>も残す</strong></p>'
+                  '<a href="downloads/A01HelloAndroid.zip">完成版</a>'
+                  '<img src="images/test.png" alt="画像">'
+                  '<input type="checkbox" data-check="step1"><pre><code>日本語のコード</code></pre>'
+                  '</section></main></body></html>')
+        (self.root / "docs/hello-android/index.html").write_text(source)
+        catalog = self.root / "i18n/en/hello-android/index.json"
+        catalog.parent.mkdir(parents=True)
+        catalog.write_text(json.dumps({"source": "docs/hello-android/index.html", "language": "en",
+                                      "entries": [{"source": "訳した文", "translation": "Translated sentence"}]}, ensure_ascii=False))
+        self.git("add", "docs/assets", "docs/hello-android/index.html", "i18n/en/hello-android/index.json", "config/i18n.json")
+
+    def test_distributed_language_has_static_navigation_and_shared_assets(self):
+        self.enable_translation()
+        result = self.package()
+        self.assertEqual(result.returncode, 0, result.stderr)
+        prefix = f"{FIXTURE_STEM}/"
+        with ZipFile(self.archive) as archive:
+            names = archive.namelist()
+            english = archive.read(prefix + "docs/en/hello-android/index.html").decode()
+            japanese = archive.read(prefix + "docs/hello-android/index.html").decode()
+            entrance = archive.read(prefix + "index.html").decode()
+            instructions = archive.read(prefix + "はじめに.txt").decode()
+            self.assertIn('href="../../hello-android/index.html"', english)
+            self.assertIn('href="../en/hello-android/index.html"', japanese)
+            self.assertIn('data-language-link', english)
+            self.assertIn('hreflang="ja"', english)
+            self.assertIn('translated by AI', english)
+            self.assertIn('Japanese version is authoritative', english)
+            self.assertIn('ask your teacher', english)
+            self.assertIn('data-progress-key="jec-test-v1"', english)
+            self.assertIn('"progress": "{count} / {total} steps checked"', english)
+            self.assertIn('<p>Translated sentence</p>', english)
+            self.assertIn('<span lang="ja">未翻訳の文<strong>も残す</strong></span>', english)
+            self.assertIn('<title lang="ja">準備</title>', english)
+            self.assertIn('<pre><code>日本語のコード</code></pre>', english)
+            self.assertIn('src="../../hello-android/images/test.png"', english)
+            self.assertIn('href="../../hello-android/downloads/A01HelloAndroid.zip"', english)
+            self.assertIn('src="../../assets/textbook.js"', english)
+            self.assertIn('href="docs/en/hello-android/index.html"', entrance)
+            self.assertIn('Open index.html in your browser, then choose English.', instructions)
+            self.assertFalse(any('/docs/en/' in name and not name.endswith('.html') for name in names))
+            self.assertFalse(any('/docs/fr/' in name for name in names))
+
+    def test_all_supported_languages_have_their_own_ui_and_shared_pages(self):
+        self.enable_translation()
+        path = self.root / "config/i18n.json"
+        config = json.loads(path.read_text())
+        for language in config["languages"]:
+            language["distribute"] = True
+        path.write_text(json.dumps(config, ensure_ascii=False))
+        result = self.package()
+        self.assertEqual(result.returncode, 0, result.stderr)
+        prefix = f"{FIXTURE_STEM}/"
+        with ZipFile(self.archive) as archive:
+            for language in config["languages"]:
+                page = archive.read(prefix + f"docs/{language['code']}/hello-android/index.html").decode()
+                self.assertIn(f'<html lang="{language["code"]}">', page)
+                # 注記、UIと全言語の導線はカタログの有無に左右されない。
+                self.assertIn(language['translation_notice'], page)
+                self.assertIn(language['ui']['copy'], page)
+                self.assertEqual(page.count('hreflang='), len(config['languages']) + 1)
+                self.assertIn('<span lang="ja">未翻訳の文', page)
+
+    def test_translation_does_not_include_untracked_pages(self):
+        self.enable_translation()
+        (self.root / 'docs/draft.html').write_text('<p>書きかけ')
+        result = self.package()
+        self.assertEqual(result.returncode, 0, result.stderr)
+        with ZipFile(self.archive) as archive:
+            self.assertFalse(any('draft.html' in name for name in archive.namelist()))
+
+    def test_localized_links_are_checked(self):
+        self.enable_translation()
+        spec = importlib.util.spec_from_file_location("package_test", SCRIPTS / "package-student-materials.py")
+        packager = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(packager)
+        generate = packager.add_localized_materials
+
+        def with_broken_link(files):
+            languages = generate(files)
+            files["docs/en/hello-android/index.html"] += b'<a href="missing.html">broken</a>'
+            return languages
+
+        # 日本語にはない壊れたリンクが生成されたときも、ZIPを書き出してはいけない。
+        with patch.object(packager, "ROOT", self.root.resolve()), patch.object(packager, "add_localized_materials", with_broken_link):
+            with self.assertRaisesRegex(ValueError, 'docs/en/hello-android/index.html → missing.html'):
+                packager.build(self.root / "dist")
+        self.assertFalse(self.archive.exists())
+
+    def test_no_distributed_language_preserves_original_html_and_entrypoints(self):
+        original = (self.root / "docs/hello-android/index.html").read_bytes()
+        result = self.package()
+        self.assertEqual(result.returncode, 0, result.stderr)
+        prefix = f"{FIXTURE_STEM}/"
+        with ZipFile(self.archive) as archive:
+            self.assertNotIn(prefix + 'index.html', archive.namelist())
+            self.assertEqual(archive.read(prefix + 'docs/hello-android/index.html'), original)
+            self.assertNotIn(b'Language /', archive.read(prefix + 'はじめに.txt'))
+            self.assertFalse(any('/docs/en/' in name for name in archive.namelist()))
 
     def test_student_contents_regeneration_and_repeatable_zip(self):
         (self.root / "docs/untracked.txt").write_text("not for distribution")

@@ -10,6 +10,18 @@
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; scroll-padding-top: 1.5rem; }
 body { margin: 0; background: var(--paper); color: var(--ink); font-family: -apple-system, BlinkMacSystemFont, "Hiragino Kaku Gothic ProN", "Yu Gothic", Meiryo, sans-serif; font-size: 17px; line-height: 1.9; }
+/* macOS標準の各文字体系のフォント。日本語の未翻訳箇所は日本語の字形を保つ。 */
+body:lang(zh-Hans), [lang="zh-Hans"] { font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", sans-serif; }
+body:lang(zh-Hant-HK), [lang="zh-Hant-HK"] { font-family: -apple-system, BlinkMacSystemFont, "PingFang HK", "PingFang TC", sans-serif; }
+body:lang(my), [lang="my"] { font-family: "Myanmar Sangam MN", "Myanmar MN", sans-serif; }
+body:lang(mn), [lang="mn"] { font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif; }
+body:lang(ja), [lang="ja"] { font-family: -apple-system, BlinkMacSystemFont, "Hiragino Kaku Gothic ProN", "Yu Gothic", Meiryo, sans-serif; }
+.language-nav, .translation-note { max-width: 1260px; margin: auto; padding: .6rem 2rem; font-size: .88rem; }
+.language-nav { position: sticky; top: 0; z-index: 3; background: var(--paper); display: flex; flex-wrap: wrap; align-items: center; gap: .3rem .6rem; border-bottom: 1px solid var(--line); }
+html:has(.language-nav) { scroll-padding-top: 5rem; }
+.language-nav [aria-current="page"] { font-weight: 750; }
+.translation-note { background: #fff4d5; }
+.translation-note p { margin: 0 0 .3rem; }
 a { color: var(--blue); text-underline-offset: .22em; }
 a:hover { text-decoration-thickness: 2px; }
 button, input { font: inherit; }
