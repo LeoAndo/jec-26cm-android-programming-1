@@ -1,0 +1,1126 @@
+{
+  "source": "docs/room-sample/index.html",
+  "language": "my",
+  "entries": [
+    {
+      "source": "JavaとXMLで作るA10RoomSample。Roomを使って、アプリを終了しても消えないデータを、あとから書き換えたり消したりできるようにする授業用教科書。",
+      "translation": "Java နှင့် XML ဖြင့် ဖန်တီးသော A10RoomSample။ Room ကို သုံး၍ app ကို ပိတ်လည်း မပျောက်သော ဒေတာများကို နောက်မှ ပြင်ဆင်ခြင်း၊ ဖျက်ခြင်း လုပ်နိုင်အောင် သင်ပေးသည့် အတန်းသုံး သင်ရိုးစာအုပ်။"
+    },
+    {
+      "source": "RoomSample — データベースに保存しよう | Androidプログラミング1",
+      "translation": "RoomSample — database တွင် သိမ်းဆည်းကြမည် | Android ပရိုဂရမ်းမင်း 1"
+    },
+    {
+      "source": "本文へ移動",
+      "translation": "အဓိကအကြောင်းအရာသို့ ကျော်သွားရန်"
+    },
+    {
+      "source": "JEC / Androidプログラミング1",
+      "translation": "JEC / Android ပရိုဂရမ်းမင်း 1"
+    },
+    {
+      "source": "CONTENTS / 学習の順番",
+      "translation": "CONTENTS / သင်ယူရမည့် အစီအစဉ်"
+    },
+    {
+      "source": "学習ステップ",
+      "translation": "သင်ယူရမည့် အဆင့်များ"
+    },
+    {
+      "source": "00　今日のゴール",
+      "translation": "00 ယနေ့၏ ရည်မှန်းချက်"
+    },
+    {
+      "source": "01　プロジェクトを作って実行",
+      "translation": "01 project ဖန်တီး၍ run လုပ်ခြင်း"
+    },
+    {
+      "source": "02　Roomを使えるようにする",
+      "translation": "02 Room ကို သုံးနိုင်အောင် ပြင်ဆင်ခြင်း"
+    },
+    {
+      "source": "03　画面を作る",
+      "translation": "03　မျက်နှာပြင် ဖန်တီးခြင်း"
+    },
+    {
+      "source": "04　保存するデータの形を決める",
+      "translation": "04 သိမ်းမည့် ဒေတာပုံစံကို သတ်မှတ်ခြင်း"
+    },
+    {
+      "source": "05　読み書きの命令を書く",
+      "translation": "05 ဖတ်ခြင်း၊ ရေးခြင်းအတွက် ညွှန်ကြားချက်များ ရေးခြင်း"
+    },
+    {
+      "source": "06　データベース本体を作る",
+      "translation": "06 database ကိုယ်တိုင်ကို ဖန်တီးခြင်း"
+    },
+    {
+      "source": "07　画面とつないで完成",
+      "translation": "07 မျက်နှာပြင်နှင့် ချိတ်ဆက်ပြီး ပြီးစီးခြင်း"
+    },
+    {
+      "source": "0 / 8 ステップ確認済み",
+      "translation": "0 / 8 အဆင့် စစ်ဆေးပြီးပြီ"
+    },
+    {
+      "source": "学習の進み具合",
+      "translation": "သင်ယူမှု တိုးတက်မှု"
+    },
+    {
+      "source": "自分用のチェックです。",
+      "translation": "ဤစစ်ဆေးချက်များသည် မိမိအတွက်သာ ဖြစ်သည်။"
+    },
+    {
+      "source": "困ったとき",
+      "translation": "အခက်အခဲရှိလျှင်"
+    },
+    {
+      "source": "解説：SharedPreferencesとの違い",
+      "translation": "ရှင်းလင်းချက်: SharedPreferences နှင့် ကွာခြားချက်"
+    },
+    {
+      "source": "完成プロジェクトを開く",
+      "translation": "ပြီးစီးထားသော project ကို ဖွင့်ရန်"
+    },
+    {
+      "source": "共通：はじめの準備",
+      "translation": "အများသုံး: စတင်ရန် ပြင်ဆင်ခြင်း"
+    },
+    {
+      "source": "共通：エミュレータ",
+      "translation": "အများသုံး: emulator"
+    },
+    {
+      "source": "共通：Auto Import",
+      "translation": "အများသုံး: Auto Import"
+    },
+    {
+      "source": "共通：Logcat",
+      "translation": "အများသုံး: Logcat"
+    },
+    {
+      "source": "共通：APKの提出",
+      "translation": "အများသုံး: APK တင်သွင်းခြင်း"
+    },
+    {
+      "source": "共通：開発Tips",
+      "translation": "အများသုံး: app ရေးသားရာတွင် အသုံးဝင်သောအချက်များ"
+    },
+    {
+      "source": "共通：Android Studioのバージョン",
+      "translation": "အများသုံး: Android Studio ၏ version"
+    },
+    {
+      "source": "データベースに<br>保存しよう",
+      "translation": "database တွင်<br>သိမ်းဆည်းကြမည်"
+    },
+    {
+      "source": "A09では「メモをぜんぶまとめて1つの文字列」で保存しました。<br>今回は1件ずつ番号を付けて保存し、あとから<strong>書き換え・削除</strong>ができるようにします。",
+      "translation": "A09 တွင် “မှတ်စုအားလုံးကို စုစည်းပြီး စာသားတစ်ခုတည်း” အဖြစ် သိမ်းခဲ့သည်။<br>ယခုတစ်ခေါက်တွင် တစ်ခုချင်းစီကို နံပါတ်တပ်၍ သိမ်းမည်။ ထို့နောက် <strong>ပြင်ဆင်ခြင်း၊ ဖျက်ခြင်း</strong> လုပ်နိုင်အောင် ပြုလုပ်မည်။"
+    },
+    {
+      "source": "A09の次の単元",
+      "translation": "A09 ၏ နောက်သင်ခန်းစာ"
+    },
+    {
+      "source": "90分 × 1コマ目安",
+      "translation": "90 မိနစ် × 1 ချိန်ခန့်"
+    },
+    {
+      "source": "Macで学ぶ",
+      "translation": "Mac ဖြင့် သင်ယူမည်"
+    },
+    {
+      "source": "STEP 00 · 目安 5分",
+      "translation": "STEP 00 · ခန့်မှန်း 5 မိနစ်"
+    },
+    {
+      "source": "今日のゴール",
+      "translation": "ယနေ့၏ ရည်မှန်းချက်"
+    },
+    {
+      "source": "データを1件ずつ保存して、一覧に表示するアプリを作ります。保存したデータには <strong>id</strong> という番号が自動で付きます。その番号を指定すると、あとから<strong>書き換え</strong>たり<strong>削除</strong>したりできます。",
+      "translation": "ဒေတာကို တစ်ခုချင်းစီ သိမ်းပြီး စာရင်းတွင် ပြသည့် app ကို ဖန်တီးမည်။ သိမ်းလိုက်သော ဒေတာတွင် <strong>id</strong> ဟူသော နံပါတ်ကို အလိုအလျောက် တပ်ပေးသည်။ ထိုနံပါတ်ကို သတ်မှတ်လျှင် နောက်မှ <strong>ပြင်ဆင်</strong>ခြင်း၊ <strong>ဖျက်</strong>ခြင်း လုပ်နိုင်သည်။"
+    },
+    {
+      "source": "id入力欄、タイトル入力欄、保存と削除のボタン、保存されているデータの見出しが並んだ画面。一覧は空",
+      "translation": "id input အကွက်၊ title input အကွက်၊ 「保存」 (သိမ်းရန်) နှင့် 「削除」 (ဖျက်ရန်) ခလုတ်များ၊ 「保存されているデータ」 (သိမ်းထားသော ဒေတာ) ခေါင်းစဉ်တို့ တန်းစီနေသော မျက်နှာပြင်။ စာရင်းမှာ ဗလာဖြစ်သည်"
+    },
+    {
+      "source": "起動したところ。まだデータはありません。 <a1>画像を大きく開く</a1>",
+      "translation": "စတင်ဖွင့်လိုက်သည့် အခြေအနေ။ ဒေတာ မရှိသေးပါ။ <a1>ပုံကို အရွယ်အစားအပြည့်ဖြင့် ဖွင့်ပါ</a1>"
+    },
+    {
+      "source": "保存されているデータに、internalId=1 title=CAR、internalId=2 title=BIKE、internalId=3 title=TRAINの3行が表示されている画面",
+      "translation": "「保存されているデータ」 (သိမ်းထားသော ဒေတာ) တွင် internalId=1 title=CAR၊ internalId=2 title=BIKE၊ internalId=3 title=TRAIN ဟူသော စာကြောင်း 3 ကြောင်း ပေါ်နေသော မျက်နှာပြင်"
+    },
+    {
+      "source": "3件保存したところ。idが1・2・3と自動で増えます。 <a1>画像を大きく開く</a1>",
+      "translation": "ဒေတာ 3 ခု သိမ်းပြီးသည့် အခြေအနေ။ id သည် 1၊ 2၊ 3 ဟု အလိုအလျောက် တိုးသွားသည်။ <a1>ပုံကို အရွယ်အစားအပြည့်ဖြင့် ဖွင့်ပါ</a1>"
+    },
+    {
+      "source": "id欄に2を入れてタイトルをBICYCLEにして保存したあと、2行目がinternalId=2 title=BICYCLEに変わっている画面",
+      "translation": "id အကွက်တွင် 2 ထည့်ပြီး title ကို BICYCLE ဟု ပြောင်းကာ သိမ်းလိုက်ပြီးနောက် ဒုတိယစာကြောင်းသည် internalId=2 title=BICYCLE ဖြစ်သွားသော မျက်နှာပြင်"
+    },
+    {
+      "source": "id 2 を指定して保存すると、その1件だけ書き換わります。 <a1>画像を大きく開く</a1>",
+      "translation": "id 2 ကို သတ်မှတ်ပြီး သိမ်းလျှင် ထိုတစ်ခုတည်းသာ ပြောင်းသွားသည်။ <a1>ပုံကို အရွယ်အစားအပြည့်ဖြင့် ဖွင့်ပါ</a1>"
+    },
+    {
+      "source": "id 3を削除したあと、一覧がinternalId=1とinternalId=2の2行になっている画面",
+      "translation": "id 3 ကို ဖျက်ပြီးနောက် စာရင်းတွင် internalId=1 နှင့် internalId=2 ဟူသော စာကြောင်း 2 ကြောင်း ကျန်နေသော မျက်နှာပြင်"
+    },
+    {
+      "source": "id 3 を削除したところ。1件だけ消せます。 <a1>画像を大きく開く</a1>",
+      "translation": "id 3 ကို ဖျက်လိုက်သည့် အခြေအနေ။ တစ်ခုတည်းကိုသာ ဖျက်နိုင်သည်။ <a1>ပုံကို အရွယ်အစားအပြည့်ဖြင့် ဖွင့်ပါ</a1>"
+    },
+    {
+      "source": "できるようになること",
+      "translation": "လုပ်တတ်လာမည့်အရာများ"
+    },
+    {
+      "source": "入力したタイトルを、1件ずつ保存できる。",
+      "translation": "ရိုက်ထည့်လိုက်သော title ကို တစ်ခုချင်းစီ သိမ်းနိုင်သည်။"
+    },
+    {
+      "source": "保存したデータに自動で付く <code>id</code> の意味を説明できる。",
+      "translation": "သိမ်းလိုက်သော ဒေတာတွင် အလိုအလျောက် တပ်ပေးသော <code>id</code> ၏ အဓိပ္ပာယ်ကို ရှင်းပြနိုင်သည်။"
+    },
+    {
+      "source": "<code>id</code> を指定して、1件だけ書き換えられる。",
+      "translation": "<code>id</code> ကို သတ်မှတ်ပြီး တစ်ခုတည်းကိုသာ ပြင်ဆင်နိုင်သည်။"
+    },
+    {
+      "source": "<code>id</code> を指定して、1件だけ消せる。",
+      "translation": "<code>id</code> ကို သတ်မှတ်ပြီး တစ်ခုတည်းကိုသာ ဖျက်နိုင်သည်။"
+    },
+    {
+      "source": "今日使う技術",
+      "translation": "ယနေ့ အသုံးပြုမည့် နည်းပညာများ"
+    },
+    {
+      "source": "技術",
+      "translation": "နည်းပညာ"
+    },
+    {
+      "source": "どこで使うか",
+      "translation": "ဘယ်နေရာတွင် သုံးသလဲ"
+    },
+    {
+      "source": "学んだ単元",
+      "translation": "သင်ယူခဲ့သော သင်ခန်းစာ"
+    },
+    {
+      "source": "<code>EditText</code> と <code>Button</code>",
+      "translation": "<code>EditText</code> နှင့် <code>Button</code>"
+    },
+    {
+      "source": "タイトルとidを入力して、保存・削除する。",
+      "translation": "title နှင့် id ကို ရိုက်ထည့်ပြီး သိမ်းခြင်း၊ ဖျက်ခြင်း လုပ်သည်။"
+    },
+    {
+      "source": "入力が空のときに知らせる。",
+      "translation": "ရိုက်ထည့်မှု ဗလာဖြစ်သည့်အခါ အကြောင်းကြားသည်။"
+    },
+    {
+      "source": "データが増えても一覧を見られるようにする。",
+      "translation": "ဒေတာ များလာလည်း စာရင်းကို ကြည့်နိုင်အောင် လုပ်ပေးသည်။"
+    },
+    {
+      "source": "データを1件ずつ保存する。<strong>今回の新顔です。</strong>",
+      "translation": "ဒေတာကို တစ်ခုချင်းစီ သိမ်းသည်။ <strong>ဤသင်ခန်းစာတွင် အသစ် ပါဝင်လာသည့်အရာ ဖြစ်သည်။</strong>"
+    },
+    {
+      "source": "新しく覚えることは <strong>Room</strong> だけです。残りはA07とA09で使ったものを組み合わせます。",
+      "translation": "အသစ် မှတ်ရမည့်အရာမှာ <strong>Room</strong> တစ်ခုတည်းသာ ဖြစ်သည်။ ကျန်အရာများသည် A07 နှင့် A09 တွင် သုံးခဲ့သည့်အရာများကို ပေါင်းစပ်ထားခြင်း ဖြစ်သည်။"
+    },
+    {
+      "source": "解説：A09のSharedPreferencesと何が違うのか",
+      "translation": "ရှင်းလင်းချက်: A09 ၏ SharedPreferences နှင့် ဘာကွာသနည်း"
+    },
+    {
+      "source": "A09では、メモの一覧を<strong>まとめて1つの文字列</strong>にして保存しました。この方法だと「3件目だけ書き換える」「2件目だけ消す」ができません。全部を読み出して、自分で切り分けて、また全部を書き戻すことになります。",
+      "translation": "A09 တွင် မှတ်စုစာရင်းကို <strong>စုစည်းပြီး စာသားတစ်ခုတည်း</strong> အဖြစ် သိမ်းခဲ့သည်။ ဤနည်းလမ်းဖြင့် “တတိယခုကိုသာ ပြင်ဆင်ခြင်း”၊ “ဒုတိယခုကိုသာ ဖျက်ခြင်း” မလုပ်နိုင်ပါ။ အားလုံးကို ဖတ်ထုတ်ပြီး ကိုယ်တိုင် ခွဲခြားကာ အားလုံးကို ပြန်ရေးရမည် ဖြစ်သည်။"
+    },
+    {
+      "source": "Roomは、データを<strong>1件ずつ、表の1行として</strong>保存します。1行ごとに番号（id）が付くので、番号を指定して1件だけ書き換え・削除ができます。データが増えても、必要な1行だけを触れます。",
+      "translation": "Room သည် ဒေတာကို <strong>တစ်ခုချင်းစီ၊ ဇယား၏ အတန်းတစ်ခုအဖြစ်</strong> သိမ်းသည်။ အတန်းတစ်ခုစီတွင် နံပါတ် (id) တပ်ထားသောကြောင့် နံပါတ်ကို သတ်မှတ်ပြီး တစ်ခုတည်းကိုသာ ပြင်ဆင်ခြင်း၊ ဖျက်ခြင်း လုပ်နိုင်သည်။ ဒေတာ များလာလည်း လိုအပ်သော အတန်းတစ်ခုတည်းကိုသာ ကိုင်တွယ်နိုင်သည်။"
+    },
+    {
+      "source": "Room（今回）",
+      "translation": "Room (ယခုတစ်ခေါက်)"
+    },
+    {
+      "source": "保存の形",
+      "translation": "သိမ်းဆည်းပုံ"
+    },
+    {
+      "source": "名前と値の組。値は1つの文字列",
+      "translation": "အမည်နှင့် တန်ဖိုး အတွဲ။ တန်ဖိုးမှာ စာသားတစ်ခုတည်း"
+    },
+    {
+      "source": "表。1件が1行",
+      "translation": "ဇယား။ ဒေတာ 1 ခုလျှင် အတန်း 1 ခု"
+    },
+    {
+      "source": "1件だけ書き換え",
+      "translation": "တစ်ခုတည်းကိုသာ ပြင်ဆင်ခြင်း"
+    },
+    {
+      "source": "できない",
+      "translation": "မရပါ"
+    },
+    {
+      "source": "できる",
+      "translation": "ရသည်"
+    },
+    {
+      "source": "1件だけ削除",
+      "translation": "တစ်ခုတည်းကိုသာ ဖျက်ခြင်း"
+    },
+    {
+      "source": "向いているもの",
+      "translation": "သင့်တော်သည့်အရာ"
+    },
+    {
+      "source": "設定値、ログイン状態など少ないデータ",
+      "translation": "setting တန်ဖိုး၊ login အခြေအနေ စသည့် နည်းသော ဒေတာ"
+    },
+    {
+      "source": "件数が増えるデータ",
+      "translation": "အရေအတွက် များလာသော ဒေတာ"
+    },
+    {
+      "source": "ここで止まって、確認",
+      "translation": "ဤနေရာတွင် ရပ်ပြီး စစ်ဆေးပါ"
+    },
+    {
+      "source": "今日作るアプリの画面を画像で確かめ、A09のSharedPreferencesとの違いを表で確認した。",
+      "translation": "ယနေ့ ဖန်တီးမည့် app ၏ မျက်နှာပြင်ကို ပုံဖြင့် ကြည့်ပြီး A09 ၏ SharedPreferences နှင့် ကွာခြားချက်ကို ဇယားဖြင့် စစ်ဆေးပြီးပြီ။"
+    },
+    {
+      "source": "できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。",
+      "translation": "ပြီးလျှင် အမှန်ခြစ် ခြစ်ပါ။ အခက်အခဲရှိလျှင် STEP နံပါတ်နှင့် မျက်နှာပြင်ကို ဆရာအား ပြပါ။"
+    },
+    {
+      "source": "次へ：プロジェクトを作って実行 →",
+      "translation": "နောက်တစ်ဆင့်: project ဖန်တီး၍ run လုပ်ခြင်း →"
+    },
+    {
+      "source": "STEP 01 · 目安 10分",
+      "translation": "STEP 01 · ခန့်မှန်း 10 မိနစ်"
+    },
+    {
+      "source": "プロジェクトを作って実行",
+      "translation": "project ဖန်တီး၍ run လုပ်ခြင်း"
+    },
+    {
+      "source": "授業環境はMacと <strong>Android Studio Panda 2 | 2025.3.2</strong> です。A09までとは別のプロジェクトを作ります。",
+      "translation": "အတန်းသုံး ပတ်ဝန်းကျင်မှာ Mac နှင့် <strong>Android Studio Panda 2 | 2025.3.2</strong> ဖြစ်သည်။ A09 အထိ သုံးခဲ့သော project များနှင့် သီးခြား project အသစ်ကို ဖန်တီးပါ။"
+    },
+    {
+      "source": "毎回、自分で新規作成します",
+      "translation": "အကြိမ်တိုင်း ကိုယ်တိုင် အသစ် ဖန်တီးပါ"
+    },
+    {
+      "source": "作る場所は <code>Documents/Android1/A10RoomSample</code> です。<a1>完成プロジェクト</a1>は答え合わせ用で、授業の入力は自分で作ったプロジェクトに書きます。",
+      "translation": "ဖန်တီးမည့်နေရာမှာ <code>Documents/Android1/A10RoomSample</code> ဖြစ်သည်။ <a1>ပြီးစီးထားသော project</a1> သည် အဖြေတိုက်ရန် ဖြစ်ပြီး အတန်းတွင် ရိုက်ထည့်ရမည့်အရာများကို ကိုယ်တိုင် ဖန်တီးထားသော project ထဲတွင် ရေးပါ။"
+    },
+    {
+      "source": "Android Studioの <strong>New Project</strong> をクリックします。別のプロジェクトを開いているときは <strong>File → New → New Project</strong> を選びます。",
+      "translation": "Android Studio ၏ <strong>New Project</strong> ကို ကလစ်နှိပ်ပါ။ အခြား project တစ်ခုကို ဖွင့်ထားလျှင် <strong>File → New → New Project</strong> ကို ရွေးပါ။"
+    },
+    {
+      "source": "<strong>Phone and Tablet → Empty Views Activity → Next</strong> の順に選びます。名前に <strong>Views</strong> があることを確認します。",
+      "translation": "<strong>Phone and Tablet → Empty Views Activity → Next</strong> အစီအစဉ်အတိုင်း ရွေးပါ။ အမည်တွင် <strong>Views</strong> ပါဝင်ကြောင်း စစ်ဆေးပါ။"
+    },
+    {
+      "source": "テンプレート一覧でEmpty Views Activityが選択されている",
+      "translation": "template စာရင်းတွင် Empty Views Activity ကို ရွေးထားသည်"
+    },
+    {
+      "source": "Empty Views Activityを選択。Empty Activityとは別です。 <a1>画像を大きく開く</a1>",
+      "translation": "Empty Views Activity ကို ရွေးပါ။ Empty Activity နှင့် မတူပါ။ <a1>ပုံကို အရွယ်အစားအပြည့်ဖြင့် ဖွင့်ပါ</a1>"
+    },
+    {
+      "source": "次の表のとおりに入力・選択して <strong>Finish</strong> を押します。",
+      "translation": "အောက်ပါ ဇယားအတိုင်း ရိုက်ထည့်၊ ရွေးချယ်ပြီး <strong>Finish</strong> ကို နှိပ်ပါ။"
+    },
+    {
+      "source": "項目",
+      "translation": "အချက်"
+    },
+    {
+      "source": "入力・選択する内容",
+      "translation": "ရိုက်ထည့်ရန် / ရွေးရန် အကြောင်းအရာ"
+    },
+    {
+      "source": "<code>jp.ac.jec.a10roomsample</code>（すべて小文字）",
+      "translation": "<code>jp.ac.jec.a10roomsample</code> (အားလုံး စာလုံးအသေး)"
+    },
+    {
+      "source": "A10RoomSampleの新規設定。パッケージjp.ac.jec.a10roomsample、Java、API 31、Kotlin DSL",
+      "translation": "A10RoomSample ၏ project အသစ် setting။ package jp.ac.jec.a10roomsample၊ Java၊ API 31၊ Kotlin DSL"
+    },
+    {
+      "source": "入力後の画面。画像の保存先は先生の例です。自分の <code>Documents/Android1/A10RoomSample</code> に読み替えます。 <a1>画像を大きく開く</a1>",
+      "translation": "ရိုက်ထည့်ပြီးနောက် မျက်နှာပြင်။ ပုံထဲရှိ သိမ်းမည့်နေရာသည် ဆရာ၏ ဥပမာ ဖြစ်သည်။ မိမိ၏ <code>Documents/Android1/A10RoomSample</code> အဖြစ် ဖတ်ပါ။ <a1>ပုံကို အရွယ်အစားအပြည့်ဖြင့် ဖွင့်ပါ</a1>"
+    },
+    {
+      "source": "Sync（歯車の読み込み）が終わるまで待ちます。",
+      "translation": "Sync (ဂီယာပုံ loading) ပြီးဆုံးသည်အထိ စောင့်ပါ။"
+    },
+    {
+      "source": "端末欄で <strong>jec_26cm_android1_Pixel 9a</strong> を選び、<strong>Run</strong>（▶）を押します。白い画面に <strong>Hello World!</strong> が出れば成功です。",
+      "translation": "စက်ရွေးသည့် အကွက်တွင် <strong>jec_26cm_android1_Pixel 9a</strong> ကို ရွေးပြီး <strong>Run</strong> (▶) ကို နှိပ်ပါ။ အဖြူရောင် မျက်နှာပြင်ပေါ်တွင် <strong>Hello World!</strong> ပေါ်လာလျှင် အောင်မြင်ပါပြီ။"
+    },
+    {
+      "source": "エミュレータが出てこないときは<a1>共通資料：エミュレータ</a1>を見ます。",
+      "translation": "emulator မပေါ်လာလျှင် <a1>အများသုံးလမ်းညွှန်: emulator</a1> ကို ကြည့်ပါ။"
+    },
+    {
+      "source": "自分の保存先にA10RoomSampleを作り、Hello World!を表示できた。",
+      "translation": "မိမိ၏ သိမ်းမည့်နေရာတွင် A10RoomSample ကို ဖန်တီးပြီး Hello World! ကို ဖော်ပြနိုင်ပြီးပြီ။"
+    },
+    {
+      "source": "次へ：Roomを使えるようにする →",
+      "translation": "နောက်တစ်ဆင့်: Room ကို သုံးနိုင်အောင် ပြင်ဆင်ခြင်း →"
+    },
+    {
+      "source": "STEP 02 · 目安 10分",
+      "translation": "STEP 02 · ခန့်မှန်း 10 မိနစ်"
+    },
+    {
+      "source": "Roomを使えるようにする",
+      "translation": "Room ကို သုံးနိုင်အောင် ပြင်ဆင်ခြင်း"
+    },
+    {
+      "source": "Roomは、Android Studioに最初から入っている部品ではありません。<strong>使うと宣言してから</strong>使います。この宣言を2つのファイルに分けて書きます。",
+      "translation": "Room သည် Android Studio ထဲတွင် အစကတည်းက ပါဝင်နေသော အစိတ်အပိုင်း မဟုတ်ပါ။ <strong>သုံးမည်ဟု ကြေညာပြီးမှ</strong> သုံးရသည်။ ဤကြေညာချက်ကို ဖိုင် 2 ခုတွင် ခွဲ၍ ရေးပါ။"
+    },
+    {
+      "source": "① バージョンを書く場所",
+      "translation": "① version ရေးမည့်နေရာ"
+    },
+    {
+      "source": "<code>gradle/libs.versions.toml</code> を開きます。ここは<strong>どの部品をどのバージョンで使うか</strong>を一覧にしておくファイルです。Android Studioがひな形として用意しています。",
+      "translation": "<code>gradle/libs.versions.toml</code> ကို ဖွင့်ပါ။ ဤဖိုင်သည် <strong>မည်သည့် အစိတ်အပိုင်းကို မည်သည့် version ဖြင့် သုံးမည်ကို</strong> စာရင်းပြုစုထားသော ဖိုင် ဖြစ်သည်။ Android Studio က ပုံစံနမူနာအဖြစ် ပြင်ဆင်ပေးထားသည်။"
+    },
+    {
+      "source": "3か所に追記します。<strong>行を足す場所を間違えないように</strong>、見出し（<code>[versions]</code> など）をよく見てください。",
+      "translation": "နေရာ 3 ခုတွင် ထပ်ရေးပါ။ <strong>စာကြောင်း ထည့်မည့်နေရာ မမှားစေရန်</strong> ခေါင်းစဉ် (<code>[versions]</code> စသည်) ကို သေချာ ကြည့်ပါ။"
+    },
+    {
+      "source": "<code>libs.versions.toml</code>（全体）",
+      "translation": "<code>libs.versions.toml</code> (တစ်ဖိုင်လုံး)"
+    },
+    {
+      "source": "追記する場所",
+      "translation": "ထပ်ရေးမည့်နေရာ"
+    },
+    {
+      "source": "追記する行",
+      "translation": "ထပ်ရေးမည့် စာကြောင်း"
+    },
+    {
+      "source": "意味",
+      "translation": "အဓိပ္ပာယ်"
+    },
+    {
+      "source": "<code>[versions]</code> の中",
+      "translation": "<code>[versions]</code> ထဲတွင်"
+    },
+    {
+      "source": "Roomのバージョンに <code>room</code> という名前を付ける",
+      "translation": "Room ၏ version ကို <code>room</code> ဟူသော အမည် တပ်ပေးသည်"
+    },
+    {
+      "source": "<code>[libraries]</code> の中",
+      "translation": "<code>[libraries]</code> ထဲတွင်"
+    },
+    {
+      "source": "アプリが動くときに使う本体",
+      "translation": "app အလုပ်လုပ်နေချိန်တွင် သုံးသော အဓိက အစိတ်အပိုင်း"
+    },
+    {
+      "source": "ビルドのときに、書いた命令からコードを自動で作る部品",
+      "translation": "build လုပ်ချိန်တွင် ရေးထားသော ညွှန်ကြားချက်များမှ code ကို အလိုအလျောက် ဖန်တီးပေးသော အစိတ်အပိုင်း"
+    },
+    {
+      "source": "<code>[plugins]</code> に書かないこと",
+      "translation": "<code>[plugins]</code> တွင် မရေးပါနှင့်"
+    },
+    {
+      "source": "<code>[libraries]</code> と <code>[plugins]</code> は見た目が似ています。<code>[plugins]</code> のほうに書くと <code>expected to find any of 'id' or 'version'</code> というエラーでビルドが止まります。追記した2行から上へたどって、<strong>最初に出てくる見出しが <code>[libraries]</code> になっているか</strong>を確かめてください。",
+      "translation": "<code>[libraries]</code> နှင့် <code>[plugins]</code> သည် အမြင်အားဖြင့် ဆင်တူသည်။ <code>[plugins]</code> ဘက်တွင် ရေးမိလျှင် <code>expected to find any of 'id' or 'version'</code> ဟူသော error ဖြင့် build ရပ်သွားမည်။ ထပ်ရေးထားသော စာကြောင်း 2 ကြောင်းမှ အပေါ်သို့ လိုက်ကြည့်ပြီး <strong>ပထမဆုံး တွေ့ရသော ခေါင်းစဉ်သည် <code>[libraries]</code> ဟုတ်မဟုတ်</strong> စစ်ဆေးပါ။"
+    },
+    {
+      "source": "② 使うと宣言する場所",
+      "translation": "② သုံးမည်ဟု ကြေညာမည့်နေရာ"
+    },
+    {
+      "source": "<code>app/build.gradle.kts</code> を開き、<code>dependencies { }</code> の中に2行を追加します。",
+      "translation": "<code>app/build.gradle.kts</code> ကို ဖွင့်ပြီး <code>dependencies { }</code> ထဲတွင် စာကြောင်း 2 ကြောင်း ထည့်ပါ။"
+    },
+    {
+      "source": "<code>libs.room.runtime</code> の <code>libs.</code> は、①で書いた <code>libs.versions.toml</code> のことです。<code>room-runtime</code> のハイフンは、ここでは <strong>ドット</strong>（<code>room.runtime</code>）に変わります。",
+      "translation": "<code>libs.room.runtime</code> ၏ <code>libs.</code> သည် ① တွင် ရေးခဲ့သော <code>libs.versions.toml</code> ကို ဆိုလိုသည်။ <code>room-runtime</code> ၏ hyphen သည် ဤနေရာတွင် <strong>အစက်</strong> (<code>room.runtime</code>) အဖြစ် ပြောင်းသွားသည်။"
+    },
+    {
+      "source": "Syncする",
+      "translation": "Sync လုပ်ခြင်း"
+    },
+    {
+      "source": "画面の上に <strong>Sync Now</strong> というリンクが出ます。押して、読み込みが終わるまで待ちます。エラーが出なければ成功です。",
+      "translation": "မျက်နှာပြင်အပေါ်တွင် <strong>Sync Now</strong> ဟူသော link ပေါ်လာမည်။ နှိပ်ပြီး ဖတ်ယူမှု ပြီးသည်အထိ စောင့်ပါ။ error မပေါ်လျှင် အောင်မြင်ပြီ ဖြစ်သည်။"
+    },
+    {
+      "source": "ここではまだ画面は変わりません",
+      "translation": "ဤနေရာတွင် မျက်နှာပြင် မပြောင်းသေးပါ"
+    },
+    {
+      "source": "部品を用意しただけなので、Runしても <strong>Hello World!</strong> のままです。エラーなくSyncできていればSTEP 02は合格です。",
+      "translation": "အစိတ်အပိုင်းကို ပြင်ဆင်ထားရုံသာ ဖြစ်သောကြောင့် Run လုပ်လည်း <strong>Hello World!</strong> အတိုင်းပင် ဖြစ်မည်။ error မရှိဘဲ Sync လုပ်နိုင်လျှင် STEP 02 အောင်မြင်ပြီ ဖြစ်သည်။"
+    },
+    {
+      "source": "libs.versions.tomlとbuild.gradle.ktsに追記して、エラーなくSyncできた。",
+      "translation": "libs.versions.toml နှင့် build.gradle.kts တွင် ထပ်ရေးပြီး error မရှိဘဲ Sync လုပ်နိုင်ပြီးပြီ။"
+    },
+    {
+      "source": "次へ：画面を作る →",
+      "translation": "နောက်တစ်ဆင့်: မျက်နှာပြင် ဖန်တီးခြင်း →"
+    },
+    {
+      "source": "STEP 03 · 目安 10分",
+      "translation": "STEP 03 · ခန့်မှန်းခြေ 10 မိနစ်"
+    },
+    {
+      "source": "画面を作る",
+      "translation": "မျက်နှာပြင် ဖန်တီးခြင်း"
+    },
+    {
+      "source": "入力欄2つ、ボタン2つ、一覧の表示欄を並べます。<code>app/src/main/res/layout/activity_main.xml</code> を開き、中身をすべて次のコードに置き換えます。",
+      "translation": "input အကွက် 2 ခု၊ ခလုတ် 2 ခုနှင့် စာရင်းပြရန် အကွက်ကို စီစဉ်ပါ။ <code>app/src/main/res/layout/activity_main.xml</code> ကို ဖွင့်ပြီး အထဲရှိအရာ အားလုံးကို အောက်ပါ code ဖြင့် အစားထိုးပါ။"
+    },
+    {
+      "source": "部品",
+      "translation": "အစိတ်အပိုင်း"
+    },
+    {
+      "source": "役割",
+      "translation": "တာဝန်"
+    },
+    {
+      "source": "書き換え・削除したいデータの番号を入れる。空なら新規追加",
+      "translation": "ပြင်ဆင်လိုသော၊ ဖျက်လိုသော ဒေတာ၏ နံပါတ်ကို ထည့်သည်။ ဗလာဖြစ်လျှင် အသစ် ထည့်သည်"
+    },
+    {
+      "source": "保存するタイトルを入れる",
+      "translation": "သိမ်းမည့် title ကို ထည့်သည်"
+    },
+    {
+      "source": "保存する",
+      "translation": "သိမ်းသည်"
+    },
+    {
+      "source": "削除する",
+      "translation": "ဖျက်သည်"
+    },
+    {
+      "source": "保存されているデータを表示する",
+      "translation": "သိမ်းထားသော ဒေတာကို ပြသည်"
+    },
+    {
+      "source": "気をつけるところ",
+      "translation": "သတိပြုရမည့် အချက်များ"
+    },
+    {
+      "source": "いちばん外側が <code>ScrollView</code> です。データが増えても下まで見られるようにするためです（A09と同じ考え方）。",
+      "translation": "အပြင်ဘက်ဆုံးသည် <code>ScrollView</code> ဖြစ်သည်။ ဒေတာ များလာလည်း အောက်ဆုံးအထိ ကြည့်နိုင်စေရန် ဖြစ်သည် (A09 နှင့် အတွေးအခေါ် တူသည်)။"
+    },
+    {
+      "source": "<code>edt_id</code> には <code>android:inputType=\"number\"</code> を付けます。数字だけのキーボードが出て、文字を入れられなくなります。",
+      "translation": "<code>edt_id</code> တွင် <code>android:inputType=\"number\"</code> ကို ထည့်ပါ။ ဂဏန်းသက်သက် ကီးဘုတ် ပေါ်လာပြီး စာလုံးများ ထည့်၍ မရတော့ပါ။"
+    },
+    {
+      "source": "ボタン2つは <code>layout_width=\"0dp\"</code> と <code>layout_weight=\"1\"</code> で横に半分ずつ並びます。",
+      "translation": "ခလုတ် 2 ခုသည် <code>layout_width=\"0dp\"</code> နှင့် <code>layout_weight=\"1\"</code> ကြောင့် ဘေးချင်းယှဉ်၍ တစ်ဝက်စီ နေရာယူသည်။"
+    },
+    {
+      "source": "Runで確かめる",
+      "translation": "Run ဖြင့် စစ်ဆေးပါ"
+    },
+    {
+      "source": "入力欄2つとボタン2つ、「保存されているデータ」の見出しが出れば成功です。ボタンを押してもまだ何も起きません。",
+      "translation": "input အကွက် 2 ခု၊ ခလုတ် 2 ခုနှင့် 「保存されているデータ」 (သိမ်းထားသော ဒေတာ) ခေါင်းစဉ် ပေါ်လာလျှင် အောင်မြင်ပြီ ဖြစ်သည်။ ခလုတ်ကို နှိပ်လည်း ဘာမှ မဖြစ်သေးပါ။"
+    },
+    {
+      "source": "画面の部品を並べて、Runで表示できた。",
+      "translation": "မျက်နှာပြင်၏ အစိတ်အပိုင်းများကို စီစဉ်ပြီး Run ဖြင့် ဖော်ပြနိုင်ပြီးပြီ။"
+    },
+    {
+      "source": "次へ：保存するデータの形を決める →",
+      "translation": "နောက်တစ်ဆင့်: သိမ်းမည့် ဒေတာပုံစံကို သတ်မှတ်ခြင်း →"
+    },
+    {
+      "source": "STEP 04 · 目安 15分",
+      "translation": "STEP 04 · ခန့်မှန်းချိန် 15 မိနစ်"
+    },
+    {
+      "source": "保存するデータの形を決める",
+      "translation": "သိမ်းမည့် ဒေတာပုံစံကို သတ်မှတ်ခြင်း"
+    },
+    {
+      "source": "Roomは、データを<strong>表</strong>の形で保存します。まず「1行にどんな項目があるか」を決めます。これを書くのが <code>Item</code> クラスです。",
+      "translation": "Room သည် ဒေတာကို <strong>ဇယား</strong> ပုံစံဖြင့် သိမ်းသည်။ ဦးစွာ “အတန်းတစ်ခုတွင် မည်သည့်အချက်များ ပါမည်” ကို သတ်မှတ်ပါ။ ဤအရာကို ရေးသည့်နေရာမှာ <code>Item</code> class ဖြစ်သည်။"
+    },
+    {
+      "source": "① クラスを作る",
+      "translation": "① class ကို ဖန်တီးခြင်း"
+    },
+    {
+      "source": "プロジェクト画面で <code>app/src/main/java/jp/ac/jec/a10roomsample</code> を右クリックし、<strong>New → Java Class</strong> を選びます。",
+      "translation": "project မျက်နှာပြင်တွင် <code>app/src/main/java/jp/ac/jec/a10roomsample</code> ကို ညာဘက်ကလစ်နှိပ်ပြီး <strong>New → Java Class</strong> ကို ရွေးပါ။"
+    },
+    {
+      "source": "パッケージを右クリックしてNewを開き、Java Classが選択されているメニュー",
+      "translation": "package ကို ညာဘက်ကလစ်နှိပ်၍ New ကို ဖွင့်ထားပြီး Java Class ကို ရွေးထားသော menu"
+    },
+    {
+      "source": "MainActivityと同じフォルダ（パッケージ）を右クリックします。 <a1>画像を大きく開く</a1>",
+      "translation": "MainActivity နှင့် တူညီသော ဖိုင်တွဲ (package) ကို ညာဘက်ကလစ်နှိပ်ပါ။ <a1>ပုံကို အရွယ်အစားအပြည့်ဖြင့် ဖွင့်ပါ</a1>"
+    },
+    {
+      "source": "名前に <code>Item</code> と入力し、下の一覧で <strong>Class</strong> を選んで <kbd>return</kbd> を押します。",
+      "translation": "အမည်တွင် <code>Item</code> ဟု ရိုက်ထည့်ပြီး အောက်ရှိ စာရင်းမှ <strong>Class</strong> ကို ရွေးကာ <kbd>return</kbd> ကို နှိပ်ပါ။"
+    },
+    {
+      "source": "New Java Classのダイアログ。名前はItem、種類はClassが選択されている",
+      "translation": "New Java Class dialog။ အမည်မှာ Item ဖြစ်ပြီး အမျိုးအစားမှာ Class ကို ရွေးထားသည်"
+    },
+    {
+      "source": "種類は <strong>Class</strong> です。 <a1>画像を大きく開く</a1>",
+      "translation": "အမျိုးအစားမှာ <strong>Class</strong> ဖြစ်သည်။ <a1>ပုံကို အရွယ်အစားအပြည့်ဖြင့် ဖွင့်ပါ</a1>"
+    },
+    {
+      "source": "② 中身を書く",
+      "translation": "② အကြောင်းအရာကို ရေးခြင်း"
+    },
+    {
+      "source": "できた <code>Item.java</code> の中身を、すべて次のコードに置き換えます。",
+      "translation": "ဖန်တီးပြီးသော <code>Item.java</code> ၏ အကြောင်းအရာ အားလုံးကို အောက်ပါ code ဖြင့် အစားထိုးပါ။"
+    },
+    {
+      "source": "書いたもの",
+      "translation": "ရေးထားသောအရာ"
+    },
+    {
+      "source": "このクラスが<strong>表1つ分</strong>であるという印。クラス名 <code>Item</code> がそのまま表の名前になる",
+      "translation": "ဤ class သည် <strong>ဇယား 1 ခုစာ</strong> ဖြစ်ကြောင်း အမှတ်အသား။ class အမည် <code>Item</code> သည် ဇယား၏ အမည် အတိအကျ ဖြစ်သွားသည်"
+    },
+    {
+      "source": "この項目が<strong>行を見分ける番号</strong>。<code>autoGenerate = true</code> で、保存するたびに1・2・3…と自動で増える",
+      "translation": "ဤအချက်သည် <strong>အတန်းကို ခွဲခြားပေးသော နံပါတ်</strong> ဖြစ်သည်။ <code>autoGenerate = true</code> ကြောင့် သိမ်းတိုင်း 1၊ 2၊ 3… ဟု အလိုအလျောက် တိုးသွားသည်"
+    },
+    {
+      "source": "自動で付く番号。画面の <code>edt_id</code> に入れるのはこの番号",
+      "translation": "အလိုအလျောက် တပ်ပေးသော နံပါတ်။ မျက်နှာပြင်ရှိ <code>edt_id</code> တွင် ထည့်ရမည်မှာ ဤနံပါတ် ဖြစ်သည်"
+    },
+    {
+      "source": "保存したい文字。表の項目はこの2つだけ",
+      "translation": "သိမ်းလိုသော စာသား။ ဇယား၏ အချက်များမှာ ဤ 2 ခုသာ ဖြစ်သည်"
+    },
+    {
+      "source": "<code>@NonNull</code> はここだけ書きます",
+      "translation": "<code>@NonNull</code> ကို ဤနေရာတွင်သာ ရေးပါ"
+    },
+    {
+      "source": "この授業では <code>@NonNull</code> を自分で書きません。ただし <code>@Entity</code> のフィールドに付けた <code>@NonNull</code> は、Javaの注意書きではなく<strong>「この列は空にできない」という表の決まりそのもの</strong>です。外すと表の形が変わってしまうので、ここだけは書きます。",
+      "translation": "ဤအတန်းတွင် <code>@NonNull</code> ကို ကိုယ်တိုင် မရေးပါ။ သို့သော် <code>@Entity</code> ၏ field တွင် တပ်ထားသော <code>@NonNull</code> သည် Java ၏ မှတ်ချက် မဟုတ်ဘဲ <strong>“ဤကော်လံကို ဗလာ မထားနိုင်” ဟူသော ဇယား၏ စည်းမျဉ်း ကိုယ်တိုင်</strong> ဖြစ်သည်။ ဖယ်လိုက်လျှင် ဇယား၏ ပုံစံ ပြောင်းသွားမည်ဖြစ်၍ ဤနေရာတွင်သာ ရေးပါ။"
+    },
+    {
+      "source": "<code>toString()</code> は表示のために使います",
+      "translation": "<code>toString()</code> ကို ဖော်ပြရန်အတွက် သုံးသည်"
+    },
+    {
+      "source": "STEP 07で一覧を表示するときに、<code>Item</code> をそのまま文字にして並べます。画面に出ている <code>Item{internalId=1, title='CAR'}</code> という表示は、このメソッドが作っています。",
+      "translation": "STEP 07 တွင် စာရင်းကို ဖော်ပြသည့်အခါ <code>Item</code> ကို စာသားအဖြစ် ပြောင်းပြီး စီပေးသည်။ မျက်နှာပြင်တွင် ပေါ်နေသော <code>Item{internalId=1, title='CAR'}</code> ဟူသော ဖော်ပြချက်ကို ဤ method က ဖန်တီးပေးခြင်း ဖြစ်သည်။"
+    },
+    {
+      "source": "Itemクラスを作り、表の項目が <code>internalId</code> と <code>title</code> の2つだけになっていることを確認した。",
+      "translation": "Item class ကို ဖန်တီးပြီး ဇယား၏ အချက်များမှာ <code>internalId</code> နှင့် <code>title</code> 2 ခုသာ ဖြစ်ကြောင်း စစ်ဆေးပြီးပြီ။"
+    },
+    {
+      "source": "次へ：読み書きの命令を書く →",
+      "translation": "နောက်တစ်ဆင့်: ဖတ်ခြင်း၊ ရေးခြင်းအတွက် ညွှန်ကြားချက်များ ရေးခြင်း →"
+    },
+    {
+      "source": "STEP 05 · 目安 15分",
+      "translation": "STEP 05 · ခန့်မှန်း 15 မိနစ်"
+    },
+    {
+      "source": "読み書きの命令を書く",
+      "translation": "ဖတ်ခြင်း၊ ရေးခြင်းအတွက် ညွှန်ကြားချက်များ ရေးခြင်း"
+    },
+    {
+      "source": "次に「どう読み書きするか」を書きます。これが <code>ItemDao</code> です。<strong>Dao</strong> は Data Access Object の略で、データベースへの<strong>窓口</strong>です。",
+      "translation": "နောက်တစ်ဆင့်အနေဖြင့် “မည်သို့ ဖတ်မည်၊ ရေးမည်” ကို ရေးပါ။ ဤအရာသည် <code>ItemDao</code> ဖြစ်သည်။ <strong>Dao</strong> သည် Data Access Object ၏ အတိုကောက်ဖြစ်ပြီး database သို့ <strong>ဝင်ပေါက်</strong> ဖြစ်သည်။"
+    },
+    {
+      "source": "① インタフェースを作る",
+      "translation": "① interface ကို ဖန်တီးခြင်း"
+    },
+    {
+      "source": "STEP 04と同じ手順で <strong>New → Java Class</strong> を開き、名前に <code>ItemDao</code> と入力します。<strong>ここだけは一覧で <code>Interface</code> を選びます。</strong>",
+      "translation": "STEP 04 နှင့် အတူတူသော အဆင့်များဖြင့် <strong>New → Java Class</strong> ကို ဖွင့်ပြီး အမည်တွင် <code>ItemDao</code> ဟု ရိုက်ထည့်ပါ။ <strong>ဤနေရာတွင်သာ စာရင်းမှ <code>Interface</code> ကို ရွေးပါ။</strong>"
+    },
+    {
+      "source": "New Java Classのダイアログ。名前はItemDao、種類はInterfaceが選択されている",
+      "translation": "New Java Class dialog။ အမည်မှာ ItemDao ဖြစ်ပြီး အမျိုးအစားမှာ Interface ကို ရွေးထားသည်"
+    },
+    {
+      "source": "<strong>Class ではなく Interface</strong> を選びます。間違えると中身を書いたときに赤いエラーになります。 <a1>画像を大きく開く</a1>",
+      "translation": "<strong>Class မဟုတ်ဘဲ Interface</strong> ကို ရွေးပါ။ မှားလျှင် အကြောင်းအရာ ရေးသည့်အခါ အနီရောင် error ဖြစ်လာမည်။ <a1>ပုံကို အရွယ်အစားအပြည့်ဖြင့် ဖွင့်ပါ</a1>"
+    },
+    {
+      "source": "このインタフェースがデータベースへの窓口であるという印",
+      "translation": "ဤ interface သည် database သို့ ဝင်ပေါက် ဖြစ်ကြောင်း အမှတ်အသား"
+    },
+    {
+      "source": "表の中身を全部取り出す。<code>item</code> は <code>Item</code> クラスから作られた表の名前",
+      "translation": "ဇယားထဲရှိ အရာအားလုံးကို ထုတ်ယူသည်။ <code>item</code> သည် <code>Item</code> class မှ ဖန်တီးထားသော ဇယား၏ အမည် ဖြစ်သည်"
+    },
+    {
+      "source": "番号を1つ指定して、その1件を取り出す。<code>:internalId</code> はメソッドの引数のこと",
+      "translation": "နံပါတ် 1 ခုကို သတ်မှတ်ပြီး ထိုတစ်ခုကို ထုတ်ယူသည်။ <code>:internalId</code> သည် method ၏ parameter ကို ဆိုလိုသည်"
+    },
+    {
+      "source": "<strong>あれば書き換え、なければ追加</strong>。upsert は update と insert を合わせた言葉",
+      "translation": "<strong>ရှိပြီးသားဆိုလျှင် ပြင်ဆင်ပြီး မရှိလျှင် ထည့်ပေးသည်</strong>။ upsert သည် update နှင့် insert ကို ပေါင်းထားသော စကားလုံး ဖြစ်သည်"
+    },
+    {
+      "source": "渡した1件を消す",
+      "translation": "ပေးလိုက်သော ဒေတာ 1 ခုကို ဖျက်သည်"
+    },
+    {
+      "source": "中身（処理）を書かなくてよい理由",
+      "translation": "အကြောင်းအရာ (လုပ်ဆောင်ချက်) ကို မရေးလည်း ရသည့် အကြောင်းရင်း"
+    },
+    {
+      "source": "メソッドに <code>{ }</code> がありません。<strong>ビルドするときにRoomが自動で中身を作ります。</strong>STEP 02で追加した <code>room-compiler</code> がその仕事をしています。私たちが書くのは「何をしたいか」だけです。",
+      "translation": "method များတွင် <code>{ }</code> မရှိပါ။ <strong>build လုပ်သည့်အခါ Room က အကြောင်းအရာကို အလိုအလျောက် ဖန်တီးပေးသည်။</strong>STEP 02 တွင် ထည့်ခဲ့သော <code>room-compiler</code> က ထိုအလုပ်ကို လုပ်ပေးနေသည်။ ကျွန်ုပ်တို့ ရေးရမည်မှာ “ဘာလုပ်ချင်သနည်း” ဆိုသည်သာ ဖြစ်သည်။"
+    },
+    {
+      "source": "なぜ <code>@Upsert</code> だけなのか",
+      "translation": "အဘယ်ကြောင့် <code>@Upsert</code> တစ်ခုတည်း သုံးသနည်း"
+    },
+    {
+      "source": "Roomには <code>@Insert</code>（追加）と <code>@Update</code>（書き換え）もあります。この授業では、2つを使い分ける判断を増やさないために <code>@Upsert</code> 1つにまとめています。idが空なら追加、idを入れたら書き換え、という<strong>画面の動きがそのままメソッド1つに対応</strong>します。",
+      "translation": "Room တွင် <code>@Insert</code> (ထည့်ခြင်း) နှင့် <code>@Update</code> (ပြင်ဆင်ခြင်း) လည်း ရှိသည်။ ဤအတန်းတွင် 2 ခုကို ခွဲခြားသုံးရန် ဆုံးဖြတ်ချက် မတိုးစေရန် <code>@Upsert</code> တစ်ခုတည်းဖြင့် စုစည်းထားသည်။ id ဗလာဖြစ်လျှင် ထည့်ခြင်း၊ id ထည့်ထားလျှင် ပြင်ဆင်ခြင်း ဟူသော <strong>မျက်နှာပြင်၏ လုပ်ဆောင်ပုံသည် method တစ်ခုနှင့် တိုက်ရိုက် ကိုက်ညီနေသည်</strong>။"
+    },
+    {
+      "source": "ItemDaoをInterfaceで作り、どのメソッドにも中身の <code>{ }</code> がないことを確認した。",
+      "translation": "ItemDao ကို Interface ဖြင့် ဖန်တီးပြီး မည်သည့် method တွင်မျှ အကြောင်းအရာ <code>{ }</code> မရှိကြောင်း စစ်ဆေးပြီးပြီ။"
+    },
+    {
+      "source": "次へ：データベース本体を作る →",
+      "translation": "နောက်တစ်ဆင့်: database ကိုယ်တိုင်ကို ဖန်တီးခြင်း →"
+    },
+    {
+      "source": "STEP 06 · 目安 10分",
+      "translation": "STEP 06 · ခန့်မှန်းခြေ 10 မိနစ်"
+    },
+    {
+      "source": "データベース本体を作る",
+      "translation": "database ကိုယ်တိုင်ကို ဖန်တီးခြင်း"
+    },
+    {
+      "source": "表（<code>Item</code>）と窓口（<code>ItemDao</code>）ができました。最後に、それをまとめる<strong>データベース本体</strong>を作ります。",
+      "translation": "ဇယား (<code>Item</code>) နှင့် ဝင်ပေါက် (<code>ItemDao</code>) ပြီးသွားပြီ။ နောက်ဆုံးတွင် ၎င်းတို့ကို စုစည်းပေးမည့် <strong>database ကိုယ်တိုင်</strong> ကို ဖန်တီးပါ။"
+    },
+    {
+      "source": "STEP 04と同じ手順で <strong>New → Java Class</strong> を開き、名前に <code>AppDatabase</code> と入力します。種類は <strong>Class</strong> です。",
+      "translation": "STEP 04 နှင့် အတူတူသော အဆင့်များဖြင့် <strong>New → Java Class</strong> ကို ဖွင့်ပြီး အမည်တွင် <code>AppDatabase</code> ဟု ရိုက်ထည့်ပါ။ အမျိုးအစားမှာ <strong>Class</strong> ဖြစ်သည်။"
+    },
+    {
+      "source": "New Java Classのダイアログ。名前はAppDatabase、種類はClassが選択されている",
+      "translation": "New Java Class dialog။ အမည်မှာ AppDatabase ဖြစ်ပြီး အမျိုးအစားမှာ Class ကို ရွေးထားသည်"
+    },
+    {
+      "source": "このデータベースが <code>Item</code> の表を持つという宣言。<code>version</code> は表の形を変えたときに増やす番号",
+      "translation": "ဤ database တွင် <code>Item</code> ၏ ဇယား ပါဝင်ကြောင်း ကြေညာချက်။ <code>version</code> သည် ဇယား၏ ပုံစံကို ပြောင်းသည့်အခါ တိုးပေးရမည့် နံပါတ် ဖြစ်သည်"
+    },
+    {
+      "source": "中身はRoomが自動で作るので <code>abstract</code>（中身を書かない）にする",
+      "translation": "အကြောင်းအရာကို Room က အလိုအလျောက် ဖန်တီးပေးသောကြောင့် <code>abstract</code> (အကြောင်းအရာ မရေးပါ) အဖြစ် ထားသည်"
+    },
+    {
+      "source": "データベースを取り出すメソッド。<strong>1つだけ作って使い回します</strong>",
+      "translation": "database ကို ထုတ်ယူသော method။ <strong>1 ခုတည်း ဖန်တီးပြီး ပြန်သုံးသည်</strong>"
+    },
+    {
+      "source": "端末に作られるファイルの名前",
+      "translation": "စက်ထဲတွင် ဖန်တီးမည့် ဖိုင်၏ အမည်"
+    },
+    {
+      "source": "読み書きを画面と同じ流れで行う指定。<strong>この授業ではこれを付けます</strong>",
+      "translation": "ဖတ်ခြင်း၊ ရေးခြင်းကို မျက်နှာပြင်နှင့် တူညီသော လမ်းကြောင်းတွင် လုပ်ရန် သတ်မှတ်ချက်။ <strong>ဤအတန်းတွင် ၎င်းကို ထည့်ပါ</strong>"
+    },
+    {
+      "source": "なぜ1つだけ作って使い回すのか",
+      "translation": "အဘယ်ကြောင့် 1 ခုတည်း ဖန်တီးပြီး ပြန်သုံးသနည်း"
+    },
+    {
+      "source": "データベースを開く準備には時間がかかります。ボタンを押すたびに作り直すと、そのたびに待たされます。そこで<strong>最初の1回だけ作って、あとは同じものを返す</strong>書き方にします。この書き方を<strong>シングルトン</strong>といい、Roomの公式資料でもこの形がすすめられています。",
+      "translation": "database ကို ဖွင့်ရန် ပြင်ဆင်ရာတွင် အချိန်ကြာသည်။ ခလုတ် နှိပ်တိုင်း ပြန်ဖန်တီးလျှင် အကြိမ်တိုင်း စောင့်ရမည်။ ထို့ကြောင့် <strong>ပထမ 1 ကြိမ်သာ ဖန်တီးပြီး နောက်ပိုင်းတွင် တူညီသည့်အရာကိုပင် ပြန်ပေးသည့်</strong> ပုံစံဖြင့် ရေးသည်။ ဤရေးပုံကို <strong>singleton</strong> ဟု ခေါ်ပြီး Room ၏ တရားဝင် စာရွက်စာတမ်းများတွင်လည်း ဤပုံစံကို အကြံပြုထားသည်။"
+    },
+    {
+      "source": "<code>context.getApplicationContext()</code> を忘れない",
+      "translation": "<code>context.getApplicationContext()</code> ကို မမေ့ပါနှင့်"
+    },
+    {
+      "source": "<code>Room.databaseBuilder(...)</code> の最初に渡しているのは、受け取った <code>context</code> そのままではなく <code>context.getApplicationContext()</code> です。ここを <code>context</code> のままにすると、画面を回すたびに<strong>古い画面が消えずに残り続けます</strong>。作ったデータベースはアプリが終わるまで残るため、画面ではなく<strong>アプリ全体</strong>を渡します。",
+      "translation": "<code>Room.databaseBuilder(...)</code> ၏ ပထမဆုံးနေရာတွင် ပေးလိုက်သည်မှာ လက်ခံရရှိသော <code>context</code> အတိုင်း မဟုတ်ဘဲ <code>context.getApplicationContext()</code> ဖြစ်သည်။ ဤနေရာကို <code>context</code> အတိုင်း ထားလျှင် မျက်နှာပြင် လှည့်တိုင်း <strong>မျက်နှာပြင်အဟောင်းသည် မပျောက်ဘဲ ကျန်နေမည်</strong>။ ဖန်တီးလိုက်သော database သည် app ပိတ်သည်အထိ ကျန်နေသောကြောင့် မျက်နှာပြင်ကို မဟုတ်ဘဲ <strong>app တစ်ခုလုံး</strong> ကို ပေးလိုက်သည်။"
+    },
+    {
+      "source": "AppDatabaseを作り、<code>Room.databaseBuilder</code> に <code>context.getApplicationContext()</code> を渡していることを確認した。",
+      "translation": "AppDatabase ကို ဖန်တီးပြီး <code>Room.databaseBuilder</code> သို့ <code>context.getApplicationContext()</code> ကို ပေးထားကြောင်း စစ်ဆေးပြီးပြီ။"
+    },
+    {
+      "source": "次へ：画面とつないで完成 →",
+      "translation": "နောက်တစ်ဆင့်: မျက်နှာပြင်နှင့် ချိတ်ဆက်ပြီး ပြီးစီးခြင်း →"
+    },
+    {
+      "source": "STEP 07 · 目安 25分",
+      "translation": "STEP 07 · ခန့်မှန်းခြေ 25 မိနစ်"
+    },
+    {
+      "source": "画面とつないで完成",
+      "translation": "မျက်နှာပြင်နှင့် ချိတ်ဆက်ပြီး ပြီးစီးခြင်း"
+    },
+    {
+      "source": "部品がそろいました。<code>MainActivity.java</code> の中身を、すべて次のコードに置き換えます。",
+      "translation": "အစိတ်အပိုင်းများ ပြည့်စုံသွားပြီ။ <code>MainActivity.java</code> ၏ အကြောင်းအရာ အားလုံးကို အောက်ပါ code ဖြင့် အစားထိုးပါ။"
+    },
+    {
+      "source": "読むときの順番",
+      "translation": "ဖတ်သည့်အခါ အစီအစဉ်"
+    },
+    {
+      "source": "行のあたり",
+      "translation": "ကြည့်ရမည့် စာကြောင်း"
+    },
+    {
+      "source": "やっていること",
+      "translation": "လုပ်နေသည့်အရာ"
+    },
+    {
+      "source": "データベースを取り出して、窓口（Dao）を受け取る",
+      "translation": "database ကို ထုတ်ယူပြီး ဝင်ပေါက် (Dao) ကို လက်ခံရယူသည်"
+    },
+    {
+      "source": "起動したときに、保存されているデータを一覧に出す",
+      "translation": "စတင်ဖွင့်သည့်အခါ သိမ်းထားသော ဒေတာကို စာရင်းတွင် ဖော်ပြသည်"
+    },
+    {
+      "source": "<code>btn_upsert</code> のリスナ",
+      "translation": "<code>btn_upsert</code> ၏ listener"
+    },
+    {
+      "source": "タイトルが空なら止める → <code>Item</code> を作る → idが入っていれば <code>setInternalId</code> → <code>upsert</code> → 一覧を出し直す",
+      "translation": "title ဗလာဖြစ်လျှင် ရပ်သည် → <code>Item</code> ကို ဖန်တီးသည် → id ထည့်ထားလျှင် <code>setInternalId</code> → <code>upsert</code> → စာရင်းကို ပြန်ဖော်ပြသည်"
+    },
+    {
+      "source": "<code>btn_delete</code> のリスナ",
+      "translation": "<code>btn_delete</code> ၏ listener"
+    },
+    {
+      "source": "idが空なら止める → その番号のデータを探す → 見つからなければ止める → <code>delete</code> → 一覧を出し直す",
+      "translation": "id ဗလာဖြစ်လျှင် ရပ်သည် → ထိုနံပါတ်၏ ဒေတာကို ရှာသည် → မတွေ့လျှင် ရပ်သည် → <code>delete</code> → စာရင်းကို ပြန်ဖော်ပြသည်"
+    },
+    {
+      "source": "全部のデータを1行ずつつなげて、1つの文字列にする",
+      "translation": "ဒေတာအားလုံးကို စာကြောင်းတစ်ကြောင်းစီ ဆက်ပြီး စာသားတစ်ခုတည်း ဖြစ်အောင် လုပ်သည်"
+    },
+    {
+      "source": "保存したあとに毎回 <code>setText</code> し直しています",
+      "translation": "သိမ်းပြီးတိုင်း <code>setText</code> ကို ပြန်ခေါ်နေသည်"
+    },
+    {
+      "source": "データベースに書いても、画面は自動では変わりません。<strong>「書いた」と「画面に出す」は別の仕事</strong>です。A09で「保存と表示は別物」と学んだのと同じです。",
+      "translation": "database ထဲသို့ ရေးလည်း မျက်နှာပြင်သည် အလိုအလျောက် မပြောင်းပါ။ <strong>“ရေးခြင်း” နှင့် “မျက်နှာပြင်တွင် ဖော်ပြခြင်း” သည် သီးခြား အလုပ် 2 ခု</strong> ဖြစ်သည်။ A09 တွင် “သိမ်းခြင်းနှင့် ဖော်ပြခြင်းသည် သီးခြား ဖြစ်သည်” ဟု သင်ခဲ့သည့်အတိုင်းပင် ဖြစ်သည်။"
+    },
+    {
+      "source": "タイトルに <code>CAR</code> と入れて <strong>保存</strong>。一覧に <code>Item{internalId=1, title='CAR'}</code> が出ます。",
+      "translation": "title တွင် <code>CAR</code> ဟု ထည့်ပြီး <strong>保存</strong> (သိမ်းရန်) ကို နှိပ်ပါ။ စာရင်းတွင် <code>Item{internalId=1, title='CAR'}</code> ပေါ်လာမည်။"
+    },
+    {
+      "source": "続けて <code>BIKE</code>、<code>TRAIN</code> を保存。idが2・3と増えます。",
+      "translation": "ဆက်လက်၍ <code>BIKE</code>၊ <code>TRAIN</code> ကို သိမ်းပါ။ id သည် 2၊ 3 ဟု တိုးသွားမည်။"
+    },
+    {
+      "source": "id欄に <code>2</code>、タイトルに <code>BICYCLE</code> を入れて <strong>保存</strong>。<strong>2行目だけ</strong>書き換わります。",
+      "translation": "id အကွက်တွင် <code>2</code>၊ title တွင် <code>BICYCLE</code> ကို ထည့်ပြီး <strong>保存</strong> (သိမ်းရန်) ကို နှိပ်ပါ။ <strong>ဒုတိယစာကြောင်းသာ</strong> ပြောင်းသွားမည်။"
+    },
+    {
+      "source": "id欄に <code>3</code> を入れて <strong>削除</strong>。<strong>3行目だけ</strong>消えます。",
+      "translation": "id အကွက်တွင် <code>3</code> ကို ထည့်ပြီး <strong>削除</strong> (ဖျက်ရန်) ကို နှိပ်ပါ။ <strong>တတိယစာကြောင်းသာ</strong> ပျောက်သွားမည်။"
+    },
+    {
+      "source": "アプリを終了して開き直します。残っていれば成功です。終了するには、エミュレータでアプリ一覧（最近使ったアプリ）を開き、このアプリを上へスワイプします。アプリ一覧は、画面下の横棒を上へスワイプしてから止めると出ます。",
+      "translation": "app ကို ပိတ်ပြီး ပြန်ဖွင့်ပါ။ ဒေတာ ကျန်နေလျှင် အောင်မြင်ပြီ ဖြစ်သည်။ ပိတ်ရန်အတွက် emulator တွင် app စာရင်း (最近使ったアプリ၊ မကြာသေးမီက သုံးခဲ့သော app များ) ကို ဖွင့်ပြီး ဤ app ကို အပေါ်သို့ swipe လုပ်ပါ။ app စာရင်းသည် မျက်နှာပြင်အောက်ရှိ အလျားလိုက်မျဉ်းကို အပေါ်သို့ swipe လုပ်ပြီး ရပ်လိုက်လျှင် ပေါ်လာသည်။"
+    },
+    {
+      "source": "タイトルを空にして保存を押したときに、画面下にタイトルを入力してくださいのメッセージが出ている画面",
+      "translation": "title ကို ဗလာထားပြီး 「保存」 (သိမ်းရန်) ကို နှိပ်လိုက်သောအခါ မျက်နှာပြင်အောက်တွင် 「タイトルを入力してください」 (title ကို ရိုက်ထည့်ပါ) ဟူသော message ပေါ်နေသော မျက်နှာပြင်"
+    },
+    {
+      "source": "タイトルを空のまま保存すると、メッセージが出て保存されません。 <a1>画像を大きく開く</a1>",
+      "translation": "title ကို ဗလာအတိုင်း ထားပြီး သိမ်းလျှင် message ပေါ်လာပြီး မသိမ်းပါ။ <a1>ပုံကို အရွယ်အစားအပြည့်ဖြင့် ဖွင့်ပါ</a1>"
+    },
+    {
+      "source": "完成チェック",
+      "translation": "ပြီးစီးမှု စစ်ဆေးခြင်း"
+    },
+    {
+      "source": "上から順に操作します。保存したデータが残っているとidが1から始まらないので、アプリを消してから始めます。消し方は<a1>共通資料：エミュレータ</a1>の「アプリを消す」にあります。",
+      "translation": "အပေါ်မှ အစဉ်လိုက် လုပ်ဆောင်ပါ။ သိမ်းထားသော ဒေတာ ကျန်နေလျှင် id သည် 1 မှ မစသောကြောင့် app ကို ဖယ်ရှားပြီးမှ စပါ။ ဖယ်ရှားနည်းကို <a1>အများသုံးလမ်းညွှန်: emulator</a1> ၏ “app ကို ဖယ်ရှားပါ” တွင် ဖော်ပြထားသည်။"
+    },
+    {
+      "source": "<strong>アプリを終了する</strong>ときは、エミュレータでアプリ一覧（最近使ったアプリ）を開き、このアプリを上へスワイプします。アプリ一覧は、画面下の横棒を上へスワイプしてから止めると出ます。",
+      "translation": "<strong>app ကို ပိတ်မည်</strong> ဆိုလျှင် emulator တွင် app စာရင်း (最近使ったアプリ၊ မကြာသေးမီက သုံးခဲ့သော app များ) ကို ဖွင့်ပြီး ဤ app ကို အပေါ်သို့ swipe လုပ်ပါ။ app စာရင်းသည် မျက်နှာပြင်အောက်ရှိ အလျားလိုက်မျဉ်းကို အပေါ်သို့ swipe လုပ်ပြီး ရပ်လိုက်လျှင် ပေါ်လာသည်။"
+    },
+    {
+      "source": "操作",
+      "translation": "လုပ်ဆောင်ချက်"
+    },
+    {
+      "source": "確認する結果",
+      "translation": "စစ်ဆေးရမည့် ရလဒ်"
+    },
+    {
+      "source": "アプリを消してから初回起動",
+      "translation": "app ကို ဖယ်ရှားပြီးနောက် ပထမဆုံးအကြိမ် ဖွင့်ခြင်း"
+    },
+    {
+      "source": "一覧が空で表示される。",
+      "translation": "စာရင်းသည် ဗလာအဖြစ် ပေါ်သည်။"
+    },
+    {
+      "source": "何も入れずに「保存」",
+      "translation": "ဘာမှ မထည့်ဘဲ 「保存」 (သိမ်းရန်) ကို နှိပ်ခြင်း"
+    },
+    {
+      "source": "「タイトルを入力してください」が出て、一覧は増えない。",
+      "translation": "「タイトルを入力してください」 (title ကို ရိုက်ထည့်ပါ) ပေါ်လာပြီး စာရင်း မတိုးပါ။"
+    },
+    {
+      "source": "タイトルに CAR・BIKE・TRAIN を1件ずつ「保存」",
+      "translation": "title တွင် CAR၊ BIKE၊ TRAIN ကို တစ်ခုချင်းစီ ထည့်ပြီး 「保存」 (သိမ်းရန်) ကို နှိပ်ခြင်း"
+    },
+    {
+      "source": "保存のたびに1行増え、idが1・2・3と自動で付く。入力欄は空になる。",
+      "translation": "သိမ်းတိုင်း စာကြောင်း 1 ကြောင်း တိုးလာပြီး id သည် 1၊ 2၊ 3 ဟု အလိုအလျောက် တပ်ပေးသည်။ input အကွက်များ ဗလာဖြစ်သွားသည်။"
+    },
+    {
+      "source": "id欄に 2、タイトルに BICYCLE と入れて「保存」",
+      "translation": "id အကွက်တွင် 2၊ title တွင် BICYCLE ကို ထည့်ပြီး 「保存」 (သိမ်းရန်) ကို နှိပ်ခြင်း"
+    },
+    {
+      "source": "2行目だけが BICYCLE に書き換わる。行は増えない。",
+      "translation": "ဒုတိယစာကြောင်းသာ BICYCLE အဖြစ် ပြောင်းသွားသည်။ စာကြောင်း မတိုးပါ။"
+    },
+    {
+      "source": "id欄に 3 と入れて「削除」",
+      "translation": "id အကွက်တွင် 3 ကို ထည့်ပြီး 「削除」 (ဖျက်ရန်) ကို နှိပ်ခြင်း"
+    },
+    {
+      "source": "3行目だけが消え、id欄が空になる。",
+      "translation": "တတိယစာကြောင်းသာ ပျောက်သွားပြီး id အကွက် ဗလာဖြစ်သွားသည်။"
+    },
+    {
+      "source": "id欄が空のまま「削除」",
+      "translation": "id အကွက် ဗလာအတိုင်း 「削除」 (ဖျက်ရန်) ကို နှိပ်ခြင်း"
+    },
+    {
+      "source": "「削除するidを入力してください」が出て、一覧は変わらない。",
+      "translation": "「削除するidを入力してください」 (ဖျက်မည့် id ကို ရိုက်ထည့်ပါ) ပေါ်လာပြီး စာရင်း မပြောင်းပါ။"
+    },
+    {
+      "source": "id欄に 99 と入れて「削除」",
+      "translation": "id အကွက်တွင် 99 ကို ထည့်ပြီး 「削除」 (ဖျက်ရန်) ကို နှိပ်ခြင်း"
+    },
+    {
+      "source": "「そのidのデータはありません」が出て、一覧は変わらない。",
+      "translation": "「そのidのデータはありません」 (ထို id ၏ ဒေတာ မရှိပါ) ပေါ်လာပြီး စာရင်း မပြောင်းပါ။"
+    },
+    {
+      "source": "アプリを終了して開き直す",
+      "translation": "app ကို ပိတ်ပြီး ပြန်ဖွင့်ခြင်း"
+    },
+    {
+      "source": "残った2行がそのまま表示される。",
+      "translation": "ကျန်နေသော စာကြောင်း 2 ကြောင်း မူလအတိုင်း ပေါ်နေသည်။"
+    },
+    {
+      "source": "練習",
+      "translation": "လေ့ကျင့်ခန်း"
+    },
+    {
+      "source": "上から順に試します。<strong>予想 → 試す → 説明</strong>の順で行います。コードを書き換える3は、確かめたあとに<strong>元に戻します</strong>。",
+      "translation": "အပေါ်မှ အစဉ်လိုက် စမ်းပါ။ <strong>ခန့်မှန်းခြင်း → စမ်းခြင်း → ရှင်းပြခြင်း</strong> အစီအစဉ်အတိုင်း လုပ်ပါ။ code ကို ပြင်ရသော အမှတ် 3 ကို စစ်ဆေးပြီးနောက် <strong>မူလအတိုင်း ပြန်ထားပါ</strong>။"
+    },
+    {
+      "source": "存在しないid（例：<code>99</code>）を入れて <strong>削除</strong> を押すとどうなるか、試して理由を説明する。",
+      "translation": "မရှိသော id (ဥပမာ: <code>99</code>) ကို ထည့်ပြီး <strong>削除</strong> (ဖျက်ရန်) ကို နှိပ်လျှင် ဘာဖြစ်မည်ကို စမ်းကြည့်ပြီး အကြောင်းရင်းကို ရှင်းပြပါ။"
+    },
+    {
+      "source": "id欄に <code>1</code> を入れ、タイトルを空にして <strong>保存</strong> を押すとどうなるか、試して理由を説明する。",
+      "translation": "id အကွက်တွင် <code>1</code> ကို ထည့်ပြီး title ကို ဗလာထားကာ <strong>保存</strong> (သိမ်းရန်) ကို နှိပ်လျှင် ဘာဖြစ်မည်ကို စမ်းကြည့်ပြီး အကြောင်းရင်းကို ရှင်းပြပါ။"
+    },
+    {
+      "source": "<code>btn_upsert</code> のリスナから <code>txtItemList.setText(itemList(itemDao));</code> の1行を消してRunする。保存したデータはどうなっているか、アプリを開き直して確かめる。<strong>確かめたら、消した1行を元に戻す。</strong>",
+      "translation": "<code>btn_upsert</code> ၏ listener မှ <code>txtItemList.setText(itemList(itemDao));</code> စာကြောင်း 1 ကြောင်းကို ဖျက်ပြီး Run လုပ်ပါ။ သိမ်းထားသော ဒေတာ မည်သို့ ဖြစ်နေသည်ကို app ကို ပြန်ဖွင့်၍ စစ်ဆေးပါ။ <strong>စစ်ဆေးပြီးလျှင် ဖျက်လိုက်သော စာကြောင်း 1 ကြောင်းကို မူလအတိုင်း ပြန်ထားပါ။</strong>"
+    },
+    {
+      "source": "完成版に戻してから確認",
+      "translation": "ပြီးစီးထားသော ပုံစံသို့ ပြန်ထားပြီးမှ စစ်ဆေးပါ"
+    },
+    {
+      "source": "練習3で消した <code>txtItemList.setText(itemList(itemDao));</code> の1行を、<code>btn_upsert</code> のリスナの <code>itemDao.upsert(item);</code> の次に戻します。戻したらRunして、タイトルを入れて<strong>保存</strong>を押すと、その場で一覧が1行増えることを確かめます。戻さないままだと、保存を押しても一覧が変わらないアプリが手元に残ります。",
+      "translation": "လေ့ကျင့်ခန်း 3 တွင် ဖျက်ခဲ့သော <code>txtItemList.setText(itemList(itemDao));</code> စာကြောင်း 1 ကြောင်းကို <code>btn_upsert</code> ၏ listener ရှိ <code>itemDao.upsert(item);</code> ၏ နောက်တွင် ပြန်ထည့်ပါ။ ပြန်ထည့်ပြီးလျှင် Run လုပ်ပြီး title ကို ထည့်ကာ <strong>保存</strong> (သိမ်းရန်) ကို နှိပ်လျှင် စာရင်းတွင် ချက်ချင်း စာကြောင်း 1 ကြောင်း တိုးလာကြောင်း စစ်ဆေးပါ။ ပြန်မထည့်ဘဲ ထားလျှင် သိမ်းလည်း စာရင်း မပြောင်းသော app သာ ကျန်နေမည်။"
+    },
+    {
+      "source": "保存",
+      "translation": "သိမ်းဆည်းခြင်း"
+    },
+    {
+      "source": "Android Studioは、書いたコードを自動でファイルに保存します。保存の操作は要りません。ここでは、保存された場所を確かめます。",
+      "translation": "Android Studio သည် ရေးထားသော code ကို ဖိုင်ထဲသို့ အလိုအလျောက် သိမ်းဆည်းပေးသည်။ သိမ်းဆည်းရန် လုပ်ဆောင်စရာ မလိုပါ။ ဤနေရာတွင် သိမ်းဆည်းထားသည့် နေရာကို စစ်ဆေးမည်။"
+    },
+    {
+      "source": "Finderを開き、左側の <strong>書類</strong>（<code>Documents</code>）をクリックします。",
+      "translation": "Finder ကို ဖွင့်ပြီး ဘယ်ဘက်ရှိ <strong>書類</strong> (<code>Documents</code>) ကို နှိပ်ပါ။"
+    },
+    {
+      "source": "その中の <code>Android1</code> フォルダを開き、<code>A10RoomSample</code> フォルダがあることを確かめます。",
+      "translation": "ထိုအထဲရှိ <code>Android1</code> ဖိုင်တွဲကို ဖွင့်ပြီး <code>A10RoomSample</code> ဖိုင်တွဲ ရှိကြောင်း စစ်ဆေးပါ။"
+    },
+    {
+      "source": "この <code>Documents/Android1/A10RoomSample</code> フォルダが、自分で作ったアプリです。あとの授業でもう一度開けるように、消したり、別の場所へ移動したり、名前を変えたりせずに、そのまま残します。",
+      "translation": "ဤ <code>Documents/Android1/A10RoomSample</code> ဖိုင်တွဲသည် ကိုယ်တိုင် ဖန်တီးထားသော app ဖြစ်သည်။ နောက်ပိုင်း အတန်းများတွင် ထပ်မံ ဖွင့်နိုင်ရန် မဖျက်ဘဲ၊ အခြားနေရာသို့ မရွှေ့ဘဲ၊ အမည် မပြောင်းဘဲ မူလအတိုင်း ထားပါ။"
+    },
+    {
+      "source": "教材のチェックは自分用です。先生への送信はしません。印刷は <kbd>⌘ P</kbd> で行えます。",
+      "translation": "သင်ထောက်ကူပစ္စည်းများရှိ အမှန်ခြစ်များသည် ကိုယ်ပိုင်အသုံးပြုရန်သာ ဖြစ်သည်။ ဆရာထံ ပို့ခြင်း မရှိပါ။ print ထုတ်ရန် <kbd>⌘ P</kbd> ကို သုံးနိုင်သည်။"
+    },
+    {
+      "source": "完成チェックの操作をすべて試して表のとおりの結果になり、練習3で消した1行を元に戻した。",
+      "translation": "ပြီးစီးမှု စစ်ဆေးခြင်း၏ လုပ်ဆောင်ချက် အားလုံးကို စမ်းကြည့်ရာ ဇယားအတိုင်း ရလဒ် ထွက်ပြီး လေ့ကျင့်ခန်း 3 တွင် ဖျက်ခဲ့သော စာကြောင်း 1 ကြောင်းကို မူလအတိုင်း ပြန်ထားပြီးပြီ။"
+    },
+    {
+      "source": "症状",
+      "translation": "လက္ခဏာ"
+    },
+    {
+      "source": "見るところ",
+      "translation": "ကြည့်ရမည့်နေရာ"
+    },
+    {
+      "source": "<code>expected to find any of 'id' or 'version'</code> でビルドが止まる",
+      "translation": "<code>expected to find any of 'id' or 'version'</code> ဖြင့် build ရပ်သွားသည်"
+    },
+    {
+      "source": "STEP 02①。<code>room-runtime</code> と <code>room-compiler</code> を <code>[plugins]</code> ではなく <code>[libraries]</code> に書いているか",
+      "translation": "STEP 02①။ <code>room-runtime</code> နှင့် <code>room-compiler</code> ကို <code>[plugins]</code> တွင် မဟုတ်ဘဲ <code>[libraries]</code> တွင် ရေးထားသလား"
+    },
+    {
+      "source": "<code>Cannot resolve symbol 'Room'</code> などの赤い波線",
+      "translation": "<code>Cannot resolve symbol 'Room'</code> စသည့် အနီရောင် လှိုင်းမျဉ်း"
+    },
+    {
+      "source": "STEP 02。Syncが終わっているか。<code>Sync Now</code> を押したか",
+      "translation": "STEP 02။ Sync ပြီးပြီလား။ <code>Sync Now</code> ကို နှိပ်ပြီးပြီလား"
+    },
+    {
+      "source": "<code>ItemDao</code> の中で赤いエラーが出る",
+      "translation": "<code>ItemDao</code> ထဲတွင် အနီရောင် error ပေါ်သည်"
+    },
+    {
+      "source": "STEP 05①。<strong>Class ではなく Interface</strong> で作ったか",
+      "translation": "STEP 05①။ <strong>Class မဟုတ်ဘဲ Interface</strong> ဖြင့် ဖန်တီးထားသလား"
+    },
+    {
+      "source": "STEP 04②。<code>Item</code> のコンストラクタが <code>public</code> か。<code>title</code> のゲッターとセッターがあるか",
+      "translation": "STEP 04②။ <code>Item</code> ၏ constructor သည် <code>public</code> ဟုတ်သလား။ <code>title</code> ၏ getter နှင့် setter ရှိသလား"
+    },
+    {
+      "source": "保存しても一覧が変わらない",
+      "translation": "သိမ်းလည်း စာရင်း မပြောင်းပါ"
+    },
+    {
+      "source": "STEP 07。<code>setText(itemList(itemDao))</code> をリスナの中に書いたか",
+      "translation": "STEP 07။ <code>setText(itemList(itemDao))</code> ကို listener ထဲတွင် ရေးထားသလား"
+    },
+    {
+      "source": "importの赤い波線が消えない",
+      "translation": "import ၏ အနီရောင် လှိုင်းမျဉ်း မပျောက်ပါ"
+    },
+    {
+      "source": "共通資料：Auto Import",
+      "translation": "အများသုံးလမ်းညွှန်: Auto Import"
+    },
+    {
+      "source": "エミュレータが出てこない",
+      "translation": "emulator မပေါ်လာပါ"
+    },
+    {
+      "source": "共通資料：エミュレータ",
+      "translation": "အများသုံးလမ်းညွှန်: emulator"
+    },
+    {
+      "source": "画面を回すと入力した文字が消える",
+      "translation": "မျက်နှာပြင်ကို လှည့်လိုက်လျှင် ရိုက်ထည့်ထားသော စာသားများ ပျောက်သွားသည်"
+    },
+    {
+      "source": "<a1>共通資料：開発Tips</a1> のC章。保存したデータは消えません",
+      "translation": "<a1>အများသုံးလမ်းညွှန်: app ရေးသားရာတွင် အသုံးဝင်သောအချက်များ</a1> ၏ အခန်း C။ သိမ်းထားသော ဒေတာများ မပျောက်ပါ"
+    },
+    {
+      "source": "答え合わせ用の見本です。教科書といっしょに配られた<strong>教材のフォルダ</strong>に、そのまま開ける形で入っています。ダウンロードも展開も要りません。授業の入力は自分で作ったプロジェクトに書きます。",
+      "translation": "အဖြေတိုက်ရန် နမူနာ ဖြစ်သည်။ သင်ရိုးစာအုပ်နှင့်အတူ ဖြန့်ပေးထားသော <strong>သင်ထောက်ကူပစ္စည်း ဖိုင်တွဲ</strong> ထဲတွင် တိုက်ရိုက် ဖွင့်နိုင်သည့်ပုံစံဖြင့် ရှိသည်။ download လုပ်ရန်နှင့် ဖိုင်ဖြည်ရန် မလိုပါ။ အတန်းတွင် ရိုက်ထည့်ရမည့်အရာများကို ကိုယ်တိုင် ဖန်တီးထားသော project ထဲတွင် ရေးပါ။"
+    },
+    {
+      "source": "Android Studioの <strong>Open</strong>（プロジェクトを開いているときは <strong>File → Open</strong>）で、<strong>書類</strong>（<code>Documents</code>）にある教材のフォルダを開きます。名前は <code>android1-student-materials-</code> のうしろに日付が付いた形で、日付は配られた回によって変わります。いま読んでいるこの教科書が入っているフォルダです。",
+      "translation": "Android Studio ၏ <strong>Open</strong> (project ဖွင့်ထားလျှင် <strong>File → Open</strong>) ဖြင့် <strong>書類</strong> (<code>Documents</code>) ထဲရှိ သင်ထောက်ကူပစ္စည်း ဖိုင်တွဲ ကို ဖွင့်ပါ။ အမည်မှာ <code>android1-student-materials-</code> ၏ နောက်တွင် ရက်စွဲ ပါသောပုံစံ ဖြစ်ပြီး ရက်စွဲသည် ဖြန့်ပေးသည့် အကြိမ်အလိုက် ကွဲပြားသည်။ ယခု ဖတ်နေသော ဤသင်ရိုးစာအုပ် ပါဝင်သည့် ဖိုင်တွဲ ဖြစ်သည်။"
+    },
+    {
+      "source": "その中を <code>samples → A10RoomSample</code> の順に開き、<code>settings.gradle.kts</code> と <code>app</code> が入った <code>A10RoomSample</code> フォルダを選びます。",
+      "translation": "ထိုအထဲကို <code>samples → A10RoomSample</code> အစီအစဉ်အတိုင်း ဖွင့်ပြီး <code>settings.gradle.kts</code> နှင့် <code>app</code> ပါဝင်သော <code>A10RoomSample</code> ဖိုင်တွဲကို ရွေးပါ။"
+    },
+    {
+      "source": "Sync後にRunして動きを確認します。授業の入力に戻るときは自分の <code>Documents/Android1/A10RoomSample</code> を開きます。",
+      "translation": "Sync ပြီးနောက် Run လုပ်၍ လုပ်ဆောင်ပုံကို စစ်ဆေးပါ။ အတန်းတွင် ရိုက်ထည့်ရန် ပြန်သွားမည်ဆိုလျှင် မိမိ၏ <code>Documents/Android1/A10RoomSample</code> ကို ဖွင့်ပါ။"
+    },
+    {
+      "source": "教材のフォルダが手元にないときは、同じ見本をZIPで受け取れます（<a1>A10RoomSample.zip</a1>）。展開してできた <code>A10RoomSample</code> フォルダを、同じようにOpenで選びます。",
+      "translation": "သင်ထောက်ကူပစ္စည်း ဖိုင်တွဲ မရှိလျှင် တူညီသော နမူနာကို ZIP ဖြင့် ရယူနိုင်သည် (<a1>A10RoomSample.zip</a1>)။ ဖိုင်ဖြည်ပြီး ထွက်လာသော <code>A10RoomSample</code> ဖိုင်တွဲကို ထိုနည်းတူ Open ဖြင့် ရွေးပါ။"
+    },
+    {
+      "source": "完成した <code>MainActivity.java</code>",
+      "translation": "ပြီးစီးထားသော <code>MainActivity.java</code>"
+    },
+    {
+      "source": "完成した <code>activity_main.xml</code>",
+      "translation": "ပြီးစီးထားသော <code>activity_main.xml</code>"
+    },
+    {
+      "source": "Androidプログラミング1 · A10RoomSample / 本文・画像・操作機能はオフラインで利用できます。Android Studioの初回準備・ビルドと公式資料の閲覧にはネット接続が必要です。",
+      "translation": "Android ပရိုဂရမ်းမင်း 1 · A10RoomSample / စာသား၊ ပုံနှင့် လုပ်ဆောင်ချက်များကို offline တွင် အသုံးပြုနိုင်သည်။ Android Studio ၏ ပထမဆုံးအကြိမ် ပြင်ဆင်ခြင်း၊ build လုပ်ခြင်းနှင့် တရားဝင် စာရွက်စာတမ်းများ ကြည့်ရှုခြင်းအတွက် internet ချိတ်ဆက်မှု လိုအပ်သည်။"
+    },
+    {
+      "source": "スクリーンショットのデータは例です。",
+      "translation": "screenshot ထဲရှိ ဒေတာများသည် ဥပမာသာ ဖြစ်သည်။"
+    }
+  ]
+}

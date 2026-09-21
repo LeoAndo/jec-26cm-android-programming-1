@@ -1,0 +1,186 @@
+{
+  "source": "docs/common/auto-import.html",
+  "language": "my",
+  "entries": [
+    {
+      "source": "Auto Importの設定 | Androidプログラミング1",
+      "translation": "Auto Import ကို သတ်မှတ်ခြင်း | Android ပရိုဂရမ်းမင်း 1"
+    },
+    {
+      "source": "本文へ移動",
+      "translation": "အဓိကအကြောင်းအရာသို့ ကျော်သွားရန်"
+    },
+    {
+      "source": "JEC / Androidプログラミング1",
+      "translation": "JEC / Android ပရိုဂရမ်းမင်း 1"
+    },
+    {
+      "source": "もとのページへ戻る",
+      "translation": "လာခဲ့သော စာမျက်နှာသို့ ပြန်သွားရန်"
+    },
+    {
+      "source": "ANDROID PROGRAMMING 1 / 共通資料",
+      "translation": "ANDROID PROGRAMMING 1 / အများသုံးလမ်းညွှန်"
+    },
+    {
+      "source": "Auto Importの設定",
+      "translation": "Auto Import ကို သတ်မှတ်ခြင်း"
+    },
+    {
+      "source": "Javaを書く前に、必要なimport文をAndroid Studioが自動で追加するように設定します。",
+      "translation": "Java မရေးမီ လိုအပ်သော import statement များကို Android Studio က အလိုအလျောက် ထည့်ပေးရန် သတ်မှတ်ပါ။"
+    },
+    {
+      "source": "1. Settingsを開く",
+      "translation": "1. Settings ကို ဖွင့်ပါ"
+    },
+    {
+      "source": "<strong>import</strong>（インポート）は、コードで使うクラスがどこにあるかを知らせる文です。授業では、Android Studioの <strong>Auto Import</strong>（自動インポート）を使います。",
+      "translation": "<strong>import</strong> သည် code တွင် သုံးမည့် class မည်သည့်နေရာတွင်ရှိကြောင်း အသိပေးသော statement ဖြစ်သည်။ အတန်းတွင် Android Studio ၏ <strong>Auto Import</strong> (အလိုအလျောက် import ထည့်ခြင်း) ကို သုံးမည်။"
+    },
+    {
+      "source": "Android Studioで授業のプロジェクトを開きます。",
+      "translation": "Android Studio တွင် အတန်းအတွက် project ကို ဖွင့်ပါ။"
+    },
+    {
+      "source": "画面上部の <strong>Android Studio → Settings…</strong> をクリックします。",
+      "translation": "မျက်နှာပြင်အပေါ်ရှိ <strong>Android Studio → Settings…</strong> ကို ကလစ်နှိပ်ပါ။"
+    },
+    {
+      "source": "MacのAndroid Studioメニューを開き、Settingsを選択している",
+      "translation": "Mac ၏ Android Studio menu ကို ဖွင့်ပြီး Settings ကို ရွေးထားသည်"
+    },
+    {
+      "source": "Android StudioメニューからSettingsを開きます。 <a1>画像を大きく開く</a1>",
+      "translation": "Android Studio menu မှ Settings ကို ဖွင့်ပါ။ <a1>ပုံကို အရွယ်အစားအပြည့်ဖြင့် ဖွင့်ပါ</a1>"
+    },
+    {
+      "source": "2. JavaのAuto Importを設定する",
+      "translation": "2. Java ၏ Auto Import ကို သတ်မှတ်ပါ"
+    },
+    {
+      "source": "Settingsの左側で <strong>Editor → General → Auto Import</strong> を選びます。",
+      "translation": "Settings ၏ ဘယ်ဘက်တွင် <strong>Editor → General → Auto Import</strong> ကို ရွေးပါ။"
+    },
+    {
+      "source": "右側をスクロールし、<strong>Java</strong> の見出しを探します。",
+      "translation": "ညာဘက်ကို scroll လုပ်ပြီး <strong>Java</strong> ခေါင်းစဉ်ကို ရှာပါ။"
+    },
+    {
+      "source": "Java欄を、次の表の設定にします。",
+      "translation": "Java အပိုင်းကို အောက်ပါဇယားအတိုင်း သတ်မှတ်ပါ။"
+    },
+    {
+      "source": "Java欄の項目",
+      "translation": "Java အပိုင်းရှိ item များ"
+    },
+    {
+      "source": "設定",
+      "translation": "သတ်မှတ်ချက်"
+    },
+    {
+      "source": "何をする？",
+      "translation": "ဘာလုပ်ပေးသလဲ?"
+    },
+    {
+      "source": "コードを貼り付けたときに、必要なimport文を追加する。",
+      "translation": "code ကို paste လုပ်သောအခါ လိုအပ်သော import statement များကို ထည့်ပေးသည်။"
+    },
+    {
+      "source": "チェックを入れる",
+      "translation": "အမှန်ခြစ် ခြစ်ပါ"
+    },
+    {
+      "source": "候補が1つに決まるimport文を、入力に合わせて自動で追加する。",
+      "translation": "ရွေးချယ်စရာ တစ်ခုတည်းရှိသော import statement များကို ရိုက်ထည့်သည်နှင့်အမျှ အလိုအလျောက် ထည့်ပေးသည်။"
+    },
+    {
+      "source": "使っていないimport文を削除するなど、自動で整理する。",
+      "translation": "မသုံးသော import statement များကို ဖျက်ခြင်း စသည်ဖြင့် အလိုအလျောက် စီစဉ်ပေးသည်။"
+    },
+    {
+      "source": "Editor、General、Auto Importの設定画面。Java欄でInsert imports on pasteはAlways、Add unambiguous imports on the flyとOptimize imports on the flyにチェックが入っている",
+      "translation": "Editor၊ General၊ Auto Import သတ်မှတ်ချက် မျက်နှာပြင်။ Java အပိုင်းတွင် Insert imports on paste ကို Always ဟု သတ်မှတ်ထားပြီး Add unambiguous imports on the fly နှင့် Optimize imports on the fly ကို အမှန်ခြစ်ထားသည်"
+    },
+    {
+      "source": "赤い枠のJava欄を確認します。Insert imports on pasteは、その少し上にあります。 <a1>画像を大きく開く</a1>",
+      "translation": "အနီရောင်ဘောင်ရှိ Java အပိုင်းကို စစ်ဆေးပါ။ Insert imports on paste သည် ထိုအပိုင်း၏ အပေါ်နားတွင်ရှိသည်။ <a1>ပုံကို အရွယ်အစားအပြည့်ဖြင့် ဖွင့်ပါ</a1>"
+    },
+    {
+      "source": "<strong>OK</strong> をクリックして、設定画面を閉じます。",
+      "translation": "<strong>OK</strong> ကို ကလစ်နှိပ်ပြီး သတ်မှတ်ချက်မျက်နှာပြင်ကို ပိတ်ပါ။"
+    },
+    {
+      "source": "成功の目印",
+      "translation": "အောင်မြင်ကြောင်း သိနိုင်သည့်အချက်များ"
+    },
+    {
+      "source": "Java欄で「Always」と2つのチェックを確認できた。これで教科書のJavaを入力する準備ができました。",
+      "translation": "Java အပိုင်းတွင် “Always” နှင့် အမှန်ခြစ် 2 ခုကို စစ်ဆေးပြီးပြီ။ ယခု သင်ရိုးစာအုပ်ရှိ Java ကို ရိုက်ထည့်ရန် အသင့်ဖြစ်ပြီးပြီ။"
+    },
+    {
+      "source": "3. 教科書のコードを入力する",
+      "translation": "3. သင်ရိုးစာအုပ်ရှိ code ကို ရိုက်ထည့်ပါ"
+    },
+    {
+      "source": "教科書に戻り、そのステップのJavaを入力します。たとえば <code>TextView</code> や <code>Button</code> を使うと、必要なimport文がファイル上部へ追加されます。",
+      "translation": "သင်ရိုးစာအုပ်သို့ ပြန်သွားပြီး ထိုအဆင့်ရှိ Java ကို ရိုက်ထည့်ပါ။ ဥပမာ <code>TextView</code> သို့မဟုတ် <code>Button</code> ကို သုံးလျှင် လိုအပ်သော import statement များကို ဖိုင်၏ အပေါ်ပိုင်းတွင် ထည့်ပေးမည်။"
+    },
+    {
+      "source": "import文は折りたたまれて見える場合があります。使わなくなったものは自動で整理されるので、行数が教材の見本と同じでなくても構いません。",
+      "translation": "import statement များကို ခေါက်သိမ်းထားသကဲ့သို့ မြင်ရနိုင်သည်။ မသုံးတော့သောအရာများကို အလိုအလျောက် စီစဉ်ပေးသဖြင့် စာကြောင်းအရေအတွက်သည် သင်ထောက်ကူပစ္စည်း၏ နမူနာနှင့် မတူလျှင်လည်း ရသည်။"
+    },
+    {
+      "source": "もとのページへ戻る →",
+      "translation": "လာခဲ့သော စာမျက်နှာသို့ ပြန်သွားရန် →"
+    },
+    {
+      "source": "4. 自動で追加されないとき",
+      "translation": "4. အလိုအလျောက် ထည့်မပေးလျှင်"
+    },
+    {
+      "source": "同じ名前のクラスが複数あると、自動では1つに決められません。名前に赤い下線が残った場合は、次の順に確認します。",
+      "translation": "အမည်တူ class များ တစ်ခုထက်ပိုရှိလျှင် အလိုအလျောက် တစ်ခုတည်းကို မရွေးနိုင်ပါ။ အမည်အောက်တွင် အနီရောင်မျဉ်း ကျန်နေလျှင် အောက်ပါအစီအစဉ်အတိုင်း စစ်ဆေးပါ။"
+    },
+    {
+      "source": "JavaのAuto Importが、上の表と同じ設定か確認します。",
+      "translation": "Java ၏ Auto Import သတ်မှတ်ချက်များသည် အထက်ပါဇယားနှင့် တူကြောင်း စစ်ဆေးပါ။"
+    },
+    {
+      "source": "赤い下線のある名前にカーソルを置き、<kbd>⌥ Option</kbd> + <kbd>Enter</kbd> を押します。",
+      "translation": "အနီရောင်မျဉ်းရှိသော အမည်ပေါ်တွင် cursor ထားပြီး <kbd>⌥ Option</kbd> + <kbd>Enter</kbd> ကို နှိပ်ပါ။"
+    },
+    {
+      "source": "<strong>Import class</strong> が表示されたら選び、次の表にあるクラスを選びます。",
+      "translation": "<strong>Import class</strong> ပေါ်လာလျှင် ရွေးပြီး အောက်ပါဇယားရှိ class ကို ရွေးပါ။"
+    },
+    {
+      "source": "教科書の名前",
+      "translation": "သင်ရိုးစာအုပ်ရှိ အမည်"
+    },
+    {
+      "source": "選ぶクラス",
+      "translation": "ရွေးရမည့် class"
+    },
+    {
+      "source": "候補が出ない場合や、表と同じクラスが見つからない場合は、先生に名前と画面を見せてください。",
+      "translation": "ရွေးချယ်စရာ မပေါ်လျှင် သို့မဟုတ် ဇယားနှင့်တူသော class ကို မတွေ့လျှင် အမည်နှင့် မျက်နှာပြင်ကို ဆရာအား ပြပါ။"
+    },
+    {
+      "source": "公式資料",
+      "translation": "တရားဝင် အချက်အလက်များ"
+    },
+    {
+      "source": "<a1>JetBrains：Auto import</a1>（Android Studioの基盤となるIDEの説明）",
+      "translation": "<a1>JetBrains: Auto import</a1> (Android Studio ၏ အခြေခံဖြစ်သော IDE အကြောင်း ရှင်းလင်းချက်)"
+    },
+    {
+      "source": "対象：macOS / Android Studio Panda 2 | 2025.3.2 · 画像：教員提供 · 確認日：2026年9月15日",
+      "translation": "သက်ဆိုင်သည့်ပတ်ဝန်းကျင်: macOS / Android Studio Panda 2 | 2025.3.2 · ပုံများ: ဆရာပေးထားသည် · စစ်ဆေးသည့်ရက်: 2026 ခုနှစ် 9 လ 15 ရက်"
+    },
+    {
+      "source": "← もとのページへ戻る",
+      "translation": "← လာခဲ့သော စာမျက်နှာသို့ ပြန်သွားရန်"
+    }
+  ]
+}

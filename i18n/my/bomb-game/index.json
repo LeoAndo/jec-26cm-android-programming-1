@@ -1,0 +1,1929 @@
+{
+  "source": "docs/bomb-game/index.html",
+  "language": "my",
+  "entries": [
+    {
+      "source": "JavaとXMLで作るA05BombGame。ボタンの配列、乱数とdo-while文、定数による状態の管理、配列を調べる判定、クリア条件を小さなSTEPで学ぶ授業用教科書。",
+      "translation": "Java နှင့် XML ဖြင့် ပြုလုပ်သော A05BombGame။ ခလုတ်များ၏ array၊ ကျပန်းဂဏန်းနှင့် do-while statement၊ constant ဖြင့် အခြေအနေကို စီမံခြင်း၊ array ကို စစ်ဆေး၍ ဆုံးဖြတ်ခြင်း၊ အောင်မြင်ရန် condition တို့ကို STEP ငယ်များဖြင့် လေ့လာရန် အတန်းသုံး သင်ရိုးစာအုပ်။"
+    },
+    {
+      "source": "BombGame — 爆弾ゲームを作ろう | Androidプログラミング1",
+      "translation": "BombGame — ဗုံးဂိမ်း ဖန်တီးကြမည် | Android ပရိုဂရမ်းမင်း 1"
+    },
+    {
+      "source": "本文へ移動",
+      "translation": "အဓိကအကြောင်းအရာသို့ ကျော်သွားရန်"
+    },
+    {
+      "source": "JEC / Androidプログラミング1",
+      "translation": "JEC / Android ပရိုဂရမ်းမင်း 1"
+    },
+    {
+      "source": "CONTENTS / 学習の順番",
+      "translation": "CONTENTS / သင်ယူရမည့် အစီအစဉ်"
+    },
+    {
+      "source": "学習ステップ",
+      "translation": "သင်ယူရမည့် အဆင့်များ"
+    },
+    {
+      "source": "00　今日のゴール",
+      "translation": "00 ယနေ့၏ ရည်မှန်းချက်"
+    },
+    {
+      "source": "01　プロジェクトを作って実行",
+      "translation": "01 project ဖန်တီး၍ run လုပ်ခြင်း"
+    },
+    {
+      "source": "02　画像をdrawableに追加",
+      "translation": "02　ပုံများကို drawable သို့ ထည့်ခြင်း"
+    },
+    {
+      "source": "03　爆弾と数字ボタンを並べる",
+      "translation": "03　ဗုံးနှင့် ဂဏန်းခလုတ်များကို စီစဉ်ခြင်း"
+    },
+    {
+      "source": "04　メッセージと再挑戦ボタン",
+      "translation": "04　message နှင့် 再挑戦 (ထပ်စမ်းရန်) ခလုတ်"
+    },
+    {
+      "source": "05　導火線スイッチの数字を決める",
+      "translation": "05　မီးစာ switch ၏ ဂဏန်းများကို သတ်မှတ်ခြင်း"
+    },
+    {
+      "source": "06　押したボタンを押せなくする",
+      "translation": "06　နှိပ်ပြီးသော ခလုတ်ကို ထပ်မနှိပ်နိုင်အောင် လုပ်ခြင်း"
+    },
+    {
+      "source": "07　着火と爆発",
+      "translation": "07　မီးစွဲခြင်းနှင့် ပေါက်ကွဲခြင်း"
+    },
+    {
+      "source": "08　再挑戦で最初に戻す",
+      "translation": "08　再挑戦 (ထပ်စမ်းရန်) ဖြင့် အစသို့ ပြန်ပြောင်းခြင်း"
+    },
+    {
+      "source": "09　クリアを判定する",
+      "translation": "09　အောင်မြင်မှုကို စစ်ဆေးဆုံးဖြတ်ခြင်း"
+    },
+    {
+      "source": "10　ミニ練習",
+      "translation": "10 လေ့ကျင့်ခန်းငယ်"
+    },
+    {
+      "source": "11　完成",
+      "translation": "11 ပြီးစီးခြင်း"
+    },
+    {
+      "source": "0 / 12 ステップ確認済み",
+      "translation": "အဆင့် 12 ခုအနက် 0 ခု စစ်ဆေးပြီး"
+    },
+    {
+      "source": "学習の進み具合",
+      "translation": "သင်ယူမှု တိုးတက်မှု"
+    },
+    {
+      "source": "自分用のチェックです。",
+      "translation": "ဤစစ်ဆေးချက်များသည် မိမိအတွက်သာ ဖြစ်သည်။"
+    },
+    {
+      "source": "困ったとき",
+      "translation": "အခက်အခဲရှိလျှင်"
+    },
+    {
+      "source": "完成プロジェクトを開く",
+      "translation": "ပြီးစီးထားသော project ကို ဖွင့်ရန်"
+    },
+    {
+      "source": "共通：はじめの準備",
+      "translation": "အများသုံး: စတင်ရန် ပြင်ဆင်ခြင်း"
+    },
+    {
+      "source": "共通：エミュレータ",
+      "translation": "အများသုံး: emulator"
+    },
+    {
+      "source": "共通：Auto Import",
+      "translation": "အများသုံး: Auto Import"
+    },
+    {
+      "source": "共通：Logcat",
+      "translation": "အများသုံး: Logcat"
+    },
+    {
+      "source": "共通：APKの提出",
+      "translation": "အများသုံး: APK တင်သွင်းခြင်း"
+    },
+    {
+      "source": "共通：開発Tips",
+      "translation": "အများသုံး: app ရေးသားရာတွင် အသုံးဝင်သောအချက်များ"
+    },
+    {
+      "source": "共通：Android Studioのバージョン",
+      "translation": "အများသုံး: Android Studio ၏ version"
+    },
+    {
+      "source": "爆弾ゲームを<br>作ろう",
+      "translation": "ဗုံးဂိမ်း<br>ဖန်တီးကြမည်"
+    },
+    {
+      "source": "数字を押す。導火線に火がつく。2つ目で爆発。<br>爆弾の状態を数字で覚えて、ドキドキするゲームへ。",
+      "translation": "ဂဏန်းကို နှိပ်သည်။ မီးစာ မီးစွဲသည်။ ဒုတိယတစ်ခုတွင် ပေါက်ကွဲသည်။<br>ဗုံး၏ အခြေအနေကို ဂဏန်းဖြင့် မှတ်ထားပြီး ရင်ခုန်စရာကောင်းသော ဂိမ်းတစ်ခု ဖန်တီးမည်။"
+    },
+    {
+      "source": "A01〜A03の内容を使う",
+      "translation": "A01–A03 ၏ အကြောင်းအရာများကို အသုံးပြုသည်"
+    },
+    {
+      "source": "90分 × 3コマ目安",
+      "translation": "90 မိနစ် × သင်ချိန် 3 ခု ခန့်"
+    },
+    {
+      "source": "Macで学ぶ",
+      "translation": "Mac ဖြင့် သင်ယူမည်"
+    },
+    {
+      "source": "STEP 00 · 目安 5分",
+      "translation": "STEP 00 · ခန့်မှန်း 5 မိနစ်"
+    },
+    {
+      "source": "今日のゴール",
+      "translation": "ယနေ့၏ ရည်မှန်းချက်"
+    },
+    {
+      "source": "A01〜A03で学んだ「XMLで画面を作る」「配列とfor文で同じ処理を付ける」「乱数」「フィールドで値を覚える」を使い、<strong>爆弾ゲーム</strong>を作ります。1〜9の数字ボタンのうち、2つが<strong>導火線スイッチ</strong>です。どれがスイッチかは、画面を見てもわかりません。",
+      "translation": "A01–A03 တွင် သင်ခဲ့သော “XML ဖြင့် မျက်နှာပြင် ဖန်တီးခြင်း”၊ “array နှင့် for statement ဖြင့် တူညီသော လုပ်ဆောင်ချက်ကို ထည့်ခြင်း”၊ “ကျပန်းဂဏန်း”၊ “field ဖြင့် တန်ဖိုးကို မှတ်ထားခြင်း” တို့ကို သုံးပြီး <strong>ဗုံးဂိမ်း</strong> ကို ဖန်တီးမည်။ 1 မှ 9 အထိ ဂဏန်းခလုတ်များထဲမှ 2 ခုသည် <strong>မီးစာ switch</strong> ဖြစ်သည်။ မည်သည့်ခလုတ်သည် switch ဖြစ်သည်ကို မျက်နှာပြင်ကို ကြည့်ရုံဖြင့် မသိနိုင်ပါ။"
+    },
+    {
+      "source": "ゲームの流れ",
+      "translation": "ဂိမ်းလည်ပတ်ပုံ"
+    },
+    {
+      "source": "数字を押す",
+      "translation": "ဂဏန်းကို နှိပ်ပါ"
+    },
+    {
+      "source": "スイッチなら着火！",
+      "translation": "switch ဖြစ်လျှင် မီးစာ မီးစွဲမည်!"
+    },
+    {
+      "source": "2つ目のスイッチで爆発",
+      "translation": "ဒုတိယ switch ဖြင့် ပေါက်ကွဲမည်"
+    },
+    {
+      "source": "スイッチ以外を7個押せばクリア",
+      "translation": "switch မဟုတ်သော 7 ခုကို နှိပ်လျှင် အောင်မြင်မည်"
+    },
+    {
+      "source": "起動直後。導火線に火のない爆弾の画像、1から9の数字ボタン、どれか押してみよう",
+      "translation": "စတင်ဖွင့်ပြီးချင်း။ မီးမစွဲသေးသော ဗုံးပုံ၊ 1 မှ 9 အထိ ဂဏန်းခလုတ်များနှင့် どれか押してみよう (တစ်ခုခုကို နှိပ်ကြည့်ပါ)"
+    },
+    {
+      "source": "① 起動直後。好きな数字から押します。 <a1>画像を大きく開く</a1>",
+      "translation": "① စတင်ဖွင့်ပြီးချင်း။ ကြိုက်နှစ်သက်ရာ ဂဏန်းမှ စတင်နှိပ်ပါ။ <a1>ပုံကို အရွယ်အစားအပြည့်ဖြင့် ဖွင့်ပါ</a1>"
+    },
+    {
+      "source": "2と5を押した画面。導火線に火がついた爆弾、着火！の文字。2と5のボタンは灰色",
+      "translation": "2 နှင့် 5 ကို နှိပ်ပြီးသော မျက်နှာပြင်။ မီးစာ မီးစွဲနေသော ဗုံးပုံနှင့် 着火！ (မီးစွဲပြီ!) စာသား။ 2 နှင့် 5 ခလုတ်များမှာ မီးခိုးရောင်"
+    },
+    {
+      "source": "② 2と5を押した例。どちらか1つがスイッチだったので、導火線に火がつきました。押した2つは灰色になります。 <a1>画像を大きく開く</a1>",
+      "translation": "② 2 နှင့် 5 ကို နှိပ်သော ဥပမာ။ ၎င်းတို့ထဲမှ တစ်ခုသည် switch ဖြစ်သဖြင့် မီးစာ မီးစွဲသွားသည်။ နှိပ်လိုက်သော ခလုတ် 2 ခုမှာ မီးခိုးရောင် ဖြစ်သွားမည်။ <a1>ပုံကို အရွယ်အစားအပြည့်ဖြင့် ဖွင့်ပါ</a1>"
+    },
+    {
+      "source": "爆発の画像、爆発した！ゲームオーバー！の文字。数字ボタンはすべて灰色で、再挑戦ボタンが表示されている",
+      "translation": "ပေါက်ကွဲမှုပုံနှင့် 爆発した！ゲームオーバー！ (ပေါက်ကွဲသွားပြီ! ဂိမ်းပြီးပြီ!) စာသား။ ဂဏန်းခလုတ်အားလုံး မီးခိုးရောင်ဖြစ်ပြီး 再挑戦 (ထပ်စမ်းရန်) ခလုတ် ပေါ်နေသည်"
+    },
+    {
+      "source": "③ 2つ目のスイッチを押すと爆発。ゲームオーバーです。 <a1>画像を大きく開く</a1>",
+      "translation": "③ ဒုတိယ switch ကို နှိပ်လျှင် ပေါက်ကွဲမည်။ ဂိမ်း ပြီးဆုံးသွားပြီ။ <a1>ပုံကို အရွယ်အစားအပြည့်ဖြင့် ဖွင့်ပါ</a1>"
+    },
+    {
+      "source": "火のない爆弾、クリア！の文字。数字ボタンはすべて灰色で、再挑戦ボタンが表示されている",
+      "translation": "မီးမစွဲသော ဗုံးနှင့် クリア！ (အောင်မြင်ပြီ!) စာသား။ ဂဏန်းခလုတ်အားလုံး မီးခိုးရောင်ဖြစ်ပြီး 再挑戦 (ထပ်စမ်းရန်) ခလုတ် ပေါ်နေသည်"
+    },
+    {
+      "source": "④ スイッチ以外の7個をすべて押すとクリア。 <a1>画像を大きく開く</a1>",
+      "translation": "④ switch မဟုတ်သော 7 ခုလုံးကို နှိပ်လျှင် အောင်မြင်မည်။ <a1>ပုံကို အရွယ်အစားအပြည့်ဖြင့် ဖွင့်ပါ</a1>"
+    },
+    {
+      "source": "できるようになること",
+      "translation": "လုပ်တတ်လာမည့်အရာများ"
+    },
+    {
+      "source": "画像をプロジェクトに追加し、爆弾の画像と3行×3列の数字ボタンを並べる。",
+      "translation": "ပုံများကို project ထဲသို့ ထည့်ပြီး ဗုံးပုံနှင့် အတန်း 3 တန်း × ကော်လံ 3 ခု ရှိသော ဂဏန်းခလုတ်များကို စီစဉ်သည်။"
+    },
+    {
+      "source": "メソッドとdo-while文で、重ならない2つの乱数を作り、Logcatで確かめる。",
+      "translation": "method နှင့် do-while statement ဖြင့် မထပ်သော ကျပန်းဂဏန်း 2 လုံးကို ဖန်တီးပြီး Logcat ဖြင့် စစ်ဆေးသည်။"
+    },
+    {
+      "source": "定数とフィールドで爆弾の状態を覚え、押した数字とクリアの条件で表示を切り替える。",
+      "translation": "constant နှင့် field ဖြင့် ဗုံး၏ အခြေအနေကို မှတ်ထားပြီး နှိပ်လိုက်သော ဂဏန်းနှင့် အောင်မြင်ရန် condition အလိုက် ဖော်ပြချက်ကို ပြောင်းသည်။"
+    },
+    {
+      "source": "スイッチの数字は毎回ランダムに決まるため、画像と同じ操作をしても結果は変わります。",
+      "translation": "switch ၏ ဂဏန်းများကို အကြိမ်တိုင်း ကျပန်း သတ်မှတ်သဖြင့် ပုံထဲကအတိုင်း လုပ်ဆောင်သော်လည်း ရလဒ် ကွဲပြားမည်။"
+    },
+    {
+      "source": "90分×3コマで進めます",
+      "translation": "90 မိနစ် × အတန်းချိန် 3 ခုဖြင့် လေ့လာမည်"
+    },
+    {
+      "source": "授業",
+      "translation": "အတန်း"
+    },
+    {
+      "source": "範囲",
+      "translation": "အပိုင်း"
+    },
+    {
+      "source": "終了時にできること",
+      "translation": "ပြီးဆုံးချိန်တွင် လုပ်တတ်မည့်အရာ"
+    },
+    {
+      "source": "1コマ目",
+      "translation": "ပထမ အတန်းချိန်"
+    },
+    {
+      "source": "画像を追加し、ゲームの画面を作る。",
+      "translation": "ပုံများကို ထည့်ပြီး ဂိမ်း၏ မျက်နှာပြင်ကို ဖန်တီးသည်။"
+    },
+    {
+      "source": "2コマ目",
+      "translation": "ဒုတိယ အတန်းချိန်"
+    },
+    {
+      "source": "スイッチの数字を決め、押した数字で着火・爆発することを確かめる。",
+      "translation": "switch ၏ ဂဏန်းများကို သတ်မှတ်ပြီး နှိပ်လိုက်သော ဂဏန်းဖြင့် မီးစွဲခြင်း၊ ပေါက်ကွဲခြင်း ဖြစ်ကြောင်း စစ်ဆေးသည်။"
+    },
+    {
+      "source": "3コマ目",
+      "translation": "တတိယ အတန်းချိန်"
+    },
+    {
+      "source": "再挑戦とクリアを作り、ミニ練習・動作確認を行う。",
+      "translation": "再挑戦 (ထပ်စမ်းရန်) နှင့် အောင်မြင်မှု စစ်ဆေးခြင်းတို့ကို ဖန်တီးပြီး လေ့ကျင့်ခန်းငယ်နှင့် လုပ်ဆောင်ချက် စစ်ဆေးခြင်းကို ပြုလုပ်သည်။"
+    },
+    {
+      "source": "各コマに再実行と個別確認の時間を含みます。予習は不要です。",
+      "translation": "အတန်းချိန်တစ်ခုစီတွင် ပြန်လည် run လုပ်ရန်နှင့် တစ်ဦးချင်း စစ်ဆေးရန် အချိန် ပါဝင်သည်။ ကြိုတင် လေ့လာရန် မလိုပါ။"
+    },
+    {
+      "source": "毎回、自分で新規作成します",
+      "translation": "အကြိမ်တိုင်း ကိုယ်တိုင် အသစ် ဖန်တီးပါ"
+    },
+    {
+      "source": "作る場所は <code>Documents/Android1/A05BombGame</code> です。<a1>完成プロジェクト</a1>は初回から開けます。STEP 2で使う画像は、教材のフォルダに入っています。STEP 2でFinderからコピーします。",
+      "translation": "ဖန်တီးမည့်နေရာမှာ <code>Documents/Android1/A05BombGame</code> ဖြစ်သည်။ <a1>ပြီးစီးထားသော project</a1> ကို ပထမဆုံးအကြိမ်မှစ၍ ဖွင့်နိုင်သည်။ STEP 2 တွင် သုံးမည့် ပုံများသည် သင်ထောက်ကူပစ္စည်း ဖိုင်တွဲထဲတွင် ရှိသည်။ STEP 2 တွင် Finder မှ ကူးယူမည်။"
+    },
+    {
+      "source": "完成アプリの状態",
+      "translation": "ပြီးစီးထားသော app ၏ အခြေအနေများ"
+    },
+    {
+      "source": "状態",
+      "translation": "အခြေအနေ"
+    },
+    {
+      "source": "爆弾の画像",
+      "translation": "ဗုံးပုံ"
+    },
+    {
+      "source": "メッセージ",
+      "translation": "message"
+    },
+    {
+      "source": "数字ボタン",
+      "translation": "ဂဏန်းခလုတ်များ"
+    },
+    {
+      "source": "再挑戦",
+      "translation": "再挑戦 (ထပ်စမ်းရန်)"
+    },
+    {
+      "source": "起動直後・再挑戦の後",
+      "translation": "စတင်ဖွင့်ပြီးချင်း သို့မဟုတ် 再挑戦 (ထပ်စမ်းရန်) ပြီးနောက်"
+    },
+    {
+      "source": "火のない爆弾",
+      "translation": "မီးမစွဲသော ဗုံး"
+    },
+    {
+      "source": "どれか押してみよう",
+      "translation": "どれか押してみよう (တစ်ခုခုကို နှိပ်ကြည့်ပါ)"
+    },
+    {
+      "source": "すべて押せる",
+      "translation": "အားလုံး နှိပ်၍ရသည်"
+    },
+    {
+      "source": "見えない",
+      "translation": "မမြင်ရပါ"
+    },
+    {
+      "source": "スイッチ以外を押した",
+      "translation": "switch မဟုတ်သည်ကို နှိပ်လိုက်သည်"
+    },
+    {
+      "source": "変わらない",
+      "translation": "မပြောင်းလဲပါ"
+    },
+    {
+      "source": "押したボタンだけ押せない",
+      "translation": "နှိပ်လိုက်သော ခလုတ်သာ နှိပ်၍မရတော့ပါ"
+    },
+    {
+      "source": "スイッチを1つ押した（着火）",
+      "translation": "switch တစ်ခုကို နှိပ်လိုက်သည် (မီးစွဲ)"
+    },
+    {
+      "source": "導火線に火がつく",
+      "translation": "မီးစာ မီးစွဲသည်"
+    },
+    {
+      "source": "着火！",
+      "translation": "着火！ (မီးစွဲပြီ!)"
+    },
+    {
+      "source": "スイッチを2つとも押した（爆発）",
+      "translation": "switch နှစ်ခုလုံးကို နှိပ်လိုက်သည် (ပေါက်ကွဲ)"
+    },
+    {
+      "source": "爆発の画像",
+      "translation": "ပေါက်ကွဲမှုပုံ"
+    },
+    {
+      "source": "爆発した！ゲームオーバー！",
+      "translation": "爆発した！ゲームオーバー！ (ပေါက်ကွဲသွားပြီ! ဂိမ်းပြီးပြီ!)"
+    },
+    {
+      "source": "すべて押せない",
+      "translation": "အားလုံး နှိပ်၍မရပါ"
+    },
+    {
+      "source": "表示する",
+      "translation": "ပေါ်သည်"
+    },
+    {
+      "source": "スイッチ以外の7個をすべて押した（クリア）",
+      "translation": "switch မဟုတ်သော 7 ခုလုံးကို နှိပ်ပြီးသည် (အောင်မြင်)"
+    },
+    {
+      "source": "そのまま",
+      "translation": "ယခင်အတိုင်း"
+    },
+    {
+      "source": "クリア！",
+      "translation": "クリア！ (အောင်မြင်ပြီ!)"
+    },
+    {
+      "source": "1度押した数字は、もう押せません。着火したあとでも、残りのスイッチを押さずにスイッチ以外の7個を押し終えればクリアです。このとき爆弾は火がついた画像のままです。再挑戦を押すと、スイッチの数字を選び直して最初の表示に戻ります。",
+      "translation": "တစ်ကြိမ် နှိပ်ပြီးသော ဂဏန်းကို ထပ်မနှိပ်နိုင်တော့ပါ။ မီးစွဲပြီးနောက်တွင်လည်း ကျန်သော switch ကို မနှိပ်ဘဲ switch မဟုတ်သော 7 ခုလုံးကို နှိပ်ပြီးလျှင် အောင်မြင်သည်။ ထိုအခါ ဗုံးသည် မီးစွဲနေသော ပုံအတိုင်း ရှိနေမည်။ 再挑戦 (ထပ်စမ်းရန်) ကို နှိပ်လျှင် switch ၏ ဂဏန်းများကို ပြန်ရွေးပြီး ပထမဆုံး ဖော်ပြချက်သို့ ပြန်ရောက်မည်။"
+    },
+    {
+      "source": "画面回転について",
+      "translation": "မျက်နှာပြင် လှည့်ခြင်းအကြောင်း"
+    },
+    {
+      "source": "各単元では画面回転時のデータ保持と横画面のレイアウトを扱いません。回転などでActivityが作り直されると、押したボタンと爆弾の状態は初期状態に戻り、スイッチの数字も選び直されます。横向きではメッセージや再挑戦ボタンが見えなくなる場合があるため、縦向きで使います。考え方と対処法は<a1>共通資料：開発Tips</a1>のC章にあります。",
+      "translation": "သင်ခန်းစာတစ်ခုစီတွင် မျက်နှာပြင် လှည့်သည့်အခါ data ကို ထိန်းသိမ်းခြင်းနှင့် အလျားလိုက် မျက်နှာပြင်အတွက် layout ကို မကိုင်တွယ်ပါ။ လှည့်ခြင်းစသည်ဖြင့် Activity ကို ပြန်လည် ဖန်တီးလိုက်လျှင် နှိပ်ထားသော ခလုတ်များနှင့် ဗုံး၏ အခြေအနေသည် ကနဦးအခြေအနေသို့ ပြန်ရောက်ပြီး switch ၏ ဂဏန်းများကိုလည်း ပြန်ရွေးမည်။ အလျားလိုက် ထားလျှင် message သို့မဟုတ် 再挑戦 (ထပ်စမ်းရန်) ခလုတ်ကို မမြင်ရနိုင်သဖြင့် ဒေါင်လိုက် အနေအထားဖြင့် သုံးပါ။ အတွေးအခေါ်နှင့် ဖြေရှင်းနည်းကို <a1>အများသုံးလမ်းညွှန်: app ရေးသားရာတွင် အသုံးဝင်သောအချက်များ</a1> ၏ အခန်း C တွင် ဖော်ပြထားသည်။"
+    },
+    {
+      "source": "ここで止まって、確認",
+      "translation": "ဤနေရာတွင် ရပ်ပြီး စစ်ဆေးပါ"
+    },
+    {
+      "source": "完成アプリの状態の表で、着火・爆発・クリアのときの画像・メッセージ・押せるボタンを確認した。",
+      "translation": "ပြီးစီးထားသော app ၏ အခြေအနေဇယားတွင် မီးစွဲချိန်၊ ပေါက်ကွဲချိန်နှင့် အောင်မြင်ချိန်၏ ပုံ၊ message နှင့် နှိပ်၍ရသော ခလုတ်များကို စစ်ဆေးပြီးပြီ။"
+    },
+    {
+      "source": "できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。",
+      "translation": "ပြီးလျှင် အမှန်ခြစ် ခြစ်ပါ။ အခက်အခဲရှိလျှင် STEP နံပါတ်နှင့် မျက်နှာပြင်ကို ဆရာအား ပြပါ။"
+    },
+    {
+      "source": "次へ：プロジェクトを作って実行 →",
+      "translation": "နောက်တစ်ဆင့်: project ဖန်တီး၍ run လုပ်ခြင်း →"
+    },
+    {
+      "source": "STEP 01 · 目安 15分",
+      "translation": "STEP 01 · ခန့်မှန်း 15 မိနစ်"
+    },
+    {
+      "source": "プロジェクトを作って実行",
+      "translation": "project ဖန်တီး၍ run လုပ်ခြင်း"
+    },
+    {
+      "source": "授業環境はMacと <strong>Android Studio Panda 2 | 2025.3.2</strong> です。これまでの単元とは別のプロジェクトを作ります。",
+      "translation": "အတန်း၏ ပတ်ဝန်းကျင်မှာ Mac နှင့် <strong>Android Studio Panda 2 | 2025.3.2</strong> ဖြစ်သည်။ ယခင် သင်ခန်းစာများနှင့် သီးခြားဖြစ်သော project အသစ်ကို ဖန်တီးမည်။"
+    },
+    {
+      "source": "Android Studioの <strong>New Project</strong> をクリックします。別のプロジェクトを開いているときは <strong>File → New → New Project</strong> を選びます。",
+      "translation": "Android Studio ၏ <strong>New Project</strong> ကို ကလစ်နှိပ်ပါ။ အခြား project တစ်ခုကို ဖွင့်ထားလျှင် <strong>File → New → New Project</strong> ကို ရွေးပါ။"
+    },
+    {
+      "source": "Android StudioのWelcome画面。右上にNew Projectボタン",
+      "translation": "Android Studio ၏ Welcome မျက်နှာပြင်။ ညာဘက်အပေါ်တွင် New Project ခလုတ်"
+    },
+    {
+      "source": "右上のNew Projectをクリック。 <a1>画像を大きく開く</a1>",
+      "translation": "ညာဘက်အပေါ်ရှိ New Project ကို ကလစ်နှိပ်ပါ။ <a1>ပုံကို အရွယ်အစားအပြည့်ဖြင့် ဖွင့်ပါ</a1>"
+    },
+    {
+      "source": "<strong>Phone and Tablet → Empty Views Activity → Next</strong> の順に選びます。名前に <strong>Views</strong> があることを確認します。",
+      "translation": "<strong>Phone and Tablet → Empty Views Activity → Next</strong> အစီအစဉ်အတိုင်း ရွေးပါ။ အမည်တွင် <strong>Views</strong> ပါဝင်ကြောင်း စစ်ဆေးပါ။"
+    },
+    {
+      "source": "テンプレート一覧でEmpty Views Activityが選択されている",
+      "translation": "template စာရင်းတွင် Empty Views Activity ကို ရွေးထားသည်"
+    },
+    {
+      "source": "Empty Views Activityを選択。 <a1>画像を大きく開く</a1>",
+      "translation": "Empty Views Activity ကို ရွေးပါ။ <a1>ပုံကို အရွယ်အစားအပြည့်ဖြင့် ဖွင့်ပါ</a1>"
+    },
+    {
+      "source": "項目",
+      "translation": "အချက်"
+    },
+    {
+      "source": "入力・選択する内容",
+      "translation": "ရိုက်ထည့်ရန် / ရွေးရန် အကြောင်းအရာ"
+    },
+    {
+      "source": "<code>jp.ac.jec.a05bombgame</code>（すべて小文字）",
+      "translation": "<code>jp.ac.jec.a05bombgame</code> (အက္ခရာအသေးများသာ)"
+    },
+    {
+      "source": "A05BombGameの新規設定。パッケージjp.ac.jec.a05bombgame、Java、API 31、Kotlin DSL",
+      "translation": "A05BombGame ၏ project အသစ် သတ်မှတ်ချက်များ။ package jp.ac.jec.a05bombgame၊ Java၊ API 31၊ Kotlin DSL"
+    },
+    {
+      "source": "画像の保存先は先生の例です。自分のDocuments/Android1/A05BombGameに読み替えます。 <a1>画像を大きく開く</a1>",
+      "translation": "ပုံထဲရှိ သိမ်းဆည်းမည့်နေရာသည် ဆရာ၏ ဥပမာ ဖြစ်သည်။ မိမိ၏ Documents/Android1/A05BombGame ဟု ဖတ်ပါ။ <a1>ပုံကို အရွယ်အစားအပြည့်ဖြင့် ဖွင့်ပါ</a1>"
+    },
+    {
+      "source": "Finderの <strong>移動 → ホーム</strong> で自分のユーザ名を確認します。書類（Documents）に <code>Android1</code> フォルダがなければ作ります。",
+      "translation": "Finder ၏ <strong>移動 → ホーム</strong> (Go → Home) ဖြင့် မိမိ၏ user name ကို စစ်ဆေးပါ။ 書類 (Documents) ထဲတွင် <code>Android1</code> ဖိုင်တွဲ မရှိလျှင် ဖန်တီးပါ။"
+    },
+    {
+      "source": "表の値と保存先を確認し、<strong>Finish</strong> をクリックします。<code>ユーザ名</code> は自分の名前に置き換えます。",
+      "translation": "ဇယားထဲမှ တန်ဖိုးများနှင့် သိမ်းဆည်းမည့်နေရာကို စစ်ဆေးပြီး <strong>Finish</strong> ကို နှိပ်ပါ။ <code>ユーザ名</code> (user name) ကို မိမိ၏ အမည်ဖြင့် အစားထိုးပါ။"
+    },
+    {
+      "source": "<strong>Gradle Sync</strong> が完了するまで待ちます。",
+      "translation": "<strong>Gradle Sync</strong> ပြီးဆုံးသည်အထိ စောင့်ပါ။"
+    },
+    {
+      "source": "<a1>共通資料：Auto Import</a1>のJava設定を確認します。",
+      "translation": "<a1>အများသုံးလမ်းညွှန်: Auto Import</a1> ၏ Java သတ်မှတ်ချက်များကို စစ်ဆေးပါ။"
+    },
+    {
+      "source": "この単元で使う場所",
+      "translation": "ဤသင်ခန်းစာတွင် အသုံးပြုမည့် နေရာများ"
+    },
+    {
+      "source": "役割",
+      "translation": "တာဝန်"
+    },
+    {
+      "source": "Project表示で開く場所",
+      "translation": "Project ပြကွက်တွင် ဖွင့်ရမည့် နေရာ"
+    },
+    {
+      "source": "画像",
+      "translation": "ပုံများ"
+    },
+    {
+      "source": "画面（XML）",
+      "translation": "မျက်နှာပြင် (XML)"
+    },
+    {
+      "source": "動き（Java）",
+      "translation": "လုပ်ဆောင်ချက် (Java)"
+    },
+    {
+      "source": "左の一覧が見えないときは <strong>View → Tool Windows → Project</strong> を開きます。一覧の上の表示名が <strong>Project</strong> になっていることを確認します。パッケージのフォルダが <code>jp.ac.jec.a05bombgame</code> とまとめて表示される場合もあります。",
+      "translation": "ဘယ်ဘက်ရှိ စာရင်းကို မမြင်ရလျှင် <strong>View → Tool Windows → Project</strong> ကို ဖွင့်ပါ။ စာရင်း၏ အပေါ်ရှိ ပြကွက်အမည်သည် <strong>Project</strong> ဖြစ်ကြောင်း စစ်ဆေးပါ။ package ၏ ဖိုင်တွဲများကို <code>jp.ac.jec.a05bombgame</code> ဟု စုပေါင်း၍ ပြသည့် အခြေအနေလည်း ရှိသည်။"
+    },
+    {
+      "source": "変更前に1回Runする",
+      "translation": "ပြောင်းလဲခြင်း မပြုမီ တစ်ကြိမ် Run လုပ်ပါ"
+    },
+    {
+      "source": "<a1>共通資料：エミュレータ</a1>に従って端末を起動します。",
+      "translation": "<a1>အများသုံးလမ်းညွှန်: emulator</a1> အတိုင်း စက်ကို စတင်ဖွင့်ပါ။"
+    },
+    {
+      "source": "上部で <strong>app</strong> と <strong>jec_26cm_android1_Pixel 9a</strong> を選び、<strong>Run ▶</strong> を押します。",
+      "translation": "အပေါ်ဘက်တွင် <strong>app</strong> နှင့် <strong>jec_26cm_android1_Pixel 9a</strong> ကို ရွေးပြီး <strong>Run ▶</strong> ကို နှိပ်ပါ။"
+    },
+    {
+      "source": "<strong>Hello World!</strong> が表示されれば成功です。",
+      "translation": "<strong>Hello World!</strong> ပေါ်လာလျှင် အောင်မြင်ပါပြီ။"
+    },
+    {
+      "source": "MainActivity.ktができたとき",
+      "translation": "MainActivity.kt ပေါ်လာလျှင်"
+    },
+    {
+      "source": "この授業で開くのは <code>MainActivity.java</code> です。<code>.kt</code> しか見つからない場合は、先生に画面を見せてください。プロジェクトを作るときに、上の手順2で <strong>Empty Views Activity</strong> を、手順4で確認した表のとおりに <strong>Java</strong> を選んだかどうかを、先生が確認します。どちらかが違っていたときは、先生といっしょにプロジェクトを作り直します。",
+      "translation": "ဤအတန်းတွင် ဖွင့်ရမည်မှာ <code>MainActivity.java</code> ဖြစ်သည်။ <code>.kt</code> ကိုသာ တွေ့လျှင် ဆရာကို မျက်နှာပြင် ပြပါ။ project ကို ဖန်တီးစဉ် အထက်ပါ အဆင့် 2 တွင် <strong>Empty Views Activity</strong> ကို၊ အဆင့် 4 ၌ စစ်ဆေးခဲ့သော ဇယားအတိုင်း <strong>Java</strong> ကို ရွေးခဲ့ခြင်း ရှိမရှိကို ဆရာက စစ်ဆေးပေးမည်။ တစ်ခုခု မှားနေလျှင် ဆရာနှင့်အတူ project ကို ပြန်လည် ဖန်တီးမည်။"
+    },
+    {
+      "source": "自分の保存先にA05BombGameを作り、Hello World!を表示できた。",
+      "translation": "မိမိ၏ သိမ်းဆည်းမည့်နေရာတွင် A05BombGame ကို ဖန်တီးပြီး Hello World! ကို ဖော်ပြနိုင်ပြီးပြီ။"
+    },
+    {
+      "source": "次へ：画像をdrawableに追加 →",
+      "translation": "နောက်တစ်ဆင့်: ပုံများကို drawable သို့ ထည့်ခြင်း →"
+    },
+    {
+      "source": "STEP 02 · 目安 15分",
+      "translation": "STEP 02 · ခန့်မှန်းခြေ 15 မိနစ်"
+    },
+    {
+      "source": "画像をdrawableに追加",
+      "translation": "ပုံများကို drawable သို့ ထည့်ခြင်း"
+    },
+    {
+      "source": "追加する場所：app/src/main/res/drawable",
+      "translation": "ထည့်မည့်နေရာ: app/src/main/res/drawable"
+    },
+    {
+      "source": "爆弾の3つの画像を、自分のプロジェクトに入れます。<code>res/drawable</code> は、アプリで表示する画像を置くフォルダです。A03と同じ手順です。",
+      "translation": "ဗုံး၏ ပုံ 3 ပုံကို မိမိ၏ project ထဲသို့ ထည့်မည်။ <code>res/drawable</code> သည် app တွင် ဖော်ပြမည့် ပုံများကို ထားသော ဖိုင်တွဲ ဖြစ်သည်။ A03 နှင့် တူညီသော အဆင့်များ ဖြစ်သည်။"
+    },
+    {
+      "source": "ファイル名",
+      "translation": "ဖိုင်အမည်"
+    },
+    {
+      "source": "表す状態",
+      "translation": "ကိုယ်စားပြုသော အခြေအနေ"
+    },
+    {
+      "source": "XMLでの名前",
+      "translation": "XML တွင် သုံးသော အမည်"
+    },
+    {
+      "source": "Javaでの名前",
+      "translation": "Java တွင် သုံးသော အမည်"
+    },
+    {
+      "source": "火のない爆弾（起動直後）",
+      "translation": "မီးမစွဲသော ဗုံး (စတင်ဖွင့်ပြီးချင်း)"
+    },
+    {
+      "source": "導火線に火がついた爆弾（着火）",
+      "translation": "မီးစာ မီးစွဲနေသော ဗုံး (မီးစွဲ)"
+    },
+    {
+      "source": "（使わない）",
+      "translation": "(မသုံးပါ)"
+    },
+    {
+      "source": "爆発",
+      "translation": "ပေါက်ကွဲခြင်း"
+    },
+    {
+      "source": "名前はファイル名から <code>.png</code> を取ったものです。drawableのファイル名には、<strong>小文字の英字・数字・_（アンダースコア）</strong> だけを使います。",
+      "translation": "အမည်သည် ဖိုင်အမည်မှ <code>.png</code> ကို ဖြုတ်ထားသည့် အမည် ဖြစ်သည်။ drawable ၏ ဖိုင်အမည်များတွင် <strong>အက္ခရာအသေး၊ ဂဏန်းနှင့် _ (underscore)</strong> တို့ကိုသာ သုံးပါ။"
+    },
+    {
+      "source": "① 教材のフォルダから画像をコピーする",
+      "translation": "① သင်ထောက်ကူပစ္စည်း ဖိုင်တွဲမှ ပုံများကို ကူးယူပါ"
+    },
+    {
+      "source": "3つの画像は、教科書といっしょに配られた<strong>教材のフォルダ</strong>に入っています。Finderで開いて、3つまとめてコピーします。",
+      "translation": "ပုံ 3 ပုံသည် သင်ရိုးစာအုပ်နှင့်အတူ ဝေပေးထားသော <strong>သင်ထောက်ကူပစ္စည်း ဖိုင်တွဲ</strong> ထဲတွင် ရှိသည်။ Finder ဖြင့် ဖွင့်ပြီး 3 ပုံလုံးကို တစ်ပြိုင်နက် ကူးယူပါ။"
+    },
+    {
+      "source": "Finderを開き、左側の <strong>書類</strong> をクリックします。教材のフォルダをダブルクリックで開きます。名前は <code>android1-student-materials-</code> のうしろに日付が付いた形で、日付は配られた回によって変わります。",
+      "translation": "Finder ကို ဖွင့်ပြီး ဘယ်ဘက်ရှိ <strong>書類</strong> (Documents) ကို ကလစ်နှိပ်ပါ။ သင်ထောက်ကူပစ္စည်း ဖိုင်တွဲကို နှစ်ချက်နှိပ်၍ ဖွင့်ပါ။ အမည်မှာ <code>android1-student-materials-</code> ၏ နောက်တွင် ရက်စွဲ ပါသော ပုံစံဖြစ်ပြီး ရက်စွဲသည် ဖြန့်ပေးသည့် အကြိမ်အလိုက် ကွာသည်။"
+    },
+    {
+      "source": "その中を <code>docs → bomb-game → downloads</code> の順に開きます。<code>bomb-game</code> は、いま読んでいるこの教科書（<code>index.html</code>）が入っているフォルダです。",
+      "translation": "၎င်းထဲတွင် <code>docs → bomb-game → downloads</code> အစဉ်လိုက် ဖွင့်ပါ။ <code>bomb-game</code> သည် ယခု ဖတ်နေသော ဤသင်ရိုးစာအုပ် (<code>index.html</code>) ရှိသည့် ဖိုင်တွဲ ဖြစ်သည်။"
+    },
+    {
+      "source": "<kbd>⌘</kbd> を押しながら、<code>bomb_exploded.png</code>・<code>bomb_ignited.png</code>・<code>bomb_initial.png</code> の3つをクリックして選び、<kbd>⌘ C</kbd> でコピーします。同じフォルダにある <code>A05BombGame.zip</code> は完成プロジェクトです。選びません。",
+      "translation": "<kbd>⌘</kbd> ကို နှိပ်ထားလျက် <code>bomb_exploded.png</code>၊ <code>bomb_ignited.png</code>၊ <code>bomb_initial.png</code> 3 ခုကို ကလစ်နှိပ်၍ ရွေးပြီး <kbd>⌘ C</kbd> ဖြင့် ကူးယူပါ။ တူညီသော ဖိုင်တွဲထဲရှိ <code>A05BombGame.zip</code> သည် ပြီးစီးထားသော project ဖြစ်သည်။ ၎င်းကို မရွေးပါနှင့်။"
+    },
+    {
+      "source": "教材のフォルダが見つからないとき",
+      "translation": "သင်ထောက်ကူပစ္စည်း ဖိုင်တွဲကို ရှာမတွေ့လျှင်"
+    },
+    {
+      "source": "教材のフォルダは、はじめの準備で「書類」へ移動したものです（<a1>共通資料：はじめの準備</a1>の1.）。まだ移動していなければ、先にそちらを行います。同じ教材を2回ダウンロードして名前のうしろに <code>(1)</code> が付いたものがあるときは、自分で判断せず先生に見せてください。",
+      "translation": "သင်ထောက်ကူပစ္စည်း ဖိုင်တွဲသည် စတင်ရန် ပြင်ဆင်ခြင်းတွင် 「書類」 (Documents) ထဲသို့ ရွှေ့ထားသော ဖိုင်တွဲ ဖြစ်သည် (<a1>အများသုံးလမ်းညွှန်: စတင်ရန် ပြင်ဆင်ခြင်း</a1> ၏ 1.)။ မရွှေ့ရသေးလျှင် ထိုအဆင့်ကို အရင် လုပ်ပါ။ တူညီသော သင်ထောက်ကူပစ္စည်းကို 2 ကြိမ် download လုပ်မိ၍ အမည်၏ နောက်တွင် <code>(1)</code> ပါသည့်အရာ ရှိလျှင် ကိုယ်တိုင် မဆုံးဖြတ်ဘဲ ဆရာကို ပြပါ။"
+    },
+    {
+      "source": "② 自分のプロジェクトに貼り付ける",
+      "translation": "② မိမိ၏ project ထဲသို့ paste လုပ်ပါ"
+    },
+    {
+      "source": "Android Studioに戻り、自分の <code>A05BombGame</code> を開いていることを確認します。",
+      "translation": "Android Studio သို့ ပြန်သွားပြီး မိမိ၏ <code>A05BombGame</code> ကို ဖွင့်ထားကြောင်း စစ်ဆေးပါ။"
+    },
+    {
+      "source": "Project表示で <code>app/src/main/res/drawable</code> フォルダをクリックして選び、<kbd>⌘ V</kbd> で貼り付けます。",
+      "translation": "Project ပြကွက်တွင် <code>app/src/main/res/drawable</code> ဖိုင်တွဲကို ကလစ်နှိပ်၍ ရွေးပြီး <kbd>⌘ V</kbd> ဖြင့် paste လုပ်ပါ။"
+    },
+    {
+      "source": "<strong>Copy</strong> の画面が出たら、<strong>To directory</strong> を確認します。末尾が <code>A05BombGame/app/src/main/res/drawable</code> になっていれば <strong>OK</strong> を押します。見本（完成プロジェクト）も開いている人は、途中に <code>samples</code> が入っていないことも確かめます。入っていたら、見本の方に貼り付けようとしています。",
+      "translation": "<strong>Copy</strong> မျက်နှာပြင် ပေါ်လာလျှင် <strong>To directory</strong> ကို စစ်ဆေးပါ။ အဆုံးသတ်သည် <code>A05BombGame/app/src/main/res/drawable</code> ဖြစ်နေလျှင် <strong>OK</strong> ကို နှိပ်ပါ။ နမူနာ (ပြီးစီးထားသော project) ကိုပါ ဖွင့်ထားသူများသည် အလယ်တွင် <code>samples</code> မပါကြောင်းကိုလည်း စစ်ဆေးပါ။ ပါနေလျှင် နမူနာဘက်သို့ paste လုပ်မိတော့မည် ဖြစ်သည်။"
+    },
+    {
+      "source": "Project表示でdrawableフォルダを選び、Copyダイアログが開いている。To directoryの末尾はA05BombGame/app/src/main/res/drawable",
+      "translation": "Project ပြကွက်တွင် drawable ဖိုင်တွဲကို ရွေးထားပြီး Copy dialog ပွင့်နေသည်။ To directory ၏ အဆုံးသတ်မှာ A05BombGame/app/src/main/res/drawable"
+    },
+    {
+      "source": "To directoryの末尾が A05BombGame/app/src/main/res/drawable になっていればOK。画像のパスは先生の保存先の例です。 <a1>画像を大きく開く</a1>",
+      "translation": "To directory ၏ အဆုံးသတ်သည် A05BombGame/app/src/main/res/drawable ဖြစ်နေလျှင် အဆင်ပြေပါပြီ။ ပုံထဲရှိ path သည် ဆရာ၏ သိမ်းဆည်းမည့်နေရာ ဥပမာ ဖြစ်သည်။ <a1>ပုံကို အရွယ်အစားအပြည့်ဖြင့် ဖွင့်ပါ</a1>"
+    },
+    {
+      "source": "drawableフォルダにbomb_exploded.png、bomb_ignited.png、bomb_initial.pngの3つが追加されている",
+      "translation": "drawable ဖိုင်တွဲထဲသို့ bomb_exploded.png၊ bomb_ignited.png၊ bomb_initial.png 3 ခု ထည့်ပြီး ဖြစ်သည်"
+    },
+    {
+      "source": "drawableに3つのPNGが並べば成功。 <a1>画像を大きく開く</a1>",
+      "translation": "drawable ထဲတွင် PNG 3 ခု ပေါ်နေလျှင် အောင်မြင်ပါပြီ။ <a1>ပုံကို အရွယ်အစားအပြည့်ဖြင့် ဖွင့်ပါ</a1>"
+    },
+    {
+      "source": "貼り付けた場所を間違えたとき",
+      "translation": "paste လုပ်သည့် နေရာ မှားသွားလျှင်"
+    },
+    {
+      "source": "<code>layout</code> や <code>mipmap</code> など別のフォルダに入った画像は、Project表示で選んで <kbd>⌘ Delete</kbd> で削除し、もう一度 <code>drawable</code> に貼り付けます。見本の <code>samples</code> 側のプロジェクトには貼り付けません。",
+      "translation": "<code>layout</code> သို့မဟုတ် <code>mipmap</code> ကဲ့သို့ အခြား ဖိုင်တွဲထဲသို့ ရောက်သွားသော ပုံများကို Project ပြကွက်တွင် ရွေးပြီး <kbd>⌘ Delete</kbd> ဖြင့် ဖျက်ပါ။ ထို့နောက် <code>drawable</code> ထဲသို့ ထပ်မံ paste လုပ်ပါ။ နမူနာ၏ <code>samples</code> ဘက်ရှိ project ထဲသို့ paste မလုပ်ပါနှင့်။"
+    },
+    {
+      "source": "Runで確かめる",
+      "translation": "Run ဖြင့် စစ်ဆေးပါ"
+    },
+    {
+      "source": "画像を追加しただけでは、画面は変わりません。Runして <strong>Hello World!</strong> が表示され、ビルドエラーが出なければ成功です。",
+      "translation": "ပုံများ ထည့်ရုံဖြင့် မျက်နှာပြင် မပြောင်းလဲပါ။ Run လုပ်၍ <strong>Hello World!</strong> ပေါ်လာပြီး build error မထွက်လျှင် အောင်မြင်ပါပြီ။"
+    },
+    {
+      "source": "自分のプロジェクトのdrawableに3つのPNGを追加し、Runしてもエラーが出ないことを確認した。",
+      "translation": "မိမိ၏ project ၏ drawable ထဲသို့ PNG 3 ခုကို ထည့်ပြီး Run လုပ်သော်လည်း error မထွက်ကြောင်း စစ်ဆေးပြီးပြီ။"
+    },
+    {
+      "source": "次へ：爆弾と数字ボタンを並べる →",
+      "translation": "နောက်တစ်ဆင့်: ဗုံးနှင့် ဂဏန်းခလုတ်များကို စီစဉ်ခြင်း →"
+    },
+    {
+      "source": "STEP 03 · 目安 20分",
+      "translation": "STEP 03 · ခန့်မှန်း 20 မိနစ်"
+    },
+    {
+      "source": "爆弾と数字ボタンを並べる",
+      "translation": "ဗုံးနှင့် ဂဏန်းခလုတ်များကို စီစဉ်ခြင်း"
+    },
+    {
+      "source": "変更するファイル：app/src/main/res/layout/activity_main.xml",
+      "translation": "ပြင်ဆင်မည့် ဖိုင်: app/src/main/res/layout/activity_main.xml"
+    },
+    {
+      "source": "まず、爆弾の画像と1〜9の数字ボタンを作ります。<strong>Code</strong> 表示に切り替え、XMLの中で <kbd>⌘ A</kbd> → 貼り付けを行い、<strong>ファイル全体を置き換えます</strong>。",
+      "translation": "ဦးစွာ ဗုံးပုံနှင့် 1 မှ 9 အထိ ဂဏန်းခလုတ်များကို ဖန်တီးမည်။ <strong>Code</strong> ပြကွက်သို့ ပြောင်းပြီး XML ထဲတွင် <kbd>⌘ A</kbd> → paste လုပ်ကာ <strong>ဖိုင်တစ်ခုလုံးကို အစားထိုးပါ</strong>။"
+    },
+    {
+      "source": "1行目：1　2　3",
+      "translation": "အတန်း 1: 1　2　3"
+    },
+    {
+      "source": "2行目：4　5　6",
+      "translation": "အတန်း 2: 4　5　6"
+    },
+    {
+      "source": "3行目：7　8　9",
+      "translation": "အတန်း 3: 7　8　9"
+    },
+    {
+      "source": "activity_main.xml · 全体を置き換える",
+      "translation": "activity_main.xml · တစ်ခုလုံးကို အစားထိုးပါ"
+    },
+    {
+      "source": "指定",
+      "translation": "သတ်မှတ်ချက်"
+    },
+    {
+      "source": "意味",
+      "translation": "အဓိပ္ပာယ်"
+    },
+    {
+      "source": "爆弾の画像を表示するImageView。Javaから画像を切り替えるため、idを付ける。",
+      "translation": "ဗုံးပုံကို ဖော်ပြမည့် ImageView။ Java မှ ပုံကို ပြောင်းနိုင်ရန် id သတ်မှတ်ပေးသည်။"
+    },
+    {
+      "source": "起動直後は、STEP 2で追加した火のない爆弾を表示する。",
+      "translation": "စတင်ဖွင့်ပြီးချင်းတွင် STEP 2 ၌ ထည့်ခဲ့သော မီးမစွဲသော ဗုံးကို ဖော်ပြသည်။"
+    },
+    {
+      "source": "画面読み上げ用の説明文。この単元では説明文を付けない指定にして、警告を出さないようにする。",
+      "translation": "မျက်နှာပြင်ကို အသံဖြင့် ဖတ်ပြရန်အတွက် ရှင်းလင်းချက်။ ဤသင်ခန်းစာတွင် ရှင်းလင်းချက် မထည့်ဟု သတ်မှတ်ပြီး သတိပေးချက် မထွက်အောင် လုပ်သည်။"
+    },
+    {
+      "source": "親の中の部品を、横方向の中央にそろえる。",
+      "translation": "parent အတွင်းရှိ အစိတ်အပိုင်းများကို အလျားလိုက် အလယ်တွင် ညှိပေးသည်။"
+    },
+    {
+      "source": "数字ボタンのid。<code>android:text</code> の1〜9は、あとでJavaが数字として読み取る。",
+      "translation": "ဂဏန်းခလုတ်များ၏ id။ <code>android:text</code> ရှိ 1 မှ 9 ကို နောက်ပိုင်းတွင် Java က ဂဏန်းအဖြစ် ဖတ်ယူမည်။"
+    },
+    {
+      "source": "中央のボタンの左右に8dpのすき間を作る。",
+      "translation": "အလယ်ခလုတ်၏ ဘယ်ညာတွင် 8dp နေရာလွတ် ထားသည်။"
+    },
+    {
+      "source": "親の <code>orientation=\"vertical\"</code> が画像と3つの行を縦に並べ、行の <code>orientation=\"horizontal\"</code> が3つのボタンを横に並べます。A02CalcGameの数字ボタンと同じ入れ子の形です。<code>android:id=\"@+id/main\"</code> はJavaのひな形でも使うため残します。<code>tools:ignore=\"ButtonStyle\"</code> はエディタの警告を抑える指定で、クリックの処理ではありません。",
+      "translation": "parent ၏ <code>orientation=\"vertical\"</code> က ပုံနှင့် အတန်း 3 တန်းကို ဒေါင်လိုက် စီပေးပြီး အတန်းများ၏ <code>orientation=\"horizontal\"</code> က ခလုတ် 3 ခုကို အလျားလိုက် စီပေးသည်။ A02CalcGame ၏ ဂဏန်းခလုတ်များနှင့် တူညီသော အထပ်ဆင့် ပုံစံ ဖြစ်သည်။ <code>android:id=\"@+id/main\"</code> ကို Java ၏ ပုံစံနမူနာတွင်လည်း သုံးသဖြင့် ချန်ထားသည်။ <code>tools:ignore=\"ButtonStyle\"</code> သည် editor ၏ သတိပေးချက်ကို ဖိထားသော သတ်မှတ်ချက်ဖြစ်ပြီး ကလစ်နှိပ်မှု လုပ်ဆောင်ချက် မဟုတ်ပါ။"
+    },
+    {
+      "source": "火のない爆弾の画像と、1〜9が3行×3列で表示されれば成功です。まだ数字を押しても何も起きません。",
+      "translation": "မီးမစွဲသော ဗုံးပုံနှင့် 1 မှ 9 အထိ ဂဏန်းများကို အတန်း 3 တန်း × ကော်လံ 3 ခုဖြင့် ဖော်ပြလျှင် အောင်မြင်ပါပြီ။ ဂဏန်းများကို နှိပ်သော်လည်း ဘာမှ မဖြစ်သေးပါ။"
+    },
+    {
+      "source": "<code>@drawable/bomb_initial</code> が赤いときは、STEP 2の画像の場所とファイル名を確認します。文字を直接書いたことによる <code>Hardcoded text</code> の警告は、これまでの単元と同様に授業ではそのまま進めます。",
+      "translation": "<code>@drawable/bomb_initial</code> သည် အနီရောင် ဖြစ်နေလျှင် STEP 2 ၏ ပုံနေရာနှင့် ဖိုင်အမည်ကို စစ်ဆေးပါ။ စာသားကို တိုက်ရိုက် ရေးထားသဖြင့် ထွက်လာသော <code>Hardcoded text</code> သတိပေးချက်ကို ယခင် သင်ခန်းစာများကဲ့သို့ပင် အတန်းတွင် ထိုအတိုင်း ဆက်လုပ်မည်။"
+    },
+    {
+      "source": "爆弾の画像と1〜9のボタンが3行×3列で表示され、img_bomb・btn1〜btn9のidを確認した。",
+      "translation": "ဗုံးပုံနှင့် 1 မှ 9 အထိ ခလုတ်များကို အတန်း 3 တန်း × ကော်လံ 3 ခုဖြင့် ဖော်ပြပြီး img_bomb နှင့် btn1 မှ btn9 အထိ id များကို စစ်ဆေးပြီးပြီ။"
+    },
+    {
+      "source": "次へ：メッセージと再挑戦ボタン →",
+      "translation": "နောက်တစ်ဆင့်: message နှင့် 再挑戦 (ထပ်စမ်းရန်) ခလုတ် →"
+    },
+    {
+      "source": "STEP 04 · 目安 10分",
+      "translation": "STEP 04 · ခန့်မှန်းခြေ 10 မိနစ်"
+    },
+    {
+      "source": "メッセージと再挑戦ボタン",
+      "translation": "message နှင့် 再挑戦 (ထပ်စမ်းရန်) ခလုတ်"
+    },
+    {
+      "source": "変更するファイル：activity_main.xml",
+      "translation": "ပြင်ဆင်မည့် ဖိုင်: activity_main.xml"
+    },
+    {
+      "source": "数字ボタンの下に、メッセージと再挑戦ボタンを作ります。XMLの<strong>最後の <code>&lt;/LinearLayout&gt;</code> の直前</strong>に追加します。STEP 3の画像や数字ボタンは残します。",
+      "translation": "ဂဏန်းခလုတ်များ၏ အောက်တွင် message နှင့် 再挑戦 (ထပ်စမ်းရန်) ခလုတ်ကို ဖန်တီးမည်။ XML ၏ <strong>နောက်ဆုံး <code>&lt;/LinearLayout&gt;</code> ၏ အရှေ့တွင်</strong> ထည့်ပါ။ STEP 3 ၏ ပုံနှင့် ဂဏန်းခလုတ်များကို ချန်ထားပါ။"
+    },
+    {
+      "source": "追加 · 最後の閉じタグの直前",
+      "translation": "ထည့်ရန် · နောက်ဆုံး ပိတ် tag ၏ အရှေ့"
+    },
+    {
+      "source": "「どれか押してみよう」「着火！」などを表示するTextView。",
+      "translation": "「どれか押してみよう」 (တစ်ခုခုကို နှိပ်ကြည့်ပါ)၊ 「着火！」 (မီးစွဲပြီ!) စသည်တို့ကို ဖော်ပြမည့် TextView။"
+    },
+    {
+      "source": "Material 3の「小さめの見出し」の文字スタイルを使う。A03のBodyLargeより大きい文字になる。",
+      "translation": "Material 3 ၏ “ခေါင်းစဉ်ငယ်” စာလုံး style ကို သုံးသည်။ A03 ၏ BodyLarge ထက် စာလုံး ပိုကြီးသည်။"
+    },
+    {
+      "source": "再挑戦ボタン。<code>android:layout_width=\"match_parent\"</code> で横幅いっぱいに広げる。",
+      "translation": "再挑戦 (ထပ်စမ်းရန်) ခလုတ်။ <code>android:layout_width=\"match_parent\"</code> ဖြင့် အလျားတစ်ခုလုံး ပြန့်အောင် ချဲ့သည်။"
+    },
+    {
+      "source": "最初はボタンを<strong>見えない</strong>状態にする。見えなくても、表示する場所は残る。ゲームが終わったらJavaで表示する。",
+      "translation": "အစတွင် ခလုတ်ကို <strong>မမြင်ရသော</strong> အခြေအနေဖြင့် ထားသည်။ မမြင်ရသော်လည်း ဖော်ပြမည့် နေရာမှာ ကျန်နေသည်။ ဂိမ်း ပြီးဆုံးသွားလျှင် Java ဖြင့် ဖော်ပြမည်။"
+    },
+    {
+      "source": "数字ボタンの下に「どれか押してみよう」が表示されます。再挑戦ボタンは見えません。",
+      "translation": "ဂဏန်းခလုတ်များ၏ အောက်တွင် 「どれか押してみよう」 (တစ်ခုခုကို နှိပ်ကြည့်ပါ) ပေါ်လာမည်။ 再挑戦 (ထပ်စမ်းရန်) ခလုတ်ကို မမြင်ရပါ။"
+    },
+    {
+      "source": "火のない爆弾、1から9の数字ボタン、どれか押してみよう。再挑戦ボタンは見えない",
+      "translation": "မီးမစွဲသော ဗုံး၊ 1 မှ 9 အထိ ဂဏန်းခလုတ်များနှင့် どれか押してみよう (တစ်ခုခုကို နှိပ်ကြည့်ပါ)။ 再挑戦 (ထပ်စမ်းရန်) ခလုတ်ကို မမြင်ရပါ"
+    },
+    {
+      "source": "このSTEPの画面。再挑戦ボタンはまだ見えません。 <a1>画像を大きく開く</a1>",
+      "translation": "ဤ STEP ၏ မျက်နှာပြင်။ 再挑戦 (ထပ်စမ်းရန်) ခလုတ်ကို မမြင်ရသေးပါ။ <a1>ပုံကို အရွယ်အစားအပြည့်ဖြင့် ဖွင့်ပါ</a1>"
+    },
+    {
+      "source": "1コマ目はここまで",
+      "translation": "ပထမ အတန်းချိန်သည် ဤနေရာတွင် ပြီးဆုံးသည်"
+    },
+    {
+      "source": "もう一度Runします。画面の部品のidを、先生に1つずつ指さして説明しましょう。見えない再挑戦ボタンも、XMLのどこにあるかを指さします。次回も自分の <code>Documents/Android1/A05BombGame</code> を開きます。",
+      "translation": "နောက်တစ်ကြိမ် Run လုပ်ပါ။ မျက်နှာပြင်ရှိ အစိတ်အပိုင်းများ၏ id များကို ဆရာအား တစ်ခုချင်း လက်ညှိုးထိုးပြပြီး ရှင်းပြပါ။ မမြင်ရသော 再挑戦 (ထပ်စမ်းရန်) ခလုတ်သည် XML ၏ မည်သည့်နေရာတွင် ရှိသည်ကိုလည်း လက်ညှိုးထိုးပြပါ။ နောက်တစ်ကြိမ်တွင်လည်း မိမိ၏ <code>Documents/Android1/A05BombGame</code> ကို ဖွင့်မည်။"
+    },
+    {
+      "source": "メッセージが表示され、XMLでbtn_retryがinvisibleになっていることを確認した（画面ではまだ見えない）。",
+      "translation": "message ပေါ်လာပြီး XML တွင် btn_retry သည် invisible ဖြစ်နေကြောင်း စစ်ဆေးပြီးပြီ (မျက်နှာပြင်တွင် မမြင်ရသေးပါ)။"
+    },
+    {
+      "source": "次へ：導火線スイッチの数字を決める →",
+      "translation": "နောက်တစ်ဆင့်: မီးစာ switch ၏ ဂဏန်းများကို သတ်မှတ်ခြင်း →"
+    },
+    {
+      "source": "STEP 05 · 目安 25分",
+      "translation": "STEP 05 · ခန့်မှန်းခြေ 25 မိနစ်"
+    },
+    {
+      "source": "導火線スイッチの数字を決める",
+      "translation": "မီးစာ switch ၏ ဂဏန်းများကို သတ်မှတ်ခြင်း"
+    },
+    {
+      "source": "変更するファイル：MainActivity.java",
+      "translation": "ပြင်ဆင်မည့် ဖိုင်: MainActivity.java"
+    },
+    {
+      "source": "前回の画面をRunして確認してから始めます。1〜9の中から、<strong>重ならない2つの数字</strong>をランダムに選び、導火線スイッチにします。選んだ数字はLogcatで確かめます。",
+      "translation": "ယခင်အကြိမ်က မျက်နှာပြင်ကို Run လုပ်၍ စစ်ဆေးပြီးမှ စတင်ပါ။ 1 မှ 9 အထိထဲမှ <strong>မထပ်သော ဂဏန်း 2 လုံး</strong> ကို ကျပန်း ရွေးပြီး မီးစာ switch အဖြစ် သတ်မှတ်မည်။ ရွေးလိုက်သော ဂဏန်းများကို Logcat ဖြင့် စစ်ဆေးမည်။"
+    },
+    {
+      "source": "① クラスの中、onCreateの外に1行追加",
+      "translation": "① class အတွင်း၊ onCreate ၏ အပြင်ဘက်တွင် 1 ကြောင်း ထည့်ပါ"
+    },
+    {
+      "source": "<code>public class MainActivity extends AppCompatActivity {</code> のすぐ下、<code>@Override</code> より上に追加します。",
+      "translation": "<code>public class MainActivity extends AppCompatActivity {</code> ၏ အောက်နားတွင်၊ <code>@Override</code> ၏ အပေါ်တွင် ထည့်ပါ။"
+    },
+    {
+      "source": "追加 · MainActivityのフィールド",
+      "translation": "ထည့်ရန် · MainActivity ၏ field"
+    },
+    {
+      "source": "<code>int[]</code> は「intの配列」という型です。ここでは名前と型だけを決め、中に入れる2つの数字は、このあと作るメソッドで決めます。スイッチの数字はメソッドで作り、STEP 7でクリックの処理から読むため、フィールドにします。A02の <code>answer</code> も、メソッドで作ってクリックの処理で読むフィールドでした。",
+      "translation": "<code>int[]</code> သည် “int ၏ array” ဟူသော type ဖြစ်သည်။ ဤနေရာတွင် အမည်နှင့် type ကိုသာ သတ်မှတ်ပြီး အထဲသို့ ထည့်မည့် ဂဏန်း 2 လုံးကို နောက်တွင် ဖန်တီးမည့် method က သတ်မှတ်မည်။ switch ၏ ဂဏန်းများကို method ဖြင့် ဖန်တီးပြီး STEP 7 တွင် ကလစ်နှိပ်မှု လုပ်ဆောင်ချက်မှ ဖတ်မည်ဖြစ်သဖြင့် field အဖြစ် ထားသည်။ A02 ၏ <code>answer</code> သည်လည်း method ဖြင့် ဖန်တီးပြီး ကလစ်နှိပ်မှု လုပ်ဆောင်ချက်တွင် ဖတ်သော field ဖြစ်ခဲ့သည်။"
+    },
+    {
+      "source": "② onCreateの外にメソッドを追加",
+      "translation": "② onCreate ၏ အပြင်ဘက်တွင် method ထည့်ပါ"
+    },
+    {
+      "source": "<code>onCreate</code> を閉じる <code>}</code> の下に1行空けて、MainActivityを閉じる最後の <code>}</code> より上に追加します。A02の <code>startQuestion</code> と同じ場所です。",
+      "translation": "<code>onCreate</code> ကို ပိတ်သော <code>}</code> ၏ အောက်တွင် 1 ကြောင်း ချန်ပြီး MainActivity ကို ပိတ်သော နောက်ဆုံး <code>}</code> ၏ အပေါ်တွင် ထည့်ပါ။ A02 ၏ <code>startQuestion</code> နှင့် တူညီသော နေရာ ဖြစ်သည်။"
+    },
+    {
+      "source": "追加 · onCreateの下",
+      "translation": "ထည့်ရန် · onCreate ၏ အောက်"
+    },
+    {
+      "source": "importは <code>android.util.Log</code>、<code>java.util.Arrays</code>、<code>java.util.concurrent.ThreadLocalRandom</code> です。<code>Arrays</code> に候補が出たら <code>java.util.Arrays</code> を選びます。",
+      "translation": "import များမှာ <code>android.util.Log</code>၊ <code>java.util.Arrays</code>၊ <code>java.util.concurrent.ThreadLocalRandom</code> တို့ ဖြစ်သည်။ <code>Arrays</code> အတွက် ရွေးစရာများ ပေါ်လာလျှင် <code>java.util.Arrays</code> ကို ရွေးပါ။"
+    },
+    {
+      "source": "コード",
+      "translation": "コード — code"
+    },
+    {
+      "source": "メソッドの説明を書くコメント。",
+      "translation": "method ၏ ရှင်းလင်းချက်ကို ရေးထားသော comment။"
+    },
+    {
+      "source": "「スイッチの数字を作る」処理に名前を付けたメソッド。STEP 8の再挑戦からも呼び出す。",
+      "translation": "“switch ၏ ဂဏန်းများကို ဖန်တီးခြင်း” လုပ်ဆောင်ချက်ကို အမည်ပေးထားသော method။ STEP 8 ၏ 再挑戦 (ထပ်စမ်းရန်) မှလည်း ခေါ်သုံးသည်။"
+    },
+    {
+      "source": "<strong>1以上、10未満</strong>（1〜9）の整数を<strong>2個</strong>作り、intの配列にする。A02の <code>nextInt(1, 10)</code> を2回分まとめて作るイメージ。",
+      "translation": "<strong>1 နှင့် အထက်၊ 10 အောက်</strong> (1 မှ 9) ကိန်းပြည့်များကို <strong>2 လုံး</strong> ဖန်တီးပြီး int ၏ array အဖြစ် ထားသည်။ A02 ၏ <code>nextInt(1, 10)</code> ကို 2 ကြိမ်စာ တစ်ပြိုင်နက် ဖန်တီးသလို မြင်နိုင်သည်။"
+    },
+    {
+      "source": "作った配列を、①のフィールドに入れる。メソッドの中から、フィールドに直接入れている。",
+      "translation": "ဖန်တီးလိုက်သော array ကို ① ၏ field ထဲသို့ ထည့်သည်။ method အတွင်းမှ field ထဲသို့ တိုက်ရိုက် ထည့်နေခြင်း ဖြစ်သည်။"
+    },
+    {
+      "source": "配列から重なりを取り除いた数字の個数。<code>{3, 7}</code> なら2、<code>{5, 5}</code> なら1。",
+      "translation": "array မှ ထပ်နေသည်များကို ဖယ်ထုတ်ပြီးနောက် ကျန်သော ဂဏန်း အရေအတွက်။ <code>{3, 7}</code> ဆိုလျှင် 2၊ <code>{5, 5}</code> ဆိုလျှင် 1 ဖြစ်သည်။"
+    },
+    {
+      "source": "do { ... } while (条件);",
+      "translation": "do { ... } while (条件); (条件 = condition)"
+    },
+    {
+      "source": "中を<strong>必ず1回</strong>実行し、条件がtrueの間くり返す。",
+      "translation": "အတွင်းပိုင်းကို <strong>မဖြစ်မနေ 1 ကြိမ်</strong> လုပ်ဆောင်ပြီး condition သည် true ဖြစ်နေသ၍ ထပ်ခါထပ်ခါ လုပ်သည်။"
+    },
+    {
+      "source": "「2ではない」。同じ数字が2つ出たときにtrueになり、もう一度作り直す。",
+      "translation": "“2 မဟုတ်” ဟူသော အဓိပ္ပာယ်။ တူညီသော ဂဏန်း 2 လုံး ထွက်လာသည့်အခါ true ဖြစ်ပြီး နောက်တစ်ကြိမ် ပြန်ဖန်တီးသည်။"
+    },
+    {
+      "source": "2つの数字を1つずつ取り出す拡張for文。<code>randomIgnitionNumber</code>（最後にsがない）は取り出した1つの数字。",
+      "translation": "ဂဏန်း 2 လုံးကို တစ်လုံးချင်း ထုတ်ယူသော တိုးချဲ့ for statement။ <code>randomIgnitionNumber</code> (အဆုံးတွင် s မပါ) သည် ထုတ်ယူလိုက်သော ဂဏန်း တစ်လုံး ဖြစ်သည်။"
+    },
+    {
+      "source": "数字をLogcatに出す。A01・A03と同じログ。",
+      "translation": "ဂဏန်းများကို Logcat တွင် ထုတ်ပြသည်။ A01 နှင့် A03 ၏ log နှင့် တူညီသည်။"
+    },
+    {
+      "source": "<code>Arrays.stream(配列)</code> は、配列の中身を順番に調べるメソッドです。この単元では、このあと <code>anyMatch</code>（STEP 7）、<code>forEach</code>（STEP 7）、<code>filter</code> と <code>count</code>（STEP 9）も使います。",
+      "translation": "<code>Arrays.stream(配列)</code> သည် array ၏ အထဲရှိအရာများကို အစဉ်လိုက် စစ်ဆေးသော method ဖြစ်သည်။ ဤသင်ခန်းစာတွင် နောက်ပိုင်း၌ <code>anyMatch</code> (STEP 7)၊ <code>forEach</code> (STEP 7)၊ <code>filter</code> နှင့် <code>count</code> (STEP 9) တို့ကိုလည်း သုံးမည်။"
+    },
+    {
+      "source": "do-while文を読む",
+      "translation": "do-while statement ကို ဖတ်ကြည့်ခြင်း"
+    },
+    {
+      "source": "乱数を2個作る（最初に必ず1回）",
+      "translation": "ကျပန်းဂဏန်း 2 လုံး ဖန်တီးသည် (အစတွင် မဖြစ်မနေ 1 ကြိမ်)"
+    },
+    {
+      "source": "重なりを除いた個数 != 2 ？",
+      "translation": "ထပ်နေသည်များ ဖယ်ပြီးနောက် အရေအတွက် != 2 ?"
+    },
+    {
+      "source": "trueなら作り直す／falseなら終わる",
+      "translation": "true ဆိုလျှင် ပြန်ဖန်တီးသည် / false ဆိုလျှင် ပြီးဆုံးသည်"
+    },
+    {
+      "source": "くり返し",
+      "translation": "ထပ်လုပ်သည့်အကြိမ်"
+    },
+    {
+      "source": "できた配列",
+      "translation": "ဖန်တီးရရှိသော array"
+    },
+    {
+      "source": "次にすること",
+      "translation": "နောက်တစ်ဆင့် လုပ်ရမည့်အရာ"
+    },
+    {
+      "source": "1回目",
+      "translation": "ပထမအကြိမ်"
+    },
+    {
+      "source": "同じ数字なので、もう一度作る（フィールドの配列は作り直した配列に置き換わる）。",
+      "translation": "တူညီသော ဂဏန်းများ ဖြစ်သဖြင့် နောက်တစ်ကြိမ် ပြန်ဖန်တီးသည် (field ထဲရှိ array သည် ပြန်ဖန်တီးလိုက်သော array ဖြင့် အစားထိုးခံရသည်)။"
+    },
+    {
+      "source": "2回目",
+      "translation": "ဒုတိယအကြိမ်"
+    },
+    {
+      "source": "くり返しを終え、フィールドに入った {5, 8} をログに出す。",
+      "translation": "ထပ်ခါထပ်ခါ လုပ်ခြင်းကို အဆုံးသတ်ပြီး field ထဲသို့ ရောက်သွားသော {5, 8} ကို log တွင် ထုတ်ပြသည်။"
+    },
+    {
+      "source": "A03の番号付きfor文は、中を実行する前に条件を調べました。do-while文は、まず中を1回実行してから条件を調べます。「乱数を作ってから、重なっていないか確かめる」処理に合っています。1回目で重ならなければ、くり返しは1回で終わります。",
+      "translation": "A03 ၏ နံပါတ်ပါသော for statement သည် အတွင်းပိုင်းကို မလုပ်ဆောင်မီ condition ကို စစ်ဆေးခဲ့သည်။ do-while statement သည် အတွင်းပိုင်းကို 1 ကြိမ် လုပ်ဆောင်ပြီးမှ condition ကို စစ်ဆေးသည်။ “ကျပန်းဂဏန်း ဖန်တီးပြီးမှ ထပ်နေခြင်း ရှိမရှိ စစ်ဆေးသည်” ဟူသော လုပ်ဆောင်ချက်နှင့် ကိုက်ညီသည်။ ပထမအကြိမ်တွင် မထပ်လျှင် ထပ်ခါထပ်ခါ လုပ်ခြင်းသည် 1 ကြိမ်ဖြင့် ပြီးဆုံးမည်။"
+    },
+    {
+      "source": "仕様の確認：<a1>ThreadLocalRandom.ints</a1>、<a2>Arrays.stream</a2>、<a3>IntStream.distinct（Android公式）</a3>。",
+      "translation": "သတ်မှတ်ချက်များကို စစ်ဆေးရန်: <a1>ThreadLocalRandom.ints</a1>၊ <a2>Arrays.stream</a2>၊ <a3>IntStream.distinct (Android တရားဝင် စာရွက်စာတမ်း)</a3>။"
+    },
+    {
+      "source": "③ onCreateから呼び出す",
+      "translation": "③ onCreate မှ ခေါ်သုံးပါ"
+    },
+    {
+      "source": "<code>onCreate</code> の中で、ひな形の <code>return insets;</code> に続く <code>});</code> の下に、1行空けて追加します。",
+      "translation": "<code>onCreate</code> အတွင်းတွင် ပုံစံနမူနာ၏ <code>return insets;</code> နောက်မှ လိုက်သော <code>});</code> ၏ အောက်တွင် 1 ကြောင်း ချန်ပြီး ထည့်ပါ။"
+    },
+    {
+      "source": "追加 · onCreateの中、ひな形の下",
+      "translation": "ထည့်ရန် · onCreate အတွင်း၊ ပုံစံနမူနာ၏ အောက်"
+    },
+    {
+      "source": "画面を作るときに1回だけ、スイッチの数字を決めます。メソッドの中身は、呼び出したときに実行されます。",
+      "translation": "မျက်နှာပြင်ကို ဖန်တီးသည့်အခါ တစ်ကြိမ်တည်း မီးစာ switch ၏ ဂဏန်းများကို ဆုံးဖြတ်သည်။ method ၏ အတွင်းပိုင်းသည် ခေါ်လိုက်သည့်အခါ အလုပ်လုပ်သည်။"
+    },
+    {
+      "source": "<a1>共通資料：Logcat</a1>に従ってLogcatを開き、検索欄を次の文字にします。",
+      "translation": "<a1>အများသုံးလမ်းညွှန်: Logcat</a1> အတိုင်း Logcat ကို ဖွင့်ပြီး ရှာဖွေရန်အကွက်ကို အောက်ပါစာသားဖြင့် ထားပါ။"
+    },
+    {
+      "source": "Logcatの検索欄 · BombGame用",
+      "translation": "Logcat ရှိ ရှာဖွေရန်အကွက် · BombGame အတွက်"
+    },
+    {
+      "source": "Runします。起動したときに、<code>randomIgnitionNumber</code> の行が2行出ます。",
+      "translation": "Run လုပ်ပါ။ စတင်ဖွင့်သည့်အခါ <code>randomIgnitionNumber</code> စာကြောင်း 2 ကြောင်း ပေါ်လာမည်။"
+    },
+    {
+      "source": "アプリをStopしてからRunし直すと、数字が選び直されます（1つだけ変わる回や、たまたま同じ組み合わせになる回もあります）。3〜4回くり返し、どの回でも2つの数字が違うことを確かめます。",
+      "translation": "app ကို Stop လုပ်ပြီးမှ Run ပြန်လုပ်လျှင် ဂဏန်းများကို ပြန်ရွေးပေးမည် (တစ်လုံးသာ ပြောင်းသည့်အကြိမ်၊ မတော်တဆ အတွဲတူသွားသည့်အကြိမ်လည်း ရှိသည်)။ 3 မှ 4 ကြိမ် ထပ်လုပ်ပြီး မည်သည့်အကြိမ်တွင်မဆို ဂဏန်း 2 လုံး မတူကြောင်း စစ်ဆေးပါ။"
+    },
+    {
+      "source": "画面はまだ変わりません。数字を押しても何も起きません。",
+      "translation": "မျက်နှာပြင်သည် မပြောင်းသေးပါ။ ဂဏန်းကို နှိပ်လည်း ဘာမှ မဖြစ်သေးပါ။"
+    },
+    {
+      "source": "読むところの例 · スイッチが6と8のとき",
+      "translation": "ဖတ်ရမည့်နေရာ နမူနာ · မီးစာ switch သည် 6 နှင့် 8 ဖြစ်သည့်အခါ"
+    },
+    {
+      "source": "Logcatはスイッチの確認用",
+      "translation": "Logcat သည် မီးစာ switch ကို စစ်ဆေးရန်အတွက် ဖြစ်သည်"
+    },
+    {
+      "source": "このログを見ると、どれがスイッチかわかります。STEP 7・9では、このログを見ながら着火・爆発・クリアを確実に試します。友達と遊ぶときは、Logcatを隠しておきましょう。",
+      "translation": "ဤ log ကို ကြည့်လျှင် မည်သည့်ဂဏန်းက မီးစာ switch ဖြစ်သည်ကို သိနိုင်သည်။ STEP 7 နှင့် 9 တွင် ဤ log ကို ကြည့်ရင်း မီးစွဲခြင်း၊ ပေါက်ကွဲခြင်းနှင့် အောင်မြင်ခြင်းကို သေချာစွာ စမ်းသပ်မည်။ သူငယ်ချင်းများနှင့် ကစားသည့်အခါတွင်မူ Logcat ကို ဖုံးထားပါ။"
+    },
+    {
+      "source": "Logcatに違う2つの数字が出て、Runし直すと数字が選び直されることを確認した。",
+      "translation": "Logcat တွင် မတူသော ဂဏန်း 2 လုံး ပေါ်လာပြီး Run ပြန်လုပ်လျှင် ဂဏန်းများကို ပြန်ရွေးပေးကြောင်း စစ်ဆေးပြီးပြီ။"
+    },
+    {
+      "source": "次へ：押したボタンを押せなくする →",
+      "translation": "နောက်တစ်ဆင့်: နှိပ်ပြီးသော ခလုတ်ကို နှိပ်၍မရအောင် လုပ်ခြင်း →"
+    },
+    {
+      "source": "STEP 06 · 目安 15分",
+      "translation": "STEP 06 · ခန့်မှန်းခြေ 15 မိနစ်"
+    },
+    {
+      "source": "押したボタンを押せなくする",
+      "translation": "နှိပ်ပြီးသော ခလုတ်ကို နှိပ်၍မရအောင် လုပ်ခြင်း"
+    },
+    {
+      "source": "画面の部品を取得し、9個の数字ボタンに同じクリックの処理を付けます。まずは「押したボタンを押せなくする」だけを作ります。",
+      "translation": "မျက်နှာပြင်ရှိ အစိတ်အပိုင်းများကို ရယူပြီး ဂဏန်းခလုတ် 9 ခုတွင် တူညီသော click လုပ်သည့်အခါ လုပ်ဆောင်ချက်ကို ထည့်မည်။ ဦးစွာ “နှိပ်ပြီးသော ခလုတ်ကို နှိပ်၍မရအောင် လုပ်ခြင်း” ကိုသာ ဖန်တီးမည်။"
+    },
+    {
+      "source": "① 画面の部品を取得する",
+      "translation": "① မျက်နှာပြင်ရှိ အစိတ်အပိုင်းများကို ရယူခြင်း"
+    },
+    {
+      "source": "STEP 5で追加した <code>generateIgnitionNumbers();</code> の下に、1行空けて追加します。",
+      "translation": "STEP 5 တွင် ထည့်ခဲ့သော <code>generateIgnitionNumbers();</code> ၏ အောက်တွင် စာကြောင်း 1 ကြောင်း ခြားပြီး ထည့်ပါ။"
+    },
+    {
+      "source": "追加 · generateIgnitionNumbers();の下",
+      "translation": "ထည့်ရန် · generateIgnitionNumbers(); ၏ အောက်"
+    },
+    {
+      "source": "表示する文字を変えるため、TextViewとして扱う。",
+      "translation": "ပြသမည့် စာသားကို ပြောင်းရန်အတွက် TextView အဖြစ် ကိုင်တွယ်သည်။"
+    },
+    {
+      "source": "表示する画像を変えるため、ImageViewとして扱う。",
+      "translation": "ပြသမည့် ပုံကို ပြောင်းရန်အတွက် ImageView အဖြစ် ကိုင်တွယ်သည်။"
+    },
+    {
+      "source": "クリック登録と表示の切り替えだけを使うため、A03と同じくキャストしない。",
+      "translation": "click မှတ်ပုံတင်ခြင်းနှင့် ပြသမှု ပြောင်းလဲခြင်းကိုသာ သုံးသဖြင့် A03 ကဲ့သို့ပင် cast မလုပ်ပါ။"
+    },
+    {
+      "source": "9個の数字ボタンを、Buttonの配列にまとめる。A03の <code>imageViews</code> と同じ書き方。",
+      "translation": "ဂဏန်းခလုတ် 9 ခုကို Button array အဖြစ် စုစည်းသည်။ A03 ၏ <code>imageViews</code> နှင့် တူညီသော ရေးနည်း။"
+    },
+    {
+      "source": "importは <code>android.widget.Button</code>、<code>android.widget.ImageView</code>、<code>android.widget.TextView</code> です。<code>txtMessage</code> などが灰色で表示されるのは、まだ使っていないためです。",
+      "translation": "import သည် <code>android.widget.Button</code>၊ <code>android.widget.ImageView</code>၊ <code>android.widget.TextView</code> ဖြစ်သည်။ <code>txtMessage</code> စသည်တို့ကို မီးခိုးရောင်ဖြင့် ပြနေခြင်းမှာ မသုံးရသေးသောကြောင့် ဖြစ်သည်။"
+    },
+    {
+      "source": "② 9個のボタンにクリックの処理を付ける",
+      "translation": "② ခလုတ် 9 ခုတွင် click လုပ်သည့်အခါ လုပ်ဆောင်ချက်ကို ထည့်ခြင်း"
+    },
+    {
+      "source": "①で追加した配列の <code>};</code> の下に、1行空けて追加します。",
+      "translation": "① တွင် ထည့်ခဲ့သော array ၏ <code>};</code> အောက်တွင် စာကြောင်း 1 ကြောင်း ခြားပြီး ထည့်ပါ။"
+    },
+    {
+      "source": "追加 · 配列numberButtonsの下",
+      "translation": "ထည့်ရန် · array numberButtons ၏ အောက်"
+    },
+    {
+      "source": "配列からボタンを1つずつ取り出し、クリックの処理を登録する。",
+      "translation": "array မှ ခလုတ်များကို တစ်ခုချင်းစီ ထုတ်ယူပြီး click လုပ်သည့်အခါ လုပ်ဆောင်ချက်ကို မှတ်ပုံတင်သည်။"
+    },
+    {
+      "source": "押されたボタンを、押せない状態（灰色）にする。同じ数字を2回押せなくなる。",
+      "translation": "နှိပ်လိုက်သော ခလုတ်ကို နှိပ်မရသော အခြေအနေ (မီးခိုးရောင်) သို့ ပြောင်းသည်။ တူညီသောဂဏန်းကို 2 ကြိမ် နှိပ်၍ မရတော့ပါ။"
+    },
+    {
+      "source": "for文は画面を作るときに9回実行され、9個のボタンに同じ処理を登録します。クリックの処理の中の <code>button</code> は、そのボタン自身を指します。1を押せば1のボタン、5を押せば5のボタンが灰色になります。",
+      "translation": "for statement သည် မျက်နှာပြင်ကို ဖန်တီးသည့်အခါ 9 ကြိမ် အလုပ်လုပ်ပြီး ခလုတ် 9 ခုတွင် တူညီသော လုပ်ဆောင်ချက်ကို မှတ်ပုံတင်သည်။ click လုပ်သည့်အခါ လုပ်ဆောင်ချက်ထဲရှိ <code>button</code> သည် ထိုခလုတ်ကိုယ်တိုင်ကို ညွှန်းသည်။ 1 ကို နှိပ်လျှင် 1 ၏ ခလုတ်၊ 5 ကို နှိပ်လျှင် 5 ၏ ခလုတ် မီးခိုးရောင် ဖြစ်သွားမည်။"
+    },
+    {
+      "source": "1を押すと、1のボタンだけが灰色になり、押せなくなります。",
+      "translation": "1 ကို နှိပ်လျှင် 1 ၏ ခလုတ်သာ မီးခိုးရောင် ဖြစ်ပြီး နှိပ်၍ မရတော့ပါ။"
+    },
+    {
+      "source": "別の数字を押すと、そのボタンも灰色になります。",
+      "translation": "အခြားဂဏန်းကို နှိပ်လျှင် ထိုခလုတ်လည်း မီးခိုးရောင် ဖြစ်သွားမည်။"
+    },
+    {
+      "source": "メッセージと爆弾の画像は、まだ変わりません。",
+      "translation": "message နှင့် ဗုံးပုံသည် မပြောင်းသေးပါ။"
+    },
+    {
+      "source": "1のボタンだけが灰色になり、ほかのボタンは押せる。メッセージはどれか押してみようのまま",
+      "translation": "1 ၏ ခလုတ်သာ မီးခိုးရောင် ဖြစ်ပြီး အခြားခလုတ်များကို နှိပ်နိုင်သေးသည်။ message မှာ 「どれか押してみよう」 (တစ်ခုခုကို နှိပ်ကြည့်ပါ) အတိုင်း ဖြစ်နေသည်"
+    },
+    {
+      "source": "1を押した画面。押したボタンだけが灰色になります。 <a1>画像を大きく開く</a1>",
+      "translation": "1 ကို နှိပ်လိုက်သော မျက်နှာပြင်။ နှိပ်လိုက်သော ခလုတ်သာ မီးခိုးရောင် ဖြစ်သွားမည်။ <a1>ပုံကို အရွယ်အစားအပြည့်ဖြင့် ဖွင့်ပါ</a1>"
+    },
+    {
+      "source": "押した数字ボタンだけが灰色になり、もう押せないことを確認した。button.setEnabled(false)の行を指させた。",
+      "translation": "နှိပ်လိုက်သော ဂဏန်းခလုတ်သာ မီးခိုးရောင် ဖြစ်ပြီး ထပ်၍ နှိပ်မရတော့ကြောင်း စစ်ဆေးပြီးပြီ။ button.setEnabled(false) စာကြောင်းကို ညွှန်ပြနိုင်ပြီးပြီ။"
+    },
+    {
+      "source": "次へ：着火と爆発 →",
+      "translation": "နောက်တစ်ဆင့်: မီးစွဲခြင်းနှင့် ပေါက်ကွဲခြင်း →"
+    },
+    {
+      "source": "STEP 07 · 目安 30分",
+      "translation": "STEP 07 · ခန့်မှန်းခြေ 30 မိနစ်"
+    },
+    {
+      "source": "着火と爆発",
+      "translation": "မီးစွဲခြင်းနှင့် ပေါက်ကွဲခြင်း"
+    },
+    {
+      "source": "押した数字がスイッチかどうかを調べ、スイッチなら爆弾の状態を1つ進めます。状態に合わせて、画像とメッセージを変えます。",
+      "translation": "နှိပ်လိုက်သော ဂဏန်းသည် မီးစာ switch ဟုတ်မဟုတ် စစ်ဆေးပြီး မီးစာ switch ဖြစ်လျှင် ဗုံး၏ အခြေအနေကို တစ်ဆင့် တိုးသည်။ အခြေအနေနှင့်အညီ ပုံနှင့် message ကို ပြောင်းသည်။"
+    },
+    {
+      "source": "① 爆弾の状態を表す定数とフィールド",
+      "translation": "① ဗုံး၏ အခြေအနေကို ကိုယ်စားပြုသော constant နှင့် field"
+    },
+    {
+      "source": "<code>public class MainActivity extends AppCompatActivity {</code> のすぐ下、STEP 5の <code>private int[] randomIgnitionNumbers</code> の<strong>上</strong>に追加します。",
+      "translation": "<code>public class MainActivity extends AppCompatActivity {</code> ၏ အောက်နားတွင်၊ STEP 5 ၏ <code>private int[] randomIgnitionNumbers</code> ၏ <strong>အပေါ်</strong> တွင် ထည့်ပါ။"
+    },
+    {
+      "source": "追加 · randomIgnitionNumbersの上",
+      "translation": "ထည့်ရန် · randomIgnitionNumbers ၏ အပေါ်"
+    },
+    {
+      "source": "「着火前」を1とする<strong>定数</strong>。<code>final</code> は値を変えられない、<code>static</code> はクラスで1つだけ持つ、という意味。定数は大文字と_で名前を付ける。",
+      "translation": "“မီးမစွဲမီ” ကို 1 ဟု သတ်မှတ်သော <strong>constant</strong> (定数)။ <code>final</code> သည် တန်ဖိုးကို ပြောင်း၍မရ၊ <code>static</code> သည် class တစ်ခုလျှင် တစ်ခုတည်းသာ ရှိသည် ဟု အဓိပ္ပာယ်ရသည်။ constant ကို စာလုံးကြီးများနှင့် _ ဖြင့် အမည်ပေးသည်။"
+    },
+    {
+      "source": "「着火」を2、「爆発」を3とする定数。",
+      "translation": "“မီးစွဲခြင်း” ကို 2၊ “ပေါက်ကွဲခြင်း” ကို 3 ဟု သတ်မှတ်သော constant များ။"
+    },
+    {
+      "source": "今の爆弾の状態を覚えるフィールド。最初は定数 STATE_INITIAL の値（1）が入る。あとで変わるのは <code>nowState</code> だけで、定数は1のまま。",
+      "translation": "ယခု ဗုံး၏ အခြေအနေကို မှတ်ထားသော field။ အစတွင် constant STATE_INITIAL ၏ တန်ဖိုး (1) ဝင်နေသည်။ နောက်ပိုင်းတွင် ပြောင်းသွားမည့်အရာမှာ <code>nowState</code> သာဖြစ်ပြီး constant မှာ 1 အတိုင်း ရှိနေမည်။"
+    },
+    {
+      "source": "爆弾の状態",
+      "translation": "ဗုံး၏ အခြေအနေ"
+    },
+    {
+      "source": "1：STATE_INITIAL（着火前）",
+      "translation": "1: STATE_INITIAL (မီးမစွဲမီ)"
+    },
+    {
+      "source": "→ スイッチ →",
+      "translation": "→ မီးစာ switch →"
+    },
+    {
+      "source": "2：STATE_IGNITED（着火）",
+      "translation": "2: STATE_IGNITED (မီးစွဲပြီ)"
+    },
+    {
+      "source": "3：STATE_EXPLODED（爆発）",
+      "translation": "3: STATE_EXPLODED (ပေါက်ကွဲပြီ)"
+    },
+    {
+      "source": "状態は1 → 2 → 3の順に並んでいるので、スイッチを押すたびに <code>nowState</code> を1増やせば次の状態になります。<code>nowState == 2</code> と書くより、<code>nowState == STATE_IGNITED</code> と書くほうが「着火しているか」を調べていると読み取れます。<code>nowState</code> はクリックの処理の中で書き換えるため、A03の <code>selectedHand</code> と同じくフィールドにします。",
+      "translation": "အခြေအနေများကို 1 → 2 → 3 အစဉ်လိုက် စီထားသဖြင့် မီးစာ switch ကို နှိပ်တိုင်း <code>nowState</code> ကို 1 တိုးလိုက်လျှင် နောက်အခြေအနေသို့ ရောက်မည်။ <code>nowState == 2</code> ဟု ရေးသည်ထက် <code>nowState == STATE_IGNITED</code> ဟု ရေးလျှင် “မီးစွဲပြီလား” ကို စစ်ဆေးနေသည်ဟု ပိုဖတ်ရလွယ်သည်။ <code>nowState</code> ကို click လုပ်သည့်အခါ လုပ်ဆောင်ချက်ထဲတွင် ပြင်ရေးသဖြင့် A03 ၏ <code>selectedHand</code> ကဲ့သို့ပင် field အဖြစ် ထားသည်။"
+    },
+    {
+      "source": "② スイッチか調べて、画像とメッセージを変える",
+      "translation": "② မီးစာ switch ဟုတ်မဟုတ် စစ်ဆေးပြီး ပုံနှင့် message ကို ပြောင်းခြင်း"
+    },
+    {
+      "source": "STEP 6のクリックの処理の中で、<code>button.setEnabled(false);</code> の下に、1行空けて追加します。",
+      "translation": "STEP 6 ၏ click လုပ်သည့်အခါ လုပ်ဆောင်ချက်ထဲတွင် <code>button.setEnabled(false);</code> ၏ အောက်၌ စာကြောင်း 1 ကြောင်း ခြားပြီး ထည့်ပါ။"
+    },
+    {
+      "source": "追加 · button.setEnabled(false);の下",
+      "translation": "ထည့်ရန် · button.setEnabled(false); ၏ အောက်"
+    },
+    {
+      "source": "追加のimportは <code>android.view.View</code> です。",
+      "translation": "ထပ်ထည့်ရမည့် import သည် <code>android.view.View</code> ဖြစ်သည်။"
+    },
+    {
+      "source": "押したボタンの文字、たとえば \"7\" を、整数の7に変える。A02と同じ。",
+      "translation": "နှိပ်လိုက်သော ခလုတ်၏ စာသား၊ ဥပမာ \"7\" ကို ကိန်းပြည့် 7 သို့ ပြောင်းသည်။ A02 နှင့် တူညီသည်။"
+    },
+    {
+      "source": "スイッチの配列の中に、押した数字と同じ値が<strong>1つでもあれば</strong>true。",
+      "translation": "မီးစာ switch array ထဲတွင် နှိပ်လိုက်သော ဂဏန်းနှင့် တူညီသောတန်ဖိုး <strong>တစ်ခုခု ရှိလျှင်</strong> true ဖြစ်သည်။"
+    },
+    {
+      "source": "配列の値を1つずつ <code>num</code> として受け取り、押した数字と比べる短い書き方。クリックの処理の <code>v -&gt; { }</code> と同じ矢印を使う。",
+      "translation": "array ၏ တန်ဖိုးများကို တစ်ခုချင်းစီ <code>num</code> အဖြစ် လက်ခံပြီး နှိပ်လိုက်သော ဂဏန်းနှင့် နှိုင်းယှဉ်သော အတိုကောက် ရေးနည်း။ click လုပ်သည့်အခါ လုပ်ဆောင်ချက်၏ <code>v -&gt; { }</code> နှင့် တူညီသော မြားကို သုံးသည်။"
+    },
+    {
+      "source": "スイッチなら状態を1つ進める。中が1行だけなので <code>{ }</code> を省略している。",
+      "translation": "မီးစာ switch ဖြစ်လျှင် အခြေအနေကို တစ်ဆင့် တိုးသည်။ အတွင်းတွင် စာကြောင်း 1 ကြောင်းသာ ရှိသဖြင့် <code>{ }</code> ကို ချန်ထားသည်။"
+    },
+    {
+      "source": "状態が着火（2）なら着火の表示、爆発（3）なら爆発の表示。どちらでもなければ何もしない。",
+      "translation": "အခြေအနေသည် မီးစွဲခြင်း (2) ဖြစ်လျှင် မီးစွဲသည့် ပြသမှု၊ ပေါက်ကွဲခြင်း (3) ဖြစ်လျှင် ပေါက်ကွဲသည့် ပြသမှု။ နှစ်ခုစလုံး မဟုတ်လျှင် ဘာမှ မလုပ်ပါ။"
+    },
+    {
+      "source": "爆弾の画像を、火がついた画像に変える。A03のCPUの手と同じ方法。",
+      "translation": "ဗုံးပုံကို မီးစွဲနေသောပုံသို့ ပြောင်းသည်။ A03 ၏ CPU လက်ပုံနှင့် တူညီသော နည်းလမ်း။"
+    },
+    {
+      "source": "見えなかった再挑戦ボタンを表示する。",
+      "translation": "မမြင်ရသေးသော 再挑戦 (ထပ်ကြိုးစားရန်) ခလုတ်ကို ပြသည်။"
+    },
+    {
+      "source": "9個のボタンを<strong>すべて</strong>押せなくする。<code>for (var b : numberButtons) { b.setEnabled(false); }</code> と同じ動き。",
+      "translation": "ခလုတ် 9 ခု <strong>အားလုံး</strong> ကို နှိပ်၍မရအောင် လုပ်သည်။ <code>for (var b : numberButtons) { b.setEnabled(false); }</code> နှင့် တူညီသော လှုပ်ရှားမှု။"
+    },
+    {
+      "source": "anyMatchを読む",
+      "translation": "anyMatch ကို ဖတ်ကြည့်ခြင်း"
+    },
+    {
+      "source": "スイッチが {3, 7} のとき",
+      "translation": "မီးစာ switch သည် {3, 7} ဖြစ်သည့်အခါ"
+    },
+    {
+      "source": "7を押した（number = 7）",
+      "translation": "7 ကို နှိပ်သည် (number = 7)"
+    },
+    {
+      "source": "true（スイッチ）",
+      "translation": "true (မီးစာ switch ဖြစ်သည်)"
+    },
+    {
+      "source": "5を押した（number = 5）",
+      "translation": "5 ကို နှိပ်သည် (number = 5)"
+    },
+    {
+      "source": "false（スイッチではない）",
+      "translation": "false (မီးစာ switch မဟုတ်ပါ)"
+    },
+    {
+      "source": "クリックの処理は、上から <strong>押せなくする → スイッチか調べる → 状態を進める → 状態に合わせて表示する</strong> の順に実行されます。1つのボタンは1回しか押せないため、同じスイッチで状態が2回進むことはありません。",
+      "translation": "click လုပ်သည့်အခါ လုပ်ဆောင်ချက်ကို အပေါ်မှ အောက်သို့ <strong>နှိပ်၍မရအောင် လုပ်သည် → မီးစာ switch ဟုတ်မဟုတ် စစ်ဆေးသည် → အခြေအနေကို တိုးသည် → အခြေအနေနှင့်အညီ ပြသသည်</strong> ဟူသော အစဉ်အတိုင်း လုပ်ဆောင်သည်။ ခလုတ်တစ်ခုကို တစ်ကြိမ်သာ နှိပ်နိုင်သဖြင့် မီးစာ switch တစ်ခုတည်းဖြင့် အခြေအနေ 2 ဆင့် တိုးသွားခြင်း မဖြစ်နိုင်ပါ။"
+    },
+    {
+      "source": "仕様の確認：<a1>IntStream.anyMatch</a1>、<a2>Stream（forEach・filter・count）</a2>、<a3>View.setVisibility（Android公式）</a3>。",
+      "translation": "သတ်မှတ်ချက် စစ်ဆေးရန်: <a1>IntStream.anyMatch</a1>၊ <a2>Stream (forEach・filter・count)</a2>၊ <a3>View.setVisibility (Android တရားဝင်စာမျက်နှာ)</a3>။"
+    },
+    {
+      "source": "導火線に火がついた爆弾と着火！の文字。押した2と5のボタンは灰色",
+      "translation": "မီးစာ မီးစွဲနေသော ဗုံးနှင့် 「着火！」 (မီးစွဲပြီ!) စာသား။ နှိပ်လိုက်သော 2 နှင့် 5 ခလုတ်များ မီးခိုးရောင် ဖြစ်နေသည်"
+    },
+    {
+      "source": "スイッチを1つ押すと、画像とメッセージが変わります。 <a1>画像を大きく開く</a1>",
+      "translation": "မီးစာ switch တစ်ခုကို နှိပ်လျှင် ပုံနှင့် message ပြောင်းသွားမည်။ <a1>ပုံကို အရွယ်အစားအပြည့်ဖြင့် ဖွင့်ပါ</a1>"
+    },
+    {
+      "source": "爆発の画像と爆発した！ゲームオーバー！の文字。数字はすべて灰色で、再挑戦ボタンが見える",
+      "translation": "ပေါက်ကွဲသည့်ပုံနှင့် 「爆発した！ゲームオーバー！」 (ပေါက်ကွဲသွားပြီ! ဂိမ်းပြီးပြီ!) စာသား။ ဂဏန်းအားလုံး မီးခိုးရောင် ဖြစ်နေပြီး 再挑戦 (ထပ်ကြိုးစားရန်) ခလုတ်ကို မြင်ရသည်"
+    },
+    {
+      "source": "2つ目のスイッチで爆発。再挑戦が表示されます。 <a1>画像を大きく開く</a1>",
+      "translation": "ဒုတိယ မီးစာ switch ဖြင့် ပေါက်ကွဲသည်။ 再挑戦 (ထပ်ကြိုးစားရန်) ခလုတ် ပေါ်လာသည်။ <a1>ပုံကို အရွယ်အစားအပြည့်ဖြင့် ဖွင့်ပါ</a1>"
+    },
+    {
+      "source": "Logcatでスイッチの2つの数字を確認します（STEP 5の検索欄）。",
+      "translation": "Logcat တွင် မီးစာ switch ၏ ဂဏန်း 2 လုံးကို စစ်ဆေးပါ (STEP 5 ၏ ရှာဖွေရန်အကွက်)။"
+    },
+    {
+      "source": "スイッチ<strong>ではない</strong>数字を押します。そのボタンが灰色になるだけで、表示は変わりません。",
+      "translation": "မီးစာ switch <strong>မဟုတ်သော</strong> ဂဏန်းကို နှိပ်ပါ။ ထိုခလုတ် မီးခိုးရောင် ဖြစ်သွားရုံသာဖြစ်ပြီး ပြသမှု မပြောင်းပါ။"
+    },
+    {
+      "source": "スイッチの1つを押します。導火線に火がついた画像と「着火！」になります。",
+      "translation": "မီးစာ switch တစ်ခုကို နှိပ်ပါ။ မီးစာ မီးစွဲနေသောပုံနှင့် 「着火！」 (မီးစွဲပြီ!) ဖြစ်သွားမည်။"
+    },
+    {
+      "source": "もう1つのスイッチを押します。爆発の画像と「爆発した！ゲームオーバー！」になり、数字はすべて押せなくなり、再挑戦ボタンが表示されます。",
+      "translation": "ကျန်သော မီးစာ switch ကို နှိပ်ပါ။ ပေါက်ကွဲသည့်ပုံနှင့် 「爆発した！ゲームオーバー！」 (ပေါက်ကွဲသွားပြီ! ဂိမ်းပြီးပြီ!) ဖြစ်သွားပြီး ဂဏန်းအားလုံးကို နှိပ်၍မရတော့ဘဲ 再挑戦 (ထပ်ကြိုးစားရန်) ခလုတ် ပေါ်လာမည်။"
+    },
+    {
+      "source": "再挑戦を押しても、まだ何も起きません（STEP 8で作ります）。もう一度遊ぶときは <strong>Run ▶</strong> で起動し直します。",
+      "translation": "再挑戦 (ထပ်ကြိုးစားရန်) ကို နှိပ်လည်း ဘာမှ မဖြစ်သေးပါ (STEP 8 တွင် ဖန်တီးမည်)။ နောက်တစ်ကြိမ် ကစားလိုလျှင် <strong>Run ▶</strong> ဖြင့် ပြန်စတင်ပါ။"
+    },
+    {
+      "source": "まだクリアにはなりません",
+      "translation": "အောင်မြင်မှု မဖြစ်သေးပါ"
+    },
+    {
+      "source": "スイッチ以外の7個をすべて押しても、このSTEPでは何も表示されません。クリアの判定はSTEP 9で追加します。",
+      "translation": "မီးစာ switch မဟုတ်သော 7 ခုလုံးကို နှိပ်လည်း ဤ STEP တွင် ဘာမှ ပြမည် မဟုတ်ပါ။ အောင်မြင်မှု ဆုံးဖြတ်ချက်ကို STEP 9 တွင် ထည့်မည်။"
+    },
+    {
+      "source": "2コマ目はここまで",
+      "translation": "ဒုတိယ အတန်းချိန်သည် ဤနေရာအထိ"
+    },
+    {
+      "source": "もう一度Runします。次回はRunして、Logcatの数字を見ながら着火と爆発を確かめてからSTEP 8へ進みます。",
+      "translation": "နောက်တစ်ကြိမ် Run လုပ်ပါ။ နောက်တစ်ခါတွင် Run လုပ်ပြီး Logcat ၏ ဂဏန်းများကို ကြည့်ရင်း မီးစွဲခြင်းနှင့် ပေါက်ကွဲခြင်းကို စစ်ဆေးပြီးမှ STEP 8 သို့ ဆက်သွားမည်။"
+    },
+    {
+      "source": "Logcatの数字を見ながら、スイッチ以外・1つ目のスイッチ・2つ目のスイッチを押して、表示の変化を確認した。nowState++の行を指させた。",
+      "translation": "Logcat ၏ ဂဏန်းများကို ကြည့်ရင်း မီးစာ switch မဟုတ်သောဂဏန်း၊ ပထမ မီးစာ switch၊ ဒုတိယ မီးစာ switch တို့ကို နှိပ်ပြီး ပြသမှု ပြောင်းလဲပုံကို စစ်ဆေးပြီးပြီ။ nowState++ စာကြောင်းကို ညွှန်ပြနိုင်ပြီးပြီ။"
+    },
+    {
+      "source": "次へ：再挑戦で最初に戻す →",
+      "translation": "နောက်တစ်ဆင့်: 再挑戦 (ထပ်ကြိုးစားရန်) ဖြင့် အစသို့ ပြန်သွားခြင်း →"
+    },
+    {
+      "source": "STEP 08 · 目安 15分",
+      "translation": "STEP 08 · ခန့်မှန်းခြေ 15 မိနစ်"
+    },
+    {
+      "source": "再挑戦で最初に戻す",
+      "translation": "再挑戦 (ထပ်ကြိုးစားရန်) ဖြင့် အစသို့ ပြန်သွားခြင်း"
+    },
+    {
+      "source": "再挑戦を押したら、起動直後と同じ表示に戻し、スイッチの数字を選び直します。",
+      "translation": "再挑戦 (ထပ်ကြိုးစားရန်) ကို နှိပ်လျှင် စတင်ဖွင့်ပြီးစ အတိုင်း ပြသမှုသို့ ပြန်ထားပြီး မီးစာ switch ၏ ဂဏန်းများကို ပြန်ရွေးမည်။"
+    },
+    {
+      "source": "STEP 6の配列 <code>numberButtons</code> の <code>};</code> と、<code>for (var button : numberButtons) {</code> の行の<strong>間</strong>に追加します。追加したコードの上と下に、1行ずつ空けます。完成版と同じ順番にするためです。",
+      "translation": "STEP 6 ၏ array <code>numberButtons</code> ၏ <code>};</code> နှင့် <code>for (var button : numberButtons) {</code> စာကြောင်း၏ <strong>ကြား</strong>တွင် ထည့်ပါ။ ထည့်လိုက်သော code ၏ အပေါ်နှင့် အောက်တွင် စာကြောင်း 1 ကြောင်းစီ ခြားပါ။ ပြီးစီးထားသော ပုံစံနှင့် အစဉ်တူစေရန် ဖြစ်သည်။"
+    },
+    {
+      "source": "追加 · 数字ボタンのfor文の上",
+      "translation": "ထည့်ရန် · ဂဏန်းခလုတ်များ၏ for statement အပေါ်"
+    },
+    {
+      "source": "元に戻すもの",
+      "translation": "မူလအတိုင်း ပြန်ထားမည့်အရာ"
+    },
+    {
+      "source": "爆弾の状態を着火前（1）に戻す。",
+      "translation": "ဗုံး၏ အခြေအနေကို မီးမစွဲမီ (1) သို့ ပြန်ထားသည်။"
+    },
+    {
+      "source": "txtMessage.setText(\"どれか押してみよう\")",
+      "translation": "txtMessage.setText(\"どれか押してみよう\") (တစ်ခုခုကို နှိပ်ကြည့်ပါ)"
+    },
+    {
+      "source": "メッセージを最初の文に戻す。",
+      "translation": "message ကို ပထမဆုံးစာသားသို့ ပြန်ထားသည်။"
+    },
+    {
+      "source": "爆弾の画像を、火のない画像に戻す。",
+      "translation": "ဗုံးပုံကို မီးမရှိသောပုံသို့ ပြန်ထားသည်။"
+    },
+    {
+      "source": "<code>v</code> は押された再挑戦ボタン自身。ボタンを見えなくする。",
+      "translation": "<code>v</code> သည် နှိပ်လိုက်သော 再挑戦 (ထပ်ကြိုးစားရန်) ခလုတ်ကိုယ်တိုင် ဖြစ်သည်။ ခလုတ်ကို မမြင်ရအောင် လုပ်သည်။"
+    },
+    {
+      "source": "STEP 5のメソッドを呼び、スイッチの数字を選び直す。",
+      "translation": "STEP 5 ၏ method ကို ခေါ်ပြီး မီးစာ switch ၏ ဂဏန်းများကို ပြန်ရွေးသည်။"
+    },
+    {
+      "source": "9個のボタンをすべて押せる状態に戻す。",
+      "translation": "ခလုတ် 9 ခုလုံးကို နှိပ်နိုင်သော အခြေအနေသို့ ပြန်ထားသည်။"
+    },
+    {
+      "source": "スイッチの数字を作る処理をメソッドにしたので、起動時（<code>onCreate</code>）と再挑戦の2か所から、同じ処理を1行で呼び出せます。A02の <code>startQuestion</code> と同じ考え方です。",
+      "translation": "မီးစာ switch ၏ ဂဏန်းများ ဖန်တီးသည့် လုပ်ဆောင်ချက်ကို method အဖြစ် ထားသဖြင့် စတင်ဖွင့်ချိန် (<code>onCreate</code>) နှင့် 再挑戦 (ထပ်ကြိုးစားရန်) ဟူသော နေရာ 2 ခုမှ တူညီသော လုပ်ဆောင်ချက်ကို စာကြောင်း 1 ကြောင်းဖြင့် ခေါ်နိုင်သည်။ A02 ၏ <code>startQuestion</code> နှင့် တူညီသော စဉ်းစားပုံ ဖြစ်သည်။"
+    },
+    {
+      "source": "Logcatでスイッチを確認し、2つとも押して爆発させます。",
+      "translation": "Logcat ဖြင့် မီးစာ switch ကို စစ်ဆေးပြီး နှစ်ခုလုံးကို နှိပ်၍ ပေါက်ကွဲစေပါ။"
+    },
+    {
+      "source": "再挑戦を押します。火のない爆弾・「どれか押してみよう」・すべて押せる数字ボタンに戻り、再挑戦ボタンが見えなくなります。",
+      "translation": "再挑戦 (ထပ်ကြိုးစားရန်) ကို နှိပ်ပါ။ မီးမရှိသော ဗုံး၊ 「どれか押してみよう」 (တစ်ခုခုကို နှိပ်ကြည့်ပါ)၊ အားလုံး နှိပ်နိုင်သော ဂဏန်းခလုတ်များ အဖြစ် ပြန်ရောက်ပြီး 再挑戦 ခလုတ်ကို မမြင်ရတော့ပါ။"
+    },
+    {
+      "source": "Logcatに、選び直した2つの数字が出ます（前と同じ数字になることもあります）。2〜3回くり返します。",
+      "translation": "Logcat တွင် ပြန်ရွေးလိုက်သော ဂဏန်း 2 လုံး ပေါ်လာမည် (ယခင်နှင့် တူညီသောဂဏန်း ဖြစ်သွားသည်လည်း ရှိသည်)။ 2 မှ 3 ကြိမ် ထပ်လုပ်ပါ။"
+    },
+    {
+      "source": "爆発のあとに再挑戦で最初の表示に戻り、Logcatに選び直したスイッチの数字が出ることを確認した。",
+      "translation": "ပေါက်ကွဲပြီးနောက် 再挑戦 (ထပ်ကြိုးစားရန်) ဖြင့် ပထမဆုံး ပြသမှုသို့ ပြန်ရောက်ပြီး Logcat တွင် ပြန်ရွေးလိုက်သော မီးစာ switch ၏ ဂဏန်းများ ပေါ်လာကြောင်း စစ်ဆေးပြီးပြီ။"
+    },
+    {
+      "source": "次へ：クリアを判定する →",
+      "translation": "နောက်တစ်ဆင့်: အောင်မြင်မှုကို ဆုံးဖြတ်ခြင်း →"
+    },
+    {
+      "source": "STEP 09 · 目安 25分",
+      "translation": "STEP 09 · ခန့်မှန်းခြေ 25 မိနစ်"
+    },
+    {
+      "source": "クリアを判定する",
+      "translation": "အောင်မြင်မှုကို ဆုံးဖြတ်ခြင်း"
+    },
+    {
+      "source": "最後に、スイッチ以外の7個をすべて押したら「クリア！」にします。STEP 7の表示の処理を、クリアの判定で包みます。",
+      "translation": "နောက်ဆုံးတွင် မီးစာ switch မဟုတ်သော 7 ခုလုံးကို နှိပ်ပြီးလျှင် 「クリア！」 (အောင်မြင်ပြီ!) ဟု ဖြစ်စေမည်။ STEP 7 ၏ ပြသမှု လုပ်ဆောင်ချက်ကို အောင်မြင်မှု ဆုံးဖြတ်ချက်ဖြင့် ထုပ်ပိုးမည်။"
+    },
+    {
+      "source": "① 置き換える範囲を選ぶ",
+      "translation": "① အစားထိုးမည့် အပိုင်းကို ရွေးခြင်း"
+    },
+    {
+      "source": "数字ボタンのクリックの処理の中で、<code>if (nowState == STATE_IGNITED) {</code> の行から、<code>else if (nowState == STATE_EXPLODED) { ... }</code> を閉じる <code>}</code> の行までを選びます。その下の <code>});</code> は選びません。<code>var number</code>・<code>var match</code>・<code>if (match) nowState++;</code> の3行も残します。",
+      "translation": "ဂဏန်းခလုတ်၏ click လုပ်သည့်အခါ လုပ်ဆောင်ချက်ထဲတွင် <code>if (nowState == STATE_IGNITED) {</code> စာကြောင်းမှ စ၍ <code>else if (nowState == STATE_EXPLODED) { ... }</code> ကို ပိတ်သော <code>}</code> စာကြောင်းအထိ ရွေးပါ။ ၎င်း၏ အောက်ရှိ <code>});</code> ကို မရွေးပါနှင့်။ <code>var number</code>၊ <code>var match</code>၊ <code>if (match) nowState++;</code> ဟူသော စာကြောင်း 3 ကြောင်းကိုလည်း ချန်ထားပါ။"
+    },
+    {
+      "source": "② 次のコードに置き換える",
+      "translation": "② အောက်ပါ code ဖြင့် အစားထိုးခြင်း"
+    },
+    {
+      "source": "置き換え · if (nowState == STATE_IGNITED) から else if の閉じ括弧まで",
+      "translation": "အစားထိုးရန် · if (nowState == STATE_IGNITED) မှ else if ၏ ပိတ်ကွင်းအထိ"
+    },
+    {
+      "source": "貼り付けたあと、字下げがずれていたら <strong>Code → Reformat Code</strong>（<kbd>⌥ ⌘ L</kbd>）でそろえます。<code>else { ... }</code> の中は、STEP 7で書いた着火・爆発の処理と同じです。",
+      "translation": "paste လုပ်ပြီးနောက် စာကြောင်းရှေ့ ကွက်လပ်များ လွဲနေလျှင် <strong>Code → Reformat Code</strong> (<kbd>⌥ ⌘ L</kbd>) ဖြင့် ညှိပါ။ <code>else { ... }</code> ၏ အတွင်းပိုင်းသည် STEP 7 တွင် ရေးခဲ့သော မီးစွဲခြင်းနှင့် ပေါက်ကွဲခြင်း လုပ်ဆောင်ချက်နှင့် တူညီသည်။"
+    },
+    {
+      "source": "押せないボタンだけを残して、その数を数える。<code>!</code> は反対。今押したボタンも数に入る。",
+      "translation": "နှိပ်မရသော ခလုတ်များကိုသာ ချန်ထားပြီး ၎င်းတို့၏ အရေအတွက်ကို ရေတွက်သည်။ <code>!</code> သည် ဆန့်ကျင်ဘက် ဖြစ်သည်။ ယခု နှိပ်လိုက်သော ခလုတ်လည်း အရေအတွက်ထဲ ပါဝင်သည်။"
+    },
+    {
+      "source": "「かつ」。両方の条件がtrueのときtrue。",
+      "translation": "“နှင့်”။ condition နှစ်ခုလုံး true ဖြစ်သည့်အခါ true ဖြစ်သည်။"
+    },
+    {
+      "source": "「または」。どちらかの条件がtrueならtrue。",
+      "translation": "“သို့မဟုတ်”။ condition တစ်ခုခု true ဖြစ်လျှင် true ဖြစ်သည်။"
+    },
+    {
+      "source": "括弧の中を1つのまとまりとして先に調べ、どちらかのまとまりがtrueならクリア。",
+      "translation": "ကွင်းအတွင်းပိုင်းကို အစုတစ်ခုအဖြစ် ဦးစွာ စစ်ဆေးပြီး အစုတစ်ခုခု true ဖြစ်လျှင် အောင်မြင်ပြီ။"
+    },
+    {
+      "source": "// ゲームクリアの場合",
+      "translation": "// ゲームクリアの場合 (ဂိမ်း အောင်မြင်သည့်အခါ)"
+    },
+    {
+      "source": "クリアなら、メッセージを出し、再挑戦を表示し、数字をすべて押せなくする。",
+      "translation": "အောင်မြင်လျှင် message ကို ပြပြီး 再挑戦 (ထပ်ကြိုးစားရန်) ကို ပြကာ ဂဏန်းအားလုံးကို နှိပ်၍မရအောင် လုပ်သည်။"
+    },
+    {
+      "source": "else { // ゲーム続行",
+      "translation": "else { // ゲーム続行 (ဂိမ်း ဆက်လက်ကစားခြင်း)"
+    },
+    {
+      "source": "クリアではないとき。STEP 7の着火・爆発の判定を行う。爆発した場合は、ここでゲームオーバーになる。",
+      "translation": "အောင်မြင်ခြင်း မဟုတ်သည့်အခါ။ STEP 7 ၏ မီးစွဲခြင်း၊ ပေါက်ကွဲခြင်း ဆုံးဖြတ်ချက်ကို လုပ်ဆောင်သည်။ ပေါက်ကွဲသွားလျှင် ဤနေရာတွင် ဂိမ်းပြီးဆုံးသွားမည်။"
+    },
+    {
+      "source": "クリアの条件を読む",
+      "translation": "အောင်မြင်ရန် condition ကို ဖတ်ကြည့်ခြင်း"
+    },
+    {
+      "source": "条件は <strong>（着火前 かつ 7個押せない）または（着火 かつ 8個押せない）</strong> という意味です。上の行のコメントも、同じことを説明しています。Javaでは <code>&amp;&amp;</code> を <code>||</code> より先に計算するため、括弧がなくても結果は同じです（掛け算を足し算より先に計算するのと同じ）。読み間違えないように、まとまりを括弧で囲んでいます。",
+      "translation": "condition သည် <strong>(မီးမစွဲမီ ဖြစ်ပြီး ခလုတ် 7 ခု နှိပ်မရ) သို့မဟုတ် (မီးစွဲပြီး ဖြစ်ကာ ခလုတ် 8 ခု နှိပ်မရ)</strong> ဟု အဓိပ္ပာယ်ရသည်။ အပေါ်စာကြောင်းရှိ comment ကလည်း အတူတူပင် ရှင်းပြထားသည်။ Java တွင် <code>&amp;&amp;</code> ကို <code>||</code> ထက် အရင် တွက်သဖြင့် ကွင်းမပါလည်း ရလဒ် တူညီသည် (အမြှောက်ကို အပေါင်းထက် အရင် တွက်သည်နှင့် အတူတူ)။ ဖတ်ရာတွင် မမှားစေရန် အစုများကို ကွင်းဖြင့် ခြုံထားသည်။"
+    },
+    {
+      "source": "押せないボタンの数",
+      "translation": "နှိပ်မရသော ခလုတ် အရေအတွက်"
+    },
+    {
+      "source": "STATE_INITIAL（着火前）",
+      "translation": "STATE_INITIAL (မီးမစွဲမီ)"
+    },
+    {
+      "source": "スイッチ以外の7個をすべて押した。残りの2個はどちらもスイッチ。",
+      "translation": "မီးစာ switch မဟုတ်သော 7 ခုလုံးကို နှိပ်ပြီးပြီ။ ကျန်သော 2 ခုစလုံးသည် မီးစာ switch ဖြစ်သည်။"
+    },
+    {
+      "source": "STATE_IGNITED（着火）",
+      "translation": "STATE_IGNITED (မီးစွဲပြီ)"
+    },
+    {
+      "source": "スイッチ1個と、スイッチ以外の7個を押した。残りの1個はスイッチ。",
+      "translation": "မီးစာ switch 1 ခုနှင့် မီးစာ switch မဟုတ်သော 7 ခုကို နှိပ်ပြီးပြီ။ ကျန်သော 1 ခုသည် မီးစာ switch ဖြစ်သည်။"
+    },
+    {
+      "source": "STATE_EXPLODED（爆発）",
+      "translation": "STATE_EXPLODED (ပေါက်ကွဲပြီ)"
+    },
+    {
+      "source": "クリアにはならない。elseの中で爆発を表示する。",
+      "translation": "အောင်မြင်ခြင်း မဖြစ်ပါ။ else ၏ အတွင်း၌ ပေါက်ကွဲမှုကို ပြသည်။"
+    },
+    {
+      "source": "数を数える行は、<code>button.setEnabled(false)</code> と <code>nowState++</code> のあとにあります。そのため、今押したボタンと、今の押し方で進んだ状態を使って判定できます。",
+      "translation": "အရေအတွက် ရေတွက်သည့် စာကြောင်းသည် <code>button.setEnabled(false)</code> နှင့် <code>nowState++</code> ၏ နောက်တွင် ရှိသည်။ ထို့ကြောင့် ယခု နှိပ်လိုက်သော ခလုတ်နှင့် ယခု နှိပ်မှုကြောင့် တိုးသွားသော အခြေအနေကို သုံး၍ ဆုံးဖြတ်နိုင်သည်။"
+    },
+    {
+      "source": "置き換えたあとの、数字ボタンの処理全体で照合する",
+      "translation": "အစားထိုးပြီးနောက် ဂဏန်းခလုတ်၏ လုပ်ဆောင်ချက် တစ်ခုလုံးဖြင့် တိုက်စစ်ရန်"
+    },
+    {
+      "source": "照合用 · 数字ボタンのfor文",
+      "translation": "တိုက်စစ်ရန် · ဂဏန်းခလုတ်များ၏ for statement"
+    },
+    {
+      "source": "Logcatでスイッチを確認し、スイッチ以外の7個をすべて押します。7個目で「クリア！」になり、数字はすべて押せなくなり、再挑戦が表示されます。爆弾は火のない画像のままです。",
+      "translation": "Logcat ဖြင့် မီးစာ switch ကို စစ်ဆေးပြီး မီးစာ switch မဟုတ်သော 7 ခုလုံးကို နှိပ်ပါ။ 7 ခုမြောက်တွင် 「クリア！」 (အောင်မြင်ပြီ!) ဖြစ်သွားပြီး ဂဏန်းအားလုံးကို နှိပ်၍မရတော့ဘဲ 再挑戦 (ထပ်ကြိုးစားရန်) ပေါ်လာမည်။ ဗုံးမှာ မီးမရှိသောပုံ အတိုင်း ဖြစ်နေမည်။"
+    },
+    {
+      "source": "再挑戦を押し、新しいスイッチを確認します。スイッチを1つ押して着火させてから、スイッチ以外の7個を押します。7個目で「クリア！」になり、爆弾は火がついた画像のままです。",
+      "translation": "再挑戦 (ထပ်ကြိုးစားရန်) ကို နှိပ်ပြီး မီးစာ switch အသစ်ကို စစ်ဆေးပါ။ မီးစာ switch 1 ခုကို နှိပ်၍ မီးစွဲစေပြီးမှ မီးစာ switch မဟုတ်သော 7 ခုကို နှိပ်ပါ။ 7 ခုမြောက်တွင် 「クリア！」 (အောင်မြင်ပြီ!) ဖြစ်သွားပြီး ဗုံးမှာ မီးစွဲနေသောပုံ အတိုင်း ဖြစ်နေမည်။"
+    },
+    {
+      "source": "再挑戦を押し、スイッチを2つとも押すと、これまでどおり爆発します。",
+      "translation": "再挑戦 (ထပ်ကြိုးစားရန်) ကို နှိပ်ပြီး မီးစာ switch နှစ်ခုလုံးကို နှိပ်လျှင် ယခင်အတိုင်း ပေါက်ကွဲမည်။"
+    },
+    {
+      "source": "着火前に、スイッチ以外の7個を押してクリアした画面（確認1）。着火後にクリアしたときは、火がついた画像のままです。 <a1>画像を大きく開く</a1>",
+      "translation": "မီးမစွဲမီ မီးစာ switch မဟုတ်သော 7 ခုကို နှိပ်၍ အောင်မြင်သွားသော မျက်နှာပြင် (စစ်ဆေးချက် 1)။ မီးစွဲပြီးမှ အောင်မြင်သည့်အခါတွင်မူ မီးစွဲနေသောပုံ အတိုင်း ဖြစ်နေမည်။ <a1>ပုံကို အရွယ်အစားအပြည့်ဖြင့် ဖွင့်ပါ</a1>"
+    },
+    {
+      "source": "着火前と着火後の両方でクリアになり、爆発もこれまでどおり動くことを確認した。",
+      "translation": "မီးမစွဲမီနှင့် မီးစွဲပြီးနောက် နှစ်မျိုးလုံးတွင် အောင်မြင်ပြီး ပေါက်ကွဲမှုလည်း ယခင်အတိုင်း အလုပ်လုပ်ကြောင်း စစ်ဆေးပြီးပြီ။"
+    },
+    {
+      "source": "次へ：ミニ練習 →",
+      "translation": "နောက်တစ်ဆင့်: လေ့ကျင့်ခန်းငယ် →"
+    },
+    {
+      "source": "STEP 10 · 目安 20分",
+      "translation": "STEP 10 · ခန့်မှန်းခြေ 20 မိနစ်"
+    },
+    {
+      "source": "ミニ練習",
+      "translation": "လေ့ကျင့်ခန်းငယ်"
+    },
+    {
+      "source": "まずクリアまで完成させます。そのあと、次の小変更を1つずつ試します。<strong>予想 → 変更 → Run → 説明 → 元に戻す</strong>の順で行います。",
+      "translation": "ဦးစွာ အောင်မြင်မှုအထိ ပြီးအောင် လုပ်ပါ။ ထို့နောက် အောက်ပါ အပြောင်းအလဲငယ်များကို တစ်ခုချင်းစီ စမ်းပါ။ <strong>ခန့်မှန်းခြင်း → ပြောင်းလဲခြင်း → Run → ရှင်းပြခြင်း → မူလအတိုင်း ပြန်ထားခြင်း</strong> ဟူသော အစဉ်အတိုင်း လုပ်ပါ။"
+    },
+    {
+      "source": "練習1：スイッチを固定して表を確かめる",
+      "translation": "လေ့ကျင့်ခန်း 1: မီးစာ switch ကို ပုံသေထားပြီး ဇယားကို စစ်ဆေးခြင်း"
+    },
+    {
+      "source": "<code>generateIgnitionNumbers</code> メソッドの <code>randomIgnitionNumbers = ThreadLocalRandom.current().ints(2, 1, 10).toArray();</code> の行で、<code>=</code> の右側だけを <code>new int[]{1, 9}</code> に変えます。変更後の行は次のとおりです。",
+      "translation": "<code>generateIgnitionNumbers</code> method ၏ <code>randomIgnitionNumbers = ThreadLocalRandom.current().ints(2, 1, 10).toArray();</code> စာကြောင်းတွင် <code>=</code> ၏ ညာဘက်ခြမ်းကိုသာ <code>new int[]{1, 9}</code> သို့ ပြောင်းပါ။ ပြောင်းပြီးနောက် စာကြောင်းမှာ အောက်ပါအတိုင်း ဖြစ်သည်။"
+    },
+    {
+      "source": "練習1 · 変更後の行",
+      "translation": "လေ့ကျင့်ခန်း 1 · ပြောင်းပြီးနောက် စာကြောင်း"
+    },
+    {
+      "source": "スイッチはいつも1と9です。Runして、Logcatに1と9が出ることを確かめます。次の操作の結果を予想してから試します。",
+      "translation": "မီးစာ switch သည် အမြဲတမ်း 1 နှင့် 9 ဖြစ်သည်။ Run လုပ်ပြီး Logcat တွင် 1 နှင့် 9 ပေါ်ကြောင်း စစ်ဆေးပါ။ အောက်ပါ လုပ်ဆောင်ချက်များ၏ ရလဒ်ကို ခန့်မှန်းပြီးမှ စမ်းပါ။"
+    },
+    {
+      "source": "5を押す → 1を押す → 9を押す",
+      "translation": "5 ကို နှိပ် → 1 ကို နှိပ် → 9 ကို နှိပ်"
+    },
+    {
+      "source": "再挑戦 → 2・3・4・5・6・7・8を順に押す",
+      "translation": "再挑戦 (ထပ်ကြိုးစားရန်) → 2၊ 3၊ 4၊ 5၊ 6၊ 7၊ 8 ကို အစဉ်လိုက် နှိပ်"
+    },
+    {
+      "source": "再挑戦 → 1を押す → 2・3・4・5・6・7・8を順に押す",
+      "translation": "再挑戦 (ထပ်ကြိုးစားရန်) → 1 ကို နှိပ် → 2၊ 3၊ 4၊ 5၊ 6၊ 7၊ 8 ကို အစဉ်လိုက် နှိပ်"
+    },
+    {
+      "source": "試したあとに答えを見る",
+      "translation": "စမ်းပြီးမှ အဖြေကို ကြည့်ရန်"
+    },
+    {
+      "source": "1：5はボタンが灰色になるだけです。1で「着火！」、9で「爆発した！ゲームオーバー！」になります。2：8を押した時点（7個目）で「クリア！」になり、爆弾は火のない画像のままです。3：1で「着火！」になり、8を押した時点（押せないボタンが8個）で「クリア！」になります。爆弾は火がついた画像のままです。スイッチは固定しているので、再挑戦しても1と9のままです。練習2でもこの変更を使うため、まだ戻しません。",
+      "translation": "1: 5 သည် ခလုတ် မီးခိုးရောင် ဖြစ်ရုံသာ ဖြစ်သည်။ 1 တွင် 「着火！」 (မီးစွဲပြီ!)၊ 9 တွင် 「爆発した！ゲームオーバー！」 (ပေါက်ကွဲသွားပြီ! ဂိမ်းပြီးပြီ!) ဖြစ်မည်။ 2: 8 ကို နှိပ်သည့်အချိန် (7 ခုမြောက်) တွင် 「クリア！」 (အောင်မြင်ပြီ!) ဖြစ်ပြီး ဗုံးမှာ မီးမရှိသောပုံ အတိုင်း ဖြစ်နေမည်။ 3: 1 တွင် 「着火！」 (မီးစွဲပြီ!) ဖြစ်ပြီး 8 ကို နှိပ်သည့်အချိန် (နှိပ်မရသော ခလုတ် 8 ခု) တွင် 「クリア！」 (အောင်မြင်ပြီ!) ဖြစ်မည်။ ဗုံးမှာ မီးစွဲနေသောပုံ အတိုင်း ဖြစ်နေမည်။ မီးစာ switch ကို ပုံသေထားသဖြင့် 再挑戦 (ထပ်ကြိုးစားရန်) လုပ်လည်း 1 နှင့် 9 အတိုင်း ဖြစ်နေမည်။ လေ့ကျင့်ခန်း 2 တွင်လည်း ဤအပြောင်းအလဲကို သုံးမည်ဖြစ်၍ မပြန်ထားသေးပါနှင့်။"
+    },
+    {
+      "source": "練習2：「8」を「7」にするとどうなる？",
+      "translation": "လေ့ကျင့်ခန်း 2: “8” ကို “7” သို့ ပြောင်းလျှင် မည်သို့ ဖြစ်မည်နည်း။"
+    },
+    {
+      "source": "練習1の変更を残したまま、クリアの条件の <code>nowState == STATE_IGNITED &amp;&amp; disableButtonCount == 8</code> の <code>8</code> を <code>7</code> に変えます。Runして、1を押してから、2・3・4・5・6・7を順に押します。7を押したとき、何が起きるでしょうか。",
+      "translation": "လေ့ကျင့်ခန်း 1 ၏ အပြောင်းအလဲကို ချန်ထားလျက် အောင်မြင်ရန် condition ရှိ <code>nowState == STATE_IGNITED &amp;&amp; disableButtonCount == 8</code> ၏ <code>8</code> ကို <code>7</code> သို့ ပြောင်းပါ။ Run လုပ်ပြီး 1 ကို နှိပ်ပြီးနောက် 2၊ 3၊ 4၊ 5၊ 6၊ 7 ကို အစဉ်လိုက် နှိပ်ပါ။ 7 ကို နှိပ်သည့်အခါ ဘာဖြစ်မည်နည်း။"
+    },
+    {
+      "source": "7を押した時点で「クリア！」になります。スイッチ以外のボタンは6個しか押しておらず、8がまだ残っていたのにクリアです。着火しているときは、押したスイッチ1個も押せないボタンに数えるので、スイッチ以外の7個を押し終えたときは8個になります。だから8と比べる、と説明できれば十分です。確認後は <code>8</code> に戻し、練習1の行の右側も <code>ThreadLocalRandom.current().ints(2, 1, 10).toArray()</code> に戻します。",
+      "translation": "7 ကို နှိပ်သည့်အချိန်တွင် 「クリア！」 (အောင်မြင်ပြီ!) ဖြစ်သွားမည်။ မီးစာ switch မဟုတ်သော ခလုတ်များကို 6 ခုသာ နှိပ်ထားပြီး 8 ကျန်နေသေးသော်လည်း အောင်မြင်သွားသည်။ မီးစွဲနေချိန်တွင် နှိပ်ပြီးသော မီးစာ switch 1 ခုကိုလည်း နှိပ်မရသော ခလုတ်အဖြစ် ရေတွက်သဖြင့် မီးစာ switch မဟုတ်သော 7 ခုကို နှိပ်ပြီးချိန်တွင် 8 ခု ဖြစ်သည်။ ထို့ကြောင့် 8 နှင့် နှိုင်းယှဉ်သည် ဟု ရှင်းပြနိုင်လျှင် လုံလောက်သည်။ စစ်ဆေးပြီးနောက် <code>8</code> သို့ ပြန်ထားပြီး လေ့ကျင့်ခန်း 1 ၏ စာကြောင်း ညာဘက်ခြမ်းကိုလည်း <code>ThreadLocalRandom.current().ints(2, 1, 10).toArray()</code> သို့ ပြန်ထားပါ။"
+    },
+    {
+      "source": "練習3：状態を説明する",
+      "translation": "လေ့ကျင့်ခန်း 3: အခြေအနေကို ရှင်းပြခြင်း"
+    },
+    {
+      "source": "同じ数字を2回押せないのは、どの行のおかげですか。爆発したあとに数字を押せなくなるのは、どの行ですか。再挑戦でスイッチの数字が変わるのは、どの行ですか。",
+      "translation": "တူညီသောဂဏန်းကို 2 ကြိမ် နှိပ်၍မရခြင်းသည် မည်သည့်စာကြောင်းကြောင့် ဖြစ်သနည်း။ ပေါက်ကွဲပြီးနောက် ဂဏန်းများကို နှိပ်၍မရတော့ခြင်းသည် မည်သည့်စာကြောင်းနည်း။ 再挑戦 (ထပ်ကြိုးစားရန်) ဖြင့် မီးစာ switch ၏ ဂဏန်းများ ပြောင်းသွားခြင်းသည် မည်သည့်စာကြောင်းနည်း။"
+    },
+    {
+      "source": "説明したあとに答えを見る",
+      "translation": "ရှင်းပြပြီးမှ အဖြေကို ကြည့်ရန်"
+    },
+    {
+      "source": "クリックの処理の最初の <code>button.setEnabled(false)</code> で、押したボタンを押せなくします。爆発したときは、<code>else if (nowState == STATE_EXPLODED)</code> の中の <code>Arrays.stream(numberButtons).forEach(b -&gt; b.setEnabled(false))</code> ですべて押せなくします。再挑戦の処理の <code>generateIgnitionNumbers()</code> が、乱数で新しいスイッチを作ります。",
+      "translation": "click လုပ်သည့်အခါ လုပ်ဆောင်ချက်၏ ပထမဆုံး <code>button.setEnabled(false)</code> ဖြင့် နှိပ်လိုက်သော ခလုတ်ကို နှိပ်၍မရအောင် လုပ်သည်။ ပေါက်ကွဲသည့်အခါ <code>else if (nowState == STATE_EXPLODED)</code> အတွင်းရှိ <code>Arrays.stream(numberButtons).forEach(b -&gt; b.setEnabled(false))</code> ဖြင့် အားလုံးကို နှိပ်၍မရအောင် လုပ်သည်။ 再挑戦 (ထပ်ကြိုးစားရန်) လုပ်ဆောင်ချက်ရှိ <code>generateIgnitionNumbers()</code> က ကျပန်းဂဏန်းဖြင့် မီးစာ switch အသစ်ကို ဖန်တီးသည်။"
+    },
+    {
+      "source": "完成版に戻してから確認",
+      "translation": "ပြီးစီးထားသော ပုံစံသို့ ပြန်ထားပြီးမှ စစ်ဆေးပါ"
+    },
+    {
+      "source": "練習1の乱数の行と、練習2の <code>8</code> を元に戻します。Auto Importの設定により、使わなくなった <code>ThreadLocalRandom</code> のimportが消えることがあります。戻したあとに赤字になったら、<kbd>⌥ Enter</kbd> でimportを追加します。",
+      "translation": "လေ့ကျင့်ခန်း 1 ၏ ကျပန်းဂဏန်း စာကြောင်းနှင့် လေ့ကျင့်ခန်း 2 ၏ <code>8</code> ကို မူလအတိုင်း ပြန်ထားပါ။ Auto Import ၏ သတ်မှတ်ချက်ကြောင့် မသုံးတော့သော <code>ThreadLocalRandom</code> ၏ import ပျောက်သွားတတ်သည်။ ပြန်ထားပြီးနောက် အနီရောင် ဖြစ်နေလျှင် <kbd>⌥ Enter</kbd> ဖြင့် import ကို ထည့်ပါ။"
+    },
+    {
+      "source": "スイッチを固定して着火・爆発・クリアを確かめ、8を7に変えると7を押した時点でクリアになることも確かめてから、完成版に戻した。",
+      "translation": "မီးစာ switch ကို ပုံသေထားပြီး မီးစွဲခြင်း၊ ပေါက်ကွဲခြင်းနှင့် အောင်မြင်ခြင်းကို စစ်ဆေးကာ 8 ကို 7 သို့ ပြောင်းလျှင် 7 ကို နှိပ်သည့်အချိန်တွင် အောင်မြင်သွားကြောင်းကိုလည်း စစ်ဆေးပြီးမှ ပြီးစီးထားသော ပုံစံသို့ ပြန်ထားပြီးပြီ။"
+    },
+    {
+      "source": "次へ：完成 →",
+      "translation": "နောက်တစ်ဆင့်: ပြီးစီးခြင်း →"
+    },
+    {
+      "source": "STEP 11 · 目安 15分",
+      "translation": "STEP 11 · ခန့်မှန်းခြေ 15 မိနစ်"
+    },
+    {
+      "source": "完成",
+      "translation": "ပြီးစီးခြင်း"
+    },
+    {
+      "source": "完成チェック",
+      "translation": "ပြီးစီးမှု စစ်ဆေးခြင်း"
+    },
+    {
+      "source": "操作",
+      "translation": "လုပ်ဆောင်ချက်"
+    },
+    {
+      "source": "確認する結果",
+      "translation": "စစ်ဆေးရမည့် ရလဒ်"
+    },
+    {
+      "source": "起動直後",
+      "translation": "စတင်ဖွင့်ပြီးချင်း"
+    },
+    {
+      "source": "火のない爆弾、1〜9のボタン、「どれか押してみよう」。再挑戦は見えない。Logcatにスイッチの数字が2つ出る。",
+      "translation": "မီးမရှိသော ဗုံး၊ 1 မှ 9 ခလုတ်များ၊ 「どれか押してみよう」 (တစ်ခုခုကို နှိပ်ကြည့်ပါ)။ 再挑戦 (ထပ်ကြိုးစားရန်) ကို မမြင်ရပါ။ Logcat တွင် မီးစာ switch ၏ ဂဏန်း 2 လုံး ပေါ်သည်။"
+    },
+    {
+      "source": "スイッチ以外を押す",
+      "translation": "မီးစာ switch မဟုတ်သောဂဏန်းကို နှိပ်သည်"
+    },
+    {
+      "source": "押したボタンだけが灰色になる。画像とメッセージは変わらない。",
+      "translation": "နှိပ်လိုက်သော ခလုတ်သာ မီးခိုးရောင် ဖြစ်သည်။ ပုံနှင့် message မပြောင်းပါ။"
+    },
+    {
+      "source": "スイッチを1つ押す",
+      "translation": "မီးစာ switch 1 ခုကို နှိပ်သည်"
+    },
+    {
+      "source": "導火線に火がついた画像と「着火！」。",
+      "translation": "မီးစာ မီးစွဲနေသောပုံနှင့် 「着火！」 (မီးစွဲပြီ!)။"
+    },
+    {
+      "source": "スイッチを2つとも押す",
+      "translation": "မီးစာ switch နှစ်ခုလုံးကို နှိပ်သည်"
+    },
+    {
+      "source": "爆発の画像と「爆発した！ゲームオーバー！」。数字はすべて押せず、再挑戦が表示される。",
+      "translation": "ပေါက်ကွဲသည့်ပုံနှင့် 「爆発した！ゲームオーバー！」 (ပေါက်ကွဲသွားပြီ! ဂိမ်းပြီးပြီ!)။ ဂဏန်းအားလုံးကို နှိပ်၍မရဘဲ 再挑戦 (ထပ်ကြိုးစားရန်) ပေါ်လာသည်။"
+    },
+    {
+      "source": "スイッチ以外の7個をすべて押す",
+      "translation": "မီးစာ switch မဟုတ်သော 7 ခုလုံးကို နှိပ်သည်"
+    },
+    {
+      "source": "着火前でも着火後でも「クリア！」。数字はすべて押せず、再挑戦が表示される。",
+      "translation": "မီးမစွဲမီ ဖြစ်စေ မီးစွဲပြီးနောက် ဖြစ်စေ 「クリア！」 (အောင်မြင်ပြီ!)။ ဂဏန်းအားလုံးကို နှိပ်၍မရဘဲ 再挑戦 (ထပ်ကြိုးစားရန်) ပေါ်လာသည်။"
+    },
+    {
+      "source": "最初の表示に戻り、再挑戦が見えなくなる。Logcatに新しい2つの数字が出る。",
+      "translation": "ပထမဆုံး ပြသမှုသို့ ပြန်ရောက်ပြီး 再挑戦 (ထပ်ကြိုးစားရန်) ကို မမြင်ရတော့ပါ။ Logcat တွင် ဂဏန်းအသစ် 2 လုံး ပေါ်လာသည်။"
+    },
+    {
+      "source": "保存",
+      "translation": "သိမ်းဆည်းခြင်း"
+    },
+    {
+      "source": "Android Studioは、書いたコードを自動でファイルに保存します。保存の操作は要りません。ここでは、保存された場所を確かめます。",
+      "translation": "Android Studio သည် ရေးထားသော code ကို ဖိုင်ထဲသို့ အလိုအလျောက် သိမ်းဆည်းပေးသည်။ သိမ်းဆည်းရန် လုပ်ဆောင်စရာ မလိုပါ။ ဤနေရာတွင် သိမ်းဆည်းထားသည့် နေရာကို စစ်ဆေးမည်။"
+    },
+    {
+      "source": "Finderを開き、左側の <strong>書類</strong>（<code>Documents</code>）をクリックします。",
+      "translation": "Finder ကို ဖွင့်ပြီး ဘယ်ဘက်ရှိ <strong>書類</strong> (<code>Documents</code>) ကို နှိပ်ပါ။"
+    },
+    {
+      "source": "その中の <code>Android1</code> フォルダを開き、<code>A05BombGame</code> フォルダがあることを確かめます。",
+      "translation": "၎င်းအထဲရှိ <code>Android1</code> ဖိုင်တွဲကို ဖွင့်ပြီး <code>A05BombGame</code> ဖိုင်တွဲ ရှိကြောင်း စစ်ဆေးပါ။"
+    },
+    {
+      "source": "この <code>Documents/Android1/A05BombGame</code> フォルダが、自分で作ったアプリです。あとの授業でもう一度開けるように、消したり、別の場所へ移動したり、名前を変えたりせずに、そのまま残します。",
+      "translation": "ဤ <code>Documents/Android1/A05BombGame</code> ဖိုင်တွဲသည် ကိုယ်တိုင် ဖန်တီးထားသော app ဖြစ်သည်။ နောက်ပိုင်း အတန်းများတွင် ထပ်ဖွင့်နိုင်ရန် ဖျက်ခြင်း၊ အခြားနေရာသို့ ရွှေ့ခြင်း၊ အမည်ပြောင်းခြင်း မပြုဘဲ မူလအတိုင်း ချန်ထားပါ။"
+    },
+    {
+      "source": "教材のチェックは自分用です。先生への送信はしません。印刷は <kbd>⌘ P</kbd> で行えます。",
+      "translation": "သင်ထောက်ကူပစ္စည်းများရှိ အမှန်ခြစ်များသည် ကိုယ်ပိုင်အသုံးပြုရန်သာ ဖြစ်သည်။ ဆရာထံ ပို့ခြင်း မရှိပါ။ print ထုတ်ရန် <kbd>⌘ P</kbd> ကို သုံးနိုင်သည်။"
+    },
+    {
+      "source": "完成チェックの操作をすべて試し、表のとおりの結果になった。",
+      "translation": "ပြီးစီးမှု စစ်ဆေးခြင်း၏ လုပ်ဆောင်ချက်အားလုံးကို စမ်းပြီး ဇယားအတိုင်း ရလဒ် ထွက်ပြီးပြီ။"
+    },
+    {
+      "source": "困ったこと",
+      "translation": "အခက်အခဲ"
+    },
+    {
+      "source": "最初に確認する場所",
+      "translation": "ဦးစွာ စစ်ဆေးရမည့် နေရာ"
+    },
+    {
+      "source": "@drawable/bomb_initial や R.drawable.bomb_ignited が赤い",
+      "translation": "@drawable/bomb_initial သို့မဟုတ် R.drawable.bomb_ignited သည် အနီရောင် ဖြစ်နေသည်"
+    },
+    {
+      "source": "drawableに3つのPNGがあるか確認。ファイル名は小文字で、<code>bomb_initial.png.png</code> のように拡張子が重なっていないか見る。",
+      "translation": "drawable တွင် PNG 3 ခု ရှိမရှိ စစ်ဆေးပါ။ ဖိုင်အမည်သည် စာလုံးသေး ဖြစ်ပြီး <code>bomb_initial.png.png</code> ကဲ့သို့ extension ထပ်နေမနေ ကြည့်ပါ။"
+    },
+    {
+      "source": "画像の名前でビルドエラーになる",
+      "translation": "ပုံ၏ အမည်ကြောင့် build error ဖြစ်သည်"
+    },
+    {
+      "source": "drawableのファイル名に大文字・ハイフン・空白がないか確認。見本のファイル名と同じにする。",
+      "translation": "drawable ရှိ ဖိုင်အမည်တွင် စာလုံးကြီး၊ hyphen၊ space မပါကြောင်း စစ်ဆေးပါ။ နမူနာ၏ ဖိုင်အမည်နှင့် တူအောင် ထားပါ။"
+    },
+    {
+      "source": "貼り付けたのに画像が見つからない",
+      "translation": "paste လုပ်ထားသော်လည်း ပုံကို ရှာမတွေ့ပါ"
+    },
+    {
+      "source": "Copy画面のTo directoryを確認。<code>samples</code> 側や別のフォルダに貼っていないか、Project表示で探す。",
+      "translation": "Copy မျက်နှာပြင်၏ To directory ကို စစ်ဆေးပါ။ <code>samples</code> ဘက် သို့မဟုတ် အခြား ဖိုင်တွဲ တွင် paste လုပ်မိသလား Project ပြသမှုဖြင့် ရှာပါ။"
+    },
+    {
+      "source": "R.idが赤い",
+      "translation": "R.id သည် အနီရောင် ဖြစ်နေသည်"
+    },
+    {
+      "source": "XMLのidが一致するか確認。main、img_bomb、btn1〜btn9、txt_message、btn_retry。<code>android:id=\"@+id/main\"</code> を消していないかも見る。最初のXMLエラーを直してビルドする。",
+      "translation": "XML ၏ id များ ကိုက်ညီမကိုက်ညီ စစ်ဆေးပါ။ main၊ img_bomb၊ btn1 မှ btn9၊ txt_message၊ btn_retry။ <code>android:id=\"@+id/main\"</code> ကို ဖျက်မိသလားလည်း ကြည့်ပါ။ ပထမဆုံး XML error ကို ပြင်ပြီး build လုပ်ပါ။"
+    },
+    {
+      "source": "起動時に終了する",
+      "translation": "စတင်ဖွင့်သည်နှင့် ပိတ်သွားသည်"
+    },
+    {
+      "source": "setContentViewがfindViewByIdより先か確認。Logcatで最初の例外を見る。",
+      "translation": "setContentView သည် findViewById ထက် ရှေ့တွင် ရှိမရှိ စစ်ဆေးပါ။ Logcat ဖြင့် ပထမဆုံး exception ကို ကြည့်ပါ။"
+    },
+    {
+      "source": "Arrays や ThreadLocalRandom が赤字になる",
+      "translation": "Arrays သို့မဟုတ် ThreadLocalRandom သည် အနီရောင် ဖြစ်နေသည်"
+    },
+    {
+      "source": "<code>java.util.Arrays</code> と <code>java.util.concurrent.ThreadLocalRandom</code> をimportする。<kbd>⌥ Enter</kbd> で候補を確認する。",
+      "translation": "<code>java.util.Arrays</code> နှင့် <code>java.util.concurrent.ThreadLocalRandom</code> ကို import လုပ်ပါ။ <kbd>⌥ Enter</kbd> ဖြင့် ရွေးချယ်စရာများကို စစ်ဆေးပါ။"
+    },
+    {
+      "source": "Logcatにスイッチの数字が出ない",
+      "translation": "Logcat တွင် မီးစာ switch ၏ ဂဏန်းများ မပေါ်ပါ"
+    },
+    {
+      "source": "STEP 5の <code>generateIgnitionNumbers();</code> をonCreateで呼んでいるか確認。検索欄のpackageが <code>jp.ac.jec.a05bombgame</code> か確認。",
+      "translation": "STEP 5 ၏ <code>generateIgnitionNumbers();</code> ကို onCreate တွင် ခေါ်ထားမထား စစ်ဆေးပါ။ ရှာဖွေရန်အကွက်၏ package သည် <code>jp.ac.jec.a05bombgame</code> ဟုတ်မဟုတ် စစ်ဆေးပါ။"
+    },
+    {
+      "source": "変数をlambdaで変更できない",
+      "translation": "variable ကို lambda ထဲတွင် ပြောင်း၍မရပါ"
+    },
+    {
+      "source": "nowState（STEP 7）をonCreate内で宣言していないか確認。onCreateの外のフィールドにする。",
+      "translation": "nowState (STEP 7) ကို onCreate အတွင်းတွင် ကြေညာမိသလား စစ်ဆေးပါ။ onCreate ၏ အပြင်ဘက်ရှိ field အဖြစ် ထားပါ။"
+    },
+    {
+      "source": "押したボタンが灰色にならない",
+      "translation": "နှိပ်လိုက်သော ခလုတ်သည် မီးခိုးရောင် မဖြစ်ပါ"
+    },
+    {
+      "source": "STEP 6のfor文でsetOnClickListenerしているか、処理の中に <code>button.setEnabled(false)</code> があるか確認。",
+      "translation": "STEP 6 ၏ for statement တွင် setOnClickListener လုပ်ထားမထား၊ လုပ်ဆောင်ချက်ထဲတွင် <code>button.setEnabled(false)</code> ရှိမရှိ စစ်ဆေးပါ။"
+    },
+    {
+      "source": "スイッチを押しても着火しない",
+      "translation": "မီးစာ switch ကို နှိပ်လည်း မီးမစွဲပါ"
+    },
+    {
+      "source": "Logcatの数字と押した数字が同じか確認。<code>anyMatch</code> の比較と <code>if (match) nowState++;</code> を確認。",
+      "translation": "Logcat ၏ ဂဏန်းနှင့် နှိပ်လိုက်သော ဂဏန်း တူမတူ စစ်ဆေးပါ။ <code>anyMatch</code> ၏ နှိုင်းယှဉ်မှုနှင့် <code>if (match) nowState++;</code> ကို စစ်ဆေးပါ။"
+    },
+    {
+      "source": "1つ目のスイッチで爆発する・何も起きない",
+      "translation": "ပထမ မီးစာ switch ဖြင့်ပင် ပေါက်ကွဲသည် / ဘာမှ မဖြစ်ပါ"
+    },
+    {
+      "source": "定数が STATE_INITIAL = 1、STATE_IGNITED = 2、STATE_EXPLODED = 3 か、<code>nowState</code> の初期値が STATE_INITIAL か確認。",
+      "translation": "constant များသည် STATE_INITIAL = 1၊ STATE_IGNITED = 2၊ STATE_EXPLODED = 3 ဟုတ်မဟုတ်၊ <code>nowState</code> ၏ ကနဦးတန်ဖိုးသည် STATE_INITIAL ဟုတ်မဟုတ် စစ်ဆေးပါ။"
+    },
+    {
+      "source": "爆発のあとも数字を押せる",
+      "translation": "ပေါက်ကွဲပြီးနောက်လည်း ဂဏန်းများကို နှိပ်၍ ရနေသည်"
+    },
+    {
+      "source": "else ifの中の <code>forEach(b -&gt; b.setEnabled(false))</code> を確認。",
+      "translation": "else if အတွင်းရှိ <code>forEach(b -&gt; b.setEnabled(false))</code> ကို စစ်ဆေးပါ။"
+    },
+    {
+      "source": "再挑戦が表示されない・押しても戻らない",
+      "translation": "再挑戦 (ထပ်ကြိုးစားရန်) မပေါ်ပါ / နှိပ်လည်း ပြန်မရောက်ပါ"
+    },
+    {
+      "source": "STEP 7の <code>setVisibility(View.VISIBLE)</code> と、STEP 8の再挑戦の処理を確認。",
+      "translation": "STEP 7 ၏ <code>setVisibility(View.VISIBLE)</code> နှင့် STEP 8 ၏ 再挑戦 (ထပ်ကြိုးစားရန်) လုပ်ဆောင်ချက်ကို စစ်ဆေးပါ။"
+    },
+    {
+      "source": "クリアにならない",
+      "translation": "အောင်မြင်မှု မဖြစ်ပါ"
+    },
+    {
+      "source": "STEP 9の7と8、<code>&amp;&amp;</code> と <code>||</code>、数を数える行が <code>nowState++</code> の下にあるかを確認。",
+      "translation": "STEP 9 ၏ 7 နှင့် 8၊ <code>&amp;&amp;</code> နှင့် <code>||</code>၊ အရေအတွက် ရေတွက်သည့် စာကြောင်းသည် <code>nowState++</code> ၏ အောက်တွင် ရှိမရှိ စစ်ဆေးပါ။"
+    },
+    {
+      "source": "起動したまま画面が固まる",
+      "translation": "စတင်ဖွင့်ပြီးသည်နှင့် မျက်နှာပြင် ရပ်တန့်သွားသည်"
+    },
+    {
+      "source": "do-while文の条件が <code>!= 2</code> か、<code>ints(2, 1, 10)</code> の数字を変えていないか確認。",
+      "translation": "do-while statement ၏ condition သည် <code>!= 2</code> ဟုတ်မဟုတ်၊ <code>ints(2, 1, 10)</code> ၏ ဂဏန်းများကို ပြောင်းမိသလား စစ်ဆေးပါ။"
+    },
+    {
+      "source": "NumberFormatExceptionで終了する",
+      "translation": "NumberFormatException ဖြင့် ပိတ်သွားသည်"
+    },
+    {
+      "source": "数字ボタンの <code>android:text</code> が1〜9のままか確認。文字に変えると数値に変換できない。",
+      "translation": "ဂဏန်းခလုတ်၏ <code>android:text</code> သည် 1 မှ 9 အတိုင်း ရှိမရှိ စစ်ဆေးပါ။ စာလုံးသို့ ပြောင်းလိုက်လျှင် ဂဏန်းအဖြစ် ပြောင်း၍မရပါ။"
+    },
+    {
+      "source": "画面の下が見えない",
+      "translation": "မျက်နှာပြင်၏ အောက်ပိုင်းကို မမြင်ရပါ"
+    },
+    {
+      "source": "エミュレータを縦向きにする。この単元では横向きの表示を扱わない。",
+      "translation": "emulator ကို ဒေါင်လိုက် ထားပါ။ ဤသင်ခန်းစာတွင် အလျားလိုက် ပြသမှုကို မကိုင်တွယ်ပါ။"
+    },
+    {
+      "source": "<a1>共通資料：Logcat</a1>を使います。今回のパッケージは <code>jp.ac.jec.a05bombgame</code> です。エラーを見るときは、STEP 5で入れた <code>tag:MainActivity</code> と <code>level:DEBUG</code> を消して、<code>package:jp.ac.jec.a05bombgame level:ERROR</code> に置き換えます。前の単元のパッケージ名も残さないようにします。",
+      "translation": "<a1>အများသုံးလမ်းညွှန်: Logcat</a1> ကို သုံးပါ။ ယခုတစ်ကြိမ် package မှာ <code>jp.ac.jec.a05bombgame</code> ဖြစ်သည်။ error ကို ကြည့်သည့်အခါ STEP 5 တွင် ထည့်ခဲ့သော <code>tag:MainActivity</code> နှင့် <code>level:DEBUG</code> ကို ဖျက်ပြီး <code>package:jp.ac.jec.a05bombgame level:ERROR</code> ဖြင့် အစားထိုးပါ။ ယခင် သင်ခန်းစာ၏ package အမည်ကိုလည်း မကျန်စေပါနှင့်။"
+    },
+    {
+      "source": "質問では「STEP番号・編集したファイル・最初の赤い行・押した順番」を伝えます。",
+      "translation": "မေးခွန်းမေးသည့်အခါ “STEP နံပါတ်၊ ပြင်ဆင်ခဲ့သော ဖိုင်၊ ပထမဆုံး အနီရောင်စာကြောင်း၊ နှိပ်ခဲ့သော အစဉ်” တို့ကို ပြောပြပါ။"
+    },
+    {
+      "source": "完成版は最初の授業から使える見本です。教科書といっしょに配られた<strong>教材のフォルダ</strong>に、そのまま開ける形で入っています。ダウンロードも展開も要りません。STEP 2の画像は、この見本の <code>app/src/main/res/drawable</code> にも入っています。",
+      "translation": "ပြီးစီးထားသော ပုံစံသည် ပထမဆုံးအတန်းမှစ၍ သုံးနိုင်သော နမူနာ ဖြစ်သည်။ သင်ရိုးစာအုပ်နှင့်အတူ ဖြန့်ဝေထားသော <strong>သင်ထောက်ကူပစ္စည်းဖိုင်တွဲ</strong> အတွင်း တိုက်ရိုက် ဖွင့်နိုင်သည့်ပုံစံဖြင့် ရှိသည်။ download လုပ်ရန်နှင့် ဖိုင်ဖြည်ရန် မလိုပါ။ STEP 2 ၏ ပုံများသည် ဤနမူနာ၏ <code>app/src/main/res/drawable</code> ထဲတွင်လည်း ရှိသည်။"
+    },
+    {
+      "source": "Android Studioの <strong>Open</strong>（プロジェクトを開いているときは <strong>File → Open</strong>）で、<strong>書類</strong>（<code>Documents</code>）にある教材のフォルダを開きます。名前は <code>android1-student-materials-</code> のうしろに日付が付いた形で、日付は配られた回によって変わります。いま読んでいるこの教科書が入っているフォルダです。",
+      "translation": "Android Studio ၏ <strong>Open</strong> (project ဖွင့်ထားလျှင် <strong>File → Open</strong>) ဖြင့် <strong>書類</strong> (<code>Documents</code>) ထဲရှိ သင်ထောက်ကူပစ္စည်း ဖိုင်တွဲ ကို ဖွင့်ပါ။ အမည်မှာ <code>android1-student-materials-</code> ၏ နောက်တွင် ရက်စွဲ ပါသောပုံစံ ဖြစ်ပြီး ရက်စွဲသည် ဖြန့်ပေးသည့် အကြိမ်အလိုက် ကွဲပြားသည်။ ယခု ဖတ်နေသော ဤသင်ရိုးစာအုပ် ပါဝင်သည့် ဖိုင်တွဲ ဖြစ်သည်။"
+    },
+    {
+      "source": "その中を <code>samples → A05BombGame</code> の順に開き、<code>settings.gradle.kts</code> と <code>app</code> が入った <code>A05BombGame</code> フォルダを選びます。",
+      "translation": "၎င်းအထဲကို <code>samples → A05BombGame</code> အစဉ်လိုက် ဖွင့်ပြီး <code>settings.gradle.kts</code> နှင့် <code>app</code> ပါဝင်သော <code>A05BombGame</code> ဖိုင်တွဲကို ရွေးပါ။"
+    },
+    {
+      "source": "Sync後にRunして動きを確認します。授業の入力に戻るときは自分の <code>Documents/Android1/A05BombGame</code> を開きます。",
+      "translation": "Sync ပြီးနောက် Run လုပ်ပြီး လှုပ်ရှားမှုကို စစ်ဆေးပါ။ အတန်းတွင် ကိုယ်တိုင် ရိုက်ထည့်ခြင်းသို့ ပြန်သွားသည့်အခါ မိမိ၏ <code>Documents/Android1/A05BombGame</code> ကို ဖွင့်ပါ။"
+    },
+    {
+      "source": "両方とも同じプロジェクト名なので、ウィンドウの保存先を確認しましょう。見本と自分のアプリは同じパッケージ名のため、端末上では同じアプリを更新します。切り替えるときは、確認したい方のプロジェクトからRunします。",
+      "translation": "နှစ်ခုစလုံး project အမည် တူညီသဖြင့် window ၏ သိမ်းဆည်းရာနေရာကို စစ်ဆေးပါ။ နမူနာနှင့် ကိုယ့် app သည် package အမည် တူညီသောကြောင့် စက်ပေါ်တွင် တူညီသော app ကိုသာ update လုပ်သည်။ ပြောင်းသည့်အခါ စစ်ဆေးလိုသည့် project မှ run လုပ်ပါ။"
+    },
+    {
+      "source": "教材のフォルダが手元にないときは、同じ見本をZIPで受け取れます（<a1>A05BombGame.zip</a1>）。展開してできた <code>A05BombGame</code> フォルダを、同じようにOpenで選びます。",
+      "translation": "သင်ထောက်ကူပစ္စည်းဖိုင်တွဲ လက်ထဲတွင် မရှိလျှင် တူညီသော နမူနာကို ZIP ဖြင့် ရယူနိုင်သည် (<a1>A05BombGame.zip</a1>)။ ဖိုင်ဖြည်ပြီး ရလာသော <code>A05BombGame</code> ဖိုင်တွဲကို အလားတူ Open ဖြင့် ရွေးပါ။"
+    },
+    {
+      "source": "完成したMainActivity.javaで照合する",
+      "translation": "ပြီးစီးထားသော MainActivity.java ဖြင့် တိုက်ဆိုင်စစ်ဆေးရန်"
+    },
+    {
+      "source": "完成版 · MainActivity.java",
+      "translation": "ပြီးစီးထားသော version · MainActivity.java"
+    },
+    {
+      "source": "完成したactivity_main.xmlで照合する",
+      "translation": "ပြီးစီးထားသော activity_main.xml ဖြင့် တိုက်ဆိုင်စစ်ဆေးရန်"
+    },
+    {
+      "source": "完成版 · activity_main.xml",
+      "translation": "ပြီးစီးထားသော version · activity_main.xml"
+    },
+    {
+      "source": "Androidプログラミング1 · A05BombGame / 本文・画像・操作機能はオフラインで利用できます。Android Studioの初回準備・ビルドと公式資料の閲覧にはネット接続が必要です。",
+      "translation": "Android ပရိုဂရမ်းမင်း 1 · A05BombGame / စာကိုယ်၊ ပုံများနှင့် လုပ်ဆောင်ချက်များကို offline တွင် အသုံးပြုနိုင်သည်။ Android Studio ကို ပထမဆုံးအကြိမ် ပြင်ဆင်ခြင်း၊ build လုပ်ခြင်းနှင့် တရားဝင်စာရွက်စာတမ်းများ ဖတ်ရှုခြင်းအတွက် internet ချိတ်ဆက်မှု လိုအပ်သည်။"
+    },
+    {
+      "source": "画像は授業用の提供資料を使用。導火線スイッチの数字と結果は操作によって変わります。",
+      "translation": "ပုံများသည် အတန်းအတွက် ပေးထားသော အရင်းအမြစ်များကို သုံးထားသည်။ မီးစာ switch ၏ ဂဏန်းများနှင့် ရလဒ်များသည် လုပ်ဆောင်ပုံအလိုက် ပြောင်းလဲသည်။"
+    }
+  ],
+  "overrides": [
+    {
+      "source": "コード",
+      "where": "th",
+      "translation": "code"
+    }
+  ]
+}

@@ -1,0 +1,170 @@
+{
+  "source": "docs/common/logcat.html",
+  "language": "my",
+  "entries": [
+    {
+      "source": "Logcatの使い方 | Androidプログラミング1",
+      "translation": "Logcat အသုံးပြုပုံ | Android ပရိုဂရမ်းမင်း 1"
+    },
+    {
+      "source": "本文へ移動",
+      "translation": "အဓိကအကြောင်းအရာသို့ ကျော်သွားရန်"
+    },
+    {
+      "source": "JEC / Androidプログラミング1",
+      "translation": "JEC / Android ပရိုဂရမ်းမင်း 1"
+    },
+    {
+      "source": "もとのページへ戻る",
+      "translation": "လာခဲ့သော စာမျက်နှာသို့ ပြန်သွားရန်"
+    },
+    {
+      "source": "ANDROID PROGRAMMING 1 / 共通資料・授業サポート",
+      "translation": "ANDROID PROGRAMMING 1 / အများသုံးလမ်းညွှန်နှင့် အတန်းအတွက် အကူအညီ"
+    },
+    {
+      "source": "Logcatの使い方",
+      "translation": "Logcat အသုံးပြုပုံ"
+    },
+    {
+      "source": "アプリの中で何が起きたか、文字の記録で確かめます。",
+      "translation": "app အတွင်း ဘာဖြစ်ခဲ့သလဲဆိုသည်ကို စာသားမှတ်တမ်းဖြင့် စစ်ဆေးမည်။"
+    },
+    {
+      "source": "1. Logcatを開く",
+      "translation": "1. Logcat ကို ဖွင့်ပါ"
+    },
+    {
+      "source": "<strong>ログ</strong>は動作の記録です。<strong>Logcat</strong>（ログキャット）は、その記録をAndroid Studioで読むための画面です。ここではHelloAndroidを例にします。",
+      "translation": "<strong>log</strong> သည် လုပ်ဆောင်မှုမှတ်တမ်းဖြစ်သည်။ <strong>Logcat</strong> သည် ထိုမှတ်တမ်းကို Android Studio တွင် ဖတ်ရန် မျက်နှာပြင်ဖြစ်သည်။ ဤနေရာတွင် HelloAndroid ကို ဥပမာအဖြစ် သုံးမည်။"
+    },
+    {
+      "source": "授業のプロジェクトを開き、エミュレータでアプリをRunします。",
+      "translation": "အတန်း၏ project ကို ဖွင့်ပြီး emulator တွင် app ကို Run လုပ်ပါ။"
+    },
+    {
+      "source": "上のメニューから <strong>View → Tool Windows → Logcat</strong> を選びます。",
+      "translation": "အပေါ်ရှိ menu မှ <strong>View → Tool Windows → Logcat</strong> ကို ရွေးပါ။"
+    },
+    {
+      "source": "Logcatの端末欄で、アプリを動かしている <strong>jec_26cm_android1_Pixel 9a</strong> を選びます。",
+      "translation": "Logcat ၏ စက်ရွေးရန်အကွက်တွင် app ကို run လုပ်နေသော <strong>jec_26cm_android1_Pixel 9a</strong> ကို ရွေးပါ။"
+    },
+    {
+      "source": "2. 見たいログだけを表示する",
+      "translation": "2. ကြည့်လိုသော log များကိုသာ ပြပါ"
+    },
+    {
+      "source": "Logcatの検索欄の内容を全部選び、次の文字に置き換えます。",
+      "translation": "Logcat ရှိ ရှာဖွေရန်အကွက်၏ စာသားအားလုံးကို ရွေးပြီး အောက်ပါစာသားဖြင့် အစားထိုးပါ။"
+    },
+    {
+      "source": "Logcatの検索欄 · HelloAndroid用",
+      "translation": "Logcat ရှိ ရှာဖွေရန်အကွက် · HelloAndroid အတွက်"
+    },
+    {
+      "source": "検索の部分",
+      "translation": "ရှာဖွေမှု၏ အပိုင်း"
+    },
+    {
+      "source": "意味",
+      "translation": "အဓိပ္ပာယ်"
+    },
+    {
+      "source": "このアプリのログを選ぶ。",
+      "translation": "ဤ app ၏ log များကို ရွေးသည်။"
+    },
+    {
+      "source": "MainActivityという目印を付けたログを選ぶ。",
+      "translation": "MainActivity ဟူသော အမှတ်အသားပါသော log များကို ရွေးသည်။"
+    },
+    {
+      "source": "Debug以上の重要度のログを表示する。<code>Log.d</code> の記録を含む。",
+      "translation": "အရေးပါမှုအဆင့် Debug နှင့်အထက်ရှိ log များကို ပြသည်။ <code>Log.d</code> မှတ်တမ်းများ ပါဝင်သည်။"
+    },
+    {
+      "source": "別の授業で使う場合は、packageとtagを、そのプロジェクトのものに変えます。",
+      "translation": "အခြားအတန်းတွင် သုံးလျှင် package နှင့် tag ကို ထို project ၏ package နှင့် tag သို့ ပြောင်းပါ။"
+    },
+    {
+      "source": "3. 操作の前後を比べる",
+      "translation": "3. လုပ်ဆောင်မှု မတိုင်မီနှင့် ပြီးနောက်ကို နှိုင်းယှဉ်ပါ"
+    },
+    {
+      "source": "Logcatにログの表示を一時停止するボタンがある場合は、停止していないことを確認します。",
+      "translation": "Logcat တွင် log ပြသမှုကို ခေတ္တရပ်ရန် ခလုတ်ရှိလျှင် ရပ်ထားခြင်းမရှိကြောင်း စစ်ဆေးပါ။"
+    },
+    {
+      "source": "アプリをStopしてからRunし、<strong>Hello World!</strong> の行を探します。",
+      "translation": "app ကို Stop လုပ်ပြီးနောက် Run လုပ်၍ <strong>Hello World!</strong> ပါသော လိုင်းကို ရှာပါ။"
+    },
+    {
+      "source": "アプリの変更ボタンを押し、<strong>Hello, Android!</strong> の行を探します。",
+      "translation": "app ၏ ပြောင်းလဲရန်ခလုတ်ကို နှိပ်ပြီး <strong>Hello, Android!</strong> ပါသော လိုင်းကို ရှာပါ။"
+    },
+    {
+      "source": "メッセージの前後を比べます。時刻や数字は、自分の実行時の値で構いません。",
+      "translation": "မလုပ်မီနှင့် လုပ်ပြီးနောက် message များကို နှိုင်းယှဉ်ပါ။ အချိန်နှင့် နံပါတ်များသည် မိမိ run လုပ်သည့်အချိန်၏ တန်ဖိုးများဖြစ်လျှင် ရသည်။"
+    },
+    {
+      "source": "読むところの例 · 時刻などを省いた説明用の表示",
+      "translation": "ဖတ်ရမည့်နေရာ၏ ဥပမာ · ရှင်းပြရန်အတွက် အချိန်စသည်တို့ကို ချန်လှပ်ထားသော ပြသချက်"
+    },
+    {
+      "source": "成功の目印",
+      "translation": "အောင်မြင်ကြောင်း သိနိုင်သည့်အချက်များ"
+    },
+    {
+      "source": "起動時とクリック後で、ログの文字が違う。画面の表示文字とログのメッセージが一致する。",
+      "translation": "စတင်ဖွင့်ချိန်နှင့် နှိပ်ပြီးနောက်တွင် log စာသား ကွဲပြားသည်။ မျက်နှာပြင်ပေါ်ရှိ စာသားနှင့် log message တို့ ကိုက်ညီသည်။"
+    },
+    {
+      "source": "ログが流れて見えないときは一時停止して読みます。確認後は再開します。",
+      "translation": "log များ ရွေ့သွား၍ မမြင်ရလျှင် ခေတ္တရပ်ပြီး ဖတ်ပါ။ စစ်ဆေးပြီးနောက် ပြန်စပါ။"
+    },
+    {
+      "source": "4. ログが出ないとき",
+      "translation": "4. log မပေါ်လျှင်"
+    },
+    {
+      "source": "授業の端末を選んでいるか確認します。",
+      "translation": "အတန်းသုံးစက်ကို ရွေးထားကြောင်း စစ်ဆေးပါ။"
+    },
+    {
+      "source": "検索欄をコピーし直します。日本語の全角スペースや、packageの打ち間違いを確認します。",
+      "translation": "ရှာဖွေရန်အကွက်၏ စာသားကို ပြန်ကူးထည့်ပါ။ ဂျပန်စာ၏ full-width space ပါမပါနှင့် package ရိုက်မှားမမှားကို စစ်ဆေးပါ။"
+    },
+    {
+      "source": "ログの一時停止を解除し、末尾へ移動します。",
+      "translation": "log ခေတ္တရပ်ထားခြင်းကို ပယ်ဖျက်ပြီး အဆုံးသို့ သွားပါ။"
+    },
+    {
+      "source": "Javaに <code>Log.d</code> を追加した後、Runしたか確認します。",
+      "translation": "Java တွင် <code>Log.d</code> ထည့်ပြီးနောက် Run လုပ်ပြီးကြောင်း စစ်ဆေးပါ။"
+    },
+    {
+      "source": "起動時のログを探すなら、アプリをStopしてからRunします。クリック後のログなら、ボタンをもう一度押します。",
+      "translation": "စတင်ဖွင့်ချိန်၏ log ကို ရှာလိုလျှင် app ကို Stop လုပ်ပြီးနောက် Run လုပ်ပါ။ နှိပ်ပြီးနောက် log ကို ရှာလိုလျှင် ခလုတ်ကို ထပ်နှိပ်ပါ။"
+    },
+    {
+      "source": "アプリがすぐ閉じるときは、検索欄を <code>package:jp.ac.jec.a01helloandroid level:ERROR</code> に変え、赤いエラーの最初の行を先生に見せます。MainActivityのtagで絞ったままだと、別のtagのエラーは見えません。",
+      "translation": "app ချက်ချင်း ပိတ်သွားလျှင် ရှာဖွေရန်အကွက်ကို <code>package:jp.ac.jec.a01helloandroid level:ERROR</code> သို့ ပြောင်းပြီး အနီရောင် error ၏ ပထမလိုင်းကို ဆရာကို ပြပါ။ MainActivity tag ဖြင့်သာ စစ်ထုတ်ထားလျှင် အခြား tag များ၏ error များကို မမြင်ရပါ။"
+    },
+    {
+      "source": "公式資料",
+      "translation": "တရားဝင် အချက်အလက်များ"
+    },
+    {
+      "source": "Android Developers：Logcatでログを表示する",
+      "translation": "Android Developers: Logcat ဖြင့် log များ ပြသခြင်း"
+    },
+    {
+      "source": "← もとのページへ戻る",
+      "translation": "← လာခဲ့သော စာမျက်နှာသို့ ပြန်သွားရန်"
+    },
+    {
+      "source": "対象：macOS / Android Studio Panda 2 | 2025.3.2 · 確認日：2026年9月15日",
+      "translation": "သက်ဆိုင်သည့်ပတ်ဝန်းကျင်: macOS / Android Studio Panda 2 | 2025.3.2 · စစ်ဆေးခဲ့သည့်နေ့: 2026 ခုနှစ် စက်တင်ဘာ 15 ရက်"
+    }
+  ]
+}

@@ -1,0 +1,1362 @@
+{
+  "source": "docs/shared-preferences-sample/index.html",
+  "language": "my",
+  "entries": [
+    {
+      "source": "JavaとXMLで作るA08SharedPreferencesSample。SharedPreferencesでデータを端末に保存し、アプリを終了しても残ることを画面で確かめ、保存先のXMLファイルの中身まで見るところまでを小さなSTEPで学ぶ授業用教科書。",
+      "translation": "Java နှင့် XML ဖြင့် ဖန်တီးသော A08SharedPreferencesSample။ SharedPreferences ဖြင့် ဒေတာကို စက်ထဲတွင် သိမ်းဆည်းပြီး app ကို ပိတ်လိုက်သော်လည်း ကျန်နေကြောင်း မျက်နှာပြင်တွင် စစ်ဆေးကာ သိမ်းဆည်းရာ XML ဖိုင်၏ အထဲအထိ ကြည့်ရှုသည်အထိ STEP ငယ်များဖြင့် သင်ယူရသော အတန်းသုံး သင်ရိုးစာအုပ်။"
+    },
+    {
+      "source": "SharedPreferencesSample — データを保存しよう | Androidプログラミング1",
+      "translation": "SharedPreferencesSample — ဒေတာကို သိမ်းဆည်းကြမည် | Android ပရိုဂရမ်းမင်း 1"
+    },
+    {
+      "source": "本文へ移動",
+      "translation": "အဓိကအကြောင်းအရာသို့ ကျော်သွားရန်"
+    },
+    {
+      "source": "JEC / Androidプログラミング1",
+      "translation": "JEC / Android ပရိုဂရမ်းမင်း 1"
+    },
+    {
+      "source": "CONTENTS / 学習の順番",
+      "translation": "CONTENTS / သင်ယူရမည့် အစီအစဉ်"
+    },
+    {
+      "source": "学習ステップ",
+      "translation": "သင်ယူရမည့် အဆင့်များ"
+    },
+    {
+      "source": "00　今日のゴール",
+      "translation": "00 ယနေ့၏ ရည်မှန်းချက်"
+    },
+    {
+      "source": "01　プロジェクトを作って実行",
+      "translation": "01 project ဖန်တီး၍ run လုပ်ခြင်း"
+    },
+    {
+      "source": "02　画面を作る",
+      "translation": "02 မျက်နှာပြင် ဖန်တီးခြင်း"
+    },
+    {
+      "source": "03　SharedPreferencesを用意する",
+      "translation": "03 SharedPreferences ကို ပြင်ဆင်ခြင်း"
+    },
+    {
+      "source": "04　保存されている値を画面に出す",
+      "translation": "04 သိမ်းဆည်းထားသော တန်ဖိုးများကို မျက်နှာပြင်တွင် ဖော်ပြခြင်း"
+    },
+    {
+      "source": "05　データを保存する",
+      "translation": "05 ဒေတာကို သိမ်းဆည်းခြင်း"
+    },
+    {
+      "source": "06　アプリを終了しても残ることを確かめる",
+      "translation": "06 app ကို ပိတ်လိုက်သော်လည်း ကျန်နေကြောင်း စစ်ဆေးခြင်း"
+    },
+    {
+      "source": "07　データを全部消す",
+      "translation": "07 ဒေတာအားလုံးကို ဖျက်ခြင်း"
+    },
+    {
+      "source": "08　保存先のXMLファイルを見る",
+      "translation": "08 သိမ်းဆည်းရာ XML ဖိုင်ကို ကြည့်ခြင်း"
+    },
+    {
+      "source": "09　ミニ練習",
+      "translation": "09　လေ့ကျင့်ခန်းငယ်"
+    },
+    {
+      "source": "10　完成",
+      "translation": "10　ပြီးစီးခြင်း"
+    },
+    {
+      "source": "0 / 11 ステップ確認済み",
+      "translation": "0 / 11 အဆင့် စစ်ဆေးပြီးပြီ"
+    },
+    {
+      "source": "学習の進み具合",
+      "translation": "သင်ယူမှု တိုးတက်မှု"
+    },
+    {
+      "source": "自分用のチェックです。",
+      "translation": "ဤစစ်ဆေးချက်များသည် မိမိအတွက်သာ ဖြစ်သည်။"
+    },
+    {
+      "source": "困ったとき",
+      "translation": "အခက်အခဲရှိလျှင်"
+    },
+    {
+      "source": "解説：applyとcommitの違い",
+      "translation": "ရှင်းလင်းချက်: apply နှင့် commit ၏ ကွာခြားချက်"
+    },
+    {
+      "source": "解説：何を保存してよいか",
+      "translation": "ရှင်းလင်းချက်: ဘာများကို သိမ်းဆည်းသင့်သနည်း"
+    },
+    {
+      "source": "完成プロジェクトを開く",
+      "translation": "ပြီးစီးထားသော project ကို ဖွင့်ရန်"
+    },
+    {
+      "source": "共通：はじめの準備",
+      "translation": "အများသုံး: စတင်ရန် ပြင်ဆင်ခြင်း"
+    },
+    {
+      "source": "共通：エミュレータ",
+      "translation": "အများသုံး: emulator"
+    },
+    {
+      "source": "共通：Auto Import",
+      "translation": "အများသုံး: Auto Import"
+    },
+    {
+      "source": "共通：Logcat",
+      "translation": "အများသုံး: Logcat"
+    },
+    {
+      "source": "共通：APKの提出",
+      "translation": "အများသုံး: APK တင်သွင်းခြင်း"
+    },
+    {
+      "source": "共通：開発Tips",
+      "translation": "အများသုံး: app ရေးသားရာတွင် အသုံးဝင်သောအချက်များ"
+    },
+    {
+      "source": "共通：Android Studioのバージョン",
+      "translation": "အများသုံး: Android Studio ၏ version"
+    },
+    {
+      "source": "アプリを閉じても<br>消えないデータ",
+      "translation": "app ကို ပိတ်လိုက်သော်လည်း<br>မပျောက်သော ဒေတာ"
+    },
+    {
+      "source": "値を保存する。アプリを終了する。もう一度開くと、値が残っている。<br>保存先のファイルの中身まで、自分の目で確かめます。",
+      "translation": "တန်ဖိုးကို သိမ်းဆည်းပါ။ app ကို ပိတ်ပါ။ နောက်တစ်ကြိမ် ဖွင့်လျှင် တန်ဖိုး ကျန်နေသည်။<br>သိမ်းဆည်းရာ ဖိုင်၏ အထဲအကြောင်းအရာအထိ ကိုယ်တိုင် မျက်မြင် စစ်ဆေးပါမည်။"
+    },
+    {
+      "source": "A07の次の単元",
+      "translation": "A07 ၏ နောက်သင်ခန်းစာ"
+    },
+    {
+      "source": "90分 × 2コマ目安",
+      "translation": "မိနစ် 90 × အတန်းချိန် 2 ခု ခန့်မှန်း"
+    },
+    {
+      "source": "Macで学ぶ",
+      "translation": "Mac ဖြင့် သင်ယူမည်"
+    },
+    {
+      "source": "STEP 00 · 目安 5分",
+      "translation": "STEP 00 · ခန့်မှန်း 5 မိနစ်"
+    },
+    {
+      "source": "今日のゴール",
+      "translation": "ယနေ့၏ ရည်မှန်းချက်"
+    },
+    {
+      "source": "これまでの単元で作ったアプリは、終了すると入力した内容が消えていました。今回は<strong>アプリを終了しても消えないデータ</strong>の保存を学びます。使うのは <code>SharedPreferences</code> です。",
+      "translation": "ယခင်သင်ခန်းစာများတွင် ဖန်တီးခဲ့သော app များသည် ပိတ်လိုက်လျှင် ရိုက်ထည့်ထားသော အကြောင်းအရာများ ပျောက်သွားခဲ့သည်။ ယခုတစ်ကြိမ်တွင် <strong>app ကို ပိတ်လိုက်သော်လည်း မပျောက်သော ဒေတာ</strong> ကို သိမ်းဆည်းနည်း သင်ယူမည်။ သုံးမည့်အရာမှာ <code>SharedPreferences</code> ဖြစ်သည်။"
+    },
+    {
+      "source": "画面はボタン4つと表示欄だけです。ボタンを押すたびに、いま保存されている内容が表示欄に出ます。",
+      "translation": "မျက်နှာပြင်တွင် ခလုတ် 4 ခုနှင့် ဖော်ပြရန်အကွက်သာ ရှိသည်။ ခလုတ်ကို နှိပ်တိုင်း ယခု သိမ်းဆည်းထားသော အကြောင်းအရာများကို ဖော်ပြရန်အကွက်တွင် ပြမည်။"
+    },
+    {
+      "source": "アプリの画面。apply、get、clear、show app.xmlの4つのボタンの下に、int_value = 1、string_value = Hello、boolean_value = true、float_value = 1.0、long_value = 1、string_set_value = [Hello, World] と表示されている",
+      "translation": "app ၏ မျက်နှာပြင်။ apply၊ get၊ clear၊ show app.xml ဟူသော ခလုတ် 4 ခု၏ အောက်တွင် int_value = 1၊ string_value = Hello၊ boolean_value = true၊ float_value = 1.0၊ long_value = 1၊ string_set_value = [Hello, World] ဟု ဖော်ပြထားသည်"
+    },
+    {
+      "source": "applyを押したあと。6種類の値が保存されています。 <a1>画像を大きく開く</a1>",
+      "translation": "apply ကို နှိပ်ပြီးနောက်။ တန်ဖိုး 6 မျိုးကို သိမ်းဆည်းထားသည်။ <a1>ပုံကို အရွယ်အစားအပြည့်ဖြင့် ဖွင့်ပါ</a1>"
+    },
+    {
+      "source": "show app.xmlを押した画面。ファイルのパスに続いて、mapタグの中にstring、boolean、set、float、long、intの各タグが並んだXMLが表示されている",
+      "translation": "show app.xml ကို နှိပ်ထားသော မျက်နှာပြင်။ ဖိုင်၏ path ပြီးနောက် map tag ထဲတွင် string၊ boolean၊ set၊ float၊ long၊ int tag များ စီထားသော XML ကို ဖော်ပြထားသည်"
+    },
+    {
+      "source": "保存先のファイルの中身です。データはXMLで残っています。 <a1>画像を大きく開く</a1>",
+      "translation": "သိမ်းဆည်းရာ ဖိုင်၏ အထဲအကြောင်းအရာ ဖြစ်သည်။ ဒေတာသည် XML အဖြစ် ကျန်နေသည်။ <a1>ပုံကို အရွယ်အစားအပြည့်ဖြင့် ဖွင့်ပါ</a1>"
+    },
+    {
+      "source": "できるようになること",
+      "translation": "လုပ်တတ်လာမည့်အရာများ"
+    },
+    {
+      "source": "アプリを終了しても消えないデータを、<code>SharedPreferences</code> で保存できる。",
+      "translation": "app ကို ပိတ်လိုက်သော်လည်း မပျောက်သော ဒေတာကို <code>SharedPreferences</code> ဖြင့် သိမ်းဆည်းနိုင်သည်။"
+    },
+    {
+      "source": "保存されていないときに <code>getInt</code> などが返す<strong>初期値</strong>を説明できる。",
+      "translation": "မသိမ်းဆည်းထားသည့်အခါ <code>getInt</code> စသည်တို့ ပြန်ပေးသော <strong>မူလတန်ဖိုး</strong> ကို ရှင်းပြနိုင်သည်။"
+    },
+    {
+      "source": "保存したデータをまとめて消せる。",
+      "translation": "သိမ်းဆည်းထားသော ဒေတာများကို တစ်ပြိုင်နက်တည်း ဖျက်နိုင်သည်။"
+    },
+    {
+      "source": "データがどこに、どんな形で保存されているかを説明できる。",
+      "translation": "ဒေတာကို မည်သည့်နေရာတွင် မည်သည့်ပုံစံဖြင့် သိမ်းဆည်းထားသည်ကို ရှင်းပြနိုင်သည်။"
+    },
+    {
+      "source": "今日使う技術",
+      "translation": "ယနေ့ အသုံးပြုမည့် နည်းပညာများ"
+    },
+    {
+      "source": "技術",
+      "translation": "နည်းပညာ"
+    },
+    {
+      "source": "どこで使うか",
+      "translation": "ဘယ်နေရာတွင် သုံးသလဲ"
+    },
+    {
+      "source": "保存先のファイル名を指定して、読み書きする入口を受け取る。",
+      "translation": "သိမ်းဆည်းရာ ဖိုင်အမည်ကို သတ်မှတ်ပြီး ဖတ်ရေးရန် ဝင်ပေါက်ကို ရယူသည်။"
+    },
+    {
+      "source": "<code>edit()</code> と <code>putInt</code> ほか",
+      "translation": "<code>edit()</code> နှင့် <code>putInt</code> စသည်"
+    },
+    {
+      "source": "保存したい値を、キー（名前）を付けて書き込む。",
+      "translation": "သိမ်းဆည်းလိုသော တန်ဖိုးကို key (အမည်) ပေး၍ ရေးထည့်သည်။"
+    },
+    {
+      "source": "書き込みを確定する。これを呼ぶまで保存されない。",
+      "translation": "ရေးထည့်မှုကို အတည်ပြုသည်။ ၎င်းကို မခေါ်မချင်း မသိမ်းဆည်းပါ။"
+    },
+    {
+      "source": "<code>getInt</code> ほか",
+      "translation": "<code>getInt</code> စသည်"
+    },
+    {
+      "source": "キーを指定して読み出す。データがないときは初期値が返る。",
+      "translation": "key ကို သတ်မှတ်ပြီး ဖတ်ထုတ်သည်။ ဒေတာ မရှိလျှင် မူလတန်ဖိုး ပြန်ရမည်။"
+    },
+    {
+      "source": "保存したデータをすべて消す。",
+      "translation": "သိမ်းဆည်းထားသော ဒေတာအားလုံးကို ဖျက်သည်။"
+    },
+    {
+      "source": "画面回転について",
+      "translation": "မျက်နှာပြင် လှည့်ခြင်းအကြောင်း"
+    },
+    {
+      "source": "各単元では画面回転時のデータ保持と横画面のレイアウトを扱いません。縦向きで使います。なお今回のデータは <code>SharedPreferences</code> に入っているので、回転してもアプリを終了しても残ります。消えるのは画面に表示していた文字だけで、保存したデータではありません。",
+      "translation": "သင်ခန်းစာတိုင်းတွင် မျက်နှာပြင် လှည့်သည့်အခါ ဒေတာ ထိန်းသိမ်းခြင်းနှင့် အလျားလိုက် မျက်နှာပြင် layout ကို မကိုင်တွယ်ပါ။ ဒေါင်လိုက်အတိုင်းသာ သုံးမည်။ ယခုတစ်ကြိမ် ဒေတာသည် <code>SharedPreferences</code> ထဲတွင် ရှိသဖြင့် လှည့်လိုက်သည်ဖြစ်စေ app ကို ပိတ်လိုက်သည်ဖြစ်စေ ကျန်နေမည်။ ပျောက်သွားသည်မှာ မျက်နှာပြင်တွင် ဖော်ပြထားသော စာသားသာဖြစ်ပြီး သိမ်းဆည်းထားသော ဒေတာ မဟုတ်ပါ။"
+    },
+    {
+      "source": "ここで止まって、確認",
+      "translation": "ဤနေရာတွင် ရပ်ပြီး စစ်ဆေးပါ"
+    },
+    {
+      "source": "今回作るアプリの画面を画像で確かめ、保存・読み出し・削除に使う技術を表で確認した。",
+      "translation": "ယခု ဖန်တီးမည့် app ၏ မျက်နှာပြင်ကို ပုံဖြင့် စစ်ဆေးပြီး သိမ်းဆည်းခြင်း၊ ဖတ်ထုတ်ခြင်း၊ ဖျက်ခြင်းတို့တွင် သုံးမည့် နည်းပညာများကို ဇယားဖြင့် စစ်ဆေးပြီးပြီ။"
+    },
+    {
+      "source": "できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。",
+      "translation": "ပြီးလျှင် အမှန်ခြစ် ခြစ်ပါ။ အခက်အခဲရှိလျှင် STEP နံပါတ်နှင့် မျက်နှာပြင်ကို ဆရာအား ပြပါ။"
+    },
+    {
+      "source": "次へ：プロジェクトを作って実行 →",
+      "translation": "နောက်တစ်ဆင့်: project ဖန်တီး၍ run လုပ်ခြင်း →"
+    },
+    {
+      "source": "STEP 01 · 目安 15分",
+      "translation": "STEP 01 · ခန့်မှန်း 15 မိနစ်"
+    },
+    {
+      "source": "プロジェクトを作って実行",
+      "translation": "project ဖန်တီး၍ run လုပ်ခြင်း"
+    },
+    {
+      "source": "授業環境はMacと <strong>Android Studio Panda 2 | 2025.3.2</strong> です。A07までとは別のプロジェクトを作ります。",
+      "translation": "အတန်းသုံး ပတ်ဝန်းကျင်မှာ Mac နှင့် <strong>Android Studio Panda 2 | 2025.3.2</strong> ဖြစ်သည်။ A07 အထိ သုံးခဲ့သည့် project များနှင့် သီးခြားဖြစ်သော project အသစ်ကို ဖန်တီးမည်။"
+    },
+    {
+      "source": "毎回、自分で新規作成します",
+      "translation": "အကြိမ်တိုင်း ကိုယ်တိုင် အသစ် ဖန်တီးပါ"
+    },
+    {
+      "source": "作る場所は <code>Documents/Android1/A08SharedPreferencesSample</code> です。<a1>完成プロジェクト</a1>は答え合わせ用で、授業の入力は自分で作ったプロジェクトに書きます。",
+      "translation": "ဖန်တီးမည့်နေရာမှာ <code>Documents/Android1/A08SharedPreferencesSample</code> ဖြစ်သည်။ <a1>ပြီးစီးထားသော project</a1> သည် အဖြေတိုက်ရန်အတွက်ဖြစ်ပြီး အတန်းတွင် ရိုက်ထည့်မှုများကို ကိုယ်တိုင် ဖန်တီးထားသော project တွင် ရေးပါ။"
+    },
+    {
+      "source": "Android Studioの <strong>New Project</strong> をクリックします。別のプロジェクトを開いているときは <strong>File → New → New Project</strong> を選びます。",
+      "translation": "Android Studio ၏ <strong>New Project</strong> ကို ကလစ်နှိပ်ပါ။ အခြား project တစ်ခုကို ဖွင့်ထားလျှင် <strong>File → New → New Project</strong> ကို ရွေးပါ။"
+    },
+    {
+      "source": "<strong>Phone and Tablet → Empty Views Activity → Next</strong> の順に選びます。名前に <strong>Views</strong> があることを確認します。",
+      "translation": "<strong>Phone and Tablet → Empty Views Activity → Next</strong> အစီအစဉ်အတိုင်း ရွေးပါ။ အမည်တွင် <strong>Views</strong> ပါဝင်ကြောင်း စစ်ဆေးပါ။"
+    },
+    {
+      "source": "テンプレート一覧でEmpty Views Activityが選択されている",
+      "translation": "template စာရင်းတွင် Empty Views Activity ကို ရွေးထားသည်"
+    },
+    {
+      "source": "Empty Views Activityを選択。Empty Activityとは別です。 <a1>画像を大きく開く</a1>",
+      "translation": "Empty Views Activity ကို ရွေးပါ။ Empty Activity နှင့် မတူပါ။ <a1>ပုံကို အရွယ်အစားအပြည့်ဖြင့် ဖွင့်ပါ</a1>"
+    },
+    {
+      "source": "次の表のとおりに入力・選択して <strong>Finish</strong> を押します。",
+      "translation": "အောက်ပါ ဇယားအတိုင်း ရိုက်ထည့်၊ ရွေးချယ်ပြီး <strong>Finish</strong> ကို နှိပ်ပါ။"
+    },
+    {
+      "source": "項目",
+      "translation": "အချက်"
+    },
+    {
+      "source": "入力・選択する内容",
+      "translation": "ရိုက်ထည့်ရန် / ရွေးရန် အကြောင်းအရာ"
+    },
+    {
+      "source": "<code>jp.ac.jec.a08sharedpreferencessample</code>（すべて小文字）",
+      "translation": "<code>jp.ac.jec.a08sharedpreferencessample</code> (အားလုံး စာလုံးအသေး)"
+    },
+    {
+      "source": "New Projectの設定画面。NameにA08SharedPreferencesSample、Package nameにjp.ac.jec.a08sharedpreferencessample、LanguageにJava、Minimum SDKにAPI 31が入っている",
+      "translation": "New Project ၏ သတ်မှတ်ချက် မျက်နှာပြင်။ Name တွင် A08SharedPreferencesSample၊ Package name တွင် jp.ac.jec.a08sharedpreferencessample၊ Language တွင် Java၊ Minimum SDK တွင် API 31 ထည့်ထားသည်"
+    },
+    {
+      "source": "入力後の画面。画像の保存先は先生の環境のものです。自分のDocuments以下を指定します。 <a1>画像を大きく開く</a1>",
+      "translation": "ရိုက်ထည့်ပြီးနောက် မျက်နှာပြင်။ ပုံထဲရှိ သိမ်းဆည်းမည့်နေရာသည် ဆရာ၏ ကွန်ပျူတာမှ နေရာဖြစ်သည်။ မိမိ၏ Documents အောက်ရှိ နေရာကို သတ်မှတ်ပါ။ <a1>ပုံကို အရွယ်အစားအပြည့်ဖြင့် ဖွင့်ပါ</a1>"
+    },
+    {
+      "source": "Sync（歯車の読み込み）が終わるまで待ちます。",
+      "translation": "Sync (ဂီယာပုံ loading) ပြီးဆုံးသည်အထိ စောင့်ပါ။"
+    },
+    {
+      "source": "端末欄で <strong>jec_26cm_android1_Pixel 9a</strong> を選び、<strong>Run</strong>（▶）を押します。白い画面に <strong>Hello World!</strong> が出れば成功です。",
+      "translation": "စက်ရွေးသည့် အကွက်တွင် <strong>jec_26cm_android1_Pixel 9a</strong> ကို ရွေးပြီး <strong>Run</strong> (▶) ကို နှိပ်ပါ။ အဖြူရောင် မျက်နှာပြင်ပေါ်တွင် <strong>Hello World!</strong> ပေါ်လာလျှင် အောင်မြင်ပါပြီ။"
+    },
+    {
+      "source": "エミュレータが出てこないときは<a1>共通資料：エミュレータ</a1>を見ます。",
+      "translation": "emulator မပေါ်လာလျှင် <a1>အများသုံးလမ်းညွှန်: emulator</a1> ကို ကြည့်ပါ။"
+    },
+    {
+      "source": "自分の保存先にA08SharedPreferencesSampleを作り、Hello World!を表示できた。",
+      "translation": "မိမိ၏ သိမ်းဆည်းရာနေရာတွင် A08SharedPreferencesSample ကို ဖန်တီးပြီး Hello World! ကို ဖော်ပြနိုင်ပြီးပြီ။"
+    },
+    {
+      "source": "次へ：画面を作る →",
+      "translation": "နောက်တစ်ဆင့်: မျက်နှာပြင် ဖန်တီးခြင်း →"
+    },
+    {
+      "source": "STEP 02 · 目安 15分",
+      "translation": "STEP 02 · ခန့်မှန်းခြေ 15 မိနစ်"
+    },
+    {
+      "source": "画面を作る",
+      "translation": "မျက်နှာပြင် ဖန်တီးခြင်း"
+    },
+    {
+      "source": "ボタン4つと、結果を出す表示欄を並べます。<code>app/src/main/res/layout/activity_main.xml</code> を開き、中身をすべて次のコードに置き換えます。",
+      "translation": "ခလုတ် 4 ခုနှင့် ရလဒ်ကို ဖော်ပြမည့်အကွက်ကို စီပါ။ <code>app/src/main/res/layout/activity_main.xml</code> ကို ဖွင့်ပြီး အထဲရှိအရာအားလုံးကို အောက်ပါ code ဖြင့် အစားထိုးပါ။"
+    },
+    {
+      "source": "activity_main.xml（全体を置き換え）",
+      "translation": "activity_main.xml (အားလုံးကို အစားထိုးပါ)"
+    },
+    {
+      "source": "書いた内容の意味",
+      "translation": "ရေးထားသည့် အကြောင်းအရာ၏ အဓိပ္ပာယ်"
+    },
+    {
+      "source": "書いたところ",
+      "translation": "ရေးထားသည့်နေရာ"
+    },
+    {
+      "source": "意味",
+      "translation": "အဓိပ္ပာယ်"
+    },
+    {
+      "source": "中身を縦に並べる。ConstraintLayoutから書き換えている。",
+      "translation": "အထဲရှိအရာများကို ဒေါင်လိုက် စီသည်။ ConstraintLayout မှ ပြင်ရေးထားသည်။"
+    },
+    {
+      "source": "中身を左右の中央に寄せる。上下には寄せない。",
+      "translation": "အထဲရှိအရာများကို ဘယ်ညာ အလယ်သို့ ကပ်ပေးသည်။ အပေါ်အောက်သို့ မကပ်ပါ။"
+    },
+    {
+      "source": "消しません。ひな形のJavaが <code>findViewById(R.id.main)</code> で使っています（A01と同じ）。",
+      "translation": "မဖျက်ပါနှင့်။ ပုံစံနမူနာ၏ Java က <code>findViewById(R.id.main)</code> ဖြင့် သုံးထားသည် (A01 နှင့် အတူတူ)။"
+    },
+    {
+      "source": "Javaから見つけるための名前。STEP 05以降で1つずつ使う。",
+      "translation": "Java မှ ရှာဖွေရန်အတွက် အမည်များ။ STEP 05 မှစ၍ တစ်ခုချင်းစီ သုံးမည်။"
+    },
+    {
+      "source": "結果を出す表示欄。最初は空です。",
+      "translation": "ရလဒ်ကို ဖော်ပြမည့်အကွက်။ အစတွင် ဗလာဖြစ်သည်။"
+    },
+    {
+      "source": "<code>layout_height=\"0dp\"</code> と <code>layout_weight=\"1\"</code>",
+      "translation": "<code>layout_height=\"0dp\"</code> နှင့် <code>layout_weight=\"1\"</code>"
+    },
+    {
+      "source": "表示欄が<strong>残りの高さを全部使う</strong>という指定。表示する文字が長くても短くても大きさが変わらないので、上のボタンの位置がずれません。",
+      "translation": "ဖော်ပြရန်အကွက်က <strong>ကျန်ရှိသော အမြင့်အားလုံးကို သုံးမည်</strong> ဟူသော သတ်မှတ်ချက်။ ဖော်ပြမည့် စာသား ရှည်သည်ဖြစ်စေ တိုသည်ဖြစ်စေ အရွယ်အစား မပြောင်းသဖြင့် အပေါ်ရှိ ခလုတ်များ၏ နေရာ မရွေ့ပါ။"
+    },
+    {
+      "source": "なぜ表示欄にweightを付けるのか",
+      "translation": "ဖော်ပြရန်အကွက်တွင် weight ကို အဘယ်ကြောင့် ထည့်ရသနည်း"
+    },
+    {
+      "source": "<code>layout_height=\"wrap_content\"</code>（中身の分だけ）にすると、表示する文字が増えたときに表示欄が大きくなり、上のボタンが動いてしまいます。ボタンを何度も押す教材なので、押す場所が変わらないようにしています。",
+      "translation": "<code>layout_height=\"wrap_content\"</code> (အထဲရှိအရာအတိုင်းသာ) ဟု ထားလျှင် ဖော်ပြမည့် စာသား များလာသည့်အခါ ဖော်ပြရန်အကွက် ကြီးလာပြီး အပေါ်ရှိ ခလုတ်များ ရွေ့သွားမည်။ ခလုတ်များကို အကြိမ်ကြိမ် နှိပ်ရသော သင်ထောက်ကူပစ္စည်းဖြစ်သဖြင့် နှိပ်ရမည့်နေရာ မပြောင်းအောင် ပြုလုပ်ထားသည်။"
+    },
+    {
+      "source": "文字を直接書いたことによる <code>Hardcoded text</code> の警告は、これまでの単元と同様にそのまま進めます。",
+      "translation": "စာသားကို တိုက်ရိုက် ရေးထားသောကြောင့် ပေါ်လာသော <code>Hardcoded text</code> သတိပေးချက်ကို ယခင်သင်ခန်းစာများကဲ့သို့ပင် ထိုအတိုင်းထား၍ ဆက်လုပ်ပါ။"
+    },
+    {
+      "source": "Runで確かめる",
+      "translation": "Run ဖြင့် စစ်ဆေးပါ"
+    },
+    {
+      "source": "apply・get・clear・show app.xmlの4つのボタンが画面の上に縦に並べば成功です。押しても、まだ何も起きません。",
+      "translation": "apply၊ get၊ clear၊ show app.xml ဟူသော ခလုတ် 4 ခု မျက်နှာပြင်အပေါ်ပိုင်းတွင် ဒေါင်လိုက် စီနေလျှင် အောင်မြင်ပြီ။ နှိပ်သော်လည်း ယခုအချိန်တွင် ဘာမျှ မဖြစ်သေးပါ။"
+    },
+    {
+      "source": "4つのボタンapply、get、clear、show app.xmlが縦に並び、その下は何も表示されていない画面",
+      "translation": "ခလုတ် 4 ခုဖြစ်သော apply၊ get၊ clear၊ show app.xml တို့ ဒေါင်လိုက် စီထားပြီး ၎င်းတို့၏ အောက်တွင် ဘာမျှ မပေါ်သော မျက်နှာပြင်"
+    },
+    {
+      "source": "STEP 02の完成。表示欄はまだ空です。 <a1>画像を大きく開く</a1>",
+      "translation": "STEP 02 ပြီးစီးပြီ။ ဖော်ပြရန်အကွက်မှာ ဗလာဖြစ်နေသေးသည်။ <a1>ပုံကို အရွယ်အစားအပြည့်ဖြင့် ဖွင့်ပါ</a1>"
+    },
+    {
+      "source": "4つのボタンが並んだ画面をRunできた。",
+      "translation": "ခလုတ် 4 ခု စီထားသော မျက်နှာပြင်ကို Run လုပ်နိုင်ပြီးပြီ။"
+    },
+    {
+      "source": "次へ：SharedPreferencesを用意する →",
+      "translation": "နောက်တစ်ဆင့်: SharedPreferences ကို ပြင်ဆင်ခြင်း →"
+    },
+    {
+      "source": "STEP 03 · 目安 10分",
+      "translation": "STEP 03 · ခန့်မှန်းခြေ 10 မိနစ်"
+    },
+    {
+      "source": "SharedPreferencesを用意する",
+      "translation": "SharedPreferences ကို ပြင်ဆင်ခြင်း"
+    },
+    {
+      "source": "<code>MainActivity.java</code> を開きます。まず、保存に使う名前を定数にまとめ、読み書きの入口を受け取ります。",
+      "translation": "<code>MainActivity.java</code> ကို ဖွင့်ပါ။ ဦးစွာ သိမ်းဆည်းရာတွင် သုံးမည့် အမည်များကို constant အဖြစ် စုစည်းပြီး ဖတ်ရေးရန် ဝင်ပေါက်ကို ရယူပါ။"
+    },
+    {
+      "source": "① クラスの先頭に定数とフィールドを追加する",
+      "translation": "① class ၏ ထိပ်ဆုံးတွင် constant များနှင့် field ကို ထည့်ပါ"
+    },
+    {
+      "source": "<code>public class MainActivity extends AppCompatActivity {</code> のすぐ下に書きます。",
+      "translation": "<code>public class MainActivity extends AppCompatActivity {</code> ၏ အောက်တွင် တိုက်ရိုက် ရေးပါ။"
+    },
+    {
+      "source": "MainActivity.java · クラスの先頭",
+      "translation": "MainActivity.java · class ၏ အစ"
+    },
+    {
+      "source": "② onCreateの最後に1行追加する",
+      "translation": "② onCreate ၏ အဆုံးတွင် 1 ကြောင်း ထည့်ပါ"
+    },
+    {
+      "source": "MainActivity.java · onCreateの中（いちばん下）",
+      "translation": "MainActivity.java · onCreate အတွင်း (အောက်ဆုံး)"
+    },
+    {
+      "source": "<code>SharedPreferences</code> が赤いときは <kbd>⌥ Enter</kbd> で <code>android.content.SharedPreferences</code> を選びます（<a1>共通資料：Auto Import</a1>）。",
+      "translation": "<code>SharedPreferences</code> အနီရောင် ဖြစ်နေလျှင် <kbd>⌥ Enter</kbd> ဖြင့် <code>android.content.SharedPreferences</code> ကို ရွေးပါ (<a1>အများသုံးလမ်းညွှန်: Auto Import</a1>)။"
+    },
+    {
+      "source": "保存先のファイル名。このあと <code>app.xml</code> というファイルができます。",
+      "translation": "သိမ်းဆည်းရာ ဖိုင်အမည်။ ဤနောက်တွင် <code>app.xml</code> ဟူသော ဖိုင် ပေါ်လာမည်။"
+    },
+    {
+      "source": "<code>INT_VALUE = \"int_value\"</code> など6つ",
+      "translation": "<code>INT_VALUE = \"int_value\"</code> စသည် 6 ခု"
+    },
+    {
+      "source": "値に付ける名前（<strong>キー</strong>）。保存するときと読み出すときに同じものを使います。",
+      "translation": "တန်ဖိုးကို ပေးသော အမည် (<strong>key</strong>)။ သိမ်းဆည်းသည့်အခါနှင့် ဖတ်ထုတ်သည့်အခါ တူညီသည့်အမည်ကို သုံးပါ။"
+    },
+    {
+      "source": "キーの文字を1か所にまとめる書き方。打ち間違えを防げます（STEP 09の練習3で確かめます）。",
+      "translation": "key ၏ စာသားများကို နေရာတစ်ခုတည်းတွင် စုစည်းသော ရေးသားပုံ။ ရိုက်မှားခြင်းကို ကာကွယ်နိုင်သည် (STEP 09 ၏ လေ့ကျင့်ခန်း 3 တွင် စစ်ဆေးမည်)။"
+    },
+    {
+      "source": "このアプリだけが読み書きできる、という指定。ほかのアプリからは見えません。",
+      "translation": "ဤ app တစ်ခုတည်းသာ ဖတ်ရေးနိုင်သည် ဟူသော သတ်မှတ်ချက်။ အခြား app များမှ မမြင်ရပါ။"
+    },
+    {
+      "source": "読み書きの入口。onCreateの外のメソッドからも使うので、フィールドにしています。",
+      "translation": "ဖတ်ရေးရန် ဝင်ပေါက်။ onCreate ပြင်ပရှိ method များမှလည်း သုံးမည်ဖြစ်၍ field အဖြစ် ထားသည်။"
+    },
+    {
+      "source": "キーは自由に決めてよい？",
+      "translation": "key ကို လွတ်လပ်စွာ သတ်မှတ်နိုင်သလား"
+    },
+    {
+      "source": "キーの文字は自分で決められます。ただし<strong>保存したときと読み出すときで同じ</strong>でなければ、値は見つかりません。この教材では値の種類がわかる名前（<code>int_value</code> など）にしています。",
+      "translation": "key ၏ စာသားကို ကိုယ်တိုင် သတ်မှတ်နိုင်သည်။ သို့သော် <strong>သိမ်းဆည်းသည့်အခါနှင့် ဖတ်ထုတ်သည့်အခါ တူညီ</strong> ရမည်။ မတူလျှင် တန်ဖိုးကို ရှာမတွေ့ပါ။ ဤသင်ထောက်ကူပစ္စည်းတွင် တန်ဖိုးအမျိုးအစားကို သိနိုင်သော အမည်များ (<code>int_value</code> စသည်) ကို သုံးထားသည်။"
+    },
+    {
+      "source": "画面の見た目は変わりません。赤いエラーが出ずにRunできれば成功です。",
+      "translation": "မျက်နှာပြင်၏ ပုံပန်းသဏ္ဌာန် မပြောင်းပါ။ အနီရောင် error မပေါ်ဘဲ Run လုပ်နိုင်လျှင် အောင်မြင်ပြီ။"
+    },
+    {
+      "source": "保存先のファイル名の定数を1つ、キーの定数を6つ書き、<code>getSharedPreferences</code> でprefsを受け取れた。",
+      "translation": "သိမ်းဆည်းရာ ဖိုင်အမည်အတွက် constant 1 ခုနှင့် key အတွက် constant 6 ခုကို ရေးပြီး <code>getSharedPreferences</code> ဖြင့် prefs ကို ရယူနိုင်ပြီးပြီ။"
+    },
+    {
+      "source": "次へ：保存されている値を画面に出す →",
+      "translation": "နောက်တစ်ဆင့်: သိမ်းဆည်းထားသော တန်ဖိုးများကို မျက်နှာပြင်တွင် ဖော်ပြခြင်း →"
+    },
+    {
+      "source": "STEP 04 · 目安 20分",
+      "translation": "STEP 04 · ခန့်မှန်း မိနစ် 20"
+    },
+    {
+      "source": "保存されている値を画面に出す",
+      "translation": "သိမ်းဆည်းထားသော တန်ဖိုးများကို မျက်နှာပြင်တွင် ဖော်ပြခြင်း"
+    },
+    {
+      "source": "まだ何も保存していません。その状態で読み出すと何が返るのかを、先に確かめます。",
+      "translation": "ယခုအချိန်အထိ ဘာမျှ မသိမ်းဆည်းရသေးပါ။ ထိုအခြေအနေတွင် ဖတ်ထုတ်လျှင် ဘာ ပြန်ရမည်ကို ဦးစွာ စစ်ဆေးမည်။"
+    },
+    {
+      "source": "① 読み出してまとめるメソッドを追加する",
+      "translation": "① ဖတ်ထုတ်ပြီး စုစည်းပေးသော method ကို ထည့်ပါ"
+    },
+    {
+      "source": "<code>onCreate</code> の最後の <code>}</code> の<strong>下</strong>、クラスの最後の <code>}</code> の<strong>上</strong>に書きます。onCreateの中ではありません。",
+      "translation": "<code>onCreate</code> ၏ နောက်ဆုံး <code>}</code> ၏ <strong>အောက်</strong>၊ class ၏ နောက်ဆုံး <code>}</code> ၏ <strong>အပေါ်</strong> တွင် ရေးပါ။ onCreate အတွင်း မဟုတ်ပါ။"
+    },
+    {
+      "source": "MainActivity.java · onCreateの外",
+      "translation": "MainActivity.java · onCreate ပြင်ပ"
+    },
+    {
+      "source": "<code>Set</code> が赤いときは <kbd>⌥ Enter</kbd> で <code>java.util.Set</code> を選びます。",
+      "translation": "<code>Set</code> အနီရောင် ဖြစ်နေလျှင် <kbd>⌥ Enter</kbd> ဖြင့် <code>java.util.Set</code> ကို ရွေးပါ။"
+    },
+    {
+      "source": "② onCreateで表示欄に出す",
+      "translation": "② onCreate တွင် ဖော်ပြရန်အကွက်၌ ပြပါ"
+    },
+    {
+      "source": "<code>prefs = getSharedPreferences(...)</code> の行の<strong>上</strong>に表示欄を受け取る行を、<strong>下</strong>に表示する行を追加します。",
+      "translation": "<code>prefs = getSharedPreferences(...)</code> စာကြောင်း၏ <strong>အပေါ်</strong> တွင် ဖော်ပြရန်အကွက်ကို ရယူသော စာကြောင်းကို ထည့်ပါ။ <strong>အောက်</strong> တွင် ဖော်ပြသော စာကြောင်းကို ထည့်ပါ။"
+    },
+    {
+      "source": "MainActivity.java · onCreateの中",
+      "translation": "MainActivity.java · onCreate ထဲတွင်"
+    },
+    {
+      "source": "getXxxの第2引数は「初期値」",
+      "translation": "getXxx ၏ ဒုတိယ argument သည် “မူလတန်ဖိုး” ဖြစ်သည်"
+    },
+    {
+      "source": "<code>prefs.getInt(INT_VALUE, 0)</code> の <code>0</code> は、<strong>そのキーのデータが保存されていないときに返る値</strong>です。種類ごとに、教材では次の初期値を渡しています。",
+      "translation": "<code>prefs.getInt(INT_VALUE, 0)</code> ရှိ <code>0</code> သည် <strong>ထို key ၏ ဒေတာကို မသိမ်းဆည်းထားသည့်အခါ ပြန်ရမည့် တန်ဖိုး</strong> ဖြစ်သည်။ ဤသင်ထောက်ကူပစ္စည်းတွင် အမျိုးအစားအလိုက် အောက်ပါ မူလတန်ဖိုးများကို ပေးထားသည်။"
+    },
+    {
+      "source": "メソッド",
+      "translation": "method"
+    },
+    {
+      "source": "渡した初期値",
+      "translation": "ပေးလိုက်သော မူလတန်ဖိုး"
+    },
+    {
+      "source": "データがないときの表示",
+      "translation": "ဒေတာ မရှိသည့်အခါ ဖော်ပြချက်"
+    },
+    {
+      "source": "<code>\"\"</code>（空の文字）",
+      "translation": "<code>\"\"</code> (စာသား ဗလာ)"
+    },
+    {
+      "source": "<code>string_value = </code>（右側が空）",
+      "translation": "<code>string_value = </code> (ညာဘက် ဗလာ)"
+    },
+    {
+      "source": "<code>Set.of()</code>（空の集まり）",
+      "translation": "<code>Set.of()</code> (ဗလာ အစုအဝေး)"
+    },
+    {
+      "source": "初期値は自分で決められます。STEP 09の練習2で変えてみます。",
+      "translation": "မူလတန်ဖိုးကို ကိုယ်တိုင် သတ်မှတ်နိုင်သည်။ STEP 09 ၏ လေ့ကျင့်ခန်း 2 တွင် ပြောင်းကြည့်မည်။"
+    },
+    {
+      "source": "起動しただけで、6行が表示されれば成功です。まだ保存していないので、すべて初期値です。",
+      "translation": "စတင်ဖွင့်ရုံဖြင့် စာကြောင်း 6 ကြောင်း ပေါ်လာလျှင် အောင်မြင်ပြီ။ ယခုအချိန်အထိ မသိမ်းဆည်းရသေးသဖြင့် အားလုံးမှာ မူလတန်ဖိုးများဖြစ်သည်။"
+    },
+    {
+      "source": "4つのボタンの下に、int_value = 0、string_value =、boolean_value = false、float_value = 0.0、long_value = 0、string_set_value = [] と表示されている画面",
+      "translation": "ခလုတ် 4 ခု၏ အောက်တွင် int_value = 0၊ string_value =၊ boolean_value = false၊ float_value = 0.0၊ long_value = 0၊ string_set_value = [] ဟု ဖော်ပြထားသော မျက်နှာပြင်"
+    },
+    {
+      "source": "データがないときの表示。すべて渡した初期値です。 <a1>画像を大きく開く</a1>",
+      "translation": "ဒေတာ မရှိသည့်အခါ ဖော်ပြချက်။ အားလုံးမှာ ပေးလိုက်သော မူလတန်ဖိုးများဖြစ်သည်။ <a1>ပုံကို အရွယ်အစားအပြည့်ဖြင့် ဖွင့်ပါ</a1>"
+    },
+    {
+      "source": "起動すると6行が表示され、表のとおりの初期値になっていることを確認した。",
+      "translation": "စတင်ဖွင့်လျှင် စာကြောင်း 6 ကြောင်း ပေါ်လာပြီး ဇယားအတိုင်း မူလတန်ဖိုးများ ဖြစ်နေကြောင်း စစ်ဆေးပြီးပြီ။"
+    },
+    {
+      "source": "次へ：データを保存する →",
+      "translation": "နောက်တစ်ဆင့်: ဒေတာကို သိမ်းဆည်းခြင်း →"
+    },
+    {
+      "source": "STEP 05 · 目安 20分",
+      "translation": "STEP 05 · ခန့်မှန်းကြာချိန် 20 မိနစ်"
+    },
+    {
+      "source": "データを保存する",
+      "translation": "ဒေတာကို သိမ်းဆည်းခြင်း"
+    },
+    {
+      "source": "applyボタンに、6種類の値を保存する処理を書きます。<code>txtOutput.setText(currentValues());</code> の<strong>下</strong>に追加します。",
+      "translation": "apply ခလုတ်တွင် တန်ဖိုး 6 မျိုးကို သိမ်းဆည်းသော လုပ်ဆောင်ချက်ကို ရေးပါ။ <code>txtOutput.setText(currentValues());</code> ၏ <strong>အောက်</strong> တွင် ထည့်ပါ။"
+    },
+    {
+      "source": "保存の3ステップ",
+      "translation": "သိမ်းဆည်းခြင်း၏ အဆင့် 3 ဆင့်"
+    },
+    {
+      "source": "順番",
+      "translation": "အစီအစဉ်"
+    },
+    {
+      "source": "書くこと",
+      "translation": "ရေးရမည့်အရာ"
+    },
+    {
+      "source": "書き込み用の <code>Editor</code> を受け取る。読み出しと違い、保存には必ず必要。",
+      "translation": "ရေးထည့်ရန်အတွက် <code>Editor</code> ကို ရယူသည်။ ဖတ်ထုတ်ခြင်းနှင့် မတူဘဲ သိမ်းဆည်းရာတွင် မဖြစ်မနေ လိုအပ်သည်။"
+    },
+    {
+      "source": "<code>putInt</code> / <code>putString</code> ほか",
+      "translation": "<code>putInt</code> / <code>putString</code> စသည်"
+    },
+    {
+      "source": "キーと値の組を、種類に合ったメソッドで書き込む。<strong>この時点ではまだ保存されていない。</strong>",
+      "translation": "key နှင့် တန်ဖိုး အတွဲကို အမျိုးအစားနှင့် ကိုက်ညီသော method ဖြင့် ရေးထည့်သည်။<strong>ဤအဆင့်တွင် မသိမ်းဆည်းရသေးပါ။</strong>"
+    },
+    {
+      "source": "ここで確定する。忘れると何も保存されない。",
+      "translation": "ဤနေရာတွင် အတည်ပြုသည်။ မေ့သွားလျှင် ဘာမျှ မသိမ်းဆည်းပါ။"
+    },
+    {
+      "source": "値の種類ごとにメソッドが分かれています。<code>1.0f</code> の <code>f</code>、<code>1L</code> の <code>L</code> は、floatとlongであることを表す印です。",
+      "translation": "တန်ဖိုးအမျိုးအစားအလိုက် method များ ခွဲထားသည်။ <code>1.0f</code> ရှိ <code>f</code>၊ <code>1L</code> ရှိ <code>L</code> တို့သည် float နှင့် long ဖြစ်ကြောင်း ပြသော အမှတ်အသားများဖြစ်သည်။"
+    },
+    {
+      "source": "保存を確定するメソッドは2つあります。",
+      "translation": "သိမ်းဆည်းမှုကို အတည်ပြုသော method 2 ခု ရှိသည်။"
+    },
+    {
+      "source": "戻り値",
+      "translation": "ပြန်ပေးသည့်တန်ဖိုး"
+    },
+    {
+      "source": "なし",
+      "translation": "မရှိ"
+    },
+    {
+      "source": "<code>boolean</code>（成功したかどうか）",
+      "translation": "<code>boolean</code> (အောင်မြင် မအောင်မြင်)"
+    },
+    {
+      "source": "ファイルへの書き込み",
+      "translation": "ဖိုင်ထဲသို့ ရေးထည့်ခြင်း"
+    },
+    {
+      "source": "別の処理にまかせる（呼び出しはすぐ終わる）",
+      "translation": "အခြား လုပ်ဆောင်ချက်တစ်ခုကို အပ်လိုက်သည် (ခေါ်ယူမှုမှာ ချက်ချင်း ပြီးသည်)"
+    },
+    {
+      "source": "書き終わるまで待つ",
+      "translation": "ရေးပြီးသည်အထိ စောင့်သည်"
+    },
+    {
+      "source": "ふだん使うのは",
+      "translation": "ပုံမှန် သုံးသည်မှာ"
+    },
+    {
+      "source": "こちら",
+      "translation": "ဤဘက်"
+    },
+    {
+      "source": "保存できたかどうかを、その場で確かめたいときだけ",
+      "translation": "သိမ်းဆည်းနိုင် မနိုင်ကို ချက်ချင်း စစ်ဆေးလိုသည့်အခါမှသာ"
+    },
+    {
+      "source": "どちらを使っても、画面に出る結果は同じです。<code>apply()</code> でも、書き込みは<strong>この直後に別の処理が引き受けている</strong>ので、値がなくなることはありません。この教材では <code>apply()</code> を使います。",
+      "translation": "မည်သည့်အရာကို သုံးသည်ဖြစ်စေ မျက်နှာပြင်တွင် ပေါ်သော ရလဒ်မှာ အတူတူဖြစ်သည်။ <code>apply()</code> ဖြင့်လည်း ရေးထည့်ခြင်းကို <strong>ထိုနောက် ချက်ချင်း အခြားလုပ်ဆောင်ချက်တစ်ခုက တာဝန်ယူထားသည်</strong> ဖြစ်၍ တန်ဖိုးများ ပျောက်သွားခြင်း မရှိပါ။ ဤသင်ထောက်ကူပစ္စည်းတွင် <code>apply()</code> ကို သုံးမည်။"
+    },
+    {
+      "source": "applyを押すと、6行の値が変わります。",
+      "translation": "apply ကို နှိပ်လျှင် စာကြောင်း 6 ကြောင်း၏ တန်ဖိုးများ ပြောင်းသွားမည်။"
+    },
+    {
+      "source": "applyを押したあとの画面。int_value = 1、string_value = Hello、boolean_value = true、float_value = 1.0、long_value = 1、string_set_value = [Hello, World] と表示されている",
+      "translation": "apply ကို နှိပ်ပြီးနောက် မျက်နှာပြင်။ int_value = 1၊ string_value = Hello၊ boolean_value = true၊ float_value = 1.0၊ long_value = 1၊ string_set_value = [Hello, World] ဟု ဖော်ပြထားသည်"
+    },
+    {
+      "source": "applyを押したあと。初期値から、保存した値に変わりました。 <a1>画像を大きく開く</a1>",
+      "translation": "apply ကို နှိပ်ပြီးနောက်။ မူလတန်ဖိုးများမှ သိမ်းဆည်းလိုက်သော တန်ဖိုးများသို့ ပြောင်းသွားသည်။ <a1>ပုံကို အရွယ်အစားအပြည့်ဖြင့် ဖွင့်ပါ</a1>"
+    },
+    {
+      "source": "<code>string_set_value</code> が <code>[World, Hello]</code> のように逆の順で出ることがあります。<code>Set</code> は順番を約束しない入れ物なので、どちらでも正解です。",
+      "translation": "<code>string_set_value</code> သည် <code>[World, Hello]</code> ကဲ့သို့ ပြောင်းပြန် အစီအစဉ်ဖြင့် ပေါ်တတ်သည်။ <code>Set</code> သည် အစီအစဉ်ကို အာမမခံသော ထည့်စရာ container ဖြစ်သဖြင့် နှစ်မျိုးလုံး မှန်သည်။"
+    },
+    {
+      "source": "applyを押すと6行の値が変わった。",
+      "translation": "apply ကို နှိပ်လျှင် စာကြောင်း 6 ကြောင်း၏ တန်ဖိုးများ ပြောင်းသွားပြီးပြီ။"
+    },
+    {
+      "source": "次へ：アプリを終了しても残ることを確かめる →",
+      "translation": "နောက်တစ်ဆင့်: app ကို ပိတ်လိုက်သော်လည်း ကျန်နေကြောင်း စစ်ဆေးခြင်း →"
+    },
+    {
+      "source": "STEP 06 · 目安 15分",
+      "translation": "STEP 06 · ခန့်မှန်းခြေ 15 မိနစ်"
+    },
+    {
+      "source": "アプリを終了しても残ることを確かめる",
+      "translation": "app ကို ပိတ်လိုက်သော်လည်း ကျန်နေကြောင်း စစ်ဆေးခြင်း"
+    },
+    {
+      "source": "ここが今回のいちばん大事なところです。まず、読み出すだけのボタンを追加します。",
+      "translation": "ဤအပိုင်းသည် ယခုသင်ခန်းစာ၏ အရေးအကြီးဆုံး အပိုင်းဖြစ်သည်။ ဦးစွာ ဖတ်ထုတ်ရုံသာ လုပ်သော ခလုတ်ကို ထည့်ပါ။"
+    },
+    {
+      "source": "① getボタンの処理を追加する",
+      "translation": "① get ခလုတ်၏ လုပ်ဆောင်ချက်ကို ထည့်ပါ"
+    },
+    {
+      "source": "applyの処理（<code>});</code> まで）の<strong>下</strong>に追加します。",
+      "translation": "apply ၏ လုပ်ဆောင်ချက် (<code>});</code> အထိ) ၏ <strong>အောက်</strong> တွင် ထည့်ပါ။"
+    },
+    {
+      "source": "読み出しだけなので <code>edit()</code> は要りません。処理が1つだけなので <code>{ }</code> を書かずに1行で済ませています。",
+      "translation": "ဖတ်ထုတ်ရုံသာဖြစ်၍ <code>edit()</code> မလိုပါ။ လုပ်ဆောင်ချက် တစ်ခုတည်းသာဖြစ်သဖြင့် <code>{ }</code> မရေးဘဲ 1 ကြောင်းတည်းဖြင့် ပြီးအောင် ရေးထားသည်။"
+    },
+    {
+      "source": "② アプリを完全に終了して、開き直す",
+      "translation": "② app ကို လုံးဝ ပိတ်ပြီး ပြန်ဖွင့်ပါ"
+    },
+    {
+      "source": "applyを押して、値が保存された状態にします。",
+      "translation": "apply ကို နှိပ်၍ တန်ဖိုးများ သိမ်းဆည်းပြီးသော အခြေအနေသို့ ရောက်အောင် လုပ်ပါ။"
+    },
+    {
+      "source": "エミュレータで<strong>アプリ一覧（最近使ったアプリ）</strong>を開き、このアプリを上へスワイプして終了します。画面下の横棒を上へスワイプしてから止めると出ます。",
+      "translation": "emulator တွင် <strong>app စာရင်း (မကြာသေးမီက သုံးခဲ့သော app များ)</strong> ကို ဖွင့်ပြီး ဤ app ကို အပေါ်သို့ swipe လုပ်၍ ပိတ်ပါ။ မျက်နှာပြင်အောက်ရှိ အလျားလိုက်တံကို အပေါ်သို့ swipe လုပ်ပြီး ရပ်လိုက်လျှင် ပေါ်လာသည်။"
+    },
+    {
+      "source": "もう一度アプリのアイコンから起動します。",
+      "translation": "နောက်တစ်ကြိမ် app ၏ icon မှ စတင်ဖွင့်ပါ။"
+    },
+    {
+      "source": "起動した時点で、<strong>applyで保存した値がそのまま表示されていれば成功です</strong>。getを押しても同じ値が出ます。",
+      "translation": "စတင်ဖွင့်သည်နှင့် <strong>apply ဖြင့် သိမ်းဆည်းခဲ့သော တန်ဖိုးများ ထိုအတိုင်း ပေါ်နေလျှင် အောင်မြင်ပြီ</strong>။ get ကို နှိပ်လျှင်လည်း တူညီသော တန်ဖိုးများ ပေါ်မည်။"
+    },
+    {
+      "source": "なぜ残るのか",
+      "translation": "အဘယ်ကြောင့် ကျန်နေသနည်း"
+    },
+    {
+      "source": "<code>apply()</code> のときに、値が端末の中のファイルに書き込まれたからです。アプリを終了してもファイルは消えません。次に起動したとき、<code>getInt</code> などがそのファイルから読み出しています。そのファイルはSTEP 08で実際に見ます。",
+      "translation": "<code>apply()</code> လုပ်သည့်အခါ တန်ဖိုးများကို စက်ထဲရှိ ဖိုင်ထဲသို့ ရေးထည့်လိုက်သောကြောင့် ဖြစ်သည်။ app ကို ပိတ်လိုက်သော်လည်း ဖိုင် မပျောက်ပါ။ နောက်တစ်ကြိမ် စတင်ဖွင့်သည့်အခါ <code>getInt</code> စသည်တို့က ထိုဖိုင်မှ ဖတ်ထုတ်နေသည်။ ထိုဖိုင်ကို STEP 08 တွင် အမှန်တကယ် ကြည့်မည်။"
+    },
+    {
+      "source": "これまでの単元との違い",
+      "translation": "ယခင်သင်ခန်းစာများနှင့် ကွာခြားချက်"
+    },
+    {
+      "source": "A02の得点やA07の参加者一覧は、アプリを終了すると消えていました。あれはメモリの上にだけあったからです。今回は<strong>ファイルに書いている</strong>ので、終了しても、端末を再起動しても残ります。",
+      "translation": "A02 ၏ ရမှတ်နှင့် A07 ၏ ပါဝင်သူစာရင်းတို့သည် app ကို ပိတ်လိုက်လျှင် ပျောက်သွားခဲ့သည်။ ၎င်းတို့မှာ memory ပေါ်တွင်သာ ရှိခဲ့သောကြောင့်ဖြစ်သည်။ ယခုတစ်ကြိမ်တွင် <strong>ဖိုင်ထဲသို့ ရေးထားသည်</strong> ဖြစ်၍ app ကို ပိတ်သည်ဖြစ်စေ စက်ကို ပြန်စတင်သည်ဖြစ်စေ ကျန်နေမည်။"
+    },
+    {
+      "source": "終了 → 起動を2回くり返して、毎回同じ値が出ることを確かめます。",
+      "translation": "ပိတ်ခြင်း → စတင်ဖွင့်ခြင်းကို 2 ကြိမ် ထပ်လုပ်ပြီး အကြိမ်တိုင်း တူညီသော တန်ဖိုးများ ပေါ်ကြောင်း စစ်ဆေးပါ။"
+    },
+    {
+      "source": "アプリを完全に終了して開き直しても、値が残ることを確かめた。",
+      "translation": "app ကို လုံးဝ ပိတ်ပြီး ပြန်ဖွင့်သော်လည်း တန်ဖိုးများ ကျန်နေကြောင်း စစ်ဆေးပြီးပြီ။"
+    },
+    {
+      "source": "次へ：データを全部消す →",
+      "translation": "နောက်တစ်ဆင့်: ဒေတာအားလုံး ဖျက်ခြင်း →"
+    },
+    {
+      "source": "STEP 07 · 目安 10分",
+      "translation": "STEP 07 · ခန့်မှန်း 10 မိနစ်"
+    },
+    {
+      "source": "データを全部消す",
+      "translation": "ဒေတာအားလုံး ဖျက်ခြင်း"
+    },
+    {
+      "source": "保存したデータを消す処理を、clearボタンに書きます。getの行の<strong>下</strong>に追加します。",
+      "translation": "သိမ်းဆည်းထားသော ဒေတာကို ဖျက်သော လုပ်ဆောင်ချက်ကို clear ခလုတ်တွင် ရေးပါ။ get ၏ စာကြောင်း <strong>အောက်</strong> တွင် ထည့်ပါ။"
+    },
+    {
+      "source": "消すときも <code>edit()</code> → 操作 → <code>apply()</code> の3ステップは同じです。<code>clear()</code> を呼んだだけでは消えません。",
+      "translation": "ဖျက်သည့်အခါလည်း <code>edit()</code> → လုပ်ဆောင်ချက် → <code>apply()</code> ဟူသော အဆင့် 3 ဆင့်မှာ အတူတူဖြစ်သည်။ <code>clear()</code> ကို ခေါ်ရုံဖြင့် မပျောက်ပါ။"
+    },
+    {
+      "source": "applyを押して、値が入った状態にします。",
+      "translation": "apply ကို နှိပ်၍ တန်ဖိုးများ ဝင်ပြီးသော အခြေအနေသို့ ရောက်အောင် လုပ်ပါ။"
+    },
+    {
+      "source": "clearを押します。6行がすべて<strong>初期値に戻れば成功です</strong>（STEP 04と同じ表示）。",
+      "translation": "clear ကို နှိပ်ပါ။ စာကြောင်း 6 ကြောင်းလုံး <strong>မူလတန်ဖိုးများသို့ ပြန်ရောက်လျှင် အောင်မြင်ပြီ</strong> (STEP 04 နှင့် တူညီသော ဖော်ပြချက်)။"
+    },
+    {
+      "source": "もう一度applyを押すと、また値が入ります。",
+      "translation": "နောက်တစ်ကြိမ် apply ကို နှိပ်လျှင် တန်ဖိုးများ ပြန်ဝင်လာမည်။"
+    },
+    {
+      "source": "clearを押したあとの画面。int_value = 0、string_value =、boolean_value = false、float_value = 0.0、long_value = 0、string_set_value = [] と、すべて初期値に戻っている",
+      "translation": "clear ကို နှိပ်ပြီးနောက် မျက်နှာပြင်။ int_value = 0၊ string_value =၊ boolean_value = false၊ float_value = 0.0၊ long_value = 0၊ string_set_value = [] ဟု အားလုံး မူလတန်ဖိုးများသို့ ပြန်ရောက်နေသည်"
+    },
+    {
+      "source": "clearのあと。データが消えたので、また初期値が返ります。 <a1>画像を大きく開く</a1>",
+      "translation": "clear ပြီးနောက်။ ဒေတာ ပျောက်သွားသဖြင့် မူလတန်ဖိုးများ ပြန်ရသည်။ <a1>ပုံကို အရွယ်အစားအပြည့်ဖြင့် ဖွင့်ပါ</a1>"
+    },
+    {
+      "source": "「消えた」と「初期値」は違う",
+      "translation": "“ပျောက်သွားသည်” နှင့် “မူလတန်ဖိုး” မတူပါ"
+    },
+    {
+      "source": "画面に <code>int_value = 0</code> と出ていても、それは「0が保存されている」のではなく「<strong>何も保存されていないので初期値の0が返った</strong>」という意味です。この2つは画面では見分けられません。STEP 08でファイルを見ると、はっきり違いがわかります。",
+      "translation": "မျက်နှာပြင်တွင် <code>int_value = 0</code> ဟု ပေါ်နေသော်လည်း ၎င်းသည် “0 ကို သိမ်းဆည်းထားသည်” ဟု မဆိုလိုဘဲ “<strong>ဘာမျှ မသိမ်းဆည်းထားသဖြင့် မူလတန်ဖိုး 0 ပြန်ရသည်</strong>” ဟု ဆိုလိုသည်။ ဤ 2 ခုကို မျက်နှာပြင်ပေါ်တွင် ခွဲခြား၍ မရပါ။ STEP 08 တွင် ဖိုင်ကို ကြည့်လျှင် ကွာခြားချက်ကို ရှင်းရှင်းလင်းလင်း သိရမည်။"
+    },
+    {
+      "source": "clearで全データを消せ、6行が初期値に戻った。",
+      "translation": "clear ဖြင့် ဒေတာအားလုံးကို ဖျက်နိုင်ပြီး စာကြောင်း 6 ကြောင်း မူလတန်ဖိုးများသို့ ပြန်ရောက်ပြီးပြီ။"
+    },
+    {
+      "source": "次へ：保存先のXMLファイルを見る →",
+      "translation": "နောက်တစ်ဆင့်: သိမ်းဆည်းရာ XML ဖိုင်ကို ကြည့်ခြင်း →"
+    },
+    {
+      "source": "STEP 08 · 目安 20分",
+      "translation": "STEP 08 · ခန့်မှန်းခြေ 20 မိနစ်"
+    },
+    {
+      "source": "保存先のXMLファイルを見る",
+      "translation": "သိမ်းဆည်းရာ XML ဖိုင်ကို ကြည့်ခြင်း"
+    },
+    {
+      "source": "データは端末の中のファイルに入っています。そのファイルを読んで、画面に出します。",
+      "translation": "ဒေတာသည် စက်ထဲရှိ ဖိုင်ထဲတွင် ရှိသည်။ ထိုဖိုင်ကို ဖတ်ပြီး မျက်နှာပြင်တွင် ဖော်ပြမည်။"
+    },
+    {
+      "source": "① ファイルを読むメソッドを追加する",
+      "translation": "① ဖိုင်ကို ဖတ်သော method ကို ထည့်ပါ"
+    },
+    {
+      "source": "<code>currentValues()</code> の<strong>下</strong>、クラスの最後の <code>}</code> の<strong>上</strong>に書きます。",
+      "translation": "<code>currentValues()</code> ၏ <strong>အောက်</strong>၊ class ၏ နောက်ဆုံး <code>}</code> ၏ <strong>အပေါ်</strong> တွင် ရေးပါ။"
+    },
+    {
+      "source": "<code>File</code>・<code>Files</code>・<code>StandardCharsets</code>・<code>IOException</code> が赤いときは <kbd>⌥ Enter</kbd> で <code>java.io.File</code>、<code>java.nio.file.Files</code>、<code>java.nio.charset.StandardCharsets</code>、<code>java.io.IOException</code> を選びます。",
+      "translation": "<code>File</code>၊ <code>Files</code>၊ <code>StandardCharsets</code>၊ <code>IOException</code> တို့ အနီရောင် ဖြစ်နေလျှင် <kbd>⌥ Enter</kbd> ဖြင့် <code>java.io.File</code>၊ <code>java.nio.file.Files</code>၊ <code>java.nio.charset.StandardCharsets</code>၊ <code>java.io.IOException</code> ကို ရွေးပါ။"
+    },
+    {
+      "source": "② show app.xmlボタンの処理を追加する",
+      "translation": "② show app.xml ခလုတ်၏ လုပ်ဆောင်ချက်ကို ထည့်ပါ"
+    },
+    {
+      "source": "clearの処理（<code>});</code> まで）の<strong>下</strong>に追加します。これでonCreateは完成です。",
+      "translation": "clear ၏ လုပ်ဆောင်ချက် (<code>});</code> အထိ) ၏ <strong>အောက်</strong> တွင် ထည့်ပါ။ ဤမျှဖြင့် onCreate ပြီးစီးပြီ။"
+    },
+    {
+      "source": "applyを押します。",
+      "translation": "apply ကို နှိပ်ပါ။"
+    },
+    {
+      "source": "show app.xmlを押します。ファイルの場所と、中身のXMLが表示されます。",
+      "translation": "show app.xml ကို နှိပ်ပါ။ ဖိုင်၏ တည်နေရာနှင့် အထဲရှိ XML ကို ဖော်ပြမည်။"
+    },
+    {
+      "source": "show app.xmlを押した画面。パスのあとに、mapタグの中にstring、boolean、set、float、long、intの各タグが並んだXMLが表示されている",
+      "translation": "show app.xml ကို နှိပ်ထားသော မျက်နှာပြင်။ path ပြီးနောက် map tag ထဲတွင် string၊ boolean၊ set၊ float၊ long၊ int tag များ စီထားသော XML ကို ဖော်ပြထားသည်"
+    },
+    {
+      "source": "applyのあと。保存した6つの値がタグになっています。 <a1>画像を大きく開く</a1>",
+      "translation": "apply ပြီးနောက်။ သိမ်းဆည်းခဲ့သော တန်ဖိုး 6 ခု tag များအဖြစ် ရှိနေသည်။ <a1>ပုံကို အရွယ်အစားအပြည့်ဖြင့် ဖွင့်ပါ</a1>"
+    },
+    {
+      "source": "読み取れること",
+      "translation": "ဖတ်၍ သိနိုင်သောအချက်များ"
+    },
+    {
+      "source": "画面に出たもの",
+      "translation": "မျက်နှာပြင်တွင် ပေါ်လာသောအရာ"
+    },
+    {
+      "source": "このアプリ専用の場所。ほかのアプリからは読めません。",
+      "translation": "ဤ app အတွက်သာ သီးသန့်ထားသော နေရာ။ အခြား app များမှ ဖတ်၍ မရပါ။"
+    },
+    {
+      "source": "<code>FILE_NAME = \"app\"</code> と書いたので <code>app.xml</code> になっています。",
+      "translation": "<code>FILE_NAME = \"app\"</code> ဟု ရေးထားသဖြင့် <code>app.xml</code> ဖြစ်နေသည်။"
+    },
+    {
+      "source": "<strong>キーがname、値がvalue</strong>。種類ごとにタグ名が違います（int / long / float / boolean / string / set）。",
+      "translation": "<strong>key သည် name၊ တန်ဖိုးသည် value</strong>။ အမျိုးအစားအလိုက် tag အမည် ကွဲပြားသည် (int / long / float / boolean / string / set)။"
+    },
+    {
+      "source": "<code>&lt;set&gt;</code> の中の <code>&lt;string&gt;</code> が2つ",
+      "translation": "<code>&lt;set&gt;</code> ထဲရှိ <code>&lt;string&gt;</code> 2 ခု"
+    },
+    {
+      "source": "<code>Set.of(\"Hello\", \"World\")</code> の2つが入っています。",
+      "translation": "<code>Set.of(\"Hello\", \"World\")</code> ၏ 2 ခု ထည့်ထားသည်။"
+    },
+    {
+      "source": "clearするとどうなるか",
+      "translation": "clear လုပ်လျှင် ဘာဖြစ်မည်နည်း"
+    },
+    {
+      "source": "clearを押します。",
+      "translation": "clear ကို နှိပ်ပါ။"
+    },
+    {
+      "source": "もう一度show app.xmlを押します。",
+      "translation": "နောက်တစ်ကြိမ် show app.xml ကို နှိပ်ပါ။"
+    },
+    {
+      "source": "clearしたあとにshow app.xmlを押した画面。同じパスのあとに、XML宣言とmapタグだけが表示されている",
+      "translation": "clear လုပ်ပြီးနောက် show app.xml ကို နှိပ်ထားသော မျက်နှာပြင်။ တူညီသော path ပြီးနောက် XML ကြေညာချက်နှင့် map tag သာ ပေါ်နေသည်"
+    },
+    {
+      "source": "clearのあと。ファイルは残り、中身が空になります。 <a1>画像を大きく開く</a1>",
+      "translation": "clear ပြီးနောက်။ ဖိုင်မှာ ကျန်နေပြီး အထဲရှိအရာများ ဗလာဖြစ်သွားသည်။ <a1>ပုံကို အရွယ်အစားအပြည့်ဖြင့် ဖွင့်ပါ</a1>"
+    },
+    {
+      "source": "<code>&lt;map /&gt;</code> だけになりました。<strong>ファイルそのものは消えず、中身が空になる</strong>ことがわかります。STEP 07で見た「消えた」と「初期値」の違いが、ここではっきりします。",
+      "translation": "<code>&lt;map /&gt;</code> သာ ကျန်တော့သည်။ <strong>ဖိုင်ကိုယ်တိုင် မပျောက်ဘဲ အထဲရှိအရာများသာ ဗလာဖြစ်သွားသည်</strong> ကို သိနိုင်သည်။ STEP 07 တွင် မြင်ခဲ့သော “ပျောက်သွားသည်” နှင့် “မူလတန်ဖိုး” ကွာခြားချက်သည် ဤနေရာတွင် ထင်ရှားလာသည်။"
+    },
+    {
+      "source": "<code>SharedPreferences</code> は<strong>小さくて単純な設定</strong>のための入れ物です。",
+      "translation": "<code>SharedPreferences</code> သည် <strong>သေးငယ်ပြီး ရိုးရှင်းသော သတ်မှတ်ချက်များ</strong> အတွက် ထည့်စရာ container ဖြစ်သည်။"
+    },
+    {
+      "source": "向いているもの",
+      "translation": "သင့်တော်သည့်အရာ"
+    },
+    {
+      "source": "向いていないもの",
+      "translation": "မသင့်တော်သောအရာများ"
+    },
+    {
+      "source": "音量やダークモードの設定、最後に開いたタブ、チュートリアルを見たかどうか",
+      "translation": "အသံအတိုးအကျယ်နှင့် dark mode သတ်မှတ်ချက်များ၊ နောက်ဆုံး ဖွင့်ခဲ့သော tab၊ tutorial ကို ကြည့်ပြီး မကြည့်ပြီး"
+    },
+    {
+      "source": "写真や動画（大きすぎる）",
+      "translation": "ဓာတ်ပုံနှင့် ဗီဒီယိုများ (အရွယ်အစား ကြီးလွန်းသည်)"
+    },
+    {
+      "source": "ログイン中かどうかの目印",
+      "translation": "login ဝင်ထား မဝင်ထား ပြသော အမှတ်အသား"
+    },
+    {
+      "source": "何百件もの記録（一覧や検索にはデータベースを使う）",
+      "translation": "ရာနှင့်ချီသော မှတ်တမ်းများ (စာရင်းပြခြင်းနှင့် ရှာဖွေခြင်းအတွက် database ကို သုံးပါ)"
+    },
+    {
+      "source": "ゲームのハイスコア",
+      "translation": "game ၏ အမှတ်အမြင့်ဆုံး စံချိန်"
+    },
+    {
+      "source": "パスワードやクレジットカード番号",
+      "translation": "စကားဝှက်နှင့် credit card နံပါတ်"
+    },
+    {
+      "source": "パスワードを入れてはいけない理由",
+      "translation": "စကားဝှက်ကို မထည့်ရသည့် အကြောင်းရင်း"
+    },
+    {
+      "source": "いま見たとおり、中身は<strong>ただのXMLファイル</strong>です。暗号化されていません。ふつうの端末ではほかのアプリから読めませんが、それでも大事な情報を平文で置く場所ではありません。",
+      "translation": "ယခု မြင်ခဲ့ရသည့်အတိုင်း အထဲရှိအရာသည် <strong>သာမန် XML ဖိုင်တစ်ခုသာ</strong> ဖြစ်သည်။ စာဝှက်ထားခြင်း မရှိပါ။ သာမန်စက်များတွင် အခြား app များမှ ဖတ်၍ မရသော်လည်း အရေးကြီးသော အချက်အလက်များကို ဖတ်၍ရသော စာသားအတိုင်း ထားရမည့် နေရာ မဟုတ်ပါ။"
+    },
+    {
+      "source": "app.xmlの中身を表示してキーと値を確かめ、clearでファイルが空になることも確かめた。",
+      "translation": "app.xml ၏ အထဲရှိအရာများကို ဖော်ပြပြီး key နှင့် တန်ဖိုးများကို စစ်ဆေးကာ clear ဖြင့် ဖိုင် ဗလာဖြစ်သွားကြောင်းလည်း စစ်ဆေးပြီးပြီ။"
+    },
+    {
+      "source": "次へ：ミニ練習 →",
+      "translation": "နောက်တစ်ဆင့်: လေ့ကျင့်ခန်းငယ် →"
+    },
+    {
+      "source": "STEP 09 · 目安 15分",
+      "translation": "STEP 09 · ခန့်မှန်းကြာချိန် 15 မိနစ်"
+    },
+    {
+      "source": "ミニ練習",
+      "translation": "လေ့ကျင့်ခန်းငယ်"
+    },
+    {
+      "source": "まずSTEP 08まで完成させます。そのあと、次の小変更を1つずつ試します。<strong>予想 → 変更 → Run → 説明 → 元に戻す</strong>の順で行います。",
+      "translation": "ဦးစွာ STEP 08 အထိ ပြီးအောင် လုပ်ပါ။ ထို့နောက် အောက်ပါ ပြင်ဆင်မှုငယ်များကို တစ်ခုချင်းစီ စမ်းပါ။ <strong>ခန့်မှန်းခြင်း → ပြင်ဆင်ခြင်း → Run → ရှင်းပြခြင်း → မူလအတိုင်း ပြန်ထားခြင်း</strong> အစီအစဉ်ဖြင့် လုပ်ပါ။"
+    },
+    {
+      "source": "練習1：保存する値を変える",
+      "translation": "လေ့ကျင့်ခန်း 1: သိမ်းဆည်းမည့် တန်ဖိုးကို ပြောင်းပါ"
+    },
+    {
+      "source": "applyの処理の2行を、次のように変えます。",
+      "translation": "apply ၏ လုပ်ဆောင်ချက်ရှိ စာကြောင်း 2 ကြောင်းကို အောက်ပါအတိုင်း ပြောင်းပါ။"
+    },
+    {
+      "source": "練習1 · 変更後の2行",
+      "translation": "လေ့ကျင့်ခန်း 1 · ပြောင်းပြီးနောက် စာကြောင်း 2 ကြောင်း"
+    },
+    {
+      "source": "applyを押したあと、show app.xmlを押すと、XMLのどこが変わるでしょうか。予想してから試します。",
+      "translation": "apply ကို နှိပ်ပြီးနောက် show app.xml ကို နှိပ်လျှင် XML ၏ မည်သည့်နေရာ ပြောင်းမည်နည်း။ ခန့်မှန်းပြီးမှ စမ်းပါ။"
+    },
+    {
+      "source": "試したあとに答えを見る",
+      "translation": "စမ်းပြီးမှ အဖြေကို ကြည့်ရန်"
+    },
+    {
+      "source": "<code>&lt;int name=\"int_value\" value=\"100\" /&gt;</code> と <code>&lt;string name=\"string_value\"&gt;Android&lt;/string&gt;</code> の2つが変わり、ほかの4つは同じです。キーは変えていないので、同じ名前の値が上書きされます。確認後は <code>1</code> と <code>\"Hello\"</code> に戻します。",
+      "translation": "<code>&lt;int name=\"int_value\" value=\"100\" /&gt;</code> နှင့် <code>&lt;string name=\"string_value\"&gt;Android&lt;/string&gt;</code> 2 ခု ပြောင်းပြီး ကျန် 4 ခုမှာ အတူတူဖြစ်သည်။ key ကို မပြောင်းထားသဖြင့် အမည်တူသော တန်ဖိုးကို ထပ်ရေး၍ အစားထိုးလိုက်ခြင်း ဖြစ်သည်။ စစ်ဆေးပြီးနောက် <code>1</code> နှင့် <code>\"Hello\"</code> သို့ ပြန်ပြောင်းပါ။"
+    },
+    {
+      "source": "練習2：初期値を変える",
+      "translation": "လေ့ကျင့်ခန်း 2: မူလတန်ဖိုးကို ပြောင်းပါ"
+    },
+    {
+      "source": "<code>currentValues()</code> の1行目を、次のように変えます（第2引数が <code>-1</code> です）。",
+      "translation": "<code>currentValues()</code> ၏ ပထမစာကြောင်းကို အောက်ပါအတိုင်း ပြောင်းပါ (ဒုတိယ argument သည် <code>-1</code> ဖြစ်သည်)။"
+    },
+    {
+      "source": "練習2 · 変更後の行",
+      "translation": "လေ့ကျင့်ခန်း 2 · ပြောင်းပြီးနောက် စာကြောင်း"
+    },
+    {
+      "source": "clearを押したあと、<code>int_value</code> は何と表示されるでしょうか。applyを押したあとはどうでしょうか。予想してから試します。",
+      "translation": "clear ကို နှိပ်ပြီးနောက် <code>int_value</code> ကို ဘယ်လို ဖော်ပြမည်နည်း။ apply ကို နှိပ်ပြီးနောက် ဘယ်လိုဖြစ်မည်နည်း။ ခန့်မှန်းပြီးမှ စမ်းပါ။"
+    },
+    {
+      "source": "clearのあとは <code>int_value = -1</code>、applyのあとは <code>int_value = 1</code> です。初期値は<strong>データがないときだけ</strong>使われ、保存されていればその値が返ります。「0だから保存されていない」とは限らないこと、逆に「0が保存されている」こともあることを説明できれば十分です。確認後は <code>0</code> に戻します。",
+      "translation": "clear ပြီးနောက် <code>int_value = -1</code>၊ apply ပြီးနောက် <code>int_value = 1</code> ဖြစ်သည်။ မူလတန်ဖိုးကို <strong>ဒေတာ မရှိသည့်အခါမှသာ</strong> သုံးပြီး သိမ်းဆည်းထားလျှင် ထိုတန်ဖိုး ပြန်ရမည်။ “0 ဖြစ်နေလျှင် မသိမ်းဆည်းထားပါ” ဟု မဆိုနိုင်ကြောင်း၊ ပြောင်းပြန်အားဖြင့် “0 ကို သိမ်းဆည်းထားသည်” လည်း ဖြစ်နိုင်ကြောင်း ရှင်းပြနိုင်လျှင် လုံလောက်သည်။ စစ်ဆေးပြီးနောက် <code>0</code> သို့ ပြန်ပြောင်းပါ။"
+    },
+    {
+      "source": "練習3：キーを直接書いて、打ち間違える",
+      "translation": "လေ့ကျင့်ခန်း 3: key ကို တိုက်ရိုက် ရေးပြီး ရိုက်မှားကြည့်ပါ"
+    },
+    {
+      "source": "<code>currentValues()</code> の1行目を、さらに次のように変えます（<code>_</code> がありません）。",
+      "translation": "<code>currentValues()</code> ၏ ပထမစာကြောင်းကို ထပ်မံ၍ အောက်ပါအတိုင်း ပြောင်းပါ (<code>_</code> မပါပါ)။"
+    },
+    {
+      "source": "練習3 · 変更後の行",
+      "translation": "လေ့ကျင့်ခန်း 3 · ပြောင်းပြီးနောက် စာကြောင်း"
+    },
+    {
+      "source": "赤いエラーは出るでしょうか。applyを押したあと、<code>int_value</code> は何と表示されるでしょうか。予想してから試します。",
+      "translation": "အနီရောင် error ပေါ်မည်လား။ apply ကို နှိပ်ပြီးနောက် <code>int_value</code> ကို ဘယ်လို ဖော်ပြမည်နည်း။ ခန့်မှန်းပြီးမှ စမ်းပါ။"
+    },
+    {
+      "source": "赤いエラーは<strong>出ません</strong>。applyを押しても <code>int_value = 0</code> のままです。保存したキーは <code>\"int_value\"</code>、探したキーは <code>\"intvalue\"</code> で、見つからないため初期値の0が返るからです。show app.xmlを押すと <code>&lt;int name=\"int_value\" value=\"1\" /&gt;</code> はちゃんとあります。定数名を <code>INT_VALU</code> のように打ち間違えた場合は、すぐ赤いエラーになります。キーを定数にまとめる理由を説明できれば十分です。確認後は <code>INT_VALUE</code> に戻します。",
+      "translation": "အနီရောင် error <strong>မပေါ်ပါ</strong>။ apply ကို နှိပ်သော်လည်း <code>int_value = 0</code> အတိုင်း ဖြစ်နေမည်။ သိမ်းဆည်းခဲ့သော key မှာ <code>\"int_value\"</code> ဖြစ်ပြီး ရှာသော key မှာ <code>\"intvalue\"</code> ဖြစ်သဖြင့် ရှာမတွေ့ဘဲ မူလတန်ဖိုး 0 ပြန်ရသောကြောင့် ဖြစ်သည်။ show app.xml ကို နှိပ်လျှင် <code>&lt;int name=\"int_value\" value=\"1\" /&gt;</code> ကို သေချာ တွေ့ရမည်။ constant အမည်ကို <code>INT_VALU</code> ကဲ့သို့ ရိုက်မှားလျှင်မူ ချက်ချင်း အနီရောင် error ဖြစ်မည်။ key များကို constant အဖြစ် စုစည်းရသည့် အကြောင်းရင်းကို ရှင်းပြနိုင်လျှင် လုံလောက်သည်။ စစ်ဆေးပြီးနောက် <code>INT_VALUE</code> သို့ ပြန်ပြောင်းပါ။"
+    },
+    {
+      "source": "3つの練習を試し、表示がどう変わるかを確かめてから、コードを元に戻した。",
+      "translation": "လေ့ကျင့်ခန်း 3 ခုကို စမ်းပြီး ဖော်ပြချက် မည်သို့ ပြောင်းသွားသည်ကို စစ်ဆေးကာ code ကို မူလအတိုင်း ပြန်ထားပြီးပြီ။"
+    },
+    {
+      "source": "次へ：完成 →",
+      "translation": "နောက်တစ်ဆင့်: ပြီးစီးခြင်း →"
+    },
+    {
+      "source": "STEP 10 · 目安 15分",
+      "translation": "STEP 10 · ခန့်မှန်းခြေ 15 မိနစ်"
+    },
+    {
+      "source": "完成",
+      "translation": "ပြီးစီးခြင်း"
+    },
+    {
+      "source": "完成チェック",
+      "translation": "ပြီးစီးမှု စစ်ဆေးခြင်း"
+    },
+    {
+      "source": "上から順に操作します。保存したデータが残っていると、起動したときに初期値が出ないので、アプリを消してから始めます。消し方は<a1>共通資料：エミュレータ</a1>の「アプリを消す」にあります。",
+      "translation": "အပေါ်မှ အစဉ်လိုက် လုပ်ဆောင်ပါ။ သိမ်းဆည်းထားသော ဒေတာ ကျန်နေလျှင် စတင်ဖွင့်သည့်အခါ မူလတန်ဖိုးများ မပေါ်သဖြင့် app ကို ဖယ်ရှားပြီးမှ စပါ။ ဖယ်ရှားနည်းကို <a1>အများသုံးလမ်းညွှန်: emulator</a1> ၏ “app ကို ဖယ်ရှားပါ” တွင် ကြည့်နိုင်သည်။"
+    },
+    {
+      "source": "<strong>アプリを終了する</strong>やり方は、STEP 06の②と同じです。",
+      "translation": "<strong>app ကို ပိတ်ခြင်း</strong> နည်းလမ်းမှာ STEP 06 ၏ ② နှင့် အတူတူဖြစ်သည်။"
+    },
+    {
+      "source": "操作",
+      "translation": "လုပ်ဆောင်ချက်"
+    },
+    {
+      "source": "確認する結果",
+      "translation": "စစ်ဆေးရမည့် ရလဒ်"
+    },
+    {
+      "source": "アプリを消してから初回起動",
+      "translation": "app ကို ဖယ်ရှားပြီးနောက် ပထမဆုံးအကြိမ် ဖွင့်ခြင်း"
+    },
+    {
+      "source": "6行が初期値（<code>0</code> / 空 / <code>false</code> / <code>0.0</code> / <code>0</code> / <code>[]</code>）で表示される。",
+      "translation": "စာကြောင်း 6 ကြောင်းကို မူလတန်ဖိုးများ (<code>0</code> / ဗလာ / <code>false</code> / <code>0.0</code> / <code>0</code> / <code>[]</code>) ဖြင့် ဖော်ပြမည်။"
+    },
+    {
+      "source": "6行が <code>1</code> / <code>Hello</code> / <code>true</code> / <code>1.0</code> / <code>1</code> / <code>[Hello, World]</code> に変わる。",
+      "translation": "စာကြောင်း 6 ကြောင်း <code>1</code> / <code>Hello</code> / <code>true</code> / <code>1.0</code> / <code>1</code> / <code>[Hello, World]</code> သို့ ပြောင်းမည်။"
+    },
+    {
+      "source": "applyのあとと同じ6行が出る。",
+      "translation": "apply ပြီးနောက်နှင့် တူညီသော စာကြောင်း 6 ကြောင်း ပေါ်မည်။"
+    },
+    {
+      "source": "アプリを終了して開き直す",
+      "translation": "app ကို ပိတ်ပြီး ပြန်ဖွင့်ခြင်း"
+    },
+    {
+      "source": "起動しただけで、applyで保存した値が出る。",
+      "translation": "စတင်ဖွင့်ရုံဖြင့် apply ဖြင့် သိမ်းဆည်းခဲ့သော တန်ဖိုးများ ပေါ်မည်။"
+    },
+    {
+      "source": "パスと、6つのタグが入ったXMLが出る。",
+      "translation": "path နှင့် tag 6 ခု ပါသော XML ပေါ်မည်။"
+    },
+    {
+      "source": "6行が初期値に戻る。",
+      "translation": "စာကြောင်း 6 ကြောင်း မူလတန်ဖိုးများသို့ ပြန်ရောက်မည်။"
+    },
+    {
+      "source": "clearのあとにshow app.xml",
+      "translation": "clear ပြီးနောက် show app.xml"
+    },
+    {
+      "source": "<code>&lt;map /&gt;</code> だけになる。",
+      "translation": "<code>&lt;map /&gt;</code> သာ ကျန်မည်။"
+    },
+    {
+      "source": "保存",
+      "translation": "သိမ်းဆည်းခြင်း"
+    },
+    {
+      "source": "Android Studioは、書いたコードを自動でファイルに保存します。保存の操作は要りません。ここでは、保存された場所を確かめます。",
+      "translation": "Android Studio သည် ရေးထားသော code ကို ဖိုင်ထဲသို့ အလိုအလျောက် သိမ်းဆည်းပေးသည်။ သိမ်းဆည်းရန် လုပ်ဆောင်စရာ မလိုပါ။ ဤနေရာတွင် သိမ်းဆည်းထားသည့် နေရာကို စစ်ဆေးမည်။"
+    },
+    {
+      "source": "Finderを開き、左側の <strong>書類</strong>（<code>Documents</code>）をクリックします。",
+      "translation": "Finder ကို ဖွင့်ပြီး ဘယ်ဘက်ရှိ <strong>書類</strong> (<code>Documents</code>) ကို နှိပ်ပါ။"
+    },
+    {
+      "source": "その中の <code>Android1</code> フォルダを開き、<code>A08SharedPreferencesSample</code> フォルダがあることを確かめます。",
+      "translation": "ထိုအထဲရှိ <code>Android1</code> ဖိုင်တွဲကို ဖွင့်ပြီး <code>A08SharedPreferencesSample</code> ဖိုင်တွဲ ရှိကြောင်း စစ်ဆေးပါ။"
+    },
+    {
+      "source": "この <code>Documents/Android1/A08SharedPreferencesSample</code> フォルダが、自分で作ったアプリです。あとの授業でもう一度開けるように、消したり、別の場所へ移動したり、名前を変えたりせずに、そのまま残します。",
+      "translation": "ဤ <code>Documents/Android1/A08SharedPreferencesSample</code> ဖိုင်တွဲသည် ကိုယ်တိုင် ဖန်တီးထားသော app ဖြစ်သည်။ နောက်ပိုင်း အတန်းများတွင် ထပ်မံ ဖွင့်နိုင်ရန် မဖျက်ဘဲ၊ အခြားနေရာသို့ မရွှေ့ဘဲ၊ အမည် မပြောင်းဘဲ မူလအတိုင်း ထားပါ။"
+    },
+    {
+      "source": "教材のチェックは自分用です。先生への送信はしません。印刷は <kbd>⌘ P</kbd> で行えます。",
+      "translation": "သင်ထောက်ကူပစ္စည်းများရှိ အမှန်ခြစ်များသည် ကိုယ်ပိုင်အသုံးပြုရန်သာ ဖြစ်သည်။ ဆရာထံ ပို့ခြင်း မရှိပါ။ print ထုတ်ရန် <kbd>⌘ P</kbd> ကို သုံးနိုင်သည်။"
+    },
+    {
+      "source": "完成チェックの操作をすべて試し、表のとおりの結果になった。",
+      "translation": "ပြီးစီးမှု စစ်ဆေးခြင်း၏ လုပ်ဆောင်ချက်အားလုံးကို စမ်းပြီး ဇယားအတိုင်း ရလဒ် ထွက်ပြီးပြီ။"
+    },
+    {
+      "source": "困ったこと",
+      "translation": "အခက်အခဲ"
+    },
+    {
+      "source": "最初に確認する場所",
+      "translation": "ဦးစွာ စစ်ဆေးရမည့် နေရာ"
+    },
+    {
+      "source": "<code>SharedPreferences</code> が赤い",
+      "translation": "<code>SharedPreferences</code> အနီရောင် ဖြစ်နေသည်"
+    },
+    {
+      "source": "<kbd>⌥ Enter</kbd> で <code>android.content.SharedPreferences</code> を選ぶ。",
+      "translation": "<kbd>⌥ Enter</kbd> ဖြင့် <code>android.content.SharedPreferences</code> ကို ရွေးပါ။"
+    },
+    {
+      "source": "<code>Set</code>、<code>File</code>、<code>Files</code>、<code>StandardCharsets</code>、<code>IOException</code>、<code>TextView</code> が赤い",
+      "translation": "<code>Set</code>၊ <code>File</code>၊ <code>Files</code>၊ <code>StandardCharsets</code>၊ <code>IOException</code>၊ <code>TextView</code> တို့ အနီရောင် ဖြစ်နေသည်"
+    },
+    {
+      "source": "<kbd>⌥ Enter</kbd> で <code>java.util.Set</code>、<code>java.io.File</code>、<code>java.nio.file.Files</code>、<code>java.nio.charset.StandardCharsets</code>、<code>java.io.IOException</code>、<code>android.widget.TextView</code> を選ぶ。",
+      "translation": "<kbd>⌥ Enter</kbd> ဖြင့် <code>java.util.Set</code>၊ <code>java.io.File</code>၊ <code>java.nio.file.Files</code>၊ <code>java.nio.charset.StandardCharsets</code>၊ <code>java.io.IOException</code>၊ <code>android.widget.TextView</code> ကို ရွေးပါ။"
+    },
+    {
+      "source": "<code>R.id.btn_apply</code> などが赤い",
+      "translation": "<code>R.id.btn_apply</code> စသည်တို့ အနီရောင် ဖြစ်နေသည်"
+    },
+    {
+      "source": "activity_main.xmlのidが <code>btn_apply</code> / <code>btn_get</code> / <code>btn_clear</code> / <code>btn_xml</code> / <code>txt_output</code> か確認。<code>android:id=\"@+id/main\"</code> を消していないかも見る。",
+      "translation": "activity_main.xml ရှိ id များသည် <code>btn_apply</code> / <code>btn_get</code> / <code>btn_clear</code> / <code>btn_xml</code> / <code>txt_output</code> ဟုတ်မဟုတ် စစ်ဆေးပါ။ <code>android:id=\"@+id/main\"</code> ကို ဖျက်မိခြင်း ရှိမရှိလည်း ကြည့်ပါ။"
+    },
+    {
+      "source": "<code>currentValues()</code> や <code>readPrefsXml()</code> を追加したら、赤いエラーがたくさん出る",
+      "translation": "<code>currentValues()</code> သို့မဟုတ် <code>readPrefsXml()</code> ကို ထည့်လိုက်လျှင် အနီရောင် error အများအပြား ပေါ်လာသည်"
+    },
+    {
+      "source": "onCreateの中に入れていないか確認。onCreateの最後の <code>}</code> の下、クラスの最後の <code>}</code> の上に置く。",
+      "translation": "onCreate အတွင်း ထည့်မိခြင်း ရှိမရှိ စစ်ဆေးပါ။ onCreate ၏ နောက်ဆုံး <code>}</code> အောက်၊ class ၏ နောက်ဆုံး <code>}</code> အပေါ်တွင် ထားပါ။"
+    },
+    {
+      "source": "<code>prefs</code> が赤い、またはnullでアプリが終了する",
+      "translation": "<code>prefs</code> အနီရောင် ဖြစ်နေသည် သို့မဟုတ် null ကြောင့် app ရပ်သွားသည်"
+    },
+    {
+      "source": "STEP 03の <code>prefs = getSharedPreferences(FILE_NAME, MODE_PRIVATE);</code> を書いたか、<code>txtOutput.setText(currentValues());</code> より<strong>上</strong>にあるか確認する。",
+      "translation": "STEP 03 ၏ <code>prefs = getSharedPreferences(FILE_NAME, MODE_PRIVATE);</code> ကို ရေးထား မရေးထား၊ <code>txtOutput.setText(currentValues());</code> ထက် <strong>အပေါ်</strong> တွင် ရှိမရှိ စစ်ဆေးပါ။"
+    },
+    {
+      "source": "<code>txtOutput</code> が赤い（applyなどの中）",
+      "translation": "<code>txtOutput</code> အနီရောင် ဖြစ်နေသည် (apply စသည်တို့ အတွင်း)"
+    },
+    {
+      "source": "<code>var txtOutput = (TextView) findViewById(R.id.txt_output);</code> をonCreateの中に書いたか確認する。",
+      "translation": "<code>var txtOutput = (TextView) findViewById(R.id.txt_output);</code> ကို onCreate အတွင်း ရေးထား မရေးထား စစ်ဆေးပါ။"
+    },
+    {
+      "source": "ボタンを押しても何も起きない",
+      "translation": "ခလုတ်ကို နှိပ်သော်လည်း ဘာမျှ မဖြစ်ပါ"
+    },
+    {
+      "source": "そのボタンの処理を追加したか、<code>R.id</code> の名前を取り違えていないか確認する。",
+      "translation": "ထိုခလုတ်၏ လုပ်ဆောင်ချက်ကို ထည့်ထား မထည့်ထား၊ <code>R.id</code> ၏ အမည်ကို မှားယွင်း သုံးမိခြင်း ရှိမရှိ စစ်ဆေးပါ။"
+    },
+    {
+      "source": "applyを押しても値が変わらない",
+      "translation": "apply ကို နှိပ်သော်လည်း တန်ဖိုးများ မပြောင်းပါ"
+    },
+    {
+      "source": "<code>editor.apply();</code> を書いたか確認する。putだけでは保存されない。",
+      "translation": "<code>editor.apply();</code> ကို ရေးထား မရေးထား စစ်ဆေးပါ။ put သာဖြင့် မသိမ်းဆည်းပါ။"
+    },
+    {
+      "source": "アプリを終了すると値が消える",
+      "translation": "app ကို ပိတ်လိုက်လျှင် တန်ဖိုးများ ပျောက်သွားသည်"
+    },
+    {
+      "source": "アプリのデータを消していないか確認する（設定 → アプリ → ストレージを消去）。エミュレータを作り直した場合も消える。",
+      "translation": "app ၏ ဒေတာကို ဖျက်မိခြင်း ရှိမရှိ စစ်ဆေးပါ (設定 → アプリ → ストレージを消去 = သတ်မှတ်ချက် → app → storage ကို ရှင်းလင်းရန်)။ emulator ကို ပြန်လည် ဖန်တီးခဲ့လျှင်လည်း ပျောက်မည်။"
+    },
+    {
+      "source": "show app.xmlで <code>(file not found)</code> と出る",
+      "translation": "show app.xml တွင် <code>(file not found)</code> ဟု ပေါ်သည်"
+    },
+    {
+      "source": "まだ一度もapplyしていない状態。applyを押してから、もう一度show app.xmlを押す。",
+      "translation": "တစ်ကြိမ်မျှ apply မလုပ်ရသေးသော အခြေအနေဖြစ်သည်။ apply ကို နှိပ်ပြီးမှ နောက်တစ်ကြိမ် show app.xml ကို နှိပ်ပါ။"
+    },
+    {
+      "source": "clearしたのに <code>int_value = 0</code> と出る",
+      "translation": "clear လုပ်ထားသော်လည်း <code>int_value = 0</code> ဟု ပေါ်သည်"
+    },
+    {
+      "source": "正常です。データが消えたので、初期値の0が返っています（STEP 07）。",
+      "translation": "ပုံမှန်ဖြစ်သည်။ ဒေတာ ပျောက်သွားသဖြင့် မူလတန်ဖိုး 0 ပြန်ရနေခြင်း ဖြစ်သည် (STEP 07)။"
+    },
+    {
+      "source": "<code>string_set_value</code> の並びが画像と違う",
+      "translation": "<code>string_set_value</code> ၏ အစီအစဉ်သည် ပုံနှင့် မတူပါ"
+    },
+    {
+      "source": "正常です。<code>Set</code> は順番を約束しません。",
+      "translation": "ပုံမှန်ဖြစ်သည်။ <code>Set</code> သည် အစီအစဉ်ကို အာမမခံပါ။"
+    },
+    {
+      "source": "表示欄の文字が画面の下からはみ出す",
+      "translation": "ဖော်ပြရန်အကွက်ရှိ စာသားသည် မျက်နှာပြင်အောက်မှ ကျော်ထွက်သွားသည်"
+    },
+    {
+      "source": "activity_main.xmlの <code>txt_output</code> が <code>layout_height=\"0dp\"</code> と <code>layout_weight=\"1\"</code> になっているか確認する。",
+      "translation": "activity_main.xml ရှိ <code>txt_output</code> သည် <code>layout_height=\"0dp\"</code> နှင့် <code>layout_weight=\"1\"</code> ဖြစ်နေ မဖြစ်နေ စစ်ဆေးပါ။"
+    },
+    {
+      "source": "ボタンを押すたびにボタンの位置が動く",
+      "translation": "ခလုတ်ကို နှိပ်တိုင်း ခလုတ်များ၏ နေရာ ရွေ့သွားသည်"
+    },
+    {
+      "source": "同上。<code>wrap_content</code> のままだと、表示する文字の量で位置が変わる。",
+      "translation": "အထက်ပါအတိုင်းပင်။ <code>wrap_content</code> အတိုင်း ထားလျှင် ဖော်ပြမည့် စာသားပမာဏအလိုက် နေရာ ပြောင်းသွားမည်။"
+    },
+    {
+      "source": "直したのに動きが変わらない",
+      "translation": "ပြင်ပြီးသော်လည်း အလုပ်လုပ်ပုံ မပြောင်းပါ"
+    },
+    {
+      "source": "ウィンドウの保存先が <code>Documents/Android1/A08SharedPreferencesSample</code> か確認する。samples側を開いていないか見る。",
+      "translation": "window ၏ သိမ်းဆည်းရာနေရာသည် <code>Documents/Android1/A08SharedPreferencesSample</code> ဟုတ်မဟုတ် စစ်ဆေးပါ။ samples ဘက်ကို ဖွင့်ထားခြင်း ရှိမရှိ ကြည့်ပါ။"
+    },
+    {
+      "source": "質問では「STEP番号・編集したファイル・最初の赤い行・押した順番」を伝えます。",
+      "translation": "မေးခွန်းမေးသည့်အခါ “STEP နံပါတ်၊ ပြင်ဆင်ခဲ့သော ဖိုင်၊ ပထမဆုံး အနီရောင်စာကြောင်း၊ နှိပ်ခဲ့သော အစဉ်” တို့ကို ပြောပြပါ။"
+    },
+    {
+      "source": "完成版は最初の授業から使える見本です。教科書といっしょに配られた<strong>教材のフォルダ</strong>に、そのまま開ける形で入っています。ダウンロードも展開も要りません。",
+      "translation": "ပြီးစီးထားသော version သည် ပထမဆုံးအတန်းမှစ၍ သုံးနိုင်သော နမူနာ ဖြစ်သည်။ သင်ရိုးစာအုပ်နှင့်အတူ ဖြန့်ပေးထားသော <strong>သင်ထောက်ကူပစ္စည်း ဖိုင်တွဲ</strong> ထဲတွင် တိုက်ရိုက် ဖွင့်နိုင်သည့်ပုံစံဖြင့် ရှိသည်။ download လုပ်ရန်နှင့် ဖိုင်ဖြည်ရန် မလိုပါ။"
+    },
+    {
+      "source": "Android Studioの <strong>Open</strong>（プロジェクトを開いているときは <strong>File → Open</strong>）で、<strong>書類</strong>（<code>Documents</code>）にある教材のフォルダを開きます。名前は <code>android1-student-materials-</code> のうしろに日付が付いた形で、日付は配られた回によって変わります。いま読んでいるこの教科書が入っているフォルダです。",
+      "translation": "Android Studio ၏ <strong>Open</strong> (project ဖွင့်ထားလျှင် <strong>File → Open</strong>) ဖြင့် <strong>書類</strong> (<code>Documents</code>) ထဲရှိ သင်ထောက်ကူပစ္စည်း ဖိုင်တွဲ ကို ဖွင့်ပါ။ အမည်မှာ <code>android1-student-materials-</code> ၏ နောက်တွင် ရက်စွဲ ပါသောပုံစံ ဖြစ်ပြီး ရက်စွဲသည် ဖြန့်ပေးသည့် အကြိမ်အလိုက် ကွဲပြားသည်။ ယခု ဖတ်နေသော ဤသင်ရိုးစာအုပ် ပါဝင်သည့် ဖိုင်တွဲ ဖြစ်သည်။"
+    },
+    {
+      "source": "その中を <code>samples → A08SharedPreferencesSample</code> の順に開き、<code>settings.gradle.kts</code> と <code>app</code> が入った <code>A08SharedPreferencesSample</code> フォルダを選びます。",
+      "translation": "ထိုအထဲတွင် <code>samples → A08SharedPreferencesSample</code> အစဉ်လိုက် ဖွင့်ပြီး <code>settings.gradle.kts</code> နှင့် <code>app</code> ပါဝင်သော <code>A08SharedPreferencesSample</code> ဖိုင်တွဲကို ရွေးပါ။"
+    },
+    {
+      "source": "Sync後にRunして動きを確認します。授業の入力に戻るときは自分の <code>Documents/Android1/A08SharedPreferencesSample</code> を開きます。",
+      "translation": "Sync ပြီးနောက် Run လုပ်၍ လုပ်ဆောင်ပုံကို စစ်ဆေးပါ။ အတန်းတွင် ရိုက်ထည့်မှုသို့ ပြန်သွားသည့်အခါ မိမိ၏ <code>Documents/Android1/A08SharedPreferencesSample</code> ကို ဖွင့်ပါ။"
+    },
+    {
+      "source": "両方とも同じプロジェクト名なので、ウィンドウの保存先を確認しましょう。見本と自分のアプリは同じパッケージ名のため、端末上では同じアプリを更新します。<strong>保存したデータも共有されます</strong>。切り替えるときは、確認したい方のプロジェクトからRunします。",
+      "translation": "နှစ်ခုလုံး project အမည် တူညီသဖြင့် window ၏ သိမ်းဆည်းရာနေရာကို စစ်ဆေးပါ။ နမူနာနှင့် မိမိ၏ app သည် package name တူညီသောကြောင့် စက်ပေါ်တွင် တူညီသော app ကိုသာ update လုပ်မည်။ <strong>သိမ်းဆည်းထားသော ဒေတာကိုလည်း မျှဝေသုံးမည်</strong>။ ပြောင်းသုံးသည့်အခါ စစ်ဆေးလိုသည့်ဘက် project မှ Run လုပ်ပါ။"
+    },
+    {
+      "source": "教材のフォルダが手元にないときは、同じ見本をZIPで受け取れます（<a1>A08SharedPreferencesSample.zip</a1>）。展開してできた <code>A08SharedPreferencesSample</code> フォルダを、同じようにOpenで選びます。",
+      "translation": "သင်ထောက်ကူပစ္စည်း ဖိုင်တွဲ လက်ထဲတွင် မရှိလျှင် တူညီသော နမူနာကို ZIP ဖြင့် ရယူနိုင်သည် (<a1>A08SharedPreferencesSample.zip</a1>)။ ဖိုင်ဖြည်ပြီး ရလာသော <code>A08SharedPreferencesSample</code> ဖိုင်တွဲကို အလားတူ Open ဖြင့် ရွေးပါ။"
+    },
+    {
+      "source": "完成したMainActivity.javaで照合する",
+      "translation": "ပြီးစီးထားသော MainActivity.java ဖြင့် တိုက်ဆိုင်စစ်ဆေးရန်"
+    },
+    {
+      "source": "完成版 · MainActivity.java",
+      "translation": "ပြီးစီးထားသော version · MainActivity.java"
+    },
+    {
+      "source": "完成したactivity_main.xmlで照合する",
+      "translation": "ပြီးစီးထားသော activity_main.xml ဖြင့် တိုက်ဆိုင်စစ်ဆေးရန်"
+    },
+    {
+      "source": "完成版 · activity_main.xml",
+      "translation": "ပြီးစီးထားသော version · activity_main.xml"
+    },
+    {
+      "source": "Androidプログラミング1 · A08SharedPreferencesSample / 本文・画像・操作機能はオフラインで利用できます。Android Studioの初回準備・ビルドと公式資料の閲覧にはネット接続が必要です。",
+      "translation": "Android ပရိုဂရမ်းမင်း 1 · A08SharedPreferencesSample / စာကိုယ်၊ ပုံများနှင့် လုပ်ဆောင်ချက်များကို offline တွင် သုံးနိုင်သည်။ Android Studio ကို ပထမဆုံးအကြိမ် ပြင်ဆင်ခြင်း၊ build လုပ်ခြင်းနှင့် တရားဝင် စာရွက်စာတမ်းများ ကြည့်ရှုခြင်းအတွက် အင်တာနက် ချိတ်ဆက်မှု လိုအပ်သည်။"
+    },
+    {
+      "source": "画像は授業用の提供資料を使用。",
+      "translation": "ပုံများအတွက် အတန်းသုံး ပေးအပ်ထားသော စာရွက်စာတမ်းများကို အသုံးပြုထားသည်။"
+    }
+  ]
+}
