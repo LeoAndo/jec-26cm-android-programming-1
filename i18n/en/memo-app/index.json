@@ -3,6 +3,14 @@
   "language": "en",
   "entries": [
     {
+      "source": "JavaとXMLで作るA09MemoApp。A08で学んだSharedPreferencesを使って、アプリを終了しても消えないメモ帳を作る授業用教科書。",
+      "translation": "A textbook for building A09MemoApp with Java and XML. Use SharedPreferences, learned in A08, to make a memo app that keeps your memos after you close it."
+    },
+    {
+      "source": "MemoApp — 消えないメモ帳を作ろう | Androidプログラミング1",
+      "translation": "MemoApp — Build a memo app that remembers | Android Programming 1"
+    },
+    {
       "source": "本文へ移動",
       "translation": "Skip to main content"
     },
@@ -23,6 +31,38 @@
       "translation": "00 Today's goals"
     },
     {
+      "source": "01　プロジェクトを作って実行",
+      "translation": "01 Create and run a project"
+    },
+    {
+      "source": "02　タイトル画像を入れる",
+      "translation": "02 Add the title image"
+    },
+    {
+      "source": "03　画面を作る",
+      "translation": "03　Build the screen"
+    },
+    {
+      "source": "04　メモを追加する",
+      "translation": "04　Add memos"
+    },
+    {
+      "source": "05　終了しても残るようにする",
+      "translation": "05　Keep memos after closing the app"
+    },
+    {
+      "source": "06　データを全部消す",
+      "translation": "06　Delete all data"
+    },
+    {
+      "source": "07　完成",
+      "translation": "07　Finished"
+    },
+    {
+      "source": "0 / 8 ステップ確認済み",
+      "translation": "0 / 8 steps checked"
+    },
+    {
       "source": "学習の進み具合",
       "translation": "Learning progress"
     },
@@ -33,6 +73,10 @@
     {
       "source": "困ったとき",
       "translation": "If you get stuck"
+    },
+    {
+      "source": "解説：なぜArrayListを使わないのか",
+      "translation": "Explanation: Why we do not use ArrayList"
     },
     {
       "source": "完成プロジェクトを開く",
@@ -67,6 +111,22 @@
       "translation": "Shared: Android Studio versions"
     },
     {
+      "source": "消えないメモ帳を<br>作ろう",
+      "translation": "Build a memo app<br>that remembers"
+    },
+    {
+      "source": "メモを書く。一覧に増える。アプリを閉じても残っている。<br>A08で学んだ保存を、毎日使えるアプリにします。",
+      "translation": "Write a memo. It appears in the list. It stays after you close the app.<br>Turn the saving technique from A08 into an app you can use every day."
+    },
+    {
+      "source": "A08の次の単元",
+      "translation": "The unit after A08"
+    },
+    {
+      "source": "90分 × 1コマ目安",
+      "translation": "About one 90-minute class period"
+    },
+    {
       "source": "Macで学ぶ",
       "translation": "Learn on a Mac"
     },
@@ -75,8 +135,152 @@
       "translation": "STEP 00 · about 5 min"
     },
     {
+      "source": "今日のゴール",
+      "translation": "Today's goal"
+    },
+    {
+      "source": "メモを書いて一覧にためるアプリを作ります。A08では値を保存する練習をしましたが、今回はそれを<strong>実際に使えるアプリ</strong>にします。",
+      "translation": "Build an app that collects the memos you write in a list. In A08, you practiced saving values. This time, turn that into <strong>an app you can actually use</strong>."
+    },
+    {
+      "source": "memorandumのタイトル画像、灰色のメモ一覧、メモを入力してくださいの入力欄、データ削除と追加のボタンが並んだ画面。一覧は空",
+      "translation": "A screen with the memorandum title image, a gray memo list, an input field labeled メモを入力してください (Enter a memo), and データ削除 (Delete data) and 追加 (Add) buttons. The list is empty."
+    },
+    {
+      "source": "起動したところ。まだメモはありません。 <a1>画像を大きく開く</a1>",
+      "translation": "Just after launch. There are no memos yet. <a1>Open the full-size image</a1>"
+    },
+    {
+      "source": "メモ一覧に、牛乳を買う、レポートを出す、9時に集合の3行が表示されている画面",
+      "translation": "The memo list shows three lines: 牛乳を買う (Buy milk), レポートを出す (Submit the report), and 9時に集合 (Meet at 9)."
+    },
+    {
+      "source": "メモを3つ追加したところ。 <a1>画像を大きく開く</a1>",
+      "translation": "After adding three memos. <a1>Open the full-size image</a1>"
+    },
+    {
       "source": "できるようになること",
       "translation": "What you will be able to do"
+    },
+    {
+      "source": "入力した文字を、一覧に1行ずつ増やせる。",
+      "translation": "Add the text you enter to the list, one line at a time."
+    },
+    {
+      "source": "何も入れずに押されたときに、メッセージで知らせて止められる。",
+      "translation": "Show a message and stop when the button is pressed without any input."
+    },
+    {
+      "source": "アプリを終了しても、書いたメモが残るようにできる。",
+      "translation": "Keep the memos you wrote after closing the app."
+    },
+    {
+      "source": "保存したメモをまとめて消せる。",
+      "translation": "Delete all saved memos at once."
+    },
+    {
+      "source": "今日使う技術",
+      "translation": "Techniques used today"
+    },
+    {
+      "source": "技術",
+      "translation": "Technique"
+    },
+    {
+      "source": "どこで使うか",
+      "translation": "Where it is used"
+    },
+    {
+      "source": "学んだ単元",
+      "translation": "Unit where you learned it"
+    },
+    {
+      "source": "<code>EditText</code> と <code>Button</code>",
+      "translation": "<code>EditText</code> and <code>Button</code>"
+    },
+    {
+      "source": "メモを入力して、追加する。",
+      "translation": "Enter and add a memo."
+    },
+    {
+      "source": "入力が空のときに知らせる。",
+      "translation": "Show a message when the input is empty."
+    },
+    {
+      "source": "一覧に1行ずつ足す。<strong>今回の新顔です。</strong>",
+      "translation": "Add one line at a time to the list. <strong>This is new in this unit.</strong>"
+    },
+    {
+      "source": "メモを保存して、次に開いたときに読み出す。",
+      "translation": "Save memos and read them the next time the app opens."
+    },
+    {
+      "source": "新しく覚えることは <code>append</code> だけです。残りはA07とA08で使ったものを組み合わせます。",
+      "translation": "The only new thing to learn is <code>append</code>. Everything else combines what you used in A07 and A08."
+    },
+    {
+      "source": "1件だけ消す機能はありません",
+      "translation": "There is no feature to delete just one memo"
+    },
+    {
+      "source": "このアプリの削除は「全部消す」だけです。1件だけ消すには <code>RecyclerView</code> という部品が必要で、Androidプログラミング2で扱います。",
+      "translation": "This app can only delete all memos at once. Deleting just one memo requires a component called <code>RecyclerView</code>, which we cover in Android Programming 2."
+    },
+    {
+      "source": "ここで止まって、確認",
+      "translation": "Stop here and check"
+    },
+    {
+      "source": "今日作るアプリの画面を画像で確かめ、使う技術と学んだ単元を表で確認した。",
+      "translation": "I checked the images of the app we will build and the table of techniques and the units where we learned them."
+    },
+    {
+      "source": "できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。",
+      "translation": "Check the box when you are done. If you get stuck, show your teacher the STEP number and your screen."
+    },
+    {
+      "source": "次へ：プロジェクトを作って実行 →",
+      "translation": "Next: Create and run a project →"
+    },
+    {
+      "source": "STEP 01 · 目安 10分",
+      "translation": "STEP 01 · About 10 min"
+    },
+    {
+      "source": "プロジェクトを作って実行",
+      "translation": "Create and run a project"
+    },
+    {
+      "source": "授業環境はMacと <strong>Android Studio Panda 2 | 2025.3.2</strong> です。A08までとは別のプロジェクトを作ります。",
+      "translation": "In class, we use a Mac and <strong>Android Studio Panda 2 | 2025.3.2</strong>. Create a separate project from those used through A08."
+    },
+    {
+      "source": "毎回、自分で新規作成します",
+      "translation": "Create a new project yourself every time"
+    },
+    {
+      "source": "作る場所は <code>Documents/Android1/A09MemoApp</code> です。<a1>完成プロジェクト</a1>は答え合わせ用で、授業の入力は自分で作ったプロジェクトに書きます。",
+      "translation": "Create it at <code>Documents/Android1/A09MemoApp</code>. The <a1>finished project</a1> is for checking your work. Enter the code for class in your own project."
+    },
+    {
+      "source": "Android Studioの <strong>New Project</strong> をクリックします。別のプロジェクトを開いているときは <strong>File → New → New Project</strong> を選びます。",
+      "translation": "Click <strong>New Project</strong> in Android Studio. If another project is open, select <strong>File → New → New Project</strong>."
+    },
+    {
+      "source": "<strong>Phone and Tablet → Empty Views Activity → Next</strong> の順に選びます。名前に <strong>Views</strong> があることを確認します。",
+      "translation": "Select <strong>Phone and Tablet → Empty Views Activity → Next</strong> in order. Check that the name contains <strong>Views</strong>."
+    },
+    {
+      "source": "テンプレート一覧でEmpty Views Activityが選択されている",
+      "translation": "Empty Views Activity selected in the template list."
+    },
+    {
+      "source": "Empty Views Activityを選択。Empty Activityとは別です。 <a1>画像を大きく開く</a1>",
+      "translation": "Select Empty Views Activity. It is different from Empty Activity. <a1>Open the full-size image</a1>"
+    },
+    {
+      "source": "次の表のとおりに入力・選択して <strong>Finish</strong> を押します。",
+      "translation": "Enter and select the values in the following table, then click <strong>Finish</strong>."
     },
     {
       "source": "項目",
@@ -87,36 +291,836 @@
       "translation": "What to enter or select"
     },
     {
+      "source": "<code>jp.ac.jec.a09memoapp</code>（すべて小文字）",
+      "translation": "<code>jp.ac.jec.a09memoapp</code> (all lowercase)"
+    },
+    {
+      "source": "A09MemoAppの新規設定。パッケージjp.ac.jec.a09memoapp、Java、API 31、Kotlin DSL",
+      "translation": "New project settings for A09MemoApp: package jp.ac.jec.a09memoapp, Java, API 31, and Kotlin DSL"
+    },
+    {
+      "source": "入力後の画面。画像の保存先は先生の例です。自分の <code>Documents/Android1/A09MemoApp</code> に読み替えます。 <a1>画像を大きく開く</a1>",
+      "translation": "The screen after entering the settings. The save location in the image is the teacher's example. Use your own <code>Documents/Android1/A09MemoApp</code> instead. <a1>Open the full-size image</a1>"
+    },
+    {
+      "source": "Sync（歯車の読み込み）が終わるまで待ちます。",
+      "translation": "Wait for Sync (the loading gear) to finish."
+    },
+    {
+      "source": "端末欄で <strong>jec_26cm_android1_Pixel 9a</strong> を選び、<strong>Run</strong>（▶）を押します。白い画面に <strong>Hello World!</strong> が出れば成功です。",
+      "translation": "Select <strong>jec_26cm_android1_Pixel 9a</strong> in the device field, then click <strong>Run</strong> (▶). If <strong>Hello World!</strong> appears on a white screen, it worked."
+    },
+    {
+      "source": "エミュレータが出てこないときは<a1>共通資料：エミュレータ</a1>を見ます。",
+      "translation": "If the emulator does not appear, see <a1>Shared guide: Emulator</a1>."
+    },
+    {
+      "source": "自分の保存先にA09MemoAppを作り、Hello World!を表示できた。",
+      "translation": "I created A09MemoApp in my own save location and displayed Hello World!"
+    },
+    {
+      "source": "次へ：タイトル画像を入れる →",
+      "translation": "Next: Add the title image →"
+    },
+    {
       "source": "STEP 02 · 目安 10分",
       "translation": "STEP 02 · about 10 min"
+    },
+    {
+      "source": "タイトル画像を入れる",
+      "translation": "Add the title image"
+    },
+    {
+      "source": "タイトル画像の <code>title_memo.png</code> は、教科書といっしょに配られた<strong>教材のフォルダ</strong>に入っています。Finderでコピーして、プロジェクトに入れます。A03・A05・A07でやった手順と同じです。",
+      "translation": "The title image, <code>title_memo.png</code>, is in the <strong>course materials folder</strong> distributed with the textbook. Copy it with Finder and add it to the project. These are the same steps you used in A03, A05, and A07."
+    },
+    {
+      "source": "Finderを開き、左側の <strong>書類</strong> をクリックします。教材のフォルダをダブルクリックで開きます。名前は <code>android1-student-materials-</code> のうしろに日付が付いた形で、日付は配られた回によって変わります。",
+      "translation": "Open Finder and click <strong>書類</strong> (Documents) on the left. Double-click the course materials folder to open it. Its name is <code>android1-student-materials-</code> followed by a date, which depends on when the materials were distributed."
+    },
+    {
+      "source": "その中を <code>docs → memo-app → downloads</code> の順に開きます。<code>memo-app</code> は、いま読んでいるこの教科書（<code>index.html</code>）が入っているフォルダです。",
+      "translation": "Inside it, open <code>docs → memo-app → downloads</code> in that order. <code>memo-app</code> is the folder containing the textbook you are reading now (<code>index.html</code>)."
+    },
+    {
+      "source": "<code>title_memo.png</code> を選び、コピーします（<kbd>⌘ C</kbd>）。同じフォルダにある <code>A09MemoApp.zip</code> は完成プロジェクトです。選びません。",
+      "translation": "Select <code>title_memo.png</code> and copy it (<kbd>⌘ C</kbd>). <code>A09MemoApp.zip</code> in the same folder is the finished project. Do not select it."
+    },
+    {
+      "source": "教材のフォルダが見つからないとき",
+      "translation": "If you cannot find the course materials folder"
+    },
+    {
+      "source": "教材のフォルダは、はじめの準備で「書類」へ移動したものです（<a1>共通資料：はじめの準備</a1>の1.）。まだ移動していなければ、先にそちらを行います。同じ教材を2回ダウンロードして名前のうしろに <code>(1)</code> が付いたものがあるときは、自分で判断せず先生に見せてください。",
+      "translation": "This is the folder you moved to 「書類」 (Documents) during first-time setup (step 1 in <a1>Shared guide: First-time setup</a1>). If you have not moved it yet, do that first. If you downloaded the same materials twice and one name ends in <code>(1)</code>, show your teacher instead of deciding which one to use yourself."
+    },
+    {
+      "source": "Android Studioのプロジェクト画面で <code>app/src/main/res/drawable</code> フォルダをクリックして選び、貼り付けます（<kbd>⌘ V</kbd>）。",
+      "translation": "In Android Studio's project pane, click the <code>app/src/main/res/drawable</code> folder to select it, then paste (<kbd>⌘ V</kbd>)."
+    },
+    {
+      "source": "確認のウィンドウが出ます。<strong>New name</strong> が <code>title_memo.png</code>、<strong>To directory</strong> の末尾が <code>app/src/main/res/drawable</code> になっていることを確かめて <strong>OK</strong> を押します。",
+      "translation": "A confirmation window appears. Check that <strong>New name</strong> is <code>title_memo.png</code> and <strong>To directory</strong> ends with <code>app/src/main/res/drawable</code>, then click <strong>OK</strong>."
+    },
+    {
+      "source": "Project表示でdrawableフォルダを選び、Copyダイアログが開いている。New nameはtitle_memo.png、To directoryの末尾はA09MemoApp/app/src/main/res/drawable",
+      "translation": "The drawable folder is selected in Project view, and the Copy dialog is open. New name is title_memo.png, and To directory ends with A09MemoApp/app/src/main/res/drawable."
+    },
+    {
+      "source": "To directoryの末尾が A09MemoApp/app/src/main/res/drawable になっていればOK。この画面は先生の例です。<strong>Copy file</strong> のうしろ（コピー元の場所）は、自分の画面では教材のフォルダの中の場所になります。 <a1>画像を大きく開く</a1>",
+      "translation": "It is correct if To directory ends with A09MemoApp/app/src/main/res/drawable. This screen is the teacher's example. On your screen, the location after <strong>Copy file</strong> (the source location) will be inside your course materials folder. <a1>Open the full-size image</a1>"
+    },
+    {
+      "source": "<code>drawable</code> フォルダの中に <code>title_memo.png</code> が増えていれば成功です。",
+      "translation": "If <code>title_memo.png</code> appears in the <code>drawable</code> folder, it worked."
+    },
+    {
+      "source": "drawableフォルダにic_launcher_background.xml、ic_launcher_foreground.xml、title_memo.pngが並んでいる",
+      "translation": "The drawable folder contains ic_launcher_background.xml, ic_launcher_foreground.xml, and title_memo.png."
+    },
+    {
+      "source": "drawableに <code>title_memo.png</code> が増えれば成功。 <a1>画像を大きく開く</a1>",
+      "translation": "If <code>title_memo.png</code> appears in drawable, it worked. <a1>Open the full-size image</a1>"
+    },
+    {
+      "source": "ファイル名は変えません",
+      "translation": "Do not change the file name"
+    },
+    {
+      "source": "このあとXMLから <code>@drawable/title_memo</code> という名前で呼び出します。<strong>名前を変えると見つからなくなります。</strong>大文字や日本語も使えません。",
+      "translation": "Later, the XML refers to this image as <code>@drawable/title_memo</code>. <strong>If you change its name, it cannot be found.</strong> Uppercase letters and Japanese characters cannot be used either."
+    },
+    {
+      "source": "Runで確かめる",
+      "translation": "Check with Run"
+    },
+    {
+      "source": "画面はまだ <strong>Hello World!</strong> のままです。エラーが出ずにRunできれば成功です。画像を使うのは次のSTEPです。",
+      "translation": "The screen still shows <strong>Hello World!</strong>. If you can Run without errors, it worked. You will use the image in the next STEP."
+    },
+    {
+      "source": "<code>drawable</code> に <code>title_memo.png</code> を置けた。",
+      "translation": "I placed <code>title_memo.png</code> in <code>drawable</code>."
     },
     {
       "source": "次へ：画面を作る →",
       "translation": "Next: Build the screen →"
     },
     {
+      "source": "STEP 03 · 目安 15分",
+      "translation": "STEP 03 · About 15 min"
+    },
+    {
+      "source": "画面を作る",
+      "translation": "Build the screen"
+    },
+    {
+      "source": "<code>app/src/main/res/layout/activity_main.xml</code> を開き、中身をすべて次のコードに置き換えます。",
+      "translation": "Open <code>app/src/main/res/layout/activity_main.xml</code> and replace all its contents with the following code."
+    },
+    {
+      "source": "activity_main.xml（全体を置き換え）",
+      "translation": "activity_main.xml (replace the entire file)"
+    },
+    {
+      "source": "書いた内容の意味",
+      "translation": "What the code means"
+    },
+    {
+      "source": "書いたところ",
+      "translation": "Code you wrote"
+    },
+    {
       "source": "意味",
       "translation": "Meaning"
+    },
+    {
+      "source": "<code>ImageView</code> の <code>@drawable/title_memo</code>",
+      "translation": "<code>@drawable/title_memo</code> in <code>ImageView</code>"
+    },
+    {
+      "source": "STEP 02で置いた画像を表示する。",
+      "translation": "Shows the image you added in STEP 02."
+    },
+    {
+      "source": "メモの一覧。<code>background</code> で灰色にして、どこまでが一覧か分かるようにしている。",
+      "translation": "The memo list. <code>background</code> makes it gray so you can see the area used by the list."
+    },
+    {
+      "source": "中身がはみ出したときにスクロールできるようにする入れ物。メモが増えて画面に入りきらなくなっても、指でなぞれば続きを読める。A07の参加者一覧と同じ形。",
+      "translation": "A container that allows scrolling when its contents overflow. Even when there are too many memos to fit on the screen, you can swipe to read the rest. This is the same structure as the participant list in A07."
+    },
+    {
+      "source": "<code>layout_height=\"0dp\"</code> と <code>layout_weight=\"1\"</code>",
+      "translation": "<code>layout_height=\"0dp\"</code> and <code>layout_weight=\"1\"</code>"
+    },
+    {
+      "source": "一覧が<strong>残りの高さを全部使う</strong>という指定。ScrollViewのほうに付ける。メモが増えても減っても、入力欄とボタンの位置が変わらない。",
+      "translation": "Tells the list to <strong>use all the remaining height</strong>. Apply these settings to the ScrollView. The input field and buttons stay in the same positions as memos are added or removed."
+    },
+    {
+      "source": "中身が短いときでも、ScrollViewの高さいっぱいまで広げる。これがないと、メモが少ないときに灰色の背景が途中までしか広がらない。",
+      "translation": "Expands the contents to the full height of the ScrollView even when they are short. Without this, the gray background extends only partway down when there are few memos."
+    },
+    {
+      "source": "<code>edt_memo</code> の <code>hint</code>",
+      "translation": "The <code>hint</code> of <code>edt_memo</code>"
+    },
+    {
+      "source": "何も入力していないときに薄く出る案内。入力すると消える。",
+      "translation": "A faint prompt shown when nothing is entered. It disappears when you type."
+    },
+    {
+      "source": "ふつうの1行の文字入力。",
+      "translation": "An ordinary single-line text input."
+    },
+    {
+      "source": "横向きの <code>LinearLayout</code>",
+      "translation": "A horizontal <code>LinearLayout</code>"
+    },
+    {
+      "source": "ボタン2つを横に並べる入れ物。中の2つに <code>layout_weight=\"1\"</code> を付けて、幅を半分ずつにしている。",
+      "translation": "A container that places two buttons side by side. Both buttons inside have <code>layout_weight=\"1\"</code>, giving each half the width."
+    },
+    {
+      "source": "枠線だけのボタンの見た目。",
+      "translation": "The appearance of an outlined button."
+    },
+    {
+      "source": "<code>android:id=\"@+id/main\"</code> は消しません。ひな形のJavaが <code>findViewById(R.id.main)</code> で使っています。文字を直接書いたことによる <code>Hardcoded text</code> の警告は、これまでの単元と同様にそのまま進めます。",
+      "translation": "Do not remove <code>android:id=\"@+id/main\"</code>. The template Java code uses it in <code>findViewById(R.id.main)</code>. As in earlier units, continue past the <code>Hardcoded text</code> warning caused by writing text directly."
+    },
+    {
+      "source": "タイトル画像、灰色の一覧、入力欄、2つのボタンが並べば成功です。押してもまだ何も起きません。",
+      "translation": "If the title image, gray list, input field, and two buttons appear, it worked. Pressing the buttons does nothing yet."
+    },
+    {
+      "source": "memorandumのタイトル画像、灰色の空のメモ一覧、入力欄、データ削除と追加のボタンが並んだ画面",
+      "translation": "A screen with the memorandum title image, an empty gray memo list, an input field, and データ削除 (Delete data) and 追加 (Add) buttons."
+    },
+    {
+      "source": "STEP 03の完成。ボタンはまだ動きません。 <a1>画像を大きく開く</a1>",
+      "translation": "STEP 03 is finished. The buttons do not work yet. <a1>Open the full-size image</a1>"
+    },
+    {
+      "source": "タイトル画像・灰色の一覧・入力欄・2つのボタンが並んだ画面をRunできた。",
+      "translation": "I ran the app and displayed the title image, gray list, input field, and two buttons."
+    },
+    {
+      "source": "次へ：メモを追加する →",
+      "translation": "Next: Add memos →"
     },
     {
       "source": "STEP 04 · 目安 20分",
       "translation": "STEP 04 · about 20 min"
     },
     {
+      "source": "メモを追加する",
+      "translation": "Add memos"
+    },
+    {
+      "source": "まずは保存のことを考えず、<strong>画面の中だけでメモを増やせる</strong>ようにします。",
+      "translation": "First, without thinking about saving, make it possible to <strong>add memos on the screen</strong>."
+    },
+    {
+      "source": "① 部品を受け取る",
+      "translation": "① Get the components"
+    },
+    {
+      "source": "<code>MainActivity.java</code> を開き、<code>onCreate</code> の中（インセットの処理の下）に書きます。",
+      "translation": "Open <code>MainActivity.java</code> and add this inside <code>onCreate</code>, below the inset handling code."
+    },
+    {
+      "source": "MainActivity.java · onCreateの中",
+      "translation": "MainActivity.java · Inside onCreate"
+    },
+    {
+      "source": "<code>TextView</code> と <code>EditText</code> が赤いときは <kbd>⌥ Enter</kbd> で <code>android.widget.TextView</code>、<code>android.widget.EditText</code> を選びます（<a1>共通資料：Auto Import</a1>）。",
+      "translation": "If <code>TextView</code> or <code>EditText</code> is red, press <kbd>⌥ Enter</kbd> and select <code>android.widget.TextView</code> or <code>android.widget.EditText</code> (<a1>Shared guide: Setting up Auto Import</a1>)."
+    },
+    {
+      "source": "② 追加ボタンの処理を書く",
+      "translation": "② Write the code for the add button"
+    },
+    {
+      "source": "MainActivity.java · onCreateの中（①の下）",
+      "translation": "MainActivity.java · Inside onCreate (below ①)"
+    },
+    {
+      "source": "<code>Snackbar</code> が赤いときは <kbd>⌥ Enter</kbd> で <code>com.google.android.material.snackbar.Snackbar</code> を選びます。",
+      "translation": "If <code>Snackbar</code> is red, press <kbd>⌥ Enter</kbd> and select <code>com.google.android.material.snackbar.Snackbar</code>."
+    },
+    {
+      "source": "行",
+      "translation": "Line"
+    },
+    {
+      "source": "入力欄の文字を取り出す。<code>getText()</code> の戻り値はそのままでは文字列として扱えないので <code>toString()</code> を付ける（A07と同じ）。",
+      "translation": "Gets the text from the input field. The value returned by <code>getText()</code> cannot be used directly as a string, so add <code>toString()</code>, as in A07."
+    },
+    {
+      "source": "空かどうかを調べる。空ならメッセージを出して <code>return;</code> で処理をやめる。",
+      "translation": "Checks whether the input is empty. If it is, shows a message and stops with <code>return;</code>."
+    },
+    {
+      "source": "この先を実行しない、という意味。<strong>これがないと空のメモが追加されます。</strong>",
+      "translation": "Means that the code after this does not run. <strong>Without it, an empty memo is added.</strong>"
+    },
+    {
+      "source": "<strong>今回の新顔。</strong>いまの表示の<strong>後ろに足す</strong>。<code>setText</code> だと前の内容が消えて1件しか残らない。",
+      "translation": "<strong>New in this unit.</strong> <strong>Adds to the end</strong> of the current text. With <code>setText</code>, the previous contents disappear and only one memo remains."
+    },
+    {
+      "source": "改行。これがないと全部が1行につながる。",
+      "translation": "A line break. Without it, everything joins into one line."
+    },
+    {
+      "source": "入力欄を空に戻す。次のメモをすぐ書ける。",
+      "translation": "Clears the input field so you can write the next memo right away."
+    },
+    {
+      "source": "何も入力せずに <strong>追加</strong> を押します。画面の下にメッセージが出て、一覧は増えません。",
+      "translation": "Press <strong>追加</strong> (Add) without entering anything. A message appears at the bottom of the screen, and nothing is added to the list."
+    },
+    {
+      "source": "メモを入力して <strong>追加</strong> を押します。一覧に1行増え、入力欄が空になります。",
+      "translation": "Enter a memo and press <strong>追加</strong> (Add). One line is added to the list, and the input field becomes empty."
+    },
+    {
+      "source": "何回か追加して、行が増えていくことを確かめます。",
+      "translation": "Add several memos and check that the number of lines increases."
+    },
+    {
+      "source": "何も入力せずに追加を押したところ。画面下に黒い帯でメモを入力してくださいと表示されている",
+      "translation": "After pressing 追加 (Add) without entering anything. A black bar at the bottom says メモを入力してください (Enter a memo)."
+    },
+    {
+      "source": "空のときは追加されず、下にメッセージが出ます。 <a1>画像を大きく開く</a1>",
+      "translation": "When the input is empty, nothing is added and a message appears at the bottom. <a1>Open the full-size image</a1>"
+    },
+    {
+      "source": "まだ保存はされていません",
+      "translation": "The memos are not saved yet"
+    },
+    {
+      "source": "アプリを完全に終了して開き直すと、メモは消えます。ここまでは<strong>画面の中だけ</strong>の話だからです。次のSTEPで保存します。",
+      "translation": "If you close the app completely and reopen it, the memos disappear. So far, everything happens <strong>only on the screen</strong>. You will save them in the next STEP."
+    },
+    {
+      "source": "メモを追加すると一覧が1行ずつ増え、何も入力せずに押すと増えないことを確かめた。",
+      "translation": "I checked that adding a memo adds one line to the list, and pressing the button with no input adds nothing."
+    },
+    {
+      "source": "次へ：終了しても残るようにする →",
+      "translation": "Next: Keep memos after closing the app →"
+    },
+    {
+      "source": "STEP 05 · 目安 15分",
+      "translation": "STEP 05 · About 15 min"
+    },
+    {
+      "source": "アプリを終了しても残るようにする",
+      "translation": "Keep memos after closing the app"
+    },
+    {
+      "source": "ここが今回の中心です。A08で学んだ <code>SharedPreferences</code> を使います。",
+      "translation": "This is the main part of this unit. Use <code>SharedPreferences</code>, which you learned in A08."
+    },
+    {
+      "source": "① 保存に使う名前を決める",
+      "translation": "① Choose the names used for saving"
+    },
+    {
+      "source": "<code>public class MainActivity extends AppCompatActivity {</code> のすぐ下に書きます。",
+      "translation": "Add this immediately below <code>public class MainActivity extends AppCompatActivity {</code>."
+    },
+    {
+      "source": "MainActivity.java · クラスの先頭",
+      "translation": "MainActivity.java · At the start of the class"
+    },
+    {
+      "source": "A08と同じで、<strong>キーは定数にまとめます。</strong>直接書くと、打ち間違えても赤いエラーにならず、値だけが見つからなくなります。",
+      "translation": "As in A08, <strong>keep the keys in constants</strong>. If you write them directly, a typo will not show as a red error; the value simply will not be found."
+    },
+    {
+      "source": "② 保存されているメモを表示する",
+      "translation": "② Show saved memos"
+    },
+    {
+      "source": "STEP 04①の2行の<strong>下</strong>、追加ボタンの処理の<strong>上</strong>に書きます。",
+      "translation": "Write this <strong>below</strong> the two lines from STEP 04① and <strong>above</strong> the code for the add button."
+    },
+    {
+      "source": "保存されていないときは第2引数の <code>&quot;&quot;</code>（空の文字）が返るので、初回は一覧が空のままになります。",
+      "translation": "If nothing is saved, the second argument, <code>&quot;&quot;</code> (an empty string), is returned. The list therefore stays empty on the first launch."
+    },
+    {
+      "source": "③ 追加のときに保存する",
+      "translation": "③ Save when a memo is added"
+    },
+    {
+      "source": "STEP 04で書いた <code>append</code> の<strong>下</strong>、<code>edtMemo.setText(&quot;&quot;)</code> の<strong>上</strong>に3行を足します。",
+      "translation": "Add three lines <strong>below</strong> the <code>append</code> from STEP 04 and <strong>above</strong> <code>edtMemo.setText(&quot;&quot;)</code>."
+    },
+    {
+      "source": "MainActivity.java · 追加ボタンの処理の中",
+      "translation": "MainActivity.java · Inside the code for the add button"
+    },
+    {
+      "source": "A08と同じ <code>edit()</code> → <code>putString</code> → <code>apply()</code> の3ステップです。<code>apply()</code> を忘れると保存されません。",
+      "translation": "These are the same three steps as in A08: <code>edit()</code> → <code>putString</code> → <code>apply()</code>. If you forget <code>apply()</code>, nothing is saved."
+    },
+    {
+      "source": "保存しているのは <code>txtMemoList.getText().toString()</code>、つまり<strong>画面に表示している文字そのもの</strong>です。改行も含めて、まるごと1つの文字列として保存しています。",
+      "translation": "What you save is <code>txtMemoList.getText().toString()</code>, or <strong>the actual text shown on the screen</strong>. It is saved as one complete string, including the line breaks."
+    },
+    {
+      "source": "A07では参加者を <code>ArrayList</code> にためていました。あれは<strong>同じ名前がすでにあるか</strong>を調べたり、<strong>何人いるか</strong>を数えたりする必要があったからです。今回のメモにはそうした判定がありません。",
+      "translation": "In A07, you collected participants in an <code>ArrayList</code>. That was because you needed to check <strong>whether the same name already existed</strong> and count <strong>how many people there were</strong>. These memos need no such checks."
+    },
+    {
+      "source": "ためる場所",
+      "translation": "Where the data is kept"
+    },
+    {
+      "source": "<code>ArrayList</code> と画面の両方",
+      "translation": "Both the <code>ArrayList</code> and the screen"
+    },
+    {
+      "source": "画面だけ",
+      "translation": "Only the screen"
+    },
+    {
+      "source": "理由",
+      "translation": "Reason"
+    },
+    {
+      "source": "重複チェックと人数チェックに必要",
+      "translation": "Needed to check duplicates and the number of people"
+    },
+    {
+      "source": "判定をしないので不要",
+      "translation": "Not needed because there are no such checks"
+    },
+    {
+      "source": "更新する場所",
+      "translation": "Places to update"
+    },
+    {
+      "source": "2か所",
+      "translation": "Two places"
+    },
+    {
+      "source": "1か所",
+      "translation": "One place"
+    },
+    {
+      "source": "必要のないものを持たないほうが、コードは短く読みやすくなります。「<strong>判定が必要になったら、データを別に持つ</strong>」と覚えておきましょう。",
+      "translation": "Leaving out things you do not need makes the code shorter and easier to read. Remember: <strong>keep data separately when you need to perform checks on it</strong>."
+    },
+    {
+      "source": "メモを2〜3件追加します。",
+      "translation": "Add two or three memos."
+    },
+    {
+      "source": "エミュレータで<strong>アプリ一覧（最近使ったアプリ）</strong>を開き、このアプリを上へスワイプして終了します。画面下の横棒を上へスワイプしてから止めると出ます。",
+      "translation": "On the emulator, open the <strong>recent apps list</strong> and swipe this app upward to close it. Swipe up from the horizontal bar at the bottom of the screen and pause to show the list."
+    },
+    {
+      "source": "もう一度アプリのアイコンから起動します。<strong>メモが残っていれば成功です。</strong>",
+      "translation": "Launch the app again using its icon. <strong>If the memos are still there, it worked.</strong>"
+    },
+    {
+      "source": "終了して開き直しても、この状態のままです。 <a1>画像を大きく開く</a1>",
+      "translation": "It stays in this state even after you close and reopen it. <a1>Open the full-size image</a1>"
+    },
+    {
+      "source": "終了して開き直してもメモが残った。",
+      "translation": "My memos stayed after I closed and reopened the app."
+    },
+    {
+      "source": "次へ：データを全部消す →",
+      "translation": "Next: Delete all data →"
+    },
+    {
+      "source": "STEP 06 · 目安 5分",
+      "translation": "STEP 06 · About 5 min"
+    },
+    {
+      "source": "データを全部消す",
+      "translation": "Delete all data"
+    },
+    {
+      "source": "「データ削除」ボタンの処理を、追加ボタンの処理（<code>});</code> まで）の<strong>下</strong>に書きます。これで完成です。",
+      "translation": "Write the code for the 「データ削除」 (Delete data) button <strong>below</strong> the add button code, after its <code>});</code>. This finishes the app."
+    },
+    {
+      "source": "保存されているデータをすべて消す予約をする。",
+      "translation": "Prepares to delete all saved data."
+    },
+    {
+      "source": "ここで確定する。これを忘れると消えない。",
+      "translation": "Applies the changes here. If you forget this, the data is not deleted."
+    },
+    {
+      "source": "<strong>画面の表示も消す。</strong>保存を消しただけでは、画面に出ている文字はそのまま残る。",
+      "translation": "<strong>Clears the screen too.</strong> Deleting the saved data alone leaves the text on the screen unchanged."
+    },
+    {
+      "source": "なぜ2つとも消すのか",
+      "translation": "Why we clear both"
+    },
+    {
+      "source": "保存されているデータ（ファイル）と、画面に表示している文字は<strong>別のもの</strong>です。<code>clear()</code> はファイルの中身を消すだけなので、画面は自分で消す必要があります。<code>setText(&quot;&quot;)</code> を書き忘れると、消したはずのメモが画面に残ったままになり、次に起動したときだけ消えている、という分かりにくい動きになります。",
+      "translation": "The saved data (the file) and the text shown on the screen are <strong>separate things</strong>. <code>clear()</code> only deletes the file contents, so you must clear the screen yourself. If you forget <code>setText(&quot;&quot;)</code>, the memos you thought you deleted stay on the screen and disappear only the next time you launch the app. This is confusing behavior."
+    },
+    {
+      "source": "メモを何件か追加します。",
+      "translation": "Add several memos."
+    },
+    {
+      "source": "<strong>データ削除</strong> を押します。一覧が空になれば成功です。",
+      "translation": "Press <strong>データ削除</strong> (Delete data). If the list becomes empty, it worked."
+    },
+    {
+      "source": "アプリを終了して開き直します。空のままなら、保存も消えています。",
+      "translation": "Close and reopen the app. If it stays empty, the saved data has also been deleted."
+    },
+    {
+      "source": "データ削除で一覧と保存の両方を消せた。",
+      "translation": "I used データ削除 (Delete data) to clear both the list and the saved data."
+    },
+    {
       "source": "次へ：完成 →",
       "translation": "Next: Finished →"
+    },
+    {
+      "source": "STEP 07 · 目安 10分",
+      "translation": "STEP 07 · About 10 min"
     },
     {
       "source": "完成",
       "translation": "Finished"
     },
     {
+      "source": "完成チェック",
+      "translation": "Final check"
+    },
+    {
+      "source": "上から順に操作します。保存したメモが残っていると一覧が空にならないので、アプリを消してから始めます。消し方は<a1>共通資料：エミュレータ</a1>の「アプリを消す」にあります。",
+      "translation": "Perform these actions from top to bottom. Saved memos would keep the list from being empty, so remove the app before starting. See \"Remove the app (uninstall)\" in <a1>Shared guide: Setting up the emulator and running apps</a1> for the steps."
+    },
+    {
+      "source": "<strong>アプリを終了する</strong>やり方は、STEP 05の「Runで確かめる」と同じです。",
+      "translation": "To <strong>close the app</strong>, use the same steps as \"Check with Run\" in STEP 05."
+    },
+    {
       "source": "操作",
       "translation": "Action"
     },
     {
+      "source": "確認する結果",
+      "translation": "Result to check"
+    },
+    {
+      "source": "アプリを消してから初回起動",
+      "translation": "Launch for the first time after removing the app"
+    },
+    {
+      "source": "一覧が空で表示される。",
+      "translation": "The list appears empty."
+    },
+    {
+      "source": "何も入れずに「追加」",
+      "translation": "Press 「追加」 (Add) without entering anything"
+    },
+    {
+      "source": "下にメッセージが出て、一覧は増えない。",
+      "translation": "A message appears at the bottom, and nothing is added to the list."
+    },
+    {
+      "source": "メモを入れて「追加」",
+      "translation": "Enter a memo and press 「追加」 (Add)"
+    },
+    {
+      "source": "一覧に1行増え、入力欄が空になる。",
+      "translation": "One line is added to the list, and the input field becomes empty."
+    },
+    {
+      "source": "続けて何件か追加",
+      "translation": "Add several more memos"
+    },
+    {
+      "source": "行が1行ずつ増えていく。",
+      "translation": "The list grows one line at a time."
+    },
+    {
+      "source": "アプリを終了して開き直す",
+      "translation": "Close and reopen the app"
+    },
+    {
+      "source": "メモが残っている。",
+      "translation": "The memos are still there."
+    },
+    {
+      "source": "「データ削除」",
+      "translation": "「データ削除」 (Delete data)"
+    },
+    {
+      "source": "一覧が空になる。",
+      "translation": "The list becomes empty."
+    },
+    {
+      "source": "削除のあと終了して開き直す",
+      "translation": "Close and reopen after deleting"
+    },
+    {
+      "source": "空のまま。",
+      "translation": "It stays empty."
+    },
+    {
+      "source": "ミニ練習",
+      "translation": "Mini exercise"
+    },
+    {
+      "source": "<strong>予想 → 変更 → Run → 説明 → 元に戻す</strong>の順で試します。",
+      "translation": "Try these steps in order: <strong>Predict → Change → Run → Explain → Restore</strong>."
+    },
+    {
+      "source": "練習1：appendをsetTextに変えてみる",
+      "translation": "Exercise 1: Try changing append to setText"
+    },
+    {
+      "source": "STEP 04の <code>txtMemoList.append(edtMemoStr + &quot;\\n&quot;);</code> を次のように変えます。",
+      "translation": "Change <code>txtMemoList.append(edtMemoStr + &quot;\\n&quot;);</code> in STEP 04 as follows."
+    },
+    {
+      "source": "練習1 · 変更後の行",
+      "translation": "Exercise 1 · The changed line"
+    },
+    {
+      "source": "メモを3件追加すると、一覧はどうなるでしょうか。予想してから試します。",
+      "translation": "What will happen to the list when you add three memos? Predict, then try it."
+    },
+    {
+      "source": "試したあとに答えを見る",
+      "translation": "See the answer after trying"
+    },
+    {
+      "source": "<strong>最後に追加した1件だけ</strong>が残ります。<code>setText</code> は「置き換える」、<code>append</code> は「後ろに足す」ためです。保存される内容も1件だけになります。確認後は <code>append</code> に戻します。",
+      "translation": "<strong>Only the last memo you added</strong> remains. This is because <code>setText</code> replaces the text, while <code>append</code> adds to the end. Only that one memo is saved too. After checking, change it back to <code>append</code>."
+    },
+    {
+      "source": "練習2：改行を消してみる",
+      "translation": "Exercise 2: Try removing the line break"
+    },
+    {
+      "source": "同じ行の <code>+ &quot;\\n&quot;</code> を消します。",
+      "translation": "Remove <code>+ &quot;\\n&quot;</code> from the same line."
+    },
+    {
+      "source": "メモが<strong>全部つながって1行</strong>になります（<code>牛乳を買うレポートを出す9時に集合</code>）。一覧が「1行ずつ」に見えていたのは、自分で改行を足していたからだと説明できれば十分です。確認後は戻します。",
+      "translation": "The memos <strong>all join into one line</strong> (<code>牛乳を買うレポートを出す9時に集合</code>). It is enough to explain that the list appeared one line at a time because you added the line breaks yourself. Restore the code after checking."
+    },
+    {
+      "source": "練習3：データ削除からsetTextを消してみる",
+      "translation": "Exercise 3: Try removing setText from the delete-data code"
+    },
+    {
+      "source": "STEP 06の <code>txtMemoList.setText(&quot;&quot;);</code> を消して、メモを追加してから「データ削除」を押します。",
+      "translation": "Remove <code>txtMemoList.setText(&quot;&quot;);</code> from STEP 06, add a memo, then press 「データ削除」 (Delete data)."
+    },
+    {
+      "source": "画面のメモは<strong>消えません。</strong>でもアプリを終了して開き直すと空になっています。保存（ファイル）と画面の表示は別物で、<code>clear()</code> はファイルしか消さないためです。確認後は戻します。",
+      "translation": "The memos on the screen <strong>do not disappear</strong>. But when you close and reopen the app, it is empty. Saved data (the file) and the screen display are separate, and <code>clear()</code> only clears the file. Restore the code after checking."
+    },
+    {
+      "source": "保存",
+      "translation": "Save"
+    },
+    {
+      "source": "Android Studioは、書いたコードを自動でファイルに保存します。保存の操作は要りません。ここでは、保存された場所を確かめます。",
+      "translation": "Android Studio automatically saves the code you write to files. You do not need to save manually. Here, check where it was saved."
+    },
+    {
+      "source": "Finderを開き、左側の <strong>書類</strong>（<code>Documents</code>）をクリックします。",
+      "translation": "Open Finder and click <strong>書類</strong> (<code>Documents</code>) on the left."
+    },
+    {
+      "source": "その中の <code>Android1</code> フォルダを開き、<code>A09MemoApp</code> フォルダがあることを確かめます。",
+      "translation": "Open the <code>Android1</code> folder inside and check that the <code>A09MemoApp</code> folder is there."
+    },
+    {
+      "source": "この <code>Documents/Android1/A09MemoApp</code> フォルダが、自分で作ったアプリです。あとの授業でもう一度開けるように、消したり、別の場所へ移動したり、名前を変えたりせずに、そのまま残します。",
+      "translation": "This <code>Documents/Android1/A09MemoApp</code> folder is the app you made. Leave it as it is so you can reopen it in a later class. Do not delete it, move it elsewhere, or rename it."
+    },
+    {
+      "source": "教材のチェックは自分用です。先生への送信はしません。印刷は <kbd>⌘ P</kbd> で行えます。",
+      "translation": "The checkboxes in the course materials are for your own use. They are not sent to the teacher. Press <kbd>⌘ P</kbd> to print."
+    },
+    {
+      "source": "完成チェックの操作をすべて試して表のとおりの結果になり、ミニ練習3つのコードを元に戻した。",
+      "translation": "I tried every action in the final check, got the results in the table, and restored the code from all three mini exercises."
+    },
+    {
       "source": "困ったこと",
       "translation": "Problem"
+    },
+    {
+      "source": "最初に確認する場所",
+      "translation": "Where to check first"
+    },
+    {
+      "source": "<code>TextView</code>、<code>EditText</code>、<code>Snackbar</code> が赤い",
+      "translation": "<code>TextView</code>, <code>EditText</code>, or <code>Snackbar</code> is red"
+    },
+    {
+      "source": "<kbd>⌥ Enter</kbd> で <code>android.widget.TextView</code>、<code>android.widget.EditText</code>、<code>com.google.android.material.snackbar.Snackbar</code> を選ぶ。",
+      "translation": "Press <kbd>⌥ Enter</kbd> and select <code>android.widget.TextView</code>, <code>android.widget.EditText</code>, or <code>com.google.android.material.snackbar.Snackbar</code>."
+    },
+    {
+      "source": "<code>R.id.txt_memo_list</code> などが赤い",
+      "translation": "<code>R.id.txt_memo_list</code> or a similar name is red"
+    },
+    {
+      "source": "activity_main.xmlのidが <code>txt_memo_list</code> / <code>edt_memo</code> / <code>btn_add</code> / <code>btn_clear</code> か確認。<code>android:id=\"@+id/main\"</code> を消していないかも見る。",
+      "translation": "Check that the ids in activity_main.xml are <code>txt_memo_list</code> / <code>edt_memo</code> / <code>btn_add</code> / <code>btn_clear</code>. Also check that you have not removed <code>android:id=\"@+id/main\"</code>."
+    },
+    {
+      "source": "<code>@drawable/title_memo</code> が赤い",
+      "translation": "<code>@drawable/title_memo</code> is red"
+    },
+    {
+      "source": "STEP 02で <code>drawable</code> に置けているか、ファイル名が <code>title_memo.png</code> か確認する。",
+      "translation": "Check that you placed the image in <code>drawable</code> in STEP 02 and that its file name is <code>title_memo.png</code>."
+    },
+    {
+      "source": "<code>prefs</code> が赤い（追加や削除の中）",
+      "translation": "<code>prefs</code> is red inside the add or delete code"
+    },
+    {
+      "source": "STEP 05②の <code>var prefs = ...</code> を、ボタンの処理より<strong>上</strong>に書いたか確認する。",
+      "translation": "Check that you wrote <code>var prefs = ...</code> from STEP 05② <strong>above</strong> the button code."
+    },
+    {
+      "source": "追加を押しても一覧が増えない",
+      "translation": "Pressing 追加 (Add) does not add to the list"
+    },
+    {
+      "source": "<code>append</code> を書いたか、<code>R.id.btn_add</code> の名前が合っているか確認する。",
+      "translation": "Check that you wrote <code>append</code> and that the name <code>R.id.btn_add</code> is correct."
+    },
+    {
+      "source": "1件しか表示されない",
+      "translation": "Only one memo is shown"
+    },
+    {
+      "source": "<code>setText</code> になっていないか確認する。追加は <code>append</code>。",
+      "translation": "Check whether you used <code>setText</code>. Use <code>append</code> to add a memo."
+    },
+    {
+      "source": "メモが全部つながって1行になる",
+      "translation": "All memos join into one line"
+    },
+    {
+      "source": "<code>+ \"\\n\"</code> を書いたか確認する。",
+      "translation": "Check that you wrote <code>+ \"\\n\"</code>."
+    },
+    {
+      "source": "終了するとメモが消える",
+      "translation": "Memos disappear when the app closes"
+    },
+    {
+      "source": "STEP 05③の3行を書いたか、<code>edit.apply();</code> があるか確認する。",
+      "translation": "Check that you wrote the three lines in STEP 05③, including <code>edit.apply();</code>."
+    },
+    {
+      "source": "データ削除しても画面が消えない",
+      "translation": "The screen does not clear after データ削除 (Delete data)"
+    },
+    {
+      "source": "STEP 06の <code>txtMemoList.setText(\"\");</code> を書いたか確認する。",
+      "translation": "Check that you wrote <code>txtMemoList.setText(\"\");</code> in STEP 06."
+    },
+    {
+      "source": "空のメモが追加されてしまう",
+      "translation": "An empty memo is added"
+    },
+    {
+      "source": "<code>return;</code> を書いたか確認する。",
+      "translation": "Check that you wrote <code>return;</code>."
+    },
+    {
+      "source": "キーボードでボタンが隠れる",
+      "translation": "The keyboard hides the buttons"
+    },
+    {
+      "source": "キーボードを閉じてから押します。理由と対処は<a1>共通資料：開発Tips</a1>にあります。",
+      "translation": "Close the keyboard before pressing them. See <a1>Shared guide: Development tips</a1> for the reason and what to do."
+    },
+    {
+      "source": "直したのに動きが変わらない",
+      "translation": "The behavior does not change after a fix"
+    },
+    {
+      "source": "ウィンドウの保存先が <code>Documents/Android1/A09MemoApp</code> か確認する。samples側を開いていないか見る。",
+      "translation": "Check that the window's save location is <code>Documents/Android1/A09MemoApp</code>. Make sure you have not opened the project in samples."
+    },
+    {
+      "source": "質問では「STEP番号・編集したファイル・最初の赤い行・押した順番」を伝えます。",
+      "translation": "When asking a question, give the STEP number, the file you edited, the first red line, and the order of your button presses."
+    },
+    {
+      "source": "完成版は最初の授業から使える見本です。教科書といっしょに配られた<strong>教材のフォルダ</strong>に、そのまま開ける形で入っています。ダウンロードも展開も要りません。",
+      "translation": "The finished project is a sample you can use from the first class. It is ready to open in the <strong>course materials folder</strong> distributed with the textbook. You do not need to download or unzip it."
+    },
+    {
+      "source": "Android Studioの <strong>Open</strong>（プロジェクトを開いているときは <strong>File → Open</strong>）で、<strong>書類</strong>（<code>Documents</code>）にある教材のフォルダを開きます。名前は <code>android1-student-materials-</code> のうしろに日付が付いた形で、日付は配られた回によって変わります。いま読んでいるこの教科書が入っているフォルダです。",
+      "translation": "Using <strong>Open</strong> in Android Studio (<strong>File → Open</strong> if a project is open), open the course materials folder in <strong>書類</strong> (<code>Documents</code>). Its name is <code>android1-student-materials-</code> followed by a date, which depends on when the materials were distributed. It is the folder containing the textbook you are reading now."
+    },
+    {
+      "source": "その中を <code>samples → A09MemoApp</code> の順に開き、<code>settings.gradle.kts</code> と <code>app</code> が入った <code>A09MemoApp</code> フォルダを選びます。",
+      "translation": "Inside it, open <code>samples → A09MemoApp</code> in that order and select the <code>A09MemoApp</code> folder containing <code>settings.gradle.kts</code> and <code>app</code>."
+    },
+    {
+      "source": "Sync後にRunして動きを確認します。授業の入力に戻るときは自分の <code>Documents/Android1/A09MemoApp</code> を開きます。",
+      "translation": "After Sync, Run the app and check its behavior. To return to entering your own code for class, open your own <code>Documents/Android1/A09MemoApp</code>."
+    },
+    {
+      "source": "両方とも同じプロジェクト名なので、ウィンドウの保存先を確認しましょう。見本と自分のアプリは同じパッケージ名 <code>jp.ac.jec.a09memoapp</code> のため、端末上では同じアプリを更新します。<strong>保存したメモも共有されます。</strong>",
+      "translation": "Both projects have the same name, so check the save location of the window. The sample and your app have the same package name, <code>jp.ac.jec.a09memoapp</code>, so they update the same app on the device. <strong>They also share saved memos.</strong>"
+    },
+    {
+      "source": "STEP 02で使う <code>title_memo.png</code> は、この見本の <code>app/src/main/res/drawable/title_memo.png</code> にも入っています。",
+      "translation": "The <code>title_memo.png</code> used in STEP 02 is also at <code>app/src/main/res/drawable/title_memo.png</code> in this sample."
+    },
+    {
+      "source": "教材のフォルダが手元にないときは、同じ見本をZIPで受け取れます（<a1>A09MemoApp.zip</a1>）。展開してできた <code>A09MemoApp</code> フォルダを、同じようにOpenで選びます。",
+      "translation": "If you do not have the course materials folder, you can get the same sample as a ZIP (<a1>A09MemoApp.zip</a1>). Unzip it and select the resulting <code>A09MemoApp</code> folder with Open in the same way."
+    },
+    {
+      "source": "完成したMainActivity.javaで照合する",
+      "translation": "Compare with the finished MainActivity.java"
+    },
+    {
+      "source": "完成版 · MainActivity.java",
+      "translation": "Finished version · MainActivity.java"
+    },
+    {
+      "source": "完成したactivity_main.xmlで照合する",
+      "translation": "Compare with the finished activity_main.xml"
+    },
+    {
+      "source": "完成版 · activity_main.xml",
+      "translation": "Finished version · activity_main.xml"
+    },
+    {
+      "source": "Androidプログラミング1 · A09MemoApp / 本文・画像・操作機能はオフラインで利用できます。Android Studioの初回準備・ビルドと公式資料の閲覧にはネット接続が必要です。",
+      "translation": "Android Programming 1 · A09MemoApp / The text, images, and interactive features work offline. Android Studio's initial setup and builds, and viewing official documentation, require an internet connection."
+    },
+    {
+      "source": "画像は授業用の提供資料を使用。スクリーンショットのメモは例です。",
+      "translation": "Images provided for class are used. The memos in the screenshots are examples."
     }
   ]
 }

@@ -3,6 +3,14 @@
   "language": "en",
   "entries": [
     {
+      "source": "JavaとXMLで作るA05BombGame。ボタンの配列、乱数とdo-while文、定数による状態の管理、配列を調べる判定、クリア条件を小さなSTEPで学ぶ授業用教科書。",
+      "translation": "A classroom textbook for building A05BombGame with Java and XML. Learn arrays of buttons, random numbers and do-while loops, managing state with constants, checks using arrays, and win conditions in small steps."
+    },
+    {
+      "source": "BombGame — 爆弾ゲームを作ろう | Androidプログラミング1",
+      "translation": "BombGame — Build a bomb game | Android Programming 1"
+    },
+    {
       "source": "本文へ移動",
       "translation": "Skip to main content"
     },
@@ -21,6 +29,54 @@
     {
       "source": "00　今日のゴール",
       "translation": "00 Today's goals"
+    },
+    {
+      "source": "01　プロジェクトを作って実行",
+      "translation": "01 Create and run a project"
+    },
+    {
+      "source": "02　画像をdrawableに追加",
+      "translation": "02　Add images to drawable"
+    },
+    {
+      "source": "03　爆弾と数字ボタンを並べる",
+      "translation": "03　Arrange the bomb and number buttons"
+    },
+    {
+      "source": "04　メッセージと再挑戦ボタン",
+      "translation": "04　Add a message and 再挑戦 (Retry) button"
+    },
+    {
+      "source": "05　導火線スイッチの数字を決める",
+      "translation": "05　Choose the fuse switch numbers"
+    },
+    {
+      "source": "06　押したボタンを押せなくする",
+      "translation": "06　Disable each button after it is pressed"
+    },
+    {
+      "source": "07　着火と爆発",
+      "translation": "07　Ignition and explosion"
+    },
+    {
+      "source": "08　再挑戦で最初に戻す",
+      "translation": "08　Return to the start with retry"
+    },
+    {
+      "source": "09　クリアを判定する",
+      "translation": "09　Check the win condition"
+    },
+    {
+      "source": "10　ミニ練習",
+      "translation": "10 Mini exercise"
+    },
+    {
+      "source": "11　完成",
+      "translation": "11 Finished"
+    },
+    {
+      "source": "0 / 12 ステップ確認済み",
+      "translation": "0 / 12 steps checked"
     },
     {
       "source": "学習の進み具合",
@@ -67,6 +123,22 @@
       "translation": "Shared: Android Studio versions"
     },
     {
+      "source": "爆弾ゲームを<br>作ろう",
+      "translation": "Build a<br>bomb game"
+    },
+    {
+      "source": "数字を押す。導火線に火がつく。2つ目で爆発。<br>爆弾の状態を数字で覚えて、ドキドキするゲームへ。",
+      "translation": "Press a number. The fuse lights. The second switch causes an explosion.<br>Store the bomb state as a number to build a suspenseful game."
+    },
+    {
+      "source": "A01〜A03の内容を使う",
+      "translation": "Uses material from A01–A03"
+    },
+    {
+      "source": "90分 × 3コマ目安",
+      "translation": "About three 90-minute class periods"
+    },
+    {
       "source": "Macで学ぶ",
       "translation": "Learn on a Mac"
     },
@@ -75,32 +147,300 @@
       "translation": "STEP 00 · about 5 min"
     },
     {
+      "source": "今日のゴール",
+      "translation": "Today's goal"
+    },
+    {
+      "source": "A01〜A03で学んだ「XMLで画面を作る」「配列とfor文で同じ処理を付ける」「乱数」「フィールドで値を覚える」を使い、<strong>爆弾ゲーム</strong>を作ります。1〜9の数字ボタンのうち、2つが<strong>導火線スイッチ</strong>です。どれがスイッチかは、画面を見てもわかりません。",
+      "translation": "Build a <strong>bomb game</strong> using what you learned in A01–A03: creating a screen with XML, adding the same behavior with arrays and for loops, random numbers, and storing values in fields. Two of the number buttons from 1 to 9 are <strong>fuse switches</strong>. You cannot tell which ones are switches by looking at the screen."
+    },
+    {
+      "source": "ゲームの流れ",
+      "translation": "Game flow"
+    },
+    {
+      "source": "数字を押す",
+      "translation": "Press a number"
+    },
+    {
+      "source": "スイッチなら着火！",
+      "translation": "A switch lights the fuse!"
+    },
+    {
+      "source": "2つ目のスイッチで爆発",
+      "translation": "The second switch causes an explosion"
+    },
+    {
+      "source": "スイッチ以外を7個押せばクリア",
+      "translation": "Press all 7 non-switch buttons to win"
+    },
+    {
+      "source": "起動直後。導火線に火のない爆弾の画像、1から9の数字ボタン、どれか押してみよう",
+      "translation": "Immediately after launch: an unlit bomb, number buttons from 1 to 9, and どれか押してみよう (Try pressing one)"
+    },
+    {
+      "source": "① 起動直後。好きな数字から押します。 <a1>画像を大きく開く</a1>",
+      "translation": "① Immediately after launch. Start with any number you like. <a1>Open the full-size image</a1>"
+    },
+    {
+      "source": "2と5を押した画面。導火線に火がついた爆弾、着火！の文字。2と5のボタンは灰色",
+      "translation": "After pressing 2 and 5: a bomb with a lit fuse and 着火！ (Ignited!). Buttons 2 and 5 are gray"
+    },
+    {
+      "source": "② 2と5を押した例。どちらか1つがスイッチだったので、導火線に火がつきました。押した2つは灰色になります。 <a1>画像を大きく開く</a1>",
+      "translation": "② An example after pressing 2 and 5. One of them was a switch, so the fuse lit. Both pressed buttons turn gray. <a1>Open the full-size image</a1>"
+    },
+    {
+      "source": "爆発の画像、爆発した！ゲームオーバー！の文字。数字ボタンはすべて灰色で、再挑戦ボタンが表示されている",
+      "translation": "An explosion image and 爆発した！ゲームオーバー！ (It exploded! Game over!). All number buttons are gray and the 再挑戦 (Retry) button is visible"
+    },
+    {
+      "source": "③ 2つ目のスイッチを押すと爆発。ゲームオーバーです。 <a1>画像を大きく開く</a1>",
+      "translation": "③ Pressing the second switch causes an explosion. The game is over. <a1>Open the full-size image</a1>"
+    },
+    {
+      "source": "火のない爆弾、クリア！の文字。数字ボタンはすべて灰色で、再挑戦ボタンが表示されている",
+      "translation": "An unlit bomb and クリア！ (You win!). All number buttons are gray and the 再挑戦 (Retry) button is visible"
+    },
+    {
+      "source": "④ スイッチ以外の7個をすべて押すとクリア。 <a1>画像を大きく開く</a1>",
+      "translation": "④ Press all 7 non-switch buttons to win. <a1>Open the full-size image</a1>"
+    },
+    {
       "source": "できるようになること",
       "translation": "What you will be able to do"
+    },
+    {
+      "source": "画像をプロジェクトに追加し、爆弾の画像と3行×3列の数字ボタンを並べる。",
+      "translation": "Add images to the project, then arrange a bomb image and number buttons in 3 rows and 3 columns."
+    },
+    {
+      "source": "メソッドとdo-while文で、重ならない2つの乱数を作り、Logcatで確かめる。",
+      "translation": "Use a method and a do-while loop to generate two different random numbers, and check them in Logcat."
+    },
+    {
+      "source": "定数とフィールドで爆弾の状態を覚え、押した数字とクリアの条件で表示を切り替える。",
+      "translation": "Store the bomb state using constants and a field, then change the display based on the number pressed and the win condition."
+    },
+    {
+      "source": "スイッチの数字は毎回ランダムに決まるため、画像と同じ操作をしても結果は変わります。",
+      "translation": "The switch numbers are chosen randomly each time, so the result may differ even if you follow the actions in the images."
+    },
+    {
+      "source": "90分×3コマで進めます",
+      "translation": "Work through this in three 90-minute class periods"
     },
     {
       "source": "授業",
       "translation": "Class"
     },
     {
+      "source": "範囲",
+      "translation": "Steps"
+    },
+    {
+      "source": "終了時にできること",
+      "translation": "What you can do by the end"
+    },
+    {
       "source": "1コマ目",
       "translation": "Period 1"
+    },
+    {
+      "source": "画像を追加し、ゲームの画面を作る。",
+      "translation": "Add images and create the game screen."
     },
     {
       "source": "2コマ目",
       "translation": "Period 2"
     },
     {
+      "source": "スイッチの数字を決め、押した数字で着火・爆発することを確かめる。",
+      "translation": "Choose the switch numbers and check that pressing them lights the fuse and causes an explosion."
+    },
+    {
+      "source": "3コマ目",
+      "translation": "Class period 3"
+    },
+    {
+      "source": "再挑戦とクリアを作り、ミニ練習・動作確認を行う。",
+      "translation": "Add retry and the win condition, then do the short exercises and check the behavior."
+    },
+    {
+      "source": "各コマに再実行と個別確認の時間を含みます。予習は不要です。",
+      "translation": "Each class period includes time to run the app again and check individual progress. No preparation is needed before class."
+    },
+    {
+      "source": "毎回、自分で新規作成します",
+      "translation": "Create a new project yourself every time"
+    },
+    {
+      "source": "作る場所は <code>Documents/Android1/A05BombGame</code> です。<a1>完成プロジェクト</a1>は初回から開けます。STEP 2で使う画像は、教材のフォルダに入っています。STEP 2でFinderからコピーします。",
+      "translation": "Create your project in <code>Documents/Android1/A05BombGame</code>. You can open the <a1>finished project</a1> from the first class. The images for STEP 2 are in the course materials folder. Copy them using Finder in STEP 2."
+    },
+    {
+      "source": "完成アプリの状態",
+      "translation": "States of the finished app"
+    },
+    {
       "source": "状態",
       "translation": "State"
+    },
+    {
+      "source": "爆弾の画像",
+      "translation": "Bomb image"
+    },
+    {
+      "source": "メッセージ",
+      "translation": "Message"
+    },
+    {
+      "source": "数字ボタン",
+      "translation": "Number buttons"
+    },
+    {
+      "source": "再挑戦",
+      "translation": "再挑戦 (Retry)"
+    },
+    {
+      "source": "起動直後・再挑戦の後",
+      "translation": "Immediately after launch or retry"
+    },
+    {
+      "source": "火のない爆弾",
+      "translation": "Unlit bomb"
+    },
+    {
+      "source": "どれか押してみよう",
+      "translation": "どれか押してみよう (Try pressing one)"
+    },
+    {
+      "source": "すべて押せる",
+      "translation": "All enabled"
+    },
+    {
+      "source": "見えない",
+      "translation": "Hidden"
+    },
+    {
+      "source": "スイッチ以外を押した",
+      "translation": "Pressed a non-switch button"
+    },
+    {
+      "source": "変わらない",
+      "translation": "Unchanged"
+    },
+    {
+      "source": "押したボタンだけ押せない",
+      "translation": "Only the pressed button is disabled"
+    },
+    {
+      "source": "スイッチを1つ押した（着火）",
+      "translation": "Pressed one switch (ignition)"
+    },
+    {
+      "source": "導火線に火がつく",
+      "translation": "The fuse lights"
+    },
+    {
+      "source": "着火！",
+      "translation": "着火！ (Ignited!)"
+    },
+    {
+      "source": "スイッチを2つとも押した（爆発）",
+      "translation": "Pressed both switches (explosion)"
+    },
+    {
+      "source": "爆発の画像",
+      "translation": "Explosion image"
+    },
+    {
+      "source": "爆発した！ゲームオーバー！",
+      "translation": "爆発した！ゲームオーバー！ (It exploded! Game over!)"
+    },
+    {
+      "source": "すべて押せない",
+      "translation": "All disabled"
+    },
+    {
+      "source": "表示する",
+      "translation": "Visible"
+    },
+    {
+      "source": "スイッチ以外の7個をすべて押した（クリア）",
+      "translation": "Pressed all 7 non-switch buttons (win)"
     },
     {
       "source": "そのまま",
       "translation": "Leave as is"
     },
     {
+      "source": "クリア！",
+      "translation": "クリア！ (You win!)"
+    },
+    {
+      "source": "1度押した数字は、もう押せません。着火したあとでも、残りのスイッチを押さずにスイッチ以外の7個を押し終えればクリアです。このとき爆弾は火がついた画像のままです。再挑戦を押すと、スイッチの数字を選び直して最初の表示に戻ります。",
+      "translation": "Once you press a number, you cannot press it again. Even after the fuse is lit, you win if you press all 7 non-switch buttons without pressing the remaining switch. The bomb image stays lit in this case. Press 再挑戦 (Retry) to choose new switch numbers and return to the initial display."
+    },
+    {
+      "source": "画面回転について",
+      "translation": "About screen rotation"
+    },
+    {
+      "source": "各単元では画面回転時のデータ保持と横画面のレイアウトを扱いません。回転などでActivityが作り直されると、押したボタンと爆弾の状態は初期状態に戻り、スイッチの数字も選び直されます。横向きではメッセージや再挑戦ボタンが見えなくなる場合があるため、縦向きで使います。考え方と対処法は<a1>共通資料：開発Tips</a1>のC章にあります。",
+      "translation": "These units do not cover preserving data when the screen rotates or layouts in landscape orientation. If the Activity is recreated, for example after rotation, the pressed buttons and bomb state return to their initial states, and the switch numbers are chosen again. Use portrait orientation, because the message or 再挑戦 (Retry) button may be hidden in landscape orientation. Section C of <a1>Shared guide: Development tips</a1> explains the ideas and ways to handle this."
+    },
+    {
+      "source": "ここで止まって、確認",
+      "translation": "Stop here and check"
+    },
+    {
+      "source": "完成アプリの状態の表で、着火・爆発・クリアのときの画像・メッセージ・押せるボタンを確認した。",
+      "translation": "I checked the images, messages, and enabled buttons for ignition, explosion, and winning in the table of finished app states."
+    },
+    {
+      "source": "できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。",
+      "translation": "Check the box when you are done. If you get stuck, show your teacher the STEP number and your screen."
+    },
+    {
+      "source": "次へ：プロジェクトを作って実行 →",
+      "translation": "Next: Create and run a project →"
+    },
+    {
       "source": "STEP 01 · 目安 15分",
       "translation": "STEP 01 · about 15 min"
+    },
+    {
+      "source": "プロジェクトを作って実行",
+      "translation": "Create and run a project"
+    },
+    {
+      "source": "授業環境はMacと <strong>Android Studio Panda 2 | 2025.3.2</strong> です。これまでの単元とは別のプロジェクトを作ります。",
+      "translation": "The class environment uses a Mac and <strong>Android Studio Panda 2 | 2025.3.2</strong>. Create a separate project from the earlier units."
+    },
+    {
+      "source": "Android Studioの <strong>New Project</strong> をクリックします。別のプロジェクトを開いているときは <strong>File → New → New Project</strong> を選びます。",
+      "translation": "Click <strong>New Project</strong> in Android Studio. If another project is open, select <strong>File → New → New Project</strong>."
+    },
+    {
+      "source": "Android StudioのWelcome画面。右上にNew Projectボタン",
+      "translation": "Android Studio Welcome screen, with the New Project button at the upper right"
+    },
+    {
+      "source": "右上のNew Projectをクリック。 <a1>画像を大きく開く</a1>",
+      "translation": "Click New Project at the top right. <a1>Open the full-size image</a1>"
+    },
+    {
+      "source": "<strong>Phone and Tablet → Empty Views Activity → Next</strong> の順に選びます。名前に <strong>Views</strong> があることを確認します。",
+      "translation": "Select <strong>Phone and Tablet → Empty Views Activity → Next</strong> in order. Check that the name contains <strong>Views</strong>."
+    },
+    {
+      "source": "テンプレート一覧でEmpty Views Activityが選択されている",
+      "translation": "Empty Views Activity selected in the template list."
+    },
+    {
+      "source": "Empty Views Activityを選択。 <a1>画像を大きく開く</a1>",
+      "translation": "Select Empty Views Activity. <a1>Open the full-size image</a1>"
     },
     {
       "source": "項目",
@@ -111,72 +451,1472 @@
       "translation": "What to enter or select"
     },
     {
+      "source": "<code>jp.ac.jec.a05bombgame</code>（すべて小文字）",
+      "translation": "<code>jp.ac.jec.a05bombgame</code> (all lowercase)"
+    },
+    {
+      "source": "A05BombGameの新規設定。パッケージjp.ac.jec.a05bombgame、Java、API 31、Kotlin DSL",
+      "translation": "New project settings for A05BombGame: package jp.ac.jec.a05bombgame, Java, API 31, and Kotlin DSL"
+    },
+    {
+      "source": "画像の保存先は先生の例です。自分のDocuments/Android1/A05BombGameに読み替えます。 <a1>画像を大きく開く</a1>",
+      "translation": "The save location in the image is the teacher's example. Use your own Documents/Android1/A05BombGame. <a1>Open the full-size image</a1>"
+    },
+    {
+      "source": "Finderの <strong>移動 → ホーム</strong> で自分のユーザ名を確認します。書類（Documents）に <code>Android1</code> フォルダがなければ作ります。",
+      "translation": "In Finder, choose <strong>移動 → ホーム</strong> (Go → Home) to check your username. If there is no <code>Android1</code> folder in 書類 (Documents), create one."
+    },
+    {
+      "source": "表の値と保存先を確認し、<strong>Finish</strong> をクリックします。<code>ユーザ名</code> は自分の名前に置き換えます。",
+      "translation": "Check the values in the table and the save location, then click <strong>Finish</strong>. Replace <code>ユーザ名</code> with your own username."
+    },
+    {
+      "source": "<strong>Gradle Sync</strong> が完了するまで待ちます。",
+      "translation": "Wait for <strong>Gradle Sync</strong> to finish."
+    },
+    {
+      "source": "<a1>共通資料：Auto Import</a1>のJava設定を確認します。",
+      "translation": "Check the Java settings in <a1>Shared guide: Setting up Auto Import</a1>."
+    },
+    {
+      "source": "この単元で使う場所",
+      "translation": "Locations used in this unit"
+    },
+    {
       "source": "役割",
       "translation": "What it does"
+    },
+    {
+      "source": "Project表示で開く場所",
+      "translation": "Location to open in Project view"
     },
     {
       "source": "画像",
       "translation": "Images"
     },
     {
+      "source": "画面（XML）",
+      "translation": "Screen (XML)"
+    },
+    {
+      "source": "動き（Java）",
+      "translation": "Behavior (Java)"
+    },
+    {
+      "source": "左の一覧が見えないときは <strong>View → Tool Windows → Project</strong> を開きます。一覧の上の表示名が <strong>Project</strong> になっていることを確認します。パッケージのフォルダが <code>jp.ac.jec.a05bombgame</code> とまとめて表示される場合もあります。",
+      "translation": "If you cannot see the list on the left, open <strong>View → Tool Windows → Project</strong>. Check that the view name above the list is <strong>Project</strong>. The package folders may be shown together as <code>jp.ac.jec.a05bombgame</code>."
+    },
+    {
+      "source": "変更前に1回Runする",
+      "translation": "Run once before making changes"
+    },
+    {
+      "source": "<a1>共通資料：エミュレータ</a1>に従って端末を起動します。",
+      "translation": "Start the device by following <a1>Shared guide: Emulator</a1>."
+    },
+    {
+      "source": "上部で <strong>app</strong> と <strong>jec_26cm_android1_Pixel 9a</strong> を選び、<strong>Run ▶</strong> を押します。",
+      "translation": "At the top, select <strong>app</strong> and <strong>jec_26cm_android1_Pixel 9a</strong>, then press <strong>Run ▶</strong>."
+    },
+    {
+      "source": "<strong>Hello World!</strong> が表示されれば成功です。",
+      "translation": "You have succeeded if <strong>Hello World!</strong> appears."
+    },
+    {
       "source": "MainActivity.ktができたとき",
       "translation": "If MainActivity.kt was created"
+    },
+    {
+      "source": "この授業で開くのは <code>MainActivity.java</code> です。<code>.kt</code> しか見つからない場合は、先生に画面を見せてください。プロジェクトを作るときに、上の手順2で <strong>Empty Views Activity</strong> を、手順4で確認した表のとおりに <strong>Java</strong> を選んだかどうかを、先生が確認します。どちらかが違っていたときは、先生といっしょにプロジェクトを作り直します。",
+      "translation": "In this class, open <code>MainActivity.java</code>. If you can only find a <code>.kt</code> file, show your screen to the teacher. The teacher will check whether you selected <strong>Empty Views Activity</strong> in step 2 above and <strong>Java</strong> as shown in the table in step 4 when creating the project. If either selection was different, recreate the project with your teacher."
+    },
+    {
+      "source": "自分の保存先にA05BombGameを作り、Hello World!を表示できた。",
+      "translation": "I created A05BombGame in my own save location and displayed Hello World!."
+    },
+    {
+      "source": "次へ：画像をdrawableに追加 →",
+      "translation": "Next: Add images to drawable →"
+    },
+    {
+      "source": "STEP 02 · 目安 15分",
+      "translation": "STEP 02 · About 15 min"
+    },
+    {
+      "source": "画像をdrawableに追加",
+      "translation": "Add images to drawable"
+    },
+    {
+      "source": "追加する場所：app/src/main/res/drawable",
+      "translation": "Location to add files: app/src/main/res/drawable"
+    },
+    {
+      "source": "爆弾の3つの画像を、自分のプロジェクトに入れます。<code>res/drawable</code> は、アプリで表示する画像を置くフォルダです。A03と同じ手順です。",
+      "translation": "Add the three bomb images to your own project. <code>res/drawable</code> is the folder for images displayed by the app. Follow the same procedure as in A03."
+    },
+    {
+      "source": "ファイル名",
+      "translation": "File name"
+    },
+    {
+      "source": "表す状態",
+      "translation": "State shown"
+    },
+    {
+      "source": "XMLでの名前",
+      "translation": "Name in XML"
+    },
+    {
+      "source": "Javaでの名前",
+      "translation": "Name in Java"
+    },
+    {
+      "source": "火のない爆弾（起動直後）",
+      "translation": "Unlit bomb (immediately after launch)"
+    },
+    {
+      "source": "導火線に火がついた爆弾（着火）",
+      "translation": "Bomb with a lit fuse (ignition)"
+    },
+    {
+      "source": "（使わない）",
+      "translation": "(Not used)"
+    },
+    {
+      "source": "爆発",
+      "translation": "Explosion"
+    },
+    {
+      "source": "名前はファイル名から <code>.png</code> を取ったものです。drawableのファイル名には、<strong>小文字の英字・数字・_（アンダースコア）</strong> だけを使います。",
+      "translation": "The name is the file name without <code>.png</code>. Use only <strong>lowercase letters, digits, and _ (underscores)</strong> in drawable file names."
+    },
+    {
+      "source": "① 教材のフォルダから画像をコピーする",
+      "translation": "① Copy images from the course materials folder"
+    },
+    {
+      "source": "3つの画像は、教科書といっしょに配られた<strong>教材のフォルダ</strong>に入っています。Finderで開いて、3つまとめてコピーします。",
+      "translation": "The three images are in the <strong>course materials folder</strong> distributed with the textbook. Open it in Finder and copy all three together."
+    },
+    {
+      "source": "Finderを開き、左側の <strong>書類</strong> をクリックします。教材のフォルダをダブルクリックで開きます。名前は <code>android1-student-materials-</code> のうしろに日付が付いた形で、日付は配られた回によって変わります。",
+      "translation": "Open Finder and click <strong>書類</strong> (Documents) on the left. Double-click the course materials folder to open it. Its name is <code>android1-student-materials-</code> followed by a date, which depends on when the materials were distributed."
+    },
+    {
+      "source": "その中を <code>docs → bomb-game → downloads</code> の順に開きます。<code>bomb-game</code> は、いま読んでいるこの教科書（<code>index.html</code>）が入っているフォルダです。",
+      "translation": "Inside it, open <code>docs → bomb-game → downloads</code>. The <code>bomb-game</code> folder contains the textbook (<code>index.html</code>) you are reading now."
+    },
+    {
+      "source": "<kbd>⌘</kbd> を押しながら、<code>bomb_exploded.png</code>・<code>bomb_ignited.png</code>・<code>bomb_initial.png</code> の3つをクリックして選び、<kbd>⌘ C</kbd> でコピーします。同じフォルダにある <code>A05BombGame.zip</code> は完成プロジェクトです。選びません。",
+      "translation": "Hold <kbd>⌘</kbd> and click <code>bomb_exploded.png</code>, <code>bomb_ignited.png</code>, and <code>bomb_initial.png</code> to select all three, then copy them with <kbd>⌘ C</kbd>. <code>A05BombGame.zip</code> in the same folder is the finished project. Do not select it."
+    },
+    {
+      "source": "教材のフォルダが見つからないとき",
+      "translation": "If you cannot find the course materials folder"
+    },
+    {
+      "source": "教材のフォルダは、はじめの準備で「書類」へ移動したものです（<a1>共通資料：はじめの準備</a1>の1.）。まだ移動していなければ、先にそちらを行います。同じ教材を2回ダウンロードして名前のうしろに <code>(1)</code> が付いたものがあるときは、自分で判断せず先生に見せてください。",
+      "translation": "This is the folder you moved to 「書類」 (Documents) during first-time setup (step 1 in <a1>Shared guide: First-time setup</a1>). If you have not moved it yet, do that first. If you downloaded the same materials twice and one name ends in <code>(1)</code>, show your teacher instead of deciding which one to use yourself."
+    },
+    {
+      "source": "② 自分のプロジェクトに貼り付ける",
+      "translation": "② Paste into your own project"
+    },
+    {
+      "source": "Android Studioに戻り、自分の <code>A05BombGame</code> を開いていることを確認します。",
+      "translation": "Return to Android Studio and check that you have opened your own <code>A05BombGame</code>."
+    },
+    {
+      "source": "Project表示で <code>app/src/main/res/drawable</code> フォルダをクリックして選び、<kbd>⌘ V</kbd> で貼り付けます。",
+      "translation": "In Project view, click the <code>app/src/main/res/drawable</code> folder to select it, then paste with <kbd>⌘ V</kbd>."
+    },
+    {
+      "source": "<strong>Copy</strong> の画面が出たら、<strong>To directory</strong> を確認します。末尾が <code>A05BombGame/app/src/main/res/drawable</code> になっていれば <strong>OK</strong> を押します。見本（完成プロジェクト）も開いている人は、途中に <code>samples</code> が入っていないことも確かめます。入っていたら、見本の方に貼り付けようとしています。",
+      "translation": "If the <strong>Copy</strong> dialog appears, check <strong>To directory</strong>. If it ends with <code>A05BombGame/app/src/main/res/drawable</code>, press <strong>OK</strong>. If you also have the sample (finished project) open, check that the path does not contain <code>samples</code>. If it does, you are about to paste into the sample."
+    },
+    {
+      "source": "Project表示でdrawableフォルダを選び、Copyダイアログが開いている。To directoryの末尾はA05BombGame/app/src/main/res/drawable",
+      "translation": "The drawable folder is selected in Project view and the Copy dialog is open. To directory ends with A05BombGame/app/src/main/res/drawable"
+    },
+    {
+      "source": "To directoryの末尾が A05BombGame/app/src/main/res/drawable になっていればOK。画像のパスは先生の保存先の例です。 <a1>画像を大きく開く</a1>",
+      "translation": "To directory should end with A05BombGame/app/src/main/res/drawable. The path in the image is the teacher's example save location. <a1>Open the full-size image</a1>"
+    },
+    {
+      "source": "drawableフォルダにbomb_exploded.png、bomb_ignited.png、bomb_initial.pngの3つが追加されている",
+      "translation": "Three files have been added to the drawable folder: bomb_exploded.png, bomb_ignited.png, and bomb_initial.png"
+    },
+    {
+      "source": "drawableに3つのPNGが並べば成功。 <a1>画像を大きく開く</a1>",
+      "translation": "You have succeeded if the three PNG files appear in drawable. <a1>Open the full-size image</a1>"
+    },
+    {
+      "source": "貼り付けた場所を間違えたとき",
+      "translation": "If you pasted into the wrong location"
+    },
+    {
+      "source": "<code>layout</code> や <code>mipmap</code> など別のフォルダに入った画像は、Project表示で選んで <kbd>⌘ Delete</kbd> で削除し、もう一度 <code>drawable</code> に貼り付けます。見本の <code>samples</code> 側のプロジェクトには貼り付けません。",
+      "translation": "If you put the images in another folder, such as <code>layout</code> or <code>mipmap</code>, select them in Project view and delete them with <kbd>⌘ Delete</kbd>, then paste them into <code>drawable</code> again. Do not paste them into the sample project under <code>samples</code>."
+    },
+    {
+      "source": "Runで確かめる",
+      "translation": "Check with Run"
+    },
+    {
+      "source": "画像を追加しただけでは、画面は変わりません。Runして <strong>Hello World!</strong> が表示され、ビルドエラーが出なければ成功です。",
+      "translation": "Adding images alone does not change the screen. You have succeeded if you can Run, see <strong>Hello World!</strong>, and get no build errors."
+    },
+    {
+      "source": "自分のプロジェクトのdrawableに3つのPNGを追加し、Runしてもエラーが出ないことを確認した。",
+      "translation": "I added three PNG files to drawable in my own project and checked that Run produced no errors."
+    },
+    {
+      "source": "次へ：爆弾と数字ボタンを並べる →",
+      "translation": "Next: Arrange the bomb and number buttons →"
     },
     {
       "source": "STEP 03 · 目安 20分",
       "translation": "STEP 03 · about 20 min"
     },
     {
+      "source": "爆弾と数字ボタンを並べる",
+      "translation": "Arrange the bomb and number buttons"
+    },
+    {
       "source": "変更するファイル：app/src/main/res/layout/activity_main.xml",
       "translation": "File to change: app/src/main/res/layout/activity_main.xml"
+    },
+    {
+      "source": "まず、爆弾の画像と1〜9の数字ボタンを作ります。<strong>Code</strong> 表示に切り替え、XMLの中で <kbd>⌘ A</kbd> → 貼り付けを行い、<strong>ファイル全体を置き換えます</strong>。",
+      "translation": "First, create the bomb image and number buttons from 1 to 9. Switch to <strong>Code</strong> view, then use <kbd>⌘ A</kbd> → paste in the XML to <strong>replace the whole file</strong>."
+    },
+    {
+      "source": "1行目：1　2　3",
+      "translation": "Row 1: 1　2　3"
+    },
+    {
+      "source": "2行目：4　5　6",
+      "translation": "Row 2: 4　5　6"
+    },
+    {
+      "source": "3行目：7　8　9",
+      "translation": "Row 3: 7　8　9"
     },
     {
       "source": "activity_main.xml · 全体を置き換える",
       "translation": "activity_main.xml · replace the whole file"
     },
     {
+      "source": "指定",
+      "translation": "Setting"
+    },
+    {
       "source": "意味",
       "translation": "Meaning"
+    },
+    {
+      "source": "爆弾の画像を表示するImageView。Javaから画像を切り替えるため、idを付ける。",
+      "translation": "The ImageView that displays the bomb image. Give it an id so that Java can change the image."
+    },
+    {
+      "source": "起動直後は、STEP 2で追加した火のない爆弾を表示する。",
+      "translation": "Immediately after launch, show the unlit bomb added in STEP 2."
+    },
+    {
+      "source": "画面読み上げ用の説明文。この単元では説明文を付けない指定にして、警告を出さないようにする。",
+      "translation": "A description for screen readers. In this unit, specify that there is no description to prevent a warning."
+    },
+    {
+      "source": "親の中の部品を、横方向の中央にそろえる。",
+      "translation": "Center the components horizontally within their parent."
+    },
+    {
+      "source": "数字ボタンのid。<code>android:text</code> の1〜9は、あとでJavaが数字として読み取る。",
+      "translation": "The ids of the number buttons. Later, Java reads 1–9 in <code>android:text</code> as numbers."
+    },
+    {
+      "source": "中央のボタンの左右に8dpのすき間を作る。",
+      "translation": "Create an 8dp gap on each side of the middle button."
+    },
+    {
+      "source": "親の <code>orientation=\"vertical\"</code> が画像と3つの行を縦に並べ、行の <code>orientation=\"horizontal\"</code> が3つのボタンを横に並べます。A02CalcGameの数字ボタンと同じ入れ子の形です。<code>android:id=\"@+id/main\"</code> はJavaのひな形でも使うため残します。<code>tools:ignore=\"ButtonStyle\"</code> はエディタの警告を抑える指定で、クリックの処理ではありません。",
+      "translation": "The parent's <code>orientation=\"vertical\"</code> arranges the image and three rows vertically, while each row's <code>orientation=\"horizontal\"</code> arranges three buttons horizontally. This is the same nested structure as the number buttons in A02CalcGame. Keep <code>android:id=\"@+id/main\"</code>, because the Java template also uses it. <code>tools:ignore=\"ButtonStyle\"</code> suppresses an editor warning; it does not handle clicks."
+    },
+    {
+      "source": "火のない爆弾の画像と、1〜9が3行×3列で表示されれば成功です。まだ数字を押しても何も起きません。",
+      "translation": "You have succeeded if the unlit bomb image and numbers 1–9 appear in 3 rows and 3 columns. Pressing the numbers still does nothing."
+    },
+    {
+      "source": "<code>@drawable/bomb_initial</code> が赤いときは、STEP 2の画像の場所とファイル名を確認します。文字を直接書いたことによる <code>Hardcoded text</code> の警告は、これまでの単元と同様に授業ではそのまま進めます。",
+      "translation": "If <code>@drawable/bomb_initial</code> is red, check the image location and file name from STEP 2. As in earlier units, continue with the class despite the <code>Hardcoded text</code> warning caused by writing text directly."
+    },
+    {
+      "source": "爆弾の画像と1〜9のボタンが3行×3列で表示され、img_bomb・btn1〜btn9のidを確認した。",
+      "translation": "I displayed the bomb image and buttons 1–9 in 3 rows and 3 columns, and checked the ids img_bomb and btn1–btn9."
+    },
+    {
+      "source": "次へ：メッセージと再挑戦ボタン →",
+      "translation": "Next: Add a message and 再挑戦 (Retry) button →"
+    },
+    {
+      "source": "STEP 04 · 目安 10分",
+      "translation": "STEP 04 · About 10 min"
+    },
+    {
+      "source": "メッセージと再挑戦ボタン",
+      "translation": "Add a message and 再挑戦 (Retry) button"
     },
     {
       "source": "変更するファイル：activity_main.xml",
       "translation": "File to change: activity_main.xml"
     },
     {
+      "source": "数字ボタンの下に、メッセージと再挑戦ボタンを作ります。XMLの<strong>最後の <code>&lt;/LinearLayout&gt;</code> の直前</strong>に追加します。STEP 3の画像や数字ボタンは残します。",
+      "translation": "Create a message and 再挑戦 (Retry) button below the number buttons. Add them <strong>just before the final <code>&lt;/LinearLayout&gt;</code></strong> in the XML. Keep the image and number buttons from STEP 3."
+    },
+    {
+      "source": "追加 · 最後の閉じタグの直前",
+      "translation": "Add · Just before the final closing tag"
+    },
+    {
+      "source": "「どれか押してみよう」「着火！」などを表示するTextView。",
+      "translation": "A TextView that displays messages such as どれか押してみよう (Try pressing one) and 着火！ (Ignited!)."
+    },
+    {
+      "source": "Material 3の「小さめの見出し」の文字スタイルを使う。A03のBodyLargeより大きい文字になる。",
+      "translation": "Use the Material 3 text style for a small headline. The text is larger than BodyLarge in A03."
+    },
+    {
+      "source": "再挑戦ボタン。<code>android:layout_width=\"match_parent\"</code> で横幅いっぱいに広げる。",
+      "translation": "The 再挑戦 (Retry) button. <code>android:layout_width=\"match_parent\"</code> makes it fill the available width."
+    },
+    {
+      "source": "最初はボタンを<strong>見えない</strong>状態にする。見えなくても、表示する場所は残る。ゲームが終わったらJavaで表示する。",
+      "translation": "Make the button <strong>invisible</strong> at first. Its space remains even while it is hidden. Java shows it when the game ends."
+    },
+    {
+      "source": "数字ボタンの下に「どれか押してみよう」が表示されます。再挑戦ボタンは見えません。",
+      "translation": "どれか押してみよう (Try pressing one) appears below the number buttons. The 再挑戦 (Retry) button is hidden."
+    },
+    {
+      "source": "火のない爆弾、1から9の数字ボタン、どれか押してみよう。再挑戦ボタンは見えない",
+      "translation": "An unlit bomb, number buttons from 1 to 9, and どれか押してみよう (Try pressing one). The 再挑戦 (Retry) button is hidden"
+    },
+    {
+      "source": "このSTEPの画面。再挑戦ボタンはまだ見えません。 <a1>画像を大きく開く</a1>",
+      "translation": "The screen at this step. The 再挑戦 (Retry) button is still hidden. <a1>Open the full-size image</a1>"
+    },
+    {
       "source": "1コマ目はここまで",
       "translation": "Period 1 ends here"
+    },
+    {
+      "source": "もう一度Runします。画面の部品のidを、先生に1つずつ指さして説明しましょう。見えない再挑戦ボタンも、XMLのどこにあるかを指さします。次回も自分の <code>Documents/Android1/A05BombGame</code> を開きます。",
+      "translation": "Run again. Point to each screen component's id and explain it to your teacher. Also point to where the invisible 再挑戦 (Retry) button is in the XML. Next time, open your own <code>Documents/Android1/A05BombGame</code> again."
+    },
+    {
+      "source": "メッセージが表示され、XMLでbtn_retryがinvisibleになっていることを確認した（画面ではまだ見えない）。",
+      "translation": "I checked that the message appeared and that btn_retry was invisible in the XML (it was still hidden on screen)."
+    },
+    {
+      "source": "次へ：導火線スイッチの数字を決める →",
+      "translation": "Next: Choose the fuse switch numbers →"
+    },
+    {
+      "source": "STEP 05 · 目安 25分",
+      "translation": "STEP 05 · About 25 min"
+    },
+    {
+      "source": "導火線スイッチの数字を決める",
+      "translation": "Choose the fuse switch numbers"
     },
     {
       "source": "変更するファイル：MainActivity.java",
       "translation": "File to change: MainActivity.java"
     },
     {
+      "source": "前回の画面をRunして確認してから始めます。1〜9の中から、<strong>重ならない2つの数字</strong>をランダムに選び、導火線スイッチにします。選んだ数字はLogcatで確かめます。",
+      "translation": "Start by running and checking the screen from the previous class. Randomly choose <strong>two different numbers</strong> from 1 to 9 as the fuse switches. Check the chosen numbers in Logcat."
+    },
+    {
+      "source": "① クラスの中、onCreateの外に1行追加",
+      "translation": "① Add one line inside the class, outside onCreate"
+    },
+    {
+      "source": "<code>public class MainActivity extends AppCompatActivity {</code> のすぐ下、<code>@Override</code> より上に追加します。",
+      "translation": "Add it just below <code>public class MainActivity extends AppCompatActivity {</code>, above <code>@Override</code>."
+    },
+    {
+      "source": "追加 · MainActivityのフィールド",
+      "translation": "Add · A field in MainActivity"
+    },
+    {
+      "source": "<code>int[]</code> は「intの配列」という型です。ここでは名前と型だけを決め、中に入れる2つの数字は、このあと作るメソッドで決めます。スイッチの数字はメソッドで作り、STEP 7でクリックの処理から読むため、フィールドにします。A02の <code>answer</code> も、メソッドで作ってクリックの処理で読むフィールドでした。",
+      "translation": "<code>int[]</code> is the type for an array of int values. Here, specify only its name and type. The method you will create next decides which two numbers go inside. Store the switch numbers in a field because a method generates them and the click handler in STEP 7 reads them. The <code>answer</code> in A02 was also a field whose value was generated in a method and read in a click handler."
+    },
+    {
+      "source": "② onCreateの外にメソッドを追加",
+      "translation": "② Add a method outside onCreate"
+    },
+    {
+      "source": "<code>onCreate</code> を閉じる <code>}</code> の下に1行空けて、MainActivityを閉じる最後の <code>}</code> より上に追加します。A02の <code>startQuestion</code> と同じ場所です。",
+      "translation": "Leave a blank line below the <code>}</code> that closes <code>onCreate</code>, and add the method above the final <code>}</code> that closes MainActivity. This is the same location as <code>startQuestion</code> in A02."
+    },
+    {
+      "source": "追加 · onCreateの下",
+      "translation": "Add · Below onCreate"
+    },
+    {
+      "source": "importは <code>android.util.Log</code>、<code>java.util.Arrays</code>、<code>java.util.concurrent.ThreadLocalRandom</code> です。<code>Arrays</code> に候補が出たら <code>java.util.Arrays</code> を選びます。",
+      "translation": "The imports are <code>android.util.Log</code>, <code>java.util.Arrays</code>, and <code>java.util.concurrent.ThreadLocalRandom</code>. If suggestions appear for <code>Arrays</code>, choose <code>java.util.Arrays</code>."
+    },
+    {
       "source": "コード",
       "translation": "コード — code"
+    },
+    {
+      "source": "メソッドの説明を書くコメント。",
+      "translation": "A comment describing the method."
+    },
+    {
+      "source": "「スイッチの数字を作る」処理に名前を付けたメソッド。STEP 8の再挑戦からも呼び出す。",
+      "translation": "A method that names the process of generating switch numbers. It is also called from the retry handler in STEP 8."
+    },
+    {
+      "source": "<strong>1以上、10未満</strong>（1〜9）の整数を<strong>2個</strong>作り、intの配列にする。A02の <code>nextInt(1, 10)</code> を2回分まとめて作るイメージ。",
+      "translation": "Generate <strong>two</strong> integers <strong>greater than or equal to 1 and less than 10</strong> (1–9), and put them in an int array. Think of this as combining two calls to <code>nextInt(1, 10)</code> from A02."
+    },
+    {
+      "source": "作った配列を、①のフィールドに入れる。メソッドの中から、フィールドに直接入れている。",
+      "translation": "Put the generated array in the field from ①. The method assigns it directly to the field."
+    },
+    {
+      "source": "配列から重なりを取り除いた数字の個数。<code>{3, 7}</code> なら2、<code>{5, 5}</code> なら1。",
+      "translation": "The number of values left after removing duplicates from the array. For <code>{3, 7}</code> it is 2; for <code>{5, 5}</code> it is 1."
+    },
+    {
+      "source": "do { ... } while (条件);",
+      "translation": "do { ... } while (条件); (条件 = condition)"
+    },
+    {
+      "source": "中を<strong>必ず1回</strong>実行し、条件がtrueの間くり返す。",
+      "translation": "Run the body <strong>at least once</strong>, then repeat while the condition is true."
+    },
+    {
+      "source": "「2ではない」。同じ数字が2つ出たときにtrueになり、もう一度作り直す。",
+      "translation": "\"Not equal to 2.\" This is true when the two numbers are the same, so they are generated again."
+    },
+    {
+      "source": "2つの数字を1つずつ取り出す拡張for文。<code>randomIgnitionNumber</code>（最後にsがない）は取り出した1つの数字。",
+      "translation": "An enhanced for loop that takes the two numbers one at a time. <code>randomIgnitionNumber</code> (without the final s) is the one number taken from the array."
+    },
+    {
+      "source": "数字をLogcatに出す。A01・A03と同じログ。",
+      "translation": "Output the numbers to Logcat. This is the same logging used in A01 and A03."
+    },
+    {
+      "source": "<code>Arrays.stream(配列)</code> は、配列の中身を順番に調べるメソッドです。この単元では、このあと <code>anyMatch</code>（STEP 7）、<code>forEach</code>（STEP 7）、<code>filter</code> と <code>count</code>（STEP 9）も使います。",
+      "translation": "<code>Arrays.stream(配列)</code> is a method for examining the contents of an array in order. Later in this unit, you will also use <code>anyMatch</code> (STEP 7), <code>forEach</code> (STEP 7), and <code>filter</code> and <code>count</code> (STEP 9)."
+    },
+    {
+      "source": "do-while文を読む",
+      "translation": "Read the do-while loop"
+    },
+    {
+      "source": "乱数を2個作る（最初に必ず1回）",
+      "translation": "Generate two random numbers (always once first)"
+    },
+    {
+      "source": "重なりを除いた個数 != 2 ？",
+      "translation": "Count of distinct values != 2?"
+    },
+    {
+      "source": "trueなら作り直す／falseなら終わる",
+      "translation": "If true, generate again / If false, finish"
+    },
+    {
+      "source": "くり返し",
+      "translation": "Iteration"
+    },
+    {
+      "source": "できた配列",
+      "translation": "Generated array"
+    },
+    {
+      "source": "次にすること",
+      "translation": "What happens next"
+    },
+    {
+      "source": "1回目",
+      "translation": "First iteration"
+    },
+    {
+      "source": "同じ数字なので、もう一度作る（フィールドの配列は作り直した配列に置き換わる）。",
+      "translation": "The numbers are the same, so generate them again (the new array replaces the array in the field)."
+    },
+    {
+      "source": "2回目",
+      "translation": "Second iteration"
+    },
+    {
+      "source": "くり返しを終え、フィールドに入った {5, 8} をログに出す。",
+      "translation": "End the loop and log {5, 8}, which is stored in the field."
+    },
+    {
+      "source": "A03の番号付きfor文は、中を実行する前に条件を調べました。do-while文は、まず中を1回実行してから条件を調べます。「乱数を作ってから、重なっていないか確かめる」処理に合っています。1回目で重ならなければ、くり返しは1回で終わります。",
+      "translation": "The indexed for loop in A03 checked its condition before running its body. A do-while loop runs its body once before checking the condition. This suits a process that generates random numbers and then checks for duplicates. If the first pair has no duplicates, the loop ends after one iteration."
+    },
+    {
+      "source": "仕様の確認：<a1>ThreadLocalRandom.ints</a1>、<a2>Arrays.stream</a2>、<a3>IntStream.distinct（Android公式）</a3>。",
+      "translation": "Check the specifications: <a1>ThreadLocalRandom.ints</a1>, <a2>Arrays.stream</a2>, and <a3>IntStream.distinct (official Android documentation)</a3>."
+    },
+    {
+      "source": "③ onCreateから呼び出す",
+      "translation": "③ Call it from onCreate"
+    },
+    {
+      "source": "<code>onCreate</code> の中で、ひな形の <code>return insets;</code> に続く <code>});</code> の下に、1行空けて追加します。",
+      "translation": "Inside <code>onCreate</code>, leave a blank line below the <code>});</code> that follows <code>return insets;</code> in the template, then add this line."
+    },
+    {
+      "source": "追加 · onCreateの中、ひな形の下",
+      "translation": "Add · Inside onCreate, below the template"
+    },
+    {
+      "source": "画面を作るときに1回だけ、スイッチの数字を決めます。メソッドの中身は、呼び出したときに実行されます。",
+      "translation": "Choose the switch numbers just once when creating the screen. The body of a method runs when you call it."
+    },
+    {
+      "source": "<a1>共通資料：Logcat</a1>に従ってLogcatを開き、検索欄を次の文字にします。",
+      "translation": "Open Logcat by following <a1>Shared guide: Logcat</a1>, and put the following text in the search field."
+    },
+    {
+      "source": "Logcatの検索欄 · BombGame用",
+      "translation": "Logcat search field · For BombGame"
+    },
+    {
+      "source": "Runします。起動したときに、<code>randomIgnitionNumber</code> の行が2行出ます。",
+      "translation": "Run the app. Two lines containing <code>randomIgnitionNumber</code> appear when it starts."
+    },
+    {
+      "source": "アプリをStopしてからRunし直すと、数字が選び直されます（1つだけ変わる回や、たまたま同じ組み合わせになる回もあります）。3〜4回くり返し、どの回でも2つの数字が違うことを確かめます。",
+      "translation": "Stop the app, then Run again to choose the numbers again (sometimes only one number changes, and sometimes the same pair happens to appear). Repeat 3–4 times and check that the two numbers are different from each other each time."
+    },
+    {
+      "source": "画面はまだ変わりません。数字を押しても何も起きません。",
+      "translation": "The screen has not changed yet. Pressing the numbers does nothing."
+    },
+    {
+      "source": "読むところの例 · スイッチが6と8のとき",
+      "translation": "Example of what to read · When the switches are 6 and 8"
+    },
+    {
+      "source": "Logcatはスイッチの確認用",
+      "translation": "Use Logcat to check the switches"
+    },
+    {
+      "source": "このログを見ると、どれがスイッチかわかります。STEP 7・9では、このログを見ながら着火・爆発・クリアを確実に試します。友達と遊ぶときは、Logcatを隠しておきましょう。",
+      "translation": "This log tells you which numbers are switches. In STEPs 7 and 9, use the log to reliably test ignition, explosion, and winning. Hide Logcat when playing with friends."
+    },
+    {
+      "source": "Logcatに違う2つの数字が出て、Runし直すと数字が選び直されることを確認した。",
+      "translation": "I checked that Logcat showed two different numbers and that running the app again chose the numbers again."
+    },
+    {
+      "source": "次へ：押したボタンを押せなくする →",
+      "translation": "Next: Disable each button after it is pressed →"
     },
     {
       "source": "STEP 06 · 目安 15分",
       "translation": "STEP 06 · about 15 min"
     },
     {
+      "source": "押したボタンを押せなくする",
+      "translation": "Disable each button after it is pressed"
+    },
+    {
+      "source": "画面の部品を取得し、9個の数字ボタンに同じクリックの処理を付けます。まずは「押したボタンを押せなくする」だけを作ります。",
+      "translation": "Get the screen components and add the same click handler to the nine number buttons. First, implement only disabling the button that was pressed."
+    },
+    {
+      "source": "① 画面の部品を取得する",
+      "translation": "① Get the screen components"
+    },
+    {
+      "source": "STEP 5で追加した <code>generateIgnitionNumbers();</code> の下に、1行空けて追加します。",
+      "translation": "Leave a blank line below <code>generateIgnitionNumbers();</code>, which you added in STEP 5, then add this code."
+    },
+    {
+      "source": "追加 · generateIgnitionNumbers();の下",
+      "translation": "Add · Below generateIgnitionNumbers();"
+    },
+    {
+      "source": "表示する文字を変えるため、TextViewとして扱う。",
+      "translation": "Treat it as a TextView to change the text it displays."
+    },
+    {
+      "source": "表示する画像を変えるため、ImageViewとして扱う。",
+      "translation": "Treat it as an ImageView to change the image it displays."
+    },
+    {
+      "source": "クリック登録と表示の切り替えだけを使うため、A03と同じくキャストしない。",
+      "translation": "As in A03, no cast is needed because it only registers clicks and changes visibility."
+    },
+    {
+      "source": "9個の数字ボタンを、Buttonの配列にまとめる。A03の <code>imageViews</code> と同じ書き方。",
+      "translation": "Group the nine number buttons into an array of Button objects. This uses the same form as <code>imageViews</code> in A03."
+    },
+    {
+      "source": "importは <code>android.widget.Button</code>、<code>android.widget.ImageView</code>、<code>android.widget.TextView</code> です。<code>txtMessage</code> などが灰色で表示されるのは、まだ使っていないためです。",
+      "translation": "The imports are <code>android.widget.Button</code>, <code>android.widget.ImageView</code>, and <code>android.widget.TextView</code>. Names such as <code>txtMessage</code> appear gray because they have not been used yet."
+    },
+    {
+      "source": "② 9個のボタンにクリックの処理を付ける",
+      "translation": "② Add a click handler to the nine buttons"
+    },
+    {
+      "source": "①で追加した配列の <code>};</code> の下に、1行空けて追加します。",
+      "translation": "Leave a blank line below the <code>};</code> of the array added in ①, then add this code."
+    },
+    {
+      "source": "追加 · 配列numberButtonsの下",
+      "translation": "Add · Below the numberButtons array"
+    },
+    {
+      "source": "配列からボタンを1つずつ取り出し、クリックの処理を登録する。",
+      "translation": "Take one button at a time from the array and register a click handler."
+    },
+    {
+      "source": "押されたボタンを、押せない状態（灰色）にする。同じ数字を2回押せなくなる。",
+      "translation": "Disable the pressed button (turn it gray). The same number can no longer be pressed twice."
+    },
+    {
+      "source": "for文は画面を作るときに9回実行され、9個のボタンに同じ処理を登録します。クリックの処理の中の <code>button</code> は、そのボタン自身を指します。1を押せば1のボタン、5を押せば5のボタンが灰色になります。",
+      "translation": "The for loop runs nine times when creating the screen and registers the same handler for all nine buttons. The <code>button</code> inside each click handler refers to that button itself. Press 1 and button 1 turns gray; press 5 and button 5 turns gray."
+    },
+    {
+      "source": "1を押すと、1のボタンだけが灰色になり、押せなくなります。",
+      "translation": "Press 1. Only button 1 turns gray and becomes disabled."
+    },
+    {
+      "source": "別の数字を押すと、そのボタンも灰色になります。",
+      "translation": "Press another number. That button also turns gray."
+    },
+    {
+      "source": "メッセージと爆弾の画像は、まだ変わりません。",
+      "translation": "The message and bomb image have not changed yet."
+    },
+    {
+      "source": "1のボタンだけが灰色になり、ほかのボタンは押せる。メッセージはどれか押してみようのまま",
+      "translation": "Only button 1 is gray; the other buttons can still be pressed. The message remains どれか押してみよう (Try pressing one)"
+    },
+    {
+      "source": "1を押した画面。押したボタンだけが灰色になります。 <a1>画像を大きく開く</a1>",
+      "translation": "The screen after pressing 1. Only the pressed button turns gray. <a1>Open the full-size image</a1>"
+    },
+    {
+      "source": "押した数字ボタンだけが灰色になり、もう押せないことを確認した。button.setEnabled(false)の行を指させた。",
+      "translation": "I checked that only the number button I pressed turned gray and could no longer be pressed. I pointed to the button.setEnabled(false) line."
+    },
+    {
+      "source": "次へ：着火と爆発 →",
+      "translation": "Next: Ignition and explosion →"
+    },
+    {
+      "source": "STEP 07 · 目安 30分",
+      "translation": "STEP 07 · About 30 min"
+    },
+    {
+      "source": "着火と爆発",
+      "translation": "Ignition and explosion"
+    },
+    {
+      "source": "押した数字がスイッチかどうかを調べ、スイッチなら爆弾の状態を1つ進めます。状態に合わせて、画像とメッセージを変えます。",
+      "translation": "Check whether the pressed number is a switch. If it is, advance the bomb state by one. Change the image and message to match the state."
+    },
+    {
+      "source": "① 爆弾の状態を表す定数とフィールド",
+      "translation": "① Constants and a field for the bomb state"
+    },
+    {
+      "source": "<code>public class MainActivity extends AppCompatActivity {</code> のすぐ下、STEP 5の <code>private int[] randomIgnitionNumbers</code> の<strong>上</strong>に追加します。",
+      "translation": "Add this code just below <code>public class MainActivity extends AppCompatActivity {</code>, <strong>above</strong> <code>private int[] randomIgnitionNumbers</code> from STEP 5."
+    },
+    {
+      "source": "追加 · randomIgnitionNumbersの上",
+      "translation": "Add · Above randomIgnitionNumbers"
+    },
+    {
+      "source": "「着火前」を1とする<strong>定数</strong>。<code>final</code> は値を変えられない、<code>static</code> はクラスで1つだけ持つ、という意味。定数は大文字と_で名前を付ける。",
+      "translation": "A <strong>constant (定数, ていすう)</strong> that represents \"before ignition\" as 1. <code>final</code> means the value cannot change, and <code>static</code> means the class has just one copy. Name constants with uppercase letters and _."
+    },
+    {
+      "source": "「着火」を2、「爆発」を3とする定数。",
+      "translation": "Constants that represent \"ignited\" as 2 and \"exploded\" as 3."
+    },
+    {
+      "source": "今の爆弾の状態を覚えるフィールド。最初は定数 STATE_INITIAL の値（1）が入る。あとで変わるのは <code>nowState</code> だけで、定数は1のまま。",
+      "translation": "A field that stores the current bomb state. It starts with the value of the constant STATE_INITIAL (1). Only <code>nowState</code> changes later; the constant stays 1."
+    },
+    {
+      "source": "爆弾の状態",
+      "translation": "Bomb state"
+    },
+    {
+      "source": "1：STATE_INITIAL（着火前）",
+      "translation": "1: STATE_INITIAL (before ignition)"
+    },
+    {
+      "source": "→ スイッチ →",
+      "translation": "→ Switch →"
+    },
+    {
+      "source": "2：STATE_IGNITED（着火）",
+      "translation": "2: STATE_IGNITED (ignited)"
+    },
+    {
+      "source": "3：STATE_EXPLODED（爆発）",
+      "translation": "3: STATE_EXPLODED (exploded)"
+    },
+    {
+      "source": "状態は1 → 2 → 3の順に並んでいるので、スイッチを押すたびに <code>nowState</code> を1増やせば次の状態になります。<code>nowState == 2</code> と書くより、<code>nowState == STATE_IGNITED</code> と書くほうが「着火しているか」を調べていると読み取れます。<code>nowState</code> はクリックの処理の中で書き換えるため、A03の <code>selectedHand</code> と同じくフィールドにします。",
+      "translation": "The states are arranged in order 1 → 2 → 3, so increasing <code>nowState</code> by 1 each time a switch is pressed advances to the next state. Writing <code>nowState == STATE_IGNITED</code> makes it clearer that you are checking whether the fuse is lit than writing <code>nowState == 2</code>. Use a field for <code>nowState</code>, like <code>selectedHand</code> in A03, because the click handler changes it."
+    },
+    {
+      "source": "② スイッチか調べて、画像とメッセージを変える",
+      "translation": "② Check for a switch and change the image and message"
+    },
+    {
+      "source": "STEP 6のクリックの処理の中で、<code>button.setEnabled(false);</code> の下に、1行空けて追加します。",
+      "translation": "Inside the click handler from STEP 6, leave a blank line below <code>button.setEnabled(false);</code>, then add this code."
+    },
+    {
+      "source": "追加 · button.setEnabled(false);の下",
+      "translation": "Add · Below button.setEnabled(false);"
+    },
+    {
+      "source": "追加のimportは <code>android.view.View</code> です。",
+      "translation": "The additional import is <code>android.view.View</code>."
+    },
+    {
+      "source": "押したボタンの文字、たとえば \"7\" を、整数の7に変える。A02と同じ。",
+      "translation": "Convert the text on the pressed button, for example \"7\", to the integer 7. This is the same as in A02."
+    },
+    {
+      "source": "スイッチの配列の中に、押した数字と同じ値が<strong>1つでもあれば</strong>true。",
+      "translation": "True if the switch array contains <strong>at least one</strong> value equal to the pressed number."
+    },
+    {
+      "source": "配列の値を1つずつ <code>num</code> として受け取り、押した数字と比べる短い書き方。クリックの処理の <code>v -&gt; { }</code> と同じ矢印を使う。",
+      "translation": "A short way to take each array value as <code>num</code> and compare it with the pressed number. It uses the same arrow as <code>v -&gt; { }</code> in a click handler."
+    },
+    {
+      "source": "スイッチなら状態を1つ進める。中が1行だけなので <code>{ }</code> を省略している。",
+      "translation": "If it is a switch, advance the state by one. The <code>{ }</code> are omitted because the body has only one line."
+    },
+    {
+      "source": "状態が着火（2）なら着火の表示、爆発（3）なら爆発の表示。どちらでもなければ何もしない。",
+      "translation": "If the state is ignited (2), show ignition; if exploded (3), show the explosion. Otherwise, do nothing."
+    },
+    {
+      "source": "爆弾の画像を、火がついた画像に変える。A03のCPUの手と同じ方法。",
+      "translation": "Change the bomb image to the lit image. This is the same method used for the CPU's hand in A03."
+    },
+    {
+      "source": "見えなかった再挑戦ボタンを表示する。",
+      "translation": "Show the 再挑戦 (Retry) button that was hidden."
+    },
+    {
+      "source": "9個のボタンを<strong>すべて</strong>押せなくする。<code>for (var b : numberButtons) { b.setEnabled(false); }</code> と同じ動き。",
+      "translation": "Disable <strong>all</strong> nine buttons. This behaves the same as <code>for (var b : numberButtons) { b.setEnabled(false); }</code>."
+    },
+    {
+      "source": "anyMatchを読む",
+      "translation": "Read anyMatch"
+    },
+    {
+      "source": "スイッチが {3, 7} のとき",
+      "translation": "When the switches are {3, 7}"
+    },
+    {
+      "source": "7を押した（number = 7）",
+      "translation": "Pressed 7 (number = 7)"
+    },
+    {
+      "source": "true（スイッチ）",
+      "translation": "true (a switch)"
+    },
+    {
+      "source": "5を押した（number = 5）",
+      "translation": "Pressed 5 (number = 5)"
+    },
+    {
+      "source": "false（スイッチではない）",
+      "translation": "false (not a switch)"
+    },
+    {
+      "source": "クリックの処理は、上から <strong>押せなくする → スイッチか調べる → 状態を進める → 状態に合わせて表示する</strong> の順に実行されます。1つのボタンは1回しか押せないため、同じスイッチで状態が2回進むことはありません。",
+      "translation": "The click handler runs from top to bottom in this order: <strong>disable the button → check for a switch → advance the state → update the display for the state</strong>. Each button can only be pressed once, so the same switch cannot advance the state twice."
+    },
+    {
+      "source": "仕様の確認：<a1>IntStream.anyMatch</a1>、<a2>Stream（forEach・filter・count）</a2>、<a3>View.setVisibility（Android公式）</a3>。",
+      "translation": "Check the specifications: <a1>IntStream.anyMatch</a1>, <a2>Stream (forEach, filter, and count)</a2>, and <a3>View.setVisibility (official Android documentation)</a3>."
+    },
+    {
+      "source": "導火線に火がついた爆弾と着火！の文字。押した2と5のボタンは灰色",
+      "translation": "A bomb with a lit fuse and 着火！ (Ignited!). The pressed buttons 2 and 5 are gray"
+    },
+    {
+      "source": "スイッチを1つ押すと、画像とメッセージが変わります。 <a1>画像を大きく開く</a1>",
+      "translation": "Press one switch to change the image and message. <a1>Open the full-size image</a1>"
+    },
+    {
+      "source": "爆発の画像と爆発した！ゲームオーバー！の文字。数字はすべて灰色で、再挑戦ボタンが見える",
+      "translation": "An explosion image and 爆発した！ゲームオーバー！ (It exploded! Game over!). All numbers are gray and the 再挑戦 (Retry) button is visible"
+    },
+    {
+      "source": "2つ目のスイッチで爆発。再挑戦が表示されます。 <a1>画像を大きく開く</a1>",
+      "translation": "The second switch causes an explosion. 再挑戦 (Retry) appears. <a1>Open the full-size image</a1>"
+    },
+    {
+      "source": "Logcatでスイッチの2つの数字を確認します（STEP 5の検索欄）。",
+      "translation": "Check the two switch numbers in Logcat (using the search field from STEP 5)."
+    },
+    {
+      "source": "スイッチ<strong>ではない</strong>数字を押します。そのボタンが灰色になるだけで、表示は変わりません。",
+      "translation": "Press a number that is <strong>not</strong> a switch. Only that button turns gray; the display does not change."
+    },
+    {
+      "source": "スイッチの1つを押します。導火線に火がついた画像と「着火！」になります。",
+      "translation": "Press one switch. The image changes to a bomb with a lit fuse and the message becomes 着火！ (Ignited!)."
+    },
+    {
+      "source": "もう1つのスイッチを押します。爆発の画像と「爆発した！ゲームオーバー！」になり、数字はすべて押せなくなり、再挑戦ボタンが表示されます。",
+      "translation": "Press the other switch. The image changes to an explosion and the message becomes 爆発した！ゲームオーバー！ (It exploded! Game over!). All numbers become disabled and the 再挑戦 (Retry) button appears."
+    },
+    {
+      "source": "再挑戦を押しても、まだ何も起きません（STEP 8で作ります）。もう一度遊ぶときは <strong>Run ▶</strong> で起動し直します。",
+      "translation": "Pressing 再挑戦 (Retry) still does nothing (you will implement it in STEP 8). To play again, restart with <strong>Run ▶</strong>."
+    },
+    {
+      "source": "まだクリアにはなりません",
+      "translation": "You cannot win yet"
+    },
+    {
+      "source": "スイッチ以外の7個をすべて押しても、このSTEPでは何も表示されません。クリアの判定はSTEP 9で追加します。",
+      "translation": "In this step, nothing appears even if you press all 7 non-switch buttons. You will add the win condition in STEP 9."
+    },
+    {
+      "source": "2コマ目はここまで",
+      "translation": "Stop here for class period 2"
+    },
+    {
+      "source": "もう一度Runします。次回はRunして、Logcatの数字を見ながら着火と爆発を確かめてからSTEP 8へ進みます。",
+      "translation": "Run again. Next time, Run and use the Logcat numbers to check ignition and explosion before moving on to STEP 8."
+    },
+    {
+      "source": "Logcatの数字を見ながら、スイッチ以外・1つ目のスイッチ・2つ目のスイッチを押して、表示の変化を確認した。nowState++の行を指させた。",
+      "translation": "I checked the display changes by looking at the Logcat numbers and pressing a non-switch button, the first switch, and the second switch. I pointed to the nowState++ line."
+    },
+    {
+      "source": "次へ：再挑戦で最初に戻す →",
+      "translation": "Next: Return to the start with retry →"
+    },
+    {
       "source": "STEP 08 · 目安 15分",
       "translation": "STEP 08 · about 15 min"
+    },
+    {
+      "source": "再挑戦で最初に戻す",
+      "translation": "Return to the start with retry"
+    },
+    {
+      "source": "再挑戦を押したら、起動直後と同じ表示に戻し、スイッチの数字を選び直します。",
+      "translation": "When 再挑戦 (Retry) is pressed, return to the display shown immediately after launch and choose the switch numbers again."
+    },
+    {
+      "source": "STEP 6の配列 <code>numberButtons</code> の <code>};</code> と、<code>for (var button : numberButtons) {</code> の行の<strong>間</strong>に追加します。追加したコードの上と下に、1行ずつ空けます。完成版と同じ順番にするためです。",
+      "translation": "Add this code <strong>between</strong> the <code>};</code> of the <code>numberButtons</code> array from STEP 6 and the <code>for (var button : numberButtons) {</code> line. Leave a blank line above and below the added code. This keeps the same order as the finished version."
+    },
+    {
+      "source": "追加 · 数字ボタンのfor文の上",
+      "translation": "Add · Above the for loop for the number buttons"
+    },
+    {
+      "source": "元に戻すもの",
+      "translation": "What to reset"
+    },
+    {
+      "source": "爆弾の状態を着火前（1）に戻す。",
+      "translation": "Return the bomb state to before ignition (1)."
+    },
+    {
+      "source": "txtMessage.setText(\"どれか押してみよう\")",
+      "translation": "txtMessage.setText(\"どれか押してみよう\") (message: \"Try pressing one\")"
+    },
+    {
+      "source": "メッセージを最初の文に戻す。",
+      "translation": "Return the message to the initial text."
+    },
+    {
+      "source": "爆弾の画像を、火のない画像に戻す。",
+      "translation": "Return the bomb image to the unlit image."
+    },
+    {
+      "source": "<code>v</code> は押された再挑戦ボタン自身。ボタンを見えなくする。",
+      "translation": "<code>v</code> is the 再挑戦 (Retry) button that was pressed. Make the button invisible."
+    },
+    {
+      "source": "STEP 5のメソッドを呼び、スイッチの数字を選び直す。",
+      "translation": "Call the method from STEP 5 to choose the switch numbers again."
+    },
+    {
+      "source": "9個のボタンをすべて押せる状態に戻す。",
+      "translation": "Enable all nine buttons again."
+    },
+    {
+      "source": "スイッチの数字を作る処理をメソッドにしたので、起動時（<code>onCreate</code>）と再挑戦の2か所から、同じ処理を1行で呼び出せます。A02の <code>startQuestion</code> と同じ考え方です。",
+      "translation": "Because you put the process for generating switch numbers in a method, you can call the same process in one line from two places: startup (<code>onCreate</code>) and retry. This is the same idea as <code>startQuestion</code> in A02."
+    },
+    {
+      "source": "Logcatでスイッチを確認し、2つとも押して爆発させます。",
+      "translation": "Check the switches in Logcat and press both to cause an explosion."
+    },
+    {
+      "source": "再挑戦を押します。火のない爆弾・「どれか押してみよう」・すべて押せる数字ボタンに戻り、再挑戦ボタンが見えなくなります。",
+      "translation": "Press 再挑戦 (Retry). The screen returns to an unlit bomb, どれか押してみよう (Try pressing one), and all number buttons enabled. The 再挑戦 (Retry) button becomes invisible."
+    },
+    {
+      "source": "Logcatに、選び直した2つの数字が出ます（前と同じ数字になることもあります）。2〜3回くり返します。",
+      "translation": "Two newly chosen numbers appear in Logcat (they may be the same as before). Repeat 2–3 times."
+    },
+    {
+      "source": "爆発のあとに再挑戦で最初の表示に戻り、Logcatに選び直したスイッチの数字が出ることを確認した。",
+      "translation": "I checked that retry after an explosion restored the initial display and that Logcat showed the newly chosen switch numbers."
+    },
+    {
+      "source": "次へ：クリアを判定する →",
+      "translation": "Next: Check the win condition →"
+    },
+    {
+      "source": "STEP 09 · 目安 25分",
+      "translation": "STEP 09 · About 25 min"
+    },
+    {
+      "source": "クリアを判定する",
+      "translation": "Check the win condition"
+    },
+    {
+      "source": "最後に、スイッチ以外の7個をすべて押したら「クリア！」にします。STEP 7の表示の処理を、クリアの判定で包みます。",
+      "translation": "Finally, show クリア！ (You win!) when all 7 non-switch buttons have been pressed. Wrap the display logic from STEP 7 in a check for the win condition."
+    },
+    {
+      "source": "① 置き換える範囲を選ぶ",
+      "translation": "① Select the range to replace"
+    },
+    {
+      "source": "数字ボタンのクリックの処理の中で、<code>if (nowState == STATE_IGNITED) {</code> の行から、<code>else if (nowState == STATE_EXPLODED) { ... }</code> を閉じる <code>}</code> の行までを選びます。その下の <code>});</code> は選びません。<code>var number</code>・<code>var match</code>・<code>if (match) nowState++;</code> の3行も残します。",
+      "translation": "Inside the number button click handler, select from <code>if (nowState == STATE_IGNITED) {</code> through the <code>}</code> that closes <code>else if (nowState == STATE_EXPLODED) { ... }</code>. Do not select the <code>});</code> below it. Also keep the three lines <code>var number</code>, <code>var match</code>, and <code>if (match) nowState++;</code>."
+    },
+    {
+      "source": "② 次のコードに置き換える",
+      "translation": "② Replace it with the following code"
+    },
+    {
+      "source": "置き換え · if (nowState == STATE_IGNITED) から else if の閉じ括弧まで",
+      "translation": "Replace · From if (nowState == STATE_IGNITED) through the closing brace of else if"
+    },
+    {
+      "source": "貼り付けたあと、字下げがずれていたら <strong>Code → Reformat Code</strong>（<kbd>⌥ ⌘ L</kbd>）でそろえます。<code>else { ... }</code> の中は、STEP 7で書いた着火・爆発の処理と同じです。",
+      "translation": "After pasting, if the indentation is uneven, align it with <strong>Code → Reformat Code</strong> (<kbd>⌥ ⌘ L</kbd>). The contents of <code>else { ... }</code> are the same ignition and explosion logic you wrote in STEP 7."
+    },
+    {
+      "source": "押せないボタンだけを残して、その数を数える。<code>!</code> は反対。今押したボタンも数に入る。",
+      "translation": "Keep only the disabled buttons and count them. <code>!</code> means the opposite. The button just pressed is also counted."
+    },
+    {
+      "source": "「かつ」。両方の条件がtrueのときtrue。",
+      "translation": "\"And.\" True when both conditions are true."
+    },
+    {
+      "source": "「または」。どちらかの条件がtrueならtrue。",
+      "translation": "\"Or.\" True when either condition is true."
+    },
+    {
+      "source": "括弧の中を1つのまとまりとして先に調べ、どちらかのまとまりがtrueならクリア。",
+      "translation": "Check each group in parentheses first. If either group is true, the player wins."
+    },
+    {
+      "source": "// ゲームクリアの場合",
+      "translation": "// ゲームクリアの場合 (if the player wins)"
+    },
+    {
+      "source": "クリアなら、メッセージを出し、再挑戦を表示し、数字をすべて押せなくする。",
+      "translation": "If the player wins, display the message, show 再挑戦 (Retry), and disable all numbers."
+    },
+    {
+      "source": "else { // ゲーム続行",
+      "translation": "else { // ゲーム続行 (continue the game)"
+    },
+    {
+      "source": "クリアではないとき。STEP 7の着火・爆発の判定を行う。爆発した場合は、ここでゲームオーバーになる。",
+      "translation": "When the player has not won. Check for ignition and explosion as in STEP 7. If the bomb has exploded, the game ends here."
+    },
+    {
+      "source": "クリアの条件を読む",
+      "translation": "Read the win condition"
+    },
+    {
+      "source": "条件は <strong>（着火前 かつ 7個押せない）または（着火 かつ 8個押せない）</strong> という意味です。上の行のコメントも、同じことを説明しています。Javaでは <code>&amp;&amp;</code> を <code>||</code> より先に計算するため、括弧がなくても結果は同じです（掛け算を足し算より先に計算するのと同じ）。読み間違えないように、まとまりを括弧で囲んでいます。",
+      "translation": "The condition means <strong>(before ignition and 7 buttons disabled) or (ignited and 8 buttons disabled)</strong>. The comment on the line above explains the same thing. Java evaluates <code>&amp;&amp;</code> before <code>||</code>, so the result would be the same without parentheses (like calculating multiplication before addition). The parentheses group the parts to prevent misreading."
+    },
+    {
+      "source": "押せないボタンの数",
+      "translation": "Number of disabled buttons"
+    },
+    {
+      "source": "STATE_INITIAL（着火前）",
+      "translation": "STATE_INITIAL (before ignition)"
+    },
+    {
+      "source": "スイッチ以外の7個をすべて押した。残りの2個はどちらもスイッチ。",
+      "translation": "All 7 non-switch buttons have been pressed. Both remaining buttons are switches."
+    },
+    {
+      "source": "STATE_IGNITED（着火）",
+      "translation": "STATE_IGNITED (ignited)"
+    },
+    {
+      "source": "スイッチ1個と、スイッチ以外の7個を押した。残りの1個はスイッチ。",
+      "translation": "One switch and all 7 non-switch buttons have been pressed. The remaining button is a switch."
+    },
+    {
+      "source": "STATE_EXPLODED（爆発）",
+      "translation": "STATE_EXPLODED (exploded)"
+    },
+    {
+      "source": "クリアにはならない。elseの中で爆発を表示する。",
+      "translation": "The player does not win. Show the explosion inside else."
+    },
+    {
+      "source": "数を数える行は、<code>button.setEnabled(false)</code> と <code>nowState++</code> のあとにあります。そのため、今押したボタンと、今の押し方で進んだ状態を使って判定できます。",
+      "translation": "The line that counts the buttons comes after <code>button.setEnabled(false)</code> and <code>nowState++</code>. This lets the check use the button just pressed and the state advanced by that press."
+    },
+    {
+      "source": "置き換えたあとの、数字ボタンの処理全体で照合する",
+      "translation": "Compare the full number button handler after replacement"
+    },
+    {
+      "source": "照合用 · 数字ボタンのfor文",
+      "translation": "For comparison · The for loop for the number buttons"
+    },
+    {
+      "source": "Logcatでスイッチを確認し、スイッチ以外の7個をすべて押します。7個目で「クリア！」になり、数字はすべて押せなくなり、再挑戦が表示されます。爆弾は火のない画像のままです。",
+      "translation": "Check the switches in Logcat, then press all 7 non-switch buttons. On the seventh, クリア！ (You win!) appears, all numbers become disabled, and 再挑戦 (Retry) appears. The bomb image stays unlit."
+    },
+    {
+      "source": "再挑戦を押し、新しいスイッチを確認します。スイッチを1つ押して着火させてから、スイッチ以外の7個を押します。7個目で「クリア！」になり、爆弾は火がついた画像のままです。",
+      "translation": "Press 再挑戦 (Retry) and check the new switches. Press one switch to light the fuse, then press all 7 non-switch buttons. On the seventh, クリア！ (You win!) appears and the bomb image stays lit."
+    },
+    {
+      "source": "再挑戦を押し、スイッチを2つとも押すと、これまでどおり爆発します。",
+      "translation": "Press 再挑戦 (Retry), then press both switches. The bomb explodes as before."
+    },
+    {
+      "source": "着火前に、スイッチ以外の7個を押してクリアした画面（確認1）。着火後にクリアしたときは、火がついた画像のままです。 <a1>画像を大きく開く</a1>",
+      "translation": "The screen after winning by pressing all 7 non-switch buttons before ignition (check 1). If you win after ignition, the image stays lit. <a1>Open the full-size image</a1>"
+    },
+    {
+      "source": "着火前と着火後の両方でクリアになり、爆発もこれまでどおり動くことを確認した。",
+      "translation": "I checked that I could win both before and after ignition, and that the explosion still worked as before."
+    },
+    {
+      "source": "次へ：ミニ練習 →",
+      "translation": "Next: Mini exercise →"
+    },
+    {
+      "source": "STEP 10 · 目安 20分",
+      "translation": "STEP 10 · About 20 min"
+    },
+    {
+      "source": "ミニ練習",
+      "translation": "Mini exercise"
+    },
+    {
+      "source": "まずクリアまで完成させます。そのあと、次の小変更を1つずつ試します。<strong>予想 → 変更 → Run → 説明 → 元に戻す</strong>の順で行います。",
+      "translation": "First, finish the game through the win condition. Then try the following small changes one at a time, in this order: <strong>predict → change → Run → explain → restore</strong>."
+    },
+    {
+      "source": "練習1：スイッチを固定して表を確かめる",
+      "translation": "Exercise 1: Fix the switches and check the table"
+    },
+    {
+      "source": "<code>generateIgnitionNumbers</code> メソッドの <code>randomIgnitionNumbers = ThreadLocalRandom.current().ints(2, 1, 10).toArray();</code> の行で、<code>=</code> の右側だけを <code>new int[]{1, 9}</code> に変えます。変更後の行は次のとおりです。",
+      "translation": "In the <code>generateIgnitionNumbers</code> method, find <code>randomIgnitionNumbers = ThreadLocalRandom.current().ints(2, 1, 10).toArray();</code>. Change only the right-hand side of <code>=</code> to <code>new int[]{1, 9}</code>. The changed line is shown below."
+    },
+    {
+      "source": "練習1 · 変更後の行",
+      "translation": "Exercise 1 · The changed line"
+    },
+    {
+      "source": "スイッチはいつも1と9です。Runして、Logcatに1と9が出ることを確かめます。次の操作の結果を予想してから試します。",
+      "translation": "The switches are always 1 and 9. Run and check that Logcat shows 1 and 9. Predict the results of the following actions, then try them."
+    },
+    {
+      "source": "5を押す → 1を押す → 9を押す",
+      "translation": "Press 5 → press 1 → press 9"
+    },
+    {
+      "source": "再挑戦 → 2・3・4・5・6・7・8を順に押す",
+      "translation": "再挑戦 (Retry) → press 2, 3, 4, 5, 6, 7, and 8 in order"
+    },
+    {
+      "source": "再挑戦 → 1を押す → 2・3・4・5・6・7・8を順に押す",
+      "translation": "再挑戦 (Retry) → press 1 → press 2, 3, 4, 5, 6, 7, and 8 in order"
+    },
+    {
+      "source": "試したあとに答えを見る",
+      "translation": "See the answer after trying"
+    },
+    {
+      "source": "1：5はボタンが灰色になるだけです。1で「着火！」、9で「爆発した！ゲームオーバー！」になります。2：8を押した時点（7個目）で「クリア！」になり、爆弾は火のない画像のままです。3：1で「着火！」になり、8を押した時点（押せないボタンが8個）で「クリア！」になります。爆弾は火がついた画像のままです。スイッチは固定しているので、再挑戦しても1と9のままです。練習2でもこの変更を使うため、まだ戻しません。",
+      "translation": "1: Pressing 5 only turns the button gray. Pressing 1 shows 着火！ (Ignited!), and pressing 9 shows 爆発した！ゲームオーバー！ (It exploded! Game over!). 2: When you press 8 (the seventh button), クリア！ (You win!) appears and the bomb image stays unlit. 3: Pressing 1 shows 着火！ (Ignited!). When you press 8 (with eight buttons disabled), クリア！ (You win!) appears. The bomb image stays lit. Because the switches are fixed, they stay 1 and 9 even after retry. Keep this change for now, because exercise 2 also uses it."
+    },
+    {
+      "source": "練習2：「8」を「7」にするとどうなる？",
+      "translation": "Exercise 2: What happens if you change \"8\" to \"7\"?"
+    },
+    {
+      "source": "練習1の変更を残したまま、クリアの条件の <code>nowState == STATE_IGNITED &amp;&amp; disableButtonCount == 8</code> の <code>8</code> を <code>7</code> に変えます。Runして、1を押してから、2・3・4・5・6・7を順に押します。7を押したとき、何が起きるでしょうか。",
+      "translation": "Keep the change from exercise 1, and change <code>8</code> to <code>7</code> in the win condition <code>nowState == STATE_IGNITED &amp;&amp; disableButtonCount == 8</code>. Run, press 1, then press 2, 3, 4, 5, 6, and 7 in order. What happens when you press 7?"
+    },
+    {
+      "source": "7を押した時点で「クリア！」になります。スイッチ以外のボタンは6個しか押しておらず、8がまだ残っていたのにクリアです。着火しているときは、押したスイッチ1個も押せないボタンに数えるので、スイッチ以外の7個を押し終えたときは8個になります。だから8と比べる、と説明できれば十分です。確認後は <code>8</code> に戻し、練習1の行の右側も <code>ThreadLocalRandom.current().ints(2, 1, 10).toArray()</code> に戻します。",
+      "translation": "クリア！ (You win!) appears when you press 7. You win even though you have pressed only six non-switch buttons and 8 is still left. After ignition, the one switch you pressed also counts as a disabled button, so the count is eight after all seven non-switch buttons have been pressed. It is enough to explain that this is why the count is compared with 8. After checking, restore <code>8</code>, and restore the right-hand side of the line from exercise 1 to <code>ThreadLocalRandom.current().ints(2, 1, 10).toArray()</code>."
+    },
+    {
+      "source": "練習3：状態を説明する",
+      "translation": "Exercise 3: Explain the state"
+    },
+    {
+      "source": "同じ数字を2回押せないのは、どの行のおかげですか。爆発したあとに数字を押せなくなるのは、どの行ですか。再挑戦でスイッチの数字が変わるのは、どの行ですか。",
+      "translation": "Which line prevents the same number from being pressed twice? Which line disables the numbers after an explosion? Which line changes the switch numbers on retry?"
+    },
+    {
+      "source": "説明したあとに答えを見る",
+      "translation": "See the answer after explaining"
+    },
+    {
+      "source": "クリックの処理の最初の <code>button.setEnabled(false)</code> で、押したボタンを押せなくします。爆発したときは、<code>else if (nowState == STATE_EXPLODED)</code> の中の <code>Arrays.stream(numberButtons).forEach(b -&gt; b.setEnabled(false))</code> ですべて押せなくします。再挑戦の処理の <code>generateIgnitionNumbers()</code> が、乱数で新しいスイッチを作ります。",
+      "translation": "The <code>button.setEnabled(false)</code> at the start of the click handler disables the pressed button. On explosion, <code>Arrays.stream(numberButtons).forEach(b -&gt; b.setEnabled(false))</code> inside <code>else if (nowState == STATE_EXPLODED)</code> disables them all. The <code>generateIgnitionNumbers()</code> in the retry handler generates new random switches."
+    },
+    {
+      "source": "完成版に戻してから確認",
+      "translation": "Restore the finished version before checking"
+    },
+    {
+      "source": "練習1の乱数の行と、練習2の <code>8</code> を元に戻します。Auto Importの設定により、使わなくなった <code>ThreadLocalRandom</code> のimportが消えることがあります。戻したあとに赤字になったら、<kbd>⌥ Enter</kbd> でimportを追加します。",
+      "translation": "Restore the random-number line from exercise 1 and the <code>8</code> from exercise 2. Depending on your Auto Import settings, the unused <code>ThreadLocalRandom</code> import may have been removed. If it turns red after restoring the line, add the import with <kbd>⌥ Enter</kbd>."
+    },
+    {
+      "source": "スイッチを固定して着火・爆発・クリアを確かめ、8を7に変えると7を押した時点でクリアになることも確かめてから、完成版に戻した。",
+      "translation": "I fixed the switches and checked ignition, explosion, and winning. I also checked that changing 8 to 7 made me win when I pressed 7, then restored the finished version."
     },
     {
       "source": "次へ：完成 →",
       "translation": "Next: Finished →"
     },
     {
+      "source": "STEP 11 · 目安 15分",
+      "translation": "STEP 11 · About 15 min"
+    },
+    {
       "source": "完成",
       "translation": "Finished"
+    },
+    {
+      "source": "完成チェック",
+      "translation": "Final check"
     },
     {
       "source": "操作",
       "translation": "Action"
     },
     {
+      "source": "確認する結果",
+      "translation": "Result to check"
+    },
+    {
+      "source": "起動直後",
+      "translation": "Immediately after launch"
+    },
+    {
+      "source": "火のない爆弾、1〜9のボタン、「どれか押してみよう」。再挑戦は見えない。Logcatにスイッチの数字が2つ出る。",
+      "translation": "An unlit bomb, buttons 1–9, and どれか押してみよう (Try pressing one). 再挑戦 (Retry) is hidden. Two switch numbers appear in Logcat."
+    },
+    {
+      "source": "スイッチ以外を押す",
+      "translation": "Press a non-switch button"
+    },
+    {
+      "source": "押したボタンだけが灰色になる。画像とメッセージは変わらない。",
+      "translation": "Only the pressed button turns gray. The image and message do not change."
+    },
+    {
+      "source": "スイッチを1つ押す",
+      "translation": "Press one switch"
+    },
+    {
+      "source": "導火線に火がついた画像と「着火！」。",
+      "translation": "An image with a lit fuse and 着火！ (Ignited!)."
+    },
+    {
+      "source": "スイッチを2つとも押す",
+      "translation": "Press both switches"
+    },
+    {
+      "source": "爆発の画像と「爆発した！ゲームオーバー！」。数字はすべて押せず、再挑戦が表示される。",
+      "translation": "An explosion image and 爆発した！ゲームオーバー！ (It exploded! Game over!). All numbers are disabled and 再挑戦 (Retry) appears."
+    },
+    {
+      "source": "スイッチ以外の7個をすべて押す",
+      "translation": "Press all 7 non-switch buttons"
+    },
+    {
+      "source": "着火前でも着火後でも「クリア！」。数字はすべて押せず、再挑戦が表示される。",
+      "translation": "クリア！ (You win!) appears both before and after ignition. All numbers are disabled and 再挑戦 (Retry) appears."
+    },
+    {
+      "source": "最初の表示に戻り、再挑戦が見えなくなる。Logcatに新しい2つの数字が出る。",
+      "translation": "The initial display returns and 再挑戦 (Retry) becomes invisible. Two new numbers appear in Logcat."
+    },
+    {
+      "source": "保存",
+      "translation": "Save"
+    },
+    {
+      "source": "Android Studioは、書いたコードを自動でファイルに保存します。保存の操作は要りません。ここでは、保存された場所を確かめます。",
+      "translation": "Android Studio automatically saves the code you write to files. You do not need to save manually. Here, check where it was saved."
+    },
+    {
+      "source": "Finderを開き、左側の <strong>書類</strong>（<code>Documents</code>）をクリックします。",
+      "translation": "Open Finder and click <strong>書類</strong> (<code>Documents</code>) on the left."
+    },
+    {
+      "source": "その中の <code>Android1</code> フォルダを開き、<code>A05BombGame</code> フォルダがあることを確かめます。",
+      "translation": "Open the <code>Android1</code> folder inside it and check that it contains the <code>A05BombGame</code> folder."
+    },
+    {
+      "source": "この <code>Documents/Android1/A05BombGame</code> フォルダが、自分で作ったアプリです。あとの授業でもう一度開けるように、消したり、別の場所へ移動したり、名前を変えたりせずに、そのまま残します。",
+      "translation": "The <code>Documents/Android1/A05BombGame</code> folder is the app you created. Keep it there without deleting, moving, or renaming it so you can open it again in later classes."
+    },
+    {
+      "source": "教材のチェックは自分用です。先生への送信はしません。印刷は <kbd>⌘ P</kbd> で行えます。",
+      "translation": "The checkboxes in the course materials are for your own use. They are not sent to the teacher. Press <kbd>⌘ P</kbd> to print."
+    },
+    {
+      "source": "完成チェックの操作をすべて試し、表のとおりの結果になった。",
+      "translation": "I tried all the operations in the final check and got the results shown in the table."
+    },
+    {
       "source": "困ったこと",
       "translation": "Problem"
+    },
+    {
+      "source": "最初に確認する場所",
+      "translation": "Where to check first"
+    },
+    {
+      "source": "@drawable/bomb_initial や R.drawable.bomb_ignited が赤い",
+      "translation": "@drawable/bomb_initial or R.drawable.bomb_ignited is red"
+    },
+    {
+      "source": "drawableに3つのPNGがあるか確認。ファイル名は小文字で、<code>bomb_initial.png.png</code> のように拡張子が重なっていないか見る。",
+      "translation": "Check that drawable contains all three PNG files. Check that the file names are lowercase and do not have a duplicated extension such as <code>bomb_initial.png.png</code>."
+    },
+    {
+      "source": "画像の名前でビルドエラーになる",
+      "translation": "An image name causes a build error"
+    },
+    {
+      "source": "drawableのファイル名に大文字・ハイフン・空白がないか確認。見本のファイル名と同じにする。",
+      "translation": "Check for uppercase letters, hyphens, or spaces in the drawable file names. Use the same names as the sample."
+    },
+    {
+      "source": "貼り付けたのに画像が見つからない",
+      "translation": "The images cannot be found after pasting"
+    },
+    {
+      "source": "Copy画面のTo directoryを確認。<code>samples</code> 側や別のフォルダに貼っていないか、Project表示で探す。",
+      "translation": "Check To directory in the Copy dialog. Look in Project view to see whether you pasted into <code>samples</code> or another folder."
+    },
+    {
+      "source": "R.idが赤い",
+      "translation": "R.id is red"
+    },
+    {
+      "source": "XMLのidが一致するか確認。main、img_bomb、btn1〜btn9、txt_message、btn_retry。<code>android:id=\"@+id/main\"</code> を消していないかも見る。最初のXMLエラーを直してビルドする。",
+      "translation": "Check that the ids match the XML: main, img_bomb, btn1–btn9, txt_message, and btn_retry. Also check that you have not deleted <code>android:id=\"@+id/main\"</code>. Fix the first XML error, then build."
+    },
+    {
+      "source": "起動時に終了する",
+      "translation": "The app closes at startup"
+    },
+    {
+      "source": "setContentViewがfindViewByIdより先か確認。Logcatで最初の例外を見る。",
+      "translation": "Check that setContentView comes before findViewById. Look at the first exception in Logcat."
+    },
+    {
+      "source": "Arrays や ThreadLocalRandom が赤字になる",
+      "translation": "Arrays or ThreadLocalRandom is red"
+    },
+    {
+      "source": "<code>java.util.Arrays</code> と <code>java.util.concurrent.ThreadLocalRandom</code> をimportする。<kbd>⌥ Enter</kbd> で候補を確認する。",
+      "translation": "Import <code>java.util.Arrays</code> and <code>java.util.concurrent.ThreadLocalRandom</code>. Check the suggestions with <kbd>⌥ Enter</kbd>."
+    },
+    {
+      "source": "Logcatにスイッチの数字が出ない",
+      "translation": "The switch numbers do not appear in Logcat"
+    },
+    {
+      "source": "STEP 5の <code>generateIgnitionNumbers();</code> をonCreateで呼んでいるか確認。検索欄のpackageが <code>jp.ac.jec.a05bombgame</code> か確認。",
+      "translation": "Check that onCreate calls <code>generateIgnitionNumbers();</code> from STEP 5. Check that the package in the search field is <code>jp.ac.jec.a05bombgame</code>."
+    },
+    {
+      "source": "変数をlambdaで変更できない",
+      "translation": "A variable cannot be changed in a lambda"
+    },
+    {
+      "source": "nowState（STEP 7）をonCreate内で宣言していないか確認。onCreateの外のフィールドにする。",
+      "translation": "Check whether you declared nowState (STEP 7) inside onCreate. Make it a field outside onCreate."
+    },
+    {
+      "source": "押したボタンが灰色にならない",
+      "translation": "The pressed button does not turn gray"
+    },
+    {
+      "source": "STEP 6のfor文でsetOnClickListenerしているか、処理の中に <code>button.setEnabled(false)</code> があるか確認。",
+      "translation": "Check that the for loop from STEP 6 calls setOnClickListener and that the handler contains <code>button.setEnabled(false)</code>."
+    },
+    {
+      "source": "スイッチを押しても着火しない",
+      "translation": "Pressing a switch does not light the fuse"
+    },
+    {
+      "source": "Logcatの数字と押した数字が同じか確認。<code>anyMatch</code> の比較と <code>if (match) nowState++;</code> を確認。",
+      "translation": "Check that the pressed number matches the number in Logcat. Check the comparison in <code>anyMatch</code> and <code>if (match) nowState++;</code>."
+    },
+    {
+      "source": "1つ目のスイッチで爆発する・何も起きない",
+      "translation": "The first switch causes an explosion, or nothing happens"
+    },
+    {
+      "source": "定数が STATE_INITIAL = 1、STATE_IGNITED = 2、STATE_EXPLODED = 3 か、<code>nowState</code> の初期値が STATE_INITIAL か確認。",
+      "translation": "Check that the constants are STATE_INITIAL = 1, STATE_IGNITED = 2, and STATE_EXPLODED = 3, and that the initial value of <code>nowState</code> is STATE_INITIAL."
+    },
+    {
+      "source": "爆発のあとも数字を押せる",
+      "translation": "The numbers can still be pressed after an explosion"
+    },
+    {
+      "source": "else ifの中の <code>forEach(b -&gt; b.setEnabled(false))</code> を確認。",
+      "translation": "Check <code>forEach(b -&gt; b.setEnabled(false))</code> inside else if."
+    },
+    {
+      "source": "再挑戦が表示されない・押しても戻らない",
+      "translation": "再挑戦 (Retry) does not appear, or pressing it does not reset the game"
+    },
+    {
+      "source": "STEP 7の <code>setVisibility(View.VISIBLE)</code> と、STEP 8の再挑戦の処理を確認。",
+      "translation": "Check <code>setVisibility(View.VISIBLE)</code> in STEP 7 and the retry handler in STEP 8."
+    },
+    {
+      "source": "クリアにならない",
+      "translation": "The game does not show a win"
+    },
+    {
+      "source": "STEP 9の7と8、<code>&amp;&amp;</code> と <code>||</code>、数を数える行が <code>nowState++</code> の下にあるかを確認。",
+      "translation": "Check 7 and 8, <code>&amp;&amp;</code> and <code>||</code> in STEP 9, and that the counting line is below <code>nowState++</code>."
+    },
+    {
+      "source": "起動したまま画面が固まる",
+      "translation": "The screen freezes after launch"
+    },
+    {
+      "source": "do-while文の条件が <code>!= 2</code> か、<code>ints(2, 1, 10)</code> の数字を変えていないか確認。",
+      "translation": "Check that the do-while condition is <code>!= 2</code> and that you have not changed the numbers in <code>ints(2, 1, 10)</code>."
+    },
+    {
+      "source": "NumberFormatExceptionで終了する",
+      "translation": "The app closes with NumberFormatException"
+    },
+    {
+      "source": "数字ボタンの <code>android:text</code> が1〜9のままか確認。文字に変えると数値に変換できない。",
+      "translation": "Check that <code>android:text</code> on the number buttons is still 1–9. If you change it to letters, it cannot be converted to a number."
+    },
+    {
+      "source": "画面の下が見えない",
+      "translation": "The bottom of the screen is not visible"
+    },
+    {
+      "source": "エミュレータを縦向きにする。この単元では横向きの表示を扱わない。",
+      "translation": "Put the emulator in portrait orientation. This unit does not cover landscape layouts."
+    },
+    {
+      "source": "<a1>共通資料：Logcat</a1>を使います。今回のパッケージは <code>jp.ac.jec.a05bombgame</code> です。エラーを見るときは、STEP 5で入れた <code>tag:MainActivity</code> と <code>level:DEBUG</code> を消して、<code>package:jp.ac.jec.a05bombgame level:ERROR</code> に置き換えます。前の単元のパッケージ名も残さないようにします。",
+      "translation": "Use <a1>Shared guide: Logcat</a1>. The package for this unit is <code>jp.ac.jec.a05bombgame</code>. To view errors, remove <code>tag:MainActivity</code> and <code>level:DEBUG</code> from STEP 5 and replace them with <code>package:jp.ac.jec.a05bombgame level:ERROR</code>. Also remove any package name from a previous unit."
+    },
+    {
+      "source": "質問では「STEP番号・編集したファイル・最初の赤い行・押した順番」を伝えます。",
+      "translation": "When asking a question, give the STEP number, the file you edited, the first red line, and the order of your button presses."
+    },
+    {
+      "source": "完成版は最初の授業から使える見本です。教科書といっしょに配られた<strong>教材のフォルダ</strong>に、そのまま開ける形で入っています。ダウンロードも展開も要りません。STEP 2の画像は、この見本の <code>app/src/main/res/drawable</code> にも入っています。",
+      "translation": "The finished version is a sample you can use from the first class. It is ready to open in the <strong>course materials folder</strong> distributed with the textbook. No download or extraction is needed. The images from STEP 2 are also in <code>app/src/main/res/drawable</code> in this sample."
+    },
+    {
+      "source": "Android Studioの <strong>Open</strong>（プロジェクトを開いているときは <strong>File → Open</strong>）で、<strong>書類</strong>（<code>Documents</code>）にある教材のフォルダを開きます。名前は <code>android1-student-materials-</code> のうしろに日付が付いた形で、日付は配られた回によって変わります。いま読んでいるこの教科書が入っているフォルダです。",
+      "translation": "Using <strong>Open</strong> in Android Studio (<strong>File → Open</strong> if a project is open), open the course materials folder in <strong>書類</strong> (<code>Documents</code>). Its name is <code>android1-student-materials-</code> followed by a date, which depends on when the materials were distributed. It is the folder containing the textbook you are reading now."
+    },
+    {
+      "source": "その中を <code>samples → A05BombGame</code> の順に開き、<code>settings.gradle.kts</code> と <code>app</code> が入った <code>A05BombGame</code> フォルダを選びます。",
+      "translation": "Inside it, open <code>samples → A05BombGame</code> and select the <code>A05BombGame</code> folder containing <code>settings.gradle.kts</code> and <code>app</code>."
+    },
+    {
+      "source": "Sync後にRunして動きを確認します。授業の入力に戻るときは自分の <code>Documents/Android1/A05BombGame</code> を開きます。",
+      "translation": "After Sync, Run to check the behavior. To return to your class work, open your own <code>Documents/Android1/A05BombGame</code>."
+    },
+    {
+      "source": "両方とも同じプロジェクト名なので、ウィンドウの保存先を確認しましょう。見本と自分のアプリは同じパッケージ名のため、端末上では同じアプリを更新します。切り替えるときは、確認したい方のプロジェクトからRunします。",
+      "translation": "Both have the same project name, so check the window's save location. The sample and your own app share a package name, so they update the same app on the device. When switching, run from the project you want to check."
+    },
+    {
+      "source": "教材のフォルダが手元にないときは、同じ見本をZIPで受け取れます（<a1>A05BombGame.zip</a1>）。展開してできた <code>A05BombGame</code> フォルダを、同じようにOpenで選びます。",
+      "translation": "If you do not have the course materials folder, you can get the same sample as a ZIP (<a1>A05BombGame.zip</a1>). Extract it, then use Open to select the resulting <code>A05BombGame</code> folder in the same way."
+    },
+    {
+      "source": "完成したMainActivity.javaで照合する",
+      "translation": "Compare with the finished MainActivity.java"
+    },
+    {
+      "source": "完成版 · MainActivity.java",
+      "translation": "Finished version · MainActivity.java"
+    },
+    {
+      "source": "完成したactivity_main.xmlで照合する",
+      "translation": "Compare with the finished activity_main.xml"
+    },
+    {
+      "source": "完成版 · activity_main.xml",
+      "translation": "Finished version · activity_main.xml"
+    },
+    {
+      "source": "Androidプログラミング1 · A05BombGame / 本文・画像・操作機能はオフラインで利用できます。Android Studioの初回準備・ビルドと公式資料の閲覧にはネット接続が必要です。",
+      "translation": "Android Programming 1 · A05BombGame / The text, images, and interactive features work offline. An internet connection is needed for initial Android Studio setup, builds, and viewing official documentation."
+    },
+    {
+      "source": "画像は授業用の提供資料を使用。導火線スイッチの数字と結果は操作によって変わります。",
+      "translation": "The images are supplied for classroom use. The fuse switch numbers and results vary depending on your actions."
     }
   ],
   "overrides": [

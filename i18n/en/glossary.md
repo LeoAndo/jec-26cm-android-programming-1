@@ -91,3 +91,42 @@
 | キャスト | cast | |
 | 半角 | half-width | |
 | 漢字の候補 | kanji candidates | |
+
+## 各単元で使う用語
+
+| 日本語 | 訳 | メモ |
+| --- | --- | --- |
+| アレンジする | customize | |
+| プロジェクト直下 | project root | |
+| 配列 | array | |
+| フィールド | field | |
+| 定数 | constant | |
+| 拡張for文 | enhanced for loop | |
+| 既定値 | default value | |
+| 初期値 | initial value / default value | 初期化する値は initial value。`getXxx` で保存値がない場合の値は default value |
+| 引数 | parameter / argument | 宣言で受け取る変数は parameter、呼び出し時に渡す値は argument |
+| DAOの窓口 | access point | |
+| 三項演算子 | ternary operator | |
+| 連勝数 | winning streak | |
+| 導火線スイッチ | fuse switch | |
+| 着火 | ignition | |
+| クリア | win | ゲームのクリア条件は win condition |
+| 制御ボタン | control button | |
+| ツールチェーン自動プロビジョニング | toolchain auto-provisioning | |
+| 余白（一般） | spacing | `layout_margin` は margin、`setPadding` は padding。どちらかに限定しない説明では spacing |
+| 再挑戦（ボタン） | 「再挑戦」 (Retry) | 日本語の実画面ラベルを残す |
+| 勝負！（ボタン） | 「勝負！」 (Play!) | 日本語の実画面ラベルを残す |
+| 次の戦いへ（ボタン） | 「次の戦いへ」 (Next round) | 日本語の実画面ラベルを残す |
+
+## 共通資料の見出し
+
+| 日本語 | 訳 | メモ |
+| --- | --- | --- |
+| Auto Importの設定 | Setting up Auto Import | 他ページから参照するときも同じ表記 |
+| エミュレータの準備とアプリの実行 | Setting up the emulator and running apps | 他ページから参照するときも同じ表記 |
+| Logcatの使い方 | How to use Logcat | |
+| ログが出ないとき | If no log appears | |
+| 自動で追加されないとき | If imports are not added automatically | |
+| 開発Tips | Development tips | |
+| 課題とAPKの作り方 | Assignment and how to create an APK | 原文の改行タグは保持する |
+| 違うバージョンのAndroid Studioを使うとき | Using a different version of Android Studio | 原文の改行タグは保持する |

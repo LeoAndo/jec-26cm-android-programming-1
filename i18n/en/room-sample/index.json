@@ -3,6 +3,14 @@
   "language": "en",
   "entries": [
     {
+      "source": "JavaとXMLで作るA10RoomSample。Roomを使って、アプリを終了しても消えないデータを、あとから書き換えたり消したりできるようにする授業用教科書。",
+      "translation": "A textbook for building A10RoomSample with Java and XML. Use Room to save data that stays after the app closes and can be updated or deleted later."
+    },
+    {
+      "source": "RoomSample — データベースに保存しよう | Androidプログラミング1",
+      "translation": "RoomSample — Save data in a database | Android Programming 1"
+    },
+    {
       "source": "本文へ移動",
       "translation": "Skip to main content"
     },
@@ -23,6 +31,38 @@
       "translation": "00 Today's goals"
     },
     {
+      "source": "01　プロジェクトを作って実行",
+      "translation": "01 Create and run a project"
+    },
+    {
+      "source": "02　Roomを使えるようにする",
+      "translation": "02　Set up Room"
+    },
+    {
+      "source": "03　画面を作る",
+      "translation": "03　Build the screen"
+    },
+    {
+      "source": "04　保存するデータの形を決める",
+      "translation": "04　Define the data to save"
+    },
+    {
+      "source": "05　読み書きの命令を書く",
+      "translation": "05　Write the read and write operations"
+    },
+    {
+      "source": "06　データベース本体を作る",
+      "translation": "06　Create the database"
+    },
+    {
+      "source": "07　画面とつないで完成",
+      "translation": "07　Connect it to the screen and finish"
+    },
+    {
+      "source": "0 / 8 ステップ確認済み",
+      "translation": "0 / 8 steps checked"
+    },
+    {
       "source": "学習の進み具合",
       "translation": "Learning progress"
     },
@@ -33,6 +73,10 @@
     {
       "source": "困ったとき",
       "translation": "If you get stuck"
+    },
+    {
+      "source": "解説：SharedPreferencesとの違い",
+      "translation": "Explanation: How it differs from SharedPreferences"
     },
     {
       "source": "完成プロジェクトを開く",
@@ -67,6 +111,22 @@
       "translation": "Shared: Android Studio versions"
     },
     {
+      "source": "データベースに<br>保存しよう",
+      "translation": "Save data<br>in a database"
+    },
+    {
+      "source": "A09では「メモをぜんぶまとめて1つの文字列」で保存しました。<br>今回は1件ずつ番号を付けて保存し、あとから<strong>書き換え・削除</strong>ができるようにします。",
+      "translation": "In A09, you saved all memos together as one string.<br>This time, give each item a number when saving it, so you can <strong>update or delete</strong> it later."
+    },
+    {
+      "source": "A09の次の単元",
+      "translation": "The unit after A09"
+    },
+    {
+      "source": "90分 × 1コマ目安",
+      "translation": "About one 90-minute class period"
+    },
+    {
       "source": "Macで学ぶ",
       "translation": "Learn on a Mac"
     },
@@ -75,8 +135,216 @@
       "translation": "STEP 00 · about 5 min"
     },
     {
+      "source": "今日のゴール",
+      "translation": "Today's goal"
+    },
+    {
+      "source": "データを1件ずつ保存して、一覧に表示するアプリを作ります。保存したデータには <strong>id</strong> という番号が自動で付きます。その番号を指定すると、あとから<strong>書き換え</strong>たり<strong>削除</strong>したりできます。",
+      "translation": "Build an app that saves data one item at a time and shows it in a list. Each saved item automatically gets a number called an <strong>id</strong>. By specifying that number, you can <strong>update</strong> or <strong>delete</strong> the item later."
+    },
+    {
+      "source": "id入力欄、タイトル入力欄、保存と削除のボタン、保存されているデータの見出しが並んだ画面。一覧は空",
+      "translation": "A screen with id and title input fields, 保存 (Save) and 削除 (Delete) buttons, and the heading 保存されているデータ (Saved data). The list is empty."
+    },
+    {
+      "source": "起動したところ。まだデータはありません。 <a1>画像を大きく開く</a1>",
+      "translation": "Just after launch. There is no data yet. <a1>Open the full-size image</a1>"
+    },
+    {
+      "source": "保存されているデータに、internalId=1 title=CAR、internalId=2 title=BIKE、internalId=3 title=TRAINの3行が表示されている画面",
+      "translation": "The saved data list shows three lines: internalId=1 title=CAR, internalId=2 title=BIKE, and internalId=3 title=TRAIN."
+    },
+    {
+      "source": "3件保存したところ。idが1・2・3と自動で増えます。 <a1>画像を大きく開く</a1>",
+      "translation": "After saving three items. The ids automatically increase: 1, 2, 3. <a1>Open the full-size image</a1>"
+    },
+    {
+      "source": "id欄に2を入れてタイトルをBICYCLEにして保存したあと、2行目がinternalId=2 title=BICYCLEに変わっている画面",
+      "translation": "After entering 2 in the id field and BICYCLE in the title field and saving, the second line changes to internalId=2 title=BICYCLE."
+    },
+    {
+      "source": "id 2 を指定して保存すると、その1件だけ書き換わります。 <a1>画像を大きく開く</a1>",
+      "translation": "Saving with id 2 updates only that item. <a1>Open the full-size image</a1>"
+    },
+    {
+      "source": "id 3を削除したあと、一覧がinternalId=1とinternalId=2の2行になっている画面",
+      "translation": "After deleting id 3, the list has two lines: internalId=1 and internalId=2."
+    },
+    {
+      "source": "id 3 を削除したところ。1件だけ消せます。 <a1>画像を大きく開く</a1>",
+      "translation": "After deleting id 3. You can delete just one item. <a1>Open the full-size image</a1>"
+    },
+    {
       "source": "できるようになること",
       "translation": "What you will be able to do"
+    },
+    {
+      "source": "入力したタイトルを、1件ずつ保存できる。",
+      "translation": "Save the titles you enter one at a time."
+    },
+    {
+      "source": "保存したデータに自動で付く <code>id</code> の意味を説明できる。",
+      "translation": "Explain the meaning of the <code>id</code> automatically assigned to saved data."
+    },
+    {
+      "source": "<code>id</code> を指定して、1件だけ書き換えられる。",
+      "translation": "Specify an <code>id</code> to update just one item."
+    },
+    {
+      "source": "<code>id</code> を指定して、1件だけ消せる。",
+      "translation": "Specify an <code>id</code> to delete just one item."
+    },
+    {
+      "source": "今日使う技術",
+      "translation": "Techniques used today"
+    },
+    {
+      "source": "技術",
+      "translation": "Technique"
+    },
+    {
+      "source": "どこで使うか",
+      "translation": "Where it is used"
+    },
+    {
+      "source": "学んだ単元",
+      "translation": "Unit where you learned it"
+    },
+    {
+      "source": "<code>EditText</code> と <code>Button</code>",
+      "translation": "<code>EditText</code> and <code>Button</code>"
+    },
+    {
+      "source": "タイトルとidを入力して、保存・削除する。",
+      "translation": "Enter a title and id to save or delete an item."
+    },
+    {
+      "source": "入力が空のときに知らせる。",
+      "translation": "Show a message when the input is empty."
+    },
+    {
+      "source": "データが増えても一覧を見られるようにする。",
+      "translation": "Keep the list readable as the data grows."
+    },
+    {
+      "source": "データを1件ずつ保存する。<strong>今回の新顔です。</strong>",
+      "translation": "Save data one item at a time. <strong>This is new in this unit.</strong>"
+    },
+    {
+      "source": "新しく覚えることは <strong>Room</strong> だけです。残りはA07とA09で使ったものを組み合わせます。",
+      "translation": "The only new thing to learn is <strong>Room</strong>. Everything else combines what you used in A07 and A09."
+    },
+    {
+      "source": "解説：A09のSharedPreferencesと何が違うのか",
+      "translation": "Explanation: How this differs from SharedPreferences in A09"
+    },
+    {
+      "source": "A09では、メモの一覧を<strong>まとめて1つの文字列</strong>にして保存しました。この方法だと「3件目だけ書き換える」「2件目だけ消す」ができません。全部を読み出して、自分で切り分けて、また全部を書き戻すことになります。",
+      "translation": "In A09, you saved the memo list <strong>together as one string</strong>. With that approach, you cannot directly update just the third memo or delete just the second one. You would have to read everything, split it up yourself, and write everything back."
+    },
+    {
+      "source": "Roomは、データを<strong>1件ずつ、表の1行として</strong>保存します。1行ごとに番号（id）が付くので、番号を指定して1件だけ書き換え・削除ができます。データが増えても、必要な1行だけを触れます。",
+      "translation": "Room saves data <strong>one item at a time, as a row in a table</strong>. Each row has a number (id), so you can specify a number to update or delete just that item. Even as the data grows, you can work with only the row you need."
+    },
+    {
+      "source": "Room（今回）",
+      "translation": "Room (this unit)"
+    },
+    {
+      "source": "保存の形",
+      "translation": "How data is stored"
+    },
+    {
+      "source": "名前と値の組。値は1つの文字列",
+      "translation": "Name-value pairs. The value is one string"
+    },
+    {
+      "source": "表。1件が1行",
+      "translation": "A table. One item per row"
+    },
+    {
+      "source": "1件だけ書き換え",
+      "translation": "Update just one item"
+    },
+    {
+      "source": "できない",
+      "translation": "Not possible"
+    },
+    {
+      "source": "できる",
+      "translation": "Possible"
+    },
+    {
+      "source": "1件だけ削除",
+      "translation": "Delete just one item"
+    },
+    {
+      "source": "向いているもの",
+      "translation": "Suitable for"
+    },
+    {
+      "source": "設定値、ログイン状態など少ないデータ",
+      "translation": "Small amounts of data, such as settings and login state"
+    },
+    {
+      "source": "件数が増えるデータ",
+      "translation": "Data with a growing number of items"
+    },
+    {
+      "source": "ここで止まって、確認",
+      "translation": "Stop here and check"
+    },
+    {
+      "source": "今日作るアプリの画面を画像で確かめ、A09のSharedPreferencesとの違いを表で確認した。",
+      "translation": "I checked the app images and the table comparing Room with SharedPreferences from A09."
+    },
+    {
+      "source": "できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。",
+      "translation": "Check the box when you are done. If you get stuck, show your teacher the STEP number and your screen."
+    },
+    {
+      "source": "次へ：プロジェクトを作って実行 →",
+      "translation": "Next: Create and run a project →"
+    },
+    {
+      "source": "STEP 01 · 目安 10分",
+      "translation": "STEP 01 · About 10 min"
+    },
+    {
+      "source": "プロジェクトを作って実行",
+      "translation": "Create and run a project"
+    },
+    {
+      "source": "授業環境はMacと <strong>Android Studio Panda 2 | 2025.3.2</strong> です。A09までとは別のプロジェクトを作ります。",
+      "translation": "In class, we use a Mac and <strong>Android Studio Panda 2 | 2025.3.2</strong>. Create a separate project from those used through A09."
+    },
+    {
+      "source": "毎回、自分で新規作成します",
+      "translation": "Create a new project yourself every time"
+    },
+    {
+      "source": "作る場所は <code>Documents/Android1/A10RoomSample</code> です。<a1>完成プロジェクト</a1>は答え合わせ用で、授業の入力は自分で作ったプロジェクトに書きます。",
+      "translation": "Create it at <code>Documents/Android1/A10RoomSample</code>. The <a1>finished project</a1> is for checking your work. Enter the code for class in your own project."
+    },
+    {
+      "source": "Android Studioの <strong>New Project</strong> をクリックします。別のプロジェクトを開いているときは <strong>File → New → New Project</strong> を選びます。",
+      "translation": "Click <strong>New Project</strong> in Android Studio. If another project is open, select <strong>File → New → New Project</strong>."
+    },
+    {
+      "source": "<strong>Phone and Tablet → Empty Views Activity → Next</strong> の順に選びます。名前に <strong>Views</strong> があることを確認します。",
+      "translation": "Select <strong>Phone and Tablet → Empty Views Activity → Next</strong> in order. Check that the name contains <strong>Views</strong>."
+    },
+    {
+      "source": "テンプレート一覧でEmpty Views Activityが選択されている",
+      "translation": "Empty Views Activity selected in the template list."
+    },
+    {
+      "source": "Empty Views Activityを選択。Empty Activityとは別です。 <a1>画像を大きく開く</a1>",
+      "translation": "Select Empty Views Activity. It is different from Empty Activity. <a1>Open the full-size image</a1>"
+    },
+    {
+      "source": "次の表のとおりに入力・選択して <strong>Finish</strong> を押します。",
+      "translation": "Enter and select the values in the following table, then click <strong>Finish</strong>."
     },
     {
       "source": "項目",
@@ -87,24 +355,772 @@
       "translation": "What to enter or select"
     },
     {
+      "source": "<code>jp.ac.jec.a10roomsample</code>（すべて小文字）",
+      "translation": "<code>jp.ac.jec.a10roomsample</code> (all lowercase)"
+    },
+    {
+      "source": "A10RoomSampleの新規設定。パッケージjp.ac.jec.a10roomsample、Java、API 31、Kotlin DSL",
+      "translation": "New project settings for A10RoomSample: package jp.ac.jec.a10roomsample, Java, API 31, and Kotlin DSL"
+    },
+    {
+      "source": "入力後の画面。画像の保存先は先生の例です。自分の <code>Documents/Android1/A10RoomSample</code> に読み替えます。 <a1>画像を大きく開く</a1>",
+      "translation": "The screen after entering the settings. The save location in the image is the teacher's example. Use your own <code>Documents/Android1/A10RoomSample</code> instead. <a1>Open the full-size image</a1>"
+    },
+    {
+      "source": "Sync（歯車の読み込み）が終わるまで待ちます。",
+      "translation": "Wait for Sync (the loading gear) to finish."
+    },
+    {
+      "source": "端末欄で <strong>jec_26cm_android1_Pixel 9a</strong> を選び、<strong>Run</strong>（▶）を押します。白い画面に <strong>Hello World!</strong> が出れば成功です。",
+      "translation": "Select <strong>jec_26cm_android1_Pixel 9a</strong> in the device field, then click <strong>Run</strong> (▶). If <strong>Hello World!</strong> appears on a white screen, it worked."
+    },
+    {
+      "source": "エミュレータが出てこないときは<a1>共通資料：エミュレータ</a1>を見ます。",
+      "translation": "If the emulator does not appear, see <a1>Shared guide: Emulator</a1>."
+    },
+    {
+      "source": "自分の保存先にA10RoomSampleを作り、Hello World!を表示できた。",
+      "translation": "I created A10RoomSample in my own save location and displayed Hello World!"
+    },
+    {
+      "source": "次へ：Roomを使えるようにする →",
+      "translation": "Next: Set up Room →"
+    },
+    {
       "source": "STEP 02 · 目安 10分",
       "translation": "STEP 02 · about 10 min"
+    },
+    {
+      "source": "Roomを使えるようにする",
+      "translation": "Set up Room"
+    },
+    {
+      "source": "Roomは、Android Studioに最初から入っている部品ではありません。<strong>使うと宣言してから</strong>使います。この宣言を2つのファイルに分けて書きます。",
+      "translation": "Room is not included in Android Studio from the start. <strong>Declare that you will use it</strong> before using it. Write this declaration across two files."
+    },
+    {
+      "source": "① バージョンを書く場所",
+      "translation": "① Where to specify the version"
+    },
+    {
+      "source": "<code>gradle/libs.versions.toml</code> を開きます。ここは<strong>どの部品をどのバージョンで使うか</strong>を一覧にしておくファイルです。Android Studioがひな形として用意しています。",
+      "translation": "Open <code>gradle/libs.versions.toml</code>. This file lists <strong>which parts to use and which versions of them</strong>. Android Studio provides it as part of the template."
+    },
+    {
+      "source": "3か所に追記します。<strong>行を足す場所を間違えないように</strong>、見出し（<code>[versions]</code> など）をよく見てください。",
+      "translation": "Add lines in three places. Look carefully at the headings, such as <code>[versions]</code>, <strong>so you add each line in the right place</strong>."
+    },
+    {
+      "source": "<code>libs.versions.toml</code>（全体）",
+      "translation": "<code>libs.versions.toml</code> (entire file)"
+    },
+    {
+      "source": "追記する場所",
+      "translation": "Where to add it"
+    },
+    {
+      "source": "追記する行",
+      "translation": "Line to add"
     },
     {
       "source": "意味",
       "translation": "Meaning"
     },
     {
+      "source": "<code>[versions]</code> の中",
+      "translation": "Inside <code>[versions]</code>"
+    },
+    {
+      "source": "Roomのバージョンに <code>room</code> という名前を付ける",
+      "translation": "Gives the Room version the name <code>room</code>"
+    },
+    {
+      "source": "<code>[libraries]</code> の中",
+      "translation": "Inside <code>[libraries]</code>"
+    },
+    {
+      "source": "アプリが動くときに使う本体",
+      "translation": "The main part used while the app is running"
+    },
+    {
+      "source": "ビルドのときに、書いた命令からコードを自動で作る部品",
+      "translation": "The part that automatically generates code from your instructions during the build"
+    },
+    {
+      "source": "<code>[plugins]</code> に書かないこと",
+      "translation": "Do not write this under <code>[plugins]</code>"
+    },
+    {
+      "source": "<code>[libraries]</code> と <code>[plugins]</code> は見た目が似ています。<code>[plugins]</code> のほうに書くと <code>expected to find any of 'id' or 'version'</code> というエラーでビルドが止まります。追記した2行から上へたどって、<strong>最初に出てくる見出しが <code>[libraries]</code> になっているか</strong>を確かめてください。",
+      "translation": "<code>[libraries]</code> and <code>[plugins]</code> look similar. Writing these lines under <code>[plugins]</code> stops the build with <code>expected to find any of 'id' or 'version'</code>. Look upward from the two lines you added and check that <strong>the first heading you find is <code>[libraries]</code></strong>."
+    },
+    {
+      "source": "② 使うと宣言する場所",
+      "translation": "② Where to declare that you will use it"
+    },
+    {
+      "source": "<code>app/build.gradle.kts</code> を開き、<code>dependencies { }</code> の中に2行を追加します。",
+      "translation": "Open <code>app/build.gradle.kts</code> and add two lines inside <code>dependencies { }</code>."
+    },
+    {
+      "source": "<code>libs.room.runtime</code> の <code>libs.</code> は、①で書いた <code>libs.versions.toml</code> のことです。<code>room-runtime</code> のハイフンは、ここでは <strong>ドット</strong>（<code>room.runtime</code>）に変わります。",
+      "translation": "The <code>libs.</code> in <code>libs.room.runtime</code> refers to the <code>libs.versions.toml</code> you edited in ①. Here, the hyphen in <code>room-runtime</code> becomes a <strong>dot</strong>: <code>room.runtime</code>."
+    },
+    {
+      "source": "Syncする",
+      "translation": "Sync"
+    },
+    {
+      "source": "画面の上に <strong>Sync Now</strong> というリンクが出ます。押して、読み込みが終わるまで待ちます。エラーが出なければ成功です。",
+      "translation": "A <strong>Sync Now</strong> link appears at the top of the screen. Click it and wait for loading to finish. If no error appears, it worked."
+    },
+    {
+      "source": "ここではまだ画面は変わりません",
+      "translation": "The screen does not change yet"
+    },
+    {
+      "source": "部品を用意しただけなので、Runしても <strong>Hello World!</strong> のままです。エラーなくSyncできていればSTEP 02は合格です。",
+      "translation": "You have only prepared the parts, so Run still shows <strong>Hello World!</strong>. STEP 02 is complete if Sync finishes without errors."
+    },
+    {
+      "source": "libs.versions.tomlとbuild.gradle.ktsに追記して、エラーなくSyncできた。",
+      "translation": "I added the lines to libs.versions.toml and build.gradle.kts and completed Sync without errors."
+    },
+    {
       "source": "次へ：画面を作る →",
       "translation": "Next: Build the screen →"
+    },
+    {
+      "source": "STEP 03 · 目安 10分",
+      "translation": "STEP 03 · About 10 min"
+    },
+    {
+      "source": "画面を作る",
+      "translation": "Build the screen"
+    },
+    {
+      "source": "入力欄2つ、ボタン2つ、一覧の表示欄を並べます。<code>app/src/main/res/layout/activity_main.xml</code> を開き、中身をすべて次のコードに置き換えます。",
+      "translation": "Arrange two input fields, two buttons, and an area for the list. Open <code>app/src/main/res/layout/activity_main.xml</code> and replace all its contents with the following code."
+    },
+    {
+      "source": "部品",
+      "translation": "Component"
     },
     {
       "source": "役割",
       "translation": "What it does"
     },
     {
+      "source": "書き換え・削除したいデータの番号を入れる。空なら新規追加",
+      "translation": "Enter the number of the item to update or delete. Leave it empty to add a new item"
+    },
+    {
+      "source": "保存するタイトルを入れる",
+      "translation": "Enter the title to save"
+    },
+    {
+      "source": "保存する",
+      "translation": "Save"
+    },
+    {
+      "source": "削除する",
+      "translation": "Delete"
+    },
+    {
+      "source": "保存されているデータを表示する",
+      "translation": "Show the saved data"
+    },
+    {
+      "source": "気をつけるところ",
+      "translation": "Points to check"
+    },
+    {
+      "source": "いちばん外側が <code>ScrollView</code> です。データが増えても下まで見られるようにするためです（A09と同じ考え方）。",
+      "translation": "The outermost component is a <code>ScrollView</code>. This lets you see the bottom even when the data grows, following the same idea as A09."
+    },
+    {
+      "source": "<code>edt_id</code> には <code>android:inputType=\"number\"</code> を付けます。数字だけのキーボードが出て、文字を入れられなくなります。",
+      "translation": "Add <code>android:inputType=\"number\"</code> to <code>edt_id</code>. A numeric keyboard appears, so you cannot enter letters."
+    },
+    {
+      "source": "ボタン2つは <code>layout_width=\"0dp\"</code> と <code>layout_weight=\"1\"</code> で横に半分ずつ並びます。",
+      "translation": "The two buttons use <code>layout_width=\"0dp\"</code> and <code>layout_weight=\"1\"</code> to sit side by side, each using half the width."
+    },
+    {
+      "source": "Runで確かめる",
+      "translation": "Check with Run"
+    },
+    {
+      "source": "入力欄2つとボタン2つ、「保存されているデータ」の見出しが出れば成功です。ボタンを押してもまだ何も起きません。",
+      "translation": "If two input fields, two buttons, and the heading 「保存されているデータ」 (Saved data) appear, it worked. The buttons do nothing yet."
+    },
+    {
+      "source": "画面の部品を並べて、Runで表示できた。",
+      "translation": "I arranged the screen components and displayed them with Run."
+    },
+    {
+      "source": "次へ：保存するデータの形を決める →",
+      "translation": "Next: Define the data to save →"
+    },
+    {
+      "source": "STEP 04 · 目安 15分",
+      "translation": "STEP 04 · About 15 min"
+    },
+    {
+      "source": "保存するデータの形を決める",
+      "translation": "Define the data to save"
+    },
+    {
+      "source": "Roomは、データを<strong>表</strong>の形で保存します。まず「1行にどんな項目があるか」を決めます。これを書くのが <code>Item</code> クラスです。",
+      "translation": "Room saves data in a <strong>table</strong>. First, decide which fields each row has. Write this in the <code>Item</code> class."
+    },
+    {
+      "source": "① クラスを作る",
+      "translation": "① Create a class"
+    },
+    {
+      "source": "プロジェクト画面で <code>app/src/main/java/jp/ac/jec/a10roomsample</code> を右クリックし、<strong>New → Java Class</strong> を選びます。",
+      "translation": "In the project pane, right-click <code>app/src/main/java/jp/ac/jec/a10roomsample</code> and select <strong>New → Java Class</strong>."
+    },
+    {
+      "source": "パッケージを右クリックしてNewを開き、Java Classが選択されているメニュー",
+      "translation": "The menu after right-clicking the package and opening New, with Java Class selected"
+    },
+    {
+      "source": "MainActivityと同じフォルダ（パッケージ）を右クリックします。 <a1>画像を大きく開く</a1>",
+      "translation": "Right-click the same folder (package) as MainActivity. <a1>Open the full-size image</a1>"
+    },
+    {
+      "source": "名前に <code>Item</code> と入力し、下の一覧で <strong>Class</strong> を選んで <kbd>return</kbd> を押します。",
+      "translation": "Enter <code>Item</code> as the name, select <strong>Class</strong> from the list below, and press <kbd>return</kbd>."
+    },
+    {
+      "source": "New Java Classのダイアログ。名前はItem、種類はClassが選択されている",
+      "translation": "The New Java Class dialog with the name Item and the type Class selected"
+    },
+    {
+      "source": "種類は <strong>Class</strong> です。 <a1>画像を大きく開く</a1>",
+      "translation": "The type is <strong>Class</strong>. <a1>Open the full-size image</a1>"
+    },
+    {
+      "source": "② 中身を書く",
+      "translation": "② Write its contents"
+    },
+    {
+      "source": "できた <code>Item.java</code> の中身を、すべて次のコードに置き換えます。",
+      "translation": "Replace all the contents of the new <code>Item.java</code> with the following code."
+    },
+    {
+      "source": "書いたもの",
+      "translation": "Code"
+    },
+    {
+      "source": "このクラスが<strong>表1つ分</strong>であるという印。クラス名 <code>Item</code> がそのまま表の名前になる",
+      "translation": "Marks this class as <strong>one table</strong>. The class name, <code>Item</code>, becomes the table name"
+    },
+    {
+      "source": "この項目が<strong>行を見分ける番号</strong>。<code>autoGenerate = true</code> で、保存するたびに1・2・3…と自動で増える",
+      "translation": "This field is <strong>the number that identifies a row</strong>. With <code>autoGenerate = true</code>, it automatically increases to 1, 2, 3… as items are saved"
+    },
+    {
+      "source": "自動で付く番号。画面の <code>edt_id</code> に入れるのはこの番号",
+      "translation": "The automatically assigned number. This is the number you enter in <code>edt_id</code> on the screen"
+    },
+    {
+      "source": "保存したい文字。表の項目はこの2つだけ",
+      "translation": "The text you want to save. These are the table's only two fields"
+    },
+    {
+      "source": "<code>@NonNull</code> はここだけ書きます",
+      "translation": "Write <code>@NonNull</code> only here"
+    },
+    {
+      "source": "この授業では <code>@NonNull</code> を自分で書きません。ただし <code>@Entity</code> のフィールドに付けた <code>@NonNull</code> は、Javaの注意書きではなく<strong>「この列は空にできない」という表の決まりそのもの</strong>です。外すと表の形が変わってしまうので、ここだけは書きます。",
+      "translation": "In this course, you do not normally write <code>@NonNull</code> yourself. However, <code>@NonNull</code> on a field of an <code>@Entity</code> is not just a note for Java. It is <strong>the table rule that this column cannot be null</strong>. Removing it changes the table's structure, so write it here."
+    },
+    {
+      "source": "<code>toString()</code> は表示のために使います",
+      "translation": "We use <code>toString()</code> for display"
+    },
+    {
+      "source": "STEP 07で一覧を表示するときに、<code>Item</code> をそのまま文字にして並べます。画面に出ている <code>Item{internalId=1, title='CAR'}</code> という表示は、このメソッドが作っています。",
+      "translation": "When displaying the list in STEP 07, each <code>Item</code> is converted to text. This method creates the text shown on the screen, such as <code>Item{internalId=1, title='CAR'}</code>."
+    },
+    {
+      "source": "Itemクラスを作り、表の項目が <code>internalId</code> と <code>title</code> の2つだけになっていることを確認した。",
+      "translation": "I created the Item class and checked that the table has only two fields: <code>internalId</code> and <code>title</code>."
+    },
+    {
+      "source": "次へ：読み書きの命令を書く →",
+      "translation": "Next: Write the read and write operations →"
+    },
+    {
+      "source": "STEP 05 · 目安 15分",
+      "translation": "STEP 05 · About 15 min"
+    },
+    {
+      "source": "読み書きの命令を書く",
+      "translation": "Write the read and write operations"
+    },
+    {
+      "source": "次に「どう読み書きするか」を書きます。これが <code>ItemDao</code> です。<strong>Dao</strong> は Data Access Object の略で、データベースへの<strong>窓口</strong>です。",
+      "translation": "Next, write how to read and write the data. This is <code>ItemDao</code>. <strong>Dao</strong> stands for Data Access Object and is the <strong>access point</strong> to the database."
+    },
+    {
+      "source": "① インタフェースを作る",
+      "translation": "① Create an interface"
+    },
+    {
+      "source": "STEP 04と同じ手順で <strong>New → Java Class</strong> を開き、名前に <code>ItemDao</code> と入力します。<strong>ここだけは一覧で <code>Interface</code> を選びます。</strong>",
+      "translation": "Follow the same steps as STEP 04 to open <strong>New → Java Class</strong>, then enter <code>ItemDao</code> as the name. <strong>Only here, select <code>Interface</code> from the list.</strong>"
+    },
+    {
+      "source": "New Java Classのダイアログ。名前はItemDao、種類はInterfaceが選択されている",
+      "translation": "The New Java Class dialog with the name ItemDao and the type Interface selected"
+    },
+    {
+      "source": "<strong>Class ではなく Interface</strong> を選びます。間違えると中身を書いたときに赤いエラーになります。 <a1>画像を大きく開く</a1>",
+      "translation": "Select <strong>Interface, not Class</strong>. If you choose the wrong type, red errors appear when you write its contents. <a1>Open the full-size image</a1>"
+    },
+    {
+      "source": "このインタフェースがデータベースへの窓口であるという印",
+      "translation": "Marks this interface as the database access point"
+    },
+    {
+      "source": "表の中身を全部取り出す。<code>item</code> は <code>Item</code> クラスから作られた表の名前",
+      "translation": "Gets all the contents of the table. <code>item</code> is the name of the table created from the <code>Item</code> class"
+    },
+    {
+      "source": "番号を1つ指定して、その1件を取り出す。<code>:internalId</code> はメソッドの引数のこと",
+      "translation": "Specifies a number to get that one item. <code>:internalId</code> refers to the method's argument"
+    },
+    {
+      "source": "<strong>あれば書き換え、なければ追加</strong>。upsert は update と insert を合わせた言葉",
+      "translation": "<strong>Updates an existing item or adds a new one</strong>. The word upsert combines update and insert"
+    },
+    {
+      "source": "渡した1件を消す",
+      "translation": "Deletes the one item passed to it"
+    },
+    {
+      "source": "中身（処理）を書かなくてよい理由",
+      "translation": "Why you do not need to write the method bodies"
+    },
+    {
+      "source": "メソッドに <code>{ }</code> がありません。<strong>ビルドするときにRoomが自動で中身を作ります。</strong>STEP 02で追加した <code>room-compiler</code> がその仕事をしています。私たちが書くのは「何をしたいか」だけです。",
+      "translation": "The methods have no <code>{ }</code>. <strong>Room automatically creates their bodies during the build.</strong> The <code>room-compiler</code> you added in STEP 02 does this work. All you write is what you want to do."
+    },
+    {
+      "source": "なぜ <code>@Upsert</code> だけなのか",
+      "translation": "Why we use only <code>@Upsert</code>"
+    },
+    {
+      "source": "Roomには <code>@Insert</code>（追加）と <code>@Update</code>（書き換え）もあります。この授業では、2つを使い分ける判断を増やさないために <code>@Upsert</code> 1つにまとめています。idが空なら追加、idを入れたら書き換え、という<strong>画面の動きがそのままメソッド1つに対応</strong>します。",
+      "translation": "Room also has <code>@Insert</code> (add) and <code>@Update</code> (update). In this class, we use only <code>@Upsert</code> so you do not have to decide between them. Adding when the id field is empty and updating when an id is entered means <strong>the screen's behavior maps directly to one method</strong>."
+    },
+    {
+      "source": "ItemDaoをInterfaceで作り、どのメソッドにも中身の <code>{ }</code> がないことを確認した。",
+      "translation": "I created ItemDao as an Interface and checked that none of the methods has a <code>{ }</code> body."
+    },
+    {
+      "source": "次へ：データベース本体を作る →",
+      "translation": "Next: Create the database →"
+    },
+    {
+      "source": "STEP 06 · 目安 10分",
+      "translation": "STEP 06 · About 10 min"
+    },
+    {
+      "source": "データベース本体を作る",
+      "translation": "Create the database"
+    },
+    {
+      "source": "表（<code>Item</code>）と窓口（<code>ItemDao</code>）ができました。最後に、それをまとめる<strong>データベース本体</strong>を作ります。",
+      "translation": "You have the table (<code>Item</code>) and its access point (<code>ItemDao</code>). Finally, create the <strong>database itself</strong> to bring them together."
+    },
+    {
+      "source": "STEP 04と同じ手順で <strong>New → Java Class</strong> を開き、名前に <code>AppDatabase</code> と入力します。種類は <strong>Class</strong> です。",
+      "translation": "Follow the same steps as STEP 04 to open <strong>New → Java Class</strong>, then enter <code>AppDatabase</code> as the name. Select the type <strong>Class</strong>."
+    },
+    {
+      "source": "New Java Classのダイアログ。名前はAppDatabase、種類はClassが選択されている",
+      "translation": "The New Java Class dialog with the name AppDatabase and the type Class selected"
+    },
+    {
+      "source": "このデータベースが <code>Item</code> の表を持つという宣言。<code>version</code> は表の形を変えたときに増やす番号",
+      "translation": "Declares that this database has an <code>Item</code> table. <code>version</code> is the number you increase when you change the table's structure"
+    },
+    {
+      "source": "中身はRoomが自動で作るので <code>abstract</code>（中身を書かない）にする",
+      "translation": "Use <code>abstract</code> (do not write the body), because Room creates the body automatically"
+    },
+    {
+      "source": "データベースを取り出すメソッド。<strong>1つだけ作って使い回します</strong>",
+      "translation": "The method that gets the database. <strong>Create just one and reuse it</strong>"
+    },
+    {
+      "source": "端末に作られるファイルの名前",
+      "translation": "The name of the file created on the device"
+    },
+    {
+      "source": "読み書きを画面と同じ流れで行う指定。<strong>この授業ではこれを付けます</strong>",
+      "translation": "Allows reading and writing in the same flow as the screen. <strong>We use this setting in this class</strong>"
+    },
+    {
+      "source": "なぜ1つだけ作って使い回すのか",
+      "translation": "Why we create just one and reuse it"
+    },
+    {
+      "source": "データベースを開く準備には時間がかかります。ボタンを押すたびに作り直すと、そのたびに待たされます。そこで<strong>最初の1回だけ作って、あとは同じものを返す</strong>書き方にします。この書き方を<strong>シングルトン</strong>といい、Roomの公式資料でもこの形がすすめられています。",
+      "translation": "Preparing to open a database takes time. Recreating it every time a button is pressed makes you wait every time. Instead, <strong>create it once, then return the same one after that</strong>. This pattern is called a <strong>singleton</strong> and is also recommended in Room's official documentation."
+    },
+    {
+      "source": "<code>context.getApplicationContext()</code> を忘れない",
+      "translation": "Do not forget <code>context.getApplicationContext()</code>"
+    },
+    {
+      "source": "<code>Room.databaseBuilder(...)</code> の最初に渡しているのは、受け取った <code>context</code> そのままではなく <code>context.getApplicationContext()</code> です。ここを <code>context</code> のままにすると、画面を回すたびに<strong>古い画面が消えずに残り続けます</strong>。作ったデータベースはアプリが終わるまで残るため、画面ではなく<strong>アプリ全体</strong>を渡します。",
+      "translation": "The first argument passed to <code>Room.databaseBuilder(...)</code> is <code>context.getApplicationContext()</code>, not the received <code>context</code> itself. If you pass <code>context</code> as it is, <strong>the old screen stays around instead of being released</strong> each time the screen rotates. The database remains until the app ends, so pass the <strong>whole app</strong> rather than a screen."
+    },
+    {
+      "source": "AppDatabaseを作り、<code>Room.databaseBuilder</code> に <code>context.getApplicationContext()</code> を渡していることを確認した。",
+      "translation": "I created AppDatabase and checked that I passed <code>context.getApplicationContext()</code> to <code>Room.databaseBuilder</code>."
+    },
+    {
+      "source": "次へ：画面とつないで完成 →",
+      "translation": "Next: Connect it to the screen and finish →"
+    },
+    {
+      "source": "STEP 07 · 目安 25分",
+      "translation": "STEP 07 · About 25 min"
+    },
+    {
+      "source": "画面とつないで完成",
+      "translation": "Connect it to the screen and finish"
+    },
+    {
+      "source": "部品がそろいました。<code>MainActivity.java</code> の中身を、すべて次のコードに置き換えます。",
+      "translation": "All the parts are ready. Replace all the contents of <code>MainActivity.java</code> with the following code."
+    },
+    {
+      "source": "読むときの順番",
+      "translation": "Order for reading the code"
+    },
+    {
+      "source": "行のあたり",
+      "translation": "Lines to look at"
+    },
+    {
+      "source": "やっていること",
+      "translation": "What they do"
+    },
+    {
+      "source": "データベースを取り出して、窓口（Dao）を受け取る",
+      "translation": "Gets the database, then its access point (Dao)"
+    },
+    {
+      "source": "起動したときに、保存されているデータを一覧に出す",
+      "translation": "Shows the saved data in a list when the app launches"
+    },
+    {
+      "source": "<code>btn_upsert</code> のリスナ",
+      "translation": "The listener for <code>btn_upsert</code>"
+    },
+    {
+      "source": "タイトルが空なら止める → <code>Item</code> を作る → idが入っていれば <code>setInternalId</code> → <code>upsert</code> → 一覧を出し直す",
+      "translation": "Stop if the title is empty → Create an <code>Item</code> → If an id is entered, call <code>setInternalId</code> → Call <code>upsert</code> → Show the list again"
+    },
+    {
+      "source": "<code>btn_delete</code> のリスナ",
+      "translation": "The listener for <code>btn_delete</code>"
+    },
+    {
+      "source": "idが空なら止める → その番号のデータを探す → 見つからなければ止める → <code>delete</code> → 一覧を出し直す",
+      "translation": "Stop if the id is empty → Find the item with that number → Stop if it is not found → Call <code>delete</code> → Show the list again"
+    },
+    {
+      "source": "全部のデータを1行ずつつなげて、1つの文字列にする",
+      "translation": "Joins all items, one per line, into a single string"
+    },
+    {
+      "source": "保存したあとに毎回 <code>setText</code> し直しています",
+      "translation": "We call <code>setText</code> again after every save"
+    },
+    {
+      "source": "データベースに書いても、画面は自動では変わりません。<strong>「書いた」と「画面に出す」は別の仕事</strong>です。A09で「保存と表示は別物」と学んだのと同じです。",
+      "translation": "Writing to the database does not automatically change the screen. <strong>Writing data and showing it on the screen are separate jobs</strong>. This is the same idea you learned in A09: saving and displaying are separate."
+    },
+    {
+      "source": "タイトルに <code>CAR</code> と入れて <strong>保存</strong>。一覧に <code>Item{internalId=1, title='CAR'}</code> が出ます。",
+      "translation": "Enter <code>CAR</code> as the title and press <strong>保存</strong> (Save). <code>Item{internalId=1, title='CAR'}</code> appears in the list."
+    },
+    {
+      "source": "続けて <code>BIKE</code>、<code>TRAIN</code> を保存。idが2・3と増えます。",
+      "translation": "Next, save <code>BIKE</code> and <code>TRAIN</code>. The ids increase to 2 and 3."
+    },
+    {
+      "source": "id欄に <code>2</code>、タイトルに <code>BICYCLE</code> を入れて <strong>保存</strong>。<strong>2行目だけ</strong>書き換わります。",
+      "translation": "Enter <code>2</code> in the id field and <code>BICYCLE</code> in the title field, then press <strong>保存</strong> (Save). <strong>Only the second row</strong> changes."
+    },
+    {
+      "source": "id欄に <code>3</code> を入れて <strong>削除</strong>。<strong>3行目だけ</strong>消えます。",
+      "translation": "Enter <code>3</code> in the id field and press <strong>削除</strong> (Delete). <strong>Only the third row</strong> disappears."
+    },
+    {
+      "source": "アプリを終了して開き直します。残っていれば成功です。終了するには、エミュレータでアプリ一覧（最近使ったアプリ）を開き、このアプリを上へスワイプします。アプリ一覧は、画面下の横棒を上へスワイプしてから止めると出ます。",
+      "translation": "Close and reopen the app. If the data remains, it worked. To close it, open the emulator's recent apps list and swipe this app upward. To open the list, swipe up from the horizontal bar at the bottom of the screen and pause."
+    },
+    {
+      "source": "タイトルを空にして保存を押したときに、画面下にタイトルを入力してくださいのメッセージが出ている画面",
+      "translation": "After pressing 保存 (Save) with an empty title, the message タイトルを入力してください (Enter a title) appears at the bottom of the screen."
+    },
+    {
+      "source": "タイトルを空のまま保存すると、メッセージが出て保存されません。 <a1>画像を大きく開く</a1>",
+      "translation": "Saving with an empty title shows a message and does not save anything. <a1>Open the full-size image</a1>"
+    },
+    {
+      "source": "完成チェック",
+      "translation": "Final check"
+    },
+    {
+      "source": "上から順に操作します。保存したデータが残っているとidが1から始まらないので、アプリを消してから始めます。消し方は<a1>共通資料：エミュレータ</a1>の「アプリを消す」にあります。",
+      "translation": "Perform these actions from top to bottom. If saved data remains, the ids will not start from 1, so remove the app before starting. See \"Remove the app (uninstall)\" in <a1>Shared guide: Setting up the emulator and running apps</a1> for the steps."
+    },
+    {
+      "source": "<strong>アプリを終了する</strong>ときは、エミュレータでアプリ一覧（最近使ったアプリ）を開き、このアプリを上へスワイプします。アプリ一覧は、画面下の横棒を上へスワイプしてから止めると出ます。",
+      "translation": "To <strong>close the app</strong>, open the emulator's recent apps list and swipe this app upward. To open the list, swipe up from the horizontal bar at the bottom of the screen and pause."
+    },
+    {
       "source": "操作",
       "translation": "Action"
+    },
+    {
+      "source": "確認する結果",
+      "translation": "Result to check"
+    },
+    {
+      "source": "アプリを消してから初回起動",
+      "translation": "Launch for the first time after removing the app"
+    },
+    {
+      "source": "一覧が空で表示される。",
+      "translation": "The list appears empty."
+    },
+    {
+      "source": "何も入れずに「保存」",
+      "translation": "Press 「保存」 (Save) without entering anything"
+    },
+    {
+      "source": "「タイトルを入力してください」が出て、一覧は増えない。",
+      "translation": "「タイトルを入力してください」 (Enter a title) appears, and nothing is added to the list."
+    },
+    {
+      "source": "タイトルに CAR・BIKE・TRAIN を1件ずつ「保存」",
+      "translation": "Enter CAR, BIKE, and TRAIN as titles and press 「保存」 (Save) for each"
+    },
+    {
+      "source": "保存のたびに1行増え、idが1・2・3と自動で付く。入力欄は空になる。",
+      "translation": "Each save adds one row, with ids 1, 2, and 3 assigned automatically. The input fields become empty."
+    },
+    {
+      "source": "id欄に 2、タイトルに BICYCLE と入れて「保存」",
+      "translation": "Enter 2 as the id and BICYCLE as the title, then press 「保存」 (Save)"
+    },
+    {
+      "source": "2行目だけが BICYCLE に書き換わる。行は増えない。",
+      "translation": "Only the second row changes to BICYCLE. No row is added."
+    },
+    {
+      "source": "id欄に 3 と入れて「削除」",
+      "translation": "Enter 3 as the id and press 「削除」 (Delete)"
+    },
+    {
+      "source": "3行目だけが消え、id欄が空になる。",
+      "translation": "Only the third row disappears, and the id field becomes empty."
+    },
+    {
+      "source": "id欄が空のまま「削除」",
+      "translation": "Press 「削除」 (Delete) with the id field empty"
+    },
+    {
+      "source": "「削除するidを入力してください」が出て、一覧は変わらない。",
+      "translation": "「削除するidを入力してください」 (Enter the id to delete) appears, and the list does not change."
+    },
+    {
+      "source": "id欄に 99 と入れて「削除」",
+      "translation": "Enter 99 as the id and press 「削除」 (Delete)"
+    },
+    {
+      "source": "「そのidのデータはありません」が出て、一覧は変わらない。",
+      "translation": "「そのidのデータはありません」 (There is no data with that id) appears, and the list does not change."
+    },
+    {
+      "source": "アプリを終了して開き直す",
+      "translation": "Close and reopen the app"
+    },
+    {
+      "source": "残った2行がそのまま表示される。",
+      "translation": "The two remaining rows appear unchanged."
+    },
+    {
+      "source": "練習",
+      "translation": "Exercises"
+    },
+    {
+      "source": "上から順に試します。<strong>予想 → 試す → 説明</strong>の順で行います。コードを書き換える3は、確かめたあとに<strong>元に戻します</strong>。",
+      "translation": "Try these from top to bottom in the order <strong>Predict → Try → Explain</strong>. Exercise 3 changes the code, so <strong>restore it</strong> after checking."
+    },
+    {
+      "source": "存在しないid（例：<code>99</code>）を入れて <strong>削除</strong> を押すとどうなるか、試して理由を説明する。",
+      "translation": "Try entering an id that does not exist, such as <code>99</code>, and pressing <strong>削除</strong> (Delete). Explain why that result occurs."
+    },
+    {
+      "source": "id欄に <code>1</code> を入れ、タイトルを空にして <strong>保存</strong> を押すとどうなるか、試して理由を説明する。",
+      "translation": "Try entering <code>1</code> in the id field, leaving the title empty, and pressing <strong>保存</strong> (Save). Explain why that result occurs."
+    },
+    {
+      "source": "<code>btn_upsert</code> のリスナから <code>txtItemList.setText(itemList(itemDao));</code> の1行を消してRunする。保存したデータはどうなっているか、アプリを開き直して確かめる。<strong>確かめたら、消した1行を元に戻す。</strong>",
+      "translation": "Remove the line <code>txtItemList.setText(itemList(itemDao));</code> from the <code>btn_upsert</code> listener and Run. Reopen the app to check what happened to the saved data. <strong>After checking, restore the line you removed.</strong>"
+    },
+    {
+      "source": "完成版に戻してから確認",
+      "translation": "Restore the finished version before checking"
+    },
+    {
+      "source": "練習3で消した <code>txtItemList.setText(itemList(itemDao));</code> の1行を、<code>btn_upsert</code> のリスナの <code>itemDao.upsert(item);</code> の次に戻します。戻したらRunして、タイトルを入れて<strong>保存</strong>を押すと、その場で一覧が1行増えることを確かめます。戻さないままだと、保存を押しても一覧が変わらないアプリが手元に残ります。",
+      "translation": "Restore the line <code>txtItemList.setText(itemList(itemDao));</code> removed in exercise 3, immediately after <code>itemDao.upsert(item);</code> in the <code>btn_upsert</code> listener. Run again, enter a title, and press <strong>保存</strong> (Save). Check that a row is added to the list immediately. If you do not restore it, your app will keep saving without updating the list on the screen."
+    },
+    {
+      "source": "保存",
+      "translation": "Save"
+    },
+    {
+      "source": "Android Studioは、書いたコードを自動でファイルに保存します。保存の操作は要りません。ここでは、保存された場所を確かめます。",
+      "translation": "Android Studio automatically saves the code you write to files. You do not need to save manually. Here, check where it was saved."
+    },
+    {
+      "source": "Finderを開き、左側の <strong>書類</strong>（<code>Documents</code>）をクリックします。",
+      "translation": "Open Finder and click <strong>書類</strong> (<code>Documents</code>) on the left."
+    },
+    {
+      "source": "その中の <code>Android1</code> フォルダを開き、<code>A10RoomSample</code> フォルダがあることを確かめます。",
+      "translation": "Open the <code>Android1</code> folder inside and check that the <code>A10RoomSample</code> folder is there."
+    },
+    {
+      "source": "この <code>Documents/Android1/A10RoomSample</code> フォルダが、自分で作ったアプリです。あとの授業でもう一度開けるように、消したり、別の場所へ移動したり、名前を変えたりせずに、そのまま残します。",
+      "translation": "This <code>Documents/Android1/A10RoomSample</code> folder is the app you made. Leave it as it is so you can reopen it in a later class. Do not delete it, move it elsewhere, or rename it."
+    },
+    {
+      "source": "教材のチェックは自分用です。先生への送信はしません。印刷は <kbd>⌘ P</kbd> で行えます。",
+      "translation": "The checkboxes in the course materials are for your own use. They are not sent to the teacher. Press <kbd>⌘ P</kbd> to print."
+    },
+    {
+      "source": "完成チェックの操作をすべて試して表のとおりの結果になり、練習3で消した1行を元に戻した。",
+      "translation": "I tried every action in the final check, got the results in the table, and restored the line removed in exercise 3."
+    },
+    {
+      "source": "症状",
+      "translation": "Symptom"
+    },
+    {
+      "source": "見るところ",
+      "translation": "Where to look"
+    },
+    {
+      "source": "<code>expected to find any of 'id' or 'version'</code> でビルドが止まる",
+      "translation": "The build stops with <code>expected to find any of 'id' or 'version'</code>"
+    },
+    {
+      "source": "STEP 02①。<code>room-runtime</code> と <code>room-compiler</code> を <code>[plugins]</code> ではなく <code>[libraries]</code> に書いているか",
+      "translation": "STEP 02①: Check that <code>room-runtime</code> and <code>room-compiler</code> are under <code>[libraries]</code>, not <code>[plugins]</code>"
+    },
+    {
+      "source": "<code>Cannot resolve symbol 'Room'</code> などの赤い波線",
+      "translation": "A red wavy underline, such as <code>Cannot resolve symbol 'Room'</code>"
+    },
+    {
+      "source": "STEP 02。Syncが終わっているか。<code>Sync Now</code> を押したか",
+      "translation": "STEP 02: Has Sync finished? Did you click <code>Sync Now</code>?"
+    },
+    {
+      "source": "<code>ItemDao</code> の中で赤いエラーが出る",
+      "translation": "Red errors appear inside <code>ItemDao</code>"
+    },
+    {
+      "source": "STEP 05①。<strong>Class ではなく Interface</strong> で作ったか",
+      "translation": "STEP 05①: Did you create it as <strong>Interface, not Class</strong>?"
+    },
+    {
+      "source": "STEP 04②。<code>Item</code> のコンストラクタが <code>public</code> か。<code>title</code> のゲッターとセッターがあるか",
+      "translation": "STEP 04②: Is the <code>Item</code> constructor <code>public</code>? Does <code>title</code> have a getter and setter?"
+    },
+    {
+      "source": "保存しても一覧が変わらない",
+      "translation": "Saving does not change the list"
+    },
+    {
+      "source": "STEP 07。<code>setText(itemList(itemDao))</code> をリスナの中に書いたか",
+      "translation": "STEP 07: Did you write <code>setText(itemList(itemDao))</code> inside the listener?"
+    },
+    {
+      "source": "importの赤い波線が消えない",
+      "translation": "The red wavy underline on an import does not disappear"
+    },
+    {
+      "source": "共通資料：Auto Import",
+      "translation": "Shared guide: Setting up Auto Import"
+    },
+    {
+      "source": "エミュレータが出てこない",
+      "translation": "The emulator does not appear"
+    },
+    {
+      "source": "共通資料：エミュレータ",
+      "translation": "Shared guide: Setting up the emulator and running apps"
+    },
+    {
+      "source": "画面を回すと入力した文字が消える",
+      "translation": "The text you entered disappears when the screen rotates"
+    },
+    {
+      "source": "<a1>共通資料：開発Tips</a1> のC章。保存したデータは消えません",
+      "translation": "Section C of <a1>Shared guide: Development tips</a1>. Saved data does not disappear"
+    },
+    {
+      "source": "答え合わせ用の見本です。教科書といっしょに配られた<strong>教材のフォルダ</strong>に、そのまま開ける形で入っています。ダウンロードも展開も要りません。授業の入力は自分で作ったプロジェクトに書きます。",
+      "translation": "This is a sample for checking your work. It is in the <strong>course materials folder</strong> distributed with the textbook, ready to open. No download or unzipping is needed. Enter the code for class in your own project."
+    },
+    {
+      "source": "Android Studioの <strong>Open</strong>（プロジェクトを開いているときは <strong>File → Open</strong>）で、<strong>書類</strong>（<code>Documents</code>）にある教材のフォルダを開きます。名前は <code>android1-student-materials-</code> のうしろに日付が付いた形で、日付は配られた回によって変わります。いま読んでいるこの教科書が入っているフォルダです。",
+      "translation": "Using <strong>Open</strong> in Android Studio (<strong>File → Open</strong> if a project is open), open the course materials folder in <strong>書類</strong> (<code>Documents</code>). Its name is <code>android1-student-materials-</code> followed by a date, which depends on when the materials were distributed. It is the folder containing the textbook you are reading now."
+    },
+    {
+      "source": "その中を <code>samples → A10RoomSample</code> の順に開き、<code>settings.gradle.kts</code> と <code>app</code> が入った <code>A10RoomSample</code> フォルダを選びます。",
+      "translation": "Inside it, open <code>samples → A10RoomSample</code> in that order and select the <code>A10RoomSample</code> folder containing <code>settings.gradle.kts</code> and <code>app</code>."
+    },
+    {
+      "source": "Sync後にRunして動きを確認します。授業の入力に戻るときは自分の <code>Documents/Android1/A10RoomSample</code> を開きます。",
+      "translation": "After Sync, Run the app and check its behavior. To return to entering your own code for class, open your own <code>Documents/Android1/A10RoomSample</code>."
+    },
+    {
+      "source": "教材のフォルダが手元にないときは、同じ見本をZIPで受け取れます（<a1>A10RoomSample.zip</a1>）。展開してできた <code>A10RoomSample</code> フォルダを、同じようにOpenで選びます。",
+      "translation": "If you do not have the course materials folder, you can get the same sample as a ZIP (<a1>A10RoomSample.zip</a1>). Unzip it and select the resulting <code>A10RoomSample</code> folder with Open in the same way."
+    },
+    {
+      "source": "完成した <code>MainActivity.java</code>",
+      "translation": "Finished <code>MainActivity.java</code>"
+    },
+    {
+      "source": "完成した <code>activity_main.xml</code>",
+      "translation": "Finished <code>activity_main.xml</code>"
+    },
+    {
+      "source": "Androidプログラミング1 · A10RoomSample / 本文・画像・操作機能はオフラインで利用できます。Android Studioの初回準備・ビルドと公式資料の閲覧にはネット接続が必要です。",
+      "translation": "Android Programming 1 · A10RoomSample / The text, images, and interactive features work offline. Android Studio's initial setup and builds, and viewing official documentation, require an internet connection."
+    },
+    {
+      "source": "スクリーンショットのデータは例です。",
+      "translation": "The data in the screenshots is an example."
     }
   ]
 }
