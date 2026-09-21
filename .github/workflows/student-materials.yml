@@ -12,6 +12,11 @@ on:
         required: true
         type: boolean
         default: false
+      allow_untranslated:
+        description: 緊急公開時だけ未翻訳を許可する（日本語で表示し、件数をノートに記録）
+        required: true
+        type: boolean
+        default: false
       student_notes:
         description: 学生向けの補足（対象単元・変更点・やり直しの要否）
         required: false
@@ -89,6 +94,7 @@ jobs:
           GH_TOKEN: ${{ github.token }}
           GH_REPO: ${{ github.repository }}
           STUDENT_NOTES: ${{ inputs.student_notes }}
+          ALLOW_UNTRANSLATED: ${{ inputs.publish && inputs.allow_untranslated }}
         run: python3 scripts/release-student-materials.py prepare
       - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
         with:
@@ -102,4 +108,5 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
           GH_REPO: ${{ github.repository }}
+          ALLOW_UNTRANSLATED: ${{ inputs.allow_untranslated }}
         run: python3 scripts/release-student-materials.py publish
