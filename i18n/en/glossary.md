@@ -53,6 +53,7 @@
 | 次へ： | Next: | |
 | 試したあとに答えを見る | See the answer after you try | |
 | もとの教科書へ戻る | Back to the textbook you came from | previous textbook とは書かない（前の単元と読めるため） |
+| もとのページへ戻る | Back to the page you came from | 教科書だけでなく共通資料にも戻る。前後の矢印は原文どおり残す |
 | ステップ確認済み | steps checked | |
 | そのまま（表の中） | Leave as is | |
 | 〜と出たとき | If you see … | |
