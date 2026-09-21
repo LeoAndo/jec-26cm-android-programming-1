@@ -90,7 +90,7 @@
 <p>左の一覧が見えないときは <strong>View → Tool Windows → Project</strong> を開きます。一覧の上の表示名が <strong>Project</strong> になっていることを確認します。パッケージのフォルダが <code>jp.ac.jec.a05bombgame</code> とまとめて表示される場合もあります。</p>
 <h3>変更前に1回Runする</h3>
 <ol><li><a href="../common/emulator.html?from=bomb-game">共通資料：エミュレータ</a>に従って端末を起動します。</li><li>上部で <strong>app</strong> と <strong>jec_26cm_android1_Pixel 9a</strong> を選び、<strong>Run ▶</strong> を押します。</li><li><strong>Hello World!</strong> が表示されれば成功です。</li></ol>
-<div class="note"><p class="box-title">MainActivity.ktができたとき</p><p>先生に画面を見せ、Empty Views Activity / Javaの選択を確認します。</p></div>
+<div class="note"><p class="box-title">MainActivity.ktができたとき</p><p>この授業で開くのは <code>MainActivity.java</code> です。<code>.kt</code> しか見つからない場合は、先生に画面を見せてください。プロジェクトを作るときに、上の手順2で <strong>Empty Views Activity</strong> を、手順4で確認した表のとおりに <strong>Java</strong> を選んだかどうかを、先生が確認します。どちらかが違っていたときは、先生といっしょにプロジェクトを作り直します。</p></div>
 <div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-1"><span>自分の保存先にA05BombGameを作り、Hello World!を表示できた。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
 <div class="next"><a href="#step-2">次へ：画像をdrawableに追加 →</a></div>
 </section>
@@ -274,7 +274,7 @@
 
 <h3>Runで確かめる</h3><p>数字ボタンの下に「どれか押してみよう」が表示されます。再挑戦ボタンは見えません。</p>
 <figure class="phone"><a href="images/app-initial.png"><img src="images/app-initial.png" width="1080" height="2424" loading="lazy" alt="火のない爆弾、1から9の数字ボタン、どれか押してみよう。再挑戦ボタンは見えない"></a><figcaption>このSTEPの画面。再挑戦ボタンはまだ見えません。 <a href="images/app-initial.png">画像を大きく開く</a></figcaption></figure>
-<div class="note"><p class="box-title">1コマ目はここまで</p><p>保存してからもう一度Runします。画面の部品のidを、先生に1つずつ指さして説明しましょう。見えない再挑戦ボタンも、XMLのどこにあるかを指さします。次回も自分の <code>Documents/Android1/A05BombGame</code> を開きます。</p></div>
+<div class="note"><p class="box-title">1コマ目はここまで</p><p>もう一度Runします。画面の部品のidを、先生に1つずつ指さして説明しましょう。見えない再挑戦ボタンも、XMLのどこにあるかを指さします。次回も自分の <code>Documents/Android1/A05BombGame</code> を開きます。</p></div>
 <div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-4"><span>メッセージが表示され、XMLでbtn_retryがinvisibleになっていることを確認した（画面ではまだ見えない）。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
 <div class="next"><a href="#step-5">次へ：導火線スイッチの数字を決める →</a></div>
 </section>
@@ -448,7 +448,7 @@ if (nowState == STATE_IGNITED) {
 </div>
 <h3>Runで確かめる</h3><ol><li>Logcatでスイッチの2つの数字を確認します（STEP 5の検索欄）。</li><li>スイッチ<strong>ではない</strong>数字を押します。そのボタンが灰色になるだけで、表示は変わりません。</li><li>スイッチの1つを押します。導火線に火がついた画像と「着火！」になります。</li><li>もう1つのスイッチを押します。爆発の画像と「爆発した！ゲームオーバー！」になり、数字はすべて押せなくなり、再挑戦ボタンが表示されます。</li><li>再挑戦を押しても、まだ何も起きません（STEP 8で作ります）。もう一度遊ぶときは <strong>Run ▶</strong> で起動し直します。</li></ol>
 <div class="note"><p class="box-title">まだクリアにはなりません</p><p>スイッチ以外の7個をすべて押しても、このSTEPでは何も表示されません。クリアの判定はSTEP 9で追加します。</p></div>
-<div class="note"><p class="box-title">2コマ目はここまで</p><p>保存してからもう一度Runします。次回はRunして、Logcatの数字を見ながら着火と爆発を確かめてからSTEP 8へ進みます。</p></div>
+<div class="note"><p class="box-title">2コマ目はここまで</p><p>もう一度Runします。次回はRunして、Logcatの数字を見ながら着火と爆発を確かめてからSTEP 8へ進みます。</p></div>
 <div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-7"><span>Logcatの数字を見ながら、スイッチ以外・1つ目のスイッチ・2つ目のスイッチを押して、表示の変化を確認した。nowState++の行を指させた。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
 <div class="next"><a href="#step-8">次へ：再挑戦で最初に戻す →</a></div>
 </section>
@@ -586,7 +586,10 @@ if ((nowState == STATE_INITIAL &amp;&amp; disableButtonCount == 7) ||
 <tr><td>再挑戦</td><td>最初の表示に戻り、再挑戦が見えなくなる。Logcatに新しい2つの数字が出る。</td></tr>
 </tbody></table>
 
-<h3>保存</h3><p>自分の <code>Documents/Android1/A05BombGame</code> を保存します。</p>
+<h3>保存</h3>
+<p>Android Studioは、書いたコードを自動でファイルに保存します。保存の操作は要りません。ここでは、保存された場所を確かめます。</p>
+<ol><li>Finderを開き、左側の <strong>書類</strong>（<code>Documents</code>）をクリックします。</li><li>その中の <code>Android1</code> フォルダを開き、<code>A05BombGame</code> フォルダがあることを確かめます。</li></ol>
+<p>この <code>Documents/Android1/A05BombGame</code> フォルダが、自分で作ったアプリです。あとの授業でもう一度開けるように、消したり、別の場所へ移動したり、名前を変えたりせずに、そのまま残します。</p>
 <p>教材のチェックは自分用です。先生への送信はしません。印刷は <kbd>⌘ P</kbd> で行えます。</p>
 <div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-11"><span>完成チェックの操作をすべて試し、表のとおりの結果になった。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
 </section>
