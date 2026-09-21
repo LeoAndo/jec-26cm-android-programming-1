@@ -303,6 +303,7 @@ class _Extractor:
     def run(self, root: Element) -> list:
         self._walk(root)
         self._attributes(root)
+        self._links(root)
         self.segments.sort(key=lambda item: item.start if item.element is None else item.element.start)
         return self.segments
 
@@ -384,16 +385,16 @@ class _Extractor:
                 parts.append(f"<{name}>{self._serialize(node.children, placeholders, start, end)}</{name}>")
         return "".join(parts)
 
-    def _attributes(self, element: Element):
+    def _links(self, element: Element):
+        """リンクと lang の書き方を確かめる。木の全体を見る。
+
+        生成のときは、訳の対象でない要素の開始タグも書き換える（どのページにもある
+        <script src="../assets/textbook.js"> など）。訳の対象だけを見ていると、
+        そこに書かれたルート相対リンクが check を通り、生成のときに行番号なしで落ちる。
+        """
         for child in element.children:
-            if not isinstance(child, Element) or _untranslatable(child):
+            if not isinstance(child, Element):
                 continue
-            for name in _translated_attributes(child):
-                source = normalize(_raw_attribute(self.text, child, name, self.name) or "")
-                if JAPANESE.search(source):
-                    self.segments.append(Segment(source, f"{child.tag} {name}", element=child, attribute=name))
-            # リンクと lang は生成時に書き換えるので、書き方をここで確かめておく。
-            # 生成のときに気付くのでは遅い（行番号が出ず、CIの check も通ってしまう）。
             for name in LINK_ATTRIBUTES + (("lang",) if child.tag == "html" else ()):
                 if child.attribute(name) is None:
                     continue
@@ -405,6 +406,16 @@ class _Extractor:
                 if not url.scheme and not url.netloc and url.path.startswith("/"):
                     line = self.text.count("\n", 0, child.start) + 1
                     raise LocalizeError(f"{self.name}:{line}: ルート相対のリンクは使えません: {raw}")
+            self._links(child)
+
+    def _attributes(self, element: Element):
+        for child in element.children:
+            if not isinstance(child, Element) or _untranslatable(child):
+                continue
+            for name in _translated_attributes(child):
+                source = normalize(_raw_attribute(self.text, child, name, self.name) or "")
+                if JAPANESE.search(source):
+                    self.segments.append(Segment(source, f"{child.tag} {name}", element=child, attribute=name))
             if child.tag not in PROTECTED:
                 self._attributes(child)
 

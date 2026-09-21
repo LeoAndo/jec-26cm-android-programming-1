@@ -85,6 +85,13 @@ class ExtractTest(unittest.TestCase):
             page_of('<p>\n<a href="/docs/assets/textbook.css">あ</a></p>')
         # 外部のURLはパスが / で始まるので、混同しない。
         self.assertEqual(sources_of('<p><a href="https://developer.android.com/x#y(a,%20b)">公式</a></p>'), ["公式"])
+        # 訳の対象でない要素でも、生成のときに src を書き換える。どのページにも <script src> がある。
+        for html in ('<head><script src="/assets/textbook.js"></script></head>',
+                     '<head><link rel="stylesheet" href="/assets/textbook.css"></head>',
+                     '<div translate="no"><p>訳さない<img src="/a.png" alt="図"></p></div>'):
+            with self.subTest(html=html), \
+                    self.assertRaisesRegex(localize.LocalizeError, "ルート相対のリンクは使えません"):
+                page_of(html)
 
     def test_unquoted_link_and_lang_attributes_are_rejected(self):
         for html, attribute in (
