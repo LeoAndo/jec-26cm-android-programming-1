@@ -167,6 +167,36 @@ python3 scripts/package-student-materials.py
 
 参考：[GitHubのリリースノート自動生成](https://docs.github.com/en/repositories/releasing-projects-on-github/automatically-generated-release-notes)、[ワークフローの手動実行](https://docs.github.com/en/actions/how-tos/manage-workflow-runs/manually-run-a-workflow)。
 
+### 多言語展開（準備中）
+
+この教材を使う学生の母国語は、日本語・英語・中国語・ミャンマー語・モンゴル語・広東語・フランス語の7つです。日本語で書いた教科書（`docs/`）を、配布前にほかの6言語へ展開する準備を進めています（全体の計画と決まったことは [issue #215](https://github.com/LeoAndo/jec-26cm-android-programming-1/issues/215)）。**各言語の教科書は、まだ学生用ZIPには入りません。**
+
+- **日常のPRでは翻訳しません。** 教材は今までどおり日本語だけを直します。翻訳は、学生への配布前にまとめて翻訳PRで行います。
+- **コミットするのは、翻訳済みのHTMLではなく対訳カタログです。** `i18n/<言語>/<ページ>.json` に、原文と訳文の対を文単位で置きます。各言語のHTMLは、カタログから作ります（リポジトリにはコミットしません）。コード・画像・リンク・STEPの番号は日本語版からそのまま引き継ぐので、どの言語でも同じ位置に同じものが出ます。
+- **日本語の文を直すと、その文は自動で未翻訳に戻ります。** 未翻訳の文は日本語のまま表示されます。古い訳が学生に届くことはありません。
+- `<pre>` のコード、`<code>` の中身、Android Studioの画面に出る言葉、学生がアプリに打ち込む日本語は訳しません。授業は日本語で進むので、翻訳は読んで理解するための補助という位置づけです。
+
+| 言語 | コード | 書き方 |
+| --- | --- | --- |
+| 英語 | `en` | |
+| 中国語 | `zh-Hans` | 簡体字 |
+| 広東語 | `zh-Hant-HK` | 繁体字の書き言葉に、香港の語彙を使う |
+| ミャンマー語 | `my` | Unicode |
+| モンゴル語 | `mn` | キリル文字 |
+| フランス語 | `fr` | |
+
+言語の一覧は `config/i18n.json`、翻訳の手順とルールは [skills/translate-teaching-materials/SKILL.md](skills/translate-teaching-materials/SKILL.md)、言語ごとの用語集は `i18n/<言語>/glossary.md` にあります。翻訳そのものはエージェントが行い、スクリプトは入口と出口をそろえます。
+
+```sh
+python3 scripts/localize-student-materials.py sync --lang en     # 未翻訳の文を dist/i18n-work/ に書き出す
+python3 scripts/localize-student-materials.py merge --lang en    # 訳した結果を検査して、対訳カタログへ入れる
+python3 scripts/localize-student-materials.py check              # 対訳カタログを検査する（CIでも実行）
+python3 scripts/localize-student-materials.py status             # 言語×ページごとに、訳した数を出す
+python3 scripts/localize-student-materials.py build --lang en    # dist/i18n-preview/docs/en/ に確認用のページを作る
+```
+
+CIは、対訳カタログが壊れていないことを確かめ、未翻訳の文の数を Summary に出します。未翻訳があっても失敗にはしません。教科書のHTMLは、開始タグと終了タグを必ず対応させてください（`<p>` や `<li>` の閉じ忘れがあると、文を取り出せず、`check` が失敗します）。
+
 ---
 
 # 開発環境：教員
