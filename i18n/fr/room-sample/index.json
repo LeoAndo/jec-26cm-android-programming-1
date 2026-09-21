@@ -1,0 +1,1126 @@
+{
+  "source": "docs/room-sample/index.html",
+  "language": "fr",
+  "entries": [
+    {
+      "source": "JavaとXMLで作るA10RoomSample。Roomを使って、アプリを終了しても消えないデータを、あとから書き換えたり消したりできるようにする授業用教科書。",
+      "translation": "Manuel de cours pour créer A10RoomSample avec Java et XML. Utilisez Room pour conserver les données après la fermeture de l'application et permettre de les modifier ou de les supprimer plus tard."
+    },
+    {
+      "source": "RoomSample — データベースに保存しよう | Androidプログラミング1",
+      "translation": "RoomSample — Enregistrer dans une base de données | Programmation Android 1"
+    },
+    {
+      "source": "本文へ移動",
+      "translation": "Aller au contenu principal"
+    },
+    {
+      "source": "JEC / Androidプログラミング1",
+      "translation": "JEC / Programmation Android 1"
+    },
+    {
+      "source": "CONTENTS / 学習の順番",
+      "translation": "CONTENTS / Ordre d'apprentissage"
+    },
+    {
+      "source": "学習ステップ",
+      "translation": "Étapes d'apprentissage"
+    },
+    {
+      "source": "00　今日のゴール",
+      "translation": "00 Objectif du jour"
+    },
+    {
+      "source": "01　プロジェクトを作って実行",
+      "translation": "01 Créer et exécuter le projet"
+    },
+    {
+      "source": "02　Roomを使えるようにする",
+      "translation": "02 Préparer l'utilisation de Room"
+    },
+    {
+      "source": "03　画面を作る",
+      "translation": "03 Créer l'écran"
+    },
+    {
+      "source": "04　保存するデータの形を決める",
+      "translation": "04 Définir la forme des données à enregistrer"
+    },
+    {
+      "source": "05　読み書きの命令を書く",
+      "translation": "05 Écrire les instructions de lecture et d'écriture"
+    },
+    {
+      "source": "06　データベース本体を作る",
+      "translation": "06 Créer la base de données"
+    },
+    {
+      "source": "07　画面とつないで完成",
+      "translation": "07 Relier à l'écran pour terminer"
+    },
+    {
+      "source": "0 / 8 ステップ確認済み",
+      "translation": "0 / 8 étapes vérifiées"
+    },
+    {
+      "source": "学習の進み具合",
+      "translation": "Progression de l'apprentissage"
+    },
+    {
+      "source": "自分用のチェックです。",
+      "translation": "Ces cases servent à votre propre suivi."
+    },
+    {
+      "source": "困ったとき",
+      "translation": "En cas de difficulté"
+    },
+    {
+      "source": "解説：SharedPreferencesとの違い",
+      "translation": "Explication : la différence avec SharedPreferences"
+    },
+    {
+      "source": "完成プロジェクトを開く",
+      "translation": "Ouvrir le projet terminé"
+    },
+    {
+      "source": "共通：はじめの準備",
+      "translation": "Guide commun : Préparation initiale"
+    },
+    {
+      "source": "共通：エミュレータ",
+      "translation": "Guide commun : Émulateur"
+    },
+    {
+      "source": "共通：Auto Import",
+      "translation": "Guide commun : Auto Import"
+    },
+    {
+      "source": "共通：Logcat",
+      "translation": "Guide commun : Logcat"
+    },
+    {
+      "source": "共通：APKの提出",
+      "translation": "Guide commun : Remise de l'APK"
+    },
+    {
+      "source": "共通：開発Tips",
+      "translation": "Guide commun : Conseils de développement"
+    },
+    {
+      "source": "共通：Android Studioのバージョン",
+      "translation": "Guide commun : Version d'Android Studio"
+    },
+    {
+      "source": "データベースに<br>保存しよう",
+      "translation": "Enregistrer dans<br>une base de données"
+    },
+    {
+      "source": "A09では「メモをぜんぶまとめて1つの文字列」で保存しました。<br>今回は1件ずつ番号を付けて保存し、あとから<strong>書き換え・削除</strong>ができるようにします。",
+      "translation": "Dans A09, toutes les notes étaient regroupées dans une seule chaîne pour être enregistrées.<br>Cette fois, chaque enregistrement reçoit un numéro pour pouvoir ensuite le <strong>modifier ou le supprimer</strong>."
+    },
+    {
+      "source": "A09の次の単元",
+      "translation": "Unité suivant A09"
+    },
+    {
+      "source": "90分 × 1コマ目安",
+      "translation": "Environ 1 séance de 90 minutes"
+    },
+    {
+      "source": "Macで学ぶ",
+      "translation": "Apprendre sur Mac"
+    },
+    {
+      "source": "STEP 00 · 目安 5分",
+      "translation": "STEP 00 · Durée indicative : 5 min"
+    },
+    {
+      "source": "今日のゴール",
+      "translation": "Objectif du jour"
+    },
+    {
+      "source": "データを1件ずつ保存して、一覧に表示するアプリを作ります。保存したデータには <strong>id</strong> という番号が自動で付きます。その番号を指定すると、あとから<strong>書き換え</strong>たり<strong>削除</strong>したりできます。",
+      "translation": "Créez une application qui enregistre les données une par une et les affiche dans une liste. Un numéro appelé <strong>id</strong> est attribué automatiquement à chaque enregistrement. En indiquant ce numéro, vous pourrez ensuite le <strong>modifier</strong> ou le <strong>supprimer</strong>."
+    },
+    {
+      "source": "id入力欄、タイトル入力欄、保存と削除のボタン、保存されているデータの見出しが並んだ画面。一覧は空",
+      "translation": "Écran avec un champ id, un champ de titre, les boutons 「保存」 (Enregistrer) et 「削除」 (Supprimer), et le titre 「保存されているデータ」 (Données enregistrées). La liste est vide"
+    },
+    {
+      "source": "起動したところ。まだデータはありません。 <a1>画像を大きく開く</a1>",
+      "translation": "Au lancement. Aucune donnée n'est encore présente. <a1>Ouvrir l'image en grand</a1>"
+    },
+    {
+      "source": "保存されているデータに、internalId=1 title=CAR、internalId=2 title=BIKE、internalId=3 title=TRAINの3行が表示されている画面",
+      "translation": "Écran des données enregistrées avec trois lignes : internalId=1 title=CAR, internalId=2 title=BIKE et internalId=3 title=TRAIN"
+    },
+    {
+      "source": "3件保存したところ。idが1・2・3と自動で増えます。 <a1>画像を大きく開く</a1>",
+      "translation": "Après trois enregistrements. L'id augmente automatiquement : 1, 2, 3. <a1>Ouvrir l'image en grand</a1>"
+    },
+    {
+      "source": "id欄に2を入れてタイトルをBICYCLEにして保存したあと、2行目がinternalId=2 title=BICYCLEに変わっている画面",
+      "translation": "Après avoir saisi 2 dans le champ id et BICYCLE comme titre, puis enregistré, la deuxième ligne devient internalId=2 title=BICYCLE"
+    },
+    {
+      "source": "id 2 を指定して保存すると、その1件だけ書き換わります。 <a1>画像を大きく開く</a1>",
+      "translation": "Enregistrer avec l'id 2 modifie uniquement cet enregistrement. <a1>Ouvrir l'image en grand</a1>"
+    },
+    {
+      "source": "id 3を削除したあと、一覧がinternalId=1とinternalId=2の2行になっている画面",
+      "translation": "Après la suppression de l'id 3, la liste contient deux lignes : internalId=1 et internalId=2"
+    },
+    {
+      "source": "id 3 を削除したところ。1件だけ消せます。 <a1>画像を大きく開く</a1>",
+      "translation": "Après la suppression de l'id 3. Il est possible de supprimer un seul enregistrement. <a1>Ouvrir l'image en grand</a1>"
+    },
+    {
+      "source": "できるようになること",
+      "translation": "Ce que vous saurez faire"
+    },
+    {
+      "source": "入力したタイトルを、1件ずつ保存できる。",
+      "translation": "Enregistrer les titres saisis un par un."
+    },
+    {
+      "source": "保存したデータに自動で付く <code>id</code> の意味を説明できる。",
+      "translation": "Expliquer le sens de l'<code>id</code> attribué automatiquement aux données enregistrées."
+    },
+    {
+      "source": "<code>id</code> を指定して、1件だけ書き換えられる。",
+      "translation": "Modifier un seul enregistrement en indiquant son <code>id</code>."
+    },
+    {
+      "source": "<code>id</code> を指定して、1件だけ消せる。",
+      "translation": "Supprimer un seul enregistrement en indiquant son <code>id</code>."
+    },
+    {
+      "source": "今日使う技術",
+      "translation": "Techniques utilisées aujourd'hui"
+    },
+    {
+      "source": "技術",
+      "translation": "Technique"
+    },
+    {
+      "source": "どこで使うか",
+      "translation": "Utilisation"
+    },
+    {
+      "source": "学んだ単元",
+      "translation": "Unité où la technique a été étudiée"
+    },
+    {
+      "source": "<code>EditText</code> と <code>Button</code>",
+      "translation": "<code>EditText</code> et <code>Button</code>"
+    },
+    {
+      "source": "タイトルとidを入力して、保存・削除する。",
+      "translation": "Saisir un titre et un id pour enregistrer ou supprimer."
+    },
+    {
+      "source": "入力が空のときに知らせる。",
+      "translation": "Signaler que la saisie est vide."
+    },
+    {
+      "source": "データが増えても一覧を見られるようにする。",
+      "translation": "Permettre de consulter la liste même quand les données se multiplient."
+    },
+    {
+      "source": "データを1件ずつ保存する。<strong>今回の新顔です。</strong>",
+      "translation": "Enregistrer les données une par une. <strong>C'est la nouveauté de cette unité.</strong>"
+    },
+    {
+      "source": "新しく覚えることは <strong>Room</strong> だけです。残りはA07とA09で使ったものを組み合わせます。",
+      "translation": "La seule nouveauté à apprendre est <strong>Room</strong>. Pour le reste, combinez ce que vous avez utilisé dans A07 et A09."
+    },
+    {
+      "source": "解説：A09のSharedPreferencesと何が違うのか",
+      "translation": "Explication : quelle différence avec SharedPreferences dans A09 ?"
+    },
+    {
+      "source": "A09では、メモの一覧を<strong>まとめて1つの文字列</strong>にして保存しました。この方法だと「3件目だけ書き換える」「2件目だけ消す」ができません。全部を読み出して、自分で切り分けて、また全部を書き戻すことになります。",
+      "translation": "Dans A09, la liste des notes était enregistrée <strong>en une seule chaîne</strong>. Avec cette méthode, on ne peut pas modifier uniquement la troisième note ou supprimer uniquement la deuxième. Il faut tout lire, séparer soi-même les éléments, puis tout réécrire."
+    },
+    {
+      "source": "Roomは、データを<strong>1件ずつ、表の1行として</strong>保存します。1行ごとに番号（id）が付くので、番号を指定して1件だけ書き換え・削除ができます。データが増えても、必要な1行だけを触れます。",
+      "translation": "Room enregistre les données <strong>une par une, chacune dans une ligne d'une table</strong>. Chaque ligne possède un numéro (id) : indiquer ce numéro permet de modifier ou supprimer un seul enregistrement. Même avec davantage de données, vous pouvez ne traiter que la ligne nécessaire."
+    },
+    {
+      "source": "Room（今回）",
+      "translation": "Room (cette unité)"
+    },
+    {
+      "source": "保存の形",
+      "translation": "Forme de stockage"
+    },
+    {
+      "source": "名前と値の組。値は1つの文字列",
+      "translation": "Paire nom et valeur. La valeur est une seule chaîne"
+    },
+    {
+      "source": "表。1件が1行",
+      "translation": "Table : un enregistrement par ligne"
+    },
+    {
+      "source": "1件だけ書き換え",
+      "translation": "Modifier un seul enregistrement"
+    },
+    {
+      "source": "できない",
+      "translation": "Impossible"
+    },
+    {
+      "source": "できる",
+      "translation": "Possible"
+    },
+    {
+      "source": "1件だけ削除",
+      "translation": "Supprimer un seul enregistrement"
+    },
+    {
+      "source": "向いているもの",
+      "translation": "Usages adaptés"
+    },
+    {
+      "source": "設定値、ログイン状態など少ないデータ",
+      "translation": "Peu de données, comme des réglages ou l'état de connexion"
+    },
+    {
+      "source": "件数が増えるデータ",
+      "translation": "Données dont le nombre d'enregistrements augmente"
+    },
+    {
+      "source": "ここで止まって、確認",
+      "translation": "Arrêtez-vous ici et vérifiez"
+    },
+    {
+      "source": "今日作るアプリの画面を画像で確かめ、A09のSharedPreferencesとの違いを表で確認した。",
+      "translation": "J'ai observé les images de l'application à créer et vérifié dans le tableau les différences avec SharedPreferences de A09."
+    },
+    {
+      "source": "できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。",
+      "translation": "Cochez une fois terminé. En cas de difficulté, montrez le numéro du STEP et votre écran à l'enseignant."
+    },
+    {
+      "source": "次へ：プロジェクトを作って実行 →",
+      "translation": "Suite : Créer et exécuter le projet →"
+    },
+    {
+      "source": "STEP 01 · 目安 10分",
+      "translation": "STEP 01 · Environ 10 min"
+    },
+    {
+      "source": "プロジェクトを作って実行",
+      "translation": "Créer et exécuter le projet"
+    },
+    {
+      "source": "授業環境はMacと <strong>Android Studio Panda 2 | 2025.3.2</strong> です。A09までとは別のプロジェクトを作ります。",
+      "translation": "L'environnement du cours est un Mac avec <strong>Android Studio Panda 2 | 2025.3.2</strong>. Créez un projet distinct de ceux des unités jusqu'à A09."
+    },
+    {
+      "source": "毎回、自分で新規作成します",
+      "translation": "Créez vous-même un nouveau projet à chaque fois"
+    },
+    {
+      "source": "作る場所は <code>Documents/Android1/A10RoomSample</code> です。<a1>完成プロジェクト</a1>は答え合わせ用で、授業の入力は自分で作ったプロジェクトに書きます。",
+      "translation": "Créez le projet dans <code>Documents/Android1/A10RoomSample</code>. Le <a1>projet terminé</a1> sert à vérifier votre travail ; saisissez le code du cours dans votre propre projet."
+    },
+    {
+      "source": "Android Studioの <strong>New Project</strong> をクリックします。別のプロジェクトを開いているときは <strong>File → New → New Project</strong> を選びます。",
+      "translation": "Cliquez sur <strong>New Project</strong> dans Android Studio. Si un autre projet est ouvert, choisissez <strong>File → New → New Project</strong>."
+    },
+    {
+      "source": "<strong>Phone and Tablet → Empty Views Activity → Next</strong> の順に選びます。名前に <strong>Views</strong> があることを確認します。",
+      "translation": "Sélectionnez successivement <strong>Phone and Tablet → Empty Views Activity → Next</strong>. Vérifiez que le nom contient <strong>Views</strong>."
+    },
+    {
+      "source": "テンプレート一覧でEmpty Views Activityが選択されている",
+      "translation": "Empty Views Activity est sélectionné dans la liste des modèles"
+    },
+    {
+      "source": "Empty Views Activityを選択。Empty Activityとは別です。 <a1>画像を大きく開く</a1>",
+      "translation": "Sélectionnez Empty Views Activity. Il est différent d'Empty Activity. <a1>Ouvrir l'image en grand</a1>"
+    },
+    {
+      "source": "次の表のとおりに入力・選択して <strong>Finish</strong> を押します。",
+      "translation": "Saisissez et sélectionnez les valeurs du tableau suivant, puis cliquez sur <strong>Finish</strong>."
+    },
+    {
+      "source": "項目",
+      "translation": "Élément"
+    },
+    {
+      "source": "入力・選択する内容",
+      "translation": "Valeur à saisir ou à sélectionner"
+    },
+    {
+      "source": "<code>jp.ac.jec.a10roomsample</code>（すべて小文字）",
+      "translation": "<code>jp.ac.jec.a10roomsample</code> (tout en minuscules)"
+    },
+    {
+      "source": "A10RoomSampleの新規設定。パッケージjp.ac.jec.a10roomsample、Java、API 31、Kotlin DSL",
+      "translation": "Configuration du nouveau projet A10RoomSample : package jp.ac.jec.a10roomsample, Java, API 31 et Kotlin DSL"
+    },
+    {
+      "source": "入力後の画面。画像の保存先は先生の例です。自分の <code>Documents/Android1/A10RoomSample</code> に読み替えます。 <a1>画像を大きく開く</a1>",
+      "translation": "Écran après la saisie. L'emplacement sur l'image est l'exemple de l'enseignant. Utilisez votre propre <code>Documents/Android1/A10RoomSample</code>. <a1>Ouvrir l'image en grand</a1>"
+    },
+    {
+      "source": "Sync（歯車の読み込み）が終わるまで待ちます。",
+      "translation": "Attendez la fin de Sync (chargement avec l'engrenage)."
+    },
+    {
+      "source": "端末欄で <strong>jec_26cm_android1_Pixel 9a</strong> を選び、<strong>Run</strong>（▶）を押します。白い画面に <strong>Hello World!</strong> が出れば成功です。",
+      "translation": "Dans le champ de l'appareil, sélectionnez <strong>jec_26cm_android1_Pixel 9a</strong>, puis cliquez sur <strong>Run</strong> (▶). Si <strong>Hello World!</strong> apparaît sur un écran blanc, l'opération a réussi."
+    },
+    {
+      "source": "エミュレータが出てこないときは<a1>共通資料：エミュレータ</a1>を見ます。",
+      "translation": "Si l'émulateur n'apparaît pas, consultez le <a1>Guide commun : Émulateur</a1>."
+    },
+    {
+      "source": "自分の保存先にA10RoomSampleを作り、Hello World!を表示できた。",
+      "translation": "J'ai créé A10RoomSample à mon emplacement et affiché Hello World!."
+    },
+    {
+      "source": "次へ：Roomを使えるようにする →",
+      "translation": "Suite : Préparer l'utilisation de Room →"
+    },
+    {
+      "source": "STEP 02 · 目安 10分",
+      "translation": "STEP 02 · Durée indicative : 10 min"
+    },
+    {
+      "source": "Roomを使えるようにする",
+      "translation": "Préparer l'utilisation de Room"
+    },
+    {
+      "source": "Roomは、Android Studioに最初から入っている部品ではありません。<strong>使うと宣言してから</strong>使います。この宣言を2つのファイルに分けて書きます。",
+      "translation": "Room n'est pas un composant fourni d'emblée dans Android Studio. Il faut <strong>déclarer son utilisation avant de l'utiliser</strong>. Répartissez cette déclaration dans deux fichiers."
+    },
+    {
+      "source": "① バージョンを書く場所",
+      "translation": "① Où indiquer la version"
+    },
+    {
+      "source": "<code>gradle/libs.versions.toml</code> を開きます。ここは<strong>どの部品をどのバージョンで使うか</strong>を一覧にしておくファイルです。Android Studioがひな形として用意しています。",
+      "translation": "Ouvrez <code>gradle/libs.versions.toml</code>. Ce fichier répertorie <strong>les composants utilisés et leurs versions</strong>. Android Studio le fournit dans le modèle."
+    },
+    {
+      "source": "3か所に追記します。<strong>行を足す場所を間違えないように</strong>、見出し（<code>[versions]</code> など）をよく見てください。",
+      "translation": "Faites des ajouts à trois endroits. Regardez bien les en-têtes, comme <code>[versions]</code>, <strong>pour ajouter les lignes au bon endroit</strong>."
+    },
+    {
+      "source": "<code>libs.versions.toml</code>（全体）",
+      "translation": "<code>libs.versions.toml</code> (fichier complet)"
+    },
+    {
+      "source": "追記する場所",
+      "translation": "Emplacement de l'ajout"
+    },
+    {
+      "source": "追記する行",
+      "translation": "Ligne à ajouter"
+    },
+    {
+      "source": "意味",
+      "translation": "Signification"
+    },
+    {
+      "source": "<code>[versions]</code> の中",
+      "translation": "Dans <code>[versions]</code>"
+    },
+    {
+      "source": "Roomのバージョンに <code>room</code> という名前を付ける",
+      "translation": "Donne le nom <code>room</code> à la version de Room"
+    },
+    {
+      "source": "<code>[libraries]</code> の中",
+      "translation": "Dans <code>[libraries]</code>"
+    },
+    {
+      "source": "アプリが動くときに使う本体",
+      "translation": "Bibliothèque utilisée pendant l'exécution de l'application"
+    },
+    {
+      "source": "ビルドのときに、書いた命令からコードを自動で作る部品",
+      "translation": "Composant qui génère automatiquement du code à partir de vos instructions pendant le build"
+    },
+    {
+      "source": "<code>[plugins]</code> に書かないこと",
+      "translation": "N'écrivez pas dans <code>[plugins]</code>"
+    },
+    {
+      "source": "<code>[libraries]</code> と <code>[plugins]</code> は見た目が似ています。<code>[plugins]</code> のほうに書くと <code>expected to find any of 'id' or 'version'</code> というエラーでビルドが止まります。追記した2行から上へたどって、<strong>最初に出てくる見出しが <code>[libraries]</code> になっているか</strong>を確かめてください。",
+      "translation": "<code>[libraries]</code> et <code>[plugins]</code> se ressemblent. Si vous écrivez dans <code>[plugins]</code>, le build s'arrête avec l'erreur <code>expected to find any of 'id' or 'version'</code>. Remontez depuis les deux lignes ajoutées et <strong>vérifiez que le premier en-tête rencontré est <code>[libraries]</code></strong>."
+    },
+    {
+      "source": "② 使うと宣言する場所",
+      "translation": "② Où déclarer l'utilisation"
+    },
+    {
+      "source": "<code>app/build.gradle.kts</code> を開き、<code>dependencies { }</code> の中に2行を追加します。",
+      "translation": "Ouvrez <code>app/build.gradle.kts</code> et ajoutez deux lignes dans <code>dependencies { }</code>."
+    },
+    {
+      "source": "<code>libs.room.runtime</code> の <code>libs.</code> は、①で書いた <code>libs.versions.toml</code> のことです。<code>room-runtime</code> のハイフンは、ここでは <strong>ドット</strong>（<code>room.runtime</code>）に変わります。",
+      "translation": "Dans <code>libs.room.runtime</code>, <code>libs.</code> désigne le fichier <code>libs.versions.toml</code> modifié en ①. Le trait d'union de <code>room-runtime</code> devient ici un <strong>point</strong> : <code>room.runtime</code>."
+    },
+    {
+      "source": "Syncする",
+      "translation": "Effectuer Sync"
+    },
+    {
+      "source": "画面の上に <strong>Sync Now</strong> というリンクが出ます。押して、読み込みが終わるまで待ちます。エラーが出なければ成功です。",
+      "translation": "Un lien <strong>Sync Now</strong> apparaît en haut de l'écran. Cliquez dessus et attendez la fin du chargement. Si aucune erreur n'apparaît, c'est réussi."
+    },
+    {
+      "source": "ここではまだ画面は変わりません",
+      "translation": "L'écran ne change pas encore"
+    },
+    {
+      "source": "部品を用意しただけなので、Runしても <strong>Hello World!</strong> のままです。エラーなくSyncできていればSTEP 02は合格です。",
+      "translation": "Vous avez seulement préparé les composants : même après Run, <strong>Hello World!</strong> reste affiché. Si Sync se termine sans erreur, STEP 02 est réussie."
+    },
+    {
+      "source": "libs.versions.tomlとbuild.gradle.ktsに追記して、エラーなくSyncできた。",
+      "translation": "J'ai complété libs.versions.toml et build.gradle.kts, puis effectué Sync sans erreur."
+    },
+    {
+      "source": "次へ：画面を作る →",
+      "translation": "Suite : Créer l'écran →"
+    },
+    {
+      "source": "STEP 03 · 目安 10分",
+      "translation": "STEP 03 · Environ 10 min"
+    },
+    {
+      "source": "画面を作る",
+      "translation": "Créer l'écran"
+    },
+    {
+      "source": "入力欄2つ、ボタン2つ、一覧の表示欄を並べます。<code>app/src/main/res/layout/activity_main.xml</code> を開き、中身をすべて次のコードに置き換えます。",
+      "translation": "Disposez deux champs de saisie, deux boutons et une zone d'affichage de la liste. Ouvrez <code>app/src/main/res/layout/activity_main.xml</code> et remplacez tout son contenu par le code suivant."
+    },
+    {
+      "source": "部品",
+      "translation": "Composant"
+    },
+    {
+      "source": "役割",
+      "translation": "Rôle"
+    },
+    {
+      "source": "書き換え・削除したいデータの番号を入れる。空なら新規追加",
+      "translation": "Saisir le numéro des données à modifier ou supprimer. Laisser vide pour ajouter un nouvel enregistrement"
+    },
+    {
+      "source": "保存するタイトルを入れる",
+      "translation": "Saisir le titre à enregistrer"
+    },
+    {
+      "source": "保存する",
+      "translation": "Enregistrer"
+    },
+    {
+      "source": "削除する",
+      "translation": "Supprimer"
+    },
+    {
+      "source": "保存されているデータを表示する",
+      "translation": "Afficher les données enregistrées"
+    },
+    {
+      "source": "気をつけるところ",
+      "translation": "Points à vérifier"
+    },
+    {
+      "source": "いちばん外側が <code>ScrollView</code> です。データが増えても下まで見られるようにするためです（A09と同じ考え方）。",
+      "translation": "Le composant le plus extérieur est <code>ScrollView</code>, pour pouvoir voir jusqu'en bas même lorsque les données augmentent (même principe que dans A09)."
+    },
+    {
+      "source": "<code>edt_id</code> には <code>android:inputType=\"number\"</code> を付けます。数字だけのキーボードが出て、文字を入れられなくなります。",
+      "translation": "Ajoutez <code>android:inputType=\"number\"</code> à <code>edt_id</code>. Un clavier numérique s'affiche et empêche la saisie de lettres."
+    },
+    {
+      "source": "ボタン2つは <code>layout_width=\"0dp\"</code> と <code>layout_weight=\"1\"</code> で横に半分ずつ並びます。",
+      "translation": "Les deux boutons se partagent horizontalement la largeur grâce à <code>layout_width=\"0dp\"</code> et <code>layout_weight=\"1\"</code>."
+    },
+    {
+      "source": "Runで確かめる",
+      "translation": "Vérifier avec Run"
+    },
+    {
+      "source": "入力欄2つとボタン2つ、「保存されているデータ」の見出しが出れば成功です。ボタンを押してもまだ何も起きません。",
+      "translation": "Si les deux champs de saisie, les deux boutons et le titre 「保存されているデータ」 (Données enregistrées) apparaissent, c'est réussi. Appuyer sur les boutons n'a pas encore d'effet."
+    },
+    {
+      "source": "画面の部品を並べて、Runで表示できた。",
+      "translation": "J'ai disposé les composants de l'écran et les ai affichés avec Run."
+    },
+    {
+      "source": "次へ：保存するデータの形を決める →",
+      "translation": "Suite : Définir la forme des données à enregistrer →"
+    },
+    {
+      "source": "STEP 04 · 目安 15分",
+      "translation": "STEP 04 · Environ 15 min"
+    },
+    {
+      "source": "保存するデータの形を決める",
+      "translation": "Définir la forme des données à enregistrer"
+    },
+    {
+      "source": "Roomは、データを<strong>表</strong>の形で保存します。まず「1行にどんな項目があるか」を決めます。これを書くのが <code>Item</code> クラスです。",
+      "translation": "Room conserve les données sous forme de <strong>table</strong>. Définissez d'abord les éléments qui composent une ligne. C'est le rôle de la classe <code>Item</code>."
+    },
+    {
+      "source": "① クラスを作る",
+      "translation": "① Créer la classe"
+    },
+    {
+      "source": "プロジェクト画面で <code>app/src/main/java/jp/ac/jec/a10roomsample</code> を右クリックし、<strong>New → Java Class</strong> を選びます。",
+      "translation": "Dans la vue du projet, faites un clic droit sur <code>app/src/main/java/jp/ac/jec/a10roomsample</code> et choisissez <strong>New → Java Class</strong>."
+    },
+    {
+      "source": "パッケージを右クリックしてNewを開き、Java Classが選択されているメニュー",
+      "translation": "Menu ouvert par un clic droit sur le package, avec New puis Java Class sélectionné"
+    },
+    {
+      "source": "MainActivityと同じフォルダ（パッケージ）を右クリックします。 <a1>画像を大きく開く</a1>",
+      "translation": "Faites un clic droit sur le même dossier (package) que MainActivity. <a1>Ouvrir l'image en grand</a1>"
+    },
+    {
+      "source": "名前に <code>Item</code> と入力し、下の一覧で <strong>Class</strong> を選んで <kbd>return</kbd> を押します。",
+      "translation": "Saisissez <code>Item</code> comme nom, sélectionnez <strong>Class</strong> dans la liste en dessous, puis appuyez sur <kbd>return</kbd>."
+    },
+    {
+      "source": "New Java Classのダイアログ。名前はItem、種類はClassが選択されている",
+      "translation": "Boîte de dialogue New Java Class : nom Item, type Class sélectionné"
+    },
+    {
+      "source": "種類は <strong>Class</strong> です。 <a1>画像を大きく開く</a1>",
+      "translation": "Le type est <strong>Class</strong>. <a1>Ouvrir l'image en grand</a1>"
+    },
+    {
+      "source": "② 中身を書く",
+      "translation": "② Écrire le contenu"
+    },
+    {
+      "source": "できた <code>Item.java</code> の中身を、すべて次のコードに置き換えます。",
+      "translation": "Remplacez tout le contenu du fichier <code>Item.java</code> créé par le code suivant."
+    },
+    {
+      "source": "書いたもの",
+      "translation": "Code écrit"
+    },
+    {
+      "source": "このクラスが<strong>表1つ分</strong>であるという印。クラス名 <code>Item</code> がそのまま表の名前になる",
+      "translation": "Indique que cette classe représente <strong>une table</strong>. Le nom de classe <code>Item</code> devient directement celui de la table"
+    },
+    {
+      "source": "この項目が<strong>行を見分ける番号</strong>。<code>autoGenerate = true</code> で、保存するたびに1・2・3…と自動で増える",
+      "translation": "Cet élément est le <strong>numéro qui identifie une ligne</strong>. Avec <code>autoGenerate = true</code>, il augmente automatiquement à chaque enregistrement : 1, 2, 3…"
+    },
+    {
+      "source": "自動で付く番号。画面の <code>edt_id</code> に入れるのはこの番号",
+      "translation": "Numéro attribué automatiquement. C'est ce numéro que l'on saisit dans <code>edt_id</code> à l'écran"
+    },
+    {
+      "source": "保存したい文字。表の項目はこの2つだけ",
+      "translation": "Texte à enregistrer. La table ne contient que ces deux éléments"
+    },
+    {
+      "source": "<code>@NonNull</code> はここだけ書きます",
+      "translation": "Nous écrivons <code>@NonNull</code> uniquement ici"
+    },
+    {
+      "source": "この授業では <code>@NonNull</code> を自分で書きません。ただし <code>@Entity</code> のフィールドに付けた <code>@NonNull</code> は、Javaの注意書きではなく<strong>「この列は空にできない」という表の決まりそのもの</strong>です。外すと表の形が変わってしまうので、ここだけは書きます。",
+      "translation": "Dans ce cours, vous n'écrivez normalement pas <code>@NonNull</code> vous-même. Cependant, placé sur un champ d'une <code>@Entity</code>, <code>@NonNull</code> n'est pas une simple indication Java : <strong>il définit la règle de la table selon laquelle cette colonne ne peut pas être nulle</strong>. Le supprimer modifierait la structure de la table ; vous l'écrivez donc ici."
+    },
+    {
+      "source": "<code>toString()</code> は表示のために使います",
+      "translation": "<code>toString()</code> sert à l'affichage"
+    },
+    {
+      "source": "STEP 07で一覧を表示するときに、<code>Item</code> をそのまま文字にして並べます。画面に出ている <code>Item{internalId=1, title='CAR'}</code> という表示は、このメソッドが作っています。",
+      "translation": "Pour afficher la liste à STEP 07, les <code>Item</code> sont convertis directement en texte et disposés les uns après les autres. Cette méthode produit l'affichage <code>Item{internalId=1, title='CAR'}</code> visible à l'écran."
+    },
+    {
+      "source": "Itemクラスを作り、表の項目が <code>internalId</code> と <code>title</code> の2つだけになっていることを確認した。",
+      "translation": "J'ai créé la classe Item et vérifié que la table contient uniquement <code>internalId</code> et <code>title</code>."
+    },
+    {
+      "source": "次へ：読み書きの命令を書く →",
+      "translation": "Suite : Écrire les instructions de lecture et d'écriture →"
+    },
+    {
+      "source": "STEP 05 · 目安 15分",
+      "translation": "STEP 05 · Durée indicative : 15 min"
+    },
+    {
+      "source": "読み書きの命令を書く",
+      "translation": "Écrire les instructions de lecture et d'écriture"
+    },
+    {
+      "source": "次に「どう読み書きするか」を書きます。これが <code>ItemDao</code> です。<strong>Dao</strong> は Data Access Object の略で、データベースへの<strong>窓口</strong>です。",
+      "translation": "Décrivez ensuite comment lire et écrire les données dans <code>ItemDao</code>. <strong>Dao</strong> signifie Data Access Object : c'est le <strong>point d'accès</strong> à la base de données."
+    },
+    {
+      "source": "① インタフェースを作る",
+      "translation": "① Créer l'interface"
+    },
+    {
+      "source": "STEP 04と同じ手順で <strong>New → Java Class</strong> を開き、名前に <code>ItemDao</code> と入力します。<strong>ここだけは一覧で <code>Interface</code> を選びます。</strong>",
+      "translation": "Comme à STEP 04, ouvrez <strong>New → Java Class</strong> et saisissez <code>ItemDao</code> comme nom. <strong>Cette fois seulement, choisissez <code>Interface</code> dans la liste.</strong>"
+    },
+    {
+      "source": "New Java Classのダイアログ。名前はItemDao、種類はInterfaceが選択されている",
+      "translation": "Boîte de dialogue New Java Class : nom ItemDao, type Interface sélectionné"
+    },
+    {
+      "source": "<strong>Class ではなく Interface</strong> を選びます。間違えると中身を書いたときに赤いエラーになります。 <a1>画像を大きく開く</a1>",
+      "translation": "Choisissez <strong>Interface, et non Class</strong>. Une erreur de choix provoquera des erreurs rouges quand vous écrirez le contenu. <a1>Ouvrir l'image en grand</a1>"
+    },
+    {
+      "source": "このインタフェースがデータベースへの窓口であるという印",
+      "translation": "Indique que cette interface est le point d'accès à la base de données"
+    },
+    {
+      "source": "表の中身を全部取り出す。<code>item</code> は <code>Item</code> クラスから作られた表の名前",
+      "translation": "Récupère tout le contenu de la table. <code>item</code> est le nom de la table créée à partir de la classe <code>Item</code>"
+    },
+    {
+      "source": "番号を1つ指定して、その1件を取り出す。<code>:internalId</code> はメソッドの引数のこと",
+      "translation": "Récupère un seul enregistrement en indiquant son numéro. <code>:internalId</code> désigne le paramètre de la méthode"
+    },
+    {
+      "source": "<strong>あれば書き換え、なければ追加</strong>。upsert は update と insert を合わせた言葉",
+      "translation": "<strong>Modifie si l'enregistrement existe, ajoute sinon</strong>. Le mot upsert combine update et insert"
+    },
+    {
+      "source": "渡した1件を消す",
+      "translation": "Supprime l'enregistrement transmis"
+    },
+    {
+      "source": "中身（処理）を書かなくてよい理由",
+      "translation": "Pourquoi ne pas écrire le corps des méthodes ?"
+    },
+    {
+      "source": "メソッドに <code>{ }</code> がありません。<strong>ビルドするときにRoomが自動で中身を作ります。</strong>STEP 02で追加した <code>room-compiler</code> がその仕事をしています。私たちが書くのは「何をしたいか」だけです。",
+      "translation": "Les méthodes n'ont pas de <code>{ }</code>. <strong>Room génère leur contenu automatiquement pendant le build.</strong> C'est le rôle de <code>room-compiler</code>, ajouté à STEP 02. Vous indiquez seulement ce que vous voulez faire."
+    },
+    {
+      "source": "なぜ <code>@Upsert</code> だけなのか",
+      "translation": "Pourquoi utiliser uniquement <code>@Upsert</code> ?"
+    },
+    {
+      "source": "Roomには <code>@Insert</code>（追加）と <code>@Update</code>（書き換え）もあります。この授業では、2つを使い分ける判断を増やさないために <code>@Upsert</code> 1つにまとめています。idが空なら追加、idを入れたら書き換え、という<strong>画面の動きがそのままメソッド1つに対応</strong>します。",
+      "translation": "Room propose aussi <code>@Insert</code> (ajouter) et <code>@Update</code> (modifier). Ce cours regroupe ces actions dans <code>@Upsert</code> pour éviter d'avoir à choisir entre deux méthodes. <strong>Le comportement à l'écran correspond directement à une seule méthode</strong> : ajouter si l'id est vide, modifier si un id est saisi."
+    },
+    {
+      "source": "ItemDaoをInterfaceで作り、どのメソッドにも中身の <code>{ }</code> がないことを確認した。",
+      "translation": "J'ai créé ItemDao avec Interface et vérifié qu'aucune méthode ne contient de corps <code>{ }</code>."
+    },
+    {
+      "source": "次へ：データベース本体を作る →",
+      "translation": "Suite : Créer la base de données →"
+    },
+    {
+      "source": "STEP 06 · 目安 10分",
+      "translation": "STEP 06 · Environ 10 min"
+    },
+    {
+      "source": "データベース本体を作る",
+      "translation": "Créer la base de données"
+    },
+    {
+      "source": "表（<code>Item</code>）と窓口（<code>ItemDao</code>）ができました。最後に、それをまとめる<strong>データベース本体</strong>を作ります。",
+      "translation": "La table (<code>Item</code>) et le point d'accès (<code>ItemDao</code>) sont prêts. Créez enfin <strong>la base de données elle-même</strong>, qui les regroupe."
+    },
+    {
+      "source": "STEP 04と同じ手順で <strong>New → Java Class</strong> を開き、名前に <code>AppDatabase</code> と入力します。種類は <strong>Class</strong> です。",
+      "translation": "Comme à STEP 04, ouvrez <strong>New → Java Class</strong> et saisissez <code>AppDatabase</code> comme nom. Le type est <strong>Class</strong>."
+    },
+    {
+      "source": "New Java Classのダイアログ。名前はAppDatabase、種類はClassが選択されている",
+      "translation": "Boîte de dialogue New Java Class : nom AppDatabase, type Class sélectionné"
+    },
+    {
+      "source": "このデータベースが <code>Item</code> の表を持つという宣言。<code>version</code> は表の形を変えたときに増やす番号",
+      "translation": "Déclare que cette base de données contient la table <code>Item</code>. <code>version</code> est un numéro à augmenter lorsque la structure de la table change"
+    },
+    {
+      "source": "中身はRoomが自動で作るので <code>abstract</code>（中身を書かない）にする",
+      "translation": "Utilise <code>abstract</code> (sans écrire le corps), car Room génère le contenu automatiquement"
+    },
+    {
+      "source": "データベースを取り出すメソッド。<strong>1つだけ作って使い回します</strong>",
+      "translation": "Méthode qui récupère la base de données. <strong>Une seule instance est créée puis réutilisée</strong>"
+    },
+    {
+      "source": "端末に作られるファイルの名前",
+      "translation": "Nom du fichier créé sur l'appareil"
+    },
+    {
+      "source": "読み書きを画面と同じ流れで行う指定。<strong>この授業ではこれを付けます</strong>",
+      "translation": "Permet de lire et d'écrire dans le même flux d'exécution que l'écran. <strong>Nous utilisons ce réglage dans ce cours</strong>"
+    },
+    {
+      "source": "なぜ1つだけ作って使い回すのか",
+      "translation": "Pourquoi créer une seule instance et la réutiliser ?"
+    },
+    {
+      "source": "データベースを開く準備には時間がかかります。ボタンを押すたびに作り直すと、そのたびに待たされます。そこで<strong>最初の1回だけ作って、あとは同じものを返す</strong>書き方にします。この書き方を<strong>シングルトン</strong>といい、Roomの公式資料でもこの形がすすめられています。",
+      "translation": "La préparation de l'ouverture d'une base de données prend du temps. La recréer à chaque appui sur un bouton imposerait une attente à chaque fois. On écrit donc le code pour <strong>la créer une seule fois au départ, puis renvoyer la même instance</strong>. Cette forme s'appelle un <strong>singleton</strong> ; elle est aussi recommandée dans la documentation officielle de Room."
+    },
+    {
+      "source": "<code>context.getApplicationContext()</code> を忘れない",
+      "translation": "N'oubliez pas <code>context.getApplicationContext()</code>"
+    },
+    {
+      "source": "<code>Room.databaseBuilder(...)</code> の最初に渡しているのは、受け取った <code>context</code> そのままではなく <code>context.getApplicationContext()</code> です。ここを <code>context</code> のままにすると、画面を回すたびに<strong>古い画面が消えずに残り続けます</strong>。作ったデータベースはアプリが終わるまで残るため、画面ではなく<strong>アプリ全体</strong>を渡します。",
+      "translation": "Le premier argument transmis à <code>Room.databaseBuilder(...)</code> n'est pas directement le <code>context</code> reçu, mais <code>context.getApplicationContext()</code>. Si vous laissez <code>context</code>, <strong>l'ancien écran reste conservé au lieu de disparaître à chaque rotation</strong>. Comme la base créée reste présente jusqu'à la fin de l'application, transmettez <strong>l'application entière</strong> plutôt que l'écran."
+    },
+    {
+      "source": "AppDatabaseを作り、<code>Room.databaseBuilder</code> に <code>context.getApplicationContext()</code> を渡していることを確認した。",
+      "translation": "J'ai créé AppDatabase et vérifié que <code>context.getApplicationContext()</code> est transmis à <code>Room.databaseBuilder</code>."
+    },
+    {
+      "source": "次へ：画面とつないで完成 →",
+      "translation": "Suite : Relier à l'écran pour terminer →"
+    },
+    {
+      "source": "STEP 07 · 目安 25分",
+      "translation": "STEP 07 · Environ 25 min"
+    },
+    {
+      "source": "画面とつないで完成",
+      "translation": "Relier à l'écran pour terminer"
+    },
+    {
+      "source": "部品がそろいました。<code>MainActivity.java</code> の中身を、すべて次のコードに置き換えます。",
+      "translation": "Tous les composants sont prêts. Remplacez tout le contenu de <code>MainActivity.java</code> par le code suivant."
+    },
+    {
+      "source": "読むときの順番",
+      "translation": "Ordre de lecture"
+    },
+    {
+      "source": "行のあたり",
+      "translation": "Ligne ou emplacement"
+    },
+    {
+      "source": "やっていること",
+      "translation": "Action effectuée"
+    },
+    {
+      "source": "データベースを取り出して、窓口（Dao）を受け取る",
+      "translation": "Récupère la base de données et son point d'accès (Dao)"
+    },
+    {
+      "source": "起動したときに、保存されているデータを一覧に出す",
+      "translation": "Affiche les données enregistrées dans la liste au lancement"
+    },
+    {
+      "source": "<code>btn_upsert</code> のリスナ",
+      "translation": "Écouteur de <code>btn_upsert</code>"
+    },
+    {
+      "source": "タイトルが空なら止める → <code>Item</code> を作る → idが入っていれば <code>setInternalId</code> → <code>upsert</code> → 一覧を出し直す",
+      "translation": "S'arrêter si le titre est vide → créer un <code>Item</code> → si un id est saisi, appeler <code>setInternalId</code> → <code>upsert</code> → réafficher la liste"
+    },
+    {
+      "source": "<code>btn_delete</code> のリスナ",
+      "translation": "Écouteur de <code>btn_delete</code>"
+    },
+    {
+      "source": "idが空なら止める → その番号のデータを探す → 見つからなければ止める → <code>delete</code> → 一覧を出し直す",
+      "translation": "S'arrêter si l'id est vide → chercher les données portant ce numéro → s'arrêter si elles sont introuvables → <code>delete</code> → réafficher la liste"
+    },
+    {
+      "source": "全部のデータを1行ずつつなげて、1つの文字列にする",
+      "translation": "Assemble toutes les données, ligne par ligne, en une seule chaîne"
+    },
+    {
+      "source": "保存したあとに毎回 <code>setText</code> し直しています",
+      "translation": "<code>setText</code> est rappelé après chaque enregistrement"
+    },
+    {
+      "source": "データベースに書いても、画面は自動では変わりません。<strong>「書いた」と「画面に出す」は別の仕事</strong>です。A09で「保存と表示は別物」と学んだのと同じです。",
+      "translation": "Écrire dans la base de données ne met pas l'écran à jour automatiquement. <strong>Écrire les données et les afficher à l'écran sont deux tâches distinctes</strong>. C'est le même principe qu'à A09 : enregistrer et afficher sont deux choses différentes."
+    },
+    {
+      "source": "タイトルに <code>CAR</code> と入れて <strong>保存</strong>。一覧に <code>Item{internalId=1, title='CAR'}</code> が出ます。",
+      "translation": "Saisissez <code>CAR</code> comme titre, puis appuyez sur <strong>保存</strong> (Enregistrer). <code>Item{internalId=1, title='CAR'}</code> apparaît dans la liste."
+    },
+    {
+      "source": "続けて <code>BIKE</code>、<code>TRAIN</code> を保存。idが2・3と増えます。",
+      "translation": "Enregistrez ensuite <code>BIKE</code> et <code>TRAIN</code>. L'id augmente à 2, puis 3."
+    },
+    {
+      "source": "id欄に <code>2</code>、タイトルに <code>BICYCLE</code> を入れて <strong>保存</strong>。<strong>2行目だけ</strong>書き換わります。",
+      "translation": "Saisissez <code>2</code> dans le champ id et <code>BICYCLE</code> comme titre, puis appuyez sur <strong>保存</strong> (Enregistrer). <strong>Seule la deuxième ligne</strong> change."
+    },
+    {
+      "source": "id欄に <code>3</code> を入れて <strong>削除</strong>。<strong>3行目だけ</strong>消えます。",
+      "translation": "Saisissez <code>3</code> dans le champ id, puis appuyez sur <strong>削除</strong> (Supprimer). <strong>Seule la troisième ligne</strong> disparaît."
+    },
+    {
+      "source": "アプリを終了して開き直します。残っていれば成功です。終了するには、エミュレータでアプリ一覧（最近使ったアプリ）を開き、このアプリを上へスワイプします。アプリ一覧は、画面下の横棒を上へスワイプしてから止めると出ます。",
+      "translation": "Fermez l'application et rouvrez-la. Si les données restent présentes, c'est réussi. Pour la fermer, ouvrez la liste des applications récentes dans l'émulateur, puis faites glisser cette application vers le haut. Cette liste apparaît en faisant glisser la barre horizontale en bas de l'écran vers le haut, puis en marquant une pause."
+    },
+    {
+      "source": "タイトルを空にして保存を押したときに、画面下にタイトルを入力してくださいのメッセージが出ている画面",
+      "translation": "Après un appui sur 「保存」 (Enregistrer) avec un titre vide, le message 「タイトルを入力してください」 (Saisissez un titre) apparaît en bas de l'écran"
+    },
+    {
+      "source": "タイトルを空のまま保存すると、メッセージが出て保存されません。 <a1>画像を大きく開く</a1>",
+      "translation": "Si vous enregistrez sans titre, un message apparaît et rien n'est enregistré. <a1>Ouvrir l'image en grand</a1>"
+    },
+    {
+      "source": "完成チェック",
+      "translation": "Vérification finale"
+    },
+    {
+      "source": "上から順に操作します。保存したデータが残っているとidが1から始まらないので、アプリを消してから始めます。消し方は<a1>共通資料：エミュレータ</a1>の「アプリを消す」にあります。",
+      "translation": "Effectuez les opérations dans l'ordre. Si des données sont déjà enregistrées, les id ne commenceront pas à 1 : supprimez donc l'application avant de commencer. La procédure se trouve dans « Supprimer l'application » du <a1>Guide commun : Émulateur</a1>."
+    },
+    {
+      "source": "<strong>アプリを終了する</strong>ときは、エミュレータでアプリ一覧（最近使ったアプリ）を開き、このアプリを上へスワイプします。アプリ一覧は、画面下の横棒を上へスワイプしてから止めると出ます。",
+      "translation": "Pour <strong>fermer l'application</strong>, ouvrez la liste des applications récentes dans l'émulateur, puis faites glisser cette application vers le haut. Cette liste apparaît en faisant glisser la barre horizontale en bas de l'écran vers le haut, puis en marquant une pause."
+    },
+    {
+      "source": "操作",
+      "translation": "Action"
+    },
+    {
+      "source": "確認する結果",
+      "translation": "Résultat à vérifier"
+    },
+    {
+      "source": "アプリを消してから初回起動",
+      "translation": "Premier lancement après la suppression de l'application"
+    },
+    {
+      "source": "一覧が空で表示される。",
+      "translation": "La liste affichée est vide."
+    },
+    {
+      "source": "何も入れずに「保存」",
+      "translation": "Appuyer sur 「保存」 (Enregistrer) sans rien saisir"
+    },
+    {
+      "source": "「タイトルを入力してください」が出て、一覧は増えない。",
+      "translation": "「タイトルを入力してください」 (Saisissez un titre) apparaît et aucune ligne n'est ajoutée."
+    },
+    {
+      "source": "タイトルに CAR・BIKE・TRAIN を1件ずつ「保存」",
+      "translation": "Saisir successivement CAR, BIKE et TRAIN comme titre et appuyer chaque fois sur 「保存」 (Enregistrer)"
+    },
+    {
+      "source": "保存のたびに1行増え、idが1・2・3と自動で付く。入力欄は空になる。",
+      "translation": "Chaque enregistrement ajoute une ligne et reçoit automatiquement l'id 1, 2 ou 3. Les champs de saisie se vident."
+    },
+    {
+      "source": "id欄に 2、タイトルに BICYCLE と入れて「保存」",
+      "translation": "Saisir 2 dans le champ id et BICYCLE comme titre, puis appuyer sur 「保存」 (Enregistrer)"
+    },
+    {
+      "source": "2行目だけが BICYCLE に書き換わる。行は増えない。",
+      "translation": "Seule la deuxième ligne devient BICYCLE. Aucune ligne n'est ajoutée."
+    },
+    {
+      "source": "id欄に 3 と入れて「削除」",
+      "translation": "Saisir 3 dans le champ id, puis appuyer sur 「削除」 (Supprimer)"
+    },
+    {
+      "source": "3行目だけが消え、id欄が空になる。",
+      "translation": "Seule la troisième ligne disparaît et le champ id se vide."
+    },
+    {
+      "source": "id欄が空のまま「削除」",
+      "translation": "Appuyer sur 「削除」 (Supprimer) avec le champ id vide"
+    },
+    {
+      "source": "「削除するidを入力してください」が出て、一覧は変わらない。",
+      "translation": "「削除するidを入力してください」 (Saisissez l'id à supprimer) apparaît et la liste ne change pas."
+    },
+    {
+      "source": "id欄に 99 と入れて「削除」",
+      "translation": "Saisir 99 dans le champ id, puis appuyer sur 「削除」 (Supprimer)"
+    },
+    {
+      "source": "「そのidのデータはありません」が出て、一覧は変わらない。",
+      "translation": "「そのidのデータはありません」 (Aucune donnée ne correspond à cet id) apparaît et la liste ne change pas."
+    },
+    {
+      "source": "アプリを終了して開き直す",
+      "translation": "Fermer puis rouvrir l'application"
+    },
+    {
+      "source": "残った2行がそのまま表示される。",
+      "translation": "Les deux lignes restantes s'affichent sans changement."
+    },
+    {
+      "source": "練習",
+      "translation": "Exercices"
+    },
+    {
+      "source": "上から順に試します。<strong>予想 → 試す → 説明</strong>の順で行います。コードを書き換える3は、確かめたあとに<strong>元に戻します</strong>。",
+      "translation": "Essayez dans l'ordre, en suivant <strong>prévoir → essayer → expliquer</strong>. Pour l'exercice 3, qui modifie le code, <strong>rétablissez-le</strong> après vérification."
+    },
+    {
+      "source": "存在しないid（例：<code>99</code>）を入れて <strong>削除</strong> を押すとどうなるか、試して理由を説明する。",
+      "translation": "Saisissez un id inexistant, par exemple <code>99</code>, puis appuyez sur <strong>削除</strong> (Supprimer). Essayez et expliquez le résultat."
+    },
+    {
+      "source": "id欄に <code>1</code> を入れ、タイトルを空にして <strong>保存</strong> を押すとどうなるか、試して理由を説明する。",
+      "translation": "Saisissez <code>1</code> dans le champ id, laissez le titre vide, puis appuyez sur <strong>保存</strong> (Enregistrer). Essayez et expliquez le résultat."
+    },
+    {
+      "source": "<code>btn_upsert</code> のリスナから <code>txtItemList.setText(itemList(itemDao));</code> の1行を消してRunする。保存したデータはどうなっているか、アプリを開き直して確かめる。<strong>確かめたら、消した1行を元に戻す。</strong>",
+      "translation": "Supprimez la ligne <code>txtItemList.setText(itemList(itemDao));</code> de l'écouteur de <code>btn_upsert</code>, puis lancez avec Run. Rouvrez l'application pour vérifier ce que sont devenues les données enregistrées. <strong>Après vérification, rétablissez la ligne supprimée.</strong>"
+    },
+    {
+      "source": "完成版に戻してから確認",
+      "translation": "Vérifier après avoir rétabli la version terminée"
+    },
+    {
+      "source": "練習3で消した <code>txtItemList.setText(itemList(itemDao));</code> の1行を、<code>btn_upsert</code> のリスナの <code>itemDao.upsert(item);</code> の次に戻します。戻したらRunして、タイトルを入れて<strong>保存</strong>を押すと、その場で一覧が1行増えることを確かめます。戻さないままだと、保存を押しても一覧が変わらないアプリが手元に残ります。",
+      "translation": "Rétablissez la ligne <code>txtItemList.setText(itemList(itemDao));</code> supprimée à l'exercice 3, après <code>itemDao.upsert(item);</code> dans l'écouteur de <code>btn_upsert</code>. Relancez avec Run, saisissez un titre et appuyez sur <strong>保存</strong> (Enregistrer). Vérifiez qu'une ligne s'ajoute immédiatement à la liste. Sans rétablir cette ligne, vous garderiez une application dont la liste ne change pas quand vous appuyez sur 「保存」 (Enregistrer)."
+    },
+    {
+      "source": "保存",
+      "translation": "Enregistrement"
+    },
+    {
+      "source": "Android Studioは、書いたコードを自動でファイルに保存します。保存の操作は要りません。ここでは、保存された場所を確かめます。",
+      "translation": "Android Studio enregistre automatiquement le code dans les fichiers. Vous n'avez aucune opération de sauvegarde à effectuer. Vérifiez ici l'emplacement des fichiers enregistrés."
+    },
+    {
+      "source": "Finderを開き、左側の <strong>書類</strong>（<code>Documents</code>）をクリックします。",
+      "translation": "Ouvrez le Finder et cliquez sur <strong>書類</strong> (<code>Documents</code>) à gauche."
+    },
+    {
+      "source": "その中の <code>Android1</code> フォルダを開き、<code>A10RoomSample</code> フォルダがあることを確かめます。",
+      "translation": "Ouvrez le dossier <code>Android1</code> qu'il contient et vérifiez la présence du dossier <code>A10RoomSample</code>."
+    },
+    {
+      "source": "この <code>Documents/Android1/A10RoomSample</code> フォルダが、自分で作ったアプリです。あとの授業でもう一度開けるように、消したり、別の場所へ移動したり、名前を変えたりせずに、そのまま残します。",
+      "translation": "Ce dossier <code>Documents/Android1/A10RoomSample</code> est votre application. Gardez-le tel quel, sans le supprimer, le déplacer ni le renommer, pour pouvoir le rouvrir lors des prochains cours."
+    },
+    {
+      "source": "教材のチェックは自分用です。先生への送信はしません。印刷は <kbd>⌘ P</kbd> で行えます。",
+      "translation": "Les cases du manuel servent à votre propre suivi. Elles ne sont pas envoyées à l'enseignant. Vous pouvez imprimer avec <kbd>⌘ P</kbd>."
+    },
+    {
+      "source": "完成チェックの操作をすべて試して表のとおりの結果になり、練習3で消した1行を元に戻した。",
+      "translation": "J'ai effectué toutes les opérations de la vérification finale, obtenu les résultats du tableau et rétabli la ligne supprimée à l'exercice 3."
+    },
+    {
+      "source": "症状",
+      "translation": "Symptôme"
+    },
+    {
+      "source": "見るところ",
+      "translation": "Où regarder"
+    },
+    {
+      "source": "<code>expected to find any of 'id' or 'version'</code> でビルドが止まる",
+      "translation": "Le build s'arrête avec <code>expected to find any of 'id' or 'version'</code>"
+    },
+    {
+      "source": "STEP 02①。<code>room-runtime</code> と <code>room-compiler</code> を <code>[plugins]</code> ではなく <code>[libraries]</code> に書いているか",
+      "translation": "STEP 02① : <code>room-runtime</code> et <code>room-compiler</code> sont-ils dans <code>[libraries]</code>, et non dans <code>[plugins]</code> ?"
+    },
+    {
+      "source": "<code>Cannot resolve symbol 'Room'</code> などの赤い波線",
+      "translation": "Soulignement rouge, par exemple <code>Cannot resolve symbol 'Room'</code>"
+    },
+    {
+      "source": "STEP 02。Syncが終わっているか。<code>Sync Now</code> を押したか",
+      "translation": "STEP 02 : Sync est-il terminé ? Avez-vous cliqué sur <code>Sync Now</code> ?"
+    },
+    {
+      "source": "<code>ItemDao</code> の中で赤いエラーが出る",
+      "translation": "Erreurs rouges dans <code>ItemDao</code>"
+    },
+    {
+      "source": "STEP 05①。<strong>Class ではなく Interface</strong> で作ったか",
+      "translation": "STEP 05① : avez-vous choisi <strong>Interface, et non Class</strong> ?"
+    },
+    {
+      "source": "STEP 04②。<code>Item</code> のコンストラクタが <code>public</code> か。<code>title</code> のゲッターとセッターがあるか",
+      "translation": "STEP 04② : le constructeur d'<code>Item</code> est-il <code>public</code> ? <code>title</code> possède-t-il un getter et un setter ?"
+    },
+    {
+      "source": "保存しても一覧が変わらない",
+      "translation": "La liste ne change pas après l'enregistrement"
+    },
+    {
+      "source": "STEP 07。<code>setText(itemList(itemDao))</code> をリスナの中に書いたか",
+      "translation": "STEP 07 : avez-vous écrit <code>setText(itemList(itemDao))</code> dans l'écouteur ?"
+    },
+    {
+      "source": "importの赤い波線が消えない",
+      "translation": "Le soulignement rouge des imports ne disparaît pas"
+    },
+    {
+      "source": "共通資料：Auto Import",
+      "translation": "Guide commun : Auto Import"
+    },
+    {
+      "source": "エミュレータが出てこない",
+      "translation": "L'émulateur n'apparaît pas"
+    },
+    {
+      "source": "共通資料：エミュレータ",
+      "translation": "Guide commun : Émulateur"
+    },
+    {
+      "source": "画面を回すと入力した文字が消える",
+      "translation": "Le texte saisi disparaît à la rotation de l'écran"
+    },
+    {
+      "source": "<a1>共通資料：開発Tips</a1> のC章。保存したデータは消えません",
+      "translation": "Chapitre C du <a1>Guide commun : Conseils de développement</a1>. Les données enregistrées ne disparaissent pas"
+    },
+    {
+      "source": "答え合わせ用の見本です。教科書といっしょに配られた<strong>教材のフォルダ</strong>に、そのまま開ける形で入っています。ダウンロードも展開も要りません。授業の入力は自分で作ったプロジェクトに書きます。",
+      "translation": "C'est un exemple pour vérifier votre travail. Il est prêt à ouvrir dans le <strong>dossier des supports de cours</strong> distribué avec le manuel. Aucun téléchargement ni extraction n'est nécessaire. Saisissez le code du cours dans votre propre projet."
+    },
+    {
+      "source": "Android Studioの <strong>Open</strong>（プロジェクトを開いているときは <strong>File → Open</strong>）で、<strong>書類</strong>（<code>Documents</code>）にある教材のフォルダを開きます。名前は <code>android1-student-materials-</code> のうしろに日付が付いた形で、日付は配られた回によって変わります。いま読んでいるこの教科書が入っているフォルダです。",
+      "translation": "Avec <strong>Open</strong> dans Android Studio (ou <strong>File → Open</strong> si un projet est ouvert), ouvrez le dossier des supports de cours dans <strong>書類</strong> (<code>Documents</code>). Son nom commence par <code>android1-student-materials-</code> suivi d'une date, qui varie selon la distribution. Il s'agit du dossier contenant le manuel que vous lisez actuellement."
+    },
+    {
+      "source": "その中を <code>samples → A10RoomSample</code> の順に開き、<code>settings.gradle.kts</code> と <code>app</code> が入った <code>A10RoomSample</code> フォルダを選びます。",
+      "translation": "Ouvrez ensuite <code>samples → A10RoomSample</code> et sélectionnez le dossier <code>A10RoomSample</code> contenant <code>settings.gradle.kts</code> et <code>app</code>."
+    },
+    {
+      "source": "Sync後にRunして動きを確認します。授業の入力に戻るときは自分の <code>Documents/Android1/A10RoomSample</code> を開きます。",
+      "translation": "Après Sync, lancez avec Run pour vérifier le comportement. Pour reprendre la saisie du cours, ouvrez votre propre <code>Documents/Android1/A10RoomSample</code>."
+    },
+    {
+      "source": "教材のフォルダが手元にないときは、同じ見本をZIPで受け取れます（<a1>A10RoomSample.zip</a1>）。展開してできた <code>A10RoomSample</code> フォルダを、同じようにOpenで選びます。",
+      "translation": "Si vous n'avez pas le dossier des supports de cours, vous pouvez obtenir le même exemple en ZIP (<a1>A10RoomSample.zip</a1>). Après extraction, sélectionnez de la même manière le dossier <code>A10RoomSample</code> avec Open."
+    },
+    {
+      "source": "完成した <code>MainActivity.java</code>",
+      "translation": "Fichier <code>MainActivity.java</code> terminé"
+    },
+    {
+      "source": "完成した <code>activity_main.xml</code>",
+      "translation": "Fichier <code>activity_main.xml</code> terminé"
+    },
+    {
+      "source": "Androidプログラミング1 · A10RoomSample / 本文・画像・操作機能はオフラインで利用できます。Android Studioの初回準備・ビルドと公式資料の閲覧にはネット接続が必要です。",
+      "translation": "Programmation Android 1 · A10RoomSample / Le texte, les images et les fonctions interactives sont utilisables hors ligne. La préparation initiale et le build dans Android Studio ainsi que la consultation de la documentation officielle nécessitent une connexion Internet."
+    },
+    {
+      "source": "スクリーンショットのデータは例です。",
+      "translation": "Les données des captures d'écran sont des exemples."
+    }
+  ]
+}

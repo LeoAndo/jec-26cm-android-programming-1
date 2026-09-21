@@ -1,0 +1,1626 @@
+{
+  "source": "docs/bill-splitter/index.html",
+  "language": "mn",
+  "entries": [
+    {
+      "source": "JavaとXMLで作るA07BillSplitter。参加者をArrayListで集め、Intentで配列を渡して画面を切り替え、できあがった計算クラスを使って割り勘の結果を表示するまでを小さなSTEPで学ぶ授業用教科書。",
+      "translation": "Java ба XML ашиглан бүтээх A07BillSplitter. Оролцогчдыг ArrayList-д цуглуулах, Intent-ээр массив дамжуулж дэлгэц солих, бэлэн тооцооллын классыг ашиглан төлбөр хуваах үр дүнг харуулах хүртэл жижиг STEP-ээр сурах хичээлийн сурах бичиг."
+    },
+    {
+      "source": "BillSplitter — 割り勘アプリを作ろう | Androidプログラミング1",
+      "translation": "BillSplitter — Төлбөр хуваах апп бүтээцгээе | Android програмчлал 1"
+    },
+    {
+      "source": "本文へ移動",
+      "translation": "Үндсэн агуулга руу очих"
+    },
+    {
+      "source": "JEC / Androidプログラミング1",
+      "translation": "JEC / Android програмчлал 1"
+    },
+    {
+      "source": "CONTENTS / 学習の順番",
+      "translation": "CONTENTS / Суралцах дараалал"
+    },
+    {
+      "source": "学習ステップ",
+      "translation": "Суралцах алхмууд"
+    },
+    {
+      "source": "00　今日のゴール",
+      "translation": "00 Өнөөдрийн зорилго"
+    },
+    {
+      "source": "01　プロジェクトを作って実行",
+      "translation": "01 Төсөл үүсгээд ажиллуулах"
+    },
+    {
+      "source": "02　タイトル画像を入れる",
+      "translation": "02 Гарчгийн зураг оруулах"
+    },
+    {
+      "source": "03　TOP画面のレイアウトを作る",
+      "translation": "03 TOP дэлгэцийн байрлалыг бүтээх"
+    },
+    {
+      "source": "04　参加者を登録する",
+      "translation": "04 Оролцогч бүртгэх"
+    },
+    {
+      "source": "05　ワリカン画面を作る",
+      "translation": "05 Төлбөр хуваах дэлгэц бүтээх"
+    },
+    {
+      "source": "06　参加者リストを渡して画面を切り替える",
+      "translation": "06 Оролцогчдын жагсаалтыг дамжуулж дэлгэц солих"
+    },
+    {
+      "source": "07　割り勘の計算クラスを使う",
+      "translation": "07 Төлбөр хуваах тооцооллын классыг ашиглах"
+    },
+    {
+      "source": "08　入力チェックを作る",
+      "translation": "08 Оролтын шалгалт хийх"
+    },
+    {
+      "source": "09　計算結果を表示する",
+      "translation": "09 Тооцооллын үр дүнг харуулах"
+    },
+    {
+      "source": "10　ミニ練習",
+      "translation": "10 Жижиг дасгал"
+    },
+    {
+      "source": "11　完成",
+      "translation": "11 Дуусгах"
+    },
+    {
+      "source": "0 / 12 ステップ確認済み",
+      "translation": "0 / 12 алхмыг шалгасан"
+    },
+    {
+      "source": "学習の進み具合",
+      "translation": "Суралцах явц"
+    },
+    {
+      "source": "自分用のチェックです。",
+      "translation": "Энэ нь өөртөө зориулсан шалгалт юм."
+    },
+    {
+      "source": "困ったとき",
+      "translation": "Асуудал гарвал"
+    },
+    {
+      "source": "解説：なぜ画面側でチェックするのか",
+      "translation": "Тайлбар: Яагаад дэлгэцийн талд шалгадаг вэ"
+    },
+    {
+      "source": "解説：1円の端数はだれが払う？",
+      "translation": "Тайлбар: Үлдэгдэл 1 иенийг хэн төлөх вэ?"
+    },
+    {
+      "source": "完成プロジェクトを開く",
+      "translation": "Бэлэн төслийг нээх"
+    },
+    {
+      "source": "共通：はじめの準備",
+      "translation": "Нийтлэг: Эхний бэлтгэл"
+    },
+    {
+      "source": "共通：エミュレータ",
+      "translation": "Нийтлэг: Эмулятор"
+    },
+    {
+      "source": "共通：Auto Import",
+      "translation": "Нийтлэг: Auto Import"
+    },
+    {
+      "source": "共通：Logcat",
+      "translation": "Нийтлэг: Logcat"
+    },
+    {
+      "source": "共通：APKの提出",
+      "translation": "Нийтлэг: APK илгээх"
+    },
+    {
+      "source": "共通：開発Tips",
+      "translation": "Нийтлэг: Хөгжүүлэлтийн зөвлөмж"
+    },
+    {
+      "source": "共通：Android Studioのバージョン",
+      "translation": "Нийтлэг: Android Studio-ийн хувилбар"
+    },
+    {
+      "source": "割り勘アプリを<br>作ろう",
+      "translation": "Төлбөр хуваах апп<br>бүтээцгээе"
+    },
+    {
+      "source": "参加者を登録する。金額を入れる。1円もずれずに分ける。<br>A06で学んだ「配列を渡す」を、使えるアプリにします。",
+      "translation": "Оролцогчдыг бүртгэнэ. Мөнгөн дүнг оруулна. 1 иений ч зөрүүгүй хуваана.<br>A06-д сурсан «массив дамжуулах» аргаар хэрэглэж болох апп бүтээнэ."
+    },
+    {
+      "source": "A06の次の単元",
+      "translation": "A06-ийн дараах бүлэг"
+    },
+    {
+      "source": "90分 × 3コマ目安",
+      "translation": "Ойролцоогоор 90 минут × 3 хичээлийн цаг"
+    },
+    {
+      "source": "Macで学ぶ",
+      "translation": "Mac дээр сурах"
+    },
+    {
+      "source": "STEP 00 · 目安 5分",
+      "translation": "STEP 00 · ойролцоогоор 5 минут"
+    },
+    {
+      "source": "今日のゴール",
+      "translation": "Өнөөдрийн зорилго"
+    },
+    {
+      "source": "飲み会やランチの支払いを、参加者で分けるアプリを作ります。名前を登録する画面と、金額を入れて結果を見る画面の、2つの画面でできています。",
+      "translation": "Уулзалт эсвэл үдийн хоолны төлбөрийг оролцогчдод хуваах апп бүтээнэ. Нэр бүртгэх дэлгэц болон мөнгөн дүн оруулж үр дүн харах дэлгэц гэсэн 2 дэлгэцтэй."
+    },
+    {
+      "source": "TOP画面。タイトル画像の下に名前の入力欄、登録ボタン、ワリカン画面へボタン、参加者一覧の見出しが並んでいる",
+      "translation": "TOP дэлгэц. Гарчгийн зургийн доор нэр оруулах талбар, 「登録」 (бүртгэх) товч, 「ワリカン画面へ」 (төлбөр хуваах дэлгэц рүү) товч, 「参加者一覧」 (оролцогчдын жагсаалт) гарчиг байна"
+    },
+    {
+      "source": "1つ目の画面。参加者の名前を登録します。 <a1>画像を大きく開く</a1>",
+      "translation": "Эхний дэлгэц. Оролцогчдын нэрийг бүртгэнэ. <a1>Зургийг томоор нээх</a1>"
+    },
+    {
+      "source": "ワリカン画面。1234と入力し、Sato 411円、Suzuki 412円、Tanaka 411円、合計1234円と表示されている",
+      "translation": "Төлбөр хуваах дэлгэц. 1234 гэж оруулахад Sato 411 иен, Suzuki 412 иен, Tanaka 411 иен, нийт 1234 иен гэж харагдана"
+    },
+    {
+      "source": "2つ目の画面。1234円を3人で割った結果です。 <a1>画像を大きく開く</a1>",
+      "translation": "Хоёр дахь дэлгэц. 1234 иенийг 3 хүнд хуваасан үр дүн. <a1>Зургийг томоор нээх</a1>"
+    },
+    {
+      "source": "今日使う技術",
+      "translation": "Өнөөдөр ашиглах технологи"
+    },
+    {
+      "source": "技術",
+      "translation": "Технологи"
+    },
+    {
+      "source": "どこで使うか",
+      "translation": "Хаана ашиглах вэ"
+    },
+    {
+      "source": "登録した参加者の名前をためておく。",
+      "translation": "Бүртгэсэн оролцогчдын нэрийг хадгална."
+    },
+    {
+      "source": "Intentで配列を渡す",
+      "translation": "Intent-ээр массив дамжуулах"
+    },
+    {
+      "source": "A06のTest 3と同じ形。参加者の名前を次の画面へ渡す。",
+      "translation": "A06-ийн Test 3-тай ижил хэлбэр. Оролцогчдын нэрийг дараагийн дэлгэц рүү дамжуулна."
+    },
+    {
+      "source": "入力チェック",
+      "translation": "Оролтын шалгалт"
+    },
+    {
+      "source": "おかしな入力のときは計算せず、Snackbarで知らせる。",
+      "translation": "Оролт буруу байвал тооцоолол хийхгүй, Snackbar-аар мэдэгдэнэ."
+    },
+    {
+      "source": "できあがったクラスを使う",
+      "translation": "Бэлэн классыг ашиглах"
+    },
+    {
+      "source": "割り勘の計算は、教材に入っている <code>BillSplitter</code> が担当する。中身は読まなくてよい。",
+      "translation": "Төлбөр хуваах тооцооллыг сургалтын материалд байгаа <code>BillSplitter</code> гүйцэтгэнэ. Доторх кодыг унших шаардлагагүй."
+    },
+    {
+      "source": "1234円を3人で割ると411.33…円です。1円より細かいお金は払えないので、<strong>411円・411円・412円</strong>のように、差が1円までになるように分けます。合計は必ず1234円に戻ります。",
+      "translation": "1234 иенийг 3 хүнд хуваавал 411.33… иен болно. 1 иенээс бага нэгжээр төлөх боломжгүй тул <strong>411 иен, 411 иен, 412 иен</strong> гэх мэтээр зөрүүг 1 иенээс хэтрүүлэхгүй хуваана. Нийлбэр нь заавал 1234 иен болно."
+    },
+    {
+      "source": "画面回転について",
+      "translation": "Дэлгэц эргүүлэх тухай"
+    },
+    {
+      "source": "各単元では画面回転時のデータ保持と横画面のレイアウトを扱いません。回転などでActivityが作り直されると、登録した参加者と計算結果は初期状態に戻ります。横向きでは画面の下の部分が見えなくなる場合があるため、縦向きで使います。考え方と対処法は<a1>共通資料：開発Tips</a1>のC章にあります。",
+      "translation": "Бүлэг бүрд дэлгэц эргэх үед өгөгдөл хадгалах болон хэвтээ байрлалын зохион байгуулалтыг үзэхгүй. Эргүүлэх зэрэг шалтгаанаар Activity дахин үүсвэл бүртгэсэн оролцогчид болон тооцооллын үр дүн анхны төлөвт буцна. Хэвтээ байрлалд дэлгэцийн доод хэсэг харагдахгүй байж болох тул босоогоор ашиглана. Учир болон шийдэх аргыг <a1>Нийтлэг заавар: Хөгжүүлэлтийн зөвлөмж</a1>-ийн C хэсэгт тайлбарласан."
+    },
+    {
+      "source": "ここで止まって、確認",
+      "translation": "Энд түр зогсоод шалгана уу"
+    },
+    {
+      "source": "2つの画面の画像で、1234円を3人で割ると411円・411円・412円になり、合計が1234円に戻ることを確認した。",
+      "translation": "2 дэлгэцийн зургаас 1234 иенийг 3 хүнд хуваахад 411 иен, 411 иен, 412 иен болж, нийлбэр нь 1234 иен болохыг шалгасан."
+    },
+    {
+      "source": "できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。",
+      "translation": "Хийж чадсан бол чагтална уу. Асуудал гарвал STEP-ийн дугаар болон дэлгэцийг багшид үзүүлнэ үү."
+    },
+    {
+      "source": "次へ：プロジェクトを作って実行 →",
+      "translation": "Дараах: Төсөл үүсгээд ажиллуулах →"
+    },
+    {
+      "source": "STEP 01 · 目安 15分",
+      "translation": "STEP 01 · ойролцоогоор 15 минут"
+    },
+    {
+      "source": "プロジェクトを作って実行",
+      "translation": "Төсөл үүсгээд ажиллуулах"
+    },
+    {
+      "source": "授業環境はMacと <strong>Android Studio Panda 2 | 2025.3.2</strong> です。A06までとは別のプロジェクトを作ります。",
+      "translation": "Хичээлд Mac болон <strong>Android Studio Panda 2 | 2025.3.2</strong> ашиглана. A06 хүртэлхээс тусдаа төсөл үүсгэнэ."
+    },
+    {
+      "source": "毎回、自分で新規作成します",
+      "translation": "Бүр удаа өөрөө шинээр үүсгэнэ"
+    },
+    {
+      "source": "作る場所は <code>Documents/Android1/A07BillSplitter</code> です。<a1>完成プロジェクト</a1>は答え合わせ用で、授業の入力は自分で作ったプロジェクトに書きます。",
+      "translation": "Үүсгэх газар нь <code>Documents/Android1/A07BillSplitter</code>. <a1>Бэлэн төсөл</a1> нь хариугаа тулгах зориулалттай. Хичээлийн кодыг өөрийн үүсгэсэн төсөлд бичнэ."
+    },
+    {
+      "source": "Android Studioの <strong>New Project</strong> をクリックします。別のプロジェクトを開いているときは <strong>File → New → New Project</strong> を選びます。",
+      "translation": "Android Studio-ийн <strong>New Project</strong>-ийг дарна уу. Өөр төсөл нээлттэй бол <strong>File → New → New Project</strong>-ийг сонгоно уу."
+    },
+    {
+      "source": "Android StudioのWelcome画面。右上にNew Flutter Project、New Project、Openのボタンが並んでいる",
+      "translation": "Android Studio-ийн Welcome дэлгэц. Баруун дээд талд New Flutter Project, New Project, Open товчнууд байна"
+    },
+    {
+      "source": "右上のNew Projectをクリック。 <a1>画像を大きく開く</a1>",
+      "translation": "Баруун дээд талын New Project-ийг дарна уу. <a1>Зургийг томоор нээх</a1>"
+    },
+    {
+      "source": "<strong>Phone and Tablet → Empty Views Activity → Next</strong> の順に選びます。名前に <strong>Views</strong> があることを確認します。",
+      "translation": "<strong>Phone and Tablet → Empty Views Activity → Next</strong> гэсэн дарааллаар сонгоно уу. Нэрэнд нь <strong>Views</strong> байгааг шалгана уу."
+    },
+    {
+      "source": "テンプレート一覧でEmpty Views Activityが選択されている",
+      "translation": "Загварын жагсаалтаас Empty Views Activity сонгосон байна"
+    },
+    {
+      "source": "Empty Views Activityを選択。Empty Activityとは別です。 <a1>画像を大きく開く</a1>",
+      "translation": "Empty Views Activity-ийг сонгоно уу. Энэ нь Empty Activity-ээс өөр. <a1>Зургийг томоор нээх</a1>"
+    },
+    {
+      "source": "次の表のとおりに入力・選択して <strong>Finish</strong> を押します。",
+      "translation": "Дараах хүснэгтийн дагуу оруулж, сонгоод <strong>Finish</strong>-ийг дарна уу."
+    },
+    {
+      "source": "項目",
+      "translation": "Зүйл"
+    },
+    {
+      "source": "入力・選択する内容",
+      "translation": "Оруулах, сонгох утга"
+    },
+    {
+      "source": "<code>jp.ac.jec.a07billsplitter</code>（すべて小文字）",
+      "translation": "<code>jp.ac.jec.a07billsplitter</code> (бүгд жижиг үсэг)"
+    },
+    {
+      "source": "New Projectの設定画面。NameにA07BillSplitter、Package nameにjp.ac.jec.a07billsplitter、LanguageにJava、Minimum SDKにAPI 31が入っている",
+      "translation": "New Project-ийн тохиргооны дэлгэц. Name нь A07BillSplitter, Package name нь jp.ac.jec.a07billsplitter, Language нь Java, Minimum SDK нь API 31 байна"
+    },
+    {
+      "source": "入力後の画面。画像の保存先は先生の環境のものです。自分のDocuments以下を指定します。 <a1>画像を大きく開く</a1>",
+      "translation": "Оруулсны дараах дэлгэц. Зураг дахь хадгалах газар нь багшийн орчных. Өөрийн Documents доторх газрыг заана уу. <a1>Зургийг томоор нээх</a1>"
+    },
+    {
+      "source": "Sync（歯車の読み込み）が終わるまで待ちます。",
+      "translation": "Sync (арааны дүрстэй ачаалалт) дуусахыг хүлээнэ үү."
+    },
+    {
+      "source": "端末欄で <strong>jec_26cm_android1_Pixel 9a</strong> を選び、<strong>Run</strong>（▶）を押します。白い画面に <strong>Hello World!</strong> が出れば成功です。",
+      "translation": "Төхөөрөмжийн талбараас <strong>jec_26cm_android1_Pixel 9a</strong>-ийг сонгоод <strong>Run</strong> (▶)-ийг дарна уу. Цагаан дэлгэц дээр <strong>Hello World!</strong> гарвал амжилттай болсон."
+    },
+    {
+      "source": "エミュレータが出てこないときは<a1>共通資料：エミュレータ</a1>を見ます。",
+      "translation": "Эмулятор харагдахгүй бол <a1>Нийтлэг заавар: Эмулятор</a1>-ыг үзнэ үү."
+    },
+    {
+      "source": "自分の保存先にA07BillSplitterを作り、Hello World!を表示できた。",
+      "translation": "Өөрийн хадгалах газарт A07BillSplitter үүсгээд Hello World!-ийг харуулж чадсан."
+    },
+    {
+      "source": "次へ：タイトル画像を入れる →",
+      "translation": "Дараах: Гарчгийн зураг оруулах →"
+    },
+    {
+      "source": "STEP 02 · 目安 10分",
+      "translation": "STEP 02 · ойролцоогоор 10 минут"
+    },
+    {
+      "source": "タイトル画像を入れる",
+      "translation": "Гарчгийн зураг оруулах"
+    },
+    {
+      "source": "TOP画面の上に置く<strong>タイトル画像</strong>を追加します。画像の <code>title_img.png</code> は、教科書といっしょに配られた<strong>教材のフォルダ</strong>に入っています。Finderでコピーして、自分のプロジェクトに入れます。",
+      "translation": "TOP дэлгэцийн дээд талд тавих <strong>гарчгийн зургийг</strong> нэмнэ. Зургийн <code>title_img.png</code> файл нь сурах бичигтэй хамт өгсөн <strong>сургалтын материалын хавтас</strong> дотор бий. Finder-ээр хуулаад өөрийн төсөлд оруулна."
+    },
+    {
+      "source": "Finderを開き、左側の <strong>書類</strong> をクリックします。教材のフォルダをダブルクリックで開きます。名前は <code>android1-student-materials-</code> のうしろに日付が付いた形で、日付は配られた回によって変わります。",
+      "translation": "Finder-ийг нээгээд зүүн талын <strong>書類</strong> (Баримт бичиг)-ийг дарна уу. Сургалтын материалын хавтсыг хоёр дарж нээнэ үү. Нэр нь <code>android1-student-materials-</code>-ийн ард огноо залгасан хэлбэртэй. Огноо нь материал тараасан удаа бүрд өөр байна."
+    },
+    {
+      "source": "その中を <code>docs → bill-splitter → downloads</code> の順に開きます。<code>bill-splitter</code> は、いま読んでいるこの教科書（<code>index.html</code>）が入っているフォルダです。",
+      "translation": "Дотор нь <code>docs → bill-splitter → downloads</code> дарааллаар нээнэ үү. <code>bill-splitter</code> нь одоо уншиж буй энэ сурах бичгийг (<code>index.html</code>) агуулсан хавтас юм."
+    },
+    {
+      "source": "<code>title_img.png</code> を選び、<kbd>⌘ C</kbd> でコピーします。同じフォルダには、完成プロジェクトの <code>A07BillSplitter.zip</code> も入っています。ここでは選びません。",
+      "translation": "<code>title_img.png</code>-ийг сонгоод <kbd>⌘ C</kbd>-ээр хуулна уу. Ижил хавтаст бэлэн төслийн <code>A07BillSplitter.zip</code> ч бий. Энд түүнийг сонгохгүй."
+    },
+    {
+      "source": "教材のフォルダが見つからないとき",
+      "translation": "Сургалтын материалын хавтас олдохгүй байвал"
+    },
+    {
+      "source": "教材のフォルダは、はじめの準備で「書類」へ移動したものです（<a1>共通資料：はじめの準備</a1>の1.）。まだ移動していなければ、先にそちらを行います。同じ教材を2回ダウンロードして名前のうしろに <code>(1)</code> が付いたものがあるときは、自分で判断せず先生に見せてください。",
+      "translation": "Сургалтын материалын хавтас нь эхний бэлтгэлээр 「書類」 (Баримт бичиг) рүү зөөсөн хавтас юм (<a1>Нийтлэг заавар: Эхний бэлтгэл</a1>-ийн 1). Зөөгөөгүй бол эхлээд тэр алхмыг хийнэ үү. Ижил материалыг 2 удаа татаж, нэрийн ард нь <code>(1)</code> залгасан хавтас байвал өөрөө шийдэхгүй, багшид үзүүлнэ үү."
+    },
+    {
+      "source": "Android Studioの左側で <code>app → src → main → res → drawable</code> をクリックし、<kbd>⌘ V</kbd> で貼り付けます。",
+      "translation": "Android Studio-ийн зүүн талд <code>app → src → main → res → drawable</code>-ийг дараад <kbd>⌘ V</kbd>-ээр буулгана уу."
+    },
+    {
+      "source": "Copyのダイアログが出ます。New nameが <code>title_img.png</code>、To directoryの最後が <code>A07BillSplitter/app/src/main/res/drawable</code> になっていることを確認して <strong>OK</strong> を押します。",
+      "translation": "Copy харилцах цонх гарна. New name нь <code>title_img.png</code>, To directory-ийн төгсгөл нь <code>A07BillSplitter/app/src/main/res/drawable</code> байгааг шалгаад <strong>OK</strong>-ийг дарна уу."
+    },
+    {
+      "source": "Copyダイアログ。New nameにtitle_img.png、To directoryにA07BillSplitter/app/src/main/res/drawableが表示されている",
+      "translation": "Copy харилцах цонх. New name-д title_img.png, To directory-д A07BillSplitter/app/src/main/res/drawable харагдана"
+    },
+    {
+      "source": "貼り付け先がdrawableになっているか確認します。この画面は先生の例です。<strong>Copy file</strong> のうしろ（コピー元の場所）は、自分の画面では教材のフォルダの中の場所になります。 <a1>画像を大きく開く</a1>",
+      "translation": "Буулгах газар drawable мөн эсэхийг шалгана уу. Энэ дэлгэц нь багшийн жишээ. Өөрийн дэлгэц дээр <strong>Copy file</strong>-ийн ард (хуулж буй эх байрлалд) сургалтын материалын хавтас доторх байрлал гарна. <a1>Зургийг томоор нээх</a1>"
+    },
+    {
+      "source": "プロジェクト画面のdrawableフォルダに、ic_launcher_background.xml、ic_launcher_foreground.xml、title_img.pngが並んでいる",
+      "translation": "Төслийн дэлгэцийн drawable хавтаст ic_launcher_background.xml, ic_launcher_foreground.xml, title_img.png байна"
+    },
+    {
+      "source": "drawableの中に <code>title_img.png</code> が増えていれば成功です。 <a1>画像を大きく開く</a1>",
+      "translation": "drawable дотор <code>title_img.png</code> нэмэгдсэн байвал амжилттай болсон. <a1>Зургийг томоор нээх</a1>"
+    },
+    {
+      "source": "title_img.pngをres/drawableに入れ、プロジェクト画面で確認できた。",
+      "translation": "title_img.png-ийг res/drawable-д оруулаад төслийн дэлгэцээс шалгаж чадсан."
+    },
+    {
+      "source": "次へ：TOP画面のレイアウトを作る →",
+      "translation": "Дараах: TOP дэлгэцийн байрлалыг бүтээх →"
+    },
+    {
+      "source": "STEP 03 · 目安 20分",
+      "translation": "STEP 03 · ойролцоогоор 20 минут"
+    },
+    {
+      "source": "TOP画面のレイアウトを作る",
+      "translation": "TOP дэлгэцийн байрлалыг бүтээх"
+    },
+    {
+      "source": "<code>app → src → main → res → layout → activity_main.xml</code> を開き、左上の <strong>Code</strong> を選びます。中身をすべて消して、次のコードに置き換えます。",
+      "translation": "<code>app → src → main → res → layout → activity_main.xml</code>-ийг нээгээд зүүн дээд талын <strong>Code</strong>-ийг сонгоно уу. Доторхыг бүгдийг устгаад дараах кодоор солино уу."
+    },
+    {
+      "source": "activity_main.xml · 全文",
+      "translation": "activity_main.xml · Бүтэн код"
+    },
+    {
+      "source": "置いた部品",
+      "translation": "Байрлуулсан бүрэлдэхүүнүүд"
+    },
+    {
+      "source": "部品",
+      "translation": "Бүрэлдэхүүн"
+    },
+    {
+      "source": "役割",
+      "translation": "Үүрэг"
+    },
+    {
+      "source": "（なし）",
+      "translation": "(байхгүй)"
+    },
+    {
+      "source": "STEP 02で入れたタイトル画像を表示する。",
+      "translation": "STEP 02-т оруулсан гарчгийн зургийг харуулна."
+    },
+    {
+      "source": "参加者の名前を入力する。",
+      "translation": "Оролцогчийн нэрийг оруулна."
+    },
+    {
+      "source": "入力した名前を登録する。",
+      "translation": "Оруулсан нэрийг бүртгэнэ."
+    },
+    {
+      "source": "ワリカン画面へ進む。",
+      "translation": "Төлбөр хуваах дэлгэц рүү шилжинэ."
+    },
+    {
+      "source": "登録した名前を並べて表示する。",
+      "translation": "Бүртгэсэн нэрсийг жагсааж харуулна."
+    },
+    {
+      "source": "一番外側の <code>LinearLayout</code> には <code>android:id=\"@+id/main\"</code> が付いています。この <code>main</code> は、画面の上下の余白（ステータスバーの下など）を自動で空ける処理で使います。消さないようにします。",
+      "translation": "Хамгийн гаднах <code>LinearLayout</code>-д <code>android:id=\"@+id/main\"</code> байна. Энэ <code>main</code>-ийг дэлгэцийн дээд, доод зайг (төлөвийн мөрийн доор гэх мэт) автоматаар гаргах үйлдэлд ашиглана. Устгаж болохгүй."
+    },
+    {
+      "source": "Runすると、STEP 00の1枚目と同じ画面になります。まだボタンを押しても何も起きません。",
+      "translation": "Run хийвэл STEP 00-ийн эхний зурагтай ижил дэлгэц гарна. Одоогоор товч дарахад юу ч болохгүй."
+    },
+    {
+      "source": "TOP画面のレイアウトを作り、タイトル画像・入力欄・ボタン2つ・参加者一覧を表示できた。",
+      "translation": "TOP дэлгэцийн байрлалыг бүтээгээд гарчгийн зураг, оруулах талбар, 2 товч, оролцогчдын жагсаалтыг харуулж чадсан."
+    },
+    {
+      "source": "次へ：参加者を登録する →",
+      "translation": "Дараах: Оролцогч бүртгэх →"
+    },
+    {
+      "source": "STEP 04 · 目安 25分",
+      "translation": "STEP 04 · ойролцоогоор 25 минут"
+    },
+    {
+      "source": "参加者を登録する",
+      "translation": "Оролцогч бүртгэх"
+    },
+    {
+      "source": "<code>MainActivity.java</code> を開きます。<code>onCreate</code> の中の、<code>ViewCompat.setOnApplyWindowInsetsListener(…);</code> で終わる行の<strong>下</strong>に書いていきます。",
+      "translation": "<code>MainActivity.java</code>-ийг нээнэ үү. <code>onCreate</code> доторх <code>ViewCompat.setOnApplyWindowInsetsListener(…);</code>-ээр төгссөн мөрийн <strong>доор</strong> бичнэ."
+    },
+    {
+      "source": "① 名前をためる入れ物と、画面の部品を用意する",
+      "translation": "① Нэрс хадгалах сав болон дэлгэцийн бүрэлдэхүүнийг бэлтгэх"
+    },
+    {
+      "source": "MainActivity.java · onCreateの中",
+      "translation": "MainActivity.java · onCreate дотор"
+    },
+    {
+      "source": "<code>ArrayList</code> は、あとから増やせる入れ物です。ここに参加者の名前をためます。",
+      "translation": "<code>ArrayList</code> нь дараа нь элемент нэмж болдог сав юм. Энд оролцогчдын нэрийг цуглуулна."
+    },
+    {
+      "source": "<code>findViewById</code> は <code>onCreate</code> の最初にまとめて書きます。あとから何度も呼ばずに済み、どの部品を使うアプリなのかが上から読めます。",
+      "translation": "<code>findViewById</code>-ийг <code>onCreate</code>-ийн эхэнд нэг дор бичнэ. Ингэснээр дараа нь олон дахин дуудах шаардлагагүй бөгөөд апп ямар бүрэлдэхүүн ашиглахыг дээрээс нь уншаад мэдэж болно."
+    },
+    {
+      "source": "赤い字になったら <kbd>⌥ Enter</kbd> を押し、<code>java.util.ArrayList</code>・<code>android.widget.EditText</code>・<code>android.widget.TextView</code> を選びます。<a1>共通資料：Auto Import</a1>も見ます。",
+      "translation": "Улаан бичвэр гарвал <kbd>⌥ Enter</kbd>-ийг дараад <code>java.util.ArrayList</code>, <code>android.widget.EditText</code>, <code>android.widget.TextView</code>-ийг сонгоно уу. <a1>Нийтлэг заавар: Auto Import</a1>-ийг мөн үзнэ үү."
+    },
+    {
+      "source": "② 登録ボタンの処理を書く",
+      "translation": "② 「登録」 (бүртгэх) товчны үйлдлийг бичих"
+    },
+    {
+      "source": "MainActivity.java · ①の下",
+      "translation": "MainActivity.java · ①-ийн доор"
+    },
+    {
+      "source": "書いたこと",
+      "translation": "Бичсэн зүйл"
+    },
+    {
+      "source": "意味",
+      "translation": "Утга"
+    },
+    {
+      "source": "入力欄が空のときは登録しない。",
+      "translation": "Оруулах талбар хоосон бол бүртгэхгүй."
+    },
+    {
+      "source": "同じ名前がすでにあるときは登録しない。",
+      "translation": "Ижил нэр аль хэдийн байвал бүртгэхгүй."
+    },
+    {
+      "source": "メッセージを出して、ここで処理をやめる。下の登録は行われない。",
+      "translation": "Мэдэгдэл гаргаад энд үйлдлийг зогсооно. Доорх бүртгэх үйлдэл хийгдэхгүй."
+    },
+    {
+      "source": "一覧の<strong>末尾に追加</strong>する。<code>setText</code> だと前の名前が消える。",
+      "translation": "Жагсаалтын <strong>төгсгөлд нэмнэ</strong>. <code>setText</code> ашиглавал өмнөх нэрс арилна."
+    },
+    {
+      "source": "入力欄を空にして、次の名前を入れやすくする。",
+      "translation": "Дараагийн нэрийг оруулахад хялбар болгохын тулд оруулах талбарыг хоосолно."
+    },
+    {
+      "source": "<code>\"\\n\"</code> は改行です。1人1行で並びます。",
+      "translation": "<code>\"\\n\"</code> нь мөр шилжүүлэх тэмдэг. Нэг хүнийг нэг мөрөнд харуулна."
+    },
+    {
+      "source": "③ Runで確かめる",
+      "translation": "③ Run ашиглан шалгах"
+    },
+    {
+      "source": "何も入力せずに <strong>登録</strong> を押します。",
+      "translation": "Юу ч оруулахгүйгээр <strong>登録</strong> (бүртгэх)-ийг дарна уу."
+    },
+    {
+      "source": "名前を入れずに登録を押したところ。画面下に参加者名を入力してくださいと表示されている",
+      "translation": "Нэр оруулахгүйгээр 「登録」 (бүртгэх)-ийг дарсан байдал. Дэлгэцийн доор 「参加者名を入力してください」 (оролцогчийн нэрийг оруулна уу) гэж харагдана"
+    },
+    {
+      "source": "空のときは登録されず、下にメッセージが出ます。 <a1>画像を大きく開く</a1>",
+      "translation": "Хоосон бол бүртгэхгүй, доор мэдэгдэл гарна. <a1>Зургийг томоор нээх</a1>"
+    },
+    {
+      "source": "<code>Sato</code>・<code>Suzuki</code>・<code>Tanaka</code> の順に登録します。",
+      "translation": "<code>Sato</code>, <code>Suzuki</code>, <code>Tanaka</code> гэсэн дарааллаар бүртгэнэ үү."
+    },
+    {
+      "source": "参加者一覧にSato、Suzuki、Tanakaの3人が縦に並んでいる",
+      "translation": "Оролцогчдын жагсаалтад Sato, Suzuki, Tanaka гэсэн 3 хүн босоогоор жагссан байна"
+    },
+    {
+      "source": "登録した順に1行ずつ増えます。 <a1>画像を大きく開く</a1>",
+      "translation": "Бүртгэсэн дарааллаар нэг нэг мөр нэмэгдэнэ. <a1>Зургийг томоор нээх</a1>"
+    },
+    {
+      "source": "もう一度 <code>Sato</code> を登録します。",
+      "translation": "<code>Sato</code>-г дахин бүртгэнэ үү."
+    },
+    {
+      "source": "すでに登録済みのSatoをもう一度登録しようとして、参加者名が重複していますと表示されている",
+      "translation": "Аль хэдийн бүртгэсэн Sato-г дахин бүртгэхэд 「参加者名が重複しています」 (оролцогчийн нэр давхардсан байна) гэж харагдана"
+    },
+    {
+      "source": "同じ名前は登録されません。一覧も増えません。 <a1>画像を大きく開く</a1>",
+      "translation": "Ижил нэрийг бүртгэхгүй. Жагсаалт ч нэмэгдэхгүй. <a1>Зургийг томоор нээх</a1>"
+    },
+    {
+      "source": "参加者を登録でき、空のときと同じ名前のときにメッセージが出ることを確かめられた。",
+      "translation": "Оролцогч бүртгэж чадсан бөгөөд хоосон болон ижил нэртэй үед мэдэгдэл гарсныг шалгаж чадсан."
+    },
+    {
+      "source": "次へ：ワリカン画面を作る →",
+      "translation": "Дараах: Төлбөр хуваах дэлгэц бүтээх →"
+    },
+    {
+      "source": "STEP 05 · 目安 15分",
+      "translation": "STEP 05 · ойролцоогоор 15 минут"
+    },
+    {
+      "source": "ワリカン画面を作る",
+      "translation": "Төлбөр хуваах дэлгэц бүтээх"
+    },
+    {
+      "source": "2つ目の画面を追加します。A06のTestActivityと同じ作り方です。",
+      "translation": "Хоёр дахь дэлгэцийг нэмнэ. A06-ийн TestActivity-тай ижил аргаар үүсгэнэ."
+    },
+    {
+      "source": "左側のプロジェクト画面で <code>app → src → main → java → jp.ac.jec.a07billsplitter</code> を右クリックします。",
+      "translation": "Зүүн талын төслийн дэлгэцээс <code>app → src → main → java → jp.ac.jec.a07billsplitter</code> дээр баруун товчоор дарна уу."
+    },
+    {
+      "source": "<strong>New → Activity → Empty Views Activity</strong> を選びます。",
+      "translation": "<strong>New → Activity → Empty Views Activity</strong>-ийг сонгоно уу."
+    },
+    {
+      "source": "パッケージを右クリックして、New、Activity、Empty Views Activityと選んでいるメニュー",
+      "translation": "Багц дээр баруун товчоор дараад New, Activity, Empty Views Activity дарааллаар сонгож буй цэс"
+    },
+    {
+      "source": "作る場所は <code>jp.ac.jec.a07billsplitter</code> です。 <a1>画像を大きく開く</a1>",
+      "translation": "Үүсгэх газар нь <code>jp.ac.jec.a07billsplitter</code>. <a1>Зургийг томоор нээх</a1>"
+    },
+    {
+      "source": "次の表のとおりに入力して <strong>Finish</strong> を押します。<strong>Launcher Activityにはチェックを入れません。</strong>",
+      "translation": "Дараах хүснэгтийн дагуу оруулаад <strong>Finish</strong>-ийг дарна уу. <strong>Launcher Activity-г чагтлахгүй.</strong>"
+    },
+    {
+      "source": "チェックを入れる",
+      "translation": "Чагтална"
+    },
+    {
+      "source": "チェックを入れない",
+      "translation": "Чагтлахгүй"
+    },
+    {
+      "source": "New Android Activityの設定画面。Activity NameにBillSplitActivity、Layout Nameにactivity_bill_split、Launcher Activityは未チェック",
+      "translation": "New Android Activity-ийн тохиргооны дэлгэц. Activity Name нь BillSplitActivity, Layout Name нь activity_bill_split, Launcher Activity чагтлаагүй байна"
+    },
+    {
+      "source": "<strong>Launcher Activityにはチェックを入れません。</strong>理由はこのあとで説明します。 <a1>画像を大きく開く</a1>",
+      "translation": "<strong>Launcher Activity-г чагтлахгүй.</strong> Шалтгааныг дараа тайлбарлана. <a1>Зургийг томоор нээх</a1>"
+    },
+    {
+      "source": "New → Java Classでは作りません",
+      "translation": "New → Java Class-аар үүсгэхгүй"
+    },
+    {
+      "source": "この作り方なら <code>AndroidManifest.xml</code> への登録も自動で行われます。<strong>New → Java Class</strong> で作ると登録されず、画面を開いたときにアプリが終了します。",
+      "translation": "Энэ аргаар үүсгэвэл <code>AndroidManifest.xml</code>-д мөн автоматаар бүртгэнэ. <strong>New → Java Class</strong>-аар үүсгэвэл бүртгэгдэхгүй тул дэлгэц нээхэд апп хаагдана."
+    },
+    {
+      "source": "AndroidManifest.xmlに増えた3行を見る",
+      "translation": "AndroidManifest.xml-д нэмэгдсэн 3 мөрийг харах"
+    },
+    {
+      "source": "<code>app → src → main → AndroidManifest.xml</code> を開きます。<strong>Finish</strong> を押した直後に、次の3行が増えています。自動で追加されているので、<strong>入力しません</strong>。",
+      "translation": "<code>app → src → main → AndroidManifest.xml</code>-ийг нээнэ үү. <strong>Finish</strong>-ийг дарсны дараа шууд дараах 3 мөр нэмэгдсэн байна. Автоматаар нэмэгдсэн тул <strong>өөрөө бичихгүй</strong>."
+    },
+    {
+      "source": "指定",
+      "translation": "Тохируулга"
+    },
+    {
+      "source": "アプリの画面をAndroidに知らせる。この登録がないと、画面を開いたときにアプリが終了する。",
+      "translation": "Аппын дэлгэцийг Android-д мэдэгдэнэ. Энэ бүртгэл байхгүй бол дэлгэц нээхэд апп хаагдана."
+    },
+    {
+      "source": "登録するクラス。先頭の <code>.</code> は、パッケージ名 <code>jp.ac.jec.a07billsplitter</code> を省いた書き方。",
+      "translation": "Бүртгэх класс. Эхний <code>.</code> нь <code>jp.ac.jec.a07billsplitter</code> багцын нэрийг орхиж товчилсон бичлэг."
+    },
+    {
+      "source": "ほかのアプリからこの画面を開けないようにする。<code>BillSplitActivity</code> は自分のアプリの <code>MainActivity</code> からだけ開く。",
+      "translation": "Бусад аппаас энэ дэлгэцийг нээхийг хориглоно. <code>BillSplitActivity</code>-г зөвхөн өөрийн аппын <code>MainActivity</code>-аас нээнэ."
+    },
+    {
+      "source": "なぜLauncher Activityにチェックを入れないのか",
+      "translation": "Яагаад Launcher Activity-г чагтлахгүй вэ"
+    },
+    {
+      "source": "<code>MainActivity</code> の <code>&lt;activity&gt;</code> には <code>&lt;intent-filter&gt;</code>（<code>MAIN</code> と <code>LAUNCHER</code>）が書かれています。これは「アプリ一覧のアイコンから最初に開く画面」という印です。<code>BillSplitActivity</code> は <code>MainActivity</code> から開くので、この印は要りません。",
+      "translation": "<code>MainActivity</code>-ийн <code>&lt;activity&gt;</code> дотор <code>&lt;intent-filter&gt;</code> (<code>MAIN</code> ба <code>LAUNCHER</code>) бичсэн байна. Энэ нь «аппын жагсаалтын дүрснээс хамгийн түрүүнд нээгдэх дэлгэц» гэсэн тэмдэг юм. <code>BillSplitActivity</code>-г <code>MainActivity</code>-аас нээх тул энэ тэмдэг шаардлагагүй."
+    },
+    {
+      "source": "Launcher Activityにチェックを入れると、<code>BillSplitActivity</code> にもこの印が付いて、次の2つが起きます。",
+      "translation": "Launcher Activity-г чагталбал <code>BillSplitActivity</code>-д ч энэ тэмдэг нэмэгдэж, дараах 2 зүйл тохиолдоно."
+    },
+    {
+      "source": "アプリ一覧に、<strong>「A07BillSplitter」という同じ名前のアイコンが2つ</strong>並びます。名前もアイコンも同じなので、どちらが本物か見分けられません。",
+      "translation": "Аппын жагсаалтад <strong>«A07BillSplitter» гэсэн ижил нэртэй 2 дүрс</strong> гарна. Нэр, дүрс нь ижил тул аль нь жинхэнэ болохыг ялгаж чадахгүй."
+    },
+    {
+      "source": "<strong>Runしたときに、作ったばかりの何もない画面が起動することがあります。</strong>印の付いた画面が2つあるため、どちらから始まるかが決まらないからです。",
+      "translation": "<strong>Run хийхэд дөнгөж үүсгэсэн хоосон дэлгэц эхлэх тохиолдол бий.</strong> Тэмдэгтэй 2 дэлгэц байгаа учраас алинаас нь эхлэх нь тодорхойгүй болно."
+    },
+    {
+      "source": "入れてしまったときは、<code>BillSplitActivity</code> の <code>&lt;activity&gt;</code> から <code>&lt;intent-filter&gt;</code> を消して、<code>android:exported</code> を <code>false</code> に戻します。上の3行と同じ形になれば直っています。",
+      "translation": "Чагталсан бол <code>BillSplitActivity</code>-ийн <code>&lt;activity&gt;</code>-аас <code>&lt;intent-filter&gt;</code>-ийг устгаад <code>android:exported</code>-ийг <code>false</code> болгоно уу. Дээрх 3 мөртэй ижил хэлбэртэй бол засагдсан байна."
+    },
+    {
+      "source": "ワリカン画面のレイアウト",
+      "translation": "Төлбөр хуваах дэлгэцийн байрлал"
+    },
+    {
+      "source": "<code>res → layout → activity_bill_split.xml</code> を開き、<strong>Code</strong> にしてから、中身をすべて次のコードに置き換えます。",
+      "translation": "<code>res → layout → activity_bill_split.xml</code>-ийг нээгээд <strong>Code</strong> руу шилжүүлж, доторхыг бүхэлд нь дараах кодоор солино уу."
+    },
+    {
+      "source": "activity_bill_split.xml · 全文",
+      "translation": "activity_bill_split.xml · Бүтэн код"
+    },
+    {
+      "source": "受け取った人数を表示する。",
+      "translation": "Хүлээн авсан хүний тоог харуулна."
+    },
+    {
+      "source": "合計金額を入力する。",
+      "translation": "Нийт мөнгөн дүнг оруулна."
+    },
+    {
+      "source": "計算を実行する。",
+      "translation": "Тооцооллыг ажиллуулна."
+    },
+    {
+      "source": "計算結果を表示する。",
+      "translation": "Тооцооллын үр дүнг харуулна."
+    },
+    {
+      "source": "金額の入力欄には <code>android:inputType=\"number\"</code> と <code>android:maxLength=\"9\"</code> を付けています。数字だけのキーボードが出て、9桁までしか入りません。",
+      "translation": "Мөнгөн дүн оруулах талбарт <code>android:inputType=\"number\"</code> болон <code>android:maxLength=\"9\"</code> тохируулсан. Зөвхөн тооны гар гарч, хамгийн ихдээ 9 орон оруулна."
+    },
+    {
+      "source": "BillSplitActivityとactivity_bill_split.xmlを作り、Launcher Activityにチェックを入れていないことを確認できた。",
+      "translation": "BillSplitActivity болон activity_bill_split.xml-ийг үүсгээд Launcher Activity-г чагтлаагүйг шалгаж чадсан."
+    },
+    {
+      "source": "次へ：参加者リストを渡して画面を切り替える →",
+      "translation": "Дараах: Оролцогчдын жагсаалтыг дамжуулж дэлгэц солих →"
+    },
+    {
+      "source": "STEP 06 · 目安 20分",
+      "translation": "STEP 06 · ойролцоогоор 20 минут"
+    },
+    {
+      "source": "参加者リストを渡して画面を切り替える",
+      "translation": "Оролцогчдын жагсаалтыг дамжуулж дэлгэц солих"
+    },
+    {
+      "source": "A06のTest 3でやった<strong>配列を渡す</strong>形です。渡す側と受け取る側の両方を書きます。",
+      "translation": "A06-ийн Test 3-т хийсэн <strong>массив дамжуулах</strong> хэлбэр юм. Дамжуулах тал болон хүлээн авах талыг хоёуланг нь бичнэ."
+    },
+    {
+      "source": "① 受け取る側（BillSplitActivity）にstartメソッドを作る",
+      "translation": "① Хүлээн авах талд (BillSplitActivity) start метод үүсгэх"
+    },
+    {
+      "source": "<code>BillSplitActivity.java</code> を開きます。クラスの最初と、<code>onCreate</code> の<strong>外</strong>に次を書きます。",
+      "translation": "<code>BillSplitActivity.java</code>-ийг нээнэ үү. Классын эхэнд болон <code>onCreate</code>-ийн <strong>гадна</strong> дараахыг бичнэ үү."
+    },
+    {
+      "source": "BillSplitActivity.java · クラスの最初",
+      "translation": "BillSplitActivity.java · Классын эхэнд"
+    },
+    {
+      "source": "BillSplitActivity.java · onCreateの最後の } の下、クラスの最後の } の上",
+      "translation": "BillSplitActivity.java · onCreate-ийн төгсгөлийн }-ийн доор, классын төгсгөлийн }-ийн дээр"
+    },
+    {
+      "source": "クラス名を付けて <code>BillSplitActivity.start(…)</code> と呼べるメソッド。この画面を開く手順を、開かれる側であるこの画面自身が持つ。",
+      "translation": "Классын нэрээр <code>BillSplitActivity.start(…)</code> гэж дуудаж болох метод. Энэ дэлгэцийг нээх дарааллыг нээгдэх тал болох дэлгэц өөрөө агуулна."
+    },
+    {
+      "source": "画面（Activity）を受け取るための型。呼ぶ側が <code>this</code> を渡すと、ここに入る。",
+      "translation": "Дэлгэцийг (Activity) хүлээн авах төрөл. Дуудах тал <code>this</code>-ийг дамжуулахад энд орно."
+    },
+    {
+      "source": "今の画面から <code>BillSplitActivity</code> を開くための指示（Intent）を作る。",
+      "translation": "Одоогийн дэлгэцээс <code>BillSplitActivity</code>-г нээх заавар (Intent) үүсгэнэ."
+    },
+    {
+      "source": "キーを付けて、渡したい値をIntentに入れる。",
+      "translation": "Дамжуулах утгаа түлхүүртэй нь Intent-д оруулна."
+    },
+    {
+      "source": "IntentをAndroidに渡して、画面を開いてもらう。",
+      "translation": "Intent-ийг Android-д өгч дэлгэцийг нээлгэнэ."
+    },
+    {
+      "source": "キーの文字（<code>\"participants\"</code>）は、受け取る側であるこの画面が持ちます。渡す側は <code>start</code> を呼ぶだけでよく、キーを間違えようがありません。",
+      "translation": "Түлхүүрийн бичвэрийг (<code>\"participants\"</code>) хүлээн авах тал болох энэ дэлгэц агуулна. Дамжуулах тал зөвхөн <code>start</code>-ийг дуудах тул түлхүүрийг андуурах боломжгүй."
+    },
+    {
+      "source": "② 受け取って人数を表示する",
+      "translation": "② Хүлээн аваад хүний тоог харуулах"
+    },
+    {
+      "source": "<code>onCreate</code> の中の、<code>ViewCompat.setOnApplyWindowInsetsListener(…);</code> の下に書きます。",
+      "translation": "<code>onCreate</code> доторх <code>ViewCompat.setOnApplyWindowInsetsListener(…);</code>-ийн доор бичнэ үү."
+    },
+    {
+      "source": "BillSplitActivity.java · onCreateの中",
+      "translation": "BillSplitActivity.java · onCreate дотор"
+    },
+    {
+      "source": "<code>getIntent()</code> は、この画面を開いたときのIntent（①の <code>start</code> で作って <code>startActivity</code> に渡したもの）を返します。<code>getStringArrayExtra(EXTRA_KEY_PARTICIPANTS)</code> は、そのIntentから、①で <code>putExtra</code> したのと同じキーの配列を取り出します。値が入っていないと <code>null</code> を返します。<code>Objects.requireNonNull</code> は、<code>null</code> だったらその場でアプリを止める書き方です。ここが <code>null</code> になるのは渡し忘れというプログラムの間違いのときだけなので、すぐ気づけるようにしておきます。",
+      "translation": "<code>getIntent()</code> нь энэ дэлгэцийг нээсэн Intent-ийг (①-ийн <code>start</code>-д үүсгээд <code>startActivity</code>-д дамжуулсан зүйл) буцаана. <code>getStringArrayExtra(EXTRA_KEY_PARTICIPANTS)</code> нь тэр Intent-ээс ①-д <code>putExtra</code> хийхэд ашигласан түлхүүртэй массивыг гаргана. Утга байхгүй бол <code>null</code> буцаана. <code>Objects.requireNonNull</code> нь <code>null</code> байвал аппыг тэр дор нь зогсоох бичлэг юм. Дамжуулахаа мартсан програмын алдаатай үед л энд <code>null</code> болох тул тэр даруй анзаарахаар болгож байна."
+    },
+    {
+      "source": "③ 渡す側（MainActivity）から呼ぶ",
+      "translation": "③ Дамжуулах талаас (MainActivity) дуудах"
+    },
+    {
+      "source": "<code>MainActivity.java</code> の、STEP 04で書いた <code>btnAdd.setOnClickListener(…);</code> の下に書きます。",
+      "translation": "<code>MainActivity.java</code>-д STEP 04-т бичсэн <code>btnAdd.setOnClickListener(…);</code>-ийн доор бичнэ үү."
+    },
+    {
+      "source": "MainActivity.java · ②の下",
+      "translation": "MainActivity.java · ②-ийн доор"
+    },
+    {
+      "source": "<code>participants</code> は <code>ArrayList</code> ですが、Intentで渡すのは<strong>配列</strong>です。<code>toArray(new String[0])</code> で <code>String[]</code> に変えて渡します。",
+      "translation": "<code>participants</code> нь <code>ArrayList</code> боловч Intent-ээр дамжуулах зүйл нь <strong>массив</strong> юм. <code>toArray(new String[0])</code>-аар <code>String[]</code> болгон хувиргаж дамжуулна."
+    },
+    {
+      "source": "1人では割り勘になりません。2人未満のときは画面を切り替えずにメッセージを出します。",
+      "translation": "Нэг хүн төлбөрөө хуваахгүй. 2-оос цөөн хүн байвал дэлгэц солихгүй, мэдэгдэл гаргана."
+    },
+    {
+      "source": "④ Runで確かめる",
+      "translation": "④ Run ашиглан шалгах"
+    },
+    {
+      "source": "参加者を1人だけ登録して <strong>ワリカン画面へ</strong> を押します。",
+      "translation": "Зөвхөн 1 оролцогч бүртгээд <strong>ワリカン画面へ</strong> (төлбөр хуваах дэлгэц рүү)-г дарна уу."
+    },
+    {
+      "source": "参加者が1人のときにワリカン画面へを押して、参加者を2人以上追加してくださいと表示されている",
+      "translation": "1 оролцогчтой үед 「ワリカン画面へ」 (төлбөр хуваах дэлгэц рүү)-г дарахад 「参加者を2人以上追加してください」 (дор хаяж 2 оролцогч нэмнэ үү) гэж харагдана"
+    },
+    {
+      "source": "1人のときは画面が切り替わりません。 <a1>画像を大きく開く</a1>",
+      "translation": "1 хүнтэй үед дэлгэц солигдохгүй. <a1>Зургийг томоор нээх</a1>"
+    },
+    {
+      "source": "3人登録してから <strong>ワリカン画面へ</strong> を押します。",
+      "translation": "3 хүн бүртгэсний дараа <strong>ワリカン画面へ</strong> (төлбөр хуваах дэлгэц рүү)-г дарна уу."
+    },
+    {
+      "source": "ワリカン画面。上に参加者は3人、その下に支払額（￥）のラベルと金額の入力欄、計算実行ボタン、計算結果の見出しがある",
+      "translation": "Төлбөр хуваах дэлгэц. Дээд талд 「参加者は3人」 (3 оролцогчтой), доор нь мөнгөн дүнгийн шошго болон оруулах талбар, 「計算実行」 (тооцоолох) товч, 「計算結果」 (тооцооллын үр дүн) гарчиг байна"
+    },
+    {
+      "source": "渡した人数が <strong>参加者は3人</strong> と表示されます。 <a1>画像を大きく開く</a1>",
+      "translation": "Дамжуулсан хүний тоо <strong>参加者は3人</strong> (3 оролцогчтой) гэж харагдана. <a1>Зургийг томоор нээх</a1>"
+    },
+    {
+      "source": "2人以上のときだけワリカン画面が開き、渡した人数を表示できた。",
+      "translation": "Зөвхөн 2 ба түүнээс олон хүнтэй үед төлбөр хуваах дэлгэц нээгдэж, дамжуулсан хүний тоог харуулж чадсан."
+    },
+    {
+      "source": "次へ：割り勘の計算クラスを使う →",
+      "translation": "Дараах: Төлбөр хуваах тооцооллын классыг ашиглах →"
+    },
+    {
+      "source": "STEP 07 · 目安 15分",
+      "translation": "STEP 07 · ойролцоогоор 15 минут"
+    },
+    {
+      "source": "割り勘の計算クラスを使う",
+      "translation": "Төлбөр хуваах тооцооллын классыг ашиглах"
+    },
+    {
+      "source": "割り勘の計算は、できあがった <code>BillSplitter.java</code> が行います。<strong>中身を読む必要はありません。</strong>使い方だけ覚えます。",
+      "translation": "Төлбөр хуваах тооцооллыг бэлэн <code>BillSplitter.java</code> хийнэ. <strong>Доторх кодыг унших шаардлагагүй.</strong> Зөвхөн ашиглах аргыг сурна."
+    },
+    {
+      "source": "空のファイルを自分で作り、このページの下にあるコードをコピーして、丸ごと入れます。コードは<strong>読まずにコピーして構いません</strong>。読むのは、そのあとの<a1>③ 使い方</a1>だけです。",
+      "translation": "Өөрөө хоосон файл үүсгээд энэ хуудасны доорх кодыг хуулж бүхэлд нь оруулна. Кодыг <strong>уншихгүйгээр хуулж болно</strong>. Дараах <a1>③ Ашиглах арга</a1>-ыг л уншина."
+    },
+    {
+      "source": "STEP 02のタイトル画像は、ファイルごとFinderでコピーしました。コードは文字なので、Finderを使わず、この教科書のページからそのままコピーできます。",
+      "translation": "STEP 02-ын гарчгийн зургийг Finder-ээр файлын хамт хуулсан. Код нь бичвэр тул Finder ашиглахгүйгээр энэ сурах бичгийн хуудаснаас шууд хуулж болно."
+    },
+    {
+      "source": "① 空のファイルを作る",
+      "translation": "① Хоосон файл үүсгэх"
+    },
+    {
+      "source": "左側のプロジェクト画面で <code>app → src → main → java → jp.ac.jec.a07billsplitter</code>（<code>MainActivity.java</code> があるフォルダ）を右クリックし、<strong>New → Java Class</strong> を選びます。",
+      "translation": "Зүүн талын төслийн дэлгэцэд <code>app → src → main → java → jp.ac.jec.a07billsplitter</code> (<code>MainActivity.java</code> байгаа хавтас) дээр баруун товчоор дараад <strong>New → Java Class</strong>-ийг сонгоно уу."
+    },
+    {
+      "source": "<strong>New Java Class</strong> という小さなウィンドウが出ます。いちばん上の欄に、名前 <code>BillSplitter</code> を入力します。<code>.java</code> は付けません。",
+      "translation": "<strong>New Java Class</strong> гэсэн жижиг цонх гарна. Хамгийн дээд талбарт <code>BillSplitter</code> нэрийг оруулна уу. <code>.java</code> залгахгүй."
+    },
+    {
+      "source": "その下の一覧（<code>Class</code>・<code>Interface</code>・<code>Enum</code> …）で <strong>Class</strong> を選び、<kbd>return</kbd> を押します。",
+      "translation": "Доорх жагсаалтаас (<code>Class</code>, <code>Interface</code>, <code>Enum</code> …) <strong>Class</strong>-ийг сонгоод <kbd>return</kbd>-ийг дарна уу."
+    },
+    {
+      "source": "<code>BillSplitter.java</code> ができて開きます。中には <code>package</code> の行と、空のクラスの宣言だけが入っています。",
+      "translation": "<code>BillSplitter.java</code> үүсэж нээгдэнэ. Дотор нь зөвхөн <code>package</code> мөр болон хоосон классын зарлал байна."
+    },
+    {
+      "source": "作る場所に注意",
+      "translation": "Үүсгэх газраа анхаарна уу"
+    },
+    {
+      "source": "<code>app → src</code> の下には <code>test</code> と <code>androidTest</code> もあり、その中にも同じ名前のパッケージがあります。必ず <code>app → src → main → java</code> の中の、<code>MainActivity.java</code> と同じ場所に作ります。場所を間違えると1行目の <code>package</code> が変わり、STEP 09で <code>BillSplitter</code> が赤くなります。",
+      "translation": "<code>app → src</code>-ийн доор <code>test</code> болон <code>androidTest</code> ч бий. Дотор нь мөн ижил нэртэй багц байна. Заавал <code>app → src → main → java</code> дотор <code>MainActivity.java</code>-тай ижил газарт үүсгэнэ үү. Газрыг андуурвал эхний мөрийн <code>package</code> өөр болж, STEP 09-д <code>BillSplitter</code> улаан болно."
+    },
+    {
+      "source": "② 中身を全部入れ替える",
+      "translation": "② Доторхыг бүхэлд нь солих"
+    },
+    {
+      "source": "下のコードの見出し <strong>BillSplitter.java · 全体を置き換える</strong> にある <strong>コピー</strong> ボタンを押します。<strong>コピーしました</strong> に変われば成功です。ブラウザによっては <strong>⌘ Cでコピー</strong> に変わり、コードが選ばれた状態になります。そのときは、そのまま <kbd>⌘ C</kbd> を押します。",
+      "translation": "Доорх кодын <strong>BillSplitter.java · Бүхэлд нь солих</strong> гарчиг дахь <strong>コピー</strong> (Хуулах) товчийг дарна уу. <strong>コピーしました</strong> (Хууллаа) болж өөрчлөгдвөл амжилттай болсон. Зарим хөтөч дээр <strong>⌘ Cでコピー</strong> (⌘ C дарж хуулах) болж, код сонгогдоно. Тэр үед шууд <kbd>⌘ C</kbd>-ийг дарна уу."
+    },
+    {
+      "source": "Android Studioに戻り、開いている <code>BillSplitter.java</code> の中をクリックして <kbd>⌘ A</kbd> で全部選びます。<strong>最初から入っている <code>package</code> の行とクラスの宣言も、いっしょに選びます。</strong>これを残したまま貼り付けると、同じものが2つ並んでエラーになります。",
+      "translation": "Android Studio руу буцаж, нээлттэй <code>BillSplitter.java</code> дотор дараад <kbd>⌘ A</kbd>-аар бүгдийг сонгоно уу. <strong>Анхнаасаа байгаа <code>package</code> мөр болон классын зарлалыг ч хамт сонгоно.</strong> Эдгээрийг үлдээгээд буулгавал ижил зүйл давхардаж алдаа гарна."
+    },
+    {
+      "source": "<kbd>⌘ V</kbd> で貼り付けます。選んでいたところが消えて、<strong>ファイル全体</strong>がコピーしたコードに置き換わります。",
+      "translation": "<kbd>⌘ V</kbd>-ээр буулгана уу. Сонгосон хэсэг арилж, <strong>файл бүхэлдээ</strong> хуулсан кодоор солигдоно."
+    },
+    {
+      "source": "1行目が <code>package jp.ac.jec.a07billsplitter;</code> になっていることを確認します。",
+      "translation": "Эхний мөр нь <code>package jp.ac.jec.a07billsplitter;</code> байгааг шалгана уу."
+    },
+    {
+      "source": "コードは長いので、貼り付けが終わったら<a1>③ 使い方</a1>まで飛ばして構いません。",
+      "translation": "Код урт тул буулгаж дуусаад <a1>③ Ашиглах арга</a1> руу шууд очиж болно."
+    },
+    {
+      "source": "BillSplitter.java · 全体を置き換える",
+      "translation": "BillSplitter.java · Бүхэлд нь солих"
+    },
+    {
+      "source": "③ 使い方",
+      "translation": "③ Ашиглах арга"
+    },
+    {
+      "source": "呼び出し方",
+      "translation": "Дуудах арга"
+    },
+    {
+      "source": "渡すもの",
+      "translation": "Дамжуулах зүйл"
+    },
+    {
+      "source": "内容",
+      "translation": "Агуулга"
+    },
+    {
+      "source": "1つ目",
+      "translation": "Эхнийх"
+    },
+    {
+      "source": "合計金額（整数）。<strong>1以上</strong>であること。",
+      "translation": "Нийт мөнгөн дүн (бүхэл тоо). <strong>1 буюу түүнээс их</strong> байна."
+    },
+    {
+      "source": "2つ目",
+      "translation": "Хоёр дахь нь"
+    },
+    {
+      "source": "参加者の名前の配列。<strong>2人以上</strong>であること。",
+      "translation": "Оролцогчдын нэрийн массив. <strong>2 буюу түүнээс олон хүнтэй</strong> байна."
+    },
+    {
+      "source": "戻り値",
+      "translation": "戻り値 — буцаах утга"
+    },
+    {
+      "source": "そのまま <code>setText</code> できる文字列。改行も入っている。",
+      "translation": "Шууд <code>setText</code>-д өгч болох тэмдэгт мөр. Мөр шилжүүлэх тэмдэг ч орсон."
+    },
+    {
+      "source": "大事な約束",
+      "translation": "Заавал мөрдөх нөхцөл"
+    },
+    {
+      "source": "「金額は1以上」「2人以上」を守るのは<strong>呼び出す側の仕事</strong>です。守らずに呼ぶとアプリが終了します。次のSTEPで、その前にチェックを入れます。",
+      "translation": "«Мөнгөн дүн 1 буюу түүнээс их», «2 буюу түүнээс олон хүнтэй» гэсэн нөхцөлийг хангах нь <strong>дуудах талын ажил</strong> юм. Хангахгүйгээр дуудвал апп хаагдана. Дараагийн STEP-д дуудахын өмнө шалгалт нэмнэ."
+    },
+    {
+      "source": "1234円を3人で割ると411円あまり1円です。<code>BillSplitter</code> は、全員に411円を割り当ててから、あまった1円を1人に足します。だれが払うかは<strong>実行するたびに変わります</strong>。同じ金額でもう一度計算すると、412円の人が入れ替わります。",
+      "translation": "1234 иенийг 3 хүнд хуваавал 411 иен болж 1 иен үлдэнэ. <code>BillSplitter</code> хүн бүрд 411 иен оноогоод үлдсэн 1 иенийг нэг хүнд нэмнэ. Хэн төлөх нь <strong>ажиллуулах бүрд өөрчлөгдөнө</strong>. Ижил мөнгөн дүнгээр дахин тооцоолоход 412 иен төлөх хүн солигдоно."
+    },
+    {
+      "source": "BillSplitter.javaを自分のプロジェクトに置き、赤いエラーが出ないことを確認した。",
+      "translation": "BillSplitter.java-г өөрийн төсөлд байрлуулаад улаан алдаа гарахгүйг шалгасан."
+    },
+    {
+      "source": "次へ：入力チェックを作る →",
+      "translation": "Дараах: Оролтын шалгалт хийх →"
+    },
+    {
+      "source": "STEP 08 · 目安 20分",
+      "translation": "STEP 08 · ойролцоогоор 20 минут"
+    },
+    {
+      "source": "入力チェックを作る",
+      "translation": "Оролтын шалгалт хийх"
+    },
+    {
+      "source": "<code>BillSplitActivity.java</code> の <code>onCreate</code> の中、STEP 06②で書いたコードの下に書きます。計算する前に、3つのことを確かめます。",
+      "translation": "<code>BillSplitActivity.java</code>-ийн <code>onCreate</code> дотор STEP 06②-т бичсэн кодын доор бичнэ үү. Тооцоолохын өмнө 3 зүйлийг шалгана."
+    },
+    {
+      "source": "BillSplitActivity.java · 計算実行ボタンの処理",
+      "translation": "BillSplitActivity.java · 「計算実行」 (тооцоолох) товчны үйлдэл"
+    },
+    {
+      "source": "チェック",
+      "translation": "Шалгалт"
+    },
+    {
+      "source": "なぜ必要か",
+      "translation": "Яагаад хэрэгтэй вэ"
+    },
+    {
+      "source": "1. 未入力",
+      "translation": "1. Оруулаагүй"
+    },
+    {
+      "source": "空の文字は数字に変えられない。",
+      "translation": "Хоосон тэмдэгт мөрийг тоо болгон хувиргаж болохгүй."
+    },
+    {
+      "source": "2. 数字に変えられない",
+      "translation": "2. Тоо болгон хувиргаж болохгүй"
+    },
+    {
+      "source": "<code>Integer.parseInt</code> は、変えられないと例外を出してアプリが終了する。<code>try</code> で受け止める。",
+      "translation": "<code>Integer.parseInt</code> нь хувиргаж чадахгүй бол онцгой нөхцөл үүсгэж апп хаагдана. <code>try</code>-гаар барьж авна."
+    },
+    {
+      "source": "3. 金額が人数より少ない",
+      "translation": "3. Мөнгөн дүн хүний тооноос бага"
+    },
+    {
+      "source": "2円を3人で割ると0円の人が出る。ここを通れば「1以上」も自動的に満たされる。",
+      "translation": "2 иенийг 3 хүнд хуваавал 0 иен төлөх хүн гарна. Энэ шалгалтыг давбал «1 буюу түүнээс их» гэсэн нөхцөл ч автоматаар хангагдана."
+    },
+    {
+      "source": "解説：入力チェック2のメッセージは、画面の操作では出ない",
+      "translation": "Тайлбар: Оролтын шалгалт 2-ын мэдэгдэл дэлгэц дээрх үйлдлээр гарахгүй"
+    },
+    {
+      "source": "3つのうち、入力チェック2の「支払い金額は数字で入力してください」だけは、このアプリをどう操作しても表示されません。STEP 05のレイアウトで、金額の入力欄を2つの指定でしぼってあるためです。",
+      "translation": "3 шалгалтаас зөвхөн оролтын шалгалт 2-ын 「支払い金額は数字で入力してください」 (төлөх мөнгөн дүнг тоогоор оруулна уу) нь энэ апп дээр ямар ч үйлдэл хийсэн харагдахгүй. Учир нь STEP 05-ын байрлалд мөнгөн дүн оруулах талбарыг 2 тохируулгаар хязгаарласан."
+    },
+    {
+      "source": "レイアウトの指定",
+      "translation": "Байрлалын тохируулга"
+    },
+    {
+      "source": "起きること",
+      "translation": "Юу болох вэ"
+    },
+    {
+      "source": "半角の数字しか入らない。文字や <code>-</code>、<code>.</code> は打っても入らない。",
+      "translation": "Зөвхөн хагас өргөнтэй цифр оруулж болно. Үсэг болон <code>-</code>, <code>.</code>-ийг бичсэн ч орохгүй."
+    },
+    {
+      "source": "9桁までしか入らない。10桁目からは打っても貼り付けても入らない。",
+      "translation": "Хамгийн ихдээ 9 орон орно. 10 дахь орноос эхлээд бичсэн ч, буулгасан ч орохгүй."
+    },
+    {
+      "source": "<code>int</code> に入る最大の数は 2,147,483,647（10桁）です。9桁の最大 999,999,999 はこれより小さいので、入力欄に入る数字は必ず <code>Integer.parseInt</code> で変えられます。",
+      "translation": "<code>int</code>-д багтах хамгийн их тоо нь 2,147,483,647 (10 орон). 9 оронтой хамгийн их тоо 999,999,999 нь үүнээс бага тул оруулах талбарт багтах тоог <code>Integer.parseInt</code>-ээр заавал хувиргаж чадна."
+    },
+    {
+      "source": "それでも <code>try</code> を書くのは、<strong>レイアウトとJavaは別のファイル</strong>だからです。あとでだれかが <code>maxLength</code> を消しても、Javaの側で受け止めていればアプリは終了しません。コメントの「桁数が多すぎる場合など」は、そのときのための備えを指しています。",
+      "translation": "Гэсэн ч <code>try</code> бичих шалтгаан нь <strong>байрлал болон Java тусдаа файлд байдаг</strong> учраас юм. Дараа нь хэн нэгэн <code>maxLength</code>-ийг устгасан ч Java талд барьж авдаг бол апп хаагдахгүй. Тайлбар дахь 「桁数が多すぎる場合など」 (орны тоо хэт олон байх зэрэг тохиолдолд) гэдэг нь тэр үед зориулсан бэлтгэлийг хэлнэ."
+    },
+    {
+      "source": "<code>BillSplitter</code> は計算だけを担当し、画面に出すメッセージを持っていません。<strong>ユーザーの入力ミスは画面側で止める</strong>、という分け方です。こうすると、計算の部分は他のアプリでもそのまま使えます。",
+      "translation": "<code>BillSplitter</code> зөвхөн тооцоолол хийдэг бөгөөд дэлгэц дээр гаргах мэдэгдэл агуулахгүй. <strong>Хэрэглэгчийн оролтын алдааг дэлгэцийн талд зогсооно</strong> гэж үүргийг хуваасан. Ингэснээр тооцооллын хэсгийг өөр аппд ч хэвээр нь ашиглаж болно."
+    },
+    {
+      "source": "Runで確かめる",
+      "translation": "Run ашиглан шалгах"
+    },
+    {
+      "source": "画面で確かめるのは、入力チェック1と入力チェック3の2つです。",
+      "translation": "Дэлгэц дээр шалгах зүйл нь оролтын шалгалт 1 болон оролтын шалгалт 3 гэсэн 2 шалгалт."
+    },
+    {
+      "source": "何も入力せずに <strong>計算実行</strong> を押します。",
+      "translation": "Юу ч оруулахгүйгээр <strong>計算実行</strong> (тооцоолох)-ийг дарна уу."
+    },
+    {
+      "source": "金額を入れずに計算実行を押して、支払い金額を入力してくださいと表示されている",
+      "translation": "Мөнгөн дүн оруулахгүйгээр 「計算実行」 (тооцоолох)-ийг дарахад 「支払い金額を入力してください」 (төлөх мөнгөн дүнг оруулна уу) гэж харагдана"
+    },
+    {
+      "source": "空のときのメッセージ。 <a1>画像を大きく開く</a1>",
+      "translation": "Хоосон байх үеийн мэдэгдэл. <a1>Зургийг томоор нээх</a1>"
+    },
+    {
+      "source": "3人のときに <code>2</code> と入れて <strong>計算実行</strong> を押します。",
+      "translation": "3 хүнтэй үед <code>2</code> гэж оруулаад <strong>計算実行</strong> (тооцоолох)-ийг дарна уу."
+    },
+    {
+      "source": "3人のときに2円と入力して計算実行を押し、3人で割るには3円以上を入力してくださいと表示されている",
+      "translation": "3 хүнтэй үед 2 иен оруулаад 「計算実行」 (тооцоолох)-ийг дарахад 「3人で割るには3円以上を入力してください」 (3 хүнд хуваахын тулд 3 буюу түүнээс дээш иен оруулна уу) гэж харагдана"
+    },
+    {
+      "source": "人数より少ない金額は計算しません。 <a1>画像を大きく開く</a1>",
+      "translation": "Хүний тооноос бага мөнгөн дүнг тооцоолохгүй. <a1>Зургийг томоор нээх</a1>"
+    },
+    {
+      "source": "3つの入力チェックを書き、入力チェック1と入力チェック3のメッセージが出ることを確かめられた。",
+      "translation": "3 оролтын шалгалтыг бичээд оролтын шалгалт 1 болон оролтын шалгалт 3-ын мэдэгдэл гарсныг шалгаж чадсан."
+    },
+    {
+      "source": "次へ：計算結果を表示する →",
+      "translation": "Дараах: Тооцооллын үр дүнг харуулах →"
+    },
+    {
+      "source": "STEP 09 · 目安 10分",
+      "translation": "STEP 09 · ойролцоогоор 10 минут"
+    },
+    {
+      "source": "計算結果を表示する",
+      "translation": "Тооцооллын үр дүнг харуулах"
+    },
+    {
+      "source": "チェックを全部通ったときだけ計算します。STEP 08で書いた入力チェック3の <code>}</code> の下、リスナの最後に追加します。",
+      "translation": "Бүх шалгалтыг давсан үед л тооцоолно. STEP 08-д бичсэн оролтын шалгалт 3-ын <code>}</code>-ийн доор, сонсогчийн төгсгөлд нэмнэ үү."
+    },
+    {
+      "source": "BillSplitActivity.java · 入力チェックの下",
+      "translation": "BillSplitActivity.java · Оролтын шалгалтын доор"
+    },
+    {
+      "source": "3人のときに <code>1234</code> と入れて <strong>計算実行</strong> を押します。",
+      "translation": "3 хүнтэй үед <code>1234</code> гэж оруулаад <strong>計算実行</strong> (тооцоолох)-ийг дарна уу."
+    },
+    {
+      "source": "1234円を3人で割った結果。Sato 411円、Suzuki 412円、Tanaka 411円、合計1234円",
+      "translation": "1234 иенийг 3 хүнд хуваасан үр дүн. Sato 411 иен, Suzuki 412 иен, Tanaka 411 иен, нийт 1234 иен"
+    },
+    {
+      "source": "411円・412円・411円。合計は入力した1234円に戻ります。 <a1>画像を大きく開く</a1>",
+      "translation": "411 иен, 412 иен, 411 иен. Нийлбэр нь оруулсан 1234 иен болно. <a1>Зургийг томоор нээх</a1>"
+    },
+    {
+      "source": "もう一度 <strong>計算実行</strong> を押します。412円の人が変わることを確かめます。",
+      "translation": "<strong>計算実行</strong> (тооцоолох)-ийг дахин дарна уу. 412 иен төлөх хүн солигдохыг шалгана уу."
+    },
+    {
+      "source": "金額を <code>999999999</code>（9桁）にして押します。",
+      "translation": "Мөнгөн дүнг <code>999999999</code> (9 орон) болгоод дарна уу."
+    },
+    {
+      "source": "999999999円を3人で割った結果。3人とも333,333,333円、合計999,999,999円",
+      "translation": "999999999 иенийг 3 хүнд хуваасан үр дүн. Гурвуулаа 333,333,333 иен, нийт 999,999,999 иен"
+    },
+    {
+      "source": "3で割り切れるので、3人とも同じ金額です。 <a1>画像を大きく開く</a1>",
+      "translation": "3-т үлдэгдэлгүй хуваагдах тул гурвуулаа ижил мөнгөн дүнтэй. <a1>Зургийг томоор нээх</a1>"
+    },
+    {
+      "source": "金額に <code>,</code> が入るのは、<code>BillSplitter</code> が日本円の表示に整えているためです。",
+      "translation": "Мөнгөн дүнд <code>,</code> ордог нь <code>BillSplitter</code> Японы иений дүрслэлд тохируулдагтай холбоотой."
+    },
+    {
+      "source": "計算結果と合計を表示でき、合計が入力した金額と一致することを確かめられた。",
+      "translation": "Тооцооллын үр дүн болон нийлбэрийг харуулж чадсан бөгөөд нийлбэр нь оруулсан мөнгөн дүнтэй таарч байгааг шалгаж чадсан."
+    },
+    {
+      "source": "次へ：ミニ練習 →",
+      "translation": "Дараах: Жижиг дасгал →"
+    },
+    {
+      "source": "STEP 10 · 目安 15分",
+      "translation": "STEP 10 · ойролцоогоор 15 минут"
+    },
+    {
+      "source": "ミニ練習",
+      "translation": "Жижиг дасгал"
+    },
+    {
+      "source": "できた人は試してみましょう。コードは変えません。",
+      "translation": "Хийж дууссан бол туршаад үзнэ үү. Кодыг өөрчлөхгүй."
+    },
+    {
+      "source": "<strong>割り切れる金額</strong>を入れます。3人で <code>1200</code> 円のとき、全員いくらになりますか。",
+      "translation": "<strong>Үлдэгдэлгүй хуваагдах мөнгөн дүн</strong> оруулна уу. 3 хүн <code>1200</code> иен төлөхөд хүн бүр хэдийг төлөх вэ?"
+    },
+    {
+      "source": "<strong>端数が2円出る金額</strong>を入れます。3人で <code>1235</code> 円のとき、412円の人は何人になりますか。",
+      "translation": "<strong>2 иений үлдэгдэл гарах мөнгөн дүн</strong> оруулна уу. 3 хүн <code>1235</code> иен төлөхөд хэдэн хүн 412 иен төлөх вэ?"
+    },
+    {
+      "source": "参加者を<strong>15人</strong>登録して、<code>123456</code> 円を計算します。合計の行を確かめます。",
+      "translation": "<strong>15 оролцогч</strong> бүртгээд <code>123456</code> иенээр тооцоолно уу. Нийлбэрийн мөрийг шалгана уу."
+    },
+    {
+      "source": "15人で123456円を割った結果。8230円と8231円が並び、合計123,456円と表示されている",
+      "translation": "123456 иенийг 15 хүнд хуваасан үр дүн. 8230 иен, 8231 иен гэсэн дүнгүүд гарч, нийт 123,456 иен гэж харагдана"
+    },
+    {
+      "source": "15人でも、差は1円までです。 <a1>画像を大きく開く</a1>",
+      "translation": "15 хүнтэй үед ч зөрүү 1 иенээс хэтрэхгүй. <a1>Зургийг томоор нээх</a1>"
+    },
+    {
+      "source": "参加者名に<strong>同じ名前</strong>を入れようとするとどうなりますか。STEP 04のチェックを思い出します。",
+      "translation": "Оролцогчийн нэрэнд <strong>ижил нэр</strong> оруулахыг оролдвол юу болох вэ? STEP 04-ийн шалгалтыг санаарай."
+    },
+    {
+      "source": "ミニ練習を試し、どの金額でも支払額の合計が入力した金額に戻ることを確かめられた。",
+      "translation": "Жижиг дасгалыг туршаад ямар ч мөнгөн дүнд төлбөрийн нийлбэр нь оруулсан дүнтэй таарч байгааг шалгаж чадсан."
+    },
+    {
+      "source": "次へ：完成 →",
+      "translation": "Дараах: Дуусгах →"
+    },
+    {
+      "source": "STEP 11 · 目安 15分",
+      "translation": "STEP 11 · ойролцоогоор 15 минут"
+    },
+    {
+      "source": "完成",
+      "translation": "Дуусгах"
+    },
+    {
+      "source": "2つの画面の役割",
+      "translation": "2 дэлгэцийн үүрэг"
+    },
+    {
+      "source": "画面",
+      "translation": "Дэлгэц"
+    },
+    {
+      "source": "やること",
+      "translation": "Хийх зүйл"
+    },
+    {
+      "source": "使ったもの",
+      "translation": "Ашигласан зүйл"
+    },
+    {
+      "source": "参加者を登録する。2人以上でワリカン画面へ渡す。",
+      "translation": "Оролцогчдыг бүртгэнэ. 2 буюу түүнээс олон хүнтэй бол төлбөр хуваах дэлгэц рүү дамжуулна."
+    },
+    {
+      "source": "金額を受け取り、チェックしてから計算・表示する。",
+      "translation": "Мөнгөн дүнг хүлээн авч, шалгасны дараа тооцоолоод харуулна."
+    },
+    {
+      "source": "入力チェックの一覧",
+      "translation": "Оролтын шалгалтын жагсаалт"
+    },
+    {
+      "source": "いつ",
+      "translation": "Хэзээ"
+    },
+    {
+      "source": "表示されるメッセージ",
+      "translation": "Харагдах мэдэгдэл"
+    },
+    {
+      "source": "名前が空のまま登録",
+      "translation": "Нэрийг хоосон орхиод бүртгэх"
+    },
+    {
+      "source": "参加者名を入力してください",
+      "translation": "参加者名を入力してください (Оролцогчийн нэрийг оруулна уу)"
+    },
+    {
+      "source": "同じ名前を登録",
+      "translation": "Ижил нэр бүртгэх"
+    },
+    {
+      "source": "参加者名が重複しています",
+      "translation": "参加者名が重複しています (Оролцогчийн нэр давхардсан байна)"
+    },
+    {
+      "source": "参加者が1人以下でワリカン画面へ",
+      "translation": "1 буюу түүнээс цөөн оролцогчтой үед төлбөр хуваах дэлгэц рүү орох"
+    },
+    {
+      "source": "参加者を2人以上追加してください",
+      "translation": "参加者を2人以上追加してください (Дор хаяж 2 оролцогч нэмнэ үү)"
+    },
+    {
+      "source": "金額が空のまま計算実行",
+      "translation": "Мөнгөн дүнг хоосон орхиод тооцоолох"
+    },
+    {
+      "source": "支払い金額を入力してください",
+      "translation": "支払い金額を入力してください (Төлөх мөнгөн дүнг оруулна уу)"
+    },
+    {
+      "source": "金額を数字に変えられない（<strong>画面の操作では出ない</strong>）",
+      "translation": "Мөнгөн дүнг тоо болгон хувиргаж болохгүй (<strong>дэлгэц дээрх үйлдлээр гарахгүй</strong>)"
+    },
+    {
+      "source": "支払い金額は数字で入力してください",
+      "translation": "支払い金額は数字で入力してください (Төлөх мөнгөн дүнг тоогоор оруулна уу)"
+    },
+    {
+      "source": "金額が人数より少ない",
+      "translation": "Мөнгөн дүн хүний тооноос бага"
+    },
+    {
+      "source": "○人で割るには○円以上を入力してください",
+      "translation": "○人で割るには○円以上を入力してください (○ хүнд хуваахын тулд ○ буюу түүнээс дээш иен оруулна уу)"
+    },
+    {
+      "source": "画面で出して確かめられるのは、6つのうち5つです。「支払い金額は数字で入力してください」は、金額の入力欄に半角の数字が9桁までしか入らないので表示されません（<a1>STEP 08の解説</a1>）。出せなくても、操作のまちがいではありません。",
+      "translation": "6 мэдэгдлээс 5-ыг нь дэлгэц дээр гаргаж шалгаж болно. 「支払い金額は数字で入力してください」 (төлөх мөнгөн дүнг тоогоор оруулна уу) нь мөнгөн дүнгийн талбарт зөвхөн хагас өргөнтэй 9 хүртэл цифр ордог тул харагдахгүй (<a1>STEP 08-ийн тайлбар</a1>). Гаргаж чадахгүй байгаа нь үйлдлийн алдаа биш."
+    },
+    {
+      "source": "完成チェック",
+      "translation": "Эцсийн шалгалт"
+    },
+    {
+      "source": "Runし直して、上から順に操作します。入力チェックのメッセージは、上の一覧のうち画面で出せる5つを確かめます。",
+      "translation": "Run-ийг дахин хийгээд дээрээс нь дарааллаар үйлдэнэ үү. Оролтын шалгалтын мэдэгдлүүдээс дээрх жагсаалтад буй дэлгэц дээр гаргаж болох 5-ыг шалгана уу."
+    },
+    {
+      "source": "操作",
+      "translation": "Үйлдэл"
+    },
+    {
+      "source": "確認する結果",
+      "translation": "Шалгах үр дүн"
+    },
+    {
+      "source": "起動直後",
+      "translation": "Эхэлсний дараа шууд"
+    },
+    {
+      "source": "タイトル画像、名前の入力欄、「登録」「ワリカン画面へ」、「参加者一覧」の見出しが出る。一覧は空。",
+      "translation": "Гарчгийн зураг, нэр оруулах талбар, 「登録」 (бүртгэх), 「ワリカン画面へ」 (төлбөр хуваах дэлгэц рүү), 「参加者一覧」 (оролцогчдын жагсаалт) гарчиг харагдана. Жагсаалт хоосон байна."
+    },
+    {
+      "source": "何も入れずに「登録」",
+      "translation": "Юу ч оруулахгүйгээр 「登録」 (бүртгэх)"
+    },
+    {
+      "source": "「参加者名を入力してください」が出て、一覧は増えない。",
+      "translation": "「参加者名を入力してください」 (оролцогчийн нэрийг оруулна уу) гарч, жагсаалт нэмэгдэхгүй."
+    },
+    {
+      "source": "Sato を登録 →「ワリカン画面へ」",
+      "translation": "Sato-г бүртгэх → 「ワリカン画面へ」 (төлбөр хуваах дэлгэц рүү)"
+    },
+    {
+      "source": "一覧に Sato が出て、入力欄が空になる。1人のときは「参加者を2人以上追加してください」が出て、画面は切り替わらない。",
+      "translation": "Жагсаалтад Sato гарч, оруулах талбар хоосорно. 1 хүнтэй үед 「参加者を2人以上追加してください」 (дор хаяж 2 оролцогч нэмнэ үү) гарч, дэлгэц солигдохгүй."
+    },
+    {
+      "source": "Suzuki・Tanaka を登録 → もう一度 Sato を登録",
+      "translation": "Suzuki, Tanaka-г бүртгэх → Sato-г дахин бүртгэх"
+    },
+    {
+      "source": "一覧が3行になる。2回目の Sato は「参加者名が重複しています」が出て、一覧は増えない。",
+      "translation": "Жагсаалт 3 мөр болно. Sato-г хоёр дахь удаа бүртгэхэд 「参加者名が重複しています」 (оролцогчийн нэр давхардсан байна) гарч, жагсаалт нэмэгдэхгүй."
+    },
+    {
+      "source": "「ワリカン画面へ」",
+      "translation": "「ワリカン画面へ」 (төлбөр хуваах дэлгэц рүү)"
+    },
+    {
+      "source": "画面が切り替わり、「参加者は3人」と出る。",
+      "translation": "Дэлгэц солигдож, 「参加者は3人」 (3 оролцогчтой) гэж гарна."
+    },
+    {
+      "source": "何も入れずに「計算実行」",
+      "translation": "Юу ч оруулахгүйгээр 「計算実行」 (тооцоолох)"
+    },
+    {
+      "source": "「支払い金額を入力してください」が出て、「計算結果」の下は空のまま。",
+      "translation": "「支払い金額を入力してください」 (төлөх мөнгөн дүнг оруулна уу) гарч, 「計算結果」 (тооцооллын үр дүн)-ийн доор хоосон хэвээр байна."
+    },
+    {
+      "source": "2 と入れて「計算実行」",
+      "translation": "2 гэж оруулаад 「計算実行」 (тооцоолох)"
+    },
+    {
+      "source": "「3人で割るには3円以上を入力してください」が出て、「計算結果」の下は空のまま。",
+      "translation": "「3人で割るには3円以上を入力してください」 (3 хүнд хуваахын тулд 3 буюу түүнээс дээш иен оруулна уу) гарч, 「計算結果」 (тооцооллын үр дүн)-ийн доор хоосон хэвээр байна."
+    },
+    {
+      "source": "1234 に変えて「計算実行」",
+      "translation": "1234 болгож өөрчлөөд 「計算実行」 (тооцоолох)"
+    },
+    {
+      "source": "Sato・Suzuki・Tanaka の支払額が出る。411円が2人、412円が1人で、合計は入力した1234円に戻る。",
+      "translation": "Sato, Suzuki, Tanaka-гийн төлөх дүн гарна. 2 хүн 411 иен, 1 хүн 412 иен төлж, нийлбэр нь оруулсан 1234 иен болно."
+    },
+    {
+      "source": "保存",
+      "translation": "Хадгалах"
+    },
+    {
+      "source": "Android Studioは、書いたコードを自動でファイルに保存します。保存の操作は要りません。ここでは、保存された場所を確かめます。",
+      "translation": "Android Studio бичсэн кодыг файлд автоматаар хадгална. Хадгалах үйлдэл хийх шаардлагагүй. Энд хадгалагдсан газрыг шалгана."
+    },
+    {
+      "source": "Finderを開き、左側の <strong>書類</strong>（<code>Documents</code>）をクリックします。",
+      "translation": "Finder-ийг нээгээд зүүн талын <strong>書類</strong> (Баримт бичиг, <code>Documents</code>)-ийг дарна уу."
+    },
+    {
+      "source": "その中の <code>Android1</code> フォルダを開き、<code>A07BillSplitter</code> フォルダがあることを確かめます。",
+      "translation": "Доторх <code>Android1</code> хавтсыг нээгээд <code>A07BillSplitter</code> хавтас байгааг шалгана уу."
+    },
+    {
+      "source": "この <code>Documents/Android1/A07BillSplitter</code> フォルダが、自分で作ったアプリです。あとの授業でもう一度開けるように、消したり、別の場所へ移動したり、名前を変えたりせずに、そのまま残します。",
+      "translation": "Энэ <code>Documents/Android1/A07BillSplitter</code> хавтас нь өөрийн хийсэн апп юм. Дараагийн хичээлд дахин нээж болохоор устгахгүй, өөр газар зөөхгүй, нэрийг нь солихгүй, хэвээр үлдээнэ үү."
+    },
+    {
+      "source": "教材のチェックは自分用です。先生への送信はしません。印刷は <kbd>⌘ P</kbd> で行えます。",
+      "translation": "Сургалтын материалын чагт нь өөртөө зориулсан. Багш руу илгээхгүй. <kbd>⌘ P</kbd>-ээр хэвлэж болно."
+    },
+    {
+      "source": "完成チェックの操作をすべて試し、表のとおりの結果になった。",
+      "translation": "Эцсийн шалгалтын бүх үйлдлийг туршаад хүснэгтэд заасан үр дүн гарсан."
+    },
+    {
+      "source": "困ったこと",
+      "translation": "Асуудал"
+    },
+    {
+      "source": "最初に確認する場所",
+      "translation": "Эхлээд шалгах газар"
+    },
+    {
+      "source": "<code>R.id.edt_participant_name</code> などが赤い",
+      "translation": "<code>R.id.edt_participant_name</code> зэрэг нь улаан байна"
+    },
+    {
+      "source": "レイアウトのidと同じ綴りか確認。<code>android:id=\"@+id/main\"</code> を消していないかも見る。",
+      "translation": "Байрлалын id-тай ижил бичсэн эсэхийг шалгана уу. <code>android:id=\"@+id/main\"</code>-ийг устгаагүйг мөн шалгана уу."
+    },
+    {
+      "source": "<code>BillSplitter</code> が赤い",
+      "translation": "<code>BillSplitter</code> улаан байна"
+    },
+    {
+      "source": "STEP 07で <code>BillSplitter.java</code> を置いたか、場所が <code>MainActivity.java</code> と同じか確認。1行目の <code>package</code> も見る。",
+      "translation": "STEP 07-д <code>BillSplitter.java</code>-г байрлуулсан эсэх, <code>MainActivity.java</code>-тай ижил газар байгаа эсэхийг шалгана уу. Эхний мөрийн <code>package</code>-ийг мөн харна уу."
+    },
+    {
+      "source": "<code>Snackbar</code>・<code>ArrayList</code>・<code>Objects</code>・<code>EditText</code>・<code>TextView</code> が赤い",
+      "translation": "<code>Snackbar</code>, <code>ArrayList</code>, <code>Objects</code>, <code>EditText</code>, <code>TextView</code> улаан байна"
+    },
+    {
+      "source": "<kbd>⌥ Enter</kbd> で <code>com.google.android.material.snackbar.Snackbar</code>、<code>java.util.ArrayList</code>、<code>java.util.Objects</code>、<code>android.widget.EditText</code>、<code>android.widget.TextView</code> を選ぶ。",
+      "translation": "<kbd>⌥ Enter</kbd>-ээр <code>com.google.android.material.snackbar.Snackbar</code>, <code>java.util.ArrayList</code>, <code>java.util.Objects</code>, <code>android.widget.EditText</code>, <code>android.widget.TextView</code>-ийг сонгоно уу."
+    },
+    {
+      "source": "<code>start(…)</code> が赤い（MainActivity）",
+      "translation": "<code>start(…)</code> улаан байна (MainActivity)"
+    },
+    {
+      "source": "STEP 06①を <code>BillSplitActivity</code> に追加したか確認。<code>onCreate</code> の中に入れていないかも見る。",
+      "translation": "STEP 06①-ийг <code>BillSplitActivity</code>-д нэмсэн эсэхийг шалгана уу. <code>onCreate</code> дотор оруулаагүйг мөн харна уу."
+    },
+    {
+      "source": "<code>start</code> を <code>onCreate</code> の中に書いていないか確認。<code>onCreate</code> の最後の <code>}</code> の下、クラスの最後の <code>}</code> の上に置く。",
+      "translation": "<code>start</code>-ийг <code>onCreate</code> дотор бичээгүйг шалгана уу. <code>onCreate</code>-ийн төгсгөлийн <code>}</code>-ийн доор, классын төгсгөлийн <code>}</code>-ийн дээр байрлуулна уу."
+    },
+    {
+      "source": "ワリカン画面へを押すとアプリが終了する",
+      "translation": "「ワリカン画面へ」 (төлбөр хуваах дэлгэц рүү)-г дарахад апп хаагдана"
+    },
+    {
+      "source": "Logcatを <code>level:ERROR</code> にして <code>ActivityNotFoundException</code> か確認。<code>AndroidManifest.xml</code> に <code>android:name=\".BillSplitActivity\"</code> の <code>&lt;activity&gt;</code> があるか見る。New → Java Classで作ると登録されない。",
+      "translation": "Logcat-ийг <code>level:ERROR</code> болгож, <code>ActivityNotFoundException</code> мөн эсэхийг шалгана уу. <code>AndroidManifest.xml</code>-д <code>android:name=\".BillSplitActivity\"</code> бүхий <code>&lt;activity&gt;</code> байгаа эсэхийг харна уу. New → Java Class-аар үүсгэвэл бүртгэгдэхгүй."
+    },
+    {
+      "source": "アプリ一覧のアイコンが2つある（Runすると何もない画面から始まることがある）",
+      "translation": "Аппын жагсаалтад 2 дүрс байна (Run хийхэд хоосон дэлгэцээс эхлэх тохиолдол бий)"
+    },
+    {
+      "source": "STEP 05でLauncher Activityにチェックを入れた可能性がある。<code>BillSplitActivity</code> の <code>&lt;activity&gt;</code> から <code>&lt;intent-filter&gt;</code> を消し、<code>android:exported=\"false\"</code> にする。",
+      "translation": "STEP 05-д Launcher Activity-г чагталсан байж болно. <code>BillSplitActivity</code>-ийн <code>&lt;activity&gt;</code>-аас <code>&lt;intent-filter&gt;</code>-ийг устгаад <code>android:exported=\"false\"</code> болгоно уу."
+    },
+    {
+      "source": "ワリカン画面が真っ白、または人数が出ない",
+      "translation": "Төлбөр хуваах дэлгэц бүхэлдээ цагаан эсвэл хүний тоо харагдахгүй"
+    },
+    {
+      "source": "STEP 06②を書いたか確認。<code>txt_number_of_people</code> の綴りも見る。",
+      "translation": "STEP 06②-ийг бичсэн эсэхийг шалгана уу. <code>txt_number_of_people</code>-ийн бичлэгийг мөн харна уу."
+    },
+    {
+      "source": "計算実行を押しても何も出ない",
+      "translation": "「計算実行」 (тооцоолох)-ийг дарсан ч юу ч гарахгүй"
+    },
+    {
+      "source": "STEP 09の2行を、入力チェックの<strong>下</strong>に書いたか確認。<code>return;</code> の上に書くと実行されない。",
+      "translation": "STEP 09-ийн 2 мөрийг оролтын шалгалтын <strong>доор</strong> бичсэн эсэхийг шалгана уу. <code>return;</code>-ийн дээр бичвэл ажиллахгүй."
+    },
+    {
+      "source": "参加者一覧が1人分しか出ない",
+      "translation": "Оролцогчдын жагсаалтад зөвхөн 1 хүн гарна"
+    },
+    {
+      "source": "<code>append</code> ではなく <code>setText</code> になっていないか確認。<code>setText</code> は前の文字を消す。",
+      "translation": "<code>append</code>-ийн оронд <code>setText</code> бичээгүйг шалгана уу. <code>setText</code> өмнөх бичвэрийг арилгана."
+    },
+    {
+      "source": "登録しても入力欄に文字が残る",
+      "translation": "Бүртгэсэн ч оруулах талбарт бичвэр үлдэнэ"
+    },
+    {
+      "source": "STEP 04②の最後の <code>edtParticipantName.setText(\"\")</code> があるか確認。",
+      "translation": "STEP 04②-ийн төгсгөлийн <code>edtParticipantName.setText(\"\")</code> байгаа эсэхийг шалгана уу."
+    },
+    {
+      "source": "金額の欄に文字が入ってしまう",
+      "translation": "Мөнгөн дүнгийн талбарт үсэг орчихдог"
+    },
+    {
+      "source": "<code>activity_bill_split.xml</code> の <code>android:inputType=\"number\"</code> を確認。",
+      "translation": "<code>activity_bill_split.xml</code>-ийн <code>android:inputType=\"number\"</code>-ийг шалгана уу."
+    },
+    {
+      "source": "名前の入力中に候補が出て、ボタンが押せない",
+      "translation": "Нэр оруулах үед санал болгох үгс гарч, товч дарж болохгүй"
+    },
+    {
+      "source": "キーボードの候補が重なっている。候補以外の場所をタップしてから押す。",
+      "translation": "Гарын санал болгох үгс давхцаж байна. Саналаас өөр газар товшоод дараа нь товчийг дарна уу."
+    },
+    {
+      "source": "直したのに動きが変わらない",
+      "translation": "Зассан ч үйлдэл өөрчлөгдөхгүй"
+    },
+    {
+      "source": "ウィンドウの保存先が <code>Documents/Android1/A07BillSplitter</code> か確認。samples側を開いていないか見る。",
+      "translation": "Цонхны хадгалах газар <code>Documents/Android1/A07BillSplitter</code> мөн эсэхийг шалгана уу. samples талын төслийг нээгээгүйг харна уу."
+    },
+    {
+      "source": "<a1>共通資料：Logcat</a1>を使います。今回のパッケージは <code>jp.ac.jec.a07billsplitter</code> です。エラーを見るときは <code>package:jp.ac.jec.a07billsplitter level:ERROR</code> にします。前の単元のパッケージ名も残さないようにします。",
+      "translation": "<a1>Нийтлэг заавар: Logcat</a1>-ийг ашиглана. Энэ удаагийн багц нь <code>jp.ac.jec.a07billsplitter</code>. Алдаа харахдаа <code>package:jp.ac.jec.a07billsplitter level:ERROR</code> болгоно уу. Өмнөх бүлгийн багцын нэрийг ч үлдээхгүй."
+    },
+    {
+      "source": "質問では「STEP番号・編集したファイル・最初の赤い行・押した順番」を伝えます。",
+      "translation": "Асуухдаа «STEP-ийн дугаар, зассан файл, эхний улаан мөр, дарсан дараалал»-ыг хэлнэ үү."
+    },
+    {
+      "source": "完成版は最初の授業から使える見本です。教科書といっしょに配られた<strong>教材のフォルダ</strong>に、そのまま開ける形で入っています。ダウンロードも展開も要りません。",
+      "translation": "Бэлэн хувилбар нь эхний хичээлээс ашиглаж болох жишээ юм. Сурах бичигтэй хамт өгсөн <strong>сургалтын материалын хавтас</strong> дотор шууд нээж болох хэлбэрээр бий. Татах, задлах шаардлагагүй."
+    },
+    {
+      "source": "Android Studioの <strong>Open</strong>（プロジェクトを開いているときは <strong>File → Open</strong>）で、<strong>書類</strong>（<code>Documents</code>）にある教材のフォルダを開きます。名前は <code>android1-student-materials-</code> のうしろに日付が付いた形で、日付は配られた回によって変わります。いま読んでいるこの教科書が入っているフォルダです。",
+      "translation": "Android Studio-ийн <strong>Open</strong>-оор (төсөл нээлттэй бол <strong>File → Open</strong>) <strong>書類</strong> (Баримт бичиг, <code>Documents</code>) доторх сургалтын материалын хавтсыг нээнэ үү. Нэр нь <code>android1-student-materials-</code>-ийн ард огноо залгасан хэлбэртэй, огноо нь тараасан удаа бүрд өөр байна. Энэ нь одоо уншиж буй сурах бичиг байгаа хавтас юм."
+    },
+    {
+      "source": "その中を <code>samples → A07BillSplitter</code> の順に開き、<code>settings.gradle.kts</code> と <code>app</code> が入った <code>A07BillSplitter</code> フォルダを選びます。",
+      "translation": "Дотор нь <code>samples → A07BillSplitter</code> дарааллаар нээгээд <code>settings.gradle.kts</code> болон <code>app</code> агуулсан <code>A07BillSplitter</code> хавтсыг сонгоно уу."
+    },
+    {
+      "source": "Sync後にRunして動きを確認します。授業の入力に戻るときは自分の <code>Documents/Android1/A07BillSplitter</code> を開きます。",
+      "translation": "Sync дууссаны дараа Run хийж үйлдлийг шалгана уу. Хичээлийн код бичихэд буцахдаа өөрийн <code>Documents/Android1/A07BillSplitter</code>-ийг нээнэ үү."
+    },
+    {
+      "source": "両方とも同じプロジェクト名なので、ウィンドウの保存先を確認しましょう。見本と自分のアプリは同じパッケージ名のため、端末上では同じアプリを更新します。切り替えるときは、確認したい方のプロジェクトからRunします。",
+      "translation": "Хоёулаа ижил төслийн нэртэй тул цонхны хадгалах газрыг шалгаарай. Жишээ болон өөрийн апп ижил багцын нэртэй учраас төхөөрөмж дээр нэг аппыг шинэчилнэ. Солихдоо шалгахыг хүссэн төслөөсөө Run хийнэ үү."
+    },
+    {
+      "source": "教材のフォルダが手元にないときは、同じ見本をZIPで受け取れます（<a1>A07BillSplitter.zip</a1>）。展開してできた <code>A07BillSplitter</code> フォルダを、同じようにOpenで選びます。",
+      "translation": "Сургалтын материалын хавтас байхгүй бол ижил жишээг ZIP-ээр авч болно (<a1>A07BillSplitter.zip</a1>). Задлахад үүссэн <code>A07BillSplitter</code> хавтсыг мөн адил Open-оор сонгоно уу."
+    },
+    {
+      "source": "完成したMainActivity.javaで照合する",
+      "translation": "Бэлэн MainActivity.java-тай тулгах"
+    },
+    {
+      "source": "完成版 · MainActivity.java",
+      "translation": "Бэлэн хувилбар · MainActivity.java"
+    },
+    {
+      "source": "完成したBillSplitActivity.javaで照合する",
+      "translation": "Бэлэн BillSplitActivity.java-тай тулгах"
+    },
+    {
+      "source": "完成版 · BillSplitActivity.java",
+      "translation": "Бэлэн хувилбар · BillSplitActivity.java"
+    },
+    {
+      "source": "STEP 07で入れたBillSplitter.javaで照合する",
+      "translation": "STEP 07-д оруулсан BillSplitter.java-тай тулгах"
+    },
+    {
+      "source": "STEP 07のファイル · BillSplitter.java",
+      "translation": "STEP 07-ийн файл · BillSplitter.java"
+    },
+    {
+      "source": "完成したactivity_main.xmlで照合する",
+      "translation": "Бэлэн activity_main.xml-тай тулгах"
+    },
+    {
+      "source": "完成版 · activity_main.xml",
+      "translation": "Бэлэн хувилбар · activity_main.xml"
+    },
+    {
+      "source": "完成したactivity_bill_split.xmlで照合する",
+      "translation": "Бэлэн activity_bill_split.xml-тай тулгах"
+    },
+    {
+      "source": "完成版 · activity_bill_split.xml",
+      "translation": "Бэлэн хувилбар · activity_bill_split.xml"
+    },
+    {
+      "source": "完成したAndroidManifest.xmlで照合する",
+      "translation": "Бэлэн AndroidManifest.xml-тай тулгах"
+    },
+    {
+      "source": "完成版 · AndroidManifest.xml",
+      "translation": "Бэлэн хувилбар · AndroidManifest.xml"
+    },
+    {
+      "source": "Androidプログラミング1 · A07BillSplitter / 本文・画像・操作機能はオフラインで利用できます。Android Studioの初回準備・ビルドと公式資料の閲覧にはネット接続が必要です。",
+      "translation": "Android програмчлал 1 · A07BillSplitter / Үндсэн агуулга, зураг, үйлдлийн боломжуудыг офлайн ашиглаж болно. Android Studio-ийн эхний бэлтгэл, бүтээлт болон албан ёсны баримт бичиг үзэхэд интернэт холболт шаардлагатай."
+    },
+    {
+      "source": "画像は授業用の提供資料を使用。スクリーンショットの参加者名は例です。",
+      "translation": "Зурагт хичээлд зориулж өгсөн материалыг ашигласан. Дэлгэцийн зураг дахь оролцогчдын нэр нь жишээ юм."
+    }
+  ]
+}

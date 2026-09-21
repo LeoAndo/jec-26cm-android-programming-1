@@ -1,0 +1,1801 @@
+{
+  "source": "docs/screen-transition-sample/index.html",
+  "language": "zh-Hant-HK",
+  "entries": [
+    {
+      "source": "JavaとXMLで作るA06ScreenTransitionSample。2つ目の画面の追加、Intentによる画面の切り替え、putExtraとキーの定数、配列の受け渡しを小さなSTEPで学ぶ授業用教科書。",
+      "translation": "用 Java 和 XML 製作 A06ScreenTransitionSample。透過小 STEP 學習加入第二個畫面、用 Intent 切換畫面、putExtra 和鍵的常數，以及傳遞陣列的課堂教科書。"
+    },
+    {
+      "source": "ScreenTransitionSample — 画面を切り替えて値を渡そう | Androidプログラミング1",
+      "translation": "ScreenTransitionSample — 切換畫面並傳遞值 | Android 程式設計 1"
+    },
+    {
+      "source": "本文へ移動",
+      "translation": "跳至正文"
+    },
+    {
+      "source": "JEC / Androidプログラミング1",
+      "translation": "JEC / Android 程式設計 1"
+    },
+    {
+      "source": "CONTENTS / 学習の順番",
+      "translation": "CONTENTS / 學習順序"
+    },
+    {
+      "source": "学習ステップ",
+      "translation": "學習步驟"
+    },
+    {
+      "source": "00　今日のゴール",
+      "translation": "00　今天的目標"
+    },
+    {
+      "source": "01　プロジェクトを作って実行",
+      "translation": "01　建立專案並執行"
+    },
+    {
+      "source": "02　ボタンを3つ並べる",
+      "translation": "02　排列 3 個按鈕"
+    },
+    {
+      "source": "03　2つ目の画面TestActivityを作る",
+      "translation": "03　建立第二個畫面 TestActivity"
+    },
+    {
+      "source": "04　Test 1で画面を切り替える",
+      "translation": "04　用 Test 1 切換畫面"
+    },
+    {
+      "source": "05　受け取る側を作る（キーと既定値）",
+      "translation": "05　製作接收方（鍵與預設值）"
+    },
+    {
+      "source": "06　startメソッドで値を渡す",
+      "translation": "06　用 start 方法傳遞值"
+    },
+    {
+      "source": "07　配列を渡す",
+      "translation": "07　傳遞陣列"
+    },
+    {
+      "source": "08　ミニ練習",
+      "translation": "08　小練習"
+    },
+    {
+      "source": "09　完成",
+      "translation": "09　完成"
+    },
+    {
+      "source": "0 / 10 ステップ確認済み",
+      "translation": "已確認 0 / 10 個步驟"
+    },
+    {
+      "source": "学習の進み具合",
+      "translation": "學習進度"
+    },
+    {
+      "source": "自分用のチェックです。",
+      "translation": "這是給自己的檢查。"
+    },
+    {
+      "source": "困ったとき",
+      "translation": "遇到困難時"
+    },
+    {
+      "source": "解説：キーの定数が、なぜ受け取る側のTestActivityにある？",
+      "translation": "解說：為甚麼鍵的常數放在接收方 TestActivity？"
+    },
+    {
+      "source": "解説：実際によく使う渡し方は？",
+      "translation": "解說：實際上常用哪種傳遞方式？"
+    },
+    {
+      "source": "完成プロジェクトを開く",
+      "translation": "開啟完成專案"
+    },
+    {
+      "source": "共通：はじめの準備",
+      "translation": "共通：開始前的準備"
+    },
+    {
+      "source": "共通：エミュレータ",
+      "translation": "共通：模擬器"
+    },
+    {
+      "source": "共通：Auto Import",
+      "translation": "共通：Auto Import"
+    },
+    {
+      "source": "共通：Logcat",
+      "translation": "共通：Logcat"
+    },
+    {
+      "source": "共通：APKの提出",
+      "translation": "共通：提交 APK"
+    },
+    {
+      "source": "共通：開発Tips",
+      "translation": "共通：開發技巧"
+    },
+    {
+      "source": "共通：Android Studioのバージョン",
+      "translation": "共通：Android Studio 版本"
+    },
+    {
+      "source": "画面を切り替えて<br>値を渡そう",
+      "translation": "切換畫面<br>並傳遞值"
+    },
+    {
+      "source": "ボタンを押す。次の画面が開く。渡した値をLogcatで見る。<br>Intentで、画面と画面をつなぐアプリへ。",
+      "translation": "按下按鈕，下一個畫面開啟，在 Logcat 查看傳遞的值。<br>用 Intent 製作連接不同畫面的應用程式。"
+    },
+    {
+      "source": "A01〜A05の内容を使う",
+      "translation": "運用 A01 至 A05 的內容"
+    },
+    {
+      "source": "90分 × 2コマ目安",
+      "translation": "約 90 分鐘 × 2 節課"
+    },
+    {
+      "source": "Macで学ぶ",
+      "translation": "使用 Mac 學習"
+    },
+    {
+      "source": "STEP 00 · 目安 5分",
+      "translation": "STEP 00 · 約 5 分鐘"
+    },
+    {
+      "source": "今日のゴール",
+      "translation": "今天的目標"
+    },
+    {
+      "source": "A01〜A05では、1つの画面（MainActivity）の中でアプリを作りました。今回は2つ目の画面 <strong>TestActivity</strong> を追加し、ボタンで画面を切り替えます。そのとき、次の画面へ値を渡します。受け取った値は画面には表示せず、A03・A05でも使った <strong>Logcat</strong> で確かめます。",
+      "translation": "A01 至 A05 都在一個畫面（MainActivity）內製作應用程式。這次會加入第二個畫面 <strong>TestActivity</strong>，並用按鈕切換畫面，同時向下一個畫面傳遞值。收到的值不會顯示在畫面，而是用 A03、A05 也用過的 <strong>Logcat</strong> 確認。"
+    },
+    {
+      "source": "アプリの流れ",
+      "translation": "應用程式流程"
+    },
+    {
+      "source": "Test 1〜Test 3を押す",
+      "translation": "按 Test 1 至 Test 3"
+    },
+    {
+      "source": "TestActivityが開く",
+      "translation": "TestActivity 開啟"
+    },
+    {
+      "source": "受け取った値をLogcatで見る",
+      "translation": "在 Logcat 查看收到的值"
+    },
+    {
+      "source": "→ 戻る →",
+      "translation": "→ 返回 →"
+    },
+    {
+      "source": "3つのボタンの画面",
+      "translation": "有 3 個按鈕的畫面"
+    },
+    {
+      "source": "起動直後のMainActivity。画面の中央にTest 1からTest 3のボタンが縦に並んでいる",
+      "translation": "剛啟動的 MainActivity。Test 1 至 Test 3 按鈕在畫面中央縱向排列"
+    },
+    {
+      "source": "① 起動直後。Test 1〜Test 3のボタンが並びます。 <a1>画像を大きく開く</a1>",
+      "translation": "① 剛啟動時。Test 1 至 Test 3 按鈕排列在一起。<a1>開啟大圖</a1>"
+    },
+    {
+      "source": "ボタンを押すと開くTestActivity。何も表示されていない画面",
+      "translation": "按下按鈕後開啟的 TestActivity。沒有顯示任何內容的畫面"
+    },
+    {
+      "source": "② ボタンを押すと開くTestActivity。何も置いていない画面です。受け取った値はLogcatで見ます。 <a1>画像を大きく開く</a1>",
+      "translation": "② 按下按鈕後開啟的 TestActivity。這個畫面沒有放置任何元件。收到的值在 Logcat 查看。<a1>開啟大圖</a1>"
+    },
+    {
+      "source": "読むところの例 · 完成版でTest 2を押したとき",
+      "translation": "要閱讀的部分例子 · 在完成版按 Test 2 時"
+    },
+    {
+      "source": "送っていない <code>stringArrayValue</code> は null になります。",
+      "translation": "沒有傳送的 <code>stringArrayValue</code> 會是 null。"
+    },
+    {
+      "source": "できるようになること",
+      "translation": "將學會的事"
+    },
+    {
+      "source": "2つ目の画面（Activity）を追加し、Intentで画面を切り替える。",
+      "translation": "加入第二個畫面（Activity），用 Intent 切換畫面。"
+    },
+    {
+      "source": "putExtraで値を入れ、開いた画面でgetXxxExtraで取り出し、Logcatで確かめる。",
+      "translation": "用 putExtra 放入值，在開啟的畫面用 getXxxExtra 取出，再用 Logcat 確認。"
+    },
+    {
+      "source": "キーの定数を受け取る側に置く理由と、実際によく使う渡し方を説明する。",
+      "translation": "說明將鍵的常數放在接收方的原因，以及實際上常用的傳遞方式。"
+    },
+    {
+      "source": "90分×2コマで進めます",
+      "translation": "分 2 節課進行，每節 90 分鐘"
+    },
+    {
+      "source": "授業",
+      "translation": "課堂"
+    },
+    {
+      "source": "範囲",
+      "translation": "範圍"
+    },
+    {
+      "source": "終了時にできること",
+      "translation": "完成時能做到的事"
+    },
+    {
+      "source": "1コマ目",
+      "translation": "第一節課"
+    },
+    {
+      "source": "ボタンを並べて2つ目の画面を追加し、Test 1で切り替える。受け取った値をLogcatで見る。",
+      "translation": "排列按鈕並加入第二個畫面，用 Test 1 切換。在 Logcat 查看收到的值。"
+    },
+    {
+      "source": "2コマ目",
+      "translation": "第二節課"
+    },
+    {
+      "source": "startメソッドで値と配列を渡し、ミニ練習・完成チェックを行う。",
+      "translation": "用 start 方法傳遞值和陣列，並完成小練習和最後確認。"
+    },
+    {
+      "source": "各コマに再実行と個別確認の時間を含みます。予習は不要です。",
+      "translation": "每節課已包含重新執行和個別確認的時間。不必預習。"
+    },
+    {
+      "source": "毎回、自分で新規作成します",
+      "translation": "每次都自行建立新專案"
+    },
+    {
+      "source": "作る場所は <code>Documents/Android1/A06ScreenTransitionSample</code> です。<a1>完成プロジェクト</a1>は初回から開けます。動きの確認とコードの見比べに使います。",
+      "translation": "建立位置是 <code>Documents/Android1/A06ScreenTransitionSample</code>。從第一節課起便可開啟<a1>完成專案</a1>，用來確認運作和比較程式碼。"
+    },
+    {
+      "source": "完成アプリの操作",
+      "translation": "完成應用程式的操作"
+    },
+    {
+      "source": "操作",
+      "translation": "操作"
+    },
+    {
+      "source": "開く画面",
+      "translation": "開啟的畫面"
+    },
+    {
+      "source": "渡すもの（Logcatに値が出る行）",
+      "translation": "傳遞的內容（Logcat 中顯示值的行）"
+    },
+    {
+      "source": "起動",
+      "translation": "啟動"
+    },
+    {
+      "source": "何も渡さない。3行がすべて既定値かnull。",
+      "translation": "不傳遞任何值。3 行全部是預設值或 null。"
+    },
+    {
+      "source": "1 と \"2\" を1つずつ。intValue、stringValue。",
+      "translation": "分別傳遞一個 1 和 \"2\"。intValue、stringValue。"
+    },
+    {
+      "source": "Stringの配列 {\"3\", \"4\", \"5\"}。stringArrayValue。",
+      "translation": "String 陣列 {\"3\", \"4\", \"5\"}。stringArrayValue。"
+    },
+    {
+      "source": "戻る操作",
+      "translation": "返回操作"
+    },
+    {
+      "source": "画面回転について",
+      "translation": "關於螢幕旋轉"
+    },
+    {
+      "source": "各単元では画面回転時のデータ保持と横画面のレイアウトを扱いません。縦向きで使います。考え方と対処法は<a1>共通資料：開発Tips</a1>のC章にあります。",
+      "translation": "各單元不會處理螢幕旋轉時的資料保留及橫向畫面配置。請以直向使用。概念和處理方法見<a1>共通資料：開發技巧</a1>的 C 章。"
+    },
+    {
+      "source": "ここで止まって、確認",
+      "translation": "在這裏停下來確認"
+    },
+    {
+      "source": "完成アプリの操作の表で、Test 1〜Test 3がどの画面を開き、Logcatに何が出るかを確認した。",
+      "translation": "已在完成應用程式的操作表中，確認 Test 1 至 Test 3 會開啟哪個畫面，以及 Logcat 會顯示甚麼。"
+    },
+    {
+      "source": "できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。",
+      "translation": "完成後勾選。遇到困難時，請將 STEP 編號和畫面給老師看。"
+    },
+    {
+      "source": "次へ：プロジェクトを作って実行 →",
+      "translation": "下一步：建立專案並執行 →"
+    },
+    {
+      "source": "STEP 01 · 目安 15分",
+      "translation": "STEP 01 · 約 15 分鐘"
+    },
+    {
+      "source": "プロジェクトを作って実行",
+      "translation": "建立專案並執行"
+    },
+    {
+      "source": "Android Studioで新しいプロジェクトを作ります。A01〜A05と同じ手順です。作る場所と名前だけが違います。",
+      "translation": "在 Android Studio 建立新專案。步驟與 A01 至 A05 相同，只有建立位置和名稱不同。"
+    },
+    {
+      "source": "Android Studioを起動します。プロジェクトが開いている場合は <strong>File → New → New Project</strong> を選びます。",
+      "translation": "啟動 Android Studio。如果已有專案開啟，選取 <strong>File → New → New Project</strong>。"
+    },
+    {
+      "source": "Android StudioのWelcome画面。右上にNew Projectボタン",
+      "translation": "Android Studio 的 Welcome 畫面。右上方有 New Project 按鈕"
+    },
+    {
+      "source": "Welcome画面では、右上の <strong>New Project</strong> をクリックします。 <a1>画像を大きく開く</a1>",
+      "translation": "在 Welcome 畫面，按一下右上方的 <strong>New Project</strong>。<a1>開啟大圖</a1>"
+    },
+    {
+      "source": "<strong>Phone and Tablet → Empty Views Activity → Next</strong> の順に選びます。",
+      "translation": "依序選取 <strong>Phone and Tablet → Empty Views Activity → Next</strong>。"
+    },
+    {
+      "source": "テンプレート一覧でEmpty Views Activityが選択されている",
+      "translation": "範本列表已選取 Empty Views Activity"
+    },
+    {
+      "source": "Empty Views Activityを選びます。Empty Activity（Compose用）ではありません。 <a1>画像を大きく開く</a1>",
+      "translation": "選取 Empty Views Activity，而不是 Empty Activity（供 Compose 使用）。<a1>開啟大圖</a1>"
+    },
+    {
+      "source": "次の表のとおりに入力・選択します。",
+      "translation": "依照下表輸入及選取。"
+    },
+    {
+      "source": "項目",
+      "translation": "項目"
+    },
+    {
+      "source": "入力・選択する内容",
+      "translation": "要輸入或選取的內容"
+    },
+    {
+      "source": "<code>jp.ac.jec.a06screentransitionsample</code>（すべて小文字）",
+      "translation": "<code>jp.ac.jec.a06screentransitionsample</code>（全部小寫）"
+    },
+    {
+      "source": "<strong>Java</strong>（Kotlinではありません）",
+      "translation": "<strong>Java</strong>（不是 Kotlin）"
+    },
+    {
+      "source": "A06ScreenTransitionSampleの新規設定。パッケージjp.ac.jec.a06screentransitionsample、Language Java、Minimum SDK API 31、Kotlin DSL",
+      "translation": "A06ScreenTransitionSample 的新專案設定。套件為 jp.ac.jec.a06screentransitionsample，Language 為 Java，Minimum SDK 為 API 31，Kotlin DSL"
+    },
+    {
+      "source": "Nameを入力すると、Package nameは自動で決まります。画像の保存先は先生の例です。自分の <code>Documents/Android1/A06ScreenTransitionSample</code> に読み替えます。 <a1>画像を大きく開く</a1>",
+      "translation": "輸入 Name 後，Package name 會自動決定。圖片中的儲存位置是老師的例子。請換成自己的 <code>Documents/Android1/A06ScreenTransitionSample</code>。<a1>開啟大圖</a1>"
+    },
+    {
+      "source": "Finderの <strong>移動 → ホーム</strong> で自分のユーザ名を確認します。書類（Documents）に <code>Android1</code> フォルダがなければ作ります。",
+      "translation": "在 Finder 的 <strong>移動 → ホーム</strong>（前往 → 個人專屬）確認自己的使用者名稱。如果「書類」（文件，Documents）內沒有 <code>Android1</code> 資料夾，請建立一個。"
+    },
+    {
+      "source": "表の値と保存先を確認し、<strong>Finish</strong> をクリックします。Save locationの最後が <code>Documents/Android1/A06ScreenTransitionSample</code> になっていることを確かめます。<code>ユーザ名</code> は自分の名前に置き換えます。",
+      "translation": "確認表格的值和儲存位置，按一下 <strong>Finish</strong>。確認 Save location 以 <code>Documents/Android1/A06ScreenTransitionSample</code> 結尾。將 <code>ユーザ名</code>（使用者名稱）換成自己的使用者名稱。"
+    },
+    {
+      "source": "<strong>Gradle Sync</strong> が完了するまで待ちます（初回は数分かかります）。",
+      "translation": "等待 <strong>Gradle Sync</strong> 完成（首次需要數分鐘）。"
+    },
+    {
+      "source": "<a1>共通資料：Auto Import</a1>のJava設定を確認します。",
+      "translation": "確認<a1>共通資料：Auto Import</a1>中的 Java 設定。"
+    },
+    {
+      "source": "この単元で使う場所",
+      "translation": "這個單元使用的位置"
+    },
+    {
+      "source": "役割",
+      "translation": "作用"
+    },
+    {
+      "source": "Project表示で開く場所",
+      "translation": "在 Project 檢視中開啟的位置"
+    },
+    {
+      "source": "画面（XML）",
+      "translation": "畫面（XML）"
+    },
+    {
+      "source": "動き（Java）",
+      "translation": "行為（Java）"
+    },
+    {
+      "source": "画面の登録",
+      "translation": "登記畫面"
+    },
+    {
+      "source": "STEP 3で増えるファイル",
+      "translation": "STEP 3 會新增的檔案"
+    },
+    {
+      "source": "<code>TestActivity.java</code>（MainActivityと同じ場所）、<code>activity_test.xml</code>（layout）",
+      "translation": "<code>TestActivity.java</code>（與 MainActivity 相同位置）、<code>activity_test.xml</code>（layout）"
+    },
+    {
+      "source": "左の一覧が見えないときは <strong>View → Tool Windows → Project</strong> を開きます。一覧の上の表示名が <strong>Project</strong> になっていることを確認します。パッケージのフォルダが <code>jp.ac.jec.a06screentransitionsample</code> とまとめて表示される場合もあります。",
+      "translation": "如果看不到左方清單，開啟 <strong>View → Tool Windows → Project</strong>。確認清單上方的顯示名稱是 <strong>Project</strong>。套件資料夾有時會合併顯示為 <code>jp.ac.jec.a06screentransitionsample</code>。"
+    },
+    {
+      "source": "変更前に1回Runする",
+      "translation": "修改前先 Run 一次"
+    },
+    {
+      "source": "エミュレータ <strong>jec_26cm_android1_Pixel 9a</strong> を選び、<strong>Run ▶</strong> を押します。準備は <a1>共通資料：エミュレータの準備とアプリの実行</a1>のとおりです。画面の中央に「Hello World!」が表示されれば成功です。",
+      "translation": "選取模擬器 <strong>jec_26cm_android1_Pixel 9a</strong>，按 <strong>Run ▶</strong>。準備方法見<a1>共通資料：準備模擬器與執行應用程式</a1>。畫面中央顯示「Hello World!」便成功了。"
+    },
+    {
+      "source": "MainActivity.ktができたとき",
+      "translation": "建立了 MainActivity.kt 時"
+    },
+    {
+      "source": "Languageの選択がKotlinになっています。プロジェクトを作り直し、Javaを選びます。",
+      "translation": "Language 選成了 Kotlin。請重新建立專案，選取 Java。"
+    },
+    {
+      "source": "自分の保存先にA06ScreenTransitionSampleを作り、Hello World!を表示できた。",
+      "translation": "已在自己的儲存位置建立 A06ScreenTransitionSample，並顯示 Hello World!。"
+    },
+    {
+      "source": "次へ：ボタンを3つ並べる →",
+      "translation": "下一步：排列 3 個按鈕 →"
+    },
+    {
+      "source": "STEP 02 · 目安 10分",
+      "translation": "STEP 02 · 約 10 分鐘"
+    },
+    {
+      "source": "ボタンを3つ並べる",
+      "translation": "排列 3 個按鈕"
+    },
+    {
+      "source": "変更するファイル：app/src/main/res/layout/activity_main.xml",
+      "translation": "要修改的檔案：app/src/main/res/layout/activity_main.xml"
+    },
+    {
+      "source": "画面にボタンを3つ並べます。ファイルを開いて <strong>Code</strong> 表示にし、<kbd>⌘ A</kbd> → 貼り付けを行い、<strong>ファイル全体を置き換えます</strong>。",
+      "translation": "在畫面排列 3 個按鈕。開啟檔案並切換至 <strong>Code</strong> 顯示模式，按 <kbd>⌘ A</kbd> → 貼上，<strong>取代整個檔案</strong>。"
+    },
+    {
+      "source": "activity_main.xml · 全体を置き換える",
+      "translation": "activity_main.xml · 替換全部內容"
+    },
+    {
+      "source": "指定",
+      "translation": "指定內容"
+    },
+    {
+      "source": "意味",
+      "translation": "意思"
+    },
+    {
+      "source": "中の部品を1列に並べる入れ物。A01 STEP 3と同じ。",
+      "translation": "將裏面的元件排成一列的容器。與 A01 STEP 3 相同。"
+    },
+    {
+      "source": "縦に並べる。",
+      "translation": "縱向排列。"
+    },
+    {
+      "source": "中の部品を画面の中央に集める。",
+      "translation": "將裏面的元件集中在畫面中央。"
+    },
+    {
+      "source": "Javaから見つけるための名前。btn1〜btn3をSTEP 4以降で使う。",
+      "translation": "供 Java 尋找元件的名稱。STEP 4 起會用到 btn1 至 btn3。"
+    },
+    {
+      "source": "ボタンに表示する文字。",
+      "translation": "按鈕顯示的文字。"
+    },
+    {
+      "source": "文字に合わせた大きさにする。",
+      "translation": "設定為配合文字的大小。"
+    },
+    {
+      "source": "<code>android:id=\"@+id/main\"</code> は消しません。ひな形のJavaが <code>findViewById(R.id.main)</code> で使っています（A01と同じ）。文字を直接書いたことによる <code>Hardcoded text</code> の警告は、これまでの単元と同様にそのまま進めます。",
+      "translation": "不要刪除 <code>android:id=\"@+id/main\"</code>。範本的 Java 會在 <code>findViewById(R.id.main)</code> 使用它（與 A01 相同）。直接寫入文字引起的 <code>Hardcoded text</code> 警告，與之前單元一樣，保持原樣繼續。"
+    },
+    {
+      "source": "Runで確かめる",
+      "translation": "用 Run 確認"
+    },
+    {
+      "source": "Test 1〜Test 3が画面の中央に縦に並べば成功です。まだボタンを押しても何も起きません。",
+      "translation": "Test 1 至 Test 3 在畫面中央縱向排列就成功了。這時按下按鈕還不會發生任何事。"
+    },
+    {
+      "source": "3つのボタンが縦に並びます。 <a1>画像を大きく開く</a1>",
+      "translation": "3 個按鈕縱向排列。<a1>開啟大圖</a1>"
+    },
+    {
+      "source": "Test 1〜Test 3のボタンが画面の中央に縦に並び、idがbtn1〜btn3であることを確認した。",
+      "translation": "已確認 Test 1 至 Test 3 按鈕在畫面中央縱向排列，id 為 btn1 至 btn3。"
+    },
+    {
+      "source": "次へ：2つ目の画面TestActivityを作る →",
+      "translation": "下一步：建立第二個畫面 TestActivity →"
+    },
+    {
+      "source": "STEP 03 · 目安 15分",
+      "translation": "STEP 03 · 約 15 分鐘"
+    },
+    {
+      "source": "2つ目の画面TestActivityを作る",
+      "translation": "建立第二個畫面 TestActivity"
+    },
+    {
+      "source": "新しく作るファイル：app/src/main/java/jp/ac/jec/a06screentransitionsample/TestActivity.java、app/src/main/res/layout/activity_test.xml",
+      "translation": "要新建的檔案：app/src/main/java/jp/ac/jec/a06screentransitionsample/TestActivity.java、app/src/main/res/layout/activity_test.xml"
+    },
+    {
+      "source": "自動で変わるファイル：app/src/main/AndroidManifest.xml",
+      "translation": "會自動改變的檔案：app/src/main/AndroidManifest.xml"
+    },
+    {
+      "source": "アプリの1つの画面を担当するクラスを <strong>Activity（アクティビティ）</strong> と呼びます。A01から使っている MainActivity も Activity です。今回は、2つ目の Activity を Android Studio の機能で作ります。",
+      "translation": "負責應用程式其中一個畫面的類別，稱為 <strong>Activity</strong>。從 A01 起使用的 MainActivity 也是 Activity。這次用 Android Studio 的功能，建立第二個 Activity。"
+    },
+    {
+      "source": "① New → Activityで作る",
+      "translation": "① 用 New → Activity 建立"
+    },
+    {
+      "source": "Project表示で <code>app</code> を右クリックします。",
+      "translation": "在 Project 顯示模式，以滑鼠右鍵按一下 <code>app</code>。"
+    },
+    {
+      "source": "<strong>New → Activity → Empty Views Activity</strong> を選びます。",
+      "translation": "選取 <strong>New → Activity → Empty Views Activity</strong>。"
+    },
+    {
+      "source": "Project表示でappを右クリックし、New、Activity、Empty Views Activityの順に選んでいる",
+      "translation": "在 Project 顯示模式以滑鼠右鍵按一下 app，再依序選取 New、Activity、Empty Views Activity"
+    },
+    {
+      "source": "appを右クリックして、<strong>New → Activity → Empty Views Activity</strong>。 <a1>画像を大きく開く</a1>",
+      "translation": "以滑鼠右鍵按一下 app，選取 <strong>New → Activity → Empty Views Activity</strong>。<a1>開啟大圖</a1>"
+    },
+    {
+      "source": "次の表のとおりに入力・選択して、<strong>Finish</strong> を押します。",
+      "translation": "依照下表輸入及選取，再按 <strong>Finish</strong>。"
+    },
+    {
+      "source": "チェックを入れる",
+      "translation": "勾選"
+    },
+    {
+      "source": "activity_test（Activity Nameから自動で入る）",
+      "translation": "activity_test（根據 Activity Name 自動填入）"
+    },
+    {
+      "source": "チェックを入れない",
+      "translation": "不要勾選"
+    },
+    {
+      "source": "New Android Activityの設定。Activity NameにTestActivity、Generate a Layout Fileにチェック、Layout Nameにactivity_test、Launcher Activityはチェックなし、Package nameにjp.ac.jec.a06screentransitionsample、Source LanguageにJava、Target Source Setにmain",
+      "translation": "New Android Activity 設定。Activity Name 為 TestActivity，Generate a Layout File 已勾選，Layout Name 為 activity_test，Launcher Activity 未勾選，Package name 為 jp.ac.jec.a06screentransitionsample，Source Language 為 Java，Target Source Set 為 main"
+    },
+    {
+      "source": "Launcher Activityにはチェックを入れません。 <a1>画像を大きく開く</a1>",
+      "translation": "不要勾選 Launcher Activity。<a1>開啟大圖</a1>"
+    },
+    {
+      "source": "New → Java Classでは作りません",
+      "translation": "不要用 New → Java Class 建立"
+    },
+    {
+      "source": "Java Classで作ると、画面のXMLと、次に見るAndroidManifest.xmlへの登録が作られません。登録がないと、STEP 4でTest 1を押したときにアプリが終了します。このSTEPでは必ず <strong>New → Activity</strong> を使います。",
+      "translation": "用 Java Class 建立時，不會產生畫面的 XML，也不會在接着查看的 AndroidManifest.xml 登記。沒有登記，STEP 4 按 Test 1 時應用程式便會關閉。這個 STEP 務必使用 <strong>New → Activity</strong>。"
+    },
+    {
+      "source": "② 自動で作られた・変わった3つのファイルを見る",
+      "translation": "② 查看自動建立或改變的 3 個檔案"
+    },
+    {
+      "source": "ファイル",
+      "translation": "檔案"
+    },
+    {
+      "source": "できたこと",
+      "translation": "完成的內容"
+    },
+    {
+      "source": "新しい画面を担当するクラス。中身はMainActivityのひな形と同じ形で、<code>setContentView(R.layout.activity_test)</code> でこの画面のXMLを指定している。",
+      "translation": "負責新畫面的類別。內容與 MainActivity 範本形式相同，以 <code>setContentView(R.layout.activity_test)</code> 指定這個畫面的 XML。"
+    },
+    {
+      "source": "何も置いていない画面。<code>android:id=\"@+id/main\"</code> がある。今回はこのまま使う。",
+      "translation": "沒有放置任何元件的畫面。有 <code>android:id=\"@+id/main\"</code>。這次保持原樣使用。"
+    },
+    {
+      "source": "TestActivityを登録する <code>&lt;activity&gt;</code> が追加された。",
+      "translation": "新增了登記 TestActivity 的 <code>&lt;activity&gt;</code>。"
+    },
+    {
+      "source": "AndroidManifest.xmlを開くと、次の3行が増えています。自動で追加されているので、<strong>入力しません</strong>。",
+      "translation": "開啟 AndroidManifest.xml，可以看到新增了以下 3 行。因為已自動加入，所以<strong>不用輸入</strong>。"
+    },
+    {
+      "source": "アプリの画面をAndroidに知らせる。A04 STEP 2で、インターネットの許可を書いたファイルと同じファイル。",
+      "translation": "告訴 Android 應用程式有哪些畫面。與 A04 STEP 2 編寫互聯網權限的是同一個檔案。"
+    },
+    {
+      "source": "登録するクラス。先頭の <code>.</code> は、パッケージ名 <code>jp.ac.jec.a06screentransitionsample</code> を省いた書き方。",
+      "translation": "要登記的類別。開頭的 <code>.</code> 是省略了套件名稱 <code>jp.ac.jec.a06screentransitionsample</code> 的寫法。"
+    },
+    {
+      "source": "ほかのアプリからこの画面を開けないようにする。TestActivityは自分のアプリのMainActivityからだけ開く。",
+      "translation": "防止其他應用程式開啟這個畫面。TestActivity 只會由自己應用程式的 MainActivity 開啟。"
+    },
+    {
+      "source": "MainActivityの &lt;intent-filter&gt;（MAINとLAUNCHER）",
+      "translation": "MainActivity 的 &lt;intent-filter&gt;（MAIN 和 LAUNCHER）"
+    },
+    {
+      "source": "アプリ一覧のアイコンから最初に開く画面の印。Launcher Activityにチェックを入れなかったので、TestActivityには付かない。MainActivityはアイコンから開くため <code>exported=\"true\"</code>。",
+      "translation": "表示從應用程式清單圖示開啟的第一個畫面的標記。因為沒有勾選 Launcher Activity，所以 TestActivity 不會加上這個標記。MainActivity 會從圖示開啟，因此設為 <code>exported=\"true\"</code>。"
+    },
+    {
+      "source": "追加されたAndroidManifest.xml全体で照合する",
+      "translation": "用加入後的完整 AndroidManifest.xml 核對"
+    },
+    {
+      "source": "照合用 · AndroidManifest.xml",
+      "translation": "供核對 · AndroidManifest.xml"
+    },
+    {
+      "source": "作られたactivity_test.xmlで照合する",
+      "translation": "用建立的 activity_test.xml 核對"
+    },
+    {
+      "source": "照合用 · activity_test.xml",
+      "translation": "供核對 · activity_test.xml"
+    },
+    {
+      "source": "まだどこからもTestActivityを開いていないので、画面は変わりません。エラーなくRunでき、Test 1〜Test 3が表示されれば成功です。",
+      "translation": "因為尚未從任何地方開啟 TestActivity，所以畫面不變。能無錯誤地 Run，並顯示 Test 1 至 Test 3，就成功了。"
+    },
+    {
+      "source": "TestActivity.javaとactivity_test.xmlを作り、AndroidManifest.xmlにTestActivityの &lt;activity&gt; が追加されたことを確認した。",
+      "translation": "已建立 TestActivity.java 和 activity_test.xml，並確認 AndroidManifest.xml 新增了 TestActivity 的 &lt;activity&gt;。"
+    },
+    {
+      "source": "次へ：Test 1で画面を切り替える →",
+      "translation": "下一步：用 Test 1 切換畫面 →"
+    },
+    {
+      "source": "STEP 04 · 目安 15分",
+      "translation": "STEP 04 · 約 15 分鐘"
+    },
+    {
+      "source": "Test 1で画面を切り替える",
+      "translation": "用 Test 1 切換畫面"
+    },
+    {
+      "source": "変更するファイル：MainActivity.java",
+      "translation": "要修改的檔案：MainActivity.java"
+    },
+    {
+      "source": "<strong>Intent（インテント）</strong> は、「この画面を開きたい」というお願いをAndroidに伝える入れ物です。まずTest 1で、値を入れずに画面を切り替えます。STEP 5からは、この入れ物に値も入れて渡します。",
+      "translation": "<strong>Intent</strong> 是向 Android 傳達「想開啟這個畫面」要求的容器。先用 Test 1 切換畫面，不放入任何值。STEP 5 起，也會把值放進這個容器來傳遞。"
+    },
+    {
+      "source": "① onCreateの中に追加",
+      "translation": "① 加入 onCreate 內"
+    },
+    {
+      "source": "ひな形の <code>});</code>（<code>return insets;</code> の下）の下に、1行空けて追加します。",
+      "translation": "在範本的 <code>});</code>（<code>return insets;</code> 下方）之下，留一個空行後加入。"
+    },
+    {
+      "source": "追加 · onCreateの中、ひな形の });の下",
+      "translation": "加入 · onCreate 內、範本的 }); 下方"
+    },
+    {
+      "source": "importは <code>android.content.Intent</code> です。",
+      "translation": "import 是 <code>android.content.Intent</code>。"
+    },
+    {
+      "source": "コード",
+      "translation": "コード — 程式碼"
+    },
+    {
+      "source": "btn1を見つけて、押されたときの処理を登録する。あとで使わないので変数には入れず、見つけた部品に続けて書く。A02 STEP 4の <code>btnStart = findViewById(R.id.btn_start);</code> と同じで、<code>(Button)</code> のようなキャストはいらない。",
+      "translation": "找到 btn1，並登記按下時的處理。因為之後不會再使用，所以不放入變數，而是接在找到的元件後面編寫。與 A02 STEP 4 的 <code>btnStart = findViewById(R.id.btn_start);</code> 一樣，不需要 <code>(Button)</code> 之類的類型轉換。"
+    },
+    {
+      "source": "今の画面からTestActivityを開くためのIntentを作る。varは右側から型が決まる（A01 STEP 4）。",
+      "translation": "建立從目前畫面開啟 TestActivity 的 Intent。var 的類型由右方決定（A01 STEP 4）。"
+    },
+    {
+      "source": "今の画面のMainActivity。A01 STEP 7の <code>Toast.makeText(this, …)</code> と同じ。",
+      "translation": "目前畫面的 MainActivity。與 A01 STEP 7 的 <code>Toast.makeText(this, …)</code> 相同。"
+    },
+    {
+      "source": "TestActivityというクラスそのものを表す書き方。どの画面を開くかを指定する。",
+      "translation": "表示 TestActivity 這個類別本身的寫法。用來指定開啟哪個畫面。"
+    },
+    {
+      "source": "IntentをAndroidに渡して、画面を開いてもらう。",
+      "translation": "將 Intent 交給 Android，讓它開啟畫面。"
+    },
+    {
+      "source": "戻る操作で戻れるのはなぜ？",
+      "translation": "為甚麼返回操作能回到上一個畫面？"
+    },
+    {
+      "source": "開いたTestActivityは、MainActivityの上に重なって表示されます。戻る操作をすると上のTestActivityが閉じ、下にあるMainActivityがまた見えます。",
+      "translation": "開啟的 TestActivity 會疊在 MainActivity 上面顯示。進行返回操作後，上方的 TestActivity 關閉，下面的 MainActivity 便再次顯示。"
+    },
+    {
+      "source": "A04 STEP 8では、WebViewの中のページを戻す処理を自分で書きました。画面（Activity）を戻す動きはAndroidが行うので、今回はコードを書きません。",
+      "translation": "A04 STEP 8 自行編寫了返回 WebView 內上一頁的處理。返回上一個畫面（Activity）的動作由 Android 執行，所以這次不用編寫程式碼。"
+    },
+    {
+      "source": "仕様の確認：<a1>Intents and intent filters</a1>、<a2>Tasks and the back stack</a2>（Android公式）。",
+      "translation": "規格確認：<a1>Intents and intent filters</a1>、<a2>Tasks and the back stack</a2>（Android 官方）。"
+    },
+    {
+      "source": "Test 1を押します。何もない画面に切り替われば成功です。",
+      "translation": "按 Test 1。切換到空白畫面就成功了。"
+    },
+    {
+      "source": "戻る操作（画面の端から内側へのスワイプ、またはエミュレータの ◁）をします。3つのボタンの画面に戻ります。",
+      "translation": "進行返回操作（從螢幕邊緣向內滑動，或按模擬器的 ◁）。會回到有 3 個按鈕的畫面。"
+    },
+    {
+      "source": "Test 1をもう一度押すと、また開きます。Test 2とTest 3はまだ何も起きません。",
+      "translation": "再次按 Test 1，會再次開啟。Test 2 和 Test 3 還不會有任何作用。"
+    },
+    {
+      "source": "Test 1で開いたTestActivity。何も表示されていない画面",
+      "translation": "用 Test 1 開啟的 TestActivity。沒有顯示任何內容的畫面"
+    },
+    {
+      "source": "Test 1で開いたTestActivity。何も置いていない画面です。 <a1>画像を大きく開く</a1>",
+      "translation": "用 Test 1 開啟的 TestActivity。畫面沒有放置任何元件。<a1>開啟大圖</a1>"
+    },
+    {
+      "source": "Test 1でアプリが終了したとき",
+      "translation": "按 Test 1 後應用程式關閉時"
+    },
+    {
+      "source": "STEP 3を <strong>New → Java Class</strong> で作ると、AndroidManifest.xmlに登録されず、Test 1で終了します。<a1>困ったとき</a1>を見ます。",
+      "translation": "如果在 STEP 3 用 <strong>New → Java Class</strong> 建立，便不會在 AndroidManifest.xml 登記，按 Test 1 時會關閉。請查看<a1>遇到困難時</a1>。"
+    },
+    {
+      "source": "STEP 4のMainActivity.java全体で照合する",
+      "translation": "用 STEP 4 的完整 MainActivity.java 核對"
+    },
+    {
+      "source": "照合用 · MainActivity.java",
+      "translation": "供核對 · MainActivity.java"
+    },
+    {
+      "source": "Test 1で何もない画面に切り替わり、戻る操作で3つのボタンの画面に戻ることを確認した。",
+      "translation": "已確認 Test 1 會切換到空白畫面，而返回操作會回到有 3 個按鈕的畫面。"
+    },
+    {
+      "source": "次へ：受け取る側を作る（キーと既定値） →",
+      "translation": "下一步：製作接收方（鍵與預設值） →"
+    },
+    {
+      "source": "STEP 05 · 目安 20分",
+      "translation": "STEP 05 · 約 20 分鐘"
+    },
+    {
+      "source": "受け取る側を作る（キーと既定値）",
+      "translation": "製作接收方（鍵與預設值）"
+    },
+    {
+      "source": "変更するファイル：TestActivity.java",
+      "translation": "要修改的檔案：TestActivity.java"
+    },
+    {
+      "source": "Intentに値を入れるときは、<strong>キー（名前）と値の組</strong>で入れます。取り出すときは、同じキーを指定します。Intentに追加で入れる値は extra（エクストラ）と呼びます。",
+      "translation": "將值放入 Intent 時，要以<strong>鍵（名稱）與值的配對</strong>放入。取出時指定相同的鍵。額外放進 Intent 的值稱為 extra。"
+    },
+    {
+      "source": "このSTEPでは、受け取る側を先に作ります。Test 1は値を何も入れていないので、何も入っていないときに何が出るかを確かめます。",
+      "translation": "這個 STEP 先製作接收方。Test 1 沒有放入任何值，所以要確認沒有值時會顯示甚麼。"
+    },
+    {
+      "source": "TestActivity.javaの追加場所は、次の3か所です。この枠は<strong>入力しません</strong>。",
+      "translation": "TestActivity.java 要加入內容的位置有以下 3 處。這個框內的內容<strong>不用輸入</strong>。"
+    },
+    {
+      "source": "① キーの定数を追加する（Aの場所）",
+      "translation": "① 加入鍵的常數（A 的位置）"
+    },
+    {
+      "source": "<code>public class TestActivity extends AppCompatActivity {</code> の行のすぐ下（その下の空行より上）に追加します。",
+      "translation": "加在 <code>public class TestActivity extends AppCompatActivity {</code> 那一行的正下方（下面空行的上方）。"
+    },
+    {
+      "source": "追加 · public class TestActivity … { の下",
+      "translation": "加入 · public class TestActivity … { 下方"
+    },
+    {
+      "source": "A05 STEP 7の <code>STATE_IGNITED</code> と同じ <code>private static final</code> の定数です。今回は数字ではなく、キーの文字列（String）を入れます。",
+      "translation": "這是與 A05 STEP 7 的 <code>STATE_IGNITED</code> 相同的 <code>private static final</code> 常數。這次放入鍵的字串（String），而非數字。"
+    },
+    {
+      "source": "キーの定数は、値を受け取るTestActivityに書きます。値を取り出す <code>getIntExtra</code> などはTestActivityで使います。STEP 6で書く「値を入れる処理（startメソッド）」も、TestActivityに書きます。キーを使うのがTestActivityの中だけなので、A02 STEP 4で学んだ <code>private</code> を付けます。理由の続きは、<a1>STEP 6の解説</a1>で確かめます。",
+      "translation": "鍵的常數寫在接收值的 TestActivity。取出值的 <code>getIntExtra</code> 等方法會在 TestActivity 使用。STEP 6 要編寫的「放入值的處理（start 方法）」也寫在 TestActivity。因為只有 TestActivity 內會使用鍵，所以加上 A02 STEP 4 學過的 <code>private</code>。其餘原因見<a1>STEP 6 的解說</a1>。"
+    },
+    {
+      "source": "② 受け取ってLogに出す（Bの場所）",
+      "translation": "② 接收並輸出至 Log（B 的位置）"
+    },
+    {
+      "source": "onCreateの中の、ひな形の <code>});</code> の下に、1行空けて追加します。",
+      "translation": "在 onCreate 內，範本的 <code>});</code> 下方留一個空行後加入。"
+    },
+    {
+      "source": "importは <code>android.util.Log</code> です。",
+      "translation": "import 是 <code>android.util.Log</code>。"
+    },
+    {
+      "source": "この画面を開いたときのIntentを取り出す。Test 1なら、STEP 4でMainActivityが作ったIntent。",
+      "translation": "取出開啟這個畫面時使用的 Intent。Test 1 的情況，就是 STEP 4 由 MainActivity 建立的 Intent。"
+    },
+    {
+      "source": "キー \"intValue\" のintを取り出す。入っていなければ、2つ目に書いた0を返す。",
+      "translation": "取出鍵為 \"intValue\" 的 int。如果沒有放入，就回傳寫在第二個位置的 0。"
+    },
+    {
+      "source": "文字列を取り出す。既定値は書かず、入っていなければ null。",
+      "translation": "取出字串。不寫預設值，沒有放入時就是 null。"
+    },
+    {
+      "source": "名前と値をつなげてLogcatに出す。A03 STEP 8・A05 STEP 5と同じ。タグはTestActivity。",
+      "translation": "將名稱與值連接，輸出至 Logcat。與 A03 STEP 8、A05 STEP 5 相同。標籤是 TestActivity。"
+    },
+    {
+      "source": "2つ目に書いた値を <strong>既定値（きていち）</strong> と呼びます。キーが入っていないときに返る値です。<strong>null（ヌル）</strong> は、何も入っていないことを表す値です。",
+      "translation": "寫在第二個位置的值稱為<strong>預設值</strong>（既定値，きていち），即沒有該鍵時回傳的值。<strong>null</strong> 表示沒有放入任何內容。"
+    },
+    {
+      "source": "型",
+      "translation": "類型"
+    },
+    {
+      "source": "入る値",
+      "translation": "可放入的值"
+    },
+    {
+      "source": "STEP 6で送る値",
+      "translation": "STEP 6 傳送的值"
+    },
+    {
+      "source": "入っていないとき",
+      "translation": "沒有放入時"
+    },
+    {
+      "source": "整数（A02）",
+      "translation": "整數（A02）"
+    },
+    {
+      "source": "文字列（A01）",
+      "translation": "字串（A01）"
+    },
+    {
+      "source": "ほかの型も同じ形で取り出せます",
+      "translation": "其他類型也能用相同形式取出"
+    },
+    {
+      "source": "Intentには <code>long</code> や <code>boolean</code> なども入れられます。取り出すメソッドの名前が <code>getLongExtra</code>、<code>getBooleanExtra</code> のように変わるだけで、<strong>使い方は同じ</strong>です。この単元では <code>int</code> と <code>String</code> の2つで仕組みを確かめます。",
+      "translation": "Intent 也能放入 <code>long</code>、<code>boolean</code> 等類型。只是取出方法的名稱改成 <code>getLongExtra</code>、<code>getBooleanExtra</code> 等，<strong>用法相同</strong>。本單元用 <code>int</code> 和 <code>String</code> 這兩種來確認機制。"
+    },
+    {
+      "source": "<code>var</code> は右側から型が決まります（A01 STEP 4）。<code>getIntExtra</code> なら intValue は int、<code>getStringExtra</code> なら stringValue は String です。",
+      "translation": "<code>var</code> 的類型由右方決定（A01 STEP 4）。使用 <code>getIntExtra</code> 時，intValue 是 int；使用 <code>getStringExtra</code> 時，stringValue 是 String。"
+    },
+    {
+      "source": "<a1>共通資料：Logcat</a1>に従ってLogcatを開き、検索欄を次の文字にします。",
+      "translation": "按照<a1>共通資料：Logcat</a1>開啟 Logcat，將搜尋欄改成以下文字。"
+    },
+    {
+      "source": "Logcatの検索欄 · ScreenTransitionSample用",
+      "translation": "Logcat 搜尋欄 · ScreenTransitionSample 專用"
+    },
+    {
+      "source": "Runして、Test 1を押します。2行が出れば成功です。",
+      "translation": "Run 後按 Test 1。出現 2 行就成功了。"
+    },
+    {
+      "source": "読むところの例 · Test 1を押したとき",
+      "translation": "要閱讀的部分例子 · 按 Test 1 時"
+    },
+    {
+      "source": "Test 1はIntentに値を何も入れていません。そのため、2行とも既定値かnullになります。入っていなくてもエラーにはなりません。",
+      "translation": "Test 1 沒有把任何值放入 Intent，因此兩行都是預設值或 null。沒有放入也不會出錯。"
+    },
+    {
+      "source": "VRI[TestActivity]の行が混ざるとき",
+      "translation": "混入 VRI[TestActivity] 的行時"
+    },
+    {
+      "source": "検索欄の <code>tag:TestActivity</code> は、TestActivityを含むタグも表示します。そのため <code>VRI[TestActivity]</code> の行が混ざることがあります。読み飛ばして構いません。",
+      "translation": "搜尋欄的 <code>tag:TestActivity</code> 也會顯示包含 TestActivity 的標籤，因此可能混入 <code>VRI[TestActivity]</code> 的行。可以跳過不讀。"
+    },
+    {
+      "source": "STEP 5のTestActivity.java全体で照合する",
+      "translation": "用 STEP 5 的完整 TestActivity.java 核對"
+    },
+    {
+      "source": "照合用 · TestActivity.java",
+      "translation": "供核對 · TestActivity.java"
+    },
+    {
+      "source": "1コマ目はここまで",
+      "translation": "第一節課到這裏"
+    },
+    {
+      "source": "もう一度Runし、Test 1のLogcatを確かめます。隣の人か先生に、キーと既定値の意味を説明しましょう。次回も自分の <code>Documents/Android1/A06ScreenTransitionSample</code> を開きます。",
+      "translation": "再次 Run，確認 Test 1 的 Logcat。請向身旁同學或老師說明鍵和預設值的意思。下次也會開啟自己的 <code>Documents/Android1/A06ScreenTransitionSample</code>。"
+    },
+    {
+      "source": "Test 1でLogcatに既定値の2行が出ることを確認した。",
+      "translation": "已確認按 Test 1 後，Logcat 顯示兩行預設值。"
+    },
+    {
+      "source": "次へ：startメソッドで値を渡す →",
+      "translation": "下一步：用 start 方法傳遞值 →"
+    },
+    {
+      "source": "STEP 06 · 目安 20分",
+      "translation": "STEP 06 · 約 20 分鐘"
+    },
+    {
+      "source": "startメソッドで値を渡す",
+      "translation": "用 start 方法傳遞值"
+    },
+    {
+      "source": "変更するファイル：TestActivity.java、MainActivity.java",
+      "translation": "要修改的檔案：TestActivity.java、MainActivity.java"
+    },
+    {
+      "source": "前回のアプリをRunして、Test 1のLogcatを確認してから始めます。このSTEPでは、値をIntentに入れて画面を開くメソッドを、開かれる側のTestActivityに作ります。",
+      "translation": "先 Run 上一次的應用程式，確認 Test 1 的 Logcat 後再開始。這個 STEP 會在被開啟的 TestActivity 內，建立把值放入 Intent 並開啟畫面的方法。"
+    },
+    {
+      "source": "① starterテンプレートで形を作る（Cの場所）",
+      "translation": "① 用 starter 範本建立基本形式（C 的位置）"
+    },
+    {
+      "source": "TestActivity.javaで、onCreateを閉じる <code>}</code>（クラスの最後の <code>}</code> の1つ上の行。①の図の（C）の場所）の行末をクリックし、<kbd>Enter</kbd> を2回押します。",
+      "translation": "在 TestActivity.java，按一下結束 onCreate 的 <code>}</code>（類別最後的 <code>}</code> 上一行，即①圖中的（C）位置）行末，再按兩次 <kbd>Enter</kbd>。"
+    },
+    {
+      "source": "<code>starter</code> と入力します。候補に <strong>starter</strong>（Creates a static start(...) helper method to start an Activity）が出たら <kbd>Enter</kbd> を押します。",
+      "translation": "輸入 <code>starter</code>。候選項目出現 <strong>starter</strong>（Creates a static start(...) helper method to start an Activity）時，按 <kbd>Enter</kbd>。"
+    },
+    {
+      "source": "入力欄に色が付いた状態でコードができます。<kbd>Esc</kbd> を押して入力を終わります。",
+      "translation": "程式碼會產生，輸入欄會以顏色標示。按 <kbd>Esc</kbd> 結束輸入。"
+    },
+    {
+      "source": "TestActivity.javaのonCreateの下でstarteと入力し、候補の先頭にstarterのテンプレートが表示されている",
+      "translation": "在 TestActivity.java 的 onCreate 下方輸入 starte，候選項目首位顯示 starter 範本"
+    },
+    {
+      "source": "onCreateの外で <code>starter</code> と入力します。途中まで打つと候補が出ます。画像はテンプレートの候補だけを示すため、STEP 5で追加したキーの定数は写っていません。行番号は自分の画面と違って構いません。 <a1>画像を大きく開く</a1>",
+      "translation": "在 onCreate 外輸入 <code>starter</code>。輸入到一半便會出現候選項目。圖片只展示範本候選項目，沒有拍到 STEP 5 加入的鍵常數。行號可以與自己的畫面不同。<a1>開啟大圖</a1>"
+    },
+    {
+      "source": "次のコードができます。この枠は<strong>入力しません</strong>。",
+      "translation": "會產生以下程式碼。這個框內的內容<strong>不用輸入</strong>。"
+    },
+    {
+      "source": "<code>putExtra()</code> が赤いのは、まだ中身がないためです。すぐに②で置き換えます。候補が出ない場合は、onCreateの最後の <code>}</code> の下に1行空けて、②のコードを貼り付けても同じ結果になります。",
+      "translation": "<code>putExtra()</code> 變紅，是因為裏面還沒有內容。接着會在②立即取代。如果沒有出現候選項目，也可以在 onCreate 最後的 <code>}</code> 下方留一個空行，貼上②的程式碼，結果相同。"
+    },
+    {
+      "source": "② 教科書のコードで置き換える",
+      "translation": "② 用教科書的程式碼取代"
+    },
+    {
+      "source": "できた5行（<code>public static void start</code> から、その <code>}</code> まで）を選び、貼り付けて置き換えます。<strong>startは2つ作ります。</strong>1つ目は値を渡さないもの、2つ目は2つの値を渡すものです。",
+      "translation": "選取產生的 5 行（從 <code>public static void start</code> 至對應的 <code>}</code>），貼上內容來取代。<strong>要建立兩個 start。</strong>第一個不傳遞值，第二個傳遞兩個值。"
+    },
+    {
+      "source": "置き換え · starterで作ったstartメソッド",
+      "translation": "取代 · 用 starter 建立的 start 方法"
+    },
+    {
+      "source": "importは <code>android.content.Context</code>、<code>android.content.Intent</code> です（テンプレートを使った場合は、もう入っています）。",
+      "translation": "import 是 <code>android.content.Context</code> 和 <code>android.content.Intent</code>（使用範本時已加入）。"
+    },
+    {
+      "source": "テンプレート",
+      "translation": "範本"
+    },
+    {
+      "source": "教科書",
+      "translation": "教科書的寫法"
+    },
+    {
+      "source": "理由",
+      "translation": "原因"
+    },
+    {
+      "source": "publicを付けなくても、同じ場所（パッケージ）のMainActivityから呼べる。",
+      "translation": "即使不加 public，同一位置（套件）的 MainActivity 也能呼叫。"
+    },
+    {
+      "source": "渡したい2つの値を受け取れるようにする。",
+      "translation": "讓方法能接收想傳遞的兩個值。"
+    },
+    {
+      "source": "varはA01 STEP 4で学んだ書き方。変数の名前をintentにした。",
+      "translation": "var 是 A01 STEP 4 學過的寫法。變數名稱改為 intent。"
+    },
+    {
+      "source": "intent.putExtra(EXTRA_KEY_INT_VALUE, intValue); など2行",
+      "translation": "intent.putExtra(EXTRA_KEY_INT_VALUE, intValue); 等兩行"
+    },
+    {
+      "source": "キーと値の組で入れる。",
+      "translation": "以鍵和值的配對放入。"
+    },
+    {
+      "source": "変数の名前だけが違う。",
+      "translation": "只有變數名稱不同。"
+    },
+    {
+      "source": "クラス名を付けて <code>TestActivity.start(…)</code> と呼べるメソッド。staticはA05 STEP 7の定数と同じで「クラスで1つ」の意味。<code>Log.d(…)</code>（A01 STEP 5）も同じ呼び方。",
+      "translation": "可加上類別名稱，以 <code>TestActivity.start(…)</code> 呼叫的方法。static 與 A05 STEP 7 的常數相同，表示「類別共用一個」。<code>Log.d(…)</code>（A01 STEP 5）也是相同的呼叫方式。"
+    },
+    {
+      "source": "画面（Activity）などを受け取るための型。MainActivityから <code>this</code> を渡すと、ここに入る。",
+      "translation": "用來接收畫面（Activity）等的類型。從 MainActivity 傳入 <code>this</code> 時，便會放到這裏。"
+    },
+    {
+      "source": "int intValue など",
+      "translation": "int intValue 等"
+    },
+    {
+      "source": "<strong>引数（ひきすう）</strong>。メソッドを呼ぶときに ( ) の中で渡した値を、順番に受け取る変数。",
+      "translation": "<strong>參數</strong>（引数，ひきすう）。依序接收呼叫方法時，在 ( ) 內傳入的值的變數。"
+    },
+    {
+      "source": "STEP 4と同じ。<code>this</code> の代わりに、受け取ったcontextを使う。",
+      "translation": "與 STEP 4 相同。用收到的 context 代替 <code>this</code>。"
+    },
+    {
+      "source": "キーと値の組をIntentに入れる。STEP 5のgetIntExtraと同じキーで取り出せる。",
+      "translation": "將鍵和值的配對放入 Intent。可用與 STEP 5 的 getIntExtra 相同的鍵取出。"
+    },
+    {
+      "source": "渡された画面（MainActivity）からTestActivityを開く。",
+      "translation": "從傳入的畫面（MainActivity）開啟 TestActivity。"
+    },
+    {
+      "source": "③ btn1を、いま作ったstartにそろえる",
+      "translation": "③ 將 btn1 改成使用剛建立的 start"
+    },
+    {
+      "source": "STEP 4で書いた <strong>btn1の処理</strong>を、値を渡さないほうの <code>start</code> を使う形に置き換えます。",
+      "translation": "將 STEP 4 編寫的 <strong>btn1 處理</strong>，改成使用不傳遞值的 <code>start</code> 的形式。"
+    },
+    {
+      "source": "置き換え · btn1の処理",
+      "translation": "取代 · btn1 的處理"
+    },
+    {
+      "source": "置き換えると <code>MainActivity.java</code> の中から <code>new Intent(...)</code> がなくなります。<strong>ファイルの上のほうにある <code>import android.content.Intent;</code> が灰色になる</strong>ので、その行を消します。使っていないimportが残っていても動きますが、読む人が「Intentを使っているのか」と探すことになります。",
+      "translation": "取代後，<code>MainActivity.java</code> 內不再有 <code>new Intent(...)</code>。<strong>檔案上方的 <code>import android.content.Intent;</code> 會變成灰色</strong>，請刪除該行。保留未使用的 import 也能運作，但閱讀的人會以為使用了 Intent，而去尋找它。"
+    },
+    {
+      "source": "画面を開く書き方は1つにそろえます",
+      "translation": "統一開啟畫面的寫法"
+    },
+    {
+      "source": "STEP 4では <code>new Intent(...)</code> と <code>startActivity(...)</code> を直接書きました。いちばん素の形で、何が起きているかが見えるからです。<code>start</code> を作ったあとは、<strong>開かれる側（TestActivity）が自分の開き方を持つ</strong>ほうが読みやすくなります。渡す値が増えても、呼び出し側は <code>TestActivity.start(...)</code> のままで済みます。A07のBillSplitterでも同じ形が出てきます。",
+      "translation": "STEP 4 直接編寫了 <code>new Intent(...)</code> 和 <code>startActivity(...)</code>，因為最基本的形式能清楚顯示正在發生甚麼。建立 <code>start</code> 後，讓<strong>被開啟的一方（TestActivity）持有自己的開啟方法</strong>會更易讀。即使增加傳遞的值，呼叫方仍只需使用 <code>TestActivity.start(...)</code>。A07 的 BillSplitter 也會使用相同形式。"
+    },
+    {
+      "source": "④ btn2で値を渡す",
+      "translation": "④ 用 btn2 傳遞值"
+    },
+    {
+      "source": "MainActivity.javaの、btn1の処理の <code>});</code> の下に、1行空けて追加します。",
+      "translation": "在 MainActivity.java 的 btn1 處理結尾 <code>});</code> 下方，留一個空行後加入。"
+    },
+    {
+      "source": "追加 · btn1の処理の });の下",
+      "translation": "加入 · btn1 處理的 }); 下方"
+    },
+    {
+      "source": "渡す値",
+      "translation": "傳遞的值"
+    },
+    {
+      "source": "受け取る引数",
+      "translation": "接收的參數"
+    },
+    {
+      "source": "書き方のポイント",
+      "translation": "寫法要點"
+    },
+    {
+      "source": "今の画面のMainActivity。",
+      "translation": "目前畫面的 MainActivity。"
+    },
+    {
+      "source": "整数。",
+      "translation": "整數。"
+    },
+    {
+      "source": "文字列は \" \" で囲む。数字でも文字として扱う。",
+      "translation": "字串用 \" \" 圍起來。即使是數字，也會當作文字處理。"
+    },
+    {
+      "source": "MainActivityには、キーの文字が1つも出てきません。値を順番に渡すだけです。",
+      "translation": "MainActivity 完全不會出現鍵的文字，只需依序傳入值。"
+    },
+    {
+      "source": "同じ名前のstartが2つあっても動くのは？",
+      "translation": "為甚麼有兩個同名 start 也能運作？"
+    },
+    {
+      "source": "同じ名前のメソッドを、引数の型や数を変えて複数作ることを <strong>オーバーロード</strong> と言います。呼び出すときに渡した値の型と数から、Javaがどちらのstartを使うかを決めます。Test 1は何も渡さないので1つ目、Test 2は2つの値を渡すので2つ目です。<code>putExtra</code> がintでもStringでも同じ名前で使えるのも、同じ仕組みです。",
+      "translation": "建立多個同名方法，但改變參數的類型或數量，稱為<strong>多載</strong>。Java 會根據呼叫時傳入值的類型和數量，決定使用哪個 start。Test 1 不傳遞值，所以使用第一個；Test 2 傳遞兩個值，所以使用第二個。<code>putExtra</code> 無論接收 int 或 String 都能使用相同名稱，也是同一個機制。"
+    },
+    {
+      "source": "Test 2を押します。送った2つの値が出れば成功です。",
+      "translation": "按 Test 2。顯示已傳送的兩個值就成功了。"
+    },
+    {
+      "source": "読むところの例 · Test 2を押したとき",
+      "translation": "要閱讀的部分例子 · 按 Test 2 時"
+    },
+    {
+      "source": "<code>\"2\"</code> の囲みの記号は、Logには出ません。戻ってTest 1を押すと、今までどおり既定値の2行です。",
+      "translation": "<code>\"2\"</code> 外面的引號不會出現在 Log。返回後按 Test 1，仍與之前一樣，顯示兩行預設值。"
+    },
+    {
+      "source": "値が渡る道すじ",
+      "translation": "值的傳遞路徑"
+    },
+    {
+      "source": "説明",
+      "translation": "說明"
+    },
+    {
+      "source": "① キーを使うのはTestActivityの中だけ",
+      "translation": "① 只有 TestActivity 內會使用鍵"
+    },
+    {
+      "source": "入れるputExtra（start）と、取り出すgetXxxExtra（onCreate）が、どちらもTestActivityにある。だからprivateでTestActivityの中に置ける。",
+      "translation": "放入值的 putExtra（start）和取出值的 getXxxExtra（onCreate）都在 TestActivity，所以可以用 private 放在 TestActivity 內。"
+    },
+    {
+      "source": "② キーの文字を書くのは1か所",
+      "translation": "② 只在一處編寫鍵的文字"
+    },
+    {
+      "source": "\"intValue\" と書くのは定数の行だけ。入れる側と取り出す側で綴りがずれない。A04 STEP 5の「enumを使うメリット」と同じ考え方。",
+      "translation": "只有常數那一行會寫 \"intValue\"。放入和取出時，拼寫不會有差異。與 A04 STEP 5 的「使用 enum 的好處」是相同概念。"
+    },
+    {
+      "source": "③ 開く側はキーを知らなくてよい",
+      "translation": "③ 開啟畫面的一方不必知道鍵"
+    },
+    {
+      "source": "MainActivityはstartに値を渡すだけ。どんなキーで入れるかは、受け取るTestActivityが決める。",
+      "translation": "MainActivity 只需向 start 傳入值。用甚麼鍵放入，由接收的 TestActivity 決定。"
+    },
+    {
+      "source": "④ 渡す値の型と順番をstartが決める",
+      "translation": "④ start 決定傳遞值的類型和次序"
+    },
+    {
+      "source": "型や数が違うと、Runの前に赤いエラーで気付ける（STEP 8 練習3）。",
+      "translation": "類型或數量不同時，在 Run 前便會出現紅色錯誤，讓你發現問題（STEP 8 練習 3）。"
+    },
+    {
+      "source": "もしキーを定数にせず、送る側と受け取る側に直接書くと、次のようになります。この枠は<strong>入力しません</strong>。",
+      "translation": "如果不把鍵設為常數，而是直接寫在傳送方和接收方，就會變成以下形式。這個框內的內容<strong>不用輸入</strong>。"
+    },
+    {
+      "source": "受け取る側の <code>v</code> が小文字になっていても、赤いエラーにはなりません。<code>intValue: 0</code> と出るだけで、間違いに気付きにくくなります（STEP 8 練習2で試します）。Android Studioのstarterテンプレートも、開かれる側のクラスの中にstartを作ります。",
+      "translation": "即使接收方的 <code>v</code> 變成小寫，也不會出現紅色錯誤。只會顯示 <code>intValue: 0</code>，令錯誤難以察覺（會在 STEP 8 練習 2 嘗試）。Android Studio 的 starter 範本也會在被開啟的類別內建立 start。"
+    },
+    {
+      "source": "STEP 6のTestActivity.java全体で照合する",
+      "translation": "用 STEP 6 的完整 TestActivity.java 核對"
+    },
+    {
+      "source": "Test 2で intValue: 1・stringValue: 2 がLogcatに出ることを確認した。",
+      "translation": "已確認按 Test 2 後，Logcat 顯示 intValue: 1、stringValue: 2。"
+    },
+    {
+      "source": "次へ：配列を渡す →",
+      "translation": "下一步：傳遞陣列 →"
+    },
+    {
+      "source": "STEP 07 · 目安 10分",
+      "translation": "STEP 07 · 約 10 分鐘"
+    },
+    {
+      "source": "配列を渡す",
+      "translation": "傳遞陣列"
+    },
+    {
+      "source": "値を1つずつではなく、<strong>まとめて</strong>渡します。STEP 5・6と同じ流れです。<strong>定数 → 受け取り → start → ボタン</strong>の順に追加します。",
+      "translation": "將值<strong>整批</strong>傳遞，而非逐一傳遞。流程與 STEP 5、6 相同。依照<strong>常數 → 接收 → start → 按鈕</strong>的次序加入。"
+    },
+    {
+      "source": "<code>EXTRA_KEY_STRING_VALUE</code> の行の下に追加します。",
+      "translation": "加在 <code>EXTRA_KEY_STRING_VALUE</code> 那一行下方。"
+    },
+    {
+      "source": "追加 · EXTRA_KEY_STRING_VALUE の行の下",
+      "translation": "加入 · EXTRA_KEY_STRING_VALUE 那一行下方"
+    },
+    {
+      "source": "<code>var stringValue = ...</code> の行の下と、<code>Log.d(\"TestActivity\", \"stringValue: \" + stringValue);</code> の下に、それぞれ追加します。",
+      "translation": "分別加在 <code>var stringValue = ...</code> 那一行下方，以及 <code>Log.d(\"TestActivity\", \"stringValue: \" + stringValue);</code> 下方。"
+    },
+    {
+      "source": "追加 · 受け取りとLog.dにそれぞれ1行",
+      "translation": "加入 · 接收和 Log.d 各一行"
+    },
+    {
+      "source": "importは <code>java.util.Arrays</code> です（A05 STEP 5と同じ）。",
+      "translation": "import 是 <code>java.util.Arrays</code>（與 A05 STEP 5 相同）。"
+    },
+    {
+      "source": "③ 3つ目のstartを追加する（Cの場所）",
+      "translation": "③ 加入第三個 start（C 的位置）"
+    },
+    {
+      "source": "2つ目のstartの最後の <code>}</code> の下（クラスの最後の <code>}</code> の上）に、1行空けて追加します。",
+      "translation": "在第二個 start 最後的 <code>}</code> 下方（類別最後的 <code>}</code> 上方），留一個空行後加入。"
+    },
+    {
+      "source": "追加 · 2つ目のstartの } の下",
+      "translation": "加入 · 第二個 start 的 } 下方"
+    },
+    {
+      "source": "④ MainActivityで呼び出す",
+      "translation": "④ 在 MainActivity 呼叫"
+    },
+    {
+      "source": "btn2の処理の <code>});</code> の下に、1行空けて追加します。",
+      "translation": "在 btn2 處理的 <code>});</code> 下方，留一個空行後加入。"
+    },
+    {
+      "source": "追加 · btn2の処理の });の下",
+      "translation": "加入 · btn2 處理的 }); 下方"
+    },
+    {
+      "source": "Stringの配列（A05 STEP 5）。中に入る型が違うだけで、<code>int[]</code> なども同じ書き方。",
+      "translation": "String 陣列（A05 STEP 5）。只是放入的類型不同，<code>int[]</code> 等也用相同寫法。"
+    },
+    {
+      "source": "その場で3つ入りの配列を作って渡す。",
+      "translation": "即場建立含有 3 個值的陣列並傳入。"
+    },
+    {
+      "source": "配列を取り出す。既定値は書かず、入っていなければ null。",
+      "translation": "取出陣列。不寫預設值，沒有放入時就是 null。"
+    },
+    {
+      "source": "配列の中身を [3, 4, 5] の形の文字にする。nullなら null と出す。",
+      "translation": "將陣列內容變成 [3, 4, 5] 形式的文字。如果是 null，就顯示 null。"
+    },
+    {
+      "source": "この形はA07でも使います",
+      "translation": "A07 也會使用這種形式"
+    },
+    {
+      "source": "A07 BillSplitterでは、参加者の名前を <code>String[]</code> にまとめて次の画面へ渡します。今回の <code>start(Context, String[])</code> と同じ形です。",
+      "translation": "A07 BillSplitter 會將參加者姓名整理成 <code>String[]</code>，傳給下一個畫面。形式與這次的 <code>start(Context, String[])</code> 相同。"
+    },
+    {
+      "source": "Test 3を押します。配列の行に値が出れば成功です。",
+      "translation": "按 Test 3。陣列那一行顯示值便成功了。"
+    },
+    {
+      "source": "読むところの例 · Test 3を押したとき",
+      "translation": "要閱讀的部分例子 · 按 Test 3 時"
+    },
+    {
+      "source": "前半の2行は、Test 3では送っていないので既定値です。Test 1とTest 2では、<code>stringArrayValue</code> が null になります。",
+      "translation": "前兩行的值在 Test 3 沒有傳送，所以是預設值。在 Test 1 和 Test 2，<code>stringArrayValue</code> 會是 null。"
+    },
+    {
+      "source": "STEP 7のTestActivity.java全体で照合する",
+      "translation": "用 STEP 7 的完整 TestActivity.java 核對"
+    },
+    {
+      "source": "Test 3で stringArrayValue: [3, 4, 5] がLogcatに出ることを確認した。",
+      "translation": "已確認按 Test 3 後，Logcat 顯示 stringArrayValue: [3, 4, 5]。"
+    },
+    {
+      "source": "次へ：ミニ練習 →",
+      "translation": "下一步：小練習 →"
+    },
+    {
+      "source": "STEP 08 · 目安 10分",
+      "translation": "STEP 08 · 約 10 分鐘"
+    },
+    {
+      "source": "ミニ練習",
+      "translation": "小練習"
+    },
+    {
+      "source": "まずTest 3まで完成させます。そのあと、次の小変更を1つずつ試します。<strong>予想 → 変更 → Run → 説明 → 元に戻す</strong>の順で行います。",
+      "translation": "先完成至 Test 3。然後逐一嘗試以下小修改。依照<strong>預測 → 修改 → Run → 說明 → 還原</strong>的次序進行。"
+    },
+    {
+      "source": "練習1：Test 2で渡す値を変える",
+      "translation": "練習 1：改變 Test 2 傳遞的值"
+    },
+    {
+      "source": "MainActivityのbtn2の処理で、<code>1</code> を <code>100</code> に、<code>\"2\"</code> を <code>\"Android\"</code> に変えます。",
+      "translation": "在 MainActivity 的 btn2 處理內，將 <code>1</code> 改為 <code>100</code>，<code>\"2\"</code> 改為 <code>\"Android\"</code>。"
+    },
+    {
+      "source": "練習1 · 変更後の行",
+      "translation": "練習 1 · 修改後的那一行"
+    },
+    {
+      "source": "Test 2のLogcatで、どの行が変わるかを予想してから試します。",
+      "translation": "先預測 Test 2 的 Logcat 哪些行會改變，再嘗試。"
+    },
+    {
+      "source": "試したあとに答えを見る",
+      "translation": "嘗試後查看答案"
+    },
+    {
+      "source": "<code>intValue: 100</code> と <code>stringValue: Android</code> の2行が変わります。MainActivityで渡す値を変えるだけでよく、キーは変えなくてよいと説明できれば十分です。確認後は <code>1</code> と <code>\"2\"</code> に戻します。",
+      "translation": "<code>intValue: 100</code> 和 <code>stringValue: Android</code> 這兩行會改變。能說明只需修改 MainActivity 傳遞的值，而不用改鍵，就足夠了。確認後改回 <code>1</code> 和 <code>\"2\"</code>。"
+    },
+    {
+      "source": "練習2：キーを直接書いて、打ち間違える",
+      "translation": "練習 2：直接編寫鍵，並故意拼錯"
+    },
+    {
+      "source": "TestActivityのonCreateで、<code>getIntExtra(EXTRA_KEY_INT_VALUE, 0)</code> を次のように変えます（<code>v</code> が小文字です）。",
+      "translation": "在 TestActivity 的 onCreate，將 <code>getIntExtra(EXTRA_KEY_INT_VALUE, 0)</code> 改成以下形式（<code>v</code> 是小寫）。"
+    },
+    {
+      "source": "練習2 · 変更後の行",
+      "translation": "練習 2 · 修改後的行"
+    },
+    {
+      "source": "赤いエラーは出るでしょうか。Test 2を押すと、intValueは何と出るでしょうか。予想してから試します。",
+      "translation": "會出現紅色錯誤嗎？按 Test 2 後，intValue 會顯示甚麼？先預測再嘗試。"
+    },
+    {
+      "source": "赤いエラーは出ません。Test 2でも <code>intValue: 0</code> になります（<code>stringValue</code> は送った値のままです）。送ったキーは \"intValue\"、探したキーは \"intvalue\" で、見つからないため既定値の0が返るからです。定数の名前を <code>EXTRA_KEY_INT_VALU</code> のように打ち間違えた場合は、すぐ赤いエラーになります。キーを定数にしてTestActivityの1か所で使う理由を説明できれば十分です。確認後は <code>EXTRA_KEY_INT_VALUE</code> に戻します。",
+      "translation": "不會出現紅色錯誤。即使按 Test 2，也會是 <code>intValue: 0</code>（<code>stringValue</code> 仍是傳送的值）。因為傳送的鍵是 \"intValue\"，尋找的鍵是 \"intvalue\"，找不到便會回傳預設值 0。如果把常數名稱拼錯成 <code>EXTRA_KEY_INT_VALU</code>，則會立即出現紅色錯誤。能說明將鍵設為常數，集中在 TestActivity 使用的原因就足夠了。確認後改回 <code>EXTRA_KEY_INT_VALUE</code>。"
+    },
+    {
+      "source": "練習3：渡す値の型を変えるとどうなる？",
+      "translation": "練習 3：改變傳遞值的類型會怎樣？"
+    },
+    {
+      "source": "MainActivityのbtn2の <code>&quot;2&quot;</code> を <code>2</code> に変えます（<code>&quot; &quot;</code> を外します）。Runする前に、何が起きるか予想します。",
+      "translation": "將 MainActivity 的 btn2 中的 <code>&quot;2&quot;</code> 改為 <code>2</code>（移除 <code>&quot; &quot;</code>）。Run 前，先預測會發生甚麼。"
+    },
+    {
+      "source": "<code>start</code> に赤い波線が出て、Runするとビルドエラーになります。<code>2</code> はintで、2つ目の引数はStringなので、渡した値に合うstartがないからです。Runの前に間違いに気付けることを説明できれば十分です。確認後は <code>&quot;2&quot;</code> に戻します。",
+      "translation": "<code>start</code> 會出現紅色波浪線，Run 時會有建構錯誤。因為 <code>2</code> 是 int，而第二個值參數是 String，沒有符合傳入值的 start。能說明在 Run 前便可發現錯誤就足夠了。確認後改回 <code>&quot;2&quot;</code>。"
+    },
+    {
+      "source": "完成版に戻してから確認",
+      "translation": "還原至完成版後再確認"
+    },
+    {
+      "source": "練習1の <code>1</code> と <code>\"2\"</code>、練習2の <code>EXTRA_KEY_INT_VALUE</code>、練習3の <code>\"2\"</code> を元に戻します。Runして、Test 2が intValue: 1・stringValue: 2 に戻ることを確かめます。",
+      "translation": "還原練習 1 的 <code>1</code> 和 <code>\"2\"</code>、練習 2 的 <code>EXTRA_KEY_INT_VALUE</code>，以及練習 3 的 <code>\"2\"</code>。Run 後，確認 Test 2 已回復 intValue: 1、stringValue: 2。"
+    },
+    {
+      "source": "3つの練習を予想してから試し、完成版に戻してTest 2の結果が元に戻ったことを確認した。",
+      "translation": "已先預測再嘗試 3 個練習，還原完成版後，也已確認 Test 2 的結果回復原狀。"
+    },
+    {
+      "source": "次へ：完成 →",
+      "translation": "下一步：完成 →"
+    },
+    {
+      "source": "STEP 09 · 目安 15分",
+      "translation": "STEP 09 · 約 15 分鐘"
+    },
+    {
+      "source": "完成",
+      "translation": "完成"
+    },
+    {
+      "source": "Test 1〜Test 3の結果を比べる",
+      "translation": "比較 Test 1 至 Test 3 的結果"
+    },
+    {
+      "source": "ボタン",
+      "translation": "按鈕"
+    },
+    {
+      "source": "呼び出し",
+      "translation": "呼叫"
+    },
+    {
+      "source": "渡したもの",
+      "translation": "已傳遞的內容"
+    },
+    {
+      "source": "値が出る行",
+      "translation": "顯示值的行"
+    },
+    {
+      "source": "start（値なし）",
+      "translation": "start（沒有值）"
+    },
+    {
+      "source": "何も入れない",
+      "translation": "不放入任何值"
+    },
+    {
+      "source": "なし（3行すべて既定値かnull）",
+      "translation": "沒有（3 行全部是預設值或 null）"
+    },
+    {
+      "source": "start（1つずつの値）",
+      "translation": "start（逐個值）"
+    },
+    {
+      "source": "intとStringを1つずつ",
+      "translation": "一個 int 和一個 String"
+    },
+    {
+      "source": "start（配列）",
+      "translation": "start（陣列）"
+    },
+    {
+      "source": "Stringの配列を1つ",
+      "translation": "一個 String 陣列"
+    },
+    {
+      "source": "押したボタンごとのLogcat",
+      "translation": "各按鈕對應的 Logcat"
+    },
+    {
+      "source": "3行のうち、押したボタンで送った行だけに値が出ます。それぞれの出力は、STEP 5・6・7の「読むところの例」と同じです。",
+      "translation": "3 行之中，只有按鈕傳送了值的行才會顯示該值。各自的輸出與 STEP 5、6、7 的「要閱讀的部分例子」相同。"
+    },
+    {
+      "source": "押したボタン",
+      "translation": "按下的按鈕"
+    },
+    {
+      "source": "実際のアプリでよく使うのは <strong>Test 2の形</strong> です。<code>putExtra</code> で、数値や短い文字列を1つずつ渡します。とくに「どのデータを表示するか」を表す番号（ID）を渡す使い方が多くあります。",
+      "translation": "實際應用程式常用的是 <strong>Test 2 的形式</strong>。用 <code>putExtra</code> 逐一傳遞數值或短字串。尤其常見的是傳遞表示「要顯示哪項資料」的編號（ID）。"
+    },
+    {
+      "source": "よくある使い方",
+      "translation": "常見用法"
+    },
+    {
+      "source": "一覧の画面：押した商品の番号（例：12）を渡す",
+      "translation": "清單畫面：傳遞按下商品的編號（例如：12）"
+    },
+    {
+      "source": "詳しい画面：番号12の商品を表示する",
+      "translation": "詳細畫面：顯示編號 12 的商品"
+    },
+    {
+      "source": "渡し方",
+      "translation": "傳遞方式"
+    },
+    {
+      "source": "実際の使い方",
+      "translation": "實際用法"
+    },
+    {
+      "source": "Test 1：何も渡さない",
+      "translation": "Test 1：不傳遞任何值"
+    },
+    {
+      "source": "画面を開くだけでよいときに使う。",
+      "translation": "只需開啟畫面時使用。"
+    },
+    {
+      "source": "Test 2：値を1つずつ渡す",
+      "translation": "Test 2：逐一傳遞值"
+    },
+    {
+      "source": "よく使う。IDや名前など、小さな値を渡す。",
+      "translation": "很常用。傳遞 ID、名稱等小型值。"
+    },
+    {
+      "source": "Test 3：配列",
+      "translation": "Test 3：陣列"
+    },
+    {
+      "source": "少しの値をまとめて渡すときに使う。A07 BillSplitterでも同じ形を使う。",
+      "translation": "用於將少量值整批傳遞。A07 BillSplitter 也使用相同形式。"
+    },
+    {
+      "source": "Intentで渡すデータは小さくします。大きなデータを渡すと、アプリが落ちることがあります。",
+      "translation": "用 Intent 傳遞的資料應保持小量。傳遞大量資料可能令應用程式崩潰。"
+    },
+    {
+      "source": "仕様の確認：<a1>Parcelables and bundles</a1>、<a2>Intents and intent filters</a2>（Android公式）。",
+      "translation": "規格確認：<a1>Parcelables and bundles</a1>、<a2>Intents and intent filters</a2>（Android 官方）。"
+    },
+    {
+      "source": "完成チェック",
+      "translation": "完成檢查"
+    },
+    {
+      "source": "確認する結果",
+      "translation": "要確認的結果"
+    },
+    {
+      "source": "起動直後",
+      "translation": "剛啟動時"
+    },
+    {
+      "source": "Test 1〜Test 3が画面の中央に縦に並ぶ。",
+      "translation": "Test 1 至 Test 3 在畫面中央縱向排列。"
+    },
+    {
+      "source": "何もない画面に切り替わる。Logcatの3行がすべて既定値かnull。",
+      "translation": "切換到空白畫面。Logcat 的 3 行全部是預設值或 null。"
+    },
+    {
+      "source": "3つのボタンの画面に戻る。",
+      "translation": "回到有 3 個按鈕的畫面。"
+    },
+    {
+      "source": "intValue: 1、stringValue: 2。stringArrayValue は null。",
+      "translation": "intValue: 1、stringValue: 2。stringArrayValue 是 null。"
+    },
+    {
+      "source": "保存",
+      "translation": "儲存"
+    },
+    {
+      "source": "Android Studioは、書いたコードを自動でファイルに保存します。保存の操作は要りません。ここでは、保存された場所を確かめます。",
+      "translation": "Android Studio 會自動將寫好的程式碼儲存到檔案，不必操作儲存。這裏確認儲存的位置。"
+    },
+    {
+      "source": "Finderを開き、左側の <strong>書類</strong>（<code>Documents</code>）をクリックします。",
+      "translation": "開啟 Finder，按一下左側的 <strong>書類</strong>（文件，<code>Documents</code>）。"
+    },
+    {
+      "source": "その中の <code>Android1</code> フォルダを開き、<code>A06ScreenTransitionSample</code> フォルダがあることを確かめます。",
+      "translation": "開啟裏面的 <code>Android1</code> 資料夾，確認有 <code>A06ScreenTransitionSample</code> 資料夾。"
+    },
+    {
+      "source": "この <code>Documents/Android1/A06ScreenTransitionSample</code> フォルダが、自分で作ったアプリです。あとの授業でもう一度開けるように、消したり、別の場所へ移動したり、名前を変えたりせずに、そのまま残します。",
+      "translation": "這個 <code>Documents/Android1/A06ScreenTransitionSample</code> 資料夾就是自己製作的應用程式。為了之後上課可以再次開啟，請保持原樣，不要刪除、移到其他位置或更改名稱。"
+    },
+    {
+      "source": "教材のチェックは自分用です。先生への送信はしません。印刷は <kbd>⌘ P</kbd> で行えます。",
+      "translation": "教材的勾選供自己檢查，不會傳送給老師。可用 <kbd>⌘ P</kbd> 列印。"
+    },
+    {
+      "source": "完成チェックの操作をすべて試し、表のとおりの結果になった。",
+      "translation": "已嘗試完成檢查的所有操作，結果與表格相同。"
+    },
+    {
+      "source": "困ったこと",
+      "translation": "遇到的問題"
+    },
+    {
+      "source": "最初に確認する場所",
+      "translation": "首先確認的位置"
+    },
+    {
+      "source": "R.id.btn1などが赤い",
+      "translation": "R.id.btn1 等變紅"
+    },
+    {
+      "source": "activity_main.xmlのidがbtn1〜btn3か確認。<code>android:id=\"@+id/main\"</code> を消していないかも見る。",
+      "translation": "確認 activity_main.xml 的 id 是否為 btn1 至 btn3。也檢查是否刪除了 <code>android:id=\"@+id/main\"</code>。"
+    },
+    {
+      "source": "MainActivityのTestActivityが赤い",
+      "translation": "MainActivity 的 TestActivity 變紅"
+    },
+    {
+      "source": "STEP 3でTestActivityを作ったか、綴りと場所（MainActivity.javaと同じ場所）を確認。",
+      "translation": "確認是否已在 STEP 3 建立 TestActivity，以及拼寫和位置（與 MainActivity.java 相同位置）是否正確。"
+    },
+    {
+      "source": "start(…)が赤い（MainActivity）",
+      "translation": "start(…) 變紅（MainActivity）"
+    },
+    {
+      "source": "そのSTEPのstartをTestActivityに追加したか確認。値の順番と型（<code>\"2\"</code> の囲み方）を見比べる。",
+      "translation": "確認是否已將該 STEP 的 start 加入 TestActivity。比較值的次序和類型（<code>\"2\"</code> 的引號）。"
+    },
+    {
+      "source": "startを追加したら、赤いエラーがたくさん出る",
+      "translation": "加入 start 後出現很多紅色錯誤"
+    },
+    {
+      "source": "startをonCreateの中に入れていないか確認。onCreateの最後の } の下、クラスの最後の } の上に置く。",
+      "translation": "確認是否將 start 放在 onCreate 內。應放在 onCreate 最後的 } 下方、類別最後的 } 上方。"
+    },
+    {
+      "source": "Log、Arraysが赤い",
+      "translation": "Log、Arrays 變紅"
+    },
+    {
+      "source": "<kbd>⌥ Enter</kbd> で android.util.Log、java.util.Arrays を選ぶ。",
+      "translation": "用 <kbd>⌥ Enter</kbd> 選取 android.util.Log 和 java.util.Arrays。"
+    },
+    {
+      "source": "starterの候補が出ない",
+      "translation": "沒有出現 starter 候選項目"
+    },
+    {
+      "source": "onCreateの中ではなく、メソッドの外で入力しているか確認。出なくても、STEP 6②のコードを貼り付ければ同じ。",
+      "translation": "確認是否在方法外輸入，而不是 onCreate 內。即使沒有出現，貼上 STEP 6②的程式碼也一樣。"
+    },
+    {
+      "source": "Test 1を押すとアプリが終了する",
+      "translation": "按 Test 1 後應用程式關閉"
+    },
+    {
+      "source": "Logcatを <code>level:ERROR</code> にして ActivityNotFoundException か確認。AndroidManifest.xmlに <code>android:name=\".TestActivity\"</code> の &lt;activity&gt; があるか確認する。New → Java Classで作ると登録されない。",
+      "translation": "將 Logcat 設為 <code>level:ERROR</code>，確認是否為 ActivityNotFoundException。確認 AndroidManifest.xml 是否有 <code>android:name=\".TestActivity\"</code> 的 &lt;activity&gt;。用 New → Java Class 建立時不會登記。"
+    },
+    {
+      "source": "アプリ一覧のアイコンが2つある（Runすると何もない画面から始まることがある）",
+      "translation": "應用程式列表有兩個圖示（Run 時有時從空白畫面開始）"
+    },
+    {
+      "source": "STEP 3でLauncher Activityにチェックを入れた可能性がある。TestActivityの &lt;activity&gt; から &lt;intent-filter&gt; を消し、exportedをfalseにする（STEP 3の照合用Manifestと同じ形）。",
+      "translation": "可能在 STEP 3 勾選了 Launcher Activity。從 TestActivity 的 &lt;activity&gt; 刪除 &lt;intent-filter&gt;，並將 exported 設為 false（與 STEP 3 供核對的 Manifest 相同）。"
+    },
+    {
+      "source": "Testボタンを押しても何も起きない",
+      "translation": "按 Test 按鈕後沒有任何反應"
+    },
+    {
+      "source": "そのボタンの処理を追加したか、R.idの番号（btn3にbtn2と書いていないか）を確認。",
+      "translation": "確認是否已加入該按鈕的處理，以及 R.id 的編號是否正確（有否將 btn3 寫成 btn2）。"
+    },
+    {
+      "source": "Logcatに何も出ない",
+      "translation": "Logcat 沒有任何輸出"
+    },
+    {
+      "source": "検索欄のtagがTestActivityか確認（tag:MainActivityのままでは出ない）。ログはTestActivityが開いたときに出るので、Testボタンを押す。",
+      "translation": "確認搜尋欄的 tag 是 TestActivity（保留 tag:MainActivity 時不會顯示）。日誌在 TestActivity 開啟時輸出，所以要按 Test 按鈕。"
+    },
+    {
+      "source": "送ったはずの値が 0・null・空白になる",
+      "translation": "應已傳送的值卻變成 0、null 或空白"
+    },
+    {
+      "source": "startのputExtraとonCreateのgetXxxExtraが、同じ EXTRA_KEY_… を使っているか確認。押したボタンも確認する。",
+      "translation": "確認 start 的 putExtra 和 onCreate 的 getXxxExtra 是否使用相同的 EXTRA_KEY_…。也確認按下的是哪個按鈕。"
+    },
+    {
+      "source": "VRI[TestActivity]の行が混ざる",
+      "translation": "混入 VRI[TestActivity] 的行"
+    },
+    {
+      "source": "tag:TestActivityは、TestActivityを含むタグも表示する。読み飛ばしてよい。",
+      "translation": "tag:TestActivity 也會顯示包含 TestActivity 的標籤。可以跳過不讀。"
+    },
+    {
+      "source": "直したのに動きが変わらない",
+      "translation": "修改後行為沒有改變"
+    },
+    {
+      "source": "ウィンドウの保存先が Documents/Android1/A06ScreenTransitionSample か確認。samples側を開いていないか見る。",
+      "translation": "確認視窗的儲存位置是否為 Documents/Android1/A06ScreenTransitionSample。檢查是否開啟了 samples 那一份。"
+    },
+    {
+      "source": "<a1>共通資料：Logcat</a1>を使います。今回のパッケージは <code>jp.ac.jec.a06screentransitionsample</code> です。受け取った値は <code>package:jp.ac.jec.a06screentransitionsample tag:TestActivity level:DEBUG</code> で見ます。エラーを見るときは、<code>tag:TestActivity</code> と <code>level:DEBUG</code> を消して、<code>package:jp.ac.jec.a06screentransitionsample level:ERROR</code> に置き換えます。前の単元のパッケージ名も残さないようにします。",
+      "translation": "使用<a1>共通資料：Logcat</a1>。這次的套件是 <code>jp.ac.jec.a06screentransitionsample</code>。用 <code>package:jp.ac.jec.a06screentransitionsample tag:TestActivity level:DEBUG</code> 查看收到的值。查看錯誤時，刪除 <code>tag:TestActivity</code> 和 <code>level:DEBUG</code>，改為 <code>package:jp.ac.jec.a06screentransitionsample level:ERROR</code>。也不要保留上一單元的套件名稱。"
+    },
+    {
+      "source": "質問では「STEP番号・編集したファイル・最初の赤い行・押した順番」を伝えます。",
+      "translation": "提問時說明「STEP 編號、編輯的檔案、第一行紅色錯誤、按的順序」。"
+    },
+    {
+      "source": "完成版は最初の授業から使える見本です。教科書といっしょに配られた<strong>教材のフォルダ</strong>に、そのまま開ける形で入っています。ダウンロードも展開も要りません。",
+      "translation": "完成版是第一堂課就能使用的範例，存放在與教科書一起派發的<strong>教材資料夾</strong>，可以直接開啟，不必下載或解壓縮。"
+    },
+    {
+      "source": "Android Studioの <strong>Open</strong>（プロジェクトを開いているときは <strong>File → Open</strong>）で、<strong>書類</strong>（<code>Documents</code>）にある教材のフォルダを開きます。名前は <code>android1-student-materials-</code> のうしろに日付が付いた形で、日付は配られた回によって変わります。いま読んでいるこの教科書が入っているフォルダです。",
+      "translation": "用 Android Studio 的 <strong>Open</strong>（已開啟專案時用 <strong>File → Open</strong>），開啟 <strong>書類</strong>（文件，<code>Documents</code>）中的教材資料夾。名稱是 <code>android1-student-materials-</code> 後面加上日期，日期隨派發批次改變。就是存放目前這本教科書的資料夾。"
+    },
+    {
+      "source": "その中を <code>samples → A06ScreenTransitionSample</code> の順に開き、<code>settings.gradle.kts</code> と <code>app</code> が入った <code>A06ScreenTransitionSample</code> フォルダを選びます。",
+      "translation": "在裏面依序開啟 <code>samples → A06ScreenTransitionSample</code>，選取包含 <code>settings.gradle.kts</code> 和 <code>app</code> 的 <code>A06ScreenTransitionSample</code> 資料夾。"
+    },
+    {
+      "source": "Sync後にRunして動きを確認します。授業の入力に戻るときは自分の <code>Documents/Android1/A06ScreenTransitionSample</code> を開きます。",
+      "translation": "Sync 後 Run，確認運作。返回課堂輸入時，開啟自己的 <code>Documents/Android1/A06ScreenTransitionSample</code>。"
+    },
+    {
+      "source": "両方とも同じプロジェクト名なので、ウィンドウの保存先を確認しましょう。見本と自分のアプリは同じパッケージ名のため、端末上では同じアプリを更新します。切り替えるときは、確認したい方のプロジェクトからRunします。",
+      "translation": "兩者的專案名稱相同，請確認視窗的儲存位置。範例和自己的應用程式套件名稱相同，因此會更新裝置上的同一應用程式。切換時，從想確認的專案執行 Run。"
+    },
+    {
+      "source": "教材のフォルダが手元にないときは、同じ見本をZIPで受け取れます（<a1>A06ScreenTransitionSample.zip</a1>）。展開してできた <code>A06ScreenTransitionSample</code> フォルダを、同じようにOpenで選びます。",
+      "translation": "如果手邊沒有教材資料夾，可以用 ZIP 取得相同範例（<a1>A06ScreenTransitionSample.zip</a1>）。將解壓縮後得到的 <code>A06ScreenTransitionSample</code> 資料夾，同樣用 Open 選取。"
+    },
+    {
+      "source": "完成したMainActivity.javaで照合する",
+      "translation": "與完成的 MainActivity.java 核對"
+    },
+    {
+      "source": "完成版 · MainActivity.java",
+      "translation": "完成版 · MainActivity.java"
+    },
+    {
+      "source": "完成したTestActivity.javaで照合する",
+      "translation": "用完成的 TestActivity.java 核對"
+    },
+    {
+      "source": "完成版 · TestActivity.java",
+      "translation": "完成版 · TestActivity.java"
+    },
+    {
+      "source": "完成したactivity_main.xmlで照合する",
+      "translation": "與完成的 activity_main.xml 核對"
+    },
+    {
+      "source": "完成版 · activity_main.xml",
+      "translation": "完成版 · activity_main.xml"
+    },
+    {
+      "source": "完成したAndroidManifest.xmlで照合する",
+      "translation": "與完成的 AndroidManifest.xml 核對"
+    },
+    {
+      "source": "完成版 · AndroidManifest.xml",
+      "translation": "完成版 · AndroidManifest.xml"
+    },
+    {
+      "source": "Androidプログラミング1 · A06ScreenTransitionSample / 本文・画像・操作機能はオフラインで利用できます。Android Studioの初回準備・ビルドと公式資料の閲覧にはネット接続が必要です。",
+      "translation": "Android 程式設計 1 · A06ScreenTransitionSample / 正文、圖片及操作功能均可離線使用。Android Studio 的首次準備和建構，以及閱讀官方資料，都需要連接互聯網。"
+    },
+    {
+      "source": "画像は授業用の提供資料を使用。Logcatの時刻や番号は実行ごとに変わります。",
+      "translation": "圖片採用課堂提供的資料。Logcat 的時間和編號會隨每次執行改變。"
+    }
+  ],
+  "overrides": [
+    {
+      "source": "コード",
+      "where": "th",
+      "translation": "程式碼"
+    }
+  ]
+}

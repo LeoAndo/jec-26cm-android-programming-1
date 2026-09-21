@@ -1,0 +1,170 @@
+{
+  "source": "docs/common/logcat.html",
+  "language": "mn",
+  "entries": [
+    {
+      "source": "Logcatの使い方 | Androidプログラミング1",
+      "translation": "Logcat ашиглах арга | Android програмчлал 1"
+    },
+    {
+      "source": "本文へ移動",
+      "translation": "Үндсэн агуулга руу очих"
+    },
+    {
+      "source": "JEC / Androidプログラミング1",
+      "translation": "JEC / Android програмчлал 1"
+    },
+    {
+      "source": "もとのページへ戻る",
+      "translation": "Энд ирсэн хуудас руу буцах"
+    },
+    {
+      "source": "ANDROID PROGRAMMING 1 / 共通資料・授業サポート",
+      "translation": "ANDROID PROGRAMMING 1 / Нийтлэг заавар, хичээлийн тусламж"
+    },
+    {
+      "source": "Logcatの使い方",
+      "translation": "Logcat ашиглах арга"
+    },
+    {
+      "source": "アプリの中で何が起きたか、文字の記録で確かめます。",
+      "translation": "Апп дотор юу болсныг бичвэрэн бүртгэлээр шалгана."
+    },
+    {
+      "source": "1. Logcatを開く",
+      "translation": "1. Logcat нээх"
+    },
+    {
+      "source": "<strong>ログ</strong>は動作の記録です。<strong>Logcat</strong>（ログキャット）は、その記録をAndroid Studioで読むための画面です。ここではHelloAndroidを例にします。",
+      "translation": "<strong>Лог</strong> нь ажиллагааны бүртгэл юм. <strong>Logcat</strong> нь тэр бүртгэлийг Android Studio дээр унших дэлгэц юм. Энд HelloAndroid-ийг жишээ болгоно."
+    },
+    {
+      "source": "授業のプロジェクトを開き、エミュレータでアプリをRunします。",
+      "translation": "Хичээлийн төслийг нээгээд эмулятор дээр аппыг Run-аар ажиллуулна уу."
+    },
+    {
+      "source": "上のメニューから <strong>View → Tool Windows → Logcat</strong> を選びます。",
+      "translation": "Дээд цэснээс <strong>View → Tool Windows → Logcat</strong>-ийг сонгоно уу."
+    },
+    {
+      "source": "Logcatの端末欄で、アプリを動かしている <strong>jec_26cm_android1_Pixel 9a</strong> を選びます。",
+      "translation": "Logcat-ийн төхөөрөмжийн талбараас апп ажиллаж буй <strong>jec_26cm_android1_Pixel 9a</strong>-г сонгоно уу."
+    },
+    {
+      "source": "2. 見たいログだけを表示する",
+      "translation": "2. Зөвхөн харахыг хүссэн логийг харуулах"
+    },
+    {
+      "source": "Logcatの検索欄の内容を全部選び、次の文字に置き換えます。",
+      "translation": "Logcat-ийн хайх талбарын агуулгыг бүхэлд нь сонгож, дараах бичвэрээр солино уу."
+    },
+    {
+      "source": "Logcatの検索欄 · HelloAndroid用",
+      "translation": "Logcat-ийн хайх талбар · HelloAndroid-д зориулсан"
+    },
+    {
+      "source": "検索の部分",
+      "translation": "Хайлтын хэсэг"
+    },
+    {
+      "source": "意味",
+      "translation": "Утга"
+    },
+    {
+      "source": "このアプリのログを選ぶ。",
+      "translation": "Энэ аппын логийг сонгоно."
+    },
+    {
+      "source": "MainActivityという目印を付けたログを選ぶ。",
+      "translation": "MainActivity гэсэн тэмдэглэгээтэй логийг сонгоно."
+    },
+    {
+      "source": "Debug以上の重要度のログを表示する。<code>Log.d</code> の記録を含む。",
+      "translation": "Debug болон түүнээс дээш ач холбогдлын түвшинтэй логийг харуулна. <code>Log.d</code>-ийн бүртгэл үүнд багтана."
+    },
+    {
+      "source": "別の授業で使う場合は、packageとtagを、そのプロジェクトのものに変えます。",
+      "translation": "Өөр хичээлд хэрэглэх бол package ба tag-ийг тухайн төслийнх болгож өөрчилнө үү."
+    },
+    {
+      "source": "3. 操作の前後を比べる",
+      "translation": "3. Үйлдлийн өмнөх ба дараахыг харьцуулах"
+    },
+    {
+      "source": "Logcatにログの表示を一時停止するボタンがある場合は、停止していないことを確認します。",
+      "translation": "Logcat-д лог харуулахыг түр зогсоох товч байвал зогсоогоогүй эсэхийг шалгана уу."
+    },
+    {
+      "source": "アプリをStopしてからRunし、<strong>Hello World!</strong> の行を探します。",
+      "translation": "Аппыг Stop-оор зогсоогоод Run-аар ажиллуулж, <strong>Hello World!</strong> гэсэн мөрийг олно уу."
+    },
+    {
+      "source": "アプリの変更ボタンを押し、<strong>Hello, Android!</strong> の行を探します。",
+      "translation": "Аппын өөрчлөх товчийг дараад <strong>Hello, Android!</strong> гэсэн мөрийг олно уу."
+    },
+    {
+      "source": "メッセージの前後を比べます。時刻や数字は、自分の実行時の値で構いません。",
+      "translation": "Үйлдлийн өмнөх ба дараах мэдэгдлийг харьцуулна уу. Цаг болон тоо нь өөрийн ажиллуулсан үеийн утга байж болно."
+    },
+    {
+      "source": "読むところの例 · 時刻などを省いた説明用の表示",
+      "translation": "Унших хэсгийн жишээ · Цаг зэрэг мэдээллийг хассан тайлбарын дүрслэл"
+    },
+    {
+      "source": "成功の目印",
+      "translation": "Амжилттай болсны шинж"
+    },
+    {
+      "source": "起動時とクリック後で、ログの文字が違う。画面の表示文字とログのメッセージが一致する。",
+      "translation": "Эхлүүлэх үеийн болон дарсны дараах логийн бичвэр өөр байна. Дэлгэцийн бичвэр болон логийн мэдэгдэл таарна."
+    },
+    {
+      "source": "ログが流れて見えないときは一時停止して読みます。確認後は再開します。",
+      "translation": "Лог хурдан урсаад харагдахгүй бол түр зогсоож уншина уу. Шалгасны дараа үргэлжлүүлнэ үү."
+    },
+    {
+      "source": "4. ログが出ないとき",
+      "translation": "4. Лог харагдахгүй байвал"
+    },
+    {
+      "source": "授業の端末を選んでいるか確認します。",
+      "translation": "Хичээлийн төхөөрөмжийг сонгосон эсэхийг шалгана уу."
+    },
+    {
+      "source": "検索欄をコピーし直します。日本語の全角スペースや、packageの打ち間違いを確認します。",
+      "translation": "Хайх талбарт дахин хуулна уу. Япон бичвэрийн бүтэн өргөнтэй зай болон package-ийг буруу бичсэн эсэхийг шалгана уу."
+    },
+    {
+      "source": "ログの一時停止を解除し、末尾へ移動します。",
+      "translation": "Логийн түр зогсоолтыг цуцалж, төгсгөл рүү очно уу."
+    },
+    {
+      "source": "Javaに <code>Log.d</code> を追加した後、Runしたか確認します。",
+      "translation": "Java-д <code>Log.d</code> нэмсний дараа Run хийсэн эсэхийг шалгана уу."
+    },
+    {
+      "source": "起動時のログを探すなら、アプリをStopしてからRunします。クリック後のログなら、ボタンをもう一度押します。",
+      "translation": "Эхлүүлэх үеийн логийг хайх бол аппыг Stop-оор зогсоогоод Run-аар ажиллуулна уу. Дарсны дараах лог бол товчийг дахин дарна уу."
+    },
+    {
+      "source": "アプリがすぐ閉じるときは、検索欄を <code>package:jp.ac.jec.a01helloandroid level:ERROR</code> に変え、赤いエラーの最初の行を先生に見せます。MainActivityのtagで絞ったままだと、別のtagのエラーは見えません。",
+      "translation": "Апп шууд хаагдвал хайх талбарыг <code>package:jp.ac.jec.a01helloandroid level:ERROR</code> болгож өөрчлөөд, улаан алдааны эхний мөрийг багшдаа үзүүлнэ үү. MainActivity-ийн tag-аар шүүсэн хэвээр байвал өөр tag-тай алдаа харагдахгүй."
+    },
+    {
+      "source": "公式資料",
+      "translation": "Албан ёсны баримт бичиг"
+    },
+    {
+      "source": "Android Developers：Logcatでログを表示する",
+      "translation": "Android Developers: Logcat-аар лог харуулах"
+    },
+    {
+      "source": "← もとのページへ戻る",
+      "translation": "← Энд ирсэн хуудас руу буцах"
+    },
+    {
+      "source": "対象：macOS / Android Studio Panda 2 | 2025.3.2 · 確認日：2026年9月15日",
+      "translation": "Зориулсан орчин: macOS / Android Studio Panda 2 | 2025.3.2 · Шалгасан огноо: 2026 оны 9 сарын 15"
+    }
+  ]
+}

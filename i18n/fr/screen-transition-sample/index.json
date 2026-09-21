@@ -1,0 +1,1801 @@
+{
+  "source": "docs/screen-transition-sample/index.html",
+  "language": "fr",
+  "entries": [
+    {
+      "source": "JavaとXMLで作るA06ScreenTransitionSample。2つ目の画面の追加、Intentによる画面の切り替え、putExtraとキーの定数、配列の受け渡しを小さなSTEPで学ぶ授業用教科書。",
+      "translation": "Manuel de cours pour créer A06ScreenTransitionSample avec Java et XML. Apprenez par petites étapes à ajouter un deuxième écran, changer d'écran avec Intent, utiliser putExtra et des constantes pour les clés, et transmettre des tableaux."
+    },
+    {
+      "source": "ScreenTransitionSample — 画面を切り替えて値を渡そう | Androidプログラミング1",
+      "translation": "ScreenTransitionSample — Changer d'écran et transmettre des valeurs | Programmation Android 1"
+    },
+    {
+      "source": "本文へ移動",
+      "translation": "Aller au contenu principal"
+    },
+    {
+      "source": "JEC / Androidプログラミング1",
+      "translation": "JEC / Programmation Android 1"
+    },
+    {
+      "source": "CONTENTS / 学習の順番",
+      "translation": "CONTENTS / Ordre d'apprentissage"
+    },
+    {
+      "source": "学習ステップ",
+      "translation": "Étapes d'apprentissage"
+    },
+    {
+      "source": "00　今日のゴール",
+      "translation": "00 Objectif du jour"
+    },
+    {
+      "source": "01　プロジェクトを作って実行",
+      "translation": "01 Créer et exécuter le projet"
+    },
+    {
+      "source": "02　ボタンを3つ並べる",
+      "translation": "02 Disposer trois boutons"
+    },
+    {
+      "source": "03　2つ目の画面TestActivityを作る",
+      "translation": "03 Créer le deuxième écran TestActivity"
+    },
+    {
+      "source": "04　Test 1で画面を切り替える",
+      "translation": "04 Changer d'écran avec Test 1"
+    },
+    {
+      "source": "05　受け取る側を作る（キーと既定値）",
+      "translation": "05 Préparer la réception (clés et valeurs par défaut)"
+    },
+    {
+      "source": "06　startメソッドで値を渡す",
+      "translation": "06 Transmettre des valeurs avec la méthode start"
+    },
+    {
+      "source": "07　配列を渡す",
+      "translation": "07 Transmettre un tableau"
+    },
+    {
+      "source": "08　ミニ練習",
+      "translation": "08 Mini-exercices"
+    },
+    {
+      "source": "09　完成",
+      "translation": "09 Terminer"
+    },
+    {
+      "source": "0 / 10 ステップ確認済み",
+      "translation": "0 / 10 étapes vérifiées"
+    },
+    {
+      "source": "学習の進み具合",
+      "translation": "Progression de l'apprentissage"
+    },
+    {
+      "source": "自分用のチェックです。",
+      "translation": "Ces cases servent à votre propre suivi."
+    },
+    {
+      "source": "困ったとき",
+      "translation": "En cas de difficulté"
+    },
+    {
+      "source": "解説：キーの定数が、なぜ受け取る側のTestActivityにある？",
+      "translation": "Explication : pourquoi les constantes des clés sont-elles dans TestActivity, qui reçoit les valeurs ?"
+    },
+    {
+      "source": "解説：実際によく使う渡し方は？",
+      "translation": "Explication : quelle forme de transmission utilise-t-on souvent en pratique ?"
+    },
+    {
+      "source": "完成プロジェクトを開く",
+      "translation": "Ouvrir le projet terminé"
+    },
+    {
+      "source": "共通：はじめの準備",
+      "translation": "Guide commun : Préparation initiale"
+    },
+    {
+      "source": "共通：エミュレータ",
+      "translation": "Guide commun : Émulateur"
+    },
+    {
+      "source": "共通：Auto Import",
+      "translation": "Guide commun : Auto Import"
+    },
+    {
+      "source": "共通：Logcat",
+      "translation": "Guide commun : Logcat"
+    },
+    {
+      "source": "共通：APKの提出",
+      "translation": "Guide commun : Remise de l'APK"
+    },
+    {
+      "source": "共通：開発Tips",
+      "translation": "Guide commun : Conseils de développement"
+    },
+    {
+      "source": "共通：Android Studioのバージョン",
+      "translation": "Guide commun : Version d'Android Studio"
+    },
+    {
+      "source": "画面を切り替えて<br>値を渡そう",
+      "translation": "Changer d'écran et<br>transmettre des valeurs"
+    },
+    {
+      "source": "ボタンを押す。次の画面が開く。渡した値をLogcatで見る。<br>Intentで、画面と画面をつなぐアプリへ。",
+      "translation": "Appuyer sur un bouton. Ouvrir l'écran suivant. Voir les valeurs transmises dans Logcat.<br>Reliez les écrans de votre application avec Intent."
+    },
+    {
+      "source": "A01〜A05の内容を使う",
+      "translation": "Utilise le contenu de A01 à A05"
+    },
+    {
+      "source": "90分 × 2コマ目安",
+      "translation": "Environ 2 séances de 90 min"
+    },
+    {
+      "source": "Macで学ぶ",
+      "translation": "Apprendre sur Mac"
+    },
+    {
+      "source": "STEP 00 · 目安 5分",
+      "translation": "STEP 00 · Durée indicative : 5 min"
+    },
+    {
+      "source": "今日のゴール",
+      "translation": "Objectif du jour"
+    },
+    {
+      "source": "A01〜A05では、1つの画面（MainActivity）の中でアプリを作りました。今回は2つ目の画面 <strong>TestActivity</strong> を追加し、ボタンで画面を切り替えます。そのとき、次の画面へ値を渡します。受け取った値は画面には表示せず、A03・A05でも使った <strong>Logcat</strong> で確かめます。",
+      "translation": "Dans A01 à A05, vous avez créé des applications avec un seul écran (MainActivity). Cette fois, ajoutez un deuxième écran, <strong>TestActivity</strong>, et changez d'écran avec des boutons. Transmettez alors des valeurs à l'écran suivant. Vérifiez les valeurs reçues dans <strong>Logcat</strong>, déjà utilisé dans A03 et A05, sans les afficher à l'écran."
+    },
+    {
+      "source": "アプリの流れ",
+      "translation": "Déroulement de l'application"
+    },
+    {
+      "source": "Test 1〜Test 3を押す",
+      "translation": "Appuyer sur Test 1, Test 2 ou Test 3"
+    },
+    {
+      "source": "TestActivityが開く",
+      "translation": "TestActivity s'ouvre"
+    },
+    {
+      "source": "受け取った値をLogcatで見る",
+      "translation": "Voir les valeurs reçues dans Logcat"
+    },
+    {
+      "source": "→ 戻る →",
+      "translation": "→ Retour →"
+    },
+    {
+      "source": "3つのボタンの画面",
+      "translation": "Écran des trois boutons"
+    },
+    {
+      "source": "起動直後のMainActivity。画面の中央にTest 1からTest 3のボタンが縦に並んでいる",
+      "translation": "MainActivity juste après le lancement. Les boutons Test 1 à Test 3 sont disposés verticalement au centre de l'écran"
+    },
+    {
+      "source": "① 起動直後。Test 1〜Test 3のボタンが並びます。 <a1>画像を大きく開く</a1>",
+      "translation": "① Juste après le lancement. Les boutons Test 1 à Test 3 sont affichés. <a1>Ouvrir l'image en grand</a1>"
+    },
+    {
+      "source": "ボタンを押すと開くTestActivity。何も表示されていない画面",
+      "translation": "TestActivity s'ouvre quand on appuie sur un bouton. L'écran est vide"
+    },
+    {
+      "source": "② ボタンを押すと開くTestActivity。何も置いていない画面です。受け取った値はLogcatで見ます。 <a1>画像を大きく開く</a1>",
+      "translation": "② TestActivity s'ouvre quand on appuie sur un bouton. L'écran ne contient aucun composant. Les valeurs reçues se consultent dans Logcat. <a1>Ouvrir l'image en grand</a1>"
+    },
+    {
+      "source": "読むところの例 · 完成版でTest 2を押したとき",
+      "translation": "Exemple de partie à lire · Après un appui sur Test 2 dans la version finale"
+    },
+    {
+      "source": "送っていない <code>stringArrayValue</code> は null になります。",
+      "translation": "<code>stringArrayValue</code>, qui n'a pas été envoyé, vaut null."
+    },
+    {
+      "source": "できるようになること",
+      "translation": "Ce que vous saurez faire"
+    },
+    {
+      "source": "2つ目の画面（Activity）を追加し、Intentで画面を切り替える。",
+      "translation": "Ajouter un deuxième écran (Activity) et changer d'écran avec Intent."
+    },
+    {
+      "source": "putExtraで値を入れ、開いた画面でgetXxxExtraで取り出し、Logcatで確かめる。",
+      "translation": "Placer des valeurs avec putExtra, les récupérer avec getXxxExtra dans l'écran ouvert et les vérifier dans Logcat."
+    },
+    {
+      "source": "キーの定数を受け取る側に置く理由と、実際によく使う渡し方を説明する。",
+      "translation": "Expliquer pourquoi les constantes des clés se trouvent du côté qui reçoit, ainsi que la forme de transmission courante en pratique."
+    },
+    {
+      "source": "90分×2コマで進めます",
+      "translation": "Deux séances de 90 minutes"
+    },
+    {
+      "source": "授業",
+      "translation": "Cours"
+    },
+    {
+      "source": "範囲",
+      "translation": "Étapes"
+    },
+    {
+      "source": "終了時にできること",
+      "translation": "Ce que vous saurez faire à la fin"
+    },
+    {
+      "source": "1コマ目",
+      "translation": "Séance 1"
+    },
+    {
+      "source": "ボタンを並べて2つ目の画面を追加し、Test 1で切り替える。受け取った値をLogcatで見る。",
+      "translation": "Disposer les boutons, ajouter un deuxième écran et l'ouvrir avec Test 1. Voir les valeurs reçues dans Logcat."
+    },
+    {
+      "source": "2コマ目",
+      "translation": "Séance 2"
+    },
+    {
+      "source": "startメソッドで値と配列を渡し、ミニ練習・完成チェックを行う。",
+      "translation": "Transmettre des valeurs et un tableau avec la méthode start, puis faire les mini-exercices et la vérification finale."
+    },
+    {
+      "source": "各コマに再実行と個別確認の時間を含みます。予習は不要です。",
+      "translation": "Chaque séance comprend du temps pour relancer l'application et effectuer des vérifications individuelles. Aucune préparation préalable n'est nécessaire."
+    },
+    {
+      "source": "毎回、自分で新規作成します",
+      "translation": "Créez vous-même un nouveau projet à chaque fois"
+    },
+    {
+      "source": "作る場所は <code>Documents/Android1/A06ScreenTransitionSample</code> です。<a1>完成プロジェクト</a1>は初回から開けます。動きの確認とコードの見比べに使います。",
+      "translation": "Créez le projet dans <code>Documents/Android1/A06ScreenTransitionSample</code>. Vous pouvez ouvrir le <a1>projet terminé</a1> dès la première séance pour vérifier le comportement et comparer le code."
+    },
+    {
+      "source": "完成アプリの操作",
+      "translation": "Utiliser l'application terminée"
+    },
+    {
+      "source": "操作",
+      "translation": "Action"
+    },
+    {
+      "source": "開く画面",
+      "translation": "Écran ouvert"
+    },
+    {
+      "source": "渡すもの（Logcatに値が出る行）",
+      "translation": "Données transmises (lignes où les valeurs apparaissent dans Logcat)"
+    },
+    {
+      "source": "起動",
+      "translation": "Lancement"
+    },
+    {
+      "source": "何も渡さない。3行がすべて既定値かnull。",
+      "translation": "Aucune valeur transmise. Les trois lignes contiennent des valeurs par défaut ou null."
+    },
+    {
+      "source": "1 と \"2\" を1つずつ。intValue、stringValue。",
+      "translation": "1 et \"2\", chacun séparément : intValue et stringValue."
+    },
+    {
+      "source": "Stringの配列 {\"3\", \"4\", \"5\"}。stringArrayValue。",
+      "translation": "Le tableau de String {\"3\", \"4\", \"5\"} : stringArrayValue."
+    },
+    {
+      "source": "戻る操作",
+      "translation": "Action de retour"
+    },
+    {
+      "source": "画面回転について",
+      "translation": "À propos de la rotation de l'écran"
+    },
+    {
+      "source": "各単元では画面回転時のデータ保持と横画面のレイアウトを扱いません。縦向きで使います。考え方と対処法は<a1>共通資料：開発Tips</a1>のC章にあります。",
+      "translation": "Ces unités ne traitent ni de la conservation des données lors d'une rotation ni de la disposition en mode paysage. Utilisez l'appareil en mode portrait. Les principes et les solutions se trouvent au chapitre C du <a1>Guide commun : Conseils de développement</a1>."
+    },
+    {
+      "source": "ここで止まって、確認",
+      "translation": "Arrêtez-vous ici et vérifiez"
+    },
+    {
+      "source": "完成アプリの操作の表で、Test 1〜Test 3がどの画面を開き、Logcatに何が出るかを確認した。",
+      "translation": "J'ai vérifié, dans le tableau d'utilisation de l'application terminée, quel écran ouvrent Test 1 à Test 3 et ce qui apparaît dans Logcat."
+    },
+    {
+      "source": "できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。",
+      "translation": "Cochez une fois terminé. En cas de difficulté, montrez le numéro du STEP et votre écran à l'enseignant."
+    },
+    {
+      "source": "次へ：プロジェクトを作って実行 →",
+      "translation": "Suite : Créer et exécuter le projet →"
+    },
+    {
+      "source": "STEP 01 · 目安 15分",
+      "translation": "STEP 01 · Durée indicative : 15 min"
+    },
+    {
+      "source": "プロジェクトを作って実行",
+      "translation": "Créer et exécuter le projet"
+    },
+    {
+      "source": "Android Studioで新しいプロジェクトを作ります。A01〜A05と同じ手順です。作る場所と名前だけが違います。",
+      "translation": "Créez un nouveau projet dans Android Studio. La procédure est la même que dans A01 à A05 ; seuls le nom et l'emplacement changent."
+    },
+    {
+      "source": "Android Studioを起動します。プロジェクトが開いている場合は <strong>File → New → New Project</strong> を選びます。",
+      "translation": "Lancez Android Studio. Si un projet est ouvert, choisissez <strong>File → New → New Project</strong>."
+    },
+    {
+      "source": "Android StudioのWelcome画面。右上にNew Projectボタン",
+      "translation": "Écran Welcome d'Android Studio, avec le bouton New Project en haut à droite"
+    },
+    {
+      "source": "Welcome画面では、右上の <strong>New Project</strong> をクリックします。 <a1>画像を大きく開く</a1>",
+      "translation": "Sur l'écran Welcome, cliquez sur <strong>New Project</strong> en haut à droite. <a1>Ouvrir l'image en grand</a1>"
+    },
+    {
+      "source": "<strong>Phone and Tablet → Empty Views Activity → Next</strong> の順に選びます。",
+      "translation": "Choisissez successivement <strong>Phone and Tablet → Empty Views Activity → Next</strong>."
+    },
+    {
+      "source": "テンプレート一覧でEmpty Views Activityが選択されている",
+      "translation": "Empty Views Activity est sélectionné dans la liste des modèles"
+    },
+    {
+      "source": "Empty Views Activityを選びます。Empty Activity（Compose用）ではありません。 <a1>画像を大きく開く</a1>",
+      "translation": "Choisissez Empty Views Activity, et non Empty Activity (pour Compose). <a1>Ouvrir l'image en grand</a1>"
+    },
+    {
+      "source": "次の表のとおりに入力・選択します。",
+      "translation": "Saisissez ou sélectionnez les valeurs du tableau suivant."
+    },
+    {
+      "source": "項目",
+      "translation": "Élément"
+    },
+    {
+      "source": "入力・選択する内容",
+      "translation": "Valeur à saisir ou à sélectionner"
+    },
+    {
+      "source": "<code>jp.ac.jec.a06screentransitionsample</code>（すべて小文字）",
+      "translation": "<code>jp.ac.jec.a06screentransitionsample</code> (tout en minuscules)"
+    },
+    {
+      "source": "<strong>Java</strong>（Kotlinではありません）",
+      "translation": "<strong>Java</strong> (pas Kotlin)"
+    },
+    {
+      "source": "A06ScreenTransitionSampleの新規設定。パッケージjp.ac.jec.a06screentransitionsample、Language Java、Minimum SDK API 31、Kotlin DSL",
+      "translation": "Configuration du nouveau projet A06ScreenTransitionSample : package jp.ac.jec.a06screentransitionsample, Language Java, Minimum SDK API 31 et Kotlin DSL"
+    },
+    {
+      "source": "Nameを入力すると、Package nameは自動で決まります。画像の保存先は先生の例です。自分の <code>Documents/Android1/A06ScreenTransitionSample</code> に読み替えます。 <a1>画像を大きく開く</a1>",
+      "translation": "Quand vous saisissez Name, Package name est défini automatiquement. L'emplacement sur l'image est l'exemple de l'enseignant. Utilisez votre propre <code>Documents/Android1/A06ScreenTransitionSample</code>. <a1>Ouvrir l'image en grand</a1>"
+    },
+    {
+      "source": "Finderの <strong>移動 → ホーム</strong> で自分のユーザ名を確認します。書類（Documents）に <code>Android1</code> フォルダがなければ作ります。",
+      "translation": "Dans le Finder, ouvrez <strong>移動 → ホーム</strong> (Aller → Départ) pour vérifier votre nom d'utilisateur. Créez le dossier <code>Android1</code> dans 書類 (Documents) s'il n'existe pas."
+    },
+    {
+      "source": "表の値と保存先を確認し、<strong>Finish</strong> をクリックします。Save locationの最後が <code>Documents/Android1/A06ScreenTransitionSample</code> になっていることを確かめます。<code>ユーザ名</code> は自分の名前に置き換えます。",
+      "translation": "Vérifiez les valeurs du tableau et l'emplacement, puis cliquez sur <strong>Finish</strong>. Vérifiez que Save location se termine par <code>Documents/Android1/A06ScreenTransitionSample</code>. Remplacez <code>ユーザ名</code> (nom d'utilisateur) par votre propre nom."
+    },
+    {
+      "source": "<strong>Gradle Sync</strong> が完了するまで待ちます（初回は数分かかります）。",
+      "translation": "Attendez la fin de <strong>Gradle Sync</strong> (cela prend quelques minutes la première fois)."
+    },
+    {
+      "source": "<a1>共通資料：Auto Import</a1>のJava設定を確認します。",
+      "translation": "Vérifiez les réglages Java du <a1>Guide commun : Auto Import</a1>."
+    },
+    {
+      "source": "この単元で使う場所",
+      "translation": "Emplacements utilisés dans cette unité"
+    },
+    {
+      "source": "役割",
+      "translation": "Rôle"
+    },
+    {
+      "source": "Project表示で開く場所",
+      "translation": "Emplacement à ouvrir dans la vue Project"
+    },
+    {
+      "source": "画面（XML）",
+      "translation": "Écran (XML)"
+    },
+    {
+      "source": "動き（Java）",
+      "translation": "Comportement (Java)"
+    },
+    {
+      "source": "画面の登録",
+      "translation": "Déclaration des écrans"
+    },
+    {
+      "source": "STEP 3で増えるファイル",
+      "translation": "Fichiers ajoutés à STEP 3"
+    },
+    {
+      "source": "<code>TestActivity.java</code>（MainActivityと同じ場所）、<code>activity_test.xml</code>（layout）",
+      "translation": "<code>TestActivity.java</code> (au même endroit que MainActivity), <code>activity_test.xml</code> (dans layout)"
+    },
+    {
+      "source": "左の一覧が見えないときは <strong>View → Tool Windows → Project</strong> を開きます。一覧の上の表示名が <strong>Project</strong> になっていることを確認します。パッケージのフォルダが <code>jp.ac.jec.a06screentransitionsample</code> とまとめて表示される場合もあります。",
+      "translation": "Si la liste de gauche n'est pas visible, ouvrez <strong>View → Tool Windows → Project</strong>. Vérifiez que le mode affiché au-dessus de la liste est <strong>Project</strong>. Les dossiers du package peuvent aussi apparaître regroupés sous le nom <code>jp.ac.jec.a06screentransitionsample</code>."
+    },
+    {
+      "source": "変更前に1回Runする",
+      "translation": "Lancer une fois avec Run avant les modifications"
+    },
+    {
+      "source": "エミュレータ <strong>jec_26cm_android1_Pixel 9a</strong> を選び、<strong>Run ▶</strong> を押します。準備は <a1>共通資料：エミュレータの準備とアプリの実行</a1>のとおりです。画面の中央に「Hello World!」が表示されれば成功です。",
+      "translation": "Sélectionnez l'émulateur <strong>jec_26cm_android1_Pixel 9a</strong> et cliquez sur <strong>Run ▶</strong>. Pour le préparer, suivez le <a1>Guide commun : Préparation de l'émulateur et exécution des applications</a1>. Si « Hello World! » apparaît au centre de l'écran, c'est réussi."
+    },
+    {
+      "source": "MainActivity.ktができたとき",
+      "translation": "Si MainActivity.kt a été créé"
+    },
+    {
+      "source": "Languageの選択がKotlinになっています。プロジェクトを作り直し、Javaを選びます。",
+      "translation": "Kotlin a été sélectionné dans Language. Recréez le projet en choisissant Java."
+    },
+    {
+      "source": "自分の保存先にA06ScreenTransitionSampleを作り、Hello World!を表示できた。",
+      "translation": "J'ai créé A06ScreenTransitionSample à mon emplacement et affiché Hello World!."
+    },
+    {
+      "source": "次へ：ボタンを3つ並べる →",
+      "translation": "Suite : Disposer trois boutons →"
+    },
+    {
+      "source": "STEP 02 · 目安 10分",
+      "translation": "STEP 02 · Durée indicative : 10 min"
+    },
+    {
+      "source": "ボタンを3つ並べる",
+      "translation": "Disposer trois boutons"
+    },
+    {
+      "source": "変更するファイル：app/src/main/res/layout/activity_main.xml",
+      "translation": "Fichier à modifier : app/src/main/res/layout/activity_main.xml"
+    },
+    {
+      "source": "画面にボタンを3つ並べます。ファイルを開いて <strong>Code</strong> 表示にし、<kbd>⌘ A</kbd> → 貼り付けを行い、<strong>ファイル全体を置き換えます</strong>。",
+      "translation": "Disposez trois boutons à l'écran. Ouvrez le fichier en mode <strong>Code</strong>, puis faites <kbd>⌘ A</kbd> → coller pour <strong>remplacer tout le fichier</strong>."
+    },
+    {
+      "source": "activity_main.xml · 全体を置き換える",
+      "translation": "activity_main.xml · Remplacer tout le fichier"
+    },
+    {
+      "source": "指定",
+      "translation": "Réglage"
+    },
+    {
+      "source": "意味",
+      "translation": "Signification"
+    },
+    {
+      "source": "中の部品を1列に並べる入れ物。A01 STEP 3と同じ。",
+      "translation": "Conteneur qui dispose ses composants sur une seule ligne, comme à STEP 3 de A01."
+    },
+    {
+      "source": "縦に並べる。",
+      "translation": "Dispose les composants verticalement."
+    },
+    {
+      "source": "中の部品を画面の中央に集める。",
+      "translation": "Regroupe les composants au centre de l'écran."
+    },
+    {
+      "source": "Javaから見つけるための名前。btn1〜btn3をSTEP 4以降で使う。",
+      "translation": "Nom permettant de retrouver le composant depuis Java. btn1 à btn3 seront utilisés à partir de STEP 4."
+    },
+    {
+      "source": "ボタンに表示する文字。",
+      "translation": "Texte affiché sur le bouton."
+    },
+    {
+      "source": "文字に合わせた大きさにする。",
+      "translation": "Adapte la taille au texte."
+    },
+    {
+      "source": "<code>android:id=\"@+id/main\"</code> は消しません。ひな形のJavaが <code>findViewById(R.id.main)</code> で使っています（A01と同じ）。文字を直接書いたことによる <code>Hardcoded text</code> の警告は、これまでの単元と同様にそのまま進めます。",
+      "translation": "Ne supprimez pas <code>android:id=\"@+id/main\"</code>. Le modèle Java l'utilise avec <code>findViewById(R.id.main)</code>, comme dans A01. Continuez malgré l'avertissement <code>Hardcoded text</code> lié au texte écrit directement, comme dans les unités précédentes."
+    },
+    {
+      "source": "Runで確かめる",
+      "translation": "Vérifier avec Run"
+    },
+    {
+      "source": "Test 1〜Test 3が画面の中央に縦に並べば成功です。まだボタンを押しても何も起きません。",
+      "translation": "Si Test 1 à Test 3 sont disposés verticalement au centre de l'écran, c'est réussi. Appuyer sur les boutons n'a pas encore d'effet."
+    },
+    {
+      "source": "3つのボタンが縦に並びます。 <a1>画像を大きく開く</a1>",
+      "translation": "Les trois boutons sont disposés verticalement. <a1>Ouvrir l'image en grand</a1>"
+    },
+    {
+      "source": "Test 1〜Test 3のボタンが画面の中央に縦に並び、idがbtn1〜btn3であることを確認した。",
+      "translation": "J'ai vérifié que les boutons Test 1 à Test 3 sont disposés verticalement au centre de l'écran et que leurs id sont btn1 à btn3."
+    },
+    {
+      "source": "次へ：2つ目の画面TestActivityを作る →",
+      "translation": "Suite : Créer le deuxième écran TestActivity →"
+    },
+    {
+      "source": "STEP 03 · 目安 15分",
+      "translation": "STEP 03 · Environ 15 min"
+    },
+    {
+      "source": "2つ目の画面TestActivityを作る",
+      "translation": "Créer le deuxième écran TestActivity"
+    },
+    {
+      "source": "新しく作るファイル：app/src/main/java/jp/ac/jec/a06screentransitionsample/TestActivity.java、app/src/main/res/layout/activity_test.xml",
+      "translation": "Nouveaux fichiers à créer : app/src/main/java/jp/ac/jec/a06screentransitionsample/TestActivity.java, app/src/main/res/layout/activity_test.xml"
+    },
+    {
+      "source": "自動で変わるファイル：app/src/main/AndroidManifest.xml",
+      "translation": "Fichier modifié automatiquement : app/src/main/AndroidManifest.xml"
+    },
+    {
+      "source": "アプリの1つの画面を担当するクラスを <strong>Activity（アクティビティ）</strong> と呼びます。A01から使っている MainActivity も Activity です。今回は、2つ目の Activity を Android Studio の機能で作ります。",
+      "translation": "Une classe qui gère un écran de l'application s'appelle une <strong>Activity</strong>. MainActivity, utilisé depuis A01, est aussi une Activity. Vous allez créer une deuxième Activity avec une fonction d'Android Studio."
+    },
+    {
+      "source": "① New → Activityで作る",
+      "translation": "① Créer avec New → Activity"
+    },
+    {
+      "source": "Project表示で <code>app</code> を右クリックします。",
+      "translation": "Dans la vue Project, faites un clic droit sur <code>app</code>."
+    },
+    {
+      "source": "<strong>New → Activity → Empty Views Activity</strong> を選びます。",
+      "translation": "Sélectionnez <strong>New → Activity → Empty Views Activity</strong>."
+    },
+    {
+      "source": "Project表示でappを右クリックし、New、Activity、Empty Views Activityの順に選んでいる",
+      "translation": "Dans la vue Project, clic droit sur app, puis sélection successive de New, Activity et Empty Views Activity"
+    },
+    {
+      "source": "appを右クリックして、<strong>New → Activity → Empty Views Activity</strong>。 <a1>画像を大きく開く</a1>",
+      "translation": "Faites un clic droit sur app, puis choisissez <strong>New → Activity → Empty Views Activity</strong>. <a1>Ouvrir l'image en grand</a1>"
+    },
+    {
+      "source": "次の表のとおりに入力・選択して、<strong>Finish</strong> を押します。",
+      "translation": "Saisissez ou sélectionnez les valeurs du tableau suivant, puis cliquez sur <strong>Finish</strong>."
+    },
+    {
+      "source": "チェックを入れる",
+      "translation": "Cocher"
+    },
+    {
+      "source": "activity_test（Activity Nameから自動で入る）",
+      "translation": "activity_test (rempli automatiquement à partir d'Activity Name)"
+    },
+    {
+      "source": "チェックを入れない",
+      "translation": "Ne pas cocher"
+    },
+    {
+      "source": "New Android Activityの設定。Activity NameにTestActivity、Generate a Layout Fileにチェック、Layout Nameにactivity_test、Launcher Activityはチェックなし、Package nameにjp.ac.jec.a06screentransitionsample、Source LanguageにJava、Target Source Setにmain",
+      "translation": "Configuration de New Android Activity : Activity Name TestActivity, Generate a Layout File coché, Layout Name activity_test, Launcher Activity décoché, Package name jp.ac.jec.a06screentransitionsample, Source Language Java et Target Source Set main"
+    },
+    {
+      "source": "Launcher Activityにはチェックを入れません。 <a1>画像を大きく開く</a1>",
+      "translation": "Ne cochez pas Launcher Activity. <a1>Ouvrir l'image en grand</a1>"
+    },
+    {
+      "source": "New → Java Classでは作りません",
+      "translation": "Ne créez pas cet écran avec New → Java Class"
+    },
+    {
+      "source": "Java Classで作ると、画面のXMLと、次に見るAndroidManifest.xmlへの登録が作られません。登録がないと、STEP 4でTest 1を押したときにアプリが終了します。このSTEPでは必ず <strong>New → Activity</strong> を使います。",
+      "translation": "Avec Java Class, ni le XML de l'écran ni sa déclaration dans AndroidManifest.xml, que nous allons voir ensuite, ne sont créés. Sans cette déclaration, appuyer sur Test 1 à STEP 4 ferme l'application. À cette STEP, utilisez impérativement <strong>New → Activity</strong>."
+    },
+    {
+      "source": "② 自動で作られた・変わった3つのファイルを見る",
+      "translation": "② Examiner les trois fichiers créés ou modifiés automatiquement"
+    },
+    {
+      "source": "ファイル",
+      "translation": "Fichier"
+    },
+    {
+      "source": "できたこと",
+      "translation": "Résultat"
+    },
+    {
+      "source": "新しい画面を担当するクラス。中身はMainActivityのひな形と同じ形で、<code>setContentView(R.layout.activity_test)</code> でこの画面のXMLを指定している。",
+      "translation": "Classe qui gère le nouvel écran. Elle suit la même structure que le modèle MainActivity et indique le XML de cet écran avec <code>setContentView(R.layout.activity_test)</code>."
+    },
+    {
+      "source": "何も置いていない画面。<code>android:id=\"@+id/main\"</code> がある。今回はこのまま使う。",
+      "translation": "Écran sans composant. Il contient <code>android:id=\"@+id/main\"</code>. Nous l'utilisons tel quel."
+    },
+    {
+      "source": "TestActivityを登録する <code>&lt;activity&gt;</code> が追加された。",
+      "translation": "Une balise <code>&lt;activity&gt;</code> déclarant TestActivity a été ajoutée."
+    },
+    {
+      "source": "AndroidManifest.xmlを開くと、次の3行が増えています。自動で追加されているので、<strong>入力しません</strong>。",
+      "translation": "Ouvrez AndroidManifest.xml : les trois lignes suivantes ont été ajoutées automatiquement. <strong>Ne les saisissez pas.</strong>"
+    },
+    {
+      "source": "アプリの画面をAndroidに知らせる。A04 STEP 2で、インターネットの許可を書いたファイルと同じファイル。",
+      "translation": "Indique à Android un écran de l'application. Il s'agit du même fichier que celui où vous avez ajouté l'autorisation d'accès à Internet à STEP 2 de A04."
+    },
+    {
+      "source": "登録するクラス。先頭の <code>.</code> は、パッケージ名 <code>jp.ac.jec.a06screentransitionsample</code> を省いた書き方。",
+      "translation": "Classe à déclarer. Le <code>.</code> initial est une écriture abrégée qui omet le nom de package <code>jp.ac.jec.a06screentransitionsample</code>."
+    },
+    {
+      "source": "ほかのアプリからこの画面を開けないようにする。TestActivityは自分のアプリのMainActivityからだけ開く。",
+      "translation": "Empêche les autres applications d'ouvrir cet écran. TestActivity s'ouvre uniquement depuis MainActivity de notre application."
+    },
+    {
+      "source": "MainActivityの &lt;intent-filter&gt;（MAINとLAUNCHER）",
+      "translation": "&lt;intent-filter&gt; de MainActivity (MAIN et LAUNCHER)"
+    },
+    {
+      "source": "アプリ一覧のアイコンから最初に開く画面の印。Launcher Activityにチェックを入れなかったので、TestActivityには付かない。MainActivityはアイコンから開くため <code>exported=\"true\"</code>。",
+      "translation": "Indique l'écran à ouvrir en premier depuis l'icône dans la liste des applications. Comme Launcher Activity n'a pas été coché, TestActivity n'en possède pas. MainActivity utilise <code>exported=\"true\"</code>, car elle s'ouvre depuis l'icône."
+    },
+    {
+      "source": "追加されたAndroidManifest.xml全体で照合する",
+      "translation": "Comparer avec le fichier AndroidManifest.xml complet après l'ajout"
+    },
+    {
+      "source": "照合用 · AndroidManifest.xml",
+      "translation": "Pour comparaison · AndroidManifest.xml"
+    },
+    {
+      "source": "作られたactivity_test.xmlで照合する",
+      "translation": "Comparer avec le fichier activity_test.xml créé"
+    },
+    {
+      "source": "照合用 · activity_test.xml",
+      "translation": "Pour comparaison · activity_test.xml"
+    },
+    {
+      "source": "まだどこからもTestActivityを開いていないので、画面は変わりません。エラーなくRunでき、Test 1〜Test 3が表示されれば成功です。",
+      "translation": "L'écran ne change pas, car TestActivity n'est pas encore ouverte par le code. Si Run s'exécute sans erreur et affiche Test 1 à Test 3, c'est réussi."
+    },
+    {
+      "source": "TestActivity.javaとactivity_test.xmlを作り、AndroidManifest.xmlにTestActivityの &lt;activity&gt; が追加されたことを確認した。",
+      "translation": "J'ai créé TestActivity.java et activity_test.xml, puis vérifié l'ajout de la balise &lt;activity&gt; de TestActivity dans AndroidManifest.xml."
+    },
+    {
+      "source": "次へ：Test 1で画面を切り替える →",
+      "translation": "Suite : Changer d'écran avec Test 1 →"
+    },
+    {
+      "source": "STEP 04 · 目安 15分",
+      "translation": "STEP 04 · Environ 15 min"
+    },
+    {
+      "source": "Test 1で画面を切り替える",
+      "translation": "Changer d'écran avec Test 1"
+    },
+    {
+      "source": "変更するファイル：MainActivity.java",
+      "translation": "Fichier à modifier : MainActivity.java"
+    },
+    {
+      "source": "<strong>Intent（インテント）</strong> は、「この画面を開きたい」というお願いをAndroidに伝える入れ物です。まずTest 1で、値を入れずに画面を切り替えます。STEP 5からは、この入れ物に値も入れて渡します。",
+      "translation": "Un <strong>Intent</strong> est un conteneur qui transmet à Android une demande d'ouverture d'un écran. Commencez par changer d'écran avec Test 1, sans y placer de valeur. À partir de STEP 5, vous placerez aussi des valeurs dans ce conteneur pour les transmettre."
+    },
+    {
+      "source": "① onCreateの中に追加",
+      "translation": "① Ajouter dans onCreate"
+    },
+    {
+      "source": "ひな形の <code>});</code>（<code>return insets;</code> の下）の下に、1行空けて追加します。",
+      "translation": "Ajoutez le code en laissant une ligne vide sous le <code>});</code> du modèle (situé après <code>return insets;</code>)."
+    },
+    {
+      "source": "追加 · onCreateの中、ひな形の });の下",
+      "translation": "Ajout · Dans onCreate, sous le }); du modèle"
+    },
+    {
+      "source": "importは <code>android.content.Intent</code> です。",
+      "translation": "L'import est <code>android.content.Intent</code>."
+    },
+    {
+      "source": "コード",
+      "translation": "コード — code"
+    },
+    {
+      "source": "btn1を見つけて、押されたときの処理を登録する。あとで使わないので変数には入れず、見つけた部品に続けて書く。A02 STEP 4の <code>btnStart = findViewById(R.id.btn_start);</code> と同じで、<code>(Button)</code> のようなキャストはいらない。",
+      "translation": "Trouve btn1 et enregistre le traitement à exécuter lors de l'appui. Comme le composant ne sera pas réutilisé ensuite, on enchaîne directement sans le placer dans une variable. Comme pour <code>btnStart = findViewById(R.id.btn_start);</code> à STEP 4 de A02, aucune conversion de type comme <code>(Button)</code> n'est nécessaire."
+    },
+    {
+      "source": "今の画面からTestActivityを開くためのIntentを作る。varは右側から型が決まる（A01 STEP 4）。",
+      "translation": "Crée un Intent pour ouvrir TestActivity depuis l'écran actuel. Avec var, le type est déduit de la partie droite (A01, STEP 4)."
+    },
+    {
+      "source": "今の画面のMainActivity。A01 STEP 7の <code>Toast.makeText(this, …)</code> と同じ。",
+      "translation": "MainActivity, l'écran actuel. Comme dans <code>Toast.makeText(this, …)</code> à STEP 7 de A01."
+    },
+    {
+      "source": "TestActivityというクラスそのものを表す書き方。どの画面を開くかを指定する。",
+      "translation": "Écriture désignant la classe TestActivity elle-même. Elle indique quel écran ouvrir."
+    },
+    {
+      "source": "IntentをAndroidに渡して、画面を開いてもらう。",
+      "translation": "Transmet l'Intent à Android pour lui demander d'ouvrir l'écran."
+    },
+    {
+      "source": "戻る操作で戻れるのはなぜ？",
+      "translation": "Pourquoi le retour permet-il de revenir ?"
+    },
+    {
+      "source": "開いたTestActivityは、MainActivityの上に重なって表示されます。戻る操作をすると上のTestActivityが閉じ、下にあるMainActivityがまた見えます。",
+      "translation": "TestActivity s'affiche par-dessus MainActivity. L'action de retour ferme TestActivity au-dessus et rend à nouveau visible MainActivity en dessous."
+    },
+    {
+      "source": "A04 STEP 8では、WebViewの中のページを戻す処理を自分で書きました。画面（Activity）を戻す動きはAndroidが行うので、今回はコードを書きません。",
+      "translation": "À STEP 8 de A04, vous avez écrit le traitement pour revenir à la page précédente dans WebView. Le retour entre les écrans (Activity) est géré par Android ; vous n'écrivez donc pas de code pour cela ici."
+    },
+    {
+      "source": "仕様の確認：<a1>Intents and intent filters</a1>、<a2>Tasks and the back stack</a2>（Android公式）。",
+      "translation": "Consulter les spécifications : <a1>Intents and intent filters</a1>, <a2>Tasks and the back stack</a2> (documentation officielle Android)."
+    },
+    {
+      "source": "Test 1を押します。何もない画面に切り替われば成功です。",
+      "translation": "Appuyez sur Test 1. Si un écran vide s'ouvre, c'est réussi."
+    },
+    {
+      "source": "戻る操作（画面の端から内側へのスワイプ、またはエミュレータの ◁）をします。3つのボタンの画面に戻ります。",
+      "translation": "Effectuez l'action de retour : balayez vers l'intérieur depuis un bord de l'écran, ou utilisez ◁ dans l'émulateur. Vous revenez à l'écran des trois boutons."
+    },
+    {
+      "source": "Test 1をもう一度押すと、また開きます。Test 2とTest 3はまだ何も起きません。",
+      "translation": "Appuyez à nouveau sur Test 1 : l'écran s'ouvre encore. Test 2 et Test 3 n'ont pas encore d'effet."
+    },
+    {
+      "source": "Test 1で開いたTestActivity。何も表示されていない画面",
+      "translation": "TestActivity ouverte avec Test 1. L'écran est vide"
+    },
+    {
+      "source": "Test 1で開いたTestActivity。何も置いていない画面です。 <a1>画像を大きく開く</a1>",
+      "translation": "TestActivity ouverte avec Test 1. Aucun composant n'est placé à l'écran. <a1>Ouvrir l'image en grand</a1>"
+    },
+    {
+      "source": "Test 1でアプリが終了したとき",
+      "translation": "Si Test 1 ferme l'application"
+    },
+    {
+      "source": "STEP 3を <strong>New → Java Class</strong> で作ると、AndroidManifest.xmlに登録されず、Test 1で終了します。<a1>困ったとき</a1>を見ます。",
+      "translation": "Si vous avez utilisé <strong>New → Java Class</strong> à STEP 3, la déclaration dans AndroidManifest.xml manque et Test 1 ferme l'application. Consultez <a1>En cas de difficulté</a1>."
+    },
+    {
+      "source": "STEP 4のMainActivity.java全体で照合する",
+      "translation": "Comparer avec le fichier MainActivity.java complet de STEP 4"
+    },
+    {
+      "source": "照合用 · MainActivity.java",
+      "translation": "Pour comparaison · MainActivity.java"
+    },
+    {
+      "source": "Test 1で何もない画面に切り替わり、戻る操作で3つのボタンの画面に戻ることを確認した。",
+      "translation": "J'ai vérifié que Test 1 ouvre un écran vide et que le retour ramène à l'écran des trois boutons."
+    },
+    {
+      "source": "次へ：受け取る側を作る（キーと既定値） →",
+      "translation": "Suite : Préparer la réception (clés et valeurs par défaut) →"
+    },
+    {
+      "source": "STEP 05 · 目安 20分",
+      "translation": "STEP 05 · Environ 20 min"
+    },
+    {
+      "source": "受け取る側を作る（キーと既定値）",
+      "translation": "Préparer la réception (clés et valeurs par défaut)"
+    },
+    {
+      "source": "変更するファイル：TestActivity.java",
+      "translation": "Fichier à modifier : TestActivity.java"
+    },
+    {
+      "source": "Intentに値を入れるときは、<strong>キー（名前）と値の組</strong>で入れます。取り出すときは、同じキーを指定します。Intentに追加で入れる値は extra（エクストラ）と呼びます。",
+      "translation": "Les valeurs sont placées dans un Intent sous forme de <strong>paires clé (nom) et valeur</strong>. Pour récupérer une valeur, on indique la même clé. Les valeurs ajoutées à l'Intent s'appellent des extras."
+    },
+    {
+      "source": "このSTEPでは、受け取る側を先に作ります。Test 1は値を何も入れていないので、何も入っていないときに何が出るかを確かめます。",
+      "translation": "Dans cette STEP, préparez d'abord la réception. Comme Test 1 ne place aucune valeur, vérifiez ce qui apparaît lorsque rien n'a été transmis."
+    },
+    {
+      "source": "TestActivity.javaの追加場所は、次の3か所です。この枠は<strong>入力しません</strong>。",
+      "translation": "Les ajouts dans TestActivity.java se font aux trois emplacements suivants. <strong>Ne saisissez pas</strong> le contenu de cet encadré."
+    },
+    {
+      "source": "① キーの定数を追加する（Aの場所）",
+      "translation": "① Ajouter les constantes des clés (emplacement A)"
+    },
+    {
+      "source": "<code>public class TestActivity extends AppCompatActivity {</code> の行のすぐ下（その下の空行より上）に追加します。",
+      "translation": "Ajoutez le code juste sous la ligne <code>public class TestActivity extends AppCompatActivity {</code>, avant la ligne vide qui suit."
+    },
+    {
+      "source": "追加 · public class TestActivity … { の下",
+      "translation": "Ajout · Sous public class TestActivity … {"
+    },
+    {
+      "source": "A05 STEP 7の <code>STATE_IGNITED</code> と同じ <code>private static final</code> の定数です。今回は数字ではなく、キーの文字列（String）を入れます。",
+      "translation": "Ce sont des constantes <code>private static final</code>, comme <code>STATE_IGNITED</code> à STEP 7 de A05. Cette fois, elles contiennent les chaînes des clés (String), et non des nombres."
+    },
+    {
+      "source": "キーの定数は、値を受け取るTestActivityに書きます。値を取り出す <code>getIntExtra</code> などはTestActivityで使います。STEP 6で書く「値を入れる処理（startメソッド）」も、TestActivityに書きます。キーを使うのがTestActivityの中だけなので、A02 STEP 4で学んだ <code>private</code> を付けます。理由の続きは、<a1>STEP 6の解説</a1>で確かめます。",
+      "translation": "Écrivez les constantes des clés dans TestActivity, qui reçoit les valeurs. Les méthodes de récupération comme <code>getIntExtra</code> sont utilisées dans TestActivity. Le traitement qui place les valeurs (méthode start), écrit à STEP 6, se trouve aussi dans TestActivity. Les clés n'étant utilisées que dans TestActivity, ajoutez <code>private</code>, vu à STEP 4 de A02. Consultez la suite des raisons dans <a1>l'explication de STEP 6</a1>."
+    },
+    {
+      "source": "② 受け取ってLogに出す（Bの場所）",
+      "translation": "② Recevoir les valeurs et les afficher avec Log (emplacement B)"
+    },
+    {
+      "source": "onCreateの中の、ひな形の <code>});</code> の下に、1行空けて追加します。",
+      "translation": "Dans onCreate, ajoutez le code en laissant une ligne vide sous le <code>});</code> du modèle."
+    },
+    {
+      "source": "importは <code>android.util.Log</code> です。",
+      "translation": "L'import est <code>android.util.Log</code>."
+    },
+    {
+      "source": "この画面を開いたときのIntentを取り出す。Test 1なら、STEP 4でMainActivityが作ったIntent。",
+      "translation": "Récupère l'Intent qui a ouvert cet écran. Pour Test 1, c'est l'Intent créé par MainActivity à STEP 4."
+    },
+    {
+      "source": "キー \"intValue\" のintを取り出す。入っていなければ、2つ目に書いた0を返す。",
+      "translation": "Récupère l'int associé à la clé \"intValue\". S'il est absent, renvoie 0, la deuxième valeur indiquée."
+    },
+    {
+      "source": "文字列を取り出す。既定値は書かず、入っていなければ null。",
+      "translation": "Récupère une chaîne. Aucune valeur par défaut n'est indiquée ; si elle est absente, le résultat est null."
+    },
+    {
+      "source": "名前と値をつなげてLogcatに出す。A03 STEP 8・A05 STEP 5と同じ。タグはTestActivity。",
+      "translation": "Assemble le nom et la valeur pour les afficher dans Logcat, comme à STEP 8 de A03 et STEP 5 de A05. Le tag est TestActivity."
+    },
+    {
+      "source": "2つ目に書いた値を <strong>既定値（きていち）</strong> と呼びます。キーが入っていないときに返る値です。<strong>null（ヌル）</strong> は、何も入っていないことを表す値です。",
+      "translation": "La deuxième valeur indiquée s'appelle la <strong>valeur par défaut (既定値, きていち)</strong>. Elle est renvoyée si la clé est absente. <strong>null</strong> est une valeur qui représente l'absence de contenu."
+    },
+    {
+      "source": "型",
+      "translation": "Type"
+    },
+    {
+      "source": "入る値",
+      "translation": "Valeurs possibles"
+    },
+    {
+      "source": "STEP 6で送る値",
+      "translation": "Valeur envoyée à STEP 6"
+    },
+    {
+      "source": "入っていないとき",
+      "translation": "En l'absence de valeur"
+    },
+    {
+      "source": "整数（A02）",
+      "translation": "Nombre entier (A02)"
+    },
+    {
+      "source": "文字列（A01）",
+      "translation": "Chaîne de caractères (A01)"
+    },
+    {
+      "source": "ほかの型も同じ形で取り出せます",
+      "translation": "Les autres types se récupèrent de la même manière"
+    },
+    {
+      "source": "Intentには <code>long</code> や <code>boolean</code> なども入れられます。取り出すメソッドの名前が <code>getLongExtra</code>、<code>getBooleanExtra</code> のように変わるだけで、<strong>使い方は同じ</strong>です。この単元では <code>int</code> と <code>String</code> の2つで仕組みを確かめます。",
+      "translation": "Un Intent peut aussi contenir des valeurs <code>long</code>, <code>boolean</code>, etc. Seul le nom de la méthode de récupération change, par exemple <code>getLongExtra</code> ou <code>getBooleanExtra</code> ; <strong>l'utilisation reste la même</strong>. Dans cette unité, nous vérifions le fonctionnement avec <code>int</code> et <code>String</code>."
+    },
+    {
+      "source": "<code>var</code> は右側から型が決まります（A01 STEP 4）。<code>getIntExtra</code> なら intValue は int、<code>getStringExtra</code> なら stringValue は String です。",
+      "translation": "Avec <code>var</code>, le type est déduit de la partie droite (A01, STEP 4). Avec <code>getIntExtra</code>, intValue est un int ; avec <code>getStringExtra</code>, stringValue est une String."
+    },
+    {
+      "source": "<a1>共通資料：Logcat</a1>に従ってLogcatを開き、検索欄を次の文字にします。",
+      "translation": "Ouvrez Logcat en suivant le <a1>Guide commun : Logcat</a1>, puis remplacez le contenu du champ de recherche par le texte suivant."
+    },
+    {
+      "source": "Logcatの検索欄 · ScreenTransitionSample用",
+      "translation": "Champ de recherche Logcat · Pour ScreenTransitionSample"
+    },
+    {
+      "source": "Runして、Test 1を押します。2行が出れば成功です。",
+      "translation": "Lancez avec Run, puis appuyez sur Test 1. Si deux lignes apparaissent, c'est réussi."
+    },
+    {
+      "source": "読むところの例 · Test 1を押したとき",
+      "translation": "Exemple de partie à lire · Après un appui sur Test 1"
+    },
+    {
+      "source": "Test 1はIntentに値を何も入れていません。そのため、2行とも既定値かnullになります。入っていなくてもエラーにはなりません。",
+      "translation": "Test 1 ne place aucune valeur dans l'Intent. Les deux lignes contiennent donc une valeur par défaut ou null. L'absence de valeur ne provoque pas d'erreur."
+    },
+    {
+      "source": "VRI[TestActivity]の行が混ざるとき",
+      "translation": "Si des lignes VRI[TestActivity] se mélangent aux autres"
+    },
+    {
+      "source": "検索欄の <code>tag:TestActivity</code> は、TestActivityを含むタグも表示します。そのため <code>VRI[TestActivity]</code> の行が混ざることがあります。読み飛ばして構いません。",
+      "translation": "Le filtre <code>tag:TestActivity</code> affiche aussi les tags contenant TestActivity. Des lignes <code>VRI[TestActivity]</code> peuvent donc apparaître. Vous pouvez les ignorer."
+    },
+    {
+      "source": "STEP 5のTestActivity.java全体で照合する",
+      "translation": "Comparer avec le fichier TestActivity.java complet de STEP 5"
+    },
+    {
+      "source": "照合用 · TestActivity.java",
+      "translation": "Pour comparaison · TestActivity.java"
+    },
+    {
+      "source": "1コマ目はここまで",
+      "translation": "Fin de la séance 1"
+    },
+    {
+      "source": "もう一度Runし、Test 1のLogcatを確かめます。隣の人か先生に、キーと既定値の意味を説明しましょう。次回も自分の <code>Documents/Android1/A06ScreenTransitionSample</code> を開きます。",
+      "translation": "Relancez avec Run et vérifiez Logcat pour Test 1. Expliquez à votre voisin ou à l'enseignant ce que signifient une clé et une valeur par défaut. La prochaine fois, ouvrez à nouveau votre <code>Documents/Android1/A06ScreenTransitionSample</code>."
+    },
+    {
+      "source": "Test 1でLogcatに既定値の2行が出ることを確認した。",
+      "translation": "J'ai vérifié que Test 1 affiche deux lignes avec les valeurs par défaut dans Logcat."
+    },
+    {
+      "source": "次へ：startメソッドで値を渡す →",
+      "translation": "Suite : Transmettre des valeurs avec la méthode start →"
+    },
+    {
+      "source": "STEP 06 · 目安 20分",
+      "translation": "STEP 06 · Durée indicative : 20 min"
+    },
+    {
+      "source": "startメソッドで値を渡す",
+      "translation": "Transmettre des valeurs avec la méthode start"
+    },
+    {
+      "source": "変更するファイル：TestActivity.java、MainActivity.java",
+      "translation": "Fichiers à modifier : TestActivity.java, MainActivity.java"
+    },
+    {
+      "source": "前回のアプリをRunして、Test 1のLogcatを確認してから始めます。このSTEPでは、値をIntentに入れて画面を開くメソッドを、開かれる側のTestActivityに作ります。",
+      "translation": "Commencez par lancer l'application de la séance précédente avec Run et vérifier Logcat pour Test 1. Dans cette STEP, créez dans TestActivity, l'écran qui sera ouvert, une méthode qui place les valeurs dans un Intent et ouvre cet écran."
+    },
+    {
+      "source": "① starterテンプレートで形を作る（Cの場所）",
+      "translation": "① Créer la structure avec le modèle starter (emplacement C)"
+    },
+    {
+      "source": "TestActivity.javaで、onCreateを閉じる <code>}</code>（クラスの最後の <code>}</code> の1つ上の行。①の図の（C）の場所）の行末をクリックし、<kbd>Enter</kbd> を2回押します。",
+      "translation": "Dans TestActivity.java, cliquez à la fin de la ligne du <code>}</code> qui ferme onCreate (la ligne juste au-dessus du dernier <code>}</code> de la classe, à l'emplacement C du schéma ①), puis appuyez deux fois sur <kbd>Enter</kbd>."
+    },
+    {
+      "source": "<code>starter</code> と入力します。候補に <strong>starter</strong>（Creates a static start(...) helper method to start an Activity）が出たら <kbd>Enter</kbd> を押します。",
+      "translation": "Saisissez <code>starter</code>. Quand la suggestion <strong>starter</strong> (Creates a static start(...) helper method to start an Activity) apparaît, appuyez sur <kbd>Enter</kbd>."
+    },
+    {
+      "source": "入力欄に色が付いた状態でコードができます。<kbd>Esc</kbd> を押して入力を終わります。",
+      "translation": "Le code est créé avec des champs de saisie colorés. Appuyez sur <kbd>Esc</kbd> pour terminer la saisie."
+    },
+    {
+      "source": "TestActivity.javaのonCreateの下でstarteと入力し、候補の先頭にstarterのテンプレートが表示されている",
+      "translation": "Sous onCreate dans TestActivity.java, la saisie de starte fait apparaître le modèle starter en tête des suggestions"
+    },
+    {
+      "source": "onCreateの外で <code>starter</code> と入力します。途中まで打つと候補が出ます。画像はテンプレートの候補だけを示すため、STEP 5で追加したキーの定数は写っていません。行番号は自分の画面と違って構いません。 <a1>画像を大きく開く</a1>",
+      "translation": "Saisissez <code>starter</code> en dehors de onCreate. Les suggestions apparaissent avant même d'avoir fini de saisir. L'image montre seulement la suggestion du modèle ; les constantes des clés ajoutées à STEP 5 n'y figurent pas. Les numéros de lignes peuvent différer de votre écran. <a1>Ouvrir l'image en grand</a1>"
+    },
+    {
+      "source": "次のコードができます。この枠は<strong>入力しません</strong>。",
+      "translation": "Le code suivant est créé. <strong>Ne saisissez pas</strong> le contenu de cet encadré."
+    },
+    {
+      "source": "<code>putExtra()</code> が赤いのは、まだ中身がないためです。すぐに②で置き換えます。候補が出ない場合は、onCreateの最後の <code>}</code> の下に1行空けて、②のコードを貼り付けても同じ結果になります。",
+      "translation": "<code>putExtra()</code> est rouge parce qu'il n'a pas encore d'arguments. Vous le remplacerez immédiatement en ②. Si la suggestion n'apparaît pas, laissez une ligne vide sous le <code>}</code> final de onCreate et collez le code de ② pour obtenir le même résultat."
+    },
+    {
+      "source": "② 教科書のコードで置き換える",
+      "translation": "② Remplacer par le code du manuel"
+    },
+    {
+      "source": "できた5行（<code>public static void start</code> から、その <code>}</code> まで）を選び、貼り付けて置き換えます。<strong>startは2つ作ります。</strong>1つ目は値を渡さないもの、2つ目は2つの値を渡すものです。",
+      "translation": "Sélectionnez les cinq lignes créées (de <code>public static void start</code> jusqu'à son <code>}</code>) et remplacez-les en collant le code. <strong>Créez deux méthodes start.</strong> La première ne transmet pas de valeur ; la seconde en transmet deux."
+    },
+    {
+      "source": "置き換え · starterで作ったstartメソッド",
+      "translation": "Remplacement · Méthode start créée avec starter"
+    },
+    {
+      "source": "importは <code>android.content.Context</code>、<code>android.content.Intent</code> です（テンプレートを使った場合は、もう入っています）。",
+      "translation": "Les imports sont <code>android.content.Context</code> et <code>android.content.Intent</code> (déjà présents si vous avez utilisé le modèle)."
+    },
+    {
+      "source": "テンプレート",
+      "translation": "Modèle"
+    },
+    {
+      "source": "教科書",
+      "translation": "Manuel"
+    },
+    {
+      "source": "理由",
+      "translation": "Raison"
+    },
+    {
+      "source": "publicを付けなくても、同じ場所（パッケージ）のMainActivityから呼べる。",
+      "translation": "Même sans public, MainActivity, situé au même endroit (dans le même package), peut appeler la méthode."
+    },
+    {
+      "source": "渡したい2つの値を受け取れるようにする。",
+      "translation": "Permet de recevoir les deux valeurs à transmettre."
+    },
+    {
+      "source": "varはA01 STEP 4で学んだ書き方。変数の名前をintentにした。",
+      "translation": "var est l'écriture apprise à STEP 4 de A01. La variable a été nommée intent."
+    },
+    {
+      "source": "intent.putExtra(EXTRA_KEY_INT_VALUE, intValue); など2行",
+      "translation": "Deux lignes, dont intent.putExtra(EXTRA_KEY_INT_VALUE, intValue);"
+    },
+    {
+      "source": "キーと値の組で入れる。",
+      "translation": "Place les données sous forme de paires clé et valeur."
+    },
+    {
+      "source": "変数の名前だけが違う。",
+      "translation": "Seul le nom de la variable diffère."
+    },
+    {
+      "source": "クラス名を付けて <code>TestActivity.start(…)</code> と呼べるメソッド。staticはA05 STEP 7の定数と同じで「クラスで1つ」の意味。<code>Log.d(…)</code>（A01 STEP 5）も同じ呼び方。",
+      "translation": "Méthode appelable avec le nom de classe : <code>TestActivity.start(…)</code>. Comme pour les constantes de STEP 7 de A05, static signifie « un seul pour la classe ». <code>Log.d(…)</code> (A01, STEP 5) s'appelle de la même manière."
+    },
+    {
+      "source": "画面（Activity）などを受け取るための型。MainActivityから <code>this</code> を渡すと、ここに入る。",
+      "translation": "Type permettant de recevoir notamment un écran (Activity). Le <code>this</code> transmis depuis MainActivity arrive ici."
+    },
+    {
+      "source": "int intValue など",
+      "translation": "int intValue, etc."
+    },
+    {
+      "source": "<strong>引数（ひきすう）</strong>。メソッドを呼ぶときに ( ) の中で渡した値を、順番に受け取る変数。",
+      "translation": "<strong>Paramètres (引数, ひきすう)</strong>. Variables qui reçoivent, dans l'ordre, les valeurs transmises entre ( ) lors de l'appel d'une méthode."
+    },
+    {
+      "source": "STEP 4と同じ。<code>this</code> の代わりに、受け取ったcontextを使う。",
+      "translation": "Comme à STEP 4, mais utilise le context reçu à la place de <code>this</code>."
+    },
+    {
+      "source": "キーと値の組をIntentに入れる。STEP 5のgetIntExtraと同じキーで取り出せる。",
+      "translation": "Place une paire clé et valeur dans l'Intent. Elle peut être récupérée avec la même clé que getIntExtra à STEP 5."
+    },
+    {
+      "source": "渡された画面（MainActivity）からTestActivityを開く。",
+      "translation": "Ouvre TestActivity depuis l'écran transmis (MainActivity)."
+    },
+    {
+      "source": "③ btn1を、いま作ったstartにそろえる",
+      "translation": "③ Adapter btn1 pour utiliser le start créé"
+    },
+    {
+      "source": "STEP 4で書いた <strong>btn1の処理</strong>を、値を渡さないほうの <code>start</code> を使う形に置き換えます。",
+      "translation": "Remplacez le <strong>traitement de btn1</strong> écrit à STEP 4 pour utiliser la version de <code>start</code> qui ne transmet pas de valeur."
+    },
+    {
+      "source": "置き換え · btn1の処理",
+      "translation": "Remplacement · Traitement de btn1"
+    },
+    {
+      "source": "置き換えると <code>MainActivity.java</code> の中から <code>new Intent(...)</code> がなくなります。<strong>ファイルの上のほうにある <code>import android.content.Intent;</code> が灰色になる</strong>ので、その行を消します。使っていないimportが残っていても動きますが、読む人が「Intentを使っているのか」と探すことになります。",
+      "translation": "Après ce remplacement, <code>new Intent(...)</code> n'apparaît plus dans <code>MainActivity.java</code>. <strong>L'import <code>import android.content.Intent;</code> en haut du fichier devient gris</strong> : supprimez cette ligne. Un import inutilisé n'empêche pas le fonctionnement, mais pousse le lecteur à chercher où Intent est utilisé."
+    },
+    {
+      "source": "画面を開く書き方は1つにそろえます",
+      "translation": "Utiliser une seule manière d'ouvrir un écran"
+    },
+    {
+      "source": "STEP 4では <code>new Intent(...)</code> と <code>startActivity(...)</code> を直接書きました。いちばん素の形で、何が起きているかが見えるからです。<code>start</code> を作ったあとは、<strong>開かれる側（TestActivity）が自分の開き方を持つ</strong>ほうが読みやすくなります。渡す値が増えても、呼び出し側は <code>TestActivity.start(...)</code> のままで済みます。A07のBillSplitterでも同じ形が出てきます。",
+      "translation": "À STEP 4, vous avez écrit directement <code>new Intent(...)</code> et <code>startActivity(...)</code> pour voir ce qui se passe dans la forme la plus simple. Une fois <code>start</code> créée, le code est plus lisible si <strong>l'écran ouvert (TestActivity) définit lui-même sa manière de s'ouvrir</strong>. Même si les valeurs à transmettre se multiplient, l'appel reste sous la forme <code>TestActivity.start(...)</code>. Vous retrouverez cette forme dans BillSplitter de A07."
+    },
+    {
+      "source": "④ btn2で値を渡す",
+      "translation": "④ Transmettre des valeurs avec btn2"
+    },
+    {
+      "source": "MainActivity.javaの、btn1の処理の <code>});</code> の下に、1行空けて追加します。",
+      "translation": "Dans MainActivity.java, ajoutez le code en laissant une ligne vide sous le <code>});</code> du traitement de btn1."
+    },
+    {
+      "source": "追加 · btn1の処理の });の下",
+      "translation": "Ajout · Sous le }); du traitement de btn1"
+    },
+    {
+      "source": "渡す値",
+      "translation": "Valeur transmise"
+    },
+    {
+      "source": "受け取る引数",
+      "translation": "Paramètre de réception"
+    },
+    {
+      "source": "書き方のポイント",
+      "translation": "Points à retenir pour l'écriture"
+    },
+    {
+      "source": "今の画面のMainActivity。",
+      "translation": "MainActivity, l'écran actuel."
+    },
+    {
+      "source": "整数。",
+      "translation": "Nombre entier."
+    },
+    {
+      "source": "文字列は \" \" で囲む。数字でも文字として扱う。",
+      "translation": "Une chaîne est entourée de \" \". Même un chiffre est alors traité comme du texte."
+    },
+    {
+      "source": "MainActivityには、キーの文字が1つも出てきません。値を順番に渡すだけです。",
+      "translation": "Aucun texte de clé n'apparaît dans MainActivity. Elle transmet simplement les valeurs dans l'ordre."
+    },
+    {
+      "source": "同じ名前のstartが2つあっても動くのは？",
+      "translation": "Pourquoi deux méthodes nommées start peuvent-elles fonctionner ?"
+    },
+    {
+      "source": "同じ名前のメソッドを、引数の型や数を変えて複数作ることを <strong>オーバーロード</strong> と言います。呼び出すときに渡した値の型と数から、Javaがどちらのstartを使うかを決めます。Test 1は何も渡さないので1つ目、Test 2は2つの値を渡すので2つ目です。<code>putExtra</code> がintでもStringでも同じ名前で使えるのも、同じ仕組みです。",
+      "translation": "Créer plusieurs méthodes du même nom avec des types ou des nombres de paramètres différents s'appelle la <strong>surcharge</strong>. Java choisit la méthode start selon les types et le nombre de valeurs transmises lors de l'appel. Test 1 utilise la première, sans valeur à transmettre ; Test 2 utilise la seconde, avec deux valeurs. C'est aussi ce mécanisme qui permet d'utiliser le nom <code>putExtra</code> aussi bien avec int qu'avec String."
+    },
+    {
+      "source": "Test 2を押します。送った2つの値が出れば成功です。",
+      "translation": "Appuyez sur Test 2. Si les deux valeurs envoyées apparaissent, c'est réussi."
+    },
+    {
+      "source": "読むところの例 · Test 2を押したとき",
+      "translation": "Exemple de partie à lire · Après un appui sur Test 2"
+    },
+    {
+      "source": "<code>\"2\"</code> の囲みの記号は、Logには出ません。戻ってTest 1を押すと、今までどおり既定値の2行です。",
+      "translation": "Les guillemets de <code>\"2\"</code> n'apparaissent pas dans Log. Revenez et appuyez sur Test 1 : les deux lignes contiennent toujours les valeurs par défaut."
+    },
+    {
+      "source": "値が渡る道すじ",
+      "translation": "Parcours des valeurs transmises"
+    },
+    {
+      "source": "説明",
+      "translation": "Explication"
+    },
+    {
+      "source": "① キーを使うのはTestActivityの中だけ",
+      "translation": "① Les clés ne sont utilisées que dans TestActivity"
+    },
+    {
+      "source": "入れるputExtra（start）と、取り出すgetXxxExtra（onCreate）が、どちらもTestActivityにある。だからprivateでTestActivityの中に置ける。",
+      "translation": "putExtra, qui place les valeurs dans start, et getXxxExtra, qui les récupère dans onCreate, se trouvent tous les deux dans TestActivity. Les clés peuvent donc y être placées avec private."
+    },
+    {
+      "source": "② キーの文字を書くのは1か所",
+      "translation": "② Le texte de la clé n'est écrit qu'à un seul endroit"
+    },
+    {
+      "source": "\"intValue\" と書くのは定数の行だけ。入れる側と取り出す側で綴りがずれない。A04 STEP 5の「enumを使うメリット」と同じ考え方。",
+      "translation": "\"intValue\" n'est écrit que dans la ligne de la constante. L'orthographe reste la même pour placer et récupérer la valeur. C'est le même principe que « Les avantages d'enum » à STEP 5 de A04."
+    },
+    {
+      "source": "③ 開く側はキーを知らなくてよい",
+      "translation": "③ L'écran qui ouvre l'autre n'a pas besoin de connaître les clés"
+    },
+    {
+      "source": "MainActivityはstartに値を渡すだけ。どんなキーで入れるかは、受け取るTestActivityが決める。",
+      "translation": "MainActivity transmet seulement les valeurs à start. TestActivity, qui les reçoit, décide des clés utilisées."
+    },
+    {
+      "source": "④ 渡す値の型と順番をstartが決める",
+      "translation": "④ start définit les types et l'ordre des valeurs à transmettre"
+    },
+    {
+      "source": "型や数が違うと、Runの前に赤いエラーで気付ける（STEP 8 練習3）。",
+      "translation": "Si les types ou le nombre diffèrent, une erreur rouge le signale avant Run (STEP 8, exercice 3)."
+    },
+    {
+      "source": "もしキーを定数にせず、送る側と受け取る側に直接書くと、次のようになります。この枠は<strong>入力しません</strong>。",
+      "translation": "Si vous écriviez les clés directement du côté qui envoie et du côté qui reçoit, sans constantes, cela donnerait le code suivant. <strong>Ne saisissez pas</strong> le contenu de cet encadré."
+    },
+    {
+      "source": "受け取る側の <code>v</code> が小文字になっていても、赤いエラーにはなりません。<code>intValue: 0</code> と出るだけで、間違いに気付きにくくなります（STEP 8 練習2で試します）。Android Studioのstarterテンプレートも、開かれる側のクラスの中にstartを作ります。",
+      "translation": "Même si le <code>v</code> du côté qui reçoit est en minuscule, aucune erreur rouge n'apparaît. Seul <code>intValue: 0</code> est affiché, ce qui rend l'erreur difficile à repérer (vous l'essaierez à STEP 8, exercice 2). Le modèle starter d'Android Studio crée lui aussi start dans la classe de l'écran à ouvrir."
+    },
+    {
+      "source": "STEP 6のTestActivity.java全体で照合する",
+      "translation": "Comparer avec le fichier TestActivity.java complet de STEP 6"
+    },
+    {
+      "source": "Test 2で intValue: 1・stringValue: 2 がLogcatに出ることを確認した。",
+      "translation": "J'ai vérifié que Test 2 affiche intValue: 1 et stringValue: 2 dans Logcat."
+    },
+    {
+      "source": "次へ：配列を渡す →",
+      "translation": "Suite : Transmettre un tableau →"
+    },
+    {
+      "source": "STEP 07 · 目安 10分",
+      "translation": "STEP 07 · Environ 10 min"
+    },
+    {
+      "source": "配列を渡す",
+      "translation": "Transmettre un tableau"
+    },
+    {
+      "source": "値を1つずつではなく、<strong>まとめて</strong>渡します。STEP 5・6と同じ流れです。<strong>定数 → 受け取り → start → ボタン</strong>の順に追加します。",
+      "translation": "Transmettez les valeurs <strong>ensemble</strong>, au lieu de les transmettre une par une. Le déroulement est le même qu'à STEP 5 et 6. Faites les ajouts dans l'ordre <strong>constantes → réception → start → bouton</strong>."
+    },
+    {
+      "source": "<code>EXTRA_KEY_STRING_VALUE</code> の行の下に追加します。",
+      "translation": "Ajoutez le code sous la ligne <code>EXTRA_KEY_STRING_VALUE</code>."
+    },
+    {
+      "source": "追加 · EXTRA_KEY_STRING_VALUE の行の下",
+      "translation": "Ajout · Sous la ligne EXTRA_KEY_STRING_VALUE"
+    },
+    {
+      "source": "<code>var stringValue = ...</code> の行の下と、<code>Log.d(\"TestActivity\", \"stringValue: \" + stringValue);</code> の下に、それぞれ追加します。",
+      "translation": "Ajoutez une ligne sous <code>var stringValue = ...</code> et une autre sous <code>Log.d(\"TestActivity\", \"stringValue: \" + stringValue);</code>."
+    },
+    {
+      "source": "追加 · 受け取りとLog.dにそれぞれ1行",
+      "translation": "Ajout · Une ligne pour la réception et une pour Log.d"
+    },
+    {
+      "source": "importは <code>java.util.Arrays</code> です（A05 STEP 5と同じ）。",
+      "translation": "L'import est <code>java.util.Arrays</code> (comme à STEP 5 de A05)."
+    },
+    {
+      "source": "③ 3つ目のstartを追加する（Cの場所）",
+      "translation": "③ Ajouter un troisième start (emplacement C)"
+    },
+    {
+      "source": "2つ目のstartの最後の <code>}</code> の下（クラスの最後の <code>}</code> の上）に、1行空けて追加します。",
+      "translation": "Ajoutez le code en laissant une ligne vide sous le dernier <code>}</code> du deuxième start, au-dessus du dernier <code>}</code> de la classe."
+    },
+    {
+      "source": "追加 · 2つ目のstartの } の下",
+      "translation": "Ajout · Sous le } du deuxième start"
+    },
+    {
+      "source": "④ MainActivityで呼び出す",
+      "translation": "④ Appeler depuis MainActivity"
+    },
+    {
+      "source": "btn2の処理の <code>});</code> の下に、1行空けて追加します。",
+      "translation": "Ajoutez le code en laissant une ligne vide sous le <code>});</code> du traitement de btn2."
+    },
+    {
+      "source": "追加 · btn2の処理の });の下",
+      "translation": "Ajout · Sous le }); du traitement de btn2"
+    },
+    {
+      "source": "Stringの配列（A05 STEP 5）。中に入る型が違うだけで、<code>int[]</code> なども同じ書き方。",
+      "translation": "Tableau de String (A05, STEP 5). L'écriture est la même pour <code>int[]</code>, par exemple ; seul le type des éléments change."
+    },
+    {
+      "source": "その場で3つ入りの配列を作って渡す。",
+      "translation": "Crée sur place un tableau de trois éléments et le transmet."
+    },
+    {
+      "source": "配列を取り出す。既定値は書かず、入っていなければ null。",
+      "translation": "Récupère le tableau. Aucune valeur par défaut n'est indiquée ; s'il est absent, le résultat est null."
+    },
+    {
+      "source": "配列の中身を [3, 4, 5] の形の文字にする。nullなら null と出す。",
+      "translation": "Transforme le contenu du tableau en texte de la forme [3, 4, 5]. Si le tableau est null, affiche null."
+    },
+    {
+      "source": "この形はA07でも使います",
+      "translation": "Cette forme sera aussi utilisée dans A07"
+    },
+    {
+      "source": "A07 BillSplitterでは、参加者の名前を <code>String[]</code> にまとめて次の画面へ渡します。今回の <code>start(Context, String[])</code> と同じ形です。",
+      "translation": "Dans A07 BillSplitter, les noms des participants sont regroupés dans un <code>String[]</code> et transmis à l'écran suivant. C'est la même forme que <code>start(Context, String[])</code> ici."
+    },
+    {
+      "source": "Test 3を押します。配列の行に値が出れば成功です。",
+      "translation": "Appuyez sur Test 3. Si les valeurs apparaissent sur la ligne du tableau, c'est réussi."
+    },
+    {
+      "source": "読むところの例 · Test 3を押したとき",
+      "translation": "Exemple de partie à lire · Après un appui sur Test 3"
+    },
+    {
+      "source": "前半の2行は、Test 3では送っていないので既定値です。Test 1とTest 2では、<code>stringArrayValue</code> が null になります。",
+      "translation": "Les deux premières lignes contiennent les valeurs par défaut, car Test 3 n'envoie pas ces données. Avec Test 1 et Test 2, <code>stringArrayValue</code> vaut null."
+    },
+    {
+      "source": "STEP 7のTestActivity.java全体で照合する",
+      "translation": "Comparer avec le fichier TestActivity.java complet de STEP 7"
+    },
+    {
+      "source": "Test 3で stringArrayValue: [3, 4, 5] がLogcatに出ることを確認した。",
+      "translation": "J'ai vérifié que Test 3 affiche stringArrayValue: [3, 4, 5] dans Logcat."
+    },
+    {
+      "source": "次へ：ミニ練習 →",
+      "translation": "Suite : Mini-exercice →"
+    },
+    {
+      "source": "STEP 08 · 目安 10分",
+      "translation": "STEP 08 · Environ 10 min"
+    },
+    {
+      "source": "ミニ練習",
+      "translation": "Mini-exercice"
+    },
+    {
+      "source": "まずTest 3まで完成させます。そのあと、次の小変更を1つずつ試します。<strong>予想 → 変更 → Run → 説明 → 元に戻す</strong>の順で行います。",
+      "translation": "Terminez d'abord jusqu'à Test 3. Essayez ensuite les petites modifications suivantes, une par une, dans l'ordre <strong>prévoir → modifier → Run → expliquer → rétablir</strong>."
+    },
+    {
+      "source": "練習1：Test 2で渡す値を変える",
+      "translation": "Exercice 1 : changer les valeurs transmises par Test 2"
+    },
+    {
+      "source": "MainActivityのbtn2の処理で、<code>1</code> を <code>100</code> に、<code>\"2\"</code> を <code>\"Android\"</code> に変えます。",
+      "translation": "Dans le traitement de btn2 de MainActivity, remplacez <code>1</code> par <code>100</code> et <code>\"2\"</code> par <code>\"Android\"</code>."
+    },
+    {
+      "source": "練習1 · 変更後の行",
+      "translation": "Exercice 1 · Ligne après modification"
+    },
+    {
+      "source": "Test 2のLogcatで、どの行が変わるかを予想してから試します。",
+      "translation": "Prévoyez quelles lignes changeront dans Logcat pour Test 2, puis essayez."
+    },
+    {
+      "source": "試したあとに答えを見る",
+      "translation": "Voir la réponse après avoir essayé"
+    },
+    {
+      "source": "<code>intValue: 100</code> と <code>stringValue: Android</code> の2行が変わります。MainActivityで渡す値を変えるだけでよく、キーは変えなくてよいと説明できれば十分です。確認後は <code>1</code> と <code>\"2\"</code> に戻します。",
+      "translation": "Les deux lignes deviennent <code>intValue: 100</code> et <code>stringValue: Android</code>. Il suffit de pouvoir expliquer que seules les valeurs transmises dans MainActivity changent et que les clés restent identiques. Après vérification, rétablissez <code>1</code> et <code>\"2\"</code>."
+    },
+    {
+      "source": "練習2：キーを直接書いて、打ち間違える",
+      "translation": "Exercice 2 : écrire directement une clé avec une faute"
+    },
+    {
+      "source": "TestActivityのonCreateで、<code>getIntExtra(EXTRA_KEY_INT_VALUE, 0)</code> を次のように変えます（<code>v</code> が小文字です）。",
+      "translation": "Dans onCreate de TestActivity, modifiez <code>getIntExtra(EXTRA_KEY_INT_VALUE, 0)</code> comme ci-dessous (le <code>v</code> est en minuscule)."
+    },
+    {
+      "source": "練習2 · 変更後の行",
+      "translation": "Exercice 2 · Ligne après modification"
+    },
+    {
+      "source": "赤いエラーは出るでしょうか。Test 2を押すと、intValueは何と出るでしょうか。予想してから試します。",
+      "translation": "Une erreur rouge apparaîtra-t-elle ? Quelle valeur intValue affichera-t-elle après un appui sur Test 2 ? Prévoyez le résultat, puis essayez."
+    },
+    {
+      "source": "赤いエラーは出ません。Test 2でも <code>intValue: 0</code> になります（<code>stringValue</code> は送った値のままです）。送ったキーは \"intValue\"、探したキーは \"intvalue\" で、見つからないため既定値の0が返るからです。定数の名前を <code>EXTRA_KEY_INT_VALU</code> のように打ち間違えた場合は、すぐ赤いエラーになります。キーを定数にしてTestActivityの1か所で使う理由を説明できれば十分です。確認後は <code>EXTRA_KEY_INT_VALUE</code> に戻します。",
+      "translation": "Aucune erreur rouge n'apparaît. Même avec Test 2, le résultat est <code>intValue: 0</code> (<code>stringValue</code> garde la valeur envoyée). La clé envoyée est \"intValue\", mais la clé recherchée est \"intvalue\". Comme elle n'est pas trouvée, la valeur par défaut 0 est renvoyée. Une faute dans le nom de la constante, comme <code>EXTRA_KEY_INT_VALU</code>, produit immédiatement une erreur rouge. Il suffit de pouvoir expliquer pourquoi on utilise une constante pour la clé à un seul endroit dans TestActivity. Après vérification, rétablissez <code>EXTRA_KEY_INT_VALUE</code>."
+    },
+    {
+      "source": "練習3：渡す値の型を変えるとどうなる？",
+      "translation": "Exercice 3 : que se passe-t-il si le type de la valeur transmise change ?"
+    },
+    {
+      "source": "MainActivityのbtn2の <code>&quot;2&quot;</code> を <code>2</code> に変えます（<code>&quot; &quot;</code> を外します）。Runする前に、何が起きるか予想します。",
+      "translation": "Dans btn2 de MainActivity, remplacez <code>&quot;2&quot;</code> par <code>2</code> (enlevez <code>&quot; &quot;</code>). Prévoyez ce qui se passera avant de lancer Run."
+    },
+    {
+      "source": "<code>start</code> に赤い波線が出て、Runするとビルドエラーになります。<code>2</code> はintで、2つ目の引数はStringなので、渡した値に合うstartがないからです。Runの前に間違いに気付けることを説明できれば十分です。確認後は <code>&quot;2&quot;</code> に戻します。",
+      "translation": "<code>start</code> est souligné en rouge et Run provoque une erreur de build. <code>2</code> est un int, alors que le deuxième paramètre de données est une String : aucun start ne correspond aux valeurs transmises. Il suffit de pouvoir expliquer que l'erreur est repérable avant Run. Après vérification, rétablissez <code>&quot;2&quot;</code>."
+    },
+    {
+      "source": "完成版に戻してから確認",
+      "translation": "Vérifier après avoir rétabli la version terminée"
+    },
+    {
+      "source": "練習1の <code>1</code> と <code>\"2\"</code>、練習2の <code>EXTRA_KEY_INT_VALUE</code>、練習3の <code>\"2\"</code> を元に戻します。Runして、Test 2が intValue: 1・stringValue: 2 に戻ることを確かめます。",
+      "translation": "Rétablissez <code>1</code> et <code>\"2\"</code> de l'exercice 1, <code>EXTRA_KEY_INT_VALUE</code> de l'exercice 2, puis <code>\"2\"</code> de l'exercice 3. Lancez avec Run et vérifiez que Test 2 affiche de nouveau intValue: 1 et stringValue: 2."
+    },
+    {
+      "source": "3つの練習を予想してから試し、完成版に戻してTest 2の結果が元に戻ったことを確認した。",
+      "translation": "J'ai prévu puis essayé les trois exercices, rétabli la version finale et vérifié que les résultats de Test 2 sont revenus à leur état initial."
+    },
+    {
+      "source": "次へ：完成 →",
+      "translation": "Suite : Terminé →"
+    },
+    {
+      "source": "STEP 09 · 目安 15分",
+      "translation": "STEP 09 · Environ 15 min"
+    },
+    {
+      "source": "完成",
+      "translation": "Terminé"
+    },
+    {
+      "source": "Test 1〜Test 3の結果を比べる",
+      "translation": "Comparer les résultats de Test 1 à Test 3"
+    },
+    {
+      "source": "ボタン",
+      "translation": "Bouton"
+    },
+    {
+      "source": "呼び出し",
+      "translation": "Appel"
+    },
+    {
+      "source": "渡したもの",
+      "translation": "Données transmises"
+    },
+    {
+      "source": "値が出る行",
+      "translation": "Lignes affichant les valeurs"
+    },
+    {
+      "source": "start（値なし）",
+      "translation": "start (sans valeur)"
+    },
+    {
+      "source": "何も入れない",
+      "translation": "Aucune valeur placée"
+    },
+    {
+      "source": "なし（3行すべて既定値かnull）",
+      "translation": "Aucune (les trois lignes contiennent une valeur par défaut ou null)"
+    },
+    {
+      "source": "start（1つずつの値）",
+      "translation": "start (valeurs séparées)"
+    },
+    {
+      "source": "intとStringを1つずつ",
+      "translation": "Un int et une String"
+    },
+    {
+      "source": "start（配列）",
+      "translation": "start (tableau)"
+    },
+    {
+      "source": "Stringの配列を1つ",
+      "translation": "Un tableau de String"
+    },
+    {
+      "source": "押したボタンごとのLogcat",
+      "translation": "Logcat selon le bouton choisi"
+    },
+    {
+      "source": "3行のうち、押したボタンで送った行だけに値が出ます。それぞれの出力は、STEP 5・6・7の「読むところの例」と同じです。",
+      "translation": "Sur les trois lignes, seules celles correspondant aux données envoyées par le bouton affichent ces valeurs. Les sorties correspondent aux « Exemples de partie à lire » de STEP 5, 6 et 7."
+    },
+    {
+      "source": "押したボタン",
+      "translation": "Bouton choisi"
+    },
+    {
+      "source": "実際のアプリでよく使うのは <strong>Test 2の形</strong> です。<code>putExtra</code> で、数値や短い文字列を1つずつ渡します。とくに「どのデータを表示するか」を表す番号（ID）を渡す使い方が多くあります。",
+      "translation": "Dans les applications réelles, on utilise souvent <strong>la forme de Test 2</strong>. Avec <code>putExtra</code>, on transmet séparément des nombres ou de courtes chaînes. On transmet notamment souvent un numéro (ID) qui indique quelles données afficher."
+    },
+    {
+      "source": "よくある使い方",
+      "translation": "Utilisation courante"
+    },
+    {
+      "source": "一覧の画面：押した商品の番号（例：12）を渡す",
+      "translation": "Écran de liste : transmettre le numéro du produit choisi (exemple : 12)"
+    },
+    {
+      "source": "詳しい画面：番号12の商品を表示する",
+      "translation": "Écran de détails : afficher le produit numéro 12"
+    },
+    {
+      "source": "渡し方",
+      "translation": "Forme de transmission"
+    },
+    {
+      "source": "実際の使い方",
+      "translation": "Utilisation en pratique"
+    },
+    {
+      "source": "Test 1：何も渡さない",
+      "translation": "Test 1 : ne rien transmettre"
+    },
+    {
+      "source": "画面を開くだけでよいときに使う。",
+      "translation": "À utiliser quand il suffit d'ouvrir un écran."
+    },
+    {
+      "source": "Test 2：値を1つずつ渡す",
+      "translation": "Test 2 : transmettre les valeurs séparément"
+    },
+    {
+      "source": "よく使う。IDや名前など、小さな値を渡す。",
+      "translation": "Très utilisé pour transmettre de petites valeurs, comme un ID ou un nom."
+    },
+    {
+      "source": "Test 3：配列",
+      "translation": "Test 3 : tableau"
+    },
+    {
+      "source": "少しの値をまとめて渡すときに使う。A07 BillSplitterでも同じ形を使う。",
+      "translation": "À utiliser pour transmettre ensemble un petit nombre de valeurs. A07 BillSplitter utilise aussi cette forme."
+    },
+    {
+      "source": "Intentで渡すデータは小さくします。大きなデータを渡すと、アプリが落ちることがあります。",
+      "translation": "Gardez les données transmises par Intent de petite taille. Transmettre de grosses données peut faire planter l'application."
+    },
+    {
+      "source": "仕様の確認：<a1>Parcelables and bundles</a1>、<a2>Intents and intent filters</a2>（Android公式）。",
+      "translation": "Consulter les spécifications : <a1>Parcelables and bundles</a1>, <a2>Intents and intent filters</a2> (documentation officielle Android)."
+    },
+    {
+      "source": "完成チェック",
+      "translation": "Vérification finale"
+    },
+    {
+      "source": "確認する結果",
+      "translation": "Résultat à vérifier"
+    },
+    {
+      "source": "起動直後",
+      "translation": "Juste après le lancement"
+    },
+    {
+      "source": "Test 1〜Test 3が画面の中央に縦に並ぶ。",
+      "translation": "Test 1 à Test 3 sont disposés verticalement au centre de l'écran."
+    },
+    {
+      "source": "何もない画面に切り替わる。Logcatの3行がすべて既定値かnull。",
+      "translation": "Un écran vide s'ouvre. Les trois lignes de Logcat contiennent des valeurs par défaut ou null."
+    },
+    {
+      "source": "3つのボタンの画面に戻る。",
+      "translation": "Retour à l'écran des trois boutons."
+    },
+    {
+      "source": "intValue: 1、stringValue: 2。stringArrayValue は null。",
+      "translation": "intValue: 1, stringValue: 2. stringArrayValue vaut null."
+    },
+    {
+      "source": "保存",
+      "translation": "Enregistrement"
+    },
+    {
+      "source": "Android Studioは、書いたコードを自動でファイルに保存します。保存の操作は要りません。ここでは、保存された場所を確かめます。",
+      "translation": "Android Studio enregistre automatiquement le code dans les fichiers. Vous n'avez aucune opération de sauvegarde à effectuer. Vérifiez ici l'emplacement des fichiers enregistrés."
+    },
+    {
+      "source": "Finderを開き、左側の <strong>書類</strong>（<code>Documents</code>）をクリックします。",
+      "translation": "Ouvrez le Finder et cliquez sur <strong>書類</strong> (<code>Documents</code>) à gauche."
+    },
+    {
+      "source": "その中の <code>Android1</code> フォルダを開き、<code>A06ScreenTransitionSample</code> フォルダがあることを確かめます。",
+      "translation": "Ouvrez le dossier <code>Android1</code> qu'il contient et vérifiez la présence du dossier <code>A06ScreenTransitionSample</code>."
+    },
+    {
+      "source": "この <code>Documents/Android1/A06ScreenTransitionSample</code> フォルダが、自分で作ったアプリです。あとの授業でもう一度開けるように、消したり、別の場所へ移動したり、名前を変えたりせずに、そのまま残します。",
+      "translation": "Ce dossier <code>Documents/Android1/A06ScreenTransitionSample</code> est votre application. Gardez-le tel quel, sans le supprimer, le déplacer ni le renommer, pour pouvoir le rouvrir lors des prochains cours."
+    },
+    {
+      "source": "教材のチェックは自分用です。先生への送信はしません。印刷は <kbd>⌘ P</kbd> で行えます。",
+      "translation": "Les cases du manuel servent à votre propre suivi. Elles ne sont pas envoyées à l'enseignant. Vous pouvez imprimer avec <kbd>⌘ P</kbd>."
+    },
+    {
+      "source": "完成チェックの操作をすべて試し、表のとおりの結果になった。",
+      "translation": "J'ai essayé toutes les actions de la vérification finale et obtenu les résultats indiqués dans le tableau."
+    },
+    {
+      "source": "困ったこと",
+      "translation": "Difficulté"
+    },
+    {
+      "source": "最初に確認する場所",
+      "translation": "Premier point à vérifier"
+    },
+    {
+      "source": "R.id.btn1などが赤い",
+      "translation": "R.id.btn1, par exemple, est rouge"
+    },
+    {
+      "source": "activity_main.xmlのidがbtn1〜btn3か確認。<code>android:id=\"@+id/main\"</code> を消していないかも見る。",
+      "translation": "Vérifiez que les id dans activity_main.xml sont btn1 à btn3. Vérifiez aussi que <code>android:id=\"@+id/main\"</code> n'a pas été supprimé."
+    },
+    {
+      "source": "MainActivityのTestActivityが赤い",
+      "translation": "TestActivity est rouge dans MainActivity"
+    },
+    {
+      "source": "STEP 3でTestActivityを作ったか、綴りと場所（MainActivity.javaと同じ場所）を確認。",
+      "translation": "Vérifiez que TestActivity a été créée à STEP 3, ainsi que son orthographe et son emplacement (au même endroit que MainActivity.java)."
+    },
+    {
+      "source": "start(…)が赤い（MainActivity）",
+      "translation": "start(…) est rouge dans MainActivity"
+    },
+    {
+      "source": "そのSTEPのstartをTestActivityに追加したか確認。値の順番と型（<code>\"2\"</code> の囲み方）を見比べる。",
+      "translation": "Vérifiez que vous avez ajouté dans TestActivity le start de cette STEP. Comparez l'ordre et les types des valeurs, notamment les guillemets de <code>\"2\"</code>."
+    },
+    {
+      "source": "startを追加したら、赤いエラーがたくさん出る",
+      "translation": "De nombreuses erreurs rouges apparaissent après l'ajout de start"
+    },
+    {
+      "source": "startをonCreateの中に入れていないか確認。onCreateの最後の } の下、クラスの最後の } の上に置く。",
+      "translation": "Vérifiez que start n'a pas été placé dans onCreate. Placez-le sous le } final de onCreate, au-dessus du dernier } de la classe."
+    },
+    {
+      "source": "Log、Arraysが赤い",
+      "translation": "Log et Arrays sont rouges"
+    },
+    {
+      "source": "<kbd>⌥ Enter</kbd> で android.util.Log、java.util.Arrays を選ぶ。",
+      "translation": "Avec <kbd>⌥ Enter</kbd>, choisissez android.util.Log et java.util.Arrays."
+    },
+    {
+      "source": "starterの候補が出ない",
+      "translation": "La suggestion starter n'apparaît pas"
+    },
+    {
+      "source": "onCreateの中ではなく、メソッドの外で入力しているか確認。出なくても、STEP 6②のコードを貼り付ければ同じ。",
+      "translation": "Vérifiez que vous saisissez en dehors des méthodes, et non dans onCreate. Même sans suggestion, coller le code de STEP 6② donne le même résultat."
+    },
+    {
+      "source": "Test 1を押すとアプリが終了する",
+      "translation": "Appuyer sur Test 1 ferme l'application"
+    },
+    {
+      "source": "Logcatを <code>level:ERROR</code> にして ActivityNotFoundException か確認。AndroidManifest.xmlに <code>android:name=\".TestActivity\"</code> の &lt;activity&gt; があるか確認する。New → Java Classで作ると登録されない。",
+      "translation": "Réglez Logcat sur <code>level:ERROR</code> et vérifiez s'il s'agit d'ActivityNotFoundException. Vérifiez que AndroidManifest.xml contient une balise &lt;activity&gt; avec <code>android:name=\".TestActivity\"</code>. New → Java Class ne crée pas cette déclaration."
+    },
+    {
+      "source": "アプリ一覧のアイコンが2つある（Runすると何もない画面から始まることがある）",
+      "translation": "Deux icônes figurent dans la liste des applications (Run démarre parfois sur un écran vide)"
+    },
+    {
+      "source": "STEP 3でLauncher Activityにチェックを入れた可能性がある。TestActivityの &lt;activity&gt; から &lt;intent-filter&gt; を消し、exportedをfalseにする（STEP 3の照合用Manifestと同じ形）。",
+      "translation": "Vous avez peut-être coché Launcher Activity à STEP 3. Supprimez &lt;intent-filter&gt; de la balise &lt;activity&gt; de TestActivity et réglez exported sur false, comme dans le Manifest de comparaison de STEP 3."
+    },
+    {
+      "source": "Testボタンを押しても何も起きない",
+      "translation": "Les boutons Test n'ont aucun effet"
+    },
+    {
+      "source": "そのボタンの処理を追加したか、R.idの番号（btn3にbtn2と書いていないか）を確認。",
+      "translation": "Vérifiez que le traitement du bouton a été ajouté et que le numéro dans R.id est correct, par exemple que btn2 n'a pas été écrit à la place de btn3."
+    },
+    {
+      "source": "Logcatに何も出ない",
+      "translation": "Rien n'apparaît dans Logcat"
+    },
+    {
+      "source": "検索欄のtagがTestActivityか確認（tag:MainActivityのままでは出ない）。ログはTestActivityが開いたときに出るので、Testボタンを押す。",
+      "translation": "Vérifiez que le tag du champ de recherche est TestActivity : tag:MainActivity n'affiche pas ces journaux. Les journaux apparaissent à l'ouverture de TestActivity ; appuyez donc sur un bouton Test."
+    },
+    {
+      "source": "送ったはずの値が 0・null・空白になる",
+      "translation": "Une valeur supposée envoyée devient 0, null ou vide"
+    },
+    {
+      "source": "startのputExtraとonCreateのgetXxxExtraが、同じ EXTRA_KEY_… を使っているか確認。押したボタンも確認する。",
+      "translation": "Vérifiez que putExtra dans start et getXxxExtra dans onCreate utilisent le même EXTRA_KEY_…. Vérifiez aussi le bouton choisi."
+    },
+    {
+      "source": "VRI[TestActivity]の行が混ざる",
+      "translation": "Des lignes VRI[TestActivity] apparaissent parmi les résultats"
+    },
+    {
+      "source": "tag:TestActivityは、TestActivityを含むタグも表示する。読み飛ばしてよい。",
+      "translation": "tag:TestActivity affiche aussi les tags contenant TestActivity. Vous pouvez ignorer ces lignes."
+    },
+    {
+      "source": "直したのに動きが変わらない",
+      "translation": "Le comportement ne change pas après une correction"
+    },
+    {
+      "source": "ウィンドウの保存先が Documents/Android1/A06ScreenTransitionSample か確認。samples側を開いていないか見る。",
+      "translation": "Vérifiez que l'emplacement de la fenêtre est Documents/Android1/A06ScreenTransitionSample et que vous n'avez pas ouvert le projet dans samples."
+    },
+    {
+      "source": "<a1>共通資料：Logcat</a1>を使います。今回のパッケージは <code>jp.ac.jec.a06screentransitionsample</code> です。受け取った値は <code>package:jp.ac.jec.a06screentransitionsample tag:TestActivity level:DEBUG</code> で見ます。エラーを見るときは、<code>tag:TestActivity</code> と <code>level:DEBUG</code> を消して、<code>package:jp.ac.jec.a06screentransitionsample level:ERROR</code> に置き換えます。前の単元のパッケージ名も残さないようにします。",
+      "translation": "Utilisez le <a1>Guide commun : Logcat</a1>. Le package de cette unité est <code>jp.ac.jec.a06screentransitionsample</code>. Consultez les valeurs reçues avec <code>package:jp.ac.jec.a06screentransitionsample tag:TestActivity level:DEBUG</code>. Pour voir les erreurs, supprimez <code>tag:TestActivity</code> et <code>level:DEBUG</code>, puis utilisez <code>package:jp.ac.jec.a06screentransitionsample level:ERROR</code>. Ne gardez pas non plus le nom de package de l'unité précédente."
+    },
+    {
+      "source": "質問では「STEP番号・編集したファイル・最初の赤い行・押した順番」を伝えます。",
+      "translation": "Pour poser une question, indiquez « le numéro du STEP, le fichier modifié, la première ligne rouge et l'ordre des boutons pressés »."
+    },
+    {
+      "source": "完成版は最初の授業から使える見本です。教科書といっしょに配られた<strong>教材のフォルダ</strong>に、そのまま開ける形で入っています。ダウンロードも展開も要りません。",
+      "translation": "La version terminée est un modèle utilisable dès le premier cours. Elle se trouve, prête à ouvrir, dans le <strong>dossier des supports de cours</strong> distribué avec le manuel. Aucun téléchargement ni extraction n'est nécessaire."
+    },
+    {
+      "source": "Android Studioの <strong>Open</strong>（プロジェクトを開いているときは <strong>File → Open</strong>）で、<strong>書類</strong>（<code>Documents</code>）にある教材のフォルダを開きます。名前は <code>android1-student-materials-</code> のうしろに日付が付いた形で、日付は配られた回によって変わります。いま読んでいるこの教科書が入っているフォルダです。",
+      "translation": "Avec <strong>Open</strong> dans Android Studio (ou <strong>File → Open</strong> si un projet est ouvert), ouvrez le dossier des supports de cours dans <strong>書類</strong> (<code>Documents</code>). Son nom commence par <code>android1-student-materials-</code> suivi d'une date, qui varie selon la distribution. Il s'agit du dossier contenant le manuel que vous lisez actuellement."
+    },
+    {
+      "source": "その中を <code>samples → A06ScreenTransitionSample</code> の順に開き、<code>settings.gradle.kts</code> と <code>app</code> が入った <code>A06ScreenTransitionSample</code> フォルダを選びます。",
+      "translation": "Ouvrez ensuite <code>samples → A06ScreenTransitionSample</code> et sélectionnez le dossier <code>A06ScreenTransitionSample</code> contenant <code>settings.gradle.kts</code> et <code>app</code>."
+    },
+    {
+      "source": "Sync後にRunして動きを確認します。授業の入力に戻るときは自分の <code>Documents/Android1/A06ScreenTransitionSample</code> を開きます。",
+      "translation": "Après Sync, lancez avec Run pour vérifier le comportement. Pour reprendre la saisie du cours, ouvrez votre propre <code>Documents/Android1/A06ScreenTransitionSample</code>."
+    },
+    {
+      "source": "両方とも同じプロジェクト名なので、ウィンドウの保存先を確認しましょう。見本と自分のアプリは同じパッケージ名のため、端末上では同じアプリを更新します。切り替えるときは、確認したい方のプロジェクトからRunします。",
+      "translation": "Les deux projets portent le même nom : vérifiez l'emplacement de la fenêtre. Le modèle et votre application ont le même nom de package et mettent donc à jour la même application sur l'appareil. Pour passer de l'un à l'autre, lancez Run depuis le projet que vous voulez vérifier."
+    },
+    {
+      "source": "教材のフォルダが手元にないときは、同じ見本をZIPで受け取れます（<a1>A06ScreenTransitionSample.zip</a1>）。展開してできた <code>A06ScreenTransitionSample</code> フォルダを、同じようにOpenで選びます。",
+      "translation": "Si vous n'avez pas le dossier des supports de cours, vous pouvez obtenir le même exemple en ZIP (<a1>A06ScreenTransitionSample.zip</a1>). Après extraction, sélectionnez de la même manière le dossier <code>A06ScreenTransitionSample</code> avec Open."
+    },
+    {
+      "source": "完成したMainActivity.javaで照合する",
+      "translation": "Comparer avec le MainActivity.java terminé"
+    },
+    {
+      "source": "完成版 · MainActivity.java",
+      "translation": "Version terminée · MainActivity.java"
+    },
+    {
+      "source": "完成したTestActivity.javaで照合する",
+      "translation": "Comparer avec le fichier TestActivity.java terminé"
+    },
+    {
+      "source": "完成版 · TestActivity.java",
+      "translation": "Version finale · TestActivity.java"
+    },
+    {
+      "source": "完成したactivity_main.xmlで照合する",
+      "translation": "Comparer avec le activity_main.xml terminé"
+    },
+    {
+      "source": "完成版 · activity_main.xml",
+      "translation": "Version terminée · activity_main.xml"
+    },
+    {
+      "source": "完成したAndroidManifest.xmlで照合する",
+      "translation": "Comparer avec le AndroidManifest.xml terminé"
+    },
+    {
+      "source": "完成版 · AndroidManifest.xml",
+      "translation": "Version terminée · AndroidManifest.xml"
+    },
+    {
+      "source": "Androidプログラミング1 · A06ScreenTransitionSample / 本文・画像・操作機能はオフラインで利用できます。Android Studioの初回準備・ビルドと公式資料の閲覧にはネット接続が必要です。",
+      "translation": "Programmation Android 1 · A06ScreenTransitionSample / Le texte, les images et les fonctions interactives sont utilisables hors ligne. La préparation initiale et le build dans Android Studio ainsi que la consultation de la documentation officielle nécessitent une connexion Internet."
+    },
+    {
+      "source": "画像は授業用の提供資料を使用。Logcatの時刻や番号は実行ごとに変わります。",
+      "translation": "Les images proviennent des ressources fournies pour le cours. Les heures et les numéros affichés dans Logcat changent à chaque exécution."
+    }
+  ],
+  "overrides": [
+    {
+      "source": "コード",
+      "where": "th",
+      "translation": "Code"
+    }
+  ]
+}
