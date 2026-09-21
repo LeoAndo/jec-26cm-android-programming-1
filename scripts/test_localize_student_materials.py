@@ -193,6 +193,36 @@ class ValidateTest(unittest.TestCase):
 class LocalizeTest(unittest.TestCase):
     PAGES = {"docs/unit/index.html", "docs/other/index.html", "docs/common/setup.html"}
 
+    def test_android_documentation_links_replace_only_japanese_language_parameter(self):
+        cases = [
+            ("https://developer.android.com/studio?hl=ja", "https://developer.android.com/studio?hl=fr"),
+            ("https://developer.android.com/?x=a%20b&hl=ja&empty=&x=%2F#top",
+             "https://developer.android.com/?x=a%20b&hl=fr&empty=&x=%2F#top"),
+            ("//developer.android.com/studio?hl=ja&hl=ja", "//developer.android.com/studio?hl=fr&hl=fr"),
+            ("https://developer.android.com/studio#hl=ja", "https://developer.android.com/studio#hl=ja"),
+            ("https://developer.android.com/studio?hl=en", "https://developer.android.com/studio?hl=en"),
+            ("https://developer.android.com/studio?otherhl=ja&hl=ja-jp",
+             "https://developer.android.com/studio?otherhl=ja&hl=ja-jp"),
+            ("https://example.com/?hl=ja", "https://example.com/?hl=ja"),
+            ("https://developer.android.com.example.com/?hl=ja",
+             "https://developer.android.com.example.com/?hl=ja"),
+        ]
+        for source, expected in cases:
+            with self.subTest(url=source):
+                self.assertEqual(localize._rewrite_link(source, "docs/unit/index.html", "fr", "docs",
+                                                        self.PAGES, "fr"), expected)
+        source = "https://developer.android.com/studio?hl=ja"
+        self.assertEqual(localize._rewrite_link(source, "docs/unit/index.html", "ja", "docs",
+                                                self.PAGES, "fr"), source)
+
+    def test_android_link_is_escaped_once_inside_translated_and_untranslated_text(self):
+        source = '<p><a href="https://developer.android.com/studio?hl=ja&amp;x=a%20b#top">公式資料</a>を開く。</p>'
+        for translations in ({}, {"<a1>公式資料</a1>を開く。": "Open the <a1>official guide</a1>."}):
+            with self.subTest(translated=bool(translations)):
+                rendered = localize.localize(page_of(source), translations, "en", "docs", self.PAGES, "en")
+                self.assertIn('href="https://developer.android.com/studio?hl=en&amp;x=a%20b#top"', rendered)
+                self.assertNotIn("&amp;amp;", rendered)
+
     def render(self, html, translations, name="docs/unit/index.html"):
         return localize.localize(page_of(html, name), translations, "en", "docs", self.PAGES)
 
@@ -588,6 +618,31 @@ class CommandTest(unittest.TestCase):
     def test_unknown_language_is_rejected(self):
         with self.assertRaisesRegex(localize.LocalizeError, "config/i18n.jsonにない言語です: de"):
             localize.localized_pages(self.settings(), "de")
+
+    def test_localized_pages_uses_configured_official_documentation_language(self):
+        source = '<p><a href="https://developer.android.com/studio?hl=ja">公式資料</a>を開く。</p>'
+        self.write("docs/unit/index.html", source)
+        config_path = self.root / "config/i18n.json"
+        config = json.loads(config_path.read_text())
+        config["languages"][1]["android_docs_hl"] = "fr"
+        config_path.write_text(json.dumps(config))
+        rendered = localize.localized_pages(self.settings(), "fr")["docs/fr/unit/index.html"]
+        self.assertIn("?hl=fr", rendered)
+        self.assertEqual((self.root / "docs/unit/index.html").read_text(), source)
+        # 明示の対応がない言語は、存在が確認できる英語に戻す。
+        config["languages"][1].pop("android_docs_hl")
+        config_path.write_text(json.dumps(config))
+        self.assertIn("?hl=en", localize.localized_pages(self.settings(), "fr")["docs/fr/unit/index.html"])
+
+    def test_invalid_official_documentation_language_is_rejected(self):
+        config_path = self.root / "config/i18n.json"
+        config = json.loads(config_path.read_text())
+        for value in ("", "en&other=1", 123):
+            with self.subTest(value=value):
+                config["languages"][0]["android_docs_hl"] = value
+                config_path.write_text(json.dumps(config))
+                with self.assertRaisesRegex(localize.LocalizeError, "android_docs_hl"):
+                    self.settings()
 
 
 class RepositoryTest(unittest.TestCase):
