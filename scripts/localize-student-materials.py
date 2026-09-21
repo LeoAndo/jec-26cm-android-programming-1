@@ -539,12 +539,15 @@ def _rewrite_link(value: str, page: str, language: str, source_root: str, pages:
 
 
 class _Localizer:
-    def __init__(self, page: Page, translations: dict, language: str, source_root: str, pages: set):
+    def __init__(self, page: Page, translations: dict, language: str, source_root: str, pages: set,
+                 mark_untranslated: bool = False):
         self.page = page
         self.translations = translations
         self.language = language
         self.source_root = source_root
         self.pages = pages
+        self.mark_untranslated = mark_untranslated
+        self.fallback_elements = set()
 
     def start_tag(self, element: Element) -> str:
         """開始タグを、訳した属性・書き換えたリンク・言語の指定つきで作り直す。"""
@@ -565,6 +568,11 @@ class _Localizer:
                     values[name] = html.escape(moved, quote=True)
         if element.tag == "html" and element.attribute("lang") is not None:
             values["lang"] = self.language
+        if id(element) in self.fallback_elements:
+            if element.attribute("lang") is None:
+                raw = raw[:-1] + ' lang="ja">'
+            else:
+                values["lang"] = "ja"
         if not values:
             return raw
         # 属性の位置を見て、一度に組み立てる。置き換えた値をもう一度走査しないので、
@@ -599,6 +607,12 @@ class _Localizer:
             # 未翻訳の文も作り直す。中のリンク（画像を大きく開く、など）を書き換えるため。
             translation = self.translations.get(segment.source)
             rendered = self._restore(segment, translation if translation is not None else self._source(segment))
+            if self.mark_untranslated and translation is None:
+                # title/option/textarea には span を入れられないので、その要素に言語を付ける。
+                if segment.where in {"title", "option", "textarea"}:
+                    self._mark_fallback_container(self.page.root, segment)
+                else:
+                    rendered = f'<span lang="ja">{rendered}</span>'
             replacements.append((segment.start, segment.end, rendered))
         self._start_tags(self.page.root, replacements)
         parts, position = [], 0
@@ -607,6 +621,13 @@ class _Localizer:
             position = end
         parts.append(text[position:])
         return "".join(parts)
+
+    def _mark_fallback_container(self, element: Element, segment: Segment):
+        for child in element.children:
+            if isinstance(child, Element) and child.inner_start <= segment.start and child.inner_end >= segment.end:
+                if child.tag == segment.where:
+                    self.fallback_elements.add(id(child))
+                self._mark_fallback_container(child, segment)
 
     def _source(self, segment: Segment) -> str:
         """未翻訳の文。元の空白を保ちたいので、カタログの形ではなく元の文字列から、目印つきの形を作る。"""
@@ -638,8 +659,9 @@ class _Localizer:
                 self._start_tags(child, replacements)
 
 
-def localize(page: Page, translations: dict, language: str, source_root: str, pages: set) -> str:
-    return _Localizer(page, translations, language, source_root, pages).run()
+def localize(page: Page, translations: dict, language: str, source_root: str, pages: set,
+             *, mark_untranslated: bool = False) -> str:
+    return _Localizer(page, translations, language, source_root, pages, mark_untranslated).run()
 
 
 # ---------------------------------------------------------------------------
@@ -1060,16 +1082,17 @@ def status(settings: Settings, languages: list, require_complete: bool) -> int:
     return 0
 
 
-def localized_pages(settings: Settings, code: str) -> dict:
+def localized_pages(settings: Settings, code: str, *, mark_untranslated: bool = False,
+                    page_names: list | None = None) -> dict:
     """その言語の全ページ。出力先のパス→HTML。訳のないページも、リンクが切れないように作る。"""
     settings.language(code)
-    names = settings.page_names()
+    names = settings.page_names() if page_names is None else page_names
     result = {}
     for name in names:
         page = read_page(settings.root, name)
         translations = read_catalog(settings.catalog_path(code, name))
         result[output_name(name, code, settings.source_root)] = localize(
-            page, translations, code, settings.source_root, set(names))
+            page, translations, code, settings.source_root, set(names), mark_untranslated=mark_untranslated)
     return result
 
 
