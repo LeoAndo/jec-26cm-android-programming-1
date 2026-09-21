@@ -3,6 +3,14 @@
   "language": "zh-Hans",
   "entries": [
     {
+      "source": "JavaとXMLで作るA02CalcGame。タイマー、状態管理、配列、乱数、採点を小さなSTEPで学ぶ授業用教科書。",
+      "translation": "用Java和XML制作A02CalcGame。通过小步骤学习计时器、状态管理、数组、随机数与评分的课堂教材。"
+    },
+    {
+      "source": "CalcGame — 計算ゲームを作ろう | Androidプログラミング1",
+      "translation": "CalcGame — 制作计算游戏 | Android编程1"
+    },
+    {
       "source": "本文へ移動",
       "translation": "跳转到正文"
     },
@@ -11,24 +19,1523 @@
       "translation": "JEC / Android编程1"
     },
     {
+      "source": "CONTENTS / 学習の順番",
+      "translation": "CONTENTS / 学习顺序"
+    },
+    {
+      "source": "学習ステップ",
+      "translation": "学习步骤"
+    },
+    {
+      "source": "00　今日のゴール",
+      "translation": "00　今天的目标"
+    },
+    {
+      "source": "01　プロジェクトを作って実行",
+      "translation": "01　创建项目并运行"
+    },
+    {
+      "source": "02　タイマーと操作ボタン",
+      "translation": "02　计时器与操作按钮"
+    },
+    {
+      "source": "03　数字を3列に並べる",
+      "translation": "03　将数字排成3列"
+    },
+    {
+      "source": "04　状態を覚えるフィールド",
+      "translation": "04　记录状态的字段"
+    },
+    {
+      "source": "05　開始・停止・リセット",
+      "translation": "05　开始、停止与重置"
+    },
+    {
+      "source": "06　ランダムな問題を作る",
+      "translation": "06　生成随机题目"
+    },
+    {
+      "source": "07　9個のボタンに共通の処理",
+      "translation": "07　为9个按钮编写共同处理"
+    },
+    {
+      "source": "08　答え合わせと次の問題",
+      "translation": "08　核对答案与下一题"
+    },
+    {
+      "source": "09　10問で終了して結果を表示",
+      "translation": "09　完成10题后显示结果"
+    },
+    {
+      "source": "10　ミニ練習",
+      "translation": "10　小练习"
+    },
+    {
+      "source": "11　完成",
+      "translation": "11　完成"
+    },
+    {
+      "source": "0 / 12 ステップ確認済み",
+      "translation": "已确认0 / 12个步骤"
+    },
+    {
+      "source": "学習の進み具合",
+      "translation": "学习进度"
+    },
+    {
+      "source": "自分用のチェックです。",
+      "translation": "用于自己检查。"
+    },
+    {
+      "source": "困ったとき",
+      "translation": "遇到问题时"
+    },
+    {
+      "source": "完成プロジェクトを開く",
+      "translation": "打开完成版项目"
+    },
+    {
+      "source": "共通：はじめの準備",
+      "translation": "通用：初始准备"
+    },
+    {
+      "source": "共通：エミュレータ",
+      "translation": "通用：模拟器"
+    },
+    {
+      "source": "共通：Auto Import",
+      "translation": "通用：Auto Import"
+    },
+    {
+      "source": "共通：Logcat",
+      "translation": "通用：Logcat"
+    },
+    {
+      "source": "共通：APKの提出",
+      "translation": "通用：提交APK"
+    },
+    {
+      "source": "共通：開発Tips",
+      "translation": "通用：开发技巧"
+    },
+    {
+      "source": "共通：Android Studioのバージョン",
+      "translation": "通用：Android Studio版本"
+    },
+    {
+      "source": "計算ゲームを<br>作ろう",
+      "translation": "制作<br>计算游戏"
+    },
+    {
+      "source": "時間を計る。問題を出す。答えを比べる。<br>ボタンの処理をつなげて、10問のゲームへ。",
+      "translation": "计时、出题、比较答案。<br>将按钮的处理连接起来，组成10道题的游戏。"
+    },
+    {
+      "source": "A01の次の単元",
+      "translation": "A01之后的单元"
+    },
+    {
+      "source": "90分 × 3コマ目安",
+      "translation": "参考课时：90分钟 × 3课时"
+    },
+    {
+      "source": "Macで学ぶ",
+      "translation": "使用Mac学习"
+    },
+    {
+      "source": "STEP 00 · 目安 5分",
+      "translation": "STEP 00 · 参考时间5分钟"
+    },
+    {
+      "source": "今日のゴール",
+      "translation": "今天的目标"
+    },
+    {
+      "source": "A01で学んだ「XMLで画面を作る」「Javaでクリックを処理する」を使い、<strong>10から引く計算を10問解くゲーム</strong>を作ります。問題に答えると次へ進み、最後に正解数と時間を表示します。",
+      "translation": "运用A01中学到的“用XML制作屏幕”和“用Java处理点击”，制作<strong>解答10道从10中减去一个数的计算题的游戏</strong>。回答一题后进入下一题，最后显示答对的题数和用时。"
+    },
+    {
+      "source": "ゲームの流れ",
+      "translation": "游戏流程"
+    },
+    {
+      "source": "答えの数字を押す",
+      "translation": "按下答案对应的数字"
+    },
+    {
+      "source": "→ 10問回答 →",
+      "translation": "→ 回答10题 →"
+    },
+    {
+      "source": "結果を見る",
+      "translation": "查看结果"
+    },
+    {
+      "source": "起動直後。00:00、START、無効なSTOPとRESET、1から9の数字ボタン",
+      "translation": "刚启动后的屏幕。显示00:00、START、不可用的STOP和RESET，以及1至9的数字按钮"
+    },
+    {
+      "source": "① 起動直後。問題はまだ表示されません。 <a1>画像を大きく開く</a1>",
+      "translation": "① 刚启动后。尚未显示题目。<a1>查看大图</a1>"
+    },
+    {
+      "source": "ゲーム中。1問目: 10 - 4 = と表示され、STOPだけが有効",
+      "translation": "游戏中。显示「1問目: 10 - 4 =」（第1题：10 - 4 =），操作按钮中只有STOP可用"
+    },
+    {
+      "source": "② START後。10 − 4なら「6」を押します。 <a1>画像を大きく開く</a1>",
+      "translation": "② 按START后。如果是10 − 4，就按“6”。<a1>查看大图</a1>"
+    },
+    {
+      "source": "できるようになること",
+      "translation": "学完后能够做的事"
+    },
+    {
+      "source": "タイマーを開始・停止・リセットする。",
+      "translation": "开始、停止和重置计时器。"
+    },
+    {
+      "source": "変数で問題番号・正解数・ゲーム中かどうかを覚える。",
+      "translation": "用变量记录题号、答对的题数以及是否正在游戏中。"
+    },
+    {
+      "source": "1〜9のボタンで答えを判定し、10問目のあとに結果を出す。",
+      "translation": "通过1～9的按钮判断答案，并在第10题后显示结果。"
+    },
+    {
+      "source": "問題に使う数字は1〜9です。同じ数字が続く場合もあります。正解・不正解にかかわらず、1回押すと1問の回答になります。",
+      "translation": "题目使用1～9的数字。也可能连续出现相同数字。无论回答正确还是错误，每按一次都算回答了一道题。"
+    },
+    {
+      "source": "90分×3コマで進めます",
+      "translation": "按90分钟×3课时进行"
+    },
+    {
+      "source": "授業",
+      "translation": "课时"
+    },
+    {
+      "source": "範囲",
+      "translation": "范围"
+    },
+    {
+      "source": "終了時にできること",
+      "translation": "课时结束时能够做的事"
+    },
+    {
+      "source": "1コマ目",
+      "translation": "第1课时"
+    },
+    {
+      "source": "画面を作り、5つの値のフィールドの役割を読む。",
+      "translation": "制作屏幕，并阅读保存5个值的字段的作用。"
+    },
+    {
+      "source": "2コマ目",
+      "translation": "第2课时"
+    },
+    {
+      "source": "タイマーを動かし、答え合わせと次の出題を確かめる。",
+      "translation": "启动计时器，检查答案核对与下一题的生成。"
+    },
+    {
+      "source": "3コマ目",
+      "translation": "第3课时"
+    },
+    {
+      "source": "10問で終了させ、ミニ練習・動作確認を行う。",
+      "translation": "在10题后结束，进行小练习和运行检查。"
+    },
+    {
+      "source": "各コマに再実行と個別確認の時間を含みます。A01のボタン処理を授業内で思い出してから始めます。予習は不要です。",
+      "translation": "每个课时都包含重新运行和单独检查的时间。上课时先回顾A01的按钮处理，再开始学习。无须预习。"
+    },
+    {
+      "source": "毎回、自分で新規作成します",
+      "translation": "每次都自己新建项目"
+    },
+    {
+      "source": "作る場所は <code>Documents/Android1/A02CalcGame</code> です。<a1>完成プロジェクト</a1>は初回から開けます。自分のコードを比べるときに使いましょう。",
+      "translation": "创建位置为<code>Documents/Android1/A02CalcGame</code>。从第一节课起就可以打开<a1>完成版项目</a1>。请在比较自己的代码时使用。"
+    },
+    {
+      "source": "完成アプリの操作",
+      "translation": "完成版应用的操作"
+    },
+    {
       "source": "状態",
       "translation": "状态"
+    },
+    {
+      "source": "数字ボタン",
+      "translation": "数字按钮"
+    },
+    {
+      "source": "起動直後・RESET後",
+      "translation": "刚启动后、RESET后"
+    },
+    {
+      "source": "押せる",
+      "translation": "可以按"
+    },
+    {
+      "source": "押せない",
+      "translation": "不可按"
+    },
+    {
+      "source": "案内だけ表示",
+      "translation": "只显示提示"
+    },
+    {
+      "source": "ゲーム中",
+      "translation": "游戏中"
+    },
+    {
+      "source": "回答する",
+      "translation": "回答"
+    },
+    {
+      "source": "STOP後",
+      "translation": "STOP后"
+    },
+    {
+      "source": "10問回答後",
+      "translation": "回答10题后"
+    },
+    {
+      "source": "数字ボタンはいつでも押せる見た目です。ゲーム中以外は「ゲーム中のみボタンを押せます」と表示し、採点しません。",
+      "translation": "数字按钮在任何时候看起来都可以按。游戏中以外的状态会显示「ゲーム中のみボタンを押せます」（只有游戏中才能按按钮），不进行评分。"
+    },
+    {
+      "source": "画面回転について",
+      "translation": "关于屏幕旋转"
+    },
+    {
+      "source": "各単元では画面回転時のデータ保持を扱いません。回転などでActivityが作り直されるとゲームは初期状態に戻ります。考え方と対処法は<a1>共通資料：開発Tips</a1>のC章にあります。",
+      "translation": "各单元不涉及屏幕旋转时的数据保留。由于旋转等原因重新创建Activity时，游戏会恢复初始状态。相关思路与处理方法见<a1>通用资料：开发技巧</a1>的C章。"
+    },
+    {
+      "source": "ここで止まって、確認",
+      "translation": "先停下来，检查一下"
+    },
+    {
+      "source": "完成アプリの操作の表で、START・STOP・RESET・数字ボタンが押せる状態を確認した。",
+      "translation": "已通过完成版应用操作表，确认START、STOP、RESET和数字按钮在什么状态下可以按。"
+    },
+    {
+      "source": "できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。",
+      "translation": "完成后勾选。遇到问题时，请把STEP编号和屏幕展示给老师。"
+    },
+    {
+      "source": "次へ：プロジェクトを作って実行 →",
+      "translation": "下一步：创建项目并运行 →"
+    },
+    {
+      "source": "STEP 01 · 目安 15分",
+      "translation": "STEP 01 · 参考时间15分钟"
+    },
+    {
+      "source": "プロジェクトを作って実行",
+      "translation": "创建项目并运行"
+    },
+    {
+      "source": "授業環境はMacと <strong>Android Studio Panda 2 | 2025.3.2</strong> です。A01とは別のプロジェクトを作ります。",
+      "translation": "课堂环境是Mac和<strong>Android Studio Panda 2 | 2025.3.2</strong>。要创建一个与A01不同的项目。"
+    },
+    {
+      "source": "Android Studioの <strong>New Project</strong> をクリックします。別のプロジェクトを開いているときは <strong>File → New → New Project</strong> を選びます。",
+      "translation": "点击Android Studio的<strong>New Project</strong>。已打开其他项目时，选择<strong>File → New → New Project</strong>。"
+    },
+    {
+      "source": "Android StudioのWelcome画面。右上にNew Projectボタン",
+      "translation": "Android Studio的Welcome界面。右上方是New Project按钮"
+    },
+    {
+      "source": "右上のNew Projectをクリック。 <a1>画像を大きく開く</a1>",
+      "translation": "点击右上角的New Project。<a1>查看大图</a1>"
+    },
+    {
+      "source": "<strong>Phone and Tablet → Empty Views Activity → Next</strong> の順に選びます。名前に <strong>Views</strong> があることを確認します。",
+      "translation": "依次选择<strong>Phone and Tablet → Empty Views Activity → Next</strong>。确认名称中有<strong>Views</strong>。"
+    },
+    {
+      "source": "テンプレート一覧でEmpty Views Activityが選択されている",
+      "translation": "模板列表中已选择Empty Views Activity"
+    },
+    {
+      "source": "Empty Views Activityを選択。 <a1>画像を大きく開く</a1>",
+      "translation": "选择Empty Views Activity。<a1>查看大图</a1>"
     },
     {
       "source": "項目",
       "translation": "项目"
     },
     {
+      "source": "入力・選択する内容",
+      "translation": "要输入或选择的内容"
+    },
+    {
+      "source": "<code>jp.ac.jec.a02calcgame</code>（すべて小文字）",
+      "translation": "<code>jp.ac.jec.a02calcgame</code>（全部小写）"
+    },
+    {
+      "source": "A02CalcGameの新規設定。パッケージjp.ac.jec.a02calcgame、Java、API 31",
+      "translation": "A02CalcGame的新建设置。包名为jp.ac.jec.a02calcgame，使用Java和API 31"
+    },
+    {
+      "source": "画像の保存先は先生の例です。自分のDocuments/Android1/A02CalcGameに読み替えます。 <a1>画像を大きく開く</a1>",
+      "translation": "图片中的保存位置是老师的示例。请替换为自己的Documents/Android1/A02CalcGame。<a1>查看大图</a1>"
+    },
+    {
+      "source": "Finderの <strong>移動 → ホーム</strong> で自分のユーザ名を確認します。書類（Documents）に <code>Android1</code> フォルダがなければ作ります。",
+      "translation": "在Finder的 <strong>移動 → ホーム</strong>（前往 → 个人）中确认自己的用户名。如果書類（文稿，Documents）中没有 <code>Android1</code> 文件夹，请创建它。"
+    },
+    {
+      "source": "表の値と保存先を確認し、<strong>Finish</strong> をクリックします。<code>ユーザ名</code> は自分の名前に置き換えます。",
+      "translation": "确认表中的值和保存位置，点击 <strong>Finish</strong>。将 <code>ユーザ名</code>（用户名）替换为自己的用户名。"
+    },
+    {
+      "source": "<strong>Gradle Sync</strong> が完了するまで待ちます。",
+      "translation": "等待 <strong>Gradle Sync</strong> 完成。"
+    },
+    {
+      "source": "<a1>共通資料：Auto Import</a1>のJava設定を確認します。",
+      "translation": "检查<a1>通用资料：Auto Import</a1>中的Java设置。"
+    },
+    {
+      "source": "編集する2つのファイル",
+      "translation": "要编辑的两个文件"
+    },
+    {
+      "source": "役割",
+      "translation": "作用"
+    },
+    {
+      "source": "Project表示で開く場所",
+      "translation": "在Project视图中打开的位置"
+    },
+    {
+      "source": "画面（XML）",
+      "translation": "界面（XML）"
+    },
+    {
+      "source": "動き（Java）",
+      "translation": "行为（Java）"
+    },
+    {
+      "source": "左の一覧が見えないときは <strong>View → Tool Windows → Project</strong> を開きます。パッケージのフォルダが <code>jp.ac.jec.a02calcgame</code> とまとめて表示される場合もあります。",
+      "translation": "如果看不到左侧列表，请打开<strong>View → Tool Windows → Project</strong>。包的文件夹也可能合并显示为<code>jp.ac.jec.a02calcgame</code>。"
+    },
+    {
+      "source": "変更前に1回Runする",
+      "translation": "修改前先Run一次"
+    },
+    {
+      "source": "<a1>共通資料：エミュレータ</a1>に従って端末を起動します。",
+      "translation": "按照<a1>通用资料：模拟器</a1>启动设备。"
+    },
+    {
+      "source": "上部で <strong>app</strong> と <strong>jec_26cm_android1_Pixel 9a</strong> を選び、<strong>Run ▶</strong> を押します。",
+      "translation": "在上方选择 <strong>app</strong> 和 <strong>jec_26cm_android1_Pixel 9a</strong>，点击 <strong>Run ▶</strong>。"
+    },
+    {
+      "source": "<strong>Hello World!</strong> が表示されれば成功です。",
+      "translation": "显示 <strong>Hello World!</strong> 就成功了。"
+    },
+    {
+      "source": "MainActivity.ktができたとき",
+      "translation": "生成了MainActivity.kt时"
+    },
+    {
+      "source": "この授業で開くのは <code>MainActivity.java</code> です。<code>.kt</code> しか見つからない場合は、先生に画面を見せてください。プロジェクトを作るときに、上の手順2で <strong>Empty Views Activity</strong> を、手順4で確認した表のとおりに <strong>Java</strong> を選んだかどうかを、先生が確認します。どちらかが違っていたときは、先生といっしょにプロジェクトを作り直します。",
+      "translation": "课堂上要打开的是 <code>MainActivity.java</code>。如果只找到 <code>.kt</code>，请把屏幕给老师看。老师会检查创建项目时，是否在上面的步骤2选择了 <strong>Empty Views Activity</strong>，并按步骤4检查的表格选择了 <strong>Java</strong>。如果任意一项选错，请与老师一起重新创建项目。"
+    },
+    {
+      "source": "自分の保存先にA02CalcGameを作り、Hello World!を表示できた。",
+      "translation": "已在自己的保存位置创建A02CalcGame，并显示了Hello World!。"
+    },
+    {
+      "source": "次へ：タイマーと操作ボタン →",
+      "translation": "下一步：计时器与操作按钮 →"
+    },
+    {
+      "source": "STEP 02 · 目安 20分",
+      "translation": "STEP 02 · 参考时间20分钟"
+    },
+    {
+      "source": "タイマーと操作ボタン",
+      "translation": "计时器与操作按钮"
+    },
+    {
+      "source": "変更するファイル：app/src/main/res/layout/activity_main.xml",
+      "translation": "要修改的文件：app/src/main/res/layout/activity_main.xml"
+    },
+    {
+      "source": "まず上半分だけを作ります。<strong>Code</strong> 表示に切り替え、XMLの中で <kbd>⌘ A</kbd> → 貼り付けを行い、<strong>ファイル全体を置き換えます</strong>。",
+      "translation": "首先只制作上半部分。切换到<strong>Code</strong>视图，在XML中按<kbd>⌘ A</kbd>后粘贴，<strong>替换整个文件</strong>。"
+    },
+    {
+      "source": "activity_main.xml · 全体を置き換える",
+      "translation": "activity_main.xml · 替换全部内容"
+    },
+    {
+      "source": "新しい指定",
+      "translation": "新设置"
+    },
+    {
       "source": "意味",
       "translation": "含义"
+    },
+    {
+      "source": "Chronometer（クロノメーター）",
+      "translation": "Chronometer (クロノメーター)"
+    },
+    {
+      "source": "経過時間を表示する部品。開始などの処理はJavaで書く。",
+      "translation": "显示经过时间的控件。开始等处理用Java编写。"
+    },
+    {
+      "source": "中の部品を左右の中央に配置する。上下方向は上から並ぶ。",
+      "translation": "将内部控件放在水平方向的中央。垂直方向从上向下排列。"
+    },
+    {
+      "source": "最初はボタンを押せないようにする。",
+      "translation": "让按钮最初不可按。"
+    },
+    {
+      "source": "Android Studioのプレビューだけに表示する文字。実行画面には出ない。",
+      "translation": "仅显示在Android Studio预览中的文字，不会出现在运行屏幕上。"
+    },
+    {
+      "source": "<code>android:id=\"@+id/main\"</code> はJavaのひな形でも使うため残します。各ボタンの <code>btn_start</code> などは、次にJavaから探すための名前です。",
+      "translation": "Java模板也使用<code>android:id=\"@+id/main\"</code>，因此要保留。各按钮的<code>btn_start</code>等名称，用于接下来从Java中查找控件。"
+    },
+    {
+      "source": "操作ボタンが横いっぱいに表示されます",
+      "translation": "操作按钮会显示为占满整个宽度"
+    },
+    {
+      "source": "ひな形のJavaにある <code>v.setPadding(...)</code> が、一番外側の部品の余白を実行時に置き換えます。そのため、操作ボタンが横いっぱいに表示されます。教材では、このひな形をそのまま使います。余白を付けたいときは<a1>共通資料：開発Tips</a1>のA章を見ましょう。",
+      "translation": "Java模板中的<code>v.setPadding(...)</code>会在运行时替换最外层控件的内边距。因此，操作按钮会占满整个宽度。学习资料中直接使用这个模板。想添加间距时，请查看<a1>通用资料：开发技巧</a1>的A章。"
+    },
+    {
+      "source": "Runで確かめる",
+      "translation": "通过Run检查"
+    },
+    {
+      "source": "タイマーと3つの操作ボタンが縦に表示されます。STOPとRESETは灰色です。STARTを押してもまだ時間は動きません。問題文も空欄です。",
+      "translation": "计时器和3个操作按钮会纵向显示。STOP和RESET是灰色的。按下START后，计时还不会开始，题目区域也为空白。"
+    },
+    {
+      "source": "文字を直接書いたことによる <code>Hardcoded text</code> の警告は、A01と同様に授業ではそのまま進めます。赤いエラーでビルドできない場合は先に直します。",
+      "translation": "与A01一样，由直接写入文字产生的<code>Hardcoded text</code>警告，在课堂中可以保持原样继续操作。如果红色错误导致无法构建，请先修复。"
+    },
+    {
+      "source": "タイマーと3つのボタンが表示され、STOPとRESETが押せないことを確認した。",
+      "translation": "已确认显示了计时器和3个按钮，并且STOP和RESET不可按。"
+    },
+    {
+      "source": "次へ：数字を3列に並べる →",
+      "translation": "下一步：将数字排成3列 →"
+    },
+    {
+      "source": "STEP 03 · 目安 20分",
+      "translation": "STEP 03 · 参考时间20分钟"
+    },
+    {
+      "source": "数字を3列に並べる",
+      "translation": "将数字排成3列"
+    },
+    {
+      "source": "変更するファイル：activity_main.xml",
+      "translation": "要修改的文件：activity_main.xml"
+    },
+    {
+      "source": "数字ボタンを、横向きの入れ物3つに分けます。A01で作った「横に3つ並べる」を、縦に3段重ねます。",
+      "translation": "将数字按钮分到3个横向容器中。把A01中制作的“横向排列3个”的结构，纵向叠成3行。"
+    },
+    {
+      "source": "1行目：1　2　3",
+      "translation": "第1行：1　2　3"
+    },
+    {
+      "source": "2行目：4　5　6",
+      "translation": "第2行：4　5　6"
+    },
+    {
+      "source": "3行目：7　8　9",
+      "translation": "第3行：7　8　9"
+    },
+    {
+      "source": "XMLの<strong>最後の <code>&lt;/LinearLayout&gt;</code> の直前</strong>に、次の3つの入れ物を追加します。上のChronometerや操作ボタンは残します。",
+      "translation": "在XML的<strong>最后一个<code>&lt;/LinearLayout&gt;</code>的紧前面</strong>，添加以下3个容器。保留上方的Chronometer和操作按钮。"
+    },
+    {
+      "source": "追加 · 最後の閉じタグの直前",
+      "translation": "添加 · 最后一个结束标签之前"
+    },
+    {
+      "source": "親の <code>orientation=\"vertical\"</code> が行を縦に並べ、子の <code>orientation=\"horizontal\"</code> が数字を横に並べます。中央のボタンだけに <code>layout_marginHorizontal=\"8dp\"</code> を付け、左右にすき間を作っています。",
+      "translation": "父容器的<code>orientation=\"vertical\"</code>将各行纵向排列，子容器的<code>orientation=\"horizontal\"</code>将数字横向排列。只给中间的按钮添加<code>layout_marginHorizontal=\"8dp\"</code>，在左右留出间距。"
+    },
+    {
+      "source": "<code>btn1</code> 〜 <code>btn9</code> はそれぞれ別のidです。ボタンに表示する <code>android:text</code> も「1」〜「9」にします。<code>tools:ignore=\"ButtonStyle\"</code> はエディタの警告を抑える指定で、クリックの処理ではありません。",
+      "translation": "<code>btn1</code>～<code>btn9</code>分别是不同的id。按钮显示的<code>android:text</code>也设为“1”～“9”。<code>tools:ignore=\"ButtonStyle\"</code>用于抑制编辑器警告，并不是点击处理。"
+    },
+    {
+      "source": "1〜9が3列×3行で表示されれば成功です。まだ数字を押しても動きません。",
+      "translation": "1～9按3列×3行显示就表示成功。此时按数字还不会发生任何变化。"
+    },
+    {
+      "source": "00:00の下に操作ボタン3個と数字ボタン9個が並ぶ",
+      "translation": "00:00下方排列着3个操作按钮和9个数字按钮"
+    },
+    {
+      "source": "このSTEPの画面。問題文は空欄です。 <a1>画像を大きく開く</a1>",
+      "translation": "本STEP的屏幕。题目区域为空白。<a1>查看大图</a1>"
+    },
+    {
+      "source": "1〜9のボタンを3列×3行に並べ、idの重複がないことを確認した。",
+      "translation": "已将1～9的按钮排成3列×3行，并确认没有重复的id。"
+    },
+    {
+      "source": "次へ：状態を覚えるフィールド →",
+      "translation": "下一步：记录状态的字段 →"
+    },
+    {
+      "source": "STEP 04 · 目安 15分",
+      "translation": "STEP 04 · 参考时间15分钟"
+    },
+    {
+      "source": "状態を覚えるフィールド",
+      "translation": "记录状态的字段"
+    },
+    {
+      "source": "変更するファイル：MainActivity.java",
+      "translation": "要修改的文件：MainActivity.java"
+    },
+    {
+      "source": "ゲームでは、ボタンを押していない間も「今は何問目か」を覚えておきます。<strong>フィールド</strong>は、クラスの中で値を覚えておく変数です。",
+      "translation": "游戏需要在没有按按钮时也记住“当前是第几题”。<strong>字段</strong>是在类中记录值的变量。"
+    },
+    {
+      "source": "① クラスの中、onCreateの外に6行追加",
+      "translation": "① 在类内部、onCreate外部添加6行"
+    },
+    {
+      "source": "<code>public class MainActivity extends AppCompatActivity {</code> のすぐ下、<code>@Override</code> より上に追加します。",
+      "translation": "添加在 <code>public class MainActivity extends AppCompatActivity {</code> 的正下方、<code>@Override</code> 的上方。"
+    },
+    {
+      "source": "追加 · MainActivityのフィールド",
+      "translation": "添加 · MainActivity的字段"
+    },
+    {
+      "source": "名前",
+      "translation": "名称"
+    },
+    {
+      "source": "初期値",
+      "translation": "初始值"
+    },
+    {
+      "source": "覚えるもの",
+      "translation": "记录的内容"
+    },
+    {
+      "source": "今の問題番号。1問目から始める。",
+      "translation": "当前题号。从第1题开始。"
+    },
+    {
+      "source": "正解した回数。",
+      "translation": "回答正确的次数。"
+    },
+    {
+      "source": "今表示している問題の答え。出題時に更新する。",
+      "translation": "当前显示题目的答案。出题时更新。"
+    },
+    {
+      "source": "停止した時点までの時間（ミリ秒）。",
+      "translation": "截至停止时的经过时间（毫秒）。"
+    },
+    {
+      "source": "回答を受け付けるか。trueはゲーム中、falseはそれ以外。",
+      "translation": "是否接受回答。true表示游戏中，false表示其他状态。"
+    },
+    {
+      "source": "なし",
+      "translation": "无"
+    },
+    {
+      "source": "メッセージの表示欄。STEP 06で作る <code>startQuestion</code> からも使うため、ここで覚えておく。",
+      "translation": "消息显示栏。STEP 06中创建的<code>startQuestion</code>也会使用它，因此在这里保存。"
+    },
+    {
+      "source": "<code>int</code> は整数、<code>long</code> は時間などの大きな整数、<code>boolean</code> は <code>true</code> / <code>false</code> を入れる型です。数値のフィールドは初期値を書かないと0になります。<code>private</code> は、このクラスの中で使う指定です。",
+      "translation": "<code>int</code>用于整数，<code>long</code>用于时间等较大的整数，<code>boolean</code>用于存放<code>true</code> / <code>false</code>。数值字段不写初始值时为0。<code>private</code>指定只在这个类中使用。"
+    },
+    {
+      "source": "フィールドには <code>var</code> を使えません。A01で使った <code>var</code> は、メソッド内などのローカル変数に使います。",
+      "translation": "字段不能使用<code>var</code>。A01中使用的<code>var</code>用于方法内部等位置的局部变量。"
+    },
+    {
+      "source": "<code>txtMessage</code> だけ画面の部品です。<code>onCreate</code> の中だけで使う部品はローカル変数で足りますが、これはSTEP 06で作る別のメソッドからも使うため、フィールドにします。",
+      "translation": "只有<code>txtMessage</code>是屏幕控件。仅在<code>onCreate</code>内部使用的控件，用局部变量即可。但这个控件还会在STEP 06中创建的另一个方法中使用，因此将其设为字段。"
+    },
+    {
+      "source": "② 画面の部品を取得する",
+      "translation": "② 获取屏幕上的控件"
+    },
+    {
+      "source": "<code>onCreate</code> の中で、ひな形の <code>return insets;</code> に続く <code>});</code> の下、<code>onCreate</code> を閉じる <code>}</code> より上に追加します。",
+      "translation": "在<code>onCreate</code>内部，模板中的<code>return insets;</code>后面的<code>});</code>下方、结束<code>onCreate</code>的<code>}</code>上方添加。"
+    },
+    {
+      "source": "追加 · onCreateの中",
+      "translation": "添加 · onCreate内部"
+    },
+    {
+      "source": "<code>txtMessage</code> の行だけ <code>var</code> が付きません。①で作ったフィールドに入れるためです。ほかの4つは <code>onCreate</code> の中だけで使うので、<code>var</code> のローカル変数にします。",
+      "translation": "只有<code>txtMessage</code>这一行没有<code>var</code>，因为要存入①创建的字段。其余4个只在<code>onCreate</code>内部使用，因此用<code>var</code>创建局部变量。"
+    },
+    {
+      "source": "<code>(Chronometer)</code> と <code>(TextView)</code> は、それぞれの部品の機能を使う指定です。操作ボタンは、Viewが持つクリック登録と有効・無効の切り替えだけを使うため、ここではキャストしていません。",
+      "translation": "<code>(Chronometer)</code>和<code>(TextView)</code>用于指定使用各自控件的功能。操作按钮只使用View具有的点击注册和启用、禁用切换功能，因此这里不进行类型转换。"
+    },
+    {
+      "source": "Auto Importで <code>android.widget.Chronometer</code> と <code>android.widget.TextView</code> を追加します。赤字が残るときは名前にカーソルを置いて <kbd>⌥ Enter</kbd> で候補を確認します。",
+      "translation": "通过Auto Import添加<code>android.widget.Chronometer</code>和<code>android.widget.TextView</code>。如果仍有红字，将光标放在名称上，按<kbd>⌥ Enter</kbd>查看候选项。"
+    },
+    {
+      "source": "追加場所を指さして確認",
+      "translation": "指出添加位置并确认"
+    },
+    {
+      "source": "6つのフィールドは <strong>onCreateの外</strong>、5つの部品を取得する行は <strong>onCreateの中</strong> です。Runして画面が変わらなくても成功です。",
+      "translation": "6个字段位于<strong>onCreate外部</strong>，获取5个控件的代码行位于<strong>onCreate内部</strong>。Run后即使屏幕没有变化，也表示成功。"
+    },
+    {
+      "source": "1コマ目はここまで",
+      "translation": "第1课时到这里结束"
+    },
+    {
+      "source": "もう一度Runします。先生に <code>nowNo</code> と <code>correctNo</code> の役割を説明しましょう。次回も自分の <code>Documents/Android1/A02CalcGame</code> を開きます。",
+      "translation": "再次Run。向老师说明<code>nowNo</code>和<code>correctNo</code>的作用。下次也打开自己的<code>Documents/Android1/A02CalcGame</code>。"
+    },
+    {
+      "source": "フィールドとローカル変数の場所を区別し、5つの値の役割を表で確認した。",
+      "translation": "已区分字段和局部变量的位置，并通过表格确认了5个值的作用。"
+    },
+    {
+      "source": "次へ：開始・停止・リセット →",
+      "translation": "下一步：开始、停止与重置 →"
+    },
+    {
+      "source": "STEP 05 · 目安 25分",
+      "translation": "STEP 05 · 参考时间 25分钟"
+    },
+    {
+      "source": "開始・停止・リセット",
+      "translation": "开始、停止与重置"
+    },
+    {
+      "source": "前回の画面をRunして確認してから始めます。<code>onCreate</code> の <code>var btnReset = ...;</code> の下に、次の3つの処理を<strong>順番に</strong>追加します。",
+      "translation": "先Run并确认上一课时的屏幕，再开始。在<code>onCreate</code>的<code>var btnReset = ...;</code>下方，<strong>依次</strong>添加以下3个处理。"
+    },
+    {
+      "source": "<code>SystemClock</code> のimportは <code>android.os.SystemClock</code> です。",
+      "translation": "<code>SystemClock</code>的import为<code>android.os.SystemClock</code>。"
+    },
+    {
+      "source": "① START：開始する",
+      "translation": "① START：开始"
+    },
+    {
+      "source": "② STOP：時間を覚えて止める",
+      "translation": "② STOP：记住时间并停止"
+    },
+    {
+      "source": "追加 · STARTの処理の下",
+      "translation": "添加 · START处理的下方"
+    },
+    {
+      "source": "③ RESET：最初の状態に戻す",
+      "translation": "③ RESET：恢复初始状态"
+    },
+    {
+      "source": "追加 · STOPの処理の下",
+      "translation": "添加 · STOP处理的下方"
+    },
+    {
+      "source": "時間をどう計算している？",
+      "translation": "时间是如何计算的？"
+    },
+    {
+      "source": "<code>SystemClock.elapsedRealtime()</code> は端末起動後の経過時間をミリ秒で返します。<code>Chronometer</code> は「現在の値 − 基準の値（base）」を表示します。<code>stop()</code> は表示の更新を止めるので、止めた時点の時間を自分で覚えます。",
+      "translation": "<code>SystemClock.elapsedRealtime()</code>返回设备启动后经过的时间，单位为毫秒。<code>Chronometer</code>显示“当前值 − 基准值（base）”。<code>stop()</code>会停止更新显示，因此需要自己记录停止时的时间。"
+    },
+    {
+      "source": "停止時：経過時間 ＝ 現在 − base",
+      "translation": "停止时：经过时间 ＝ 当前值 − base"
+    },
+    {
+      "source": "再開時：base ＝ 現在 − 保存した経過時間",
+      "translation": "继续时：base ＝ 当前值 − 已保存的经过时间"
+    },
+    {
+      "source": "例（すべてミリ秒）",
+      "translation": "示例（单位全部为毫秒）"
+    },
+    {
+      "source": "計算",
+      "translation": "计算"
     },
     {
       "source": "結果",
       "translation": "结果"
     },
     {
+      "source": "基準100,000で開始し、106,000でSTOP",
+      "translation": "以100,000为基准开始，在106,000时按STOP"
+    },
+    {
+      "source": "6,000ミリ秒（6秒）を保存",
+      "translation": "保存6,000毫秒（6秒）"
+    },
+    {
+      "source": "しばらく待ち、120,000でSTART",
+      "translation": "等待一会儿，在120,000时按START"
+    },
+    {
+      "source": "baseを114,000に変更し、6秒から再開",
+      "translation": "将base改为114,000，从6秒继续"
+    },
+    {
+      "source": "1,000ミリ秒が1秒です。<code>setEnabled(true)</code> は押せる状態、<code>setEnabled(false)</code> は押せない状態にします。",
+      "translation": "1,000毫秒等于1秒。<code>setEnabled(true)</code>设为可按状态，<code>setEnabled(false)</code>设为不可按状态。"
+    },
+    {
+      "source": "START → 数秒待つ → STOP。時間が止まります。",
+      "translation": "START → 等待几秒 → STOP。计时停止。"
+    },
+    {
+      "source": "数秒待ってSTART。0からではなく、停止した時間から続きます。",
+      "translation": "等待几秒再按START。会从停止时的时间继续，而不是从0开始。"
+    },
+    {
+      "source": "STOP → RESET。表示が00:00に戻ります。",
+      "translation": "STOP → RESET。显示恢复为00:00。"
+    },
+    {
+      "source": "ここではタイマーだけ",
+      "translation": "这里只完成计时器"
+    },
+    {
+      "source": "問題文の表示と数字の採点は、このあと追加します。ゲーム中はRESETが押せないので、先にSTOPを押します。",
+      "translation": "题目显示和数字评分会在之后添加。游戏中不能按RESET，因此先按STOP。"
+    },
+    {
+      "source": "仕様の確認：<a1>Chronometer</a1>、<a2>SystemClock（Android公式）</a2>。",
+      "translation": "查看规格：<a1>Chronometer</a1>、<a2>SystemClock（Android官方）</a2>。"
+    },
+    {
+      "source": "START・STOP・再開・RESETを試し、停止していた時間が加算されないことを確認した。",
+      "translation": "已尝试START、STOP、继续和RESET，确认停止期间的时间不会被计入。"
+    },
+    {
+      "source": "次へ：ランダムな問題を作る →",
+      "translation": "下一步：生成随机题目 →"
+    },
+    {
+      "source": "STEP 06 · 目安 15分",
+      "translation": "STEP 06 · 参考时间 15分钟"
+    },
+    {
+      "source": "ランダムな問題を作る",
+      "translation": "生成随机题目"
+    },
+    {
+      "source": "出題の処理に <code>startQuestion</code> という名前を付けます。<strong>メソッド</strong>にすると、STARTしたときと回答したあとから、同じ処理を呼び出せます。",
+      "translation": "给出题处理命名为<code>startQuestion</code>。将其做成<strong>方法</strong>后，就可以在按START时和回答之后调用相同处理。"
+    },
+    {
+      "source": "① onCreateの外にメソッドを追加",
+      "translation": "① 在onCreate外部添加方法"
+    },
+    {
+      "source": "ファイルの末尾にある2つの <code>}</code> を見つけます。上は <code>onCreate</code>、下は <code>MainActivity</code> を閉じています。<strong>その2つの間</strong>に追加します。",
+      "translation": "找到文件末尾的两个<code>}</code>。上方的用于结束<code>onCreate</code>，下方的用于结束<code>MainActivity</code>。在<strong>这两个之间</strong>添加。"
+    },
+    {
+      "source": "追加 · onCreateの外、MainActivityの中",
+      "translation": "添加 · onCreate外部、MainActivity内部"
+    },
+    {
+      "source": "<code>java.util.concurrent.ThreadLocalRandom</code> をimportします。<code>nextInt(1, 10)</code> は <strong>1以上、10未満</strong>の整数を選ぶので、1〜9が出ます。<code>answer = 10 - randomNumber;</code> で答えも1〜9になります。",
+      "translation": "导入<code>java.util.concurrent.ThreadLocalRandom</code>。<code>nextInt(1, 10)</code>选择<strong>大于等于1且小于10</strong>的整数，因此会得到1～9。通过<code>answer = 10 - randomNumber;</code>，答案也为1～9。"
+    },
+    {
+      "source": "<code>randomNumber</code> と <code>message</code> は、このメソッド内で使うローカル変数です。<code>answer</code> はあとでクリック処理からも読むためフィールドに保存します。",
+      "translation": "<code>randomNumber</code>和<code>message</code>是在此方法内部使用的局部变量。<code>answer</code>之后还要在点击处理中读取，因此保存到字段中。"
+    },
+    {
+      "source": "② STARTから呼び出す",
+      "translation": "② 从START调用"
+    },
+    {
+      "source": "STARTのクリック処理の末尾にある <code>isPlaying = true;</code> の<strong>直前</strong>に、次の4行を追加します。他のSTARTの行は残します。",
+      "translation": "在START点击处理末尾的<code>isPlaying = true;</code>的<strong>紧前面</strong>，添加以下4行。保留START的其他代码行。"
+    },
+    {
+      "source": "追加 · STARTのisPlaying = true;の直前",
+      "translation": "添加 · 紧接在START的isPlaying = true;之前"
+    },
+    {
+      "source": "<code>answer</code> は、問題を作ったときに答えが入るフィールドです（STEP 04）。<code>0</code> のままなら、まだ問題を作っていないということなので、新しい問題を出します。STOPで止めたあとのSTARTでは <code>answer</code> が残っているため、<strong>同じ問題のまま</strong>タイマーだけ再開します。",
+      "translation": "<code>answer</code>是创建题目时存入答案的字段（STEP 04）。如果仍为<code>0</code>，就表示还没有创建题目，因此要生成新题目。STOP停止后再按START时，<code>answer</code>仍然保留，因此<strong>题目保持不变</strong>，只继续计时。"
+    },
+    {
+      "source": "STARTを押すと「1問目: 10 - 数字 =」が出ます。数字は画像と違って構いません。",
+      "translation": "按START后，会显示「1問目: 10 - 数字 =」（第1题：10 - 数字 =）。数字可以与图片不同。"
+    },
+    {
+      "source": "ゲーム中のタイマーと1問目: 10 - 4 =",
+      "translation": "游戏中的计时器和「1問目: 10 - 4 =」（第1题：10 - 4 =）"
+    },
+    {
+      "source": "STARTで問題を表示。 <a1>画像を大きく開く</a1>",
+      "translation": "通过START显示题目。<a1>查看大图</a1>"
+    },
+    {
+      "source": "STOPからの再開について",
+      "translation": "关于STOP后继续"
+    },
+    {
+      "source": "STOPでは問題文を残します。STARTを押すと <code>answer</code> が残っているため、<strong>現在の問題を変えずにタイマーだけ再開します</strong>。問題番号・正解数・計測時間も引き継ぎます。RESET後のSTARTでは <code>answer == 0</code> なので、新しい問題を出します。",
+      "translation": "STOP时保留题目。按START时，由于<code>answer</code>仍然保留，<strong>不会改变当前题目，只会继续计时</strong>。题号、答对的题数和已计时的时间也会保留。RESET后按START时，因为<code>answer == 0</code>，会生成新题目。"
+    },
+    {
+      "source": "STOP後。00:06と1問目が残り、STARTとRESETが有効",
+      "translation": "STOP后。保留00:06和第1题，START和RESET可用"
+    },
+    {
+      "source": "STOP後はSTARTとRESETが押せます。 <a1>画像を大きく開く</a1>",
+      "translation": "STOP后，可以按START和RESET。<a1>查看大图</a1>"
+    },
+    {
+      "source": "仕様の確認：<a1>ThreadLocalRandom.nextInt（Android公式）</a1>。",
+      "translation": "查看规格：<a1>ThreadLocalRandom.nextInt（Android官方）</a1>。"
+    },
+    {
+      "source": "STARTで問題が出て、RESETで空欄に戻ることを確認した。",
+      "translation": "已确认按START会显示题目，按RESET会恢复空白。"
+    },
+    {
+      "source": "次へ：9個のボタンに共通の処理 →",
+      "translation": "下一步：为9个按钮编写共同处理 →"
+    },
+    {
+      "source": "STEP 07 · 目安 15分",
+      "translation": "STEP 07 · 参考时间15分钟"
+    },
+    {
+      "source": "9個のボタンに共通の処理",
+      "translation": "为9个按钮编写共同处理"
+    },
+    {
+      "source": "9個のボタンに同じ処理を付けます。<strong>配列</strong>は、複数の値を順番にまとめたものです。<strong>拡張for文</strong>でidを1つずつ取り出します。",
+      "translation": "为9个按钮添加相同处理。<strong>数组（配列，はいれつ）</strong>是将多个值按顺序组合起来的整体。通过<strong>扩展for语句（拡張for文，かくちょうforぶん）</strong>逐个取出id。"
+    },
+    {
+      "source": "<code>onCreate</code> 内のRESETの処理を閉じる <code>});</code> の下に追加します。<code>startQuestion</code> メソッドの中には書きません。",
+      "translation": "在<code>onCreate</code>内部，结束RESET处理的<code>});</code>下方添加。不要写在<code>startQuestion</code>方法内部。"
+    },
+    {
+      "source": "追加 · onCreateの中、RESETの処理の下",
+      "translation": "添加 · onCreate内部、RESET处理下方"
+    },
+    {
+      "source": "importは <code>android.widget.Button</code> と <code>com.google.android.material.snackbar.Snackbar</code> です。",
+      "translation": "import为<code>android.widget.Button</code>和<code>com.google.android.material.snackbar.Snackbar</code>。"
+    },
+    {
+      "source": "コード",
+      "translation": "コード — 代码"
+    },
+    {
+      "source": "9個のボタンのidを配列にまとめる。",
+      "translation": "将9个按钮的id汇总到数组中。"
+    },
+    {
+      "source": "配列からidを順に取り出し、各ボタンにクリック処理を登録する。",
+      "translation": "依次从数组中取出id，为各按钮注册点击处理。"
+    },
+    {
+      "source": "表示文字を読むため、Buttonとして扱う。",
+      "translation": "为了读取显示文字，将其作为Button处理。"
+    },
+    {
+      "source": "ゲーム中ではない、という条件。「!」は条件を反対にする。",
+      "translation": "表示“当前不在游戏中”的条件。“!”将条件取反。"
+    },
+    {
+      "source": "このクリック処理をここで終え、下の行を実行しない。",
+      "translation": "在此结束本次点击处理，不执行下方代码行。"
+    },
+    {
+      "source": "押したボタンの文字、たとえば \"6\" を、整数の6に変える。",
+      "translation": "将按下按钮的文字（例如\"6\"）转换为整数6。"
+    },
+    {
+      "source": "for文は画面を作るときに実行されます。中のクリック処理は、<strong>実際にボタンを押したとき</strong>に実行されます。9個のボタンにはそれぞれ別の <code>btn</code> が対応します。",
+      "translation": "for语句在创建屏幕时执行。其中的点击处理会在<strong>实际按下按钮时</strong>执行。9个按钮分别对应不同的<code>btn</code>。"
+    },
+    {
+      "source": "START前に数字を押すと「ゲーム中のみボタンを押せます」と出ます。",
+      "translation": "START前按数字，会显示「ゲーム中のみボタンを押せます」（只有游戏中才能按按钮）。"
+    },
+    {
+      "source": "START後に「6」を押すと「押した数字: 6」と出ます。",
+      "translation": "START后按“6”，会显示「押した数字: 6」（按下的数字：6）。"
+    },
+    {
+      "source": "STOP後にも案内が出て、回答を受け付けません。",
+      "translation": "STOP后也会显示提示，不接受回答。"
+    },
+    {
+      "source": "今のメッセージは入力確認用",
+      "translation": "当前消息用于检查输入"
+    },
+    {
+      "source": "このSTEPではまだ採点しません。「押した数字」のSnackbarは、次のSTEPで答え合わせに置き換えます。",
+      "translation": "这个STEP还不评分。显示「押した数字」（按下的数字）的Snackbar，会在下一个STEP中替换为核对答案的处理。"
+    },
+    {
+      "source": "ゲーム中だけ数字を読み取れた。!isPlayingとreturnの役割を指させた。",
+      "translation": "已确认只有游戏中才能读取数字，并能指出!isPlaying和return的作用。"
+    },
+    {
+      "source": "次へ：答え合わせと次の問題 →",
+      "translation": "下一步：核对答案与下一题 →"
+    },
+    {
+      "source": "STEP 08 · 目安 20分",
+      "translation": "STEP 08 · 参考时间20分钟"
+    },
+    {
+      "source": "答え合わせと次の問題",
+      "translation": "核对答案与下一题"
+    },
+    {
+      "source": "数字のクリック処理の中で、<code>var number = ...;</code> から「押した数字」を表示するSnackbarの行までを、次のコードに<strong>置き換えます</strong>。上の <code>if (!isPlaying)</code> と、下の <code>});</code> は残します。",
+      "translation": "在数字点击处理中，将从<code>var number = ...;</code>开始，到显示「押した数字」（按下的数字）的Snackbar代码行为止的部分，<strong>替换</strong>为以下代码。保留上方的<code>if (!isPlaying)</code>和下方的<code>});</code>。"
+    },
+    {
+      "source": "置き換え · 数字のクリック処理の後半",
+      "translation": "替换 · 数字点击处理的后半部分"
+    },
+    {
+      "source": "<code>==</code> は「等しいか比べる」記号です。<code>=</code> は代入です。<code>correctNo++</code> は正解数を1増やし、<code>nowNo++</code> は問題番号を1増やします。",
+      "translation": "<code>==</code>表示“比较是否相等”。<code>=</code>表示赋值。<code>correctNo++</code>让答对的题数增加1，<code>nowNo++</code>让题号增加1。"
+    },
+    {
+      "source": "入力とanswerを比較",
+      "translation": "比较输入与answer"
+    },
+    {
+      "source": "正解ならcorrectNo++",
+      "translation": "正确时correctNo++"
+    },
+    {
+      "source": "次の出題",
+      "translation": "生成下一题"
+    },
+    {
+      "source": "問題番号を増やす行は <code>if (number == answer)</code> の<strong>外</strong>です。不正解でも次の問題へ進みます。正誤を比べてから <code>startQuestion()</code> を呼ぶ順番を守ります。",
+      "translation": "增加题号的代码行在<code>if (number == answer)</code>的<strong>外部</strong>。即使回答错误，也会进入下一题。请保持先判断正误，再调用<code>startQuestion()</code>的顺序。"
+    },
+    {
+      "source": "STARTし、正しい答えを1回押します。「正解数: 1」が出て2問目になります。",
+      "translation": "按START，按一次正确答案。显示「正解数: 1」（答对题数：1），进入第2题。"
+    },
+    {
+      "source": "2問目で間違った数字を押します。「正解数: 1」のままで3問目になります。",
+      "translation": "第2题按错误数字。「正解数: 1」（答对题数：1）保持不变，进入第3题。"
+    },
+    {
+      "source": "STOP → RESETで問題文を消します。STARTして、再び1問目から始まることを確認します。",
+      "translation": "通过STOP → RESET清除题目。按START，检查是否又从第1题开始。"
+    },
+    {
+      "source": "このSTEPは採点の途中確認",
+      "translation": "本STEP是评分处理的阶段检查"
+    },
+    {
+      "source": "この段階では問題数の上限がなく、回答するたびに次の問題になります。確認は2〜3問で止めましょう。次のSTEPで10問終了の処理を入れ、確認用Snackbarを取り除きます。",
+      "translation": "这一阶段没有题数上限，每次回答都会进入下一题。检查2～3题后就停止。下一个STEP会添加完成10题后结束的处理，并移除用于检查的Snackbar。"
+    },
+    {
+      "source": "2コマ目はここまで",
+      "translation": "第2课时到这里结束"
+    },
+    {
+      "source": "STOPを押します。次回はRunして、正解数と問題番号の増え方を確かめてからSTEP 9へ進みます。",
+      "translation": "按STOP。下次Run后，先检查答对题数和题号的增加方式，再进入STEP 9。"
+    },
+    {
+      "source": "正解なら正解数が増え、不正解でも問題番号が進むことを確認した。",
+      "translation": "已确认答对时答对题数增加，答错时题号也会前进。"
+    },
+    {
+      "source": "次へ：10問で終了して結果を表示 →",
+      "translation": "下一步：完成10题后显示结果 →"
+    },
+    {
+      "source": "STEP 09 · 目安 25分",
+      "translation": "STEP 09 · 参考时间 25分钟"
+    },
+    {
+      "source": "10問で終了して結果を表示",
+      "translation": "完成10题后显示结果"
+    },
+    {
+      "source": "最後に、10問目を答えたらタイマーを止めて結果を表示します。変更範囲を間違えないよう、<strong>「数字ボタンを押下した時の処理」のコメントからfor文の最後の <code>}</code> まで</strong>を、次のコードに置き換えます。START・STOP・RESETと、onCreateの閉じかっこは残します。",
+      "translation": "最后，在回答第10题后停止计时器并显示结果。为避免弄错修改范围，请将<strong>从「数字ボタンを押下した時の処理」（按下数字按钮时的处理）注释开始，到for语句最后一个<code>}</code>为止</strong>的部分替换为以下代码。保留START、STOP、RESET和onCreate的结束大括号。"
+    },
+    {
+      "source": "置き換え · 数字ボタンの登録処理全体",
+      "translation": "替换 · 数字按钮的全部注册处理"
+    },
+    {
+      "source": "追加のimportは <code>java.util.concurrent.TimeUnit</code> です。",
+      "translation": "新增的import为<code>java.util.concurrent.TimeUnit</code>。"
+    },
+    {
+      "source": "「nowNo &lt;= 9」でも10問ある理由",
+      "translation": "为什么“nowNo &lt;= 9”仍然有10道题"
+    },
+    {
+      "source": "回答した問題",
+      "translation": "已回答的题目"
+    },
+    {
+      "source": "条件の結果",
+      "translation": "条件的结果"
+    },
+    {
+      "source": "次の処理",
+      "translation": "接下来的处理"
+    },
+    {
+      "source": "1〜8問目",
+      "translation": "第1～8题"
+    },
+    {
+      "source": "番号を増やして次の問題を出す。",
+      "translation": "增加题号，生成下一题。"
+    },
+    {
+      "source": "9問目",
+      "translation": "第9题"
+    },
+    {
+      "source": "nowNoを10にし、10問目を出す。",
+      "translation": "将nowNo变为10，生成第10题。"
+    },
+    {
+      "source": "10問目",
+      "translation": "第10题"
+    },
+    {
+      "source": "false（10 &lt;= 9ではない）",
+      "translation": "false（10 &lt;= 9不成立）"
+    },
+    {
+      "source": "elseに入り、結果を出す。",
+      "translation": "进入else，显示结果。"
+    },
+    {
+      "source": "最初が1問目なので、合計<strong>10問</strong>です。正解数を増やす処理はこの条件より前にあるため、10問目の正解も数えます。結果の正解数は0〜10です。",
+      "translation": "由于最初是第1题，总共就是<strong>10道题</strong>。增加答对题数的处理位于此条件之前，因此第10题答对也会被计入。结果中的答对题数为0～10。"
+    },
+    {
+      "source": "<code>TimeUnit.MILLISECONDS.toSeconds(elapsedTimeMillis)</code> はミリ秒を秒に変えます。たとえば3,999ミリ秒は3秒です。結果の表示後は <code>isPlaying = false</code> にし、RESETだけを押せる状態にします。",
+      "translation": "<code>TimeUnit.MILLISECONDS.toSeconds(elapsedTimeMillis)</code>将毫秒转换为秒。例如，3,999毫秒会变为3秒。显示结果后，设为<code>isPlaying = false</code>，并让操作按钮中只有RESET可按。"
+    },
+    {
+      "source": "ゲーム終了。0問正解しました！時間は3秒ですと表示され、RESETだけ有効",
+      "translation": "游戏结束。显示「0問正解しました！時間は3秒です」（答对了0题！用时3秒），操作按钮中只有RESET可用"
+    },
+    {
+      "source": "結果の例。正解数と時間はプレイごとに変わります。 <a1>画像を大きく開く</a1>",
+      "translation": "结果示例。答对题数和用时每次游戏都会不同。<a1>查看大图</a1>"
+    },
+    {
+      "source": "終了後に数字を押し、画面下部にゲーム中のみボタンを押せますというSnackbarが出ている",
+      "translation": "结束后按数字，屏幕下方出现「ゲーム中のみボタンを押せます」（只有游戏中才能按按钮）的Snackbar"
+    },
+    {
+      "source": "終了後の数字入力は案内だけ表示します。 <a1>画像を大きく開く</a1>",
+      "translation": "结束后输入数字，只会显示提示。<a1>查看大图</a1>"
+    },
+    {
+      "source": "STARTし、問題番号を見ながら9回答します。まだ結果にはならず「10問目」が出ます。",
+      "translation": "按START，看着题号回答9次。此时还不会显示结果，而是显示「10問目」（第10题）。"
+    },
+    {
+      "source": "10回目の回答で、正解数と時間が出ます。",
+      "translation": "第10次回答后，显示答对题数和用时。"
+    },
+    {
+      "source": "数字をもう一度押します。案内が出て、結果は変わりません。",
+      "translation": "再次按数字。会显示提示，结果保持不变。"
+    },
+    {
+      "source": "RESET → STARTで、1問目と00:00から始まります。",
+      "translation": "按RESET → START，从第1题和00:00开始。"
+    },
+    {
+      "source": "結果と停止を区別する",
+      "translation": "区分结果与暂停"
+    },
+    {
+      "source": "STOPは再開できます。10問回答後はSTARTが無効です。もう一度遊ぶときはRESETを押します。",
+      "translation": "STOP后可以继续。回答10题后，START不可用。想再玩一次时，按RESET。"
+    },
+    {
+      "source": "9問目のあとに10問目が出て、10回答で結果になり、RESETして遊び直せた。",
+      "translation": "已确认第9题后出现第10题，回答10次后显示结果，并能通过RESET重新游戏。"
+    },
+    {
+      "source": "次へ：ミニ練習 →",
+      "translation": "下一步：小练习 →"
+    },
+    {
+      "source": "STEP 10 · 目安 20分",
+      "translation": "STEP 10 · 参考时间 20分钟"
+    },
+    {
+      "source": "ミニ練習",
+      "translation": "小练习"
+    },
+    {
+      "source": "まず結果が出るところまで完成させます。そのあと、次の小変更を1つずつ試します。<strong>予想 → 変更 → Run → 説明 → 元に戻す</strong>の順で行います。",
+      "translation": "先完成到能够显示结果的阶段。然后逐个尝试以下小修改。按照<strong>预测 → 修改 → Run → 说明 → 恢复原样</strong>的顺序进行。"
+    },
+    {
+      "source": "練習1：5問で終わらせる",
+      "translation": "练习1：让游戏在5题后结束"
+    },
+    {
+      "source": "終了判定の <code>nowNo &lt;= 9</code> を、どの値に変えると5問で終わるでしょうか。4回目の回答後と5回目の回答後を確かめます。",
+      "translation": "将结束判断中的<code>nowNo &lt;= 9</code>改成什么值，就能在5题后结束？请检查第4次回答后和第5次回答后的情况。"
+    },
+    {
+      "source": "試したあとに答えを見る",
+      "translation": "尝试后查看答案"
+    },
+    {
+      "source": "<code>nowNo &lt;= 4</code> にします。4問目のあとに5問目を出し、5問目を答えるとelseへ進みます。確認後は9に戻します。",
+      "translation": "改为<code>nowNo &lt;= 4</code>。第4题后生成第5题，回答第5题后进入else。检查后改回9。"
+    },
+    {
+      "source": "練習2：問題を固定して採点を調べる",
+      "translation": "练习2：固定题目，检查评分"
+    },
+    {
+      "source": "<code>startQuestion</code> の乱数を作る1行を <code>var randomNumber = 4;</code> に変えます。答えは毎回6です。10回とも6なら10問正解、10回とも1なら0問正解になるか確認します。",
+      "translation": "将<code>startQuestion</code>中生成随机数的一行改为<code>var randomNumber = 4;</code>。每次答案都是6。请检查：10次都按6时是否答对10题，10次都按1时是否答对0题。"
+    },
+    {
+      "source": "試したあとに確認する",
+      "translation": "尝试后检查"
+    },
+    {
+      "source": "6を3回、そのあと1を7回押すと、3問正解になります。各回の間にはRESET → STARTが必要です。確認後は <code>ThreadLocalRandom.current().nextInt(1, 10)</code> に戻します。",
+      "translation": "按3次6，再按7次1，就会答对3题。每轮游戏之间都需要RESET → START。检查后改回<code>ThreadLocalRandom.current().nextInt(1, 10)</code>。"
+    },
+    {
+      "source": "練習3：状態を説明する",
+      "translation": "练习3：说明状态"
+    },
+    {
+      "source": "STOP後に数字を押したとき、正解数を増やさないのはどの行ですか。「押したら無効」になるまでの流れを指さしましょう。",
+      "translation": "STOP后按数字时，是哪一行阻止了答对题数增加？请指出从按下按钮到判断无效的处理流程。"
+    },
+    {
+      "source": "説明したあとに答えを見る",
+      "translation": "说明后查看答案"
+    },
+    {
+      "source": "STOPで <code>isPlaying = false</code> にします。数字の処理は <code>if (!isPlaying)</code> に入り、Snackbarを出し、<code>return</code> で終了します。採点の行には進みません。",
+      "translation": "STOP时设为<code>isPlaying = false</code>。数字处理会进入<code>if (!isPlaying)</code>，显示Snackbar，然后通过<code>return</code>结束，不会执行评分的代码行。"
+    },
+    {
+      "source": "完成版に戻してから確認",
+      "translation": "恢复为完成版后再检查"
+    },
+    {
+      "source": "練習1の9、練習2の乱数の行を元に戻します。数字ボタンの <code>android:text</code> は1〜9のままにします。文字に変えると <code>Integer.parseInt</code> で数値に変換できなくなります。",
+      "translation": "将练习1中的9和练习2中生成随机数的代码行恢复原样。数字按钮的<code>android:text</code>保持1～9。如果改成文字，<code>Integer.parseInt</code>就无法将其转换为数值。"
+    },
+    {
+      "source": "5問版にすると5問目の回答で結果になり、問題を固定すると答えが毎回6になることを確かめ、完成版の値に戻した。",
+      "translation": "已确认5题版在第5题回答后显示结果，固定题目后每次答案都是6，并已恢复完成版的值。"
+    },
+    {
+      "source": "次へ：完成 →",
+      "translation": "下一步：完成 →"
+    },
+    {
+      "source": "STEP 11 · 目安 15分",
+      "translation": "STEP 11 · 参考时间15分钟"
+    },
+    {
+      "source": "完成",
+      "translation": "完成"
+    },
+    {
+      "source": "完成チェック",
+      "translation": "完成检查"
+    },
+    {
       "source": "操作",
       "translation": "操作"
+    },
+    {
+      "source": "確認する結果",
+      "translation": "要确认的结果"
+    },
+    {
+      "source": "起動直後",
+      "translation": "刚启动时"
+    },
+    {
+      "source": "00:00、問題文は空欄、STARTだけ有効（数字以外）。",
+      "translation": "00:00，题目区域为空白，只有START可用（数字按钮除外）。"
+    },
+    {
+      "source": "1問目が出て時間が動く。STOPだけ有効。",
+      "translation": "显示第1题，计时开始。操作按钮中只有STOP可用。"
+    },
+    {
+      "source": "正解・不正解",
+      "translation": "回答正确、错误"
+    },
+    {
+      "source": "いずれも次の問題へ。正解したときだけ得点が増える。",
+      "translation": "都会进入下一题。只有回答正确时分数才增加。"
+    },
+    {
+      "source": "STOP → 待つ → START",
+      "translation": "STOP → 等待 → START"
+    },
+    {
+      "source": "時間・正解数・問題番号を引き継ぐ。停止中の時間は加算しない。同じ番号で再出題。",
+      "translation": "保留时间、答对题数和题号。暂停期间的时间不计入。以相同题号重新显示题目。"
+    },
+    {
+      "source": "00:00、空欄、1問目・正解数0の状態に戻る。",
+      "translation": "恢复为00:00、空白、第1题、答对题数0的状态。"
+    },
+    {
+      "source": "9回答 → 10回答",
+      "translation": "回答9次 → 回答10次"
+    },
+    {
+      "source": "9回答後に10問目。10回答後に結果。11問目は出ない。",
+      "translation": "回答9次后显示第10题，回答10次后显示结果。不会出现第11题。"
+    },
+    {
+      "source": "終了後に数字を押す",
+      "translation": "结束后按数字"
+    },
+    {
+      "source": "案内が出て、正解数と時間が変わらない。",
+      "translation": "显示提示，答对题数和用时不变。"
+    },
+    {
+      "source": "結果 → RESET → START",
+      "translation": "结果 → RESET → START"
+    },
+    {
+      "source": "もう一度最初から遊べる。",
+      "translation": "能够从头再玩一次。"
+    },
+    {
+      "source": "保存",
+      "translation": "保存"
+    },
+    {
+      "source": "Android Studioは、書いたコードを自動でファイルに保存します。保存の操作は要りません。ここでは、保存された場所を確かめます。",
+      "translation": "Android Studio会自动将编写的代码保存到文件中，无须执行保存操作。这里检查保存的位置。"
+    },
+    {
+      "source": "Finderを開き、左側の <strong>書類</strong>（<code>Documents</code>）をクリックします。",
+      "translation": "打开Finder，点击左侧的<strong>書類</strong>（文稿，<code>Documents</code>）。"
+    },
+    {
+      "source": "その中の <code>Android1</code> フォルダを開き、<code>A02CalcGame</code> フォルダがあることを確かめます。",
+      "translation": "打开其中的<code>Android1</code>文件夹，确认有<code>A02CalcGame</code>文件夹。"
+    },
+    {
+      "source": "この <code>Documents/Android1/A02CalcGame</code> フォルダが、自分で作ったアプリです。あとの授業でもう一度開けるように、消したり、別の場所へ移動したり、名前を変えたりせずに、そのまま残します。",
+      "translation": "这个<code>Documents/Android1/A02CalcGame</code>文件夹就是自己制作的应用。为了之后的课堂能够重新打开，请原样保留，不要删除、移动到其他位置或修改名称。"
+    },
+    {
+      "source": "教材のチェックは自分用です。先生への送信はしません。印刷は <kbd>⌘ P</kbd> で行えます。",
+      "translation": "学习资料中的勾选用于自己检查，不会发送给老师。可以按<kbd>⌘ P</kbd>打印。"
+    },
+    {
+      "source": "完成チェックの操作をすべて試し、表のとおりの結果になった。",
+      "translation": "已尝试完成检查中的全部操作，结果与表格一致。"
+    },
+    {
+      "source": "困ったこと",
+      "translation": "遇到的问题"
+    },
+    {
+      "source": "最初に確認する場所",
+      "translation": "首先检查的位置"
+    },
+    {
+      "source": "R.idが赤い",
+      "translation": "R.id显示为红色"
+    },
+    {
+      "source": "XMLのidが一致するか確認。btn1とbtn_1を混ぜない。最初のXMLエラーを直してビルドする。",
+      "translation": "检查XML的id是否一致。不要混用btn1和btn_1。修复第一个XML错误后再构建。"
+    },
+    {
+      "source": "起動時に終了する",
+      "translation": "启动时就退出"
+    },
+    {
+      "source": "setContentViewがfindViewByIdより先か、id/mainを残したかを確認。Logcatで最初の例外を見る。",
+      "translation": "检查setContentView是否在findViewById之前，以及是否保留了id/main。在Logcat中查看第一个异常。"
+    },
+    {
+      "source": "importの選択と、変数の宣言位置を確認。startQuestionはonCreateの外、MainActivityの中。",
+      "translation": "检查import的选择和变量声明的位置。startQuestion应在onCreate外部、MainActivity内部。"
+    },
+    {
+      "source": "変数をlambdaで変更できない",
+      "translation": "无法在lambda中修改变量"
+    },
+    {
+      "source": "correctNoなどをonCreate内で宣言していないか確認。STEP 4の5つはフィールドにする。",
+      "translation": "检查是否在onCreate内部声明了correctNo等变量。STEP 4中的5个值应设为字段。"
+    },
+    {
+      "source": "STOP後も数字を採点する",
+      "translation": "STOP后仍然对数字评分"
+    },
+    {
+      "source": "STOPのisPlaying = falseと、数字の処理の!isPlaying / returnを確認。",
+      "translation": "检查STOP中的isPlaying = false，以及数字处理中的!isPlaying / return。"
+    },
+    {
+      "source": "最初から問題文が見えない",
+      "translation": "最初看不到题目"
+    },
+    {
+      "source": "tools:textはプレビュー専用。STEP 6以降でSTARTを押すと表示する。",
+      "translation": "tools:text仅用于预览。从STEP 6起，按START后才显示。"
+    },
+    {
+      "source": "問題が終わらない",
+      "translation": "题目一直不结束"
+    },
+    {
+      "source": "STEP 8までは途中段階。STEP 9で数字の処理全体を置き換える。",
+      "translation": "到STEP 8为止仍是中间阶段。STEP 9需要替换整个数字处理。"
+    },
+    {
+      "source": "10問目より前に終わる",
+      "translation": "第10题之前就结束了"
+    },
+    {
+      "source": "問題番号が1から始まるか、nowNo &lt;= 9か、1タップで1回だけ増やしているかを確認。",
+      "translation": "检查题号是否从1开始、条件是否为nowNo &lt;= 9，以及一次点按是否只增加一次。"
+    },
+    {
+      "source": "同じ問題が続く",
+      "translation": "连续出现相同题目"
+    },
+    {
+      "source": "乱数なので同じ数字が続くこともある。",
+      "translation": "因为使用随机数，也可能连续出现相同数字。"
+    },
+    {
+      "source": "Snackbarが出ない",
+      "translation": "没有显示Snackbar"
+    },
+    {
+      "source": "show()とimportを確認。ゲーム中は完成版の確認メッセージは出ない。",
+      "translation": "检查show()和import。在游戏进行期间，完成版不会显示用于检查的消息。"
+    },
+    {
+      "source": "<a1>共通資料：Logcat</a1>を使います。今回のパッケージは <code>jp.ac.jec.a02calcgame</code> です。エラーを見るときは <code>package:jp.ac.jec.a02calcgame level:ERROR</code> にします。A01用のパッケージ名や <code>tag:MainActivity</code> を残さないようにします。",
+      "translation": "使用<a1>通用资料：Logcat</a1>。本次包名是<code>jp.ac.jec.a02calcgame</code>。查看错误时，输入<code>package:jp.ac.jec.a02calcgame level:ERROR</code>。不要保留A01的包名或<code>tag:MainActivity</code>。"
+    },
+    {
+      "source": "質問では「STEP番号・編集したファイル・最初の赤い行・押した順番」を伝えます。",
+      "translation": "提问时，请说明“STEP编号、修改的文件、第一行红字、点击的顺序”。"
+    },
+    {
+      "source": "完成版は最初の授業から使える見本です。教科書といっしょに配られた<strong>教材のフォルダ</strong>に、そのまま開ける形で入っています。ダウンロードも展開も要りません。",
+      "translation": "完成版是从第一节课起就能使用的示例。它在与教材一起发放的<strong>学习资料文件夹</strong>中，可以直接打开。无须下载或解压。"
+    },
+    {
+      "source": "Android Studioの <strong>Open</strong>（プロジェクトを開いているときは <strong>File → Open</strong>）で、<strong>書類</strong>（<code>Documents</code>）にある教材のフォルダを開きます。名前は <code>android1-student-materials-</code> のうしろに日付が付いた形で、日付は配られた回によって変わります。いま読んでいるこの教科書が入っているフォルダです。",
+      "translation": "通过Android Studio的<strong>Open</strong>（已打开项目时使用<strong>File → Open</strong>），打开<strong>書類</strong>（文稿，<code>Documents</code>）中的学习资料文件夹。名称为<code>android1-student-materials-</code>后加日期，日期随发放批次而变。就是包含当前这份教材的文件夹。"
+    },
+    {
+      "source": "その中を <code>samples → A02CalcGame</code> の順に開き、<code>settings.gradle.kts</code> と <code>app</code> が入った <code>A02CalcGame</code> フォルダを選びます。",
+      "translation": "在其中依次打开<code>samples → A02CalcGame</code>，选择包含<code>settings.gradle.kts</code>和<code>app</code>的<code>A02CalcGame</code>文件夹。"
+    },
+    {
+      "source": "Sync後にRunして動きを確認します。授業の入力に戻るときは自分の <code>Documents/Android1/A02CalcGame</code> を開きます。",
+      "translation": "Sync后Run，检查运行情况。返回课堂输入代码时，打开自己的<code>Documents/Android1/A02CalcGame</code>。"
+    },
+    {
+      "source": "両方とも同じプロジェクト名なので、ウィンドウの保存先を確認しましょう。見本と自分のアプリは同じパッケージ名のため、端末上では同じアプリを更新します。切り替えるときは、確認したい方のプロジェクトからRunします。",
+      "translation": "两个项目的名称相同，请检查窗口的保存位置。示例与自己的应用包名相同，因此会更新设备上的同一个应用。切换时，请从想要检查的项目执行Run。"
+    },
+    {
+      "source": "教材のフォルダが手元にないときは、同じ見本をZIPで受け取れます（<a1>A02CalcGame.zip</a1>）。展開してできた <code>A02CalcGame</code> フォルダを、同じようにOpenで選びます。",
+      "translation": "如果手头没有学习资料文件夹，也可以通过ZIP获取相同示例（<a1>A02CalcGame.zip</a1>）。将解压后生成的<code>A02CalcGame</code>文件夹，同样通过Open选择。"
+    },
+    {
+      "source": "完成したMainActivity.javaで照合する",
+      "translation": "与完成的MainActivity.java核对"
+    },
+    {
+      "source": "完成版 · MainActivity.java",
+      "translation": "完成版 · MainActivity.java"
+    },
+    {
+      "source": "完成したactivity_main.xmlで照合する",
+      "translation": "与完成的activity_main.xml核对"
+    },
+    {
+      "source": "完成版 · activity_main.xml",
+      "translation": "完成版 · activity_main.xml"
+    },
+    {
+      "source": "Androidプログラミング1 · A02CalcGame / 本文・画像・操作機能はオフラインで利用できます。Android Studioの初回準備・ビルドと公式資料の閲覧にはネット接続が必要です。",
+      "translation": "Android编程1 · A02CalcGame / 正文、图片和操作功能可离线使用。Android Studio的初始准备、构建，以及查看官方资料需要连接互联网。"
+    },
+    {
+      "source": "画像は授業用の提供資料を使用。問題の数字・時間・正解数は操作によって変わります。",
+      "translation": "图片使用课堂提供的资料。题目数字、用时和答对题数会根据操作而变化。"
+    }
+  ],
+  "overrides": [
+    {
+      "source": "コード",
+      "where": "th",
+      "translation": "代码"
     }
   ]
 }
