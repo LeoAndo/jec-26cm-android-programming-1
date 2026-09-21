@@ -129,4 +129,4 @@
 | 自動で追加されないとき | If imports are not added automatically | |
 | 開発Tips | Development tips | |
 | 課題とAPKの作り方 | Assignment and how to create an APK | 原文の改行タグは保持する |
-| 違うバージョンのAndroid Studioを使うとき | Using a different version of Android Studio | 原文の改行タグは保持する |
+| ちがうAndroid Studioのバージョンで進めるとき | Using a different version of Android Studio | 原文の改行タグは保持する |

@@ -612,7 +612,7 @@
     },
     {
       "source": "同じ英単語が何件あるか数える。<code>:english</code> はメソッドの引数のこと。重複チェックに使う",
-      "translation": "Counts how many records have the same English word. <code>:english</code> refers to the method argument. Used to check for duplicates"
+      "translation": "Counts how many records have the same English word. <code>:english</code> refers to the method parameter. Used to check for duplicates"
     },
     {
       "source": "A10でも使った命令。<strong>あれば書き換え、なければ追加</strong>（upsert は update と insert を合わせた言葉）。今回は単語の追加に使う",
