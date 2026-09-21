@@ -88,6 +88,7 @@ class PackageStudentMaterialsTest(unittest.TestCase):
                   '<body data-progress-key="jec-test-v1"><main><section id="step1"><h1>日本語の見出し</h1>'
                   '<p>訳した文</p><p>未翻訳の文<strong>も残す</strong></p>'
                   '<a href="downloads/A01HelloAndroid.zip">完成版</a>'
+                  '<p><a href="https://developer.android.com/studio?hl=ja&amp;x=1#top">公式資料</a></p>'
                   '<img src="images/test.png" alt="画像">'
                   '<input type="checkbox" data-check="step1"><pre><code>日本語のコード</code></pre>'
                   '</section></main></body></html>')
@@ -119,6 +120,8 @@ class PackageStudentMaterialsTest(unittest.TestCase):
             self.assertIn('data-progress-key="jec-test-v1"', english)
             self.assertIn('"progress": "{count} / {total} steps checked"', english)
             self.assertIn('<p>Translated sentence</p>', english)
+            self.assertIn('href="https://developer.android.com/studio?hl=en&amp;x=1#top"', english)
+            self.assertIn('href="https://developer.android.com/studio?hl=ja&amp;x=1#top"', japanese)
             self.assertIn('<span lang="ja">未翻訳の文<strong>も残す</strong></span>', english)
             self.assertIn('<title lang="ja">準備</title>', english)
             self.assertIn('<pre><code>日本語のコード</code></pre>', english)
@@ -147,6 +150,7 @@ class PackageStudentMaterialsTest(unittest.TestCase):
                 # 注記、UIと全言語の導線はカタログの有無に左右されない。
                 self.assertIn(language['translation_notice'], page)
                 self.assertIn(language['ui']['copy'], page)
+                self.assertIn(f'hl={language["android_docs_hl"]}&amp;x=1#top', page)
                 self.assertEqual(page.count('hreflang='), len(config['languages']) + 1)
                 self.assertIn('<span lang="ja">未翻訳の文', page)
 
