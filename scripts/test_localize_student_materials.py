@@ -1,0 +1,418 @@
+"""文の取り出し、訳文の検査、各言語のHTMLの生成、対訳カタログの同期と取り込みを検証する。"""
+
+import contextlib
+import importlib.util
+import io
+import json
+import os
+from pathlib import Path
+import re
+import sys
+import tempfile
+import unittest
+from unittest.mock import patch
+
+
+SCRIPTS = Path(__file__).resolve().parent
+spec = importlib.util.spec_from_file_location("localize", SCRIPTS / "localize-student-materials.py")
+localize = importlib.util.module_from_spec(spec)
+sys.modules["localize"] = localize  # dataclass が、モジュールを名前で引けるようにする
+spec.loader.exec_module(localize)
+
+TERMS = [{"name": "指定AVD名", "canonical": "jec_26cm_android1_Pixel 9a", "forbidden": ["jec_26cm_android1_Pixel_9a"]}]
+
+
+def page_of(text, name="docs/unit/index.html"):
+    tree = localize.parse(text, name)
+    extractor = localize._Extractor(text, name)
+    return localize.Page(name, text, tree, extractor.run(tree), extractor.in_segment)
+
+
+def sources_of(text):
+    return [segment.source for segment in page_of(text).segments]
+
+
+class ExtractTest(unittest.TestCase):
+    def test_text_with_inline_tags_is_one_segment(self):
+        self.assertEqual(
+            sources_of("<p>アプリは、<strong>画面</strong>と<code>Java</code>で作ります。</p>"),
+            ["アプリは、<strong>画面</strong>と<code>Java</code>で作ります。"],
+        )
+
+    def test_inline_elements_without_direct_text_are_separate_segments(self):
+        # サイドバーのリンクの並び。1つの文にすると、単元を足すたびに全体が訳し直しになる。
+        html = '<div class="resources"><a href="#help">困ったとき</a> <a href="../b/index.html">A02：CalcGame</a><span>自分用です。</span></div>'
+        self.assertEqual(sources_of(html), ["困ったとき", "自分用です。"])
+
+    def test_tags_with_attributes_become_numbered_placeholders(self):
+        page = page_of('<p><a href="#s">見本</a>は<span class="x">参考</span>です。<img src="a.png" alt="図">と<br>改行</p>')
+        text = page.segments[0]
+        self.assertEqual(text.source, "<a1>見本</a1>は<span2>参考</span2>です。<img3/>と<br>改行")
+        self.assertEqual([element.tag for element in text.placeholders], ["a", "span", "img"])
+
+    def test_code_blocks_scripts_and_translate_no_are_not_extracted(self):
+        html = (
+            "<pre><code>// 日本語のコメント</code></pre><script>const a = 'あ';</script><style>/* あ */</style>"
+            '<p translate="no">訳さない</p><p>訳す</p>'
+        )
+        self.assertEqual(sources_of(html), ["訳す"])
+
+    def test_segment_needs_japanese_outside_protected_elements(self):
+        html = "<table><tr><td><code>テキストを変更</code></td><td>Java / XML</td><td><code>x</code>（すべて小文字）</td></tr></table>"
+        self.assertEqual(sources_of(html), ["<code>x</code>（すべて小文字）"])
+
+    def test_attributes_are_extracted_in_document_order(self):
+        html = (
+            '<html lang="ja"><head><meta name="description" content="説明文"><meta name="viewport" content="幅">'
+            "<title>題名</title></head>"
+            '<body><nav aria-label="学習ステップ"><a href="#a">一</a></nav><img src="a.png" alt="画面の図"></body></html>'
+        )
+        page = page_of(html)
+        self.assertEqual([(segment.where, segment.source) for segment in page.segments], [
+            ("meta content", "説明文"), ("title", "題名"), ("nav aria-label", "学習ステップ"),
+            ("a", "一"), ("img alt", "画面の図"),
+        ])
+
+    def test_whitespace_is_normalized_and_same_source_is_listed_once(self):
+        page = page_of("<p>一行目\n   二行目</p><p>一行目 二行目</p>")
+        self.assertEqual(len(page.segments), 2)
+        self.assertEqual(page.sources(), ["一行目 二行目"])
+
+    def test_inline_element_with_block_child_is_a_boundary(self):
+        self.assertEqual(sources_of('<a href="x.html">前<div>中</div></a>'), ["前", "中"])
+
+    def test_nested_list_text_is_split_around_the_list(self):
+        self.assertEqual(sources_of("<ol><li>外側<ul><li>内側</li></ul>続き</li></ol>"), ["外側", "内側", "続き"])
+
+    def test_html_must_have_matching_tags(self):
+        for html, message in (
+            ("<div><p>あ</div>", "docs/unit/index.html:1: 開始タグと終了タグが対応していません"),
+            ("<div>\n<p>あ</p>", "docs/unit/index.html:1: <div> が閉じていません"),
+            ("<p>あ<span/>い</p>", "自己終了タグは使えません"),
+            ("<p>あ</br></p>", "</br> は書けません"),
+        ):
+            with self.subTest(html=html), self.assertRaisesRegex(localize.LocalizeError, re.escape(message)):
+                page_of(html)
+
+    def test_unquoted_translated_attribute_is_rejected(self):
+        with self.assertRaisesRegex(localize.LocalizeError, "alt 属性は引用符で囲んでください"):
+            page_of("<img src=a.png alt=図>")
+
+
+class ValidateTest(unittest.TestCase):
+    def problems(self, source, translation):
+        return localize.validate(source, translation, TERMS)
+
+    def test_accepts_reordered_placeholders_and_entities(self):
+        self.assertEqual(self.problems(
+            "<a1>見本</a1>は<strong>参考</strong>です。<code>a &lt; b</code>",
+            "Use <code>a &lt; b</code> &amp; the <strong>reference</strong> <a1>sample</a1>.",
+        ), [])
+
+    def test_kanji_only_text_may_stay_the_same(self):
+        # 中国語では、日本語と同じ字になる言葉がある。
+        self.assertEqual(self.problems("操作", "操作"), [])
+
+    def test_reports_each_kind_of_problem(self):
+        cases = {
+            "訳文が空です": ("確認", "  "),
+            "余分な空白や改行": ("確認", "Check \n it"),
+            "足りません: </a1> <a1>": ("<a1>見本</a1>です", "A sample"),
+            "余分にあります: </strong> <strong>": ("見本です", "A <strong>sample</strong>"),
+            "入れ子が正しくありません": ("<a1><strong>見本</strong></a1>", "<a1><strong>sample</a1></strong>"),
+            "&lt; と書く": ("小さい", "a < b"),
+            "&amp; と書く": ("質問と答え", "Q&A"),
+            "中身が、原文と違います": ("<code>テキストを変更</code>を押す", "Press <code>Change text</code>"),
+            "正式表記がありません": ("jec_26cm_android1_Pixel 9a を選ぶ", "Select the Pixel 9a"),
+            "禁止表記": ("選ぶ", "Select jec_26cm_android1_Pixel_9a"),
+            "訳されていません": ("できたらチェックします。", "できたらチェックします。"),
+        }
+        for message, (source, translation) in cases.items():
+            with self.subTest(message=message):
+                self.assertTrue(any(message in problem for problem in self.problems(source, translation)),
+                                self.problems(source, translation))
+
+
+class LocalizeTest(unittest.TestCase):
+    PAGES = {"docs/unit/index.html", "docs/other/index.html", "docs/common/setup.html"}
+
+    def render(self, html, translations, name="docs/unit/index.html"):
+        return localize.localize(page_of(html, name), translations, "en", "docs", self.PAGES)
+
+    def test_without_translations_only_language_and_resource_links_change(self):
+        html = (
+            '<!doctype html>\n<html lang="ja">\n<head><link rel="stylesheet" href="../assets/textbook.css"></head>\n'
+            '<body>\n  <p>一行目\n     二行目 <a href="images/a.png">大きく開く</a></p>\n'
+            '<pre id="code"><code>// コメント &lt;b&gt;\n<span class="k">var</span> a;</code></pre>\n</body>\n</html>\n'
+        )
+        expected = (html.replace('lang="ja"', 'lang="en"')
+                    .replace("../assets/textbook.css", "../../assets/textbook.css")
+                    .replace("images/a.png", "../../unit/images/a.png"))
+        self.assertEqual(self.render(html, {}), expected)
+
+    def test_translation_restores_original_tags_and_keeps_surroundings(self):
+        html = '<ul>\n  <li>\n    <a class="x" href="../other/index.html#s">見本</a>は<strong>参考</strong>です。\n  </li>\n</ul>'
+        translated = self.render(html, {"<a1>見本</a1>は<strong>参考</strong>です。": "A <strong>reference</strong>: <a1>sample</a1>."})
+        self.assertEqual(
+            translated,
+            '<ul>\n  <li>\n    A <strong>reference</strong>: <a class="x" href="../other/index.html#s">sample</a>.\n  </li>\n</ul>',
+        )
+
+    def test_links_are_rewritten_inside_translated_and_untranslated_segments(self):
+        html = '<p>図は<a href="images/a.png?v=1#top">こちら</a>。</p><p>別の図は<a href="images/b.png">こちら</a>。</p>'
+        translated = self.render(html, {"図は<a1>こちら</a1>。": "See <a1>this figure</a1>."})
+        self.assertIn('See <a href="../../unit/images/a.png?v=1#top">this figure</a>.', translated)
+        self.assertIn('別の図は<a href="../../unit/images/b.png">こちら</a>。', translated)
+
+    def test_page_links_external_links_and_fragments_are_kept(self):
+        html = (
+            '<p>先に<a href="../common/setup.html?from=unit">準備</a>、<a href="#step-1">次へ</a>、'
+            '<a href="https://developer.android.com/">公式</a>、<a href="downloads/A.zip">ZIP</a>を見ます。</p>'
+        )
+        translated = self.render(html, {})
+        for kept in ('href="../common/setup.html?from=unit"', 'href="#step-1"', 'href="https://developer.android.com/"'):
+            self.assertIn(kept, translated)
+        self.assertIn('href="../../unit/downloads/A.zip"', translated)
+
+    def test_attributes_are_translated_and_quotes_are_escaped(self):
+        html = '<figure><a href="images/a.png"><img src="images/a.png" alt="「確認」の画面"></a></figure>'
+        translated = self.render(html, {"「確認」の画面": 'The "Check" screen'})
+        self.assertEqual(
+            translated,
+            '<figure><a href="../../unit/images/a.png"><img src="../../unit/images/a.png" alt="The &quot;Check&quot; screen"></a></figure>',
+        )
+
+    def test_attribute_inside_translated_segment_is_translated(self):
+        html = '<p>図<img src="a.png" alt="画面">を見ます。</p>'
+        translated = self.render(html, {"図<img1/>を見ます。": "See <img1/> here.", "画面": "Screen"})
+        self.assertEqual(translated, '<p>See <img src="../../unit/a.png" alt="Screen"> here.</p>')
+
+    def test_common_page_moves_one_level_deeper_too(self):
+        html = '<img src="images/a.png" alt="図"><a data-back href="../unit/index.html">もとの教科書へ戻る</a>'
+        translated = self.render(html, {}, "docs/common/setup.html")
+        self.assertIn('src="../../common/images/a.png"', translated)
+        self.assertIn('href="../unit/index.html"', translated)
+
+
+class CommandTest(unittest.TestCase):
+    def setUp(self):
+        temporary = tempfile.TemporaryDirectory()
+        self.addCleanup(temporary.cleanup)
+        self.root = Path(temporary.name)
+        self.write("config/i18n.json", json.dumps({
+            "source_language": "ja", "source_root": "docs", "catalog_root": "i18n",
+            "languages": [{"code": "en", "name": "English", "distribute": True},
+                          {"code": "fr", "name": "Français", "distribute": False}],
+        }))
+        self.write("config/teaching-materials.json", json.dumps({"terms": TERMS}))
+        self.write("docs/assets/textbook.css", "body {}")
+        self.write("docs/unit/index.html", (
+            '<html lang="ja"><head><link rel="stylesheet" href="../assets/textbook.css"><title>単元</title></head>'
+            "<body><h1>はじめての単元</h1><p>ここで止まって、確認</p><p><code>Run</code>を押します。</p></body></html>"
+        ))
+        self.write("docs/common/setup.html", '<html lang="ja"><body><p>ここで止まって、確認</p><p>準備をします。</p></body></html>')
+        self.work = self.root / "dist/i18n-work"
+
+    def write(self, name, text):
+        path = self.root / name
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_text(text, encoding="utf-8")
+
+    def settings(self):
+        return localize.load_settings(self.root)
+
+    def quiet(self, function, *args):
+        with contextlib.redirect_stdout(io.StringIO()) as output, contextlib.redirect_stderr(io.StringIO()) as errors:
+            result = function(*args)
+        return result, output.getvalue(), errors.getvalue()
+
+    def sync(self, *languages):
+        self.quiet(localize.sync, self.settings(), list(languages) or ["en"], [], self.work, 40, 3000)
+
+    def todo(self, language="en"):
+        """作業ファイルの中身。原文→項目。"""
+        items = {}
+        for path in sorted((self.work / language).rglob("todo-*.json")):
+            for item in json.loads(path.read_text(encoding="utf-8"))["segments"]:
+                items[item["source"]] = item
+        return items
+
+    def merge(self, translations, overwrite=False, language="en"):
+        """原文→訳文を、idで書いた done ファイルにして取り込む。"""
+        done = self.work / language / "done-001.json"
+        done.parent.mkdir(parents=True, exist_ok=True)
+        done.write_text(json.dumps({localize.segment_id(source): translation
+                                    for source, translation in translations.items()}, ensure_ascii=False), encoding="utf-8")
+        return self.quiet(localize.merge, self.settings(), language, [done], self.work, overwrite)
+
+    def catalog(self, name, language="en"):
+        return localize.read_catalog(self.settings().catalog_path(language, name))
+
+    def test_sync_writes_work_files_and_merge_fills_every_page_with_the_same_source(self):
+        self.sync()
+        todo = self.todo()
+        self.assertEqual(list(todo), ["ここで止まって、確認", "準備をします。", "単元", "はじめての単元", "<code>Run</code>を押します。"])
+        self.assertEqual(todo["単元"]["where"], "title")
+        # 2つのページにある文は、作業ファイルには1回だけ出す。1回訳せば、両方のページに入る。
+        listed = [item["source"] for path in sorted(self.work.rglob("todo-*.json"))
+                  for item in json.loads(path.read_text(encoding="utf-8"))["segments"]]
+        self.assertEqual(listed.count("ここで止まって、確認"), 1)
+        self.assertFalse((self.root / "i18n").exists())  # 訳が1つもないカタログは置かない
+
+        result, _, _ = self.merge({"ここで止まって、確認": "Stop here and check", "はじめての単元": "Your first unit"})
+        self.assertEqual(result, 0)
+        self.assertEqual(self.catalog("docs/common/setup.html"), {"ここで止まって、確認": "Stop here and check"})
+        # 文書に出てくる順で書く。
+        self.assertEqual(list(self.catalog("docs/unit/index.html")), ["はじめての単元", "ここで止まって、確認"])
+        data = json.loads((self.root / "i18n/en/unit/index.json").read_text(encoding="utf-8"))
+        self.assertEqual((data["source"], data["language"]), ("docs/unit/index.html", "en"))
+
+    def test_sync_reuses_translation_from_another_page(self):
+        self.sync()
+        self.merge({"ここで止まって、確認": "Stop here and check"})
+        self.write("docs/other/index.html", '<html lang="ja"><body><p>ここで止まって、確認</p><p>新しい文</p></body></html>')
+        self.sync()
+        self.assertEqual(self.catalog("docs/other/index.html"), {"ここで止まって、確認": "Stop here and check"})
+        self.assertIn("新しい文", self.todo())
+        self.assertNotIn("ここで止まって、確認", self.todo())
+
+    def test_changed_source_becomes_untranslated_and_old_translation_is_offered_as_hint(self):
+        self.sync()
+        self.merge({"準備をします。": "Get ready."})
+        self.write("docs/common/setup.html", '<html lang="ja"><body><p>ここで止まって、確認</p><p>先に準備をします。</p></body></html>')
+        self.sync()
+        self.assertEqual(self.catalog("docs/common/setup.html"), {})  # 古い訳は外れる。学生には届かない
+        item = self.todo()["先に準備をします。"]
+        self.assertEqual((item["previous_source"], item["previous_translation"]), ("準備をします。", "Get ready."))
+        settings = self.settings()
+        html = localize.localized_pages(settings, "en")["docs/en/common/setup.html"]
+        self.assertIn("<p>先に準備をします。</p>", html)
+
+    def test_merge_rejects_invalid_translations_but_keeps_valid_ones(self):
+        self.sync()
+        result, _, errors = self.merge({"<code>Run</code>を押します。": "Press <code>Start</code>.", "単元": "Unit"})
+        self.assertEqual(result, 1)
+        self.assertIn("中身が、原文と違います", errors)
+        self.assertEqual(self.catalog("docs/unit/index.html"), {"単元": "Unit"})
+
+    def test_merge_dry_run_checks_without_writing(self):
+        self.sync()
+        done = self.work / "en/done-001.json"
+        done.write_text(json.dumps({localize.segment_id("単元"): "Unit", localize.segment_id("準備をします。"): ""}), encoding="utf-8")
+        result, output, errors = self.quiet(localize.merge, self.settings(), "en", [done], self.work, False, True)
+        self.assertEqual(result, 1)
+        self.assertIn("検査に通った訳（カタログには入れていません） 1", output)
+        self.assertIn("訳文が空です", errors)
+        self.assertFalse((self.root / "i18n").exists())
+
+    def test_merge_reports_unknown_id(self):
+        done = self.work / "en/done-001.json"
+        done.parent.mkdir(parents=True)
+        done.write_text('{"000000000000": "x"}', encoding="utf-8")
+        result, _, errors = self.quiet(localize.merge, self.settings(), "en", [done], self.work, False)
+        self.assertEqual(result, 1)
+        self.assertIn("このidの原文がありません", errors)
+
+    def test_merge_does_not_replace_existing_translation_without_overwrite(self):
+        self.sync()
+        self.merge({"単元": "Unit"})
+        _, output, _ = self.merge({"単元": "Lesson"})
+        self.assertIn("入れなかった訳 1", output)
+        self.assertEqual(self.catalog("docs/unit/index.html")["単元"], "Unit")
+        self.merge({"単元": "Lesson"}, overwrite=True)
+        self.assertEqual(self.catalog("docs/unit/index.html")["単元"], "Lesson")
+
+    def test_check_ignores_untranslated_and_unused_entries_but_finds_broken_catalogs(self):
+        self.sync()
+        self.merge({"単元": "Unit", "準備をします。": "Get ready."})
+        # 日常のPRで日本語が変わっても、検査は落ちない。
+        self.write("docs/common/setup.html", '<html lang="ja"><body><p>書き直した文</p></body></html>')
+        self.assertEqual(localize.check(self.settings()), [])
+
+        self.write("i18n/en/unit/index.json", json.dumps({"source": "docs/unit/other.html", "language": "fr", "entries": [
+            {"source": "単元", "translation": "Unit"}, {"source": "単元", "translation": "Unit"},
+            {"source": "<code>Run</code>を押します。", "translation": "Press Run."}, {"source": "確認"},
+        ]}, ensure_ascii=False))
+        self.write("i18n/de/unit/index.json", "{}")
+        self.write("i18n/en/common/setup.json", "{")
+        errors = "\n".join(localize.check(self.settings()))
+        for message in ("language がフォルダの名前と違います", "source がファイルの場所と違います", "同じ原文が2回あります",
+                        "訳文にタグが足りません", "source と translation の組になっていません",
+                        "config/i18n.jsonにない言語のフォルダです: de", "JSONとして読み込めません"):
+            self.assertIn(message, errors)
+
+    def test_check_reports_html_that_cannot_be_extracted(self):
+        self.write("docs/unit/index.html", "<div><p>閉じていない</div>")
+        self.assertIn("docs/unit/index.html:1: 開始タグと終了タグが対応していません", "\n".join(localize.check(self.settings())))
+
+    def test_status_counts_and_require_complete_only_looks_at_distributed_languages(self):
+        self.sync("en", "fr")
+        self.merge({"単元": "Unit"})
+        report = localize.progress(self.settings(), ["en"])[0]
+        self.assertEqual({row["page"]: (row["translated"], row["total"]) for row in report["rows"]},
+                         {"docs/common/setup.html": (0, 2), "docs/unit/index.html": (1, 4)})
+        summary = self.root / "summary.md"
+        with patch.dict(os.environ, {"GITHUB_STEP_SUMMARY": str(summary)}):
+            result, _, errors = self.quiet(localize.status, self.settings(), ["en", "fr"], True)
+            self.assertEqual(result, 1)
+            self.assertIn("en: 未翻訳 5", errors)
+            self.assertNotIn("fr", errors)
+            self.assertEqual(self.quiet(localize.status, self.settings(), ["en", "fr"], False)[0], 0)
+            self.assertEqual(self.quiet(localize.status, self.settings(), ["fr"], True)[0], 0)
+        self.assertIn("| en（English） | 対象 | 1 / 6 | 5 | 0 |", summary.read_text(encoding="utf-8"))
+
+    def test_status_lists_catalog_without_page(self):
+        self.write("i18n/en/gone/index.json", json.dumps({"source": "docs/gone/index.html", "language": "en",
+                                                          "entries": [{"source": "古い文", "translation": "Old"}]}, ensure_ascii=False))
+        self.assertEqual(localize.progress(self.settings(), ["en"])[0]["orphans"], ["i18n/en/gone/index.json"])
+
+    def test_build_writes_language_folder_next_to_copied_docs(self):
+        self.sync()
+        self.merge({"はじめての単元": "Your first unit"})
+        output = self.root / "dist/i18n-preview"
+        self.quiet(localize.build, self.settings(), ["en"], output)
+        html = (output / "docs/en/unit/index.html").read_text(encoding="utf-8")
+        self.assertIn('<html lang="en">', html)
+        self.assertIn("<h1>Your first unit</h1>", html)
+        self.assertIn('href="../../assets/textbook.css"', html)
+        self.assertTrue((output / "docs/assets/textbook.css").is_file())
+        with self.assertRaisesRegex(localize.LocalizeError, "リポジトリの直下には作れません"):
+            localize.build(self.settings(), ["en"], self.root)
+
+    def test_generated_language_folder_is_not_a_source_page(self):
+        self.write("docs/en/unit/index.html", "<p>generated</p>")
+        self.assertEqual(self.settings().page_names(), ["docs/common/setup.html", "docs/unit/index.html"])
+
+    def test_unknown_language_is_rejected(self):
+        with self.assertRaisesRegex(localize.LocalizeError, "config/i18n.jsonにない言語です: de"):
+            localize.localized_pages(self.settings(), "de")
+
+
+class RepositoryTest(unittest.TestCase):
+    """実際の教材と対訳カタログで確かめる。"""
+
+    @classmethod
+    def setUpClass(cls):
+        cls.settings = localize.load_settings(SCRIPTS.parent)
+
+    def test_every_page_can_be_extracted_and_catalogs_are_valid(self):
+        self.assertEqual(localize.check(self.settings), [])
+
+    def test_code_blocks_are_identical_in_every_language(self):
+        # <pre> とソースのバイト一致（check-teaching-materials.py）が、どの言語でも保たれる。
+        blocks = re.compile(r"<pre.*?</pre>", re.DOTALL)
+        for code in self.settings.codes():
+            for name, text in localize.localized_pages(self.settings, code).items():
+                source = posixpath_source(name, code)
+                original = (self.settings.root / source).read_text(encoding="utf-8")
+                with self.subTest(page=name):
+                    self.assertEqual(blocks.findall(text), blocks.findall(original))
+                    self.assertIn(f'<html lang="{code}">', text)
+
+
+def posixpath_source(name, code):
+    return name.replace(f"docs/{code}/", "docs/", 1)
+
+
+if __name__ == "__main__":
+    unittest.main()
