@@ -354,6 +354,25 @@ class LocalizeTest(unittest.TestCase):
         self.assertIn("<p>Screen</p>", translated)
 
 
+def ui(copy):
+    """確認用の最小のUI文言。localize.UI_KEYS の全項目を埋める。"""
+    return {key: (copy if key == "copy" else f"{copy}:{key}") for key in localize.UI_KEYS}
+
+
+class TextbookScriptTest(unittest.TestCase):
+    def test_script_element_keeps_json_out_of_html_parsing(self):
+        element = localize.textbook_i18n_script({"copy": "</script><b>Copy"})
+        self.assertNotIn("</script><b>", element)
+        payload = element.split(">", 1)[1].rsplit("<", 1)[0]
+        self.assertEqual(json.loads(payload)["copy"], "</script><b>Copy")
+
+    def test_body_is_required_for_the_insertion(self):
+        self.assertEqual(localize.insert_into_body("<body class='x'>あ</body>", "!", "p.html"),
+                         "<body class='x'>!あ</body>")
+        with self.assertRaisesRegex(localize.LocalizeError, "p.html"):
+            localize.insert_into_body("<p>あ</p>", "!", "p.html")
+
+
 class CommandTest(unittest.TestCase):
     def setUp(self):
         temporary = tempfile.TemporaryDirectory()
@@ -361,9 +380,10 @@ class CommandTest(unittest.TestCase):
         self.root = Path(temporary.name)
         self.write("config/i18n.json", json.dumps({
             "source_language": "ja", "source_root": "docs", "catalog_root": "i18n",
-            "languages": [{"code": "en", "name": "English", "distribute": True},
-                          {"code": "fr", "name": "Français", "distribute": False}],
-        }))
+            "languages": [{"code": "en", "name": "English", "distribute": True, "ui": ui("Copy")},
+                          {"code": "fr", "name": "Français", "distribute": False, "ui": ui("Copier")}],
+            "source_ui": ui("コピー"),
+        }, ensure_ascii=False))
         self.write("config/teaching-materials.json", json.dumps({"terms": TERMS}))
         self.write("docs/assets/textbook.css", "body {}")
         self.write("docs/unit/index.html", (
@@ -765,6 +785,12 @@ class CommandTest(unittest.TestCase):
         self.assertIn("<h1>Your first unit</h1>", html)
         self.assertIn('href="../../assets/textbook.css"', html)
         self.assertTrue((output / "docs/assets/textbook.css").is_file())
+        # 確認用ページでも、コピーボタンなどがその言語の文言で出る（配布物と同じ渡し方）。
+        payload = html.split('id="textbook-i18n">')[1].split("</script>")[0]
+        self.assertEqual(json.loads(payload)["copy"], "Copy")
+        # 言語の切り替えと翻訳の注記は配布物だけのもの。確認用ページには入れない。
+        self.assertNotIn("language-nav", html)
+        self.assertNotIn("translation-note", html)
         with self.assertRaisesRegex(localize.LocalizeError, "リポジトリの直下には作れません"):
             localize.build(self.settings(), ["en"], self.root)
 

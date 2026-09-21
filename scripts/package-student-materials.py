@@ -10,7 +10,6 @@ import io
 import json
 from pathlib import Path
 import posixpath
-import re
 import subprocess
 import sys
 from urllib.parse import unquote, urlsplit
@@ -57,12 +56,9 @@ def add_localized_materials(files):
     languages = [item for item in settings.languages if item.get("distribute")]
     if not languages:
         return []
-    config = json.loads((ROOT / "config/i18n.json").read_text(encoding="utf-8"))
-    source_ui = config["source_ui"]
-    required_ui = {"copy", "copy_label", "copied", "copy_success", "copy_shortcut", "copy_selected", "progress"}
-    for label, messages in [("ja", source_ui)] + [(item["code"], item.get("ui", {})) for item in languages]:
-        if not all(isinstance(messages.get(key), str) and messages[key].strip() for key in required_ui):
-            raise ValueError(f"config/i18n.json: {label} のUI文言が不足しています")
+    # UI文言の確かめ方と渡し方は、確認用ページ（localize の build）と共通にする。
+    ui = {code: localizer.ui_messages(settings, code)
+          for code in [settings.source_language, *(item["code"] for item in languages)]}
     for item in languages:
         for key in ("name", "language_label", "translation_notice", "japanese_version", "open_instructions", "start_here"):
             if not isinstance(item.get(key), str) or not item[key].strip():
@@ -95,15 +91,8 @@ def add_localized_materials(files):
                 nav += ('<aside class="translation-note"><p>' + html.escape(language["translation_notice"])
                         + f'</p><a href="{original}" data-language-link hreflang="ja">'
                         + html.escape(language["japanese_version"]) + '</a></aside>')
-            messages = source_ui if code == "ja" else language["ui"]
-            # JSON内に </script> があってもHTMLの区切りにしない。
-            payload = json.dumps(messages, ensure_ascii=False).replace("<", "\\u003c")
-            addition = f'\n{nav}\n<script type="application/json" id="textbook-i18n">{payload}</script>\n'
-            text = files[name].decode("utf-8")
-            text, count = re.subn(r"(<body\b[^>]*>)", lambda match: match.group(0) + addition, text, count=1, flags=re.I)
-            if count != 1:
-                raise ValueError(f"言語の導線を挿入するbodyがありません：{name}")
-            files[name] = text.encode("utf-8")
+            addition = f"\n{nav}\n{localizer.textbook_i18n_script(ui[code])}\n"
+            files[name] = localizer.insert_into_body(files[name].decode("utf-8"), addition, name).encode("utf-8")
     # 翻訳された共通資料を入口にする。確認用の小さな教材にはA01を使う。
     start = "docs/common/setup.html" if "docs/common/setup.html" in files else "docs/hello-android/index.html"
     items = [f'<li lang="ja"><a href="{start}">日本語 — ここから始める</a></li>']
