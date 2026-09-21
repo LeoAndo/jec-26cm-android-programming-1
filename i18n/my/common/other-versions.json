@@ -1,0 +1,497 @@
+{
+  "source": "docs/common/other-versions.html",
+  "language": "my",
+  "entries": [
+    {
+      "source": "ちがうAndroid Studioのバージョンで進めるとき | Androidプログラミング1",
+      "translation": "Android Studio ၏ အခြား version ဖြင့် လုပ်ဆောင်သည့်အခါ | Android ပရိုဂရမ်းမင်း 1"
+    },
+    {
+      "source": "もとのページへ戻る",
+      "translation": "လာခဲ့သော စာမျက်နှာသို့ ပြန်သွားရန်"
+    },
+    {
+      "source": "ANDROID PROGRAMMING 1 / 共通資料・授業サポート",
+      "translation": "ANDROID PROGRAMMING 1 / အများသုံးလမ်းညွှန်နှင့် အတန်းအတွက် အကူအညီ"
+    },
+    {
+      "source": "ちがうAndroid Studioの<br>バージョンで進めるとき",
+      "translation": "Android Studio ၏ အခြား<br>version ဖြင့် လုပ်ဆောင်သည့်အခါ"
+    },
+    {
+      "source": "教科書は、学校の貸与パソコンと規定のバージョンを前提に書かれています。<br>自分のMacなど、ちがう環境で進める人のための読み替え資料です。",
+      "translation": "သင်ရိုးစာအုပ်ကို ကျောင်းမှ ငှားပေးထားသော ကွန်ပျူတာနှင့် သတ်မှတ်ထားသော version ကို အခြေခံ၍ ရေးထားသည်။<br>မိမိ၏ Mac ကဲ့သို့ မတူညီသော ပတ်ဝန်းကျင်ဖြင့် လုပ်ဆောင်သူများအတွက် မိမိအခြေအနေနှင့် ကိုက်ညီအောင် ဖတ်ရှုအသုံးချရန် လမ်းညွှန်ဖြစ်သည်။"
+    },
+    {
+      "source": "このページの内容",
+      "translation": "ဤစာမျက်နှာ၏ အကြောင်းအရာများ"
+    },
+    {
+      "source": "サポートの範囲",
+      "translation": "အကူအညီပေးနိုင်သည့် အတိုင်းအတာ"
+    },
+    {
+      "source": "教科書が前提にしているもの",
+      "translation": "သင်ရိုးစာအုပ်က အခြေခံထားသောအရာများ"
+    },
+    {
+      "source": "読み替えのポイント",
+      "translation": "မိမိအခြေအနေနှင့် ကိုက်ညီအောင် ဖတ်ရှုအသုံးချရန် အချက်များ"
+    },
+    {
+      "source": "それでも合わないとき",
+      "translation": "ထိုသို့လုပ်သော်လည်း မကိုက်ညီသေးလျှင်"
+    },
+    {
+      "source": "はじめに読んでください",
+      "translation": "ဦးစွာ ဖတ်ပါ"
+    },
+    {
+      "source": "環境が人によって違うと、うまく動かないときの原因が「教科書のとおりに書けていない」のか「環境の違い」なのかを、その場で切り分けられません。実習の時間内に全員をフォローするために、<strong>基準となる環境を1つ決めています。</strong>",
+      "translation": "လူတစ်ဦးစီ၏ ပတ်ဝန်းကျင် မတူလျှင် ကောင်းစွာ အလုပ်မလုပ်သည့်အကြောင်းမှာ “သင်ရိုးစာအုပ်အတိုင်း မရေးထားခြင်း” ကြောင့်လား၊ “ပတ်ဝန်းကျင်ကွာခြားမှု” ကြောင့်လားကို ထိုနေရာတွင် ချက်ချင်း ခွဲခြားမရနိုင်ပါ။ လက်တွေ့သင်ခန်းစာအချိန်အတွင်း လူတိုင်းကို ကူညီနိုင်ရန် <strong>စံထားသည့် ပတ်ဝန်းကျင်တစ်ခုကို သတ်မှတ်ထားသည်။</strong>"
+    },
+    {
+      "source": "教科書は、その基準のバージョンで<strong>実際に動くことを確認して作っています。</strong>貸与パソコン以外や規定と違うバージョンでは、この確認が取れていません。",
+      "translation": "သင်ရိုးစာအုပ်ကို စံထားသည့် version တွင် <strong>အမှန်တကယ် အလုပ်လုပ်ကြောင်း စစ်ဆေးပြီး ပြုလုပ်ထားသည်။</strong>ငှားပေးထားသော ကွန်ပျူတာမဟုတ်သည့် စက် သို့မဟုတ် သတ်မှတ်ချက်နှင့် မတူသော version များတွင် ဤစစ်ဆေးမှုကို မလုပ်ထားပါ။"
+    },
+    {
+      "source": "このページは、それでも自分の環境で進めたい人のための手がかりです。<strong>確実に授業についていきたい場合は、規定のバージョンに合わせてください。</strong>",
+      "translation": "ဤစာမျက်နှာသည် ထိုသို့ဖြစ်သော်လည်း မိမိ၏ ပတ်ဝန်းကျင်ဖြင့် ဆက်လုပ်လိုသူများအတွက် အထောက်အကူဖြစ်သည်။<strong>အတန်းကို သေချာစွာ လိုက်နိုင်လိုလျှင် သတ်မှတ်ထားသော version ကို သုံးပါ။</strong>"
+    },
+    {
+      "source": "1. サポートの範囲",
+      "translation": "1. အကူအညီပေးနိုင်သည့် အတိုင်းအတာ"
+    },
+    {
+      "source": "1-1. 基準の環境と、それ以外",
+      "translation": "1-1. စံပတ်ဝန်းကျင်နှင့် အခြားပတ်ဝန်းကျင်များ"
+    },
+    {
+      "source": "扱い",
+      "translation": "ကိုင်တွယ်ပုံ"
+    },
+    {
+      "source": "貸与パソコン＋規定のバージョン",
+      "translation": "ငှားပေးထားသော ကွန်ပျူတာ + သတ်မှတ်ထားသော version"
+    },
+    {
+      "source": "<strong>基準の環境です。</strong>教科書はこの環境で動作を確認しています。実習中のフォローもこの環境が前提です。",
+      "translation": "<strong>စံထားသည့် ပတ်ဝန်းကျင်ဖြစ်သည်။</strong>သင်ရိုးစာအုပ်ကို ဤပတ်ဝန်းကျင်တွင် အလုပ်လုပ်ကြောင်း စစ်ဆေးထားသည်။ လက်တွေ့သင်ခန်းစာအတွင်း ကူညီရာတွင်လည်း ဤပတ်ဝန်းကျင်ကို အခြေခံသည်။"
+    },
+    {
+      "source": "自分のMac、または規定と違うバージョン",
+      "translation": "မိမိ၏ Mac သို့မဟုတ် သတ်မှတ်ချက်နှင့် မတူသော version"
+    },
+    {
+      "source": "<strong>動作確認をしていません。</strong>このページを手がかりに自分で読み替えます。実習中に質問しても、時間内に解決できないことがあります。",
+      "translation": "<strong>အလုပ်လုပ်ကြောင်း မစစ်ဆေးထားပါ။</strong>ဤစာမျက်နှာကို အထောက်အကူအဖြစ် သုံး၍ မိမိအခြေအနေနှင့် ကိုက်ညီအောင် ကိုယ်တိုင် ဖတ်ရှုအသုံးချရမည်။ လက်တွေ့သင်ခန်းစာအတွင်း မေးမြန်းသော်လည်း အချိန်အတွင်း မဖြေရှင်းနိုင်သောအခါ ရှိနိုင်သည်။"
+    },
+    {
+      "source": "授業では使いません。教科書はmacOS前提で書かれています。",
+      "translation": "အတန်းတွင် မသုံးပါ။ သင်ရိုးစာအုပ်ကို macOS ကို အခြေခံ၍ ရေးထားသည်။"
+    },
+    {
+      "source": "迷ったら基準の環境へ",
+      "translation": "မသေချာလျှင် စံပတ်ဝန်းကျင်သို့ ပြန်သွားပါ"
+    },
+    {
+      "source": "環境の違いが原因の問題は、<strong>切り分けに時間がかかります。</strong>90分の実習の中で解決できないことも多く、そのぶん教科書を進める時間が減ります。困ったら早めに貸与パソコンへ戻してください。教科書のとおりに進めば、同じものができます。",
+      "translation": "ပတ်ဝန်းကျင်ကွာခြားမှုကြောင့် ဖြစ်သောပြဿနာများကို <strong>အကြောင်းရင်း ခွဲခြားရန် အချိန်လိုသည်။</strong>မိနစ် 90 လက်တွေ့သင်ခန်းစာအတွင်း မဖြေရှင်းနိုင်သည့်အခါလည်း များပြီး ထိုမျှ သင်ရိုးစာအုပ်ကို ဆက်လုပ်ရန် အချိန်လျော့သွားမည်။ အခက်အခဲရှိလျှင် ငှားပေးထားသော ကွန်ပျူတာသို့ စောစော ပြန်ပြောင်းပါ။ သင်ရိုးစာအုပ်အတိုင်း လုပ်လျှင် တူညီသောအရာကို ပြုလုပ်နိုင်သည်။"
+    },
+    {
+      "source": "2. 教科書が前提にしているもの",
+      "translation": "2. သင်ရိုးစာအုပ်က အခြေခံထားသောအရာများ"
+    },
+    {
+      "source": "2-1. 開発環境",
+      "translation": "2-1. app ရေးသားသည့် ပတ်ဝန်းကျင်"
+    },
+    {
+      "source": "前提にしている内容",
+      "translation": "အခြေခံထားသည့် အကြောင်းအရာ"
+    },
+    {
+      "source": "エミュレータ",
+      "translation": "エミュレータ — emulator"
+    },
+    {
+      "source": "教科書のスクリーンショットは、すべてこの環境で撮影しています。",
+      "translation": "သင်ရိုးစာအုပ်ရှိ screenshot အားလုံးကို ဤပတ်ဝန်းကျင်တွင် ရိုက်ထားသည်။"
+    },
+    {
+      "source": "2-2. プロジェクトを作るときの選択",
+      "translation": "2-2. project ဖန်တီးသည့်အခါ ရွေးချယ်ရမည့်အရာများ"
+    },
+    {
+      "source": "選ぶもの",
+      "translation": "ရွေးရမည့်အရာ"
+    },
+    {
+      "source": "テンプレート",
+      "translation": "template"
+    },
+    {
+      "source": "2-3. 完成プロジェクトが使っているもの",
+      "translation": "2-3. ပြီးစီးထားသော project များတွင် သုံးထားသည့်အရာများ"
+    },
+    {
+      "source": "各単元の完成プロジェクトは、次のバージョンで作られています。",
+      "translation": "သင်ခန်းစာတစ်ခုစီ၏ ပြီးစီးထားသော project ကို အောက်ပါ version များဖြင့် ပြုလုပ်ထားသည်။"
+    },
+    {
+      "source": "バージョン",
+      "translation": "version"
+    },
+    {
+      "source": "3. 読み替えのポイント",
+      "translation": "3. မိမိအခြေအနေနှင့် ကိုက်ညီအောင် ဖတ်ရှုအသုံးချရန် အချက်များ"
+    },
+    {
+      "source": "3-1. 画面の見た目が違う",
+      "translation": "3-1. မျက်နှာပြင်၏ ပုံစံမတူခြင်း"
+    },
+    {
+      "source": "Android Studioは版が上がると、ウィンドウの文言や項目の並びが変わることがあります。",
+      "translation": "Android Studio ၏ version မြင့်လာသည့်အခါ window ထဲရှိ စာသားနှင့် အကြောင်းအရာများ၏ အစီအစဉ် ပြောင်းနိုင်သည်။"
+    },
+    {
+      "source": "合わせ方",
+      "translation": "ကိုက်ညီအောင် လုပ်ပုံ"
+    },
+    {
+      "source": "<strong>スクリーンショットの見た目ではなく、「何を選ぶか」で合わせます。</strong>2-2の表の4項目さえ同じなら、画面の並びが違っても同じプロジェクトができます。項目が見つからないときは、ウィンドウ内を探すか、<strong>Previous</strong> で1つ前に戻って確認します。",
+      "translation": "<strong>screenshot ၏ ပုံစံကို ကြည့်၍ မဟုတ်ဘဲ “ဘာကို ရွေးမလဲ” ဆိုသည်ကို ကြည့်၍ ကိုက်ညီအောင် လုပ်ပါ။</strong>2-2 ၏ ဇယားရှိ အချက် 4 ချက် တူညီလျှင် မျက်နှာပြင်၏ အစီအစဉ် ကွဲသော်လည်း တူညီသော project ကို ဖန်တီးနိုင်သည်။ အချက်ကို ရှာမတွေ့လျှင် window ထဲတွင် ရှာပါ၊ သို့မဟုတ် <strong>Previous</strong> ဖြင့် ရှေ့တစ်ဆင့်သို့ ပြန်သွားပြီး စစ်ဆေးပါ။"
+    },
+    {
+      "source": "テンプレートの名前が変わっている場合は、<strong>Views</strong> という語が入っているものを選びます。<code>Empty Activity</code>（Viewsが付かないもの）はJetpack Composeという別のしくみで、教科書のXMLと合いません。",
+      "translation": "template အမည် ပြောင်းနေလျှင် <strong>Views</strong> ဆိုသည့် စကားလုံး ပါသောအရာကို ရွေးပါ။ <code>Empty Activity</code> (Views မပါသောအရာ) သည် Jetpack Compose ဟုခေါ်သည့် အခြားစနစ်ဖြစ်၍ သင်ရိုးစာအုပ်၏ XML နှင့် မကိုက်ညီပါ။"
+    },
+    {
+      "source": "3-2. 完成プロジェクトを開くと更新をすすめられる",
+      "translation": "3-2. ပြီးစီးထားသော project ကို ဖွင့်လျှင် update လုပ်ရန် အကြံပြုခြင်း"
+    },
+    {
+      "source": "新しいAndroid Studioで完成プロジェクトを開くと、<strong>Android Gradle Pluginのアップグレード</strong>をすすめる案内（AGP Upgrade Assistant）が出ることがあります。",
+      "translation": "Android Studio အသစ်ဖြင့် ပြီးစီးထားသော project ကို ဖွင့်လျှင် <strong>Android Gradle Plugin ကို upgrade လုပ်ရန်</strong> အကြံပြုသည့် လမ်းညွှန် (AGP Upgrade Assistant) ပေါ်လာနိုင်သည်။"
+    },
+    {
+      "source": "授業中は更新しません",
+      "translation": "အတန်းအတွင်း update မလုပ်ပါ"
+    },
+    {
+      "source": "更新すると <code>build.gradle.kts</code> などの中身が書き換わり、教科書に載っているコードと差が出ます。<strong>案内が出ても閉じてください。</strong>完成プロジェクトは「答え合わせ用の見本」なので、そのまま読めれば十分です。",
+      "translation": "update လုပ်လျှင် <code>build.gradle.kts</code> စသည်တို့၏ အကြောင်းအရာ ပြောင်းပြီး သင်ရိုးစာအုပ်ရှိ code နှင့် ကွဲသွားမည်။<strong>လမ်းညွှန်ပေါ်လာလျှင်လည်း ပိတ်ပါ။</strong>ပြီးစီးထားသော project သည် “အဖြေတိုက်ရန် နမူနာ” ဖြစ်သောကြောင့် မူလအတိုင်း ဖတ်နိုင်လျှင် လုံလောက်သည်။"
+    },
+    {
+      "source": "自分で作るプロジェクトのほうは、新しいAndroid Studioが選んだバージョンのままで構いません。教科書が指定しているのは2-2の4項目だけです。",
+      "translation": "မိမိဖန်တီးသော project တွင် Android Studio အသစ်က ရွေးပေးသော version အတိုင်း ထားနိုင်သည်။ သင်ရိုးစာအုပ်က သတ်မှတ်ထားသည်မှာ 2-2 ၏ အချက် 4 ချက်သာ ဖြစ်သည်။"
+    },
+    {
+      "source": "3-3. エミュレータの名前が違う",
+      "translation": "3-3. emulator အမည် မတူခြင်း"
+    },
+    {
+      "source": "自分のMacには <code>jec_26cm_android1_Pixel 9a</code> がありません。<a1>共通資料：エミュレータの準備とアプリの実行</a1>の手順で、同じ設定のものを自分で作ってください。名前は同じにしておくと、教科書の記述をそのまま読めます。",
+      "translation": "မိမိ၏ Mac တွင် <code>jec_26cm_android1_Pixel 9a</code> မရှိပါ။ <a1>အများသုံးလမ်းညွှန်: emulator ကို ပြင်ဆင်ခြင်းနှင့် app ကို run လုပ်ခြင်း</a1> ၏ အဆင့်များအတိုင်း တူညီသော setting ဖြင့် ကိုယ်တိုင် ဖန်တီးပါ။ အမည်ကို တူအောင်ထားလျှင် သင်ရိုးစာအုပ်ပါ စာသားအတိုင်း ဖတ်ရှုနိုင်သည်။"
+    },
+    {
+      "source": "3-4. Quail 4 との違い（実際に比べた結果）",
+      "translation": "3-4. Quail 4 နှင့် ကွာခြားချက်များ (လက်တွေ့ နှိုင်းယှဉ်ထားသော ရလဒ်)"
+    },
+    {
+      "source": "教員が <strong>Android Studio Quail 4</strong> で同じ設定のひな形プロジェクトを作り、Panda 2 のものと1ファイルずつ比べました。結果は次のとおりです。",
+      "translation": "ဆရာက <strong>Android Studio Quail 4</strong> ဖြင့် setting တူညီသော ပုံစံနမူနာ project ကို ဖန်တီးပြီး Panda 2 ၏ project နှင့် ဖိုင်တစ်ခုစီ နှိုင်းယှဉ်ထားသည်။ ရလဒ်မှာ အောက်ပါအတိုင်းဖြစ်သည်။"
+    },
+    {
+      "source": "同じだったもの",
+      "translation": "တူညီသောအရာများ"
+    },
+    {
+      "source": "ファイル",
+      "translation": "ဖိုင်"
+    },
+    {
+      "source": "<strong>完全に同じ</strong>（パッケージ名の行を除く）",
+      "translation": "<strong>လုံးဝ တူညီသည်</strong> (package အမည်ပါသော စာကြောင်းမှအပ)"
+    },
+    {
+      "source": "完全に同じ",
+      "translation": "လုံးဝ တူညီသည်"
+    },
+    {
+      "source": "同じ（テーマ名を除く）",
+      "translation": "တူညီသည် (theme အမည်မှအပ)"
+    },
+    {
+      "source": "どちらも <code>minSdk = 31</code>。ウィザードで API 31 を選べば同じになる",
+      "translation": "နှစ်ခုလုံး <code>minSdk = 31</code> ဖြစ်သည်။ wizard တွင် API 31 ကို ရွေးလျှင် တူညီမည်"
+    },
+    {
+      "source": "ここが大事です",
+      "translation": "ဤအချက် အရေးကြီးသည်"
+    },
+    {
+      "source": "<strong>教科書で入力するコードは、Quail 4 でもそのまま使えます。</strong>ひな形の <code>MainActivity.java</code> も <code>activity_main.xml</code> も中身が同じだからです。<code>android:id=\"@+id/main\"</code> も、インセットの処理も、Panda 2 と同じ形で作られます。",
+      "translation": "<strong>သင်ရိုးစာအုပ်တွင် ရိုက်ထည့်သည့် code ကို Quail 4 တွင်လည်း မူလအတိုင်း သုံးနိုင်သည်။</strong>ပုံစံနမူနာ၏ <code>MainActivity.java</code> နှင့် <code>activity_main.xml</code> နှစ်ခုလုံး၏ အကြောင်းအရာ တူသောကြောင့်ဖြစ်သည်။ <code>android:id=\"@+id/main\"</code> နှင့် inset ကို ကိုင်တွယ်သည့် လုပ်ဆောင်ချက်လည်း Panda 2 နှင့် တူညီသောပုံစံဖြင့် ဖန်တီးပေးသည်။"
+    },
+    {
+      "source": "違ったもの",
+      "translation": "ကွာခြားသောအရာများ"
+    },
+    {
+      "source": "違いはすべて<strong>ビルドの設定</strong>にありました。授業では触らない部分です。",
+      "translation": "ကွာခြားချက်အားလုံးသည် <strong>build setting များ</strong>တွင်သာ ရှိသည်။ အတန်းတွင် မပြင်သည့်အပိုင်းများ ဖြစ်သည်။"
+    },
+    {
+      "source": "R8のルールを書くファイル",
+      "translation": "R8 စည်းမျဉ်းများ ရေးသည့်ဖိုင်"
+    },
+    {
+      "source": "指定なし",
+      "translation": "သတ်မှတ်မထားပါ"
+    },
+    {
+      "source": "<code>android:windowSoftInputMode=\"adjustResize\"</code> が自動で付く",
+      "translation": "<code>android:windowSoftInputMode=\"adjustResize\"</code> ကို အလိုအလျောက် ထည့်ပေးသည်"
+    },
+    {
+      "source": "使うライブラリ",
+      "translation": "သုံးသည့် library များ"
+    },
+    {
+      "source": "ライブラリの版",
+      "translation": "library version"
+    },
+    {
+      "source": "appcompat 1.8.0 / material 1.14.0 など",
+      "translation": "appcompat 1.8.0 / material 1.14.0 စသည်တို့"
+    },
+    {
+      "source": "appcompat 1.6.1 / material 1.10.0 など（<strong>やや古い</strong>）",
+      "translation": "appcompat 1.6.1 / material 1.10.0 စသည်တို့ (<strong>အနည်းငယ် ဟောင်းသည်</strong>)"
+    },
+    {
+      "source": "Minimum SDK だけは自分で選びます",
+      "translation": "Minimum SDK ကိုသာ ကိုယ်တိုင် ရွေးပါ"
+    },
+    {
+      "source": "教科書は <strong>API 31</strong> を前提にしています。新規作成のときに自分で API 31 を選べば、Quail 4 でも <code>minSdk = 31</code> になります（比較に使ったひな形で確認しました）。作ったあとで確かめるときは <code>app/build.gradle.kts</code> の <code>minSdk</code> を見ます。",
+      "translation": "သင်ရိုးစာအုပ်သည် <strong>API 31</strong> ကို အခြေခံထားသည်။ အသစ်ဖန်တီးသည့်အခါ API 31 ကို ကိုယ်တိုင် ရွေးလျှင် Quail 4 တွင်လည်း <code>minSdk = 31</code> ဖြစ်မည် (နှိုင်းယှဉ်ရာတွင် သုံးသော ပုံစံနမူနာဖြင့် စစ်ဆေးထားသည်)။ ဖန်တီးပြီးနောက် စစ်ဆေးလိုလျှင် <code>app/build.gradle.kts</code> ရှိ <code>minSdk</code> ကို ကြည့်ပါ။"
+    },
+    {
+      "source": "上の表の違い（AGP・Gradle・compileSdk・targetSdk・R8のファイル名・ライブラリ）は、<strong>そのままで構いません。</strong>教科書はこれらに依存していません。新しいバージョンが選んだ値のまま進めてください。",
+      "translation": "အထက်ဇယားရှိ ကွာခြားချက်များ (AGP၊ Gradle၊ compileSdk၊ targetSdk၊ R8 ဖိုင်အမည်၊ library များ) ကို <strong>မူလအတိုင်း ထားနိုင်သည်။</strong>သင်ရိုးစာအုပ်သည် ၎င်းတို့အပေါ် မမှီခိုပါ။ version အသစ်က ရွေးထားသော တန်ဖိုးအတိုင်း ဆက်လုပ်ပါ။"
+    },
+    {
+      "source": "なお Quail 4 のひな形は、そのまま <code>assembleDebug</code> が通ることを確認しています。",
+      "translation": "ထို့အပြင် Quail 4 ၏ ပုံစံနမူနာသည် မပြင်ဘဲ <code>assembleDebug</code> အောင်မြင်ကြောင်း စစ်ဆေးထားသည်။"
+    },
+    {
+      "source": "3-5. Javaのバージョンのこと（JVM / toolchainVersion / compileOptions）",
+      "translation": "3-5. Java version အကြောင်း (JVM / toolchainVersion / compileOptions)"
+    },
+    {
+      "source": "先に結論です。教科書に出てくるJavaの書き方は、Quail 4 でもそのまま使えます。",
+      "translation": "ရလဒ်ကို ဦးစွာ ပြောပါမည်။ သင်ရိုးစာအုပ်ရှိ Java ရေးနည်းကို Quail 4 တွင်လည်း မူလအတိုင်း သုံးနိုင်သည်။"
+    },
+    {
+      "source": "Javaは2か所で使われています",
+      "translation": "Java ကို နေရာ 2 ခုတွင် သုံးထားသည်"
+    },
+    {
+      "source": "まぎらわしいのですが、Androidアプリ作りでは「Java」が2つの役割で出てきます。調べるときに使う言葉もあわせて載せます。",
+      "translation": "ရှုပ်ထွေးစေနိုင်သော်လည်း Android app ဖန်တီးရာတွင် “Java” သည် အခန်းကဏ္ဍ 2 ခုဖြင့် ပါဝင်သည်။ ရှာဖွေသည့်အခါ သုံးမည့်စကားလုံးများကိုလည်း ဖော်ပြထားသည်။"
+    },
+    {
+      "source": "どこで使うJavaか",
+      "translation": "မည်သည့်နေရာတွင် သုံးသော Java လဲ"
+    },
+    {
+      "source": "設定の名前と場所",
+      "translation": "setting ၏ အမည်နှင့် တည်နေရာ"
+    },
+    {
+      "source": "<strong>自分が書くコード</strong>のJava。<code>MainActivity.java</code> に書く <code>var</code> やラムダ式など。",
+      "translation": "<strong>မိမိရေးသော code</strong> ၏ Java။ <code>MainActivity.java</code> တွင် ရေးသည့် <code>var</code> နှင့် lambda expression စသည်တို့ဖြစ်သည်။"
+    },
+    {
+      "source": "<code>compileOptions</code> の <code>sourceCompatibility</code> / <code>targetCompatibility</code><br>（<code>app/build.gradle.kts</code>）",
+      "translation": "<code>compileOptions</code> ၏ <code>sourceCompatibility</code> / <code>targetCompatibility</code><br>(<code>app/build.gradle.kts</code>)"
+    },
+    {
+      "source": "<strong>アプリを組み立てるビルドツール（Gradle）を動かす</strong>ためのJava。この実行環境を <strong>JVM</strong> と呼びます。学生が直接書くことはありません。",
+      "translation": "<strong>app ကို တည်ဆောက်သည့် build tool (Gradle) ကို လည်ပတ်စေရန်</strong> သုံးသော Java။ ဤ run လုပ်သည့် ပတ်ဝန်းကျင်ကို <strong>JVM</strong> ဟု ခေါ်သည်။ ကျောင်းသားများက တိုက်ရိုက် ရေးရခြင်း မရှိပါ။"
+    },
+    {
+      "source": "Panda 2 と Quail 4 で違うのは、<strong>②のほうだけ</strong>です。",
+      "translation": "Panda 2 နှင့် Quail 4 တွင် ကွာခြားသည်မှာ <strong>② သာ</strong> ဖြစ်သည်။"
+    },
+    {
+      "source": "① 自分が書くコードのJava<br>（<code>compileOptions</code>）",
+      "translation": "① မိမိရေးသော code ၏ Java<br>(<code>compileOptions</code>)"
+    },
+    {
+      "source": "<code>JavaVersion.VERSION_11</code>（同じ）",
+      "translation": "<code>JavaVersion.VERSION_11</code> (တူညီသည်)"
+    },
+    {
+      "source": "② Gradleを動かすJVM<br>（<code>toolchainVersion</code>）",
+      "translation": "② Gradle ကို လည်ပတ်စေသော JVM<br>(<code>toolchainVersion</code>)"
+    },
+    {
+      "source": "だから、コードの書き方は変わりません",
+      "translation": "ထို့ကြောင့် code ရေးနည်း မပြောင်းပါ"
+    },
+    {
+      "source": "①の <code>compileOptions</code> が同じ Java 11 なので、<strong>教科書のコードをそのまま入力して大丈夫です。</strong>「Javaのバージョンが違うから書き方も変えないといけないのでは」と心配する必要はありません。",
+      "translation": "① ၏ <code>compileOptions</code> သည် တူညီသော Java 11 ဖြစ်သောကြောင့် <strong>သင်ရိုးစာအုပ်၏ code ကို မူလအတိုင်း ရိုက်ထည့်နိုင်သည်။</strong>“Java version မတူသောကြောင့် ရေးနည်းလည်း ပြောင်းရမလား” ဟု စိုးရိမ်စရာ မလိုပါ။"
+    },
+    {
+      "source": "起きること：最初のビルドに時間がかかります（Gradle toolchain のダウンロード）",
+      "translation": "ဖြစ်မည့်အရာ: ပထမဆုံး build လုပ်ရာတွင် အချိန်ကြာမည် (Gradle toolchain download လုပ်ခြင်း)"
+    },
+    {
+      "source": "<code>gradle/gradle-daemon-jvm.properties</code> には「②にどのバージョンを使うか」が <code>toolchainVersion</code> として書き込まれています。そのバージョンが自分のパソコンに無いと、<strong>Gradleが自動でダウンロードします</strong>（Gradle の <strong>toolchain 自動プロビジョニング</strong>という仕組みです）。",
+      "translation": "<code>gradle/gradle-daemon-jvm.properties</code> တွင် “② အတွက် မည်သည့် version ကို သုံးမလဲ” ဆိုသည်ကို <code>toolchainVersion</code> အဖြစ် ရေးထားသည်။ မိမိကွန်ပျူတာတွင် ထို version မရှိလျှင် <strong>Gradle က အလိုအလျောက် download လုပ်မည်</strong> (Gradle ၏ <strong>toolchain အလိုအလျောက် ပြင်ဆင်ပေးခြင်း</strong> ဟုခေါ်သော စနစ်ဖြစ်သည်)။"
+    },
+    {
+      "source": "授業で配る<strong>完成プロジェクトは <code>toolchainVersion=21</code></strong> です。Quail 4 が持っているのは25なので、完成プロジェクトを開くと<strong>JDK 21 のダウンロードが始まることがあります。</strong>",
+      "translation": "အတန်းတွင် ဖြန့်ပေးသော <strong>ပြီးစီးထားသော project သည် <code>toolchainVersion=21</code></strong> ဖြစ်သည်။ Quail 4 တွင် ပါသည်မှာ 25 ဖြစ်သောကြောင့် ပြီးစီးထားသော project ကို ဖွင့်လျှင် <strong>JDK 21 ကို download စလုပ်နိုင်သည်။</strong>"
+    },
+    {
+      "source": "こうなったときは、待ってください",
+      "translation": "ဤသို့ဖြစ်လျှင် စောင့်ပါ"
+    },
+    {
+      "source": "<strong>初回のビルドだけ、数分かかることがあります。</strong>止まってしまったわけではありません。",
+      "translation": "<strong>ပထမဆုံး build တစ်ကြိမ်သာ မိနစ်အနည်းငယ် ကြာနိုင်သည်။</strong>ရပ်သွားခြင်း မဟုတ်ပါ။"
+    },
+    {
+      "source": "このとき<strong>インターネットにつながっている必要があります。</strong>つながっていないと失敗します。",
+      "translation": "ဤအချိန်တွင် <strong>အင်တာနက် ချိတ်ဆက်ထားရန် လိုသည်။</strong>မချိတ်ထားလျှင် မအောင်မြင်ပါ။"
+    },
+    {
+      "source": "<strong>2回目からは速くなります。</strong>一度ダウンロードしたものが <code>~/.gradle/jdks</code> に保存され、使い回されるためです。",
+      "translation": "<strong>ဒုတိယအကြိမ်မှစ၍ ပိုမြန်လာမည်။</strong>တစ်ကြိမ် download လုပ်ထားသည့်အရာကို <code>~/.gradle/jdks</code> တွင် သိမ်းထားပြီး ပြန်သုံးသောကြောင့်ဖြစ်သည်။"
+    },
+    {
+      "source": "画面下のビルドの表示に <code>Downloading</code> や <code>toolchain</code> という文字が出ていれば、この待ち時間です。エラーを調べるときは <strong>Gradle toolchain</strong> や <strong>toolchain auto-provisioning</strong> という言葉で検索すると情報が見つかります。",
+      "translation": "မျက်နှာပြင်အောက်ရှိ build ပြသသည့်နေရာတွင် <code>Downloading</code> သို့မဟုတ် <code>toolchain</code> ဆိုသည့်စာသား ပေါ်နေလျှင် ဤစောင့်ဆိုင်းချိန် ဖြစ်သည်။ error ကို ရှာဖွေသည့်အခါ <strong>Gradle toolchain</strong> သို့မဟုတ် <strong>toolchain auto-provisioning</strong> ဟူသော စကားလုံးဖြင့် ရှာလျှင် အချက်အလက်များ တွေ့နိုင်သည်။"
+    },
+    {
+      "source": "自分で新しく作ったプロジェクトのほうは、Quail 4 が自分の持っているバージョン（<code>toolchainVersion=25</code>）を書き込むので、このダウンロードは起きません。",
+      "translation": "မိမိအသစ်ဖန်တီးသော project တွင် Quail 4 က ၎င်း၌ ရှိသော version (<code>toolchainVersion=25</code>) ကို ရေးပေးသဖြင့် ဤ download လုပ်ခြင်း မဖြစ်ပါ။"
+    },
+    {
+      "source": "先生向け：確認した内容",
+      "translation": "ဆရာများအတွက်: စစ်ဆေးထားသောအကြောင်းအရာ"
+    },
+    {
+      "source": "各プロジェクトの <code>gradle/gradle-daemon-jvm.properties</code> の <code>toolchainVersion</code> を比較しました。A01〜A11 と <code>Panda2JavaEmptyViewActivity</code> はすべて <code>21</code>、<code>Quail4JavaEmptyViewActivity</code> は <code>25</code> です。<code>app/build.gradle.kts</code> の <code>compileOptions</code> は、どちらも <code>sourceCompatibility</code> / <code>targetCompatibility</code> とも <code>JavaVersion.VERSION_11</code> で一致しています。",
+      "translation": "project တစ်ခုစီ၏ <code>gradle/gradle-daemon-jvm.properties</code> ရှိ <code>toolchainVersion</code> ကို နှိုင်းယှဉ်ထားသည်။ A01–A11 နှင့် <code>Panda2JavaEmptyViewActivity</code> အားလုံးသည် <code>21</code> ဖြစ်ပြီး <code>Quail4JavaEmptyViewActivity</code> သည် <code>25</code> ဖြစ်သည်။ <code>app/build.gradle.kts</code> ရှိ <code>compileOptions</code> တွင် နှစ်ခုလုံး၏ <code>sourceCompatibility</code> / <code>targetCompatibility</code> တို့သည် <code>JavaVersion.VERSION_11</code> ဖြစ်၍ တူညီသည်။"
+    },
+    {
+      "source": "JDK 25 が入っていないMacで <code>Quail4JavaEmptyViewActivity</code> をビルドしたところ、Gradleが Eclipse Adoptium 25.0.3 を <code>~/.gradle/jdks</code> へ自動取得したうえで <code>assembleDebug</code> が成功しました（2026年9月17日）。",
+      "translation": "JDK 25 မပါသော Mac တွင် <code>Quail4JavaEmptyViewActivity</code> ကို build လုပ်ရာ Gradle က Eclipse Adoptium 25.0.3 ကို <code>~/.gradle/jdks</code> သို့ အလိုအလျောက် ရယူပြီးနောက် <code>assembleDebug</code> အောင်မြင်ခဲ့သည် (2026 စက်တင်ဘာ 17 ရက်)။"
+    },
+    {
+      "source": "4. それでも合わないとき",
+      "translation": "4. ထိုသို့လုပ်သော်လည်း မကိုက်ညီသေးလျှင်"
+    },
+    {
+      "source": "4-1. 判断のしかた",
+      "translation": "4-1. ဆုံးဖြတ်ပုံ"
+    },
+    {
+      "source": "状況",
+      "translation": "အခြေအနေ"
+    },
+    {
+      "source": "どうするか",
+      "translation": "လုပ်ရမည့်အရာ"
+    },
+    {
+      "source": "画面の文言が違うだけ",
+      "translation": "မျက်နှာပြင်၏ စာသားသာ မတူခြင်း"
+    },
+    {
+      "source": "3-1のとおり、選ぶ内容で合わせる。",
+      "translation": "3-1 အတိုင်း ရွေးမည့်အကြောင်းအရာကို ကြည့်၍ ကိုက်ညီအောင် လုပ်ပါ။"
+    },
+    {
+      "source": "教科書のコードを入れても赤いエラーが消えない",
+      "translation": "သင်ရိုးစာအုပ်၏ code ကို ရိုက်ထည့်သော်လည်း အနီရောင် error မပျောက်ခြင်း"
+    },
+    {
+      "source": "各単元の「困ったとき」を見る。それでも直らなければ規定のバージョンに切り替える。",
+      "translation": "သင်ခန်းစာတစ်ခုစီ၏ “အခက်အခဲရှိလျှင်” ကို ကြည့်ပါ။ မပြေလည်သေးလျှင် သတ်မှတ်ထားသော version သို့ ပြောင်းပါ။"
+    },
+    {
+      "source": "Runできない・ビルドが通らない",
+      "translation": "Run လုပ်မရခြင်း၊ build မအောင်မြင်ခြင်း"
+    },
+    {
+      "source": "<strong>規定のバージョンに切り替える。</strong>環境の違いが原因のことが多く、授業時間内では切り分けられません。",
+      "translation": "<strong>သတ်မှတ်ထားသော version သို့ ပြောင်းပါ။</strong>ပတ်ဝန်းကျင်ကွာခြားမှုကြောင့် ဖြစ်သည့်အခါ များပြီး အတန်းချိန်အတွင်း အကြောင်းရင်းကို မခွဲခြားနိုင်ပါ။"
+    },
+    {
+      "source": "提出期限が近い",
+      "translation": "တင်ရမည့် နောက်ဆုံးရက် နီးနေခြင်း"
+    },
+    {
+      "source": "迷わず貸与パソコンで作り直す。教科書どおりに進めば同じものができます。",
+      "translation": "မတွန့်ဆုတ်ဘဲ ငှားပေးထားသော ကွန်ပျူတာဖြင့် ပြန်လုပ်ပါ။ သင်ရိုးစာအုပ်အတိုင်း လုပ်လျှင် တူညီသောအရာကို ပြုလုပ်နိုင်သည်။"
+    },
+    {
+      "source": "4-2. 確かめたこと・確かめていないこと",
+      "translation": "4-2. စစ်ဆေးထားသောအရာများနှင့် မစစ်ဆေးထားသောအရာများ"
+    },
+    {
+      "source": "確かめたこと",
+      "translation": "စစ်ဆေးထားသောအရာများ"
+    },
+    {
+      "source": "Quail 4 で作ったひな形プロジェクトと、Panda 2 のものを1ファイルずつ比べた（3-4の表）。Quail 4 のひな形が <code>assembleDebug</code> で通ること、そのときGradleが JDK 25 を自動取得したこと（3-5）も確認した。<strong>さらに、Quail 4 の設定（3-4の表のとおり）にした各単元のプロジェクトへ、STEPごとのコードを順に入れて、全11単元・77か所でビルドを確かめた。Quail 4 だから起きる失敗は1件もなかった。</strong>A10・A11で使うRoomは、ビルドのときにコードを自動で作る部品（<code>annotationProcessor</code>）を使う。これもJDK 25で問題なく動いた。",
+      "translation": "Quail 4 ဖြင့် ဖန်တီးထားသော ပုံစံနမူနာ project နှင့် Panda 2 ၏ project ကို ဖိုင်တစ်ခုစီ နှိုင်းယှဉ်ထားသည် (3-4 ၏ ဇယား)။ Quail 4 ၏ ပုံစံနမူနာသည် <code>assembleDebug</code> အောင်မြင်ကြောင်း၊ ထိုအချိန်တွင် Gradle က JDK 25 ကို အလိုအလျောက် ရယူကြောင်း (3-5) ကိုလည်း စစ်ဆေးထားသည်။<strong>ထို့ပြင် Quail 4 ၏ setting (3-4 ၏ ဇယားအတိုင်း) ကို သုံးထားသော သင်ခန်းစာတစ်ခုစီ၏ project ထဲသို့ STEP တစ်ခုစီ၏ code ကို အစဉ်လိုက် ထည့်ပြီး သင်ခန်းစာ 11 ခုလုံး၏ နေရာ 77 ခုတွင် build ကို စစ်ဆေးထားသည်။ Quail 4 ကြောင့် ဖြစ်သော မအောင်မြင်မှု တစ်ခုမျှ မရှိခဲ့ပါ။</strong>A10 နှင့် A11 တွင် သုံးသော Room သည် build လုပ်ချိန်တွင် code ကို အလိုအလျောက် ဖန်တီးပေးသည့် အစိတ်အပိုင်း (<code>annotationProcessor</code>) ကို သုံးသည်။ ၎င်းလည်း JDK 25 တွင် ပြဿနာမရှိဘဲ အလုပ်လုပ်ခဲ့သည်။"
+    },
+    {
+      "source": "確かめていないこと",
+      "translation": "မစစ်ဆေးထားသောအရာများ"
+    },
+    {
+      "source": "<strong>エミュレータで実際に動かした確認は、Panda 2 で行っています。</strong>Quail 4 では、コードが組み立てられるところまでを確かめました。Android Studio の画面そのもの（メニューの位置や表示）は版によって変わるため、教科書のスクリーンショットと違って見えることがあります。Quail 4 以外のバージョン（さらに新しい版など）も試していません。3-1〜3-3の読み替えは、一般的な注意点としてまとめたものです。",
+      "translation": "<strong>emulator တွင် အမှန်တကယ် run လုပ်၍ စစ်ဆေးခြင်းကို Panda 2 ဖြင့် လုပ်ထားသည်။</strong>Quail 4 တွင် code ကို တည်ဆောက်နိုင်သည့်အဆင့်အထိ စစ်ဆေးထားသည်။ Android Studio ၏ မျက်နှာပြင် (menu တည်နေရာနှင့် ပြသပုံ) သည် version အလိုက် ပြောင်းသဖြင့် သင်ရိုးစာအုပ်၏ screenshot နှင့် မတူနိုင်ပါ။ Quail 4 မဟုတ်သော version များ (ပိုသစ်သော version စသည်တို့) ကိုလည်း မစမ်းထားပါ။ 3-1 မှ 3-3 အထိ မိမိအခြေအနေနှင့် ကိုက်ညီအောင် ဖတ်ရှုအသုံးချရန် လမ်းညွှန်သည် ယေဘုယျ သတိပြုရန်အချက်များကို စုစည်းထားခြင်း ဖြစ်သည်။"
+    },
+    {
+      "source": "気づいたことを教えてください",
+      "translation": "သတိထားမိသည့်အရာများကို ပြောပြပါ"
+    },
+    {
+      "source": "ちがうAndroid Studioのバージョンで進めて気づいたことがあれば、<strong>先生に知らせてください。</strong>次の版でこのページに反映します。そのとき「<strong>Android Studioのバージョン</strong>」「<strong>起きたこと</strong>」「<strong>教科書のどのSTEPか</strong>」の3つを伝えてもらえると助かります。",
+      "translation": "အခြား Android Studio version ဖြင့် လုပ်ဆောင်ရာတွင် သတိထားမိသည့်အရာရှိလျှင် <strong>ဆရာကို အသိပေးပါ။</strong>နောက်ထုတ်ဝေမည့် version တွင် ဤစာမျက်နှာ၌ ထည့်သွင်းမည်။ ထိုအခါ “<strong>Android Studio version</strong>”၊ “<strong>ဖြစ်ခဲ့သည့်အရာ</strong>” နှင့် “<strong>သင်ရိုးစာအုပ်၏ ဘယ် STEP လဲ</strong>” ဆိုသည့် အချက် 3 ချက်ကို ပြောပြလျှင် အထောက်အကူဖြစ်သည်။"
+    },
+    {
+      "source": "公式資料",
+      "translation": "တရားဝင် အချက်အလက်များ"
+    },
+    {
+      "source": "<a1>Android Studio リリースノート</a1>／<a2>AGP Upgrade Assistant</a2>／<a3>プロジェクトを作成する</a3>",
+      "translation": "<a1>Android Studio ထုတ်ဝေမှုမှတ်တမ်း</a1> / <a2>AGP Upgrade Assistant</a2> / <a3>project ဖန်တီးခြင်း</a3>"
+    },
+    {
+      "source": "← もとのページへ戻る",
+      "translation": "← လာခဲ့သော စာမျက်နှာသို့ ပြန်သွားရန်"
+    },
+    {
+      "source": "対象：macOS / Android Studio Panda 2 | 2025.3.2 · 確認日：2026年9月17日",
+      "translation": "သက်ဆိုင်သည့် ပတ်ဝန်းကျင်: macOS / Android Studio Panda 2 | 2025.3.2 · စစ်ဆေးသည့်ရက်: 2026 စက်တင်ဘာ 17 ရက်"
+    }
+  ],
+  "overrides": [
+    {
+      "source": "エミュレータ",
+      "where": "td",
+      "translation": "emulator"
+    }
+  ]
+}

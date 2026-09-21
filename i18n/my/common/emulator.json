@@ -1,0 +1,390 @@
+{
+  "source": "docs/common/emulator.html",
+  "language": "my",
+  "entries": [
+    {
+      "source": "エミュレータの準備と アプリの実行 | Androidプログラミング1",
+      "translation": "emulator ကို ပြင်ဆင်ခြင်းနှင့် app ကို run လုပ်ခြင်း | Android ပရိုဂရမ်းမင်း 1"
+    },
+    {
+      "source": "もとのページへ戻る",
+      "translation": "လာခဲ့သော စာမျက်နှာသို့ ပြန်သွားရန်"
+    },
+    {
+      "source": "ANDROID PROGRAMMING 1 / 共通資料・授業サポート",
+      "translation": "ANDROID PROGRAMMING 1 / အများသုံးလမ်းညွှန်နှင့် အတန်းအတွက် အကူအညီ"
+    },
+    {
+      "source": "エミュレータの準備と<br>アプリの実行",
+      "translation": "emulator ကို ပြင်ဆင်ခြင်းနှင့်<br>app ကို run လုပ်ခြင်း"
+    },
+    {
+      "source": "Macの中でAndroid端末を動かします。一度準備すると、次の授業でも使えます。",
+      "translation": "Mac ထဲတွင် Android စက်ကို run လုပ်မည်။ တစ်ကြိမ် ပြင်ဆင်ထားလျှင် နောက်အတန်းများတွင်လည်း သုံးနိုင်သည်။"
+    },
+    {
+      "source": "1. すでにある端末を探す",
+      "translation": "1. ရှိပြီးသားစက်ကို ရှာပါ"
+    },
+    {
+      "source": "エミュレータは、アプリを試すための練習用端末です。端末を探すのも作るのも、Android Studioの <strong>Device Manager</strong>（端末を管理する画面）で行います。まだプロジェクトを開いていなくても使えます。",
+      "translation": "emulator သည် app ကို စမ်းသပ်ရန် လေ့ကျင့်ရေးစက်ဖြစ်သည်။ စက်ရှာခြင်းနှင့် ဖန်တီးခြင်း နှစ်မျိုးလုံးကို Android Studio ၏ <strong>Device Manager</strong> (စက်များကို စီမံသည့် မျက်နှာပြင်) တွင် လုပ်သည်။ project ကို မဖွင့်ရသေးလည်း သုံးနိုင်သည်။"
+    },
+    {
+      "source": "Device Managerを開きます。開き方は、いまAndroid Studioに出ている画面で決まります。次の2つのどちらかです。",
+      "translation": "Device Manager ကို ဖွင့်ပါ။ ဖွင့်နည်းသည် လက်ရှိ Android Studio တွင် ပေါ်နေသော မျက်နှာပြင်အပေါ် မူတည်သည်။ အောက်ပါ 2 မျိုးအနက် တစ်မျိုးဖြစ်သည်။"
+    },
+    {
+      "source": "いま出ている画面",
+      "translation": "လက်ရှိ ပေါ်နေသော မျက်နှာပြင်"
+    },
+    {
+      "source": "Device Managerの開き方",
+      "translation": "Device Manager ဖွင့်နည်း"
+    },
+    {
+      "source": "<strong>最初の画面（Welcome画面）</strong><br>まだプロジェクトを開いていない",
+      "translation": "<strong>အစမျက်နှာပြင် (Welcome မျက်နှာပြင်)</strong><br>project မဖွင့်ရသေးပါ"
+    },
+    {
+      "source": "右上の <strong>Open</strong> の右にある <strong>⋮</strong>（縦に並んだ3つの点）をクリックし、出てきたメニューで <strong>Virtual Device Manager</strong> を選びます。",
+      "translation": "ညာဘက်အပေါ်ရှိ <strong>Open</strong> ၏ ညာဘက်တွင် ရှိသော <strong>⋮</strong> (ဒေါင်လိုက် စီထားသော အစက် 3 စက်) ကို နှိပ်ပြီး ပေါ်လာသော menu တွင် <strong>Virtual Device Manager</strong> ကို ရွေးပါ။"
+    },
+    {
+      "source": "<strong>プロジェクトを開いている</strong><br>コードを書く画面が出ている",
+      "translation": "<strong>project ကို ဖွင့်ထားသည်</strong><br>code ရေးရန် မျက်နှာပြင် ပေါ်နေသည်"
+    },
+    {
+      "source": "上のメニューで <strong>View → Tool Windows → Device Manager</strong> を選びます。",
+      "translation": "အပေါ်ရှိ menu တွင် <strong>View → Tool Windows → Device Manager</strong> ကို ရွေးပါ။"
+    },
+    {
+      "source": "最初の画面に ⋮ が見つからないとき",
+      "translation": "အစမျက်နှာပြင်တွင် ⋮ ကို မတွေ့လျှင်"
+    },
+    {
+      "source": "⋮ のかわりに、<strong>More Actions</strong> という文字が出ていることがあります。そのときは <strong>More Actions</strong> をクリックし、同じように <strong>Virtual Device Manager</strong> を選びます。",
+      "translation": "⋮ အစား <strong>More Actions</strong> ဟူသော စာသား ပေါ်နေတတ်သည်။ ထိုအခါ <strong>More Actions</strong> ကို နှိပ်ပြီး အလားတူ <strong>Virtual Device Manager</strong> ကို ရွေးပါ။"
+    },
+    {
+      "source": "どちらの場合も <strong>Device Manager</strong> が開き、端末の一覧が出ます。最初の画面から開いたときは、別のウィンドウで開きます。",
+      "translation": "မည်သည့်နည်းလမ်းဖြင့်ဖြစ်စေ <strong>Device Manager</strong> ပွင့်လာပြီး စက်စာရင်း ပေါ်လာသည်။ အစမျက်နှာပြင်မှ ဖွင့်လျှင် သီးခြား window တွင် ပွင့်လာသည်။"
+    },
+    {
+      "source": "端末の一覧に <strong>jec_26cm_android1_Pixel 9a</strong> があるか確認します。名前の区切りが <code>_</code> で表示されることもあります。",
+      "translation": "စက်စာရင်းတွင် <strong>jec_26cm_android1_Pixel 9a</strong> ရှိမရှိ စစ်ဆေးပါ။ အမည်အတွင်း ခွဲခြားသည့် နေရာများကို <code>_</code> ဖြင့် ပြတတ်သည်။"
+    },
+    {
+      "source": "見つかったら、その行の三角形 <strong>▶</strong> をクリックします。",
+      "translation": "တွေ့လျှင် ထိုအတန်းရှိ တြိဂံ <strong>▶</strong> ကို နှိပ်ပါ။"
+    },
+    {
+      "source": "Androidのホーム画面が出るまで待ちます。画面がロックされていたら、画面の下から上へドラッグします。",
+      "translation": "Android ၏ home မျက်နှာပြင် ပေါ်လာသည်အထိ စောင့်ပါ။ မျက်နှာပြင် လော့ခ်ချထားလျှင် အောက်မှ အပေါ်သို့ ဆွဲပါ။"
+    },
+    {
+      "source": "成功の目印",
+      "translation": "အောင်မြင်ကြောင်း သိနိုင်သည့်အချက်များ"
+    },
+    {
+      "source": "スマートフォンの形の画面が開き、ホーム画面のアイコンが見える。",
+      "translation": "စမတ်ဖုန်းပုံစံ မျက်နှာပြင် ပွင့်လာပြီး home မျက်နှာပြင်၏ icon များကို မြင်ရသည်။"
+    },
+    {
+      "source": "端末があった人は、<a1>3. アプリを動かす</a1>へ進みます。",
+      "translation": "စက်ရှိပြီးသားသူများသည် <a1>3. app ကို run လုပ်ပါ</a1> သို့ ဆက်သွားပါ။"
+    },
+    {
+      "source": "2. 端末がないときに作る",
+      "translation": "2. စက်မရှိလျှင် ဖန်တီးပါ"
+    },
+    {
+      "source": "ダウンロードには時間がかかるため、授業中は先に先生へ知らせてください。先生が準備した端末があれば、それを使います。",
+      "translation": "download လုပ်ရန် အချိန်ကြာသောကြောင့် အတန်းအတွင်းဖြစ်လျှင် ဆရာကို ဦးစွာ အသိပေးပါ။ ဆရာ ပြင်ဆင်ပေးထားသော စက်ရှိလျှင် ၎င်းကို သုံးပါ။"
+    },
+    {
+      "source": "Device Managerの <strong>＋ → Create Virtual Device</strong> をクリックします。画面によっては <strong>Create Device</strong> と表示されます。",
+      "translation": "Device Manager ရှိ <strong>＋ → Create Virtual Device</strong> ကို နှိပ်ပါ။ မျက်နှာပြင်အလိုက် <strong>Create Device</strong> ဟု ပြတတ်သည်။"
+    },
+    {
+      "source": "Phoneの一覧で <strong>Pixel 9a</strong> を選び、<strong>Next</strong>。",
+      "translation": "Phone စာရင်းတွင် <strong>Pixel 9a</strong> ကို ရွေးပြီး <strong>Next</strong> ကို နှိပ်ပါ။"
+    },
+    {
+      "source": "Androidの <strong>System Image</strong>（端末を動かすためのデータ）は <strong>API 37.1</strong> を選びます。",
+      "translation": "Android ၏ <strong>System Image</strong> (စက်ကို run လုပ်ရန် ဒေတာ) အတွက် <strong>API 37.1</strong> ကို ရွေးပါ။"
+    },
+    {
+      "source": "ダウンロードの印がある場合はクリックし、画面の案内に従います。ダウンロードが終わったら次へ進みます。",
+      "translation": "download သင်္ကေတရှိလျှင် နှိပ်ပြီး မျက်နှာပြင်ရှိ လမ်းညွှန်ချက်အတိုင်း လုပ်ပါ။ download ပြီးလျှင် ရှေ့ဆက်ပါ။"
+    },
+    {
+      "source": "端末名を <code>jec_26cm_android1_Pixel 9a</code> にして <strong>Finish</strong>。名前を後から変える画面では、作成後の編集から同じ名前にします。",
+      "translation": "စက်အမည်ကို <code>jec_26cm_android1_Pixel 9a</code> ဟု သတ်မှတ်ပြီး <strong>Finish</strong> ကို နှိပ်ပါ။ နောက်မှ အမည်ပြောင်းရသော မျက်နှာပြင်ဖြစ်လျှင် ဖန်တီးပြီးနောက် edit လုပ်သည့်နေရာမှ တူညီသောအမည်ကို သတ်မှတ်ပါ။"
+    },
+    {
+      "source": "一覧の <strong>▶</strong> で起動し、ホーム画面が出ることを確認します。",
+      "translation": "စာရင်းရှိ <strong>▶</strong> ဖြင့် စတင်ဖွင့်ပြီး home မျက်နှာပြင် ပေါ်လာကြောင်း စစ်ဆေးပါ။"
+    },
+    {
+      "source": "System Imageを選ぶときの注意",
+      "translation": "System Image ရွေးသည့်အခါ သတိပြုရန်"
+    },
+    {
+      "source": "一覧には <strong>37.2</strong> も並びます。選ぶのは <strong>37.1</strong> のほうです。37.1 は名前に <strong>16 KB Page Size</strong> と付いたものしかないので、それを選んでください。",
+      "translation": "စာရင်းတွင် <strong>37.2</strong> လည်း ပါသည်။ ရွေးရမည်မှာ <strong>37.1</strong> ဖြစ်သည်။ 37.1 အတွက် အမည်တွင် <strong>16 KB Page Size</strong> ပါသောအရာသာ ရှိသောကြောင့် ၎င်းကို ရွေးပါ။"
+    },
+    {
+      "source": "3. アプリを動かす",
+      "translation": "3. app ကို run လုပ်ပါ"
+    },
+    {
+      "source": "ここからは、プロジェクトを開いてから行います。<a1>共通資料：授業を始めるまでの準備</a1>の手順5から来た人は、ここでその資料に戻り、手順5の続きから進めます。エミュレータは起動したままにしておきます。",
+      "translation": "ဤနေရာမှစ၍ project ကို ဖွင့်ပြီးမှ လုပ်ပါ။ <a1>အများသုံးလမ်းညွှန်: အတန်း မစမီ ပြင်ဆင်ရန်</a1> ၏ အဆင့် 5 မှ လာသူများသည် ဤနေရာတွင် ထိုလမ်းညွှန်သို့ ပြန်သွားပြီး အဆင့် 5 ၏ ကျန်အပိုင်းကို ဆက်လုပ်ပါ။ emulator ကို ဖွင့်ထားပါ။"
+    },
+    {
+      "source": "Android Studio上部で、実行するものが <strong>app</strong> になっているか確認します。",
+      "translation": "Android Studio အပေါ်ဘက်တွင် run လုပ်မည့်အရာသည် <strong>app</strong> ဖြစ်ကြောင်း စစ်ဆေးပါ။"
+    },
+    {
+      "source": "端末の選択欄で <strong>jec_26cm_android1_Pixel 9a</strong> を選びます。",
+      "translation": "စက်ရွေးချယ်ရန်အကွက်တွင် <strong>jec_26cm_android1_Pixel 9a</strong> ကို ရွေးပါ။"
+    },
+    {
+      "source": "上部の <strong>Run ▶</strong> をクリックします。",
+      "translation": "အပေါ်ဘက်ရှိ <strong>Run ▶</strong> ကို နှိပ်ပါ။"
+    },
+    {
+      "source": "ビルド（コードからアプリを作る処理）が終わるまで待ちます。アプリの画面が出たら、そのステップの「成功の目印」と比べます。",
+      "translation": "build (code မှ app ကို ဖန်တီးသည့် လုပ်ငန်းစဉ်) ပြီးသည်အထိ စောင့်ပါ။ app မျက်နှာပြင် ပေါ်လာလျှင် ထိုအဆင့်၏ “အောင်မြင်ကြောင်း သိနိုင်သည့်အချက်များ” နှင့် နှိုင်းယှဉ်ပါ။"
+    },
+    {
+      "source": "端末を選ぶ",
+      "translation": "စက်ကို ရွေးပါ"
+    },
+    {
+      "source": "画面を見る",
+      "translation": "မျက်နှာပြင်ကို ကြည့်ပါ"
+    },
+    {
+      "source": "コードを変えるたびに、この順で実行します。元の文字から試したいときは、Android Studioの <strong>Stop ■</strong> でアプリを止め、もう一度 <strong>Run ▶</strong> を押します。",
+      "translation": "code ပြောင်းတိုင်း ဤအစီအစဉ်အတိုင်း run လုပ်ပါ။ မူလစာသားမှစ၍ စမ်းသပ်လိုလျှင် Android Studio ၏ <strong>Stop ■</strong> ဖြင့် app ကို ရပ်ပြီး <strong>Run ▶</strong> ကို ထပ်နှိပ်ပါ။"
+    },
+    {
+      "source": "エミュレータの画面が見つからない場合は、<strong>View → Tool Windows → Running Devices</strong> を開きます。別ウィンドウで開く設定の場合は、Dockのエミュレータも確認します。",
+      "translation": "emulator မျက်နှာပြင်ကို ရှာမတွေ့လျှင် <strong>View → Tool Windows → Running Devices</strong> ကို ဖွင့်ပါ။ သီးခြား window တွင် ဖွင့်ရန် သတ်မှတ်ထားလျှင် Dock ရှိ emulator ကိုလည်း စစ်ဆေးပါ။"
+    },
+    {
+      "source": "4. アプリを終了する・アプリを消す",
+      "translation": "4. app ကို ပိတ်ခြင်းနှင့် ဖယ်ရှားခြင်း"
+    },
+    {
+      "source": "データを保存する単元の「完成チェック」で使います。どちらもエミュレータの画面で操作します。",
+      "translation": "ဒေတာသိမ်းဆည်းသော သင်ခန်းစာများ၏ “ပြီးစီးမှု စစ်ဆေးခြင်း” တွင် သုံးသည်။ နှစ်မျိုးလုံးကို emulator မျက်နှာပြင်တွင် လုပ်ဆောင်သည်။"
+    },
+    {
+      "source": "保存したデータ",
+      "translation": "သိမ်းထားသော ဒေတာ"
+    },
+    {
+      "source": "使う場面",
+      "translation": "အသုံးပြုရမည့်အခြေအနေ"
+    },
+    {
+      "source": "アプリを終了する",
+      "translation": "app ကို ပိတ်ပါ"
+    },
+    {
+      "source": "残る",
+      "translation": "ကျန်နေသည်"
+    },
+    {
+      "source": "終了して開き直しても、データが残っているかを確かめる",
+      "translation": "ပိတ်ပြီး ပြန်ဖွင့်လည်း ဒေတာ ကျန်နေကြောင်း စစ်ဆေးခြင်း"
+    },
+    {
+      "source": "<a1>アプリを消す</a1>（アンインストール）",
+      "translation": "<a1>app ကို ဖယ်ရှားပါ</a1> (uninstall)"
+    },
+    {
+      "source": "いっしょに消える",
+      "translation": "အတူ ပျောက်သွားသည်"
+    },
+    {
+      "source": "何も保存されていない、最初の状態から確かめる",
+      "translation": "ဘာမှ မသိမ်းထားသော ကနဦးအခြေအနေမှ စစ်ဆေးခြင်း"
+    },
+    {
+      "source": "エミュレータでは、マウスで操作します。<strong>スワイプ</strong>は、マウスのボタンを押したまま動かして離す操作です。<strong>長押し</strong>は、マウスを動かさずに、ボタンを1秒ほど押したままにする操作です。",
+      "translation": "emulator တွင် mouse ဖြင့် လုပ်ဆောင်သည်။ <strong>swipe လုပ်ခြင်း</strong>သည် mouse ခလုတ်ကို ဖိထားလျက် ရွှေ့ပြီး လွှတ်ခြင်းဖြစ်သည်။ <strong>ဖိထားခြင်း</strong> (長押し) သည် mouse ကို မရွှေ့ဘဲ ခလုတ်ကို 1 စက္ကန့်ခန့် ဖိထားခြင်းဖြစ်သည်။"
+    },
+    {
+      "source": "画面のいちばん下にある<strong>横棒</strong>を、上へスワイプします。画面のまん中あたりで<strong>止めてから</strong>離します。",
+      "translation": "မျက်နှာပြင် အောက်ဆုံးရှိ <strong>အလျားလိုက်မျဉ်း</strong>ကို အပေါ်သို့ swipe လုပ်ပါ။ မျက်နှာပြင် အလယ်နားတွင် <strong>ရပ်ပြီးမှ</strong> လွှတ်ပါ။"
+    },
+    {
+      "source": "<strong>最近使ったアプリ</strong>の画面になります。開いていたアプリが、小さくなって並びます。",
+      "translation": "<strong>最近使ったアプリ</strong> (မကြာသေးမီက သုံးခဲ့သော app များ) မျက်နှာပြင်သို့ ရောက်မည်။ ဖွင့်ထားခဲ့သော app များသည် သေးသွားပြီး တန်းစီနေမည်။"
+    },
+    {
+      "source": "終了したいアプリを、上へスワイプします。画面の外へ消えれば終了です。",
+      "translation": "ပိတ်လိုသော app ကို အပေါ်သို့ swipe လုပ်ပါ။ မျက်နှာပြင်အပြင်သို့ ပျောက်သွားလျှင် ပိတ်ပြီးဖြစ်သည်။"
+    },
+    {
+      "source": "止めずにすばやくスワイプすると、ホーム画面に戻るだけで、手順2の画面は出ません。ホーム画面に戻っただけでは、アプリは終了していません。もう一度アプリを開いて、手順1からやり直します。",
+      "translation": "မရပ်ဘဲ မြန်မြန် swipe လုပ်လျှင် home မျက်နှာပြင်သို့သာ ပြန်ရောက်ပြီး အဆင့် 2 ၏ မျက်နှာပြင် မပေါ်ပါ။ home မျက်နှာပြင်သို့ ပြန်ရောက်ရုံဖြင့် app မပိတ်သေးပါ။ app ကို ပြန်ဖွင့်ပြီး အဆင့် 1 မှ ပြန်လုပ်ပါ။"
+    },
+    {
+      "source": "アプリを消す（アンインストール）",
+      "translation": "app ကို ဖယ်ရှားပါ (uninstall)"
+    },
+    {
+      "source": "アプリといっしょに、そのアプリが保存したデータも消えます。",
+      "translation": "app နှင့်အတူ ထို app က သိမ်းထားသော ဒေတာလည်း ပျောက်သွားသည်။"
+    },
+    {
+      "source": "ホーム画面を出します。アプリが開いているときは、画面のいちばん下にある横棒を、上へすばやくスワイプします。",
+      "translation": "home မျက်နှာပြင်ကို ဖွင့်ပါ။ app ဖွင့်ထားလျှင် မျက်နှာပြင် အောက်ဆုံးရှိ အလျားလိုက်မျဉ်းကို အပေါ်သို့ မြန်မြန် swipe လုပ်ပါ။"
+    },
+    {
+      "source": "ホーム画面の<strong>まん中あたり</strong>を、下から上へスワイプします。<strong>すべてのアプリ</strong>と書かれた一覧が出ます。いちばん下の横棒から始めると、一覧は出ません。",
+      "translation": "home မျက်နှာပြင်၏ <strong>အလယ်နား</strong>ကို အောက်မှ အပေါ်သို့ swipe လုပ်ပါ။ <strong>すべてのアプリ</strong> (app အားလုံး) ဟု ရေးထားသော စာရင်း ပေါ်လာမည်။ အောက်ဆုံးရှိ အလျားလိုက်မျဉ်းမှ စလျှင် စာရင်း မပေါ်ပါ။"
+    },
+    {
+      "source": "消したいアプリのアイコンを<strong>長押し</strong>します。見つからないときは、一覧を上へスワイプして探します。",
+      "translation": "ဖယ်ရှားလိုသော app ၏ icon ကို <strong>ဖိထားပါ</strong>။ မတွေ့လျှင် စာရင်းကို အပေါ်သို့ swipe လုပ်၍ ရှာပါ။"
+    },
+    {
+      "source": "出てきたメニューの <strong>アプリ情報</strong> を押します（画像①）。",
+      "translation": "ပေါ်လာသော menu ရှိ <strong>アプリ情報</strong> (app အချက်အလက်) ကို နှိပ်ပါ (ပုံ ①)။"
+    },
+    {
+      "source": "ごみ箱の絵の <strong>アンインストール</strong> を押します（画像②）。",
+      "translation": "အမှိုက်ပုံးပုံပါသော <strong>アンインストール</strong> (uninstall) ကို နှိပ်ပါ (ပုံ ②)။"
+    },
+    {
+      "source": "<strong>このアプリをアンインストールしますか？</strong> と出たら、右の <strong>アンインストール</strong> を押します。",
+      "translation": "<strong>このアプリをアンインストールしますか？</strong> (ဤ app ကို uninstall လုပ်မလား?) ဟု ပေါ်လာလျှင် ညာဘက်ရှိ <strong>アンインストール</strong> (uninstall) ကို နှိပ်ပါ။"
+    },
+    {
+      "source": "すべてのアプリの一覧で、A08SharedPreferencesSampleのアイコンを長押ししたところ。アプリ情報、アプリを一時停止、ホーム画面に追加、バブルの4つが並んだメニューが出ている。アンインストールという項目はない",
+      "translation": "「すべてのアプリ」 (app အားလုံး) စာရင်းတွင် A08SharedPreferencesSample icon ကို ဖိထားသည့်အခြေအနေ။ 「アプリ情報」 (app အချက်အလက်)၊ app ကို ခေတ္တရပ်ခြင်း၊ home မျက်နှာပြင်သို့ ထည့်ခြင်းနှင့် bubble ဟူသော အရာ 4 ခု ပါသည့် menu ပေါ်နေသည်။ 「アンインストール」 (uninstall) ဟူသောအရာ မရှိပါ"
+    },
+    {
+      "source": "① 長押しで出るメニュー。<strong>アンインストール</strong> はここにはありません。<strong>アプリ情報</strong> を押します。 <a1>画像を大きく開く</a1>",
+      "translation": "① ဖိထားလျှင် ပေါ်လာသော menu။ ဤနေရာတွင် <strong>アンインストール</strong> (uninstall) မရှိပါ။ <strong>アプリ情報</strong> (app အချက်အလက်) ကို နှိပ်ပါ။ <a1>ပုံကို အရွယ်အစားအပြည့်ဖြင့် ဖွင့်ပါ</a1>"
+    },
+    {
+      "source": "アプリ情報の画面。アプリ名の下に、アーカイブ、アンインストール、強制停止の3つのボタンが横に並んでいる。まん中のアンインストールはごみ箱の絵",
+      "translation": "「アプリ情報」 (app အချက်အလက်) မျက်နှာပြင်။ app အမည်အောက်တွင် archive၊ uninstall နှင့် force stop ဟူသော ခလုတ် 3 ခု အလျားလိုက် စီနေသည်။ အလယ်ရှိ 「アンインストール」 (uninstall) သည် အမှိုက်ပုံးပုံ ဖြစ်သည်"
+    },
+    {
+      "source": "② アプリ情報。3つ並んだボタンの、まん中が <strong>アンインストール</strong> です。 <a1>画像を大きく開く</a1>",
+      "translation": "② 「アプリ情報」 (app အချက်အလက်)။ တန်းစီနေသော ခလုတ် 3 ခုအနက် အလယ်ခလုတ်သည် <strong>アンインストール</strong> (uninstall) ဖြစ်သည်။ <a1>ပုံကို အရွယ်အစားအပြည့်ဖြင့် ဖွင့်ပါ</a1>"
+    },
+    {
+      "source": "画面の下に <strong>「（アプリの名前）」をアンインストールしました</strong> と出て、すべてのアプリの一覧からアイコンが消える。",
+      "translation": "မျက်နှာပြင်အောက်တွင် <strong>「（アプリの名前）」をアンインストールしました</strong> (ဖော်ပြထားသောအမည်ရှိ app ကို uninstall လုပ်ပြီးပြီ) ဟု ပေါ်လာပြီး 「すべてのアプリ」 (app အားလုံး) စာရင်းမှ icon ပျောက်သွားသည်။"
+    },
+    {
+      "source": "消したアプリは、Android Studioで <strong>Run ▶</strong> を押せば、もう一度入ります。保存したデータは空の状態から始まります。",
+      "translation": "ဖယ်ရှားထားသော app ကို Android Studio တွင် <strong>Run ▶</strong> နှိပ်လျှင် ပြန်ထည့်ပေးသည်။ သိမ်းထားသော ဒေတာမရှိသည့် အခြေအနေမှ စတင်မည်။"
+    },
+    {
+      "source": "長押しのとき、マウスを動かさない",
+      "translation": "ဖိထားသည့်အခါ mouse ကို မရွှေ့ပါနှင့်"
+    },
+    {
+      "source": "押したまま動かすと、アイコンを別の場所へ移す操作になります。メニューが出るまで、マウスを止めたまま待ちます。",
+      "translation": "ဖိထားလျက် ရွှေ့လျှင် icon ကို အခြားနေရာသို့ ရွှေ့ခြင်းဖြစ်သွားသည်။ menu ပေါ်လာသည်အထိ mouse ကို မရွှေ့ဘဲ စောင့်ပါ။"
+    },
+    {
+      "source": "5. 動かないとき",
+      "translation": "5. အလုပ်မလုပ်လျှင်"
+    },
+    {
+      "source": "やってみること",
+      "translation": "စမ်းလုပ်ရမည့်အရာ"
+    },
+    {
+      "source": "No Devicesと出る",
+      "translation": "No Devices ဟု ပေါ်သည်"
+    },
+    {
+      "source": "Device Managerを開き、授業の端末を起動する。",
+      "translation": "Device Manager ကို ဖွင့်ပြီး အတန်းအတွက် သုံးသောစက်ကို စတင်ဖွင့်ပါ။"
+    },
+    {
+      "source": "Runが押せない",
+      "translation": "Run ကို နှိပ်မရပါ"
+    },
+    {
+      "source": "Gradle Syncの進行中か確認する。終わっても押せなければ、上部でappを選び直す。",
+      "translation": "Gradle Sync လုပ်ဆောင်နေဆဲလား စစ်ဆေးပါ။ ပြီးသွားလည်း နှိပ်မရလျှင် အပေါ်ဘက်တွင် app ကို ပြန်ရွေးပါ။"
+    },
+    {
+      "source": "端末の画面が黒い",
+      "translation": "စက်၏ မျက်နှာပြင် မည်းနေသည်"
+    },
+    {
+      "source": "端末の電源ボタンを1回押す。起動直後なら待つ。数分変わらなければ先生に知らせる。",
+      "translation": "စက်၏ ပါဝါခလုတ်ကို 1 ကြိမ် နှိပ်ပါ။ စတင်ဖွင့်ခါစဖြစ်လျှင် စောင့်ပါ။ မိနစ်အနည်းငယ်ကြာလည်း မပြောင်းလဲလျှင် ဆရာကို အသိပေးပါ။"
+    },
+    {
+      "source": "アプリが出ない",
+      "translation": "app မပေါ်ပါ"
+    },
+    {
+      "source": "下のBuildやRunのエラーを確認する。別の端末を選んでいないかも確認する。",
+      "translation": "အောက်ရှိ Build သို့မဟုတ် Run ၏ error များကို စစ်ဆေးပါ။ အခြားစက်ကို ရွေးမိခြင်းရှိမရှိလည်း စစ်ဆေးပါ။"
+    },
+    {
+      "source": "Gradle Syncが失敗する",
+      "translation": "Gradle Sync မအောင်မြင်ပါ"
+    },
+    {
+      "source": "ネット接続とエラーメッセージを確認し、先生に見せる。SDK・JDKなどの設定は教員用資料で確認する。",
+      "translation": "အင်တာနက်ချိတ်ဆက်မှုနှင့် error message ကို စစ်ဆေးပြီး ဆရာကို ပြပါ။ SDK၊ JDK စသည့် ဆက်တင်များကို ဆရာသုံးလမ်းညွှန်တွင် စစ်ဆေးပါ။"
+    },
+    {
+      "source": "APIが低いと言われる",
+      "translation": "API နိမ့်လွန်းသည်ဟု ပြောသည်"
+    },
+    {
+      "source": "<strong>API 37.1</strong> で作った授業用端末 <code>jec_26cm_android1_Pixel 9a</code> を選び直す。",
+      "translation": "<strong>API 37.1</strong> ဖြင့် ဖန်တီးထားသော အတန်းသုံးစက် <code>jec_26cm_android1_Pixel 9a</code> ကို ပြန်ရွေးပါ။"
+    },
+    {
+      "source": "ずっと起動中・offlineのまま",
+      "translation": "စတင်ဖွင့်နေဆဲ သို့မဟုတ် offline အဖြစ်သာ ဆက်ရှိနေသည်"
+    },
+    {
+      "source": "先生に端末名と状態を見せる。必要なら先生と一緒に端末を停止して起動し直す。",
+      "translation": "ဆရာကို စက်အမည်နှင့် အခြေအနေ ပြပါ။ လိုအပ်လျှင် ဆရာနှင့်အတူ စက်ကို ရပ်ပြီး ပြန်စတင်ဖွင့်ပါ။"
+    },
+    {
+      "source": "端末が動けば、開いていた教科書のステップに戻ります。",
+      "translation": "စက် အလုပ်လုပ်လျှင် ဖွင့်ထားခဲ့သော သင်ရိုးစာအုပ်၏ အဆင့်သို့ ပြန်သွားပါ။"
+    },
+    {
+      "source": "公式資料",
+      "translation": "တရားဝင် အချက်အလက်များ"
+    },
+    {
+      "source": "Android Developers：仮想デバイスの作成と管理",
+      "translation": "Android Developers: virtual device များ ဖန်တီးခြင်းနှင့် စီမံခြင်း"
+    },
+    {
+      "source": "Android Developers：アプリのビルドと実行",
+      "translation": "Android Developers: app ကို build လုပ်ခြင်းနှင့် run လုပ်ခြင်း"
+    },
+    {
+      "source": "← もとのページへ戻る",
+      "translation": "← လာခဲ့သော စာမျက်နှာသို့ ပြန်သွားရန်"
+    },
+    {
+      "source": "対象：macOS / Android Studio Panda 2 | 2025.3.2 · 確認日：2026年9月20日",
+      "translation": "သက်ဆိုင်သည့်ပတ်ဝန်းကျင်: macOS / Android Studio Panda 2 | 2025.3.2 · စစ်ဆေးခဲ့သည့်နေ့: 2026 ခုနှစ် စက်တင်ဘာ 20 ရက်"
+    }
+  ]
+}
