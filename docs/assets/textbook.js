@@ -14,18 +14,42 @@
   const message = (name, values = {}) => messages[name].replace(/\{(\w+)\}/g, (token, key) => values[key] ?? token);
   const checks = [...document.querySelectorAll('[data-check]')];
   const key = document.body.dataset.progressKey || 'jec-android1-helloandroid-v1';
-  let saved = {};
-  try { saved = JSON.parse(localStorage.getItem(key) || '{}') || {}; } catch { /* 保存できない環境でも利用可能 */ }
-  const state = () => Object.fromEntries(checks.map(item => [item.dataset.check, item.checked]));
-  // file:// の保存領域はブラウザによってページごとに分かれるので、言語切替時には記録も渡す。
+  const timeKey = `${key}:updated-at`;
+  const knownIds = new Set(checks.map(item => item.dataset.check));
+  const records = {};
+  const mergeRecords = incoming => {
+    if (!incoming || typeof incoming !== 'object' || Array.isArray(incoming)) return;
+    Object.entries(incoming).forEach(([id, record]) => {
+      if (!knownIds.has(id) || !record || typeof record.checked !== 'boolean'
+          || !Number.isFinite(record.updatedAt) || record.updatedAt < 0) return;
+      const previous = records[id];
+      // 時刻のない旧形式どうしでは、既存の確認済み記録を優先する。
+      if (!previous || record.updatedAt > previous.updatedAt
+          || (record.updatedAt === previous.updatedAt && record.checked)) records[id] = record;
+    });
+  };
+  const loadSaved = () => {
+    try {
+      const saved = JSON.parse(localStorage.getItem(key) || '{}') || {};
+      const times = JSON.parse(localStorage.getItem(timeKey) || '{}') || {};
+      mergeRecords(Object.fromEntries(Object.entries(saved).filter(([, value]) => typeof value === 'boolean')
+        .map(([id, checked]) => [id, { checked, updatedAt: Number.isFinite(times[id]) ? times[id] : 0 }])));
+    } catch { /* 保存できない環境でも利用可能 */ }
+  };
+  const save = () => {
+    try {
+      // 確認済みの保存形式は旧版でも読めるままにし、更新時刻だけを別に保存する。
+      localStorage.setItem(key, JSON.stringify(Object.fromEntries(Object.entries(records).map(([id, value]) => [id, value.checked]))));
+      localStorage.setItem(timeKey, JSON.stringify(Object.fromEntries(Object.entries(records).map(([id, value]) => [id, value.updatedAt]))));
+    } catch { /* このページ上では引き継ぐ */ }
+  };
+  loadSaved();
+  // file:// のページ別保存にも対応する。未操作のページは既存の記録を上書きしない。
   const parameters = new URLSearchParams(window.location.search);
   if (parameters.has('checks')) {
     try {
-      const incoming = JSON.parse(parameters.get('checks'));
-      if (Array.isArray(incoming) && incoming.every(item => typeof item === 'string')) {
-        saved = Object.fromEntries(checks.map(item => [item.dataset.check, incoming.includes(item.dataset.check)]));
-        try { localStorage.setItem(key, JSON.stringify(saved)); } catch { /* このページ上では引き継ぐ */ }
-      }
+      mergeRecords(JSON.parse(parameters.get('checks')));
+      save();
     } catch { /* 不正な引き継ぎ値は保存済みの記録に影響させない */ }
     parameters.delete('checks');
     const clean = new URL(window.location.href);
@@ -40,10 +64,13 @@
     if (progress) { progress.max = checks.length; progress.value = count; }
   };
   checks.forEach(input => {
-    input.checked = saved[input.dataset.check] === true;
+    input.checked = records[input.dataset.check]?.checked === true;
     input.addEventListener('change', () => {
+      loadSaved();
+      const id = input.dataset.check;
+      records[id] = { checked: input.checked, updatedAt: Math.max(Date.now(), (records[id]?.updatedAt || 0) + 1) };
       update();
-      try { localStorage.setItem(key, JSON.stringify(state())); } catch { /* チェック操作は継続 */ }
+      save();
     });
   });
   update();
@@ -111,6 +138,16 @@
     });
   }
 
+  // 言語名が折り返しても、固定メニューの下に目次とSTEPを表示する。
+  const languageNav = document.querySelector('.language-nav');
+  if (languageNav) {
+    const resizeNav = () => document.documentElement.style.setProperty('--language-nav-height', `${languageNav.getBoundingClientRect().height}px`);
+    resizeNav();
+    document.documentElement.classList.add('has-language-nav');
+    if ('ResizeObserver' in window) new ResizeObserver(resizeNav).observe(languageNav);
+    else window.addEventListener('resize', resizeNav);
+  }
+
   // 言語を替えても、共通資料の戻り先・いま読んでいるSTEP・確認済みの記録を保つ。
   document.querySelectorAll('a[data-language-link]').forEach(link => {
     const base = link.getAttribute('href');
@@ -118,7 +155,8 @@
       const target = new URL(base, window.location.href);
       const from = new URLSearchParams(window.location.search).get('from');
       if (from && /^[a-z0-9-]+$/.test(from)) target.searchParams.set('from', from);
-      if (checks.length) target.searchParams.set('checks', JSON.stringify(checks.filter(item => item.checked).map(item => item.dataset.check)));
+      loadSaved();
+      if (checks.length && Object.keys(records).length) target.searchParams.set('checks', JSON.stringify(records));
       const section = [...document.querySelectorAll('main section[id]')].filter(item => item.getBoundingClientRect().top <= window.innerHeight / 3).at(-1);
       target.hash = section ? section.id : window.location.hash;
       link.href = target.href;
