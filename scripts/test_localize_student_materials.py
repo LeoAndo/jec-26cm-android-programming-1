@@ -409,6 +409,19 @@ class CommandTest(unittest.TestCase):
         self.write_overrides([{"source": "<code>Run</code>を押します。", "where": "p", "translation": "Press Start."}])
         self.assertIn("訳文にタグが足りません", "\n".join(localize.check(self.settings())))
 
+    def test_sync_and_merge_repair_an_invalid_override(self):
+        source = "<code>Run</code>を押します。"
+        self.write_overrides([{"source": source, "where": "p", "translation": "Press Start."}])
+        self.assertIn("訳文にタグが足りません", "\n".join(localize.check(self.settings())))
+        self.sync()
+        self.assertIn(source, self.todo())
+        result, _, errors = self.merge({source: "Press <code>Run</code>."})
+        self.assertEqual(result, 0, errors)
+        self.assertEqual(localize.check(self.settings()), [])
+        output = localize.localized_pages(self.settings(), "en")["docs/en/unit/index.html"]
+        self.assertIn("Press <code>Run</code>.", output)
+        self.assertNotIn("Press Start.", output)
+
     def test_progress_counts_only_sources_translated_in_every_location(self):
         self.write("docs/unit/index.html", "<table><tr><th>コード</th><td>コード</td></tr></table>")
         self.write_overrides([{"source": "コード", "where": "th", "translation": "Code"}])

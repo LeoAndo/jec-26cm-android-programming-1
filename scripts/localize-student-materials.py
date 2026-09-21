@@ -879,7 +879,8 @@ def sync(settings: Settings, languages: list, only: list, work_dir: Path, chunk_
             old_catalog = catalogs[name]
             old = old_catalog.entries
             overrides = {key: translation for key, translation in old_catalog.overrides.items()
-                         if key[0] in page.sources()}
+                         if key[0] in page.sources()
+                         and not validate(key[0], translation, settings.terms, han)}
             kept, missing = {}, []
             filled = 0
             for source in page.sources():
