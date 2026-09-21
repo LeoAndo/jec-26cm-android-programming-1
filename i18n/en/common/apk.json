@@ -3,6 +3,10 @@
   "language": "en",
   "entries": [
     {
+      "source": "提出課題とAPKの作り方 | Androidプログラミング1",
+      "translation": "Assignment and how to create an APK | Android Programming 1"
+    },
+    {
       "source": "本文へ移動",
       "translation": "Skip to main content"
     },
@@ -19,20 +23,676 @@
       "translation": "ANDROID PROGRAMMING 1 / Shared guide · Class support"
     },
     {
+      "source": "提出課題と<br>APKの作り方",
+      "translation": "Assignment and<br>how to create an APK"
+    },
+    {
+      "source": "この授業の提出課題の説明です。自分で作ったアプリを3つ選び、アレンジを加えて、APKというファイルにして提出します。",
+      "translation": "This guide explains the assignment for this course. Select three apps you made, customize them, and submit each one as an APK file."
+    },
+    {
+      "source": "1. 提出課題",
+      "translation": "1. Assignment"
+    },
+    {
+      "source": "提出するもの",
+      "translation": "What to submit"
+    },
+    {
+      "source": "<strong>APKファイルを3つ。</strong>提出先は <strong>Google Classroom</strong> です。",
+      "translation": "<strong>Three APK files.</strong> Submit them through <strong>Google Classroom</strong>."
+    },
+    {
       "source": "すること",
       "translation": "What to do"
+    },
+    {
+      "source": "内容",
+      "translation": "Details"
+    },
+    {
+      "source": "選ぶ",
+      "translation": "Select"
+    },
+    {
+      "source": "この授業で<strong>自分が作ったプロジェクト</strong>から、好きなものを<strong>3つ</strong>選びます。",
+      "translation": "Select <strong>three</strong> of your favorite <strong>projects you made yourself</strong> in this course."
+    },
+    {
+      "source": "アレンジする",
+      "translation": "Customize"
+    },
+    {
+      "source": "選んだ3つのそれぞれに、自分なりの変更を加えます。文字の色を変えるだけでも構いません。",
+      "translation": "Make your own changes to each of the three apps you selected. Even changing only the text color is fine."
+    },
+    {
+      "source": "APKにする",
+      "translation": "Create APKs"
+    },
+    {
+      "source": "3つのそれぞれから、<strong>APK</strong>（エーピーケー）を作ります。アプリを1つのファイルにまとめたものです。",
+      "translation": "Create an <strong>APK</strong> for each of the three apps. An APK packages an app into a single file."
+    },
+    {
+      "source": "提出する",
+      "translation": "Submit"
+    },
+    {
+      "source": "3つのAPKを、Google Classroomに提出します。",
+      "translation": "Submit the three APKs through Google Classroom."
+    },
+    {
+      "source": "進め方",
+      "translation": "How to proceed"
+    },
+    {
+      "source": "2. 3つ選ぶ",
+      "translation": "2. Select three apps"
+    },
+    {
+      "source": "3. コピーを取る",
+      "translation": "3. Make a copy"
+    },
+    {
+      "source": "4. アレンジする",
+      "translation": "4. Customize"
+    },
+    {
+      "source": "5. APKを作る",
+      "translation": "5. Create an APK"
+    },
+    {
+      "source": "6. 名前を変える",
+      "translation": "6. Rename"
+    },
+    {
+      "source": "7. 提出する",
+      "translation": "7. Submit"
+    },
+    {
+      "source": "番号は、下の見出しの番号と同じです。<strong>3〜6は、アプリ1つごとに行います。</strong>3つ選ぶので、同じ手順を3回くり返します。7の提出は、APKが3つそろってから1回で行います。",
+      "translation": "The numbers match the headings below. <strong>Do steps 3–6 for each app.</strong> Since you select three apps, repeat these steps three times. Submit them once in step 7, after all three APKs are ready."
+    },
+    {
+      "source": "完成プロジェクト（見本）をそのまま出しても、提出にはなりません",
+      "translation": "Submitting a finished project (sample) unchanged does not count as completing the assignment"
+    },
+    {
+      "source": "教材のフォルダの <code>samples</code> に入っている完成プロジェクトは、先生が作った見本です。提出するのは、<strong>自分で作ったプロジェクトにアレンジを加えたもの</strong>です。",
+      "translation": "The finished projects in <code>samples</code> in the course materials folder are samples made by the teacher. Submit <strong>a customized version of a project you made yourself</strong>."
+    },
+    {
+      "source": "締め切りは、先生の案内に従ってください。",
+      "translation": "Follow your teacher's instructions for the deadline."
+    },
+    {
+      "source": "2. アプリを3つ選ぶ",
+      "translation": "2. Select three apps"
+    },
+    {
+      "source": "Finderで <strong>書類 → Android1</strong> を開きます。<code>A01HelloAndroid</code> や <code>A02CalcGame</code> のように、授業で自分が作ったプロジェクトのフォルダが並んでいます。この中から3つ選びます。",
+      "translation": "In Finder, open <strong>書類 → Android1</strong> (Documents → Android1). You will see folders for projects you made in class, such as <code>A01HelloAndroid</code> and <code>A02CalcGame</code>. Select three of these."
+    },
+    {
+      "source": "どの単元のものでも選べます。気に入っているもの、もっと変えてみたいものを選んでください。",
+      "translation": "You can select apps from any unit. Choose ones you like or want to change further."
+    },
+    {
+      "source": "<code>samples</code> フォルダの中のものは、選べません",
+      "translation": "You cannot select projects inside the <code>samples</code> folder"
+    },
+    {
+      "source": "教材のフォルダの <code>samples</code> に入っているのは、先生が作った完成プロジェクト（見本）です。選ぶのは、<code>書類 → Android1</code> のすぐ下にある、自分で作ったプロジェクトです。<code>Android1</code> の中に <code>samples</code> というフォルダがある人は、その中も見本なので選びません。",
+      "translation": "The <code>samples</code> folder in the course materials contains finished projects (samples) made by the teacher. Select projects you made yourself, directly inside <code>書類 → Android1</code> (Documents → Android1). If you have a <code>samples</code> folder inside <code>Android1</code>, its contents are also samples, so do not select them."
+    },
+    {
+      "source": "最後まで作れていない単元も、教科書を見ながら完成させれば選べます。3つそろわないときは、先生に相談してください。",
+      "translation": "You can also select an unfinished unit if you finish it by following the textbook. If you cannot get three apps ready, ask your teacher."
+    },
+    {
+      "source": "3. アレンジの前に、コピーを取っておく",
+      "translation": "3. Make a copy before customizing"
+    },
+    {
+      "source": "アレンジを始めると、どこを変えたか分からなくなったり、アプリが動かなくなったりすることがあります。そうなっても<strong>元に戻せるように</strong>、先にプロジェクトをまるごとコピーしておきます。ここでは <code>A02CalcGame</code> を例にします。",
+      "translation": "When you start customizing, you may lose track of your changes or the app may stop working. Copy the entire project first so that you can <strong>restore the original</strong> if that happens. Here we use <code>A02CalcGame</code> as an example."
+    },
+    {
+      "source": "Finderで <strong>書類 → Android1</strong> を開きます。",
+      "translation": "In Finder, open <strong>書類 → Android1</strong> (Documents → Android1)."
+    },
+    {
+      "source": "アレンジするプロジェクトのフォルダ（<code>A02CalcGame</code>）を右クリックします。",
+      "translation": "Right-click the folder of the project you want to customize (<code>A02CalcGame</code>)."
+    },
+    {
+      "source": "出てきたメニューから <strong>複製</strong> を選びます。",
+      "translation": "Select <strong>複製</strong> (Duplicate) from the menu that appears."
     },
     {
       "source": "成功の目印",
       "translation": "Signs of success"
     },
     {
+      "source": "同じ場所に <code>A02CalcGameのコピー</code> というフォルダができている。",
+      "translation": "A folder named <code>A02CalcGameのコピー</code> is in the same location."
+    },
+    {
+      "source": "コピーのほうは、<strong>開かずにそのまま置いておきます。</strong>アレンジするのは、元の名前のほう（<code>A02CalcGame</code>）です。",
+      "translation": "<strong>Leave the copy as it is, without opening it.</strong> Customize the project with the original name (<code>A02CalcGame</code>)."
+    },
+    {
+      "source": "元に戻したいとき",
+      "translation": "If you want to restore the original"
+    },
+    {
+      "source": "アレンジの途中で動かなくなり、直せなくなったら、コピーからやり直せます。",
+      "translation": "If the app stops working while you customize it and you cannot fix it, you can start over from the copy."
+    },
+    {
+      "source": "Android Studioで、そのプロジェクトのウィンドウを閉じます。",
+      "translation": "Close that project's window in Android Studio."
+    },
+    {
+      "source": "動かなくなったほうのフォルダを1回クリックして選び、<kbd>Enter</kbd> を押します。名前を変えられるようになるので、<code>A02CalcGame_old</code> に変えます。",
+      "translation": "Click once to select the folder that stopped working, then press <kbd>Enter</kbd>. You can now rename it. Change its name to <code>A02CalcGame_old</code>."
+    },
+    {
+      "source": "同じように、<code>A02CalcGameのコピー</code> の名前を <code>A02CalcGame</code> に変えます。",
+      "translation": "In the same way, rename <code>A02CalcGameのコピー</code> to <code>A02CalcGame</code>."
+    },
+    {
+      "source": "Android Studioの <strong>Open</strong> から <code>A02CalcGame</code> を開き直します。",
+      "translation": "Use <strong>Open</strong> in Android Studio to reopen <code>A02CalcGame</code>."
+    },
+    {
+      "source": "もう一度アレンジを始める前に、上の「複製」の手順で、コピーを取り直します。",
+      "translation": "Before you start customizing again, make another copy using the \"複製\" (Duplicate) steps above."
+    },
+    {
+      "source": "動かなくなったほうは、消さずに名前を変えるだけにしておくと、あとで見比べられます。",
+      "translation": "If you rename the folder that stopped working instead of deleting it, you can compare it with the other version later."
+    },
+    {
+      "source": "<strong>どこを、どれだけ変えるかは自由です。</strong>「何か所以上」という決まりはありません。文字の色を1か所変えるだけでも、アレンジです。もっとやってみたい人は、好きなだけ変えてください。",
+      "translation": "<strong>You can choose what to change and how much to change.</strong> There is no minimum number of changes. Changing the text color in just one place counts as customization. If you want to try more, change as much as you like."
+    },
+    {
+      "source": "変えられるものの例",
+      "translation": "Examples of things you can change"
+    },
+    {
+      "source": "変えるもの",
+      "translation": "What to change"
+    },
+    {
+      "source": "変える場所",
+      "translation": "Where to change it"
+    },
+    {
+      "source": "書き方の例",
+      "translation": "Example code"
+    },
+    {
+      "source": "文字の色",
+      "translation": "Text color"
+    },
+    {
+      "source": "<code>activity_main.xml</code> の、文字を出す部品（<code>TextView</code> など）",
+      "translation": "A component that shows text, such as <code>TextView</code>, in <code>activity_main.xml</code>"
+    },
+    {
+      "source": "画面の背景の色",
+      "translation": "Screen background color"
+    },
+    {
+      "source": "<code>activity_main.xml</code> の、いちばん外側の部品",
+      "translation": "The outermost component in <code>activity_main.xml</code>"
+    },
+    {
+      "source": "ボタンの色",
+      "translation": "Button color"
+    },
+    {
+      "source": "<code>activity_main.xml</code> の <code>Button</code>",
+      "translation": "<code>Button</code> in <code>activity_main.xml</code>"
+    },
+    {
+      "source": "表示する文字（文言）",
+      "translation": "Text shown on the screen (wording)"
+    },
+    {
+      "source": "<code>activity_main.xml</code> の <code>android:text</code> や、Javaの <code>setText</code> の <code>\" \"</code> の中",
+      "translation": "<code>android:text</code> in <code>activity_main.xml</code>, or the text inside <code>\" \"</code> in Java's <code>setText</code>"
+    },
+    {
+      "source": "画像",
+      "translation": "Images"
+    },
+    {
+      "source": "<code>res → drawable</code> の中の画像",
+      "translation": "Images in <code>res → drawable</code>"
+    },
+    {
+      "source": "自分で用意したPNG画像を、<strong>同じファイル名のまま</strong>入れ替える。名前が同じなら、ほかのコードは変えずに済む",
+      "translation": "Replace an image with a PNG you prepared, <strong>keeping the same file name</strong>. If the name stays the same, you do not need to change the other code."
+    },
+    {
+      "source": "数値",
+      "translation": "Numeric values"
+    },
+    {
+      "source": "Javaの中の数字",
+      "translation": "Numbers in the Java code"
+    },
+    {
+      "source": "計算ゲームの問題の数など",
+      "translation": "For example, the number of questions in the calculation game"
+    },
+    {
+      "source": "ボタンの色は <code>android:background</code> では変わりません",
+      "translation": "<code>android:background</code> does not change a button's color"
+    },
+    {
+      "source": "ボタンに <code>android:background</code> を書いても、色は変わらず、角の丸みだけがなくなります。ボタンの色を変えるときは、<code>android:backgroundTint</code> を使います。",
+      "translation": "Adding <code>android:background</code> to a button does not change its color; it only removes its rounded corners. Use <code>android:backgroundTint</code> to change a button's color."
+    },
+    {
+      "source": "これは例です。表にないところを変えても構いません。",
+      "translation": "These are examples. You may also change things that are not in the table."
+    },
+    {
+      "source": "変えると動かなくなりやすいところ",
+      "translation": "Changes that are more likely to stop the app from working"
+    },
+    {
+      "source": "次の3つは、<strong>変えてはいけないわけではありません。</strong>ただ、1か所変えると、ほかの場所も合わせて直す必要があり、ビルドが通らなくなったり、アプリが起動しなくなったりすることがあります。",
+      "translation": "The following three things <strong>are not forbidden to change.</strong> However, a change in one place requires matching changes elsewhere, and may cause the build to fail or the app to stop launching."
+    },
+    {
+      "source": "クラスの名前（<code>MainActivity</code> など）",
+      "translation": "Class names, such as <code>MainActivity</code>"
+    },
+    {
+      "source": "パッケージ名（<code>jp.ac.jec.a02calcgame</code> のように、<code>jp.ac.jec.</code> で始まる名前）",
+      "translation": "Package names, which start with <code>jp.ac.jec.</code>, such as <code>jp.ac.jec.a02calcgame</code>"
+    },
+    {
+      "source": "<code>AndroidManifest.xml</code> の中身",
+      "translation": "The contents of <code>AndroidManifest.xml</code>"
+    },
+    {
+      "source": "変えてみたいときは、手順3のコピーがあることを確かめてから始めてください。",
+      "translation": "If you want to try changing these, make sure you have the copy from step 3 before you start."
+    },
+    {
+      "source": "例：文字の色を変える",
+      "translation": "Example: Change the text color"
+    },
+    {
+      "source": "授業では出てこなかった書き方なので、やり方を1つ示します。<code>A01HelloAndroid</code> の <code>Hello World!</code> の文字を、赤にします。",
+      "translation": "Here is one example of how to do this, since this code has not appeared in class. We will make the <code>Hello World!</code> text in <code>A01HelloAndroid</code> red."
+    },
+    {
+      "source": "<code>app → res → layout → activity_main.xml</code> を開きます。",
+      "translation": "Open <code>app → res → layout → activity_main.xml</code>."
+    },
+    {
+      "source": "エディタ右上の <strong>Code</strong> を選び、<code>Hello World!</code> と書いてある <code>TextView</code> を探します。",
+      "translation": "Select <strong>Code</strong> at the top right of the editor, then find the <code>TextView</code> containing <code>Hello World!</code>."
+    },
+    {
+      "source": "その <code>TextView</code> の終わりにある <code>/&gt;</code> の手前をクリックし、<kbd>Enter</kbd> を押します。<code>/&gt;</code> が次の行に移ります。",
+      "translation": "Click just before <code>/&gt;</code> at the end of that <code>TextView</code>, then press <kbd>Enter</kbd>. The <code>/&gt;</code> moves to the next line."
+    },
+    {
+      "source": "移った <code>/&gt;</code> の前に、<code>android:textColor=\"#FF0000\"</code> と書きます。",
+      "translation": "Type <code>android:textColor=\"#FF0000\"</code> before the <code>/&gt;</code> that moved to the next line."
+    },
+    {
+      "source": "activity_main.xml · 変える前",
+      "translation": "activity_main.xml · Before the change"
+    },
+    {
+      "source": "activity_main.xml · 変えたあと",
+      "translation": "activity_main.xml · After the change"
+    },
+    {
+      "source": "<code>/&gt;</code> は「この部品の設定はここまで」という印です。足す行は、かならず <code>/&gt;</code> より前に入れます。行の並びが自分のコードと少し違っていても、<code>/&gt;</code> の手前に足すところが同じなら大丈夫です。",
+      "translation": "<code>/&gt;</code> marks the end of the settings for this component. Always insert the new line before <code>/&gt;</code>. Your lines may be in a slightly different order, but that is fine as long as you add the line before <code>/&gt;</code>."
+    },
+    {
+      "source": "<strong>Run ▶</strong> を押して、エミュレータで確かめます。",
+      "translation": "Click <strong>Run ▶</strong> and check the app in the emulator."
+    },
+    {
+      "source": "変える前のA01HelloAndroidの画面。中央のHello World!の文字が黒で表示され、その下にボタンが並んでいる",
+      "translation": "A01HelloAndroid before the change. The Hello World! text in the center is black, with buttons below it."
+    },
+    {
+      "source": "① 変える前。文字は黒です。 <a1>画像を大きく開く</a1>",
+      "translation": "① Before the change. The text is black. <a1>Open the full-size image</a1>"
+    },
+    {
+      "source": "変えたあとのA01HelloAndroidの画面。中央のHello World!の文字が赤で表示されている。ボタンは変える前と同じ",
+      "translation": "A01HelloAndroid after the change. The Hello World! text in the center is red. The buttons are unchanged."
+    },
+    {
+      "source": "② 1行足したあと。文字が赤になりました。 <a1>画像を大きく開く</a1>",
+      "translation": "② After adding one line. The text is now red. <a1>Open the full-size image</a1>"
+    },
+    {
+      "source": "色は、<code>#</code> のあとに6文字で書きます。",
+      "translation": "Write a color as six characters after <code>#</code>."
+    },
+    {
+      "source": "色",
+      "translation": "Color"
+    },
+    {
+      "source": "書き方",
+      "translation": "How to write it"
+    },
+    {
+      "source": "赤",
+      "translation": "Red"
+    },
+    {
+      "source": "青",
+      "translation": "Blue"
+    },
+    {
+      "source": "緑",
+      "translation": "Green"
+    },
+    {
+      "source": "オレンジ",
+      "translation": "Orange"
+    },
+    {
+      "source": "白",
+      "translation": "White"
+    },
+    {
+      "source": "黒",
+      "translation": "Black"
+    },
+    {
+      "source": "色を書くと、その行の左端に、その色の小さな四角が出ます。四角をクリックすると、好きな色を選べます。",
+      "translation": "After you enter a color, a small square of that color appears at the left end of the line. Click the square to select any color you like."
+    },
+    {
+      "source": "変えたら、すぐRunして確かめる",
+      "translation": "Run and check immediately after each change"
+    },
+    {
+      "source": "1か所変えたら <strong>Run ▶</strong> を押し、エミュレータで見た目と動きを確かめます。まとめて変えてからRunすると、動かなくなったときに、どこが原因か分からなくなります。",
+      "translation": "After changing one thing, click <strong>Run ▶</strong> and check the app's appearance and behavior in the emulator. If you make several changes before running it, you will not know which one caused the problem if it stops working."
+    },
+    {
+      "source": "アレンジしたところが、エミュレータの画面で確かめられる。アプリが、アレンジの前と同じように最後まで動く。",
+      "translation": "The customized parts are visible on the emulator screen. The app works all the way through, just as it did before customization."
+    },
+    {
+      "source": "<strong>APK</strong>（エーピーケー）は、Androidにアプリをインストールするためのファイルです。今回は授業内で動作を確認する <strong>debug版</strong> を作ります。",
+      "translation": "An <strong>APK</strong> is a file for installing an app on Android. Here you will create a <strong>debug version</strong> to check in class."
+    },
+    {
+      "source": "用意するもの",
+      "translation": "What you need"
+    },
+    {
+      "source": "アレンジが終わり、動作確認が済んだ、自分のプロジェクト。",
+      "translation": "Your own project, with customization and checks of its behavior completed."
+    },
+    {
+      "source": "プロジェクト名が、提出するアプリのものになっているか確認します。",
+      "translation": "Check that the project name matches the app you want to submit."
+    },
+    {
+      "source": "コードをRunし、アレンジしたところを含めて、アプリが動くことを確かめます。",
+      "translation": "Run the code and check that the app works, including the parts you customized."
+    },
+    {
+      "source": "<strong>View → Tool Windows → Build Variants</strong> を開き、appの <strong>Active Build Variant</strong> が <strong>debug</strong> になっているか確認します。",
+      "translation": "Open <strong>View → Tool Windows → Build Variants</strong> and check that app's <strong>Active Build Variant</strong> is <strong>debug</strong>."
+    },
+    {
+      "source": "APKを生成（せいせい）する",
+      "translation": "Generate the APK"
+    },
+    {
+      "source": "上の <strong>Build</strong> メニューを開きます。",
+      "translation": "Open the <strong>Build</strong> menu at the top."
+    },
+    {
+      "source": "<strong>Generate App Bundles or APKs → Generate APKs</strong> を選びます。表示が異なるバージョンでは、<strong>Build App Bundle(s) / APK(s) → Build APK(s)</strong> という名前の場合があります。",
+      "translation": "Select <strong>Generate App Bundles or APKs → Generate APKs</strong>. In versions with different wording, it may be called <strong>Build App Bundle(s) / APK(s) → Build APK(s)</strong>."
+    },
+    {
+      "source": "処理が終わるまで待ちます。",
+      "translation": "Wait for the process to finish."
+    },
+    {
+      "source": "完了通知に <strong>locate</strong>（場所を開く）があればクリックします。",
+      "translation": "If the completion notification has a <strong>locate</strong> link, click it to open the file location."
+    },
+    {
+      "source": "Runを押す操作とは別です",
+      "translation": "This is a separate operation from clicking Run"
+    },
+    {
+      "source": "提出するときは、このメニューからAPKを作ります。項目が見つからない場合は、メニューを開いたまま先生に見せてください。",
+      "translation": "Create the APK from this menu when you submit your work. If you cannot find the option, leave the menu open and show your teacher."
+    },
+    {
+      "source": "教員と一緒に：メニューが見つからない場合",
+      "translation": "With your teacher: If you cannot find the menu"
+    },
+    {
+      "source": "プロジェクト直下のTerminalで、次のコマンドでもdebug APKを作れます。実行する場所に <code>gradlew</code> があることを確認します。",
+      "translation": "You can also create a debug APK by running the following command in Terminal at the project root. Check that <code>gradlew</code> is in the folder where you run it."
+    },
+    {
+      "source": "Terminal · プロジェクト直下",
+      "translation": "Terminal · Project root"
+    },
+    {
+      "source": "<code>BUILD SUCCESSFUL</code> を確認します。",
+      "translation": "Check for <code>BUILD SUCCESSFUL</code>."
+    },
+    {
+      "source": "6. ファイルを見つけて、名前を変える",
+      "translation": "6. Find the file and rename it"
+    },
+    {
+      "source": "APKのファイル名は、どのアプリでも同じです",
+      "translation": "Every app produces an APK with the same file name"
+    },
+    {
+      "source": "できあがるファイルは、どのプロジェクトでも <code>app-debug.apk</code> という名前になります。3つとも同じ名前のまま提出すると、どれがどのアプリのものか、Google Classroomの画面で区別がつきません。<strong>APKを1つ作るたびに、すぐ名前を変えます。</strong>",
+      "translation": "Every project produces a file named <code>app-debug.apk</code>. If you submit all three with the same name, you cannot tell which app each file belongs to in Google Classroom. <strong>Rename each APK as soon as you create it.</strong>"
+    },
+    {
+      "source": "はじめの1回だけ、提出するファイルを集めるフォルダを作ります。Finderで <strong>書類 → Android1</strong> を開き、上のメニューの <strong>ファイル → 新規フォルダ</strong> で、<code>提出用</code> という名前のフォルダを作ります。",
+      "translation": "Only the first time, create a folder to collect the files you will submit. In Finder, open <strong>書類 → Android1</strong> (Documents → Android1), then use <strong>ファイル → 新規フォルダ</strong> (File → New Folder) in the top menu to create a folder named <code>提出用</code> (for submission)."
+    },
+    {
+      "source": "次に、作ったAPKを探します。Finderで <code>書類（Documents） → Android1 → 提出するプロジェクト名</code> の順に開き、<strong>app → build → outputs → apk → debug</strong> の順に進みます。",
+      "translation": "Next, find the APK you created. In Finder, open <code>書類（Documents） → Android1 → 提出するプロジェクト名</code> in that order (提出するプロジェクト名 means the name of the project you will submit). Then follow <strong>app → build → outputs → apk → debug</strong>."
+    },
+    {
+      "source": "HelloAndroidの場合の保存場所",
+      "translation": "File location for HelloAndroid"
+    },
+    {
+      "source": "<code>app-debug.apk</code> があることを確認します。",
+      "translation": "Check that <code>app-debug.apk</code> is there."
+    },
+    {
+      "source": "Finderの更新日時を見て、今作ったファイルか確認します。",
+      "translation": "Check the modification date and time in Finder to make sure this is the file you just created."
+    },
+    {
+      "source": "<code>app-debug.apk</code> を選んで <kbd>⌘ C</kbd> を押し、<code>提出用</code> フォルダを開いて <kbd>⌘ V</kbd> を押します。コピーなので、元の場所のファイルは残ります。",
+      "translation": "Select <code>app-debug.apk</code> and press <kbd>⌘ C</kbd>. Open the <code>提出用</code> (for submission) folder and press <kbd>⌘ V</kbd>. This makes a copy, so the file in the original location remains."
+    },
+    {
+      "source": "コピーしたファイルの名前を、<strong>すぐに</strong> <strong>学籍番号_プロジェクト名.apk</strong> に変えます。ファイルを1回クリックして選び、<kbd>Enter</kbd> を押すと、名前を変えられます。HelloAndroidでは <code>自分の学籍番号_A01HelloAndroid.apk</code> です。「自分の学籍番号」を実際の番号に置き換え、区切りには半角の <code>_</code> を使います。<code>.apk</code> の部分は残します。",
+      "translation": "<strong>Immediately</strong> rename the copied file to <strong>学籍番号_プロジェクト名.apk</strong> (student number_project name.apk). Click once to select the file, then press <kbd>Enter</kbd> to rename it. For HelloAndroid, use <code>自分の学籍番号_A01HelloAndroid.apk</code>. Replace \"自分の学籍番号\" (your student number) with your actual number, and use the half-width <code>_</code> as the separator. Keep the <code>.apk</code> part."
+    },
+    {
+      "source": "置き換えるかどうか聞かれたら、置き換えずにやめます",
+      "translation": "If asked whether to replace a file, cancel without replacing it"
+    },
+    {
+      "source": "名前を変える前に、次のアプリの <code>app-debug.apk</code> を <code>提出用</code> フォルダにコピーすると、同じ名前なので、Finderが置き換えてよいか聞いてきます。置き換えると、前のアプリのAPKが消えます。置き換えずにやめて、先に入っているファイルの名前を変えてください。",
+      "translation": "If you copy the next app's <code>app-debug.apk</code> into the <code>提出用</code> (for submission) folder before renaming the previous file, Finder will ask whether to replace it because the names are the same. Replacing it deletes the previous app's APK. Cancel without replacing it, then rename the file already in the folder."
+    },
+    {
+      "source": "ここまで（手順3〜6）を、残りのアプリでもくり返します。",
+      "translation": "Repeat the steps up to this point (steps 3–6) for the remaining apps."
+    },
+    {
+      "source": "3つのアプリが終わると、<code>提出用</code> フォルダに、名前のちがうAPKが3つ並ぶ。",
+      "translation": "After all three apps are finished, the <code>提出用</code> (for submission) folder contains three APKs with different names."
+    },
+    {
+      "source": "提出用フォルダの中身の例（A02・A05・A09を選んだ場合）",
+      "translation": "Example contents of the 提出用 (for submission) folder (if you selected A02, A05, and A09)"
+    },
+    {
+      "source": "7. Google Classroomに提出する",
+      "translation": "7. Submit through Google Classroom"
+    },
+    {
+      "source": "APKが3つそろってから、まとめて提出します。",
+      "translation": "Wait until all three APKs are ready, then submit them together."
+    },
+    {
+      "source": "Google Classroomでこの授業のクラスを開き、<strong>授業</strong> から提出課題を開きます。",
+      "translation": "Open this course's class in Google Classroom, then open the assignment under <strong>授業</strong> (Classwork)."
+    },
+    {
+      "source": "<strong>あなたの課題</strong> の <strong>追加または作成</strong> をクリックし、<strong>ファイル</strong> を選びます。",
+      "translation": "Under <strong>あなたの課題</strong> (Your work), click <strong>追加または作成</strong> (Add or create), then select <strong>ファイル</strong> (File)."
+    },
+    {
+      "source": "<code>提出用</code> フォルダの3つのAPKを選び、アップロードします。<kbd>⌘</kbd> を押しながらクリックすると、3つまとめて選べます。1つずつ、3回に分けて追加しても構いません。",
+      "translation": "Select and upload the three APKs in the <code>提出用</code> (for submission) folder. Hold <kbd>⌘</kbd> while clicking to select all three. You can also add them one at a time in three separate operations."
+    },
+    {
+      "source": "3つのファイル名が並んでいることを確認し、<strong>提出</strong> をクリックします。",
+      "translation": "Check that all three file names are listed, then click <strong>提出</strong> (Turn in)."
+    },
+    {
+      "source": "表示が <strong>提出済み</strong> に変わったことを確認します。",
+      "translation": "Check that the status changes to <strong>提出済み</strong> (Turned in)."
+    },
+    {
+      "source": "ボタンの名前は、画面によって少し違うことがあります。見つからないときは、その画面のまま先生に見せてください。",
+      "translation": "Button names may vary slightly between screens. If you cannot find a button, leave the screen as it is and show your teacher."
+    },
+    {
+      "source": "3つのAPKが、それぞれ <code>学籍番号_プロジェクト名.apk</code> の名前で表示され、<strong>提出済み</strong> になっている。",
+      "translation": "The three APKs are listed, each with a name in the format <code>学籍番号_プロジェクト名.apk</code> (student number_project name.apk), and the status is <strong>提出済み</strong> (Turned in)."
+    },
+    {
+      "source": "提出したあとでアプリを直したときは、動作確認 → APK生成 → 名前を変える、の順でやり直します。Google Classroomで <strong>提出を取り消し</strong> をクリックすると、ファイルを入れ替えて、もう一度提出できます。",
+      "translation": "If you change an app after submitting it, repeat these steps in order: check its behavior → generate the APK → rename the file. Click <strong>提出を取り消し</strong> (Unsubmit) in Google Classroom to replace the files and submit again."
+    },
+    {
+      "source": "このHTML教材のチェック欄だけでは、提出は完了しません。",
+      "translation": "Checking the boxes in these HTML course materials alone does not complete your submission."
+    },
+    {
+      "source": "8. うまくいかないとき",
+      "translation": "8. If something goes wrong"
+    },
+    {
+      "source": "起きたこと",
+      "translation": "What happened"
+    },
+    {
       "source": "やってみること",
       "translation": "What to try"
     },
     {
+      "source": "足した行が赤くなる",
+      "translation": "The line you added turns red"
+    },
+    {
+      "source": "<code>/&gt;</code> の位置を確認する。足した行が <code>/&gt;</code> より後ろにあると、エラーになる。",
+      "translation": "Check the position of <code>/&gt;</code>. If the added line is after <code>/&gt;</code>, it causes an error."
+    },
+    {
+      "source": "ボタンの色が変わらない",
+      "translation": "The button color does not change"
+    },
+    {
+      "source": "<code>android:background</code> ではなく、<code>android:backgroundTint</code> を使う。",
+      "translation": "Use <code>android:backgroundTint</code> instead of <code>android:background</code>."
+    },
+    {
+      "source": "アレンジしたらエラーが出て、直せない",
+      "translation": "Customization caused an error that you cannot fix"
+    },
+    {
+      "source": "その画面のまま先生に見せる。やり直すときは、手順3の「元に戻したいとき」を見る。",
+      "translation": "Leave the screen as it is and show your teacher. To start over, see \"If you want to restore the original\" in step 3."
+    },
+    {
+      "source": "<strong>Generate APKs</strong> が見つからない",
+      "translation": "You cannot find <strong>Generate APKs</strong>"
+    },
+    {
+      "source": "手順5の「メニューが見つからない場合」を、先生と一緒に行う。",
+      "translation": "Follow \"If you cannot find the menu\" in step 5 with your teacher."
+    },
+    {
+      "source": "<code>app-debug.apk</code> がない・更新日時が古い",
+      "translation": "<code>app-debug.apk</code> is missing or its modification date and time are old"
+    },
+    {
+      "source": "別のプロジェクト（<code>samples</code> の中の見本など）を開いたままAPKを作っていないか確認する。提出するプロジェクトを開き直し、手順5からやり直す。",
+      "translation": "Check whether you created the APK while a different project, such as a sample in <code>samples</code>, was open. Reopen the project you want to submit, then start again from step 5."
+    },
+    {
+      "source": "コピーするとき、置き換えるかどうか聞かれた",
+      "translation": "You were asked whether to replace a file when copying"
+    },
+    {
+      "source": "置き換えずにやめる。先に入っているファイルの名前を変えてから、もう一度コピーする。",
+      "translation": "Cancel without replacing it. Rename the file already in the folder, then copy again."
+    },
+    {
+      "source": "自分で作ったプロジェクトが3つそろわない",
+      "translation": "You cannot get three projects you made yourself ready"
+    },
+    {
+      "source": "先生に相談する。",
+      "translation": "Ask your teacher."
+    },
+    {
+      "source": "表にないことが起きたら、その画面のまま先生に見せてください。",
+      "translation": "If something not listed in the table happens, leave the screen as it is and show your teacher."
+    },
+    {
       "source": "公式資料",
       "translation": "Official documentation"
+    },
+    {
+      "source": "Android Developers：アプリのビルドと実行",
+      "translation": "Android Developers: Build and run your app"
+    },
+    {
+      "source": "Android Developers：コマンドラインでAPKを作る",
+      "translation": "Android Developers: Build an APK from the command line"
+    },
+    {
+      "source": "Google Classroom ヘルプ：課題を提出する",
+      "translation": "Google Classroom Help: Turn in an assignment"
     },
     {
       "source": "← もとの教科書へ戻る",

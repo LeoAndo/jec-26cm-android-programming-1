@@ -127,8 +127,8 @@
       "translation": "It is already a folder"
     },
     {
-      "source": "そのままで大丈夫です。ブラウザが自動で開いてくれています。",
-      "translation": "It is fine as it is. Your browser has already unzipped it for you automatically."
+      "source": "そのままで大丈夫です。ZIPファイルが自動で展開され、同じ名前のフォルダができています。",
+      "translation": "It is fine as it is. The ZIP file has been unzipped automatically, and a folder with the same name has been created."
     },
     {
       "source": "どちらの場合も、最後は<strong>フォルダが1つある</strong>状態になります。名前には、次のように日付が入ります。",
@@ -163,8 +163,8 @@
       "translation": "Do the same when you get a new version"
     },
     {
-      "source": "授業の途中で教材が新しくなることがあります。そのときも、この手順のまま「書類」へ移動してください。フォルダ名の日付が違うので、前のものとは別のフォルダになり、<strong>混ざりません</strong>。古いほうは消さずに残しておいて大丈夫です。",
-      "translation": "The course materials may be updated partway through the course. When that happens, follow these same steps and move the new folder to 「書類」 (Documents). The date in the folder name is different, so it becomes a separate folder and <strong>does not get mixed up</strong> with the earlier one. You can keep the old one. You do not need to delete it."
+      "source": "この科目を受講している期間中に、先生から新しい版の教材が配られることがあります。そのときも、この手順のまま「書類」へ移動してください。フォルダ名の日付が違うので、前のものとは別のフォルダになり、<strong>混ざりません</strong>。古いほうは消さずに残しておいて大丈夫です。",
+      "translation": "While you are taking this course, your teacher may hand out a new version of the course materials. When that happens, follow these same steps and move the new folder to 「書類」 (Documents). The date in the folder name is different, so it becomes a separate folder and <strong>does not get mixed up</strong> with the earlier one. You can keep the old one. You do not need to delete it."
     },
     {
       "source": "授業中は、先生が「今日はこの日付のものを使います」と指定します。開く前に、フォルダ名の日付を確かめてください。",
@@ -216,7 +216,7 @@
     },
     {
       "source": "版が違っても、多くの操作はそのまま進められます。画面の名前が教科書と違うときの読み替えは、<a1>共通資料：ちがうAndroid Studioのバージョンで進めるとき</a1>にまとめてあります。Android Studioが見つからない場合は、先生に知らせてください。",
-      "translation": "Even if the version is different, most steps work the same way. When a name on the screen is different from the textbook, <a1>Shared guide: Working with a different version of Android Studio</a1> explains how to read it. If you cannot find Android Studio, tell your teacher."
+      "translation": "Even if the version is different, most steps work the same way. When a name on the screen is different from the textbook, <a1>Shared guide: Using a different version of Android Studio</a1> explains how to read it. If you cannot find Android Studio, tell your teacher."
     },
     {
       "source": "3. 自分のプロジェクトの置き場を作る",
@@ -619,8 +619,8 @@
       "translation": "On the first Android Studio screen, click <strong>Open</strong>."
     },
     {
-      "source": "手順1で「書類」に置いた教材のフォルダを開き、その中を <code>samples</code> → <code>A01HelloAndroid</code> の順に開いて、<code>A01HelloAndroid</code> フォルダを選びます。",
-      "translation": "Open the course materials folder that you put in 「書類」 (Documents) in step 1. Inside it, open <code>samples</code> → <code>A01HelloAndroid</code> in that order, and select the <code>A01HelloAndroid</code> folder."
+      "source": "手順1で「書類」に置いた教材のフォルダを開き、その中の <code>samples</code> フォルダを開きます。一覧にある <code>A01HelloAndroid</code> フォルダを選び、<strong>開く（Open）</strong> をクリックします。",
+      "translation": "Open the course materials folder that you put in 「書類」 (Documents) in step 1, then open the <code>samples</code> folder inside it. Select the <code>A01HelloAndroid</code> folder in the list, then click <strong>「開く」 (Open)</strong>."
     },
     {
       "source": "画面の下で <strong>Gradle Sync</strong> という処理が終わるまで待ちます。初回は数分かかります。",
@@ -728,7 +728,7 @@
     },
     {
       "source": "<a1>ちがうAndroid Studioのバージョンで進めるとき</a1>（自分のMacなどで進めるとき）",
-      "translation": "<a1>Working with a different version of Android Studio</a1> (for example, when you work on your own Mac)"
+      "translation": "<a1>Using a different version of Android Studio</a1> (for example, when you work on your own Mac)"
     },
     {
       "source": "公式資料",
