@@ -1,0 +1,186 @@
+{
+  "source": "docs/common/auto-import.html",
+  "language": "zh-Hans",
+  "entries": [
+    {
+      "source": "Auto Importの設定 | Androidプログラミング1",
+      "translation": "Auto Import的设置 | Android编程1"
+    },
+    {
+      "source": "本文へ移動",
+      "translation": "跳转到正文"
+    },
+    {
+      "source": "JEC / Androidプログラミング1",
+      "translation": "JEC / Android编程1"
+    },
+    {
+      "source": "もとのページへ戻る",
+      "translation": "返回原来的页面"
+    },
+    {
+      "source": "ANDROID PROGRAMMING 1 / 共通資料",
+      "translation": "ANDROID PROGRAMMING 1 / 通用资料"
+    },
+    {
+      "source": "Auto Importの設定",
+      "translation": "Auto Import的设置"
+    },
+    {
+      "source": "Javaを書く前に、必要なimport文をAndroid Studioが自動で追加するように設定します。",
+      "translation": "编写Java之前，先设置Android Studio，让它自动添加所需的import语句。"
+    },
+    {
+      "source": "1. Settingsを開く",
+      "translation": "1. 打开Settings"
+    },
+    {
+      "source": "<strong>import</strong>（インポート）は、コードで使うクラスがどこにあるかを知らせる文です。授業では、Android Studioの <strong>Auto Import</strong>（自動インポート）を使います。",
+      "translation": "<strong>import</strong>是用于说明代码中使用的类位于何处的语句。课堂上使用Android Studio的<strong>Auto Import</strong>（自动导入）。"
+    },
+    {
+      "source": "Android Studioで授業のプロジェクトを開きます。",
+      "translation": "在Android Studio中打开课堂使用的项目。"
+    },
+    {
+      "source": "画面上部の <strong>Android Studio → Settings…</strong> をクリックします。",
+      "translation": "点击屏幕顶部的<strong>Android Studio → Settings…</strong>。"
+    },
+    {
+      "source": "MacのAndroid Studioメニューを開き、Settingsを選択している",
+      "translation": "在Mac中打开Android Studio菜单，选择Settings"
+    },
+    {
+      "source": "Android StudioメニューからSettingsを開きます。 <a1>画像を大きく開く</a1>",
+      "translation": "从Android Studio菜单打开Settings。<a1>查看大图</a1>"
+    },
+    {
+      "source": "2. JavaのAuto Importを設定する",
+      "translation": "2. 设置Java的Auto Import"
+    },
+    {
+      "source": "Settingsの左側で <strong>Editor → General → Auto Import</strong> を選びます。",
+      "translation": "在Settings左侧选择<strong>Editor → General → Auto Import</strong>。"
+    },
+    {
+      "source": "右側をスクロールし、<strong>Java</strong> の見出しを探します。",
+      "translation": "滚动右侧区域，找到<strong>Java</strong>标题。"
+    },
+    {
+      "source": "Java欄を、次の表の設定にします。",
+      "translation": "按照下表设置Java区域。"
+    },
+    {
+      "source": "Java欄の項目",
+      "translation": "Java区域的项目"
+    },
+    {
+      "source": "設定",
+      "translation": "设置"
+    },
+    {
+      "source": "何をする？",
+      "translation": "有什么作用？"
+    },
+    {
+      "source": "コードを貼り付けたときに、必要なimport文を追加する。",
+      "translation": "粘贴代码时，添加所需的import语句。"
+    },
+    {
+      "source": "チェックを入れる",
+      "translation": "勾选"
+    },
+    {
+      "source": "候補が1つに決まるimport文を、入力に合わせて自動で追加する。",
+      "translation": "在输入代码时，自动添加只有一个候选项的import语句。"
+    },
+    {
+      "source": "使っていないimport文を削除するなど、自動で整理する。",
+      "translation": "自动整理import语句，例如删除未使用的import语句。"
+    },
+    {
+      "source": "Editor、General、Auto Importの設定画面。Java欄でInsert imports on pasteはAlways、Add unambiguous imports on the flyとOptimize imports on the flyにチェックが入っている",
+      "translation": "Editor、General、Auto Import的设置屏幕。Java区域中的Insert imports on paste为Always，Add unambiguous imports on the fly和Optimize imports on the fly均已勾选"
+    },
+    {
+      "source": "赤い枠のJava欄を確認します。Insert imports on pasteは、その少し上にあります。 <a1>画像を大きく開く</a1>",
+      "translation": "检查红框内的Java区域。Insert imports on paste位于它的稍上方。<a1>查看大图</a1>"
+    },
+    {
+      "source": "<strong>OK</strong> をクリックして、設定画面を閉じます。",
+      "translation": "点击<strong>OK</strong>，关闭设置屏幕。"
+    },
+    {
+      "source": "成功の目印",
+      "translation": "成功的标志"
+    },
+    {
+      "source": "Java欄で「Always」と2つのチェックを確認できた。これで教科書のJavaを入力する準備ができました。",
+      "translation": "已确认Java区域设置为“Always”，并勾选了两个选项。现在可以开始输入教材中的Java代码了。"
+    },
+    {
+      "source": "3. 教科書のコードを入力する",
+      "translation": "3. 输入教材中的代码"
+    },
+    {
+      "source": "教科書に戻り、そのステップのJavaを入力します。たとえば <code>TextView</code> や <code>Button</code> を使うと、必要なimport文がファイル上部へ追加されます。",
+      "translation": "返回教材，输入该步骤的Java代码。例如，使用<code>TextView</code>或<code>Button</code>时，文件顶部会添加所需的import语句。"
+    },
+    {
+      "source": "import文は折りたたまれて見える場合があります。使わなくなったものは自動で整理されるので、行数が教材の見本と同じでなくても構いません。",
+      "translation": "import语句可能以折叠状态显示。不再使用的语句会自动整理，因此行数与学习资料中的示例不同也没有关系。"
+    },
+    {
+      "source": "もとのページへ戻る →",
+      "translation": "返回原来的页面 →"
+    },
+    {
+      "source": "4. 自動で追加されないとき",
+      "translation": "4. 未自动添加时"
+    },
+    {
+      "source": "同じ名前のクラスが複数あると、自動では1つに決められません。名前に赤い下線が残った場合は、次の順に確認します。",
+      "translation": "如果有多个同名的类，就无法自动选定一个。如果名称下面仍有红色下划线，请按以下顺序检查。"
+    },
+    {
+      "source": "JavaのAuto Importが、上の表と同じ設定か確認します。",
+      "translation": "检查Java的Auto Import设置是否与上表相同。"
+    },
+    {
+      "source": "赤い下線のある名前にカーソルを置き、<kbd>⌥ Option</kbd> + <kbd>Enter</kbd> を押します。",
+      "translation": "将光标放在有红色下划线的名称上，按<kbd>⌥ Option</kbd> + <kbd>Enter</kbd>。"
+    },
+    {
+      "source": "<strong>Import class</strong> が表示されたら選び、次の表にあるクラスを選びます。",
+      "translation": "如果出现<strong>Import class</strong>，请选择它，然后选择下表中的类。"
+    },
+    {
+      "source": "教科書の名前",
+      "translation": "教材中的名称"
+    },
+    {
+      "source": "選ぶクラス",
+      "translation": "要选择的类"
+    },
+    {
+      "source": "候補が出ない場合や、表と同じクラスが見つからない場合は、先生に名前と画面を見せてください。",
+      "translation": "如果没有出现候选项，或者找不到与表中相同的类，请把名称和屏幕展示给老师。"
+    },
+    {
+      "source": "公式資料",
+      "translation": "官方资料"
+    },
+    {
+      "source": "<a1>JetBrains：Auto import</a1>（Android Studioの基盤となるIDEの説明）",
+      "translation": "<a1>JetBrains：Auto import</a1>（对Android Studio所基于的IDE的说明）"
+    },
+    {
+      "source": "対象：macOS / Android Studio Panda 2 | 2025.3.2 · 画像：教員提供 · 確認日：2026年9月15日",
+      "translation": "适用环境：macOS / Android Studio Panda 2 | 2025.3.2 · 图片：教师提供 · 确认日期：2026年9月15日"
+    },
+    {
+      "source": "← もとのページへ戻る",
+      "translation": "← 返回原来的页面"
+    }
+  ]
+}
