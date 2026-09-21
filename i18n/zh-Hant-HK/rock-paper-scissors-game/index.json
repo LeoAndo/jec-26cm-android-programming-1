@@ -148,7 +148,7 @@
     },
     {
       "source": "A01・A02で学んだ「XMLで画面を作る」「Javaでクリックを処理する」「フィールドで値を覚える」を使い、<strong>CPUとじゃんけんをするゲーム</strong>を作ります。手の画像を押して選び、「勝負！」で結果を表示します。勝ち続けると連勝数が増えます。",
-      "translation": "運用 A01、A02 學過的「用 XML 製作畫面」「用 Java 處理點擊」「用欄位記住值」，製作<strong>與 CPU 猜拳的遊戲</strong>。按手勢圖片選擇手勢，再按「勝負！」（對戰！）顯示結果。持續獲勝，連勝次數便會增加。"
+      "translation": "運用 A01、A02 學過的「用 XML 製作畫面」「用 Java 處理按一下操作」「用欄位記住值」，製作<strong>與 CPU 猜拳的遊戲</strong>。按手勢圖片選擇手勢，再按「勝負！」（對戰！）顯示結果。持續獲勝，連勝次數便會增加。"
     },
     {
       "source": "ゲームの流れ",
@@ -196,7 +196,7 @@
     },
     {
       "source": "配列とfor文で3つの画像に同じクリック処理を付け、選んだ手の番号を覚える。",
-      "translation": "用陣列與 for 迴圈，為 3 張圖片加入相同的點擊處理，並記住所選手勢的編號。"
+      "translation": "用陣列與 for 迴圈，為 3 張圖片加入相同的按一下處理，並記住所選手勢的編號。"
     },
     {
       "source": "乱数でCPUの手を決め、計算式とswitch文で勝ち・負け・引き分けと連勝数を表示する。",
@@ -740,7 +740,7 @@
     },
     {
       "source": "<code>tools:ignore=\"ButtonStyle\"</code> はエディタの警告を抑える指定で、クリックの処理ではありません。「CPUの手」の文字はJavaで変えないため、idを付けていません。",
-      "translation": "<code>tools:ignore=\"ButtonStyle\"</code> 是隱藏編輯器警告的設定，不是點擊處理。「CPUの手」（CPU 的手勢）這段文字不會用 Java 更改，所以沒有設定 id。"
+      "translation": "<code>tools:ignore=\"ButtonStyle\"</code> 是隱藏編輯器警告的設定，不是按一下的處理。「CPUの手」（CPU 的手勢）這段文字不會用 Java 更改，所以沒有設定 id。"
     },
     {
       "source": "画面の下に「勝負！」「次の戦いへ」と「CPUの手」が表示されます。2つのボタンは灰色で押せません。",
@@ -800,7 +800,7 @@
     },
     {
       "source": "<code>selectedHand</code> は、選んだ手の番号を覚えるフィールドです。<code>-1</code> は「まだ選んでいない」という意味です。この値は、クリックの処理（<code>v -&gt; { ... }</code>）の中で書き換えます。<code>onCreate</code> の中で作ったローカル変数は、クリックの処理の中で変更できないため、フィールドにします。A02の <code>correctNo</code> などと同じ理由です。あとで出てくる <code>imageViews</code> や <code>btnStart</code> は、クリックの処理の中で読むだけなので、ローカル変数のままで構いません。",
-      "translation": "<code>selectedHand</code> 是記住所選手勢編號的欄位。<code>-1</code> 表示「尚未選擇」。這個值會在點擊處理（<code>v -&gt; { ... }</code>）中改寫。在 <code>onCreate</code> 內建立的區域變數，不能在點擊處理中更改，所以使用欄位。理由與 A02 的 <code>correctNo</code> 等相同。之後出現的 <code>imageViews</code> 和 <code>btnStart</code>，在點擊處理中只會讀取，所以保持為區域變數即可。"
+      "translation": "<code>selectedHand</code> 是記住所選手勢編號的欄位。<code>-1</code> 表示「尚未選擇」。這個值會在按一下的處理（<code>v -&gt; { ... }</code>）中改寫。在 <code>onCreate</code> 內建立的區域變數，不能在按一下的處理中更改，所以使用欄位。理由與 A02 的 <code>correctNo</code> 等相同。之後出現的 <code>imageViews</code> 和 <code>btnStart</code>，在按一下的處理中只會讀取，所以保持為區域變數即可。"
     },
     {
       "source": "② 画面の部品を取得する",
@@ -824,7 +824,7 @@
     },
     {
       "source": "クリック登録と有効・無効の切り替えだけを使うため、A02と同じくキャストしない。",
-      "translation": "因為只使用點擊處理的註冊，以及啟用與停用的切換，所以與 A02 一樣，不做類型轉換。"
+      "translation": "因為只使用按一下處理的註冊，以及啟用與停用的切換，所以與 A02 一樣，不做類型轉換。"
     },
     {
       "source": "3つの手の画像を、ImageViewの配列にまとめる。",
@@ -840,7 +840,7 @@
     },
     {
       "source": "③ 3つの画像にクリック処理を付ける",
-      "translation": "③ 為 3 張圖片加入點擊處理"
+      "translation": "③ 為 3 張圖片加入按一下處理"
     },
     {
       "source": "②で追加した配列の <code>};</code> の下に追加します。",
@@ -856,7 +856,7 @@
     },
     {
       "source": "配列から画像を1つずつ取り出し、クリック処理を登録する。A02の数字ボタンと同じ拡張for文。",
-      "translation": "從陣列逐一取出圖片，註冊點擊處理。與 A02 的數字按鈕一樣，使用增強型 for 迴圈。"
+      "translation": "從陣列逐一取出圖片，註冊按一下處理。與 A02 的數字按鈕一樣，使用增強型 for 迴圈。"
     },
     {
       "source": "押された画像。",
