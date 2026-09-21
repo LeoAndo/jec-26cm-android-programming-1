@@ -49,6 +49,9 @@ PROTECTED = {"code", "kbd", "samp", "var"}
 SKIPPED = {"pre", "script", "style"}
 TRANSLATED_ATTRIBUTES = ("alt", "aria-label", "title", "placeholder")
 LINK_ATTRIBUTES = ("href", "src")
+# 教科書のUI文言（docs/assets/textbook.js の既定値と同じ項目）。配布物と確認用ページの両方に渡す。
+UI_KEYS = ("copy", "copy_label", "copied", "copy_success", "copy_shortcut", "copy_selected", "progress")
+BODY = re.compile(r"<body\b[^>]*>", re.I)
 
 # ひらがな・カタカナ・漢字。「・」（U+30FB）は、英字だけの文にも区切りとして出てくるので含めない。
 JAPANESE = re.compile(r"[\u3041-\u309f\u30a1-\u30fa\u30fc-\u30ff\u3400-\u4dbf\u4e00-\u9fff\uff66-\uff9f\u3005]")
@@ -725,6 +728,8 @@ class Settings:
     catalog_root: str
     languages: list  # [{"code": "en", "name": "English", "distribute": false}, …]
     terms: list  # config/teaching-materials.json の terms。正式表記を訳文にも求める
+    source_language: str  # 原文の言語コード。config/i18n.json の source_language
+    source_ui: dict  # 原文の教科書UI文言。config/i18n.json の source_ui
 
     def codes(self) -> list:
         return [language["code"] for language in self.languages]
@@ -778,7 +783,33 @@ def load_settings(root: Path) -> Settings:
             terms = json.loads((root / TERMS_CONFIG).read_text(encoding="utf-8")).get("terms", [])
         except (OSError, json.JSONDecodeError) as error:
             raise LocalizeError(f"{TERMS_CONFIG.as_posix()}を読み込めません: {error}") from None
-    return Settings(root, config["source_root"], config["catalog_root"], languages, terms)
+    return Settings(root, config["source_root"], config["catalog_root"], languages, terms,
+                    config.get("source_language", "ja"), config.get("source_ui", {}))
+
+
+def ui_messages(settings: Settings, code: str) -> dict:
+    """その言語の教科書UI文言。配布物（package-student-materials.py）と確認用ページで同じものを使う。"""
+    source = code == settings.source_language
+    messages = settings.source_ui if source else settings.language(code).get("ui", {})
+    missing = [key for key in UI_KEYS if not (isinstance(messages.get(key), str) and messages[key].strip())]
+    if missing:
+        where = "source_ui" if source else f"languages[{code}].ui"
+        raise LocalizeError(f"{CONFIG.as_posix()}: {where} のUI文言が足りません: {'、'.join(missing)}")
+    return {key: messages[key] for key in UI_KEYS}
+
+
+def textbook_i18n_script(messages: dict) -> str:
+    """教科書のUI文言をページへ渡す要素。JSON内に </script> があってもHTMLの区切りにしない。"""
+    payload = json.dumps(messages, ensure_ascii=False).replace("<", "\\u003c")
+    return f'<script type="application/json" id="textbook-i18n">{payload}</script>'
+
+
+def insert_into_body(text: str, addition: str, page: str) -> str:
+    """開始タグ <body> の直後へ差し込む。見つからなければ、黙って落とさずに止める。"""
+    found = BODY.search(text)
+    if found is None:
+        raise LocalizeError(f"差し込む<body>がありません：{page}")
+    return text[:found.end()] + addition + text[found.end():]
 
 
 def _read_overrides(data: dict, path: Path) -> dict:
@@ -1221,10 +1252,12 @@ def build(settings: Settings, languages: list, output: Path) -> None:
         if target.exists():
             shutil.rmtree(target)
         pages = localized_pages(settings, code)
+        # 配布物と同じUI文言を渡す。言語の切り替えと翻訳の注記は配布物だけのもので、ここには入れない。
+        addition = f"\n{textbook_i18n_script(ui_messages(settings, code))}\n"
         for name, text in pages.items():
             target = output / name
             target.parent.mkdir(parents=True, exist_ok=True)
-            target.write_text(text, encoding="utf-8")
+            target.write_text(insert_into_body(text, addition, name), encoding="utf-8")
         print(f"{code}: {len(pages)}ページを作りました（{_shown(settings.root, output / settings.source_root / code)}）")
 
 

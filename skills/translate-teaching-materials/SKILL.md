@@ -60,7 +60,9 @@ description: Translate the Japanese student textbooks (docs/**/*.html) into the 
    python3 scripts/localize-student-materials.py build --lang en
    ```
 
-   `build` は `dist/i18n-preview/docs/<言語>/…` にページを作る。`file://` で開くとCSSが当たらないことがあるので、ローカルのサーバーで開く。レイアウトの崩れ、リンク、画像、コードのコピー、共通資料の「もとの教科書へ戻る」を確かめる。
+   `build` は `dist/i18n-preview/docs/<言語>/…` にページを作る。`file://` で開くとCSSが当たらないことがあるので、ローカルのサーバーで開く。レイアウトの崩れ、リンク、画像、コードのコピー、共通資料の「もとの教科書へ戻る」を確かめる。コピーボタンと進捗表示は、配布物と同じ `config/i18n.json` の `languages[].ui` で出るので、本文の説明とボタンの文言が食い違っていないかもここで見る。
+
+   確認用ページには、言語の切り替え（`language-nav`）と翻訳の注記（`translation-note`）は入らない。この2つは配布対象の全言語がそろって初めて作れるもので、`--lang` で選んだ言語だけを作る確認用ページではリンク先が欠けるため、配布時（`package-student-materials.py`）だけで付ける。
 7. 新しく訳語を決めた用語を、`i18n/<言語>/glossary.md` に足す。
 
 ### 同じ原文を場所によって訳し分けるとき
