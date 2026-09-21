@@ -3,11 +3,14 @@
 import argparse
 from datetime import datetime, timedelta, timezone
 import hashlib
+import html
+import importlib.util
 from html.parser import HTMLParser
 import io
 import json
 from pathlib import Path
 import posixpath
+import re
 import subprocess
 import sys
 from urllib.parse import unquote, urlsplit
@@ -42,6 +45,79 @@ def check_links(files):
             target = posixpath.normpath(posixpath.join(posixpath.dirname(name), unquote(url.path)))
             if target not in files:
                 raise ValueError(f"配布物内にリンク先がありません：{name} → {link}")
+
+
+def add_localized_materials(files):
+    """配布対象の言語だけを生成し、本文と導線を静的HTMLとして収録する。"""
+    spec = importlib.util.spec_from_file_location("package_localizer", ROOT / "scripts/localize-student-materials.py")
+    localizer = importlib.util.module_from_spec(spec)
+    sys.modules[spec.name] = localizer
+    spec.loader.exec_module(localizer)
+    settings = localizer.load_settings(ROOT)
+    languages = [item for item in settings.languages if item.get("distribute")]
+    if not languages:
+        return []
+    config = json.loads((ROOT / "config/i18n.json").read_text(encoding="utf-8"))
+    source_ui = config["source_ui"]
+    required_ui = {"copy", "copy_label", "copied", "copy_success", "copy_shortcut", "copy_selected", "progress"}
+    for label, messages in [("ja", source_ui)] + [(item["code"], item.get("ui", {})) for item in languages]:
+        if not all(isinstance(messages.get(key), str) and messages[key].strip() for key in required_ui):
+            raise ValueError(f"config/i18n.json: {label} のUI文言が不足しています")
+    for item in languages:
+        for key in ("name", "language_label", "translation_notice", "japanese_version", "open_instructions", "start_here"):
+            if not isinstance(item.get(key), str) or not item[key].strip():
+                raise ValueError(f"config/i18n.json: {item['code']} の {key} がありません")
+    # 翻訳でも配布物の境界は同じ。Git未管理の確認用HTMLは生成しない。
+    names = sorted(name for name in files if name.endswith(".html"))
+    choices = [{"code": "ja", "name": "日本語"}, *languages]
+    for language in languages:
+        for name, text in localizer.localized_pages(
+                settings, language["code"], mark_untranslated=True, page_names=names).items():
+            files[name] = text.encode("utf-8")
+    for source in names:
+        for language in choices:
+            code = language["code"]
+            name = source if code == "ja" else localizer.output_name(source, code, settings.source_root)
+            links = []
+            for choice in choices:
+                target_code = choice["code"]
+                label = html.escape(choice["name"])
+                if code == target_code:
+                    links.append(f'<span lang="{code}" aria-current="page">{label}</span>')
+                else:
+                    target = source if target_code == "ja" else localizer.output_name(source, target_code, settings.source_root)
+                    href = html.escape(posixpath.relpath(target, posixpath.dirname(name)), quote=True)
+                    links.append(f'<a href="{href}" lang="{target_code}" hreflang="{target_code}" data-language-link>{label}</a>')
+            label = "言語" if code == "ja" else language["language_label"]
+            nav = f'<nav class="language-nav" aria-label="{html.escape(label, quote=True)}">' + " | ".join(links) + "</nav>"
+            if code != "ja":
+                original = html.escape(posixpath.relpath(source, posixpath.dirname(name)), quote=True)
+                nav += ('<aside class="translation-note"><p>' + html.escape(language["translation_notice"])
+                        + f'</p><a href="{original}" data-language-link hreflang="ja">'
+                        + html.escape(language["japanese_version"]) + '</a></aside>')
+            messages = source_ui if code == "ja" else language["ui"]
+            # JSON内に </script> があってもHTMLの区切りにしない。
+            payload = json.dumps(messages, ensure_ascii=False).replace("<", "\\u003c")
+            addition = f'\n{nav}\n<script type="application/json" id="textbook-i18n">{payload}</script>\n'
+            text = files[name].decode("utf-8")
+            text, count = re.subn(r"(<body\b[^>]*>)", lambda match: match.group(0) + addition, text, count=1, flags=re.I)
+            if count != 1:
+                raise ValueError(f"言語の導線を挿入するbodyがありません：{name}")
+            files[name] = text.encode("utf-8")
+    # 翻訳された共通資料を入口にする。確認用の小さな教材にはA01を使う。
+    start = "docs/common/setup.html" if "docs/common/setup.html" in files else "docs/hello-android/index.html"
+    items = [f'<li lang="ja"><a href="{start}">日本語 — ここから始める</a></li>']
+    for item in languages:
+        target = localizer.output_name(start, item["code"], settings.source_root)
+        items.append(f'<li lang="{item["code"]}"><a href="{html.escape(target, quote=True)}">'
+                     + html.escape(item["name"] + " — " + item["start_here"]) + '</a></li>')
+    files["index.html"] = ('<!doctype html>\n<html lang="ja"><head><meta charset="utf-8">'
+                           '<meta name="viewport" content="width=device-width, initial-scale=1">'
+                           '<title>Android Programming 1 — Language / 言語</title>'
+                           '<link rel="stylesheet" href="docs/assets/textbook.css"></head>'
+                           '<body class="plain"><main><h1>Android Programming 1</h1>'
+                           '<p>Language / 言語</p><ul>' + ''.join(items) + '</ul></main></body></html>\n').encode("utf-8")
+    return languages
 
 
 def build(output_dir):
@@ -136,11 +212,12 @@ def build(output_dir):
     if ("docs/vocabulary-book/index.html" in files
             and "docs/vocabulary-book/downloads/A11VocabularyBook.zip" not in files):
         raise ValueError("VocabularyBookの完成プロジェクトが見つかりません。")
+    languages = add_localized_materials(files)
     check_links(files)
 
     # 完成プロジェクトを、展開済みの見本として samples/ にも収録する。学生はダウンロードも展開もせず、
     # Android StudioのOpenで選ぶだけになる。中身は配布物に入れるZIPと同じなので、新たにcommitするファイルはない。
-    # リンク検査のあとで足すので、検査の対象は今までどおり docs だけになる。
+    # リンク検査のあとで足すので、検査の対象は教科書と多言語の入口で、samples の中は検査しない。
     executables = set()
     for _, archive_name in projects:
         if archive_name not in files:
@@ -182,6 +259,12 @@ def build(output_dir):
         "教材を更新するときは別のフォルダに展開し、自分で作ったAndroid Studioプロジェクトを上書きしないでください。\n"
         "授業中は先生が指定した版を使ってください。質問時には教材の版とSTEP番号を伝えてください。\n"
     ).encode()
+
+    if languages:
+        instructions = "\nLanguage / 言語\n日本語：index.html をブラウザで開き、言語を選んでください。\n"
+        for language in languages:
+            instructions += f"{language['name']}: {language['open_instructions']}\n"
+        files["はじめに.txt"] += instructions.encode("utf-8")
 
     output_dir.mkdir(parents=True, exist_ok=True)
     archive_path = output_dir / asset_name
