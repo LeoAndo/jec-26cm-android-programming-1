@@ -1,186 +1,186 @@
 {
   "source": "docs/common/auto-import.html",
-  "language": "en",
+  "language": "fr",
   "entries": [
     {
       "source": "Auto Importの設定 | Androidプログラミング1",
-      "translation": "Setting up Auto Import | Android Programming 1"
+      "translation": "Configuration d'Auto Import | Programmation Android 1"
     },
     {
       "source": "本文へ移動",
-      "translation": "Skip to main content"
+      "translation": "Aller au contenu principal"
     },
     {
       "source": "JEC / Androidプログラミング1",
-      "translation": "JEC / Android Programming 1"
+      "translation": "JEC / Programmation Android 1"
     },
     {
       "source": "もとのページへ戻る",
-      "translation": "Back to the page you came from"
+      "translation": "Revenir à la page d'origine"
     },
     {
       "source": "ANDROID PROGRAMMING 1 / 共通資料",
-      "translation": "ANDROID PROGRAMMING 1 / SHARED GUIDE"
+      "translation": "ANDROID PROGRAMMING 1 / GUIDES COMMUNS"
     },
     {
       "source": "Auto Importの設定",
-      "translation": "Setting up Auto Import"
+      "translation": "Configuration d'Auto Import"
     },
     {
       "source": "Javaを書く前に、必要なimport文をAndroid Studioが自動で追加するように設定します。",
-      "translation": "Before writing Java, set up Android Studio to add the import statements you need automatically."
+      "translation": "Avant d'écrire du Java, configurez Android Studio pour qu'il ajoute automatiquement les instructions import nécessaires."
     },
     {
       "source": "1. Settingsを開く",
-      "translation": "1. Open Settings"
+      "translation": "1. Ouvrir Settings"
     },
     {
       "source": "<strong>import</strong>（インポート）は、コードで使うクラスがどこにあるかを知らせる文です。授業では、Android Studioの <strong>Auto Import</strong>（自動インポート）を使います。",
-      "translation": "An <strong>import</strong> statement tells Java where to find a class used in your code. In class, we use <strong>Auto Import</strong> in Android Studio."
+      "translation": "Une instruction <strong>import</strong> indique où se trouve une classe utilisée dans le code. Pendant le cours, vous utiliserez <strong>Auto Import</strong> (import automatique) dans Android Studio."
     },
     {
       "source": "Android Studioで授業のプロジェクトを開きます。",
-      "translation": "Open your class project in Android Studio."
+      "translation": "Ouvrez le projet du cours dans Android Studio."
     },
     {
       "source": "画面上部の <strong>Android Studio → Settings…</strong> をクリックします。",
-      "translation": "Click <strong>Android Studio → Settings…</strong> at the top of the screen."
+      "translation": "Cliquez sur <strong>Android Studio → Settings…</strong> en haut de l'écran."
     },
     {
       "source": "MacのAndroid Studioメニューを開き、Settingsを選択している",
-      "translation": "The Android Studio menu on a Mac, with Settings selected"
+      "translation": "Le menu Android Studio du Mac est ouvert et Settings est sélectionné"
     },
     {
       "source": "Android StudioメニューからSettingsを開きます。 <a1>画像を大きく開く</a1>",
-      "translation": "Open Settings from the Android Studio menu. <a1>Open the full-size image</a1>"
+      "translation": "Ouvrez Settings depuis le menu Android Studio. <a1>Ouvrir l'image en grand</a1>"
     },
     {
       "source": "2. JavaのAuto Importを設定する",
-      "translation": "2. Set up Auto Import for Java"
+      "translation": "2. Configurer Auto Import pour Java"
     },
     {
       "source": "Settingsの左側で <strong>Editor → General → Auto Import</strong> を選びます。",
-      "translation": "On the left side of Settings, select <strong>Editor → General → Auto Import</strong>."
+      "translation": "À gauche de Settings, sélectionnez <strong>Editor → General → Auto Import</strong>."
     },
     {
       "source": "右側をスクロールし、<strong>Java</strong> の見出しを探します。",
-      "translation": "Scroll down on the right and find the <strong>Java</strong> heading."
+      "translation": "Faites défiler la partie droite et cherchez le titre <strong>Java</strong>."
     },
     {
       "source": "Java欄を、次の表の設定にします。",
-      "translation": "Use the settings in the following table for the Java section."
+      "translation": "Configurez la section Java comme dans le tableau suivant."
     },
     {
       "source": "Java欄の項目",
-      "translation": "Item in the Java section"
+      "translation": "Option de la section Java"
     },
     {
       "source": "設定",
-      "translation": "Setting"
+      "translation": "Réglage"
     },
     {
       "source": "何をする？",
-      "translation": "What does it do?"
+      "translation": "À quoi sert cette option ?"
     },
     {
       "source": "コードを貼り付けたときに、必要なimport文を追加する。",
-      "translation": "Adds the import statements you need when you paste code."
+      "translation": "Ajoute les instructions import nécessaires lorsque vous collez du code."
     },
     {
       "source": "チェックを入れる",
-      "translation": "Check the box"
+      "translation": "Cocher"
     },
     {
       "source": "候補が1つに決まるimport文を、入力に合わせて自動で追加する。",
-      "translation": "Automatically adds an import statement as you type when there is only one possible class."
+      "translation": "Ajoute automatiquement les instructions import au fil de la saisie lorsqu'une seule classe correspond."
     },
     {
       "source": "使っていないimport文を削除するなど、自動で整理する。",
-      "translation": "Automatically organizes imports, for example by removing unused import statements."
+      "translation": "Organise automatiquement les imports, par exemple en supprimant ceux qui ne sont pas utilisés."
     },
     {
       "source": "Editor、General、Auto Importの設定画面。Java欄でInsert imports on pasteはAlways、Add unambiguous imports on the flyとOptimize imports on the flyにチェックが入っている",
-      "translation": "The Editor, General, Auto Import settings. In the Java section, Insert imports on paste is set to Always, and Add unambiguous imports on the fly and Optimize imports on the fly are checked."
+      "translation": "Écran des réglages Editor, General, Auto Import. Dans la section Java, Insert imports on paste est réglé sur Always ; Add unambiguous imports on the fly et Optimize imports on the fly sont cochés"
     },
     {
       "source": "赤い枠のJava欄を確認します。Insert imports on pasteは、その少し上にあります。 <a1>画像を大きく開く</a1>",
-      "translation": "Check the Java section outlined in red. Insert imports on paste is slightly above it. <a1>Open the full-size image</a1>"
+      "translation": "Vérifiez la section Java encadrée en rouge. Insert imports on paste se trouve un peu au-dessus. <a1>Ouvrir l'image en grand</a1>"
     },
     {
       "source": "<strong>OK</strong> をクリックして、設定画面を閉じます。",
-      "translation": "Click <strong>OK</strong> to close Settings."
+      "translation": "Cliquez sur <strong>OK</strong> pour fermer les réglages."
     },
     {
       "source": "成功の目印",
-      "translation": "Signs of success"
+      "translation": "Signes de réussite"
     },
     {
       "source": "Java欄で「Always」と2つのチェックを確認できた。これで教科書のJavaを入力する準備ができました。",
-      "translation": "The Java section shows \"Always\" and two checked boxes. You are now ready to enter the Java code from the textbook."
+      "translation": "La section Java affiche « Always » et les deux cases sont cochées. Vous pouvez maintenant saisir le Java du manuel."
     },
     {
       "source": "3. 教科書のコードを入力する",
-      "translation": "3. Enter the code from the textbook"
+      "translation": "3. Saisir le code du manuel"
     },
     {
       "source": "教科書に戻り、そのステップのJavaを入力します。たとえば <code>TextView</code> や <code>Button</code> を使うと、必要なimport文がファイル上部へ追加されます。",
-      "translation": "Return to the textbook and enter the Java code for that step. For example, when you use <code>TextView</code> or <code>Button</code>, the import statements you need are added at the top of the file."
+      "translation": "Revenez au manuel et saisissez le Java de cette étape. Par exemple, lorsque vous utilisez <code>TextView</code> ou <code>Button</code>, les instructions import nécessaires sont ajoutées en haut du fichier."
     },
     {
       "source": "import文は折りたたまれて見える場合があります。使わなくなったものは自動で整理されるので、行数が教材の見本と同じでなくても構いません。",
-      "translation": "The import statements may appear folded. Unused imports are organized automatically, so the number of lines does not have to match the sample in the course materials."
+      "translation": "Les instructions import peuvent apparaître repliées. Celles qui ne sont plus utilisées sont organisées automatiquement : le nombre de lignes peut donc différer du modèle des supports de cours."
     },
     {
       "source": "もとのページへ戻る →",
-      "translation": "Back to the page you came from →"
+      "translation": "Revenir à la page d'origine →"
     },
     {
       "source": "4. 自動で追加されないとき",
-      "translation": "4. If imports are not added automatically"
+      "translation": "4. Si les imports ne sont pas ajoutés automatiquement"
     },
     {
       "source": "同じ名前のクラスが複数あると、自動では1つに決められません。名前に赤い下線が残った場合は、次の順に確認します。",
-      "translation": "If several classes have the same name, Android Studio cannot choose one automatically. If a name still has a red underline, check the following in order."
+      "translation": "Si plusieurs classes portent le même nom, Android Studio ne peut pas en choisir une automatiquement. Si le nom reste souligné en rouge, vérifiez les points suivants dans l'ordre."
     },
     {
       "source": "JavaのAuto Importが、上の表と同じ設定か確認します。",
-      "translation": "Check that Auto Import for Java has the settings in the table above."
+      "translation": "Vérifiez que les réglages Java d'Auto Import correspondent au tableau ci-dessus."
     },
     {
       "source": "赤い下線のある名前にカーソルを置き、<kbd>⌥ Option</kbd> + <kbd>Enter</kbd> を押します。",
-      "translation": "Place the cursor on the name with a red underline and press <kbd>⌥ Option</kbd> + <kbd>Enter</kbd>."
+      "translation": "Placez le curseur sur le nom souligné en rouge, puis appuyez sur <kbd>⌥ Option</kbd> + <kbd>Enter</kbd>."
     },
     {
       "source": "<strong>Import class</strong> が表示されたら選び、次の表にあるクラスを選びます。",
-      "translation": "If <strong>Import class</strong> appears, select it, then select the class in the following table."
+      "translation": "Si <strong>Import class</strong> apparaît, sélectionnez cette option, puis choisissez la classe indiquée dans le tableau suivant."
     },
     {
       "source": "教科書の名前",
-      "translation": "Name in the textbook"
+      "translation": "Nom dans le manuel"
     },
     {
       "source": "選ぶクラス",
-      "translation": "Class to select"
+      "translation": "Classe à choisir"
     },
     {
       "source": "候補が出ない場合や、表と同じクラスが見つからない場合は、先生に名前と画面を見せてください。",
-      "translation": "If no suggestions appear, or you cannot find the class listed in the table, show your teacher the name and the screen."
+      "translation": "Si aucune proposition ne s'affiche ou si vous ne trouvez pas la classe du tableau, montrez le nom et l'écran à votre enseignant."
     },
     {
       "source": "公式資料",
-      "translation": "Official documentation"
+      "translation": "Documentation officielle"
     },
     {
       "source": "<a1>JetBrains：Auto import</a1>（Android Studioの基盤となるIDEの説明）",
-      "translation": "<a1>JetBrains: Auto import</a1> (documentation for the IDE that Android Studio is based on)"
+      "translation": "<a1>JetBrains : Auto import</a1> (explications sur l'IDE qui sert de base à Android Studio)"
     },
     {
       "source": "対象：macOS / Android Studio Panda 2 | 2025.3.2 · 画像：教員提供 · 確認日：2026年9月15日",
-      "translation": "For: macOS / Android Studio Panda 2 | 2025.3.2 · Images: provided by the teacher · Checked: September 15, 2026"
+      "translation": "Environnement : macOS / Android Studio Panda 2 | 2025.3.2 · Images fournies par l'enseignant · Vérifié le 15 septembre 2026"
     },
     {
       "source": "← もとのページへ戻る",
-      "translation": "← Back to the page you came from"
+      "translation": "← Revenir à la page d'origine"
     }
   ]
 }

@@ -1,482 +1,482 @@
 {
   "source": "docs/common/dev-tips.html",
-  "language": "en",
+  "language": "fr",
   "entries": [
     {
       "source": "開発Tips | Androidプログラミング1",
-      "translation": "Development tips | Android Programming 1"
+      "translation": "Conseils de développement | Programmation Android 1"
     },
     {
       "source": "本文へ移動",
-      "translation": "Skip to main content"
+      "translation": "Aller au contenu principal"
     },
     {
       "source": "JEC / Androidプログラミング1",
-      "translation": "JEC / Android Programming 1"
+      "translation": "JEC / Programmation Android 1"
     },
     {
       "source": "もとのページへ戻る",
-      "translation": "Back to the page you came from"
+      "translation": "Revenir à la page d'origine"
     },
     {
       "source": "ANDROID PROGRAMMING 1 / 共通資料・授業サポート",
-      "translation": "ANDROID PROGRAMMING 1 / Shared guide · Class support"
+      "translation": "ANDROID PROGRAMMING 1 / Guides communs et aide pour le cours"
     },
     {
       "source": "開発Tips",
-      "translation": "Development tips"
+      "translation": "Conseils de développement"
     },
     {
       "source": "授業で「なぜこうなるの？」が出やすい話題をまとめています。<br>どれも各単元では扱いませんが、自分のアプリを作るときに役立ちます。",
-      "translation": "This guide covers topics that often make students ask, \"Why does this happen?\"<br>They are not covered in the individual units, but they will help when you make your own apps."
+      "translation": "Cette page rassemble des sujets qui suscitent souvent la question « Pourquoi cela se passe-t-il ainsi ? » en cours.<br>Ils ne sont pas abordés dans les unités, mais vous seront utiles pour créer vos propres applications."
     },
     {
       "source": "このページの内容",
-      "translation": "Contents of this page"
+      "translation": "Contenu de cette page"
     },
     {
       "source": "画面の余白が消える",
-      "translation": "Screen spacing disappears"
+      "translation": "Les marges de l'écran disparaissent"
     },
     {
       "source": "キーボードが部品を隠す",
-      "translation": "The keyboard hides components"
+      "translation": "Le clavier masque des composants"
     },
     {
       "source": "画面を回すとデータが消える",
-      "translation": "Data disappears when you rotate the screen"
+      "translation": "Les données disparaissent quand l'écran pivote"
     },
     {
       "source": "動作を確かめた環境",
-      "translation": "Environment used to check the behavior"
+      "translation": "Environnement de vérification"
     },
     {
       "source": "このページに書いた<strong>画面の見え方</strong>は、次の1台で確認したものです。メーカーごとの端末やOSバージョンによる違いは検証していません。手元の端末で違う動きをしたら、先生に知らせてください。",
-      "translation": "The <strong>appearance of the screen</strong> described on this page was checked on the one device below. Differences between manufacturers and OS versions have not been tested. If your device behaves differently, tell your teacher."
+      "translation": "L'<strong>apparence de l'écran</strong> décrite sur cette page a été vérifiée sur l'appareil ci-dessous uniquement. Les différences entre les fabricants d'appareils et les versions du système d'exploitation n'ont pas été vérifiées. Si votre appareil se comporte autrement, signalez-le à l'enseignant."
     },
     {
       "source": "項目",
-      "translation": "Item"
+      "translation": "Élément"
     },
     {
       "source": "内容",
-      "translation": "Details"
+      "translation": "Contenu"
     },
     {
       "source": "端末",
-      "translation": "Device"
+      "translation": "Appareil"
     },
     {
       "source": "Android Studioのエミュレータ <code>jec_26cm_android1_Pixel 9a</code>（Pixel 9a）",
-      "translation": "The Android Studio emulator <code>jec_26cm_android1_Pixel 9a</code> (Pixel 9a)"
+      "translation": "Émulateur d'Android Studio <code>jec_26cm_android1_Pixel 9a</code> (Pixel 9a)"
     },
     {
       "source": "Androidのバージョン",
-      "translation": "Android version"
+      "translation": "Version d'Android"
     },
     {
       "source": "ビルド番号",
-      "translation": "Build number"
+      "translation": "Numéro de build"
     },
     {
       "source": "確認日",
-      "translation": "Checked on"
+      "translation": "Date de vérification"
     },
     {
       "source": "2026年9月16日",
-      "translation": "September 16, 2026"
+      "translation": "16 septembre 2026"
     },
     {
       "source": "いっぽう、次の3つはAndroidの仕組みとして決まっている動きです。<strong>端末による差はありません。</strong>",
-      "translation": "The following three behaviors, however, are part of how Android works. <strong>They do not differ between devices.</strong>"
+      "translation": "En revanche, les trois comportements suivants sont définis par le fonctionnement d'Android. <strong>Ils ne varient pas selon l'appareil.</strong>"
     },
     {
       "source": "<code>setPadding</code> は余白を<strong>足すのではなく置き換える</strong>（Aの原因）",
-      "translation": "<code>setPadding</code> <strong>replaces the spacing instead of adding to it</strong> (the cause in A)"
+      "translation": "<code>setPadding</code> <strong>remplace la marge intérieure au lieu de l'augmenter</strong> (cause de A)"
     },
     {
       "source": "<code>WindowInsetsCompat.Type.systemBars()</code> に<strong>キーボードは含まれない</strong>（Bの原因）",
-      "translation": "<code>WindowInsetsCompat.Type.systemBars()</code> <strong>does not include the keyboard</strong> (the cause in B)"
+      "translation": "<code>WindowInsetsCompat.Type.systemBars()</code> <strong>n'inclut pas le clavier</strong> (cause de B)"
     },
     {
       "source": "画面を回すと<strong>Activityが作り直される</strong>（Cの原因）",
-      "translation": "<strong>The Activity is recreated</strong> when you rotate the screen (the cause in C)"
+      "translation": "Quand l'écran pivote, <strong>l'Activity est recréée</strong> (cause de C)"
     },
     {
       "source": "A. 画面の余白が消える",
-      "translation": "A. Screen spacing disappears"
+      "translation": "A. Les marges de l'écran disparaissent"
     },
     {
       "source": "A-1. 何が起きているか",
-      "translation": "A-1. What is happening"
+      "translation": "A-1. Ce qui se passe"
     },
     {
       "source": "授業で作るアプリには、どの単元にも次のコードがあります。プロジェクトを新規作成したときにAndroid Studioが入れるコードです。",
-      "translation": "The apps you make in class have the following code in every unit. Android Studio adds this code when you create a new project."
+      "translation": "Le code suivant figure dans les applications de toutes les unités du cours. Android Studio l'ajoute lors de la création du projet."
     },
     {
       "source": "MainActivity.java · どの単元にもあるひな形",
-      "translation": "MainActivity.java · the template code in every unit"
+      "translation": "MainActivity.java · Modèle présent dans toutes les unités"
     },
     {
       "source": "これは、画面の上の時計や電池が並ぶ帯（ステータスバー）と、下の帯（ナビゲーションバー）に部品が隠れないよう、<code>@+id/main</code> の部品に余白を入れる処理です。",
-      "translation": "This code adds space inside the <code>@+id/main</code> component so that components are not hidden by the bar with the clock and battery at the top (the status bar) or the bar at the bottom (the navigation bar)."
+      "translation": "Ce traitement ajoute une marge intérieure au composant <code>@+id/main</code> pour que les composants ne soient pas masqués par la bande en haut de l'écran, qui affiche l'heure et la batterie (barre d'état), ni par celle du bas (barre de navigation)."
     },
     {
       "source": "大事なのは <code>setPadding</code> の動きです。<strong>足し算ではなく、置き換えです。</strong>もともと入っていた余白は、この行が動いた時点で消えます。",
-      "translation": "The key is how <code>setPadding</code> works. <strong>It replaces the spacing instead of adding to it.</strong> Any spacing that was there before disappears when this line runs."
+      "translation": "Le point essentiel est le comportement de <code>setPadding</code>. <strong>Il remplace les valeurs, sans les additionner.</strong> La marge intérieure initiale disparaît dès que cette ligne est exécutée."
     },
     {
       "source": "だから、ここに書いた余白は消えます",
-      "translation": "This is why spacing set here disappears"
+      "translation": "C'est pourquoi la marge intérieure indiquée ici disparaît"
     },
     {
       "source": "レイアウトの一番外側（<code>@+id/main</code> が付いた部品）に <code>android:padding</code> を書いても、実機では <code>setPadding</code> に上書きされます。縦向きの端末では左右のシステムバーが <code>0</code> なので、<strong>左右の余白は0になり、部品が画面の端にくっつきます</strong>。",
-      "translation": "Even if you write <code>android:padding</code> on the outermost component in the layout (the one with <code>@+id/main</code>), <code>setPadding</code> overwrites it on the device. When the device is upright, the system bar insets on the left and right are <code>0</code>, so <strong>the spacing on both sides becomes 0, and the components touch the edges of the screen</strong>."
+      "translation": "Même si vous indiquez <code>android:padding</code> sur le composant extérieur du layout (celui qui porte <code>@+id/main</code>), <code>setPadding</code> l'écrase sur l'appareil réel. Sur un appareil en mode portrait, les barres système à gauche et à droite valent <code>0</code>. <strong>Les marges intérieures gauche et droite deviennent donc nulles, et les composants touchent les bords de l'écran</strong>."
     },
     {
       "source": "見分け方",
-      "translation": "How to recognize it"
+      "translation": "Comment reconnaître le problème"
     },
     {
       "source": "Android Studioの<strong>Previewには余白が見えるのに、Runすると消える</strong>。これならこの現象です。Previewはレイアウトだけを描くので、<code>setPadding</code> が動かないためです。",
-      "translation": "In Android Studio, <strong>you can see the spacing in Preview, but it disappears when you run the app</strong>. If this happens, this is the cause. Preview only draws the layout, so <code>setPadding</code> does not run there."
+      "translation": "Dans Android Studio, <strong>les marges sont visibles dans Preview, mais disparaissent avec Run</strong>. Ce symptôme correspond à ce problème. Preview dessine uniquement le layout : <code>setPadding</code> n'y est pas exécuté."
     },
     {
       "source": "A-2. 余白を入れたいとき",
-      "translation": "A-2. How to add spacing"
+      "translation": "A-2. Pour ajouter des marges"
     },
     {
       "source": "3つのやり方があります。授業のアプリでは<strong>方法1</strong>がいちばん簡単です。",
-      "translation": "There are three ways. For the apps in class, <strong>method 1</strong> is the easiest."
+      "translation": "Il existe trois méthodes. Pour les applications du cours, la <strong>méthode 1</strong> est la plus simple."
     },
     {
       "source": "方法1：部品のほうに <code>layout_margin</code> を書く（おすすめ）",
-      "translation": "Method 1: Write <code>layout_margin</code> on the component (recommended)"
+      "translation": "Méthode 1 : ajouter <code>layout_margin</code> aux composants (recommandé)"
     },
     {
       "source": "一番外側ではなく、<strong>中の部品</strong>に余白を指定します。<code>setPadding</code> が書き換えるのは一番外側の部品だけなので、中の部品の指定は消えません。",
-      "translation": "Set the spacing on <strong>the components inside</strong>, instead of on the outermost one. <code>setPadding</code> only changes the outermost component, so the settings on the inner components stay."
+      "translation": "Indiquez la marge sur les <strong>composants intérieurs</strong>, plutôt que sur le composant extérieur. <code>setPadding</code> ne modifie que le composant extérieur : les valeurs des composants intérieurs sont conservées."
     },
     {
       "source": "activity_main.xml · 中のボタンに余白を付ける",
-      "translation": "activity_main.xml · add a margin to the button inside"
+      "translation": "activity_main.xml · Ajouter une marge au bouton intérieur"
     },
     {
       "source": "書き方",
-      "translation": "How to write it"
+      "translation": "Écriture"
     },
     {
       "source": "意味",
-      "translation": "Meaning"
+      "translation": "Signification"
     },
     {
       "source": "上下左右に12dpの余白。",
-      "translation": "A margin of 12dp on all four sides."
+      "translation": "Une marge de 12dp en haut, en bas, à gauche et à droite."
     },
     {
       "source": "左右だけに余白。",
-      "translation": "Margins on the left and right only."
+      "translation": "Une marge uniquement à gauche et à droite."
     },
     {
       "source": "上だけに余白。",
-      "translation": "A margin at the top only."
+      "translation": "Une marge uniquement en haut."
     },
     {
       "source": "<code>padding</code> は「部品の内側」、<code>margin</code> は「部品の外側」の余白です。ボタンの文字とボタンの枠のすき間を広げたいときは <code>padding</code>、ボタンと画面の端のすき間を空けたいときは <code>margin</code> を使います。",
-      "translation": "<code>padding</code> is space \"inside a component,\" and <code>margin</code> is space \"outside a component.\" Use <code>padding</code> to widen the gap between the text on a button and its border. Use <code>margin</code> to make a gap between a button and the edge of the screen."
+      "translation": "<code>padding</code> désigne une marge « à l'intérieur du composant », et <code>margin</code> une marge « à l'extérieur du composant ». Pour augmenter l'espace entre le texte d'un bouton et son cadre, utilisez <code>padding</code>. Pour laisser de l'espace entre le bouton et le bord de l'écran, utilisez <code>margin</code>."
     },
     {
       "source": "方法2：一番外側の内側に、もう1つ入れ物を置く",
-      "translation": "Method 2: Place another container inside the outermost one"
+      "translation": "Méthode 2 : placer un autre conteneur à l'intérieur du conteneur extérieur"
     },
     {
       "source": "部品が多くて1つずつ指定するのが大変なときは、<code>@+id/main</code> の<strong>内側</strong>にもう1つ <code>LinearLayout</code> を置き、そちらに <code>padding</code> を書きます。書き換えられるのは外側だけなので、内側の余白は残ります。",
-      "translation": "If you have many components and setting each one is too much work, place another <code>LinearLayout</code> <strong>inside</strong> <code>@+id/main</code> and write <code>padding</code> on it. Only the outer container is changed, so the spacing inside stays."
+      "translation": "Si vous avez beaucoup de composants et que les régler un par un est fastidieux, placez un autre <code>LinearLayout</code> <strong>à l'intérieur</strong> de <code>@+id/main</code>, et ajoutez-y <code>padding</code>. Seul le conteneur extérieur est modifié : la marge intérieure de ce nouveau conteneur est conservée."
     },
     {
       "source": "activity_main.xml · 入れ物を2重にする",
-      "translation": "activity_main.xml · put one container inside another"
+      "translation": "activity_main.xml · Imbriquer deux conteneurs"
     },
     {
       "source": "入れ物が1つ増えるぶん、XMLは読みにくくなります。部品が少ないうちは方法1で足ります。",
-      "translation": "The extra container makes the XML harder to read. Method 1 is enough while you have only a few components."
+      "translation": "Ce conteneur supplémentaire rend le XML plus difficile à lire. Tant qu'il y a peu de composants, la méthode 1 suffit."
     },
     {
       "source": "方法3：ひな形のコードを書き換える",
-      "translation": "Method 3: Change the template code"
+      "translation": "Méthode 3 : modifier le code du modèle"
     },
     {
       "source": "ひな形の <code>setPadding</code> に、自分の余白を足して渡します。<strong>授業では使いません。</strong>ひな形のコードは単元を通して同じ形で説明しているためです。参考として、書き方だけ示します。",
-      "translation": "Add your own spacing to the values passed to <code>setPadding</code> in the template. <strong>We do not use this in class.</strong> This is because the template code is explained in the same form throughout the units. The code below is only a reference."
+      "translation": "Ajoutez la marge souhaitée aux valeurs transmises à <code>setPadding</code> dans le modèle. <strong>Cette méthode n'est pas utilisée en cours.</strong> En effet, le code du modèle est expliqué sous la même forme dans toutes les unités. Seule la manière de l'écrire est donnée ici à titre de référence."
     },
     {
       "source": "MainActivity.java · 参考",
-      "translation": "MainActivity.java · reference"
+      "translation": "MainActivity.java · Pour référence"
     },
     {
       "source": "XMLの <code>12dp</code> は、端末ごとの細かさに合わせてピクセルに直す必要があります。Javaでは自動で直らないため、この1行が増えます。",
-      "translation": "The <code>12dp</code> used in XML needs to be converted to pixels to match the density of each device. Java does not convert it automatically, so this extra line is needed."
+      "translation": "La valeur <code>12dp</code> du XML doit être convertie en pixels selon la densité de l'écran de chaque appareil. Java ne le fait pas automatiquement, d'où cette ligne supplémentaire."
     },
     {
       "source": "A-3. まとめ",
-      "translation": "A-3. Summary"
+      "translation": "A-3. Récapitulatif"
     },
     {
       "source": "やりたいこと",
-      "translation": "What you want to do"
+      "translation": "Ce que vous voulez faire"
     },
     {
       "source": "どこに書くか",
-      "translation": "Where to write it"
+      "translation": "Où l'indiquer"
     },
     {
       "source": "部品と画面の端のすき間を空けたい",
-      "translation": "Make a gap between a component and the edge of the screen"
+      "translation": "Laisser de l'espace entre un composant et le bord de l'écran"
     },
     {
       "source": "その部品に <code>android:layout_margin</code>（方法1）",
-      "translation": "Write <code>android:layout_margin</code> on that component (method 1)"
+      "translation": "Ajouter <code>android:layout_margin</code> à ce composant (méthode 1)"
     },
     {
       "source": "画面全体に同じ余白を入れたい",
-      "translation": "Add the same spacing around the whole screen"
+      "translation": "Ajouter la même marge sur tout le pourtour de l'écran"
     },
     {
       "source": "内側にもう1つ入れ物を置き、そこに <code>android:padding</code>（方法2）",
-      "translation": "Place another container inside and write <code>android:padding</code> on it (method 2)"
+      "translation": "Placer un autre conteneur à l'intérieur et y ajouter <code>android:padding</code> (méthode 2)"
     },
     {
       "source": "一番外側（<code>@+id/main</code>）に <code>android:padding</code>",
-      "translation": "<code>android:padding</code> on the outermost component (<code>@+id/main</code>)"
+      "translation": "Ajouter <code>android:padding</code> au composant extérieur (<code>@+id/main</code>)"
     },
     {
       "source": "<strong>効きません。</strong>実機では消えます",
-      "translation": "<strong>It does not work.</strong> The spacing disappears on the device."
+      "translation": "<strong>Cela n'a pas d'effet.</strong> La marge disparaît sur l'appareil réel"
     },
     {
       "source": "授業で配られる完成プロジェクトでは、一番外側に <code>android:padding</code> を書いていません。効かない指定を残すと、Previewと実機で見た目が食い違い、原因を探すのが難しくなるためです。",
-      "translation": "The finished projects handed out in class do not have <code>android:padding</code> on the outermost component. Leaving a setting that does not work makes Preview look different from the device and makes the cause harder to find."
+      "translation": "Les projets terminés distribués en cours ne contiennent pas <code>android:padding</code> sur le composant extérieur. Conserver un réglage sans effet provoquerait une différence d'apparence entre Preview et l'appareil réel, dont la cause serait difficile à trouver."
     },
     {
       "source": "B. キーボードが部品を隠す",
-      "translation": "B. The keyboard hides components"
+      "translation": "B. Le clavier masque des composants"
     },
     {
       "source": "B-1. 何が起きているか",
-      "translation": "B-1. What is happening"
+      "translation": "B-1. Ce qui se passe"
     },
     {
       "source": "入力欄（<code>EditText</code>）をタップすると、画面の下半分にキーボードが出ます。このとき、<strong>画面の下のほうに置いたボタンがキーボードの裏に入り、押せなくなることがあります。</strong>",
-      "translation": "When you tap an input field (<code>EditText</code>), the keyboard appears in the lower half of the screen. <strong>A button near the bottom of the screen may then be hidden behind the keyboard, so you cannot press it.</strong>"
+      "translation": "Lorsque vous touchez un champ de saisie (<code>EditText</code>), le clavier apparaît dans la moitié inférieure de l'écran. <strong>Les boutons placés en bas de l'écran peuvent alors se retrouver derrière le clavier et devenir inaccessibles.</strong>"
     },
     {
       "source": "原因は、A-1で見たひな形のコードです。",
-      "translation": "The cause is the template code you saw in A-1."
+      "translation": "La cause est le code du modèle vu en A-1."
     },
     {
       "source": "<code>systemBars()</code> は、ステータスバーとナビゲーションバーの2つだけを指します。<strong>キーボードは含まれません。</strong>そのためキーボードのぶんの余白が確保されず、部品がキーボードの下に潜り込みます。",
-      "translation": "<code>systemBars()</code> refers only to the status bar and the navigation bar. <strong>It does not include the keyboard.</strong> No space is reserved for the keyboard, so components end up behind it."
+      "translation": "<code>systemBars()</code> désigne uniquement la barre d'état et la barre de navigation. <strong>Le clavier n'en fait pas partie.</strong> L'espace nécessaire au clavier n'est donc pas réservé, et les composants passent sous le clavier."
     },
     {
       "source": "入力欄をタップする前はボタンが見えているのに、<strong>タップしたあとに見えなくなる</strong>。これならこの現象です。キーボードを閉じれば、また押せるようになります。",
-      "translation": "You can see the button before you tap the input field, but <strong>it disappears after you tap</strong>. If this happens, this is the cause. Closing the keyboard lets you press the button again."
+      "translation": "Un bouton est visible avant que vous touchiez le champ de saisie, mais <strong>disparaît après</strong>. Ce symptôme correspond à ce problème. Fermez le clavier pour pouvoir appuyer à nouveau sur le bouton."
     },
     {
       "source": "B-2. 直し方",
-      "translation": "B-2. How to fix it"
+      "translation": "B-2. Comment corriger le problème"
     },
     {
       "source": "ひな形の1行に、キーボード（<code>ime</code>）を足します。変更はこの1か所だけです。",
-      "translation": "Add the keyboard (<code>ime</code>) to one line of the template. This is the only place to change."
+      "translation": "Ajoutez le clavier (<code>ime</code>) à une ligne du modèle. C'est la seule modification à faire."
     },
     {
       "source": "MainActivity.java · キーボードも数に入れる",
-      "translation": "MainActivity.java · include the keyboard too"
+      "translation": "MainActivity.java · Tenir également compte du clavier"
     },
     {
       "source": "<code>|</code> は「どちらも」という意味の記号です。これで、ステータスバー・ナビゲーションバー・キーボードの3つを避ける余白が入ります。キーボードが出ると画面の中身が上に詰まり、ボタンが見えたままになります。",
-      "translation": "<code>|</code> is a symbol meaning \"both.\" This adds space to avoid all three: the status bar, the navigation bar, and the keyboard. When the keyboard appears, the screen content fits into the space above it, keeping the button visible."
+      "translation": "Le symbole <code>|</code> signifie « les deux ». Une marge intérieure est ainsi ajoutée pour éviter la barre d'état, la barre de navigation et le clavier. Lorsque le clavier apparaît, le contenu de l'écran se resserre vers le haut et les boutons restent visibles."
     },
     {
       "source": "AndroidManifest.xmlの変更は要りません",
-      "translation": "No change to AndroidManifest.xml is needed"
+      "translation": "Il n'est pas nécessaire de modifier AndroidManifest.xml"
     },
     {
       "source": "<code>android:windowSoftInputMode</code> を書き足す方法も見かけますが、この1行だけで直ることを確認しています。",
-      "translation": "You may also see a method that adds <code>android:windowSoftInputMode</code>, but we have checked that changing this one line is enough to fix it."
+      "translation": "Vous trouverez aussi des méthodes qui ajoutent <code>android:windowSoftInputMode</code>, mais nous avons vérifié que cette seule ligne suffit à corriger le problème."
     },
     {
       "source": "B-3. レイアウト側でできること",
-      "translation": "B-3. What you can do in the layout"
+      "translation": "B-3. Ce que vous pouvez faire dans le layout"
     },
     {
       "source": "やり方",
-      "translation": "Method"
+      "translation": "Méthode"
     },
     {
       "source": "効果",
-      "translation": "Effect"
+      "translation": "Effet"
     },
     {
       "source": "ボタンを入力欄より<strong>上</strong>に置く",
-      "translation": "Place the button <strong>above</strong> the input field"
+      "translation": "Placer les boutons <strong>au-dessus</strong> du champ de saisie"
     },
     {
       "source": "キーボードは画面の下から出るので、上にある部品は隠れにくい。コードの変更は不要。",
-      "translation": "The keyboard appears from the bottom of the screen, so components near the top are less likely to be hidden. No code change is needed."
+      "translation": "Le clavier apparaît depuis le bas de l'écran : les composants du haut risquent moins d'être masqués. Aucune modification du code n'est nécessaire."
     },
     {
       "source": "全体を <code>ScrollView</code> に入れる",
-      "translation": "Put everything inside a <code>ScrollView</code>"
+      "translation": "Placer l'ensemble dans un <code>ScrollView</code>"
     },
     {
       "source": "キーボードが出ても、スクロールすれば下の部品に届く。",
-      "translation": "Even when the keyboard appears, you can scroll to reach the components below."
+      "translation": "Même lorsque le clavier est affiché, vous pouvez faire défiler l'écran pour atteindre les composants du bas."
     },
     {
       "source": "B-2の1行を足す",
-      "translation": "Add the line from B-2"
+      "translation": "Ajouter la ligne de B-2"
     },
     {
       "source": "いちばん確実。部品の並びを変えなくてよい。",
-      "translation": "The most reliable method. You do not need to change the order of the components."
+      "translation": "C'est la méthode la plus sûre. Inutile de changer la disposition des composants."
     },
     {
       "source": "授業で配られる完成プロジェクトでは、この対応を入れていません。単元ごとの学習内容に集中するためです。自分でアプリを作るときに、入力欄の下にボタンを置きたくなったら思い出してください。",
-      "translation": "The finished projects handed out in class do not include this change, so that you can focus on the topic of each unit. Remember this when you make your own app and want to place a button below an input field."
+      "translation": "Cette correction n'est pas incluse dans les projets terminés distribués en cours, afin de se concentrer sur le contenu de chaque unité. Pensez-y lorsque vous créerez votre propre application et voudrez placer des boutons sous un champ de saisie."
     },
     {
       "source": "C. 画面を回すとデータが消える",
-      "translation": "C. Data disappears when you rotate the screen"
+      "translation": "C. Les données disparaissent quand l'écran pivote"
     },
     {
       "source": "C-1. 何が起きているか",
-      "translation": "C-1. What is happening"
+      "translation": "C-1. Ce qui se passe"
     },
     {
       "source": "端末を横向きにすると、<strong>Activityがいったん壊されて、作り直されます。</strong>新しく <code>onCreate</code> が動くので、それまで変数に入れていた値や、ボタンの押せる・押せないといった状態は消えます。",
-      "translation": "When you turn the device sideways, <strong>the Activity is destroyed and then recreated.</strong> <code>onCreate</code> runs again, so values stored in variables and states such as whether a button can be pressed are lost."
+      "translation": "Lorsque vous tournez l'appareil en mode paysage, <strong>l'Activity est détruite, puis recréée.</strong> <code>onCreate</code> est exécuté à nouveau : les valeurs contenues dans les variables et les états, comme la possibilité ou non d'appuyer sur un bouton, disparaissent."
     },
     {
       "source": "授業のアプリで実際に確かめた結果です。",
-      "translation": "These are the results of checking the apps used in class."
+      "translation": "Voici les résultats vérifiés avec les applications du cours."
     },
     {
       "source": "アプリ",
-      "translation": "App"
+      "translation": "Application"
     },
     {
       "source": "回す前",
-      "translation": "Before rotation"
+      "translation": "Avant la rotation"
     },
     {
       "source": "回した後",
-      "translation": "After rotation"
+      "translation": "Après la rotation"
     },
     {
       "source": "1と2のボタンを押して、押せない状態にした",
-      "translation": "Pressed the 1 and 2 buttons so that they could no longer be pressed"
+      "translation": "Les boutons 1 et 2 ont été pressés et désactivés"
     },
     {
       "source": "<strong>9個とも押せる状態に戻る</strong>（ゲームの進行が消える）",
-      "translation": "<strong>All nine buttons can be pressed again</strong> (the game progress is lost)"
+      "translation": "<strong>Les 9 boutons redeviennent actifs</strong> (la progression du jeu disparaît)"
     },
     {
       "source": "メモを1件追加した",
-      "translation": "Added one memo"
+      "translation": "Une note a été ajoutée"
     },
     {
       "source": "メモは残っている",
-      "translation": "The memo is still there"
+      "translation": "La note est conservée"
     },
     {
       "source": "なぜA09だけ残るのか",
-      "translation": "Why only A09 keeps the data"
+      "translation": "Pourquoi seules les données d'A09 sont-elles conservées ?"
     },
     {
       "source": "A09は <code>onCreate</code> で毎回 <code>SharedPreferences</code> からメモを読み直しています。Activityが作り直されても、<strong>ファイルに保存したデータは消えない</strong>ので、読み直せば同じ内容が出ます。変数の中だけに持っていたA05は、読み直す先がないため消えます。",
-      "translation": "A09 reads the memos from <code>SharedPreferences</code> every time <code>onCreate</code> runs. Even if the Activity is recreated, <strong>data saved in a file is not lost</strong>, so reading it again shows the same content. A05 kept its data only in variables, with no saved data to read again, so it is lost."
+      "translation": "Dans A09, <code>onCreate</code> relit les notes depuis <code>SharedPreferences</code> à chaque exécution. Même si l'Activity est recréée, <strong>les données enregistrées dans un fichier ne disparaissent pas</strong>. Les relire permet donc d'afficher le même contenu. Dans A05, les données se trouvaient uniquement dans des variables : il n'existe aucun endroit où les relire, et elles disparaissent."
     },
     {
       "source": "C-2. 残したいときのやり方",
-      "translation": "C-2. How to keep the data"
+      "translation": "C-2. Comment conserver les données"
     },
     {
       "source": "いつまで残るか",
-      "translation": "How long it stays"
+      "translation": "Durée de conservation"
     },
     {
       "source": "使いどころ",
-      "translation": "When to use it"
+      "translation": "Quand l'utiliser"
     },
     {
       "source": "<code>SharedPreferences</code> に保存する",
-      "translation": "Save it in <code>SharedPreferences</code>"
+      "translation": "Enregistrer dans <code>SharedPreferences</code>"
     },
     {
       "source": "アプリを終了しても、端末を再起動しても残る",
-      "translation": "It stays even after you close the app or restart the device"
+      "translation": "Les données restent après la fermeture de l'application ou le redémarrage de l'appareil"
     },
     {
       "source": "設定やメモなど、次に開いたときも欲しいもの。A08・A09で学んだ方法。",
-      "translation": "Things you want the next time you open the app, such as settings and memos. This is the method you learned in A08 and A09."
+      "translation": "Les réglages, les notes et les autres données à retrouver à la prochaine ouverture. Méthode étudiée en A08 et A09."
     },
     {
       "source": "<code>onSaveInstanceState</code> に入れる",
-      "translation": "Put it in <code>onSaveInstanceState</code>"
+      "translation": "Placer dans <code>onSaveInstanceState</code>"
     },
     {
       "source": "回転などの作り直しの間だけ。アプリを終了すると消える",
-      "translation": "Only while the screen is recreated, such as during rotation. It is lost when you close the app."
+      "translation": "Uniquement pendant une recréation, par exemple lors d'une rotation. Les données disparaissent à la fermeture de l'application"
     },
     {
       "source": "入力途中の内容や、ゲームの途中経過。",
-      "translation": "Text you are still entering or progress in a game."
+      "translation": "Une saisie en cours ou la progression d'un jeu."
     },
     {
       "source": "<code>ViewModel</code> を使う",
-      "translation": "Use a <code>ViewModel</code>"
+      "translation": "Utiliser <code>ViewModel</code>"
     },
     {
       "source": "同上（作り直しをまたいで残る）",
-      "translation": "Same as above (it survives recreation)"
+      "translation": "Comme ci-dessus (les données survivent à la recréation)"
     },
     {
       "source": "本格的なアプリ向け。Androidプログラミング2で扱います。",
-      "translation": "For more advanced apps. We cover this in Android Programming 2."
+      "translation": "Pour des applications plus avancées. Ce sujet sera abordé en Programmation Android 2."
     },
     {
       "source": "いちばん簡単なのは1つ目です。「作り直されても困らないように、大事なものは保存しておく」と考えると分かりやすくなります。",
-      "translation": "The first method is the easiest. Think of it as \"save important things so that recreation is not a problem.\""
+      "translation": "La première méthode est la plus simple. Pensez ainsi : « Enregistrer les données importantes pour qu'une recréation ne pose pas de problème. »"
     },
     {
       "source": "C-3. 授業での扱い",
-      "translation": "C-3. How we handle this in class"
+      "translation": "C-3. Ce qui est traité en cours"
     },
     {
       "source": "各単元では<strong>画面回転時のデータ保持と、横向きのレイアウトを扱いません。</strong>単元ごとの学習内容に集中するためです。授業中は端末を縦向きで使ってください。",
-      "translation": "The individual units <strong>do not cover keeping data during screen rotation or layouts for a sideways screen.</strong> This lets you focus on the topic of each unit. Keep the device upright during class."
+      "translation": "Les unités <strong>ne traitent pas de la conservation des données lors de la rotation de l'écran ni des layouts en mode paysage.</strong> Cela permet de se concentrer sur le contenu de chaque unité. Utilisez votre appareil en mode portrait pendant le cours."
     },
     {
       "source": "横向きにすると、部品が画面からはみ出して見えなくなることがあります。これも上と同じ理由で、各単元では対応していません。",
-      "translation": "When you turn the device sideways, some components may go outside the screen and become invisible. The individual units do not handle this either, for the same reason as above."
+      "translation": "En mode paysage, certains composants peuvent dépasser de l'écran et devenir invisibles. Pour la même raison, les unités ne traitent pas non plus ce cas."
     },
     {
       "source": "公式資料",
-      "translation": "Official documentation"
+      "translation": "Documentation officielle"
     },
     {
       "source": "<a1>Android Developers：アプリでedge-to-edgeを表示する</a1>／<a2>レイアウトを作成する</a2>／<a3>ソフトウェア キーボードの表示に合わせる</a3>／<a4>アクティビティのライフサイクル</a4>",
-      "translation": "<a1>Android Developers: Display content edge-to-edge in your app</a1> / <a2>Create a layout</a2> / <a3>Adjust to the software keyboard</a3> / <a4>The Activity lifecycle</a4>"
+      "translation": "<a1>Android Developers : afficher une application bord à bord</a1> / <a2>Créer un layout</a2> / <a3>S'adapter à l'affichage du clavier logiciel</a3> / <a4>Cycle de vie d'une Activity</a4>"
     },
     {
       "source": "← もとのページへ戻る",
-      "translation": "← Back to the page you came from"
+      "translation": "← Revenir à la page d'origine"
     },
     {
       "source": "対象：macOS / Android Studio Panda 2 | 2025.3.2 · 確認日：2026年9月16日",
-      "translation": "For: macOS / Android Studio Panda 2 | 2025.3.2 · Checked on: September 16, 2026"
+      "translation": "Environnement : macOS / Android Studio Panda 2 | 2025.3.2 · Vérifié le 16 septembre 2026"
     }
   ]
 }
