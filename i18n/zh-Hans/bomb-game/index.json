@@ -1,0 +1,1929 @@
+{
+  "source": "docs/bomb-game/index.html",
+  "language": "zh-Hans",
+  "entries": [
+    {
+      "source": "JavaとXMLで作るA05BombGame。ボタンの配列、乱数とdo-while文、定数による状態の管理、配列を調べる判定、クリア条件を小さなSTEPで学ぶ授業用教科書。",
+      "translation": "使用Java和XML制作A05BombGame。通过小步骤学习按钮数组、随机数与do-while语句、用常量管理状态、检查数组的判断，以及通关条件的课堂教材。"
+    },
+    {
+      "source": "BombGame — 爆弾ゲームを作ろう | Androidプログラミング1",
+      "translation": "BombGame — 制作炸弹游戏 | Android编程1"
+    },
+    {
+      "source": "本文へ移動",
+      "translation": "跳转到正文"
+    },
+    {
+      "source": "JEC / Androidプログラミング1",
+      "translation": "JEC / Android编程1"
+    },
+    {
+      "source": "CONTENTS / 学習の順番",
+      "translation": "CONTENTS / 学习顺序"
+    },
+    {
+      "source": "学習ステップ",
+      "translation": "学习步骤"
+    },
+    {
+      "source": "00　今日のゴール",
+      "translation": "00　今天的目标"
+    },
+    {
+      "source": "01　プロジェクトを作って実行",
+      "translation": "01　创建项目并运行"
+    },
+    {
+      "source": "02　画像をdrawableに追加",
+      "translation": "02　将图片添加到drawable"
+    },
+    {
+      "source": "03　爆弾と数字ボタンを並べる",
+      "translation": "03　排列炸弹和数字按钮"
+    },
+    {
+      "source": "04　メッセージと再挑戦ボタン",
+      "translation": "04　提示信息与重试按钮"
+    },
+    {
+      "source": "05　導火線スイッチの数字を決める",
+      "translation": "05　决定引线开关的数字"
+    },
+    {
+      "source": "06　押したボタンを押せなくする",
+      "translation": "06　禁用已点击的按钮"
+    },
+    {
+      "source": "07　着火と爆発",
+      "translation": "07　点燃与爆炸"
+    },
+    {
+      "source": "08　再挑戦で最初に戻す",
+      "translation": "08　重试时恢复初始状态"
+    },
+    {
+      "source": "09　クリアを判定する",
+      "translation": "09　判断是否通关"
+    },
+    {
+      "source": "10　ミニ練習",
+      "translation": "10　小练习"
+    },
+    {
+      "source": "11　完成",
+      "translation": "11　完成"
+    },
+    {
+      "source": "0 / 12 ステップ確認済み",
+      "translation": "已确认0 / 12个步骤"
+    },
+    {
+      "source": "学習の進み具合",
+      "translation": "学习进度"
+    },
+    {
+      "source": "自分用のチェックです。",
+      "translation": "用于自己检查。"
+    },
+    {
+      "source": "困ったとき",
+      "translation": "遇到问题时"
+    },
+    {
+      "source": "完成プロジェクトを開く",
+      "translation": "打开完成版项目"
+    },
+    {
+      "source": "共通：はじめの準備",
+      "translation": "通用：初始准备"
+    },
+    {
+      "source": "共通：エミュレータ",
+      "translation": "通用：模拟器"
+    },
+    {
+      "source": "共通：Auto Import",
+      "translation": "通用：Auto Import"
+    },
+    {
+      "source": "共通：Logcat",
+      "translation": "通用：Logcat"
+    },
+    {
+      "source": "共通：APKの提出",
+      "translation": "通用：提交APK"
+    },
+    {
+      "source": "共通：開発Tips",
+      "translation": "通用：开发技巧"
+    },
+    {
+      "source": "共通：Android Studioのバージョン",
+      "translation": "通用：Android Studio版本"
+    },
+    {
+      "source": "爆弾ゲームを<br>作ろう",
+      "translation": "制作<br>炸弹游戏"
+    },
+    {
+      "source": "数字を押す。導火線に火がつく。2つ目で爆発。<br>爆弾の状態を数字で覚えて、ドキドキするゲームへ。",
+      "translation": "点击数字。引线点燃。第2个开关让炸弹爆炸。<br>用数字记录炸弹状态，制作紧张刺激的游戏。"
+    },
+    {
+      "source": "A01〜A03の内容を使う",
+      "translation": "使用A01～A03的内容"
+    },
+    {
+      "source": "90分 × 3コマ目安",
+      "translation": "参考课时：90分钟 × 3课时"
+    },
+    {
+      "source": "Macで学ぶ",
+      "translation": "使用Mac学习"
+    },
+    {
+      "source": "STEP 00 · 目安 5分",
+      "translation": "STEP 00 · 参考时间5分钟"
+    },
+    {
+      "source": "今日のゴール",
+      "translation": "今天的目标"
+    },
+    {
+      "source": "A01〜A03で学んだ「XMLで画面を作る」「配列とfor文で同じ処理を付ける」「乱数」「フィールドで値を覚える」を使い、<strong>爆弾ゲーム</strong>を作ります。1〜9の数字ボタンのうち、2つが<strong>導火線スイッチ</strong>です。どれがスイッチかは、画面を見てもわかりません。",
+      "translation": "使用A01～A03学过的“用XML制作界面”“用数组和for语句添加相同处理”“随机数”“用字段记住值”，制作<strong>炸弹游戏</strong>。1～9的数字按钮中，有2个是<strong>引线开关</strong>。只看屏幕无法知道哪些是开关。"
+    },
+    {
+      "source": "ゲームの流れ",
+      "translation": "游戏流程"
+    },
+    {
+      "source": "数字を押す",
+      "translation": "点击数字"
+    },
+    {
+      "source": "スイッチなら着火！",
+      "translation": "如果是开关，就点燃！"
+    },
+    {
+      "source": "2つ目のスイッチで爆発",
+      "translation": "点击第2个开关后爆炸"
+    },
+    {
+      "source": "スイッチ以外を7個押せばクリア",
+      "translation": "点击7个非开关按钮即可通关"
+    },
+    {
+      "source": "起動直後。導火線に火のない爆弾の画像、1から9の数字ボタン、どれか押してみよう",
+      "translation": "刚启动的界面。未点燃引线的炸弹图片、1～9的数字按钮，以及「どれか押してみよう」（试着点击任意一个）"
+    },
+    {
+      "source": "① 起動直後。好きな数字から押します。 <a1>画像を大きく開く</a1>",
+      "translation": "① 刚启动的界面。从喜欢的数字开始点击。<a1>查看大图</a1>"
+    },
+    {
+      "source": "2と5を押した画面。導火線に火がついた爆弾、着火！の文字。2と5のボタンは灰色",
+      "translation": "点击2和5后的界面。引线已点燃的炸弹、文字「着火！」（点燃！）。2和5按钮变为灰色"
+    },
+    {
+      "source": "② 2と5を押した例。どちらか1つがスイッチだったので、導火線に火がつきました。押した2つは灰色になります。 <a1>画像を大きく開く</a1>",
+      "translation": "② 点击2和5的示例。其中一个是开关，所以引线被点燃了。已点击的两个按钮变为灰色。<a1>查看大图</a1>"
+    },
+    {
+      "source": "爆発の画像、爆発した！ゲームオーバー！の文字。数字ボタンはすべて灰色で、再挑戦ボタンが表示されている",
+      "translation": "爆炸图片和文字「爆発した！ゲームオーバー！」（爆炸了！游戏结束！）。所有数字按钮为灰色，并显示「再挑戦」（重试）按钮"
+    },
+    {
+      "source": "③ 2つ目のスイッチを押すと爆発。ゲームオーバーです。 <a1>画像を大きく開く</a1>",
+      "translation": "③ 点击第2个开关后爆炸，游戏结束。<a1>查看大图</a1>"
+    },
+    {
+      "source": "火のない爆弾、クリア！の文字。数字ボタンはすべて灰色で、再挑戦ボタンが表示されている",
+      "translation": "未点燃的炸弹和文字「クリア！」（通关！）。所有数字按钮为灰色，并显示「再挑戦」（重试）按钮"
+    },
+    {
+      "source": "④ スイッチ以外の7個をすべて押すとクリア。 <a1>画像を大きく開く</a1>",
+      "translation": "④ 点击全部7个非开关按钮后通关。<a1>查看大图</a1>"
+    },
+    {
+      "source": "できるようになること",
+      "translation": "学完后能够做的事"
+    },
+    {
+      "source": "画像をプロジェクトに追加し、爆弾の画像と3行×3列の数字ボタンを並べる。",
+      "translation": "将图片添加到项目中，排列炸弹图片和3行×3列的数字按钮。"
+    },
+    {
+      "source": "メソッドとdo-while文で、重ならない2つの乱数を作り、Logcatで確かめる。",
+      "translation": "使用方法和do-while语句生成两个不重复的随机数，并通过Logcat检查。"
+    },
+    {
+      "source": "定数とフィールドで爆弾の状態を覚え、押した数字とクリアの条件で表示を切り替える。",
+      "translation": "用常量和字段记录炸弹状态，根据点击的数字和通关条件切换显示。"
+    },
+    {
+      "source": "スイッチの数字は毎回ランダムに決まるため、画像と同じ操作をしても結果は変わります。",
+      "translation": "每次都会随机决定开关的数字，因此即使按图片中的顺序操作，结果也会不同。"
+    },
+    {
+      "source": "90分×3コマで進めます",
+      "translation": "按90分钟×3课时进行"
+    },
+    {
+      "source": "授業",
+      "translation": "课时"
+    },
+    {
+      "source": "範囲",
+      "translation": "范围"
+    },
+    {
+      "source": "終了時にできること",
+      "translation": "课时结束时能够做的事"
+    },
+    {
+      "source": "1コマ目",
+      "translation": "第1课时"
+    },
+    {
+      "source": "画像を追加し、ゲームの画面を作る。",
+      "translation": "添加图片，制作游戏界面。"
+    },
+    {
+      "source": "2コマ目",
+      "translation": "第2课时"
+    },
+    {
+      "source": "スイッチの数字を決め、押した数字で着火・爆発することを確かめる。",
+      "translation": "决定开关的数字，检查是否会根据点击的数字点燃或爆炸。"
+    },
+    {
+      "source": "3コマ目",
+      "translation": "第3课时"
+    },
+    {
+      "source": "再挑戦とクリアを作り、ミニ練習・動作確認を行う。",
+      "translation": "制作重试与通关处理，完成小练习和运行检查。"
+    },
+    {
+      "source": "各コマに再実行と個別確認の時間を含みます。予習は不要です。",
+      "translation": "各课时都包含重新运行和个别检查的时间。无需预习。"
+    },
+    {
+      "source": "毎回、自分で新規作成します",
+      "translation": "每次都自己新建项目"
+    },
+    {
+      "source": "作る場所は <code>Documents/Android1/A05BombGame</code> です。<a1>完成プロジェクト</a1>は初回から開けます。STEP 2で使う画像は、教材のフォルダに入っています。STEP 2でFinderからコピーします。",
+      "translation": "创建位置为 <code>Documents/Android1/A05BombGame</code>。从第1次课起就可以打开<a1>完成版项目</a1>。STEP 2使用的图片在学习资料文件夹中，到STEP 2时从Finder复制。"
+    },
+    {
+      "source": "完成アプリの状態",
+      "translation": "完成版应用的状态"
+    },
+    {
+      "source": "状態",
+      "translation": "状态"
+    },
+    {
+      "source": "爆弾の画像",
+      "translation": "炸弹图片"
+    },
+    {
+      "source": "メッセージ",
+      "translation": "提示信息"
+    },
+    {
+      "source": "数字ボタン",
+      "translation": "数字按钮"
+    },
+    {
+      "source": "再挑戦",
+      "translation": "「再挑戦」（重试）"
+    },
+    {
+      "source": "起動直後・再挑戦の後",
+      "translation": "刚启动、重试后"
+    },
+    {
+      "source": "火のない爆弾",
+      "translation": "未点燃的炸弹"
+    },
+    {
+      "source": "どれか押してみよう",
+      "translation": "「どれか押してみよう」（试着点击任意一个）"
+    },
+    {
+      "source": "すべて押せる",
+      "translation": "全部可点击"
+    },
+    {
+      "source": "見えない",
+      "translation": "不可见"
+    },
+    {
+      "source": "スイッチ以外を押した",
+      "translation": "点击了非开关按钮"
+    },
+    {
+      "source": "変わらない",
+      "translation": "不变"
+    },
+    {
+      "source": "押したボタンだけ押せない",
+      "translation": "只有点击过的按钮不可点击"
+    },
+    {
+      "source": "スイッチを1つ押した（着火）",
+      "translation": "点击了1个开关（点燃）"
+    },
+    {
+      "source": "導火線に火がつく",
+      "translation": "引线点燃"
+    },
+    {
+      "source": "着火！",
+      "translation": "「着火！」（点燃！）"
+    },
+    {
+      "source": "スイッチを2つとも押した（爆発）",
+      "translation": "点击了两个开关（爆炸）"
+    },
+    {
+      "source": "爆発の画像",
+      "translation": "爆炸图片"
+    },
+    {
+      "source": "爆発した！ゲームオーバー！",
+      "translation": "「爆発した！ゲームオーバー！」（爆炸了！游戏结束！）"
+    },
+    {
+      "source": "すべて押せない",
+      "translation": "全部不可点击"
+    },
+    {
+      "source": "表示する",
+      "translation": "显示"
+    },
+    {
+      "source": "スイッチ以外の7個をすべて押した（クリア）",
+      "translation": "点击了全部7个非开关按钮（通关）"
+    },
+    {
+      "source": "そのまま",
+      "translation": "保持不变"
+    },
+    {
+      "source": "クリア！",
+      "translation": "「クリア！」（通关！）"
+    },
+    {
+      "source": "1度押した数字は、もう押せません。着火したあとでも、残りのスイッチを押さずにスイッチ以外の7個を押し終えればクリアです。このとき爆弾は火がついた画像のままです。再挑戦を押すと、スイッチの数字を選び直して最初の表示に戻ります。",
+      "translation": "点击过一次的数字无法再次点击。即使引线已点燃，只要不点击剩下的开关，并点击完7个非开关按钮，也能通关。此时炸弹仍显示点燃的图片。点击「再挑戦」（重试）后，会重新选择开关数字，并恢复初始显示。"
+    },
+    {
+      "source": "画面回転について",
+      "translation": "关于屏幕旋转"
+    },
+    {
+      "source": "各単元では画面回転時のデータ保持と横画面のレイアウトを扱いません。回転などでActivityが作り直されると、押したボタンと爆弾の状態は初期状態に戻り、スイッチの数字も選び直されます。横向きではメッセージや再挑戦ボタンが見えなくなる場合があるため、縦向きで使います。考え方と対処法は<a1>共通資料：開発Tips</a1>のC章にあります。",
+      "translation": "各单元不讲解旋转屏幕时的数据保留和横屏布局。旋转等操作导致Activity重新创建时，已点击的按钮和炸弹状态都会恢复初始状态，开关数字也会重新选择。横屏可能看不到提示信息或「再挑戦」（重试）按钮，因此请竖屏使用。相关思路与解决方法见<a1>通用资料：开发技巧</a1>的C章。"
+    },
+    {
+      "source": "ここで止まって、確認",
+      "translation": "先停下来，检查一下"
+    },
+    {
+      "source": "完成アプリの状態の表で、着火・爆発・クリアのときの画像・メッセージ・押せるボタンを確認した。",
+      "translation": "已根据完成版应用的状态表，检查点燃、爆炸、通关时的图片、提示信息和可点击按钮。"
+    },
+    {
+      "source": "できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。",
+      "translation": "完成后勾选。遇到问题时，请把STEP编号和屏幕展示给老师。"
+    },
+    {
+      "source": "次へ：プロジェクトを作って実行 →",
+      "translation": "下一步：创建项目并运行 →"
+    },
+    {
+      "source": "STEP 01 · 目安 15分",
+      "translation": "STEP 01 · 参考时间15分钟"
+    },
+    {
+      "source": "プロジェクトを作って実行",
+      "translation": "创建项目并运行"
+    },
+    {
+      "source": "授業環境はMacと <strong>Android Studio Panda 2 | 2025.3.2</strong> です。これまでの単元とは別のプロジェクトを作ります。",
+      "translation": "课堂环境为Mac和 <strong>Android Studio Panda 2 | 2025.3.2</strong>。请创建独立于之前单元的新项目。"
+    },
+    {
+      "source": "Android Studioの <strong>New Project</strong> をクリックします。別のプロジェクトを開いているときは <strong>File → New → New Project</strong> を選びます。",
+      "translation": "点击Android Studio的<strong>New Project</strong>。已打开其他项目时，选择<strong>File → New → New Project</strong>。"
+    },
+    {
+      "source": "Android StudioのWelcome画面。右上にNew Projectボタン",
+      "translation": "Android Studio的Welcome界面。右上方是New Project按钮"
+    },
+    {
+      "source": "右上のNew Projectをクリック。 <a1>画像を大きく開く</a1>",
+      "translation": "点击右上角的New Project。<a1>查看大图</a1>"
+    },
+    {
+      "source": "<strong>Phone and Tablet → Empty Views Activity → Next</strong> の順に選びます。名前に <strong>Views</strong> があることを確認します。",
+      "translation": "依次选择<strong>Phone and Tablet → Empty Views Activity → Next</strong>。确认名称中有<strong>Views</strong>。"
+    },
+    {
+      "source": "テンプレート一覧でEmpty Views Activityが選択されている",
+      "translation": "模板列表中已选择Empty Views Activity"
+    },
+    {
+      "source": "Empty Views Activityを選択。 <a1>画像を大きく開く</a1>",
+      "translation": "选择Empty Views Activity。<a1>查看大图</a1>"
+    },
+    {
+      "source": "項目",
+      "translation": "项目"
+    },
+    {
+      "source": "入力・選択する内容",
+      "translation": "要输入或选择的内容"
+    },
+    {
+      "source": "<code>jp.ac.jec.a05bombgame</code>（すべて小文字）",
+      "translation": "<code>jp.ac.jec.a05bombgame</code>（全部小写）"
+    },
+    {
+      "source": "A05BombGameの新規設定。パッケージjp.ac.jec.a05bombgame、Java、API 31、Kotlin DSL",
+      "translation": "A05BombGame的新建设置。包名jp.ac.jec.a05bombgame、Java、API 31、Kotlin DSL"
+    },
+    {
+      "source": "画像の保存先は先生の例です。自分のDocuments/Android1/A05BombGameに読み替えます。 <a1>画像を大きく開く</a1>",
+      "translation": "图片中的保存位置是老师的示例。请换成自己的Documents/Android1/A05BombGame。<a1>查看大图</a1>"
+    },
+    {
+      "source": "Finderの <strong>移動 → ホーム</strong> で自分のユーザ名を確認します。書類（Documents）に <code>Android1</code> フォルダがなければ作ります。",
+      "translation": "在Finder的 <strong>移動 → ホーム</strong>（前往 → 个人）中确认自己的用户名。如果書類（文稿，Documents）中没有 <code>Android1</code> 文件夹，请创建它。"
+    },
+    {
+      "source": "表の値と保存先を確認し、<strong>Finish</strong> をクリックします。<code>ユーザ名</code> は自分の名前に置き換えます。",
+      "translation": "确认表中的值和保存位置，点击 <strong>Finish</strong>。将 <code>ユーザ名</code>（用户名）替换为自己的用户名。"
+    },
+    {
+      "source": "<strong>Gradle Sync</strong> が完了するまで待ちます。",
+      "translation": "等待 <strong>Gradle Sync</strong> 完成。"
+    },
+    {
+      "source": "<a1>共通資料：Auto Import</a1>のJava設定を確認します。",
+      "translation": "检查<a1>通用资料：Auto Import</a1>中的Java设置。"
+    },
+    {
+      "source": "この単元で使う場所",
+      "translation": "本单元使用的位置"
+    },
+    {
+      "source": "役割",
+      "translation": "作用"
+    },
+    {
+      "source": "Project表示で開く場所",
+      "translation": "在Project视图中打开的位置"
+    },
+    {
+      "source": "画像",
+      "translation": "图片"
+    },
+    {
+      "source": "画面（XML）",
+      "translation": "界面（XML）"
+    },
+    {
+      "source": "動き（Java）",
+      "translation": "行为（Java）"
+    },
+    {
+      "source": "左の一覧が見えないときは <strong>View → Tool Windows → Project</strong> を開きます。一覧の上の表示名が <strong>Project</strong> になっていることを確認します。パッケージのフォルダが <code>jp.ac.jec.a05bombgame</code> とまとめて表示される場合もあります。",
+      "translation": "如果看不到左侧列表，请打开 <strong>View → Tool Windows → Project</strong>。确认列表顶部的视图名称为 <strong>Project</strong>。包文件夹有时会合并显示为 <code>jp.ac.jec.a05bombgame</code>。"
+    },
+    {
+      "source": "変更前に1回Runする",
+      "translation": "修改前先Run一次"
+    },
+    {
+      "source": "<a1>共通資料：エミュレータ</a1>に従って端末を起動します。",
+      "translation": "按照<a1>通用资料：模拟器</a1>启动设备。"
+    },
+    {
+      "source": "上部で <strong>app</strong> と <strong>jec_26cm_android1_Pixel 9a</strong> を選び、<strong>Run ▶</strong> を押します。",
+      "translation": "在上方选择 <strong>app</strong> 和 <strong>jec_26cm_android1_Pixel 9a</strong>，点击 <strong>Run ▶</strong>。"
+    },
+    {
+      "source": "<strong>Hello World!</strong> が表示されれば成功です。",
+      "translation": "显示 <strong>Hello World!</strong> 就成功了。"
+    },
+    {
+      "source": "MainActivity.ktができたとき",
+      "translation": "生成了MainActivity.kt时"
+    },
+    {
+      "source": "この授業で開くのは <code>MainActivity.java</code> です。<code>.kt</code> しか見つからない場合は、先生に画面を見せてください。プロジェクトを作るときに、上の手順2で <strong>Empty Views Activity</strong> を、手順4で確認した表のとおりに <strong>Java</strong> を選んだかどうかを、先生が確認します。どちらかが違っていたときは、先生といっしょにプロジェクトを作り直します。",
+      "translation": "课堂上要打开的是 <code>MainActivity.java</code>。如果只找到 <code>.kt</code>，请把屏幕给老师看。老师会检查创建项目时，是否在上面的步骤2选择了 <strong>Empty Views Activity</strong>，并按步骤4检查的表格选择了 <strong>Java</strong>。如果任意一项选错，请与老师一起重新创建项目。"
+    },
+    {
+      "source": "自分の保存先にA05BombGameを作り、Hello World!を表示できた。",
+      "translation": "已在自己的保存位置创建A05BombGame，并成功显示Hello World!。"
+    },
+    {
+      "source": "次へ：画像をdrawableに追加 →",
+      "translation": "下一步：将图片添加到drawable →"
+    },
+    {
+      "source": "STEP 02 · 目安 15分",
+      "translation": "STEP 02 · 参考时间 15分钟"
+    },
+    {
+      "source": "画像をdrawableに追加",
+      "translation": "将图片添加到drawable"
+    },
+    {
+      "source": "追加する場所：app/src/main/res/drawable",
+      "translation": "添加位置：app/src/main/res/drawable"
+    },
+    {
+      "source": "爆弾の3つの画像を、自分のプロジェクトに入れます。<code>res/drawable</code> は、アプリで表示する画像を置くフォルダです。A03と同じ手順です。",
+      "translation": "将3张炸弹图片放入自己的项目。<code>res/drawable</code> 是放置应用中显示的图片的文件夹。操作与A03相同。"
+    },
+    {
+      "source": "ファイル名",
+      "translation": "文件名"
+    },
+    {
+      "source": "表す状態",
+      "translation": "表示的状态"
+    },
+    {
+      "source": "XMLでの名前",
+      "translation": "XML中的名称"
+    },
+    {
+      "source": "Javaでの名前",
+      "translation": "Java中的名称"
+    },
+    {
+      "source": "火のない爆弾（起動直後）",
+      "translation": "未点燃的炸弹（刚启动）"
+    },
+    {
+      "source": "導火線に火がついた爆弾（着火）",
+      "translation": "引线已点燃的炸弹（点燃）"
+    },
+    {
+      "source": "（使わない）",
+      "translation": "（不使用）"
+    },
+    {
+      "source": "爆発",
+      "translation": "爆炸"
+    },
+    {
+      "source": "名前はファイル名から <code>.png</code> を取ったものです。drawableのファイル名には、<strong>小文字の英字・数字・_（アンダースコア）</strong> だけを使います。",
+      "translation": "名称就是去掉文件名中的 <code>.png</code> 后的部分。drawable中的文件名只使用<strong>小写英文字母、数字和_（下划线）</strong>。"
+    },
+    {
+      "source": "① 教材のフォルダから画像をコピーする",
+      "translation": "① 从学习资料文件夹复制图片"
+    },
+    {
+      "source": "3つの画像は、教科書といっしょに配られた<strong>教材のフォルダ</strong>に入っています。Finderで開いて、3つまとめてコピーします。",
+      "translation": "3张图片在与教材一起发放的<strong>学习资料文件夹</strong>中。用Finder打开，一次复制这3张图片。"
+    },
+    {
+      "source": "Finderを開き、左側の <strong>書類</strong> をクリックします。教材のフォルダをダブルクリックで開きます。名前は <code>android1-student-materials-</code> のうしろに日付が付いた形で、日付は配られた回によって変わります。",
+      "translation": "打开Finder，点击左侧的<strong>書類</strong>（文稿）。双击打开学习资料文件夹。名称为<code>android1-student-materials-</code>后加日期，日期随发放批次而变。"
+    },
+    {
+      "source": "その中を <code>docs → bomb-game → downloads</code> の順に開きます。<code>bomb-game</code> は、いま読んでいるこの教科書（<code>index.html</code>）が入っているフォルダです。",
+      "translation": "在其中依次打开 <code>docs → bomb-game → downloads</code>。<code>bomb-game</code> 是存放当前教材（<code>index.html</code>）的文件夹。"
+    },
+    {
+      "source": "<kbd>⌘</kbd> を押しながら、<code>bomb_exploded.png</code>・<code>bomb_ignited.png</code>・<code>bomb_initial.png</code> の3つをクリックして選び、<kbd>⌘ C</kbd> でコピーします。同じフォルダにある <code>A05BombGame.zip</code> は完成プロジェクトです。選びません。",
+      "translation": "按住 <kbd>⌘</kbd>，点击选中 <code>bomb_exploded.png</code>、<code>bomb_ignited.png</code>、<code>bomb_initial.png</code> 这3个文件，再按 <kbd>⌘ C</kbd> 复制。同一文件夹中的 <code>A05BombGame.zip</code> 是完成版项目，不要选择它。"
+    },
+    {
+      "source": "教材のフォルダが見つからないとき",
+      "translation": "找不到学习资料文件夹时"
+    },
+    {
+      "source": "教材のフォルダは、はじめの準備で「書類」へ移動したものです（<a1>共通資料：はじめの準備</a1>の1.）。まだ移動していなければ、先にそちらを行います。同じ教材を2回ダウンロードして名前のうしろに <code>(1)</code> が付いたものがあるときは、自分で判断せず先生に見せてください。",
+      "translation": "学习资料文件夹是在初始准备时移到「書類」（文稿）的文件夹（见<a1>通用资料：初始准备</a1>的1.）。如果尚未移动，请先完成该操作。如果同一份学习资料下载两次，导致名称末尾带有<code>(1)</code>，请不要自行判断，展示给老师查看。"
+    },
+    {
+      "source": "② 自分のプロジェクトに貼り付ける",
+      "translation": "② 粘贴到自己的项目"
+    },
+    {
+      "source": "Android Studioに戻り、自分の <code>A05BombGame</code> を開いていることを確認します。",
+      "translation": "返回Android Studio，确认打开的是自己的 <code>A05BombGame</code>。"
+    },
+    {
+      "source": "Project表示で <code>app/src/main/res/drawable</code> フォルダをクリックして選び、<kbd>⌘ V</kbd> で貼り付けます。",
+      "translation": "在Project视图中点击选中 <code>app/src/main/res/drawable</code> 文件夹，按 <kbd>⌘ V</kbd> 粘贴。"
+    },
+    {
+      "source": "<strong>Copy</strong> の画面が出たら、<strong>To directory</strong> を確認します。末尾が <code>A05BombGame/app/src/main/res/drawable</code> になっていれば <strong>OK</strong> を押します。見本（完成プロジェクト）も開いている人は、途中に <code>samples</code> が入っていないことも確かめます。入っていたら、見本の方に貼り付けようとしています。",
+      "translation": "出现 <strong>Copy</strong> 窗口后，检查 <strong>To directory</strong>。如果末尾是 <code>A05BombGame/app/src/main/res/drawable</code>，就点击 <strong>OK</strong>。如果同时打开了示例（完成版项目），还要确认路径中没有 <code>samples</code>。如果有，就表示正准备粘贴到示例项目中。"
+    },
+    {
+      "source": "Project表示でdrawableフォルダを選び、Copyダイアログが開いている。To directoryの末尾はA05BombGame/app/src/main/res/drawable",
+      "translation": "在Project视图中选中drawable文件夹，Copy对话框已打开。To directory末尾为A05BombGame/app/src/main/res/drawable"
+    },
+    {
+      "source": "To directoryの末尾が A05BombGame/app/src/main/res/drawable になっていればOK。画像のパスは先生の保存先の例です。 <a1>画像を大きく開く</a1>",
+      "translation": "To directory末尾为A05BombGame/app/src/main/res/drawable即可。图片中的路径是老师的保存位置示例。<a1>查看大图</a1>"
+    },
+    {
+      "source": "drawableフォルダにbomb_exploded.png、bomb_ignited.png、bomb_initial.pngの3つが追加されている",
+      "translation": "drawable文件夹中已添加bomb_exploded.png、bomb_ignited.png、bomb_initial.png这3个文件"
+    },
+    {
+      "source": "drawableに3つのPNGが並べば成功。 <a1>画像を大きく開く</a1>",
+      "translation": "drawable中出现3个PNG就成功了。<a1>查看大图</a1>"
+    },
+    {
+      "source": "貼り付けた場所を間違えたとき",
+      "translation": "粘贴位置错误时"
+    },
+    {
+      "source": "<code>layout</code> や <code>mipmap</code> など別のフォルダに入った画像は、Project表示で選んで <kbd>⌘ Delete</kbd> で削除し、もう一度 <code>drawable</code> に貼り付けます。見本の <code>samples</code> 側のプロジェクトには貼り付けません。",
+      "translation": "如果图片放进了 <code>layout</code>、<code>mipmap</code> 等其他文件夹，请在Project视图中选中它们，按 <kbd>⌘ Delete</kbd> 删除，再粘贴到 <code>drawable</code>。不要粘贴到示例的 <code>samples</code> 项目中。"
+    },
+    {
+      "source": "Runで確かめる",
+      "translation": "通过Run检查"
+    },
+    {
+      "source": "画像を追加しただけでは、画面は変わりません。Runして <strong>Hello World!</strong> が表示され、ビルドエラーが出なければ成功です。",
+      "translation": "只添加图片不会改变界面。Run后显示 <strong>Hello World!</strong>，且没有构建错误，就成功了。"
+    },
+    {
+      "source": "自分のプロジェクトのdrawableに3つのPNGを追加し、Runしてもエラーが出ないことを確認した。",
+      "translation": "已在自己项目的drawable中添加3个PNG，并确认Run时没有错误。"
+    },
+    {
+      "source": "次へ：爆弾と数字ボタンを並べる →",
+      "translation": "下一步：排列炸弹和数字按钮 →"
+    },
+    {
+      "source": "STEP 03 · 目安 20分",
+      "translation": "STEP 03 · 参考时间20分钟"
+    },
+    {
+      "source": "爆弾と数字ボタンを並べる",
+      "translation": "排列炸弹和数字按钮"
+    },
+    {
+      "source": "変更するファイル：app/src/main/res/layout/activity_main.xml",
+      "translation": "要修改的文件：app/src/main/res/layout/activity_main.xml"
+    },
+    {
+      "source": "まず、爆弾の画像と1〜9の数字ボタンを作ります。<strong>Code</strong> 表示に切り替え、XMLの中で <kbd>⌘ A</kbd> → 貼り付けを行い、<strong>ファイル全体を置き換えます</strong>。",
+      "translation": "先创建炸弹图片和1～9的数字按钮。切换到 <strong>Code</strong> 视图，在XML中按 <kbd>⌘ A</kbd> 后粘贴，<strong>替换整个文件</strong>。"
+    },
+    {
+      "source": "1行目：1　2　3",
+      "translation": "第1行：1　2　3"
+    },
+    {
+      "source": "2行目：4　5　6",
+      "translation": "第2行：4　5　6"
+    },
+    {
+      "source": "3行目：7　8　9",
+      "translation": "第3行：7　8　9"
+    },
+    {
+      "source": "activity_main.xml · 全体を置き換える",
+      "translation": "activity_main.xml · 替换全部内容"
+    },
+    {
+      "source": "指定",
+      "translation": "设置"
+    },
+    {
+      "source": "意味",
+      "translation": "含义"
+    },
+    {
+      "source": "爆弾の画像を表示するImageView。Javaから画像を切り替えるため、idを付ける。",
+      "translation": "显示炸弹图片的ImageView。为了从Java切换图片，为它设置id。"
+    },
+    {
+      "source": "起動直後は、STEP 2で追加した火のない爆弾を表示する。",
+      "translation": "刚启动时，显示STEP 2添加的未点燃炸弹图片。"
+    },
+    {
+      "source": "画面読み上げ用の説明文。この単元では説明文を付けない指定にして、警告を出さないようにする。",
+      "translation": "供屏幕朗读使用的说明文字。本单元设置为不添加说明文字，以避免警告。"
+    },
+    {
+      "source": "親の中の部品を、横方向の中央にそろえる。",
+      "translation": "让父容器内的控件在水平方向居中。"
+    },
+    {
+      "source": "数字ボタンのid。<code>android:text</code> の1〜9は、あとでJavaが数字として読み取る。",
+      "translation": "数字按钮的id。<code>android:text</code> 中的1～9之后会由Java作为数字读取。"
+    },
+    {
+      "source": "中央のボタンの左右に8dpのすき間を作る。",
+      "translation": "在中间按钮左右各留8dp间距。"
+    },
+    {
+      "source": "親の <code>orientation=\"vertical\"</code> が画像と3つの行を縦に並べ、行の <code>orientation=\"horizontal\"</code> が3つのボタンを横に並べます。A02CalcGameの数字ボタンと同じ入れ子の形です。<code>android:id=\"@+id/main\"</code> はJavaのひな形でも使うため残します。<code>tools:ignore=\"ButtonStyle\"</code> はエディタの警告を抑える指定で、クリックの処理ではありません。",
+      "translation": "父容器的 <code>orientation=\"vertical\"</code> 将图片和3行按钮纵向排列，各行的 <code>orientation=\"horizontal\"</code> 将3个按钮横向排列。这与A02CalcGame数字按钮的嵌套结构相同。Java模板也使用 <code>android:id=\"@+id/main\"</code>，因此要保留它。<code>tools:ignore=\"ButtonStyle\"</code> 用于隐藏编辑器警告，不是点击处理。"
+    },
+    {
+      "source": "火のない爆弾の画像と、1〜9が3行×3列で表示されれば成功です。まだ数字を押しても何も起きません。",
+      "translation": "显示未点燃的炸弹图片和3行×3列的1～9按钮就成功了。此时点击数字还不会发生任何变化。"
+    },
+    {
+      "source": "<code>@drawable/bomb_initial</code> が赤いときは、STEP 2の画像の場所とファイル名を確認します。文字を直接書いたことによる <code>Hardcoded text</code> の警告は、これまでの単元と同様に授業ではそのまま進めます。",
+      "translation": "如果 <code>@drawable/bomb_initial</code> 显示为红色，请检查STEP 2的图片位置和文件名。直接写文字产生的 <code>Hardcoded text</code> 警告与之前单元一样，课堂上保持原样继续操作。"
+    },
+    {
+      "source": "爆弾の画像と1〜9のボタンが3行×3列で表示され、img_bomb・btn1〜btn9のidを確認した。",
+      "translation": "已显示炸弹图片和3行×3列的1～9按钮，并确认img_bomb、btn1～btn9的id。"
+    },
+    {
+      "source": "次へ：メッセージと再挑戦ボタン →",
+      "translation": "下一步：提示信息与重试按钮 →"
+    },
+    {
+      "source": "STEP 04 · 目安 10分",
+      "translation": "STEP 04 · 参考时间 10分钟"
+    },
+    {
+      "source": "メッセージと再挑戦ボタン",
+      "translation": "提示信息与重试按钮"
+    },
+    {
+      "source": "変更するファイル：activity_main.xml",
+      "translation": "要修改的文件：activity_main.xml"
+    },
+    {
+      "source": "数字ボタンの下に、メッセージと再挑戦ボタンを作ります。XMLの<strong>最後の <code>&lt;/LinearLayout&gt;</code> の直前</strong>に追加します。STEP 3の画像や数字ボタンは残します。",
+      "translation": "在数字按钮下方创建提示信息和重试按钮。添加在XML的<strong>最后一个 <code>&lt;/LinearLayout&gt;</code> 之前</strong>。保留STEP 3的图片和数字按钮。"
+    },
+    {
+      "source": "追加 · 最後の閉じタグの直前",
+      "translation": "添加 · 最后一个结束标签之前"
+    },
+    {
+      "source": "「どれか押してみよう」「着火！」などを表示するTextView。",
+      "translation": "显示「どれか押してみよう」（试着点击任意一个）、「着火！」（点燃！）等文字的TextView。"
+    },
+    {
+      "source": "Material 3の「小さめの見出し」の文字スタイルを使う。A03のBodyLargeより大きい文字になる。",
+      "translation": "使用Material 3的“小标题”文字样式。文字比A03的BodyLarge更大。"
+    },
+    {
+      "source": "再挑戦ボタン。<code>android:layout_width=\"match_parent\"</code> で横幅いっぱいに広げる。",
+      "translation": "「再挑戦」（重试）按钮。用 <code>android:layout_width=\"match_parent\"</code> 占满横向宽度。"
+    },
+    {
+      "source": "最初はボタンを<strong>見えない</strong>状態にする。見えなくても、表示する場所は残る。ゲームが終わったらJavaで表示する。",
+      "translation": "初始时将按钮设为<strong>不可见</strong>。即使不可见，也保留显示位置。游戏结束后用Java显示它。"
+    },
+    {
+      "source": "数字ボタンの下に「どれか押してみよう」が表示されます。再挑戦ボタンは見えません。",
+      "translation": "数字按钮下方显示「どれか押してみよう」（试着点击任意一个）。「再挑戦」（重试）按钮不可见。"
+    },
+    {
+      "source": "火のない爆弾、1から9の数字ボタン、どれか押してみよう。再挑戦ボタンは見えない",
+      "translation": "未点燃的炸弹、1～9的数字按钮，以及「どれか押してみよう」（试着点击任意一个）。「再挑戦」（重试）按钮不可见"
+    },
+    {
+      "source": "このSTEPの画面。再挑戦ボタンはまだ見えません。 <a1>画像を大きく開く</a1>",
+      "translation": "本STEP的界面。「再挑戦」（重试）按钮还不可见。<a1>查看大图</a1>"
+    },
+    {
+      "source": "1コマ目はここまで",
+      "translation": "第1课时到这里结束"
+    },
+    {
+      "source": "もう一度Runします。画面の部品のidを、先生に1つずつ指さして説明しましょう。見えない再挑戦ボタンも、XMLのどこにあるかを指さします。次回も自分の <code>Documents/Android1/A05BombGame</code> を開きます。",
+      "translation": "再次Run。请逐个指着界面控件的id向老师说明。不可见的「再挑戦」（重试）按钮也要指出它在XML中的位置。下次仍然打开自己的 <code>Documents/Android1/A05BombGame</code>。"
+    },
+    {
+      "source": "メッセージが表示され、XMLでbtn_retryがinvisibleになっていることを確認した（画面ではまだ見えない）。",
+      "translation": "已确认提示信息显示正常，且XML中的btn_retry为invisible（界面上还不可见）。"
+    },
+    {
+      "source": "次へ：導火線スイッチの数字を決める →",
+      "translation": "下一步：决定引线开关的数字 →"
+    },
+    {
+      "source": "STEP 05 · 目安 25分",
+      "translation": "STEP 05 · 参考时间 25分钟"
+    },
+    {
+      "source": "導火線スイッチの数字を決める",
+      "translation": "决定引线开关的数字"
+    },
+    {
+      "source": "変更するファイル：MainActivity.java",
+      "translation": "要修改的文件：MainActivity.java"
+    },
+    {
+      "source": "前回の画面をRunして確認してから始めます。1〜9の中から、<strong>重ならない2つの数字</strong>をランダムに選び、導火線スイッチにします。選んだ数字はLogcatで確かめます。",
+      "translation": "先Run检查上次完成的界面，再开始操作。从1～9中随机选择<strong>两个不重复的数字</strong>，作为引线开关。通过Logcat检查选出的数字。"
+    },
+    {
+      "source": "① クラスの中、onCreateの外に1行追加",
+      "translation": "① 在类内部、onCreate外部添加一行"
+    },
+    {
+      "source": "<code>public class MainActivity extends AppCompatActivity {</code> のすぐ下、<code>@Override</code> より上に追加します。",
+      "translation": "添加在 <code>public class MainActivity extends AppCompatActivity {</code> 的正下方、<code>@Override</code> 的上方。"
+    },
+    {
+      "source": "追加 · MainActivityのフィールド",
+      "translation": "添加 · MainActivity的字段"
+    },
+    {
+      "source": "<code>int[]</code> は「intの配列」という型です。ここでは名前と型だけを決め、中に入れる2つの数字は、このあと作るメソッドで決めます。スイッチの数字はメソッドで作り、STEP 7でクリックの処理から読むため、フィールドにします。A02の <code>answer</code> も、メソッドで作ってクリックの処理で読むフィールドでした。",
+      "translation": "<code>int[]</code> 是“int数组”这一类型。这里先确定名称和类型，里面的两个数字由接下来创建的方法决定。开关数字在方法中生成，并在STEP 7的点击处理中读取，因此使用字段。A02的 <code>answer</code> 也是在方法中生成、在点击处理中读取的字段。"
+    },
+    {
+      "source": "② onCreateの外にメソッドを追加",
+      "translation": "② 在onCreate外部添加方法"
+    },
+    {
+      "source": "<code>onCreate</code> を閉じる <code>}</code> の下に1行空けて、MainActivityを閉じる最後の <code>}</code> より上に追加します。A02の <code>startQuestion</code> と同じ場所です。",
+      "translation": "在结束 <code>onCreate</code> 的 <code>}</code> 下方空一行，在结束MainActivity的最后一个 <code>}</code> 上方添加。位置与A02的 <code>startQuestion</code> 相同。"
+    },
+    {
+      "source": "追加 · onCreateの下",
+      "translation": "添加 · onCreate下方"
+    },
+    {
+      "source": "importは <code>android.util.Log</code>、<code>java.util.Arrays</code>、<code>java.util.concurrent.ThreadLocalRandom</code> です。<code>Arrays</code> に候補が出たら <code>java.util.Arrays</code> を選びます。",
+      "translation": "需要import <code>android.util.Log</code>、<code>java.util.Arrays</code>、<code>java.util.concurrent.ThreadLocalRandom</code>。如果 <code>Arrays</code> 出现候选项，请选择 <code>java.util.Arrays</code>。"
+    },
+    {
+      "source": "コード",
+      "translation": "コード — 代码"
+    },
+    {
+      "source": "メソッドの説明を書くコメント。",
+      "translation": "说明方法的注释。"
+    },
+    {
+      "source": "「スイッチの数字を作る」処理に名前を付けたメソッド。STEP 8の再挑戦からも呼び出す。",
+      "translation": "为“生成开关数字”这一处理命名的方法。STEP 8的重试处理也会调用它。"
+    },
+    {
+      "source": "<strong>1以上、10未満</strong>（1〜9）の整数を<strong>2個</strong>作り、intの配列にする。A02の <code>nextInt(1, 10)</code> を2回分まとめて作るイメージ。",
+      "translation": "生成<strong>2个</strong><strong>大于等于1、小于10</strong>（1～9）的整数，并组成int数组。可以理解为把A02的 <code>nextInt(1, 10)</code> 执行两次的结果放在一起。"
+    },
+    {
+      "source": "作った配列を、①のフィールドに入れる。メソッドの中から、フィールドに直接入れている。",
+      "translation": "将生成的数组放入①的字段。在方法中直接给字段赋值。"
+    },
+    {
+      "source": "配列から重なりを取り除いた数字の個数。<code>{3, 7}</code> なら2、<code>{5, 5}</code> なら1。",
+      "translation": "去除数组中的重复数字后，剩余数字的个数。<code>{3, 7}</code> 为2，<code>{5, 5}</code> 为1。"
+    },
+    {
+      "source": "do { ... } while (条件);",
+      "translation": "do { ... } while (条件);"
+    },
+    {
+      "source": "中を<strong>必ず1回</strong>実行し、条件がtrueの間くり返す。",
+      "translation": "内部<strong>至少执行1次</strong>，只要条件为true就重复执行。"
+    },
+    {
+      "source": "「2ではない」。同じ数字が2つ出たときにtrueになり、もう一度作り直す。",
+      "translation": "“不是2”。生成两个相同的数字时为true，会再生成一次。"
+    },
+    {
+      "source": "2つの数字を1つずつ取り出す拡張for文。<code>randomIgnitionNumber</code>（最後にsがない）は取り出した1つの数字。",
+      "translation": "逐个取出这两个数字的增强for语句。<code>randomIgnitionNumber</code>（末尾没有s）是取出的一个数字。"
+    },
+    {
+      "source": "数字をLogcatに出す。A01・A03と同じログ。",
+      "translation": "将数字输出到Logcat。与A01、A03相同的日志。"
+    },
+    {
+      "source": "<code>Arrays.stream(配列)</code> は、配列の中身を順番に調べるメソッドです。この単元では、このあと <code>anyMatch</code>（STEP 7）、<code>forEach</code>（STEP 7）、<code>filter</code> と <code>count</code>（STEP 9）も使います。",
+      "translation": "<code>Arrays.stream(配列)</code> 是依次检查数组内容的方法。本单元之后还会使用 <code>anyMatch</code>（STEP 7）、<code>forEach</code>（STEP 7）、<code>filter</code> 和 <code>count</code>（STEP 9）。"
+    },
+    {
+      "source": "do-while文を読む",
+      "translation": "理解do-while语句"
+    },
+    {
+      "source": "乱数を2個作る（最初に必ず1回）",
+      "translation": "生成2个随机数（开始时必定执行1次）"
+    },
+    {
+      "source": "重なりを除いた個数 != 2 ？",
+      "translation": "去重后的个数 != 2？"
+    },
+    {
+      "source": "trueなら作り直す／falseなら終わる",
+      "translation": "为true则重新生成／为false则结束"
+    },
+    {
+      "source": "くり返し",
+      "translation": "循环"
+    },
+    {
+      "source": "できた配列",
+      "translation": "生成的数组"
+    },
+    {
+      "source": "次にすること",
+      "translation": "接下来做什么"
+    },
+    {
+      "source": "1回目",
+      "translation": "第1次"
+    },
+    {
+      "source": "同じ数字なので、もう一度作る（フィールドの配列は作り直した配列に置き換わる）。",
+      "translation": "数字相同，因此重新生成（字段中的数组会替换为重新生成的数组）。"
+    },
+    {
+      "source": "2回目",
+      "translation": "第2次"
+    },
+    {
+      "source": "くり返しを終え、フィールドに入った {5, 8} をログに出す。",
+      "translation": "结束循环，将字段中的{5, 8}输出到日志。"
+    },
+    {
+      "source": "A03の番号付きfor文は、中を実行する前に条件を調べました。do-while文は、まず中を1回実行してから条件を調べます。「乱数を作ってから、重なっていないか確かめる」処理に合っています。1回目で重ならなければ、くり返しは1回で終わります。",
+      "translation": "A03带编号的for语句会在执行内部处理前检查条件。do-while语句先执行一次内部处理，再检查条件。它适合“先生成随机数，再检查是否重复”的处理。如果第1次没有重复，循环就只执行1次。"
+    },
+    {
+      "source": "仕様の確認：<a1>ThreadLocalRandom.ints</a1>、<a2>Arrays.stream</a2>、<a3>IntStream.distinct（Android公式）</a3>。",
+      "translation": "查看说明：<a1>ThreadLocalRandom.ints</a1>、<a2>Arrays.stream</a2>、<a3>IntStream.distinct（Android官方）</a3>。"
+    },
+    {
+      "source": "③ onCreateから呼び出す",
+      "translation": "③ 从onCreate调用"
+    },
+    {
+      "source": "<code>onCreate</code> の中で、ひな形の <code>return insets;</code> に続く <code>});</code> の下に、1行空けて追加します。",
+      "translation": "在 <code>onCreate</code> 内部，找到模板中 <code>return insets;</code> 后面的 <code>});</code>，在下方空一行再添加。"
+    },
+    {
+      "source": "追加 · onCreateの中、ひな形の下",
+      "translation": "添加 · onCreate内部、模板下方"
+    },
+    {
+      "source": "画面を作るときに1回だけ、スイッチの数字を決めます。メソッドの中身は、呼び出したときに実行されます。",
+      "translation": "创建界面时，只决定一次开关数字。方法内部的处理在调用时才会执行。"
+    },
+    {
+      "source": "<a1>共通資料：Logcat</a1>に従ってLogcatを開き、検索欄を次の文字にします。",
+      "translation": "按照<a1>通用资料：Logcat</a1>打开Logcat，在搜索框中输入以下内容。"
+    },
+    {
+      "source": "Logcatの検索欄 · BombGame用",
+      "translation": "Logcat搜索框 · BombGame用"
+    },
+    {
+      "source": "Runします。起動したときに、<code>randomIgnitionNumber</code> の行が2行出ます。",
+      "translation": "Run。启动时会出现2行 <code>randomIgnitionNumber</code>。"
+    },
+    {
+      "source": "アプリをStopしてからRunし直すと、数字が選び直されます（1つだけ変わる回や、たまたま同じ組み合わせになる回もあります）。3〜4回くり返し、どの回でも2つの数字が違うことを確かめます。",
+      "translation": "Stop应用后重新Run，会重新选择数字（有时只变一个，有时也会碰巧出现相同组合）。重复3～4次，确认每次的两个数字都不相同。"
+    },
+    {
+      "source": "画面はまだ変わりません。数字を押しても何も起きません。",
+      "translation": "界面还不会改变，点击数字也没有反应。"
+    },
+    {
+      "source": "読むところの例 · スイッチが6と8のとき",
+      "translation": "需要阅读的部分示例 · 开关为6和8时"
+    },
+    {
+      "source": "Logcatはスイッチの確認用",
+      "translation": "Logcat用于检查开关"
+    },
+    {
+      "source": "このログを見ると、どれがスイッチかわかります。STEP 7・9では、このログを見ながら着火・爆発・クリアを確実に試します。友達と遊ぶときは、Logcatを隠しておきましょう。",
+      "translation": "查看此日志就能知道哪些是开关。STEP 7、9中会一边查看此日志，一边准确测试点燃、爆炸和通关。和朋友玩时，请隐藏Logcat。"
+    },
+    {
+      "source": "Logcatに違う2つの数字が出て、Runし直すと数字が選び直されることを確認した。",
+      "translation": "已确认Logcat显示两个不同的数字，重新Run时会重新选择数字。"
+    },
+    {
+      "source": "次へ：押したボタンを押せなくする →",
+      "translation": "下一步：禁用已点击的按钮 →"
+    },
+    {
+      "source": "STEP 06 · 目安 15分",
+      "translation": "STEP 06 · 参考时间 15分钟"
+    },
+    {
+      "source": "押したボタンを押せなくする",
+      "translation": "禁用已点击的按钮"
+    },
+    {
+      "source": "画面の部品を取得し、9個の数字ボタンに同じクリックの処理を付けます。まずは「押したボタンを押せなくする」だけを作ります。",
+      "translation": "获取界面控件，为9个数字按钮添加相同的点击处理。先只实现“禁用已点击的按钮”。"
+    },
+    {
+      "source": "① 画面の部品を取得する",
+      "translation": "① 获取界面控件"
+    },
+    {
+      "source": "STEP 5で追加した <code>generateIgnitionNumbers();</code> の下に、1行空けて追加します。",
+      "translation": "在STEP 5添加的 <code>generateIgnitionNumbers();</code> 下方空一行再添加。"
+    },
+    {
+      "source": "追加 · generateIgnitionNumbers();の下",
+      "translation": "添加 · generateIgnitionNumbers();下方"
+    },
+    {
+      "source": "表示する文字を変えるため、TextViewとして扱う。",
+      "translation": "为了修改显示的文字，将其作为TextView处理。"
+    },
+    {
+      "source": "表示する画像を変えるため、ImageViewとして扱う。",
+      "translation": "为了修改显示的图片，将其作为ImageView处理。"
+    },
+    {
+      "source": "クリック登録と表示の切り替えだけを使うため、A03と同じくキャストしない。",
+      "translation": "因为只使用点击注册和可见性切换，所以与A03一样，不做类型转换。"
+    },
+    {
+      "source": "9個の数字ボタンを、Buttonの配列にまとめる。A03の <code>imageViews</code> と同じ書き方。",
+      "translation": "将9个数字按钮组成Button数组。写法与A03的 <code>imageViews</code> 相同。"
+    },
+    {
+      "source": "importは <code>android.widget.Button</code>、<code>android.widget.ImageView</code>、<code>android.widget.TextView</code> です。<code>txtMessage</code> などが灰色で表示されるのは、まだ使っていないためです。",
+      "translation": "需要import <code>android.widget.Button</code>、<code>android.widget.ImageView</code>、<code>android.widget.TextView</code>。<code>txtMessage</code> 等显示为灰色，是因为还没有使用。"
+    },
+    {
+      "source": "② 9個のボタンにクリックの処理を付ける",
+      "translation": "② 为9个按钮添加点击处理"
+    },
+    {
+      "source": "①で追加した配列の <code>};</code> の下に、1行空けて追加します。",
+      "translation": "在①添加的数组的 <code>};</code> 下方空一行再添加。"
+    },
+    {
+      "source": "追加 · 配列numberButtonsの下",
+      "translation": "添加 · 数组numberButtons下方"
+    },
+    {
+      "source": "配列からボタンを1つずつ取り出し、クリックの処理を登録する。",
+      "translation": "从数组中逐个取出按钮，注册点击处理。"
+    },
+    {
+      "source": "押されたボタンを、押せない状態（灰色）にする。同じ数字を2回押せなくなる。",
+      "translation": "将被点击的按钮设为不可点击（灰色）。同一个数字就无法点击两次了。"
+    },
+    {
+      "source": "for文は画面を作るときに9回実行され、9個のボタンに同じ処理を登録します。クリックの処理の中の <code>button</code> は、そのボタン自身を指します。1を押せば1のボタン、5を押せば5のボタンが灰色になります。",
+      "translation": "创建界面时，for语句执行9次，为9个按钮注册相同的处理。点击处理中的 <code>button</code> 指该按钮本身。点击1，1按钮就变灰；点击5，5按钮就变灰。"
+    },
+    {
+      "source": "1を押すと、1のボタンだけが灰色になり、押せなくなります。",
+      "translation": "点击1后，只有1按钮变为灰色，无法再点击。"
+    },
+    {
+      "source": "別の数字を押すと、そのボタンも灰色になります。",
+      "translation": "点击其他数字后，该按钮也会变为灰色。"
+    },
+    {
+      "source": "メッセージと爆弾の画像は、まだ変わりません。",
+      "translation": "提示信息和炸弹图片还不会改变。"
+    },
+    {
+      "source": "1のボタンだけが灰色になり、ほかのボタンは押せる。メッセージはどれか押してみようのまま",
+      "translation": "只有1按钮变为灰色，其他按钮仍可点击。提示信息仍为「どれか押してみよう」（试着点击任意一个）"
+    },
+    {
+      "source": "1を押した画面。押したボタンだけが灰色になります。 <a1>画像を大きく開く</a1>",
+      "translation": "点击1后的界面。只有点击过的按钮变为灰色。<a1>查看大图</a1>"
+    },
+    {
+      "source": "押した数字ボタンだけが灰色になり、もう押せないことを確認した。button.setEnabled(false)の行を指させた。",
+      "translation": "已确认只有点击过的数字按钮变为灰色，且无法再次点击。能够指出button.setEnabled(false)所在行。"
+    },
+    {
+      "source": "次へ：着火と爆発 →",
+      "translation": "下一步：点燃与爆炸 →"
+    },
+    {
+      "source": "STEP 07 · 目安 30分",
+      "translation": "STEP 07 · 参考时间 30分钟"
+    },
+    {
+      "source": "着火と爆発",
+      "translation": "点燃与爆炸"
+    },
+    {
+      "source": "押した数字がスイッチかどうかを調べ、スイッチなら爆弾の状態を1つ進めます。状態に合わせて、画像とメッセージを変えます。",
+      "translation": "检查点击的数字是否为开关。如果是开关，就让炸弹进入下一个状态。根据状态修改图片和提示信息。"
+    },
+    {
+      "source": "① 爆弾の状態を表す定数とフィールド",
+      "translation": "① 表示炸弹状态的常量和字段"
+    },
+    {
+      "source": "<code>public class MainActivity extends AppCompatActivity {</code> のすぐ下、STEP 5の <code>private int[] randomIgnitionNumbers</code> の<strong>上</strong>に追加します。",
+      "translation": "添加在 <code>public class MainActivity extends AppCompatActivity {</code> 的正下方、STEP 5的 <code>private int[] randomIgnitionNumbers</code> 的<strong>上方</strong>。"
+    },
+    {
+      "source": "追加 · randomIgnitionNumbersの上",
+      "translation": "添加 · randomIgnitionNumbers上方"
+    },
+    {
+      "source": "「着火前」を1とする<strong>定数</strong>。<code>final</code> は値を変えられない、<code>static</code> はクラスで1つだけ持つ、という意味。定数は大文字と_で名前を付ける。",
+      "translation": "将“点燃前”设为1的<strong>常量</strong>（定数，ていすう）。<code>final</code> 表示值无法改变，<code>static</code> 表示类中只持有一份。常量使用大写字母和_命名。"
+    },
+    {
+      "source": "「着火」を2、「爆発」を3とする定数。",
+      "translation": "将“点燃”设为2、“爆炸”设为3的常量。"
+    },
+    {
+      "source": "今の爆弾の状態を覚えるフィールド。最初は定数 STATE_INITIAL の値（1）が入る。あとで変わるのは <code>nowState</code> だけで、定数は1のまま。",
+      "translation": "记录当前炸弹状态的字段。初始放入常量STATE_INITIAL的值（1）。之后只有 <code>nowState</code> 会改变，常量仍为1。"
+    },
+    {
+      "source": "爆弾の状態",
+      "translation": "炸弹状态"
+    },
+    {
+      "source": "1：STATE_INITIAL（着火前）",
+      "translation": "1：STATE_INITIAL（点燃前）"
+    },
+    {
+      "source": "→ スイッチ →",
+      "translation": "→ 开关 →"
+    },
+    {
+      "source": "2：STATE_IGNITED（着火）",
+      "translation": "2：STATE_IGNITED（点燃）"
+    },
+    {
+      "source": "3：STATE_EXPLODED（爆発）",
+      "translation": "3：STATE_EXPLODED（爆炸）"
+    },
+    {
+      "source": "状態は1 → 2 → 3の順に並んでいるので、スイッチを押すたびに <code>nowState</code> を1増やせば次の状態になります。<code>nowState == 2</code> と書くより、<code>nowState == STATE_IGNITED</code> と書くほうが「着火しているか」を調べていると読み取れます。<code>nowState</code> はクリックの処理の中で書き換えるため、A03の <code>selectedHand</code> と同じくフィールドにします。",
+      "translation": "状态按1 → 2 → 3排列，因此每次点击开关时，将 <code>nowState</code> 加1就会进入下一个状态。比起 <code>nowState == 2</code>，写成 <code>nowState == STATE_IGNITED</code> 更容易看出是在检查“是否已点燃”。<code>nowState</code> 会在点击处理中改写，因此与A03的 <code>selectedHand</code> 一样，使用字段。"
+    },
+    {
+      "source": "② スイッチか調べて、画像とメッセージを変える",
+      "translation": "② 检查是否为开关，并修改图片和提示信息"
+    },
+    {
+      "source": "STEP 6のクリックの処理の中で、<code>button.setEnabled(false);</code> の下に、1行空けて追加します。",
+      "translation": "在STEP 6的点击处理中，<code>button.setEnabled(false);</code> 下方空一行再添加。"
+    },
+    {
+      "source": "追加 · button.setEnabled(false);の下",
+      "translation": "添加 · button.setEnabled(false);下方"
+    },
+    {
+      "source": "追加のimportは <code>android.view.View</code> です。",
+      "translation": "还需要import <code>android.view.View</code>。"
+    },
+    {
+      "source": "押したボタンの文字、たとえば \"7\" を、整数の7に変える。A02と同じ。",
+      "translation": "把被点击按钮上的文字，例如\"7\"，转换成整数7。与A02相同。"
+    },
+    {
+      "source": "スイッチの配列の中に、押した数字と同じ値が<strong>1つでもあれば</strong>true。",
+      "translation": "只要开关数组中<strong>有至少一个</strong>值与点击的数字相同，就为true。"
+    },
+    {
+      "source": "配列の値を1つずつ <code>num</code> として受け取り、押した数字と比べる短い書き方。クリックの処理の <code>v -&gt; { }</code> と同じ矢印を使う。",
+      "translation": "逐个接收数组的值作为 <code>num</code>，并与点击的数字比较的简洁写法。使用与点击处理 <code>v -&gt; { }</code> 相同的箭头。"
+    },
+    {
+      "source": "スイッチなら状態を1つ進める。中が1行だけなので <code>{ }</code> を省略している。",
+      "translation": "如果是开关，就进入下一个状态。内部只有一行，因此省略了 <code>{ }</code>。"
+    },
+    {
+      "source": "状態が着火（2）なら着火の表示、爆発（3）なら爆発の表示。どちらでもなければ何もしない。",
+      "translation": "状态为点燃（2）时显示点燃，为爆炸（3）时显示爆炸。两者都不是则不做任何操作。"
+    },
+    {
+      "source": "爆弾の画像を、火がついた画像に変える。A03のCPUの手と同じ方法。",
+      "translation": "将炸弹图片改为已点燃的图片。方法与A03的CPU出拳相同。"
+    },
+    {
+      "source": "見えなかった再挑戦ボタンを表示する。",
+      "translation": "显示原本不可见的「再挑戦」（重试）按钮。"
+    },
+    {
+      "source": "9個のボタンを<strong>すべて</strong>押せなくする。<code>for (var b : numberButtons) { b.setEnabled(false); }</code> と同じ動き。",
+      "translation": "让9个按钮<strong>全部</strong>不可点击。与 <code>for (var b : numberButtons) { b.setEnabled(false); }</code> 的行为相同。"
+    },
+    {
+      "source": "anyMatchを読む",
+      "translation": "理解anyMatch"
+    },
+    {
+      "source": "スイッチが {3, 7} のとき",
+      "translation": "开关为{3, 7}时"
+    },
+    {
+      "source": "7を押した（number = 7）",
+      "translation": "点击了7（number = 7）"
+    },
+    {
+      "source": "true（スイッチ）",
+      "translation": "true（是开关）"
+    },
+    {
+      "source": "5を押した（number = 5）",
+      "translation": "点击了5（number = 5）"
+    },
+    {
+      "source": "false（スイッチではない）",
+      "translation": "false（不是开关）"
+    },
+    {
+      "source": "クリックの処理は、上から <strong>押せなくする → スイッチか調べる → 状態を進める → 状態に合わせて表示する</strong> の順に実行されます。1つのボタンは1回しか押せないため、同じスイッチで状態が2回進むことはありません。",
+      "translation": "点击处理从上到下按<strong>禁用按钮 → 检查是否为开关 → 进入下一个状态 → 根据状态显示</strong>的顺序执行。每个按钮只能点击一次，因此同一个开关不会让状态前进两次。"
+    },
+    {
+      "source": "仕様の確認：<a1>IntStream.anyMatch</a1>、<a2>Stream（forEach・filter・count）</a2>、<a3>View.setVisibility（Android公式）</a3>。",
+      "translation": "查看说明：<a1>IntStream.anyMatch</a1>、<a2>Stream（forEach、filter、count）</a2>、<a3>View.setVisibility（Android官方）</a3>。"
+    },
+    {
+      "source": "導火線に火がついた爆弾と着火！の文字。押した2と5のボタンは灰色",
+      "translation": "引线已点燃的炸弹与文字「着火！」（点燃！）。点击过的2和5按钮为灰色"
+    },
+    {
+      "source": "スイッチを1つ押すと、画像とメッセージが変わります。 <a1>画像を大きく開く</a1>",
+      "translation": "点击1个开关后，图片和提示信息会改变。<a1>查看大图</a1>"
+    },
+    {
+      "source": "爆発の画像と爆発した！ゲームオーバー！の文字。数字はすべて灰色で、再挑戦ボタンが見える",
+      "translation": "爆炸图片与文字「爆発した！ゲームオーバー！」（爆炸了！游戏结束！）。所有数字按钮为灰色，可看到「再挑戦」（重试）按钮"
+    },
+    {
+      "source": "2つ目のスイッチで爆発。再挑戦が表示されます。 <a1>画像を大きく開く</a1>",
+      "translation": "第2个开关引发爆炸。显示「再挑戦」（重试）。<a1>查看大图</a1>"
+    },
+    {
+      "source": "Logcatでスイッチの2つの数字を確認します（STEP 5の検索欄）。",
+      "translation": "在Logcat中查看两个开关数字（使用STEP 5的搜索框内容）。"
+    },
+    {
+      "source": "スイッチ<strong>ではない</strong>数字を押します。そのボタンが灰色になるだけで、表示は変わりません。",
+      "translation": "点击<strong>不是</strong>开关的数字。只有该按钮变为灰色，显示内容不变。"
+    },
+    {
+      "source": "スイッチの1つを押します。導火線に火がついた画像と「着火！」になります。",
+      "translation": "点击其中一个开关。图片变为引线已点燃的炸弹，文字变为「着火！」（点燃！）。"
+    },
+    {
+      "source": "もう1つのスイッチを押します。爆発の画像と「爆発した！ゲームオーバー！」になり、数字はすべて押せなくなり、再挑戦ボタンが表示されます。",
+      "translation": "点击另一个开关。显示爆炸图片和「爆発した！ゲームオーバー！」（爆炸了！游戏结束！），所有数字按钮不可点击，并显示「再挑戦」（重试）按钮。"
+    },
+    {
+      "source": "再挑戦を押しても、まだ何も起きません（STEP 8で作ります）。もう一度遊ぶときは <strong>Run ▶</strong> で起動し直します。",
+      "translation": "此时点击「再挑戦」（重试）还没有反应（将在STEP 8制作）。想再玩一次时，请用 <strong>Run ▶</strong> 重新启动。"
+    },
+    {
+      "source": "まだクリアにはなりません",
+      "translation": "还不会通关"
+    },
+    {
+      "source": "スイッチ以外の7個をすべて押しても、このSTEPでは何も表示されません。クリアの判定はSTEP 9で追加します。",
+      "translation": "即使点击全部7个非开关按钮，本STEP也不会显示任何信息。将在STEP 9添加通关判断。"
+    },
+    {
+      "source": "2コマ目はここまで",
+      "translation": "第2课时到这里结束"
+    },
+    {
+      "source": "もう一度Runします。次回はRunして、Logcatの数字を見ながら着火と爆発を確かめてからSTEP 8へ進みます。",
+      "translation": "再次Run。下次先Run，查看Logcat中的数字，检查点燃和爆炸后，再进入STEP 8。"
+    },
+    {
+      "source": "Logcatの数字を見ながら、スイッチ以外・1つ目のスイッチ・2つ目のスイッチを押して、表示の変化を確認した。nowState++の行を指させた。",
+      "translation": "已对照Logcat中的数字，依次点击非开关按钮、第1个开关、第2个开关，并确认显示变化。能够指出nowState++所在行。"
+    },
+    {
+      "source": "次へ：再挑戦で最初に戻す →",
+      "translation": "下一步：重试时恢复初始状态 →"
+    },
+    {
+      "source": "STEP 08 · 目安 15分",
+      "translation": "STEP 08 · 参考时间 15分钟"
+    },
+    {
+      "source": "再挑戦で最初に戻す",
+      "translation": "重试时恢复初始状态"
+    },
+    {
+      "source": "再挑戦を押したら、起動直後と同じ表示に戻し、スイッチの数字を選び直します。",
+      "translation": "点击「再挑戦」（重试）后，恢复刚启动时的显示，并重新选择开关数字。"
+    },
+    {
+      "source": "STEP 6の配列 <code>numberButtons</code> の <code>};</code> と、<code>for (var button : numberButtons) {</code> の行の<strong>間</strong>に追加します。追加したコードの上と下に、1行ずつ空けます。完成版と同じ順番にするためです。",
+      "translation": "添加在STEP 6数组 <code>numberButtons</code> 的 <code>};</code> 与 <code>for (var button : numberButtons) {</code> 这一行的<strong>中间</strong>。新增代码上下各空一行。这是为了与完成版保持相同顺序。"
+    },
+    {
+      "source": "追加 · 数字ボタンのfor文の上",
+      "translation": "添加 · 数字按钮的for语句上方"
+    },
+    {
+      "source": "元に戻すもの",
+      "translation": "要恢复的内容"
+    },
+    {
+      "source": "爆弾の状態を着火前（1）に戻す。",
+      "translation": "将炸弹状态恢复为点燃前（1）。"
+    },
+    {
+      "source": "txtMessage.setText(\"どれか押してみよう\")",
+      "translation": "txtMessage.setText(\"どれか押してみよう\")（设置文字：“试着点击任意一个”）"
+    },
+    {
+      "source": "メッセージを最初の文に戻す。",
+      "translation": "将提示信息恢复为最初的文字。"
+    },
+    {
+      "source": "爆弾の画像を、火のない画像に戻す。",
+      "translation": "将炸弹图片恢复为未点燃的图片。"
+    },
+    {
+      "source": "<code>v</code> は押された再挑戦ボタン自身。ボタンを見えなくする。",
+      "translation": "<code>v</code> 是被点击的「再挑戦」（重试）按钮本身。将按钮设为不可见。"
+    },
+    {
+      "source": "STEP 5のメソッドを呼び、スイッチの数字を選び直す。",
+      "translation": "调用STEP 5的方法，重新选择开关数字。"
+    },
+    {
+      "source": "9個のボタンをすべて押せる状態に戻す。",
+      "translation": "将9个按钮全部恢复为可点击状态。"
+    },
+    {
+      "source": "スイッチの数字を作る処理をメソッドにしたので、起動時（<code>onCreate</code>）と再挑戦の2か所から、同じ処理を1行で呼び出せます。A02の <code>startQuestion</code> と同じ考え方です。",
+      "translation": "因为把生成开关数字的处理写成了方法，所以启动时（<code>onCreate</code>）和重试时，都可以用一行代码调用相同处理。思路与A02的 <code>startQuestion</code> 相同。"
+    },
+    {
+      "source": "Logcatでスイッチを確認し、2つとも押して爆発させます。",
+      "translation": "在Logcat中查看开关，点击两个开关，使炸弹爆炸。"
+    },
+    {
+      "source": "再挑戦を押します。火のない爆弾・「どれか押してみよう」・すべて押せる数字ボタンに戻り、再挑戦ボタンが見えなくなります。",
+      "translation": "点击「再挑戦」（重试）。界面恢复为未点燃的炸弹、「どれか押してみよう」（试着点击任意一个）和全部可点击的数字按钮，「再挑戦」（重试）按钮消失。"
+    },
+    {
+      "source": "Logcatに、選び直した2つの数字が出ます（前と同じ数字になることもあります）。2〜3回くり返します。",
+      "translation": "Logcat显示重新选择的两个数字（也可能与之前相同）。重复2～3次。"
+    },
+    {
+      "source": "爆発のあとに再挑戦で最初の表示に戻り、Logcatに選び直したスイッチの数字が出ることを確認した。",
+      "translation": "已确认爆炸后通过「再挑戦」（重试）恢复初始显示，且Logcat显示重新选择的开关数字。"
+    },
+    {
+      "source": "次へ：クリアを判定する →",
+      "translation": "下一步：判断是否通关 →"
+    },
+    {
+      "source": "STEP 09 · 目安 25分",
+      "translation": "STEP 09 · 参考时间 25分钟"
+    },
+    {
+      "source": "クリアを判定する",
+      "translation": "判断是否通关"
+    },
+    {
+      "source": "最後に、スイッチ以外の7個をすべて押したら「クリア！」にします。STEP 7の表示の処理を、クリアの判定で包みます。",
+      "translation": "最后实现：点击全部7个非开关按钮后显示「クリア！」（通关！）。将STEP 7的显示处理包在通关判断中。"
+    },
+    {
+      "source": "① 置き換える範囲を選ぶ",
+      "translation": "① 选中要替换的范围"
+    },
+    {
+      "source": "数字ボタンのクリックの処理の中で、<code>if (nowState == STATE_IGNITED) {</code> の行から、<code>else if (nowState == STATE_EXPLODED) { ... }</code> を閉じる <code>}</code> の行までを選びます。その下の <code>});</code> は選びません。<code>var number</code>・<code>var match</code>・<code>if (match) nowState++;</code> の3行も残します。",
+      "translation": "在数字按钮的点击处理中，从 <code>if (nowState == STATE_IGNITED) {</code> 这一行开始，选到关闭 <code>else if (nowState == STATE_EXPLODED) { ... }</code> 的 <code>}</code> 所在行。不要选中下方的 <code>});</code>。保留 <code>var number</code>、<code>var match</code>、<code>if (match) nowState++;</code> 这3行。"
+    },
+    {
+      "source": "② 次のコードに置き換える",
+      "translation": "② 替换为以下代码"
+    },
+    {
+      "source": "置き換え · if (nowState == STATE_IGNITED) から else if の閉じ括弧まで",
+      "translation": "替换 · 从if (nowState == STATE_IGNITED)到else if的右括号"
+    },
+    {
+      "source": "貼り付けたあと、字下げがずれていたら <strong>Code → Reformat Code</strong>（<kbd>⌥ ⌘ L</kbd>）でそろえます。<code>else { ... }</code> の中は、STEP 7で書いた着火・爆発の処理と同じです。",
+      "translation": "粘贴后，如果缩进不齐，请用 <strong>Code → Reformat Code</strong>（<kbd>⌥ ⌘ L</kbd>）整理。<code>else { ... }</code> 中的内容与STEP 7编写的点燃、爆炸处理相同。"
+    },
+    {
+      "source": "押せないボタンだけを残して、その数を数える。<code>!</code> は反対。今押したボタンも数に入る。",
+      "translation": "只保留不可点击的按钮，并统计数量。<code>!</code> 表示取反。刚点击的按钮也计算在内。"
+    },
+    {
+      "source": "「かつ」。両方の条件がtrueのときtrue。",
+      "translation": "“并且”。两个条件都为true时才为true。"
+    },
+    {
+      "source": "「または」。どちらかの条件がtrueならtrue。",
+      "translation": "“或者”。任意一个条件为true时就为true。"
+    },
+    {
+      "source": "括弧の中を1つのまとまりとして先に調べ、どちらかのまとまりがtrueならクリア。",
+      "translation": "先将括号内的内容作为一组进行检查，任意一组为true就通关。"
+    },
+    {
+      "source": "// ゲームクリアの場合",
+      "translation": "// ゲームクリアの場合（游戏通关时）"
+    },
+    {
+      "source": "クリアなら、メッセージを出し、再挑戦を表示し、数字をすべて押せなくする。",
+      "translation": "如果通关，就输出提示信息，显示「再挑戦」（重试），并禁用所有数字按钮。"
+    },
+    {
+      "source": "else { // ゲーム続行",
+      "translation": "else { // ゲーム続行（游戏继续）"
+    },
+    {
+      "source": "クリアではないとき。STEP 7の着火・爆発の判定を行う。爆発した場合は、ここでゲームオーバーになる。",
+      "translation": "未通关时，进行STEP 7的点燃、爆炸判断。如果爆炸，就在这里结束游戏。"
+    },
+    {
+      "source": "クリアの条件を読む",
+      "translation": "理解通关条件"
+    },
+    {
+      "source": "条件は <strong>（着火前 かつ 7個押せない）または（着火 かつ 8個押せない）</strong> という意味です。上の行のコメントも、同じことを説明しています。Javaでは <code>&amp;&amp;</code> を <code>||</code> より先に計算するため、括弧がなくても結果は同じです（掛け算を足し算より先に計算するのと同じ）。読み間違えないように、まとまりを括弧で囲んでいます。",
+      "translation": "条件表示<strong>（点燃前 并且 7个不可点击）或者（已点燃 并且 8个不可点击）</strong>。上一行的注释也在说明同一件事。Java先计算 <code>&amp;&amp;</code>，再计算 <code>||</code>，因此即使没有括号，结果也相同（就像先算乘法，再算加法一样）。为了避免读错，用括号把每组内容括起来。"
+    },
+    {
+      "source": "押せないボタンの数",
+      "translation": "不可点击的按钮数量"
+    },
+    {
+      "source": "STATE_INITIAL（着火前）",
+      "translation": "STATE_INITIAL（点燃前）"
+    },
+    {
+      "source": "スイッチ以外の7個をすべて押した。残りの2個はどちらもスイッチ。",
+      "translation": "已点击全部7个非开关按钮。剩下的2个都是开关。"
+    },
+    {
+      "source": "STATE_IGNITED（着火）",
+      "translation": "STATE_IGNITED（已点燃）"
+    },
+    {
+      "source": "スイッチ1個と、スイッチ以外の7個を押した。残りの1個はスイッチ。",
+      "translation": "已点击1个开关和7个非开关按钮。剩下的1个是开关。"
+    },
+    {
+      "source": "STATE_EXPLODED（爆発）",
+      "translation": "STATE_EXPLODED（爆炸）"
+    },
+    {
+      "source": "クリアにはならない。elseの中で爆発を表示する。",
+      "translation": "不会通关。在else中显示爆炸。"
+    },
+    {
+      "source": "数を数える行は、<code>button.setEnabled(false)</code> と <code>nowState++</code> のあとにあります。そのため、今押したボタンと、今の押し方で進んだ状態を使って判定できます。",
+      "translation": "统计数量的代码行在 <code>button.setEnabled(false)</code> 和 <code>nowState++</code> 之后。因此，判断时能包含刚点击的按钮，并使用本次点击后进入的状态。"
+    },
+    {
+      "source": "置き換えたあとの、数字ボタンの処理全体で照合する",
+      "translation": "对照替换后数字按钮的完整处理"
+    },
+    {
+      "source": "照合用 · 数字ボタンのfor文",
+      "translation": "核对用 · 数字按钮的for语句"
+    },
+    {
+      "source": "Logcatでスイッチを確認し、スイッチ以外の7個をすべて押します。7個目で「クリア！」になり、数字はすべて押せなくなり、再挑戦が表示されます。爆弾は火のない画像のままです。",
+      "translation": "在Logcat中查看开关，点击全部7个非开关按钮。点击第7个时显示「クリア！」（通关！），所有数字按钮不可点击，并显示「再挑戦」（重试）。炸弹仍是未点燃的图片。"
+    },
+    {
+      "source": "再挑戦を押し、新しいスイッチを確認します。スイッチを1つ押して着火させてから、スイッチ以外の7個を押します。7個目で「クリア！」になり、爆弾は火がついた画像のままです。",
+      "translation": "点击「再挑戦」（重试），查看新的开关。先点击一个开关点燃引线，再点击7个非开关按钮。点击第7个时显示「クリア！」（通关！），炸弹仍是已点燃的图片。"
+    },
+    {
+      "source": "再挑戦を押し、スイッチを2つとも押すと、これまでどおり爆発します。",
+      "translation": "点击「再挑戦」（重试），再点击两个开关，炸弹会与之前一样爆炸。"
+    },
+    {
+      "source": "着火前に、スイッチ以外の7個を押してクリアした画面（確認1）。着火後にクリアしたときは、火がついた画像のままです。 <a1>画像を大きく開く</a1>",
+      "translation": "点燃前点击7个非开关按钮后通关的界面（检查1）。如果点燃后通关，会保留已点燃的图片。<a1>查看大图</a1>"
+    },
+    {
+      "source": "着火前と着火後の両方でクリアになり、爆発もこれまでどおり動くことを確認した。",
+      "translation": "已确认点燃前后都能通关，爆炸也与之前一样正常运行。"
+    },
+    {
+      "source": "次へ：ミニ練習 →",
+      "translation": "下一步：小练习 →"
+    },
+    {
+      "source": "STEP 10 · 目安 20分",
+      "translation": "STEP 10 · 参考时间 20分钟"
+    },
+    {
+      "source": "ミニ練習",
+      "translation": "小练习"
+    },
+    {
+      "source": "まずクリアまで完成させます。そのあと、次の小変更を1つずつ試します。<strong>予想 → 変更 → Run → 説明 → 元に戻す</strong>の順で行います。",
+      "translation": "先完成通关功能，再逐个尝试以下小改动。按<strong>预测 → 修改 → Run → 说明 → 恢复原状</strong>的顺序进行。"
+    },
+    {
+      "source": "練習1：スイッチを固定して表を確かめる",
+      "translation": "练习1：固定开关，检查表中的结果"
+    },
+    {
+      "source": "<code>generateIgnitionNumbers</code> メソッドの <code>randomIgnitionNumbers = ThreadLocalRandom.current().ints(2, 1, 10).toArray();</code> の行で、<code>=</code> の右側だけを <code>new int[]{1, 9}</code> に変えます。変更後の行は次のとおりです。",
+      "translation": "在 <code>generateIgnitionNumbers</code> 方法的 <code>randomIgnitionNumbers = ThreadLocalRandom.current().ints(2, 1, 10).toArray();</code> 这一行中，只将 <code>=</code> 右侧改为 <code>new int[]{1, 9}</code>。修改后的代码如下。"
+    },
+    {
+      "source": "練習1 · 変更後の行",
+      "translation": "练习1 · 修改后的代码行"
+    },
+    {
+      "source": "スイッチはいつも1と9です。Runして、Logcatに1と9が出ることを確かめます。次の操作の結果を予想してから試します。",
+      "translation": "开关始终为1和9。Run，确认Logcat显示1和9。先预测以下操作的结果，再尝试。"
+    },
+    {
+      "source": "5を押す → 1を押す → 9を押す",
+      "translation": "点击5 → 点击1 → 点击9"
+    },
+    {
+      "source": "再挑戦 → 2・3・4・5・6・7・8を順に押す",
+      "translation": "「再挑戦」（重试）→ 依次点击2、3、4、5、6、7、8"
+    },
+    {
+      "source": "再挑戦 → 1を押す → 2・3・4・5・6・7・8を順に押す",
+      "translation": "「再挑戦」（重试）→ 点击1 → 依次点击2、3、4、5、6、7、8"
+    },
+    {
+      "source": "試したあとに答えを見る",
+      "translation": "尝试后查看答案"
+    },
+    {
+      "source": "1：5はボタンが灰色になるだけです。1で「着火！」、9で「爆発した！ゲームオーバー！」になります。2：8を押した時点（7個目）で「クリア！」になり、爆弾は火のない画像のままです。3：1で「着火！」になり、8を押した時点（押せないボタンが8個）で「クリア！」になります。爆弾は火がついた画像のままです。スイッチは固定しているので、再挑戦しても1と9のままです。練習2でもこの変更を使うため、まだ戻しません。",
+      "translation": "1：点击5只会让按钮变灰。点击1显示「着火！」（点燃！），点击9显示「爆発した！ゲームオーバー！」（爆炸了！游戏结束！）。2：点击8时（第7个）显示「クリア！」（通关！），炸弹仍是未点燃的图片。3：点击1显示「着火！」（点燃！），点击8时（8个按钮不可点击）显示「クリア！」（通关！）。炸弹仍是已点燃的图片。因为开关已固定，所以重试后仍为1和9。练习2还会用到这个改动，先不要恢复。"
+    },
+    {
+      "source": "練習2：「8」を「7」にするとどうなる？",
+      "translation": "练习2：将“8”改为“7”会怎样？"
+    },
+    {
+      "source": "練習1の変更を残したまま、クリアの条件の <code>nowState == STATE_IGNITED &amp;&amp; disableButtonCount == 8</code> の <code>8</code> を <code>7</code> に変えます。Runして、1を押してから、2・3・4・5・6・7を順に押します。7を押したとき、何が起きるでしょうか。",
+      "translation": "保留练习1的改动，将通关条件 <code>nowState == STATE_IGNITED &amp;&amp; disableButtonCount == 8</code> 中的 <code>8</code> 改为 <code>7</code>。Run，先点击1，再依次点击2、3、4、5、6、7。点击7时会发生什么？"
+    },
+    {
+      "source": "7を押した時点で「クリア！」になります。スイッチ以外のボタンは6個しか押しておらず、8がまだ残っていたのにクリアです。着火しているときは、押したスイッチ1個も押せないボタンに数えるので、スイッチ以外の7個を押し終えたときは8個になります。だから8と比べる、と説明できれば十分です。確認後は <code>8</code> に戻し、練習1の行の右側も <code>ThreadLocalRandom.current().ints(2, 1, 10).toArray()</code> に戻します。",
+      "translation": "点击7时就会显示「クリア！」（通关！）。虽然只点击了6个非开关按钮，8还没有点击，却已经通关了。已点燃时，点击过的1个开关也会计入不可点击按钮，因此点击完7个非开关按钮后，总数为8。能够说明这就是与8比较的原因即可。检查后改回 <code>8</code>，并将练习1那一行的右侧也改回 <code>ThreadLocalRandom.current().ints(2, 1, 10).toArray()</code>。"
+    },
+    {
+      "source": "練習3：状態を説明する",
+      "translation": "练习3：说明状态"
+    },
+    {
+      "source": "同じ数字を2回押せないのは、どの行のおかげですか。爆発したあとに数字を押せなくなるのは、どの行ですか。再挑戦でスイッチの数字が変わるのは、どの行ですか。",
+      "translation": "哪一行代码让同一个数字无法点击两次？哪一行代码让爆炸后无法点击数字？哪一行代码让重试时开关数字发生变化？"
+    },
+    {
+      "source": "説明したあとに答えを見る",
+      "translation": "说明后查看答案"
+    },
+    {
+      "source": "クリックの処理の最初の <code>button.setEnabled(false)</code> で、押したボタンを押せなくします。爆発したときは、<code>else if (nowState == STATE_EXPLODED)</code> の中の <code>Arrays.stream(numberButtons).forEach(b -&gt; b.setEnabled(false))</code> ですべて押せなくします。再挑戦の処理の <code>generateIgnitionNumbers()</code> が、乱数で新しいスイッチを作ります。",
+      "translation": "点击处理开头的 <code>button.setEnabled(false)</code> 会禁用被点击的按钮。爆炸时，<code>else if (nowState == STATE_EXPLODED)</code> 中的 <code>Arrays.stream(numberButtons).forEach(b -&gt; b.setEnabled(false))</code> 会禁用全部按钮。重试处理中的 <code>generateIgnitionNumbers()</code> 会用随机数生成新的开关。"
+    },
+    {
+      "source": "完成版に戻してから確認",
+      "translation": "恢复为完成版后再检查"
+    },
+    {
+      "source": "練習1の乱数の行と、練習2の <code>8</code> を元に戻します。Auto Importの設定により、使わなくなった <code>ThreadLocalRandom</code> のimportが消えることがあります。戻したあとに赤字になったら、<kbd>⌥ Enter</kbd> でimportを追加します。",
+      "translation": "恢复练习1的随机数代码行，以及练习2的 <code>8</code>。Auto Import设置可能会移除不再使用的 <code>ThreadLocalRandom</code> 的import。恢复后如果出现红字，请用 <kbd>⌥ Enter</kbd> 添加import。"
+    },
+    {
+      "source": "スイッチを固定して着火・爆発・クリアを確かめ、8を7に変えると7を押した時点でクリアになることも確かめてから、完成版に戻した。",
+      "translation": "已固定开关检查点燃、爆炸、通关，也确认将8改为7后会在点击7时通关，最后恢复为完成版。"
+    },
+    {
+      "source": "次へ：完成 →",
+      "translation": "下一步：完成 →"
+    },
+    {
+      "source": "STEP 11 · 目安 15分",
+      "translation": "STEP 11 · 参考时间15分钟"
+    },
+    {
+      "source": "完成",
+      "translation": "完成"
+    },
+    {
+      "source": "完成チェック",
+      "translation": "完成检查"
+    },
+    {
+      "source": "操作",
+      "translation": "操作"
+    },
+    {
+      "source": "確認する結果",
+      "translation": "要确认的结果"
+    },
+    {
+      "source": "起動直後",
+      "translation": "刚启动时"
+    },
+    {
+      "source": "火のない爆弾、1〜9のボタン、「どれか押してみよう」。再挑戦は見えない。Logcatにスイッチの数字が2つ出る。",
+      "translation": "未点燃的炸弹、1～9按钮，以及「どれか押してみよう」（试着点击任意一个）。「再挑戦」（重试）不可见。Logcat显示两个开关数字。"
+    },
+    {
+      "source": "スイッチ以外を押す",
+      "translation": "点击非开关按钮"
+    },
+    {
+      "source": "押したボタンだけが灰色になる。画像とメッセージは変わらない。",
+      "translation": "只有点击的按钮变为灰色。图片和提示信息不变。"
+    },
+    {
+      "source": "スイッチを1つ押す",
+      "translation": "点击1个开关"
+    },
+    {
+      "source": "導火線に火がついた画像と「着火！」。",
+      "translation": "引线已点燃的图片和「着火！」（点燃！）。"
+    },
+    {
+      "source": "スイッチを2つとも押す",
+      "translation": "点击两个开关"
+    },
+    {
+      "source": "爆発の画像と「爆発した！ゲームオーバー！」。数字はすべて押せず、再挑戦が表示される。",
+      "translation": "爆炸图片和「爆発した！ゲームオーバー！」（爆炸了！游戏结束！）。所有数字按钮不可点击，显示「再挑戦」（重试）。"
+    },
+    {
+      "source": "スイッチ以外の7個をすべて押す",
+      "translation": "点击全部7个非开关按钮"
+    },
+    {
+      "source": "着火前でも着火後でも「クリア！」。数字はすべて押せず、再挑戦が表示される。",
+      "translation": "点燃前后都会显示「クリア！」（通关！）。所有数字按钮不可点击，显示「再挑戦」（重试）。"
+    },
+    {
+      "source": "最初の表示に戻り、再挑戦が見えなくなる。Logcatに新しい2つの数字が出る。",
+      "translation": "恢复初始显示，「再挑戦」（重试）消失。Logcat显示两个新数字。"
+    },
+    {
+      "source": "保存",
+      "translation": "保存"
+    },
+    {
+      "source": "Android Studioは、書いたコードを自動でファイルに保存します。保存の操作は要りません。ここでは、保存された場所を確かめます。",
+      "translation": "Android Studio会自动将编写的代码保存到文件中，无须执行保存操作。这里检查保存的位置。"
+    },
+    {
+      "source": "Finderを開き、左側の <strong>書類</strong>（<code>Documents</code>）をクリックします。",
+      "translation": "打开Finder，点击左侧的<strong>書類</strong>（文稿，<code>Documents</code>）。"
+    },
+    {
+      "source": "その中の <code>Android1</code> フォルダを開き、<code>A05BombGame</code> フォルダがあることを確かめます。",
+      "translation": "打开其中的 <code>Android1</code> 文件夹，确认存在 <code>A05BombGame</code> 文件夹。"
+    },
+    {
+      "source": "この <code>Documents/Android1/A05BombGame</code> フォルダが、自分で作ったアプリです。あとの授業でもう一度開けるように、消したり、別の場所へ移動したり、名前を変えたりせずに、そのまま残します。",
+      "translation": "这个 <code>Documents/Android1/A05BombGame</code> 文件夹就是自己制作的应用。为了之后上课时能再次打开，请保留原样，不要删除、移动到其他位置或更改名称。"
+    },
+    {
+      "source": "教材のチェックは自分用です。先生への送信はしません。印刷は <kbd>⌘ P</kbd> で行えます。",
+      "translation": "学习资料中的勾选用于自己检查，不会发送给老师。可以按<kbd>⌘ P</kbd>打印。"
+    },
+    {
+      "source": "完成チェックの操作をすべて試し、表のとおりの結果になった。",
+      "translation": "已尝试完成检查中的全部操作，结果与表格一致。"
+    },
+    {
+      "source": "困ったこと",
+      "translation": "遇到的问题"
+    },
+    {
+      "source": "最初に確認する場所",
+      "translation": "首先检查的位置"
+    },
+    {
+      "source": "@drawable/bomb_initial や R.drawable.bomb_ignited が赤い",
+      "translation": "@drawable/bomb_initial或R.drawable.bomb_ignited显示为红色"
+    },
+    {
+      "source": "drawableに3つのPNGがあるか確認。ファイル名は小文字で、<code>bomb_initial.png.png</code> のように拡張子が重なっていないか見る。",
+      "translation": "确认drawable中有3个PNG。文件名应为小写，检查是否出现 <code>bomb_initial.png.png</code> 这样的重复扩展名。"
+    },
+    {
+      "source": "画像の名前でビルドエラーになる",
+      "translation": "图片名称导致构建错误"
+    },
+    {
+      "source": "drawableのファイル名に大文字・ハイフン・空白がないか確認。見本のファイル名と同じにする。",
+      "translation": "检查drawable文件名中是否有大写字母、连字符或空格。改为与示例相同的文件名。"
+    },
+    {
+      "source": "貼り付けたのに画像が見つからない",
+      "translation": "粘贴后找不到图片"
+    },
+    {
+      "source": "Copy画面のTo directoryを確認。<code>samples</code> 側や別のフォルダに貼っていないか、Project表示で探す。",
+      "translation": "检查Copy窗口的To directory。在Project视图中查找是否粘贴到了 <code>samples</code> 项目或其他文件夹。"
+    },
+    {
+      "source": "R.idが赤い",
+      "translation": "R.id显示为红色"
+    },
+    {
+      "source": "XMLのidが一致するか確認。main、img_bomb、btn1〜btn9、txt_message、btn_retry。<code>android:id=\"@+id/main\"</code> を消していないかも見る。最初のXMLエラーを直してビルドする。",
+      "translation": "检查XML的id是否一致：main、img_bomb、btn1～btn9、txt_message、btn_retry。同时检查是否删除了 <code>android:id=\"@+id/main\"</code>。先修复第一个XML错误再构建。"
+    },
+    {
+      "source": "起動時に終了する",
+      "translation": "启动时就退出"
+    },
+    {
+      "source": "setContentViewがfindViewByIdより先か確認。Logcatで最初の例外を見る。",
+      "translation": "确认setContentView在findViewById之前。查看Logcat中的第一个异常。"
+    },
+    {
+      "source": "Arrays や ThreadLocalRandom が赤字になる",
+      "translation": "Arrays或ThreadLocalRandom显示为红字"
+    },
+    {
+      "source": "<code>java.util.Arrays</code> と <code>java.util.concurrent.ThreadLocalRandom</code> をimportする。<kbd>⌥ Enter</kbd> で候補を確認する。",
+      "translation": "import <code>java.util.Arrays</code> 和 <code>java.util.concurrent.ThreadLocalRandom</code>。用 <kbd>⌥ Enter</kbd> 查看候选项。"
+    },
+    {
+      "source": "Logcatにスイッチの数字が出ない",
+      "translation": "Logcat没有显示开关数字"
+    },
+    {
+      "source": "STEP 5の <code>generateIgnitionNumbers();</code> をonCreateで呼んでいるか確認。検索欄のpackageが <code>jp.ac.jec.a05bombgame</code> か確認。",
+      "translation": "确认是否在onCreate中调用了STEP 5的 <code>generateIgnitionNumbers();</code>。确认搜索框中的package为 <code>jp.ac.jec.a05bombgame</code>。"
+    },
+    {
+      "source": "変数をlambdaで変更できない",
+      "translation": "无法在lambda中修改变量"
+    },
+    {
+      "source": "nowState（STEP 7）をonCreate内で宣言していないか確認。onCreateの外のフィールドにする。",
+      "translation": "检查是否在onCreate内部声明了nowState（STEP 7）。应将其设为onCreate外部的字段。"
+    },
+    {
+      "source": "押したボタンが灰色にならない",
+      "translation": "点击的按钮没有变灰"
+    },
+    {
+      "source": "STEP 6のfor文でsetOnClickListenerしているか、処理の中に <code>button.setEnabled(false)</code> があるか確認。",
+      "translation": "检查是否在STEP 6的for语句中调用setOnClickListener，且处理中包含 <code>button.setEnabled(false)</code>。"
+    },
+    {
+      "source": "スイッチを押しても着火しない",
+      "translation": "点击开关后没有点燃"
+    },
+    {
+      "source": "Logcatの数字と押した数字が同じか確認。<code>anyMatch</code> の比較と <code>if (match) nowState++;</code> を確認。",
+      "translation": "确认Logcat中的数字与点击的数字相同。检查 <code>anyMatch</code> 的比较和 <code>if (match) nowState++;</code>。"
+    },
+    {
+      "source": "1つ目のスイッチで爆発する・何も起きない",
+      "translation": "点击第1个开关就爆炸，或没有反应"
+    },
+    {
+      "source": "定数が STATE_INITIAL = 1、STATE_IGNITED = 2、STATE_EXPLODED = 3 か、<code>nowState</code> の初期値が STATE_INITIAL か確認。",
+      "translation": "确认常量为STATE_INITIAL = 1、STATE_IGNITED = 2、STATE_EXPLODED = 3，且 <code>nowState</code> 的初始值为STATE_INITIAL。"
+    },
+    {
+      "source": "爆発のあとも数字を押せる",
+      "translation": "爆炸后仍可点击数字"
+    },
+    {
+      "source": "else ifの中の <code>forEach(b -&gt; b.setEnabled(false))</code> を確認。",
+      "translation": "检查else if中的 <code>forEach(b -&gt; b.setEnabled(false))</code>。"
+    },
+    {
+      "source": "再挑戦が表示されない・押しても戻らない",
+      "translation": "「再挑戦」（重试）没有显示，或点击后没有恢复"
+    },
+    {
+      "source": "STEP 7の <code>setVisibility(View.VISIBLE)</code> と、STEP 8の再挑戦の処理を確認。",
+      "translation": "检查STEP 7的 <code>setVisibility(View.VISIBLE)</code> 和STEP 8的重试处理。"
+    },
+    {
+      "source": "クリアにならない",
+      "translation": "无法通关"
+    },
+    {
+      "source": "STEP 9の7と8、<code>&amp;&amp;</code> と <code>||</code>、数を数える行が <code>nowState++</code> の下にあるかを確認。",
+      "translation": "检查STEP 9的7和8、<code>&amp;&amp;</code> 与 <code>||</code>，以及统计数量的代码行是否在 <code>nowState++</code> 下方。"
+    },
+    {
+      "source": "起動したまま画面が固まる",
+      "translation": "启动后界面卡住"
+    },
+    {
+      "source": "do-while文の条件が <code>!= 2</code> か、<code>ints(2, 1, 10)</code> の数字を変えていないか確認。",
+      "translation": "确认do-while语句的条件是 <code>!= 2</code>，且没有修改 <code>ints(2, 1, 10)</code> 中的数字。"
+    },
+    {
+      "source": "NumberFormatExceptionで終了する",
+      "translation": "因NumberFormatException而退出"
+    },
+    {
+      "source": "数字ボタンの <code>android:text</code> が1〜9のままか確認。文字に変えると数値に変換できない。",
+      "translation": "确认数字按钮的 <code>android:text</code> 仍为1～9。如果改为文字，就无法转换为数值。"
+    },
+    {
+      "source": "画面の下が見えない",
+      "translation": "看不到屏幕下方"
+    },
+    {
+      "source": "エミュレータを縦向きにする。この単元では横向きの表示を扱わない。",
+      "translation": "将模拟器转为竖屏。本单元不讲解横屏显示。"
+    },
+    {
+      "source": "<a1>共通資料：Logcat</a1>を使います。今回のパッケージは <code>jp.ac.jec.a05bombgame</code> です。エラーを見るときは、STEP 5で入れた <code>tag:MainActivity</code> と <code>level:DEBUG</code> を消して、<code>package:jp.ac.jec.a05bombgame level:ERROR</code> に置き換えます。前の単元のパッケージ名も残さないようにします。",
+      "translation": "使用<a1>通用资料：Logcat</a1>。本次包名为 <code>jp.ac.jec.a05bombgame</code>。查看错误时，删除STEP 5输入的 <code>tag:MainActivity</code> 和 <code>level:DEBUG</code>，替换为 <code>package:jp.ac.jec.a05bombgame level:ERROR</code>。也不要保留上一单元的包名。"
+    },
+    {
+      "source": "質問では「STEP番号・編集したファイル・最初の赤い行・押した順番」を伝えます。",
+      "translation": "提问时，请说明“STEP编号、修改的文件、第一行红字、点击的顺序”。"
+    },
+    {
+      "source": "完成版は最初の授業から使える見本です。教科書といっしょに配られた<strong>教材のフォルダ</strong>に、そのまま開ける形で入っています。ダウンロードも展開も要りません。STEP 2の画像は、この見本の <code>app/src/main/res/drawable</code> にも入っています。",
+      "translation": "完成版是从第1次课起就可以使用的示例，存放在与教材一起发放的<strong>学习资料文件夹</strong>中，可以直接打开。无需下载或解压。STEP 2的图片也在此示例的 <code>app/src/main/res/drawable</code> 中。"
+    },
+    {
+      "source": "Android Studioの <strong>Open</strong>（プロジェクトを開いているときは <strong>File → Open</strong>）で、<strong>書類</strong>（<code>Documents</code>）にある教材のフォルダを開きます。名前は <code>android1-student-materials-</code> のうしろに日付が付いた形で、日付は配られた回によって変わります。いま読んでいるこの教科書が入っているフォルダです。",
+      "translation": "通过Android Studio的<strong>Open</strong>（已打开项目时使用<strong>File → Open</strong>），打开<strong>書類</strong>（文稿，<code>Documents</code>）中的学习资料文件夹。名称为<code>android1-student-materials-</code>后加日期，日期随发放批次而变。就是包含当前这份教材的文件夹。"
+    },
+    {
+      "source": "その中を <code>samples → A05BombGame</code> の順に開き、<code>settings.gradle.kts</code> と <code>app</code> が入った <code>A05BombGame</code> フォルダを選びます。",
+      "translation": "在其中依次打开 <code>samples → A05BombGame</code>，选择包含 <code>settings.gradle.kts</code> 和 <code>app</code> 的 <code>A05BombGame</code> 文件夹。"
+    },
+    {
+      "source": "Sync後にRunして動きを確認します。授業の入力に戻るときは自分の <code>Documents/Android1/A05BombGame</code> を開きます。",
+      "translation": "Sync后Run，检查运行情况。返回课堂代码输入时，打开自己的 <code>Documents/Android1/A05BombGame</code>。"
+    },
+    {
+      "source": "両方とも同じプロジェクト名なので、ウィンドウの保存先を確認しましょう。見本と自分のアプリは同じパッケージ名のため、端末上では同じアプリを更新します。切り替えるときは、確認したい方のプロジェクトからRunします。",
+      "translation": "两个项目的名称相同，请检查窗口的保存位置。示例与自己的应用包名相同，因此会更新设备上的同一个应用。切换时，请从想要检查的项目执行Run。"
+    },
+    {
+      "source": "教材のフォルダが手元にないときは、同じ見本をZIPで受け取れます（<a1>A05BombGame.zip</a1>）。展開してできた <code>A05BombGame</code> フォルダを、同じようにOpenで選びます。",
+      "translation": "如果手上没有学习资料文件夹，可以获取相同示例的ZIP（<a1>A05BombGame.zip</a1>）。解压后，同样通过Open选择生成的 <code>A05BombGame</code> 文件夹。"
+    },
+    {
+      "source": "完成したMainActivity.javaで照合する",
+      "translation": "与完成的MainActivity.java核对"
+    },
+    {
+      "source": "完成版 · MainActivity.java",
+      "translation": "完成版 · MainActivity.java"
+    },
+    {
+      "source": "完成したactivity_main.xmlで照合する",
+      "translation": "与完成的activity_main.xml核对"
+    },
+    {
+      "source": "完成版 · activity_main.xml",
+      "translation": "完成版 · activity_main.xml"
+    },
+    {
+      "source": "Androidプログラミング1 · A05BombGame / 本文・画像・操作機能はオフラインで利用できます。Android Studioの初回準備・ビルドと公式資料の閲覧にはネット接続が必要です。",
+      "translation": "Android编程1 · A05BombGame / 正文、图片和操作功能可离线使用。Android Studio的首次准备、构建和官方资料浏览需要联网。"
+    },
+    {
+      "source": "画像は授業用の提供資料を使用。導火線スイッチの数字と結果は操作によって変わります。",
+      "translation": "图片使用课堂提供的资料。引线开关数字和结果会随操作而变化。"
+    }
+  ],
+  "overrides": [
+    {
+      "source": "コード",
+      "where": "th",
+      "translation": "代码"
+    }
+  ]
+}

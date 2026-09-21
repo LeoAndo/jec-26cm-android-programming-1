@@ -1,0 +1,762 @@
+{
+  "source": "docs/common/setup.html",
+  "language": "zh-Hans",
+  "entries": [
+    {
+      "source": "授業を始めるまでの準備 | Androidプログラミング1",
+      "translation": "上课前的准备 | Android编程1"
+    },
+    {
+      "source": "本文へ移動",
+      "translation": "跳转到正文"
+    },
+    {
+      "source": "JEC / Androidプログラミング1",
+      "translation": "JEC / Android编程1"
+    },
+    {
+      "source": "もとのページへ戻る",
+      "translation": "返回原来的页面"
+    },
+    {
+      "source": "ANDROID PROGRAMMING 1 / 共通資料・授業サポート",
+      "translation": "ANDROID PROGRAMMING 1 / 通用资料与课堂支持"
+    },
+    {
+      "source": "授業を始めるまでの<br>準備",
+      "translation": "上课前的<br>准备"
+    },
+    {
+      "source": "教材を受け取ってから、最初のアプリが動くまで。上から順に1回だけ行います。2回目からは、教科書を開くところから始められます。",
+      "translation": "从领取学习资料到运行第一个应用。请从上到下依次操作一次。第二次起，就可以从打开教材开始。"
+    },
+    {
+      "source": "この資料の流れ",
+      "translation": "本资料的流程"
+    },
+    {
+      "source": "① 教材を受け取る",
+      "translation": "① 领取学习资料"
+    },
+    {
+      "source": "③ 置き場を作る",
+      "translation": "③ 创建存放位置"
+    },
+    {
+      "source": "④ adbの準備",
+      "translation": "④ 准备adb"
+    },
+    {
+      "source": "⑤ エミュレータ",
+      "translation": "⑤ 模拟器"
+    },
+    {
+      "source": "⑥ 日本語にする",
+      "translation": "⑥ 改为日语"
+    },
+    {
+      "source": "⑦ キーボード",
+      "translation": "⑦ 键盘"
+    },
+    {
+      "source": "⑧ ほかの設定",
+      "translation": "⑧ 其他设置"
+    },
+    {
+      "source": "⑨ 動かして確かめる",
+      "translation": "⑨ 运行并检查"
+    },
+    {
+      "source": "番号は、下の見出しの番号と同じです。③・④・⑥では、Terminal（ターミナル）に文字を打ちます。そのほかは、FinderやAndroid Studio、エミュレータの画面を操作します。",
+      "translation": "编号与下方标题的编号相同。在③、④、⑥中，需要在Terminal中输入文字。其余步骤是在Finder、Android Studio或模拟器的屏幕上操作。"
+    },
+    {
+      "source": "つまずいたら、そこで止めて先生を呼んでください",
+      "translation": "遇到问题时，请停在当前步骤并叫老师"
+    },
+    {
+      "source": "各ステップに「成功の目印」があります。目印と違う画面になったら、先に進まずに、その画面のまま先生に見せてください。前に戻ってやり直すより早く終わります。",
+      "translation": "每个步骤都有“成功的标志”。如果屏幕与标志描述的不同，请先不要继续，保持当前屏幕并请老师查看。这样比返回前面重新操作更快。"
+    },
+    {
+      "source": "この準備が終わると",
+      "translation": "完成这些准备后"
+    },
+    {
+      "source": "自分のMacで、日本語が打てるAndroidの練習用端末が動き、A01の完成アプリを実行できる状態になります。",
+      "translation": "就可以在自己的Mac上运行能够输入日语的Android练习设备，并运行A01的完成版应用。"
+    },
+    {
+      "source": "1. 教材を受け取り、「書類」に置く",
+      "translation": "1. 领取学习资料，放入「書類」（文稿）"
+    },
+    {
+      "source": "授業で使う教科書（きょうかしょ）は、Google Classroomで配られます。ファイルを1つダウンロードし、置き場所を決めるところまでを行います。",
+      "translation": "课堂使用的教材通过Google Classroom发放。请下载一个文件，并确定它的存放位置。"
+    },
+    {
+      "source": "Google Classroomを開き、先生が配布した教材のファイルを<strong>ダウンロード</strong>します。",
+      "translation": "打开Google Classroom，<strong>下载</strong>老师发放的学习资料文件。"
+    },
+    {
+      "source": "Finder（ファインダー）を開き、左側の <strong>ダウンロード</strong> をクリックします。",
+      "translation": "打开Finder，点击左侧的<strong>ダウンロード</strong>（下载）。"
+    },
+    {
+      "source": "いちばん上に、今ダウンロードしたものがあります。次の2つのどちらかです。",
+      "translation": "最上方就是刚下载的内容，属于以下两种情况之一。"
+    },
+    {
+      "source": "ダウンロードにあるもの",
+      "translation": "「ダウンロード」（下载）中的内容"
+    },
+    {
+      "source": "すること",
+      "translation": "要做的事"
+    },
+    {
+      "source": "名前が <code>.zip</code> で終わるファイル",
+      "translation": "文件名以<code>.zip</code>结尾的文件"
+    },
+    {
+      "source": "<strong>ダブルクリック</strong>します。同じ名前のフォルダができます。",
+      "translation": "<strong>双击</strong>该文件，就会生成同名文件夹。"
+    },
+    {
+      "source": "すでにフォルダになっている",
+      "translation": "已经是文件夹"
+    },
+    {
+      "source": "そのままで大丈夫です。ZIPファイルが自動で展開され、同じ名前のフォルダができています。",
+      "translation": "保持原样即可。ZIP文件已自动解压，并生成了同名文件夹。"
+    },
+    {
+      "source": "どちらの場合も、最後は<strong>フォルダが1つある</strong>状態になります。名前には、次のように日付が入ります。",
+      "translation": "无论是哪种情况，最后都会<strong>得到一个文件夹</strong>。文件夹名称中包含日期，如下所示。"
+    },
+    {
+      "source": "フォルダの名前の例",
+      "translation": "文件夹名称示例"
+    },
+    {
+      "source": "日付の部分は、先生が配った教材がいつのものかを表します。配られた回によって変わるので、上と同じ日付でなくても構いません。",
+      "translation": "日期部分表示老师发放的学习资料是哪一天的版本。日期会随发放批次变化，不必与上面的日期相同。"
+    },
+    {
+      "source": "このフォルダを、Finderの左側の <strong>書類</strong> へドラッグして移動します。",
+      "translation": "将这个文件夹拖到Finder左侧的<strong>書類</strong>（文稿），完成移动。"
+    },
+    {
+      "source": "移動した先のフォルダをダブルクリックして開き、中身を確認します。",
+      "translation": "双击移动后的文件夹，打开并检查其中的内容。"
+    },
+    {
+      "source": "成功の目印",
+      "translation": "成功的标志"
+    },
+    {
+      "source": "「書類」の中のフォルダを開くと、<code>docs</code> と <code>samples</code> という2つのフォルダと、<code>はじめに.txt</code>、<code>VERSION.json</code> がある。",
+      "translation": "打开「書類」（文稿）中的文件夹，可以看到<code>docs</code>和<code>samples</code>这两个文件夹，以及<code>はじめに.txt</code>和<code>VERSION.json</code>。"
+    },
+    {
+      "source": "新しい版をもらったときも、同じことをします",
+      "translation": "收到新版本时，也进行相同操作"
+    },
+    {
+      "source": "この科目を受講している期間中に、先生から新しい版の教材が配られることがあります。そのときも、この手順のまま「書類」へ移動してください。フォルダ名の日付が違うので、前のものとは別のフォルダになり、<strong>混ざりません</strong>。古いほうは消さずに残しておいて大丈夫です。",
+      "translation": "学习这门课程期间，老师可能会发放新版本的学习资料。届时也请按此步骤，将它移到「書類」（文稿）。文件夹名称中的日期不同，因此会成为与之前不同的文件夹，<strong>不会混在一起</strong>。旧版本可以保留，无须删除。"
+    },
+    {
+      "source": "授業中は、先生が「今日はこの日付のものを使います」と指定します。開く前に、フォルダ名の日付を確かめてください。",
+      "translation": "上课时，老师会指定“今天使用这个日期的版本”。打开前，请检查文件夹名称中的日期。"
+    },
+    {
+      "source": "ダウンロードしたものが見つからない・名前が少し違う",
+      "translation": "找不到下载的内容，或名称稍有不同"
+    },
+    {
+      "source": "同じ教材を2回ダウンロードすると、名前のうしろに <code>(1)</code> や <code>-2</code> が付くことがあります。このときは<strong>古いほうを開いてしまう</strong>ことがあり、画面には何のエラーも出ません。名前にそういう印が付いていたら、自分で判断せず先生に見せてください。",
+      "translation": "如果把同一份学习资料下载了两次，名称末尾可能会加上<code>(1)</code>或<code>-2</code>。这时可能会<strong>误打开旧版本</strong>，但屏幕上不会显示任何错误。如果名称中有这样的标记，请不要自行判断，请老师查看。"
+    },
+    {
+      "source": "2. Android Studioを開き、版（バージョン）を確かめる",
+      "translation": "2. 打开Android Studio，检查版本"
+    },
+    {
+      "source": "<strong>Android Studio</strong>（アンドロイド スタジオ）は、アプリを作るためのアプリです。授業で使うMacには、あらかじめ入っています。",
+      "translation": "<strong>Android Studio</strong>是用于制作应用的应用。课堂使用的Mac上已经预先安装好了。"
+    },
+    {
+      "source": "Launchpad（ランチパッド）かDockから <strong>Android Studio</strong> を開きます。",
+      "translation": "从Launchpad或Dock打开<strong>Android Studio</strong>。"
+    },
+    {
+      "source": "最初に出る画面（Welcome画面）の<strong>左上</strong>を見ます。名前と版が2行で表示されています。",
+      "translation": "查看最先出现的屏幕（Welcome屏幕）的<strong>左上方</strong>。名称和版本分两行显示。"
+    },
+    {
+      "source": "Android Studioの最初の画面の左上。Android Studioの下にPanda 2、縦棒、2025.3.2と2行で表示されている",
+      "translation": "Android Studio初始屏幕的左上方。Android Studio下方显示Panda 2、竖线和2025.3.2，总共两行"
+    },
+    {
+      "source": "授業で使うのは <strong>Panda 2 | 2025.3.2</strong> です。 <a1>画像を大きく開く</a1>",
+      "translation": "课堂使用的是<strong>Panda 2 | 2025.3.2</strong>。<a1>查看大图</a1>"
+    },
+    {
+      "source": "最初の画面の左上が <strong>Android Studio / Panda 2 | 2025.3.2</strong> になっている。",
+      "translation": "初始屏幕左上方显示<strong>Android Studio / Panda 2 | 2025.3.2</strong>。"
+    },
+    {
+      "source": "この画面は、まだ何も開いていないときに出ます。すでにプロジェクトが開いている場合は、そのウィンドウを閉じると出てきます。",
+      "translation": "在尚未打开任何内容时，会显示这个屏幕。如果已经打开了项目，关闭该窗口后就会显示。"
+    },
+    {
+      "source": "版が違った・Android Studioが見つからない",
+      "translation": "版本不同，或找不到Android Studio"
+    },
+    {
+      "source": "版が違っても、多くの操作はそのまま進められます。画面の名前が教科書と違うときの読み替えは、<a1>共通資料：ちがうAndroid Studioのバージョンで進めるとき</a1>にまとめてあります。Android Studioが見つからない場合は、先生に知らせてください。",
+      "translation": "即使版本不同，大部分操作仍可以照常进行。屏幕上的名称与教材不同时，如何对应请参阅<a1>通用资料：使用不同版本的Android Studio时</a1>。如果找不到Android Studio，请告诉老师。"
+    },
+    {
+      "source": "3. 自分のプロジェクトの置き場を作る",
+      "translation": "3. 创建自己项目的存放位置"
+    },
+    {
+      "source": "この授業では、毎回自分でプロジェクト（アプリ1つ分のファイルのまとまり）を新しく作ります。その保存先を、先に用意しておきます。",
+      "translation": "这门课中，每次都要自己新建项目（一个应用所需文件的集合）。先准备好保存这些项目的位置。"
+    },
+    {
+      "source": "ここからは <strong>Terminal</strong>（ターミナル）を使います。文字で命令を打つためのアプリです。",
+      "translation": "接下来使用<strong>Terminal</strong>。这是通过输入文字来发出命令的应用。"
+    },
+    {
+      "source": "<kbd>⌘ Command</kbd> + <kbd>Space</kbd> を押します。画面の中央に検索欄が出ます。",
+      "translation": "按<kbd>⌘ Command</kbd> + <kbd>Space</kbd>。屏幕中央会出现搜索框。"
+    },
+    {
+      "source": "<strong>ターミナル</strong> と打ち、<kbd>Enter</kbd> を押します。黒っぽいウィンドウが開きます。",
+      "translation": "输入<strong>ターミナル</strong>（终端），按<kbd>Enter</kbd>。会打开一个深色窗口。"
+    },
+    {
+      "source": "次の1行をコピーして貼り付け、<kbd>Enter</kbd> を押します。",
+      "translation": "复制并粘贴下面这一行，然后按<kbd>Enter</kbd>。"
+    },
+    {
+      "source": "Terminal · 打ち込む",
+      "translation": "Terminal · 输入"
+    },
+    {
+      "source": "何も表示されずに、次の入力待ちに戻る。<strong>出力がないのが成功です。</strong>",
+      "translation": "没有显示任何内容，回到等待下一次输入的状态。<strong>没有输出就表示成功。</strong>"
+    },
+    {
+      "source": "すでに同じ場所を作ってあっても、エラーにはなりません。2回実行しても問題ありません。",
+      "translation": "即使已经创建了相同的位置，也不会报错。执行两次也没有问题。"
+    },
+    {
+      "source": "このあと、同じTerminalのウィンドウを使い続けます",
+      "translation": "接下来继续使用同一个Terminal窗口"
+    },
+    {
+      "source": "手順4で行う設定は、<strong>いま開いたこのウィンドウの中だけ</strong>で効きます。準備が終わるまで、閉じないでください。",
+      "translation": "步骤4中的设置<strong>仅在刚打开的这个窗口中</strong>生效。准备完成前，请不要关闭它。"
+    },
+    {
+      "source": "4. SDKの場所を確かめ、adbを使えるようにする",
+      "translation": "4. 检查SDK的位置，让adb可以使用"
+    },
+    {
+      "source": "<strong>SDK</strong>（エスディーケー）は、Androidのアプリを作るために必要なプログラムやライブラリをまとめたものです。Android Studioが自動で入れています。まず、入っているかを確かめます。",
+      "translation": "<strong>SDK</strong>是制作Android应用所需的程序和库的集合。Android Studio会自动安装它。首先检查是否已安装。"
+    },
+    {
+      "source": "名前がたくさん並びます。その中に <code>platform-tools</code> があれば大丈夫です。",
+      "translation": "会列出很多名称。只要其中有<code>platform-tools</code>就可以。"
+    },
+    {
+      "source": "並んだ名前の中に <code>platform-tools</code> がある。",
+      "translation": "列出的名称中有<code>platform-tools</code>。"
+    },
+    {
+      "source": "<code>No such file or directory</code> と出たとき",
+      "translation": "出现<code>No such file or directory</code>时"
+    },
+    {
+      "source": "Android Studioの最初の準備が、まだ終わっていません。先に進まず、先生に知らせてください。",
+      "translation": "Android Studio的初始准备尚未完成。请先不要继续，并告诉老师。"
+    },
+    {
+      "source": "adbを呼べるようにする",
+      "translation": "让adb可以调用"
+    },
+    {
+      "source": "<strong>adb</strong>（エーディービー）は、Macからエミュレータへ指示を送るコマンドです。<code>platform-tools</code> の中にありますが、そのままでは名前を呼んでも見つかりません。次の1行で、<strong>いま開いているTerminalに置き場所を教えます</strong>。",
+      "translation": "<strong>adb</strong>是从Mac向模拟器发送指令的命令。它位于<code>platform-tools</code>中，但直接输入名称还无法找到它。用下面这一行<strong>告诉当前打开的Terminal它的存放位置</strong>。"
+    },
+    {
+      "source": "この行も、成功すると何も表示されません。続けて、adbが呼べるようになったか確かめます。",
+      "translation": "这一行执行成功后也不会显示任何内容。接着检查是否已经能够调用adb。"
+    },
+    {
+      "source": "出力（エミュレータをまだ作っていないとき）",
+      "translation": "输出（尚未创建模拟器时）"
+    },
+    {
+      "source": "1行だけ出て、その下に何も並びません。エミュレータをまだ作っていないので、これで正しい状態です。",
+      "translation": "只会显示一行，下方没有任何内容。因为尚未创建模拟器，所以这是正确的状态。"
+    },
+    {
+      "source": "その日の最初の1回だけ、上に次の2行が付くことがあります。<strong>これは正常です。</strong>",
+      "translation": "每天第一次执行时，上方可能会多出下面两行。<strong>这是正常现象。</strong>"
+    },
+    {
+      "source": "出力（その日の最初の1回だけ）",
+      "translation": "输出（仅限当天第一次执行时）"
+    },
+    {
+      "source": "<code>List of devices attached</code> と表示される。エラーが出ない。",
+      "translation": "显示<code>List of devices attached</code>，没有错误。"
+    },
+    {
+      "source": "この設定は、Terminalを閉じると消えます",
+      "translation": "关闭Terminal后，这项设置就会消失"
+    },
+    {
+      "source": "手順4で打った <code>export</code> の行は、<strong>いま開いているウィンドウの中だけ</strong>で効きます。Terminalを閉じたり、新しいタブやウィンドウを開いたりすると、効果はなくなります。",
+      "translation": "在步骤4中输入的<code>export</code>这一行<strong>仅在当前打开的窗口中</strong>生效。关闭Terminal，或打开新的标签页、窗口后，它就不再生效。"
+    },
+    {
+      "source": "そこで <code>adb</code> を使うと、次のように出ます。",
+      "translation": "这时使用<code>adb</code>，会显示如下内容。"
+    },
+    {
+      "source": "出力（置き場所を教える前）",
+      "translation": "输出（告知存放位置之前）"
+    },
+    {
+      "source": "これが出たら、<strong>上の <code>export</code> の行をもう一度実行してから</strong>、やり直してください。Macの設定を書き換える必要はありません。打ち直すのは、この1行だけです。",
+      "translation": "如果出现此内容，请<strong>再次执行上面的<code>export</code>这一行后</strong>重试。无须修改Mac的设置，只需重新输入这一行。"
+    },
+    {
+      "source": "<code>adb</code> を使うのは、この準備の手順4と手順6だけです。準備が終わったあとの授業で、この行を打つことはありません。",
+      "translation": "只有本准备流程中的步骤4和步骤6需要使用<code>adb</code>。准备完成后的课堂上，无须再输入这一行。"
+    },
+    {
+      "source": "5. エミュレータを作る",
+      "translation": "5. 创建模拟器"
+    },
+    {
+      "source": "<strong>エミュレータ</strong>は、Macの中で動く練習用のAndroid端末です。作り方は共通資料にまとめてあります。",
+      "translation": "<strong>模拟器</strong>是在Mac中运行的Android练习设备。创建方法已整理在通用资料中。"
+    },
+    {
+      "source": "共通資料：エミュレータの準備とアプリの実行 →",
+      "translation": "通用资料：模拟器的准备与应用的运行 →"
+    },
+    {
+      "source": "そのページを開いて、次の2つを決めながら進めてください。",
+      "translation": "请打开该页面，一边设置下面两项，一边继续操作。"
+    },
+    {
+      "source": "決めるもの",
+      "translation": "需要设置的内容"
+    },
+    {
+      "source": "この授業での指定",
+      "translation": "本课程的指定值"
+    },
+    {
+      "source": "端末の名前",
+      "translation": "设备名称"
+    },
+    {
+      "source": "System Image（端末を動かすデータ）",
+      "translation": "System Image（运行设备所需的数据）"
+    },
+    {
+      "source": "System Imageを選ぶときの注意",
+      "translation": "选择System Image时的注意事项"
+    },
+    {
+      "source": "一覧には <strong>37.2</strong> も並びます。選ぶのは <strong>37.1</strong> のほうです。37.1 は名前に <strong>16 KB Page Size</strong> と付いたものしかないので、それを選んでください。",
+      "translation": "列表中还有<strong>37.2</strong>。要选择的是<strong>37.1</strong>。37.1只有名称中带有<strong>16 KB Page Size</strong>的选项，请选择它。"
+    },
+    {
+      "source": "まだMacに入っていない場合は、ダウンロードから始まります。<strong>時間がかかるので、始める前に先生に知らせてください。</strong>先生が準備した端末があれば、それを使います。",
+      "translation": "如果Mac上尚未安装，就会先开始下载。<strong>这需要一些时间，请在开始前告诉老师。</strong>如果老师已准备好设备，就使用该设备。"
+    },
+    {
+      "source": "エミュレータが起動し、Androidのホーム画面が出たら、この資料に戻ってきてください。<strong>エミュレータは起動したままにしておきます。</strong>",
+      "translation": "模拟器启动并显示Android主屏幕后，请回到本资料。<strong>让模拟器保持运行状态。</strong>"
+    },
+    {
+      "source": "スマートフォンの形の画面が開き、ホーム画面のアイコンが見えている。",
+      "translation": "打开了手机形状的屏幕，能够看到主屏幕上的图标。"
+    },
+    {
+      "source": "6. エミュレータの表示を日本語にする",
+      "translation": "6. 将模拟器的显示语言改为日语"
+    },
+    {
+      "source": "作ったばかりのエミュレータは、英語で表示されています。日本語に変えます。手順3・4で使っていたTerminalに戻ってください。",
+      "translation": "刚创建的模拟器显示的是英语。现在将其改为日语。请回到步骤3、4中使用的Terminal。"
+    },
+    {
+      "source": "まず、Macからエミュレータが見えているか確かめます。",
+      "translation": "首先检查Mac是否能识别模拟器。"
+    },
+    {
+      "source": "出力（エミュレータが起動しているとき）",
+      "translation": "输出（模拟器正在运行时）"
+    },
+    {
+      "source": "番号は <code>5554</code> でなくても構いません。1行増えていれば大丈夫です。",
+      "translation": "编号不一定是<code>5554</code>。只要多了一行就可以。"
+    },
+    {
+      "source": "次に、表示を日本語にします。",
+      "translation": "接下来，将显示语言改为日语。"
+    },
+    {
+      "source": "この行も、成功すると何も表示されません。日本語になったか確かめます。",
+      "translation": "这一行执行成功后也不会显示任何内容。检查是否已改为日语。"
+    },
+    {
+      "source": "出力",
+      "translation": "输出"
+    },
+    {
+      "source": "日本語になったエミュレータの設定アプリ。設定を検索、Google、ネットワークとインターネット、接続設定、アプリ、通知などの項目が日本語で並んでいる",
+      "translation": "已改为日语的模拟器设置应用。搜索设置、Google、网络和互联网、连接设置、应用、通知等项目以日语列出"
+    },
+    {
+      "source": "エミュレータの設定アプリが日本語になります。 <a1>画像を大きく開く</a1>",
+      "translation": "模拟器的设置应用会变为日语。<a1>查看大图</a1>"
+    },
+    {
+      "source": "<code>ja-JP</code> と表示される。エミュレータの画面の文字が日本語になっている。",
+      "translation": "显示<code>ja-JP</code>，模拟器屏幕上的文字已变为日语。"
+    },
+    {
+      "source": "この設定は残ります",
+      "translation": "这项设置会保留"
+    },
+    {
+      "source": "エミュレータを止めて起動し直しても、日本語のままです。毎回やり直す必要はありません。キーボード（Gboard）も、同時に日本語になります。",
+      "translation": "即使停止模拟器后重新启动，仍会保持日语。无须每次重新设置。键盘（Gboard）也会同时变为日语。"
+    },
+    {
+      "source": "<code>adb: more than one device/emulator</code> と出たとき",
+      "translation": "出现<code>adb: more than one device/emulator</code>时"
+    },
+    {
+      "source": "エミュレータが2つ以上起動しています。どれに指示を送ればよいか分からない、という意味です。使わないほうを閉じて、1つだけにしてから、もう一度実行してください。",
+      "translation": "有两个或更多模拟器正在运行。这表示不知道该向哪个模拟器发送指令。请关闭不使用的模拟器，只保留一个，然后重新执行。"
+    },
+    {
+      "source": "7. 日本語のキーボードを使えるようにする",
+      "translation": "7. 让日语键盘可以使用"
+    },
+    {
+      "source": "手順6で、キーボード（<strong>Gboard</strong>）も日本語になりました。ただし、<strong>最初に1回だけ</strong>、キーボードの形を選ぶ画面が出ます。ここで選んでおくと、次からは出ません。",
+      "translation": "在步骤6中，键盘（<strong>Gboard</strong>）也变为了日语。不过，<strong>仅在第一次</strong>会出现选择键盘布局的屏幕。在这里选择后，下次就不会再出现。"
+    },
+    {
+      "source": "エミュレータの画面で操作します。文字を入力できるところなら、どこでも構いません。",
+      "translation": "在模拟器的屏幕上操作。任何可以输入文字的地方都可以。"
+    },
+    {
+      "source": "エミュレータで、文字を入力する欄を<strong>タップ</strong>します。設定アプリの「設定を検索」の欄が分かりやすいです。",
+      "translation": "在模拟器中<strong>点按</strong>文本输入框。设置应用中的「設定を検索」（搜索设置）输入框比较容易找到。"
+    },
+    {
+      "source": "<strong>ひらがな　入力レイアウトの選択</strong> と出ます。左の <strong>12 キー</strong> が選ばれた状態のまま、右下の <strong>次へ</strong> をタップします。",
+      "translation": "会显示<strong>ひらがな　入力レイアウトの選択</strong>（平假名 输入布局选择）。保持选中左侧的<strong>12 キー</strong>（12键），点按右下方的<strong>次へ</strong>（下一步）。"
+    },
+    {
+      "source": "ひらがな　入力レイアウトの選択のダイアログ。左に12キー、右にQWERTYの絵が並び、左の12キーが青い枠で選ばれている。下にスキップと次へのボタンがある",
+      "translation": "「ひらがな　入力レイアウトの選択」（平假名 输入布局选择）对话框。左侧是「12キー」（12键），右侧是QWERTY图示，左侧12键由蓝色边框标示为选中。下方有跳过和「次へ」（下一步）按钮"
+    },
+    {
+      "source": "左の <strong>12 キー</strong> のまま <strong>次へ</strong> をタップします。 <a1>画像を大きく開く</a1>",
+      "translation": "保持选中左侧的<strong>12 キー</strong>（12键），点按<strong>次へ</strong>（下一步）。<a1>查看大图</a1>"
+    },
+    {
+      "source": "続けて <strong>アルファベット　入力レイアウトの選択</strong> が出たら、同じように <strong>12 キー</strong> のまま <strong>完了</strong> をタップします。この2ページ目は、出ないこともあります。",
+      "translation": "如果接着出现<strong>アルファベット　入力レイアウトの選択</strong>（字母 输入布局选择），同样保持<strong>12 キー</strong>（12键），点按<strong>完了</strong>（完成）。这第二页有时不会出现。"
+    },
+    {
+      "source": "キーボードが出ます。数字の電話のような形で、左下に <strong>あa1</strong> というキーがあります。",
+      "translation": "键盘出现了。它的形状像电话的数字键盘，左下方有一个<strong>あa1</strong>（平假名、字母与数字切换）键。"
+    },
+    {
+      "source": "12キーの日本語キーボード。あ、か、さ、た、な、は、ま、や、らのキーが並び、左下にあa1のキーがある",
+      "translation": "12键日语键盘。排列着あ、か、さ、た、な、は、ま、や、ら这些平假名键，左下方有「あa1」（平假名、字母与数字切换）键"
+    },
+    {
+      "source": "① 12キーのキーボード。左下が <strong>あa1</strong> です。 <a1>画像を大きく開く</a1>",
+      "translation": "① 12键键盘。左下方是<strong>あa1</strong>（平假名、字母与数字切换）键。<a1>查看大图</a1>"
+    },
+    {
+      "source": "ひらがなのモードでappleと打った結果、入力欄にあっpぇと表示され、画面下に日本語言語パックはまだダウンロードされていませんというメッセージが出ている",
+      "translation": "在平假名模式下输入apple后，输入框中显示「あっpぇ」（混合平假名与字母的错误输入），屏幕下方显示尚未下载日语语言包的提示"
+    },
+    {
+      "source": "② ひらがなのまま <code>apple</code> と打つと <strong>あっpぇ</strong> になります。 <a1>画像を大きく開く</a1>",
+      "translation": "② 保持平假名模式输入<code>apple</code>，就会变成<strong>あっpぇ</strong>（混合平假名与字母的错误输入）。<a1>查看大图</a1>"
+    },
+    {
+      "source": "「日本語言語パックはまだダウンロードされていません」と出たとき",
+      "translation": "出现「日本語言語パックはまだダウンロードされていません」（尚未下载日语语言包）时"
+    },
+    {
+      "source": "日本語を漢字に変換するためのデータを、いま取りにいっています。<strong>1〜2分待つと、漢字の候補が出るようになります。</strong>操作は要りません。Macがインターネットにつながっている必要があります。",
+      "translation": "正在获取将日语转换为汉字所需的数据。<strong>等待1～2分钟，就会显示汉字候选词。</strong>无须操作。Mac需要连接互联网。"
+    },
+    {
+      "source": "ひらがなとアルファベットを切り替える（あa1キー）",
+      "translation": "切换平假名与字母（「あa1」键，即平假名、字母与数字切换键）"
+    },
+    {
+      "source": "この授業では、アプリに英語を入力する場面があります。ひらがなのモードのまま、Macのキーボードで <code>apple</code> と打つと、上の②のように <strong>あっpぇ</strong> になってしまいます。",
+      "translation": "这门课中，有时需要在应用中输入英语。如果保持平假名模式，用Mac的键盘输入<code>apple</code>，就会像上面的②一样变成<strong>あっpぇ</strong>（混合平假名与字母的错误输入）。"
+    },
+    {
+      "source": "そのときは、キーボードの左下の <strong>あa1</strong> を押します。押すたびに、次の順で切り替わります。",
+      "translation": "这时，按键盘左下方的<strong>あa1</strong>（平假名、字母与数字切换键）。每按一次，就会按以下顺序切换。"
+    },
+    {
+      "source": "ひらがな",
+      "translation": "平假名"
+    },
+    {
+      "source": "アルファベット",
+      "translation": "字母"
+    },
+    {
+      "source": "数字",
+      "translation": "数字"
+    },
+    {
+      "source": "あa1キーを1回押したあとのキーボード。ABC、DEF、GHI、JKL、MNO、PQRS、TUV、WXYZのキーが並ぶアルファベットのモードになっている",
+      "translation": "按一次「あa1」（平假名、字母与数字切换）键后的键盘。已变为字母模式，排列着ABC、DEF、GHI、JKL、MNO、PQRS、TUV、WXYZ这些键"
+    },
+    {
+      "source": "③ 1回押すと<strong>アルファベット</strong>。<code>apple</code> と打てます。 <a1>画像を大きく開く</a1>",
+      "translation": "③ 按一次变为<strong>字母</strong>模式。可以输入<code>apple</code>。<a1>查看大图</a1>"
+    },
+    {
+      "source": "あa1キーをもう1回押したあとのキーボード。1から9と0のキーが並ぶ数字のモードになっている",
+      "translation": "再按一次「あa1」（平假名、字母与数字切换）键后的键盘。已变为数字模式，排列着1至9和0这些键"
+    },
+    {
+      "source": "④ もう1回押すと<strong>数字</strong>。ここでもう1回押すと、①のひらがなに戻ります。 <a1>画像を大きく開く</a1>",
+      "translation": "④ 再按一次变为<strong>数字</strong>模式。此时再按一次，就会回到①的平假名模式。<a1>查看大图</a1>"
+    },
+    {
+      "source": "いま選ばれているモードは、<strong>あa1</strong> の中の文字が濃くなって分かります。ひらがなに戻したいのに数字が出るときは、もう1回押してください。",
+      "translation": "<strong>あa1</strong>（平假名、字母与数字切换键）中颜色较深的字符表示当前选中的模式。如果想回到平假名模式却出现了数字，请再按一次。"
+    },
+    {
+      "source": "<strong>あa1</strong> を押して、<code>apple</code> と英語で打てた。もう2回押して、ひらがなに戻せた。",
+      "translation": "已按<strong>あa1</strong>（平假名、字母与数字切换键），输入了英语<code>apple</code>。又按了两次，已切回平假名模式。"
+    },
+    {
+      "source": "8. そのほかの設定は、変えなくて大丈夫です",
+      "translation": "8. 其他设置无须修改"
+    },
+    {
+      "source": "エミュレータの次の設定は、<strong>最初のままで教科書と同じ動きになります</strong>。触らないでください。",
+      "translation": "模拟器的以下设置<strong>保持初始状态，运行方式就会与教材相同</strong>。请不要修改。"
+    },
+    {
+      "source": "設定",
+      "translation": "设置"
+    },
+    {
+      "source": "どうする",
+      "translation": "如何处理"
+    },
+    {
+      "source": "ナビゲーション（戻る・ホームの操作）",
+      "translation": "导航（返回与主屏幕的操作）"
+    },
+    {
+      "source": "そのまま",
+      "translation": "保持不变"
+    },
+    {
+      "source": "画面の回転",
+      "translation": "屏幕旋转"
+    },
+    {
+      "source": "タイムゾーン（時計）",
+      "translation": "时区（时钟）"
+    },
+    {
+      "source": "フォントサイズ（文字の大きさ）",
+      "translation": "字体大小（文字的大小）"
+    },
+    {
+      "source": "インターネット接続だけ確認してください",
+      "translation": "只需检查互联网连接"
+    },
+    {
+      "source": "Macがインターネットにつながっている必要があります。キーボードの漢字の変換候補や、授業で作るアプリの動作に使います。",
+      "translation": "Mac需要连接互联网。键盘的汉字转换候选词，以及课堂中制作的应用都需要使用网络。"
+    },
+    {
+      "source": "9. 動くことを確かめる",
+      "translation": "9. 检查是否能够运行"
+    },
+    {
+      "source": "最後に、できあがった環境でアプリが動くことを確かめます。A01の<strong>完成プロジェクト</strong>（先生が作った見本）を開いて実行します。見本は、手順1で「書類」に置いた教材のフォルダの <code>samples</code> に、そのまま開ける形で入っています。ダウンロードも展開も要りません。",
+      "translation": "最后，检查应用是否能在准备好的环境中运行。打开并运行A01的<strong>完成版项目</strong>（老师制作的示例）。示例位于步骤1中放入「書類」（文稿）的学习资料文件夹内的<code>samples</code>中，可以直接打开。无须下载或解压。"
+    },
+    {
+      "source": "Android Studioの最初の画面で <strong>Open</strong> をクリックします。",
+      "translation": "在Android Studio的初始屏幕上点击<strong>Open</strong>。"
+    },
+    {
+      "source": "手順1で「書類」に置いた教材のフォルダを開き、その中の <code>samples</code> フォルダを開きます。一覧にある <code>A01HelloAndroid</code> フォルダを選び、<strong>開く（Open）</strong> をクリックします。",
+      "translation": "打开步骤1中放入「書類」（文稿）的学习资料文件夹，再打开其中的<code>samples</code>文件夹。在列表中选择<code>A01HelloAndroid</code>文件夹，点击<strong>開く（Open）</strong>（打开）。"
+    },
+    {
+      "source": "画面の下で <strong>Gradle Sync</strong> という処理が終わるまで待ちます。初回は数分かかります。",
+      "translation": "等待屏幕下方的<strong>Gradle Sync</strong>处理完成。首次需要几分钟。"
+    },
+    {
+      "source": "上部の端末の選択欄で <code>jec_26cm_android1_Pixel 9a</code> を選び、<strong>Run ▶</strong> をクリックします。",
+      "translation": "在顶部的设备选择框中选择<code>jec_26cm_android1_Pixel 9a</code>，点击<strong>Run ▶</strong>。"
+    },
+    {
+      "source": "エミュレータにアプリが表示され、<strong>Hello World!</strong> という文字と、その下にボタンが並んでいる。",
+      "translation": "模拟器中显示应用，有<strong>Hello World!</strong>文字，下方排列着按钮。"
+    },
+    {
+      "source": "ここまでできたら、準備は終わりです。次の授業からは、教科書を開くところから始められます。",
+      "translation": "完成这些操作后，准备就结束了。下次上课时，就可以从打开教材开始。"
+    },
+    {
+      "source": "A01：はじめてのアプリ作りへ進む →",
+      "translation": "A01：前往第一次制作应用 →"
+    },
+    {
+      "source": "10. うまくいかないとき",
+      "translation": "10. 遇到问题时"
+    },
+    {
+      "source": "出たもの・起きたこと",
+      "translation": "显示的内容或发生的情况"
+    },
+    {
+      "source": "やってみること",
+      "translation": "可以尝试的操作"
+    },
+    {
+      "source": "手順4の <code>export</code> の行をもう一度実行する。Terminalを開き直すと、毎回この状態に戻る。",
+      "translation": "再次执行步骤4中的<code>export</code>这一行。每次重新打开Terminal，都会回到这个状态。"
+    },
+    {
+      "source": "エミュレータが2つ以上起動している。1つだけにしてやり直す。",
+      "translation": "有两个或更多模拟器正在运行。只保留一个，然后重试。"
+    },
+    {
+      "source": "<code>adb devices</code> にエミュレータが出ない",
+      "translation": "<code>adb devices</code>中没有显示模拟器"
+    },
+    {
+      "source": "エミュレータのホーム画面が出ているか確認する。起動の途中なら待つ。",
+      "translation": "检查是否已显示模拟器的主屏幕。如果还在启动，请等待。"
+    },
+    {
+      "source": "<code>ls ~/Library/Android/sdk</code> で <code>No such file or directory</code>",
+      "translation": "执行<code>ls ~/Library/Android/sdk</code>时出现<code>No such file or directory</code>"
+    },
+    {
+      "source": "Android Studioの最初の準備が終わっていない。先生に知らせる。",
+      "translation": "Android Studio的初始准备尚未完成。请告诉老师。"
+    },
+    {
+      "source": "エミュレータが日本語にならない",
+      "translation": "模拟器没有变为日语"
+    },
+    {
+      "source": "<code>adb shell cmd locale get-device-locale</code> の結果を確認する。<code>ja-JP</code> 以外なら、手順6をもう一度行う。",
+      "translation": "检查<code>adb shell cmd locale get-device-locale</code>的结果。如果不是<code>ja-JP</code>，请重新进行步骤6。"
+    },
+    {
+      "source": "漢字の候補が出ない",
+      "translation": "没有显示汉字候选词"
+    },
+    {
+      "source": "Macがインターネットにつながっているか確認し、1〜2分待つ。",
+      "translation": "检查Mac是否连接了互联网，并等待1～2分钟。"
+    },
+    {
+      "source": "ダウンロードしたフォルダの名前に <code>(1)</code> や <code>-2</code> が付いている",
+      "translation": "下载的文件夹名称中带有<code>(1)</code>或<code>-2</code>"
+    },
+    {
+      "source": "古い教材を開いている可能性がある。自分で判断せず先生に見せる。",
+      "translation": "可能打开了旧的学习资料。请不要自行判断，请老师查看。"
+    },
+    {
+      "source": "Runが押せない・端末が選べない",
+      "translation": "无法点击Run，或无法选择设备"
+    },
+    {
+      "source": "<a1>共通資料：エミュレータの準備とアプリの実行</a1>の「5. 動かないとき」を見る。",
+      "translation": "查看<a1>通用资料：模拟器的准备与应用的运行</a1>中的“5. 无法运行时”。"
+    },
+    {
+      "source": "表にないことが起きたら、その画面のまま先生に見せてください。Terminalの場合は、打った行と出た文字の両方が見えるようにしておくと早く分かります。",
+      "translation": "如果发生了表中没有列出的情况，请保持当前屏幕并请老师查看。如果使用的是Terminal，让输入的命令行和输出的文字都可见，就能更快确认情况。"
+    },
+    {
+      "source": "関連する共通資料",
+      "translation": "相关通用资料"
+    },
+    {
+      "source": "<a1>エミュレータの準備とアプリの実行</a1>（手順5で使います）",
+      "translation": "<a1>模拟器的准备与应用的运行</a1>（在步骤5中使用）"
+    },
+    {
+      "source": "<a1>Auto Importの設定</a1>（A01のSTEP 1で行います）",
+      "translation": "<a1>Auto Import的设置</a1>（在A01的STEP 1中进行）"
+    },
+    {
+      "source": "<a1>ちがうAndroid Studioのバージョンで進めるとき</a1>（自分のMacなどで進めるとき）",
+      "translation": "<a1>使用不同版本的Android Studio时</a1>（使用自己的Mac等设备学习时）"
+    },
+    {
+      "source": "公式資料",
+      "translation": "官方资料"
+    },
+    {
+      "source": "<a1>Android Developers：Android Studio をインストールする</a1>（手順2）",
+      "translation": "<a1>Android Developers：安装Android Studio</a1>（步骤2）"
+    },
+    {
+      "source": "<a1>Android Developers：IDE および SDK ツールの更新</a1>（手順4のSDK）",
+      "translation": "<a1>Android Developers：更新IDE和SDK工具</a1>（步骤4中的SDK）"
+    },
+    {
+      "source": "<a1>Android Developers：Android Debug Bridge（adb）</a1>（手順4・手順6）",
+      "translation": "<a1>Android Developers：Android Debug Bridge（adb）</a1>（步骤4、步骤6）"
+    },
+    {
+      "source": "<a1>Android Developers：アプリのビルドと実行</a1>（手順9）",
+      "translation": "<a1>Android Developers：构建和运行应用</a1>（步骤9）"
+    },
+    {
+      "source": "← もとのページへ戻る",
+      "translation": "← 返回原来的页面"
+    },
+    {
+      "source": "対象：macOS / Android Studio Panda 2 | 2025.3.2 · 画像：教員提供 · 確認日：2026年9月20日",
+      "translation": "适用环境：macOS / Android Studio Panda 2 | 2025.3.2 · 图片：由老师提供 · 确认日期：2026年9月20日"
+    }
+  ]
+}
