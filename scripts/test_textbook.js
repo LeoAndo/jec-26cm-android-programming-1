@@ -196,10 +196,14 @@ test('実際のHTMLで、単元と共通資料のリンクに戻り先の指定�
   for (const file of [...textbooks, ...common]) {
     const source = readFileSync(path.join(root, file), 'utf8');
     const current = new URL(`file:///${file}`);
-    for (const [tag] of source.matchAll(/<a\b[^>]*>/g)) {
+    for (const [tag] of source.matchAll(/<a\b[^>]*>[\s\S]*?<\/a>/g)) {
       const href = /\bhref="([^"]+)"/.exec(tag)?.[1];
       if (!href) continue;
       const target = new URL(href.replaceAll('&amp;', '&'), current);
+      if (file.startsWith('docs/common/') && tag.includes('戻る')
+          && target.protocol === 'file:' && target.pathname.endsWith('/index.html')) {
+        assert.match(tag, /\bdata-back(?:\s|=|>)/, `${file}: ${href}`);
+      }
       if (target.protocol !== 'file:' || !target.pathname.startsWith('/docs/common/')
           || !target.pathname.endsWith('.html') || target.pathname === current.pathname) continue;
       if (file.startsWith('docs/common/')) {
