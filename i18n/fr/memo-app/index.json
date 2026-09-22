@@ -540,7 +540,7 @@
     },
     {
       "source": "② 追加ボタンの処理を書く",
-      "translation": "② Écrire le traitement du bouton d'ajout"
+      "translation": "② Écrire le traitement du bouton 「追加」 (Ajouter)"
     },
     {
       "source": "MainActivity.java · onCreateの中（①の下）",
@@ -648,7 +648,7 @@
     },
     {
       "source": "STEP 04①の2行の<strong>下</strong>、追加ボタンの処理の<strong>上</strong>に書きます。",
-      "translation": "Écrivez ce code <strong>sous</strong> les deux lignes du STEP 04① et <strong>au-dessus</strong> du traitement du bouton d'ajout."
+      "translation": "Écrivez ce code <strong>sous</strong> les deux lignes du STEP 04① et <strong>au-dessus</strong> du traitement du bouton 「追加」 (Ajouter)."
     },
     {
       "source": "保存されていないときは第2引数の <code>&quot;&quot;</code>（空の文字）が返るので、初回は一覧が空のままになります。",
@@ -664,7 +664,7 @@
     },
     {
       "source": "MainActivity.java · 追加ボタンの処理の中",
-      "translation": "MainActivity.java · Dans le traitement du bouton d'ajout"
+      "translation": "MainActivity.java · Dans le traitement du bouton 「追加」 (Ajouter)"
     },
     {
       "source": "A08と同じ <code>edit()</code> → <code>putString</code> → <code>apply()</code> の3ステップです。<code>apply()</code> を忘れると保存されません。",
@@ -752,7 +752,7 @@
     },
     {
       "source": "「データ削除」ボタンの処理を、追加ボタンの処理（<code>});</code> まで）の<strong>下</strong>に書きます。これで完成です。",
-      "translation": "Écrivez le traitement du bouton 「データ削除」 (Effacer les données) <strong>sous</strong> celui du bouton d'ajout, après son <code>});</code>. L'application sera alors terminée."
+      "translation": "Écrivez le traitement du bouton 「データ削除」 (Effacer les données) <strong>sous</strong> celui du bouton 「追加」 (Ajouter), après son <code>});</code>. L'application sera alors terminée."
     },
     {
       "source": "保存されているデータをすべて消す予約をする。",
@@ -924,7 +924,7 @@
     },
     {
       "source": "練習3：データ削除からsetTextを消してみる",
-      "translation": "Exercice 3 : retirer setText du traitement d'effacement"
+      "translation": "Exercice 3 : retirer setText du traitement de 「データ削除」 (Effacer les données)"
     },
     {
       "source": "STEP 06の <code>txtMemoList.setText(&quot;&quot;);</code> を消して、メモを追加してから「データ削除」を押します。",
