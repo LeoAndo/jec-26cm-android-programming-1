@@ -152,7 +152,7 @@
     },
     {
       "source": "A01で学んだ「XMLで画面を作る」「Javaでクリックを処理する」を使い、<strong>10から引く計算を10問解くゲーム</strong>を作ります。問題に答えると次へ進み、最後に正解数と時間を表示します。",
-      "translation": "运用A01中学到的“用XML制作屏幕”和“用Java处理点击”，制作<strong>解答10道从10中减去一个数的计算题的游戏</strong>。回答一题后进入下一题，最后显示答对的题数和用时。"
+      "translation": "运用A01中学到的“用XML制作界面”和“用Java处理点击”，制作<strong>解答10道从10中减去一个数的计算题的游戏</strong>。回答一题后进入下一题，最后显示答对的题数和用时。"
     },
     {
       "source": "ゲームの流れ",
@@ -172,7 +172,7 @@
     },
     {
       "source": "起動直後。00:00、START、無効なSTOPとRESET、1から9の数字ボタン",
-      "translation": "刚启动后的屏幕。显示00:00、START、不可用的STOP和RESET，以及1至9的数字按钮"
+      "translation": "刚启动后的界面。显示00:00、START、不可用的STOP和RESET，以及1至9的数字按钮"
     },
     {
       "source": "① 起動直後。問題はまだ表示されません。 <a1>画像を大きく開く</a1>",
@@ -228,7 +228,7 @@
     },
     {
       "source": "画面を作り、5つの値のフィールドの役割を読む。",
-      "translation": "制作屏幕，并阅读保存5个值的字段的作用。"
+      "translation": "制作界面，并阅读保存5个值的字段的作用。"
     },
     {
       "source": "2コマ目",
@@ -504,7 +504,7 @@
     },
     {
       "source": "Android Studioのプレビューだけに表示する文字。実行画面には出ない。",
-      "translation": "仅显示在Android Studio预览中的文字，不会出现在运行屏幕上。"
+      "translation": "仅显示在Android Studio预览中的文字，不会出现在运行界面上。"
     },
     {
       "source": "<code>android:id=\"@+id/main\"</code> はJavaのひな形でも使うため残します。各ボタンの <code>btn_start</code> などは、次にJavaから探すための名前です。",
@@ -592,7 +592,7 @@
     },
     {
       "source": "このSTEPの画面。問題文は空欄です。 <a1>画像を大きく開く</a1>",
-      "translation": "本STEP的屏幕。题目区域为空白。<a1>查看大图</a1>"
+      "translation": "本STEP的界面。题目区域为空白。<a1>查看大图</a1>"
     },
     {
       "source": "1〜9のボタンを3列×3行に並べ、idの重複がないことを確認した。",
@@ -680,11 +680,11 @@
     },
     {
       "source": "<code>txtMessage</code> だけ画面の部品です。<code>onCreate</code> の中だけで使う部品はローカル変数で足りますが、これはSTEP 06で作る別のメソッドからも使うため、フィールドにします。",
-      "translation": "只有<code>txtMessage</code>是屏幕控件。仅在<code>onCreate</code>内部使用的控件，用局部变量即可。但这个控件还会在STEP 06中创建的另一个方法中使用，因此将其设为字段。"
+      "translation": "只有<code>txtMessage</code>是界面控件。仅在<code>onCreate</code>内部使用的控件，用局部变量即可。但这个控件还会在STEP 06中创建的另一个方法中使用，因此将其设为字段。"
     },
     {
       "source": "② 画面の部品を取得する",
-      "translation": "② 获取屏幕上的控件"
+      "translation": "② 获取界面上的控件"
     },
     {
       "source": "<code>onCreate</code> の中で、ひな形の <code>return insets;</code> に続く <code>});</code> の下、<code>onCreate</code> を閉じる <code>}</code> より上に追加します。",
@@ -712,7 +712,7 @@
     },
     {
       "source": "6つのフィールドは <strong>onCreateの外</strong>、5つの部品を取得する行は <strong>onCreateの中</strong> です。Runして画面が変わらなくても成功です。",
-      "translation": "6个字段位于<strong>onCreate外部</strong>，获取5个控件的代码行位于<strong>onCreate内部</strong>。Run后即使屏幕没有变化，也表示成功。"
+      "translation": "6个字段位于<strong>onCreate外部</strong>，获取5个控件的代码行位于<strong>onCreate内部</strong>。Run后即使界面没有变化，也表示成功。"
     },
     {
       "source": "1コマ目はここまで",
@@ -740,7 +740,7 @@
     },
     {
       "source": "前回の画面をRunして確認してから始めます。<code>onCreate</code> の <code>var btnReset = ...;</code> の下に、次の3つの処理を<strong>順番に</strong>追加します。",
-      "translation": "先Run并确认上一课时的屏幕，再开始。在<code>onCreate</code>的<code>var btnReset = ...;</code>下方，<strong>依次</strong>添加以下3个处理。"
+      "translation": "先Run并确认上一课时的界面，再开始。在<code>onCreate</code>的<code>var btnReset = ...;</code>下方，<strong>依次</strong>添加以下3个处理。"
     },
     {
       "source": "<code>SystemClock</code> のimportは <code>android.os.SystemClock</code> です。",
@@ -988,7 +988,7 @@
     },
     {
       "source": "for文は画面を作るときに実行されます。中のクリック処理は、<strong>実際にボタンを押したとき</strong>に実行されます。9個のボタンにはそれぞれ別の <code>btn</code> が対応します。",
-      "translation": "for语句在创建屏幕时执行。其中的点击处理会在<strong>实际按下按钮时</strong>执行。9个按钮分别对应不同的<code>btn</code>。"
+      "translation": "for语句在创建界面时执行。其中的点击处理会在<strong>实际按下按钮时</strong>执行。9个按钮分别对应不同的<code>btn</code>。"
     },
     {
       "source": "START前に数字を押すと「ゲーム中のみボタンを押せます」と出ます。",

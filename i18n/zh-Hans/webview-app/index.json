@@ -184,7 +184,7 @@
     },
     {
       "source": "起動直後。ActionBarにA04WebViewAppと縦に3つの点のメニュー、チェックなしのJavaScript ON、その下は白い画面",
-      "translation": "刚启动时。ActionBar中显示A04WebViewApp和竖排三个点的菜单，JavaScript ON未勾选，下方是白色屏幕"
+      "translation": "刚启动时。ActionBar中显示A04WebViewApp和竖排三个点的菜单，JavaScript ON未勾选，下方是白色界面"
     },
     {
       "source": "① 起動直後。まだページは表示しません。 <a1>画像を大きく開く</a1>",
@@ -236,7 +236,7 @@
     },
     {
       "source": "アプリの設定と画面を作り、WebViewでページを表示し、メニューの項目を用意する。",
-      "translation": "设置应用并制作屏幕，用WebView显示网页，准备菜单项。"
+      "translation": "设置应用并制作界面，用WebView显示网页，准备菜单项。"
     },
     {
       "source": "2コマ目",
@@ -284,7 +284,7 @@
     },
     {
       "source": "ActionBarに「A04WebViewApp」と <strong>⋮</strong>。「JavaScript ON」はチェックなし。下は白い画面。",
-      "translation": "ActionBar中显示“A04WebViewApp”和<strong>⋮</strong>。“JavaScript ON”未勾选，下方是白色屏幕。"
+      "translation": "ActionBar中显示“A04WebViewApp”和<strong>⋮</strong>。“JavaScript ON”未勾选，下方是白色界面。"
     },
     {
       "source": "⋮ → サイト名",
@@ -520,7 +520,7 @@
     },
     {
       "source": "画面上部に <strong>ActionBar（アクションバー）</strong> を表示する。STEP 6で作るメニュー（⋮）はActionBarに出る。",
-      "translation": "在屏幕顶部显示<strong>ActionBar</strong>。STEP 6创建的菜单（⋮）会显示在ActionBar中。"
+      "translation": "在界面顶部显示<strong>ActionBar</strong>。STEP 6创建的菜单（⋮）会显示在ActionBar中。"
     },
     {
       "source": "インターネットの許可を追加する",
@@ -588,7 +588,7 @@
     },
     {
       "source": "アプリの名前・アイコン・画面・必要な機能などを、Androidに伝える設定ファイル。",
-      "translation": "向Android说明应用名称、图标、屏幕和所需功能等信息的配置文件。"
+      "translation": "向Android说明应用名称、图标、界面和所需功能等信息的配置文件。"
     },
     {
       "source": "アプリが使う機能（権限）を宣言する。",
@@ -596,7 +596,7 @@
     },
     {
       "source": "インターネットへの接続。インストール時に自動で許可され、確認の画面は出ない。",
-      "translation": "连接互联网。安装时会自动授予权限，不会显示确认屏幕。"
+      "translation": "连接互联网。安装时会自动授予权限，不会显示确认界面。"
     },
     {
       "source": "変更後のAndroidManifest.xml全体で照合する",
@@ -612,7 +612,7 @@
     },
     {
       "source": "画面上部に「A04WebViewApp」と書かれたActionBarが表示されます。Hello World!はまだ残っています。インターネットの許可の効果は、STEP 4でページを表示するときに確かめます。",
-      "translation": "屏幕顶部会显示写有“A04WebViewApp”的ActionBar。Hello World!仍然保留。互联网权限的效果将在STEP 4显示网页时检查。"
+      "translation": "界面顶部会显示写有“A04WebViewApp”的ActionBar。Hello World!仍然保留。互联网权限的效果将在STEP 4显示网页时检查。"
     },
     {
       "source": "ActionBarが出ないとき",
@@ -644,7 +644,7 @@
     },
     {
       "source": "画面は、上にチェックボックス、その下にWebViewを置くだけです。<strong>Code</strong> 表示に切り替え、XMLの中で <kbd>⌘ A</kbd> → 貼り付けを行い、<strong>ファイル全体を置き換えます</strong>。",
-      "translation": "屏幕只需在上方放置复选框，下方放置WebView。切换到<strong>Code</strong>视图，在XML中按<kbd>⌘ A</kbd> → 粘贴，<strong>替换整个文件</strong>。"
+      "translation": "界面只需在上方放置复选框，下方放置WebView。切换到<strong>Code</strong>视图，在XML中按<kbd>⌘ A</kbd> → 粘贴，<strong>替换整个文件</strong>。"
     },
     {
       "source": "activity_main.xml · 全体を置き換える",
@@ -692,15 +692,15 @@
     },
     {
       "source": "ActionBarの下に「JavaScript ON」のチェックボックスが表示され、その下は白い画面です。チェックは付けたり外したりできますが、まだ何も起きません。",
-      "translation": "ActionBar下方显示“JavaScript ON”复选框，再下方是白色屏幕。可以勾选或取消勾选，但暂时不会发生任何变化。"
+      "translation": "ActionBar下方显示“JavaScript ON”复选框，再下方是白色界面。可以勾选或取消勾选，但暂时不会发生任何变化。"
     },
     {
       "source": "ActionBarの下にJavaScript ONのチェックボックスがあり、その下は白い画面",
-      "translation": "ActionBar下方有JavaScript ON复选框，再下方是白色屏幕"
+      "translation": "ActionBar下方有JavaScript ON复选框，再下方是白色界面"
     },
     {
       "source": "このSTEPの画面。白い部分がWebViewです。 <a1>画像を大きく開く</a1>",
-      "translation": "本STEP的屏幕。白色部分是WebView。<a1>查看大图</a1>"
+      "translation": "本STEP的界面。白色部分是WebView。<a1>查看大图</a1>"
     },
     {
       "source": "チェックボックスと白いWebViewが表示され、chk_javascriptとweb_viewのidを確認した。",
@@ -920,7 +920,7 @@
     },
     {
       "source": "まだどこからも使っていないので、画面は変わりません。エラーなくRunでき、STEP 4と同じくYahoo!ニュースが表示されれば成功です。",
-      "translation": "因为还没有在任何地方使用它，屏幕不会改变。能够无错误地Run，并与STEP 4一样显示Yahoo!ニュース（Yahoo!新闻），就表示成功。"
+      "translation": "因为还没有在任何地方使用它，界面不会改变。能够无错误地Run，并与STEP 4一样显示Yahoo!ニュース（Yahoo!新闻），就表示成功。"
     },
     {
       "source": "解説：enumを使わないと、何に困る？",
@@ -1108,7 +1108,7 @@
     },
     {
       "source": "前回の画面をRunして確認してから始めます。ActionBarの右上の <strong>⋮</strong>（オプションメニュー）に、STEP 5の4つのサイトを出します。",
-      "translation": "先Run检查上次的屏幕，再开始操作。将STEP 5的4个网站显示在ActionBar右上角的<strong>⋮</strong>（选项菜单）中。"
+      "translation": "先Run检查上次的界面，再开始操作。将STEP 5的4个网站显示在ActionBar右上角的<strong>⋮</strong>（选项菜单）中。"
     },
     {
       "source": "① 確認用の1行を削除する",
@@ -1232,7 +1232,7 @@
     },
     {
       "source": "起動直後は白い画面です（確認用のloadUrlを削除したため）。",
-      "translation": "刚启动时是白色屏幕（因为已删除用于检查的loadUrl）。"
+      "translation": "刚启动时是白色界面（因为已删除用于检查的loadUrl）。"
     },
     {
       "source": "右上の <strong>⋮</strong> を押すと、4つのサイト名が表示されます。",
@@ -1376,11 +1376,11 @@
     },
     {
       "source": "「Cookie」の確認画面が出たとき",
-      "translation": "出现“Cookie”确认屏幕时"
+      "translation": "出现“Cookie”确认界面时"
     },
     {
       "source": "JavaScriptを有効にすると、サイトによっては、Cookie（クッキー）の使い方を確認する画面がページの上に表示されます。映画「SLAM DUNK」公式サイトなどで表示されます。授業での確認では「拒否」を押して閉じて構いません。",
-      "translation": "启用JavaScript后，某些网站会在网页上方显示确认Cookie使用方式的屏幕。映画「SLAM DUNK」公式サイト（电影《SLAM DUNK》官方网站）等网站会显示此屏幕。课堂检查时，可以按「拒否」（拒绝）将其关闭。"
+      "translation": "启用JavaScript后，某些网站会在网页上方显示确认Cookie使用方式的界面。映画「SLAM DUNK」公式サイト（电影《SLAM DUNK》官方网站）等网站会显示此界面。课堂检查时，可以按「拒否」（拒绝）将其关闭。"
     },
     {
       "source": "余裕があれば、ページを拡大してみます。エミュレータでは <kbd>⌘</kbd> を押しながら画面をドラッグすると、2本指の操作になります。サイト側で拡大を制限している場合は、拡大できないこともあります。",
@@ -1468,7 +1468,7 @@
     },
     {
       "source": "この画面（Activity）に、戻る処理を登録する。",
-      "translation": "为此屏幕（Activity）注册返回处理。"
+      "translation": "为此界面（Activity）注册返回处理。"
     },
     {
       "source": "STEP 4のWebViewClientに、履歴が変わったときの処理を足したもの。リンクをWebViewの中で開く働きはそのまま。",
@@ -1624,7 +1624,7 @@
     },
     {
       "source": "Androidには、Android 13から <strong>予測型「戻る」（Predictive Back）</strong> という仕組みが段階的に入っています。戻るジェスチャーを始めると、指を離す前に「戻った先」（ホーム画面や前の画面）をプレビューで見せる仕組みです。",
-      "translation": "从Android 13开始，Android逐步加入了<strong>预测性返回（Predictive Back；日语为予測型「戻る」、よそくがた「もどる」）</strong>机制。开始返回手势后，在手指松开之前，就会预览“返回后的位置”（主屏幕或上一个屏幕）。"
+      "translation": "从Android 13开始，Android逐步加入了<strong>预测性返回（Predictive Back；日语为予測型「戻る」、よそくがた「もどる」）</strong>机制。开始返回手势后，在手指松开之前，就会预览“返回后的位置”（主屏幕或上一个界面）。"
     },
     {
       "source": "プレビューを出すには、<strong>アプリが戻る操作を自分で処理するかどうかを、操作が始まる前に</strong>Androidが知っている必要があります。<code>onKeyDown</code> は、戻る操作が起きてから「処理するか」をアプリが決める方法なので、先にプレビューを出せません。そこでAndroid 16からは、targetSdk 36以上のアプリに対してこの受け取り方をやめ、<code>OnBackPressedCallback</code> のように<strong>「戻る処理が今有効かどうか」を先に登録しておく方法</strong>を使うことになりました。",
@@ -1692,7 +1692,7 @@
     },
     {
       "source": "メニューから開いたページはアプリの中に表示されますが、ページ内のリンクを押すと <strong>Chrome</strong> が開きます。初めてChromeを開くときは、Chromeの初期設定の画面が出ることがあります。サイトによっては、メニューから開いた最初のページでもChromeが開きます。WebViewClientを設定すると、リンクをWebViewの中で開きます。また、戻る処理を有効にする <code>doUpdateVisitedHistory</code> も動かないため、戻る操作でホーム画面に戻ります。確認後は同じ7行を選んで <kbd>⌘ /</kbd> を押し、コメントを外します。",
-      "translation": "从菜单打开的网页会显示在应用中，但点击网页内的链接会打开<strong>Chrome</strong>。首次打开Chrome时，可能出现Chrome的初始设置屏幕。某些网站甚至在从菜单打开第一个网页时就会打开Chrome。设置WebViewClient后，链接会在WebView中打开。另外，用于启用返回处理的<code>doUpdateVisitedHistory</code>也不会执行，因此返回操作会回到主屏幕。确认后，选中同样的7行，按<kbd>⌘ /</kbd>取消注释。"
+      "translation": "从菜单打开的网页会显示在应用中，但点击网页内的链接会打开<strong>Chrome</strong>。首次打开Chrome时，可能出现Chrome的初始设置界面。某些网站甚至在从菜单打开第一个网页时就会打开Chrome。设置WebViewClient后，链接会在WebView中打开。另外，用于启用返回处理的<code>doUpdateVisitedHistory</code>也不会执行，因此返回操作会回到主屏幕。确认后，选中同样的7行，按<kbd>⌘ /</kbd>取消注释。"
     },
     {
       "source": "練習3：以前の書き方（onKeyDown）を試す",
@@ -1740,7 +1740,7 @@
     },
     {
       "source": "ActionBarに「A04WebViewApp」と ⋮。「JavaScript ON」はチェックなし。下は白い画面。",
-      "translation": "ActionBar中显示“A04WebViewApp”和⋮。“JavaScript ON”未勾选，下方是白色屏幕。"
+      "translation": "ActionBar中显示“A04WebViewApp”和⋮。“JavaScript ON”未勾选，下方是白色界面。"
     },
     {
       "source": "⋮ を押す",
@@ -1920,11 +1920,11 @@
     },
     {
       "source": "起動すると白い画面のまま",
-      "translation": "启动后一直是白色屏幕"
+      "translation": "启动后一直是白色界面"
     },
     {
       "source": "STEP 6以降は、起動直後の白い画面が正常。⋮ からサイトを選ぶ。",
-      "translation": "从STEP 6起，刚启动时的白色屏幕是正常的。请从⋮中选择网站。"
+      "translation": "从STEP 6起，刚启动时的白色界面是正常的。请从⋮中选择网站。"
     },
     {
       "source": "ページの表示が崩れる・一部が出ない",
