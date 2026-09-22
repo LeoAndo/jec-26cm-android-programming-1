@@ -152,11 +152,11 @@
     },
     {
       "source": "英単語と日本語の入力欄、追加するボタン、登録ずみの単語としてapple・study・libraryの3行が表示されている画面",
-      "translation": "Écran avec les champs de saisie du mot anglais et du japonais, le bouton 追加する (Ajouter) et trois lignes, apple, study et library, sous 登録ずみの単語 (mots enregistrés)"
+      "translation": "Écran avec les champs de saisie 英単語 (mot anglais) et 日本語 (japonais), le bouton 追加する (Ajouter) et trois lignes, apple, study et library, sous 登録ずみの単語 (mots enregistrés)"
     },
     {
       "source": "単語を追加する画面。下に登録ずみの単語が出ます。 <a1>画像を大きく開く</a1>",
-      "translation": "Écran d'ajout de mots. Les mots déjà enregistrés apparaissent en dessous. <a1>Ouvrir l'image en grand</a1>"
+      "translation": "Écran d'ajout de mots. 登録ずみの単語 (mots enregistrés) apparaît en dessous. <a1>Ouvrir l'image en grand</a1>"
     },
     {
       "source": "1問目/全3問中とappleが表示され、答えを表示するボタンと前へ・次へのボタンが並んだカード画面。前へは押せない状態",
@@ -540,7 +540,7 @@
     },
     {
       "source": "Roomは、データを<strong>表</strong>の形で保存します。「1行にどんな項目があるか」を決めるのが <code>Item</code> クラスです。今回は、1件が「英単語」と「日本語」の2つを持ちます。",
-      "translation": "Room enregistre les données sous forme de <strong>table</strong>. La classe <code>Item</code> définit les éléments d'une ligne. Cette fois, chaque enregistrement contient deux textes : le mot anglais et le japonais."
+      "translation": "Room enregistre les données sous forme de <strong>table</strong>. La classe <code>Item</code> définit les éléments d'une ligne. Cette fois, chaque enregistrement contient deux textes : 英単語 (le mot anglais) et 日本語 (le japonais)."
     },
     {
       "source": "左側のプロジェクト画面で <code>app → src → main → java → jp.ac.jec.a11vocabularybook</code>（<code>MainActivity</code> があるフォルダ）を右クリックし、<strong>New → Java Class</strong> を選びます。",
@@ -908,7 +908,7 @@
     },
     {
       "source": "英単語に <code>apple</code>、日本語に <code>りんご</code> を入れて <strong>追加する</strong>。下の一覧に増えます。",
-      "translation": "Saisissez <code>apple</code> comme mot anglais et <code>りんご</code> (pomme) comme japonais, puis appuyez sur <strong>追加する</strong> (Ajouter). Le mot apparaît dans la liste en dessous."
+      "translation": "Saisissez <code>apple</code> dans le champ 英単語 (mot anglais) et <code>りんご</code> (pomme) dans le champ 日本語 (japonais), puis appuyez sur <strong>追加する</strong> (Ajouter). Le mot apparaît dans la liste en dessous."
     },
     {
       "source": "同じ <code>apple</code> をもう一度登録してみます。メッセージが出て、一覧は増えません。",
@@ -916,7 +916,7 @@
     },
     {
       "source": "英単語にapple、日本語にringoを入れて追加するを押したときに、すでに登録されている単語ですのメッセージが出て、一覧が3行のままの画面",
-      "translation": "Après la saisie d'apple en anglais et de ringo dans le champ japonais, un appui sur 追加する (Ajouter) affiche すでに登録されている単語です (ce mot est déjà enregistré). La liste reste à trois lignes"
+      "translation": "Après la saisie d'apple dans le champ 英単語 (mot anglais) et de ringo dans le champ 日本語 (japonais), un appui sur 追加する (Ajouter) affiche すでに登録されている単語です (ce mot est déjà enregistré). La liste reste à trois lignes"
     },
     {
       "source": "同じ英単語は登録されません。一覧も増えません。 <a1>画像を大きく開く</a1>",
