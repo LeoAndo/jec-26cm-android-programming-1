@@ -500,7 +500,7 @@
     },
     {
       "source": "② 登録ボタンの処理を書く",
-      "translation": "② 编写登记按钮的处理"
+      "translation": "② 编写「登録」（登记）按钮的处理"
     },
     {
       "source": "MainActivity.java · ①の下",
@@ -1004,7 +1004,7 @@
     },
     {
       "source": "BillSplitActivity.java · 計算実行ボタンの処理",
-      "translation": "BillSplitActivity.java · 执行计算按钮的处理"
+      "translation": "BillSplitActivity.java · 「計算実行」（执行计算）按钮的处理"
     },
     {
       "source": "チェック",
@@ -1068,7 +1068,7 @@
     },
     {
       "source": "それでも <code>try</code> を書くのは、<strong>レイアウトとJavaは別のファイル</strong>だからです。あとでだれかが <code>maxLength</code> を消しても、Javaの側で受け止めていればアプリは終了しません。コメントの「桁数が多すぎる場合など」は、そのときのための備えを指しています。",
-      "translation": "即便如此仍编写<code>try</code>，是因为<strong>布局与Java位于不同的文件</strong>。以后即使有人删除<code>maxLength</code>，只要Java端能接住异常，应用就不会关闭。注释中的“位数过多等情况”就是为这种情况做准备。"
+      "translation": "即便如此仍编写<code>try</code>，是因为<strong>布局与Java位于不同的文件</strong>。以后即使有人删除<code>maxLength</code>，只要Java端能接住异常，应用就不会关闭。注释中的「桁数が多すぎる場合など」（位数过多等情况）就是为这种情况做准备。"
     },
     {
       "source": "<code>BillSplitter</code> は計算だけを担当し、画面に出すメッセージを持っていません。<strong>ユーザーの入力ミスは画面側で止める</strong>、という分け方です。こうすると、計算の部分は他のアプリでもそのまま使えます。",
@@ -1284,7 +1284,7 @@
     },
     {
       "source": "金額が空のまま計算実行",
-      "translation": "金额为空时执行计算"
+      "translation": "金额为空时点击「計算実行」（执行计算）"
     },
     {
       "source": "支払い金額を入力してください",
