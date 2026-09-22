@@ -53,7 +53,7 @@
 
 ### 学生への配布
 
-学生には [最新の教材リリース](https://github.com/LeoAndo/jec-26cm-android-programming-1/releases/latest) の Assets にあるZIPを案内します（初回公開後から利用可能）。ファイル名には `android1-student-materials-2026-09-19.zip` のように版の日付が入り、展開してできるフォルダも同じ名前になります。ダウンロードフォルダでどの版か分かり、別の版を同じ場所に展開しても混ざりません。展開後、はじめて授業を受ける学生は [共通資料：授業を始めるまでの準備](docs/common/setup.html) をブラウザで開き、上から順に準備します（同梱の `はじめに.txt` でも、単元一覧より前に案内しています）。準備が済んだら、授業で使う単元の `docs/hello-android/index.html`、`docs/calc-game/index.html`、`docs/rock-paper-scissors-game/index.html`、`docs/webview-app/index.html`、`docs/bomb-game/index.html`、`docs/screen-transition-sample/index.html`、`docs/bill-splitter/index.html`、`docs/shared-preferences-sample/index.html`、`docs/memo-app/index.html`、`docs/room-sample/index.html`、`docs/vocabulary-book/index.html` のいずれかをブラウザで開きます。完成プロジェクトは、展開済みの見本として配布物の `samples` フォルダに入っています。Android Studioの Open で `samples/A01HelloAndroid` のように選ぶだけで開け、初回から参考資料として使えます（各教科書からZIPでも受け取れます）。
+学生には [最新の教材リリース](https://github.com/LeoAndo/jec-26cm-android-programming-1/releases/latest) の Assets にあるZIPを案内します（初回公開後から利用可能）。ファイル名には `android1-student-materials-2026-09-19.zip` のように版の日付が入り、展開してできるフォルダも同じ名前になります。ダウンロードフォルダでどの版か分かり、別の版を同じ場所に展開しても混ざりません。展開後、はじめて授業を受ける学生は [共通資料：授業を始めるまでの準備](docs/common/setup.html) をブラウザで開き、上から順に準備します（同梱の `はじめに.txt` でも、単元一覧より前に案内しています）。日本語以外の言語で読むときは、展開してできたフォルダの `index.html` を開いて言語を選びます。準備が済んだら、授業で使う単元の `docs/hello-android/index.html`、`docs/calc-game/index.html`、`docs/rock-paper-scissors-game/index.html`、`docs/webview-app/index.html`、`docs/bomb-game/index.html`、`docs/screen-transition-sample/index.html`、`docs/bill-splitter/index.html`、`docs/shared-preferences-sample/index.html`、`docs/memo-app/index.html`、`docs/room-sample/index.html`、`docs/vocabulary-book/index.html` のいずれかをブラウザで開きます。完成プロジェクトは、展開済みの見本として配布物の `samples` フォルダに入っています。Android Studioの Open で `samples/A01HelloAndroid` のように選ぶだけで開け、初回から参考資料として使えます（各教科書からZIPでも受け取れます）。
 
 学生用ZIPには `docs` 一式と、展開済みの完成プロジェクト（`samples`）、開き方・版情報を収録します。`teacher` フォルダと `Panda2JavaEmptyViewActivity` は収録しません。GitHubが自動で表示する **Source code (zip)** はリポジトリ全体のため、学生用ZIPには使いません。なお、このリポジトリ自体はPublicなので、教員用ファイルもGitHub上では閲覧できます。
 
@@ -172,9 +172,9 @@ python3 scripts/package-student-materials.py
 
 参考：[GitHubのリリースノート自動生成](https://docs.github.com/en/repositories/releasing-projects-on-github/automatically-generated-release-notes)、[ワークフローの手動実行](https://docs.github.com/en/actions/how-tos/manage-workflow-runs/manually-run-a-workflow)。
 
-### 多言語展開（準備中）
+### 多言語展開
 
-この教材を使う学生の母国語は、日本語・英語・中国語・ミャンマー語・モンゴル語・広東語・フランス語の7つです。日本語で書いた教科書（`docs/`）を、配布前にほかの6言語へ展開する準備を進めています（全体の計画と決まったことは [issue #215](https://github.com/LeoAndo/jec-26cm-android-programming-1/issues/215)）。**現在は全言語の `distribute` が `false` のため、学生用ZIPは日本語のみです。** 配布対象にした言語は、ZIPを作るときに `docs/<言語>/` へ生成されます。
+この教材を使う学生の母国語は、日本語・英語・中国語・ミャンマー語・モンゴル語・広東語・フランス語の7つです。日本語で書いた教科書（`docs/`）を、配布前にほかの6言語へ展開します（全体の計画と決まったことは [issue #215](https://github.com/LeoAndo/jec-26cm-android-programming-1/issues/215)）。**6言語とも初回翻訳と独立した照合を終えて `distribute` を `true` にしてあるので、学生用ZIPには日本語と合わせて7言語が入ります。** 配布対象にした言語は、ZIPを作るときに `docs/<言語>/` へ生成されます。
 
 - **日常のPRでは翻訳しません。** 教材は今までどおり日本語だけを直します。翻訳は、学生への配布前にまとめて翻訳PRで行います。
 - **コミットするのは、翻訳済みのHTMLではなく対訳カタログです。** `i18n/<言語>/<ページ>.json` に、原文と訳文の対を文単位で置きます。各言語のHTMLは、カタログから作ります（リポジトリにはコミットしません）。コード・画像・リンク・STEPの番号は日本語版からそのまま引き継ぐので、どの言語でも同じ位置に同じものが出ます。
