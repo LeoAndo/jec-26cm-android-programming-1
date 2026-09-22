@@ -4,7 +4,7 @@
   "entries": [
     {
       "source": "JavaとXMLで作るA07BillSplitter。参加者をArrayListで集め、Intentで配列を渡して画面を切り替え、できあがった計算クラスを使って割り勘の結果を表示するまでを小さなSTEPで学ぶ授業用教科書。",
-      "translation": "使用Java和XML制作A07BillSplitter。通过小步骤学习用ArrayList收集参与者、用Intent传递数组并切换屏幕，以及使用现成的计算类显示分摊结果的课堂教材。"
+      "translation": "使用Java和XML制作A07BillSplitter。通过小步骤学习用ArrayList收集参与者、用Intent传递数组并切换界面，以及使用现成的计算类显示分摊结果的课堂教材。"
     },
     {
       "source": "BillSplitter — 割り勘アプリを作ろう | Androidプログラミング1",
@@ -40,7 +40,7 @@
     },
     {
       "source": "03　TOP画面のレイアウトを作る",
-      "translation": "03　制作TOP屏幕的布局"
+      "translation": "03　制作TOP界面的布局"
     },
     {
       "source": "04　参加者を登録する",
@@ -48,11 +48,11 @@
     },
     {
       "source": "05　ワリカン画面を作る",
-      "translation": "05　制作分摊屏幕"
+      "translation": "05　制作分摊界面"
     },
     {
       "source": "06　参加者リストを渡して画面を切り替える",
-      "translation": "06　传递参与者列表并切换屏幕"
+      "translation": "06　传递参与者列表并切换界面"
     },
     {
       "source": "07　割り勘の計算クラスを使う",
@@ -92,7 +92,7 @@
     },
     {
       "source": "解説：なぜ画面側でチェックするのか",
-      "translation": "讲解：为什么在屏幕端检查"
+      "translation": "讲解：为什么在界面端检查"
     },
     {
       "source": "解説：1円の端数はだれが払う？",
@@ -160,23 +160,23 @@
     },
     {
       "source": "飲み会やランチの支払いを、参加者で分けるアプリを作ります。名前を登録する画面と、金額を入れて結果を見る画面の、2つの画面でできています。",
-      "translation": "制作一个由参与者分摊聚餐或午餐费用的应用。它由两个屏幕组成：登记姓名的屏幕，以及输入金额并查看结果的屏幕。"
+      "translation": "制作一个由参与者分摊聚餐或午餐费用的应用。它由两个界面组成：登记姓名的界面，以及输入金额并查看结果的界面。"
     },
     {
       "source": "TOP画面。タイトル画像の下に名前の入力欄、登録ボタン、ワリカン画面へボタン、参加者一覧の見出しが並んでいる",
-      "translation": "TOP屏幕。标题图片下方依次排列姓名输入框、「登録」（登记）按钮、「ワリカン画面へ」（前往分摊屏幕）按钮和「参加者一覧」（参与者列表）标题"
+      "translation": "TOP界面。标题图片下方依次排列姓名输入框、「登録」（登记）按钮、「ワリカン画面へ」（前往分摊界面）按钮和「参加者一覧」（参与者列表）标题"
     },
     {
       "source": "1つ目の画面。参加者の名前を登録します。 <a1>画像を大きく開く</a1>",
-      "translation": "第一个屏幕。登记参与者的姓名。<a1>查看大图</a1>"
+      "translation": "第一个界面。登记参与者的姓名。<a1>查看大图</a1>"
     },
     {
       "source": "ワリカン画面。1234と入力し、Sato 411円、Suzuki 412円、Tanaka 411円、合計1234円と表示されている",
-      "translation": "分摊屏幕。输入1234后，显示Sato 411円、Suzuki 412円、Tanaka 411円、合計1234円（円为日元，合計为总计）"
+      "translation": "分摊界面。输入1234后，显示Sato 411円、Suzuki 412円、Tanaka 411円、合計1234円（円为日元，合計为总计）"
     },
     {
       "source": "2つ目の画面。1234円を3人で割った結果です。 <a1>画像を大きく開く</a1>",
-      "translation": "第二个屏幕。将1234日元分给3人的结果。<a1>查看大图</a1>"
+      "translation": "第二个界面。将1234日元分给3人的结果。<a1>查看大图</a1>"
     },
     {
       "source": "今日使う技術",
@@ -200,7 +200,7 @@
     },
     {
       "source": "A06のTest 3と同じ形。参加者の名前を次の画面へ渡す。",
-      "translation": "与A06的Test 3相同。将参与者姓名传给下一个屏幕。"
+      "translation": "与A06的Test 3相同。将参与者姓名传给下一个界面。"
     },
     {
       "source": "入力チェック",
@@ -236,7 +236,7 @@
     },
     {
       "source": "2つの画面の画像で、1234円を3人で割ると411円・411円・412円になり、合計が1234円に戻ることを確認した。",
-      "translation": "已通过两个屏幕的图片确认：1234日元分给3人时为411日元、411日元、412日元，总额仍为1234日元。"
+      "translation": "已通过两个界面的图片确认：1234日元分给3人时为411日元、411日元、412日元，总额仍为1234日元。"
     },
     {
       "source": "できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。",
@@ -272,7 +272,7 @@
     },
     {
       "source": "Android StudioのWelcome画面。右上にNew Flutter Project、New Project、Openのボタンが並んでいる",
-      "translation": "Android Studio的Welcome屏幕。右上角依次排列New Flutter Project、New Project和Open按钮"
+      "translation": "Android Studio的Welcome界面。右上角依次排列New Flutter Project、New Project和Open按钮"
     },
     {
       "source": "右上のNew Projectをクリック。 <a1>画像を大きく開く</a1>",
@@ -308,11 +308,11 @@
     },
     {
       "source": "New Projectの設定画面。NameにA07BillSplitter、Package nameにjp.ac.jec.a07billsplitter、LanguageにJava、Minimum SDKにAPI 31が入っている",
-      "translation": "New Project设置屏幕。Name为A07BillSplitter，Package name为jp.ac.jec.a07billsplitter，Language为Java，Minimum SDK为API 31"
+      "translation": "New Project设置界面。Name为A07BillSplitter，Package name为jp.ac.jec.a07billsplitter，Language为Java，Minimum SDK为API 31"
     },
     {
       "source": "入力後の画面。画像の保存先は先生の環境のものです。自分のDocuments以下を指定します。 <a1>画像を大きく開く</a1>",
-      "translation": "输入后的屏幕。图片中的保存位置属于老师的环境。请指定自己的Documents下的位置。<a1>查看大图</a1>"
+      "translation": "输入后的界面。图片中的保存位置属于老师的环境。请指定自己的Documents下的位置。<a1>查看大图</a1>"
     },
     {
       "source": "Sync（歯車の読み込み）が終わるまで待ちます。",
@@ -320,7 +320,7 @@
     },
     {
       "source": "端末欄で <strong>jec_26cm_android1_Pixel 9a</strong> を選び、<strong>Run</strong>（▶）を押します。白い画面に <strong>Hello World!</strong> が出れば成功です。",
-      "translation": "在设备栏选择<strong>jec_26cm_android1_Pixel 9a</strong>，点击<strong>Run</strong>（▶）。白色屏幕中显示<strong>Hello World!</strong>就表示成功。"
+      "translation": "在设备栏选择<strong>jec_26cm_android1_Pixel 9a</strong>，点击<strong>Run</strong>（▶）。白色界面中显示<strong>Hello World!</strong>就表示成功。"
     },
     {
       "source": "エミュレータが出てこないときは<a1>共通資料：エミュレータ</a1>を見ます。",
@@ -344,7 +344,7 @@
     },
     {
       "source": "TOP画面の上に置く<strong>タイトル画像</strong>を追加します。画像の <code>title_img.png</code> は、教科書といっしょに配られた<strong>教材のフォルダ</strong>に入っています。Finderでコピーして、自分のプロジェクトに入れます。",
-      "translation": "添加放在TOP屏幕上方的<strong>标题图片</strong>。图片<code>title_img.png</code>在与教材一起发放的<strong>学习资料文件夹</strong>中。用Finder复制到自己的项目。"
+      "translation": "添加放在TOP界面上方的<strong>标题图片</strong>。图片<code>title_img.png</code>在与教材一起发放的<strong>学习资料文件夹</strong>中。用Finder复制到自己的项目。"
     },
     {
       "source": "Finderを開き、左側の <strong>書類</strong> をクリックします。教材のフォルダをダブルクリックで開きます。名前は <code>android1-student-materials-</code> のうしろに日付が付いた形で、日付は配られた回によって変わります。",
@@ -380,11 +380,11 @@
     },
     {
       "source": "貼り付け先がdrawableになっているか確認します。この画面は先生の例です。<strong>Copy file</strong> のうしろ（コピー元の場所）は、自分の画面では教材のフォルダの中の場所になります。 <a1>画像を大きく開く</a1>",
-      "translation": "检查粘贴目标是否为drawable。这是老师的示例屏幕。自己的屏幕中，<strong>Copy file</strong>后面（复制来源位置）会是学习资料文件夹内的位置。<a1>查看大图</a1>"
+      "translation": "检查粘贴目标是否为drawable。这是老师的示例界面。自己的界面中，<strong>Copy file</strong>后面（复制来源位置）会是学习资料文件夹内的位置。<a1>查看大图</a1>"
     },
     {
       "source": "プロジェクト画面のdrawableフォルダに、ic_launcher_background.xml、ic_launcher_foreground.xml、title_img.pngが並んでいる",
-      "translation": "项目屏幕的drawable文件夹中列出ic_launcher_background.xml、ic_launcher_foreground.xml和title_img.png"
+      "translation": "项目界面的drawable文件夹中列出ic_launcher_background.xml、ic_launcher_foreground.xml和title_img.png"
     },
     {
       "source": "drawableの中に <code>title_img.png</code> が増えていれば成功です。 <a1>画像を大きく開く</a1>",
@@ -392,11 +392,11 @@
     },
     {
       "source": "title_img.pngをres/drawableに入れ、プロジェクト画面で確認できた。",
-      "translation": "已将title_img.png放入res/drawable，并在项目屏幕中确认。"
+      "translation": "已将title_img.png放入res/drawable，并在项目界面中确认。"
     },
     {
       "source": "次へ：TOP画面のレイアウトを作る →",
-      "translation": "下一步：制作TOP屏幕的布局 →"
+      "translation": "下一步：制作TOP界面的布局 →"
     },
     {
       "source": "STEP 03 · 目安 20分",
@@ -404,7 +404,7 @@
     },
     {
       "source": "TOP画面のレイアウトを作る",
-      "translation": "制作TOP屏幕的布局"
+      "translation": "制作TOP界面的布局"
     },
     {
       "source": "<code>app → src → main → res → layout → activity_main.xml</code> を開き、左上の <strong>Code</strong> を選びます。中身をすべて消して、次のコードに置き換えます。",
@@ -444,7 +444,7 @@
     },
     {
       "source": "ワリカン画面へ進む。",
-      "translation": "前往分摊屏幕。"
+      "translation": "前往分摊界面。"
     },
     {
       "source": "登録した名前を並べて表示する。",
@@ -456,11 +456,11 @@
     },
     {
       "source": "Runすると、STEP 00の1枚目と同じ画面になります。まだボタンを押しても何も起きません。",
-      "translation": "Run后会显示与STEP 00第一张图片相同的屏幕。现在点击按钮还不会发生任何变化。"
+      "translation": "Run后会显示与STEP 00第一张图片相同的界面。现在点击按钮还不会发生任何变化。"
     },
     {
       "source": "TOP画面のレイアウトを作り、タイトル画像・入力欄・ボタン2つ・参加者一覧を表示できた。",
-      "translation": "已制作TOP屏幕布局，能够显示标题图片、输入框、两个按钮和参与者列表。"
+      "translation": "已制作TOP界面布局，能够显示标题图片、输入框、两个按钮和参与者列表。"
     },
     {
       "source": "次へ：参加者を登録する →",
@@ -480,7 +480,7 @@
     },
     {
       "source": "① 名前をためる入れ物と、画面の部品を用意する",
-      "translation": "① 准备保存姓名的容器和屏幕控件"
+      "translation": "① 准备保存姓名的容器和界面控件"
     },
     {
       "source": "MainActivity.java · onCreateの中",
@@ -584,7 +584,7 @@
     },
     {
       "source": "次へ：ワリカン画面を作る →",
-      "translation": "下一步：制作分摊屏幕 →"
+      "translation": "下一步：制作分摊界面 →"
     },
     {
       "source": "STEP 05 · 目安 15分",
@@ -592,15 +592,15 @@
     },
     {
       "source": "ワリカン画面を作る",
-      "translation": "制作分摊屏幕"
+      "translation": "制作分摊界面"
     },
     {
       "source": "2つ目の画面を追加します。A06のTestActivityと同じ作り方です。",
-      "translation": "添加第二个屏幕。创建方法与A06的TestActivity相同。"
+      "translation": "添加第二个界面。创建方法与A06的TestActivity相同。"
     },
     {
       "source": "左側のプロジェクト画面で <code>app → src → main → java → jp.ac.jec.a07billsplitter</code> を右クリックします。",
-      "translation": "在左侧项目屏幕中，右键点击<code>app → src → main → java → jp.ac.jec.a07billsplitter</code>。"
+      "translation": "在左侧项目界面中，右键点击<code>app → src → main → java → jp.ac.jec.a07billsplitter</code>。"
     },
     {
       "source": "<strong>New → Activity → Empty Views Activity</strong> を選びます。",
@@ -628,7 +628,7 @@
     },
     {
       "source": "New Android Activityの設定画面。Activity NameにBillSplitActivity、Layout Nameにactivity_bill_split、Launcher Activityは未チェック",
-      "translation": "New Android Activity设置屏幕。Activity Name为BillSplitActivity，Layout Name为activity_bill_split，Launcher Activity未勾选"
+      "translation": "New Android Activity设置界面。Activity Name为BillSplitActivity，Layout Name为activity_bill_split，Launcher Activity未勾选"
     },
     {
       "source": "<strong>Launcher Activityにはチェックを入れません。</strong>理由はこのあとで説明します。 <a1>画像を大きく開く</a1>",
@@ -640,7 +640,7 @@
     },
     {
       "source": "この作り方なら <code>AndroidManifest.xml</code> への登録も自動で行われます。<strong>New → Java Class</strong> で作ると登録されず、画面を開いたときにアプリが終了します。",
-      "translation": "使用这种创建方式，也会自动登记到<code>AndroidManifest.xml</code>中。通过<strong>New → Java Class</strong>创建则不会登记，打开屏幕时应用会关闭。"
+      "translation": "使用这种创建方式，也会自动登记到<code>AndroidManifest.xml</code>中。通过<strong>New → Java Class</strong>创建则不会登记，打开界面时应用会关闭。"
     },
     {
       "source": "AndroidManifest.xmlに増えた3行を見る",
@@ -656,7 +656,7 @@
     },
     {
       "source": "アプリの画面をAndroidに知らせる。この登録がないと、画面を開いたときにアプリが終了する。",
-      "translation": "向Android登记应用的屏幕。如果没有这项登记，打开屏幕时应用会关闭。"
+      "translation": "向Android登记应用的界面。如果没有这项登记，打开界面时应用会关闭。"
     },
     {
       "source": "登録するクラス。先頭の <code>.</code> は、パッケージ名 <code>jp.ac.jec.a07billsplitter</code> を省いた書き方。",
@@ -664,7 +664,7 @@
     },
     {
       "source": "ほかのアプリからこの画面を開けないようにする。<code>BillSplitActivity</code> は自分のアプリの <code>MainActivity</code> からだけ開く。",
-      "translation": "不允许其他应用打开此屏幕。<code>BillSplitActivity</code>只从本应用的<code>MainActivity</code>打开。"
+      "translation": "不允许其他应用打开此界面。<code>BillSplitActivity</code>只从本应用的<code>MainActivity</code>打开。"
     },
     {
       "source": "なぜLauncher Activityにチェックを入れないのか",
@@ -672,7 +672,7 @@
     },
     {
       "source": "<code>MainActivity</code> の <code>&lt;activity&gt;</code> には <code>&lt;intent-filter&gt;</code>（<code>MAIN</code> と <code>LAUNCHER</code>）が書かれています。これは「アプリ一覧のアイコンから最初に開く画面」という印です。<code>BillSplitActivity</code> は <code>MainActivity</code> から開くので、この印は要りません。",
-      "translation": "<code>MainActivity</code>的<code>&lt;activity&gt;</code>中写有<code>&lt;intent-filter&gt;</code>（<code>MAIN</code>和<code>LAUNCHER</code>）。它表示“从应用列表图标最先打开的屏幕”。<code>BillSplitActivity</code>从<code>MainActivity</code>打开，因此不需要此标记。"
+      "translation": "<code>MainActivity</code>的<code>&lt;activity&gt;</code>中写有<code>&lt;intent-filter&gt;</code>（<code>MAIN</code>和<code>LAUNCHER</code>）。它表示“从应用列表图标最先打开的界面”。<code>BillSplitActivity</code>从<code>MainActivity</code>打开，因此不需要此标记。"
     },
     {
       "source": "Launcher Activityにチェックを入れると、<code>BillSplitActivity</code> にもこの印が付いて、次の2つが起きます。",
@@ -684,7 +684,7 @@
     },
     {
       "source": "<strong>Runしたときに、作ったばかりの何もない画面が起動することがあります。</strong>印の付いた画面が2つあるため、どちらから始まるかが決まらないからです。",
-      "translation": "<strong>Run时可能启动刚创建的空白屏幕。</strong>因为有两个屏幕带有标记，无法确定从哪个开始。"
+      "translation": "<strong>Run时可能启动刚创建的空白界面。</strong>因为有两个界面带有标记，无法确定从哪个开始。"
     },
     {
       "source": "入れてしまったときは、<code>BillSplitActivity</code> の <code>&lt;activity&gt;</code> から <code>&lt;intent-filter&gt;</code> を消して、<code>android:exported</code> を <code>false</code> に戻します。上の3行と同じ形になれば直っています。",
@@ -692,7 +692,7 @@
     },
     {
       "source": "ワリカン画面のレイアウト",
-      "translation": "分摊屏幕的布局"
+      "translation": "分摊界面的布局"
     },
     {
       "source": "<code>res → layout → activity_bill_split.xml</code> を開き、<strong>Code</strong> にしてから、中身をすべて次のコードに置き換えます。",
@@ -728,7 +728,7 @@
     },
     {
       "source": "次へ：参加者リストを渡して画面を切り替える →",
-      "translation": "下一步：传递参与者列表并切换屏幕 →"
+      "translation": "下一步：传递参与者列表并切换界面 →"
     },
     {
       "source": "STEP 06 · 目安 20分",
@@ -736,7 +736,7 @@
     },
     {
       "source": "参加者リストを渡して画面を切り替える",
-      "translation": "传递参与者列表并切换屏幕"
+      "translation": "传递参与者列表并切换界面"
     },
     {
       "source": "A06のTest 3でやった<strong>配列を渡す</strong>形です。渡す側と受け取る側の両方を書きます。",
@@ -760,15 +760,15 @@
     },
     {
       "source": "クラス名を付けて <code>BillSplitActivity.start(…)</code> と呼べるメソッド。この画面を開く手順を、開かれる側であるこの画面自身が持つ。",
-      "translation": "可以加上类名，以<code>BillSplitActivity.start(…)</code>调用的方法。打开此屏幕的步骤由被打开的屏幕自身持有。"
+      "translation": "可以加上类名，以<code>BillSplitActivity.start(…)</code>调用的方法。打开此界面的步骤由被打开的界面自身持有。"
     },
     {
       "source": "画面（Activity）を受け取るための型。呼ぶ側が <code>this</code> を渡すと、ここに入る。",
-      "translation": "接收屏幕（Activity）的类型。调用方传入<code>this</code>时，会放到这里。"
+      "translation": "接收界面（Activity）的类型。调用方传入<code>this</code>时，会放到这里。"
     },
     {
       "source": "今の画面から <code>BillSplitActivity</code> を開くための指示（Intent）を作る。",
-      "translation": "创建从当前屏幕打开<code>BillSplitActivity</code>的指令（Intent）。"
+      "translation": "创建从当前界面打开<code>BillSplitActivity</code>的指令（Intent）。"
     },
     {
       "source": "キーを付けて、渡したい値をIntentに入れる。",
@@ -780,7 +780,7 @@
     },
     {
       "source": "キーの文字（<code>\"participants\"</code>）は、受け取る側であるこの画面が持ちます。渡す側は <code>start</code> を呼ぶだけでよく、キーを間違えようがありません。",
-      "translation": "键的文字（<code>\"participants\"</code>）由接收端，即本屏幕持有。发送端只需调用<code>start</code>，不会写错键。"
+      "translation": "键的文字（<code>\"participants\"</code>）由接收端，即本界面持有。发送端只需调用<code>start</code>，不会写错键。"
     },
     {
       "source": "② 受け取って人数を表示する",
@@ -796,7 +796,7 @@
     },
     {
       "source": "<code>getIntent()</code> は、この画面を開いたときのIntent（①の <code>start</code> で作って <code>startActivity</code> に渡したもの）を返します。<code>getStringArrayExtra(EXTRA_KEY_PARTICIPANTS)</code> は、そのIntentから、①で <code>putExtra</code> したのと同じキーの配列を取り出します。値が入っていないと <code>null</code> を返します。<code>Objects.requireNonNull</code> は、<code>null</code> だったらその場でアプリを止める書き方です。ここが <code>null</code> になるのは渡し忘れというプログラムの間違いのときだけなので、すぐ気づけるようにしておきます。",
-      "translation": "<code>getIntent()</code>返回打开此屏幕时的Intent（在①的<code>start</code>中创建并传给<code>startActivity</code>的对象）。<code>getStringArrayExtra(EXTRA_KEY_PARTICIPANTS)</code>从此Intent中，取出与①的<code>putExtra</code>使用同一个键的数组。没有值时返回<code>null</code>。<code>Objects.requireNonNull</code>是在值为<code>null</code>时立即停止应用的写法。只有忘记传值这类程序错误才会使这里变为<code>null</code>，因此让问题能立即被发现。"
+      "translation": "<code>getIntent()</code>返回打开此界面时的Intent（在①的<code>start</code>中创建并传给<code>startActivity</code>的对象）。<code>getStringArrayExtra(EXTRA_KEY_PARTICIPANTS)</code>从此Intent中，取出与①的<code>putExtra</code>使用同一个键的数组。没有值时返回<code>null</code>。<code>Objects.requireNonNull</code>是在值为<code>null</code>时立即停止应用的写法。只有忘记传值这类程序错误才会使这里变为<code>null</code>，因此让问题能立即被发现。"
     },
     {
       "source": "③ 渡す側（MainActivity）から呼ぶ",
@@ -816,7 +816,7 @@
     },
     {
       "source": "1人では割り勘になりません。2人未満のときは画面を切り替えずにメッセージを出します。",
-      "translation": "只有1人无法分摊。少于2人时不切换屏幕，而是显示消息。"
+      "translation": "只有1人无法分摊。少于2人时不切换界面，而是显示消息。"
     },
     {
       "source": "④ Runで確かめる",
@@ -824,23 +824,23 @@
     },
     {
       "source": "参加者を1人だけ登録して <strong>ワリカン画面へ</strong> を押します。",
-      "translation": "只登记1位参与者，点击<strong>ワリカン画面へ</strong>（前往分摊屏幕）。"
+      "translation": "只登记1位参与者，点击<strong>ワリカン画面へ</strong>（前往分摊界面）。"
     },
     {
       "source": "参加者が1人のときにワリカン画面へを押して、参加者を2人以上追加してくださいと表示されている",
-      "translation": "只有1位参与者时点击「ワリカン画面へ」（前往分摊屏幕），显示「参加者を2人以上追加してください」（请添加至少2位参与者）"
+      "translation": "只有1位参与者时点击「ワリカン画面へ」（前往分摊界面），显示「参加者を2人以上追加してください」（请添加至少2位参与者）"
     },
     {
       "source": "1人のときは画面が切り替わりません。 <a1>画像を大きく開く</a1>",
-      "translation": "只有1人时不会切换屏幕。<a1>查看大图</a1>"
+      "translation": "只有1人时不会切换界面。<a1>查看大图</a1>"
     },
     {
       "source": "3人登録してから <strong>ワリカン画面へ</strong> を押します。",
-      "translation": "登记3人后，点击<strong>ワリカン画面へ</strong>（前往分摊屏幕）。"
+      "translation": "登记3人后，点击<strong>ワリカン画面へ</strong>（前往分摊界面）。"
     },
     {
       "source": "ワリカン画面。上に参加者は3人、その下に支払額（￥）のラベルと金額の入力欄、計算実行ボタン、計算結果の見出しがある",
-      "translation": "分摊屏幕。上方显示「参加者は3人」（参与者有3人），下方有「支払額（￥）」（支付金额）标签、金额输入框、「計算実行」（执行计算）按钮和「計算結果」（计算结果）标题"
+      "translation": "分摊界面。上方显示「参加者は3人」（参与者有3人），下方有「支払額（￥）」（支付金额）标签、金额输入框、「計算実行」（执行计算）按钮和「計算結果」（计算结果）标题"
     },
     {
       "source": "渡した人数が <strong>参加者は3人</strong> と表示されます。 <a1>画像を大きく開く</a1>",
@@ -848,7 +848,7 @@
     },
     {
       "source": "2人以上のときだけワリカン画面が開き、渡した人数を表示できた。",
-      "translation": "已确认只有2人及以上时才打开分摊屏幕，并能显示传递的人数。"
+      "translation": "已确认只有2人及以上时才打开分摊界面，并能显示传递的人数。"
     },
     {
       "source": "次へ：割り勘の計算クラスを使う →",
@@ -880,7 +880,7 @@
     },
     {
       "source": "左側のプロジェクト画面で <code>app → src → main → java → jp.ac.jec.a07billsplitter</code>（<code>MainActivity.java</code> があるフォルダ）を右クリックし、<strong>New → Java Class</strong> を選びます。",
-      "translation": "在左侧项目屏幕中右键点击<code>app → src → main → java → jp.ac.jec.a07billsplitter</code>（<code>MainActivity.java</code>所在文件夹），选择<strong>New → Java Class</strong>。"
+      "translation": "在左侧项目界面中右键点击<code>app → src → main → java → jp.ac.jec.a07billsplitter</code>（<code>MainActivity.java</code>所在文件夹），选择<strong>New → Java Class</strong>。"
     },
     {
       "source": "<strong>New Java Class</strong> という小さなウィンドウが出ます。いちばん上の欄に、名前 <code>BillSplitter</code> を入力します。<code>.java</code> は付けません。",
@@ -1040,7 +1040,7 @@
     },
     {
       "source": "解説：入力チェック2のメッセージは、画面の操作では出ない",
-      "translation": "讲解：输入检查2的消息不会通过屏幕操作出现"
+      "translation": "讲解：输入检查2的消息不会通过界面操作出现"
     },
     {
       "source": "3つのうち、入力チェック2の「支払い金額は数字で入力してください」だけは、このアプリをどう操作しても表示されません。STEP 05のレイアウトで、金額の入力欄を2つの指定でしぼってあるためです。",
@@ -1072,7 +1072,7 @@
     },
     {
       "source": "<code>BillSplitter</code> は計算だけを担当し、画面に出すメッセージを持っていません。<strong>ユーザーの入力ミスは画面側で止める</strong>、という分け方です。こうすると、計算の部分は他のアプリでもそのまま使えます。",
-      "translation": "<code>BillSplitter</code>只负责计算，不包含屏幕显示的消息。分工是<strong>在屏幕端拦截用户的输入错误</strong>。这样，计算部分可以直接用于其他应用。"
+      "translation": "<code>BillSplitter</code>只负责计算，不包含界面显示的消息。分工是<strong>在界面端拦截用户的输入错误</strong>。这样，计算部分可以直接用于其他应用。"
     },
     {
       "source": "Runで確かめる",
@@ -1080,7 +1080,7 @@
     },
     {
       "source": "画面で確かめるのは、入力チェック1と入力チェック3の2つです。",
-      "translation": "要在屏幕上确认的是输入检查1和输入检查3这两项。"
+      "translation": "要在界面上确认的是输入检查1和输入检查3这两项。"
     },
     {
       "source": "何も入力せずに <strong>計算実行</strong> を押します。",
@@ -1224,11 +1224,11 @@
     },
     {
       "source": "2つの画面の役割",
-      "translation": "两个屏幕的作用"
+      "translation": "两个界面的作用"
     },
     {
       "source": "画面",
-      "translation": "屏幕"
+      "translation": "界面"
     },
     {
       "source": "やること",
@@ -1240,7 +1240,7 @@
     },
     {
       "source": "参加者を登録する。2人以上でワリカン画面へ渡す。",
-      "translation": "登记参与者。有2人及以上时，传给分摊屏幕。"
+      "translation": "登记参与者。有2人及以上时，传给分摊界面。"
     },
     {
       "source": "金額を受け取り、チェックしてから計算・表示する。",
@@ -1276,7 +1276,7 @@
     },
     {
       "source": "参加者が1人以下でワリカン画面へ",
-      "translation": "只有1人或没有参与者时，前往分摊屏幕"
+      "translation": "只有1人或没有参与者时，前往分摊界面"
     },
     {
       "source": "参加者を2人以上追加してください",
@@ -1292,7 +1292,7 @@
     },
     {
       "source": "金額を数字に変えられない（<strong>画面の操作では出ない</strong>）",
-      "translation": "金额无法转换为数字（<strong>不会通过屏幕操作出现</strong>）"
+      "translation": "金额无法转换为数字（<strong>不会通过界面操作出现</strong>）"
     },
     {
       "source": "支払い金額は数字で入力してください",
@@ -1308,7 +1308,7 @@
     },
     {
       "source": "画面で出して確かめられるのは、6つのうち5つです。「支払い金額は数字で入力してください」は、金額の入力欄に半角の数字が9桁までしか入らないので表示されません（<a1>STEP 08の解説</a1>）。出せなくても、操作のまちがいではありません。",
-      "translation": "6项中，可以通过屏幕操作显示并确认的有5项。「支払い金額は数字で入力してください」（请用数字输入支付金额）不会显示，因为金额输入框最多只能输入9位半角数字（见<a1>STEP 08的讲解</a1>）。无法显示它并不是操作错误。"
+      "translation": "6项中，可以通过界面操作显示并确认的有5项。「支払い金額は数字で入力してください」（请用数字输入支付金额）不会显示，因为金额输入框最多只能输入9位半角数字（见<a1>STEP 08的讲解</a1>）。无法显示它并不是操作错误。"
     },
     {
       "source": "完成チェック",
@@ -1316,7 +1316,7 @@
     },
     {
       "source": "Runし直して、上から順に操作します。入力チェックのメッセージは、上の一覧のうち画面で出せる5つを確かめます。",
-      "translation": "重新Run，从上到下依次操作。输入检查的消息，确认上方列表中可通过屏幕操作显示的5项。"
+      "translation": "重新Run，从上到下依次操作。输入检查的消息，确认上方列表中可通过界面操作显示的5项。"
     },
     {
       "source": "操作",
@@ -1332,7 +1332,7 @@
     },
     {
       "source": "タイトル画像、名前の入力欄、「登録」「ワリカン画面へ」、「参加者一覧」の見出しが出る。一覧は空。",
-      "translation": "显示标题图片、姓名输入框、「登録」（登记）、「ワリカン画面へ」（前往分摊屏幕）和「参加者一覧」（参与者列表）标题。列表为空。"
+      "translation": "显示标题图片、姓名输入框、「登録」（登记）、「ワリカン画面へ」（前往分摊界面）和「参加者一覧」（参与者列表）标题。列表为空。"
     },
     {
       "source": "何も入れずに「登録」",
@@ -1344,11 +1344,11 @@
     },
     {
       "source": "Sato を登録 →「ワリカン画面へ」",
-      "translation": "登记Sato →「ワリカン画面へ」（前往分摊屏幕）"
+      "translation": "登记Sato →「ワリカン画面へ」（前往分摊界面）"
     },
     {
       "source": "一覧に Sato が出て、入力欄が空になる。1人のときは「参加者を2人以上追加してください」が出て、画面は切り替わらない。",
-      "translation": "列表显示Sato，输入框变空。只有1人时，显示「参加者を2人以上追加してください」（请添加至少2位参与者），不切换屏幕。"
+      "translation": "列表显示Sato，输入框变空。只有1人时，显示「参加者を2人以上追加してください」（请添加至少2位参与者），不切换界面。"
     },
     {
       "source": "Suzuki・Tanaka を登録 → もう一度 Sato を登録",
@@ -1360,11 +1360,11 @@
     },
     {
       "source": "「ワリカン画面へ」",
-      "translation": "「ワリカン画面へ」（前往分摊屏幕）"
+      "translation": "「ワリカン画面へ」（前往分摊界面）"
     },
     {
       "source": "画面が切り替わり、「参加者は3人」と出る。",
-      "translation": "屏幕切换，显示「参加者は3人」（参与者有3人）。"
+      "translation": "界面切换，显示「参加者は3人」（参与者有3人）。"
     },
     {
       "source": "何も入れずに「計算実行」",
@@ -1464,7 +1464,7 @@
     },
     {
       "source": "ワリカン画面へを押すとアプリが終了する",
-      "translation": "点击「ワリカン画面へ」（前往分摊屏幕）后应用关闭"
+      "translation": "点击「ワリカン画面へ」（前往分摊界面）后应用关闭"
     },
     {
       "source": "Logcatを <code>level:ERROR</code> にして <code>ActivityNotFoundException</code> か確認。<code>AndroidManifest.xml</code> に <code>android:name=\".BillSplitActivity\"</code> の <code>&lt;activity&gt;</code> があるか見る。New → Java Classで作ると登録されない。",
@@ -1472,7 +1472,7 @@
     },
     {
       "source": "アプリ一覧のアイコンが2つある（Runすると何もない画面から始まることがある）",
-      "translation": "应用列表中有两个图标（Run时有时会从空白屏幕开始）"
+      "translation": "应用列表中有两个图标（Run时有时会从空白界面开始）"
     },
     {
       "source": "STEP 05でLauncher Activityにチェックを入れた可能性がある。<code>BillSplitActivity</code> の <code>&lt;activity&gt;</code> から <code>&lt;intent-filter&gt;</code> を消し、<code>android:exported=\"false\"</code> にする。",
@@ -1480,7 +1480,7 @@
     },
     {
       "source": "ワリカン画面が真っ白、または人数が出ない",
-      "translation": "分摊屏幕全白，或没有显示人数"
+      "translation": "分摊界面全白，或没有显示人数"
     },
     {
       "source": "STEP 06②を書いたか確認。<code>txt_number_of_people</code> の綴りも見る。",

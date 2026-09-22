@@ -36,15 +36,15 @@
     },
     {
       "source": "エミュレータは、アプリを試すための練習用端末です。端末を探すのも作るのも、Android Studioの <strong>Device Manager</strong>（端末を管理する画面）で行います。まだプロジェクトを開いていなくても使えます。",
-      "translation": "模拟器是用于试运行应用的练习设备。查找和创建设备都在Android Studio的<strong>Device Manager</strong>（管理设备的屏幕）中进行。即使还没有打开项目，也可以使用。"
+      "translation": "模拟器是用于试运行应用的练习设备。查找和创建设备都在Android Studio的<strong>Device Manager</strong>（管理设备的界面）中进行。即使还没有打开项目，也可以使用。"
     },
     {
       "source": "Device Managerを開きます。開き方は、いまAndroid Studioに出ている画面で決まります。次の2つのどちらかです。",
-      "translation": "打开Device Manager。打开方式取决于Android Studio当前显示的屏幕。以下两种情况选择对应的一种。"
+      "translation": "打开Device Manager。打开方式取决于Android Studio当前显示的界面。以下两种情况选择对应的一种。"
     },
     {
       "source": "いま出ている画面",
-      "translation": "当前显示的屏幕"
+      "translation": "当前显示的界面"
     },
     {
       "source": "Device Managerの開き方",
@@ -52,7 +52,7 @@
     },
     {
       "source": "<strong>最初の画面（Welcome画面）</strong><br>まだプロジェクトを開いていない",
-      "translation": "<strong>初始屏幕（Welcome屏幕）</strong><br>尚未打开项目"
+      "translation": "<strong>初始界面（Welcome界面）</strong><br>尚未打开项目"
     },
     {
       "source": "右上の <strong>Open</strong> の右にある <strong>⋮</strong>（縦に並んだ3つの点）をクリックし、出てきたメニューで <strong>Virtual Device Manager</strong> を選びます。",
@@ -60,7 +60,7 @@
     },
     {
       "source": "<strong>プロジェクトを開いている</strong><br>コードを書く画面が出ている",
-      "translation": "<strong>已打开项目</strong><br>正在显示编写代码的屏幕"
+      "translation": "<strong>已打开项目</strong><br>正在显示编写代码的界面"
     },
     {
       "source": "上のメニューで <strong>View → Tool Windows → Device Manager</strong> を選びます。",
@@ -68,7 +68,7 @@
     },
     {
       "source": "最初の画面に ⋮ が見つからないとき",
-      "translation": "在初始屏幕找不到⋮时"
+      "translation": "在初始界面找不到⋮时"
     },
     {
       "source": "⋮ のかわりに、<strong>More Actions</strong> という文字が出ていることがあります。そのときは <strong>More Actions</strong> をクリックし、同じように <strong>Virtual Device Manager</strong> を選びます。",
@@ -76,7 +76,7 @@
     },
     {
       "source": "どちらの場合も <strong>Device Manager</strong> が開き、端末の一覧が出ます。最初の画面から開いたときは、別のウィンドウで開きます。",
-      "translation": "两种方式都会打开<strong>Device Manager</strong>并显示设备列表。从初始屏幕打开时，会在单独的窗口中打开。"
+      "translation": "两种方式都会打开<strong>Device Manager</strong>并显示设备列表。从初始界面打开时，会在单独的窗口中打开。"
     },
     {
       "source": "端末の一覧に <strong>jec_26cm_android1_Pixel 9a</strong> があるか確認します。名前の区切りが <code>_</code> で表示されることもあります。",
@@ -112,7 +112,7 @@
     },
     {
       "source": "Device Managerの <strong>＋ → Create Virtual Device</strong> をクリックします。画面によっては <strong>Create Device</strong> と表示されます。",
-      "translation": "点击Device Manager中的<strong>＋ → Create Virtual Device</strong>。在某些屏幕中会显示为<strong>Create Device</strong>。"
+      "translation": "点击Device Manager中的<strong>＋ → Create Virtual Device</strong>。在某些界面中会显示为<strong>Create Device</strong>。"
     },
     {
       "source": "Phoneの一覧で <strong>Pixel 9a</strong> を選び、<strong>Next</strong>。",
@@ -164,7 +164,7 @@
     },
     {
       "source": "ビルド（コードからアプリを作る処理）が終わるまで待ちます。アプリの画面が出たら、そのステップの「成功の目印」と比べます。",
-      "translation": "等待构建（由代码生成应用的处理）完成。应用屏幕出现后，与该步骤的“成功的标志”进行比较。"
+      "translation": "等待构建（由代码生成应用的处理）完成。应用界面出现后，与该步骤的“成功的标志”进行比较。"
     },
     {
       "source": "端末を選ぶ",
@@ -172,7 +172,7 @@
     },
     {
       "source": "画面を見る",
-      "translation": "查看屏幕"
+      "translation": "查看界面"
     },
     {
       "source": "コードを変えるたびに、この順で実行します。元の文字から試したいときは、Android Studioの <strong>Stop ■</strong> でアプリを止め、もう一度 <strong>Run ▶</strong> を押します。",
@@ -236,7 +236,7 @@
     },
     {
       "source": "<strong>最近使ったアプリ</strong>の画面になります。開いていたアプリが、小さくなって並びます。",
-      "translation": "屏幕切换为<strong>最近使ったアプリ</strong>（最近使用的应用）。之前打开的应用会缩小并排列在一起。"
+      "translation": "界面切换为<strong>最近使ったアプリ</strong>（最近使用的应用）。之前打开的应用会缩小并排列在一起。"
     },
     {
       "source": "終了したいアプリを、上へスワイプします。画面の外へ消えれば終了です。",
@@ -244,7 +244,7 @@
     },
     {
       "source": "止めずにすばやくスワイプすると、ホーム画面に戻るだけで、手順2の画面は出ません。ホーム画面に戻っただけでは、アプリは終了していません。もう一度アプリを開いて、手順1からやり直します。",
-      "translation": "如果不停住而快速滑动，只会返回主屏幕，不会出现步骤2的屏幕。仅仅返回主屏幕并不等于关闭应用。重新打开应用，从步骤1重新操作。"
+      "translation": "如果不停住而快速滑动，只会返回主屏幕，不会出现步骤2的界面。仅仅返回主屏幕并不等于关闭应用。重新打开应用，从步骤1重新操作。"
     },
     {
       "source": "アプリを消す（アンインストール）",
@@ -288,7 +288,7 @@
     },
     {
       "source": "アプリ情報の画面。アプリ名の下に、アーカイブ、アンインストール、強制停止の3つのボタンが横に並んでいる。まん中のアンインストールはごみ箱の絵",
-      "translation": "“アプリ情報”（应用信息）屏幕。应用名称下方横向排列着归档、卸载和强行停止三个按钮。中间的“アンインストール”（卸载）带有垃圾桶图标"
+      "translation": "“アプリ情報”（应用信息）界面。应用名称下方横向排列着归档、卸载和强行停止三个按钮。中间的“アンインストール”（卸载）带有垃圾桶图标"
     },
     {
       "source": "② アプリ情報。3つ並んだボタンの、まん中が <strong>アンインストール</strong> です。 <a1>画像を大きく開く</a1>",
