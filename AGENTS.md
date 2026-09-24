@@ -171,7 +171,7 @@
 
   | bot | Draft中 | Draft解除後 | 指摘 |
   | --- | --- | --- | --- |
-  | Cursor Bugbot | チェックが現れない（起動しない） | 解除の直後に`pending`、2分前後で完了。指摘なしで`SUCCESS`、指摘ありで`NEUTRAL`（`gh pr checks` では `skipping`）。**本文への`<!-- CURSOR_SUMMARY -->`の追記は、必ず起きるとは限らない。**解除した時点の本文にこの文字列が入っていると、レビューはするのに追記だけを省く（#298、PR #306 の1回目）。入っていなければ、解除の数秒〜1分ほどあと、チェックの完了より前に追記される（#283・#295・#296、PR #306 の2回目） | 出る |
+  | Cursor Bugbot | チェックが現れない（起動しない） | 解除の直後に`pending`、2分前後で完了。指摘なしで`SUCCESS`、指摘ありで`NEUTRAL`（`gh pr checks` では `skipping`）。**本文への`<!-- CURSOR_SUMMARY -->`の追記は、必ず起きるとは限らない。** 解除した時点の本文にこの文字列が入っていると、レビューはするのに追記だけを省く（#298、PR #306 の1回目）。入っていなければ、解除の数秒〜1分ほどあと、チェックの完了より前に追記される（#283・#295・#296、PR #306 の2回目） | 出る |
   | CodeRabbit | 「Review skipped: draft pull request」だけ | 1時間あたりの回数に上限がある。枠が残っていればレビューし、本文に要約ブロックを追記する。使い切ると「Review paused — included plan limit reached」のコメントだけになる | 枠が残っていれば出る |
   | Devin Review | 何も投稿しない | 解除の1〜2分後にレビューを1件投稿する。指摘がなければ `✅ Devin Review: No Issues Found`、あれば `Devin Review found N potential issue.` とインライン指摘。**指摘の有無にかかわらずチェックは`pass`**（実測：#305 は59秒で指摘なし、#307 は1分40秒でインライン1件、#309 は1分8秒で指摘なし）。#274 の時点では「Full review skipped: trial expired and no credits remaining」で動かなかった | 出る |
   | Copilot | — | レビューを1件投稿するが、内容は「クォータ上限のためレビューできない」 | 出ない |
