@@ -182,8 +182,8 @@
   | bot | 契約 | いつレビューするか | 止まるとき |
   | --- | --- | --- | --- |
   | Cursor Bugbot | Cursor は Pro+。Bugbot は Cursor のプランとは別の、月額固定の席課金。使用量課金に切り替えると1回約 $1.20 と Cursor の画面で見積もられている。切り替えるかはオーナーが決める | Draftを外したとき、Draftでないときのpush | 席課金のあいだは、PR #204〜#331 で止まったことがない |
-  | CodeRabbit | Essentials | PRを開いたとき（Draftならスキップ）、push | 1時間あたりの枠を使い切ったとき。枠は、直近7日のレビュー件数が多いほど減る（PR #331 で「1 review per hour」）。**CodeRabbit のコメントにあるチェックボックス（オンデマンドレビュー、autofix など）は押さない。** |
-  | Codex | ChatGPT Pro の Codex で、GitHub の自動レビューを有効にした | 新しいPRを開いたとき、Draftを外したとき、push、`@codex review` のコメント。OpenAI のドキュメントでは、GitHub では P0・P1 だけを指摘するとあるが、PR #331 では `P2` も1件出た。規則は末尾の「Code Review Rules」 | 2026-09-26 に有効にしたばかりで、止まった例はまだない |
+  | CodeRabbit | Essentials | Draftでない新しいPRを開いたとき、Draftを外したとき、push。Draftで開くと「Draft PR not reviewed」のコメントだけ | 1時間あたりの枠を使い切ったとき。枠は、直近7日のレビュー件数が多いほど減る（PR #331 で「1 review per hour」）。**CodeRabbit のコメントにあるチェックボックス（オンデマンドレビュー、autofix など）は押さない。** |
+  | Codex | ChatGPT Pro の Codex で、GitHub の自動レビューを有効にした | Draftでない新しいPRを開いたとき、Draftを外したとき、push、`@codex review` のコメント。Draftで開いたPRは、Draftのあいだ何もしない（PR #331・#334）。OpenAI のドキュメントでは、GitHub では P0・P1 だけを指摘するとあるが、PR #331 では `P2` も1件出た。規則は末尾の「Code Review Rules」 | 2026-09-26 に有効にしたばかりで、止まった例はまだない |
   | Copilot | 教員の無償プラン | 月の枠が残っていれば、Draftでないときにレビューする | 月の枠を使い切ると、未実施の通知だけをレビューとして投稿する。枠は毎月1日 09:00（日本時間）に戻る |
   | Devin Review | 2026-09-26 に解約し、GitHub App を外した | — | — |
   | Qodo | 2026-09-26 に解約し、GitHub App を外した | — | — |
