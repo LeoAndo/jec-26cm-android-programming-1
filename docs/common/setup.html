@@ -8,10 +8,10 @@
 <main id="main"><div class="hero"><p class="eyebrow">ANDROID PROGRAMMING 1 / 共通資料・授業サポート</p><h1>授業を始めるまでの<br>準備</h1><p class="lede">教材を受け取ってから、最初のアプリが動くまで。上から順に1回だけ行います。2回目からは、教科書を開くところから始められます。</p></div>
 
 <section id="flow"><h2>この資料の流れ</h2>
-<div class="flow"><strong>① 教材を受け取る</strong><span>→</span><strong>② Android Studio</strong><span>→</span><strong>③ 置き場を作る</strong><span>→</span><strong>④ adbの準備</strong><span>→</span><strong>⑤ エミュレータ</strong><span>→</span><strong>⑥ 日本語にする</strong><span>→</span><strong>⑦ キーボード</strong><span>→</span><strong>⑧ ほかの設定</strong><span>→</span><strong>⑨ 動かして確かめる</strong></div>
+<div class="flow"><strong>① 教材を受け取る</strong><span>→</span><strong>② Android Studio</strong><span>→</span><strong>③ 置き場を作る</strong><span>→</span><strong>④ adbの準備</strong><span>→</span><strong>⑤ エミュレータ</strong><span>→</span><strong>⑥ 日本語にする</strong><span>→</span><strong>⑦ キーボード</strong><span>→</span><strong>⑧ ほかの設定</strong></div>
 <p>番号は、下の見出しの番号と同じです。③・④・⑥では、Terminal（ターミナル）に文字を打ちます。そのほかは、FinderやAndroid Studio、エミュレータの画面を操作します。</p>
 <div class="note"><p class="box-title">つまずいたら、そこで止めて先生を呼んでください</p><p>各ステップに「成功の目印」があります。目印と違う画面になったら、先に進まずに、その画面のまま先生に見せてください。前に戻ってやり直すより早く終わります。</p></div>
-<div class="goal"><p class="box-title">この準備が終わると</p><p>自分のMacで、日本語が打てるAndroidの練習用端末が動き、A01の完成アプリを実行できる状態になります。</p></div></section>
+<div class="goal"><p class="box-title">この準備が終わると</p><p>自分のMacで、日本語が打てるAndroidの練習用端末が動く状態になります。</p></div></section>
 
 <section id="materials"><h2>1. 教材を受け取り、「書類」に置く</h2>
 <p>授業で使う教科書（きょうかしょ）は、Google Classroomで配られます。ファイルを1つダウンロードし、置き場所を決めるところまでを行います。</p>
@@ -114,10 +114,22 @@ emulator-5554	device</code></pre>
 <p>エミュレータの画面で操作します。文字を入力できるところなら、どこでも構いません。</p>
 <ol>
 <li>エミュレータで、文字を入力する欄を<strong>タップ</strong>します。設定アプリの「設定を検索」の欄が分かりやすいです。</li>
-<li><strong>ひらがな　入力レイアウトの選択</strong> と出ます。左の <strong>12 キー</strong> が選ばれた状態のまま、右下の <strong>次へ</strong> をタップします。</li>
+<li>画面の左端に、縦型のツールバー（マイクや「あ」のアイコン）が出ます。Macのキーボードがつながっていると、画面キーボードが自動では開かず、このツールバーが表示されます。</li>
 </ol>
-<div class="phone"><figure><a href="images/gboard-hiragana-layout.png"><img src="images/gboard-hiragana-layout.png" width="1080" height="2424" alt="ひらがな　入力レイアウトの選択のダイアログ。左に12キー、右にQWERTYの絵が並び、左の12キーが青い枠で選ばれている。下にスキップと次へのボタンがある"></a><figcaption>左の <strong>12 キー</strong> のまま <strong>次へ</strong> をタップします。 <a href="images/gboard-hiragana-layout.png">画像を大きく開く</a></figcaption></figure></div>
+<div class="note"><p class="box-title">「物理キーボードと画面キーボードのレイアウトが一致していません」と出たとき</p><p>吹き出しが出た場合は、<strong>いいえ</strong> をタップするか、そのままにして進めて大丈夫です。</p></div>
 <ol start="3">
+<li>縦型ツールバーの一番下にある <strong>あ</strong> のアイコンをタップします。</li>
+<li>メニューが開くので、<strong>画面キーボードを表示する</strong> をタップします。</li>
+</ol>
+<div class="phones">
+<figure><a href="images/gboard-vertical-toolbar.png"><img src="images/gboard-vertical-toolbar.png" width="1080" height="2424" alt="文字入力欄をタップしたエミュレータ画面。画面左端にマイクやあなどのアイコンが並ぶ縦型ツールバーが表示され、物理キーボードの調整を確認する吹き出しが出ている"></a><figcaption>入力欄をタップすると左端に縦型ツールバーが出ます。一番下の <strong>あ</strong> をタップします。 <a href="images/gboard-vertical-toolbar.png">画像を大きく開く</a></figcaption></figure>
+<figure><a href="images/gboard-menu-show-keyboard.png"><img src="images/gboard-menu-show-keyboard.png" width="1080" height="2424" alt="あアイコンをタップして開いたメニュー画面。設定、手書き入力、画面キーボードを表示するなどの項目が並んでいる"></a><figcaption>メニューが開くので、<strong>画面キーボードを表示する</strong> をタップします。 <a href="images/gboard-menu-show-keyboard.png">画像を大きく開く</a></figcaption></figure>
+</div>
+<ol start="5">
+<li>画面キーボードと一緒に <strong>ひらがな　入力レイアウトの選択</strong> が出ます。左の <strong>12 キー</strong> が選ばれた状態のまま、右下の <strong>次へ</strong> をタップします。</li>
+</ol>
+<div class="phone"><figure><a href="images/gboard-hiragana-layout.png"><img src="images/gboard-hiragana-layout.png" width="1080" height="2424" alt="ひらがな　入力レイアウトの選択のダイアログとキーボード。左に12キー、右にQWERTYが並び、左の12キーが選ばれている。右下に次へのボタンがある"></a><figcaption>左の <strong>12 キー</strong> のまま <strong>次へ</strong> をタップします。 <a href="images/gboard-hiragana-layout.png">画像を大きく開く</a></figcaption></figure></div>
+<ol start="6">
 <li>続けて <strong>アルファベット　入力レイアウトの選択</strong> が出たら、同じように <strong>12 キー</strong> のまま <strong>完了</strong> をタップします。この2ページ目は、出ないこともあります。</li>
 <li>キーボードが出ます。数字の電話のような形で、左下に <strong>あa1</strong> というキーがあります。</li>
 </ol>
@@ -145,21 +157,11 @@ emulator-5554	device</code></pre>
 <tr><td>タイムゾーン（時計）</td><td>そのまま</td></tr>
 <tr><td>フォントサイズ（文字の大きさ）</td><td>そのまま</td></tr>
 </tbody></table>
-<div class="note"><p class="box-title">インターネット接続だけ確認してください</p><p>Macがインターネットにつながっている必要があります。キーボードの漢字の変換候補や、授業で作るアプリの動作に使います。</p></div></section>
-
-<section id="run"><h2>9. 動くことを確かめる</h2>
-<p>最後に、できあがった環境でアプリが動くことを確かめます。A01の<strong>完成プロジェクト</strong>（先生が作った見本）を開いて実行します。見本は、手順1で「書類」に置いた教材のフォルダの <code>samples</code> に、そのまま開ける形で入っています。ダウンロードも展開も要りません。</p>
-<ol>
-<li>Android Studioの最初の画面で <strong>Open</strong> をクリックします。</li>
-<li>手順1で「書類」に置いた教材のフォルダを開き、その中の <code>samples</code> フォルダを開きます。一覧にある <code>A01HelloAndroid</code> フォルダを選び、<strong>開く（Open）</strong> をクリックします。</li>
-<li>画面の下で <strong>Gradle Sync</strong> という処理が終わるまで待ちます。初回は数分かかります。</li>
-<li>上部の端末の選択欄で <code>jec_26cm_android1_Pixel 9a</code> を選び、<strong>Run ▶</strong> をクリックします。</li>
-</ol>
-<div class="check"><p class="box-title">成功の目印</p><p>エミュレータにアプリが表示され、<strong>Hello World!</strong> という文字と、その下にボタンが並んでいる。</p></div>
+<div class="note"><p class="box-title">インターネット接続だけ確認してください</p><p>Macがインターネットにつながっている必要があります。キーボードの漢字の変換候補や、授業で作るアプリの動作に使います。</p></div>
 <p>ここまでできたら、準備は終わりです。次の授業からは、教科書を開くところから始められます。</p>
 <p><a class="button-link" href="../hello-android/index.html">A01：はじめてのアプリ作りへ進む →</a></p></section>
 
-<section id="trouble"><h2>10. うまくいかないとき</h2>
+<section id="trouble"><h2>9. うまくいかないとき</h2>
 <table><thead><tr><th>出たもの・起きたこと</th><th>やってみること</th></tr></thead><tbody>
 <tr><td><code>zsh: command not found: adb</code></td><td>手順4の <code>export</code> の行をもう一度実行する。Terminalを開き直すと、毎回この状態に戻る。</td></tr>
 <tr><td><code>adb: more than one device/emulator</code></td><td>エミュレータが2つ以上起動している。1つだけにしてやり直す。</td></tr>
@@ -178,7 +180,7 @@ emulator-5554	device</code></pre>
 <li><a href="other-versions.html" data-keep-from>ちがうAndroid Studioのバージョンで進めるとき</a>（自分のMacなどで進めるとき）</li>
 </ul></section>
 
-<section><h2>公式資料</h2><ul><li><a href="https://developer.android.com/studio/install?hl=ja">Android Developers：Android Studio をインストールする</a>（手順2）</li><li><a href="https://developer.android.com/studio/intro/update?hl=ja">Android Developers：IDE および SDK ツールの更新</a>（手順4のSDK）</li><li><a href="https://developer.android.com/tools/adb?hl=ja">Android Developers：Android Debug Bridge（adb）</a>（手順4・手順6）</li><li><a href="https://developer.android.com/studio/run?hl=ja">Android Developers：アプリのビルドと実行</a>（手順9）</li></ul></section>
+<section><h2>公式資料</h2><ul><li><a href="https://developer.android.com/studio/install?hl=ja">Android Developers：Android Studio をインストールする</a>（手順2）</li><li><a href="https://developer.android.com/studio/intro/update?hl=ja">Android Developers：IDE および SDK ツールの更新</a>（手順4のSDK）</li><li><a href="https://developer.android.com/tools/adb?hl=ja">Android Developers：Android Debug Bridge（adb）</a>（手順4・手順6）</li></ul></section>
 
-<footer class="footer"><p><a href="../hello-android/index.html" data-back>← もとのページへ戻る</a></p><p>対象：macOS / Android Studio Panda 2 | 2025.3.2 · 画像：教員提供 · 確認日：2026年9月20日</p></footer></main>
+<footer class="footer"><p><a href="../hello-android/index.html" data-back>← もとのページへ戻る</a></p><p>対象：macOS / Android Studio Panda 2 | 2025.3.2 · 画像：教員提供 · 確認日：2026年9月29日</p></footer></main>
 <p class="sr-only" role="status" aria-live="polite" data-copy-status></p></body></html>
