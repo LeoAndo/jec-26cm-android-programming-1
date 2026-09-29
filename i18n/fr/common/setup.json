@@ -63,10 +63,6 @@
       "translation": "⑧ Autres réglages"
     },
     {
-      "source": "⑨ 動かして確かめる",
-      "translation": "⑨ Exécuter et vérifier"
-    },
-    {
       "source": "番号は、下の見出しの番号と同じです。③・④・⑥では、Terminal（ターミナル）に文字を打ちます。そのほかは、FinderやAndroid Studio、エミュレータの画面を操作します。",
       "translation": "Les numéros correspondent à ceux des titres ci-dessous. Aux étapes ③, ④ et ⑥, vous saisissez du texte dans Terminal. Pour les autres étapes, vous utilisez les écrans de Finder, d'Android Studio et de l'émulateur."
     },
@@ -83,8 +79,8 @@
       "translation": "Une fois cette préparation terminée"
     },
     {
-      "source": "自分のMacで、日本語が打てるAndroidの練習用端末が動き、A01の完成アプリを実行できる状態になります。",
-      "translation": "Vous disposerez sur votre Mac d'un appareil Android d'entraînement permettant de saisir du japonais, et vous pourrez exécuter l'application terminée d'A01."
+      "source": "自分のMacで、日本語が打てるAndroidの練習用端末が動く状態になります。",
+      "translation": "Vous disposerez sur votre Mac d'un appareil Android d'entraînement permettant de saisir du japonais."
     },
     {
       "source": "1. 教材を受け取り、「書類」に置く",
@@ -471,12 +467,48 @@
       "translation": "Dans l'émulateur, <strong>touchez</strong> un champ de saisie. Le champ 「設定を検索」 (rechercher dans les paramètres) de l'application de paramètres est facile à repérer."
     },
     {
-      "source": "<strong>ひらがな　入力レイアウトの選択</strong> と出ます。左の <strong>12 キー</strong> が選ばれた状態のまま、右下の <strong>次へ</strong> をタップします。",
-      "translation": "<strong>ひらがな　入力レイアウトの選択</strong> (hiragana : choix de la disposition de saisie) s'affiche. Laissez <strong>12 キー</strong> (12 touches) sélectionné à gauche et touchez <strong>次へ</strong> (suivant) en bas à droite."
+      "source": "画面の左端に、縦型のツールバー（マイクや「あ」のアイコン）が出ます。Macのキーボードがつながっていると、画面キーボードが自動では開かず、このツールバーが表示されます。",
+      "translation": "Une barre d'outils verticale (avec des icônes comme un micro et « あ ») apparaît sur le bord gauche de l'écran. Si un clavier Mac est connecté, le clavier virtuel ne s'ouvre pas automatiquement et cette barre d'outils s'affiche."
     },
     {
-      "source": "ひらがな　入力レイアウトの選択のダイアログ。左に12キー、右にQWERTYの絵が並び、左の12キーが青い枠で選ばれている。下にスキップと次へのボタンがある",
-      "translation": "Boîte de dialogue 「ひらがな　入力レイアウトの選択」 (hiragana : choix de la disposition de saisie). Les illustrations montrent 12 touches à gauche et QWERTY à droite. 「12 キー」 (12 touches), à gauche, est sélectionné avec un cadre bleu. Les boutons 「スキップ」 (ignorer) et 「次へ」 (suivant) sont en bas"
+      "source": "「物理キーボードと画面キーボードのレイアウトが一致していません」と出たとき",
+      "translation": "Si le message 「物理キーボードと画面キーボードのレイアウトが一致していません」 (la disposition du clavier physique et du clavier virtuel ne correspond pas) apparaît"
+    },
+    {
+      "source": "吹き出しが出た場合は、<strong>いいえ</strong> をタップするか、そのままにして進めて大丈夫です。",
+      "translation": "Si l'infobulle apparaît, vous pouvez toucher <strong>いいえ</strong> (non) ou simplement continuer sans y toucher."
+    },
+    {
+      "source": "縦型ツールバーの一番下にある <strong>あ</strong> のアイコンをタップします。",
+      "translation": "Touchez l'icône <strong>あ</strong> tout en bas de la barre d'outils verticale."
+    },
+    {
+      "source": "メニューが開くので、<strong>画面キーボードを表示する</strong> をタップします。",
+      "translation": "Le menu s'ouvre, touchez <strong>画面キーボードを表示する</strong> (afficher le clavier à l'écran)."
+    },
+    {
+      "source": "文字入力欄をタップしたエミュレータ画面。画面左端にマイクやあなどのアイコンが並ぶ縦型ツールバーが表示され、物理キーボードの調整を確認する吹き出しが出ている",
+      "translation": "Écran de l'émulateur après avoir touché le champ de saisie de texte. Une barre d'outils verticale avec des icônes comme un micro et あ s'affiche sur le bord gauche et une infobulle confirme l'ajustement du clavier physique"
+    },
+    {
+      "source": "入力欄をタップすると左端に縦型ツールバーが出ます。一番下の <strong>あ</strong> をタップします。 <a1>画像を大きく開く</a1>",
+      "translation": "Lorsque vous touchez le champ de saisie, une barre d'outils verticale apparaît sur le bord gauche. Touchez <strong>あ</strong> tout en bas. <a1>Agrandir l'image</a1>"
+    },
+    {
+      "source": "あアイコンをタップして開いたメニュー画面。設定、手書き入力、画面キーボードを表示するなどの項目が並んでいる",
+      "translation": "Écran de menu ouvert en touchant l'icône あ. Des éléments comme 設定 (paramètres), 手書き入力 (saisie manuscrite) et 画面キーボードを表示する (afficher le clavier à l'écran) sont listés"
+    },
+    {
+      "source": "メニューが開くので、<strong>画面キーボードを表示する</strong> をタップします。 <a1>画像を大きく開く</a1>",
+      "translation": "Le menu s'ouvre, touchez <strong>画面キーボードを表示する</strong> (afficher le clavier à l'écran). <a1>Agrandir l'image</a1>"
+    },
+    {
+      "source": "画面キーボードと一緒に <strong>ひらがな　入力レイアウトの選択</strong> が出ます。左の <strong>12 キー</strong> が選ばれた状態のまま、右下の <strong>次へ</strong> をタップします。",
+      "translation": "En même temps que le clavier à l'écran, <strong>ひらがな　入力レイアウトの選択</strong> (hiragana : choix de la disposition de saisie) s'affiche. Laissez <strong>12 キー</strong> (12 touches) sélectionné à gauche et touchez <strong>次へ</strong> (suivant) en bas à droite."
+    },
+    {
+      "source": "ひらがな　入力レイアウトの選択のダイアログとキーボード。左に12キー、右にQWERTYが並び、左の12キーが選ばれている。右下に次へのボタンがある",
+      "translation": "Boîte de dialogue 「ひらがな　入力レイアウトの選択」 (hiragana : choix de la disposition de saisie) et clavier. 12キー (12 touches) à gauche et QWERTY à droite sont affichés, et 12キー à gauche est sélectionné. Le bouton 次へ (suivant) est en bas à droite"
     },
     {
       "source": "左の <strong>12 キー</strong> のまま <strong>次へ</strong> をタップします。 <a1>画像を大きく開く</a1>",
@@ -607,34 +639,6 @@
       "translation": "Le Mac doit être connecté à Internet. Cette connexion est utilisée pour les propositions de conversion en kanji du clavier et pour le fonctionnement des applications créées en cours."
     },
     {
-      "source": "9. 動くことを確かめる",
-      "translation": "9. Vérifier le fonctionnement"
-    },
-    {
-      "source": "最後に、できあがった環境でアプリが動くことを確かめます。A01の<strong>完成プロジェクト</strong>（先生が作った見本）を開いて実行します。見本は、手順1で「書類」に置いた教材のフォルダの <code>samples</code> に、そのまま開ける形で入っています。ダウンロードも展開も要りません。",
-      "translation": "Enfin, vérifiez qu'une application fonctionne dans l'environnement préparé. Ouvrez et exécutez le <strong>projet terminé</strong> d'A01 (l'exemple créé par l'enseignant). Cet exemple se trouve dans <code>samples</code>, dans le dossier de supports placé dans 「書類」 (Documents) à l'étape 1. Il peut être ouvert directement, sans téléchargement ni décompression."
-    },
-    {
-      "source": "Android Studioの最初の画面で <strong>Open</strong> をクリックします。",
-      "translation": "Sur le premier écran d'Android Studio, cliquez sur <strong>Open</strong>."
-    },
-    {
-      "source": "手順1で「書類」に置いた教材のフォルダを開き、その中の <code>samples</code> フォルダを開きます。一覧にある <code>A01HelloAndroid</code> フォルダを選び、<strong>開く（Open）</strong> をクリックします。",
-      "translation": "Ouvrez le dossier de supports de cours placé dans 「書類」 (Documents) à l'étape 1, puis le dossier <code>samples</code> qu'il contient. Sélectionnez le dossier <code>A01HelloAndroid</code> dans la liste et cliquez sur <strong>開く (Open)</strong> (ouvrir)."
-    },
-    {
-      "source": "画面の下で <strong>Gradle Sync</strong> という処理が終わるまで待ちます。初回は数分かかります。",
-      "translation": "Attendez la fin de l'opération <strong>Gradle Sync</strong> en bas de l'écran. Elle prend quelques minutes la première fois."
-    },
-    {
-      "source": "上部の端末の選択欄で <code>jec_26cm_android1_Pixel 9a</code> を選び、<strong>Run ▶</strong> をクリックします。",
-      "translation": "Dans le sélecteur d'appareil en haut, choisissez <code>jec_26cm_android1_Pixel 9a</code>, puis cliquez sur <strong>Run ▶</strong>."
-    },
-    {
-      "source": "エミュレータにアプリが表示され、<strong>Hello World!</strong> という文字と、その下にボタンが並んでいる。",
-      "translation": "L'application s'affiche dans l'émulateur avec le texte <strong>Hello World!</strong> et des boutons en dessous."
-    },
-    {
       "source": "ここまでできたら、準備は終わりです。次の授業からは、教科書を開くところから始められます。",
       "translation": "La préparation est maintenant terminée. Dès le prochain cours, vous pourrez commencer en ouvrant le manuel."
     },
@@ -643,8 +647,8 @@
       "translation": "A01 : Passer à la création de votre première application →"
     },
     {
-      "source": "10. うまくいかないとき",
-      "translation": "10. Si cela ne fonctionne pas"
+      "source": "9. うまくいかないとき",
+      "translation": "9. Si cela ne fonctionne pas"
     },
     {
       "source": "出たもの・起きたこと",
@@ -747,16 +751,12 @@
       "translation": "<a1>Android Developers : Android Debug Bridge (adb)</a1> (étapes 4 et 6)"
     },
     {
-      "source": "<a1>Android Developers：アプリのビルドと実行</a1>（手順9）",
-      "translation": "<a1>Android Developers : Compiler et exécuter une application</a1> (étape 9)"
-    },
-    {
       "source": "← もとのページへ戻る",
       "translation": "← Revenir à la page d'origine"
     },
     {
-      "source": "対象：macOS / Android Studio Panda 2 | 2025.3.2 · 画像：教員提供 · 確認日：2026年9月20日",
-      "translation": "Environnement : macOS / Android Studio Panda 2 | 2025.3.2 · Images : fournies par l'enseignant · Vérifié le 20 septembre 2026"
+      "source": "対象：macOS / Android Studio Panda 2 | 2025.3.2 · 画像：教員提供 · 確認日：2026年9月29日",
+      "translation": "Environnement : macOS / Android Studio Panda 2 | 2025.3.2 · Images : fournies par l'enseignant · Vérifié le 29 septembre 2026"
     }
   ]
 }
