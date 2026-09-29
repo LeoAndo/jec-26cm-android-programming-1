@@ -63,10 +63,6 @@
       "translation": "⑧ 其他設定"
     },
     {
-      "source": "⑨ 動かして確かめる",
-      "translation": "⑨ 執行並確認"
-    },
-    {
       "source": "番号は、下の見出しの番号と同じです。③・④・⑥では、Terminal（ターミナル）に文字を打ちます。そのほかは、FinderやAndroid Studio、エミュレータの画面を操作します。",
       "translation": "編號與下方標題的編號相同。③、④、⑥ 會在 Terminal 輸入文字。其餘步驟會操作 Finder、Android Studio 或模擬器的畫面。"
     },
@@ -83,8 +79,8 @@
       "translation": "完成這些準備後"
     },
     {
-      "source": "自分のMacで、日本語が打てるAndroidの練習用端末が動き、A01の完成アプリを実行できる状態になります。",
-      "translation": "自己的 Mac 就能執行可輸入日文的 Android 練習用裝置，並能執行 A01 的完成應用程式。"
+      "source": "自分のMacで、日本語が打てるAndroidの練習用端末が動く状態になります。",
+      "translation": "自己的 Mac 就能執行可輸入日文的 Android 練習用裝置。"
     },
     {
       "source": "1. 教材を受け取り、「書類」に置く",
@@ -471,12 +467,48 @@
       "translation": "在模擬器中，<strong>輕按</strong>文字輸入欄。設定應用程式中的「設定を検索」（搜尋設定）欄位較容易找到。"
     },
     {
-      "source": "<strong>ひらがな　入力レイアウトの選択</strong> と出ます。左の <strong>12 キー</strong> が選ばれた状態のまま、右下の <strong>次へ</strong> をタップします。",
-      "translation": "會出現 <strong>ひらがな　入力レイアウトの選択</strong>（平假名：選擇輸入配置）。保持選取左側的 <strong>12 キー</strong>（12 鍵），輕按右下方的 <strong>次へ</strong>（下一步）。"
+      "source": "画面の左端に、縦型のツールバー（マイクや「あ」のアイコン）が出ます。Macのキーボードがつながっていると、画面キーボードが自動では開かず、このツールバーが表示されます。",
+      "translation": "螢幕左側邊緣會顯示垂直工具列（麥克風和「あ」圖示等）。連接了 Mac 鍵盤時，螢幕鍵盤不會自動開啟，而是顯示此工具列。"
     },
     {
-      "source": "ひらがな　入力レイアウトの選択のダイアログ。左に12キー、右にQWERTYの絵が並び、左の12キーが青い枠で選ばれている。下にスキップと次へのボタンがある",
-      "translation": "「ひらがな　入力レイアウトの選択」（平假名：選擇輸入配置）對話框。左側是「12 キー」（12 鍵），右側是 QWERTY 的圖，左側的 12 鍵以藍框選取。下方有「スキップ」（跳過）和「次へ」（下一步）按鈕"
+      "source": "「物理キーボードと画面キーボードのレイアウトが一致していません」と出たとき",
+      "translation": "出現「物理キーボードと画面キーボードのレイアウトが一致していません」（實體鍵盤與螢幕鍵盤配置不一致）時"
+    },
+    {
+      "source": "吹き出しが出た場合は、<strong>いいえ</strong> をタップするか、そのままにして進めて大丈夫です。",
+      "translation": "如果出現對話氣泡提示，輕按 <strong>いいえ</strong>（否），或直接保持原樣繼續操作即可。"
+    },
+    {
+      "source": "縦型ツールバーの一番下にある <strong>あ</strong> のアイコンをタップします。",
+      "translation": "輕按垂直工具列最底部的 <strong>あ</strong> 圖示。"
+    },
+    {
+      "source": "メニューが開くので、<strong>画面キーボードを表示する</strong> をタップします。",
+      "translation": "選單開啟後，輕按 <strong>画面キーボードを表示する</strong>（顯示螢幕鍵盤）。"
+    },
+    {
+      "source": "文字入力欄をタップしたエミュレータ画面。画面左端にマイクやあなどのアイコンが並ぶ縦型ツールバーが表示され、物理キーボードの調整を確認する吹き出しが出ている",
+      "translation": "輕按文字輸入欄後的模擬器螢幕。螢幕左側邊緣顯示帶有麥克風和 あ 等圖示的垂直工具列，並彈出確認實體鍵盤調整的對話氣泡"
+    },
+    {
+      "source": "入力欄をタップすると左端に縦型ツールバーが出ます。一番下の <strong>あ</strong> をタップします。 <a1>画像を大きく開く</a1>",
+      "translation": "輕按輸入欄後左側邊緣會顯示垂直工具列。輕按最底部的 <strong>あ</strong>。 <a1>放大檢視圖片</a1>"
+    },
+    {
+      "source": "あアイコンをタップして開いたメニュー画面。設定、手書き入力、画面キーボードを表示するなどの項目が並んでいる",
+      "translation": "輕按 あ 圖示後開啟的選單螢幕。排列有 設定（設定）、手書き入力（手寫輸入）、画面キーボードを表示する（顯示螢幕鍵盤）等項目"
+    },
+    {
+      "source": "メニューが開くので、<strong>画面キーボードを表示する</strong> をタップします。 <a1>画像を大きく開く</a1>",
+      "translation": "選單開啟後，輕按 <strong>画面キーボードを表示する</strong>（顯示螢幕鍵盤）。 <a1>放大檢視圖片</a1>"
+    },
+    {
+      "source": "画面キーボードと一緒に <strong>ひらがな　入力レイアウトの選択</strong> が出ます。左の <strong>12 キー</strong> が選ばれた状態のまま、右下の <strong>次へ</strong> をタップします。",
+      "translation": "與螢幕鍵盤一起會出現 <strong>ひらがな　入力レイアウトの選択</strong>（平假名：選擇輸入配置）。保持選取左側的 <strong>12 キー</strong>（12 鍵），輕按右下方的 <strong>次へ</strong>（下一步）。"
+    },
+    {
+      "source": "ひらがな　入力レイアウトの選択のダイアログとキーボード。左に12キー、右にQWERTYが並び、左の12キーが選ばれている。右下に次へのボタンがある",
+      "translation": "「ひらがな　入力レイアウトの選択」（平假名：選擇輸入配置）對話框和鍵盤。左側是 12 キー（12 鍵），右側是 QWERTY，左側 12 鍵已被選取。右下方有 次へ（下一步）按鈕"
     },
     {
       "source": "左の <strong>12 キー</strong> のまま <strong>次へ</strong> をタップします。 <a1>画像を大きく開く</a1>",
@@ -607,34 +639,6 @@
       "translation": "Mac 必須連接互聯網。鍵盤的漢字候選字和課堂製作的應用程式都會使用網絡。"
     },
     {
-      "source": "9. 動くことを確かめる",
-      "translation": "9. 確認能否運作"
-    },
-    {
-      "source": "最後に、できあがった環境でアプリが動くことを確かめます。A01の<strong>完成プロジェクト</strong>（先生が作った見本）を開いて実行します。見本は、手順1で「書類」に置いた教材のフォルダの <code>samples</code> に、そのまま開ける形で入っています。ダウンロードも展開も要りません。",
-      "translation": "最後，確認應用程式能否在準備好的環境中運作。開啟並執行 A01 的<strong>完成專案</strong>（老師製作的範例）。範例位於步驟 1 放到「書類」（文件）的教材資料夾中的 <code>samples</code>，可以直接開啟。不必下載或解壓縮。"
-    },
-    {
-      "source": "Android Studioの最初の画面で <strong>Open</strong> をクリックします。",
-      "translation": "在 Android Studio 的起始畫面按一下 <strong>Open</strong>。"
-    },
-    {
-      "source": "手順1で「書類」に置いた教材のフォルダを開き、その中の <code>samples</code> フォルダを開きます。一覧にある <code>A01HelloAndroid</code> フォルダを選び、<strong>開く（Open）</strong> をクリックします。",
-      "translation": "開啟步驟 1 放到「書類」（文件）的教材資料夾，再開啟其中的 <code>samples</code> 資料夾。選取列表中的 <code>A01HelloAndroid</code> 資料夾，按一下 <strong>開く（Open）</strong>（開啟）。"
-    },
-    {
-      "source": "画面の下で <strong>Gradle Sync</strong> という処理が終わるまで待ちます。初回は数分かかります。",
-      "translation": "等待畫面下方的 <strong>Gradle Sync</strong> 處理完成。第一次需要幾分鐘。"
-    },
-    {
-      "source": "上部の端末の選択欄で <code>jec_26cm_android1_Pixel 9a</code> を選び、<strong>Run ▶</strong> をクリックします。",
-      "translation": "在上方的裝置選擇欄選取 <code>jec_26cm_android1_Pixel 9a</code>，再按一下 <strong>Run ▶</strong>。"
-    },
-    {
-      "source": "エミュレータにアプリが表示され、<strong>Hello World!</strong> という文字と、その下にボタンが並んでいる。",
-      "translation": "模擬器顯示應用程式，有 <strong>Hello World!</strong> 文字，下方排列着按鈕。"
-    },
-    {
       "source": "ここまでできたら、準備は終わりです。次の授業からは、教科書を開くところから始められます。",
       "translation": "完成到這裏，準備工作就結束了。下一堂課起，可以從開啟教科書開始。"
     },
@@ -643,8 +647,8 @@
       "translation": "前往 A01：初次製作應用程式 →"
     },
     {
-      "source": "10. うまくいかないとき",
-      "translation": "10. 無法順利進行時"
+      "source": "9. うまくいかないとき",
+      "translation": "9. 無法順利進行時"
     },
     {
       "source": "出たもの・起きたこと",
@@ -747,16 +751,12 @@
       "translation": "<a1>Android Developers：Android Debug Bridge（adb）</a1>（步驟 4、步驟 6）"
     },
     {
-      "source": "<a1>Android Developers：アプリのビルドと実行</a1>（手順9）",
-      "translation": "<a1>Android Developers：建構及執行應用程式</a1>（步驟 9）"
-    },
-    {
       "source": "← もとのページへ戻る",
       "translation": "← 返回原來的頁面"
     },
     {
-      "source": "対象：macOS / Android Studio Panda 2 | 2025.3.2 · 画像：教員提供 · 確認日：2026年9月20日",
-      "translation": "適用：macOS / Android Studio Panda 2 | 2025.3.2 · 圖片：老師提供 · 確認日期：2026 年 9 月 20 日"
+      "source": "対象：macOS / Android Studio Panda 2 | 2025.3.2 · 画像：教員提供 · 確認日：2026年9月29日",
+      "translation": "適用：macOS / Android Studio Panda 2 | 2025.3.2 · 圖片：老師提供 · 確認日期：2026 年 9 月 29 日"
     }
   ]
 }
