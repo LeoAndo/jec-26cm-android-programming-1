@@ -1,0 +1,162 @@
+{
+  "source": "docs/common/help.html",
+  "language": "en",
+  "entries": [
+    {
+      "source": "困ったとき | Androidプログラミング1",
+      "translation": "Troubleshooting | Android Programming 1"
+    },
+    {
+      "source": "本文へ移動",
+      "translation": "Skip to main content"
+    },
+    {
+      "source": "JEC / Androidプログラミング1",
+      "translation": "JEC / Android Programming 1"
+    },
+    {
+      "source": "もとのページへ戻る",
+      "translation": "Back to the page you came from"
+    },
+    {
+      "source": "ANDROID PROGRAMMING 1 / 共通資料・授業サポート",
+      "translation": "ANDROID PROGRAMMING 1 / Shared guide · Class support"
+    },
+    {
+      "source": "困ったとき",
+      "translation": "If you get stuck"
+    },
+    {
+      "source": "コードが赤くなった、アプリが動かない、原因が分からない。<br>エラーに向き合い、自分で解決するための調べ方をまとめています。",
+      "translation": "Your code turned red, the app won't run, or you don't know the cause.<br>Here is a guide on how to face errors and look up solutions on your own."
+    },
+    {
+      "source": "このページの内容",
+      "translation": "Contents of this page"
+    },
+    {
+      "source": "1. エラーが起きたときの調べ方",
+      "translation": "1. How to investigate when an error occurs"
+    },
+    {
+      "source": "2. 共通資料を活用する",
+      "translation": "2. Using the shared guides"
+    },
+    {
+      "source": "3. どうしても解決しないときは（完成プロジェクトの確認）",
+      "translation": "3. When you still cannot resolve it (Checking the finished project)"
+    },
+    {
+      "source": "プログラミングでエラーが出るのは自然なことです。エラーメッセージには「どのファイルの何行目で、何が問題か」が必ず書かれています。焦らずに上から順に確認しましょう。",
+      "translation": "Errors are a natural part of programming. Error messages always tell you \"which line of which file has what problem.\" Stay calm and check from top to bottom."
+    },
+    {
+      "source": "<strong>各単元の「困ったとき」表を確認する</strong><br>教科書の末尾にある「困ったとき」には、その単元でよくある間違いと確認場所がまとまっています。",
+      "translation": "<strong>Check the “Troubleshooting” table in each unit</strong><br>The “Troubleshooting” section at the end of each textbook summarizes common mistakes and where to check for that unit."
+    },
+    {
+      "source": "<strong>最初の赤い行を見る</strong><br>エラーが何行も出ているときは、一番上の「最初の赤い行」を直します。最初の1つを直すと、あとのエラーがまとめて消えることがよくあります。",
+      "translation": "<strong>Look at the first red line</strong><br>When multiple lines of errors appear, fix the topmost \"first red line.\" Fixing the first one often clears the rest of the errors all at once."
+    },
+    {
+      "source": "<strong>直前のSTEPと見比べる</strong><br>手順を1つ飛ばしていないか、大文字・小文字やスペル（綴り）が教科書と違っていないかを確認します。",
+      "translation": "<strong>Compare with the previous STEP</strong><br>Check if you skipped a step, or if uppercase/lowercase or spelling differs from the textbook."
+    },
+    {
+      "source": "<strong>先生に質問するときは</strong><br>「STEP番号・編集したファイル・最初の赤い行・押した順番」を伝えると、原因が早く分かります。",
+      "translation": "<strong>When asking the teacher</strong><br>Explaining \"STEP number, edited file, first red line, and the order of actions\" helps find the cause quickly."
+    },
+    {
+      "source": "エラーの種類に応じて、次の共通資料を参考にしてください。",
+      "translation": "Refer to the following shared guides depending on the type of error."
+    },
+    {
+      "source": "困っていること",
+      "translation": "Problem"
+    },
+    {
+      "source": "参考にする共通資料",
+      "translation": "Shared guide to reference"
+    },
+    {
+      "source": "赤い文字が出てシンボルが見つからないと言われる",
+      "translation": "Red text appears and it says a symbol cannot be found"
+    },
+    {
+      "source": "<a1>共通資料：Auto Import</a1> で必要なクラスを読み込めているか確認します。",
+      "translation": "Check if necessary classes are imported in <a1>Shared Guide: Auto Import</a1>."
+    },
+    {
+      "source": "アプリが起動時に落ちる、実行中にエラーになる",
+      "translation": "App crashes on launch or gives an error while running"
+    },
+    {
+      "source": "<a1>共通資料：Logcat</a1> で赤いエラーログ（例外）を確認します。",
+      "translation": "Check the red error logs (exceptions) in <a1>Shared Guide: Logcat</a1>."
+    },
+    {
+      "source": "エミュレータが起動しない、動かない",
+      "translation": "Emulator does not start or does not work"
+    },
+    {
+      "source": "<a1>共通資料：エミュレータ</a1> で再起動や設定を確認します。",
+      "translation": "Check restarting and settings in <a1>Shared Guide: Emulator</a1>."
+    },
+    {
+      "source": "画面の余白が消える、キーボードが隠れる",
+      "translation": "Screen margins disappear or keyboard hides content"
+    },
+    {
+      "source": "<a1>共通資料：開発Tips</a1> でレイアウトの注意点を確認します。",
+      "translation": "Check layout precautions in <a1>Shared Guide: Development Tips</a1>."
+    },
+    {
+      "source": "Android Studioのバージョンが違う",
+      "translation": "Android Studio version is different"
+    },
+    {
+      "source": "<a1>共通資料：ちがうAndroid Studioのバージョンで進めるとき</a1> を確認します。",
+      "translation": "Check <a1>Shared Guide: Working with Different Android Studio Versions</a1>."
+    },
+    {
+      "source": "どうしても自分のコードの間違いが見つからないときや、アプリ本来の動きを確認したいときは、先生が作った<strong>完成プロジェクト（見本）</strong>を開いて自分のコードと見比べることができます。",
+      "translation": "When you cannot find mistakes in your own code or want to check the intended behavior of the app, you can open the <strong>finished project (sample)</strong> prepared by the teacher and compare it with your code."
+    },
+    {
+      "source": "完成プロジェクトは「答え合わせ用」です",
+      "translation": "The finished project is for “checking your work”"
+    },
+    {
+      "source": "完成プロジェクトからコードをそのままコピーしたり、完成プロジェクトを改造して提出しても、自分の課題の提出にはなりません。見本で違いを確認したら、必ず<strong>自分で作ったプロジェクトに戻り、自分の手で修正</strong>してください。",
+      "translation": "Copying code directly from the finished project or modifying and submitting the finished project does not count as submitting your own assignment. Once you check the differences with the sample, always <strong>return to the project you created yourself and fix it by hand</strong>."
+    },
+    {
+      "source": "Android Studioのメニューから <strong>File → Open</strong> を選びます。",
+      "translation": "From the Android Studio menu, select <strong>File → Open</strong>."
+    },
+    {
+      "source": "<strong>書類</strong>（<code>Documents</code>）にある教材のフォルダ（<code>android1-student-materials-日付</code>）を開きます。",
+      "translation": "Open the course materials folder (<code>android1-student-materials-日付</code>) in <strong>書類</strong> (<code>Documents</code>)."
+    },
+    {
+      "source": "その中にある <code>samples</code> フォルダを開き、該当する単元のフォルダ（例：<code>A02CalcGame</code>）を選んで <strong>Open</strong> をクリックします。",
+      "translation": "Open the <code>samples</code> folder inside, select the folder for the relevant unit (e.g., <code>A02CalcGame</code>), and click <strong>Open</strong>."
+    },
+    {
+      "source": "Gradle同期が終わったら、Runして正しい動きを確認したり、エラーが出ているファイルと見比べます。",
+      "translation": "Once Gradle sync finishes, click Run to check the correct behavior, or compare with files showing errors."
+    },
+    {
+      "source": "確認が終わったら見本を閉じ、自分のプロジェクト（<code>Documents/Android1/単元名</code>）を開き直して作業を続けます。",
+      "translation": "When you finish checking, close the sample, reopen your own project (<code>Documents/Android1/単元名</code>), and continue your work."
+    },
+    {
+      "source": "取り違えに注意",
+      "translation": "Be careful not to mix them up"
+    },
+    {
+      "source": "見本と自分のアプリは同じプロジェクト名です。ウィンドウ上部のタイトルバーに表示される保存先パスを確認し、見本のほうを編集してしまわないよう注意しましょう。",
+      "translation": "The sample and your own app have the same project name. Check the save destination path displayed in the title bar at the top of the window to avoid accidentally editing the sample."
+    }
+  ]
+}

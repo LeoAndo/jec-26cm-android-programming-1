@@ -91,10 +91,6 @@
       "translation": "Асуудал гарвал"
     },
     {
-      "source": "完成プロジェクトを開く",
-      "translation": "Бэлэн төслийг нээх"
-    },
-    {
       "source": "共通：はじめの準備",
       "translation": "Нийтлэг: Эхний бэлтгэл"
     },
@@ -121,6 +117,10 @@
     {
       "source": "共通：Android Studioのバージョン",
       "translation": "Нийтлэг: Android Studio-ийн хувилбар"
+    },
+    {
+      "source": "共通：困ったとき",
+      "translation": "Нийтлэг: Асуудал гарвал"
     },
     {
       "source": "爆弾ゲームを<br>作ろう",
@@ -275,8 +275,8 @@
       "translation": "Бүр удаа өөрөө шинээр үүсгэнэ"
     },
     {
-      "source": "作る場所は <code>Documents/Android1/A05BombGame</code> です。<a1>完成プロジェクト</a1>は初回から開けます。STEP 2で使う画像は、教材のフォルダに入っています。STEP 2でFinderからコピーします。",
-      "translation": "Үүсгэх газар нь <code>Documents/Android1/A05BombGame</code> юм. <a1>Бэлэн төслийг</a1> эхний хичээлээс нээж болно. STEP 2-т хэрэглэх зураг сургалтын материалын хавтаст бий. STEP 2-т Finder-ээс хуулна."
+      "source": "作る場所は <code>Documents/Android1/A05BombGame</code> です。STEP 2で使う画像は、教材のフォルダに入っています。STEP 2でFinderからコピーします。",
+      "translation": "Үүсгэх газар нь <code>Documents/Android1/A05BombGame</code> юм. STEP 2-т хэрэглэх зураг сургалтын материалын хавтаст бий. STEP 2-т Finder-ээс хуулна."
     },
     {
       "source": "完成アプリの状態",
@@ -1871,44 +1871,8 @@
       "translation": "Асуухдаа «STEP-ийн дугаар, зассан файл, эхний улаан мөр, дарсан дараалал»-ыг хэлнэ үү."
     },
     {
-      "source": "完成版は最初の授業から使える見本です。教科書といっしょに配られた<strong>教材のフォルダ</strong>に、そのまま開ける形で入っています。ダウンロードも展開も要りません。STEP 2の画像は、この見本の <code>app/src/main/res/drawable</code> にも入っています。",
-      "translation": "Бэлэн хувилбар нь эхний хичээлээс хэрэглэж болох жишээ юм. Сурах бичигтэй хамт тараасан <strong>сургалтын материалын хавтас</strong>-т шууд нээж болох хэлбэрээр бий. Татах, задлах шаардлагагүй. STEP 2-ын зураг нь энэ жишээний <code>app/src/main/res/drawable</code>-д мөн бий."
-    },
-    {
-      "source": "Android Studioの <strong>Open</strong>（プロジェクトを開いているときは <strong>File → Open</strong>）で、<strong>書類</strong>（<code>Documents</code>）にある教材のフォルダを開きます。名前は <code>android1-student-materials-</code> のうしろに日付が付いた形で、日付は配られた回によって変わります。いま読んでいるこの教科書が入っているフォルダです。",
-      "translation": "Android Studio-ийн <strong>Open</strong>-оор (төсөл нээлттэй бол <strong>File → Open</strong>) <strong>書類</strong> (Баримт бичиг, <code>Documents</code>) доторх сургалтын материалын хавтсыг нээнэ үү. Нэр нь <code>android1-student-materials-</code>-ийн ард огноо залгасан хэлбэртэй, огноо нь тараасан удаа бүрд өөр байна. Энэ нь одоо уншиж буй сурах бичиг байгаа хавтас юм."
-    },
-    {
-      "source": "その中を <code>samples → A05BombGame</code> の順に開き、<code>settings.gradle.kts</code> と <code>app</code> が入った <code>A05BombGame</code> フォルダを選びます。",
-      "translation": "Дотор нь <code>samples → A05BombGame</code> дарааллаар нээж, <code>settings.gradle.kts</code> болон <code>app</code> агуулсан <code>A05BombGame</code> хавтсыг сонгоно уу."
-    },
-    {
-      "source": "Sync後にRunして動きを確認します。授業の入力に戻るときは自分の <code>Documents/Android1/A05BombGame</code> を開きます。",
-      "translation": "Sync-ийн дараа Run хийж ажиллагааг шалгана уу. Хичээлийн код оруулах ажилдаа буцахдаа өөрийн <code>Documents/Android1/A05BombGame</code>-ийг нээнэ үү."
-    },
-    {
-      "source": "両方とも同じプロジェクト名なので、ウィンドウの保存先を確認しましょう。見本と自分のアプリは同じパッケージ名のため、端末上では同じアプリを更新します。切り替えるときは、確認したい方のプロジェクトからRunします。",
-      "translation": "Хоёулаа ижил төслийн нэртэй тул цонхны хадгалах газрыг шалгаарай. Жишээ болон өөрийн апп ижил багцын нэртэй учраас төхөөрөмж дээр нэг аппыг шинэчилнэ. Солихдоо шалгахыг хүссэн төслөөсөө Run хийнэ үү."
-    },
-    {
-      "source": "教材のフォルダが手元にないときは、同じ見本をZIPで受け取れます（<a1>A05BombGame.zip</a1>）。展開してできた <code>A05BombGame</code> フォルダを、同じようにOpenで選びます。",
-      "translation": "Сургалтын материалын хавтас байхгүй бол ижил жишээг ZIP-ээр авч болно (<a1>A05BombGame.zip</a1>). Задалж гарсан <code>A05BombGame</code> хавтсыг мөн адил Open-оор сонгоно уу."
-    },
-    {
-      "source": "完成したMainActivity.javaで照合する",
-      "translation": "Бэлэн MainActivity.java-тай тулгах"
-    },
-    {
-      "source": "完成版 · MainActivity.java",
-      "translation": "Бэлэн хувилбар · MainActivity.java"
-    },
-    {
-      "source": "完成したactivity_main.xmlで照合する",
-      "translation": "Бэлэн activity_main.xml-тай тулгах"
-    },
-    {
-      "source": "完成版 · activity_main.xml",
-      "translation": "Бэлэн хувилбар · activity_main.xml"
+      "source": "エラーが解決しないときは、<a1>共通資料：困ったとき</a1>の「完成プロジェクト（見本）の確認」を参照してください。",
+      "translation": "Алдаа шийдэгдэхгүй байвал <a1>Нийтлэг заавар: Асуудал гарвал</a1> хэсгийн «Бэлэн төсөл (жишээ)-ийг шалгах» тайлбарыг үзнэ үү."
     },
     {
       "source": "Androidプログラミング1 · A05BombGame / 本文・画像・操作機能はオフラインで利用できます。Android Studioの初回準備・ビルドと公式資料の閲覧にはネット接続が必要です。",
