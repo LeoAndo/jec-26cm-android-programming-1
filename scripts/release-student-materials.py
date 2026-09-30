@@ -17,6 +17,34 @@ DIST = ROOT / "dist"
 CHECKSUMS = "SHA256SUMS.txt"
 # 配布ZIPの名前は版ごとに変わるので、release-metadata.jsonから受け取る。
 ASSET_PATTERN = re.compile(r"android1-student-materials-\d{4}-\d{2}-\d{2}\.zip")
+MATERIALS_CONFIG = "config/teaching-materials.json"
+
+
+def split_unit(name):
+    """単元名を番号とラベルに分ける。check-teaching-materials.py の _split_unit と同じ。"""
+    match = re.match(r"^(A\d+)(.*)$", name)
+    return (match.group(1), match.group(2)) if match else (name, name)
+
+
+def load_projects():
+    """単元の一覧は config/teaching-materials.json から読む。
+
+    単元をこのスクリプトに直書きすると、単元を足すたびにリリースノートも直すことになり、
+    片方だけ直し忘れる。設定を1か所にして、リリーススクリプトは触らずに済むようにしている。
+    """
+    path = ROOT / MATERIALS_CONFIG
+    if not path.is_file():
+        raise ValueError(f"設定ファイルがありません：{MATERIALS_CONFIG}")
+    return json.loads(path.read_text(encoding="utf-8")).get("projects", [])
+
+
+def unit_list(projects):
+    """リリースノートに載せる単元一覧を作る。"""
+    lines = []
+    for project in projects:
+        number, label = split_unit(project["name"])
+        lines.append(f"   - `{number} {label}：{project['docs'][0]}`")
+    return "\n".join(lines) if lines else "   - （教科書はまだありません）"
 
 
 def gh(*args, payload=None):
@@ -146,6 +174,8 @@ def prepare(repo, metadata):
         ["git", "log", "--no-merges", "--format=- %s (%h)", commit_range], cwd=ROOT, text=True,
     ).strip()
     student_notes = os.environ.get("STUDENT_NOTES", "").strip()
+    projects = load_projects()
+    sample_example = f"samples/{projects[0]['root']}" if projects else "samples"
     body = (
         f"# Androidプログラミング1 教材 {version}\n\n"
         "## ダウンロードと開き方\n\n"
@@ -154,19 +184,9 @@ def prepare(repo, metadata):
         "   教材の置き場所を決めるところから、エミュレータを作り、日本語を打てるようにして、\n"
         "   最初のアプリが動くまでを説明しています。この準備は1回だけです。次からは3から始められます。\n"
         "3. 授業で使う単元の教科書をブラウザで開きます。\n\n"
-        "   - `A01 HelloAndroid：docs/hello-android/index.html`\n"
-        "   - `A02 CalcGame：docs/calc-game/index.html`\n"
-        "   - `A03 RockPaperScissorsGame：docs/rock-paper-scissors-game/index.html`\n"
-        "   - `A04 WebViewApp：docs/webview-app/index.html`\n"
-        "   - `A05 BombGame：docs/bomb-game/index.html`\n"
-        "   - `A06 ScreenTransitionSample：docs/screen-transition-sample/index.html`\n"
-        "   - `A07 BillSplitter：docs/bill-splitter/index.html`\n"
-        "   - `A08 SharedPreferencesSample：docs/shared-preferences-sample/index.html`\n"
-        "   - `A09 MemoApp：docs/memo-app/index.html`\n"
-        "   - `A10 RoomSample：docs/room-sample/index.html`\n"
-        "   - `A11 VocabularyBook：docs/vocabulary-book/index.html`\n\n"
+        f"{unit_list(projects)}\n\n"
         "4. 完成プロジェクト（先生が作った見本）は、`samples` フォルダに入っています。展開は済んでいるので、\n"
-        "   Android StudioのOpenで `samples/A01HelloAndroid` のように選ぶだけで開けます。\n\n"
+        f"   Android StudioのOpenで `{sample_example}` のように選ぶだけで開けます。\n\n"
         "教材を更新するときは別フォルダに展開し、自分で作ったプロジェクトを上書きしないでください。\n"
         "授業中は先生が指定した版を使ってください。\n\n"
         f"{localized_download_guidance(report, asset)}"

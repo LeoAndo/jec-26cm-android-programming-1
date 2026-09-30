@@ -10,6 +10,7 @@ import io
 import json
 from pathlib import Path
 import posixpath
+import re
 import subprocess
 import sys
 from urllib.parse import unquote, urlsplit
@@ -18,7 +19,36 @@ from zipfile import ZIP_DEFLATED, ZipFile, ZipInfo
 
 ROOT = Path(__file__).resolve().parents[1]
 ASSET_STEM = "android1-student-materials"
+MATERIALS_CONFIG = "config/teaching-materials.json"
 EXCLUDED = {".git", ".idea", ".gradle", ".kotlin", "build", "local.properties", ".DS_Store", "__pycache__"}
+
+
+def split_unit(name):
+    """単元名を番号とラベルに分ける。check-teaching-materials.py の _split_unit と同じ。"""
+    match = re.match(r"^(A\d+)(.*)$", name)
+    return (match.group(1), match.group(2)) if match else (name, name)
+
+
+def load_projects():
+    """単元の一覧は config/teaching-materials.json から読む。
+
+    単元をこのスクリプトに直書きすると、単元を足すたびに配布スクリプトも直すことになり、
+    片方だけ直し忘れる。設定を1か所にして、配布スクリプトは触らずに済むようにしている。
+    """
+    path = ROOT / MATERIALS_CONFIG
+    if not path.is_file():
+        raise ValueError(f"設定ファイルがありません：{MATERIALS_CONFIG}")
+    return json.loads(path.read_text(encoding="utf-8")).get("projects", [])
+
+
+def archive_targets(projects):
+    """完成プロジェクトZIPを作る (プロジェクト, 出力先) の組を、重複なく返す。"""
+    targets = []
+    for project in projects:
+        target = (project["root"], project["archive"])
+        if target not in targets:
+            targets.append(target)
+    return targets
 
 
 class LocalLinks(HTMLParser):
@@ -93,8 +123,13 @@ def add_localized_materials(files):
                         + html.escape(language["japanese_version"]) + '</a></aside>')
             addition = f"\n{nav}\n{localizer.textbook_i18n_script(ui[code])}\n"
             files[name] = localizer.insert_into_body(files[name].decode("utf-8"), addition, name).encode("utf-8")
-    # 翻訳された共通資料を入口にする。確認用の小さな教材にはA01を使う。
-    start = "docs/common/setup.html" if "docs/common/setup.html" in files else "docs/hello-android/index.html"
+    # 翻訳された共通資料を入口にする。共通資料がないときは、最初の単元の教科書を入口にする。
+    projects = load_projects()
+    start = "docs/common/setup.html"
+    if start not in files:
+        if not projects:
+            raise ValueError("配布物の入口にするページがありません。")
+        start = projects[0]["docs"][0]
     items = [f'<li lang="ja"><a href="{start}">日本語 — ここから始める</a></li>']
     for item in languages:
         target = localizer.output_name(start, item["code"], settings.source_root)
@@ -119,40 +154,9 @@ def build(output_dir):
     asset_name = f"{stem}.zip"
 
     # リポジトリ内の古いZIPをそのまま配布せず、現在の完成コードを反映する。
-    projects = [("A01HelloAndroid", "docs/hello-android/downloads/A01HelloAndroid.zip")]
-    if (ROOT / "A02CalcGame").exists():
-        projects.append(("A02CalcGame", "docs/calc-game/downloads/A02CalcGame.zip"))
-    if (ROOT / "A03RockPaperScissorsGame").exists():
-        projects.append((
-            "A03RockPaperScissorsGame",
-            "docs/rock-paper-scissors-game/downloads/A03RockPaperScissorsGame.zip",
-        ))
-    if (ROOT / "A04WebViewApp").exists():
-        projects.append(("A04WebViewApp", "docs/webview-app/downloads/A04WebViewApp.zip"))
-    if (ROOT / "A05BombGame").exists():
-        projects.append(("A05BombGame", "docs/bomb-game/downloads/A05BombGame.zip"))
-    if (ROOT / "A06ScreenTransitionSample").exists():
-        projects.append((
-            "A06ScreenTransitionSample",
-            "docs/screen-transition-sample/downloads/A06ScreenTransitionSample.zip",
-        ))
-    if (ROOT / "A07BillSplitter").exists():
-        projects.append(("A07BillSplitter", "docs/bill-splitter/downloads/A07BillSplitter.zip"))
-    if (ROOT / "A08SharedPreferencesSample").exists():
-        projects.append((
-            "A08SharedPreferencesSample",
-            "docs/shared-preferences-sample/downloads/A08SharedPreferencesSample.zip",
-        ))
-    if (ROOT / "A09MemoApp").exists():
-        projects.append(("A09MemoApp", "docs/memo-app/downloads/A09MemoApp.zip"))
-    if (ROOT / "A10RoomSample").exists():
-        projects.append(("A10RoomSample", "docs/room-sample/downloads/A10RoomSample.zip"))
-    if (ROOT / "A11VocabularyBook").exists():
-        projects.append((
-            "A11VocabularyBook",
-            "docs/vocabulary-book/downloads/A11VocabularyBook.zip",
-        ))
-    for project, output in projects:
+    # 作る単元は config/teaching-materials.json の projects から決める。ここに単元を書き足さない。
+    projects = load_projects()
+    for project, output in archive_targets(projects):
         subprocess.run(
             [sys.executable, str(ROOT / "scripts/package-hello-android.py"),
              "--project", project, "--output", str(ROOT / output)],
@@ -172,35 +176,14 @@ def build(output_dir):
         if source.is_symlink() or not source.resolve().is_relative_to(ROOT / "docs"):
             raise ValueError(f"配布対象にシンボリックリンクは使えません：{name}")
         files[name] = source.read_bytes()
-    if "docs/hello-android/index.html" not in files:
-        raise ValueError("HelloAndroidの教科書が見つかりません。")
-    if "docs/calc-game/index.html" in files and "docs/calc-game/downloads/A02CalcGame.zip" not in files:
-        raise ValueError("CalcGameの完成プロジェクトが見つかりません。")
-    if ("docs/rock-paper-scissors-game/index.html" in files
-            and "docs/rock-paper-scissors-game/downloads/A03RockPaperScissorsGame.zip" not in files):
-        raise ValueError("RockPaperScissorsGameの完成プロジェクトが見つかりません。")
-    if "docs/webview-app/index.html" in files and "docs/webview-app/downloads/A04WebViewApp.zip" not in files:
-        raise ValueError("WebViewAppの完成プロジェクトが見つかりません。")
-    if "docs/bomb-game/index.html" in files and "docs/bomb-game/downloads/A05BombGame.zip" not in files:
-        raise ValueError("BombGameの完成プロジェクトが見つかりません。")
-    if ("docs/screen-transition-sample/index.html" in files
-            and "docs/screen-transition-sample/downloads/A06ScreenTransitionSample.zip" not in files):
-        raise ValueError("ScreenTransitionSampleの完成プロジェクトが見つかりません。")
-    if ("docs/bill-splitter/index.html" in files
-            and "docs/bill-splitter/downloads/A07BillSplitter.zip" not in files):
-        raise ValueError("BillSplitterの完成プロジェクトが見つかりません。")
-    if ("docs/shared-preferences-sample/index.html" in files
-            and "docs/shared-preferences-sample/downloads/A08SharedPreferencesSample.zip" not in files):
-        raise ValueError("SharedPreferencesSampleの完成プロジェクトが見つかりません。")
-    if ("docs/memo-app/index.html" in files
-            and "docs/memo-app/downloads/A09MemoApp.zip" not in files):
-        raise ValueError("MemoAppの完成プロジェクトが見つかりません。")
-    if ("docs/room-sample/index.html" in files
-            and "docs/room-sample/downloads/A10RoomSample.zip" not in files):
-        raise ValueError("RoomSampleの完成プロジェクトが見つかりません。")
-    if ("docs/vocabulary-book/index.html" in files
-            and "docs/vocabulary-book/downloads/A11VocabularyBook.zip" not in files):
-        raise ValueError("VocabularyBookの完成プロジェクトが見つかりません。")
+    if projects and projects[0]["docs"][0] not in files:
+        # 最初の単元の教科書は、配布物の骨格。ここが抜けているときは作り方を間違えている。
+        raise ValueError(f"{split_unit(projects[0]['name'])[1]}の教科書が見つかりません。")
+    for project in projects:
+        # 教科書を配るのにZIPを配らない、という組み合わせだけを落とす。
+        # 教科書をまだ書いていない単元は、ZIPも配らないので対象外。
+        if project["docs"][0] in files and project["archive"] not in files:
+            raise ValueError(f"{split_unit(project['name'])[1]}の完成プロジェクトが見つかりません。")
     languages = add_localized_materials(files)
     check_links(files)
 
@@ -208,7 +191,7 @@ def build(output_dir):
     # Android StudioのOpenで選ぶだけになる。中身は配布物に入れるZIPと同じなので、新たにcommitするファイルはない。
     # リンク検査のあとで足すので、検査の対象は教科書と多言語の入口で、samples の中は検査しない。
     executables = set()
-    for _, archive_name in projects:
+    for _, archive_name in archive_targets(projects):
         if archive_name not in files:
             # 教科書をまだ足していない単元。ZIPを配らないので、見本も配らない。
             continue
@@ -223,6 +206,12 @@ def build(output_dir):
     metadata = {"version": version, "revision": revision, "asset": asset_name}
     metadata_text = json.dumps(metadata, ensure_ascii=False, indent=2) + "\n"
     files["VERSION.json"] = metadata_text.encode()
+    # 単元の一覧は projects から作る。単元を足したときに、ここを直し忘れて案内が欠ける事故を防ぐ。
+    unit_lines = ""
+    for project in projects:
+        number, label = split_unit(project["name"])
+        unit_lines += f"   {number} {label}：{project['docs'][0]}\n"
+    sample_example = f"samples/{projects[0]['root']}" if projects else "samples"
     files["はじめに.txt"] = (
         "Androidプログラミング1 学生用教材\n\n"
         f"教材の版：{version}\n\n"
@@ -231,19 +220,9 @@ def build(output_dir):
         "   教材の置き場所を決めるところから、エミュレータを作り、日本語を打てるようにして、\n"
         "   最初のアプリが動くまでを説明しています。この準備は1回だけです。次からは3から始められます。\n"
         "3. 授業で使う単元の教科書をブラウザで開きます。\n"
-        "   A01 HelloAndroid：docs/hello-android/index.html\n"
-        "   A02 CalcGame：docs/calc-game/index.html\n"
-        "   A03 RockPaperScissorsGame：docs/rock-paper-scissors-game/index.html\n"
-        "   A04 WebViewApp：docs/webview-app/index.html\n"
-        "   A05 BombGame：docs/bomb-game/index.html\n"
-        "   A06 ScreenTransitionSample：docs/screen-transition-sample/index.html\n"
-        "   A07 BillSplitter：docs/bill-splitter/index.html\n"
-        "   A08 SharedPreferencesSample：docs/shared-preferences-sample/index.html\n"
-        "   A09 MemoApp：docs/memo-app/index.html\n"
-        "   A10 RoomSample：docs/room-sample/index.html\n"
-        "   A11 VocabularyBook：docs/vocabulary-book/index.html\n"
+        f"{unit_lines}"
         "4. 完成プロジェクト（先生が作った見本）は、samples フォルダに入っています。展開は済んでいるので、\n"
-        "   Android StudioのOpenで samples/A01HelloAndroid のように選ぶだけで開けます。\n\n"
+        f"   Android StudioのOpenで {sample_example} のように選ぶだけで開けます。\n\n"
         "教科書・画像はオフラインで利用できます。Android Studioの準備やビルドにはネット接続が必要です。\n"
         "教材を更新するときは別のフォルダに展開し、自分で作ったAndroid Studioプロジェクトを上書きしないでください。\n"
         "授業中は先生が指定した版を使ってください。質問時には教材の版とSTEP番号を伝えてください。\n"

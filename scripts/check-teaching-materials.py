@@ -270,7 +270,7 @@ def _split_unit(name: str) -> tuple[str, str]:
 
 
 def check_registration(root: Path, config: dict, errors: list[str]) -> None:
-    """単元が設定・README・配布スクリプトのすべてに登録されているか確かめる。"""
+    """単元が設定とREADMEに登録されているか確かめる。"""
     setting = config.get("registration")
     if not setting:
         return
@@ -290,13 +290,10 @@ def check_registration(root: Path, config: dict, errors: list[str]) -> None:
         for doc in project["docs"]:
             if doc not in required_in:
                 add(errors, root, CONFIG.as_posix(), 1, f"{name}の{doc}がterms.required_inにありません")
-        number, label = _split_unit(name)
         paths = {
             "student_doc": project["docs"][0],
             "teacher_doc": project["docs"][1],
             "archive": project["archive"],
-            # 案内文の1行。単元がどこか1か所だけ抜ける事故を捕まえる。
-            "guidance_line": f"{number} {label}：{project['docs'][0]}",
         }
         for shown, content, requires in targets:
             for key in requires:

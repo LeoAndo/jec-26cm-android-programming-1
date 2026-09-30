@@ -168,7 +168,7 @@ python3 scripts/package-student-materials.py
 
 `dist/android1-student-materials-2026-09-19.zip` のように、版の日付（HEADのコミット日時をJSTにした日付。版タグと同じ日付）が入った名前で生成されます。対象はGit管理された `docs` のファイルで、完成版ZIPはソースから再生成します。再生成したZIPの中身は、展開済みの見本として `samples/` にも収録します（`samples/` はリポジトリにはなく、配布ZIPの中だけにできます。`gradlew` の実行権限も引き継ぎます）。新しい教材・画像は `git add` 後に実行してください。ローカルの編集内容も含むため、正式な配布版はGitHub Actionsから公開します。
 
-単元を追加するときは、完成プロジェクトのZIP生成処理と `はじめに.txt` の単元一覧を `scripts/package-student-materials.py` に、リリースノートの単元一覧を `scripts/release-student-materials.py` に追加してください。あわせて `config/teaching-materials.json`（`scan_roots`、指定AVD名の `required_in`、`projects`）とREADMEのリンク・表も更新します。各教科書のサイドバーには全単元を並べているので、既存の全単元の教科書のサイドバーにも新しい単元を足します（`scripts/check-teaching-materials.py` が `projects` の並びと照合するので、直し忘れるとCIが落ちます）。HTML・画像・共通資料は `docs` 配下のGit管理ファイルが自動で含まれます。
+単元を追加するときは、`config/teaching-materials.json`（`scan_roots`、指定AVD名の `required_in`、`projects`）とREADMEのリンク・表を更新します。完成プロジェクトZIPの再生成、`はじめに.txt`、リリースノートの単元一覧は `projects` から作るので、配布スクリプトへの追記は不要です。各教科書のサイドバーには全単元を並べているので、既存の全単元の教科書のサイドバーにも新しい単元を足します（`scripts/check-teaching-materials.py` が `projects` の並びと照合するので、直し忘れるとCIが落ちます）。HTML・画像・共通資料は `docs` 配下のGit管理ファイルが自動で含まれます。
 
 参考：[GitHubのリリースノート自動生成](https://docs.github.com/en/repositories/releasing-projects-on-github/automatically-generated-release-notes)、[ワークフローの手動実行](https://docs.github.com/en/actions/how-tos/manage-workflow-runs/manually-run-a-workflow)。
 

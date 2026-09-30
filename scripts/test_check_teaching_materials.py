@@ -28,7 +28,7 @@ class TeachingMaterialsCheckTest(unittest.TestCase):
         )
 
     def test_missing_registration_is_reported(self):
-        """README・配布スクリプトのどちらかに単元が無いと検出する。"""
+        """README・登録対象ファイルのどちらかに単元が無いと検出する。"""
         with tempfile.TemporaryDirectory() as temporary:
             root = Path(temporary)
             (root / "README.md").write_text(
@@ -57,30 +57,6 @@ class TeachingMaterialsCheckTest(unittest.TestCase):
                 any("pack.py" in e and "への参照がありません" in e for e in errors),
                 errors,
             )
-
-    def test_guidance_line_is_required(self):
-        """案内文から単元が1つだけ抜けた場合も検出する。"""
-        with tempfile.TemporaryDirectory() as temporary:
-            root = Path(temporary)
-            # パスは含むが、案内文の行（A01 X：…）が無い。
-            (root / "pack.py").write_text(
-                "docs/x/index.html docs/x/downloads/A01X.zip\n", encoding="utf-8"
-            )
-            self._project_root(root, {
-                "scan_roots": ["pack.py"],
-                "terms": [{"name": "t", "canonical": "c", "forbidden": [], "required_in": []}],
-                "registration": {"targets": [
-                    {"path": "pack.py", "requires": ["guidance_line"]},
-                ]},
-                "projects": [{
-                    "name": "A01X", "package": "p", "root": "A01X",
-                    "docs": ["docs/x/index.html", "teacher/x/index.html"],
-                    "source_java": "A01X/j.java", "source_xml": "A01X/l.xml",
-                    "snippets": [], "archive": "docs/x/downloads/A01X.zip",
-                }],
-            })
-            errors = CHECKER.validate(root)
-            self.assertTrue(any("A01 X：docs/x/index.html" in e for e in errors), errors)
 
     def test_forbidden_spelling_is_rejected(self):
         with tempfile.TemporaryDirectory() as temporary:
