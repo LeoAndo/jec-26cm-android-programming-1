@@ -87,10 +87,6 @@
       "translation": "遇到困難時"
     },
     {
-      "source": "完成プロジェクトを開く",
-      "translation": "開啟完成專案"
-    },
-    {
       "source": "共通：はじめの準備",
       "translation": "共通：開始前的準備"
     },
@@ -117,6 +113,10 @@
     {
       "source": "共通：Auto Import",
       "translation": "共通：Auto Import"
+    },
+    {
+      "source": "共通：困ったとき",
+      "translation": "共通：遇到困難時"
     },
     {
       "source": "はじめての<br>アプリ作り",
@@ -241,10 +241,6 @@
     {
       "source": "この授業では、毎回、<strong>自分でAndroid Studioからプロジェクトを新規作成</strong>します。今回はSTEP 1から <code>A01HelloAndroid</code> を作ります。",
       "translation": "本課程每次都會<strong>自行從 Android Studio 建立新專案</strong>。這次從 STEP 1 開始製作 <code>A01HelloAndroid</code>。"
-    },
-    {
-      "source": "<a1>完成プロジェクト</a1>は、最初の授業からいつでも見られる参考資料です。自分で作ったコードと比べたり、動きを確かめたりするときに使います。",
-      "translation": "<a1>完成專案</a1>是從第一節課開始便可隨時查看的參考資料。用來比較自己編寫的程式碼，或確認運作。"
     },
     {
       "source": "この教科書の進め方",
@@ -1371,86 +1367,6 @@
       "translation": "<strong>用 XML 放置元件 → 用 id 尋找 → 編寫按一下時的處理。</strong><br>運用這 3 項操作，製作了能由自己操作的應用程式。"
     },
     {
-      "source": "REFERENCE · 最初の授業から使える見本",
-      "translation": "REFERENCE · 從第一節課便可使用的範例"
-    },
-    {
-      "source": "完成プロジェクトを開いて比べる",
-      "translation": "開啟完成專案作比較"
-    },
-    {
-      "source": "授業は、毎回自分で新規作成したプロジェクトで進めます。完成版は、動作確認とコード比較のための見本です。見本は、教科書といっしょに配られた<strong>教材のフォルダ</strong>に、そのまま開ける形で入っています。ダウンロードも展開も要りません。",
-      "translation": "課堂每次都用自己新建的專案進行。完成版是用來確認運作及比較程式碼的範例。範例放在與教科書一起派發的<strong>教材資料夾</strong>中，可以直接開啟。不用下載或解壓縮。"
-    },
-    {
-      "source": "① 見本の場所を確かめる",
-      "translation": "① 確認範例的位置"
-    },
-    {
-      "source": "Finderを開き、左側の <strong>書類</strong>（<code>Documents</code>）をクリックします。教材のフォルダをダブルクリックで開きます。名前は <code>android1-student-materials-</code> のうしろに日付が付いた形で、日付は配られた回によって変わります。いま読んでいるこの教科書が入っているフォルダです。",
-      "translation": "開啟 Finder，按一下左方的 <strong>書類</strong>（文件，<code>Documents</code>）。按兩下教材資料夾來開啟。名稱是在 <code>android1-student-materials-</code> 後面加上日期，日期會隨派發批次而不同。這就是存放你正在閱讀的教科書的資料夾。"
-    },
-    {
-      "source": "その中の <code>samples</code> フォルダを開きます。<code>A01HelloAndroid</code> フォルダが見本です。場所を確かめるだけで、移動はしません。",
-      "translation": "開啟裏面的 <code>samples</code> 資料夾。<code>A01HelloAndroid</code> 資料夾就是範例。只確認位置，不要移動。"
-    },
-    {
-      "source": "使うもの",
-      "translation": "使用的項目"
-    },
-    {
-      "source": "フォルダの場所（ユーザ名と教材のフォルダは、自分のものに読み替える）",
-      "translation": "資料夾位置（將「ユーザ名」（使用者名稱）和「教材のフォルダ」（教材資料夾）換成自己的）"
-    },
-    {
-      "source": "授業で作るプロジェクト",
-      "translation": "課堂上製作的專案"
-    },
-    {
-      "source": "完成版の見本",
-      "translation": "完成版範例"
-    },
-    {
-      "source": "② Android Studioで開く",
-      "translation": "② 用 Android Studio 開啟"
-    },
-    {
-      "source": "フォルダを選ぶ画面を出します。授業のプロジェクトを開いているときは、上のメニューから <strong>File → Open</strong> を選びます。プロジェクトを1つも開いていないときは、Android Studioの最初の画面（Welcome画面）が出ているので、その右上にある <strong>Open</strong> をクリックします。",
-      "translation": "開啟選取資料夾的畫面。如果課堂的專案已開啟，從上方選單選取 <strong>File → Open</strong>。如果沒有開啟任何專案，會顯示 Android Studio 初始畫面（Welcome 畫面），請按一下右上方的 <strong>Open</strong>。"
-    },
-    {
-      "source": "フォルダを選ぶ画面で、①で確かめた <code>samples</code> の中の <code>A01HelloAndroid</code> フォルダを選んで開きます。",
-      "translation": "在選取資料夾的畫面，選取並開啟①已確認的 <code>samples</code> 裏面的 <code>A01HelloAndroid</code> 資料夾。"
-    },
-    {
-      "source": "開き方を聞かれたら <strong>New Window</strong> を選び、授業のプロジェクトと別のウィンドウで開きます。",
-      "translation": "如果詢問開啟方式，選取 <strong>New Window</strong>，以另一個視窗開啟，與課堂專案分開。"
-    },
-    {
-      "source": "Gradle Syncが終わったら、Project表示で、調べたいファイルを開きます。",
-      "translation": "Gradle Sync 完成後，在 Project 顯示模式開啟要查看的檔案。"
-    },
-    {
-      "source": "動きを見たいときは <strong>Run ▶</strong> を押します。",
-      "translation": "想查看運作時，按 <strong>Run ▶</strong>。"
-    },
-    {
-      "source": "③ 今のステップの部分だけを比べる",
-      "translation": "③ 只比較目前步驟的部分"
-    },
-    {
-      "source": "たとえばSTEP 4で困ったら、<code>MainActivity.java</code> の <code>button.setOnClickListener</code> の部分を見ます。今のステップと同じidや処理を探して比べましょう。",
-      "translation": "例如在 STEP 4 遇到困難，就查看 <code>MainActivity.java</code> 中 <code>button.setOnClickListener</code> 的部分。找出與目前步驟相同的 id 和處理，作出比較。"
-    },
-    {
-      "source": "見終わったら、授業で作っている <code>Documents/Android1/A01HelloAndroid</code> のウィンドウに戻ります。直す場所を1つ確認し、Runして結果を確かめます。分からないときは、先生に2つのコードを見せましょう。",
-      "translation": "看完後，返回課堂上正在製作的 <code>Documents/Android1/A01HelloAndroid</code> 視窗。確認一處要修正的地方，Run 後查看結果。不明白時，請將兩份程式碼給老師看。"
-    },
-    {
-      "source": "教材のフォルダが手元にないときは、同じ見本をZIPで受け取れます（<a1>A01HelloAndroid.zip</a1>）。展開してできた <code>A01HelloAndroid</code> フォルダを、②と同じように開きます。",
-      "translation": "如果手邊沒有教材資料夾，可以用 ZIP 取得相同範例（<a1>A01HelloAndroid.zip</a1>）。將解壓縮後得到的 <code>A01HelloAndroid</code> 資料夾，按照②的方法開啟。"
-    },
-    {
       "source": "HELP · 困ったらここ",
       "translation": "HELP · 遇到困難時看這裏"
     },
@@ -1569,6 +1485,10 @@
     {
       "source": "一度にいくつも直すと、何が変わったか分かりにくくなります。1か所直して、もう一度Runしましょう。",
       "translation": "一次修正多處，會難以知道有甚麼改變。請每次修正一處，再次 Run。"
+    },
+    {
+      "source": "エラーが解決しないときは、<a1>共通資料：困ったとき</a1>の「完成プロジェクト（見本）の確認」を参照してください。",
+      "translation": "如果錯誤仍未解決，請參閱<a1>共通資料：遇到困難時</a1>中的「確認完成專案（範本）」。"
     },
     {
       "source": "もっと知りたいとき",

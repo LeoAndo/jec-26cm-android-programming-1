@@ -1,0 +1,162 @@
+{
+  "source": "docs/common/help.html",
+  "language": "zh-Hant-HK",
+  "entries": [
+    {
+      "source": "困ったとき | Androidプログラミング1",
+      "translation": "遇到困難時 | Android程式設計1"
+    },
+    {
+      "source": "本文へ移動",
+      "translation": "跳至正文"
+    },
+    {
+      "source": "JEC / Androidプログラミング1",
+      "translation": "JEC / Android 程式設計 1"
+    },
+    {
+      "source": "もとのページへ戻る",
+      "translation": "返回原來的頁面"
+    },
+    {
+      "source": "ANDROID PROGRAMMING 1 / 共通資料・授業サポート",
+      "translation": "ANDROID PROGRAMMING 1 / 共通資料・課堂支援"
+    },
+    {
+      "source": "困ったとき",
+      "translation": "遇到困難時"
+    },
+    {
+      "source": "コードが赤くなった、アプリが動かない、原因が分からない。<br>エラーに向き合い、自分で解決するための調べ方をまとめています。",
+      "translation": "程式碼出現紅字報錯、應用程式無法執行、不知道原因是什麼。<br>這裡整理了面對錯誤時自己查閱並解決問題的方法。"
+    },
+    {
+      "source": "このページの内容",
+      "translation": "本頁內容"
+    },
+    {
+      "source": "1. エラーが起きたときの調べ方",
+      "translation": "1. 發生錯誤時的排查方法"
+    },
+    {
+      "source": "2. 共通資料を活用する",
+      "translation": "2. 善用共通資料"
+    },
+    {
+      "source": "3. どうしても解決しないときは（完成プロジェクトの確認）",
+      "translation": "3. 實在無法解決時（確認完成專案）"
+    },
+    {
+      "source": "プログラミングでエラーが出るのは自然なことです。エラーメッセージには「どのファイルの何行目で、何が問題か」が必ず書かれています。焦らずに上から順に確認しましょう。",
+      "translation": "編寫程式時出現錯誤是很正常的。錯誤訊息中一定會明確寫出「哪一個檔案的第幾行有甚麼問題」。不要慌張，由上至下逐一確認。"
+    },
+    {
+      "source": "<strong>各単元の「困ったとき」表を確認する</strong><br>教科書の末尾にある「困ったとき」には、その単元でよくある間違いと確認場所がまとまっています。",
+      "translation": "<strong>確認各單元末尾的「遇到困難時」表格</strong><br>教科書末尾的「遇到困難時」彙整了該單元常見的問題和確認位置。"
+    },
+    {
+      "source": "<strong>最初の赤い行を見る</strong><br>エラーが何行も出ているときは、一番上の「最初の赤い行」を直します。最初の1つを直すと、あとのエラーがまとめて消えることがよくあります。",
+      "translation": "<strong>查看第一條紅色錯誤行</strong><br>當出現多行錯誤時，優先修正最上面的「第一條紅色錯誤行」。修復第一個錯誤後，後面的很多錯誤往往會一起消失。"
+    },
+    {
+      "source": "<strong>直前のSTEPと見比べる</strong><br>手順を1つ飛ばしていないか、大文字・小文字やスペル（綴り）が教科書と違っていないかを確認します。",
+      "translation": "<strong>與前一個 STEP 仔細對照</strong><br>確認是否遺漏了某個步驟，或者大小寫、拼寫是否與教科書不一致。"
+    },
+    {
+      "source": "<strong>先生に質問するときは</strong><br>「STEP番号・編集したファイル・最初の赤い行・押した順番」を伝えると、原因が早く分かります。",
+      "translation": "<strong>向老師提問時</strong><br>告知「STEP編號、編輯的檔案、第一條紅色錯誤行、操作順序」，能更快找出原因。"
+    },
+    {
+      "source": "エラーの種類に応じて、次の共通資料を参考にしてください。",
+      "translation": "根據錯誤的類型，請參考以下共通資料。"
+    },
+    {
+      "source": "困っていること",
+      "translation": "遇到的問題"
+    },
+    {
+      "source": "参考にする共通資料",
+      "translation": "參考的共通資料"
+    },
+    {
+      "source": "赤い文字が出てシンボルが見つからないと言われる",
+      "translation": "出現紅色文字並提示找不到符號"
+    },
+    {
+      "source": "<a1>共通資料：Auto Import</a1> で必要なクラスを読み込めているか確認します。",
+      "translation": "在<a1>共通資料：Auto Import</a1>中確認是否匯入了所需的類別。"
+    },
+    {
+      "source": "アプリが起動時に落ちる、実行中にエラーになる",
+      "translation": "應用程式在啟動時崩潰，或在執行中報錯"
+    },
+    {
+      "source": "<a1>共通資料：Logcat</a1> で赤いエラーログ（例外）を確認します。",
+      "translation": "在<a1>共通資料：Logcat</a1>中查看紅色錯誤日誌（例外）。"
+    },
+    {
+      "source": "エミュレータが起動しない、動かない",
+      "translation": "模擬器無法啟動或無反應"
+    },
+    {
+      "source": "<a1>共通資料：エミュレータ</a1> で再起動や設定を確認します。",
+      "translation": "在<a1>共通資料：模擬器</a1>中確認重新啟動與設定方法。"
+    },
+    {
+      "source": "画面の余白が消える、キーボードが隠れる",
+      "translation": "螢幕邊距消失，或被鍵盤遮擋"
+    },
+    {
+      "source": "<a1>共通資料：開発Tips</a1> でレイアウトの注意点を確認します。",
+      "translation": "在<a1>共通資料：開發技巧</a1>中確認版面配置的注意事項。"
+    },
+    {
+      "source": "Android Studioのバージョンが違う",
+      "translation": "Android Studio 的版本不同"
+    },
+    {
+      "source": "<a1>共通資料：ちがうAndroid Studioのバージョンで進めるとき</a1> を確認します。",
+      "translation": "確認<a1>共通資料：使用不同 Android Studio 版本時的操作</a1>。"
+    },
+    {
+      "source": "どうしても自分のコードの間違いが見つからないときや、アプリ本来の動きを確認したいときは、先生が作った<strong>完成プロジェクト（見本）</strong>を開いて自分のコードと見比べることができます。",
+      "translation": "如果實在找不到自己程式碼中的錯誤，或者想確認應用程式本來的預期運作效果，可以開啟老師製作的<strong>完成專案（範本）</strong>，與自己的程式碼進行比對。"
+    },
+    {
+      "source": "完成プロジェクトは「答え合わせ用」です",
+      "translation": "完成專案僅用於「核對答案」"
+    },
+    {
+      "source": "完成プロジェクトからコードをそのままコピーしたり、完成プロジェクトを改造して提出しても、自分の課題の提出にはなりません。見本で違いを確認したら、必ず<strong>自分で作ったプロジェクトに戻り、自分の手で修正</strong>してください。",
+      "translation": "直接從完成專案中複製程式碼，或修改完成專案後提交，都不能算作自己的作業提交。透過範本確認差異後，務必<strong>返回自己建立的專案並親手修正</strong>。"
+    },
+    {
+      "source": "Android Studioのメニューから <strong>File → Open</strong> を選びます。",
+      "translation": "從 Android Studio 選單中選取 <strong>File → Open</strong>。"
+    },
+    {
+      "source": "<strong>書類</strong>（<code>Documents</code>）にある教材のフォルダ（<code>android1-student-materials-日付</code>）を開きます。",
+      "translation": "開啟<strong>書類</strong>（<code>Documents</code>）中的教材資料夾（<code>android1-student-materials-日付</code>）。"
+    },
+    {
+      "source": "その中にある <code>samples</code> フォルダを開き、該当する単元のフォルダ（例：<code>A02CalcGame</code>）を選んで <strong>Open</strong> をクリックします。",
+      "translation": "開啟其中的 <code>samples</code> 資料夾，選取對應的單元資料夾（例如 <code>A02CalcGame</code>），然後按 <strong>Open</strong>。"
+    },
+    {
+      "source": "Gradle同期が終わったら、Runして正しい動きを確認したり、エラーが出ているファイルと見比べます。",
+      "translation": "Gradle 同步完成後，按 Run 確認正確的運作效果，或與報錯的檔案進行對照。"
+    },
+    {
+      "source": "確認が終わったら見本を閉じ、自分のプロジェクト（<code>Documents/Android1/単元名</code>）を開き直して作業を続けます。",
+      "translation": "確認完畢後關閉範本，重新開啟自己的專案（<code>Documents/Android1/単元名</code>）繼續作業。"
+    },
+    {
+      "source": "取り違えに注意",
+      "translation": "注意不要混淆專案"
+    },
+    {
+      "source": "見本と自分のアプリは同じプロジェクト名です。ウィンドウ上部のタイトルバーに表示される保存先パスを確認し、見本のほうを編集してしまわないよう注意しましょう。",
+      "translation": "範本專案與自己的應用程式專案名稱相同。請確認視窗頂部標題列顯示的儲存路徑，注意不要誤編輯了範本專案。"
+    }
+  ]
+}

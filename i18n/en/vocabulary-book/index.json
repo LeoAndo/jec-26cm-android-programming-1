@@ -79,10 +79,6 @@
       "translation": "Explanation: What makes LiveData useful"
     },
     {
-      "source": "完成プロジェクトを開く",
-      "translation": "Open the finished project"
-    },
-    {
       "source": "共通：はじめの準備",
       "translation": "Shared: First-time setup"
     },
@@ -109,6 +105,10 @@
     {
       "source": "共通：Android Studioのバージョン",
       "translation": "Shared: Android Studio versions"
+    },
+    {
+      "source": "共通：困ったとき",
+      "translation": "Shared: Troubleshooting"
     },
     {
       "source": "2つの画面で<br>データを共有しよう",
@@ -323,8 +323,8 @@
       "translation": "Create a new project yourself every time"
     },
     {
-      "source": "作る場所は <code>Documents/Android1/A11VocabularyBook</code> です。<a1>完成プロジェクト</a1>は答え合わせ用で、授業の入力は自分で作ったプロジェクトに書きます。",
-      "translation": "Create it at <code>Documents/Android1/A11VocabularyBook</code>. The <a1>finished project</a1> is for checking your work. Enter the code for class in the project you create yourself."
+      "source": "作る場所は <code>Documents/Android1/A11VocabularyBook</code> です。授業の入力は自分で作ったプロジェクトに書きます。",
+      "translation": "Create it at <code>Documents/Android1/A11VocabularyBook</code>. Enter the code for class in the project you create yourself."
     },
     {
       "source": "Android Studioの <strong>New Project</strong> をクリックします。別のプロジェクトを開いているときは <strong>File → New → New Project</strong> を選びます。",
@@ -1279,28 +1279,8 @@
       "translation": "Section C of <a1>Shared guide: Development tips</a1>. Saved words are not deleted"
     },
     {
-      "source": "答え合わせ用の見本です。教科書といっしょに配られた<strong>教材のフォルダ</strong>に、そのまま開ける形で入っています。ダウンロードも展開も要りません。授業の入力は自分で作ったプロジェクトに書きます。",
-      "translation": "This is a sample for checking your work. It is in the <strong>course materials folder</strong> distributed with the textbook, ready to open. No download or unzipping is needed. Enter the code for class in your own project."
-    },
-    {
-      "source": "Android Studioの <strong>Open</strong>（プロジェクトを開いているときは <strong>File → Open</strong>）で、<strong>書類</strong>（<code>Documents</code>）にある教材のフォルダを開きます。名前は <code>android1-student-materials-</code> のうしろに日付が付いた形で、日付は配られた回によって変わります。いま読んでいるこの教科書が入っているフォルダです。",
-      "translation": "Using <strong>Open</strong> in Android Studio (<strong>File → Open</strong> if a project is open), open the course materials folder in <strong>書類</strong> (<code>Documents</code>). Its name is <code>android1-student-materials-</code> followed by a date, which depends on when the materials were distributed. It is the folder containing the textbook you are reading now."
-    },
-    {
-      "source": "その中を <code>samples → A11VocabularyBook</code> の順に開き、<code>settings.gradle.kts</code> と <code>app</code> が入った <code>A11VocabularyBook</code> フォルダを選びます。",
-      "translation": "Inside it, open <code>samples → A11VocabularyBook</code> in that order, then select the <code>A11VocabularyBook</code> folder containing <code>settings.gradle.kts</code> and <code>app</code>."
-    },
-    {
-      "source": "Sync後にRunして動きを確認します。授業の入力に戻るときは自分の <code>Documents/Android1/A11VocabularyBook</code> を開きます。",
-      "translation": "After Sync, Run the app and check how it works. When returning to your class work, open your own <code>Documents/Android1/A11VocabularyBook</code>."
-    },
-    {
-      "source": "教材のフォルダが手元にないときは、同じ見本をZIPで受け取れます（<a1>A11VocabularyBook.zip</a1>）。展開してできた <code>A11VocabularyBook</code> フォルダを、同じようにOpenで選びます。",
-      "translation": "If you do not have the course materials folder, you can get the same sample as a ZIP (<a1>A11VocabularyBook.zip</a1>). Use Open in the same way to select the <code>A11VocabularyBook</code> folder created after unzipping it."
-    },
-    {
-      "source": "完成した <code>activity_main.xml</code>",
-      "translation": "Finished <code>activity_main.xml</code>"
+      "source": "エラーが解決しないときは、<a1>共通資料：困ったとき</a1>の「完成プロジェクト（見本）の確認」を参照してください。",
+      "translation": "If the error is not resolved, refer to “Checking the finished project (sample)” in <a1>Shared Guide: Troubleshooting</a1>."
     },
     {
       "source": "Androidプログラミング1 · A11VocabularyBook / 本文・画像・操作機能はオフラインで利用できます。Android Studioの初回準備・ビルドと公式資料の閲覧にはネット接続が必要です。",

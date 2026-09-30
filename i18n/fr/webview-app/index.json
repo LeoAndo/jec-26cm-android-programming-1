@@ -95,10 +95,6 @@
       "translation": "Explication : le retour sous Android 16 et versions suivantes"
     },
     {
-      "source": "完成プロジェクトを開く",
-      "translation": "Ouvrir le projet terminé"
-    },
-    {
       "source": "共通：はじめの準備",
       "translation": "Guide commun : Préparation initiale"
     },
@@ -125,6 +121,10 @@
     {
       "source": "共通：Android Studioのバージョン",
       "translation": "Guide commun : Version d'Android Studio"
+    },
+    {
+      "source": "共通：困ったとき",
+      "translation": "Guide commun : En cas de problème"
     },
     {
       "source": "アプリの中で<br>Webページを表示しよう",
@@ -255,8 +255,8 @@
       "translation": "Créez vous-même un nouveau projet à chaque fois"
     },
     {
-      "source": "作る場所は <code>Documents/Android1/A04WebViewApp</code> です。<a1>完成プロジェクト</a1>は初回から開けます。自分のコードを比べるときに使いましょう。",
-      "translation": "Créez le projet dans <code>Documents/Android1/A04WebViewApp</code>. Vous pouvez ouvrir le <a1>projet terminé</a1> dès la première séance. Utilisez-le pour comparer votre code."
+      "source": "作る場所は <code>Documents/Android1/A04WebViewApp</code> です。授業の入力は自分で作ったプロジェクトに書きます。",
+      "translation": "Créez le projet dans <code>Documents/Android1/A04WebViewApp</code>. Saisissez le code du cours dans le projet que vous avez créé vous-même."
     },
     {
       "source": "インターネット接続が必要です",
@@ -1943,52 +1943,8 @@
       "translation": "Pour poser une question, indiquez « le numéro du STEP, le fichier modifié, la première ligne rouge et l'ordre des boutons pressés »."
     },
     {
-      "source": "完成版は最初の授業から使える見本です。教科書といっしょに配られた<strong>教材のフォルダ</strong>に、そのまま開ける形で入っています。ダウンロードも展開も要りません。",
-      "translation": "La version terminée est un modèle utilisable dès le premier cours. Elle se trouve, prête à ouvrir, dans le <strong>dossier des supports de cours</strong> distribué avec le manuel. Aucun téléchargement ni extraction n'est nécessaire."
-    },
-    {
-      "source": "Android Studioの <strong>Open</strong>（プロジェクトを開いているときは <strong>File → Open</strong>）で、<strong>書類</strong>（<code>Documents</code>）にある教材のフォルダを開きます。名前は <code>android1-student-materials-</code> のうしろに日付が付いた形で、日付は配られた回によって変わります。いま読んでいるこの教科書が入っているフォルダです。",
-      "translation": "Avec <strong>Open</strong> dans Android Studio (ou <strong>File → Open</strong> si un projet est ouvert), ouvrez le dossier des supports de cours dans <strong>書類</strong> (<code>Documents</code>). Son nom commence par <code>android1-student-materials-</code> suivi d'une date, qui varie selon la distribution. Il s'agit du dossier contenant le manuel que vous lisez actuellement."
-    },
-    {
-      "source": "その中を <code>samples → A04WebViewApp</code> の順に開き、<code>settings.gradle.kts</code> と <code>app</code> が入った <code>A04WebViewApp</code> フォルダを選びます。",
-      "translation": "Ouvrez ensuite <code>samples → A04WebViewApp</code> et sélectionnez le dossier <code>A04WebViewApp</code> contenant <code>settings.gradle.kts</code> et <code>app</code>."
-    },
-    {
-      "source": "Sync後にRunして動きを確認します。授業の入力に戻るときは自分の <code>Documents/Android1/A04WebViewApp</code> を開きます。",
-      "translation": "Après Sync, lancez avec Run pour vérifier le comportement. Pour reprendre la saisie du cours, ouvrez votre propre <code>Documents/Android1/A04WebViewApp</code>."
-    },
-    {
-      "source": "両方とも同じプロジェクト名なので、ウィンドウの保存先を確認しましょう。見本と自分のアプリは同じパッケージ名のため、端末上では同じアプリを更新します。切り替えるときは、確認したい方のプロジェクトからRunします。",
-      "translation": "Les deux projets portent le même nom : vérifiez l'emplacement de la fenêtre. Le modèle et votre application ont le même nom de package et mettent donc à jour la même application sur l'appareil. Pour passer de l'un à l'autre, lancez Run depuis le projet que vous voulez vérifier."
-    },
-    {
-      "source": "教材のフォルダが手元にないときは、同じ見本をZIPで受け取れます（<a1>A04WebViewApp.zip</a1>）。展開してできた <code>A04WebViewApp</code> フォルダを、同じようにOpenで選びます。",
-      "translation": "Si vous n'avez pas le dossier des supports de cours, vous pouvez obtenir le même exemple en ZIP (<a1>A04WebViewApp.zip</a1>). Après extraction, sélectionnez de la même manière le dossier <code>A04WebViewApp</code> avec Open."
-    },
-    {
-      "source": "完成したMainActivity.javaで照合する",
-      "translation": "Comparer avec le MainActivity.java terminé"
-    },
-    {
-      "source": "完成版 · MainActivity.java",
-      "translation": "Version terminée · MainActivity.java"
-    },
-    {
-      "source": "完成したAppMenuItem.javaで照合する",
-      "translation": "Comparer avec le fichier AppMenuItem.java terminé"
-    },
-    {
-      "source": "完成版 · AppMenuItem.java",
-      "translation": "Version finale · AppMenuItem.java"
-    },
-    {
-      "source": "完成したactivity_main.xmlで照合する",
-      "translation": "Comparer avec le activity_main.xml terminé"
-    },
-    {
-      "source": "完成版 · activity_main.xml",
-      "translation": "Version terminée · activity_main.xml"
+      "source": "エラーが解決しないときは、<a1>共通資料：困ったとき</a1>の「完成プロジェクト（見本）の確認」を参照してください。",
+      "translation": "Si vous ne parvenez pas à résoudre l'erreur, consultez la section « Vérifier le projet terminé (modèle) » dans <a1>Guide commun : En cas de problème</a1>."
     },
     {
       "source": "Androidプログラミング1 · A04WebViewApp / 本文・画像・操作機能はオフラインで利用できます。Android Studioの初回準備・ビルド、公式資料の閲覧、アプリでのページ表示にはネット接続が必要です。",

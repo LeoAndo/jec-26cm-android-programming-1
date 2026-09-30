@@ -99,10 +99,6 @@
       "translation": "ရှင်းလင်းချက်: ပိုနေသော 1 ယန်းကို ဘယ်သူ ပေးမလဲ။"
     },
     {
-      "source": "完成プロジェクトを開く",
-      "translation": "ပြီးစီးထားသော project ကို ဖွင့်ရန်"
-    },
-    {
       "source": "共通：はじめの準備",
       "translation": "အများသုံး: စတင်ရန် ပြင်ဆင်ခြင်း"
     },
@@ -129,6 +125,10 @@
     {
       "source": "共通：Android Studioのバージョン",
       "translation": "အများသုံး: Android Studio ၏ version"
+    },
+    {
+      "source": "共通：困ったとき",
+      "translation": "အများသုံး - အခက်အခဲကြုံတွေ့သောအခါ"
     },
     {
       "source": "割り勘アプリを<br>作ろう",
@@ -263,8 +263,8 @@
       "translation": "အကြိမ်တိုင်း ကိုယ်တိုင် အသစ် ဖန်တီးပါ"
     },
     {
-      "source": "作る場所は <code>Documents/Android1/A07BillSplitter</code> です。<a1>完成プロジェクト</a1>は答え合わせ用で、授業の入力は自分で作ったプロジェクトに書きます。",
-      "translation": "ဖန်တီးရမည့်နေရာမှာ <code>Documents/Android1/A07BillSplitter</code> ဖြစ်သည်။ <a1>ပြီးစီးထားသော project</a1> သည် အဖြေတိုက်စစ်ရန် ဖြစ်ပြီး အတန်းတွင် ရိုက်ထည့်ရမည့် code ကို ကိုယ်တိုင် ဖန်တီးထားသော project တွင် ရေးပါ။"
+      "source": "作る場所は <code>Documents/Android1/A07BillSplitter</code> です。授業の入力は自分で作ったプロジェクトに書きます。",
+      "translation": "ဖန်တီးရမည့်နေရာမှာ <code>Documents/Android1/A07BillSplitter</code> ဖြစ်သည်။ အတန်းတွင် ရိုက်ထည့်ရမည့် code ကို ကိုယ်တိုင် ဖန်တီးထားသော project တွင် ရေးပါ။"
     },
     {
       "source": "Android Studioの <strong>New Project</strong> をクリックします。別のプロジェクトを開いているときは <strong>File → New → New Project</strong> を選びます。",
@@ -907,8 +907,8 @@
       "translation": "② အထဲရှိအရာအားလုံးကို အစားထိုးခြင်း"
     },
     {
-      "source": "下のコード全体を選んでコピー（<kbd>⌘ C</kbd>）するか、見本の完成プロジェクト（<code>samples/A07BillSplitter/app/src/main/java/jp/ac/jec/a07billsplitter/BillSplitter.java</code>）を開いてコピーします。",
-      "translation": "အောက်ရှိ code တစ်ခုလုံးကို ရွေးပြီး copy ကူးပါ (<kbd>⌘ C</kbd>)၊ သို့မဟုတ် နမူနာ ပြီးစီးထားသော project (<code>samples/A07BillSplitter/app/src/main/java/jp/ac/jec/a07billsplitter/BillSplitter.java</code>) ကို ဖွင့်ပြီး copy ကူးပါ။"
+      "source": "下のコード全体を選んでコピー（<kbd>⌘ C</kbd>）します。",
+      "translation": "အောက်ပါ code တစ်ခုလုံးကို ရွေးပြီး copy ကူးပါ (<kbd>⌘ C</kbd>)။"
     },
     {
       "source": "Android Studioに戻り、開いている <code>BillSplitter.java</code> の中をクリックして <kbd>⌘ A</kbd> で全部選びます。<strong>最初から入っている <code>package</code> の行とクラスの宣言も、いっしょに選びます。</strong>これを残したまま貼り付けると、同じものが2つ並んでエラーになります。",
@@ -1543,76 +1543,8 @@
       "translation": "မေးခွန်းမေးသည့်အခါ “STEP နံပါတ်၊ ပြင်ဆင်ခဲ့သော ဖိုင်၊ ပထမဆုံး အနီရောင်စာကြောင်း၊ နှိပ်ခဲ့သော အစဉ်” တို့ကို ပြောပြပါ။"
     },
     {
-      "source": "完成版は最初の授業から使える見本です。教科書といっしょに配られた<strong>教材のフォルダ</strong>に、そのまま開ける形で入っています。ダウンロードも展開も要りません。",
-      "translation": "ပြီးစီးထားသော version သည် ပထမဆုံးအတန်းမှစ၍ သုံးနိုင်သော နမူနာ ဖြစ်သည်။ သင်ရိုးစာအုပ်နှင့်အတူ ဖြန့်ပေးထားသော <strong>သင်ထောက်ကူပစ္စည်း ဖိုင်တွဲ</strong> ထဲတွင် တိုက်ရိုက် ဖွင့်နိုင်သည့်ပုံစံဖြင့် ရှိသည်။ download လုပ်ရန်နှင့် ဖိုင်ဖြည်ရန် မလိုပါ။"
-    },
-    {
-      "source": "Android Studioの <strong>Open</strong>（プロジェクトを開いているときは <strong>File → Open</strong>）で、<strong>書類</strong>（<code>Documents</code>）にある教材のフォルダを開きます。名前は <code>android1-student-materials-</code> のうしろに日付が付いた形で、日付は配られた回によって変わります。いま読んでいるこの教科書が入っているフォルダです。",
-      "translation": "Android Studio ၏ <strong>Open</strong> (project ဖွင့်ထားလျှင် <strong>File → Open</strong>) ဖြင့် <strong>書類</strong> (<code>Documents</code>) ထဲရှိ သင်ထောက်ကူပစ္စည်း ဖိုင်တွဲ ကို ဖွင့်ပါ။ အမည်မှာ <code>android1-student-materials-</code> ၏ နောက်တွင် ရက်စွဲ ပါသောပုံစံ ဖြစ်ပြီး ရက်စွဲသည် ဖြန့်ပေးသည့် အကြိမ်အလိုက် ကွဲပြားသည်။ ယခု ဖတ်နေသော ဤသင်ရိုးစာအုပ် ပါဝင်သည့် ဖိုင်တွဲ ဖြစ်သည်။"
-    },
-    {
-      "source": "その中を <code>samples → A07BillSplitter</code> の順に開き、<code>settings.gradle.kts</code> と <code>app</code> が入った <code>A07BillSplitter</code> フォルダを選びます。",
-      "translation": "အထဲတွင် <code>samples → A07BillSplitter</code> အစဉ်လိုက် ဖွင့်ပြီး <code>settings.gradle.kts</code> နှင့် <code>app</code> ပါဝင်သော <code>A07BillSplitter</code> ဖိုင်တွဲကို ရွေးပါ။"
-    },
-    {
-      "source": "Sync後にRunして動きを確認します。授業の入力に戻るときは自分の <code>Documents/Android1/A07BillSplitter</code> を開きます。",
-      "translation": "Sync ပြီးနောက် run လုပ်၍ အလုပ်လုပ်ပုံကို စစ်ဆေးပါ။ အတန်း၏ ရိုက်ထည့်မှုသို့ ပြန်သွားသည့်အခါ ကိုယ်ပိုင် <code>Documents/Android1/A07BillSplitter</code> ကို ဖွင့်ပါ။"
-    },
-    {
-      "source": "両方とも同じプロジェクト名なので、ウィンドウの保存先を確認しましょう。見本と自分のアプリは同じパッケージ名のため、端末上では同じアプリを更新します。切り替えるときは、確認したい方のプロジェクトからRunします。",
-      "translation": "နှစ်ခုစလုံး project အမည် တူညီသဖြင့် window ၏ သိမ်းဆည်းရာနေရာကို စစ်ဆေးပါ။ နမူနာနှင့် ကိုယ့် app သည် package အမည် တူညီသောကြောင့် စက်ပေါ်တွင် တူညီသော app ကိုသာ update လုပ်သည်။ ပြောင်းသည့်အခါ စစ်ဆေးလိုသည့် project မှ run လုပ်ပါ။"
-    },
-    {
-      "source": "教材のフォルダが手元にないときは、同じ見本をZIPで受け取れます（<a1>A07BillSplitter.zip</a1>）。展開してできた <code>A07BillSplitter</code> フォルダを、同じようにOpenで選びます。",
-      "translation": "သင်ထောက်ကူပစ္စည်း ဖိုင်တွဲ လက်ထဲတွင် မရှိလျှင် တူညီသော နမူနာကို ZIP ဖြင့် ရယူနိုင်သည် (<a1>A07BillSplitter.zip</a1>)။ ဖိုင်ဖြည်ပြီး ထွက်လာသော <code>A07BillSplitter</code> ဖိုင်တွဲကို အလားတူ Open ဖြင့် ရွေးပါ။"
-    },
-    {
-      "source": "完成したMainActivity.javaで照合する",
-      "translation": "ပြီးစီးထားသော MainActivity.java ဖြင့် တိုက်ဆိုင်စစ်ဆေးရန်"
-    },
-    {
-      "source": "完成版 · MainActivity.java",
-      "translation": "ပြီးစီးထားသော version · MainActivity.java"
-    },
-    {
-      "source": "完成したBillSplitActivity.javaで照合する",
-      "translation": "ပြီးစီးထားသော BillSplitActivity.java ဖြင့် တိုက်ဆိုင်စစ်ဆေးရန်"
-    },
-    {
-      "source": "完成版 · BillSplitActivity.java",
-      "translation": "ပြီးစီးထားသော version · BillSplitActivity.java"
-    },
-    {
-      "source": "STEP 07で入れたBillSplitter.javaで照合する",
-      "translation": "STEP 07 တွင် ထည့်ခဲ့သော BillSplitter.java ဖြင့် တိုက်ဆိုင်စစ်ဆေးရန်"
-    },
-    {
-      "source": "STEP 07のファイル · BillSplitter.java",
-      "translation": "STEP 07 ၏ ဖိုင် · BillSplitter.java"
-    },
-    {
-      "source": "完成したactivity_main.xmlで照合する",
-      "translation": "ပြီးစီးထားသော activity_main.xml ဖြင့် တိုက်ဆိုင်စစ်ဆေးရန်"
-    },
-    {
-      "source": "完成版 · activity_main.xml",
-      "translation": "ပြီးစီးထားသော version · activity_main.xml"
-    },
-    {
-      "source": "完成したactivity_bill_split.xmlで照合する",
-      "translation": "ပြီးစီးထားသော activity_bill_split.xml ဖြင့် တိုက်ဆိုင်စစ်ဆေးရန်"
-    },
-    {
-      "source": "完成版 · activity_bill_split.xml",
-      "translation": "ပြီးစီးထားသော version · activity_bill_split.xml"
-    },
-    {
-      "source": "完成したAndroidManifest.xmlで照合する",
-      "translation": "ပြီးစီးထားသော AndroidManifest.xml ဖြင့် တိုက်ဆိုင်စစ်ဆေးရန်"
-    },
-    {
-      "source": "完成版 · AndroidManifest.xml",
-      "translation": "ပြီးစီးထားသော version · AndroidManifest.xml"
+      "source": "エラーが解決しないときは、<a1>共通資料：困ったとき</a1>の「完成プロジェクト（見本）の確認」を参照してください。",
+      "translation": "Error မပြေလည်ပါက <a1>အများသုံးလမ်းညွှန် - အခက်အခဲကြုံတွေ့သောအခါ</a1> ၏ “ပြီးစီးထားသော project (နမူနာ) ကို စစ်ဆေးခြင်း” ကို ကိုးကားပါ။"
     },
     {
       "source": "Androidプログラミング1 · A07BillSplitter / 本文・画像・操作機能はオフラインで利用できます。Android Studioの初回準備・ビルドと公式資料の閲覧にはネット接続が必要です。",

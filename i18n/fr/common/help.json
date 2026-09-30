@@ -1,0 +1,162 @@
+{
+  "source": "docs/common/help.html",
+  "language": "fr",
+  "entries": [
+    {
+      "source": "困ったとき | Androidプログラミング1",
+      "translation": "En cas de problème | Programmation Android 1"
+    },
+    {
+      "source": "本文へ移動",
+      "translation": "Aller au contenu principal"
+    },
+    {
+      "source": "JEC / Androidプログラミング1",
+      "translation": "JEC / Programmation Android 1"
+    },
+    {
+      "source": "もとのページへ戻る",
+      "translation": "Revenir à la page d'origine"
+    },
+    {
+      "source": "ANDROID PROGRAMMING 1 / 共通資料・授業サポート",
+      "translation": "ANDROID PROGRAMMING 1 / Guides communs et aide pour le cours"
+    },
+    {
+      "source": "困ったとき",
+      "translation": "En cas de difficulté"
+    },
+    {
+      "source": "コードが赤くなった、アプリが動かない、原因が分からない。<br>エラーに向き合い、自分で解決するための調べ方をまとめています。",
+      "translation": "Votre code est souligné en rouge, l'application ne fonctionne pas ou vous n'en comprenez pas la cause ?<br>Ce guide vous explique comment aborder les erreurs et chercher des solutions par vous-même."
+    },
+    {
+      "source": "このページの内容",
+      "translation": "Contenu de cette page"
+    },
+    {
+      "source": "1. エラーが起きたときの調べ方",
+      "translation": "1. Comment analyser une erreur lorsqu'elle survient"
+    },
+    {
+      "source": "2. 共通資料を活用する",
+      "translation": "2. Tirer parti des guides communs"
+    },
+    {
+      "source": "3. どうしても解決しないときは（完成プロジェクトの確認）",
+      "translation": "3. Si vous ne trouvez vraiment pas la solution (consulter le projet terminé)"
+    },
+    {
+      "source": "プログラミングでエラーが出るのは自然なことです。エラーメッセージには「どのファイルの何行目で、何が問題か」が必ず書かれています。焦らずに上から順に確認しましょう。",
+      "translation": "Il est tout à fait naturel de rencontrer des erreurs en programmation. Le message d'erreur indique toujours « quelle ligne de quel fichier pose problème ». Gardez votre calme et vérifiez de haut en bas."
+    },
+    {
+      "source": "<strong>各単元の「困ったとき」表を確認する</strong><br>教科書の末尾にある「困ったとき」には、その単元でよくある間違いと確認場所がまとまっています。",
+      "translation": "<strong>Consulter le tableau « En cas de difficulté » de chaque unité</strong><br>La section « En cas de difficulté » située à la fin du manuel récapitule les erreurs fréquentes et les éléments à vérifier pour cette unité."
+    },
+    {
+      "source": "<strong>最初の赤い行を見る</strong><br>エラーが何行も出ているときは、一番上の「最初の赤い行」を直します。最初の1つを直すと、あとのエラーがまとめて消えることがよくあります。",
+      "translation": "<strong>Regarder la première ligne rouge</strong><br>Lorsque plusieurs lignes d'erreur s'affichent, corrigez la « première ligne rouge » tout en haut. Corriger la première erreur permet souvent de faire disparaître toutes les suivantes."
+    },
+    {
+      "source": "<strong>直前のSTEPと見比べる</strong><br>手順を1つ飛ばしていないか、大文字・小文字やスペル（綴り）が教科書と違っていないかを確認します。",
+      "translation": "<strong>Comparer avec l'étape précédente</strong><br>Vérifiez que vous n'avez pas sauté une étape et que la casse (majuscules/minuscules) ou l'orthographe correspondent bien au manuel."
+    },
+    {
+      "source": "<strong>先生に質問するときは</strong><br>「STEP番号・編集したファイル・最初の赤い行・押した順番」を伝えると、原因が早く分かります。",
+      "translation": "<strong>Pour poser une question à l'enseignant</strong><br>Indiquez le numéro de l'étape (STEP), le fichier modifié, la première ligne rouge et l'ordre des actions effectuées pour identifier la cause plus rapidement."
+    },
+    {
+      "source": "エラーの種類に応じて、次の共通資料を参考にしてください。",
+      "translation": "Selon le type d'erreur, référez-vous aux guides communs suivants."
+    },
+    {
+      "source": "困っていること",
+      "translation": "Problème rencontré"
+    },
+    {
+      "source": "参考にする共通資料",
+      "translation": "Guide commun à consulter"
+    },
+    {
+      "source": "赤い文字が出てシンボルが見つからないと言われる",
+      "translation": "Du texte s'affiche en rouge indiquant qu'un symbole est introuvable"
+    },
+    {
+      "source": "<a1>共通資料：Auto Import</a1> で必要なクラスを読み込めているか確認します。",
+      "translation": "Vérifiez que les classes requises sont bien importées dans <a1>Guide commun : Configuration d'Auto Import</a1>."
+    },
+    {
+      "source": "アプリが起動時に落ちる、実行中にエラーになる",
+      "translation": "L'application plante au lancement ou génère une erreur pendant l'exécution"
+    },
+    {
+      "source": "<a1>共通資料：Logcat</a1> で赤いエラーログ（例外）を確認します。",
+      "translation": "Vérifiez les journaux d'erreur en rouge (exceptions) dans <a1>Guide commun : Utilisation de Logcat</a1>."
+    },
+    {
+      "source": "エミュレータが起動しない、動かない",
+      "translation": "L'émulateur ne démarre pas ou ne répond pas"
+    },
+    {
+      "source": "<a1>共通資料：エミュレータ</a1> で再起動や設定を確認します。",
+      "translation": "Vérifiez le redémarrage et les réglages dans <a1>Guide commun : Préparation de l'émulateur et exécution des applications</a1>."
+    },
+    {
+      "source": "画面の余白が消える、キーボードが隠れる",
+      "translation": "Les marges de l'écran disparaissent ou le clavier masque les éléments"
+    },
+    {
+      "source": "<a1>共通資料：開発Tips</a1> でレイアウトの注意点を確認します。",
+      "translation": "Vérifiez les points d'attention sur les mises en page dans <a1>Guide commun : Conseils de développement</a1>."
+    },
+    {
+      "source": "Android Studioのバージョンが違う",
+      "translation": "La version d'Android Studio est différente"
+    },
+    {
+      "source": "<a1>共通資料：ちがうAndroid Studioのバージョンで進めるとき</a1> を確認します。",
+      "translation": "Consultez <a1>Guide commun : Utiliser une autre version d'Android Studio</a1>."
+    },
+    {
+      "source": "どうしても自分のコードの間違いが見つからないときや、アプリ本来の動きを確認したいときは、先生が作った<strong>完成プロジェクト（見本）</strong>を開いて自分のコードと見比べることができます。",
+      "translation": "Si vous ne trouvez vraiment pas l'erreur dans votre code ou si vous souhaitez vérifier le comportement attendu de l'application, vous pouvez ouvrir le <strong>projet terminé (modèle)</strong> préparé par l'enseignant et le comparer avec votre code."
+    },
+    {
+      "source": "完成プロジェクトは「答え合わせ用」です",
+      "translation": "Le projet terminé sert à « vérifier votre travail »"
+    },
+    {
+      "source": "完成プロジェクトからコードをそのままコピーしたり、完成プロジェクトを改造して提出しても、自分の課題の提出にはなりません。見本で違いを確認したら、必ず<strong>自分で作ったプロジェクトに戻り、自分の手で修正</strong>してください。",
+      "translation": "Copier directement le code du projet terminé ou modifier ce dernier pour le rendre ne constitue pas le rendu de votre propre travail. Une fois les différences constatées avec le modèle, veillez à <strong>revenir sur le projet que vous avez créé vous-même et à le corriger manuellement</strong>."
+    },
+    {
+      "source": "Android Studioのメニューから <strong>File → Open</strong> を選びます。",
+      "translation": "Dans le menu d'Android Studio, sélectionnez <strong>File → Open</strong>."
+    },
+    {
+      "source": "<strong>書類</strong>（<code>Documents</code>）にある教材のフォルダ（<code>android1-student-materials-日付</code>）を開きます。",
+      "translation": "Ouvrez le dossier des supports de cours (<code>android1-student-materials-日付</code>) situé dans <strong>Documents</strong> (<code>Documents</code>)."
+    },
+    {
+      "source": "その中にある <code>samples</code> フォルダを開き、該当する単元のフォルダ（例：<code>A02CalcGame</code>）を選んで <strong>Open</strong> をクリックします。",
+      "translation": "Ouvrez le dossier <code>samples</code> qui s'y trouve, sélectionnez le dossier de l'unité correspondante (ex. : <code>A02CalcGame</code>), puis cliquez sur <strong>Open</strong>."
+    },
+    {
+      "source": "Gradle同期が終わったら、Runして正しい動きを確認したり、エラーが出ているファイルと見比べます。",
+      "translation": "Une fois la synchronisation Gradle terminée, cliquez sur Run pour vérifier le comportement correct ou comparez vos fichiers avec ceux qui affichent des erreurs."
+    },
+    {
+      "source": "確認が終わったら見本を閉じ、自分のプロジェクト（<code>Documents/Android1/単元名</code>）を開き直して作業を続けます。",
+      "translation": "Une fois la vérification terminée, fermez le modèle, rouvrez votre propre projet (<code>Documents/Android1/単元名</code>) et poursuivez votre travail."
+    },
+    {
+      "source": "取り違えに注意",
+      "translation": "Attention aux confusions"
+    },
+    {
+      "source": "見本と自分のアプリは同じプロジェクト名です。ウィンドウ上部のタイトルバーに表示される保存先パスを確認し、見本のほうを編集してしまわないよう注意しましょう。",
+      "translation": "Le modèle et votre propre application portent le même nom de projet. Vérifiez le chemin d'enregistrement affiché dans la barre de titre en haut de la fenêtre pour éviter de modifier le modèle par erreur."
+    }
+  ]
+}

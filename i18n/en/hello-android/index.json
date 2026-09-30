@@ -87,10 +87,6 @@
       "translation": "If you get stuck"
     },
     {
-      "source": "完成プロジェクトを開く",
-      "translation": "Open the finished project"
-    },
-    {
       "source": "共通：はじめの準備",
       "translation": "Shared: First-time setup"
     },
@@ -117,6 +113,10 @@
     {
       "source": "共通：Auto Import",
       "translation": "Shared: Auto Import"
+    },
+    {
+      "source": "共通：困ったとき",
+      "translation": "Shared: Troubleshooting"
     },
     {
       "source": "はじめての<br>アプリ作り",
@@ -241,10 +241,6 @@
     {
       "source": "この授業では、毎回、<strong>自分でAndroid Studioからプロジェクトを新規作成</strong>します。今回はSTEP 1から <code>A01HelloAndroid</code> を作ります。",
       "translation": "In this class, <strong>you create a new project yourself in Android Studio</strong> every time. This time, you create <code>A01HelloAndroid</code>, starting from STEP 1."
-    },
-    {
-      "source": "<a1>完成プロジェクト</a1>は、最初の授業からいつでも見られる参考資料です。自分で作ったコードと比べたり、動きを確かめたりするときに使います。",
-      "translation": "The <a1>finished project</a1> is a reference that you can look at any time, from the first class on. Use it to compare with the code you wrote or to check how the app behaves."
     },
     {
       "source": "この教科書の進め方",
@@ -1371,86 +1367,6 @@
       "translation": "<strong>Place components in XML → find them by id → write the click code.</strong><br>Using these three things, you made an app that you can operate yourself."
     },
     {
-      "source": "REFERENCE · 最初の授業から使える見本",
-      "translation": "REFERENCE · A sample you can use from the first class"
-    },
-    {
-      "source": "完成プロジェクトを開いて比べる",
-      "translation": "Open the finished project and compare"
-    },
-    {
-      "source": "授業は、毎回自分で新規作成したプロジェクトで進めます。完成版は、動作確認とコード比較のための見本です。見本は、教科書といっしょに配られた<strong>教材のフォルダ</strong>に、そのまま開ける形で入っています。ダウンロードも展開も要りません。",
-      "translation": "In every class, you work in a project that you create yourself. The finished version is a sample for checking how the app works and for comparing code. The sample is in the <strong>course materials folder</strong> that was handed out with the textbook, ready to open as it is. You do not need to download or unzip anything."
-    },
-    {
-      "source": "① 見本の場所を確かめる",
-      "translation": "① Check where the sample is"
-    },
-    {
-      "source": "Finderを開き、左側の <strong>書類</strong>（<code>Documents</code>）をクリックします。教材のフォルダをダブルクリックで開きます。名前は <code>android1-student-materials-</code> のうしろに日付が付いた形で、日付は配られた回によって変わります。いま読んでいるこの教科書が入っているフォルダです。",
-      "translation": "Open Finder and click <strong>書類</strong> (<code>Documents</code>) on the left. Double-click the course materials folder to open it. Its name is <code>android1-student-materials-</code> followed by a date, and the date changes with each handout. It is the folder that contains this textbook you are reading now."
-    },
-    {
-      "source": "その中の <code>samples</code> フォルダを開きます。<code>A01HelloAndroid</code> フォルダが見本です。場所を確かめるだけで、移動はしません。",
-      "translation": "Open the <code>samples</code> folder inside it. The <code>A01HelloAndroid</code> folder is the sample. Just check where it is. Do not move it."
-    },
-    {
-      "source": "使うもの",
-      "translation": "What you use"
-    },
-    {
-      "source": "フォルダの場所（ユーザ名と教材のフォルダは、自分のものに読み替える）",
-      "translation": "Folder location (replace ユーザ名 (user name) and 教材のフォルダ (course materials folder) with your own)"
-    },
-    {
-      "source": "授業で作るプロジェクト",
-      "translation": "The project you make in class"
-    },
-    {
-      "source": "完成版の見本",
-      "translation": "The finished sample"
-    },
-    {
-      "source": "② Android Studioで開く",
-      "translation": "② Open it in Android Studio"
-    },
-    {
-      "source": "フォルダを選ぶ画面を出します。授業のプロジェクトを開いているときは、上のメニューから <strong>File → Open</strong> を選びます。プロジェクトを1つも開いていないときは、Android Studioの最初の画面（Welcome画面）が出ているので、その右上にある <strong>Open</strong> をクリックします。",
-      "translation": "Open the folder selection dialog. If your class project is open, select <strong>File → Open</strong> from the menu at the top. If no project is open, Android Studio shows its first screen (the Welcome screen). Click <strong>Open</strong> at the top right of that screen."
-    },
-    {
-      "source": "フォルダを選ぶ画面で、①で確かめた <code>samples</code> の中の <code>A01HelloAndroid</code> フォルダを選んで開きます。",
-      "translation": "In the folder selection dialog, select and open the <code>A01HelloAndroid</code> folder inside <code>samples</code>, whose location you checked in ①."
-    },
-    {
-      "source": "開き方を聞かれたら <strong>New Window</strong> を選び、授業のプロジェクトと別のウィンドウで開きます。",
-      "translation": "If you are asked how to open it, select <strong>New Window</strong> to open it in a separate window from your class project."
-    },
-    {
-      "source": "Gradle Syncが終わったら、Project表示で、調べたいファイルを開きます。",
-      "translation": "When Gradle Sync finishes, open the file you want to look at in the Project view."
-    },
-    {
-      "source": "動きを見たいときは <strong>Run ▶</strong> を押します。",
-      "translation": "To see how it works, click <strong>Run ▶</strong>."
-    },
-    {
-      "source": "③ 今のステップの部分だけを比べる",
-      "translation": "③ Compare only the part for your current step"
-    },
-    {
-      "source": "たとえばSTEP 4で困ったら、<code>MainActivity.java</code> の <code>button.setOnClickListener</code> の部分を見ます。今のステップと同じidや処理を探して比べましょう。",
-      "translation": "For example, if you get stuck in STEP 4, look at the <code>button.setOnClickListener</code> part of <code>MainActivity.java</code>. Find the same ids and code as in your current step and compare them."
-    },
-    {
-      "source": "見終わったら、授業で作っている <code>Documents/Android1/A01HelloAndroid</code> のウィンドウに戻ります。直す場所を1つ確認し、Runして結果を確かめます。分からないときは、先生に2つのコードを見せましょう。",
-      "translation": "When you finish looking, go back to the window of <code>Documents/Android1/A01HelloAndroid</code>, the project you are making in class. Find one place to fix, run the app, and check the result. If you are not sure, show both versions of the code to your teacher."
-    },
-    {
-      "source": "教材のフォルダが手元にないときは、同じ見本をZIPで受け取れます（<a1>A01HelloAndroid.zip</a1>）。展開してできた <code>A01HelloAndroid</code> フォルダを、②と同じように開きます。",
-      "translation": "If you do not have the course materials folder, you can get the same sample as a ZIP file (<a1>A01HelloAndroid.zip</a1>). Unzip it, then open the <code>A01HelloAndroid</code> folder that it creates, in the same way as in ②."
-    },
-    {
       "source": "HELP · 困ったらここ",
       "translation": "HELP · Look here if you get stuck"
     },
@@ -1569,6 +1485,10 @@
     {
       "source": "一度にいくつも直すと、何が変わったか分かりにくくなります。1か所直して、もう一度Runしましょう。",
       "translation": "If you fix many things at once, it is hard to tell what changed. Fix one place, then run the app again."
+    },
+    {
+      "source": "エラーが解決しないときは、<a1>共通資料：困ったとき</a1>の「完成プロジェクト（見本）の確認」を参照してください。",
+      "translation": "If the error is not resolved, refer to “Checking the finished project (sample)” in <a1>Shared Guide: Troubleshooting</a1>."
     },
     {
       "source": "もっと知りたいとき",
