@@ -61,20 +61,6 @@
           "teacher_doc",
           "archive"
         ]
-      },
-      {
-        "path": "scripts/package-student-materials.py",
-        "requires": [
-          "student_doc",
-          "archive",
-          "guidance_line"
-        ]
-      },
-      {
-        "path": "scripts/release-student-materials.py",
-        "requires": [
-          "guidance_line"
-        ]
       }
     ]
   },

@@ -19,10 +19,39 @@ SCRIPTS = Path(__file__).resolve().parent
 spec = importlib.util.spec_from_file_location("release", SCRIPTS / "release-student-materials.py")
 release = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(release)
+spec = importlib.util.spec_from_file_location("packager", SCRIPTS / "package-student-materials.py")
+packager = importlib.util.module_from_spec(spec)
+spec.loader.exec_module(packager)
 
 # JSTでは翌日になる時刻。配布物の名前が版タグと同じJSTの日付になることを確かめる。
 FIXTURE_COMMITTED = "2026-09-19T15:30:00+00:00"
 FIXTURE_STEM = "android1-student-materials-2026-09-20"
+
+# 仮のリポジトリに置く「教材整合性チェック」。終了コードだけを決められるようにしている。
+# 本物の scripts/check-teaching-materials.py の中身は scripts/test_check_teaching_materials.py が
+# 受け持つ。ここで確かめたいのは「配布物を作る前に必ず検査を実行し、落ちたらZIPを作らない」ことだけで、
+# 配布物のテストはリンク切れなど、整合性チェックも嫌がる壊れ方をわざと作るため、本物は使わない。
+INTEGRITY_CHECK = '''"""テスト用：教材整合性チェックの代わり。"""
+
+import sys
+
+print("教材整合性チェック: テスト用", file=sys.stderr)
+raise SystemExit({status})
+'''
+
+# 単元の一覧は config/teaching-materials.json から読む。
+FIXTURE_PROJECTS = [
+    {
+        "name": "A01HelloAndroid",
+        "package": "jp.ac.jec.a01helloandroid",
+        "root": "A01HelloAndroid",
+        "docs": ["docs/hello-android/index.html", "teacher/hello-android/index.html"],
+        "source_java": "A01HelloAndroid/MainActivity.java",
+        "source_xml": "A01HelloAndroid/l.xml",
+        "snippets": [],
+        "archive": "docs/hello-android/downloads/A01HelloAndroid.zip",
+    },
+]
 
 
 class PackageStudentMaterialsTest(unittest.TestCase):
@@ -31,16 +60,15 @@ class PackageStudentMaterialsTest(unittest.TestCase):
         self.addCleanup(temporary.cleanup)
         self.root = Path(temporary.name)
         (self.root / "scripts").mkdir()
-        for script in ("check-teaching-materials.py", "package-hello-android.py", "package-student-materials.py", "localize-student-materials.py"):
+        for script in ("package-hello-android.py", "package-student-materials.py", "localize-student-materials.py"):
             copy2(SCRIPTS / script, self.root / "scripts" / script)
+        self.set_integrity_check(0)
         (self.root / "config").mkdir()
         config = json.loads((SCRIPTS.parent / "config/i18n.json").read_text())
         for language in config["languages"]:
             language["distribute"] = False
         (self.root / "config/i18n.json").write_text(json.dumps(config, ensure_ascii=False))
-        (self.root / "config/teaching-materials.json").write_text(
-            json.dumps({"scan_roots": [], "terms": [], "projects": []}), encoding="utf-8"
-        )
+        self.set_projects(FIXTURE_PROJECTS)
         for name, text in {
             "docs/hello-android/index.html": '<a href="downloads/A01HelloAndroid.zip">完成版</a><img src="images/test.png">',
             "docs/hello-android/downloads/A01HelloAndroid.zip": "stale ZIP",
@@ -64,6 +92,17 @@ class PackageStudentMaterialsTest(unittest.TestCase):
             env={"GIT_AUTHOR_DATE": FIXTURE_COMMITTED, "GIT_COMMITTER_DATE": FIXTURE_COMMITTED},
         )
         self.archive = self.root / f"dist/{FIXTURE_STEM}.zip"
+
+    def set_integrity_check(self, status):
+        """教材整合性チェックの代わりを、指定の終了コードで置き直す。"""
+        (self.root / "scripts/check-teaching-materials.py").write_text(
+            INTEGRITY_CHECK.format(status=status), encoding="utf-8")
+
+    def set_projects(self, projects):
+        (self.root / "config/teaching-materials.json").write_text(
+            json.dumps({"scan_roots": [], "terms": [], "projects": projects}, ensure_ascii=False),
+            encoding="utf-8",
+        )
 
     def git(self, *args, env=None):
         return subprocess.run(
@@ -98,6 +137,73 @@ class PackageStudentMaterialsTest(unittest.TestCase):
         catalog.write_text(json.dumps({"source": "docs/hello-android/index.html", "language": "en",
                                       "entries": [{"source": "訳した文", "translation": "Translated sentence"}]}, ensure_ascii=False))
         self.git("add", "docs/assets", "docs/hello-android/index.html", "i18n/en/hello-android/index.json", "config/i18n.json")
+
+    def test_archive_targets_drop_duplicate_root_and_archive(self):
+        """同じ root と archive を共有する単元は、ZIP生成の組を1つにまとめる。"""
+        projects = [
+            {"root": "A01HelloAndroid", "archive": "docs/hello-android/downloads/A01HelloAndroid.zip"},
+            {"root": "A01HelloAndroid", "archive": "docs/hello-android/downloads/A01HelloAndroid.zip"},
+            {"root": "A02CalcGame", "archive": "docs/calc-game/downloads/A02CalcGame.zip"},
+        ]
+        self.assertEqual(packager.archive_targets(projects), [
+            ("A01HelloAndroid", "docs/hello-android/downloads/A01HelloAndroid.zip"),
+            ("A02CalcGame", "docs/calc-game/downloads/A02CalcGame.zip"),
+        ])
+
+    def test_shared_project_is_packaged_once(self):
+        """同じ完成プロジェクトを指す単元が複数あっても、ZIPは1回だけ作る。"""
+        shared = dict(FIXTURE_PROJECTS[0], name="A02SharedSample",
+                      docs=["docs/shared-sample/index.html", "teacher/shared-sample/index.html"])
+        self.set_projects([*FIXTURE_PROJECTS, shared])
+        calls = []
+        run = subprocess.run
+
+        def record(command, *args, **kwargs):
+            calls.append([str(part) for part in command])
+            return run(command, *args, **kwargs)
+
+        with patch.object(packager, "ROOT", self.root.resolve()), patch.object(packager.subprocess, "run", record):
+            packager.build(self.root / "dist")
+        packaged = [call for call in calls if any("package-hello-android.py" in part for part in call)]
+        self.assertEqual([call[call.index("--project") + 1] for call in packaged], ["A01HelloAndroid"])
+
+    def test_instructions_list_every_registered_unit(self):
+        """はじめに.txt の単元一覧は config/teaching-materials.json から作る。"""
+        self.assertEqual(self.package().returncode, 0)
+        with ZipFile(self.archive) as archive:
+            instructions = archive.read(f"{FIXTURE_STEM}/はじめに.txt").decode()
+        self.assertIn("   A01 HelloAndroid：docs/hello-android/index.html", instructions)
+        self.assertIn("samples/A01HelloAndroid", instructions)
+
+    def test_added_unit_appears_without_touching_the_script(self):
+        """単元を設定に足すだけで、配布物の案内にも反映される。"""
+        added = dict(FIXTURE_PROJECTS[0], name="A12ExtraApp",
+                     docs=["docs/extra-app/index.html", "teacher/extra-app/index.html"])
+        self.set_projects([*FIXTURE_PROJECTS, added])
+        textbook = self.root / "docs/extra-app/index.html"
+        textbook.parent.mkdir(parents=True)
+        textbook.write_text('<a href="../hello-android/downloads/A01HelloAndroid.zip">完成版</a>', encoding="utf-8")
+        self.git("add", "config/teaching-materials.json", "docs/extra-app/index.html")
+        self.assertEqual(self.package().returncode, 0)
+        with ZipFile(self.archive) as archive:
+            instructions = archive.read(f"{FIXTURE_STEM}/はじめに.txt").decode()
+        self.assertIn("   A12 ExtraApp：docs/extra-app/index.html", instructions)
+
+    def test_missing_project_archive_rejects_package(self):
+        """教科書を配るのに完成プロジェクトZIPがない単元を見つける。"""
+        self.git("rm", "--cached", "docs/hello-android/downloads/A01HelloAndroid.zip")
+        result = self.package()
+        self.assertNotEqual(result.returncode, 0)
+        self.assertIn("HelloAndroidの完成プロジェクトが見つかりません", result.stderr)
+        self.assertFalse(self.archive.exists())
+
+    def test_integrity_check_failure_stops_packaging(self):
+        """教材整合性チェックが落ちたら、配布物を書き出さない。"""
+        self.set_integrity_check(1)
+        result = self.package()
+        self.assertNotEqual(result.returncode, 0)
+        self.assertIn("教材のパッケージ化に失敗しました", result.stderr)
+        self.assertFalse(self.archive.exists())
 
     def test_distributed_language_has_static_navigation_and_shared_assets(self):
         self.enable_translation()
@@ -273,6 +379,11 @@ class StudentReleaseTest(unittest.TestCase):
         (self.dist / self.asset).write_bytes(b"student package")
         (self.dist / release.CHECKSUMS).write_text(f"{hashlib.sha256(b'student package').hexdigest()}  {self.asset}\n")
         (self.dist / "release-notes.md").write_text("学生向けノート")
+        self.source = self.dist / "source"
+        (self.source / "config").mkdir(parents=True)
+        (self.source / "config/teaching-materials.json").write_text(
+            json.dumps({"projects": FIXTURE_PROJECTS}, ensure_ascii=False), encoding="utf-8")
+        self.enterContext(patch.object(release, "ROOT", self.source))
         self.enterContext(patch.object(release, "DIST", self.dist))
         self.enterContext(patch.dict(os.environ, {"GITHUB_EVENT_NAME": "workflow_dispatch", "GITHUB_REF": "refs/heads/main", "STUDENT_NOTES": "STEP 4の説明修正。やり直し不要。", "ALLOW_UNTRANSLATED": "false"}))
         self.summary = self.enterContext(patch.object(release, "summary"))
@@ -289,6 +400,27 @@ class StudentReleaseTest(unittest.TestCase):
         if path.endswith("/generate-notes"):
             return {"body": "* HelloAndroidの説明を修正 #2"}
         raise AssertionError(f"Unexpected API: {path}")
+
+    def test_release_notes_list_units_from_the_configuration(self):
+        """リリースノートの単元一覧は config/teaching-materials.json から作る。"""
+        with patch.object(release.subprocess, "check_output", return_value="- 修正 (abc123)"):
+            release.prepare(self.repo, self.metadata)
+        text = (self.dist / "release-notes.md").read_text()
+        self.assertIn("- `A01 HelloAndroid：docs/hello-android/index.html`", text)
+        self.assertIn("`samples/A01HelloAndroid`", text)
+
+    def test_added_unit_appears_in_release_notes(self):
+        """単元を設定に足すだけで、リリースノートの案内にも出る。"""
+        added = dict(FIXTURE_PROJECTS[0], name="A12ExtraApp",
+                     docs=["docs/extra-app/index.html", "teacher/extra-app/index.html"],
+                     root="A12ExtraApp")
+        (self.source / "config/teaching-materials.json").write_text(
+            json.dumps({"projects": [*FIXTURE_PROJECTS, added]}, ensure_ascii=False), encoding="utf-8")
+        with patch.object(release.subprocess, "check_output", return_value=""):
+            release.prepare(self.repo, self.metadata)
+        text = (self.dist / "release-notes.md").read_text()
+        self.assertIn("- `A12 ExtraApp：docs/extra-app/index.html`", text)
+        self.assertIn("`samples/A01HelloAndroid`", text)
 
     def incomplete_report(self):
         return [{"language": {"code": "en", "name": "English", "distribute": True}, "rows": [
