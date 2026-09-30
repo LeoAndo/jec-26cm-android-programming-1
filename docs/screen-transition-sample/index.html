@@ -18,7 +18,7 @@
 <li><a href="#step-8">08　ミニ練習</a></li>
 <li><a href="#step-9">09　完成</a></li></ol></nav>
 <div class="progress"><span data-progress-label>0 / 10 ステップ確認済み</span><progress value="0" max="10" aria-label="学習の進み具合"></progress><span class="muted">自分用のチェックです。</span></div>
-<div class="resources"><a href="#help">困ったとき</a><a href="#key-in-test-activity">解説：キーの定数が、なぜ受け取る側のTestActivityにある？</a><a href="#common-way">解説：実際によく使う渡し方は？</a><a href="#sample-project">完成プロジェクトを開く</a><a href="../hello-android/index.html">A01：HelloAndroid</a><a href="../calc-game/index.html">A02：CalcGame</a><a href="../rock-paper-scissors-game/index.html">A03：RockPaperScissorsGame</a><a href="../webview-app/index.html">A04：WebViewApp</a><a href="../bomb-game/index.html">A05：BombGame</a><span aria-current="page">A06：ScreenTransitionSample</span><a href="../bill-splitter/index.html">A07：BillSplitter</a><a href="../shared-preferences-sample/index.html">A08：SharedPreferencesSample</a><a href="../memo-app/index.html">A09：MemoApp</a><a href="../room-sample/index.html">A10：RoomSample</a><a href="../vocabulary-book/index.html">A11：VocabularyBook</a><a href="../common/setup.html?from=screen-transition-sample">共通：はじめの準備</a><a href="../common/emulator.html?from=screen-transition-sample">共通：エミュレータ</a><a href="../common/auto-import.html?from=screen-transition-sample">共通：Auto Import</a><a href="../common/logcat.html?from=screen-transition-sample">共通：Logcat</a><a href="../common/apk.html?from=screen-transition-sample">共通：APKの提出</a><a href="../common/dev-tips.html?from=screen-transition-sample">共通：開発Tips</a><a href="../common/other-versions.html?from=screen-transition-sample">共通：Android Studioのバージョン</a></div>
+<div class="resources"><a href="#help">困ったとき</a><a href="#key-in-test-activity">解説：キーの定数が、なぜ受け取る側のTestActivityにある？</a><a href="#common-way">解説：実際によく使う渡し方は？</a><a href="../hello-android/index.html">A01：HelloAndroid</a><a href="../calc-game/index.html">A02：CalcGame</a><a href="../rock-paper-scissors-game/index.html">A03：RockPaperScissorsGame</a><a href="../webview-app/index.html">A04：WebViewApp</a><a href="../bomb-game/index.html">A05：BombGame</a><span aria-current="page">A06：ScreenTransitionSample</span><a href="../bill-splitter/index.html">A07：BillSplitter</a><a href="../shared-preferences-sample/index.html">A08：SharedPreferencesSample</a><a href="../memo-app/index.html">A09：MemoApp</a><a href="../room-sample/index.html">A10：RoomSample</a><a href="../vocabulary-book/index.html">A11：VocabularyBook</a><a href="../common/setup.html?from=screen-transition-sample">共通：はじめの準備</a><a href="../common/emulator.html?from=screen-transition-sample">共通：エミュレータ</a><a href="../common/auto-import.html?from=screen-transition-sample">共通：Auto Import</a><a href="../common/logcat.html?from=screen-transition-sample">共通：Logcat</a><a href="../common/apk.html?from=screen-transition-sample">共通：APKの提出</a><a href="../common/dev-tips.html?from=screen-transition-sample">共通：開発Tips</a><a href="../common/other-versions.html?from=screen-transition-sample">共通：Android Studioのバージョン</a><a href="../common/help.html?from=screen-transition-sample">共通：困ったとき</a></div>
 </div></aside><main id="main"><div class="hero"><span class="unit">06</span><p class="eyebrow">SCREEN TRANSITION SAMPLE</p>
 <h1>画面を切り替えて<br>値を渡そう</h1><p class="lede">ボタンを押す。次の画面が開く。渡した値をLogcatで見る。<br>Intentで、画面と画面をつなぐアプリへ。</p>
 <div class="tags"><span>Java / XML</span><span>A01〜A05の内容を使う</span><span>90分 × 2コマ目安</span><span>Macで学ぶ</span></div></div>
@@ -42,7 +42,7 @@ TestActivity  D  stringArrayValue: null</code></pre>
 <tr><td>2コマ目</td><td>STEP 6〜9</td><td>startメソッドで値と配列を渡し、ミニ練習・完成チェックを行う。</td></tr>
 </tbody></table>
 <p>各コマに再実行と個別確認の時間を含みます。予習は不要です。</p>
-<div class="note"><p class="box-title">毎回、自分で新規作成します</p><p>作る場所は <code>Documents/Android1/A06ScreenTransitionSample</code> です。<a href="#sample-project">完成プロジェクト</a>は初回から開けます。動きの確認とコードの見比べに使います。</p></div>
+<div class="note"><p class="box-title">毎回、自分で新規作成します</p><p>作る場所は <code>Documents/Android1/A06ScreenTransitionSample</code> です。授業の入力は自分で作ったプロジェクトに書きます。</p></div>
 <h3>完成アプリの操作</h3>
 <table><thead><tr><th>操作</th><th>開く画面</th><th>渡すもの（Logcatに値が出る行）</th></tr></thead><tbody>
 <tr><td>起動</td><td>MainActivity</td><td>—</td></tr>
@@ -689,170 +689,7 @@ public class TestActivity extends AppCompatActivity {
 </tbody></table>
 
 <p><a href="../common/logcat.html?from=screen-transition-sample">共通資料：Logcat</a>を使います。今回のパッケージは <code>jp.ac.jec.a06screentransitionsample</code> です。受け取った値は <code>package:jp.ac.jec.a06screentransitionsample tag:TestActivity level:DEBUG</code> で見ます。エラーを見るときは、<code>tag:TestActivity</code> と <code>level:DEBUG</code> を消して、<code>package:jp.ac.jec.a06screentransitionsample level:ERROR</code> に置き換えます。前の単元のパッケージ名も残さないようにします。</p>
-<p>質問では「STEP番号・編集したファイル・最初の赤い行・押した順番」を伝えます。</p></section>
-<section id="sample-project"><h2>完成プロジェクトを開く</h2>
-<p>完成版は最初の授業から使える見本です。教科書といっしょに配られた<strong>教材のフォルダ</strong>に、そのまま開ける形で入っています。ダウンロードも展開も要りません。</p>
-<ol><li>Android Studioの <strong>Open</strong>（プロジェクトを開いているときは <strong>File → Open</strong>）で、<strong>書類</strong>（<code>Documents</code>）にある教材のフォルダを開きます。名前は <code>android1-student-materials-</code> のうしろに日付が付いた形で、日付は配られた回によって変わります。いま読んでいるこの教科書が入っているフォルダです。</li><li>その中を <code>samples → A06ScreenTransitionSample</code> の順に開き、<code>settings.gradle.kts</code> と <code>app</code> が入った <code>A06ScreenTransitionSample</code> フォルダを選びます。</li><li>Sync後にRunして動きを確認します。授業の入力に戻るときは自分の <code>Documents/Android1/A06ScreenTransitionSample</code> を開きます。</li></ol>
-<p>両方とも同じプロジェクト名なので、ウィンドウの保存先を確認しましょう。見本と自分のアプリは同じパッケージ名のため、端末上では同じアプリを更新します。切り替えるときは、確認したい方のプロジェクトからRunします。</p>
-<p>教材のフォルダが手元にないときは、同じ見本をZIPで受け取れます（<a href="downloads/A06ScreenTransitionSample.zip" download>A06ScreenTransitionSample.zip</a>）。展開してできた <code>A06ScreenTransitionSample</code> フォルダを、同じようにOpenで選びます。</p>
-<details><summary>完成したMainActivity.javaで照合する</summary><div class="code-head">完成版 · MainActivity.java</div>
-<pre id="code-complete-main-java" tabindex="0"><code>package jp.ac.jec.a06screentransitionsample;
-
-import android.os.Bundle;
-
-import androidx.activity.EdgeToEdge;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
-
-public class MainActivity extends AppCompatActivity {
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_main);
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -&gt; {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
-        });
-
-        findViewById(R.id.btn1).setOnClickListener(v -&gt; {
-            TestActivity.start(this);
-        });
-
-        findViewById(R.id.btn2).setOnClickListener(v -&gt; {
-            TestActivity.start(this, 1, &quot;2&quot;);
-        });
-
-        findViewById(R.id.btn3).setOnClickListener(v -&gt; {
-            TestActivity.start(this, new String[]{&quot;3&quot;, &quot;4&quot;, &quot;5&quot;});
-        });
-    }
-}</code></pre>
-</details>
-<details><summary>完成したTestActivity.javaで照合する</summary><div class="code-head">完成版 · TestActivity.java</div>
-<pre id="code-complete-test-java" tabindex="0"><code>package jp.ac.jec.a06screentransitionsample;
-
-import android.content.Context;
-import android.content.Intent;
-import android.os.Bundle;
-import android.util.Log;
-
-import androidx.activity.EdgeToEdge;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
-
-import java.util.Arrays;
-
-public class TestActivity extends AppCompatActivity {
-    private static final String EXTRA_KEY_INT_VALUE = &quot;intValue&quot;;
-    private static final String EXTRA_KEY_STRING_VALUE = &quot;stringValue&quot;;
-    private static final String EXTRA_KEY_STRING_ARRAY_VALUE = &quot;stringArrayValue&quot;;
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_test);
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -&gt; {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
-        });
-
-        var intValue = getIntent().getIntExtra(EXTRA_KEY_INT_VALUE, 0);
-        var stringValue = getIntent().getStringExtra(EXTRA_KEY_STRING_VALUE);
-        var stringArrayValue = getIntent().getStringArrayExtra(EXTRA_KEY_STRING_ARRAY_VALUE);
-        Log.d(&quot;TestActivity&quot;, &quot;intValue: &quot; + intValue);
-        Log.d(&quot;TestActivity&quot;, &quot;stringValue: &quot; + stringValue);
-        Log.d(&quot;TestActivity&quot;, &quot;stringArrayValue: &quot; + Arrays.toString(stringArrayValue));
-    }
-
-    // startメソッドはAndroid Studioのコードテンプレートを利用して作成できる！
-    static void start(Context context) {
-        var intent = new Intent(context, TestActivity.class);
-        context.startActivity(intent);
-    }
-
-    static void start(Context context, int intValue, String stringValue) {
-        var intent = new Intent(context, TestActivity.class);
-        intent.putExtra(EXTRA_KEY_INT_VALUE, intValue);
-        intent.putExtra(EXTRA_KEY_STRING_VALUE, stringValue);
-        context.startActivity(intent);
-    }
-
-    static void start(Context context, String[] stringArrayValue) {
-        var intent = new Intent(context, TestActivity.class);
-        intent.putExtra(EXTRA_KEY_STRING_ARRAY_VALUE, stringArrayValue);
-        context.startActivity(intent);
-    }
-}</code></pre>
-</details>
-<details><summary>完成したactivity_main.xmlで照合する</summary><div class="code-head">完成版 · activity_main.xml</div>
-<pre id="code-complete-main-xml" tabindex="0"><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
-&lt;LinearLayout xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
-    xmlns:tools=&quot;http://schemas.android.com/tools&quot;
-    android:id=&quot;@+id/main&quot;
-    android:layout_width=&quot;match_parent&quot;
-    android:layout_height=&quot;match_parent&quot;
-    android:gravity=&quot;center&quot;
-    android:orientation=&quot;vertical&quot;
-    tools:context=&quot;.MainActivity&quot;&gt;
-
-    &lt;Button
-        android:id=&quot;@+id/btn1&quot;
-        android:layout_width=&quot;wrap_content&quot;
-        android:layout_height=&quot;wrap_content&quot;
-        android:text=&quot;Test 1&quot; /&gt;
-
-    &lt;Button
-        android:id=&quot;@+id/btn2&quot;
-        android:layout_width=&quot;wrap_content&quot;
-        android:layout_height=&quot;wrap_content&quot;
-        android:text=&quot;Test 2&quot; /&gt;
-
-    &lt;Button
-        android:id=&quot;@+id/btn3&quot;
-        android:layout_width=&quot;wrap_content&quot;
-        android:layout_height=&quot;wrap_content&quot;
-        android:text=&quot;Test 3&quot; /&gt;
-
-&lt;/LinearLayout&gt;</code></pre>
-</details>
-<details><summary>完成したAndroidManifest.xmlで照合する</summary><div class="code-head">完成版 · AndroidManifest.xml</div>
-<pre id="code-complete-manifest" tabindex="0"><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
-&lt;manifest xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
-    xmlns:tools=&quot;http://schemas.android.com/tools&quot;&gt;
-
-    &lt;application
-        android:allowBackup=&quot;true&quot;
-        android:dataExtractionRules=&quot;@xml/data_extraction_rules&quot;
-        android:fullBackupContent=&quot;@xml/backup_rules&quot;
-        android:icon=&quot;@mipmap/ic_launcher&quot;
-        android:label=&quot;@string/app_name&quot;
-        android:roundIcon=&quot;@mipmap/ic_launcher_round&quot;
-        android:supportsRtl=&quot;true&quot;
-        android:theme=&quot;@style/Theme.A06ScreenTransitionSample&quot;&gt;
-        &lt;activity
-            android:name=&quot;.TestActivity&quot;
-            android:exported=&quot;false&quot; /&gt;
-        &lt;activity
-            android:name=&quot;.MainActivity&quot;
-            android:exported=&quot;true&quot;&gt;
-            &lt;intent-filter&gt;
-                &lt;action android:name=&quot;android.intent.action.MAIN&quot; /&gt;
-
-                &lt;category android:name=&quot;android.intent.category.LAUNCHER&quot; /&gt;
-            &lt;/intent-filter&gt;
-        &lt;/activity&gt;
-    &lt;/application&gt;
-
-&lt;/manifest&gt;</code></pre>
-</details></section>
+<p>質問では「STEP番号・編集したファイル・最初の赤い行・押した順番」を伝えます。</p>
+<p>エラーが解決しないときは、<a href="../common/help.html?from=screen-transition-sample">共通資料：困ったとき</a>の「完成プロジェクト（見本）の確認」を参照してください。</p></section>
 <footer class="footer"><p>Androidプログラミング1 · A06ScreenTransitionSample / 本文・画像・操作機能はオフラインで利用できます。Android Studioの初回準備・ビルドと公式資料の閲覧にはネット接続が必要です。</p><p>画像は授業用の提供資料を使用。Logcatの時刻や番号は実行ごとに変わります。</p></footer>
 <div class="sr-only" role="status" aria-live="polite" data-copy-status></div></main></div></body></html>

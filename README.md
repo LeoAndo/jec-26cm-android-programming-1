@@ -5,7 +5,7 @@
 1コマ90分、全2コマを目安にした、JavaとXMLの入門教材です。予習なしで授業内の操作・確認・ミニ練習まで進められる構成です。
 
 - [HelloAndroid：はじめてのアプリ作り](docs/hello-android/index.html)
-- [完成プロジェクト（初回から参照可能）](docs/hello-android/downloads/A01HelloAndroid.zip)
+- [完成プロジェクト（A01HelloAndroid）](docs/hello-android/downloads/A01HelloAndroid.zip)
 - [CalcGame：計算ゲームを作ろう](docs/calc-game/index.html)
 - [完成プロジェクト（A02CalcGame）](docs/calc-game/downloads/A02CalcGame.zip)
 - [RockPaperScissorsGame：じゃんけんゲームを作ろう](docs/rock-paper-scissors-game/index.html)
@@ -33,6 +33,7 @@
 - [共通資料：提出課題とAPKの作り方（自分で作ったアプリを3つ選んで提出する）](docs/common/apk.html)
 - [共通資料：開発Tips（画面の余白・キーボード・画面回転）](docs/common/dev-tips.html)
 - [共通資料：ちがうAndroid Studioのバージョンで進めるとき（サポート範囲と読み替え）](docs/common/other-versions.html)
+- [共通資料：困ったとき（エラーの調べ方と完成プロジェクトの確認）](docs/common/help.html)
 - [教員用：HelloAndroidの授業の進め方・確認項目](teacher/hello-android/index.html)
 - [教員用：CalcGameの授業の進め方・確認項目](teacher/calc-game/index.html)
 - [教員用：RockPaperScissorsGameの授業の進め方・確認項目](teacher/rock-paper-scissors-game/index.html)
@@ -53,7 +54,7 @@
 
 ### 学生への配布
 
-学生には [最新の教材リリース](https://github.com/LeoAndo/jec-26cm-android-programming-1/releases/latest) の Assets にあるZIPを案内します（初回公開後から利用可能）。ファイル名には `android1-student-materials-2026-09-19.zip` のように版の日付が入り、展開してできるフォルダも同じ名前になります。ダウンロードフォルダでどの版か分かり、別の版を同じ場所に展開しても混ざりません。展開後、はじめて授業を受ける学生は [共通資料：授業を始めるまでの準備](docs/common/setup.html) をブラウザで開き、上から順に準備します（同梱の `はじめに.txt` でも、単元一覧より前に案内しています）。日本語以外の言語で読むときは、展開してできたフォルダの `index.html` を開いて言語を選びます。準備が済んだら、授業で使う単元の `docs/hello-android/index.html`、`docs/calc-game/index.html`、`docs/rock-paper-scissors-game/index.html`、`docs/webview-app/index.html`、`docs/bomb-game/index.html`、`docs/screen-transition-sample/index.html`、`docs/bill-splitter/index.html`、`docs/shared-preferences-sample/index.html`、`docs/memo-app/index.html`、`docs/room-sample/index.html`、`docs/vocabulary-book/index.html` のいずれかをブラウザで開きます。完成プロジェクトは、展開済みの見本として配布物の `samples` フォルダに入っています。Android Studioの Open で `samples/A01HelloAndroid` のように選ぶだけで開け、初回から参考資料として使えます（各教科書からZIPでも受け取れます）。
+学生には [最新の教材リリース](https://github.com/LeoAndo/jec-26cm-android-programming-1/releases/latest) の Assets にあるZIPを案内します（初回公開後から利用可能）。ファイル名には `android1-student-materials-2026-09-19.zip` のように版の日付が入り、展開してできるフォルダも同じ名前になります。ダウンロードフォルダでどの版か分かり、別の版を同じ場所に展開しても混ざりません。展開後、はじめて授業を受ける学生は [共通資料：授業を始めるまでの準備](docs/common/setup.html) をブラウザで開き、上から順に準備します（同梱の `はじめに.txt` でも、単元一覧より前に案内しています）。日本語以外の言語で読むときは、展開してできたフォルダの `index.html` を開いて言語を選びます。準備が済んだら、授業で使う単元の `docs/hello-android/index.html`、`docs/calc-game/index.html`、`docs/rock-paper-scissors-game/index.html`、`docs/webview-app/index.html`、`docs/bomb-game/index.html`、`docs/screen-transition-sample/index.html`、`docs/bill-splitter/index.html`、`docs/shared-preferences-sample/index.html`、`docs/memo-app/index.html`、`docs/room-sample/index.html`、`docs/vocabulary-book/index.html` のいずれかをブラウザで開きます。完成プロジェクトは、展開済みの見本として配布物の `samples` フォルダに入っています。自力でエラーを解決できないときの参考資料として [共通資料：困ったとき](docs/common/help.html) に開き方を案内しています。
 
 学生用ZIPには `docs` 一式と、展開済みの完成プロジェクト（`samples`）、開き方・版情報を収録します。`teacher` フォルダと `Panda2JavaEmptyViewActivity` は収録しません。GitHubが自動で表示する **Source code (zip)** はリポジトリ全体のため、学生用ZIPには使いません。なお、このリポジトリ自体はPublicなので、教員用ファイルもGitHub上では閲覧できます。
 
