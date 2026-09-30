@@ -186,7 +186,7 @@
   | Devin Review | 2026-09-26 に解約し、GitHub App を外した | — | — |
   | Qodo | 2026-09-26 に解約し、GitHub App を外した | — | — |
 
-  このリポジトリで2つが最後に動いたのは PR #352（2026-09-30 03:53 UTC に作成）で、CodeRabbit の commit status は `pending`（`Review in progress`）のまま終わらず、Bugbot は `Bugbot couldn't run - usage limit reached` のコメントと `neutral` のチェックを残した。どちらも、マージ（04:07 UTC）のあとも残ったままだった。古いPRにこの表示があっても、レビューを待たない。
+  このリポジトリで CodeRabbit と Bugbot が最後に反応したのは PR #352（2026-09-30 03:53 UTC に作成）で、CodeRabbit の commit status は `pending`（`Review in progress`）のまま終わらず、Bugbot は `Bugbot couldn't run - usage limit reached` のコメントと `neutral` のチェックを残した。どちらも、マージ（04:07 UTC）のあとも残ったままだった。古いPRにこの表示があっても、レビューを待たない。
 
 - **PR #204〜#331 でbotが実際にしたこと**（2026-09-20 00:00 UTC 以降に作られた61本、#333 で集計）。CodeRabbit と Cursor Bugbot を外した 2026-09-30（#353）より前の記録で、数字は集計したときのまま残す。PRごとにチェック・status・レビュー・レビューコメント・PRコメントを読んだ。指摘は、インラインのスレッドと、CodeRabbit の pre-merge checks の警告を1件ずつ数えた。判断は、オーナーのアカウントがそのスレッドに返した「判断：」で分けた。オーナーのアカウントが貼った内部の報告（翻訳の照合など）は数えていない。
 
