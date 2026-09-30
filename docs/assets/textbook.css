@@ -74,8 +74,6 @@ code { background: #eef1f3; border-radius: 3px; padding: .13em .3em; font-size: 
 pre { background: #192635; color: #edf4fc; border-radius: 0 0 9px 9px; padding: 1.2rem; margin: 0 0 1.2rem; overflow-x: auto; line-height: 1.65; font-size: .82rem; tab-size: 4; }
 pre code { padding: 0; background: transparent; color: inherit; font-size: inherit; overflow-wrap: normal; }
 .code-head { background: #293c51; color: #edf4fc; border-radius: 9px 9px 0 0; padding: .5rem .8rem; display: flex; gap: 1rem; justify-content: space-between; align-items: center; margin-top: .8rem; font-size: .78rem; }
-.code-head button { border: 1px solid #a6bed5; border-radius: 5px; padding: .15rem .6rem; color: white; background: transparent; white-space: nowrap; font-size: .75rem; }
-.code-head button:hover { background: #435a73; }
 kbd { font-size: .84em; border: 1px solid #bfc7cf; border-bottom-width: 2px; border-radius: 4px; padding: .1em .4em; white-space: nowrap; }
 table { width: 100%; border-collapse: collapse; margin: 1.2rem 0; font-size: .88rem; }
 th, td { border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; padding: .75rem .6rem; overflow-wrap: anywhere; }
@@ -124,7 +122,7 @@ details[open] > summary { margin-bottom: 1rem; }
 @media print {
   @page { margin: 16mm; }
   body { color: black; background: white; font-size: 10pt; line-height: 1.65; }
-  .topbar, .sidebar, .skip, .next, .code-head button, .no-print { display: none !important; }
+  .topbar, .sidebar, .skip, .next, .no-print { display: none !important; }
   .shell { display: block; }
   main, .plain main { padding: 0; max-width: none; }
   .hero { padding-bottom: 1rem; }

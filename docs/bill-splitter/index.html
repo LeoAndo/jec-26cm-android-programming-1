@@ -378,7 +378,7 @@ txtNumberOfPeople.setText("参加者は" + numberOfPeople + "人");</code></pre>
 <div class="note"><p class="box-title">作る場所に注意</p><p><code>app → src</code> の下には <code>test</code> と <code>androidTest</code> もあり、その中にも同じ名前のパッケージがあります。必ず <code>app → src → main → java</code> の中の、<code>MainActivity.java</code> と同じ場所に作ります。場所を間違えると1行目の <code>package</code> が変わり、STEP 09で <code>BillSplitter</code> が赤くなります。</p></div>
 <h3>② 中身を全部入れ替える</h3>
 <ol>
-<li>下のコードの見出し <strong>BillSplitter.java · 全体を置き換える</strong> にある <strong>コピー</strong> ボタンを押します。<strong>コピーしました</strong> に変われば成功です。ブラウザによっては <strong>⌘ Cでコピー</strong> に変わり、コードが選ばれた状態になります。そのときは、そのまま <kbd>⌘ C</kbd> を押します。</li>
+<li>下のコード全体を選んでコピー（<kbd>⌘ C</kbd>）するか、見本の完成プロジェクト（<code>samples/A07BillSplitter/app/src/main/java/jp/ac/jec/a07billsplitter/BillSplitter.java</code>）を開いてコピーします。</li>
 <li>Android Studioに戻り、開いている <code>BillSplitter.java</code> の中をクリックして <kbd>⌘ A</kbd> で全部選びます。<strong>最初から入っている <code>package</code> の行とクラスの宣言も、いっしょに選びます。</strong>これを残したまま貼り付けると、同じものが2つ並んでエラーになります。</li>
 <li><kbd>⌘ V</kbd> で貼り付けます。選んでいたところが消えて、<strong>ファイル全体</strong>がコピーしたコードに置き換わります。</li>
 <li>1行目が <code>package jp.ac.jec.a07billsplitter;</code> になっていることを確認します。</li>

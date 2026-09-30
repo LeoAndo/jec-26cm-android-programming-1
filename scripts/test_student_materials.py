@@ -149,7 +149,7 @@ class PackageStudentMaterialsTest(unittest.TestCase):
                 self.assertIn(f'<html lang="{language["code"]}">', page)
                 # 注記、UIと全言語の導線はカタログの有無に左右されない。
                 self.assertIn(language['translation_notice'], page)
-                self.assertIn(language['ui']['copy'], page)
+                self.assertIn(language['ui']['progress'], page)
                 self.assertIn(f'hl={language["android_docs_hl"]}&amp;x=1#top', page)
                 self.assertEqual(page.count('hreflang='), len(config['languages']) + 1)
                 self.assertIn('<span lang="ja">未翻訳の文', page)
