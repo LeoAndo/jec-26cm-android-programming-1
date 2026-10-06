@@ -211,7 +211,6 @@ def build(output_dir):
     for project in projects:
         number, label = split_unit(project["name"])
         unit_lines += f"   {number} {label}：{project['docs'][0]}\n"
-    sample_example = f"samples/{projects[0]['root']}" if projects else "samples"
     files["はじめに.txt"] = (
         "Androidプログラミング1 学生用教材\n\n"
         f"教材の版：{version}\n\n"
@@ -220,9 +219,7 @@ def build(output_dir):
         "   教材の置き場所を決めるところから、エミュレータを作り、日本語を打てるようにして、\n"
         "   最初のアプリが動くまでを説明しています。この準備は1回だけです。次からは3から始められます。\n"
         "3. 授業で使う単元の教科書をブラウザで開きます。\n"
-        f"{unit_lines}"
-        "4. 完成プロジェクト（先生が作った見本）は、samples フォルダに入っています。展開は済んでいるので、\n"
-        f"   Android StudioのOpenで {sample_example} のように選ぶだけで開けます。\n\n"
+        f"{unit_lines}\n"
         "教科書・画像はオフラインで利用できます。Android Studioの準備やビルドにはネット接続が必要です。\n"
         "教材を更新するときは別のフォルダに展開し、自分で作ったAndroid Studioプロジェクトを上書きしないでください。\n"
         "授業中は先生が指定した版を使ってください。質問時には教材の版とSTEP番号を伝えてください。\n"

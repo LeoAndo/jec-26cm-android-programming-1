@@ -173,7 +173,9 @@ class PackageStudentMaterialsTest(unittest.TestCase):
         with ZipFile(self.archive) as archive:
             instructions = archive.read(f"{FIXTURE_STEM}/はじめに.txt").decode()
         self.assertIn("   A01 HelloAndroid：docs/hello-android/index.html", instructions)
-        self.assertIn("samples/A01HelloAndroid", instructions)
+        # 完成プロジェクトは samples/ に収録するが、案内文では触れない（#362）。
+        self.assertNotIn("samples", instructions)
+        self.assertNotIn("完成プロジェクト", instructions)
 
     def test_added_unit_appears_without_touching_the_script(self):
         """単元を設定に足すだけで、配布物の案内にも反映される。"""
@@ -407,7 +409,9 @@ class StudentReleaseTest(unittest.TestCase):
             release.prepare(self.repo, self.metadata)
         text = (self.dist / "release-notes.md").read_text()
         self.assertIn("- `A01 HelloAndroid：docs/hello-android/index.html`", text)
-        self.assertIn("`samples/A01HelloAndroid`", text)
+        # 完成プロジェクトは samples/ に収録するが、リリースノートでは触れない（#362）。
+        self.assertNotIn("samples", text)
+        self.assertNotIn("完成プロジェクト", text)
 
     def test_added_unit_appears_in_release_notes(self):
         """単元を設定に足すだけで、リリースノートの案内にも出る。"""
@@ -420,7 +424,6 @@ class StudentReleaseTest(unittest.TestCase):
             release.prepare(self.repo, self.metadata)
         text = (self.dist / "release-notes.md").read_text()
         self.assertIn("- `A12 ExtraApp：docs/extra-app/index.html`", text)
-        self.assertIn("`samples/A01HelloAndroid`", text)
 
     def incomplete_report(self):
         return [{"language": {"code": "en", "name": "English", "distribute": True}, "rows": [

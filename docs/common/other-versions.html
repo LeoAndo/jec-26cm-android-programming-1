@@ -50,8 +50,8 @@
 </tbody></table>
 </section>
 
-<section><h3>2-3. 完成プロジェクトが使っているもの</h3>
-<p>各単元の完成プロジェクトは、次のバージョンで作られています。</p>
+<section><h3>2-3. 教科書で確かめたバージョン</h3>
+<p>各単元の教科書は、次のバージョンで動作を確かめています。</p>
 <table><thead><tr><th>項目</th><th>バージョン</th></tr></thead><tbody>
 <tr><td>Android Gradle Plugin</td><td>9.1.1</td></tr>
 <tr><td>Gradle</td><td>9.3.1</td></tr>
@@ -67,10 +67,10 @@
 <p>テンプレートの名前が変わっている場合は、<strong>Views</strong> という語が入っているものを選びます。<code>Empty Activity</code>（Viewsが付かないもの）はJetpack Composeという別のしくみで、教科書のXMLと合いません。</p>
 </section>
 
-<section><h3>3-2. 完成プロジェクトを開くと更新をすすめられる</h3>
-<p>新しいAndroid Studioで完成プロジェクトを開くと、<strong>Android Gradle Pluginのアップグレード</strong>をすすめる案内（AGP Upgrade Assistant）が出ることがあります。</p>
-<div class="note"><p class="box-title">授業中は更新しません</p><p>更新すると <code>build.gradle.kts</code> などの中身が書き換わり、教科書に載っているコードと差が出ます。<strong>案内が出ても閉じてください。</strong>完成プロジェクトは「答え合わせ用の見本」なので、そのまま読めれば十分です。</p></div>
-<p>自分で作るプロジェクトのほうは、新しいAndroid Studioが選んだバージョンのままで構いません。教科書が指定しているのは2-2の4項目だけです。</p>
+<section><h3>3-2. 授業で作ったプロジェクトを開くと更新をすすめられる</h3>
+<p>授業（Panda 2）で作った自分のプロジェクトを新しいAndroid Studioで開くと、<strong>Android Gradle Pluginのアップグレード</strong>をすすめる案内（AGP Upgrade Assistant）が出ることがあります。</p>
+<div class="note"><p class="box-title">授業中は更新しません</p><p>更新すると <code>build.gradle.kts</code> などの中身が書き換わり、教科書に載っているコードと差が出ます。<strong>案内が出ても閉じてください。</strong></p></div>
+<p>新しいAndroid Studioで新しく作るプロジェクトは、その版が選んだバージョンのままで構いません。教科書が指定しているのは2-2の4項目だけです。</p>
 </section>
 
 <section><h3>3-3. エミュレータの名前が違う</h3>
@@ -126,7 +126,7 @@
 
 <h4>起きること：最初のビルドに時間がかかります（Gradle toolchain のダウンロード）</h4>
 <p><code>gradle/gradle-daemon-jvm.properties</code> には「②にどのバージョンを使うか」が <code>toolchainVersion</code> として書き込まれています。そのバージョンが自分のパソコンに無いと、<strong>Gradleが自動でダウンロードします</strong>（Gradle の <strong>toolchain 自動プロビジョニング</strong>という仕組みです）。</p>
-<p>授業で配る<strong>完成プロジェクトは <code>toolchainVersion=21</code></strong> です。Quail 4 が持っているのは25なので、完成プロジェクトを開くと<strong>JDK 21 のダウンロードが始まることがあります。</strong></p>
+<p>授業（Panda 2）で作ったプロジェクトは <strong><code>toolchainVersion=21</code></strong> です。Quail 4 が持っているのは25なので、そのプロジェクトを Quail 4 で開くと<strong>JDK 21 のダウンロードが始まることがあります。</strong></p>
 <div class="note"><p class="box-title">こうなったときは、待ってください</p>
 <ul><li><strong>初回のビルドだけ、数分かかることがあります。</strong>止まってしまったわけではありません。</li>
 <li>このとき<strong>インターネットにつながっている必要があります。</strong>つながっていないと失敗します。</li>

@@ -175,7 +175,6 @@ def prepare(repo, metadata):
     ).strip()
     student_notes = os.environ.get("STUDENT_NOTES", "").strip()
     projects = load_projects()
-    sample_example = f"samples/{projects[0]['root']}" if projects else "samples"
     body = (
         f"# Androidプログラミング1 教材 {version}\n\n"
         "## ダウンロードと開き方\n\n"
@@ -185,8 +184,6 @@ def prepare(repo, metadata):
         "   最初のアプリが動くまでを説明しています。この準備は1回だけです。次からは3から始められます。\n"
         "3. 授業で使う単元の教科書をブラウザで開きます。\n\n"
         f"{unit_list(projects)}\n\n"
-        "4. 完成プロジェクト（先生が作った見本）は、`samples` フォルダに入っています。展開は済んでいるので、\n"
-        f"   Android StudioのOpenで `{sample_example}` のように選ぶだけで開けます。\n\n"
         "教材を更新するときは別フォルダに展開し、自分で作ったプロジェクトを上書きしないでください。\n"
         "授業中は先生が指定した版を使ってください。\n\n"
         f"{localized_download_guidance(report, asset)}"

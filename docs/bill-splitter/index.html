@@ -72,7 +72,7 @@
 <p>TOP画面の上に置く<strong>タイトル画像</strong>を追加します。画像の <code>title_img.png</code> は、教科書といっしょに配られた<strong>教材のフォルダ</strong>に入っています。Finderでコピーして、自分のプロジェクトに入れます。</p>
 <ol><li>Finderを開き、左側の <strong>書類</strong> をクリックします。教材のフォルダをダブルクリックで開きます。名前は <code>android1-student-materials-</code> のうしろに日付が付いた形で、日付は配られた回によって変わります。</li>
 <li>その中を <code>docs → bill-splitter → downloads</code> の順に開きます。<code>bill-splitter</code> は、いま読んでいるこの教科書（<code>index.html</code>）が入っているフォルダです。</li>
-<li><code>title_img.png</code> を選び、<kbd>⌘ C</kbd> でコピーします。同じフォルダには、完成プロジェクトの <code>A07BillSplitter.zip</code> も入っています。ここでは選びません。</li></ol>
+<li><code>title_img.png</code> を選び、<kbd>⌘ C</kbd> でコピーします。ほかのファイルは選びません。</li></ol>
 <div class="note"><p class="box-title">教材のフォルダが見つからないとき</p><p>教材のフォルダは、はじめの準備で「書類」へ移動したものです（<a href="../common/setup.html?from=bill-splitter#materials">共通資料：はじめの準備</a>の1.）。まだ移動していなければ、先にそちらを行います。同じ教材を2回ダウンロードして名前のうしろに <code>(1)</code> が付いたものがあるときは、自分で判断せず先生に見せてください。</p></div>
 <ol start="4"><li>Android Studioの左側で <code>app → src → main → res → drawable</code> をクリックし、<kbd>⌘ V</kbd> で貼り付けます。</li><li>Copyのダイアログが出ます。New nameが <code>title_img.png</code>、To directoryの最後が <code>A07BillSplitter/app/src/main/res/drawable</code> になっていることを確認して <strong>OK</strong> を押します。</li></ol>
 <figure><a href="images/drawable-copy.png"><img src="images/drawable-copy.png" width="2050" height="836" loading="lazy" alt="Copyダイアログ。New nameにtitle_img.png、To directoryにA07BillSplitter/app/src/main/res/drawableが表示されている"></a><figcaption>貼り付け先がdrawableになっているか確認します。この画面は先生の例です。<strong>Copy file</strong> のうしろ（コピー元の場所）は、自分の画面では教材のフォルダの中の場所になります。 <a href="images/drawable-copy.png">画像を大きく開く</a></figcaption></figure>
@@ -657,11 +657,11 @@ txtParticipantList.setText(result);</code></pre>
 <tr><td>登録しても入力欄に文字が残る</td><td>STEP 04②の最後の <code>edtParticipantName.setText("")</code> があるか確認。</td></tr>
 <tr><td>金額の欄に文字が入ってしまう</td><td><code>activity_bill_split.xml</code> の <code>android:inputType="number"</code> を確認。</td></tr>
 <tr><td>名前の入力中に候補が出て、ボタンが押せない</td><td>キーボードの候補が重なっている。候補以外の場所をタップしてから押す。</td></tr>
-<tr><td>直したのに動きが変わらない</td><td>ウィンドウの保存先が <code>Documents/Android1/A07BillSplitter</code> か確認。samples側を開いていないか見る。</td></tr>
+<tr><td>直したのに動きが変わらない</td><td>ウィンドウの保存先が <code>Documents/Android1/A07BillSplitter</code> か確認。</td></tr>
 </tbody></table>
 <p><a href="../common/logcat.html?from=bill-splitter">共通資料：Logcat</a>を使います。今回のパッケージは <code>jp.ac.jec.a07billsplitter</code> です。エラーを見るときは <code>package:jp.ac.jec.a07billsplitter level:ERROR</code> にします。前の単元のパッケージ名も残さないようにします。</p>
 <p>質問では「STEP番号・編集したファイル・最初の赤い行・押した順番」を伝えます。</p>
-<p>エラーが解決しないときは、<a href="../common/help.html?from=bill-splitter">共通資料：困ったとき</a>の「完成プロジェクト（見本）の確認」を参照してください。</p></section>
+<p>エラーが解決しないときは、<a href="../common/help.html?from=bill-splitter">共通資料：困ったとき</a>の調べ方を試してください。それでも解決しないときは、STEP番号と画面を先生に見せましょう。</p></section>
 <footer class="footer"><p>Androidプログラミング1 · A07BillSplitter / 本文・画像・操作機能はオフラインで利用できます。Android Studioの初回準備・ビルドと公式資料の閲覧にはネット接続が必要です。</p><p>画像は授業用の提供資料を使用。スクリーンショットの参加者名は例です。</p></footer>
 </main></div>
 <p class="sr-only" role="status" aria-live="polite" data-copy-status></p></body></html>

@@ -33,7 +33,7 @@
 - [共通資料：提出課題とAPKの作り方（自分で作ったアプリを3つ選んで提出する）](docs/common/apk.html)
 - [共通資料：開発Tips（画面の余白・キーボード・画面回転）](docs/common/dev-tips.html)
 - [共通資料：ちがうAndroid Studioのバージョンで進めるとき（サポート範囲と読み替え）](docs/common/other-versions.html)
-- [共通資料：困ったとき（エラーの調べ方と完成プロジェクトの確認）](docs/common/help.html)
+- [共通資料：困ったとき（エラーの調べ方）](docs/common/help.html)
 - [教員用：HelloAndroidの授業の進め方・確認項目](teacher/hello-android/index.html)
 - [教員用：CalcGameの授業の進め方・確認項目](teacher/calc-game/index.html)
 - [教員用：RockPaperScissorsGameの授業の進め方・確認項目](teacher/rock-paper-scissors-game/index.html)
@@ -54,7 +54,7 @@
 
 ### 学生への配布
 
-学生には [最新の教材リリース](https://github.com/LeoAndo/jec-26cm-android-programming-1/releases/latest) の Assets にあるZIPを案内します（初回公開後から利用可能）。ファイル名には `android1-student-materials-2026-09-19.zip` のように版の日付が入り、展開してできるフォルダも同じ名前になります。ダウンロードフォルダでどの版か分かり、別の版を同じ場所に展開しても混ざりません。展開後、はじめて授業を受ける学生は [共通資料：授業を始めるまでの準備](docs/common/setup.html) をブラウザで開き、上から順に準備します（同梱の `はじめに.txt` でも、単元一覧より前に案内しています）。日本語以外の言語で読むときは、展開してできたフォルダの `index.html` を開いて言語を選びます。準備が済んだら、授業で使う単元の `docs/hello-android/index.html`、`docs/calc-game/index.html`、`docs/rock-paper-scissors-game/index.html`、`docs/webview-app/index.html`、`docs/bomb-game/index.html`、`docs/screen-transition-sample/index.html`、`docs/bill-splitter/index.html`、`docs/shared-preferences-sample/index.html`、`docs/memo-app/index.html`、`docs/room-sample/index.html`、`docs/vocabulary-book/index.html` のいずれかをブラウザで開きます。完成プロジェクトは、展開済みの見本として配布物の `samples` フォルダに入っています。自力でエラーを解決できないときの参考資料として [共通資料：困ったとき](docs/common/help.html) に開き方を案内しています。
+学生には [最新の教材リリース](https://github.com/LeoAndo/jec-26cm-android-programming-1/releases/latest) の Assets にあるZIPを案内します（初回公開後から利用可能）。ファイル名には `android1-student-materials-2026-09-19.zip` のように版の日付が入り、展開してできるフォルダも同じ名前になります。ダウンロードフォルダでどの版か分かり、別の版を同じ場所に展開しても混ざりません。展開後、はじめて授業を受ける学生は [共通資料：授業を始めるまでの準備](docs/common/setup.html) をブラウザで開き、上から順に準備します（同梱の `はじめに.txt` でも、単元一覧より前に案内しています）。日本語以外の言語で読むときは、展開してできたフォルダの `index.html` を開いて言語を選びます。準備が済んだら、授業で使う単元の `docs/hello-android/index.html`、`docs/calc-game/index.html`、`docs/rock-paper-scissors-game/index.html`、`docs/webview-app/index.html`、`docs/bomb-game/index.html`、`docs/screen-transition-sample/index.html`、`docs/bill-splitter/index.html`、`docs/shared-preferences-sample/index.html`、`docs/memo-app/index.html`、`docs/room-sample/index.html`、`docs/vocabulary-book/index.html` のいずれかをブラウザで開きます。完成プロジェクトは、展開済みの見本として配布物の `samples` フォルダと、各単元の `docs/<単元>/downloads/` のZIPに入っています。ただし、教科書・共通資料・`はじめに.txt`・リリースノートからは案内しません（「授業用教科書の基本方針」10）。
 
 学生用ZIPには `docs` 一式と、展開済みの完成プロジェクト（`samples`）、開き方・版情報を収録します。`teacher` フォルダと `Panda2JavaEmptyViewActivity` は収録しません。GitHubが自動で表示する **Source code (zip)** はリポジトリ全体のため、学生用ZIPには使いません。なお、このリポジトリ自体はPublicなので、教員用ファイルもGitHub上では閲覧できます。
 
@@ -474,14 +474,15 @@ About Android Studioの画面は、macOSでは **Android Studio** メニュー �
 
 
 # 授業用教科書の基本方針
-1. 各単元で、学生自身が毎回Android StudioのJava / Empty Views Activityからプロジェクトを新規作成し、修正箇所を確認しながらハンズオン形式で進める。公開する完成版は動作確認・コード比較の参考資料とする。Panda2JavaEmptyViewActivityは教員の確認用とし、学生には公開しない。
+1. 各単元で、学生自身が毎回Android StudioのJava / Empty Views Activityからプロジェクトを新規作成し、修正箇所を確認しながらハンズオン形式で進める。完成版は学生用ZIPに同梱するが、教科書からは案内しない（10）。Panda2JavaEmptyViewActivityは教員の確認用とし、学生には公開しない。
 2. 教科書はGoogle Codelabなどを参考にした構成にしたい。
 3. 教科書はhtml形式とする
 4. 各単元で利用する教科書で共有部分が発生したらベット共通資料という形で別htmlファイル化する。具体例：apkファイルの作成方法、エミュレータの設定手順など
 6. 教科書に掲載するスクリーンショットは教員の開発マシン内にある「jec_26cm_android1_Pixel 9a」エミュレータを利用する
 7. **大半の学生は予習も復習もしないという前提で書く。** 学生が教科書を読むのは授業中が最初で、そのとき読むのはその単元を前から順にだけである。過去の単元を読み返していないのと同じように、先の単元もまだ読んでいない。判断基準は「予習も復習もしない学生が、その単元を前から順に読んで躓かないか」で、それを満たす構成であればよい。「家で読んでおいてください」のように、予習してきたことを当てにした導入は採らない。他単元を挙げてよいのは「これは初めてではない」と伝えるときだけで、**手順やコードをその単元に書かずに他単元へ送ってはいけない**。これは過去の単元へ送る場合（「A10と同じ手順です」）だけでなく、先の単元へ送る場合（「A11でも同じ形で書きます」）も同じ扱いとする。先の単元はまだ読んでいないので、学生にとって手がかりにならない。「A10と同じ手順です」と書いたら、その直後に手順とコードをすべて書く。学生に指示すること（チェックを入れない、ここには書かない、など）の理由も、その単元の中に書く。同じ単元の中の参照（別のSTEPを指す）は対象外とする。STEP 00の表の「学んだ単元」列と、サイドバーにある他単元へのリンクも対象外で、読み返したい学生や、別の単元を開きたい学生の導線として残す。サイドバーには全単元を並べるので、まだ読んでいない先の単元へのリンクも並ぶが、単元の一覧は本文ではなく導線である。1つも押さなくても、その単元は前から順に読むだけで進められるので、上の判断基準は崩れない。本文から先の単元へ送ってはいけないことは変わらない
 8. **問題が発生していない正常時に「先生に画面を見せる」「先生に説明する」観点は入れない。** 教科書の手順や各ステップの「ここで止まって、確認」の欄、コマの区切り、完成チェックの表において、学生側でトラブルが起きていない時に「先生に画面を見せる」「先生に説明する」といった観点・指示は設けない。チェック項目や確認は学生自身が画面や実行結果を見て自立して判断できる観点にする。先生に画面を見せたり相談したりするのは、エラーが出たとき、画面が期待と違うとき、困ったとき（トラブルシューティング時）のみとする。
-9. **プログラムコードのコピーボタンは設置しない。** コピーボタンがあると、コードの意味や構文を理解せずに貼り付けるだけで進めてしまい、学生が一度もプログラムを書かずに終わってしまうためである。学生自身が教科書を見ながらエディタに手入力してプログラミングし、文法やエラーに向き合う構成とする。長大で学生が直接書かない配布用コード（A07BillSplitterのBillSplitter.javaなど）は、完成プロジェクトのファイルを取り出して使う案内とする。
+9. **プログラムコードのコピーボタンは設置しない。** コピーボタンがあると、コードの意味や構文を理解せずに貼り付けるだけで進めてしまい、学生が一度もプログラムを書かずに終わってしまうためである。学生自身が教科書を見ながらエディタに手入力してプログラミングし、文法やエラーに向き合う構成とする。長大で学生が直接書かない配布用コード（A07BillSplitterのBillSplitter.javaなど）は、教科書に全文を載せ、ページから選んでコピーする案内とする。完成プロジェクトからファイルを取り出させない（10）。
+10. **教科書から完成プロジェクトへは案内しない。** 完成プロジェクトは学生用ZIPに同梱する（`samples/` と `docs/<単元>/downloads/` のZIP）が、教科書（`docs/` の各単元と共通資料）、`はじめに.txt`、リリースノートには、開き方・置き場所・ZIPへのリンクを書かず、「完成プロジェクト」「`samples`」という語も出さない。案内があると、学生は自分で書かずに見本を開いて写してしまい、エラーに向き合わないまま単元を終えるためである。取り違え防止の注意（「`samples` の中は選ばない」など）も、存在を知らせることになるので書かない。代わりに「`書類 → Android1` のすぐ下にある自分のプロジェクト」「To directory に `Android1` が入っているか」のように、自分のプロジェクトの側から確かめる書き方にする。困ったときの最後の手段は、STEP番号と画面を先生に見せることとする。`scripts/check-teaching-materials.py` が、`docs/` のHTMLの本文に「完成プロジェクト」「samples」があるか、完成プロジェクトZIPへのリンクがあると落とす（#362）。教員用ガイド（`teacher/`）とこのREADMEは学生向けの教材ではないので、完成プロジェクトに触れてよい。
 
 # 単元の範囲の決め方（全単元共通）
 演習アプリと教科書を作るとき、範囲が広がりすぎていないかを次の3点で判断する。

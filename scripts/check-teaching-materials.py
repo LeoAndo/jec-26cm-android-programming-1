@@ -441,6 +441,42 @@ def check_project_layout(root: Path, config: dict, errors: list[str]) -> None:
                 add(errors, root, name, 1, "Git管理してはいけないファイルです")
 
 
+# 教科書の本文に出してはいけない語。完成プロジェクトの存在や置き場所を知らせることになる。
+SAMPLE_GUIDANCE_WORDS = ("完成プロジェクト", "samples")
+LINK_ATTRIBUTE = re.compile(r'\b(?:href|src)="([^"]*)"')
+TAG = re.compile(r"<[^>]*>")
+
+
+def check_no_sample_guidance(root: Path, config: dict, errors: list[str]) -> None:
+    """教科書（docs/ のHTML）から完成プロジェクトへ案内していないか確かめる（#362）。
+
+    完成プロジェクトは学生用ZIPに同梱する（samples/ と docs/<単元>/downloads/ のZIP）が、
+    教科書からは案内しない（README「授業用教科書の基本方針」10）。
+    本文（タグの外）に SAMPLE_GUIDANCE_WORDS があるか、完成プロジェクトZIPへのリンクがあれば落とす。
+    属性の中（画像のファイル名など）は本文ではないので、語の検査からは外す。
+    """
+    docs = root / "docs"
+    if not docs.is_dir():
+        return
+    archives = {project["archive"] for project in config["projects"] if project.get("archive")}
+    for path in sorted(docs.rglob("*.html")):
+        name = display(root, path)
+        for line_number, line in enumerate(read(path).splitlines(), 1):
+            body = html.unescape(TAG.sub("", line))
+            for word in SAMPLE_GUIDANCE_WORDS:
+                if word in body:
+                    add(errors, root, path, line_number,
+                        f"教科書から完成プロジェクトへは案内しません（README「授業用教科書の基本方針」10）: {word}")
+            for match in LINK_ATTRIBUTE.finditer(line):
+                target = re.split(r"[?#]", html.unescape(match.group(1)), maxsplit=1)[0]
+                if not target or "://" in target:
+                    continue
+                resolved = posixpath.normpath(posixpath.join(posixpath.dirname(name), target))
+                if resolved in archives:
+                    add(errors, root, path, line_number,
+                        f"教科書から完成プロジェクトZIPへリンクしています（README「授業用教科書の基本方針」10）: {match.group(1)}")
+
+
 def validate(root: Path) -> list[str]:
     config_path = root / CONFIG
     if not config_path.is_file():
@@ -454,6 +490,7 @@ def validate(root: Path) -> list[str]:
     check_registration(root, config, errors)
     check_sidebar_units(root, config, errors)
     check_project_layout(root, config, errors)
+    check_no_sample_guidance(root, config, errors)
     for project in config["projects"]:
         check_project(root, project, errors)
         check_downloads(root, project, errors)
