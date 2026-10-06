@@ -607,8 +607,8 @@
       "translation": "Inside it, open <code>docs → bomb-game → downloads</code>. The <code>bomb-game</code> folder contains the textbook (<code>index.html</code>) you are reading now."
     },
     {
-      "source": "<kbd>⌘</kbd> を押しながら、<code>bomb_exploded.png</code>・<code>bomb_ignited.png</code>・<code>bomb_initial.png</code> の3つをクリックして選び、<kbd>⌘ C</kbd> でコピーします。同じフォルダにある <code>A05BombGame.zip</code> は完成プロジェクトです。選びません。",
-      "translation": "Hold <kbd>⌘</kbd> and click <code>bomb_exploded.png</code>, <code>bomb_ignited.png</code>, and <code>bomb_initial.png</code> to select all three, then copy them with <kbd>⌘ C</kbd>. <code>A05BombGame.zip</code> in the same folder is the finished project. Do not select it."
+      "source": "<kbd>⌘</kbd> を押しながら、<code>bomb_exploded.png</code>・<code>bomb_ignited.png</code>・<code>bomb_initial.png</code> の3つをクリックして選び、<kbd>⌘ C</kbd> でコピーします。ほかのファイルは選びません。",
+      "translation": "Hold <kbd>⌘</kbd> and click <code>bomb_exploded.png</code>, <code>bomb_ignited.png</code>, and <code>bomb_initial.png</code> to select all three, then copy them with <kbd>⌘ C</kbd>. Do not select any other files."
     },
     {
       "source": "教材のフォルダが見つからないとき",
@@ -631,8 +631,8 @@
       "translation": "In Project view, click the <code>app/src/main/res/drawable</code> folder to select it, then paste with <kbd>⌘ V</kbd>."
     },
     {
-      "source": "<strong>Copy</strong> の画面が出たら、<strong>To directory</strong> を確認します。末尾が <code>A05BombGame/app/src/main/res/drawable</code> になっていれば <strong>OK</strong> を押します。見本（完成プロジェクト）も開いている人は、途中に <code>samples</code> が入っていないことも確かめます。入っていたら、見本の方に貼り付けようとしています。",
-      "translation": "If the <strong>Copy</strong> dialog appears, check <strong>To directory</strong>. If it ends with <code>A05BombGame/app/src/main/res/drawable</code>, press <strong>OK</strong>. If you also have the sample (finished project) open, check that the path does not contain <code>samples</code>. If it does, you are about to paste into the sample."
+      "source": "<strong>Copy</strong> の画面が出たら、<strong>To directory</strong> を確認します。末尾が <code>Android1/A05BombGame/app/src/main/res/drawable</code> になっていれば <strong>OK</strong> を押します。<code>Android1</code> が入っていないときは、別のプロジェクトに貼り付けようとしています。",
+      "translation": "When the <strong>Copy</strong> dialog appears, check <strong>To directory</strong>. If it ends with <code>Android1/A05BombGame/app/src/main/res/drawable</code>, click <strong>OK</strong>. If it does not include <code>Android1</code>, you are about to paste into a different project."
     },
     {
       "source": "Project表示でdrawableフォルダを選び、Copyダイアログが開いている。To directoryの末尾はA05BombGame/app/src/main/res/drawable",
@@ -655,8 +655,8 @@
       "translation": "If you pasted into the wrong location"
     },
     {
-      "source": "<code>layout</code> や <code>mipmap</code> など別のフォルダに入った画像は、Project表示で選んで <kbd>⌘ Delete</kbd> で削除し、もう一度 <code>drawable</code> に貼り付けます。見本の <code>samples</code> 側のプロジェクトには貼り付けません。",
-      "translation": "If you put the images in another folder, such as <code>layout</code> or <code>mipmap</code>, select them in Project view and delete them with <kbd>⌘ Delete</kbd>, then paste them into <code>drawable</code> again. Do not paste them into the sample project under <code>samples</code>."
+      "source": "<code>layout</code> や <code>mipmap</code> など別のフォルダに入った画像は、Project表示で選んで <kbd>⌘ Delete</kbd> で削除し、もう一度 <code>drawable</code> に貼り付けます。",
+      "translation": "If you put the images in another folder, such as <code>layout</code> or <code>mipmap</code>, select them in Project view and delete them with <kbd>⌘ Delete</kbd>, then paste them into <code>drawable</code> again."
     },
     {
       "source": "Runで確かめる",
@@ -1739,16 +1739,16 @@
       "translation": "An image name causes a build error"
     },
     {
-      "source": "drawableのファイル名に大文字・ハイフン・空白がないか確認。見本のファイル名と同じにする。",
-      "translation": "Check for uppercase letters, hyphens, or spaces in the drawable file names. Use the same names as the sample."
+      "source": "drawableのファイル名に大文字・ハイフン・空白がないか確認。教科書に書いてあるファイル名と同じにする。",
+      "translation": "Check for uppercase letters, hyphens, or spaces in the drawable file names. Use the same names as written in the textbook."
     },
     {
       "source": "貼り付けたのに画像が見つからない",
       "translation": "The images cannot be found after pasting"
     },
     {
-      "source": "Copy画面のTo directoryを確認。<code>samples</code> 側や別のフォルダに貼っていないか、Project表示で探す。",
-      "translation": "Check To directory in the Copy dialog. Look in Project view to see whether you pasted into <code>samples</code> or another folder."
+      "source": "Copy画面のTo directoryを確認。別のプロジェクトや別のフォルダに貼っていないか、Project表示で探す。",
+      "translation": "Check To directory in the Copy dialog. Look in Project view to see whether you pasted into a different project or another folder."
     },
     {
       "source": "R.idが赤い",
@@ -1871,8 +1871,8 @@
       "translation": "When asking a question, give the STEP number, the file you edited, the first red line, and the order of your button presses."
     },
     {
-      "source": "エラーが解決しないときは、<a1>共通資料：困ったとき</a1>の「完成プロジェクト（見本）の確認」を参照してください。",
-      "translation": "If the error is not resolved, refer to “Checking the finished project (sample)” in <a1>Shared Guide: Troubleshooting</a1>."
+      "source": "エラーが解決しないときは、<a1>共通資料：困ったとき</a1>の調べ方を試してください。それでも解決しないときは、STEP番号と画面を先生に見せましょう。",
+      "translation": "If the error persists, try the troubleshooting steps in <a1>Common: Troubleshooting</a1>. If it is still not resolved, show the STEP number and the screen to your teacher."
     },
     {
       "source": "Androidプログラミング1 · A05BombGame / 本文・画像・操作機能はオフラインで利用できます。Android Studioの初回準備・ビルドと公式資料の閲覧にはネット接続が必要です。",

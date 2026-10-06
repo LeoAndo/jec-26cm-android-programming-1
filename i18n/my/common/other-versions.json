@@ -143,12 +143,12 @@
       "translation": "template"
     },
     {
-      "source": "2-3. 完成プロジェクトが使っているもの",
-      "translation": "2-3. ပြီးစီးထားသော project များတွင် သုံးထားသည့်အရာများ"
+      "source": "2-3. 教科書で確かめたバージョン",
+      "translation": "2-3. ဖတ်စာအုပ်ဖြင့် စစ်ဆေးအတည်ပြုထားသော version များ"
     },
     {
-      "source": "各単元の完成プロジェクトは、次のバージョンで作られています。",
-      "translation": "သင်ခန်းစာတစ်ခုစီ၏ ပြီးစီးထားသော project ကို အောက်ပါ version များဖြင့် ပြုလုပ်ထားသည်။"
+      "source": "各単元の教科書は、次のバージョンで動作を確かめています。",
+      "translation": "ယူနစ်တစ်ခုစီ၏ ဖတ်စာအုပ်သည် အောက်ပါ version များဖြင့် အလုပ်လုပ်ဆောင်မှုကို စစ်ဆေးအတည်ပြုထားပါသည်။"
     },
     {
       "source": "バージョン",
@@ -179,24 +179,24 @@
       "translation": "template အမည် ပြောင်းနေလျှင် <strong>Views</strong> ဆိုသည့် စကားလုံး ပါသောအရာကို ရွေးပါ။ <code>Empty Activity</code> (Views မပါသောအရာ) သည် Jetpack Compose ဟုခေါ်သည့် အခြားစနစ်ဖြစ်၍ သင်ရိုးစာအုပ်၏ XML နှင့် မကိုက်ညီပါ။"
     },
     {
-      "source": "3-2. 完成プロジェクトを開くと更新をすすめられる",
-      "translation": "3-2. ပြီးစီးထားသော project ကို ဖွင့်လျှင် update လုပ်ရန် အကြံပြုခြင်း"
+      "source": "3-2. 授業で作ったプロジェクトを開くと更新をすすめられる",
+      "translation": "3-2. အတန်းတွင် ဖန်တီးထားသော project ကို ဖွင့်လျှင် update လုပ်ရန် အကြံပြုခံရခြင်း"
     },
     {
-      "source": "新しいAndroid Studioで完成プロジェクトを開くと、<strong>Android Gradle Pluginのアップグレード</strong>をすすめる案内（AGP Upgrade Assistant）が出ることがあります。",
-      "translation": "Android Studio အသစ်ဖြင့် ပြီးစီးထားသော project ကို ဖွင့်လျှင် <strong>Android Gradle Plugin ကို upgrade လုပ်ရန်</strong> အကြံပြုသည့် လမ်းညွှန် (AGP Upgrade Assistant) ပေါ်လာနိုင်သည်။"
+      "source": "授業（Panda 2）で作った自分のプロジェクトを新しいAndroid Studioで開くと、<strong>Android Gradle Pluginのアップグレード</strong>をすすめる案内（AGP Upgrade Assistant）が出ることがあります。",
+      "translation": "Android Studio အသစ်ဖြင့် အတန်းတွင် (Panda 2) ဖန်တီးထားသော မိမိ၏ project ကို ဖွင့်လျှင် <strong>Android Gradle Plugin ကို အဆင့်မြှင့်တင်ရန်</strong> အကြံပြုချက် (AGP Upgrade Assistant) ပေါ်လာနိုင်ပါသည်။"
     },
     {
       "source": "授業中は更新しません",
       "translation": "အတန်းအတွင်း update မလုပ်ပါ"
     },
     {
-      "source": "更新すると <code>build.gradle.kts</code> などの中身が書き換わり、教科書に載っているコードと差が出ます。<strong>案内が出ても閉じてください。</strong>完成プロジェクトは「答え合わせ用の見本」なので、そのまま読めれば十分です。",
-      "translation": "update လုပ်လျှင် <code>build.gradle.kts</code> စသည်တို့၏ အကြောင်းအရာ ပြောင်းပြီး သင်ရိုးစာအုပ်ရှိ code နှင့် ကွဲသွားမည်။<strong>လမ်းညွှန်ပေါ်လာလျှင်လည်း ပိတ်ပါ။</strong>ပြီးစီးထားသော project သည် “အဖြေတိုက်ရန် နမူနာ” ဖြစ်သောကြောင့် မူလအတိုင်း ဖတ်နိုင်လျှင် လုံလောက်သည်။"
+      "source": "更新すると <code>build.gradle.kts</code> などの中身が書き換わり、教科書に載っているコードと差が出ます。<strong>案内が出ても閉じてください。</strong>",
+      "translation": "update လုပ်လျှင် <code>build.gradle.kts</code> စသည်တို့၏ အကြောင်းအရာများ ပြောင်းလဲသွားပြီး ဖတ်စာအုပ်ပါ ကုဒ်များနှင့် ကွဲလွဲမှုများ ဖြစ်ပေါ်လာမည် ဖြစ်သည်။ <strong>အကြံပြုချက် ပေါ်လာသော်လည်း ပိတ်လိုက်ပါ။</strong>"
     },
     {
-      "source": "自分で作るプロジェクトのほうは、新しいAndroid Studioが選んだバージョンのままで構いません。教科書が指定しているのは2-2の4項目だけです。",
-      "translation": "မိမိဖန်တီးသော project တွင် Android Studio အသစ်က ရွေးပေးသော version အတိုင်း ထားနိုင်သည်။ သင်ရိုးစာအုပ်က သတ်မှတ်ထားသည်မှာ 2-2 ၏ အချက် 4 ချက်သာ ဖြစ်သည်။"
+      "source": "新しいAndroid Studioで新しく作るプロジェクトは、その版が選んだバージョンのままで構いません。教科書が指定しているのは2-2の4項目だけです。",
+      "translation": "Android Studio အသစ်ဖြင့် အသစ်ဖန်တီးသော project များတွင် ထိုဗားရှင်းမှ ရွေးချယ်ထားသော version အတိုင်း ထားရှိနိုင်ပါသည်။ ဖတ်စာအုပ်မှ သတ်မှတ်ထားသည်မှာ 2-2 ပါ အချက် ၄ ချက်သာ ဖြစ်ပါသည်။"
     },
     {
       "source": "3-3. エミュレータの名前が違う",
@@ -371,8 +371,8 @@
       "translation": "<code>gradle/gradle-daemon-jvm.properties</code> တွင် “② အတွက် မည်သည့် version ကို သုံးမလဲ” ဆိုသည်ကို <code>toolchainVersion</code> အဖြစ် ရေးထားသည်။ မိမိကွန်ပျူတာတွင် ထို version မရှိလျှင် <strong>Gradle က အလိုအလျောက် download လုပ်မည်</strong> (Gradle ၏ <strong>toolchain အလိုအလျောက် ပြင်ဆင်ပေးခြင်း</strong> ဟုခေါ်သော စနစ်ဖြစ်သည်)။"
     },
     {
-      "source": "授業で配る<strong>完成プロジェクトは <code>toolchainVersion=21</code></strong> です。Quail 4 が持っているのは25なので、完成プロジェクトを開くと<strong>JDK 21 のダウンロードが始まることがあります。</strong>",
-      "translation": "အတန်းတွင် ဖြန့်ပေးသော <strong>ပြီးစီးထားသော project သည် <code>toolchainVersion=21</code></strong> ဖြစ်သည်။ Quail 4 တွင် ပါသည်မှာ 25 ဖြစ်သောကြောင့် ပြီးစီးထားသော project ကို ဖွင့်လျှင် <strong>JDK 21 ကို download စလုပ်နိုင်သည်။</strong>"
+      "source": "授業（Panda 2）で作ったプロジェクトは <strong><code>toolchainVersion=21</code></strong> です。Quail 4 が持っているのは25なので、そのプロジェクトを Quail 4 で開くと<strong>JDK 21 のダウンロードが始まることがあります。</strong>",
+      "translation": "အတန်းတွင် (Panda 2) ဖန်တီးသော project သည် <strong><code>toolchainVersion=21</code></strong> ဖြစ်ပါသည်။ Quail 4 တွင် ၂၅ ပါဝင်သောကြောင့် ထို project ကို Quail 4 ဖြင့် ဖွင့်ပါက <strong>JDK 21 ဒေါင်းလုဒ်လုပ်ခြင်း စတင်နိုင်ပါသည်။</strong>"
     },
     {
       "source": "こうなったときは、待ってください",

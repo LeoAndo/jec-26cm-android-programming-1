@@ -143,12 +143,12 @@
       "translation": "Template"
     },
     {
-      "source": "2-3. 完成プロジェクトが使っているもの",
-      "translation": "2-3. Versions used by the finished projects"
+      "source": "2-3. 教科書で確かめたバージョン",
+      "translation": "2-3. Versions verified with the textbook"
     },
     {
-      "source": "各単元の完成プロジェクトは、次のバージョンで作られています。",
-      "translation": "The finished project for each unit was created with the following versions."
+      "source": "各単元の教科書は、次のバージョンで動作を確かめています。",
+      "translation": "The textbook for each unit has been verified to work with the following versions."
     },
     {
       "source": "バージョン",
@@ -179,24 +179,24 @@
       "translation": "If the template name has changed, select one containing <strong>Views</strong>. <code>Empty Activity</code> (without Views) uses a different system called Jetpack Compose and does not match the XML in this textbook."
     },
     {
-      "source": "3-2. 完成プロジェクトを開くと更新をすすめられる",
-      "translation": "3-2. You are prompted to upgrade when opening a finished project"
+      "source": "3-2. 授業で作ったプロジェクトを開くと更新をすすめられる",
+      "translation": "3-2. You are prompted to upgrade when opening a project created in class"
     },
     {
-      "source": "新しいAndroid Studioで完成プロジェクトを開くと、<strong>Android Gradle Pluginのアップグレード</strong>をすすめる案内（AGP Upgrade Assistant）が出ることがあります。",
-      "translation": "When you open a finished project in a newer Android Studio, a prompt (AGP Upgrade Assistant) may suggest <strong>upgrading the Android Gradle Plugin</strong>."
+      "source": "授業（Panda 2）で作った自分のプロジェクトを新しいAndroid Studioで開くと、<strong>Android Gradle Pluginのアップグレード</strong>をすすめる案内（AGP Upgrade Assistant）が出ることがあります。",
+      "translation": "When you open a project you created in class (Panda 2) in a newer Android Studio, a prompt (AGP Upgrade Assistant) may suggest <strong>upgrading the Android Gradle Plugin</strong>."
     },
     {
       "source": "授業中は更新しません",
       "translation": "Do not upgrade during class"
     },
     {
-      "source": "更新すると <code>build.gradle.kts</code> などの中身が書き換わり、教科書に載っているコードと差が出ます。<strong>案内が出ても閉じてください。</strong>完成プロジェクトは「答え合わせ用の見本」なので、そのまま読めれば十分です。",
-      "translation": "Upgrading changes files such as <code>build.gradle.kts</code>, making them differ from the code in the textbook. <strong>Close the upgrade prompt if it appears.</strong> The finished project is a sample for checking your work, so being able to read it as it is is enough."
+      "source": "更新すると <code>build.gradle.kts</code> などの中身が書き換わり、教科書に載っているコードと差が出ます。<strong>案内が出ても閉じてください。</strong>",
+      "translation": "Upgrading changes files such as <code>build.gradle.kts</code>, making them differ from the code in the textbook. <strong>Close the upgrade prompt if it appears.</strong>"
     },
     {
-      "source": "自分で作るプロジェクトのほうは、新しいAndroid Studioが選んだバージョンのままで構いません。教科書が指定しているのは2-2の4項目だけです。",
-      "translation": "For projects you create yourself, you can keep the versions selected by the newer Android Studio. The textbook only specifies the four choices in 2-2."
+      "source": "新しいAndroid Studioで新しく作るプロジェクトは、その版が選んだバージョンのままで構いません。教科書が指定しているのは2-2の4項目だけです。",
+      "translation": "For projects you create anew in the newer Android Studio, you can keep the versions selected by that release. The textbook only specifies the four choices in 2-2."
     },
     {
       "source": "3-3. エミュレータの名前が違う",
@@ -371,8 +371,8 @@
       "translation": "In <code>gradle/gradle-daemon-jvm.properties</code>, <code>toolchainVersion</code> specifies which version to use for ②. If that version is not on your computer, <strong>Gradle downloads it automatically</strong>. This Gradle feature is called <strong>toolchain auto-provisioning</strong>."
     },
     {
-      "source": "授業で配る<strong>完成プロジェクトは <code>toolchainVersion=21</code></strong> です。Quail 4 が持っているのは25なので、完成プロジェクトを開くと<strong>JDK 21 のダウンロードが始まることがあります。</strong>",
-      "translation": "The <strong>finished projects distributed in class use <code>toolchainVersion=21</code></strong>. Quail 4 has version 25, so opening a finished project <strong>may start a JDK 21 download.</strong>"
+      "source": "授業（Panda 2）で作ったプロジェクトは <strong><code>toolchainVersion=21</code></strong> です。Quail 4 が持っているのは25なので、そのプロジェクトを Quail 4 で開くと<strong>JDK 21 のダウンロードが始まることがあります。</strong>",
+      "translation": "Projects created in class (Panda 2) use <strong><code>toolchainVersion=21</code></strong>. Quail 4 has version 25, so opening that project in Quail 4 <strong>may start a JDK 21 download.</strong>"
     },
     {
       "source": "こうなったときは、待ってください",

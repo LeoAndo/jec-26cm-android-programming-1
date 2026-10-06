@@ -43,10 +43,6 @@
       "translation": "2. Using the shared guides"
     },
     {
-      "source": "3. どうしても解決しないときは（完成プロジェクトの確認）",
-      "translation": "3. When you still cannot resolve it (Checking the finished project)"
-    },
-    {
       "source": "プログラミングでエラーが出るのは自然なことです。エラーメッセージには「どのファイルの何行目で、何が問題か」が必ず書かれています。焦らずに上から順に確認しましょう。",
       "translation": "Errors are a natural part of programming. Error messages always tell you \"which line of which file has what problem.\" Stay calm and check from top to bottom."
     },
@@ -117,46 +113,6 @@
     {
       "source": "<a1>共通資料：ちがうAndroid Studioのバージョンで進めるとき</a1> を確認します。",
       "translation": "Check <a1>Shared Guide: Working with Different Android Studio Versions</a1>."
-    },
-    {
-      "source": "どうしても自分のコードの間違いが見つからないときや、アプリ本来の動きを確認したいときは、先生が作った<strong>完成プロジェクト（見本）</strong>を開いて自分のコードと見比べることができます。",
-      "translation": "When you cannot find mistakes in your own code or want to check the intended behavior of the app, you can open the <strong>finished project (sample)</strong> prepared by the teacher and compare it with your code."
-    },
-    {
-      "source": "完成プロジェクトは「答え合わせ用」です",
-      "translation": "The finished project is for “checking your work”"
-    },
-    {
-      "source": "完成プロジェクトからコードをそのままコピーしたり、完成プロジェクトを改造して提出しても、自分の課題の提出にはなりません。見本で違いを確認したら、必ず<strong>自分で作ったプロジェクトに戻り、自分の手で修正</strong>してください。",
-      "translation": "Copying code directly from the finished project or modifying and submitting the finished project does not count as submitting your own assignment. Once you check the differences with the sample, always <strong>return to the project you created yourself and fix it by hand</strong>."
-    },
-    {
-      "source": "Android Studioのメニューから <strong>File → Open</strong> を選びます。",
-      "translation": "From the Android Studio menu, select <strong>File → Open</strong>."
-    },
-    {
-      "source": "<strong>書類</strong>（<code>Documents</code>）にある教材のフォルダ（<code>android1-student-materials-日付</code>）を開きます。",
-      "translation": "Open the course materials folder (<code>android1-student-materials-日付</code>) in <strong>書類</strong> (<code>Documents</code>)."
-    },
-    {
-      "source": "その中にある <code>samples</code> フォルダを開き、該当する単元のフォルダ（例：<code>A02CalcGame</code>）を選んで <strong>Open</strong> をクリックします。",
-      "translation": "Open the <code>samples</code> folder inside, select the folder for the relevant unit (e.g., <code>A02CalcGame</code>), and click <strong>Open</strong>."
-    },
-    {
-      "source": "Gradle同期が終わったら、Runして正しい動きを確認したり、エラーが出ているファイルと見比べます。",
-      "translation": "Once Gradle sync finishes, click Run to check the correct behavior, or compare with files showing errors."
-    },
-    {
-      "source": "確認が終わったら見本を閉じ、自分のプロジェクト（<code>Documents/Android1/単元名</code>）を開き直して作業を続けます。",
-      "translation": "When you finish checking, close the sample, reopen your own project (<code>Documents/Android1/単元名</code>), and continue your work."
-    },
-    {
-      "source": "取り違えに注意",
-      "translation": "Be careful not to mix them up"
-    },
-    {
-      "source": "見本と自分のアプリは同じプロジェクト名です。ウィンドウ上部のタイトルバーに表示される保存先パスを確認し、見本のほうを編集してしまわないよう注意しましょう。",
-      "translation": "The sample and your own app have the same project name. Check the save destination path displayed in the title bar at the top of the window to avoid accidentally editing the sample."
     }
   ]
 }

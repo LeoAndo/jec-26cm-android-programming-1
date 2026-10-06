@@ -543,8 +543,8 @@
       "translation": "Ouvrez successivement <code>docs → rock-paper-scissors-game → downloads</code>. <code>rock-paper-scissors-game</code> est le dossier contenant ce manuel (<code>index.html</code>)."
     },
     {
-      "source": "<kbd>⌘</kbd> を押しながら、<code>paper.png</code>・<code>rock.png</code>・<code>scissors.png</code>・<code>title_image.png</code> の4つをクリックして選び、<kbd>⌘ C</kbd> でコピーします。同じフォルダにある <code>A03RockPaperScissorsGame.zip</code> は完成プロジェクトです。選びません。",
-      "translation": "Tout en maintenant <kbd>⌘</kbd>, cliquez sur les quatre fichiers <code>paper.png</code>, <code>rock.png</code>, <code>scissors.png</code> et <code>title_image.png</code>, puis copiez-les avec <kbd>⌘ C</kbd>. Le fichier <code>A03RockPaperScissorsGame.zip</code> dans ce dossier est le projet terminé. Ne le sélectionnez pas."
+      "source": "<kbd>⌘</kbd> を押しながら、<code>paper.png</code>・<code>rock.png</code>・<code>scissors.png</code>・<code>title_image.png</code> の4つをクリックして選び、<kbd>⌘ C</kbd> でコピーします。ほかのファイルは選びません。",
+      "translation": "Tout en maintenant <kbd>⌘</kbd>, cliquez sur les quatre fichiers <code>paper.png</code>, <code>rock.png</code>, <code>scissors.png</code> et <code>title_image.png</code> pour les sélectionner, puis copiez-les avec <kbd>⌘ C</kbd>. Ne sélectionnez pas d'autres fichiers."
     },
     {
       "source": "教材のフォルダが見つからないとき",
@@ -567,8 +567,8 @@
       "translation": "Dans la vue Project, cliquez sur le dossier <code>app/src/main/res/drawable</code> pour le sélectionner, puis collez avec <kbd>⌘ V</kbd>."
     },
     {
-      "source": "<strong>Copy</strong> の画面が出たら、<strong>To directory</strong> を確認します。末尾が <code>A03RockPaperScissorsGame/app/src/main/res/drawable</code> になっていれば <strong>OK</strong> を押します。見本（完成プロジェクト）も開いている人は、途中に <code>samples</code> が入っていないことも確かめます。入っていたら、見本の方に貼り付けようとしています。",
-      "translation": "Si la fenêtre <strong>Copy</strong> apparaît, vérifiez <strong>To directory</strong>. Si le chemin se termine par <code>A03RockPaperScissorsGame/app/src/main/res/drawable</code>, cliquez sur <strong>OK</strong>. Si l'exemple (projet terminé) est aussi ouvert, vérifiez que le chemin ne contient pas <code>samples</code>. Sinon, vous êtes sur le point de coller dans l'exemple."
+      "source": "<strong>Copy</strong> の画面が出たら、<strong>To directory</strong> を確認します。末尾が <code>Android1/A03RockPaperScissorsGame/app/src/main/res/drawable</code> になっていれば <strong>OK</strong> を押します。<code>Android1</code> が入っていないときは、別のプロジェクトに貼り付けようとしています。",
+      "translation": "Si la fenêtre <strong>Copy</strong> apparaît, vérifiez <strong>To directory</strong>. Si le chemin se termine par <code>Android1/A03RockPaperScissorsGame/app/src/main/res/drawable</code>, appuyez sur <strong>OK</strong>. Si <code>Android1</code> n'y figure pas, vous êtes sur le point de coller les fichiers dans un autre projet."
     },
     {
       "source": "Project表示でdrawableフォルダを選び、Copyダイアログが開いている。To directoryの末尾はapp/src/main/res/drawable",
@@ -591,8 +591,8 @@
       "translation": "Si vous avez collé au mauvais endroit"
     },
     {
-      "source": "<code>layout</code> や <code>mipmap</code> など別のフォルダに入った画像は、Project表示で選んで <kbd>⌘ Delete</kbd> で削除し、もう一度 <code>drawable</code> に貼り付けます。見本の <code>samples</code> 側のプロジェクトには貼り付けません。",
-      "translation": "Si vous avez placé les images dans un autre dossier, par exemple <code>layout</code> ou <code>mipmap</code>, sélectionnez-les dans la vue Project, supprimez-les avec <kbd>⌘ Delete</kbd>, puis collez-les à nouveau dans <code>drawable</code>. Ne les collez pas dans le projet modèle du dossier <code>samples</code>."
+      "source": "<code>layout</code> や <code>mipmap</code> など別のフォルダに入った画像は、Project表示で選んで <kbd>⌘ Delete</kbd> で削除し、もう一度 <code>drawable</code> に貼り付けます。",
+      "translation": "Si vous avez placé les images dans un autre dossier, par exemple <code>layout</code> ou <code>mipmap</code>, sélectionnez-les dans la vue Project, supprimez-les avec <kbd>⌘ Delete</kbd>, puis collez-les à nouveau dans <code>drawable</code>."
     },
     {
       "source": "Runで確かめる",
@@ -1531,16 +1531,16 @@
       "translation": "Le nom d'une image provoque une erreur de build"
     },
     {
-      "source": "drawableのファイル名に大文字・ハイフン・空白がないか確認。見本のファイル名と同じにする。",
-      "translation": "Vérifiez que les noms de fichiers dans drawable ne contiennent ni majuscule, ni tiret, ni espace. Utilisez les mêmes noms que dans le modèle."
+      "source": "drawableのファイル名に大文字・ハイフン・空白がないか確認。教科書に書いてあるファイル名と同じにする。",
+      "translation": "Vérifiez que les noms de fichiers dans drawable ne contiennent ni majuscules, ni traits d'union, ni espaces. Utilisez les mêmes noms que ceux indiqués dans le manuel."
     },
     {
       "source": "貼り付けたのに画像が見つからない",
       "translation": "Les images restent introuvables après les avoir collées"
     },
     {
-      "source": "Copy画面のTo directoryを確認。<code>samples</code> 側や別のフォルダに貼っていないか、Project表示で探す。",
-      "translation": "Vérifiez To directory dans la fenêtre Copy. Cherchez dans la vue Project si les images ont été collées dans <code>samples</code> ou dans un autre dossier."
+      "source": "Copy画面のTo directoryを確認。別のプロジェクトや別のフォルダに貼っていないか、Project表示で探す。",
+      "translation": "Vérifiez To directory dans la fenêtre Copy. Cherchez dans la vue Project pour voir si vous avez collé dans un autre projet ou dans un autre dossier."
     },
     {
       "source": "R.idが赤い",
@@ -1647,8 +1647,8 @@
       "translation": "Pour poser une question, indiquez « le numéro du STEP, le fichier modifié, la première ligne rouge et l'ordre des boutons pressés »."
     },
     {
-      "source": "エラーが解決しないときは、<a1>共通資料：困ったとき</a1>の「完成プロジェクト（見本）の確認」を参照してください。",
-      "translation": "Si vous ne parvenez pas à résoudre l'erreur, consultez la section « Vérifier le projet terminé (modèle) » dans <a1>Guide commun : En cas de problème</a1>."
+      "source": "エラーが解決しないときは、<a1>共通資料：困ったとき</a1>の調べ方を試してください。それでも解決しないときは、STEP番号と画面を先生に見せましょう。",
+      "translation": "Si l'erreur persiste, essayez les méthodes de vérification dans <a1>Documents communs : En cas de problème</a1>. Si le problème n'est toujours pas résolu, montrez le numéro d'étape et l'écran à votre enseignant."
     },
     {
       "source": "Androidプログラミング1 · A03RockPaperScissorsGame / 本文・画像・操作機能はオフラインで利用できます。Android Studioの初回準備・ビルドと公式資料の閲覧にはネット接続が必要です。",

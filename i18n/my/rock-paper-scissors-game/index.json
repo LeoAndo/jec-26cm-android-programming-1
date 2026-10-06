@@ -543,8 +543,8 @@
       "translation": "ထိုအထဲကို <code>docs → rock-paper-scissors-game → downloads</code> အစီအစဉ်အတိုင်း ဖွင့်ပါ။ <code>rock-paper-scissors-game</code> သည် ယခု ဖတ်နေသော ဤသင်ရိုးစာအုပ် (<code>index.html</code>) ရှိသည့် ဖိုင်တွဲဖြစ်သည်။"
     },
     {
-      "source": "<kbd>⌘</kbd> を押しながら、<code>paper.png</code>・<code>rock.png</code>・<code>scissors.png</code>・<code>title_image.png</code> の4つをクリックして選び、<kbd>⌘ C</kbd> でコピーします。同じフォルダにある <code>A03RockPaperScissorsGame.zip</code> は完成プロジェクトです。選びません。",
-      "translation": "<kbd>⌘</kbd> ကို ဖိထားလျက် <code>paper.png</code>၊ <code>rock.png</code>၊ <code>scissors.png</code>၊ <code>title_image.png</code> 4 ခုကို ကလစ်နှိပ်၍ ရွေးပြီး <kbd>⌘ C</kbd> ဖြင့် မိတ္တူကူးပါ။ တူညီသော ဖိုင်တွဲထဲရှိ <code>A03RockPaperScissorsGame.zip</code> သည် ပြီးစီးထားသော project ဖြစ်သည်။ ၎င်းကို မရွေးပါနှင့်။"
+      "source": "<kbd>⌘</kbd> を押しながら、<code>paper.png</code>・<code>rock.png</code>・<code>scissors.png</code>・<code>title_image.png</code> の4つをクリックして選び、<kbd>⌘ C</kbd> でコピーします。ほかのファイルは選びません。",
+      "translation": "<kbd>⌘</kbd> ကို ဖိထားလျက် <code>paper.png</code>၊ <code>rock.png</code>၊ <code>scissors.png</code>၊ <code>title_image.png</code> ၄ ခုကို click နှိပ်ရွေးချယ်ပြီး <kbd>⌘ C</kbd> ဖြင့် copy ကူးပါ။ အခြားဖိုင်များကို မရွေးချယ်ရပါ။"
     },
     {
       "source": "教材のフォルダが見つからないとき",
@@ -567,8 +567,8 @@
       "translation": "Project ပြကွက်တွင် <code>app/src/main/res/drawable</code> ဖိုင်တွဲကို ကလစ်နှိပ်၍ ရွေးပြီး <kbd>⌘ V</kbd> ဖြင့် paste လုပ်ပါ။"
     },
     {
-      "source": "<strong>Copy</strong> の画面が出たら、<strong>To directory</strong> を確認します。末尾が <code>A03RockPaperScissorsGame/app/src/main/res/drawable</code> になっていれば <strong>OK</strong> を押します。見本（完成プロジェクト）も開いている人は、途中に <code>samples</code> が入っていないことも確かめます。入っていたら、見本の方に貼り付けようとしています。",
-      "translation": "<strong>Copy</strong> မျက်နှာပြင် ပေါ်လာလျှင် <strong>To directory</strong> ကို စစ်ဆေးပါ။ အဆုံးသတ်သည် <code>A03RockPaperScissorsGame/app/src/main/res/drawable</code> ဖြစ်နေလျှင် <strong>OK</strong> ကို နှိပ်ပါ။ နမူနာ (ပြီးစီးထားသော project) ကိုပါ ဖွင့်ထားသူများသည် အလယ်တွင် <code>samples</code> မပါကြောင်းလည်း စစ်ဆေးပါ။ ပါနေလျှင် နမူနာဘက်သို့ paste လုပ်မိတော့မည် ဖြစ်သည်။"
+      "source": "<strong>Copy</strong> の画面が出たら、<strong>To directory</strong> を確認します。末尾が <code>Android1/A03RockPaperScissorsGame/app/src/main/res/drawable</code> になっていれば <strong>OK</strong> を押します。<code>Android1</code> が入っていないときは、別のプロジェクトに貼り付けようとしています。",
+      "translation": "<strong>Copy</strong> မျက်နှာပြင် ပေါ်လာလျှင် <strong>To directory</strong> ကို စစ်ဆေးပါ။ အဆုံးတွင် <code>Android1/A03RockPaperScissorsGame/app/src/main/res/drawable</code> ဖြစ်နေပါက <strong>OK</strong> ကို နှိပ်ပါ။ <code>Android1</code> မပါဝင်ပါက အခြား project သို့ ကူးထည့်မိတော့မည် ဖြစ်ပါသည်။"
     },
     {
       "source": "Project表示でdrawableフォルダを選び、Copyダイアログが開いている。To directoryの末尾はapp/src/main/res/drawable",
@@ -591,8 +591,8 @@
       "translation": "paste လုပ်သည့် နေရာ မှားသွားလျှင်"
     },
     {
-      "source": "<code>layout</code> や <code>mipmap</code> など別のフォルダに入った画像は、Project表示で選んで <kbd>⌘ Delete</kbd> で削除し、もう一度 <code>drawable</code> に貼り付けます。見本の <code>samples</code> 側のプロジェクトには貼り付けません。",
-      "translation": "<code>layout</code> သို့မဟုတ် <code>mipmap</code> ကဲ့သို့ အခြား ဖိုင်တွဲထဲသို့ ရောက်သွားသော ပုံများကို Project ပြကွက်တွင် ရွေးပြီး <kbd>⌘ Delete</kbd> ဖြင့် ဖျက်ပါ။ ထို့နောက် <code>drawable</code> ထဲသို့ ထပ်မံ paste လုပ်ပါ။ နမူနာ၏ <code>samples</code> ဘက်ရှိ project ထဲသို့ paste မလုပ်ပါနှင့်။"
+      "source": "<code>layout</code> や <code>mipmap</code> など別のフォルダに入った画像は、Project表示で選んで <kbd>⌘ Delete</kbd> で削除し、もう一度 <code>drawable</code> に貼り付けます。",
+      "translation": "<code>layout</code> သို့မဟုတ် <code>mipmap</code> ကဲ့သို့ အခြားဖိုင်တွဲထဲသို့ ပုံများ ရောက်သွားပါက Project view တွင် ရွေးချယ်ပြီး <kbd>⌘ Delete</kbd> ဖြင့် ဖျက်ကာ <code>drawable</code> ထဲသို့ နောက်တစ်ကြိမ် ပြန်လည်ကူးထည့်ပါ။"
     },
     {
       "source": "Runで確かめる",
@@ -1531,16 +1531,16 @@
       "translation": "ပုံ၏ အမည်ကြောင့် build error ဖြစ်သည်"
     },
     {
-      "source": "drawableのファイル名に大文字・ハイフン・空白がないか確認。見本のファイル名と同じにする。",
-      "translation": "drawable ရှိ ဖိုင်အမည်တွင် စာလုံးကြီး၊ hyphen၊ space မပါကြောင်း စစ်ဆေးပါ။ နမူနာ၏ ဖိုင်အမည်နှင့် တူအောင် ထားပါ။"
+      "source": "drawableのファイル名に大文字・ハイフン・空白がないか確認。教科書に書いてあるファイル名と同じにする。",
+      "translation": "drawable ရှိ ဖိုင်အမည်တွင် စာလုံးကြီး၊ hyphen၊ space မပါကြောင်း စစ်ဆေးပါ။ ဖတ်စာအုပ်တွင် ဖော်ပြထားသည့် ဖိုင်အမည်နှင့် တူညီအောင် ပြုလုပ်ပါ။"
     },
     {
       "source": "貼り付けたのに画像が見つからない",
       "translation": "paste လုပ်ထားသော်လည်း ပုံကို ရှာမတွေ့ပါ"
     },
     {
-      "source": "Copy画面のTo directoryを確認。<code>samples</code> 側や別のフォルダに貼っていないか、Project表示で探す。",
-      "translation": "Copy မျက်နှာပြင်၏ To directory ကို စစ်ဆေးပါ။ <code>samples</code> ဘက် သို့မဟုတ် အခြား ဖိုင်တွဲ တွင် paste လုပ်မိသလား Project ပြသမှုဖြင့် ရှာပါ။"
+      "source": "Copy画面のTo directoryを確認。別のプロジェクトや別のフォルダに貼っていないか、Project表示で探す。",
+      "translation": "Copy မျက်နှာပြင်၏ To directory ကို စစ်ဆေးပါ။ အခြား project သို့မဟုတ် အခြားဖိုင်တွဲသို့ ကူးထည့်မိခြင်း ရှိ၊ မရှိကို Project view တွင် ရှာဖွေပါ။"
     },
     {
       "source": "R.idが赤い",
@@ -1647,8 +1647,8 @@
       "translation": "မေးခွန်းမေးသည့်အခါ “STEP နံပါတ်၊ ပြင်ဆင်ခဲ့သော ဖိုင်၊ ပထမဆုံး အနီရောင်စာကြောင်း၊ နှိပ်ခဲ့သော အစဉ်” တို့ကို ပြောပြပါ။"
     },
     {
-      "source": "エラーが解決しないときは、<a1>共通資料：困ったとき</a1>の「完成プロジェクト（見本）の確認」を参照してください。",
-      "translation": "Error မပြေလည်ပါက <a1>အများသုံးလမ်းညွှန် - အခက်အခဲကြုံတွေ့သောအခါ</a1> ၏ “ပြီးစီးထားသော project (နမူနာ) ကို စစ်ဆေးခြင်း” ကို ကိုးကားပါ။"
+      "source": "エラーが解決しないときは、<a1>共通資料：困ったとき</a1>の調べ方を試してください。それでも解決しないときは、STEP番号と画面を先生に見せましょう。",
+      "translation": "အမှားကို မဖြေရှင်းနိုင်ပါက <a1>အသုံးများသောအချက်အလက်များ- အခက်အခဲရှိသည့်အခါ</a1> ရှိ ရှာဖွေစစ်ဆေးနည်းများကို စမ်းသပ်ကြည့်ပါ။ ထိုသို့ပြုလုပ်ပြီးသော်လည်း မပြေလည်သေးပါက STEP နံပါတ်နှင့် မျက်နှာပြင်ကို ဆရာထံ ပြသပါ။"
     },
     {
       "source": "Androidプログラミング1 · A03RockPaperScissorsGame / 本文・画像・操作機能はオフラインで利用できます。Android Studioの初回準備・ビルドと公式資料の閲覧にはネット接続が必要です。",
