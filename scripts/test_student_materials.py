@@ -413,6 +413,20 @@ class StudentReleaseTest(unittest.TestCase):
         self.assertNotIn("samples", text)
         self.assertNotIn("完成プロジェクト", text)
 
+    def test_release_notes_hide_lines_about_sample_projects(self):
+        """PRタイトルやコミットの件名から、完成プロジェクトに触れる行だけを除く（#362）。"""
+        generated = "* HelloAndroidの説明を修正 #2\n* 教科書から完成プロジェクトへの案内をなくす #3"
+        commits = "- 修正 (abc123)\n- samples の案内を削除 (def456)"
+        with patch.object(release, "api", side_effect=lambda path, payload=None: {"body": generated}
+                          if path.endswith("/generate-notes") else self.api_response(path, payload)), \
+                patch.object(release.subprocess, "check_output", return_value=commits):
+            release.prepare(self.repo, self.metadata)
+        text = (self.dist / "release-notes.md").read_text()
+        self.assertIn("* HelloAndroidの説明を修正 #2", text)
+        self.assertIn("- 修正 (abc123)", text)
+        self.assertNotIn("完成プロジェクト", text)
+        self.assertNotIn("samples", text)
+
     def test_added_unit_appears_in_release_notes(self):
         """単元を設定に足すだけで、リリースノートの案内にも出る。"""
         added = dict(FIXTURE_PROJECTS[0], name="A12ExtraApp",

@@ -464,10 +464,12 @@ class TeachingMaterialsCheckTest(unittest.TestCase):
             errors = self._guidance_errors(Path(temporary), {
                 "docs/one/index.html": '<a href="downloads/A01One.zip" download>答え</a>',
                 "docs/common/help.html": '<a href="../one/downloads/A01One.zip?from=x">見本</a>',
+                "docs/common/setup.html": "<a href='../one/downloads/A01One.zip'>見本</a>",
             })
-            self.assertEqual(len(errors), 2, errors)
+            self.assertEqual(len(errors), 3, errors)
             self.assertIn("docs/common/help.html:1", errors[0])
-            self.assertIn("docs/one/index.html:1", errors[1])
+            self.assertIn("docs/common/setup.html:1", errors[1])  # 単一引用符の属性も拾う
+            self.assertIn("docs/one/index.html:1", errors[2])
             self.assertTrue(all("完成プロジェクトZIPへリンク" in error for error in errors), errors)
 
 

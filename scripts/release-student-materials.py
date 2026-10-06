@@ -18,6 +18,19 @@ CHECKSUMS = "SHA256SUMS.txt"
 # 配布ZIPの名前は版ごとに変わるので、release-metadata.jsonから受け取る。
 ASSET_PATTERN = re.compile(r"android1-student-materials-\d{4}-\d{2}-\d{2}\.zip")
 MATERIALS_CONFIG = "config/teaching-materials.json"
+# 学生向けのリリースノートにも、完成プロジェクトへの案内を載せない（README「授業用教科書の基本方針」10）。
+# check-teaching-materials.py の SAMPLE_GUIDANCE_WORDS と同じ語。
+SAMPLE_GUIDANCE_WORDS = ("完成プロジェクト", "samples")
+
+
+def without_sample_guidance(text):
+    """PRタイトルやコミットの件名のうち、完成プロジェクトに触れる行を除く。
+
+    自動生成ノートとコミット一覧は、PRタイトルとコミットの件名をそのまま並べる。
+    教科書から案内をなくしても、この経路で「完成プロジェクトがZIPに入っている」ことが学生に届くので、
+    その行だけを落とす。変更そのものは、教員がGitHubのPR一覧で追える。
+    """
+    return "\n".join(line for line in text.splitlines() if not any(word in line for word in SAMPLE_GUIDANCE_WORDS))
 
 
 def split_unit(name):
@@ -169,10 +182,10 @@ def prepare(repo, metadata):
         # 過去のrunを再実行した場合、最新の配布版より古い変更履歴を作らない。
         subprocess.run(["git", "merge-base", "--is-ancestor", base, revision], cwd=ROOT, check=True)
         commit_range = f"{base}..{revision}"
-    generated = api(f"repos/{repo}/releases/generate-notes", payload)["body"]
-    commits = subprocess.check_output(
+    generated = without_sample_guidance(api(f"repos/{repo}/releases/generate-notes", payload)["body"])
+    commits = without_sample_guidance(subprocess.check_output(
         ["git", "log", "--no-merges", "--format=- %s (%h)", commit_range], cwd=ROOT, text=True,
-    ).strip()
+    ).strip())
     student_notes = os.environ.get("STUDENT_NOTES", "").strip()
     projects = load_projects()
     body = (

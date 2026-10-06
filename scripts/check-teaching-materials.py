@@ -443,7 +443,7 @@ def check_project_layout(root: Path, config: dict, errors: list[str]) -> None:
 
 # 教科書の本文に出してはいけない語。完成プロジェクトの存在や置き場所を知らせることになる。
 SAMPLE_GUIDANCE_WORDS = ("完成プロジェクト", "samples")
-LINK_ATTRIBUTE = re.compile(r'\b(?:href|src)="([^"]*)"')
+LINK_ATTRIBUTE = re.compile(r"""\b(?:href|src)\s*=\s*(?:"([^"]*)"|'([^']*)')""")
 TAG = re.compile(r"<[^>]*>")
 
 
@@ -468,13 +468,14 @@ def check_no_sample_guidance(root: Path, config: dict, errors: list[str]) -> Non
                     add(errors, root, path, line_number,
                         f"教科書から完成プロジェクトへは案内しません（README「授業用教科書の基本方針」10）: {word}")
             for match in LINK_ATTRIBUTE.finditer(line):
-                target = re.split(r"[?#]", html.unescape(match.group(1)), maxsplit=1)[0]
+                value = match.group(1) if match.group(1) is not None else match.group(2)
+                target = re.split(r"[?#]", html.unescape(value), maxsplit=1)[0]
                 if not target or "://" in target:
                     continue
                 resolved = posixpath.normpath(posixpath.join(posixpath.dirname(name), target))
                 if resolved in archives:
                     add(errors, root, path, line_number,
-                        f"教科書から完成プロジェクトZIPへリンクしています（README「授業用教科書の基本方針」10）: {match.group(1)}")
+                        f"教科書から完成プロジェクトZIPへリンクしています（README「授業用教科書の基本方針」10）: {value}")
 
 
 def validate(root: Path) -> list[str]:
