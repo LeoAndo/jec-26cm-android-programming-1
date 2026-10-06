@@ -110,14 +110,14 @@
 <p>3つの画像は、教科書といっしょに配られた<strong>教材のフォルダ</strong>に入っています。Finderで開いて、3つまとめてコピーします。</p>
 <ol><li>Finderを開き、左側の <strong>書類</strong> をクリックします。教材のフォルダをダブルクリックで開きます。名前は <code>android1-student-materials-</code> のうしろに日付が付いた形で、日付は配られた回によって変わります。</li>
 <li>その中を <code>docs → bomb-game → downloads</code> の順に開きます。<code>bomb-game</code> は、いま読んでいるこの教科書（<code>index.html</code>）が入っているフォルダです。</li>
-<li><kbd>⌘</kbd> を押しながら、<code>bomb_exploded.png</code>・<code>bomb_ignited.png</code>・<code>bomb_initial.png</code> の3つをクリックして選び、<kbd>⌘ C</kbd> でコピーします。同じフォルダにある <code>A05BombGame.zip</code> は完成プロジェクトです。選びません。</li></ol>
+<li><kbd>⌘</kbd> を押しながら、<code>bomb_exploded.png</code>・<code>bomb_ignited.png</code>・<code>bomb_initial.png</code> の3つをクリックして選び、<kbd>⌘ C</kbd> でコピーします。ほかのファイルは選びません。</li></ol>
 <div class="note"><p class="box-title">教材のフォルダが見つからないとき</p><p>教材のフォルダは、はじめの準備で「書類」へ移動したものです（<a href="../common/setup.html?from=bomb-game#materials">共通資料：はじめの準備</a>の1.）。まだ移動していなければ、先にそちらを行います。同じ教材を2回ダウンロードして名前のうしろに <code>(1)</code> が付いたものがあるときは、自分で判断せず先生に見せてください。</p></div>
 <h3>② 自分のプロジェクトに貼り付ける</h3>
-<ol><li>Android Studioに戻り、自分の <code>A05BombGame</code> を開いていることを確認します。</li><li>Project表示で <code>app/src/main/res/drawable</code> フォルダをクリックして選び、<kbd>⌘ V</kbd> で貼り付けます。</li><li><strong>Copy</strong> の画面が出たら、<strong>To directory</strong> を確認します。末尾が <code>A05BombGame/app/src/main/res/drawable</code> になっていれば <strong>OK</strong> を押します。見本（完成プロジェクト）も開いている人は、途中に <code>samples</code> が入っていないことも確かめます。入っていたら、見本の方に貼り付けようとしています。</li></ol>
+<ol><li>Android Studioに戻り、自分の <code>A05BombGame</code> を開いていることを確認します。</li><li>Project表示で <code>app/src/main/res/drawable</code> フォルダをクリックして選び、<kbd>⌘ V</kbd> で貼り付けます。</li><li><strong>Copy</strong> の画面が出たら、<strong>To directory</strong> を確認します。末尾が <code>Android1/A05BombGame/app/src/main/res/drawable</code> になっていれば <strong>OK</strong> を押します。<code>Android1</code> が入っていないときは、別のプロジェクトに貼り付けようとしています。</li></ol>
 <figure><a href="images/drawable-copy.png"><img src="images/drawable-copy.png" width="2072" height="1090" loading="lazy" alt="Project表示でdrawableフォルダを選び、Copyダイアログが開いている。To directoryの末尾はA05BombGame/app/src/main/res/drawable"></a><figcaption>To directoryの末尾が A05BombGame/app/src/main/res/drawable になっていればOK。画像のパスは先生の保存先の例です。 <a href="images/drawable-copy.png">画像を大きく開く</a></figcaption></figure>
 <figure><a href="images/drawable-files.png"><img src="images/drawable-files.png" width="970" height="1024" loading="lazy" alt="drawableフォルダにbomb_exploded.png、bomb_ignited.png、bomb_initial.pngの3つが追加されている"></a><figcaption>drawableに3つのPNGが並べば成功。 <a href="images/drawable-files.png">画像を大きく開く</a></figcaption></figure>
 
-<div class="note"><p class="box-title">貼り付けた場所を間違えたとき</p><p><code>layout</code> や <code>mipmap</code> など別のフォルダに入った画像は、Project表示で選んで <kbd>⌘ Delete</kbd> で削除し、もう一度 <code>drawable</code> に貼り付けます。見本の <code>samples</code> 側のプロジェクトには貼り付けません。</p></div>
+<div class="note"><p class="box-title">貼り付けた場所を間違えたとき</p><p><code>layout</code> や <code>mipmap</code> など別のフォルダに入った画像は、Project表示で選んで <kbd>⌘ Delete</kbd> で削除し、もう一度 <code>drawable</code> に貼り付けます。</p></div>
 <h3>Runで確かめる</h3><p>画像を追加しただけでは、画面は変わりません。Runして <strong>Hello World!</strong> が表示され、ビルドエラーが出なければ成功です。</p>
 <div class="check"><p class="box-title">ここで止まって、確認</p><label><input type="checkbox" data-check="step-2"><span>自分のプロジェクトのdrawableに3つのPNGを追加し、Runしてもエラーが出ないことを確認した。</span></label><p>できたらチェックします。困ったときはSTEP番号と画面を先生に見せましょう。</p></div>
 <div class="next"><a href="#step-3">次へ：爆弾と数字ボタンを並べる →</a></div>
@@ -595,8 +595,8 @@ if ((nowState == STATE_INITIAL &amp;&amp; disableButtonCount == 7) ||
 </section>
 <section id="help"><h2>困ったとき</h2><table><thead><tr><th>困ったこと</th><th>最初に確認する場所</th></tr></thead><tbody>
 <tr><td>@drawable/bomb_initial や R.drawable.bomb_ignited が赤い</td><td>drawableに3つのPNGがあるか確認。ファイル名は小文字で、<code>bomb_initial.png.png</code> のように拡張子が重なっていないか見る。</td></tr>
-<tr><td>画像の名前でビルドエラーになる</td><td>drawableのファイル名に大文字・ハイフン・空白がないか確認。見本のファイル名と同じにする。</td></tr>
-<tr><td>貼り付けたのに画像が見つからない</td><td>Copy画面のTo directoryを確認。<code>samples</code> 側や別のフォルダに貼っていないか、Project表示で探す。</td></tr>
+<tr><td>画像の名前でビルドエラーになる</td><td>drawableのファイル名に大文字・ハイフン・空白がないか確認。教科書に書いてあるファイル名と同じにする。</td></tr>
+<tr><td>貼り付けたのに画像が見つからない</td><td>Copy画面のTo directoryを確認。別のプロジェクトや別のフォルダに貼っていないか、Project表示で探す。</td></tr>
 <tr><td>R.idが赤い</td><td>XMLのidが一致するか確認。main、img_bomb、btn1〜btn9、txt_message、btn_retry。<code>android:id="@+id/main"</code> を消していないかも見る。最初のXMLエラーを直してビルドする。</td></tr>
 <tr><td>起動時に終了する</td><td>setContentViewがfindViewByIdより先か確認。Logcatで最初の例外を見る。</td></tr>
 <tr><td>Arrays や ThreadLocalRandom が赤字になる</td><td><code>java.util.Arrays</code> と <code>java.util.concurrent.ThreadLocalRandom</code> をimportする。<kbd>⌥ Enter</kbd> で候補を確認する。</td></tr>
@@ -615,6 +615,6 @@ if ((nowState == STATE_INITIAL &amp;&amp; disableButtonCount == 7) ||
 
 <p><a href="../common/logcat.html?from=bomb-game">共通資料：Logcat</a>を使います。今回のパッケージは <code>jp.ac.jec.a05bombgame</code> です。エラーを見るときは、STEP 5で入れた <code>tag:MainActivity</code> と <code>level:DEBUG</code> を消して、<code>package:jp.ac.jec.a05bombgame level:ERROR</code> に置き換えます。前の単元のパッケージ名も残さないようにします。</p>
 <p>質問では「STEP番号・編集したファイル・最初の赤い行・押した順番」を伝えます。</p>
-<p>エラーが解決しないときは、<a href="../common/help.html?from=bomb-game">共通資料：困ったとき</a>の「完成プロジェクト（見本）の確認」を参照してください。</p></section>
+<p>エラーが解決しないときは、<a href="../common/help.html?from=bomb-game">共通資料：困ったとき</a>の調べ方を試してください。それでも解決しないときは、STEP番号と画面を先生に見せましょう。</p></section>
 <footer class="footer"><p>Androidプログラミング1 · A05BombGame / 本文・画像・操作機能はオフラインで利用できます。Android Studioの初回準備・ビルドと公式資料の閲覧にはネット接続が必要です。</p><p>画像は授業用の提供資料を使用。導火線スイッチの数字と結果は操作によって変わります。</p></footer>
 <div class="sr-only" role="status" aria-live="polite" data-copy-status></div></main></div></body></html>

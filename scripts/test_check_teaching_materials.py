@@ -421,6 +421,59 @@ class TeachingMaterialsCheckTest(unittest.TestCase):
             self.assertIn("docs/two/index.html:1", errors[0])
             self.assertIn("サイドバー（<div class=\"resources\">）がありません", errors[0])
 
+    def _guidance_errors(self, root: Path, pages: dict[str, str]) -> list[str]:
+        """docs/ にページを書き出して検査し、完成プロジェクトへの案内についてのエラーだけを返す。"""
+        for name, content in pages.items():
+            (root / name).parent.mkdir(parents=True, exist_ok=True)
+            (root / name).write_text(content, encoding="utf-8")
+        self._project_root(root, {
+            "scan_roots": [], "terms": [],
+            "projects": [{
+                "name": "A01One", "package": "p", "root": "A01One",
+                "docs": ["docs/one/index.html", "teacher/one/index.html"],
+                "source_java": "A01One/j.java", "source_xml": "A01One/l.xml",
+                "snippets": [], "archive": "docs/one/downloads/A01One.zip",
+            }],
+        })
+        return [error for error in CHECKER.validate(root) if "README「授業用教科書の基本方針」10" in error]
+
+    def test_textbook_without_sample_guidance_is_accepted(self):
+        """画像の置き場所（downloads/）へのリンクや、属性の中の語は案内にあたらない。"""
+        with tempfile.TemporaryDirectory() as temporary:
+            errors = self._guidance_errors(Path(temporary), {
+                "docs/one/index.html": '<p><a href="downloads/title.png">画像</a></p>\n<img src="images/samples.png" alt="">',
+            })
+            self.assertEqual(errors, [])
+
+    def test_sample_guidance_words_are_rejected(self):
+        """本文に「完成プロジェクト」「samples」が出たら、共通資料でも検出する。"""
+        with tempfile.TemporaryDirectory() as temporary:
+            errors = self._guidance_errors(Path(temporary), {
+                "docs/one/index.html": "<p>見比べるときは</p>\n<p>完成プロジェクトを開きます。</p>",
+                "docs/common/help.html": "<p><code>samples</code> フォルダを開きます。</p>",
+            })
+            self.assertEqual(len(errors), 2, errors)
+            self.assertIn("docs/common/help.html:1", errors[0])
+            self.assertIn("samples", errors[0])
+            self.assertIn("docs/one/index.html:2", errors[1])
+            self.assertIn("完成プロジェクト", errors[1])
+
+    def test_link_to_project_archive_is_rejected(self):
+        """完成プロジェクトZIPへのリンクは、文言にかかわらず検出する。別ページからの相対パスも解決する。"""
+        with tempfile.TemporaryDirectory() as temporary:
+            errors = self._guidance_errors(Path(temporary), {
+                "docs/one/index.html": '<a href="downloads/A01One.zip" download>答え</a>',
+                "docs/common/help.html": '<a href="../one/downloads/A01One.zip?from=x">見本</a>',
+                "docs/common/setup.html": "<a href='../one/downloads/A01One.zip'>見本</a>",
+                "docs/common/apk.html": '<a href="https://example.com/downloads/A01One.zip">見本</a>',
+            })
+            self.assertEqual(len(errors), 4, errors)
+            self.assertIn("docs/common/apk.html:1", errors[0])  # 絶対URLでも拾う
+            self.assertIn("docs/common/help.html:1", errors[1])
+            self.assertIn("docs/common/setup.html:1", errors[2])  # 単一引用符の属性も拾う
+            self.assertIn("docs/one/index.html:1", errors[3])
+            self.assertTrue(all("完成プロジェクトZIPへリンク" in error for error in errors), errors)
+
 
 if __name__ == "__main__":
     unittest.main()
