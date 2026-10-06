@@ -470,7 +470,13 @@ def check_no_sample_guidance(root: Path, config: dict, errors: list[str]) -> Non
             for match in LINK_ATTRIBUTE.finditer(line):
                 value = match.group(1) if match.group(1) is not None else match.group(2)
                 target = re.split(r"[?#]", html.unescape(value), maxsplit=1)[0]
-                if not target or "://" in target:
+                if not target:
+                    continue
+                if "://" in target:
+                    archive_names = {posixpath.basename(a) for a in archives}
+                    if posixpath.basename(target) in archive_names:
+                        add(errors, root, path, line_number,
+                            f"教科書から完成プロジェクトZIPへリンクしています（README「授業用教科書の基本方針」10）: {value}")
                     continue
                 resolved = posixpath.normpath(posixpath.join(posixpath.dirname(name), target))
                 if resolved in archives:
