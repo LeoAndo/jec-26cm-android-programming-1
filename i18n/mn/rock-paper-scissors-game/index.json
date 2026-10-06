@@ -543,8 +543,8 @@
       "translation": "Дотор нь <code>docs → rock-paper-scissors-game → downloads</code> дарааллаар нээнэ үү. <code>rock-paper-scissors-game</code> нь одоо уншиж буй энэ сурах бичиг (<code>index.html</code>) байгаа хавтас юм."
     },
     {
-      "source": "<kbd>⌘</kbd> を押しながら、<code>paper.png</code>・<code>rock.png</code>・<code>scissors.png</code>・<code>title_image.png</code> の4つをクリックして選び、<kbd>⌘ C</kbd> でコピーします。同じフォルダにある <code>A03RockPaperScissorsGame.zip</code> は完成プロジェクトです。選びません。",
-      "translation": "<kbd>⌘</kbd>-ийг дарсан хэвээр <code>paper.png</code>, <code>rock.png</code>, <code>scissors.png</code>, <code>title_image.png</code> гэсэн 4 файлыг дарж сонгоод, <kbd>⌘ C</kbd>-ээр хуулна уу. Ижил хавтас дахь <code>A03RockPaperScissorsGame.zip</code> нь бэлэн төсөл тул сонгохгүй."
+      "source": "<kbd>⌘</kbd> を押しながら、<code>paper.png</code>・<code>rock.png</code>・<code>scissors.png</code>・<code>title_image.png</code> の4つをクリックして選び、<kbd>⌘ C</kbd> でコピーします。ほかのファイルは選びません。",
+      "translation": "<kbd>⌘</kbd>-ийг дарсан хэвээр <code>paper.png</code>, <code>rock.png</code>, <code>scissors.png</code>, <code>title_image.png</code> 4-ийг товшиж сонгоод <kbd>⌘ C</kbd>-ээр хуулна уу. Өөр файл сонгохгүй."
     },
     {
       "source": "教材のフォルダが見つからないとき",
@@ -567,8 +567,8 @@
       "translation": "Project харагдацаар <code>app/src/main/res/drawable</code> хавтсыг дарж сонгоод <kbd>⌘ V</kbd>-ээр буулгана уу."
     },
     {
-      "source": "<strong>Copy</strong> の画面が出たら、<strong>To directory</strong> を確認します。末尾が <code>A03RockPaperScissorsGame/app/src/main/res/drawable</code> になっていれば <strong>OK</strong> を押します。見本（完成プロジェクト）も開いている人は、途中に <code>samples</code> が入っていないことも確かめます。入っていたら、見本の方に貼り付けようとしています。",
-      "translation": "<strong>Copy</strong> дэлгэц гарвал <strong>To directory</strong>-г шалгана уу. Төгсгөл нь <code>A03RockPaperScissorsGame/app/src/main/res/drawable</code> байвал <strong>OK</strong> дарна уу. Жишээг (бэлэн төсөл) ч нээсэн бол замын дунд <code>samples</code> байхгүйг шалгана уу. Байвал жишээ рүү буулгах гэж байна гэсэн үг."
+      "source": "<strong>Copy</strong> の画面が出たら、<strong>To directory</strong> を確認します。末尾が <code>Android1/A03RockPaperScissorsGame/app/src/main/res/drawable</code> になっていれば <strong>OK</strong> を押します。<code>Android1</code> が入っていないときは、別のプロジェクトに貼り付けようとしています。",
+      "translation": "<strong>Copy</strong> дэлгэц гарвал <strong>To directory</strong>-г шалгана уу. Төгсгөл нь <code>Android1/A03RockPaperScissorsGame/app/src/main/res/drawable</code> байвал <strong>OK</strong> дээр дарна уу. <code>Android1</code> ороогүй байвал өөр төсөлд буулгах гэж байна гэсэн үг."
     },
     {
       "source": "Project表示でdrawableフォルダを選び、Copyダイアログが開いている。To directoryの末尾はapp/src/main/res/drawable",
@@ -591,8 +591,8 @@
       "translation": "Буруу газар буулгасан бол"
     },
     {
-      "source": "<code>layout</code> や <code>mipmap</code> など別のフォルダに入った画像は、Project表示で選んで <kbd>⌘ Delete</kbd> で削除し、もう一度 <code>drawable</code> に貼り付けます。見本の <code>samples</code> 側のプロジェクトには貼り付けません。",
-      "translation": "<code>layout</code>, <code>mipmap</code> зэрэг өөр хавтаст орсон зургийг Project харагдацаар сонгон <kbd>⌘ Delete</kbd>-ээр устгаад дахин <code>drawable</code>-д буулгана уу. Жишээний <code>samples</code> доторх төсөлд буулгахгүй."
+      "source": "<code>layout</code> や <code>mipmap</code> など別のフォルダに入った画像は、Project表示で選んで <kbd>⌘ Delete</kbd> で削除し、もう一度 <code>drawable</code> に貼り付けます。",
+      "translation": "<code>layout</code>, <code>mipmap</code> зэрэг өөр хавтаст орсон зургийг Project харагдацад сонгоод <kbd>⌘ Delete</kbd>-ээр устгаж, дахин <code>drawable</code>-д хуулж тавина уу."
     },
     {
       "source": "Runで確かめる",
@@ -1531,16 +1531,16 @@
       "translation": "Зургийн нэрээс бүтээлтийн алдаа гарна"
     },
     {
-      "source": "drawableのファイル名に大文字・ハイフン・空白がないか確認。見本のファイル名と同じにする。",
-      "translation": "drawable-ийн файлын нэрд том үсэг, холбоос зураас, зай байгаа эсэхийг шалгана уу. Жишээний файлын нэртэй ижил болгоно уу."
+      "source": "drawableのファイル名に大文字・ハイフン・空白がないか確認。教科書に書いてあるファイル名と同じにする。",
+      "translation": "drawable-ийн файлын нэрд том үсэг, холбоос зураас, зай байгаа эсэхийг шалгана уу. Сурах бичигт бичигдсэн файлын нэртэй ижил болгоно."
     },
     {
       "source": "貼り付けたのに画像が見つからない",
       "translation": "Буулгасан ч зураг олдохгүй"
     },
     {
-      "source": "Copy画面のTo directoryを確認。<code>samples</code> 側や別のフォルダに貼っていないか、Project表示で探す。",
-      "translation": "Copy дэлгэцийн To directory-г шалгана уу. <code>samples</code> тал эсвэл өөр хавтас руу буулгасан эсэхийг Project харагдацаар хайна уу."
+      "source": "Copy画面のTo directoryを確認。別のプロジェクトや別のフォルダに貼っていないか、Project表示で探す。",
+      "translation": "Copy дэлгэцийн To directory-г шалгана уу. Өөр төсөл эсвэл өөр хавтас руу хуулсан эсэхийг Project харагдацаас хайна уу."
     },
     {
       "source": "R.idが赤い",
@@ -1647,8 +1647,8 @@
       "translation": "Асуухдаа «STEP-ийн дугаар, зассан файл, эхний улаан мөр, дарсан дараалал»-ыг хэлнэ үү."
     },
     {
-      "source": "エラーが解決しないときは、<a1>共通資料：困ったとき</a1>の「完成プロジェクト（見本）の確認」を参照してください。",
-      "translation": "Алдаа шийдэгдэхгүй байвал <a1>Нийтлэг заавар: Асуудал гарвал</a1> хэсгийн «Бэлэн төсөл (жишээ)-ийг шалгах» тайлбарыг үзнэ үү."
+      "source": "エラーが解決しないときは、<a1>共通資料：困ったとき</a1>の調べ方を試してください。それでも解決しないときは、STEP番号と画面を先生に見せましょう。",
+      "translation": "Алдаа шийдэгдэхгүй бол <a1>Нийтлэг материал: Асуудал гарсан үед</a1> хэсгийн шалгах аргуудыг туршиж үзнэ үү. Тэгээд ч шийдэгдэхгүй бол STEP дугаар болон дэлгэцийг багшдаа үзүүлнэ үү."
     },
     {
       "source": "Androidプログラミング1 · A03RockPaperScissorsGame / 本文・画像・操作機能はオフラインで利用できます。Android Studioの初回準備・ビルドと公式資料の閲覧にはネット接続が必要です。",

@@ -43,10 +43,6 @@
       "translation": "2. Tirer parti des guides communs"
     },
     {
-      "source": "3. どうしても解決しないときは（完成プロジェクトの確認）",
-      "translation": "3. Si vous ne trouvez vraiment pas la solution (consulter le projet terminé)"
-    },
-    {
       "source": "プログラミングでエラーが出るのは自然なことです。エラーメッセージには「どのファイルの何行目で、何が問題か」が必ず書かれています。焦らずに上から順に確認しましょう。",
       "translation": "Il est tout à fait naturel de rencontrer des erreurs en programmation. Le message d'erreur indique toujours « quelle ligne de quel fichier pose problème ». Gardez votre calme et vérifiez de haut en bas."
     },
@@ -117,46 +113,6 @@
     {
       "source": "<a1>共通資料：ちがうAndroid Studioのバージョンで進めるとき</a1> を確認します。",
       "translation": "Consultez <a1>Guide commun : Utiliser une autre version d'Android Studio</a1>."
-    },
-    {
-      "source": "どうしても自分のコードの間違いが見つからないときや、アプリ本来の動きを確認したいときは、先生が作った<strong>完成プロジェクト（見本）</strong>を開いて自分のコードと見比べることができます。",
-      "translation": "Si vous ne trouvez vraiment pas l'erreur dans votre code ou si vous souhaitez vérifier le comportement attendu de l'application, vous pouvez ouvrir le <strong>projet terminé (modèle)</strong> préparé par l'enseignant et le comparer avec votre code."
-    },
-    {
-      "source": "完成プロジェクトは「答え合わせ用」です",
-      "translation": "Le projet terminé sert à « vérifier votre travail »"
-    },
-    {
-      "source": "完成プロジェクトからコードをそのままコピーしたり、完成プロジェクトを改造して提出しても、自分の課題の提出にはなりません。見本で違いを確認したら、必ず<strong>自分で作ったプロジェクトに戻り、自分の手で修正</strong>してください。",
-      "translation": "Copier directement le code du projet terminé ou modifier ce dernier pour le rendre ne constitue pas le rendu de votre propre travail. Une fois les différences constatées avec le modèle, veillez à <strong>revenir sur le projet que vous avez créé vous-même et à le corriger manuellement</strong>."
-    },
-    {
-      "source": "Android Studioのメニューから <strong>File → Open</strong> を選びます。",
-      "translation": "Dans le menu d'Android Studio, sélectionnez <strong>File → Open</strong>."
-    },
-    {
-      "source": "<strong>書類</strong>（<code>Documents</code>）にある教材のフォルダ（<code>android1-student-materials-日付</code>）を開きます。",
-      "translation": "Ouvrez le dossier des supports de cours (<code>android1-student-materials-日付</code>) situé dans <strong>Documents</strong> (<code>Documents</code>)."
-    },
-    {
-      "source": "その中にある <code>samples</code> フォルダを開き、該当する単元のフォルダ（例：<code>A02CalcGame</code>）を選んで <strong>Open</strong> をクリックします。",
-      "translation": "Ouvrez le dossier <code>samples</code> qui s'y trouve, sélectionnez le dossier de l'unité correspondante (ex. : <code>A02CalcGame</code>), puis cliquez sur <strong>Open</strong>."
-    },
-    {
-      "source": "Gradle同期が終わったら、Runして正しい動きを確認したり、エラーが出ているファイルと見比べます。",
-      "translation": "Une fois la synchronisation Gradle terminée, cliquez sur Run pour vérifier le comportement correct ou comparez vos fichiers avec ceux qui affichent des erreurs."
-    },
-    {
-      "source": "確認が終わったら見本を閉じ、自分のプロジェクト（<code>Documents/Android1/単元名</code>）を開き直して作業を続けます。",
-      "translation": "Une fois la vérification terminée, fermez le modèle, rouvrez votre propre projet (<code>Documents/Android1/単元名</code>) et poursuivez votre travail."
-    },
-    {
-      "source": "取り違えに注意",
-      "translation": "Attention aux confusions"
-    },
-    {
-      "source": "見本と自分のアプリは同じプロジェクト名です。ウィンドウ上部のタイトルバーに表示される保存先パスを確認し、見本のほうを編集してしまわないよう注意しましょう。",
-      "translation": "Le modèle et votre propre application portent le même nom de projet. Vérifiez le chemin d'enregistrement affiché dans la barre de titre en haut de la fenêtre pour éviter de modifier le modèle par erreur."
     }
   ]
 }

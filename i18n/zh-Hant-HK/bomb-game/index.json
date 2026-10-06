@@ -607,8 +607,8 @@
       "translation": "在其中依次開啟 <code>docs → bomb-game → downloads</code>。<code>bomb-game</code> 是存放目前這本教科書（<code>index.html</code>）的資料夾。"
     },
     {
-      "source": "<kbd>⌘</kbd> を押しながら、<code>bomb_exploded.png</code>・<code>bomb_ignited.png</code>・<code>bomb_initial.png</code> の3つをクリックして選び、<kbd>⌘ C</kbd> でコピーします。同じフォルダにある <code>A05BombGame.zip</code> は完成プロジェクトです。選びません。",
-      "translation": "按住 <kbd>⌘</kbd>，逐一按一下 <code>bomb_exploded.png</code>、<code>bomb_ignited.png</code>、<code>bomb_initial.png</code> 選取三個檔案，再用 <kbd>⌘ C</kbd> 複製。同一資料夾中的 <code>A05BombGame.zip</code> 是完成專案，不要選取。"
+      "source": "<kbd>⌘</kbd> を押しながら、<code>bomb_exploded.png</code>・<code>bomb_ignited.png</code>・<code>bomb_initial.png</code> の3つをクリックして選び、<kbd>⌘ C</kbd> でコピーします。ほかのファイルは選びません。",
+      "translation": "按住 <kbd>⌘</kbd> 的同時，按一下並選取 <code>bomb_exploded.png</code>、<code>bomb_ignited.png</code>、<code>bomb_initial.png</code> 這3個檔案，然後按 <kbd>⌘ C</kbd> 複製。不要選擇其他檔案。"
     },
     {
       "source": "教材のフォルダが見つからないとき",
@@ -631,8 +631,8 @@
       "translation": "在 Project 檢視中按一下選取 <code>app/src/main/res/drawable</code> 資料夾，再用 <kbd>⌘ V</kbd> 貼上。"
     },
     {
-      "source": "<strong>Copy</strong> の画面が出たら、<strong>To directory</strong> を確認します。末尾が <code>A05BombGame/app/src/main/res/drawable</code> になっていれば <strong>OK</strong> を押します。見本（完成プロジェクト）も開いている人は、途中に <code>samples</code> が入っていないことも確かめます。入っていたら、見本の方に貼り付けようとしています。",
-      "translation": "出現 <strong>Copy</strong> 畫面時，確認 <strong>To directory</strong>。如果結尾是 <code>A05BombGame/app/src/main/res/drawable</code>，按 <strong>OK</strong>。同時開啟範例（完成專案）的同學，也要確認路徑中沒有 <code>samples</code>。如果有，代表正在嘗試貼到範例中。"
+      "source": "<strong>Copy</strong> の画面が出たら、<strong>To directory</strong> を確認します。末尾が <code>Android1/A05BombGame/app/src/main/res/drawable</code> になっていれば <strong>OK</strong> を押します。<code>Android1</code> が入っていないときは、別のプロジェクトに貼り付けようとしています。",
+      "translation": "出現 <strong>Copy</strong> 畫面後，確認 <strong>To directory</strong>。如果末尾是 <code>Android1/A05BombGame/app/src/main/res/drawable</code>，則按一下 <strong>OK</strong>。如果不包含 <code>Android1</code>，說明正要貼到其他專案中。"
     },
     {
       "source": "Project表示でdrawableフォルダを選び、Copyダイアログが開いている。To directoryの末尾はA05BombGame/app/src/main/res/drawable",
@@ -655,8 +655,8 @@
       "translation": "貼錯位置時"
     },
     {
-      "source": "<code>layout</code> や <code>mipmap</code> など別のフォルダに入った画像は、Project表示で選んで <kbd>⌘ Delete</kbd> で削除し、もう一度 <code>drawable</code> に貼り付けます。見本の <code>samples</code> 側のプロジェクトには貼り付けません。",
-      "translation": "如果圖片放到 <code>layout</code> 或 <code>mipmap</code> 等其他資料夾，請在 Project 檢視中選取，用 <kbd>⌘ Delete</kbd> 刪除，再貼到 <code>drawable</code>。不要貼到範例 <code>samples</code> 中的專案。"
+      "source": "<code>layout</code> や <code>mipmap</code> など別のフォルダに入った画像は、Project表示で選んで <kbd>⌘ Delete</kbd> で削除し、もう一度 <code>drawable</code> に貼り付けます。",
+      "translation": "如果圖片誤放入了 <code>layout</code> 或 <code>mipmap</code> 等其他資料夾中，請在Project檢視中選取並按 <kbd>⌘ Delete</kbd> 刪除，然後重新貼到 <code>drawable</code> 中。"
     },
     {
       "source": "Runで確かめる",
@@ -1739,16 +1739,16 @@
       "translation": "圖片名稱造成建構錯誤"
     },
     {
-      "source": "drawableのファイル名に大文字・ハイフン・空白がないか確認。見本のファイル名と同じにする。",
-      "translation": "確認 drawable 的檔案名稱沒有大寫字母、連字號或空格。改成與範例相同的檔案名稱。"
+      "source": "drawableのファイル名に大文字・ハイフン・空白がないか確認。教科書に書いてあるファイル名と同じにする。",
+      "translation": "確認drawable中的檔案名稱沒有大寫字母、連字號或空格。與教材中寫的檔案名稱保持一致。"
     },
     {
       "source": "貼り付けたのに画像が見つからない",
       "translation": "貼上後找不到圖片"
     },
     {
-      "source": "Copy画面のTo directoryを確認。<code>samples</code> 側や別のフォルダに貼っていないか、Project表示で探す。",
-      "translation": "確認 Copy 畫面的 To directory。在 Project 檢視尋找，檢查是否貼到 <code>samples</code> 或其他資料夾。"
+      "source": "Copy画面のTo directoryを確認。別のプロジェクトや別のフォルダに貼っていないか、Project表示で探す。",
+      "translation": "確認Copy畫面的To directory。在Project檢視中尋找是否貼到了其他專案或其他資料夾中。"
     },
     {
       "source": "R.idが赤い",
@@ -1871,8 +1871,8 @@
       "translation": "提問時說明「STEP 編號、編輯的檔案、第一行紅色錯誤、按的順序」。"
     },
     {
-      "source": "エラーが解決しないときは、<a1>共通資料：困ったとき</a1>の「完成プロジェクト（見本）の確認」を参照してください。",
-      "translation": "如果錯誤仍未解決，請參閱<a1>共通資料：遇到困難時</a1>中的「確認完成專案（範本）」。"
+      "source": "エラーが解決しないときは、<a1>共通資料：困ったとき</a1>の調べ方を試してください。それでも解決しないときは、STEP番号と画面を先生に見せましょう。",
+      "translation": "錯誤無法解決時，請嘗試<a1>共通資料：遇到問題時</a1>中的排查方法。如果依然無法解決，請將STEP編號和畫面出示給老師看。"
     },
     {
       "source": "Androidプログラミング1 · A05BombGame / 本文・画像・操作機能はオフラインで利用できます。Android Studioの初回準備・ビルドと公式資料の閲覧にはネット接続が必要です。",
