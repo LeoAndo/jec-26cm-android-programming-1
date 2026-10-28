@@ -76,6 +76,24 @@ def check_links(files):
                 raise ValueError(f"配布物内にリンク先がありません：{name} → {link}")
 
 
+# WindowsのエクスプローラーでZIPの中のファイルを開くと、そのファイルだけが
+# %TEMP%\<GUID>_<ZIP名>.zip.<文字列>\ に取り出され、リンク先のページもCSSも見つからない（#366）。
+# 入口だけは開けるので、ここで気付かせる。CSSが読めない状態で出るので、見た目はstyle属性で付ける。
+ZIP_WARNING = (
+    '<div id="zip-warning" hidden style="border:3px solid #c62828;background:#ffebee;color:#000;'
+    'padding:12px 16px;margin:0 0 16px;font-size:1.1em">'
+    '<p style="margin:0 0 8px"><strong>ZIPを展開してから開いてください。</strong>'
+    'ZIPの中から開くと、リンク先のページが見つかりません。'
+    'Windowsでは、ZIPを右クリックして「すべて展開」を選び、展開してできたフォルダの index.html を開きます。</p>'
+    '<p lang="en" style="margin:0"><strong>Extract the ZIP first.</strong> '
+    'Pages opened inside the ZIP cannot find the linked pages. '
+    'On Windows, right-click the ZIP, choose "Extract All", then open index.html in the extracted folder.</p>'
+    '</div><script>if (location.protocol === "file:" && '
+    '/\\.zip(\\.[^\\/]*)?\\//i.test(location.pathname)) '
+    '{ document.getElementById("zip-warning").hidden = false; }</script>'
+)
+
+
 def add_localized_materials(files):
     """配布対象の言語だけを生成し、本文と導線を静的HTMLとして収録する。"""
     spec = importlib.util.spec_from_file_location("package_localizer", ROOT / "scripts/localize-student-materials.py")
@@ -139,7 +157,7 @@ def add_localized_materials(files):
                            '<meta name="viewport" content="width=device-width, initial-scale=1">'
                            '<title>Android Programming 1 — Language / 言語</title>'
                            '<link rel="stylesheet" href="docs/assets/textbook.css"></head>'
-                           '<body class="plain"><main><h1>Android Programming 1</h1>'
+                           '<body class="plain"><main>' + ZIP_WARNING + '<h1>Android Programming 1</h1>'
                            '<p>Language / 言語</p><ul>' + ''.join(items) + '</ul></main></body></html>\n').encode("utf-8")
     return languages
 
@@ -215,6 +233,8 @@ def build(output_dir):
         "Androidプログラミング1 学生用教材\n\n"
         f"教材の版：{version}\n\n"
         "1. ZIPを展開します。\n"
+        "   Windowsでは、ZIPを右クリックして「すべて展開」を選びます。\n"
+        "   ZIPの中のファイルを直接開くと、リンク先のページが見つからず、教科書が開けません。\n"
         "2. はじめて授業を受けるときは、docs/common/setup.html をブラウザで開き、上から順に準備します。\n"
         "   教材の置き場所を決めるところから、エミュレータを作り、日本語を打てるようにして、\n"
         "   最初のアプリが動くまでを説明しています。この準備は1回だけです。次からは3から始められます。\n"

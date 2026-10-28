@@ -5,6 +5,7 @@ import importlib.util
 import io
 import json
 import os
+import re
 from pathlib import Path
 from shutil import copy2
 import subprocess
@@ -240,6 +241,34 @@ class PackageStudentMaterialsTest(unittest.TestCase):
             self.assertIn('Open index.html in your browser, then choose English.', instructions)
             self.assertFalse(any('/docs/en/' in name and not name.endswith('.html') for name in names))
             self.assertFalse(any('/docs/fr/' in name for name in names))
+
+    def test_entrance_warns_when_opened_inside_zip(self):
+        """WindowsでZIPを展開せずに入口を開いたときだけ、展開を促す（#366）。"""
+        self.enable_translation()
+        self.assertEqual(self.package().returncode, 0)
+        prefix = f"{FIXTURE_STEM}/"
+        with ZipFile(self.archive) as archive:
+            entrance = archive.read(prefix + "index.html").decode()
+            instructions = archive.read(prefix + "はじめに.txt").decode()
+        self.assertIn('<div id="zip-warning" hidden', entrance)
+        self.assertIn("すべて展開", entrance)
+        self.assertIn("すべて展開", instructions)
+        # 入口のJSの正規表現は、Pythonの re でも同じ意味になる書き方にしてある。
+        pattern = re.compile(re.search(r"/(\\\.zip.*?)/i\.test", entrance).group(1), re.IGNORECASE)
+        inside = [
+            "/C:/Users/a/AppData/Local/Temp/50dce5b1_android1-student-materials-2026-09-22%20(1).zip.5d0/"
+            "android1-student-materials-2026-09-22/index.html",
+            "/C:/Users/a/AppData/Local/Temp/Temp1_android1-student-materials-2026-09-22.zip/"
+            "android1-student-materials-2026-09-22/index.html",
+        ]
+        extracted = [
+            "/C:/Users/a/Downloads/android1-student-materials-2026-09-22/android1-student-materials-2026-09-22/index.html",
+            "/Users/a/Downloads/android1-student-materials-2026-09-22/index.html",
+        ]
+        for path in inside:
+            self.assertTrue(pattern.search(path), path)
+        for path in extracted:
+            self.assertFalse(pattern.search(path), path)
 
     def test_all_supported_languages_have_their_own_ui_and_shared_pages(self):
         self.enable_translation()
