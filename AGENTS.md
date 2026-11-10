@@ -311,3 +311,4 @@
 - 教科書や完成コードを「初学者向けにかみ砕くべき」という提案。
 - 検証コマンドの実行結果が差分にないこと。検証の記録はPR本文に書く（§8）。
 - Pythonスクリプトの docstring の網羅率。
+- A07BillSplitterの `BillSplitActivity` が、`getStringArrayExtra` の結果を `null` かどうか確かめずに使っていること。`Objects.requireNonNull` は、学生のフィードバックで外した（README「完成コードの書き方」9）。

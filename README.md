@@ -526,3 +526,6 @@ About Android Studioの画面は、macOSでは **Android Studio** メニュー �
 6. 学生が教科書を見ながら自分で打ち込むコードには `@NonNull` / `@Nullable` を書かない。`androidx.annotation` のimportも自分では足さない。教科書の本文でも説明しない。
 7. **Android Studioが自動で付けたアノテーションはそのまま残す。** オーバーライドの自動生成（A04WebViewAppの `onOptionsItemSelected(@NonNull MenuItem item)`）が該当する。IDEが出力したコードを学生に消させる作業は発生させない。
 8. 配布する予定で学生が直接書かないコード（A07BillSplitterの `BillSplitter.java`）は例外とし、`@NonNull` / `@IntRange` / `@CheckResult` とそれを説明するJavadocをそのまま残す。教科書では「Android Studioへのヒント」とだけ触れる。
+
+## nullの確認
+9. `Objects.requireNonNull` は扱わない。学生には難しいためである（学生のフィードバック、#368）。`null` にならない理由があるところは、確かめずにそのまま使い、理由をコードのコメントと教科書に短く書く（A07BillSplitterの `getStringArrayExtra`。画面を開くのは `start` だけで、`start` が必ず配列を入れる）。そのためにAndroid Studioの警告が残るときは、教科書で「警告が出ていてもRunできるので、直さずにそのまま進む」と説明する。`null` がふつうに返るところ（A10RoomSampleの `findByInternalId`）は、これまでどおり `if (item == null)` で分ける。
