@@ -814,6 +814,7 @@ class CommandTest(unittest.TestCase):
         config = json.loads(config_path.read_text(encoding="utf-8"))
         config["source_ui"].update(copy="コピー", copied="コピーしました", copy_shortcut="⌘ Cでコピー")
         config["languages"][0]["ui"].update(copy="Copy", copied="Copied", copy_shortcut="Copy with ⌘ C")
+        config["languages"][1]["ui"].update(copy="Copier", copied="Copié", copy_shortcut="Copier avec ⌘ C")
         config_path.write_text(json.dumps(config, ensure_ascii=False), encoding="utf-8")
 
     def catalog_errors(self, entries, overrides=()):
@@ -857,6 +858,17 @@ class CommandTest(unittest.TestCase):
         self.assertIn("overrides「<strong>コピー</strong>", errors)
         self.assertIn("ui.copy と違います（<strong>Copy</strong> と書く）", errors)
         self.assertEqual(self.catalog_errors([(source, right)], overrides=[(source, "p", right)]), "")
+        # 2つ目の言語のカタログは、その言語のボタンの文言で確かめる（先頭の言語の文言ではない）。
+        french = ("Appuyez sur <strong>Copier</strong>. S'il devient <strong>Copié</strong>, c'est bon. "
+                  "Il peut devenir <strong>Copier avec ⌘ C</strong>.")
+        self.write("i18n/fr/unit/index.json", json.dumps({
+            "source": "docs/unit/index.html", "language": "fr",
+            "entries": [{"source": source, "translation": french}]}, ensure_ascii=False))
+        self.assertEqual("\n".join(localize.check(self.settings())), "")
+        self.write("i18n/fr/unit/index.json", json.dumps({
+            "source": "docs/unit/index.html", "language": "fr",
+            "entries": [{"source": source, "translation": right}]}, ensure_ascii=False))
+        self.assertIn("ui.copy と違います（<strong>Copier</strong> と書く）", "\n".join(localize.check(self.settings())))
 
     def test_button_names_are_not_checked_on_pages_without_the_copy_button(self):
         # コピーボタンのないページの <strong>コピー</strong> は、Finderのメニューなど、macOSの画面に出る言葉。
@@ -869,12 +881,51 @@ class CommandTest(unittest.TestCase):
         self.assertEqual(self.catalog_errors([(source, translation)]), "")
         self.assertEqual(self.catalog_errors([(source, translation)], overrides=[(source, "p", translation)]), "")
         # ほかのページにコピーボタンがあっても、ボタンのないページの文は確かめない。
-        self.write("docs/common/setup.html", f'<html lang="ja"><body>{self.COPY_BLOCK}{self.COPY_STATUS}</body></html>')
+        # 実際の教材と同じく、ボタンのあるページも index.html という名前にする（ページは、ファイル名ではなく場所で見分ける）。
+        self.write("docs/other/index.html", f'<html lang="ja"><body>{self.COPY_BLOCK}{self.COPY_STATUS}</body></html>')
         self.assertEqual(self.catalog_errors([(source, translation)]), "")
+        self.assertEqual(self.catalog_errors([(source, translation)], overrides=[(source, "p", translation)]), "")
         # 同じ文でも、そのページにコピーボタンを付けたら、ボタンの名前として確かめる。
         self.write("docs/unit/index.html",
                    f'<html lang="ja"><body><p>{source}</p>{self.COPY_BLOCK}{self.COPY_STATUS}</body></html>')
         self.assertIn("ui.copy と違います（<strong>Copy</strong> と書く）", self.catalog_errors([(source, translation)]))
+
+    def test_merge_checks_button_names_before_writing_the_catalog(self):
+        # merge（--dry-run も）を通った訳が、あとの check で落ちないようにする。
+        # 落ちるのがカタログに入ったあとだと、sync をやり直してもその文は作業ファイルに戻らない。
+        self.use_copy_labels()
+        named = "<strong>コピー</strong> ボタンを押します。"
+        finder = "Finderのメニューバーで <strong>コピー</strong> を選びます。"
+        self.write("docs/unit/index.html",
+                   f'<html lang="ja"><body><p>{named}</p>{self.COPY_BLOCK}{self.COPY_STATUS}</body></html>')
+        self.write("docs/common/setup.html", f'<html lang="ja"><body><p>{finder}</p>{self.COPY_STATUS}</body></html>')
+        self.sync()
+        wrong = {named: "Press the <strong>コピー</strong> (Copy) button.",
+                 finder: "In the Finder menu bar, choose <strong>コピー</strong> (Copy)."}
+        # 分担して訳すときの --dry-run でも、同じところで落ちる。
+        done = self.work / "en/done-001.json"
+        done.write_text(json.dumps({localize.segment_id(source): translation for source, translation in wrong.items()},
+                                   ensure_ascii=False), encoding="utf-8")
+        result, output, errors = self.quiet(localize.merge, self.settings(), "en", [done], self.work, False, True)
+        self.assertEqual(result, 1)
+        self.assertIn("検査に通った訳 1、カタログに入る数 1（--dry-run なので、入れていません）", output)
+        self.assertIn("ui.copy と違います（<strong>Copy</strong> と書く）", errors)
+        self.assertFalse((self.root / "i18n").exists())
+        result, _, errors = self.merge(wrong)
+        self.assertEqual(result, 1)
+        self.assertIn("ui.copy と違います（<strong>Copy</strong> と書く）", errors)
+        # ボタンのあるページの文だけを落とす。ボタンのないページの同じ形の文は、そのまま入る。
+        self.assertEqual(self.catalog("docs/unit/index.html"), {})
+        self.assertEqual(self.catalog("docs/common/setup.html"),
+                         {finder: "In the Finder menu bar, choose <strong>コピー</strong> (Copy)."})
+        # 2つ目の言語には、その言語のボタンの文言を求める（先頭の言語の文言ではない）。
+        result, _, errors = self.merge({named: "Press the <strong>Copy</strong> button."}, language="fr")
+        self.assertEqual(result, 1)
+        self.assertIn("ui.copy と違います（<strong>Copier</strong> と書く）", errors)
+        self.assertEqual(self.catalog("docs/unit/index.html", "fr"), {})
+        result, _, errors = self.merge({named: "Press the <strong>Copy</strong> button."})
+        self.assertEqual(result, 0, errors)
+        self.assertEqual(localize.check(self.settings()), [])
 
     def test_build_writes_language_folder_next_to_copied_docs(self):
         self.sync()

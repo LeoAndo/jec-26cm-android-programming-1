@@ -895,7 +895,7 @@ def ui_label_problems(settings: Settings, language: str, source: str, translatio
     ボタンには config/i18n.json の languages[].ui の文字が出る。訳文に日本語のラベルや別の訳語を書くと、
     学生は画面にない文字を探すことになる（#263）。
 
-    呼ぶのは、コピーボタンのあるページのカタログだけにする（check_catalog）。ボタンのないページに
+    呼ぶのは、コピーボタンのあるページの文だけにする（check_catalog と merge）。ボタンのないページに
     <strong>コピー</strong> と書いてあれば、それはFinderのメニューなど、macOSの画面に出る言葉である。
     訳文でも日本語のまま書くのが正しいので、この検査にかけると正しい訳を落としてしまう。
     """
@@ -1095,6 +1095,8 @@ def merge(settings: Settings, code: str, files: list, work_dir: Path, overwrite:
     if not targets:
         raise LocalizeError(f"訳した結果のファイルがありません: {_shown(settings.root, work_dir / code)} の done-*.json")
     pages = {name: read_page(settings.root, name) for name in settings.page_names()}
+    # コピーボタンのあるページの原文。本文のボタンの名前は、check と同じく、この原文の訳でだけ確かめる。
+    button_sources = {source for page in pages.values() if has_copy_button(page.root) for source in page.sources()}
     index: dict = {}
     for page in pages.values():
         for source in page.sources():
@@ -1136,6 +1138,8 @@ def merge(settings: Settings, code: str, files: list, work_dir: Path, overwrite:
                 continue
             translation = normalize(translation)
             found = validate(source, translation, settings.terms, han)
+            if source in button_sources:
+                found = found + ui_label_problems(settings, code, source, translation)
             if found:
                 problems.extend(f"{path}: {identifier}「{source[:30]}」: {problem}" for problem in found)
                 continue
