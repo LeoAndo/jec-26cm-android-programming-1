@@ -546,7 +546,14 @@ class TeachingMaterialsCheckTest(unittest.TestCase):
         between = self.COPY_BLOCK.replace("</div>\n", "</div>\n<p>メモ</p>\n")
         on_head = ('<div class="code-head" id="code-long" data-copy-button>Long.java</div>\n'
                    "<pre><code>class Long {}</code></pre>")
-        for label, content in (("見出しとのあいだに段落", between), ("見出しに指定", on_head)):
+        # 閉じタグのない要素（画像）が挟まっても、直前の要素は見出しではなくなる。
+        image = self.COPY_BLOCK.replace("</div>\n", '</div>\n<img src="a.png" alt="">\n')
+        # 見出しでない <div> の直後。前のコードブロックの見出しを、直前の見出しと取り違えない。
+        after_note = ('<div class="code-head">Other.java</div>\n<pre><code>x</code></pre>\n'
+                      '<div class="note"><p>メモ</p></div>\n'
+                      '<pre id="code-long" tabindex="0" data-copy-button><code>class Long {}</code></pre>\n')
+        for label, content in (("見出しとのあいだに段落", between), ("見出しに指定", on_head),
+                               ("見出しとのあいだに画像", image), ("見出しでない div の直後", after_note)):
             with self.subTest(label), tempfile.TemporaryDirectory() as temporary:
                 errors = self._copy_button_errors(Path(temporary), {"docs/one/index.html": content})
                 self.assertEqual(len(errors), 1, errors)

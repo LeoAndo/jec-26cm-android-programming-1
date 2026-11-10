@@ -31,12 +31,13 @@ function page(storage = {}, href = 'file:///docs/unit/index.html?from=setup#step
   const blocks = (options.codeBlocks ?? []).map(spec => {
     const buttons = [];
     const heading = spec.head === false ? { classList: { contains: () => false } }
-      : { textContent: spec.title, classList: { contains: name => name === 'code-head' }, append(button) { buttons.push(button); } };
+      : { get textContent() { return spec.title + buttons.map(button => button.textContent).join(''); },
+        classList: { contains: name => name === 'code-head' }, append(button) { buttons.push(button); } };
     return { marked: spec.marked !== false, textContent: spec.text, previousElementSibling: heading, buttons };
   });
   const status = { textContent: '' };
   const copy = { written: [], commands: [], selected: null };
-  const timers = [];
+  const timers = [], delays = [];
   const navigator = options.clipboard === 'missing' ? {} : { clipboard: { async writeText(text) {
     if (options.clipboard === 'blocked') throw Error('NotAllowedError');
     copy.written.push(text);
@@ -78,7 +79,7 @@ function page(storage = {}, href = 'file:///docs/unit/index.html?from=setup#step
   const localStorage = { getItem(name) { if (options.blockStorage) throw Error('blocked'); return storage[name] || null; },
     setItem(name, value) { if (options.blockStorage) throw Error('blocked'); storage[name] = value; } };
   vm.runInNewContext(source, { document, window, localStorage, URL, URLSearchParams, ResizeObserver, navigator,
-    setTimeout(action) { timers.push(action); return timers.length; },
+    setTimeout(action, delay) { timers.push(action); delays.push(delay); return timers.length; },
     clearTimeout(id) { if (id) timers[id - 1] = null; },
     Date, history: { replaceState(_state, _title, value) { location = new URL(value); } } });
   return {
@@ -89,7 +90,7 @@ function page(storage = {}, href = 'file:///docs/unit/index.html?from=setup#step
     back(index = 0) { backLinks[index].click?.(); return new URL(backLinks[index].href); },
     url: () => location,
     resize(value) { height = value; resize(); }, styles, classes, label, progress,
-    blocks, status, copy, pending: () => timers.filter(Boolean).length,
+    blocks, status, copy, delays, pending: () => timers.filter(Boolean).length,
     wait() { timers.splice(0).forEach(action => action?.()); }
   };
 }
@@ -346,6 +347,8 @@ test('コピーできたら、コード全体を渡して知らせ、しばら�
   assert.equal(current.copy.selected, null);
   assert.equal(current.button.textContent, 'コピーしました');
   assert.equal(current.status.textContent, 'コードをコピーしました。Android Studioに貼り付けてください。');
+  // 読めるだけの時間（3秒）は表示したままにする。
+  assert.deepEqual(current.delays, [3000]);
   current.wait();
   assert.equal(current.button.textContent, 'コピー');
   assert.equal(current.status.textContent, '');
