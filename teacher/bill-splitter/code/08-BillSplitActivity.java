@@ -14,8 +14,6 @@ import androidx.core.view.WindowInsetsCompat;
 
 import com.google.android.material.snackbar.Snackbar;
 
-import java.util.Objects;
-
 public class BillSplitActivity extends AppCompatActivity {
     private static final String EXTRA_KEY_PARTICIPANTS = "participants";
 
@@ -30,8 +28,8 @@ public class BillSplitActivity extends AppCompatActivity {
             return insets;
         });
 
-        // start()経由でしか起動しないため、nullになるのは呼び出し側のバグのとき
-        var participants = Objects.requireNonNull(getIntent().getStringArrayExtra(EXTRA_KEY_PARTICIPANTS));
+        // start()が必ず配列を入れるので、nullになることはない
+        var participants = getIntent().getStringArrayExtra(EXTRA_KEY_PARTICIPANTS);
 
         var txtNumberOfPeople = (TextView) findViewById(R.id.txt_number_of_people);
         var edtTotalAmount = (EditText) findViewById(R.id.edt_total_amount);

@@ -332,8 +332,8 @@ var btnBillSplit = findViewById(R.id.btn_bill_split);</code></pre>
 <h3>② 受け取って人数を表示する</h3>
 <p><code>onCreate</code> の中の、<code>ViewCompat.setOnApplyWindowInsetsListener(…);</code> の下に書きます。</p>
 <div class="code-head">BillSplitActivity.java · onCreateの中</div>
-<pre tabindex="0"><code>// start()経由でしか起動しないため、nullになるのは呼び出し側のバグのとき
-var participants = Objects.requireNonNull(getIntent().getStringArrayExtra(EXTRA_KEY_PARTICIPANTS));
+<pre tabindex="0"><code>// start()が必ず配列を入れるので、nullになることはない
+var participants = getIntent().getStringArrayExtra(EXTRA_KEY_PARTICIPANTS);
 
 var txtNumberOfPeople = (TextView) findViewById(R.id.txt_number_of_people);
 var edtTotalAmount = (EditText) findViewById(R.id.edt_total_amount);
@@ -342,7 +342,9 @@ var btnCalc = findViewById(R.id.btn_calc);
 
 var numberOfPeople = participants.length; // ex) 4
 txtNumberOfPeople.setText("参加者は" + numberOfPeople + "人");</code></pre>
-<p><code>getIntent()</code> は、この画面を開いたときのIntent（①の <code>start</code> で作って <code>startActivity</code> に渡したもの）を返します。<code>getStringArrayExtra(EXTRA_KEY_PARTICIPANTS)</code> は、そのIntentから、①で <code>putExtra</code> したのと同じキーの配列を取り出します。値が入っていないと <code>null</code> を返します。<code>Objects.requireNonNull</code> は、<code>null</code> だったらその場でアプリを止める書き方です。ここが <code>null</code> になるのは渡し忘れというプログラムの間違いのときだけなので、すぐ気づけるようにしておきます。</p>
+<p><code>getIntent()</code> は、この画面を開いたときのIntent（①の <code>start</code> で作って <code>startActivity</code> に渡したもの）を返します。<code>getStringArrayExtra(EXTRA_KEY_PARTICIPANTS)</code> は、そのIntentから、①で <code>putExtra</code> したのと同じキーの配列を取り出します。</p>
+<p>値が入っていないと、<code>getStringArrayExtra</code> は <code>null</code>（何も入っていないことを表す値）を返します。<code>null</code> のまま <code>participants.length</code> を使うと、アプリが終了します。この画面を開くのは①の <code>start</code> だけで、<code>start</code> は必ず配列を入れます。①のとおりに書いてあれば、<code>null</code> にはなりません。</p>
+<p>Android Studioは、<code>start</code> が必ず配列を入れることまでは分かりません。そのため、<code>participants.length</code> の <code>participants</code> に警告（<code>Dereference of 'participants' may produce 'NullPointerException'</code>）を出します。「<code>null</code> かもしれない」という意味です。警告が出ていてもRunできるので、直さずにそのまま進みます。</p>
 <h3>③ 渡す側（MainActivity）から呼ぶ</h3>
 <p><code>MainActivity.java</code> の、STEP 04で書いた <code>btnAdd.setOnClickListener(…);</code> の下に書きます。</p>
 <div class="code-head">MainActivity.java · ②の下</div>
@@ -646,10 +648,10 @@ txtParticipantList.setText(result);</code></pre>
 <section id="help"><h2>困ったとき</h2><table><thead><tr><th>困ったこと</th><th>最初に確認する場所</th></tr></thead><tbody>
 <tr><td><code>R.id.edt_participant_name</code> などが赤い</td><td>レイアウトのidと同じ綴りか確認。<code>android:id="@+id/main"</code> を消していないかも見る。</td></tr>
 <tr><td><code>BillSplitter</code> が赤い</td><td>STEP 07で <code>BillSplitter.java</code> を置いたか、場所が <code>MainActivity.java</code> と同じか確認。1行目の <code>package</code> も見る。</td></tr>
-<tr><td><code>Snackbar</code>・<code>ArrayList</code>・<code>Objects</code>・<code>EditText</code>・<code>TextView</code> が赤い</td><td><kbd>⌥ Enter</kbd> で <code>com.google.android.material.snackbar.Snackbar</code>、<code>java.util.ArrayList</code>、<code>java.util.Objects</code>、<code>android.widget.EditText</code>、<code>android.widget.TextView</code> を選ぶ。</td></tr>
+<tr><td><code>Snackbar</code>・<code>ArrayList</code>・<code>EditText</code>・<code>TextView</code> が赤い</td><td><kbd>⌥ Enter</kbd> で <code>com.google.android.material.snackbar.Snackbar</code>、<code>java.util.ArrayList</code>、<code>android.widget.EditText</code>、<code>android.widget.TextView</code> を選ぶ。</td></tr>
 <tr><td><code>start(…)</code> が赤い（MainActivity）</td><td>STEP 06①を <code>BillSplitActivity</code> に追加したか確認。<code>onCreate</code> の中に入れていないかも見る。</td></tr>
 <tr><td><code>startを追加したら赤いエラーがたくさん出る</code></td><td><code>start</code> を <code>onCreate</code> の中に書いていないか確認。<code>onCreate</code> の最後の <code>}</code> の下、クラスの最後の <code>}</code> の上に置く。</td></tr>
-<tr><td>ワリカン画面へを押すとアプリが終了する</td><td>Logcatを <code>level:ERROR</code> にして <code>ActivityNotFoundException</code> か確認。<code>AndroidManifest.xml</code> に <code>android:name=".BillSplitActivity"</code> の <code>&lt;activity&gt;</code> があるか見る。New → Java Classで作ると登録されない。</td></tr>
+<tr><td>ワリカン画面へを押すとアプリが終了する</td><td>Logcatを <code>level:ERROR</code> にして <code>ActivityNotFoundException</code> か確認。<code>AndroidManifest.xml</code> に <code>android:name=".BillSplitActivity"</code> の <code>&lt;activity&gt;</code> があるか見る。New → Java Classで作ると登録されない。<code>NullPointerException</code> のときは、STEP 06①の <code>start</code> に <code>starter.putExtra(EXTRA_KEY_PARTICIPANTS, participants);</code> の行があるか見る。</td></tr>
 <tr><td>アプリ一覧のアイコンが2つある（Runすると何もない画面から始まることがある）</td><td>STEP 05でLauncher Activityにチェックを入れた可能性がある。<code>BillSplitActivity</code> の <code>&lt;activity&gt;</code> から <code>&lt;intent-filter&gt;</code> を消し、<code>android:exported="false"</code> にする。</td></tr>
 <tr><td>ワリカン画面が真っ白、または人数が出ない</td><td>STEP 06②を書いたか確認。<code>txt_number_of_people</code> の綴りも見る。</td></tr>
 <tr><td>計算実行を押しても何も出ない</td><td>STEP 09の2行を、入力チェックの<strong>下</strong>に書いたか確認。<code>return;</code> の上に書くと実行されない。</td></tr>
