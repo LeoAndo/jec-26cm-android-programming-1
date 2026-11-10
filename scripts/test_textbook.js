@@ -27,6 +27,20 @@ function page(storage = {}, href = 'file:///docs/unit/index.html?from=setup#step
   const commonLinks = (options.commonLinks ?? []).map(anchor);
   const progress = { value: 0 };
   const label = { textContent: '' };
+  // コピーボタンの確認用。marked は data-copy-button の有無、head は直前が見出し（.code-head）かどうか。
+  const blocks = (options.codeBlocks ?? []).map(spec => {
+    const buttons = [];
+    const heading = spec.head === false ? { classList: { contains: () => false } }
+      : { textContent: spec.title, classList: { contains: name => name === 'code-head' }, append(button) { buttons.push(button); } };
+    return { marked: spec.marked !== false, textContent: spec.text, previousElementSibling: heading, buttons };
+  });
+  const status = { textContent: '' };
+  const copy = { written: [], commands: [], selected: null };
+  const timers = [];
+  const navigator = options.clipboard === 'missing' ? {} : { clipboard: { async writeText(text) {
+    if (options.clipboard === 'blocked') throw Error('NotAllowedError');
+    copy.written.push(text);
+  } } };
   const styles = {}, classes = new Set();
   const nav = { getBoundingClientRect: () => ({ height }) };
   const document = {
@@ -34,20 +48,36 @@ function page(storage = {}, href = 'file:///docs/unit/index.html?from=setup#step
     documentElement: { style: { setProperty(name, value) { styles[name] = value; } },
       classList: { add(name) { classes.add(name); } } },
     querySelector(selector) {
-      return ({ '[data-progress-label]': label, progress, '.language-nav': nav })[selector] || null;
+      return ({ '[data-progress-label]': label, progress, '.language-nav': nav, '[data-copy-status]': status,
+        '#textbook-i18n': options.messages && { textContent: JSON.stringify(options.messages) } })[selector] || null;
+    },
+    createElement() {
+      const attributes = {};
+      return { textContent: '', setAttribute(name, value) { attributes[name] = value; },
+        getAttribute(name) { return attributes[name] ?? null; }, addEventListener(type, action) { this[type] = action; } };
+    },
+    createRange() { return { selectNodeContents(node) { this.node = node; } }; },
+    execCommand(name) {
+      copy.commands.push(name);
+      if (options.execCommand === 'missing') throw Error('unsupported');
+      return options.execCommand === true;
     },
     querySelectorAll(selector) {
       return ({ '[data-check]': inputs, 'a[data-language-link]': links,
         'a[data-back]': backLinks, 'a[data-keep-from]': commonLinks,
+        pre: blocks, 'pre[data-copy-button]': blocks.filter(block => block.marked),
         'main section[id]': options.sections ?? [{ id: 'step-1', getBoundingClientRect: () => ({ top: 80 }) }] })[selector] || [];
     }
   };
   class ResizeObserver { constructor(callback) { resize = callback; } observe() {} }
   const window = { get location() { return location; }, innerHeight: 720, ResizeObserver,
-    addEventListener() {} };
+    addEventListener() {},
+    getSelection: () => ({ removeAllRanges() { copy.selected = null; }, addRange(range) { copy.selected = range.node; } }) };
   const localStorage = { getItem(name) { if (options.blockStorage) throw Error('blocked'); return storage[name] || null; },
     setItem(name, value) { if (options.blockStorage) throw Error('blocked'); storage[name] = value; } };
-  vm.runInNewContext(source, { document, window, localStorage, URL, URLSearchParams, ResizeObserver,
+  vm.runInNewContext(source, { document, window, localStorage, URL, URLSearchParams, ResizeObserver, navigator,
+    setTimeout(action) { timers.push(action); return timers.length; },
+    clearTimeout(id) { if (id) timers[id - 1] = null; },
     Date, history: { replaceState(_state, _title, value) { location = new URL(value); } } });
   return {
     checked: () => inputs.map(input => input.checked),
@@ -56,7 +86,9 @@ function page(storage = {}, href = 'file:///docs/unit/index.html?from=setup#step
     common(index = 0) { commonLinks[index].click?.(); return new URL(commonLinks[index].href); },
     back(index = 0) { backLinks[index].click?.(); return new URL(backLinks[index].href); },
     url: () => location,
-    resize(value) { height = value; resize(); }, styles, classes, label, progress
+    resize(value) { height = value; resize(); }, styles, classes, label, progress,
+    blocks, status, copy, pending: () => timers.filter(Boolean).length,
+    wait() { timers.splice(0).forEach(action => action?.()); }
   };
 }
 
@@ -280,4 +312,104 @@ test('言語バーの高さが変わると、目次用の余白も更新する',
   assert.equal(current.classes.has('has-language-nav'), true);
   current.resize(110);
   assert.equal(current.styles['--language-nav-height'], '110px');
+});
+
+const billSplitter = { title: 'BillSplitter.java · 全体を置き換える',
+  text: 'package jp.ac.jec.a07billsplitter;\n\npublic class BillSplitter {\n}' };
+
+function copyPage(options = {}) {
+  const current = page({}, undefined, { codeBlocks: [billSplitter], ...options });
+  return { ...current, block: current.blocks[0], button: current.blocks[0].buttons[0] };
+}
+
+test('コピーボタンは、指定したコードブロックの見出しにだけ作る', () => {
+  const current = page({}, undefined, { codeBlocks: [
+    { title: 'MainActivity.java · onCreateの中', text: 'var a = 1;', marked: false },
+    billSplitter,
+    { text: 'var b = 2;', head: false }
+  ] });
+  // 指定のないブロックと、見出し（.code-head）の直後にないブロックには作らない。
+  assert.deepEqual(current.blocks.map(block => block.buttons.length), [0, 1, 0]);
+  const [button] = current.blocks[1].buttons;
+  assert.equal(button.type, 'button');
+  assert.equal(button.textContent, 'コピー');
+  assert.equal(button.getAttribute('aria-label'), 'BillSplitter.java · 全体を置き換えるのコードをコピー');
+});
+
+test('コピーできたら、コード全体を渡して知らせ、しばらくしてボタンを元に戻す', async () => {
+  const current = copyPage();
+  await current.button.click();
+  assert.deepEqual(current.copy.written, [billSplitter.text]);
+  assert.deepEqual(current.copy.commands, []);
+  assert.equal(current.copy.selected, null);
+  assert.equal(current.button.textContent, 'コピーしました');
+  assert.equal(current.status.textContent, 'コードをコピーしました。Android Studioに貼り付けてください。');
+  current.wait();
+  assert.equal(current.button.textContent, 'コピー');
+  assert.equal(current.status.textContent, '');
+});
+
+test('navigator.clipboard がないブラウザでは、コードを選択してコピーする', async () => {
+  const current = copyPage({ clipboard: 'missing', execCommand: true });
+  await current.button.click();
+  assert.equal(current.copy.selected, current.block);
+  assert.deepEqual(current.copy.commands, ['copy']);
+  assert.equal(current.button.textContent, 'コピーしました');
+  assert.equal(current.status.textContent, 'コードをコピーしました。Android Studioに貼り付けてください。');
+});
+
+test('クリップボードへの書き込みを断られたら、コードを選択したまま ⌘ C を促す', async () => {
+  for (const execCommand of [false, 'missing']) {
+    const current = copyPage({ clipboard: 'blocked', execCommand });
+    await current.button.click();
+    assert.deepEqual(current.copy.written, []);
+    assert.equal(current.copy.selected, current.block, String(execCommand));
+    assert.equal(current.button.textContent, '⌘ Cでコピー');
+    assert.equal(current.status.textContent, 'コードを選択しました。⌘ Cでコピーしてください。');
+    // ⌘ C を押すのは学生なので、案内と選択は時間がたっても消さない。
+    assert.equal(current.pending(), 0);
+    current.wait();
+    assert.equal(current.button.textContent, '⌘ Cでコピー');
+    assert.equal(current.copy.selected, current.block);
+  }
+});
+
+test('⌘ C の案内が出ているときにもう一度押すと、案内を残したまま選択し直す', async () => {
+  const current = copyPage({ clipboard: 'blocked', execCommand: false });
+  await current.button.click();
+  current.copy.selected = null;
+  await current.button.click();
+  assert.equal(current.copy.selected, current.block);
+  assert.equal(current.button.textContent, '⌘ Cでコピー');
+});
+
+test('続けて押しても、ボタンを元に戻すのは最後の1回だけ', async () => {
+  const current = copyPage();
+  await current.button.click();
+  await current.button.click();
+  assert.deepEqual(current.copy.written, [billSplitter.text, billSplitter.text]);
+  assert.equal(current.pending(), 1);
+});
+
+test('コピーボタンの文言は、日本語でも翻訳ページでも、そのページの言語になる', async () => {
+  const config = JSON.parse(readFileSync(path.join(__dirname, '../config/i18n.json'), 'utf8'));
+  for (const { code, ui } of [{ code: config.source_language, ui: config.source_ui }, ...config.languages]) {
+    for (const blocked of [false, true]) {
+      const current = copyPage({ messages: ui, clipboard: blocked ? 'blocked' : 'allowed', execCommand: false });
+      assert.equal(current.button.textContent, ui.copy, code);
+      assert.equal(current.button.getAttribute('aria-label'), ui.copy_label.replace('{title}', billSplitter.title), code);
+      // どのコードのボタンかが、読み上げで分かる（{title} を落とした訳を見つける）。
+      assert.ok(current.button.getAttribute('aria-label').includes(billSplitter.title), code);
+      await current.button.click();
+      assert.equal(current.button.textContent, blocked ? ui.copy_shortcut : ui.copied, code);
+      assert.equal(current.status.textContent, blocked ? ui.copy_selected : ui.copy_success, code);
+    }
+  }
+});
+
+test('既定の文言（日本語）は、config/i18n.json の source_ui と同じ', () => {
+  const config = JSON.parse(readFileSync(path.join(__dirname, '../config/i18n.json'), 'utf8'));
+  const defaults = /const defaults = (\{[\s\S]*?\n  \});/.exec(source)[1];
+  // 別の実行環境で作ったオブジェクトなので、写してから比べる。
+  assert.deepEqual({ ...vm.runInNewContext(`(${defaults})`) }, config.source_ui);
 });

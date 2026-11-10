@@ -226,6 +226,22 @@ class LocalizeTest(unittest.TestCase):
     def render(self, html, translations, name="docs/unit/index.html"):
         return localize.localize(page_of(html, name), translations, "en", "docs", self.PAGES)
 
+    def test_copy_button_mark_and_code_head_survive_localization(self):
+        # コピーボタンの指定（data-copy-button）は <pre> の開始タグにあり、どの言語でも同じ形で残る。
+        # ボタンを置く見出し（.code-head）は、訳しても <pre> の直前の要素のまま。
+        html = ('<div class="code-head">Sample.java · 全体を置き換える</div>\n'
+                '<pre id="code-sample" tabindex="0" data-copy-button><code>// 日本語のコメント</code></pre>')
+        for mark_untranslated in (False, True):
+            with self.subTest(mark_untranslated=mark_untranslated):
+                translated = localize.localize(
+                    page_of(html), {"Sample.java · 全体を置き換える": "Sample.java · Replace the whole file"},
+                    "en", "docs", self.PAGES, mark_untranslated=mark_untranslated)
+                self.assertEqual(translated, html.replace("Sample.java · 全体を置き換える",
+                                                          "Sample.java · Replace the whole file"))
+        # 未翻訳のまま配っても、見出しの中に lang が入るだけで、<pre> は見出しの直後に残る。
+        fallback = localize.localize(page_of(html), {}, "en", "docs", self.PAGES, mark_untranslated=True)
+        self.assertIn('<span lang="ja">Sample.java · 全体を置き換える</span></div>\n<pre id="code-sample" tabindex="0" data-copy-button>', fallback)
+
     def test_untranslated_attributes_mark_the_element_language(self):
         for tag, attribute in (("img", "alt"), ("button", "aria-label"),
                                ("div", "title"), ("input", "placeholder")):
@@ -365,6 +381,20 @@ class TextbookScriptTest(unittest.TestCase):
         self.assertNotIn("</script><b>", element)
         payload = element.split(">", 1)[1].rsplit("<", 1)[0]
         self.assertEqual(json.loads(payload)["progress"], "</script><b>Progress")
+
+    def test_missing_ui_message_names_the_language_and_key(self):
+        # コピーボタンの文言が1つでも欠けた言語は、日本語のラベルが混ざる前に止める。
+        def settings(language_ui, source_ui):
+            return localize.Settings(Path("."), "docs", "i18n", [{"code": "en", "name": "English", "ui": language_ui}],
+                                     [], "ja", source_ui)
+        self.assertEqual(localize.ui_messages(settings(ui("Copy"), ui("コピー")), "en"), ui("Copy"))
+        for key in localize.UI_KEYS:
+            with self.subTest(key=key):
+                broken = {name: value for name, value in ui("Copy").items() if name != key}
+                with self.assertRaisesRegex(localize.LocalizeError, rf"languages\[en\]\.ui のUI文言が足りません: {key}$"):
+                    localize.ui_messages(settings(broken, ui("コピー")), "en")
+                with self.assertRaisesRegex(localize.LocalizeError, rf"source_ui のUI文言が足りません: {key}$"):
+                    localize.ui_messages(settings(ui("Copy"), {**ui("コピー"), key: " "}), "ja")
 
     def test_body_is_required_for_the_insertion(self):
         self.assertEqual(localize.insert_into_body("<body class='x'>あ</body>", "!", "p.html"),
@@ -785,9 +815,10 @@ class CommandTest(unittest.TestCase):
         self.assertIn("<h1>Your first unit</h1>", html)
         self.assertIn('href="../../assets/textbook.css"', html)
         self.assertTrue((output / "docs/assets/textbook.css").is_file())
-        # 確認用ページでも、進捗表示などがその言語の文言で出る（配布物と同じ渡し方）。
+        # 確認用ページでも、コピーボタンと進捗表示がその言語の文言で出る（配布物と同じ渡し方）。
         payload = html.split('id="textbook-i18n">')[1].split("</script>")[0]
-        self.assertEqual(json.loads(payload)["progress"], "Copy:progress")
+        self.assertEqual(json.loads(payload), ui("Copy"))
+        self.assertIn("copy_shortcut", json.loads(payload))
         # 言語の切り替えと翻訳の注記は配布物だけのもの。確認用ページには入れない。
         self.assertNotIn("language-nav", html)
         self.assertNotIn("translation-note", html)
