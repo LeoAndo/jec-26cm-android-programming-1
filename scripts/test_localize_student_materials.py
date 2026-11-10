@@ -805,6 +805,77 @@ class CommandTest(unittest.TestCase):
                                                           "entries": [{"source": "古い文", "translation": "Old"}]}, ensure_ascii=False))
         self.assertEqual(localize.progress(self.settings(), ["en"])[0]["orphans"], ["i18n/en/gone/index.json"])
 
+    # どのページの末尾にもある通知欄。名前は似ているが、コピーボタンの指定（data-copy-button）ではない。
+    COPY_STATUS = '<p class="sr-only" role="status" aria-live="polite" data-copy-status></p>'
+
+    def use_copy_labels(self):
+        """ボタンの文言を、実際の設定と同じように、言語ごとに違う文字にする。"""
+        config_path = self.root / "config/i18n.json"
+        config = json.loads(config_path.read_text(encoding="utf-8"))
+        config["source_ui"].update(copy="コピー", copied="コピーしました", copy_shortcut="⌘ Cでコピー")
+        config["languages"][0]["ui"].update(copy="Copy", copied="Copied", copy_shortcut="Copy with ⌘ C")
+        config_path.write_text(json.dumps(config, ensure_ascii=False), encoding="utf-8")
+
+    def catalog_errors(self, entries, overrides=()):
+        """docs/unit/index.html の英語のカタログを書いて検査し、エラーを1つの文字列で返す。"""
+        data = {"source": "docs/unit/index.html", "language": "en",
+                "entries": [{"source": source, "translation": translation} for source, translation in entries]}
+        if overrides:
+            data["overrides"] = [{"source": source, "where": where, "translation": translation}
+                                 for source, where, translation in overrides]
+        self.write("i18n/en/unit/index.json", json.dumps(data, ensure_ascii=False))
+        return "\n".join(localize.check(self.settings()))
+
+    # コピーボタンを付けたコードブロック（見出しの直後の <pre>）。
+    COPY_BLOCK = ('<div class="code-head">Sample.java</div>\n'
+                  '<pre id="code-sample" tabindex="0" data-copy-button><code>class Sample {}</code></pre>')
+
+    def test_button_names_in_the_body_must_match_the_ui_labels(self):
+        # 本文が <strong>コピー</strong> とボタンを名指しする文は、訳文でもその言語のボタンの文言にする（#263）。
+        self.use_copy_labels()
+        source = ("<strong>コピー</strong> ボタンを押します。<strong>コピーしました</strong> に変われば成功です。"
+                  "ブラウザによっては <strong>⌘ Cでコピー</strong> に変わります。")
+        self.write("docs/unit/index.html",
+                   f'<html lang="ja"><body><p>{source}</p>{self.COPY_BLOCK}{self.COPY_STATUS}</body></html>')
+        right = ("Press the <strong>Copy</strong> button. If it changes to <strong>Copied</strong>, it worked. "
+                 "In some browsers it changes to <strong>Copy with ⌘ C</strong>.")
+        # 日本語のラベルを残した訳、別の訳語にした訳、語順を変えた訳。#263 で実際に起きた形。
+        wrong = ("Press the <strong>コピー</strong> button. If it changes to <strong>Done</strong>, it worked. "
+                 "In some browsers it changes to <strong>⌘ C to copy</strong>.")
+        self.assertEqual(self.catalog_errors([(source, right)]), "")
+        errors = self.catalog_errors([(source, wrong)])
+        self.assertIn("ui.copy と違います（<strong>Copy</strong> と書く）", errors)
+        self.assertIn("ui.copied と違います（<strong>Copied</strong> と書く）", errors)
+        self.assertIn("ui.copy_shortcut と違います（<strong>Copy with ⌘ C</strong> と書く）", errors)
+        # 1つだけ直しても、残りを落とす。
+        errors = self.catalog_errors([(source, wrong.replace("コピー", "Copy"))])
+        self.assertNotIn("ui.copy と違います", errors)
+        self.assertIn("ui.copied と違います（<strong>Copied</strong> と書く）", errors)
+        self.assertIn("ui.copy_shortcut と違います", errors)
+        # その場所だけの訳し分け（overrides）も、そのまま学生に見えるので、同じように確かめる。
+        errors = self.catalog_errors([(source, right)], overrides=[(source, "p", wrong)])
+        self.assertIn("overrides「<strong>コピー</strong>", errors)
+        self.assertIn("ui.copy と違います（<strong>Copy</strong> と書く）", errors)
+        self.assertEqual(self.catalog_errors([(source, right)], overrides=[(source, "p", right)]), "")
+
+    def test_button_names_are_not_checked_on_pages_without_the_copy_button(self):
+        # コピーボタンのないページの <strong>コピー</strong> は、Finderのメニューなど、macOSの画面に出る言葉。
+        # 訳文でも日本語のまま書くのが正しい（翻訳用skill「macOSの画面に出る言葉」）ので、落とさない。
+        self.use_copy_labels()
+        source = "Finderのメニューバーで <strong>コピー</strong> を選びます。"
+        translation = "In the Finder menu bar, choose <strong>コピー</strong> (Copy)."
+        # 通知欄（data-copy-status）は、コピーボタンの指定と取り違えない。
+        self.write("docs/unit/index.html", f'<html lang="ja"><body><p>{source}</p>{self.COPY_STATUS}</body></html>')
+        self.assertEqual(self.catalog_errors([(source, translation)]), "")
+        self.assertEqual(self.catalog_errors([(source, translation)], overrides=[(source, "p", translation)]), "")
+        # ほかのページにコピーボタンがあっても、ボタンのないページの文は確かめない。
+        self.write("docs/common/setup.html", f'<html lang="ja"><body>{self.COPY_BLOCK}{self.COPY_STATUS}</body></html>')
+        self.assertEqual(self.catalog_errors([(source, translation)]), "")
+        # 同じ文でも、そのページにコピーボタンを付けたら、ボタンの名前として確かめる。
+        self.write("docs/unit/index.html",
+                   f'<html lang="ja"><body><p>{source}</p>{self.COPY_BLOCK}{self.COPY_STATUS}</body></html>')
+        self.assertIn("ui.copy と違います（<strong>Copy</strong> と書く）", self.catalog_errors([(source, translation)]))
+
     def test_build_writes_language_folder_next_to_copied_docs(self):
         self.sync()
         self.merge({"はじめての単元": "Your first unit"})
@@ -868,6 +939,18 @@ class RepositoryTest(unittest.TestCase):
 
     def test_every_page_can_be_extracted_and_catalogs_are_valid(self):
         self.assertEqual(localize.check(self.settings), [])
+
+    def test_button_names_are_checked_on_the_pages_that_have_the_copy_button(self):
+        # 本文のボタンの名前を確かめるのは、コピーボタンのあるページのカタログだけ（check）。
+        # そのページを、config/teaching-materials.json が特例として認めたページと突き合わせる。
+        # 属性の名前がずれると、この検査は黙ってどのページにもかからなくなるので、ここで気付けるようにする。
+        config = json.loads((SCRIPTS.parent / "config/teaching-materials.json").read_text(encoding="utf-8"))
+        allowed = sorted({snippet["html"] for project in config["projects"]
+                          for snippet in project["snippets"] if snippet.get("copy_button")})
+        found = [name for name in self.settings.page_names()
+                 if localize.has_copy_button(localize.read_page(self.settings.root, name).root)]
+        self.assertTrue(allowed)
+        self.assertEqual(found, allowed)
 
     def test_english_headers_and_version_table_are_separate_from_terminology(self):
         output = localize.localized_pages(self.settings, "en")
