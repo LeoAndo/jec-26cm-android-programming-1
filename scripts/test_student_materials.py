@@ -227,6 +227,8 @@ class PackageStudentMaterialsTest(unittest.TestCase):
             self.assertIn('ask your teacher', english)
             self.assertIn('data-progress-key="jec-test-v1"', english)
             self.assertIn('"progress": "{count} / {total} steps checked"', english)
+            self.assertIn('"copy": "Copy"', english)
+            self.assertIn('"copy": "コピー"', japanese)
             self.assertIn('<p>Translated sentence</p>', english)
             self.assertIn('href="https://developer.android.com/studio?hl=en&amp;x=1#top"', english)
             self.assertIn('href="https://developer.android.com/studio?hl=ja&amp;x=1#top"', japanese)
@@ -257,7 +259,9 @@ class PackageStudentMaterialsTest(unittest.TestCase):
                 self.assertIn(f'<html lang="{language["code"]}">', page)
                 # 注記、UIと全言語の導線はカタログの有無に左右されない。
                 self.assertIn(language['translation_notice'], page)
-                self.assertIn(language['ui']['progress'], page)
+                # コピーボタンと進捗表示の文言は、設定の値がそのまま（結合文字も欠けずに）入る。
+                payload = page.split('id="textbook-i18n">')[1].split("</script>")[0]
+                self.assertEqual(json.loads(payload), language['ui'])
                 self.assertIn(f'hl={language["android_docs_hl"]}&amp;x=1#top', page)
                 self.assertEqual(page.count('hreflang='), len(config['languages']) + 1)
                 self.assertIn('<span lang="ja">未翻訳の文', page)

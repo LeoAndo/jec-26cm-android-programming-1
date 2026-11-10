@@ -1,6 +1,9 @@
 // 本文はJavaScriptなしでも読めます。記録はこのブラウザ内だけに保存します。
 (() => {
   const defaults = {
+    copy: 'コピー', copy_label: '{title}のコードをコピー', copied: 'コピーしました',
+    copy_success: 'コードをコピーしました。Android Studioに貼り付けてください。',
+    copy_shortcut: '⌘ Cでコピー', copy_selected: 'コードを選択しました。⌘ Cでコピーしてください。',
     progress: '{count} / {total} ステップ確認済み'
   };
   let messages = defaults;
@@ -72,6 +75,46 @@
   });
   update();
 
+  // コードのコピーボタンは付けない（README「授業用教科書の基本方針」9）。
+  // 特例は、data-copy-button を付けた <pre> だけ。押しても動かないボタンを見せないよう、HTMLには書かずにここで作る。
+  document.querySelectorAll('pre[data-copy-button]').forEach(pre => {
+    const heading = pre.previousElementSibling;
+    if (!heading?.classList.contains('code-head')) return;
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.textContent = message('copy');
+    button.setAttribute('aria-label', message('copy_label', { title: heading.textContent.trim() }));
+    heading.append(button);
+    let timer;
+    const show = (label, announcement, restore) => {
+      const status = document.querySelector('[data-copy-status]');
+      button.textContent = message(label);
+      if (status) status.textContent = message(announcement);
+      clearTimeout(timer);
+      if (restore) timer = setTimeout(() => {
+        button.textContent = message('copy');
+        if (status) status.textContent = '';
+      }, 3000);
+    };
+    button.addEventListener('click', async () => {
+      try {
+        // クリックの処理の中で、ほかの処理を待たずに呼ぶ（Safariは、操作の直後でなければ書き込みを断る）。
+        await navigator.clipboard.writeText(pre.textContent);
+        show('copied', 'copy_success', true);
+        return;
+      } catch { /* navigator.clipboard がないブラウザや、断られたときは、下の方法へ */ }
+      // コードを選択して、選択範囲をコピーする命令を試す。それも断られたら、選択を残して ⌘ C を促す。
+      const range = document.createRange();
+      range.selectNodeContents(pre);
+      const selection = window.getSelection();
+      selection.removeAllRanges();
+      selection.addRange(range);
+      let copied = false;
+      try { copied = document.execCommand('copy'); } catch { /* 命令のないブラウザ */ }
+      // ⌘ C を押すのは学生なので、その案内は消さずに残す（次に押したときに切り替わる）。
+      show(copied ? 'copied' : 'copy_shortcut', copied ? 'copy_success' : 'copy_selected', copied);
+    });
+  });
 
   const links = [...document.querySelectorAll('.sidebar a[href^="#"]')];
   if ('IntersectionObserver' in window) {

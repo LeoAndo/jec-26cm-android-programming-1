@@ -474,6 +474,109 @@ class TeachingMaterialsCheckTest(unittest.TestCase):
             self.assertIn("docs/one/index.html:1", errors[3])
             self.assertTrue(all("完成プロジェクトZIPへリンク" in error for error in errors), errors)
 
+    # コピーボタンを付けてよい、ただ1つのコードブロック（見出しの直後の <pre>）。
+    COPY_BLOCK = ('<div class="code-head">Long.java · 全体を置き換える</div>\n'
+                  '<pre id="code-long" tabindex="0" data-copy-button><code>class Long {}</code></pre>\n')
+    # どのページの末尾にもある通知欄。名前は似ているが、コピーボタンの指定ではない。
+    COPY_STATUS = '<p class="sr-only" role="status" aria-live="polite" data-copy-status></p>\n'
+
+    def _copy_button_errors(self, root: Path, pages: dict[str, str], allowed: bool = True) -> list[str]:
+        """docs/ にページを書き出して検査し、コピーボタンについてのエラーだけを返す。"""
+        for name, content in pages.items():
+            (root / name).parent.mkdir(parents=True, exist_ok=True)
+            (root / name).write_text(content, encoding="utf-8")
+        snippet = {"html": "docs/one/index.html", "id": "code-long", "source": "A01One/Long.java"}
+        if allowed:
+            snippet["copy_button"] = True
+        self._project_root(root, {
+            "scan_roots": [], "terms": [],
+            "projects": [{
+                "name": "A01One", "package": "p", "root": "A01One",
+                "docs": ["docs/one/index.html", "teacher/one/index.html"],
+                "source_java": "A01One/j.java", "source_xml": "A01One/l.xml",
+                "snippets": [snippet], "archive": "docs/one/downloads/A01One.zip",
+            }],
+        })
+        return [error for error in CHECKER.validate(root) if "コピーボタン" in error]
+
+    def test_copy_button_on_the_allowed_block_is_accepted(self):
+        """設定で認めたコードブロックだけに指定があれば通る。末尾の通知欄（data-copy-status）は指定と取り違えない。"""
+        with tempfile.TemporaryDirectory() as temporary:
+            errors = self._copy_button_errors(Path(temporary), {
+                "docs/one/index.html": self.COPY_BLOCK + self.COPY_STATUS,
+                "docs/common/apk.html": '<div class="code-head">Terminal</div>\n<pre tabindex="0"><code>ls</code></pre>\n' + self.COPY_STATUS,
+            })
+            self.assertEqual(errors, [])
+
+    def test_copy_button_on_other_blocks_is_rejected(self):
+        """特例のほかのコードブロックに指定を足したら、同じページでも共通資料でも検出する。"""
+        with tempfile.TemporaryDirectory() as temporary:
+            errors = self._copy_button_errors(Path(temporary), {
+                "docs/one/index.html": self.COPY_BLOCK
+                + '<div class="code-head">Main.java</div>\n<pre id="code-main" data-copy-button><code>x</code></pre>',
+                "docs/common/apk.html": '<div class="code-head">Terminal</div>\n<pre data-copy-button><code>ls</code></pre>',
+            })
+            self.assertEqual(len(errors), 2, errors)
+            self.assertIn("docs/common/apk.html:2", errors[0])
+            self.assertIn("<pre> の data-copy-button を外してください", errors[0])
+            self.assertIn("docs/one/index.html:4", errors[1])
+            self.assertIn('<pre id="code-main"> の data-copy-button を外してください', errors[1])
+            self.assertTrue(all("README「授業用教科書の基本方針」9" in error for error in errors), errors)
+
+    def test_copy_button_without_setting_is_rejected(self):
+        """設定に "copy_button": true がなければ、snippets に載っているコードでも特例にしない。"""
+        with tempfile.TemporaryDirectory() as temporary:
+            errors = self._copy_button_errors(Path(temporary), {"docs/one/index.html": self.COPY_BLOCK}, allowed=False)
+            self.assertEqual(len(errors), 1, errors)
+            self.assertIn("docs/one/index.html:2", errors[0])
+            self.assertIn("コードのコピーボタンは付けません", errors[0])
+
+    def test_missing_copy_button_mark_is_rejected(self):
+        """指定が消えるとボタンが出なくなり、教科書の「コピーボタンを押します」が実行できなくなる。"""
+        with tempfile.TemporaryDirectory() as temporary:
+            errors = self._copy_button_errors(Path(temporary), {
+                "docs/one/index.html": self.COPY_BLOCK.replace(" data-copy-button", "") + self.COPY_STATUS,
+            })
+            self.assertEqual(len(errors), 1, errors)
+            self.assertIn("docs/one/index.html:1", errors[0])
+            self.assertIn("コピーボタンの指定（data-copy-button）がありません: code-long", errors[0])
+
+    def test_copy_button_mark_away_from_code_head_is_rejected(self):
+        """見出しの直後の <pre> でなければ、textbook.js はボタンを作らない。"""
+        between = self.COPY_BLOCK.replace("</div>\n", "</div>\n<p>メモ</p>\n")
+        on_head = ('<div class="code-head" id="code-long" data-copy-button>Long.java</div>\n'
+                   "<pre><code>class Long {}</code></pre>")
+        # 閉じタグのない要素（画像）が挟まっても、直前の要素は見出しではなくなる。
+        image = self.COPY_BLOCK.replace("</div>\n", '</div>\n<img src="a.png" alt="">\n')
+        # 見出しでない <div> の直後。前のコードブロックの見出しを、直前の見出しと取り違えない。
+        after_note = ('<div class="code-head">Other.java</div>\n<pre><code>x</code></pre>\n'
+                      '<div class="note"><p>メモ</p></div>\n'
+                      '<pre id="code-long" tabindex="0" data-copy-button><code>class Long {}</code></pre>\n')
+        for label, content in (("見出しとのあいだに段落", between), ("見出しに指定", on_head),
+                               ("見出しとのあいだに画像", image), ("見出しでない div の直後", after_note)):
+            with self.subTest(label), tempfile.TemporaryDirectory() as temporary:
+                errors = self._copy_button_errors(Path(temporary), {"docs/one/index.html": content})
+                self.assertEqual(len(errors), 1, errors)
+                self.assertIn('<div class="code-head"> の直後の <pre> に付けてください', errors[0])
+
+    def test_duplicated_copy_button_mark_is_rejected(self):
+        """同じidのコードブロックを写して、ボタンが2つになった状態を検出する。"""
+        with tempfile.TemporaryDirectory() as temporary:
+            errors = self._copy_button_errors(Path(temporary), {"docs/one/index.html": self.COPY_BLOCK * 2})
+            self.assertEqual(len(errors), 1, errors)
+            self.assertIn("docs/one/index.html:4", errors[0])
+            self.assertIn("2回あります: code-long", errors[0])
+
+    def test_copy_button_exception_is_only_billsplitter(self):
+        """コピーボタンの特例は、A07のBillSplitter.javaの全体コードだけ（README「授業用教科書の基本方針」9）。
+
+        特例を増やすときは、オーナーの判断を得て、READMEの方針9とこのテストをいっしょに直す。
+        """
+        config = json.loads((ROOT / "config/teaching-materials.json").read_text(encoding="utf-8"))
+        allowed = [(snippet["html"], snippet["id"]) for project in config["projects"]
+                   for snippet in project["snippets"] if snippet.get("copy_button")]
+        self.assertEqual(allowed, [("docs/bill-splitter/index.html", "code-billsplitter")])
+
 
 if __name__ == "__main__":
     unittest.main()

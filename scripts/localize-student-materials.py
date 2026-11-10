@@ -50,7 +50,11 @@ SKIPPED = {"pre", "script", "style"}
 TRANSLATED_ATTRIBUTES = ("alt", "aria-label", "title", "placeholder")
 LINK_ATTRIBUTES = ("href", "src")
 # 教科書のUI文言（docs/assets/textbook.js の既定値と同じ項目）。配布物と確認用ページの両方に渡す。
-UI_KEYS = ("progress",)
+UI_KEYS = ("copy", "copy_label", "copied", "copy_success", "copy_shortcut", "copy_selected", "progress")
+# 本文が <strong>コピー</strong> のように名指しする、ボタンに出る文言。訳文では、その言語のボタンの文言と同じにする。
+UI_LABEL_KEYS = ("copy", "copied", "copy_shortcut")
+# コピーボタンを付ける指定。docs/assets/textbook.js が、この属性の付いた <pre> の見出しにボタンを足す。
+COPY_BUTTON_ATTRIBUTE = "data-copy-button"
 BODY = re.compile(r"<body\b[^>]*>", re.I)
 
 # ひらがな・カタカナ・漢字。「・」（U+30FB）は、英字だけの文にも区切りとして出てくるので含めない。
@@ -873,7 +877,39 @@ def write_catalog(path: Path, page: str, language: str, catalog: Catalog, source
     return True
 
 
-def check_catalog(settings: Settings, path: Path, errors: list) -> None:
+def has_copy_button(element: Element) -> bool:
+    """そのページに、コピーボタンを付ける指定（data-copy-button）の付いた要素があるか。
+
+    値のない属性なので、Element.attribute（値を返す）ではなく、属性の名前で見る。
+    どのページの末尾にもある通知欄の data-copy-status は、別の属性なので数えない。
+    """
+    return any(
+        isinstance(child, Element)
+        and (any(name == COPY_BUTTON_ATTRIBUTE for name, _ in child.attrs) or has_copy_button(child))
+        for child in element.children)
+
+
+def ui_label_problems(settings: Settings, language: str, source: str, translation: str) -> list:
+    """本文が教科書のボタンを名指ししている文で、訳文のボタン名がその言語の文言と違えば返す。
+
+    ボタンには config/i18n.json の languages[].ui の文字が出る。訳文に日本語のラベルや別の訳語を書くと、
+    学生は画面にない文字を探すことになる（#263）。
+
+    呼ぶのは、コピーボタンのあるページの文だけにする（check_catalog と merge）。ボタンのないページに
+    <strong>コピー</strong> と書いてあれば、それはFinderのメニューなど、macOSの画面に出る言葉である。
+    訳文でも日本語のまま書くのが正しいので、この検査にかけると正しい訳を落としてしまう。
+    """
+    labels = settings.language(language).get("ui", {})
+    problems = []
+    for key in UI_LABEL_KEYS:
+        shown, expected = settings.source_ui.get(key), labels.get(key)
+        if shown and expected and f"<strong>{shown}</strong>" in source and f"<strong>{expected}</strong>" not in translation:
+            problems.append(f"ボタンの名前が {CONFIG.as_posix()} の ui.{key} と違います（<strong>{expected}</strong> と書く）")
+    return problems
+
+
+def check_catalog(settings: Settings, path: Path, errors: list, button_pages: frozenset = frozenset()) -> None:
+    """対訳カタログを1つ検査する。button_pages は、コピーボタンのある日本語のページ（check が集める）。"""
     shown = path.relative_to(settings.root).as_posix()
     relative = path.relative_to(settings.root / settings.catalog_root)
     language = relative.parts[0]
@@ -909,6 +945,8 @@ def check_catalog(settings: Settings, path: Path, errors: list) -> None:
             errors.append(f"{label}: 原文に余分な空白や改行があります（手で書き換えず、sync で作り直す）")
         errors.extend(f"{label}: {problem}"
                       for problem in validate(source, translation, settings.terms, settings.uses_han(language)))
+        if page in button_pages:
+            errors.extend(f"{label}: {problem}" for problem in ui_label_problems(settings, language, source, translation))
     try:
         overrides = _read_overrides(data, Path(shown))
     except LocalizeError as error:
@@ -926,6 +964,9 @@ def check_catalog(settings: Settings, path: Path, errors: list) -> None:
             errors.append(f"{label}: 原文に余分な空白や改行があります")
         errors.extend(f"{label}: {problem}"
                       for problem in validate(source, translation, settings.terms, settings.uses_han(language)))
+        if page in button_pages:
+            # 訳し分けも、その場所ではそのまま学生に見える。既定訳と同じく、ボタンの名前を確かめる。
+            errors.extend(f"{label}: {problem}" for problem in ui_label_problems(settings, language, source, translation))
         # 原文を編集・削除しただけではCIを落とさない。古い訳は status に出し、sync で外す。
         # 現役の原文なのに役割が合わないものは、where の誤指定として報告する。
         if original and source in original.sources() and (source, where) not in original.locations():
@@ -1054,6 +1095,8 @@ def merge(settings: Settings, code: str, files: list, work_dir: Path, overwrite:
     if not targets:
         raise LocalizeError(f"訳した結果のファイルがありません: {_shown(settings.root, work_dir / code)} の done-*.json")
     pages = {name: read_page(settings.root, name) for name in settings.page_names()}
+    # コピーボタンのあるページの原文。本文のボタンの名前は、check と同じく、この原文の訳でだけ確かめる。
+    button_sources = {source for page in pages.values() if has_copy_button(page.root) for source in page.sources()}
     index: dict = {}
     for page in pages.values():
         for source in page.sources():
@@ -1095,6 +1138,8 @@ def merge(settings: Settings, code: str, files: list, work_dir: Path, overwrite:
                 continue
             translation = normalize(translation)
             found = validate(source, translation, settings.terms, han)
+            if source in button_sources:
+                found = found + ui_label_problems(settings, code, source, translation)
             if found:
                 problems.extend(f"{path}: {identifier}「{source[:30]}」: {problem}" for problem in found)
                 continue
@@ -1155,15 +1200,20 @@ def _check_shared_translations(settings: Settings, errors: list) -> None:
 def check(settings: Settings) -> list:
     """教材を取り出せることと、対訳カタログの中身を確かめる。未翻訳の数は見ない。"""
     errors = []
+    with_button = set()  # コピーボタンのあるページ。本文のボタンの名前は、このページのカタログでだけ確かめる。
     for name in settings.page_names():
         try:
-            read_page(settings.root, name)
+            page = read_page(settings.root, name)
         except LocalizeError as error:
             errors.append(str(error))
+            continue
+        if has_copy_button(page.root):
+            with_button.add(name)
+    button_pages = frozenset(with_button)
     base = settings.root / settings.catalog_root
     if base.is_dir():
         for path in sorted(base.rglob("*.json")):
-            check_catalog(settings, path, errors)
+            check_catalog(settings, path, errors, button_pages)
         _check_shared_translations(settings, errors)
     return errors
 

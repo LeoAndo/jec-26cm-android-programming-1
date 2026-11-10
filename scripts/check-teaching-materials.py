@@ -484,6 +484,73 @@ def check_no_sample_guidance(root: Path, config: dict, errors: list[str]) -> Non
                         f"教科書から完成プロジェクトZIPへリンクしています（README「授業用教科書の基本方針」10）: {value}")
 
 
+# コピーボタンを付ける指定。docs/assets/textbook.js が、この属性の付いた <pre> の見出しにボタンを足す。
+COPY_BUTTON_ATTRIBUTE = "data-copy-button"
+
+
+class CopyButtonMarks(HTMLParser):
+    """コピーボタンの指定（data-copy-button）が付いた要素を集める。
+
+    textbook.js は、<div class="code-head"> の直後にある <pre> にだけボタンを足す。
+    ほかの場所に付けても何も起きないので、付けた要素の種類と、直前が見出しかどうかも記録する。
+    """
+
+    def __init__(self):
+        super().__init__()
+        self.marks: list[tuple[int, str, str | None, bool]] = []  # (行, タグ, id, 直前の要素が見出しか)
+        self._in_head = False  # <div class="code-head"> の中にいる
+        self._after_head = False  # 直前に閉じた要素が見出し
+
+    def handle_starttag(self, tag, attrs):
+        values = dict(attrs)
+        after_head, self._after_head = self._after_head, False
+        if COPY_BUTTON_ATTRIBUTE in values:
+            self.marks.append((self.getpos()[0], tag, values.get("id"), after_head))
+        if tag == "div" and "code-head" in (values.get("class") or "").split():
+            self._in_head = True
+
+    def handle_endtag(self, tag):
+        self._after_head = tag == "div" and self._in_head
+        if tag == "div":
+            self._in_head = False
+
+
+def check_copy_buttons(root: Path, config: dict, errors: list[str]) -> None:
+    """コピーボタンの指定が、設定で認めたコードブロックにだけ付いているか確かめる。
+
+    コードのコピーボタンは付けない（README「授業用教科書の基本方針」9）。特例にできるのは、
+    学生が書かない配布用コードで、snippets に "copy_button": true と書いたものだけ。
+    snippets はソースと照合しているので、学生が読まずに貼るコードが完成プロジェクトと食い違わない。
+    指定が消えたり、見出しの直後から外れたりすると、ボタンが黙って出なくなる。
+    教科書は「コピーボタンを押します」と案内しているので、それも検出する。
+    """
+    allowed = {
+        (snippet["html"], snippet["id"])
+        for project in config["projects"] for snippet in project.get("snippets", [])
+        if snippet.get("copy_button")
+    }
+    found: set[tuple[str, str | None]] = set()
+    docs = root / "docs"
+    for path in sorted(docs.rglob("*.html")) if docs.is_dir() else []:
+        name = display(root, path)
+        marks = CopyButtonMarks()
+        marks.feed(read(path))
+        for line, tag, identifier, after_head in marks.marks:
+            if (name, identifier) not in allowed:
+                shown = f'<{tag} id="{identifier}">' if identifier else f"<{tag}>"
+                add(errors, root, path, line,
+                    f"コードのコピーボタンは付けません（README「授業用教科書の基本方針」9）: {shown} の {COPY_BUTTON_ATTRIBUTE} を外してください")
+                continue
+            if (name, identifier) in found:
+                add(errors, root, path, line, f"コピーボタンの指定（{COPY_BUTTON_ATTRIBUTE}）が2回あります: {identifier}")
+            found.add((name, identifier))
+            if tag != "pre" or not after_head:
+                add(errors, root, path, line,
+                    f'{COPY_BUTTON_ATTRIBUTE} は <div class="code-head"> の直後の <pre> に付けてください（ほかの場所ではコピーボタンが出ません）: {identifier}')
+    for html_name, identifier in sorted(allowed - found):
+        add(errors, root, html_name, 1, f"コピーボタンの指定（{COPY_BUTTON_ATTRIBUTE}）がありません: {identifier}")
+
+
 def validate(root: Path) -> list[str]:
     config_path = root / CONFIG
     if not config_path.is_file():
@@ -498,6 +565,7 @@ def validate(root: Path) -> list[str]:
     check_sidebar_units(root, config, errors)
     check_project_layout(root, config, errors)
     check_no_sample_guidance(root, config, errors)
+    check_copy_buttons(root, config, errors)
     for project in config["projects"]:
         check_project(root, project, errors)
         check_downloads(root, project, errors)

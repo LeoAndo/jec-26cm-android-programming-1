@@ -370,6 +370,7 @@ txtNumberOfPeople.setText("参加者は" + numberOfPeople + "人");</code></pre>
 <p>割り勘の計算は、できあがった <code>BillSplitter.java</code> が行います。<strong>中身を読む必要はありません。</strong>使い方だけ覚えます。</p>
 <p>空のファイルを自分で作り、このページの下にあるコードをコピーして、丸ごと入れます。コードは<strong>読まずにコピーして構いません</strong>。読むのは、そのあとの<a href="#use-splitter">③ 使い方</a>だけです。</p>
 <p>STEP 02のタイトル画像は、ファイルごとFinderでコピーしました。コードは文字なので、Finderを使わず、この教科書のページからそのままコピーできます。</p>
+<p><code>BillSplitter.java</code> のコードにだけ、特別に <strong>コピー</strong> ボタンを付けてあります。長くて、読まなくてよいコードだからです。ほかのコードにボタンはありません。ほかのコードは、書き方を身につけるために、自分で入力します。</p>
 <h3>① 空のファイルを作る</h3>
 <ol>
 <li>左側のプロジェクト画面で <code>app → src → main → java → jp.ac.jec.a07billsplitter</code>（<code>MainActivity.java</code> があるフォルダ）を右クリックし、<strong>New → Java Class</strong> を選びます。</li>
@@ -380,14 +381,15 @@ txtNumberOfPeople.setText("参加者は" + numberOfPeople + "人");</code></pre>
 <div class="note"><p class="box-title">作る場所に注意</p><p><code>app → src</code> の下には <code>test</code> と <code>androidTest</code> もあり、その中にも同じ名前のパッケージがあります。必ず <code>app → src → main → java</code> の中の、<code>MainActivity.java</code> と同じ場所に作ります。場所を間違えると1行目の <code>package</code> が変わり、STEP 09で <code>BillSplitter</code> が赤くなります。</p></div>
 <h3>② 中身を全部入れ替える</h3>
 <ol>
-<li>下のコード全体を選んでコピー（<kbd>⌘ C</kbd>）します。</li>
+<li>下のコードの見出し <strong>BillSplitter.java · 全体を置き換える</strong> にある <strong>コピー</strong> ボタンを押します。<strong>コピーしました</strong> に変われば成功です。ブラウザによっては <strong>⌘ Cでコピー</strong> に変わり、コードが選ばれた状態になります。そのときは、そのまま <kbd>⌘ C</kbd> を押します。</li>
 <li>Android Studioに戻り、開いている <code>BillSplitter.java</code> の中をクリックして <kbd>⌘ A</kbd> で全部選びます。<strong>最初から入っている <code>package</code> の行とクラスの宣言も、いっしょに選びます。</strong>これを残したまま貼り付けると、同じものが2つ並んでエラーになります。</li>
 <li><kbd>⌘ V</kbd> で貼り付けます。選んでいたところが消えて、<strong>ファイル全体</strong>がコピーしたコードに置き換わります。</li>
 <li>1行目が <code>package jp.ac.jec.a07billsplitter;</code> になっていることを確認します。</li>
 </ol>
 <p>コードは長いので、貼り付けが終わったら<a href="#use-splitter">③ 使い方</a>まで飛ばして構いません。</p>
+<p><strong>コピー</strong> ボタンが出てこないときは、下のコードを、1行目の <code>package</code> から最後の <code>}</code> まで全部選び、<kbd>⌘ C</kbd> でコピーします。</p>
 <div class="code-head">BillSplitter.java · 全体を置き換える</div>
-<pre id="code-billsplitter" tabindex="0"><code>package jp.ac.jec.a07billsplitter;
+<pre id="code-billsplitter" tabindex="0" data-copy-button><code>package jp.ac.jec.a07billsplitter;
 
 import android.icu.text.NumberFormat;
 
