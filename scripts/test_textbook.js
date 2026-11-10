@@ -72,7 +72,9 @@ function page(storage = {}, href = 'file:///docs/unit/index.html?from=setup#step
   class ResizeObserver { constructor(callback) { resize = callback; } observe() {} }
   const window = { get location() { return location; }, innerHeight: 720, ResizeObserver,
     addEventListener() {},
-    getSelection: () => ({ removeAllRanges() { copy.selected = null; }, addRange(range) { copy.selected = range.node; } }) };
+    // 選択がすでにあるときの addRange は、何もしない（Selection API の決まり。Chrome と Safari はこのとおりに動く）。
+    getSelection: () => ({ removeAllRanges() { copy.selected = null; },
+      addRange(range) { if (copy.selected === null) copy.selected = range.node; } }) };
   const localStorage = { getItem(name) { if (options.blockStorage) throw Error('blocked'); return storage[name] || null; },
     setItem(name, value) { if (options.blockStorage) throw Error('blocked'); storage[name] = value; } };
   vm.runInNewContext(source, { document, window, localStorage, URL, URLSearchParams, ResizeObserver, navigator,
@@ -381,6 +383,17 @@ test('⌘ C の案内が出ているときにもう一度押すと、案内を�
   await current.button.click();
   assert.equal(current.copy.selected, current.block);
   assert.equal(current.button.textContent, '⌘ Cでコピー');
+});
+
+test('ページのほかの場所が選択されていても、コードを選択し直す', async () => {
+  for (const execCommand of [false, true]) {
+    const current = copyPage({ clipboard: 'missing', execCommand });
+    // 学生が、本文のどこかをドラッグして選んだままボタンを押した。
+    current.copy.selected = { textContent: '下のコードの見出し' };
+    await current.button.click();
+    // 前の選択を外してから選ばないと、Chrome と Safari では前の選択のままになり、別の文字をコピーしてしまう。
+    assert.equal(current.copy.selected, current.block, String(execCommand));
+  }
 });
 
 test('続けて押しても、ボタンを元に戻すのは最後の1回だけ', async () => {
