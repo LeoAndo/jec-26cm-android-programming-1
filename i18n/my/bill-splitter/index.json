@@ -795,6 +795,18 @@
       "translation": "BillSplitActivity.java · onCreate ထဲတွင်"
     },
     {
+      "source": "<code>getIntent()</code> は、この画面を開いたときのIntent（①の <code>start</code> で作って <code>startActivity</code> に渡したもの）を返します。<code>getStringArrayExtra(EXTRA_KEY_PARTICIPANTS)</code> は、そのIntentから、①で <code>putExtra</code> したのと同じキーの配列を取り出します。",
+      "translation": "<code>getIntent()</code> သည် ဤမျက်နှာပြင်ကို ဖွင့်ခဲ့သည့် Intent (① ၏ <code>start</code> တွင် ဖန်တီးပြီး <code>startActivity</code> သို့ ပေးပို့ခဲ့သည့် Intent) ကို ပြန်ပေးသည်။ <code>getStringArrayExtra(EXTRA_KEY_PARTICIPANTS)</code> သည် ထို Intent ထဲမှ ① တွင် <code>putExtra</code> လုပ်ခဲ့သည့် key အတိုင်း array ကို ထုတ်ယူသည်။"
+    },
+    {
+      "source": "値が入っていないと、<code>getStringArrayExtra</code> は <code>null</code>（何も入っていないことを表す値）を返します。<code>null</code> のまま <code>participants.length</code> を使うと、アプリが終了します。この画面を開くのは①の <code>start</code> だけで、<code>start</code> は必ず配列を入れます。①のとおりに書いてあれば、<code>null</code> にはなりません。",
+      "translation": "တန်ဖိုး မပါလျှင် <code>getStringArrayExtra</code> သည် <code>null</code> (ဘာမျှ မပါဝင်ကြောင်း ဖော်ပြသော တန်ဖိုး) ကို ပြန်ပေးသည်။ <code>null</code> ဖြစ်နေလျက် <code>participants.length</code> ကို သုံးလျှင် app ပိတ်သွားမည်။ ဤမျက်နှာပြင်ကို ဖွင့်သည်မှာ ① ၏ <code>start</code> သာ ဖြစ်ပြီး <code>start</code> သည် array ကို အမြဲ ထည့်သည်။ ① အတိုင်း ရေးထားလျှင် <code>null</code> မဖြစ်ပါ။"
+    },
+    {
+      "source": "Android Studioは、<code>start</code> が必ず配列を入れることまでは分かりません。そのため、<code>participants.length</code> の <code>participants</code> に警告（<code>Dereference of 'participants' may produce 'NullPointerException'</code>）を出します。「<code>null</code> かもしれない」という意味です。警告が出ていてもRunできるので、直さずにそのまま進みます。",
+      "translation": "Android Studio သည် <code>start</code> က array ကို အမြဲ ထည့်သည်ဆိုသည့်အချက်အထိ မသိပါ။ ထို့ကြောင့် <code>participants.length</code> ၏ <code>participants</code> တွင် သတိပေးချက် (<code>Dereference of 'participants' may produce 'NullPointerException'</code>) ကို ပြသည်။ “<code>null</code> ဖြစ်နိုင်သည်” ဟု ဆိုလိုသည်။ သတိပေးချက် ပေါ်နေလည်း Run လုပ်နိုင်သောကြောင့် မပြင်ဘဲ ထိုအတိုင်း ဆက်သွားပါ။"
+    },
+    {
       "source": "③ 渡す側（MainActivity）から呼ぶ",
       "translation": "③ ပေးပို့သည့်ဘက် (MainActivity) မှ ခေါ်ခြင်း"
     },
@@ -871,6 +883,10 @@
       "translation": "STEP 02 ၏ ခေါင်းစဉ်ပုံကို ဖိုင်အလိုက် Finder ဖြင့် ကူးယူခဲ့သည်။ code သည် စာလုံးများ ဖြစ်သဖြင့် Finder ကို မသုံးဘဲ ဤသင်ရိုးစာအုပ်စာမျက်နှာမှ တိုက်ရိုက် ကူးယူနိုင်သည်။"
     },
     {
+      "source": "<code>BillSplitter.java</code> のコードにだけ、特別に <strong>コピー</strong> ボタンを付けてあります。長くて、読まなくてよいコードだからです。ほかのコードにボタンはありません。ほかのコードは、書き方を身につけるために、自分で入力します。",
+      "translation": "<code>BillSplitter.java</code> ၏ code တွင်သာ အထူးအနေဖြင့် <strong>ကူးယူမည်</strong> ခလုတ်ကို ထည့်ထားသည်။ ရှည်ပြီး မဖတ်လည်း ရသော code ဖြစ်သောကြောင့် ဖြစ်သည်။ အခြား code များတွင် ခလုတ် မရှိပါ။ အခြား code များကို ရေးနည်း တတ်မြောက်ရန်အတွက် ကိုယ်တိုင် ရိုက်ထည့်ပါ။"
+    },
+    {
       "source": "① 空のファイルを作る",
       "translation": "① ဗလာဖိုင်တစ်ခု ဖန်တီးခြင်း"
     },
@@ -903,6 +919,10 @@
       "translation": "② အထဲရှိအရာအားလုံးကို အစားထိုးခြင်း"
     },
     {
+      "source": "下のコードの見出し <strong>BillSplitter.java · 全体を置き換える</strong> にある <strong>コピー</strong> ボタンを押します。<strong>コピーしました</strong> に変われば成功です。ブラウザによっては <strong>⌘ Cでコピー</strong> に変わり、コードが選ばれた状態になります。そのときは、そのまま <kbd>⌘ C</kbd> を押します。",
+      "translation": "အောက်ရှိ code ၏ ခေါင်းစဉ် <strong>BillSplitter.java · တစ်ခုလုံးကို အစားထိုးပါ</strong> တွင်ရှိသော <strong>ကူးယူမည်</strong> ခလုတ်ကို နှိပ်ပါ။ <strong>ကူးယူပြီးပါပြီ</strong> ဟု ပြောင်းသွားလျှင် အောင်မြင်သည်။ browser အမျိုးအစားအလိုက် <strong>⌘ C ဖြင့် ကူးယူပါ</strong> ဟု ပြောင်းပြီး code ကို ရွေးထားသည့် အခြေအနေ ဖြစ်နိုင်သည်။ ထိုအခါ <kbd>⌘ C</kbd> ကို ဆက်နှိပ်ပါ။"
+    },
+    {
       "source": "Android Studioに戻り、開いている <code>BillSplitter.java</code> の中をクリックして <kbd>⌘ A</kbd> で全部選びます。<strong>最初から入っている <code>package</code> の行とクラスの宣言も、いっしょに選びます。</strong>これを残したまま貼り付けると、同じものが2つ並んでエラーになります。",
       "translation": "Android Studio သို့ ပြန်သွားပြီး ဖွင့်ထားသော <code>BillSplitter.java</code> အတွင်းကို နှိပ်ကာ <kbd>⌘ A</kbd> ဖြင့် အားလုံးကို ရွေးပါ။<strong>အစကတည်းက ပါဝင်နေသော <code>package</code> စာကြောင်းနှင့် class ကြေညာချက်ကိုပါ အတူတူ ရွေးပါ။</strong>၎င်းတို့ကို ကျန်ရစ်စေပြီး paste လုပ်လျှင် တူညီသောအရာ 2 ခု ဖြစ်သွားကာ error တက်မည်။"
     },
@@ -917,6 +937,10 @@
     {
       "source": "コードは長いので、貼り付けが終わったら<a1>③ 使い方</a1>まで飛ばして構いません。",
       "translation": "code သည် ရှည်သဖြင့် paste လုပ်ပြီးလျှင် <a1>③ အသုံးပြုပုံ</a1> အထိ ကျော်သွားလည်း ရပါသည်။"
+    },
+    {
+      "source": "<strong>コピー</strong> ボタンが出てこないときは、下のコードを、1行目の <code>package</code> から最後の <code>}</code> まで全部選び、<kbd>⌘ C</kbd> でコピーします。",
+      "translation": "<strong>ကူးယူမည်</strong> ခလုတ် မပေါ်လာလျှင် အောက်ရှိ code ကို ပထမစာကြောင်းရှိ <code>package</code> မှ နောက်ဆုံး <code>}</code> အထိ အားလုံး ရွေးပြီး <kbd>⌘ C</kbd> ဖြင့် ကူးယူပါ။"
     },
     {
       "source": "BillSplitter.java · 全体を置き換える",
@@ -1435,6 +1459,14 @@
       "translation": "STEP 07 တွင် <code>BillSplitter.java</code> ကို ထားခဲ့ မထားခဲ့၊ နေရာသည် <code>MainActivity.java</code> နှင့် တူမတူ စစ်ဆေးပါ။ ပထမစာကြောင်းရှိ <code>package</code> ကိုလည်း ကြည့်ပါ။"
     },
     {
+      "source": "<code>Snackbar</code>・<code>ArrayList</code>・<code>EditText</code>・<code>TextView</code> が赤い",
+      "translation": "<code>Snackbar</code>၊ <code>ArrayList</code>၊ <code>EditText</code>၊ <code>TextView</code> တို့ အနီရောင် ဖြစ်နေသည်"
+    },
+    {
+      "source": "<kbd>⌥ Enter</kbd> で <code>com.google.android.material.snackbar.Snackbar</code>、<code>java.util.ArrayList</code>、<code>android.widget.EditText</code>、<code>android.widget.TextView</code> を選ぶ。",
+      "translation": "<kbd>⌥ Enter</kbd> ဖြင့် <code>com.google.android.material.snackbar.Snackbar</code>၊ <code>java.util.ArrayList</code>၊ <code>android.widget.EditText</code>၊ <code>android.widget.TextView</code> တို့ကို ရွေးပါ။"
+    },
+    {
       "source": "<code>start(…)</code> が赤い（MainActivity）",
       "translation": "<code>start(…)</code> အနီရောင် ဖြစ်နေသည် (MainActivity)"
     },
@@ -1449,6 +1481,10 @@
     {
       "source": "ワリカン画面へを押すとアプリが終了する",
       "translation": "「ワリカン画面へ」 (ငွေခွဲဝေ မျက်နှာပြင်သို့) ကို နှိပ်လျှင် app ပိတ်သွားသည်"
+    },
+    {
+      "source": "Logcatを <code>level:ERROR</code> にして <code>ActivityNotFoundException</code> か確認。<code>AndroidManifest.xml</code> に <code>android:name=\".BillSplitActivity\"</code> の <code>&lt;activity&gt;</code> があるか見る。New → Java Classで作ると登録されない。エラーの下のほうの <code>Caused by:</code> の行に <code>NullPointerException</code> とあるときは、STEP 06①の <code>start</code> に <code>starter.putExtra(EXTRA_KEY_PARTICIPANTS, participants);</code> の行があるか見る。",
+      "translation": "Logcat ကို <code>level:ERROR</code> ထားပြီး <code>ActivityNotFoundException</code> ဟုတ်မဟုတ် စစ်ဆေးပါ။ <code>AndroidManifest.xml</code> တွင် <code>android:name=\".BillSplitActivity\"</code> ပါသော <code>&lt;activity&gt;</code> ရှိမရှိ ကြည့်ပါ။ New → Java Class ဖြင့် ဖန်တီးလျှင် မှတ်ပုံတင်ခြင်း မရှိပါ။ error ၏ အောက်ဘက်ရှိ <code>Caused by:</code> စာကြောင်းတွင် <code>NullPointerException</code> ဟု ပါလျှင် STEP 06 ① ၏ <code>start</code> တွင် <code>starter.putExtra(EXTRA_KEY_PARTICIPANTS, participants);</code> စာကြောင်း ရှိမရှိ ကြည့်ပါ။"
     },
     {
       "source": "アプリ一覧のアイコンが2つある（Runすると何もない画面から始まることがある）",

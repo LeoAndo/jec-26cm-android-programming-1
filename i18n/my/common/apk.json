@@ -463,12 +463,24 @@
       "translation": "APK ကို ထုတ်လုပ်ပါ"
     },
     {
+      "source": "下の3枚の画像は、先生の画面の例です。<code>A07BillSplitter</code> と出ているところは、自分の画面では自分のプロジェクトの名前になります。赤い枠の外は、自分の画面と少し違っていても構いません。",
+      "translation": "အောက်ပါ ပုံ 3 ပုံသည် ဆရာ၏ မျက်နှာပြင် နမူနာများ ဖြစ်သည်။ <code>A07BillSplitter</code> ဟု ပေါ်နေသောနေရာသည် မိမိ၏ မျက်နှာပြင်တွင် မိမိ project ၏ အမည် ဖြစ်မည်။ အနီရောင်ဘောင်၏ အပြင်ဘက်သည် မိမိ၏ မျက်နှာပြင်နှင့် အနည်းငယ် ကွာနေလည်း ရသည်။"
+    },
+    {
       "source": "上の <strong>Build</strong> メニューを開きます。",
       "translation": "အပေါ်ရှိ <strong>Build</strong> menu ကို ဖွင့်ပါ။"
     },
     {
       "source": "<strong>Generate App Bundles or APKs → Generate APKs</strong> を選びます。表示が異なるバージョンでは、<strong>Build App Bundle(s) / APK(s) → Build APK(s)</strong> という名前の場合があります。",
       "translation": "<strong>Generate App Bundles or APKs → Generate APKs</strong> ကို ရွေးပါ။ ဖော်ပြပုံကွာသော version များတွင် <strong>Build App Bundle(s) / APK(s) → Build APK(s)</strong> ဟူသော အမည်ဖြစ်နိုင်သည်။"
+    },
+    {
+      "source": "Android Studioの上のメニューでBuildを開いたところ。Buildと、メニューの中のGenerate App Bundles or APKsと、その右に出たGenerate APKsの3か所が、赤い枠で囲まれている",
+      "translation": "Android Studio ၏ အပေါ်ရှိ menu တွင် Build ကို ဖွင့်ထားသည့်အခြေအနေ။ Build၊ menu ထဲရှိ Generate App Bundles or APKs နှင့် ၎င်း၏ ညာဘက်တွင် ပေါ်လာသော Generate APKs ဟူသော နေရာ 3 ခုကို အနီရောင်ဘောင် ခတ်ထားသည်"
+    },
+    {
+      "source": "赤い枠の3か所を、<strong>Build</strong> → <strong>Generate App Bundles or APKs</strong> → <strong>Generate APKs</strong> の順に選びます。 <a1>画像を大きく開く</a1>",
+      "translation": "အနီရောင်ဘောင်ရှိ နေရာ 3 ခုကို <strong>Build</strong> → <strong>Generate App Bundles or APKs</strong> → <strong>Generate APKs</strong> အစီအစဉ်အတိုင်း ရွေးပါ။ <a1>ပုံကို အရွယ်အစားအပြည့်ဖြင့် ဖွင့်ပါ</a1>"
     },
     {
       "source": "Runを押す操作とは別です",
@@ -481,6 +493,34 @@
     {
       "source": "処理が終わるまで待ちます。",
       "translation": "လုပ်ဆောင်မှု ပြီးဆုံးသည်အထိ စောင့်ပါ။"
+    },
+    {
+      "source": "終わると、Android Studioの右下に <strong>Generate APKs</strong> という通知が出ます。通知の中の青い文字 <strong>locate</strong>（場所を開く）をクリックします。",
+      "translation": "ပြီးဆုံးလျှင် Android Studio ၏ ညာဘက်အောက်တွင် <strong>Generate APKs</strong> ဟူသော အသိပေးချက် ပေါ်လာမည်။ အသိပေးချက်ထဲရှိ အပြာရောင်စာသား <strong>locate</strong> (ဖိုင်တည်နေရာကို ဖွင့်ရန်) ကို ကလစ်နှိပ်ပါ။"
+    },
+    {
+      "source": "Android Studioの右下に出た通知。題名はGenerate APKs。本文はBuild completed successfullyで始まり、その中の青い文字locateが赤い枠で囲まれている",
+      "translation": "Android Studio ၏ ညာဘက်အောက်တွင် ပေါ်လာသော အသိပေးချက်။ ခေါင်းစဉ်မှာ Generate APKs ဖြစ်သည်။ စာကိုယ်သည် Build completed successfully ဖြင့် စပြီး ၎င်းထဲရှိ အပြာရောင်စာသား locate ကို အနီရောင်ဘောင် ခတ်ထားသည်"
+    },
+    {
+      "source": "通知の中の <strong>locate</strong> をクリックします。 <a1>画像を大きく開く</a1>",
+      "translation": "အသိပေးချက်ထဲရှိ <strong>locate</strong> ကို ကလစ်နှိပ်ပါ။ <a1>ပုံကို အရွယ်အစားအပြည့်ဖြင့် ဖွင့်ပါ</a1>"
+    },
+    {
+      "source": "Finderが開き、<code>debug</code> というフォルダの中に <code>app-debug.apk</code> が見えます。これが、今作ったAPKです。ファイルの並び方が下の画像と違っていても、<code>app-debug.apk</code> があれば大丈夫です。",
+      "translation": "Finder ပွင့်လာပြီး <code>debug</code> ဟုခေါ်သော ဖိုင်တွဲထဲတွင် <code>app-debug.apk</code> ကို မြင်ရမည်။ ၎င်းသည် ယခုဖန်တီးထားသော APK ဖြစ်သည်။ ဖိုင်များ စီထားပုံသည် အောက်ပါပုံနှင့် ကွာနေလည်း <code>app-debug.apk</code> ရှိလျှင် အဆင်ပြေသည်။"
+    },
+    {
+      "source": "Finderでdebugフォルダが開いたところ。中にapp-debug.apkとoutput-metadata.jsonがあり、app-debug.apkが赤い枠で囲まれている",
+      "translation": "Finder တွင် debug ဖိုင်တွဲ ပွင့်နေသည့်အခြေအနေ။ အထဲတွင် app-debug.apk နှင့် output-metadata.json ရှိပြီး app-debug.apk ကို အနီရောင်ဘောင် ခတ်ထားသည်"
+    },
+    {
+      "source": "赤い枠の <code>app-debug.apk</code> が、できあがったAPKです。 <a1>画像を大きく開く</a1>",
+      "translation": "အနီရောင်ဘောင်ရှိ <code>app-debug.apk</code> သည် ဖန်တီးရရှိသော APK ဖြစ်သည်။ <a1>ပုံကို အရွယ်အစားအပြည့်ဖြင့် ဖွင့်ပါ</a1>"
+    },
+    {
+      "source": "通知が消えてしまって <strong>locate</strong> をクリックできなかったときは、そのまま手順6へ進みます。同じフォルダをFinderから開く方法を、手順6に書いてあります。",
+      "translation": "အသိပေးချက် ပျောက်သွား၍ <strong>locate</strong> ကို ကလစ်မနှိပ်နိုင်ခဲ့လျှင် ထိုအတိုင်း အဆင့် 6 သို့ ဆက်သွားပါ။ တူညီသော ဖိုင်တွဲကို Finder မှ ဖွင့်နည်းကို အဆင့် 6 တွင် ရေးထားသည်။"
     },
     {
       "source": "教員と一緒に：メニューが見つからない場合",
@@ -513,6 +553,14 @@
     {
       "source": "はじめの1回だけ、提出するファイルを集めるフォルダを作ります。Finderで <strong>書類 → Android1</strong> を開き、上のメニューの <strong>ファイル → 新規フォルダ</strong> で、<code>提出用</code> という名前のフォルダを作ります。",
       "translation": "ပထမအကြိမ်တွင်သာ တင်သွင်းမည့်ဖိုင်များကို စုရန် ဖိုင်တွဲတစ်ခု ဖန်တီးပါ။ Finder တွင် <strong>書類 → Android1</strong> (Documents → Android1) ကို ဖွင့်ပြီး အပေါ်ရှိ menu မှ <strong>ファイル → 新規フォルダ</strong> (File → New Folder) ဖြင့် <code>提出用</code> ဟူသော အမည်ရှိ ဖိုင်တွဲကို ဖန်တီးပါ။"
+    },
+    {
+      "source": "次に、作ったAPKを探します。今回、手順5で <strong>locate</strong> をクリックした人は、そのとき開いたFinderのウィンドウを使います。<code>app-debug.apk</code> が見えていれば、そこが <code>debug</code> フォルダです。",
+      "translation": "ထို့နောက် ဖန်တီးထားသော APK ကို ရှာပါ။ ယခုအကြိမ် အဆင့် 5 တွင် <strong>locate</strong> ကို ကလစ်နှိပ်ခဲ့သူများသည် ထိုအချိန်က ပွင့်လာသော Finder window ကို သုံးပါ။ <code>app-debug.apk</code> ကို မြင်နေရလျှင် ထိုနေရာသည် <code>debug</code> ဖိုင်တွဲ ဖြစ်သည်။"
+    },
+    {
+      "source": "<strong>locate</strong> をクリックしていない人と、<code>app-debug.apk</code> が見えていない人は、Finderで <code>書類（Documents） → Android1 → 提出するプロジェクト名</code> の順に開き、<strong>app → build → outputs → apk → debug</strong> の順に進みます。前のアプリのときに開いたウィンドウは使いません。名前は同じ <code>debug</code> ですが、別のアプリのAPKが入っています。",
+      "translation": "<strong>locate</strong> ကို ကလစ်မနှိပ်ခဲ့သူများနှင့် <code>app-debug.apk</code> ကို မမြင်ရသူများသည် Finder တွင် <code>書類（Documents） → Android1 → 提出するプロジェクト名</code> အစီအစဉ်အတိုင်း ဖွင့်ပါ။ 提出するプロジェクト名 သည် တင်သွင်းမည့် project အမည်ကို ဆိုလိုသည်။ ထို့နောက် <strong>app → build → outputs → apk → debug</strong> အစီအစဉ်အတိုင်း သွားပါ။ ယခင် app ကို လုပ်စဉ်က ဖွင့်ခဲ့သော window ကို မသုံးပါနှင့်။ အမည်မှာ တူညီသော <code>debug</code> ဖြစ်သော်လည်း အခြား app ၏ APK ပါဝင်နေသည်။"
     },
     {
       "source": "HelloAndroidの場合の保存場所",
@@ -689,6 +737,10 @@
     {
       "source": "← もとのページへ戻る",
       "translation": "← လာခဲ့သော စာမျက်နှာသို့ ပြန်သွားရန်"
+    },
+    {
+      "source": "対象：macOS / Android Studio Panda 2 | 2025.3.2 · 画像：教員提供（手順5の3枚は、Android Studio Rabbit 2 | 2026.2.2 でAPKを作ったときの画面です。赤い枠の項目の名前は Panda 2 | 2025.3.2 と同じです） · 確認日：2026年11月11日",
+      "translation": "သက်ဆိုင်သည့်ပတ်ဝန်းကျင်: macOS / Android Studio Panda 2 | 2025.3.2 · ပုံများ: ဆရာပေးထားသည် (အဆင့် 5 ရှိ ပုံ 3 ပုံသည် Android Studio Rabbit 2 | 2026.2.2 ဖြင့် APK ကို ဖန်တီးစဉ်က မျက်နှာပြင်များ ဖြစ်သည်။ အနီရောင်ဘောင်ရှိ item များ၏ အမည်သည် Panda 2 | 2025.3.2 နှင့် တူညီသည်) · စစ်ဆေးသည့်ရက်: 2026 ခုနှစ် 11 လ 11 ရက်"
     }
   ]
 }

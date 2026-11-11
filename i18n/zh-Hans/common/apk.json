@@ -463,12 +463,24 @@
       "translation": "生成APK"
     },
     {
+      "source": "下の3枚の画像は、先生の画面の例です。<code>A07BillSplitter</code> と出ているところは、自分の画面では自分のプロジェクトの名前になります。赤い枠の外は、自分の画面と少し違っていても構いません。",
+      "translation": "下面的3张图片是老师界面的示例。显示<code>A07BillSplitter</code>的地方，在自己的界面中会是自己项目的名称。红框以外的部分，与自己的界面稍有不同也没关系。"
+    },
+    {
       "source": "上の <strong>Build</strong> メニューを開きます。",
       "translation": "打开顶部的<strong>Build</strong>菜单。"
     },
     {
       "source": "<strong>Generate App Bundles or APKs → Generate APKs</strong> を選びます。表示が異なるバージョンでは、<strong>Build App Bundle(s) / APK(s) → Build APK(s)</strong> という名前の場合があります。",
       "translation": "选择<strong>Generate App Bundles or APKs → Generate APKs</strong>。在显示不同的版本中，名称可能是<strong>Build App Bundle(s) / APK(s) → Build APK(s)</strong>。"
+    },
+    {
+      "source": "Android Studioの上のメニューでBuildを開いたところ。Buildと、メニューの中のGenerate App Bundles or APKsと、その右に出たGenerate APKsの3か所が、赤い枠で囲まれている",
+      "translation": "在Android Studio顶部菜单中打开Build后的状态。Build、菜单中的Generate App Bundles or APKs，以及其右侧出现的Generate APKs这3处用红框圈出"
+    },
+    {
+      "source": "赤い枠の3か所を、<strong>Build</strong> → <strong>Generate App Bundles or APKs</strong> → <strong>Generate APKs</strong> の順に選びます。 <a1>画像を大きく開く</a1>",
+      "translation": "按<strong>Build</strong> → <strong>Generate App Bundles or APKs</strong> → <strong>Generate APKs</strong>的顺序，选择红框标出的3处。<a1>查看大图</a1>"
     },
     {
       "source": "Runを押す操作とは別です",
@@ -481,6 +493,34 @@
     {
       "source": "処理が終わるまで待ちます。",
       "translation": "等待处理完成。"
+    },
+    {
+      "source": "終わると、Android Studioの右下に <strong>Generate APKs</strong> という通知が出ます。通知の中の青い文字 <strong>locate</strong>（場所を開く）をクリックします。",
+      "translation": "完成后，Android Studio右下方会出现名为<strong>Generate APKs</strong>的通知。点击通知中的蓝色文字<strong>locate</strong>（打开位置）。"
+    },
+    {
+      "source": "Android Studioの右下に出た通知。題名はGenerate APKs。本文はBuild completed successfullyで始まり、その中の青い文字locateが赤い枠で囲まれている",
+      "translation": "Android Studio右下方出现的通知。标题为Generate APKs。正文以Build completed successfully开头，其中的蓝色文字locate用红框圈出"
+    },
+    {
+      "source": "通知の中の <strong>locate</strong> をクリックします。 <a1>画像を大きく開く</a1>",
+      "translation": "点击通知中的<strong>locate</strong>。<a1>查看大图</a1>"
+    },
+    {
+      "source": "Finderが開き、<code>debug</code> というフォルダの中に <code>app-debug.apk</code> が見えます。これが、今作ったAPKです。ファイルの並び方が下の画像と違っていても、<code>app-debug.apk</code> があれば大丈夫です。",
+      "translation": "Finder会打开，在名为<code>debug</code>的文件夹中可以看到<code>app-debug.apk</code>。这就是刚制作的APK。即使文件的排列方式与下面的图片不同，只要有<code>app-debug.apk</code>就可以。"
+    },
+    {
+      "source": "Finderでdebugフォルダが開いたところ。中にapp-debug.apkとoutput-metadata.jsonがあり、app-debug.apkが赤い枠で囲まれている",
+      "translation": "在Finder中打开debug文件夹后的状态。里面有app-debug.apk和output-metadata.json，app-debug.apk用红框圈出"
+    },
+    {
+      "source": "赤い枠の <code>app-debug.apk</code> が、できあがったAPKです。 <a1>画像を大きく開く</a1>",
+      "translation": "红框中的<code>app-debug.apk</code>就是制作完成的APK。<a1>查看大图</a1>"
+    },
+    {
+      "source": "通知が消えてしまって <strong>locate</strong> をクリックできなかったときは、そのまま手順6へ進みます。同じフォルダをFinderから開く方法を、手順6に書いてあります。",
+      "translation": "如果通知已经消失，没能点击<strong>locate</strong>，就直接进入步骤6。步骤6中写有从Finder打开同一文件夹的方法。"
     },
     {
       "source": "教員と一緒に：メニューが見つからない場合",
@@ -513,6 +553,14 @@
     {
       "source": "はじめの1回だけ、提出するファイルを集めるフォルダを作ります。Finderで <strong>書類 → Android1</strong> を開き、上のメニューの <strong>ファイル → 新規フォルダ</strong> で、<code>提出用</code> という名前のフォルダを作ります。",
       "translation": "只需在第一次创建一个文件夹，用来集中存放要提交的文件。在Finder中打开<strong>書類 → Android1</strong>（文稿 → Android1），通过顶部菜单的<strong>ファイル → 新規フォルダ</strong>（文件 → 新建文件夹），创建名为<code>提出用</code>（用于提交）的文件夹。"
+    },
+    {
+      "source": "次に、作ったAPKを探します。今回、手順5で <strong>locate</strong> をクリックした人は、そのとき開いたFinderのウィンドウを使います。<code>app-debug.apk</code> が見えていれば、そこが <code>debug</code> フォルダです。",
+      "translation": "接下来查找制作好的APK。这次在步骤5中点击了<strong>locate</strong>的同学，使用当时打开的Finder窗口。如果能看到<code>app-debug.apk</code>，那里就是<code>debug</code>文件夹。"
+    },
+    {
+      "source": "<strong>locate</strong> をクリックしていない人と、<code>app-debug.apk</code> が見えていない人は、Finderで <code>書類（Documents） → Android1 → 提出するプロジェクト名</code> の順に開き、<strong>app → build → outputs → apk → debug</strong> の順に進みます。前のアプリのときに開いたウィンドウは使いません。名前は同じ <code>debug</code> ですが、別のアプリのAPKが入っています。",
+      "translation": "没有点击<strong>locate</strong>的同学，以及看不到<code>app-debug.apk</code>的同学，在Finder中按<code>書類（Documents） → Android1 → 提出するプロジェクト名</code>（文稿 → Android1 → 要提交的项目名称）的顺序打开，再依次进入<strong>app → build → outputs → apk → debug</strong>。不要使用操作前一个应用时打开的窗口。名称同样是<code>debug</code>，但里面放的是另一个应用的APK。"
     },
     {
       "source": "HelloAndroidの場合の保存場所",
@@ -689,6 +737,10 @@
     {
       "source": "← もとのページへ戻る",
       "translation": "← 返回原来的页面"
+    },
+    {
+      "source": "対象：macOS / Android Studio Panda 2 | 2025.3.2 · 画像：教員提供（手順5の3枚は、Android Studio Rabbit 2 | 2026.2.2 でAPKを作ったときの画面です。赤い枠の項目の名前は Panda 2 | 2025.3.2 と同じです） · 確認日：2026年11月11日",
+      "translation": "适用环境：macOS / Android Studio Panda 2 | 2025.3.2 · 图片：由老师提供（步骤5中的3张是在Android Studio Rabbit 2 | 2026.2.2中制作APK时的界面。红框中各项的名称与Panda 2 | 2025.3.2相同） · 确认日期：2026年11月11日"
     }
   ]
 }
