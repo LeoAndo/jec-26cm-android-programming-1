@@ -92,6 +92,9 @@
 | キャスト | cast | |
 | 半角 | half-width | |
 | 漢字の候補 | kanji candidates | |
+| 赤い枠 | red frame | 「赤い枠で囲まれている」「赤い枠で示した」は marked with a red frame |
+| 通知（Android Studioの右下に出るもの） | notification | 「Generate APKs という通知」は a **Generate APKs** notification |
+| 項目（画面の中の、名前の付いたもの） | item | メニュー・通知の中のリンク・ファイルをまとめて指すとき。設定で選ぶ項目は option / choice |
 
 ## 各単元で使う用語
 
@@ -118,6 +121,7 @@
 | 再挑戦（ボタン） | 「再挑戦」 (Retry) | 日本語の実画面ラベルを残す |
 | 勝負！（ボタン） | 「勝負！」 (Play!) | 日本語の実画面ラベルを残す |
 | 次の戦いへ（ボタン） | 「次の戦いへ」 (Next round) | 日本語の実画面ラベルを残す |
+| null（何も入っていないことを表す値） | null (a value that represents nothing being present) | A06・A07 |
 
 ## 共通資料の見出し
 
@@ -129,5 +133,6 @@
 | ログが出ないとき | If no log appears | |
 | 自動で追加されないとき | If imports are not added automatically | |
 | 開発Tips | Development tips | |
+| 提出課題とAPKの作り方 | Assignment and how to create an APK | 原文の改行タグは保持する |
 | 課題とAPKの作り方 | Assignment and how to create an APK | 原文の改行タグは保持する |
 | ちがうAndroid Studioのバージョンで進めるとき | Using a different version of Android Studio | 原文の改行タグは保持する |

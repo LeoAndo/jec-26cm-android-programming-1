@@ -108,7 +108,6 @@
 | ナビゲーションバー | barre de navigation | |
 | ビルド | build | 原文がその操作を説明するときは訳す |
 | レイアウト | layout | |
-
 | 割り勘 | partage de l'addition | 日本円で説明 |
 | 入力チェック | contrôle de saisie | |
 | 参加者 | participant | |
@@ -130,3 +129,8 @@
 | リスナ | écouteur | |
 | 三項演算子 | opérateur ternaire | |
 | 薄く出る（hintの文字） | estompé | 色を足さない。`gris` / `grisé` は「押せない・無効」の意味で使っているので避ける |
+| 通知（Android Studio の右下に出るもの） | notification | |
+| 項目（画面の中の、名前の付いたもの） | élément | メニュー・メニューの項目・通知のリンクをまとめて指すとき |
+| 赤い枠 | cadre rouge | 「赤い枠で囲まれている」は encadré en rouge |
+| 警告（Android Studio がコードに出すもの） | avertissement | |
+| null（何も入っていないことを表す値） | null (une valeur qui représente l'absence de contenu) | A06・A07 |

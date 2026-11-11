@@ -463,6 +463,10 @@
       "translation": "Generate the APK"
     },
     {
+      "source": "下の3枚の画像は、先生の画面の例です。<code>A07BillSplitter</code> と出ているところは、自分の画面では自分のプロジェクトの名前になります。赤い枠の外は、自分の画面と少し違っていても構いません。",
+      "translation": "The three images below are examples of the teacher's screen. Where the images show <code>A07BillSplitter</code>, your screen shows the name of your own project. It is fine if the parts outside the red frames are a little different from your screen."
+    },
+    {
       "source": "上の <strong>Build</strong> メニューを開きます。",
       "translation": "Open the <strong>Build</strong> menu at the top."
     },
@@ -471,12 +475,12 @@
       "translation": "Select <strong>Generate App Bundles or APKs → Generate APKs</strong>. In versions with different wording, it may be called <strong>Build App Bundle(s) / APK(s) → Build APK(s)</strong>."
     },
     {
-      "source": "処理が終わるまで待ちます。",
-      "translation": "Wait for the process to finish."
+      "source": "Android Studioの上のメニューでBuildを開いたところ。Buildと、メニューの中のGenerate App Bundles or APKsと、その右に出たGenerate APKsの3か所が、赤い枠で囲まれている",
+      "translation": "Build opened in the top menu of Android Studio. Three places are marked with red frames: Build, Generate App Bundles or APKs in the menu, and Generate APKs, which appeared to its right."
     },
     {
-      "source": "完了通知に <strong>locate</strong>（場所を開く）があればクリックします。",
-      "translation": "If the completion notification has a <strong>locate</strong> link, click it to open the file location."
+      "source": "赤い枠の3か所を、<strong>Build</strong> → <strong>Generate App Bundles or APKs</strong> → <strong>Generate APKs</strong> の順に選びます。 <a1>画像を大きく開く</a1>",
+      "translation": "Select the three places marked with red frames in this order: <strong>Build</strong> → <strong>Generate App Bundles or APKs</strong> → <strong>Generate APKs</strong>. <a1>Open the full-size image</a1>"
     },
     {
       "source": "Runを押す操作とは別です",
@@ -485,6 +489,38 @@
     {
       "source": "提出するときは、このメニューからAPKを作ります。項目が見つからない場合は、メニューを開いたまま先生に見せてください。",
       "translation": "Create the APK from this menu when you submit your work. If you cannot find the option, leave the menu open and show your teacher."
+    },
+    {
+      "source": "処理が終わるまで待ちます。",
+      "translation": "Wait for the process to finish."
+    },
+    {
+      "source": "終わると、Android Studioの右下に <strong>Generate APKs</strong> という通知が出ます。通知の中の青い文字 <strong>locate</strong>（場所を開く）をクリックします。",
+      "translation": "When it finishes, a <strong>Generate APKs</strong> notification appears at the bottom right of Android Studio. Click the blue text <strong>locate</strong> in the notification to open the file location."
+    },
+    {
+      "source": "Android Studioの右下に出た通知。題名はGenerate APKs。本文はBuild completed successfullyで始まり、その中の青い文字locateが赤い枠で囲まれている",
+      "translation": "The notification that appeared at the bottom right of Android Studio. Its title is Generate APKs. Its message starts with Build completed successfully, and the blue text locate in the message is marked with a red frame."
+    },
+    {
+      "source": "通知の中の <strong>locate</strong> をクリックします。 <a1>画像を大きく開く</a1>",
+      "translation": "Click <strong>locate</strong> in the notification. <a1>Open the full-size image</a1>"
+    },
+    {
+      "source": "Finderが開き、<code>debug</code> というフォルダの中に <code>app-debug.apk</code> が見えます。これが、今作ったAPKです。ファイルの並び方が下の画像と違っていても、<code>app-debug.apk</code> があれば大丈夫です。",
+      "translation": "Finder opens, and you can see <code>app-debug.apk</code> in a folder named <code>debug</code>. This is the APK you just created. The files may be arranged differently from the image below, but that is fine as long as <code>app-debug.apk</code> is there."
+    },
+    {
+      "source": "Finderでdebugフォルダが開いたところ。中にapp-debug.apkとoutput-metadata.jsonがあり、app-debug.apkが赤い枠で囲まれている",
+      "translation": "The debug folder opened in Finder. It contains app-debug.apk and output-metadata.json, and app-debug.apk is marked with a red frame."
+    },
+    {
+      "source": "赤い枠の <code>app-debug.apk</code> が、できあがったAPKです。 <a1>画像を大きく開く</a1>",
+      "translation": "The <code>app-debug.apk</code> in the red frame is the finished APK. <a1>Open the full-size image</a1>"
+    },
+    {
+      "source": "通知が消えてしまって <strong>locate</strong> をクリックできなかったときは、そのまま手順6へ進みます。同じフォルダをFinderから開く方法を、手順6に書いてあります。",
+      "translation": "If the notification disappeared and you could not click <strong>locate</strong>, just go on to step 6. Step 6 explains how to open the same folder from Finder."
     },
     {
       "source": "教員と一緒に：メニューが見つからない場合",
@@ -519,8 +555,12 @@
       "translation": "Only the first time, create a folder to collect the files you will submit. In Finder, open <strong>書類 → Android1</strong> (Documents → Android1), then use <strong>ファイル → 新規フォルダ</strong> (File → New Folder) in the top menu to create a folder named <code>提出用</code> (for submission)."
     },
     {
-      "source": "次に、作ったAPKを探します。Finderで <code>書類（Documents） → Android1 → 提出するプロジェクト名</code> の順に開き、<strong>app → build → outputs → apk → debug</strong> の順に進みます。",
-      "translation": "Next, find the APK you created. In Finder, open <code>書類（Documents） → Android1 → 提出するプロジェクト名</code> in that order (提出するプロジェクト名 means the name of the project you will submit). Then follow <strong>app → build → outputs → apk → debug</strong>."
+      "source": "次に、作ったAPKを探します。今回、手順5で <strong>locate</strong> をクリックした人は、そのとき開いたFinderのウィンドウを使います。<code>app-debug.apk</code> が見えていれば、そこが <code>debug</code> フォルダです。",
+      "translation": "Next, find the APK you created. If you clicked <strong>locate</strong> in step 5 this time, use the Finder window that opened then. If you can see <code>app-debug.apk</code>, that is the <code>debug</code> folder."
+    },
+    {
+      "source": "<strong>locate</strong> をクリックしていない人と、<code>app-debug.apk</code> が見えていない人は、Finderで <code>書類（Documents） → Android1 → 提出するプロジェクト名</code> の順に開き、<strong>app → build → outputs → apk → debug</strong> の順に進みます。前のアプリのときに開いたウィンドウは使いません。名前は同じ <code>debug</code> ですが、別のアプリのAPKが入っています。",
+      "translation": "If you did not click <strong>locate</strong>, or if you cannot see <code>app-debug.apk</code>, open <code>書類（Documents） → Android1 → 提出するプロジェクト名</code> in Finder, in that order (提出するプロジェクト名 means the name of the project you will submit). Then follow <strong>app → build → outputs → apk → debug</strong>. Do not use a window that was opened for a previous app. The folder in that window has the same name, <code>debug</code>, but it contains a different app's APK."
     },
     {
       "source": "HelloAndroidの場合の保存場所",
@@ -699,8 +739,8 @@
       "translation": "← Back to the page you came from"
     },
     {
-      "source": "対象：macOS / Android Studio Panda 2 | 2025.3.2 · 画像：教員提供 · 確認日：2026年9月20日",
-      "translation": "For: macOS / Android Studio Panda 2 | 2025.3.2 · Images: provided by the teacher · Checked on: September 20, 2026"
+      "source": "対象：macOS / Android Studio Panda 2 | 2025.3.2 · 画像：教員提供（手順5の3枚は、Android Studio Rabbit 2 | 2026.2.2 でAPKを作ったときの画面です。赤い枠の項目の名前は Panda 2 | 2025.3.2 と同じです） · 確認日：2026年11月11日",
+      "translation": "For: macOS / Android Studio Panda 2 | 2025.3.2 · Images: provided by the teacher (the three images in step 5 show the screens when an APK was created in Android Studio Rabbit 2 | 2026.2.2; the names of the items in the red frames are the same as in Panda 2 | 2025.3.2) · Checked on: November 11, 2026"
     }
   ]
 }

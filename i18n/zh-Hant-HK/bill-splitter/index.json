@@ -795,8 +795,16 @@
       "translation": "BillSplitActivity.java · onCreate 內"
     },
     {
-      "source": "<code>getIntent()</code> は、この画面を開いたときのIntent（①の <code>start</code> で作って <code>startActivity</code> に渡したもの）を返します。<code>getStringArrayExtra(EXTRA_KEY_PARTICIPANTS)</code> は、そのIntentから、①で <code>putExtra</code> したのと同じキーの配列を取り出します。値が入っていないと <code>null</code> を返します。<code>Objects.requireNonNull</code> は、<code>null</code> だったらその場でアプリを止める書き方です。ここが <code>null</code> になるのは渡し忘れというプログラムの間違いのときだけなので、すぐ気づけるようにしておきます。",
-      "translation": "<code>getIntent()</code> 回傳開啟這個畫面時的 Intent（在①的 <code>start</code> 建立，再傳給 <code>startActivity</code> 的物件）。<code>getStringArrayExtra(EXTRA_KEY_PARTICIPANTS)</code> 從該 Intent 取出陣列，使用的鍵與①中 <code>putExtra</code> 時相同。沒有值時會回傳 <code>null</code>。<code>Objects.requireNonNull</code> 是在值為 <code>null</code> 時立即停止應用程式的寫法。這裏只有在忘記傳值這種程式錯誤發生時，才會變成 <code>null</code>，所以讓問題能立即被發現。"
+      "source": "<code>getIntent()</code> は、この画面を開いたときのIntent（①の <code>start</code> で作って <code>startActivity</code> に渡したもの）を返します。<code>getStringArrayExtra(EXTRA_KEY_PARTICIPANTS)</code> は、そのIntentから、①で <code>putExtra</code> したのと同じキーの配列を取り出します。",
+      "translation": "<code>getIntent()</code> 回傳開啟這個畫面時的 Intent（在①的 <code>start</code> 建立，再傳給 <code>startActivity</code> 的物件）。<code>getStringArrayExtra(EXTRA_KEY_PARTICIPANTS)</code> 從該 Intent 取出陣列，使用的鍵與①中 <code>putExtra</code> 時相同。"
+    },
+    {
+      "source": "値が入っていないと、<code>getStringArrayExtra</code> は <code>null</code>（何も入っていないことを表す値）を返します。<code>null</code> のまま <code>participants.length</code> を使うと、アプリが終了します。この画面を開くのは①の <code>start</code> だけで、<code>start</code> は必ず配列を入れます。①のとおりに書いてあれば、<code>null</code> にはなりません。",
+      "translation": "沒有值時，<code>getStringArrayExtra</code> 會回傳 <code>null</code>（表示沒有放入任何內容的值）。如果在仍是 <code>null</code> 的狀態下使用 <code>participants.length</code>，應用程式會結束。開啟這個畫面的只有①的 <code>start</code>，而 <code>start</code> 一定會放入陣列。只要按照①編寫，就不會是 <code>null</code>。"
+    },
+    {
+      "source": "Android Studioは、<code>start</code> が必ず配列を入れることまでは分かりません。そのため、<code>participants.length</code> の <code>participants</code> に警告（<code>Dereference of 'participants' may produce 'NullPointerException'</code>）を出します。「<code>null</code> かもしれない」という意味です。警告が出ていてもRunできるので、直さずにそのまま進みます。",
+      "translation": "Android Studio 並不知道 <code>start</code> 一定會放入陣列。因此，會在 <code>participants.length</code> 的 <code>participants</code> 顯示警告（<code>Dereference of 'participants' may produce 'NullPointerException'</code>）。這個警告的意思是「可能是 <code>null</code>」。即使有警告，也能 Run，所以不必修正，保持原樣繼續。"
     },
     {
       "source": "③ 渡す側（MainActivity）から呼ぶ",
@@ -875,6 +883,10 @@
       "translation": "STEP 02 的標題圖片是用 Finder 複製整個檔案。程式碼是文字，因此不必使用 Finder，可以直接從這本教科書的頁面複製。"
     },
     {
+      "source": "<code>BillSplitter.java</code> のコードにだけ、特別に <strong>コピー</strong> ボタンを付けてあります。長くて、読まなくてよいコードだからです。ほかのコードにボタンはありません。ほかのコードは、書き方を身につけるために、自分で入力します。",
+      "translation": "只有 <code>BillSplitter.java</code> 的程式碼，特別加上了 <strong>複製</strong> 按鈕。這是因為這段程式碼很長，而且不必閱讀。其他程式碼沒有按鈕。為了掌握寫法，其他程式碼要自己輸入。"
+    },
+    {
       "source": "① 空のファイルを作る",
       "translation": "① 建立空白檔案"
     },
@@ -907,8 +919,8 @@
       "translation": "② 替換全部內容"
     },
     {
-      "source": "下のコード全体を選んでコピー（<kbd>⌘ C</kbd>）します。",
-      "translation": "選取並複製下面的全部程式碼（<kbd>⌘ C</kbd>）。"
+      "source": "下のコードの見出し <strong>BillSplitter.java · 全体を置き換える</strong> にある <strong>コピー</strong> ボタンを押します。<strong>コピーしました</strong> に変われば成功です。ブラウザによっては <strong>⌘ Cでコピー</strong> に変わり、コードが選ばれた状態になります。そのときは、そのまま <kbd>⌘ C</kbd> を押します。",
+      "translation": "按下方程式碼標題 <strong>BillSplitter.java · 替換全部內容</strong> 旁的 <strong>複製</strong> 按鈕。變成 <strong>已複製</strong> 就表示成功。某些瀏覽器會變成 <strong>按 ⌘ C 複製</strong>，並選取程式碼。這時直接按 <kbd>⌘ C</kbd>。"
     },
     {
       "source": "Android Studioに戻り、開いている <code>BillSplitter.java</code> の中をクリックして <kbd>⌘ A</kbd> で全部選びます。<strong>最初から入っている <code>package</code> の行とクラスの宣言も、いっしょに選びます。</strong>これを残したまま貼り付けると、同じものが2つ並んでエラーになります。",
@@ -925,6 +937,10 @@
     {
       "source": "コードは長いので、貼り付けが終わったら<a1>③ 使い方</a1>まで飛ばして構いません。",
       "translation": "程式碼較長，貼上完成後可以直接跳到<a1>③ 使用方法</a1>。"
+    },
+    {
+      "source": "<strong>コピー</strong> ボタンが出てこないときは、下のコードを、1行目の <code>package</code> から最後の <code>}</code> まで全部選び、<kbd>⌘ C</kbd> でコピーします。",
+      "translation": "<strong>複製</strong> 按鈕沒有出現時，將下面的程式碼由第一行的 <code>package</code> 到最後的 <code>}</code> 全部選取，再按 <kbd>⌘ C</kbd> 複製。"
     },
     {
       "source": "BillSplitter.java · 全体を置き換える",
@@ -1443,12 +1459,12 @@
       "translation": "確認 STEP 07 已加入 <code>BillSplitter.java</code>，而且位置與 <code>MainActivity.java</code> 相同。也檢查第一行的 <code>package</code>。"
     },
     {
-      "source": "<code>Snackbar</code>・<code>ArrayList</code>・<code>Objects</code>・<code>EditText</code>・<code>TextView</code> が赤い",
-      "translation": "<code>Snackbar</code>、<code>ArrayList</code>、<code>Objects</code>、<code>EditText</code>、<code>TextView</code> 變紅"
+      "source": "<code>Snackbar</code>・<code>ArrayList</code>・<code>EditText</code>・<code>TextView</code> が赤い",
+      "translation": "<code>Snackbar</code>、<code>ArrayList</code>、<code>EditText</code>、<code>TextView</code> 變紅"
     },
     {
-      "source": "<kbd>⌥ Enter</kbd> で <code>com.google.android.material.snackbar.Snackbar</code>、<code>java.util.ArrayList</code>、<code>java.util.Objects</code>、<code>android.widget.EditText</code>、<code>android.widget.TextView</code> を選ぶ。",
-      "translation": "用 <kbd>⌥ Enter</kbd> 選取 <code>com.google.android.material.snackbar.Snackbar</code>、<code>java.util.ArrayList</code>、<code>java.util.Objects</code>、<code>android.widget.EditText</code>、<code>android.widget.TextView</code>。"
+      "source": "<kbd>⌥ Enter</kbd> で <code>com.google.android.material.snackbar.Snackbar</code>、<code>java.util.ArrayList</code>、<code>android.widget.EditText</code>、<code>android.widget.TextView</code> を選ぶ。",
+      "translation": "用 <kbd>⌥ Enter</kbd> 選取 <code>com.google.android.material.snackbar.Snackbar</code>、<code>java.util.ArrayList</code>、<code>android.widget.EditText</code>、<code>android.widget.TextView</code>。"
     },
     {
       "source": "<code>start(…)</code> が赤い（MainActivity）",
@@ -1467,8 +1483,8 @@
       "translation": "按「ワリカン画面へ」（前往分攤畫面）後應用程式結束"
     },
     {
-      "source": "Logcatを <code>level:ERROR</code> にして <code>ActivityNotFoundException</code> か確認。<code>AndroidManifest.xml</code> に <code>android:name=\".BillSplitActivity\"</code> の <code>&lt;activity&gt;</code> があるか見る。New → Java Classで作ると登録されない。",
-      "translation": "將 Logcat 設為 <code>level:ERROR</code>，確認是否為 <code>ActivityNotFoundException</code>。查看 <code>AndroidManifest.xml</code> 是否有 <code>android:name=\".BillSplitActivity\"</code> 的 <code>&lt;activity&gt;</code>。用 New → Java Class 建立時不會登記。"
+      "source": "Logcatを <code>level:ERROR</code> にして <code>ActivityNotFoundException</code> か確認。<code>AndroidManifest.xml</code> に <code>android:name=\".BillSplitActivity\"</code> の <code>&lt;activity&gt;</code> があるか見る。New → Java Classで作ると登録されない。エラーの下のほうの <code>Caused by:</code> の行に <code>NullPointerException</code> とあるときは、STEP 06①の <code>start</code> に <code>starter.putExtra(EXTRA_KEY_PARTICIPANTS, participants);</code> の行があるか見る。",
+      "translation": "將 Logcat 設為 <code>level:ERROR</code>，確認是否為 <code>ActivityNotFoundException</code>。查看 <code>AndroidManifest.xml</code> 是否有 <code>android:name=\".BillSplitActivity\"</code> 的 <code>&lt;activity&gt;</code>。用 New → Java Class 建立時不會登記。如果錯誤較下方的 <code>Caused by:</code> 那一行寫着 <code>NullPointerException</code>，查看 STEP 06① 的 <code>start</code> 是否有 <code>starter.putExtra(EXTRA_KEY_PARTICIPANTS, participants);</code> 這一行。"
     },
     {
       "source": "アプリ一覧のアイコンが2つある（Runすると何もない画面から始まることがある）",
