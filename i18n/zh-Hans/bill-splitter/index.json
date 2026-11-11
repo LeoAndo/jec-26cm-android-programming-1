@@ -795,10 +795,6 @@
       "translation": "BillSplitActivity.java · onCreate内"
     },
     {
-      "source": "<code>getIntent()</code> は、この画面を開いたときのIntent（①の <code>start</code> で作って <code>startActivity</code> に渡したもの）を返します。<code>getStringArrayExtra(EXTRA_KEY_PARTICIPANTS)</code> は、そのIntentから、①で <code>putExtra</code> したのと同じキーの配列を取り出します。値が入っていないと <code>null</code> を返します。<code>Objects.requireNonNull</code> は、<code>null</code> だったらその場でアプリを止める書き方です。ここが <code>null</code> になるのは渡し忘れというプログラムの間違いのときだけなので、すぐ気づけるようにしておきます。",
-      "translation": "<code>getIntent()</code>返回打开此界面时的Intent（在①的<code>start</code>中创建并传给<code>startActivity</code>的对象）。<code>getStringArrayExtra(EXTRA_KEY_PARTICIPANTS)</code>从此Intent中，取出与①的<code>putExtra</code>使用同一个键的数组。没有值时返回<code>null</code>。<code>Objects.requireNonNull</code>是在值为<code>null</code>时立即停止应用的写法。只有忘记传值这类程序错误才会使这里变为<code>null</code>，因此让问题能立即被发现。"
-    },
-    {
       "source": "③ 渡す側（MainActivity）から呼ぶ",
       "translation": "③ 从发送端（MainActivity）调用"
     },
@@ -905,10 +901,6 @@
     {
       "source": "② 中身を全部入れ替える",
       "translation": "② 替换全部内容"
-    },
-    {
-      "source": "下のコード全体を選んでコピー（<kbd>⌘ C</kbd>）します。",
-      "translation": "选中并复制下面的全部代码（<kbd>⌘ C</kbd>）。"
     },
     {
       "source": "Android Studioに戻り、開いている <code>BillSplitter.java</code> の中をクリックして <kbd>⌘ A</kbd> で全部選びます。<strong>最初から入っている <code>package</code> の行とクラスの宣言も、いっしょに選びます。</strong>これを残したまま貼り付けると、同じものが2つ並んでエラーになります。",
@@ -1443,14 +1435,6 @@
       "translation": "检查STEP 07是否放入了<code>BillSplitter.java</code>，位置是否与<code>MainActivity.java</code>相同。也检查第一行的<code>package</code>。"
     },
     {
-      "source": "<code>Snackbar</code>・<code>ArrayList</code>・<code>Objects</code>・<code>EditText</code>・<code>TextView</code> が赤い",
-      "translation": "<code>Snackbar</code>、<code>ArrayList</code>、<code>Objects</code>、<code>EditText</code>、<code>TextView</code>显示为红色"
-    },
-    {
-      "source": "<kbd>⌥ Enter</kbd> で <code>com.google.android.material.snackbar.Snackbar</code>、<code>java.util.ArrayList</code>、<code>java.util.Objects</code>、<code>android.widget.EditText</code>、<code>android.widget.TextView</code> を選ぶ。",
-      "translation": "按<kbd>⌥ Enter</kbd>，选择<code>com.google.android.material.snackbar.Snackbar</code>、<code>java.util.ArrayList</code>、<code>java.util.Objects</code>、<code>android.widget.EditText</code>、<code>android.widget.TextView</code>。"
-    },
-    {
       "source": "<code>start(…)</code> が赤い（MainActivity）",
       "translation": "<code>start(…)</code>显示为红色（MainActivity）"
     },
@@ -1465,10 +1449,6 @@
     {
       "source": "ワリカン画面へを押すとアプリが終了する",
       "translation": "点击「ワリカン画面へ」（前往分摊界面）后应用关闭"
-    },
-    {
-      "source": "Logcatを <code>level:ERROR</code> にして <code>ActivityNotFoundException</code> か確認。<code>AndroidManifest.xml</code> に <code>android:name=\".BillSplitActivity\"</code> の <code>&lt;activity&gt;</code> があるか見る。New → Java Classで作ると登録されない。",
-      "translation": "将Logcat设为<code>level:ERROR</code>，检查是否为<code>ActivityNotFoundException</code>。查看<code>AndroidManifest.xml</code>中是否有设置了<code>android:name=\".BillSplitActivity\"</code>的<code>&lt;activity&gt;</code>。通过New → Java Class创建时不会登记。"
     },
     {
       "source": "アプリ一覧のアイコンが2つある（Runすると何もない画面から始まることがある）",

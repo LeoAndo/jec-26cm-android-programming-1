@@ -795,10 +795,6 @@
       "translation": "BillSplitActivity.java · Dans onCreate"
     },
     {
-      "source": "<code>getIntent()</code> は、この画面を開いたときのIntent（①の <code>start</code> で作って <code>startActivity</code> に渡したもの）を返します。<code>getStringArrayExtra(EXTRA_KEY_PARTICIPANTS)</code> は、そのIntentから、①で <code>putExtra</code> したのと同じキーの配列を取り出します。値が入っていないと <code>null</code> を返します。<code>Objects.requireNonNull</code> は、<code>null</code> だったらその場でアプリを止める書き方です。ここが <code>null</code> になるのは渡し忘れというプログラムの間違いのときだけなので、すぐ気づけるようにしておきます。",
-      "translation": "<code>getIntent()</code> renvoie l'Intent qui a ouvert cet écran (créé dans <code>start</code> en ① et transmis à <code>startActivity</code>). <code>getStringArrayExtra(EXTRA_KEY_PARTICIPANTS)</code> en extrait le tableau associé à la même clé que celle utilisée par <code>putExtra</code> en ①. En l'absence de valeur, il renvoie <code>null</code>. <code>Objects.requireNonNull</code> arrête immédiatement l'application si la valeur est <code>null</code>. Ici, <code>null</code> ne peut venir que d'une erreur du programme, l'oubli de transmettre les données : cet arrêt permet de la remarquer immédiatement."
-    },
-    {
       "source": "③ 渡す側（MainActivity）から呼ぶ",
       "translation": "③ Appeler depuis le côté qui transmet (MainActivity)"
     },
@@ -905,10 +901,6 @@
     {
       "source": "② 中身を全部入れ替える",
       "translation": "② Remplacer tout le contenu"
-    },
-    {
-      "source": "下のコード全体を選んでコピー（<kbd>⌘ C</kbd>）します。",
-      "translation": "Sélectionnez l'ensemble du code ci-dessous et copiez-le (<kbd>⌘ C</kbd>)."
     },
     {
       "source": "Android Studioに戻り、開いている <code>BillSplitter.java</code> の中をクリックして <kbd>⌘ A</kbd> で全部選びます。<strong>最初から入っている <code>package</code> の行とクラスの宣言も、いっしょに選びます。</strong>これを残したまま貼り付けると、同じものが2つ並んでエラーになります。",
@@ -1443,14 +1435,6 @@
       "translation": "Vérifiez que vous avez ajouté <code>BillSplitter.java</code> au STEP 07, au même endroit que <code>MainActivity.java</code>. Vérifiez aussi le <code>package</code> de la première ligne."
     },
     {
-      "source": "<code>Snackbar</code>・<code>ArrayList</code>・<code>Objects</code>・<code>EditText</code>・<code>TextView</code> が赤い",
-      "translation": "<code>Snackbar</code>, <code>ArrayList</code>, <code>Objects</code>, <code>EditText</code> ou <code>TextView</code> apparaît en rouge"
-    },
-    {
-      "source": "<kbd>⌥ Enter</kbd> で <code>com.google.android.material.snackbar.Snackbar</code>、<code>java.util.ArrayList</code>、<code>java.util.Objects</code>、<code>android.widget.EditText</code>、<code>android.widget.TextView</code> を選ぶ。",
-      "translation": "Avec <kbd>⌥ Enter</kbd>, choisissez <code>com.google.android.material.snackbar.Snackbar</code>, <code>java.util.ArrayList</code>, <code>java.util.Objects</code>, <code>android.widget.EditText</code> et <code>android.widget.TextView</code>."
-    },
-    {
       "source": "<code>start(…)</code> が赤い（MainActivity）",
       "translation": "<code>start(…)</code> apparaît en rouge (MainActivity)"
     },
@@ -1465,10 +1449,6 @@
     {
       "source": "ワリカン画面へを押すとアプリが終了する",
       "translation": "L'application se ferme après un appui sur 「ワリカン画面へ」 (Vers l'écran de partage)"
-    },
-    {
-      "source": "Logcatを <code>level:ERROR</code> にして <code>ActivityNotFoundException</code> か確認。<code>AndroidManifest.xml</code> に <code>android:name=\".BillSplitActivity\"</code> の <code>&lt;activity&gt;</code> があるか見る。New → Java Classで作ると登録されない。",
-      "translation": "Réglez Logcat sur <code>level:ERROR</code> et vérifiez s'il s'agit d'une <code>ActivityNotFoundException</code>. Vérifiez que <code>AndroidManifest.xml</code> contient un <code>&lt;activity&gt;</code> avec <code>android:name=\".BillSplitActivity\"</code>. Une création avec New → Java Class n'effectue pas cet enregistrement."
     },
     {
       "source": "アプリ一覧のアイコンが2つある（Runすると何もない画面から始まることがある）",

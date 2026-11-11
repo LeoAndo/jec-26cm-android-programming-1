@@ -795,10 +795,6 @@
       "translation": "BillSplitActivity.java · onCreate дотор"
     },
     {
-      "source": "<code>getIntent()</code> は、この画面を開いたときのIntent（①の <code>start</code> で作って <code>startActivity</code> に渡したもの）を返します。<code>getStringArrayExtra(EXTRA_KEY_PARTICIPANTS)</code> は、そのIntentから、①で <code>putExtra</code> したのと同じキーの配列を取り出します。値が入っていないと <code>null</code> を返します。<code>Objects.requireNonNull</code> は、<code>null</code> だったらその場でアプリを止める書き方です。ここが <code>null</code> になるのは渡し忘れというプログラムの間違いのときだけなので、すぐ気づけるようにしておきます。",
-      "translation": "<code>getIntent()</code> нь энэ дэлгэцийг нээсэн Intent-ийг (①-ийн <code>start</code>-д үүсгээд <code>startActivity</code>-д дамжуулсан зүйл) буцаана. <code>getStringArrayExtra(EXTRA_KEY_PARTICIPANTS)</code> нь тэр Intent-ээс ①-д <code>putExtra</code> хийхэд ашигласан түлхүүртэй массивыг гаргана. Утга байхгүй бол <code>null</code> буцаана. <code>Objects.requireNonNull</code> нь <code>null</code> байвал аппыг тэр дор нь зогсоох бичлэг юм. Дамжуулахаа мартсан програмын алдаатай үед л энд <code>null</code> болох тул тэр даруй анзаарахаар болгож байна."
-    },
-    {
       "source": "③ 渡す側（MainActivity）から呼ぶ",
       "translation": "③ Дамжуулах талаас (MainActivity) дуудах"
     },
@@ -905,10 +901,6 @@
     {
       "source": "② 中身を全部入れ替える",
       "translation": "② Доторхыг бүхэлд нь солих"
-    },
-    {
-      "source": "下のコード全体を選んでコピー（<kbd>⌘ C</kbd>）します。",
-      "translation": "Доорх кодыг бүтнээр нь сонгоод хуулна (<kbd>⌘ C</kbd>)."
     },
     {
       "source": "Android Studioに戻り、開いている <code>BillSplitter.java</code> の中をクリックして <kbd>⌘ A</kbd> で全部選びます。<strong>最初から入っている <code>package</code> の行とクラスの宣言も、いっしょに選びます。</strong>これを残したまま貼り付けると、同じものが2つ並んでエラーになります。",
@@ -1443,14 +1435,6 @@
       "translation": "STEP 07-д <code>BillSplitter.java</code>-г байрлуулсан эсэх, <code>MainActivity.java</code>-тай ижил газар байгаа эсэхийг шалгана уу. Эхний мөрийн <code>package</code>-ийг мөн харна уу."
     },
     {
-      "source": "<code>Snackbar</code>・<code>ArrayList</code>・<code>Objects</code>・<code>EditText</code>・<code>TextView</code> が赤い",
-      "translation": "<code>Snackbar</code>, <code>ArrayList</code>, <code>Objects</code>, <code>EditText</code>, <code>TextView</code> улаан байна"
-    },
-    {
-      "source": "<kbd>⌥ Enter</kbd> で <code>com.google.android.material.snackbar.Snackbar</code>、<code>java.util.ArrayList</code>、<code>java.util.Objects</code>、<code>android.widget.EditText</code>、<code>android.widget.TextView</code> を選ぶ。",
-      "translation": "<kbd>⌥ Enter</kbd>-ээр <code>com.google.android.material.snackbar.Snackbar</code>, <code>java.util.ArrayList</code>, <code>java.util.Objects</code>, <code>android.widget.EditText</code>, <code>android.widget.TextView</code>-ийг сонгоно уу."
-    },
-    {
       "source": "<code>start(…)</code> が赤い（MainActivity）",
       "translation": "<code>start(…)</code> улаан байна (MainActivity)"
     },
@@ -1465,10 +1449,6 @@
     {
       "source": "ワリカン画面へを押すとアプリが終了する",
       "translation": "「ワリカン画面へ」 (төлбөр хуваах дэлгэц рүү)-г дарахад апп хаагдана"
-    },
-    {
-      "source": "Logcatを <code>level:ERROR</code> にして <code>ActivityNotFoundException</code> か確認。<code>AndroidManifest.xml</code> に <code>android:name=\".BillSplitActivity\"</code> の <code>&lt;activity&gt;</code> があるか見る。New → Java Classで作ると登録されない。",
-      "translation": "Logcat-ийг <code>level:ERROR</code> болгож, <code>ActivityNotFoundException</code> мөн эсэхийг шалгана уу. <code>AndroidManifest.xml</code>-д <code>android:name=\".BillSplitActivity\"</code> бүхий <code>&lt;activity&gt;</code> байгаа эсэхийг харна уу. New → Java Class-аар үүсгэвэл бүртгэгдэхгүй."
     },
     {
       "source": "アプリ一覧のアイコンが2つある（Runすると何もない画面から始まることがある）",

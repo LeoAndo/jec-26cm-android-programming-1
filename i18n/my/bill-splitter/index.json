@@ -795,10 +795,6 @@
       "translation": "BillSplitActivity.java · onCreate ထဲတွင်"
     },
     {
-      "source": "<code>getIntent()</code> は、この画面を開いたときのIntent（①の <code>start</code> で作って <code>startActivity</code> に渡したもの）を返します。<code>getStringArrayExtra(EXTRA_KEY_PARTICIPANTS)</code> は、そのIntentから、①で <code>putExtra</code> したのと同じキーの配列を取り出します。値が入っていないと <code>null</code> を返します。<code>Objects.requireNonNull</code> は、<code>null</code> だったらその場でアプリを止める書き方です。ここが <code>null</code> になるのは渡し忘れというプログラムの間違いのときだけなので、すぐ気づけるようにしておきます。",
-      "translation": "<code>getIntent()</code> သည် ဤမျက်နှာပြင်ကို ဖွင့်ခဲ့သည့် Intent (① ၏ <code>start</code> တွင် ဖန်တီးပြီး <code>startActivity</code> သို့ ပေးပို့ခဲ့သည့် Intent) ကို ပြန်ပေးသည်။ <code>getStringArrayExtra(EXTRA_KEY_PARTICIPANTS)</code> သည် ထို Intent ထဲမှ ① တွင် <code>putExtra</code> လုပ်ခဲ့သည့် key အတိုင်း array ကို ထုတ်ယူသည်။ တန်ဖိုး မပါလျှင် <code>null</code> ကို ပြန်ပေးသည်။ <code>Objects.requireNonNull</code> သည် <code>null</code> ဖြစ်လျှင် ထိုနေရာတွင်ပင် app ကို ရပ်စေသော ရေးနည်း ဖြစ်သည်။ ဤနေရာ <code>null</code> ဖြစ်ရသည်မှာ ပေးပို့ရန် မေ့ခဲ့သည့် program အမှားကြောင့်သာ ဖြစ်သဖြင့် ချက်ချင်း သတိပြုမိစေရန် ဤသို့ ရေးထားသည်။"
-    },
-    {
       "source": "③ 渡す側（MainActivity）から呼ぶ",
       "translation": "③ ပေးပို့သည့်ဘက် (MainActivity) မှ ခေါ်ခြင်း"
     },
@@ -905,10 +901,6 @@
     {
       "source": "② 中身を全部入れ替える",
       "translation": "② အထဲရှိအရာအားလုံးကို အစားထိုးခြင်း"
-    },
-    {
-      "source": "下のコード全体を選んでコピー（<kbd>⌘ C</kbd>）します。",
-      "translation": "အောက်ပါ code တစ်ခုလုံးကို ရွေးပြီး copy ကူးပါ (<kbd>⌘ C</kbd>)။"
     },
     {
       "source": "Android Studioに戻り、開いている <code>BillSplitter.java</code> の中をクリックして <kbd>⌘ A</kbd> で全部選びます。<strong>最初から入っている <code>package</code> の行とクラスの宣言も、いっしょに選びます。</strong>これを残したまま貼り付けると、同じものが2つ並んでエラーになります。",
@@ -1443,14 +1435,6 @@
       "translation": "STEP 07 တွင် <code>BillSplitter.java</code> ကို ထားခဲ့ မထားခဲ့၊ နေရာသည် <code>MainActivity.java</code> နှင့် တူမတူ စစ်ဆေးပါ။ ပထမစာကြောင်းရှိ <code>package</code> ကိုလည်း ကြည့်ပါ။"
     },
     {
-      "source": "<code>Snackbar</code>・<code>ArrayList</code>・<code>Objects</code>・<code>EditText</code>・<code>TextView</code> が赤い",
-      "translation": "<code>Snackbar</code>၊ <code>ArrayList</code>၊ <code>Objects</code>၊ <code>EditText</code>၊ <code>TextView</code> တို့ အနီရောင် ဖြစ်နေသည်"
-    },
-    {
-      "source": "<kbd>⌥ Enter</kbd> で <code>com.google.android.material.snackbar.Snackbar</code>、<code>java.util.ArrayList</code>、<code>java.util.Objects</code>、<code>android.widget.EditText</code>、<code>android.widget.TextView</code> を選ぶ。",
-      "translation": "<kbd>⌥ Enter</kbd> ဖြင့် <code>com.google.android.material.snackbar.Snackbar</code>၊ <code>java.util.ArrayList</code>၊ <code>java.util.Objects</code>၊ <code>android.widget.EditText</code>၊ <code>android.widget.TextView</code> တို့ကို ရွေးပါ။"
-    },
-    {
       "source": "<code>start(…)</code> が赤い（MainActivity）",
       "translation": "<code>start(…)</code> အနီရောင် ဖြစ်နေသည် (MainActivity)"
     },
@@ -1465,10 +1449,6 @@
     {
       "source": "ワリカン画面へを押すとアプリが終了する",
       "translation": "「ワリカン画面へ」 (ငွေခွဲဝေ မျက်နှာပြင်သို့) ကို နှိပ်လျှင် app ပိတ်သွားသည်"
-    },
-    {
-      "source": "Logcatを <code>level:ERROR</code> にして <code>ActivityNotFoundException</code> か確認。<code>AndroidManifest.xml</code> に <code>android:name=\".BillSplitActivity\"</code> の <code>&lt;activity&gt;</code> があるか見る。New → Java Classで作ると登録されない。",
-      "translation": "Logcat ကို <code>level:ERROR</code> ထားပြီး <code>ActivityNotFoundException</code> ဟုတ်မဟုတ် စစ်ဆေးပါ။ <code>AndroidManifest.xml</code> တွင် <code>android:name=\".BillSplitActivity\"</code> ပါသော <code>&lt;activity&gt;</code> ရှိမရှိ ကြည့်ပါ။ New → Java Class ဖြင့် ဖန်တီးလျှင် မှတ်ပုံတင်ခြင်း မရှိပါ။"
     },
     {
       "source": "アプリ一覧のアイコンが2つある（Runすると何もない画面から始まることがある）",
