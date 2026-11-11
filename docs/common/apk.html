@@ -100,14 +100,22 @@
 <div class="goal"><p class="box-title">用意するもの</p><p>アレンジが終わり、動作確認が済んだ、自分のプロジェクト。</p></div>
 <ol><li>プロジェクト名が、提出するアプリのものになっているか確認します。</li><li>コードをRunし、アレンジしたところを含めて、アプリが動くことを確かめます。</li><li><strong>View → Tool Windows → Build Variants</strong> を開き、appの <strong>Active Build Variant</strong> が <strong>debug</strong> になっているか確認します。</li></ol>
 <h3>APKを生成（せいせい）する</h3>
-<ol><li>上の <strong>Build</strong> メニューを開きます。</li><li><strong>Generate App Bundles or APKs → Generate APKs</strong> を選びます。表示が異なるバージョンでは、<strong>Build App Bundle(s) / APK(s) → Build APK(s)</strong> という名前の場合があります。</li><li>処理が終わるまで待ちます。</li><li>完了通知に <strong>locate</strong>（場所を開く）があればクリックします。</li></ol>
+<p>下の3枚の画像は、先生の画面の例です。<code>A07BillSplitter</code> と出ているところは、自分の画面では自分のプロジェクトの名前になります。赤い枠の外は、自分の画面と少し違っていても構いません。</p>
+<ol><li>上の <strong>Build</strong> メニューを開きます。</li><li><strong>Generate App Bundles or APKs → Generate APKs</strong> を選びます。表示が異なるバージョンでは、<strong>Build App Bundle(s) / APK(s) → Build APK(s)</strong> という名前の場合があります。</li></ol>
+<figure><a href="images/apk-generate-menu.png"><img src="images/apk-generate-menu.png" width="1140" height="472" alt="Android Studioの上のメニューでBuildを開いたところ。Buildと、メニューの中のGenerate App Bundles or APKsと、その右に出たGenerate APKsの3か所が、赤い枠で囲まれている"></a><figcaption>赤い枠の3か所を、<strong>Build</strong> → <strong>Generate App Bundles or APKs</strong> → <strong>Generate APKs</strong> の順に選びます。 <a href="images/apk-generate-menu.png">画像を大きく開く</a></figcaption></figure>
 <div class="note"><p class="box-title">Runを押す操作とは別です</p><p>提出するときは、このメニューからAPKを作ります。項目が見つからない場合は、メニューを開いたまま先生に見せてください。</p></div>
+<ol start="3"><li>処理が終わるまで待ちます。</li><li>終わると、Android Studioの右下に <strong>Generate APKs</strong> という通知が出ます。通知の中の青い文字 <strong>locate</strong>（場所を開く）をクリックします。</li></ol>
+<figure><a href="images/apk-generate-notification.png"><img src="images/apk-generate-notification.png" width="864" height="322" alt="Android Studioの右下に出た通知。題名はGenerate APKs。本文はBuild completed successfullyで始まり、その中の青い文字locateが赤い枠で囲まれている"></a><figcaption>通知の中の <strong>locate</strong> をクリックします。 <a href="images/apk-generate-notification.png">画像を大きく開く</a></figcaption></figure>
+<p>Finderが開き、<code>debug</code> というフォルダの中に <code>app-debug.apk</code> が見えます。これが、今作ったAPKです。ファイルの並び方が下の画像と違っていても、<code>app-debug.apk</code> があれば大丈夫です。</p>
+<figure><a href="images/apk-debug-folder.png"><img src="images/apk-debug-folder.png" width="1386" height="620" alt="Finderでdebugフォルダが開いたところ。中にapp-debug.apkとoutput-metadata.jsonがあり、app-debug.apkが赤い枠で囲まれている"></a><figcaption>赤い枠の <code>app-debug.apk</code> が、できあがったAPKです。 <a href="images/apk-debug-folder.png">画像を大きく開く</a></figcaption></figure>
+<p>通知が消えてしまって <strong>locate</strong> をクリックできなかったときは、そのまま手順6へ進みます。同じフォルダをFinderから開く方法を、手順6に書いてあります。</p>
 <details><summary>教員と一緒に：メニューが見つからない場合</summary><p>プロジェクト直下のTerminalで、次のコマンドでもdebug APKを作れます。実行する場所に <code>gradlew</code> があることを確認します。</p><div class="code-head">Terminal · プロジェクト直下</div><pre tabindex="0"><code>./gradlew :app:assembleDebug</code></pre><p><code>BUILD SUCCESSFUL</code> を確認します。</p></details></section>
 
 <section id="rename"><h2>6. ファイルを見つけて、名前を変える</h2>
 <div class="note"><p class="box-title">APKのファイル名は、どのアプリでも同じです</p><p>できあがるファイルは、どのプロジェクトでも <code>app-debug.apk</code> という名前になります。3つとも同じ名前のまま提出すると、どれがどのアプリのものか、Google Classroomの画面で区別がつきません。<strong>APKを1つ作るたびに、すぐ名前を変えます。</strong></p></div>
 <p>はじめの1回だけ、提出するファイルを集めるフォルダを作ります。Finderで <strong>書類 → Android1</strong> を開き、上のメニューの <strong>ファイル → 新規フォルダ</strong> で、<code>提出用</code> という名前のフォルダを作ります。</p>
-<p>次に、作ったAPKを探します。Finderで <code>書類（Documents） → Android1 → 提出するプロジェクト名</code> の順に開き、<strong>app → build → outputs → apk → debug</strong> の順に進みます。</p>
+<p>次に、作ったAPKを探します。今回、手順5で <strong>locate</strong> をクリックした人は、そのとき開いたFinderのウィンドウを使います。<code>app-debug.apk</code> が見えていれば、そこが <code>debug</code> フォルダです。</p>
+<p><strong>locate</strong> をクリックしていない人と、<code>app-debug.apk</code> が見えていない人は、Finderで <code>書類（Documents） → Android1 → 提出するプロジェクト名</code> の順に開き、<strong>app → build → outputs → apk → debug</strong> の順に進みます。前のアプリのときに開いたウィンドウは使いません。名前は同じ <code>debug</code> ですが、別のアプリのAPKが入っています。</p>
 <div class="code-head">HelloAndroidの場合の保存場所</div><pre tabindex="0"><code>A01HelloAndroid/app/build/outputs/apk/debug/app-debug.apk</code></pre>
 <ol><li><code>app-debug.apk</code> があることを確認します。</li><li>Finderの更新日時を見て、今作ったファイルか確認します。</li><li><code>app-debug.apk</code> を選んで <kbd>⌘ C</kbd> を押し、<code>提出用</code> フォルダを開いて <kbd>⌘ V</kbd> を押します。コピーなので、元の場所のファイルは残ります。</li><li>コピーしたファイルの名前を、<strong>すぐに</strong> <strong>学籍番号_プロジェクト名.apk</strong> に変えます。ファイルを1回クリックして選び、<kbd>Enter</kbd> を押すと、名前を変えられます。HelloAndroidでは <code>自分の学籍番号_A01HelloAndroid.apk</code> です。「自分の学籍番号」を実際の番号に置き換え、区切りには半角の <code>_</code> を使います。<code>.apk</code> の部分は残します。</li></ol>
 <div class="note"><p class="box-title">置き換えるかどうか聞かれたら、置き換えずにやめます</p><p>名前を変える前に、次のアプリの <code>app-debug.apk</code> を <code>提出用</code> フォルダにコピーすると、同じ名前なので、Finderが置き換えてよいか聞いてきます。置き換えると、前のアプリのAPKが消えます。置き換えずにやめて、先に入っているファイルの名前を変えてください。</p></div>
@@ -140,5 +148,5 @@
 
 <section><h2>公式資料</h2><p><a href="https://developer.android.com/studio/run?hl=ja">Android Developers：アプリのビルドと実行</a></p><p><a href="https://developer.android.com/build/building-cmdline?hl=ja">Android Developers：コマンドラインでAPKを作る</a></p><p><a href="https://support.google.com/edu/classroom/answer/6020285?hl=ja">Google Classroom ヘルプ：課題を提出する</a></p></section>
 
-<footer class="footer"><p><a href="../hello-android/index.html" data-back>← もとのページへ戻る</a></p><p>対象：macOS / Android Studio Panda 2 | 2025.3.2 · 画像：教員提供 · 確認日：2026年9月20日</p></footer></main>
+<footer class="footer"><p><a href="../hello-android/index.html" data-back>← もとのページへ戻る</a></p><p>対象：macOS / Android Studio Panda 2 | 2025.3.2 · 画像：教員提供（手順5の3枚は、Android Studio Rabbit 2 | 2026.2.2 でAPKを作ったときの画面です。赤い枠の項目の名前は Panda 2 | 2025.3.2 と同じです） · 確認日：2026年11月11日</p></footer></main>
 <p class="sr-only" role="status" aria-live="polite" data-copy-status></p></body></html>
