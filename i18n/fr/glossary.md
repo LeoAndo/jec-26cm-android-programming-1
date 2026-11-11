@@ -108,7 +108,6 @@
 | ナビゲーションバー | barre de navigation | |
 | ビルド | build | 原文がその操作を説明するときは訳す |
 | レイアウト | layout | |
-
 | 割り勘 | partage de l'addition | 日本円で説明 |
 | 入力チェック | contrôle de saisie | |
 | 参加者 | participant | |

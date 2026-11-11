@@ -800,7 +800,7 @@
     },
     {
       "source": "値が入っていないと、<code>getStringArrayExtra</code> は <code>null</code>（何も入っていないことを表す値）を返します。<code>null</code> のまま <code>participants.length</code> を使うと、アプリが終了します。この画面を開くのは①の <code>start</code> だけで、<code>start</code> は必ず配列を入れます。①のとおりに書いてあれば、<code>null</code> にはなりません。",
-      "translation": "沒有值時，<code>getStringArrayExtra</code> 會回傳 <code>null</code>（表示沒有放入任何內容的值）。如果仍是 <code>null</code> 就使用 <code>participants.length</code>，應用程式會結束。開啟這個畫面的只有①的 <code>start</code>，而 <code>start</code> 一定會放入陣列。只要按照①編寫，就不會是 <code>null</code>。"
+      "translation": "沒有值時，<code>getStringArrayExtra</code> 會回傳 <code>null</code>（表示沒有放入任何內容的值）。如果在仍是 <code>null</code> 的狀態下使用 <code>participants.length</code>，應用程式會結束。開啟這個畫面的只有①的 <code>start</code>，而 <code>start</code> 一定會放入陣列。只要按照①編寫，就不會是 <code>null</code>。"
     },
     {
       "source": "Android Studioは、<code>start</code> が必ず配列を入れることまでは分かりません。そのため、<code>participants.length</code> の <code>participants</code> に警告（<code>Dereference of 'participants' may produce 'NullPointerException'</code>）を出します。「<code>null</code> かもしれない」という意味です。警告が出ていてもRunできるので、直さずにそのまま進みます。",
