@@ -259,7 +259,7 @@ class PackageStudentMaterialsTest(unittest.TestCase):
                 self.assertIn(f'<html lang="{language["code"]}">', page)
                 # 注記、UIと全言語の導線はカタログの有無に左右されない。
                 self.assertIn(language['translation_notice'], page)
-                # コピーボタンと進捗表示の文言は、設定の値がそのまま（結合文字も欠けずに）入る。
+                # 目次・コード枠・コピーボタン・進捗表示は、設定の値が結合文字も欠けずに入る。
                 payload = page.split('id="textbook-i18n">')[1].split("</script>")[0]
                 self.assertEqual(json.loads(payload), language['ui'])
                 self.assertIn(f'hl={language["android_docs_hl"]}&amp;x=1#top', page)

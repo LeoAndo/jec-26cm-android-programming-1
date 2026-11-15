@@ -22,6 +22,11 @@ function page(storage = {}, href = 'file:///docs/unit/index.html?from=setup#step
   };
   const inputs = (options.checkIds ?? ['step-1', 'step-2']).map(id => ({ dataset: { check: id }, checked: false,
     addEventListener(type, action) { this[type] = action; } }));
+  const sidebarLinks = options.sidebarMarkers ? inputs.map(input => {
+    const marker = { textContent: '' };
+    return { hash: `#${input.dataset.check}`, marker,
+      querySelector(selector) { return selector === '.nav-check' ? marker : null; } };
+  }) : [];
   const links = (options.languageLinks ?? ['../en/unit/index.html']).map(anchor);
   const backLinks = (options.backLinks ?? []).map(anchor);
   const commonLinks = (options.commonLinks ?? []).map(anchor);
@@ -45,7 +50,8 @@ function page(storage = {}, href = 'file:///docs/unit/index.html?from=setup#step
   const styles = {}, classes = new Set();
   const nav = { getBoundingClientRect: () => ({ height }) };
   const document = {
-    body: { dataset: { progressKey: key } },
+    body: { dataset: { progressKey: key },
+      classList: { contains: name => (options.bodyClasses ?? []).includes(name) } },
     documentElement: { style: { setProperty(name, value) { styles[name] = value; } },
       classList: { add(name) { classes.add(name); } } },
     querySelector(selector) {
@@ -65,6 +71,7 @@ function page(storage = {}, href = 'file:///docs/unit/index.html?from=setup#step
     },
     querySelectorAll(selector) {
       return ({ '[data-check]': inputs, 'a[data-language-link]': links,
+        '.sidebar nav a[href^="#"]': sidebarLinks,
         'a[data-back]': backLinks, 'a[data-keep-from]': commonLinks,
         pre: blocks, 'pre[data-copy-button]': blocks.filter(block => block.marked),
         'main section[id]': options.sections ?? [{ id: 'step-1', getBoundingClientRect: () => ({ top: 80 }) }] })[selector] || [];
@@ -84,6 +91,7 @@ function page(storage = {}, href = 'file:///docs/unit/index.html?from=setup#step
     Date, history: { replaceState(_state, _title, value) { location = new URL(value); } } });
   return {
     checked: () => inputs.map(input => input.checked),
+    checkedMarkers: () => sidebarLinks.map(link => link.marker.textContent),
     change(index, value) { inputs[index].checked = value; inputs[index].change(); },
     switch() { links[0].click(); return links[0].href; },
     common(index = 0) { commonLinks[index].click?.(); return new URL(commonLinks[index].href); },
@@ -103,6 +111,16 @@ test('新しい別言語ページから戻っても、保存済みの進捗を�
   assert.equal(target.url().searchParams.get('from'), 'setup');
   assert.equal(target.url().hash, '#step-1');
   assert.equal(target.url().searchParams.has('checks'), false);
+});
+
+test('目次の確認済み表示は既存の保存記録とチェック操作に合わせて更新する', () => {
+  const current = page({ [key]: JSON.stringify({ 'step-1': true }) }, undefined,
+    { sidebarMarkers: true });
+  assert.deepEqual(current.checkedMarkers(), ['✓', '']);
+  current.change(0, false);
+  current.change(1, true);
+  assert.deepEqual(current.checkedMarkers(), ['', '✓']);
+  assert.equal(current.label.textContent, '1 / 2 ステップ確認済み');
 });
 
 function commonPage(href, options = {}) {
