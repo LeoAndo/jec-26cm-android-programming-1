@@ -7,7 +7,7 @@ const source = readFileSync(path.join(__dirname, '../docs/assets/textbook.js'), 
 const key = 'jec-test';
 
 function page(storage = {}, href = 'file:///docs/unit/index.html?from=setup#step-1', options = {}) {
-  let location = new URL(href), resize, height = 42;
+  let location = new URL(href), resize, height = options.languageNavHeight ?? 42;
   const anchor = value => {
     const spec = typeof value === 'string' ? { href: value } : value;
     const attributes = { href: spec.href };
@@ -22,6 +22,11 @@ function page(storage = {}, href = 'file:///docs/unit/index.html?from=setup#step
   };
   const inputs = (options.checkIds ?? ['step-1', 'step-2']).map(id => ({ dataset: { check: id }, checked: false,
     addEventListener(type, action) { this[type] = action; } }));
+  const sidebarLinks = options.sidebarMarkers ? inputs.map(input => {
+    const marker = { textContent: '' };
+    return { hash: `#${input.dataset.check}`, marker,
+      querySelector(selector) { return selector === '.nav-check' ? marker : null; } };
+  }) : [];
   const links = (options.languageLinks ?? ['../en/unit/index.html']).map(anchor);
   const backLinks = (options.backLinks ?? []).map(anchor);
   const commonLinks = (options.commonLinks ?? []).map(anchor);
@@ -44,19 +49,42 @@ function page(storage = {}, href = 'file:///docs/unit/index.html?from=setup#step
   } } };
   const styles = {}, classes = new Set();
   const nav = { getBoundingClientRect: () => ({ height }) };
+  const created = [], events = {};
+  const createElement = tag => {
+    const attributes = {}, names = new Set();
+    const node = { tagName: tag.toUpperCase(), textContent: '', children: [],
+      classList: { add(name) { names.add(name); }, contains: name => names.has(name) },
+      append(...children) { this.children.push(...children); },
+      prepend(...children) { this.children.unshift(...children); },
+      querySelector() { return null; }, querySelectorAll() { return []; },
+      getBoundingClientRect: () => ({ height: options.lessonNavHeight ?? 64 }),
+      setAttribute(name, value) { attributes[name] = value; },
+      getAttribute(name) { return attributes[name] ?? null; },
+      addEventListener(type, action) { this[type] = action; } };
+    created.push(node);
+    return node;
+  };
+  const sidebar = createElement('aside'), inner = createElement('div'), main = createElement('main');
+  sidebar.querySelector = selector => selector === '.sidebar-inner' ? inner : null;
+  const actionHeading = options.actionHeading && createElement('h3');
+  if (actionHeading) {
+    actionHeading.firstChild = { nodeType: 3, textContent: options.actionHeading };
+    main.querySelectorAll = selector => selector === 'h3' ? [actionHeading] : [];
+  }
+  const bodyClasses = new Set(options.bodyClasses ?? []);
   const document = {
-    body: { dataset: { progressKey: key } },
+    title: 'A01 HelloAndroid',
+    body: { dataset: { progressKey: key },
+      classList: { contains: name => bodyClasses.has(name), add(name) { bodyClasses.add(name); } } },
     documentElement: { style: { setProperty(name, value) { styles[name] = value; } },
       classList: { add(name) { classes.add(name); } } },
     querySelector(selector) {
       return ({ '[data-progress-label]': label, progress, '.language-nav': nav, '[data-copy-status]': status,
+        '.sidebar': bodyClasses.has('textbook') ? sidebar : null, main,
         '#textbook-i18n': options.messages && { textContent: JSON.stringify(options.messages) } })[selector] || null;
     },
-    createElement() {
-      const attributes = {};
-      return { textContent: '', setAttribute(name, value) { attributes[name] = value; },
-        getAttribute(name) { return attributes[name] ?? null; }, addEventListener(type, action) { this[type] = action; } };
-    },
+    createElement,
+    addEventListener() {},
     createRange() { return { selectNodeContents(node) { this.node = node; } }; },
     execCommand(name) {
       copy.commands.push(name);
@@ -65,27 +93,36 @@ function page(storage = {}, href = 'file:///docs/unit/index.html?from=setup#step
     },
     querySelectorAll(selector) {
       return ({ '[data-check]': inputs, 'a[data-language-link]': links,
+        '.sidebar nav a[href^="#"]': sidebarLinks,
         'a[data-back]': backLinks, 'a[data-keep-from]': commonLinks,
         pre: blocks, 'pre[data-copy-button]': blocks.filter(block => block.marked),
+        'main > section[id]': options.sections ?? [],
         'main section[id]': options.sections ?? [{ id: 'step-1', getBoundingClientRect: () => ({ top: 80 }) }] })[selector] || [];
     }
   };
   class ResizeObserver { constructor(callback) { resize = callback; } observe() {} }
-  const window = { get location() { return location; }, innerHeight: 720, ResizeObserver,
-    addEventListener() {},
+  const window = { get location() { return location; }, innerHeight: options.innerHeight ?? 720, ResizeObserver,
+    addEventListener(type, action) { (events[type] ??= []).push(action); },
     // 選択がすでにあるときの addRange は、何もしない（Selection API の決まり。Chrome と Safari はこのとおりに動く）。
     getSelection: () => ({ removeAllRanges() { copy.selected = null; },
       addRange(range) { if (copy.selected === null) copy.selected = range.node; } }) };
   const localStorage = { getItem(name) { if (options.blockStorage) throw Error('blocked'); return storage[name] || null; },
     setItem(name, value) { if (options.blockStorage) throw Error('blocked'); storage[name] = value; } };
   vm.runInNewContext(source, { document, window, localStorage, URL, URLSearchParams, ResizeObserver, navigator,
+    Node: { TEXT_NODE: 3 }, requestAnimationFrame(action) { action(); },
+    getComputedStyle: () => ({ getPropertyValue: name => styles[name] || '' }),
     setTimeout(action, delay) { timers.push(action); delays.push(delay); return timers.length; },
     clearTimeout(id) { if (id) timers[id - 1] = null; },
     Date, history: { replaceState(_state, _title, value) { location = new URL(value); } } });
   return {
     checked: () => inputs.map(input => input.checked),
+    checkedMarkers: () => sidebarLinks.map(link => link.marker.textContent),
     change(index, value) { inputs[index].checked = value; inputs[index].change(); },
     switch() { links[0].click(); return links[0].href; },
+    focusLanguage() { links[0].focus(); return new URL(links[0].href); },
+    scroll() { (events.scroll ?? []).forEach(action => action()); },
+    currentStep: () => created.find(node => node.className === 'current-step')?.textContent,
+    actionHeading,
     common(index = 0) { commonLinks[index].click?.(); return new URL(commonLinks[index].href); },
     back(index = 0) { backLinks[index].click?.(); return new URL(backLinks[index].href); },
     url: () => location,
@@ -103,6 +140,40 @@ test('新しい別言語ページから戻っても、保存済みの進捗を�
   assert.equal(target.url().searchParams.get('from'), 'setup');
   assert.equal(target.url().hash, '#step-1');
   assert.equal(target.url().searchParams.has('checks'), false);
+});
+
+test('目次の確認済み表示は既存の保存記録とチェック操作に合わせて更新する', () => {
+  const current = page({ [key]: JSON.stringify({ 'step-1': true }) }, undefined,
+    { sidebarMarkers: true });
+  assert.deepEqual(current.checkedMarkers(), ['✓', '']);
+  current.change(0, false);
+  current.change(1, true);
+  assert.deepEqual(current.checkedMarkers(), ['', '✓']);
+  assert.equal(current.label.textContent, '1 / 2 ステップ確認済み');
+});
+
+test('短い画面でも教材バーと、フォーカスした言語リンクが同じSTEPを指す', () => {
+  const sections = [
+    { id: 'step-3', getBoundingClientRect: () => ({ top: -800 }), querySelector: () => ({ textContent: '文字とボタン' }) },
+    { id: 'step-4', getBoundingClientRect: () => ({ top: 240 }), querySelector: () => ({ textContent: '文字を変える' }) }
+  ];
+  const options = { sections, innerHeight: 568, languageNavHeight: 112, lessonNavHeight: 64 };
+  const textbook = page({}, 'file:///docs/unit/index.html', { ...options, bodyClasses: ['textbook'] });
+  textbook.scroll();
+  assert.equal(textbook.currentStep(), 'STEP 04');
+  assert.equal(textbook.focusLanguage().hash, '#step-4');
+  // 共通資料は教材バーを使わず、従来どおり画面の上から1/3を境に判断する。
+  const common = page({}, 'file:///docs/common/setup.html', { ...options, bodyClasses: ['plain'] });
+  assert.equal(common.focusLanguage().hash, '#step-3');
+});
+
+test('操作見出しの番号は、本文から参照できるよう読み上げ対象に残す', () => {
+  const current = page({}, 'file:///docs/unit/index.html',
+    { bodyClasses: ['textbook'], sections: [], actionHeading: '① 追加する場所を見つける' });
+  const number = current.actionHeading.children[0];
+  assert.equal(number.className, 'instruction-number');
+  assert.equal(number.textContent, '1');
+  assert.equal(number.getAttribute('aria-hidden'), null);
 });
 
 function commonPage(href, options = {}) {

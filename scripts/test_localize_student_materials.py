@@ -383,7 +383,7 @@ class TextbookScriptTest(unittest.TestCase):
         self.assertEqual(json.loads(payload)["progress"], "</script><b>Progress")
 
     def test_missing_ui_message_names_the_language_and_key(self):
-        # コピーボタンの文言が1つでも欠けた言語は、日本語のラベルが混ざる前に止める。
+        # 目次・コード枠・表・コピーボタンなどの文言が欠けた言語は、日本語のラベルが混ざる前に止める。
         def settings(language_ui, source_ui):
             return localize.Settings(Path("."), "docs", "i18n", [{"code": "en", "name": "English", "ui": language_ui}],
                                      [], "ja", source_ui)
@@ -937,10 +937,12 @@ class CommandTest(unittest.TestCase):
         self.assertIn("<h1>Your first unit</h1>", html)
         self.assertIn('href="../../assets/textbook.css"', html)
         self.assertTrue((output / "docs/assets/textbook.css").is_file())
-        # 確認用ページでも、コピーボタンと進捗表示がその言語の文言で出る（配布物と同じ渡し方）。
+        # 確認用ページでも、目次・コード枠・表・コピーボタンと進捗表示がその言語で出る。
         payload = html.split('id="textbook-i18n">')[1].split("</script>")[0]
         self.assertEqual(json.loads(payload), ui("Copy"))
         self.assertIn("copy_shortcut", json.loads(payload))
+        for key in ("contents", "resources", "file_location", "code_scroll", "table_scroll"):
+            self.assertEqual(json.loads(payload)[key], f"Copy:{key}")
         # 言語の切り替えと翻訳の注記は配布物だけのもの。確認用ページには入れない。
         self.assertNotIn("language-nav", html)
         self.assertNotIn("translation-note", html)

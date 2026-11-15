@@ -8,7 +8,7 @@
 <link rel="stylesheet" href="../assets/textbook.css">
 <script src="../assets/textbook.js" defer></script>
 </head>
-<body>
+<body class="textbook">
 <a class="skip" href="#main">本文へ移動</a>
 <header class="topbar"><span class="brand">JEC / Androidプログラミング1</span><span>授業用教科書 · Java + XML</span></header>
 <div class="shell">
@@ -170,7 +170,7 @@
 <p>Javaを入力すると、設定したAuto Importが必要なimport文を追加します。設定がまだの場合は、<a href="../common/auto-import.html?from=hello-android">共通資料</a>で確認します。</p>
 <h3>① 追加する場所を見つける</h3>
 <p>ひな形の <code>ViewCompat.setOnApplyWindowInsetsListener</code> から始まる部分を見つけます。その末尾の <code>return insets;</code> と <code>});</code> の<strong>下</strong>に追加します。<code>onCreate</code> の最後の <code>}</code> より<strong>上</strong>です。</p>
-<div class="code-head">場所の目印 · この枠は入力しません</div>
+<div class="code-head" data-code-kind="reference">場所の目印 · この枠は入力しません</div>
 <pre tabindex="0"><code>ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -&gt; {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
@@ -240,7 +240,7 @@ button.setOnClickListener(v -&gt; {
 
 <p class="file">変更するファイル：activity_main.xml</p>
 <p>縦に並ぶ入れ物の中に、横に並ぶ小さい入れ物を追加します。</p>
-<div class="code-head">画面の組み立て図 · 入力しません</div>
+<div class="code-head" data-code-kind="reference">画面の組み立て図 · 入力しません</div>
 <pre tabindex="0"><code>LinearLayout（縦）
 ├─ TextView「Hello World!」
 ├─ Button「テキストを変更する」
