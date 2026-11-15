@@ -51,7 +51,7 @@ TRANSLATED_ATTRIBUTES = ("alt", "aria-label", "title", "placeholder")
 LINK_ATTRIBUTES = ("href", "src")
 # 教科書のUI文言（docs/assets/textbook.js の既定値と同じ項目）。配布物と確認用ページの両方に渡す。
 UI_KEYS = ("copy", "copy_label", "copied", "copy_success", "copy_shortcut", "copy_selected", "progress",
-           "contents", "resources", "file_location", "code_scroll")
+           "contents", "resources", "file_location", "code_scroll", "table_scroll")
 # 本文が <strong>コピー</strong> のように名指しする、ボタンに出る文言。訳文では、その言語のボタンの文言と同じにする。
 UI_LABEL_KEYS = ("copy", "copied", "copy_shortcut")
 # コピーボタンを付ける指定。docs/assets/textbook.js が、この属性の付いた <pre> の見出しにボタンを足す。

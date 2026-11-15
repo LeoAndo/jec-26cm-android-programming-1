@@ -7,7 +7,8 @@
     progress: '{count} / {total} ステップ確認済み',
     contents: '目次', resources: 'ほかの単元・共通資料',
     file_location: 'ファイルの場所を確認する',
-    code_scroll: '長い行は、コードの枠内を横にスクロールできます。'
+    code_scroll: '長い行は、コードの枠内を横にスクロールできます。',
+    table_scroll: '表の右側は、枠内を横にスクロールして確認できます。'
   };
   let messages = defaults;
   try {
@@ -159,7 +160,7 @@
       if (!match) return;
       first.textContent = first.textContent.slice(match[0].length);
       heading.classList.add('action-heading');
-      heading.prepend(decoration('instruction-number', String(match[1].codePointAt(0) - 0x245f)));
+      heading.prepend(element('span', 'instruction-number', String(match[1].codePointAt(0) - 0x245f)));
     });
     main.querySelectorAll('.file').forEach(file => {
       const match = file.textContent.match(/^([^：:]+)[：:]\s*([\s\S]+)$/);
@@ -181,7 +182,7 @@
     });
 
     // textContent からテキストノードだけを作るので、コードの記号・空白・コピー内容を保つ。
-    const codeHints = [];
+    const scrollHints = [];
     main.querySelectorAll('pre').forEach(pre => {
       const code = pre.querySelector('code');
       if (code) {
@@ -203,7 +204,7 @@
       const hint = element('p', 'scroll-hint', message('code_scroll'));
       hint.hidden = true;
       pre.after(hint);
-      codeHints.push([pre, hint]);
+      scrollHints.push([pre, hint]);
     });
     main.querySelectorAll('table').forEach(table => {
       const headers = [...table.querySelectorAll(':scope > thead > tr:first-child > th')];
@@ -222,6 +223,10 @@
         scroll.setAttribute('aria-label', table.closest('section')?.querySelector('h2')?.textContent || headers.map(cell => cell.textContent).join(' / '));
         table.before(scroll);
         scroll.append(table);
+        const hint = element('p', 'scroll-hint', message('table_scroll'));
+        hint.hidden = true;
+        scroll.after(hint);
+        scrollHints.push([scroll, hint]);
       }
     });
 
@@ -257,13 +262,13 @@
     document.body.classList.add('has-lesson-nav');
     const resize = () => {
       document.documentElement.style.setProperty('--lesson-nav-height', `${bar.getBoundingClientRect().height}px`);
-      codeHints.forEach(([pre, hint]) => { hint.hidden = pre.scrollWidth <= pre.clientWidth; });
+      scrollHints.forEach(([container, hint]) => { hint.hidden = container.scrollWidth <= container.clientWidth; });
     };
     resize();
     if ('ResizeObserver' in window) {
       const observer = new ResizeObserver(resize);
       observer.observe(bar);
-      codeHints.forEach(([pre]) => observer.observe(pre));
+      scrollHints.forEach(([container]) => observer.observe(container));
     } else {
       window.addEventListener('resize', resize);
       main.addEventListener('toggle', resize, true);
@@ -280,10 +285,19 @@
   const lessonNavigation = enhanceTextbook();
   const links = [...document.querySelectorAll('.sidebar a[href^="#"]')];
   const sections = [...document.querySelectorAll('main > section[id]')];
+  const activeSection = () => {
+    if (lessonNavigation) {
+      const style = getComputedStyle(document.documentElement);
+      const languageHeight = parseFloat(style.getPropertyValue('--language-nav-height')) || 0;
+      const lessonHeight = parseFloat(style.getPropertyValue('--lesson-nav-height')) || 0;
+      return sections.filter(item => item.getBoundingClientRect().top <= languageHeight + lessonHeight + 90).at(-1) || sections[0];
+    }
+    // 共通資料は固定の教材バーがないので、従来の画面高さによる判定を保つ。
+    return [...document.querySelectorAll('main section[id]')]
+      .filter(item => item.getBoundingClientRect().top <= window.innerHeight / 3).at(-1);
+  };
   const updateLocation = () => {
-    const offset = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--language-nav-height')) || 0;
-    const barHeight = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--lesson-nav-height')) || 0;
-    const section = sections.filter(item => item.getBoundingClientRect().top <= offset + barHeight + 90).at(-1) || sections[0];
+    const section = activeSection();
     if (!section) return;
     links.forEach(link => {
       if (link.hash === `#${section.id}`) link.setAttribute('aria-current', 'step');
@@ -395,7 +409,10 @@
   // 言語名が折り返しても、固定メニューの下に目次とSTEPを表示する。
   const languageNav = document.querySelector('.language-nav');
   if (languageNav) {
-    const resizeNav = () => document.documentElement.style.setProperty('--language-nav-height', `${languageNav.getBoundingClientRect().height}px`);
+    const resizeNav = () => {
+      document.documentElement.style.setProperty('--language-nav-height', `${languageNav.getBoundingClientRect().height}px`);
+      if (lessonNavigation) updateLocation();
+    };
     resizeNav();
     document.documentElement.classList.add('has-language-nav');
     if ('ResizeObserver' in window) new ResizeObserver(resizeNav).observe(languageNav);
@@ -412,7 +429,7 @@
       setNavigation(target, backPages);
       loadSaved();
       if (checks.length && Object.keys(records).length) target.searchParams.set('checks', JSON.stringify(records));
-      const section = [...document.querySelectorAll('main section[id]')].filter(item => item.getBoundingClientRect().top <= window.innerHeight / 3).at(-1);
+      const section = activeSection();
       target.hash = section ? section.id : window.location.hash;
       link.href = target.href;
     };
