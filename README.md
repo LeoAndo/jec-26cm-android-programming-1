@@ -218,6 +218,36 @@ python3 scripts/package-student-materials.py
 
 参考：[GitHubのリリースノート自動生成](https://docs.github.com/en/repositories/releasing-projects-on-github/automatically-generated-release-notes)、[ワークフローの手動実行](https://docs.github.com/en/actions/how-tos/manage-workflow-runs/manually-run-a-workflow)。
 
+### 教科書のデザインをFigmaから反映する（教員用）
+
+**教科書の見た目（書体・文字サイズ・色・余白・配置）はFigmaを正とします。** 教材の文章・学習の順序・掲載コード・Androidプロジェクトは、このリポジトリを正とします。デザインの変更は、Figmaで決めた内容をHTML/CSSへ反映するPRにします。Figmaとコードの自動同期は未実装で、Figmaを編集しただけでは教科書や配布ZIPは更新されません。
+
+現在の参照先は [A01 HelloAndroid 教科書｜PC版](https://www.figma.com/design/WMnEPpc4yGE1M1kBes8oHs?node-id=14-2) のページ「A01 教科書・PC」、フレーム `14:2`（幅1440px）です。初回はPR #396のHTMLから作った叩き台で、他の単元や画面幅のデザインはまだ取り込んでいません。取り込み時には文字の重なりを避けるため、文章単位でテキストレイヤーを整理しています。その改行やレイヤー構成を、教材の文章変更としてそのまま戻さないでください。
+
+| 用途 | 共通フォント |
+| --- | --- |
+| 日本語本文・見出し | Noto Sans JP |
+| コード・キーボード表記・STEP番号・ファイル名・アイコン・パス | Roboto Mono。日本語はNoto Sans JPへフォールバック |
+
+2026-11-15時点のFigma MCPではNoto Sans Monoを利用できなかったため、コードの等幅表示とFigma・HTMLの書体統一を優先し、オーナーの選択でRoboto Monoを採用しています。
+
+フォントとライセンスは `docs/assets/fonts/` に同梱し、共有CSSの `docs/assets/textbook.css` から相対パスで読み込みます。学生用ZIPでもCDNや端末へのフォントインストールは不要です。中国語（簡体字・香港繁体字）・ミャンマー語・モンゴル語には既存の言語別書体を保ち、翻訳ページ内の日本語にはNoto Sans JPを使います。
+
+反映するときは、次の順に進めます。
+
+1. **Figmaで変更箇所を決める。** 対象フレームや部品を編集し、ノードへのリンク、参照する版名または更新日時、変更する値と対象範囲をissueへ記録します。共通の書体や色は、Figmaのテキストスタイル・色変数もそろえます。
+2. **既存のHTML/CSSへ反映する。** `AGENTS.md` に従って専用worktree・ブランチを作ります。共有CSSを触る場合は `area:shared` の他PRと直列に進めます。Figma MCPを使う場合は `figma-design-to-code` スキルに従い、`get_design_context` とスクリーンショットで対象ノードの値と見た目を確認し、既存のCSS規則へ対応付けます。生成されたコードでHTML全体を置き換えず、目次・進捗・折りたたみ・リンク・読み上げの構造を保ちます。文章や実行コードも直す必要があれば、issueの対象に含まれるかを確認して、教材の方針に従って扱います。
+3. **教材と配布物を検査する。** 新規のフォント・画像・ライセンスはパスを指定して `git add` し、次の3つを実行します。
+
+   ```sh
+   python3 scripts/check-teaching-materials.py
+   python3 -m unittest discover -s scripts -p 'test_*.py'
+   python3 scripts/package-student-materials.py
+   ```
+
+4. **Figmaとブラウザを照合する。** A01は表示領域の幅を1440px、ズームを100%にして、変更箇所の書体・太さ・色・余白・折り返しを比較します。フォントと画像の読み込み後に確認し、差があればコードを修正します。デザインを変える判断になった場合はFigmaも更新します。共有CSSの変更は代表ページで確認し、共通資料・教員用ガイド・翻訳ページなど異なる規則が当たる箇所を必要に応じて追加します。PCで画面分割した幅でも、本文が欠けず、長いコードや表が枠内でスクロールできることを確認します。エージェントによる表示確認は、`AGENTS.md` の作業用プロファイル付きheadless Chromeで行います。
+5. **ZIPをオフラインで確認してPRを仕上げる。** 生成したZIPにフォントとライセンスが入っていることを確かめ、展開したHTMLをネットワーク接続なしで開き、本文・コード内の日本語・変更した部品に意図した書体が使われることを確認します。言語別指定を触った場合は、対象言語の字形も確認します。PRにFigmaのノードURL・参照した版名または更新日時・実装コミット・比較したページと表示幅・検査結果を記録し、マージ後は通常の教材リリース手順で配布します。
+
 ### 多言語展開
 
 この教材を使う学生の母国語は、日本語・英語・中国語・ミャンマー語・モンゴル語・広東語・フランス語の7つです。日本語で書いた教科書（`docs/`）を、配布前にほかの6言語へ展開します（全体の計画と決まったことは [issue #215](https://github.com/LeoAndo/jec-26cm-android-programming-1/issues/215)）。**6言語とも初回翻訳と独立した照合を終えて `distribute` を `true` にしてあるので、学生用ZIPには日本語と合わせて7言語が入ります。** 配布対象にした言語は、ZIPを作るときに `docs/<言語>/` へ生成されます。
