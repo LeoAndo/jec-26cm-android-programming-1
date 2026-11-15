@@ -22,7 +22,7 @@ adb -s "$APK_REVIEW_SERIAL" install "$APK_REVIEW_APK"
 起動前からログを連続収集する。クラッシュ後に `pidof` で絞るとプロセスが消えて取り逃すので、収集時点ではPIDで絞らない。既存ログの消去（`logcat -c`）は不要。
 
 ```sh
-adb -s "$APK_REVIEW_SERIAL" shell date '+%m-%d %H:%M:%S.000'
+adb -s "$APK_REVIEW_SERIAL" shell "date '+%m-%d %H:%M:%S.000'"
 adb -s "$APK_REVIEW_SERIAL" logcat -b main -b system -b crash -v threadtime -T 1 \
   > "$APK_REVIEW_OUTPUT/runtime-01.log" 2> "$APK_REVIEW_OUTPUT/logcat-01.stderr" &
 APK_REVIEW_LOG_PID=$!
@@ -36,7 +36,7 @@ adb -s "$APK_REVIEW_SERIAL" shell am start -W -n "$APK_REVIEW_COMPONENT"
 画面の証拠が必要なときだけ `adb -s "$APK_REVIEW_SERIAL" exec-out screencap -p > "$APK_REVIEW_OUTPUT/screen-01.png"` で保存する。試行の終了時刻を記録し、終了時には自分の収集プロセスだけを止める。
 
 ```sh
-adb -s "$APK_REVIEW_SERIAL" shell date '+%m-%d %H:%M:%S.000'
+adb -s "$APK_REVIEW_SERIAL" shell "date '+%m-%d %H:%M:%S.000'"
 kill "$APK_REVIEW_LOG_PID"
 wait "$APK_REVIEW_LOG_PID"
 ```
