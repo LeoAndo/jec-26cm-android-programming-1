@@ -82,6 +82,41 @@
 
 教員用ガイドとステップごとの照合用コードは `teacher/hello-android`、`teacher/calc-game`、`teacher/rock-paper-scissors-game`、`teacher/webview-app`、`teacher/bomb-game`、`teacher/screen-transition-sample`、`teacher/bill-splitter`、`teacher/shared-preferences-sample`、`teacher/memo-app`、`teacher/room-sample`、`teacher/vocabulary-book` にまとめています。完成版の見本は、配布物の `samples` フォルダに展開済みで入っています（`samples/A01HelloAndroid` / `A02CalcGame` / `A03RockPaperScissorsGame` / `A04WebViewApp` / `A05BombGame` / `A06ScreenTransitionSample` / `A07BillSplitter` / `A08SharedPreferencesSample` / `A09MemoApp` / `A10RoomSample` / `A11VocabularyBook`）。学生が自分で置き場所を作ったり、ZIPを展開したりする必要はありません。授業で作るプロジェクトは `Documents/Android1/A01HelloAndroid` / `A02CalcGame` / `A03RockPaperScissorsGame` / `A04WebViewApp` / `A05BombGame` / `A06ScreenTransitionSample` / `A07BillSplitter` / `A08SharedPreferencesSample` / `A09MemoApp` / `A10RoomSample` / `A11VocabularyBook` に置きます。
 
+### 学生の提出APKを確認する（教員用）
+
+提出APKの評価用コピーは、`~/Documents/jec-26cm-android-programming-1-verification-deliverables/student_apks` に置きます。提出先（Google Classroomなど）の原本は残してください。このフォルダはバックアップせず、再取得できるコピーと解析結果を置く場所です。APKや個別の講評をGitHubや配布ZIPに入れません。
+
+新しく保管する分は、次のように提出・単元・再提出を分けます。既に置いてあるAPKは、その場所のまま解析できます。
+
+```text
+student_apks/
+  submission-001/A01HelloAndroid/first/提出ファイル.apk
+  submission-001/A01HelloAndroid/resubmission-01/提出ファイル.apk
+  reviews/submission-001/A01HelloAndroid/run-001/
+```
+
+`submission-001` は管理用の仮のIDです。学生との対応表が必要なら、このフォルダ内で教員だけが管理します。原本は変更せず、解析結果は毎回新しい出力先に保存します。
+
+AIエージェントには [提出APKの確認スキル](skills/review-student-apk/SKILL.md) を読み込ませ、例えば次のように依頼します。リポジトリ共通のファイルなので、エージェント固有のスキル登録は必須ではありません。
+
+> `skills/review-student-apk/SKILL.md` を使い、指定したAPKを確認してください。対象はA01HelloAndroid、使用した教材は指定のリリースタグです。教材から変わった箇所、アレンジの助言、クラッシュがあれば原因と修正候補を、教員向けの根拠と学生への返却文にまとめてください。
+
+情報収集だけを先に行う場合は、リポジトリ直下で次を実行します。`APK`、`教材のタグまたはコミット`、`run-001` は対象に合わせて変えます。
+
+```sh
+python3 scripts/student-apk-review.py inspect \
+  --apk "$HOME/Documents/jec-26cm-android-programming-1-verification-deliverables/student_apks/submission-001/A01HelloAndroid/first/提出ファイル.apk" \
+  --project A01HelloAndroid \
+  --baseline-ref '教材のタグまたはコミット' \
+  --output "$HOME/Documents/jec-26cm-android-programming-1-verification-deliverables/student_apks/reviews/submission-001/A01HelloAndroid/run-001"
+```
+
+Python 3とGitを使います。Android SDK Command-Line Toolsの `apkanalyzer` があればManifest・DEXなども収集します。PATHか `ANDROID_HOME` から探し、見つからない場合は `--apkanalyzer /絶対パス/apkanalyzer` で指定できます。ツールがない場合や解析に失敗した場合は、その不足を結果に残します。教材の版が分からない場合は `--baseline-ref HEAD --provisional` で暫定比較とします。
+
+スクリプトは収集結果と未評価のレポートを作り、スキルが教材の本文・教員ガイド・画面・ログを照合して講評を仕上げます。動作確認の手順もスキルに含みます。APKだけでは元のソースや制作過程を完全には復元できないため、確かめられた変更と推定を分け、必要な場合だけソースや難読化の対応表を追加で確認します。
+
+**文字の色を変えるだけでもアレンジとして扱い、変更量や機能追加の多さでは評価しません。** 工夫を具体的に取り上げ、必要な修正と任意の改善案を分けます。点数・合否の自動決定や学生への自動送信は行わず、教員が返却文を確認します。
+
 ### 完成プロジェクトのZIPを更新する（教員用）
 
 ZIPの再生成には、GitとPython 3、および **`git clone` で取得したリポジトリ** が必要です。GitHubの「Download ZIP」で取得したフォルダにはGit管理情報がないため、再生成には使えません。教材の閲覧と、同梱済みの完成プロジェクトZIPの利用は「Download ZIP」でも可能です。
