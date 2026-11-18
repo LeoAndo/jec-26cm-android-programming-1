@@ -16,7 +16,7 @@
     },
     {
       "source": "問題を抽選・採点するには、ブラウザでJavaScriptを有効にしてください。全問題の正答と解説は、下の一覧でも読めます。",
-      "translation": "Enable JavaScript in your browser to draw and grade questions. You can also read the correct answers and explanations for every question in the list below."
+      "translation": "Enable JavaScript in your browser to draw questions at random and grade your answers. You can also read the correct answers and explanations for every question in the list below."
     },
     {
       "source": "A01〜A10の復習",
@@ -56,7 +56,7 @@
     },
     {
       "source": "60分練習 — 時間切れで自動採点する",
-      "translation": "60-minute practice — grade automatically when time runs out"
+      "translation": "60-minute practice — answers are graded automatically when time runs out"
     },
     {
       "source": "回答はこの画面の中だけで扱います。送信・保存はしません。ページを閉じたり再読み込みしたりすると、回答は消えます。60分練習では、別のタブを見ている間も時間が進みます。",
@@ -148,7 +148,7 @@
     },
     {
       "source": "出題されなかった問題も復習できます。教員が問題の内容を確認するときにも使えます。選択肢の表示順は、練習画面では毎回変わります。",
-      "translation": "You can also review questions that did not appear in your attempt. Teachers can use the list to check the questions. The order of choices changes with each attempt."
+      "translation": "You can also review questions that did not appear in your attempt. Teachers can use the list to check the questions. On the practice screen, the order of choices changes with each attempt."
     },
     {
       "source": "「復習する場所」は教材ZIPのdocsフォルダからの場所と見出しIDです。このHTMLだけで解答と解説を読めます。",
@@ -668,7 +668,7 @@
     },
     {
       "source": "A02では、9個の<code>id</code>の配列を拡張<code>for</code>文で取り出し、各ボタンに<code>setOnClickListener</code>を付けます。この<code>for</code>文が行うことはどれですか。",
-      "translation": "In A02, an enhanced <code>for</code> loop goes through an array of nine <code>id</code> values and attaches a <code>setOnClickListener</code> to each button. What does this <code>for</code> loop do?"
+      "translation": "In A02, an enhanced <code>for</code> loop goes through an array of nine <code>id</code> values and uses <code>setOnClickListener</code> to register a click listener on each button. What does this <code>for</code> loop do?"
     },
     {
       "source": "画面を作るときに9個のボタンへクリック処理を登録する",
@@ -1516,7 +1516,7 @@
     },
     {
       "source": "前のページがある間だけ<code>backCallback</code>を有効にします。最初のページまで戻ると無効になり、通常の戻る操作に任せます。",
-      "translation": "Enable <code>backCallback</code> only while there is a previous page. Once back on the first page, it is disabled and the usual Back action takes over."
+      "translation": "Enable <code>backCallback</code> only while there is a previous page. When you return to the first page, the callback is disabled and the usual Back action takes over."
     },
     {
       "source": "復習する場所：<code>webview-app/index.html#step-8</code>",
@@ -1988,7 +1988,7 @@
     },
     {
       "source": "上に開いた<code>TestActivity</code>が閉じ、下の<code>MainActivity</code>が見えるため",
-      "translation": "<code>TestActivity</code> closes on top, revealing <code>MainActivity</code> underneath."
+      "translation": "<code>TestActivity</code>, which opened on top, closes and reveals <code>MainActivity</code> underneath."
     },
     {
       "source": "戻る操作が<code>MainActivity.java</code>をもう一度コンパイルするため",
@@ -2004,7 +2004,7 @@
     },
     {
       "source": "正答：<strong>上に開いた<code>TestActivity</code>が閉じ、下の<code>MainActivity</code>が見えるため</strong>",
-      "translation": "Correct answer: <strong><code>TestActivity</code> closes on top, revealing <code>MainActivity</code> underneath.</strong>"
+      "translation": "Correct answer: <strong><code>TestActivity</code>, which opened on top, closes and reveals <code>MainActivity</code> underneath.</strong>"
     },
     {
       "source": "開いた画面は前の画面の上に重なります。戻る操作で上の画面が閉じるので、前の画面を開くコードを追加しなくても戻れます。",
@@ -2204,7 +2204,7 @@
     },
     {
       "source": "IDなど小さな値を渡し、開いた画面で必要なデータを用意する",
-      "translation": "Pass small values such as IDs and load the needed data in the screen that opens."
+      "translation": "Pass small values such as IDs and prepare the needed data in the screen that opens."
     },
     {
       "source": "写真や動画の全データを毎回<code>Intent</code>に入れる",
@@ -2220,7 +2220,7 @@
     },
     {
       "source": "正答：<strong>IDなど小さな値を渡し、開いた画面で必要なデータを用意する</strong>",
-      "translation": "Correct answer: <strong>Pass small values such as IDs and load the needed data in the screen that opens.</strong>"
+      "translation": "Correct answer: <strong>Pass small values such as IDs and prepare the needed data in the screen that opens.</strong>"
     },
     {
       "source": "A06では<code>Test 2</code>の形を例に、見分けるための番号など、小さな値を1つずつ渡す方法を紹介しています。",

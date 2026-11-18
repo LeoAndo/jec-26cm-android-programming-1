@@ -52,7 +52,7 @@
     },
     {
       "source": "時間制限なし — 調べながら復習する",
-      "translation": "Sans limite de temps — révisez en consultant vos supports"
+      "translation": "Sans limite de temps — révisez en vous aidant de ressources"
     },
     {
       "source": "60分練習 — 時間切れで自動採点する",
@@ -148,7 +148,7 @@
     },
     {
       "source": "出題されなかった問題も復習できます。教員が問題の内容を確認するときにも使えます。選択肢の表示順は、練習画面では毎回変わります。",
-      "translation": "Vous pouvez aussi revoir les questions qui n'ont pas été tirées. Les enseignants peuvent consulter la liste pour vérifier le contenu des questions. L'ordre des choix change à chaque essai."
+      "translation": "Vous pouvez aussi revoir les questions qui n'ont pas été tirées. Les enseignants peuvent consulter la liste pour vérifier le contenu des questions. Sur l'écran d'entraînement, l'ordre des choix change à chaque essai."
     },
     {
       "source": "「復習する場所」は教材ZIPのdocsフォルダからの場所と見出しIDです。このHTMLだけで解答と解説を読めます。",
@@ -408,7 +408,7 @@
     },
     {
       "source": "A01で<code>btn1</code>の<code>android:text</code>だけを「<code>1</code>」から「<code>できた</code>」に変えました。Javaは<code>btn1.getText().toString()</code>を<code>Snackbar</code>に表示するままです。<code>btn1</code>を押すと何が表示されますか。",
-      "translation": "Dans A01, vous avez seulement remplacé <code>android:text</code> de <code>btn1</code> de <code>1</code> par 「<code>できた</code>」 (Terminé). Le code Java affiche toujours <code>btn1.getText().toString()</code> dans une <code>Snackbar</code>. Qu'est-ce qui s'affiche lorsque vous appuyez sur <code>btn1</code> ?"
+      "translation": "Dans A01, vous avez uniquement modifié la valeur de <code>android:text</code> pour <code>btn1</code> en remplaçant <code>1</code> par 「<code>できた</code>」 (Terminé). Le code Java affiche toujours <code>btn1.getText().toString()</code> dans une <code>Snackbar</code>. Qu'est-ce qui s'affiche lorsque vous appuyez sur <code>btn1</code> ?"
     },
     {
       "source": "正答：<strong><code>できた</code></strong>",
@@ -568,11 +568,11 @@
     },
     {
       "source": "<code>STOP</code>までに6,000ミリ秒を保存しました。再開時の<code>SystemClock.elapsedRealtime()</code>が120,000なら、<code>120,000 - elapsedTimeMillis</code>で設定する<code>Chronometer</code>の<code>base</code>はいくつですか。",
-      "translation": "Vous avez enregistré 6 000 millisecondes en appuyant sur <code>STOP</code>. À la reprise, <code>SystemClock.elapsedRealtime()</code> renvoie 120 000. Quelle valeur de <code>base</code> le calcul <code>120,000 - elapsedTimeMillis</code> donne-t-il pour le <code>Chronometer</code> ?"
+      "translation": "Vous avez enregistré 6 000 millisecondes en appuyant sur <code>STOP</code>. À la reprise, <code>SystemClock.elapsedRealtime()</code> renvoie 120 000. Quelle valeur de <code>base</code> le calcul <code>120,000 - elapsedTimeMillis</code> donne-t-il pour le <code>Chronometer</code> ? Dans les choix, la virgule sépare les milliers."
     },
     {
       "source": "正答：<strong>114,000</strong>",
-      "translation": "Bonne réponse : <strong>114 000</strong>"
+      "translation": "Bonne réponse : <strong>114,000</strong> (114 000)"
     },
     {
       "source": "<code>base</code>は現在の値から保存した経過時間を引くので、120,000 - 6,000 = 114,000です。これにより停止中の時間を足さず、6秒から再開できます。",
@@ -1368,7 +1368,7 @@
     },
     {
       "source": "A04でメニューの項目を押したときに呼ばれ、項目<code>id</code>から<code>enum</code>の値を取り出して<code>loadUrl</code>するメソッドはどれですか。",
-      "translation": "Quelle méthode est appelée quand vous appuyez sur un élément du menu dans A04, récupère la valeur de l'<code>enum</code> à partir de l'<code>id</code> de l'élément, puis appelle <code>loadUrl</code> ?"
+      "translation": "Dans A04, vous appuyez sur un élément du menu. Quelle méthode récupère alors la valeur de l'<code>enum</code> à partir de l'<code>id</code> de l'élément, puis appelle <code>loadUrl</code> ?"
     },
     {
       "source": "正答：<strong><code>onOptionsItemSelected</code></strong>",
@@ -1516,7 +1516,7 @@
     },
     {
       "source": "前のページがある間だけ<code>backCallback</code>を有効にします。最初のページまで戻ると無効になり、通常の戻る操作に任せます。",
-      "translation": "<code>backCallback</code> est actif uniquement tant qu'il existe une page précédente. Une fois revenu à la première page, il se désactive et l'action de retour habituelle prend le relais."
+      "translation": "<code>backCallback</code> est actif uniquement tant qu'il existe une page précédente. Lorsque vous revenez à la première page, le callback est désactivé et l'action de retour habituelle prend le relais."
     },
     {
       "source": "復習する場所：<code>webview-app/index.html#step-8</code>",
@@ -1620,7 +1620,7 @@
     },
     {
       "source": "中を必ず1回実行してから条件を調べ、<code>true</code>なら繰り返す",
-      "translation": "Exécuter le corps au moins une fois, puis vérifier la condition et répéter si elle vaut <code>true</code>."
+      "translation": "Exécuter le corps une première fois, puis vérifier la condition et répéter si elle vaut <code>true</code>."
     },
     {
       "source": "先に条件を調べ、<code>false</code>でも必ず2回実行する",
@@ -1636,7 +1636,7 @@
     },
     {
       "source": "正答：<strong>中を必ず1回実行してから条件を調べ、<code>true</code>なら繰り返す</strong>",
-      "translation": "Bonne réponse : <strong>Exécuter le corps au moins une fois, puis vérifier la condition et répéter si elle vaut <code>true</code>.</strong>"
+      "translation": "Bonne réponse : <strong>Exécuter le corps une première fois, puis vérifier la condition et répéter si elle vaut <code>true</code>.</strong>"
     },
     {
       "source": "<code>do-while</code>は後から条件を調べるため、中を少なくとも1回実行します。A05では、乱数を作ってから重複があるかを確かめる流れに使っています。",
@@ -1752,7 +1752,7 @@
     },
     {
       "source": "両方とも7ではないので<code>false</code>",
-      "translation": "<code>false</code>, car les deux valeurs ne valent pas 7"
+      "translation": "<code>false</code>, car une seule des deux valeurs vaut 7"
     },
     {
       "source": "配列の要素数である2",
@@ -1988,7 +1988,7 @@
     },
     {
       "source": "上に開いた<code>TestActivity</code>が閉じ、下の<code>MainActivity</code>が見えるため",
-      "translation": "<code>TestActivity</code>, ouvert au-dessus, se ferme et laisse voir <code>MainActivity</code> en dessous."
+      "translation": "<code>TestActivity</code>, ouverte au-dessus, se ferme et laisse voir <code>MainActivity</code> en dessous."
     },
     {
       "source": "戻る操作が<code>MainActivity.java</code>をもう一度コンパイルするため",
@@ -2004,7 +2004,7 @@
     },
     {
       "source": "正答：<strong>上に開いた<code>TestActivity</code>が閉じ、下の<code>MainActivity</code>が見えるため</strong>",
-      "translation": "Bonne réponse : <strong><code>TestActivity</code>, ouvert au-dessus, se ferme et laisse voir <code>MainActivity</code> en dessous.</strong>"
+      "translation": "Bonne réponse : <strong><code>TestActivity</code>, ouverte au-dessus, se ferme et laisse voir <code>MainActivity</code> en dessous.</strong>"
     },
     {
       "source": "開いた画面は前の画面の上に重なります。戻る操作で上の画面が閉じるので、前の画面を開くコードを追加しなくても戻れます。",
@@ -2236,7 +2236,7 @@
     },
     {
       "source": "A07で参加者名を<code>TextView</code>だけでなく<code>ArrayList&lt;String&gt;</code>にもためる主な理由はどれですか。",
-      "translation": "Pourquoi A07 conserve-t-il principalement les noms des participants dans un <code>ArrayList&lt;String&gt;</code> en plus du <code>TextView</code> ?"
+      "translation": "Quelle est la principale raison de conserver les noms des participants dans un <code>ArrayList&lt;String&gt;</code> en plus du <code>TextView</code> dans A07 ?"
     },
     {
       "source": "重複を調べたり、人数を数えたりするため",
@@ -2520,7 +2520,7 @@
     },
     {
       "source": "A07で1235円を3人で割り勘にしたとき、誰がいくら払うかの順序を問わず、金額の組み合わせはどれですか。",
-      "translation": "Dans A07, trois personnes se partagent 1 235 yens. Quelle combinaison de montants est correcte, quel que soit le montant attribué à chaque personne ?"
+      "translation": "Dans A07, trois personnes se partagent 1 235 yens. Quelle combinaison de montants est correcte sans tenir compte de qui paie quel montant ?"
     },
     {
       "source": "412円・412円・411円",
@@ -2872,7 +2872,7 @@
     },
     {
       "source": "クレジットカード番号",
-      "translation": "Un numéro de carte bancaire"
+      "translation": "Un numéro de carte de crédit"
     },
     {
       "source": "正答：<strong>ゲームのハイスコア</strong>",
@@ -2888,7 +2888,7 @@
     },
     {
       "source": "A08の表示欄に<code>layout_height=&quot;0dp&quot;</code>と<code>layout_weight=&quot;1&quot;</code>を付ける主な目的はどれですか。",
-      "translation": "Pourquoi applique-t-on principalement <code>layout_height=&quot;0dp&quot;</code> et <code>layout_weight=&quot;1&quot;</code> à la zone d'affichage de A08 ?"
+      "translation": "Quel est le principal objectif de définir <code>layout_height=&quot;0dp&quot;</code> et <code>layout_weight=&quot;1&quot;</code> pour la zone d'affichage dans A08 ?"
     },
     {
       "source": "表示欄が残りの高さを使い、表示内容でボタンの位置がずれるのを防ぐ",
@@ -3112,7 +3112,7 @@
     },
     {
       "source": "<code>txtMemoList</code>に表示中の内容を取り出し、1つの文字列として<code>MEMO</code>というキーで保存します。1件ずつ別のキーに分けているわけではありません。",
-      "translation": "Le code récupère le contenu actuellement affiché dans <code>txtMemoList</code> et l'enregistre dans une seule chaîne sous la clé <code>MEMO</code>. Chaque note n'a pas sa propre clé."
+      "translation": "Le code récupère le contenu actuellement affiché dans <code>txtMemoList</code> et l'enregistre dans une seule chaîne sous la clé <code>MEMO</code>. Le code ne crée pas de clé distincte pour chaque note."
     },
     {
       "source": "復習する場所：<code>memo-app/index.html#step-5</code>",
@@ -3576,7 +3576,7 @@
     },
     {
       "source": "保存できるデータを1件だけにするため",
-      "translation": "Pour permettre l'enregistrement d'une seule ligne"
+      "translation": "Pour limiter la base de données à un seul enregistrement"
     },
     {
       "source": "ボタンを2回以上押せないようにするため",
@@ -3668,7 +3668,7 @@
     },
     {
       "source": "空文字列も自動で必ず拒否する",
-      "translation": "Les chaînes vides sont elles aussi systématiquement refusées."
+      "translation": "Les chaînes vides sont elles aussi toujours refusées automatiquement."
     },
     {
       "source": "すべての<code>title</code>を同じ文字列にする",
