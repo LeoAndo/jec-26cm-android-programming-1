@@ -3,12 +3,3708 @@
   "language": "mn",
   "entries": [
     {
+      "source": "中間テスト対策 — Androidプログラミング1",
+      "translation": "Явцын шалгалтын бэлтгэл — Android программчлал 1"
+    },
+    {
+      "source": "中間テスト対策",
+      "translation": "Явцын шалгалтын бэлтгэл"
+    },
+    {
+      "source": "学んだことを、20問ずつ確かめよう。",
+      "translation": "Сурсан зүйлээ 20 асуултаар шалгацгаая."
+    },
+    {
+      "source": "問題を抽選・採点するには、ブラウザでJavaScriptを有効にしてください。全問題の正答と解説は、下の一覧でも読めます。",
+      "translation": "Асуултыг санамсаргүйгээр сонгож, оноог тооцохын тулд хөтөч дээрээ JavaScript-ийг идэвхжүүлнэ үү. Бүх асуултын зөв хариулт ба тайлбарыг доорх жагсаалтаас мөн уншиж болно."
+    },
+    {
+      "source": "A01〜A10の復習",
+      "translation": "A01–A10 давтлага"
+    },
+    {
+      "source": "4択（ア〜エ）",
+      "translation": "4 сонголт (ア–エ)"
+    },
+    {
+      "source": "20問 × 5点",
+      "translation": "20 асуулт × 5 оноо"
+    },
+    {
+      "source": "何度でも挑戦",
+      "translation": "Хэдэн ч удаа оролдож болно"
+    },
+    {
+      "source": "試験予定：<strong>2026年12月2日（水）2限</strong>。対面・60分で行います。範囲はA01〜A10 RoomSampleまでの全内容です。",
+      "translation": "Шалгалтын тов: <strong>2026 оны 12-р сарын 2 (Лхагва), хичээлийн 2-р цаг</strong>. Танхимаар 60 минут үргэлжилнэ. A01-ээс A10 RoomSample хүртэлх бүх агуулга хамрагдана."
+    },
+    {
+      "source": "この問題集は各単元12問、合計120問から、毎回各単元2問ずつ出します。問題と選択肢の順番も変わります。同じ問題が再び出ることもあります。",
+      "translation": "Бүлэг бүрээс 12, нийт 120 асуулт бий. Оролдлого бүрд бүлэг тус бүрээс 2 асуулт сонгоно. Асуулт болон сонголтын дараалал бас өөрчлөгдөнө. Нэг асуулт дахин гарч болно."
+    },
+    {
+      "source": "授業内容を復習するための練習問題です。本番と同じ問題・単元配分になるとは限りません。1回の20問だけで全内容を確認できるわけではありません。",
+      "translation": "Эдгээр нь хичээлийн агуулгыг давтах дасгал юм. Жинхэнэ шалгалтын асуултууд болон бүлэг тус бүрийн асуултын тоо өөр байж болно. Нэг удаагийн 20 асуултаар бүх агуулгыг шалгаж амжихгүй."
+    },
+    {
+      "source": "練習の進め方",
+      "translation": "Дасгалын горим"
+    },
+    {
+      "source": "時間制限なし — 調べながら復習する",
+      "translation": "Хугацааны хязгааргүй — материал харж давтах"
+    },
+    {
+      "source": "60分練習 — 時間切れで自動採点する",
+      "translation": "60 минутын дасгал — хугацаа дуусмагц оноог автоматаар тооцно"
+    },
+    {
+      "source": "回答はこの画面の中だけで扱います。送信・保存はしません。ページを閉じたり再読み込みしたりすると、回答は消えます。60分練習では、別のタブを見ている間も時間が進みます。",
+      "translation": "Хариултыг зөвхөн энэ дэлгэц дээр ашиглана. Хариултыг илгээхгүй, хадгалахгүй. Хуудсыг хаах эсвэл дахин ачаалахад хариулт арилна. 60 минутын дасгалын үед хөтчийн өөр таб нээсэн ч хугацаа үргэлжилнэ."
+    },
+    {
+      "source": "20問を始める",
+      "translation": "20 асуултыг эхлүүлэх"
+    },
+    {
+      "source": "問題を解く",
+      "translation": "Асуултад хариулах"
+    },
+    {
+      "source": "<span>回答済み：</span><strong1>0</strong1> / 20",
+      "translation": "<span>Хариулсан: </span><strong1>0</strong1> / 20"
+    },
+    {
+      "source": "時間制限なし",
+      "translation": "Хугацааны хязгааргүй"
+    },
+    {
+      "source": "残り時間：",
+      "translation": "Үлдсэн хугацаа:&nbsp;"
+    },
+    {
+      "source": "答えを1つ選んでください。採点するまでは変更できます。未回答は0点です。",
+      "translation": "Нэг хариултыг сонгоно уу. Оноог тооцох хүртэл хариултаа өөрчилж болно. Хариулаагүй асуулт бүр 0 оноотой."
+    },
+    {
+      "source": "採点する",
+      "translation": "Оноо тооцох"
+    },
+    {
+      "source": "問が未回答です。未回答を0点として採点しますか？",
+      "translation": "&nbsp;асуултад хариулаагүй байна. Хариулаагүй асуултыг 0 оноогоор тооцох уу?"
+    },
+    {
+      "source": "このまま採点する",
+      "translation": "Одоо оноог тооцох"
+    },
+    {
+      "source": "回答を続ける",
+      "translation": "Үргэлжлүүлж хариулах"
+    },
+    {
+      "source": "採点結果",
+      "translation": "Дүн"
+    },
+    {
+      "source": "60分が経過したため、自動で採点しました。",
+      "translation": "60 минут дууссан тул оноог автоматаар тооцлоо."
+    },
+    {
+      "source": "/ 100点",
+      "translation": "/ 100 оноо"
+    },
+    {
+      "source": "正解：",
+      "translation": "Зөв:&nbsp;"
+    },
+    {
+      "source": "/ 20問",
+      "translation": "/ 20 асуулт"
+    },
+    {
+      "source": "未回答：",
+      "translation": "Хариулаагүй:&nbsp;"
+    },
+    {
+      "source": "問",
+      "translation": "&nbsp;асуулт"
+    },
+    {
+      "source": "正答と解説を読み、分からなかったところを復習しましょう。点数は練習の目安です。",
+      "translation": "Зөв хариулт ба тайлбарыг уншиж, ойлгоогүй хэсгээ давтана уу. Авсан оноогоор дасгалын ахицаа баримжаалаарай."
+    },
+    {
+      "source": "新しい20問に挑戦する",
+      "translation": "Шинэ 20 асуултад хариулах"
+    },
+    {
+      "source": "練習方法を選び直す",
+      "translation": "Дасгалын горимоо дахин сонгох"
+    },
+    {
+      "source": "全120問の正答・解説を見る",
+      "translation": "Бүх 120 асуултын зөв хариулт, тайлбарыг харах"
+    },
+    {
+      "source": "出題されなかった問題も復習できます。教員が問題の内容を確認するときにも使えます。選択肢の表示順は、練習画面では毎回変わります。",
+      "translation": "Дасгалд гараагүй асуултыг ч давтаж болно. Багш асуултын агуулгыг эндээс шалгаж болно. Дасгалын дэлгэцэд сонголтууд оролдлого бүрд өөр дарааллаар гарна."
+    },
+    {
+      "source": "「復習する場所」は教材ZIPのdocsフォルダからの場所と見出しIDです。このHTMLだけで解答と解説を読めます。",
+      "translation": "«Давтах хэсэг» нь сургалтын ZIP доторх docs хавтаснаас эхэлсэн зам болон гарчгийн ID юм. Зөвхөн энэ HTML файлаас хариулт ба тайлбарыг уншиж болно."
+    },
+    {
+      "source": "A01-01 · XMLとJavaの役割",
+      "translation": "A01-01 · XML ба Java-гийн үүрэг"
+    },
+    {
+      "source": "A01で、文字やボタンの配置を書くファイルと、ボタンを押したときの動きを書くファイルの組み合わせはどれですか。",
+      "translation": "A01-д бичвэр, товчны байрлалыг бичих файл болон товч дарахад хийх үйлдлийг бичих файлын зөв хослол аль нь вэ?"
+    },
+    {
+      "source": "配置は<code>activity_main.xml</code>、動きは<code>MainActivity.java</code>",
+      "translation": "Байрлал <code>activity_main.xml</code>, үйлдэл <code>MainActivity.java</code>"
+    },
+    {
+      "source": "配置は<code>MainActivity.java</code>、動きは<code>activity_main.xml</code>",
+      "translation": "Байрлал <code>MainActivity.java</code>, үйлдэл <code>activity_main.xml</code>"
+    },
+    {
+      "source": "配置は<code>AndroidManifest.xml</code>、動きは<code>themes.xml</code>",
+      "translation": "Байрлал <code>AndroidManifest.xml</code>, үйлдэл <code>themes.xml</code>"
+    },
+    {
+      "source": "配置も動きも<code>gradle-wrapper.properties</code>",
+      "translation": "Байрлал, үйлдэл хоёулаа <code>gradle-wrapper.properties</code>"
+    },
+    {
+      "source": "正答：<strong>配置は<code>activity_main.xml</code>、動きは<code>MainActivity.java</code></strong>",
+      "translation": "Зөв хариулт: <strong>Байрлал <code>activity_main.xml</code>, үйлдэл <code>MainActivity.java</code></strong>"
+    },
+    {
+      "source": "<code>activity_main.xml</code>には画面の部品や配置を書き、<code>MainActivity.java</code>にはクリックしたときの処理などを書きます。どちらも<code>app/src/main</code>の中にあります。",
+      "translation": "<code>activity_main.xml</code>-д дэлгэцийн бүрэлдэхүүн ба байрлалыг бичнэ. <code>MainActivity.java</code>-д дарахад хийх үйлдэл зэргийг бичнэ. Хоёулаа <code>app/src/main</code> дотор бий."
+    },
+    {
+      "source": "復習する場所：<code>hello-android/index.html#step-2</code>",
+      "translation": "Давтах хэсэг: <code>hello-android/index.html#step-2</code>"
+    },
+    {
+      "source": "A01-02 · プロジェクト作成",
+      "translation": "A01-02 · Төсөл үүсгэх"
+    },
+    {
+      "source": "授業と同じJavaとXMLのプロジェクトを新しく作るとき、ひな形と<code>Language</code>の組み合わせはどれですか。",
+      "translation": "Хичээл дээрхтэй адил Java ба XML ашиглах шинэ төсөл үүсгэхэд загвар болон <code>Language</code>-ийн аль хослолыг сонгох вэ?"
+    },
+    {
+      "source": "<code>Empty Views Activity</code>と<code>Java</code>",
+      "translation": "<code>Empty Views Activity</code> ба <code>Java</code>"
+    },
+    {
+      "source": "<code>Empty Views Activity</code>と<code>Kotlin</code>",
+      "translation": "<code>Empty Views Activity</code> ба <code>Kotlin</code>"
+    },
+    {
+      "source": "<code>Empty Activity</code>と<code>Kotlin</code>",
+      "translation": "<code>Empty Activity</code> ба <code>Kotlin</code>"
+    },
+    {
+      "source": "<code>No Activity</code>と<code>Java</code>",
+      "translation": "<code>No Activity</code> ба <code>Java</code>"
+    },
+    {
+      "source": "正答：<strong><code>Empty Views Activity</code>と<code>Java</code></strong>",
+      "translation": "Зөв хариулт: <strong><code>Empty Views Activity</code> ба <code>Java</code></strong>"
+    },
+    {
+      "source": "ひな形の名前に<code>Views</code>があることを確かめ、<code>Language</code>はJavaを選びます。<code>Build configuration language</code>の<code>Kotlin DSL</code>は、アプリを書く言語とは別の設定です。",
+      "translation": "Загварын нэрд <code>Views</code> байгааг шалгаад <code>Language</code>-д Java-г сонгоно уу. <code>Build configuration language</code>-ийн <code>Kotlin DSL</code> нь апп бичих хэлээс тусдаа тохиргоо юм."
+    },
+    {
+      "source": "復習する場所：<code>hello-android/index.html#step-1</code>",
+      "translation": "Давтах хэсэг: <code>hello-android/index.html#step-1</code>"
+    },
+    {
+      "source": "A01-03 · <code>LinearLayout</code>の方向",
+      "translation": "A01-03 · <code>LinearLayout</code>-ийн чиглэл"
+    },
+    {
+      "source": "<code>LinearLayout</code>の中の3つのボタンを、左から右へ一列に並べる指定はどれですか。",
+      "translation": "<code>LinearLayout</code> доторх гурван товчийг зүүнээс баруун тийш нэг эгнээнд байрлуулах тохиргоо аль нь вэ?"
+    },
+    {
+      "source": "正答：<strong><code>android:orientation=&quot;horizontal&quot;</code></strong>",
+      "translation": "Зөв хариулт: <strong><code>android:orientation=&quot;horizontal&quot;</code></strong>"
+    },
+    {
+      "source": "<code>orientation</code>は並べる方向です。<code>horizontal</code>は横、<code>vertical</code>は縦に並べます。<code>gravity</code>は入れ物の中で部品をどこに寄せるかの指定です。",
+      "translation": "<code>orientation</code> нь байрлуулах чиглэл. <code>horizontal</code> нь хэвтээ, <code>vertical</code> нь босоо чиглэлд байрлуулна. <code>gravity</code> нь агуулах бүрэлдэхүүн доторх бүрэлдэхүүнийг аль талд байрлуулахыг заана."
+    },
+    {
+      "source": "復習する場所：<code>hello-android/index.html#step-6</code>",
+      "translation": "Давтах хэсэг: <code>hello-android/index.html#step-6</code>"
+    },
+    {
+      "source": "A01-04 · <code>id</code>と<code>findViewById</code>",
+      "translation": "A01-04 · <code>id</code> ба <code>findViewById</code>"
+    },
+    {
+      "source": "XMLに<code>android:id=&quot;@+id/text&quot;</code>を付けた<code>TextView</code>を、Javaから探す式はどれですか。",
+      "translation": "XML дээр <code>android:id=&quot;@+id/text&quot;</code> өгсөн <code>TextView</code>-ийг Java-гаас хайж олох илэрхийлэл аль нь вэ?"
+    },
+    {
+      "source": "正答：<strong><code>findViewById(R.id.text)</code></strong>",
+      "translation": "Зөв хариулт: <strong><code>findViewById(R.id.text)</code></strong>"
+    },
+    {
+      "source": "XMLの<code>@+id/text</code>とJavaの<code>R.id.text</code>が対応します。<code>id</code>は部品を見つける目印で、画面に表示する<code>android:text</code>とは別です。",
+      "translation": "XML-ийн <code>@+id/text</code> ба Java-гийн <code>R.id.text</code> хоорондоо таарна. <code>id</code> нь бүрэлдэхүүнийг хайж олох тэмдэглэгээ бөгөөд дэлгэц дээр харуулах <code>android:text</code>-ээс ялгаатай."
+    },
+    {
+      "source": "復習する場所：<code>hello-android/index.html#step-4</code>",
+      "translation": "Давтах хэсэг: <code>hello-android/index.html#step-4</code>"
+    },
+    {
+      "source": "A01-05 · 部品の大きさ",
+      "translation": "A01-05 · Бүрэлдэхүүний хэмжээ"
+    },
+    {
+      "source": "ボタンの<code>android:layout_width=&quot;wrap_content&quot;</code>は、横幅をどう決める指定ですか。",
+      "translation": "Товчны <code>android:layout_width=&quot;wrap_content&quot;</code> нь өргөнийг яаж тогтоодог вэ?"
+    },
+    {
+      "source": "中身に必要な大きさにする",
+      "translation": "Агуулга багтах хэмжээгээр"
+    },
+    {
+      "source": "親の入れ物の横幅いっぱいにする",
+      "translation": "Эцэг агуулах бүрэлдэхүүний өргөнийг бүтнээр нь эзлэхээр"
+    },
+    {
+      "source": "必ず画面の半分にする",
+      "translation": "Үргэлж дэлгэцийн хагастай тэнцүүгээр"
+    },
+    {
+      "source": "横幅を0にして見えなくする",
+      "translation": "Өргөнийг 0 болгож харагдахгүйгээр"
+    },
+    {
+      "source": "正答：<strong>中身に必要な大きさにする</strong>",
+      "translation": "Зөв хариулт: <strong>Агуулга багтах хэмжээгээр</strong>"
+    },
+    {
+      "source": "<code>wrap_content</code>は中身に必要な大きさにします。親の入れ物の大きさに合わせる指定は<code>match_parent</code>です。",
+      "translation": "<code>wrap_content</code> нь агуулга багтах хэмжээ өгнө. Эцэг агуулах бүрэлдэхүүний хэмжээтэй тааруулах тохиргоо бол <code>match_parent</code> юм."
+    },
+    {
+      "source": "復習する場所：<code>hello-android/index.html#step-3</code>",
+      "translation": "Давтах хэсэг: <code>hello-android/index.html#step-3</code>"
+    },
+    {
+      "source": "A01-06 · <code>var</code>とキャスト",
+      "translation": "A01-06 · <code>var</code> ба төрөл хувиргалт"
+    },
+    {
+      "source": "<code>var text = (TextView) findViewById(R.id.text);</code> の<code>(TextView)</code>の役割はどれですか。",
+      "translation": "<code>var text = (TextView) findViewById(R.id.text);</code> мөр дэх <code>(TextView)</code> ямар үүрэгтэй вэ?"
+    },
+    {
+      "source": "見つけた部品を<code>TextView</code>として扱う",
+      "translation": "Олдсон бүрэлдэхүүнийг <code>TextView</code> гэж үзнэ"
+    },
+    {
+      "source": "部品に<code>TextView</code>という文字を表示する",
+      "translation": "Бүрэлдэхүүн дээр <code>TextView</code> гэсэн бичвэр харуулна"
+    },
+    {
+      "source": "XMLに新しい<code>TextView</code>を追加する",
+      "translation": "XML-д шинэ <code>TextView</code> нэмнэ"
+    },
+    {
+      "source": "クリック処理を実行する",
+      "translation": "Дарахад хийх үйлдлийг ажиллуулна"
+    },
+    {
+      "source": "正答：<strong>見つけた部品を<code>TextView</code>として扱う</strong>",
+      "translation": "Зөв хариулт: <strong>Олдсон бүрэлдэхүүнийг <code>TextView</code> гэж үзнэ</strong>"
+    },
+    {
+      "source": "<code>(TextView)</code>はキャストで、見つけた部品を文字表示用の<code>TextView</code>として扱う指定です。<code>var</code>は右側の式から変数の型を決めます。",
+      "translation": "<code>(TextView)</code> бол төрөл хувиргалт. Энэ нь олдсон бүрэлдэхүүнийг бичвэр харуулах <code>TextView</code> гэж үзэхийг заана. <code>var</code> нь баруун талын илэрхийллээс хувьсагчийн төрлийг тогтооно."
+    },
+    {
+      "source": "A01-07 · クリック処理の実行時点",
+      "translation": "A01-07 · Товч дарахад хийх үйлдэл хэзээ ажиллах вэ?"
+    },
+    {
+      "source": "XMLの表示文字は<code>Hello World!</code>です。<code>onCreate</code>で次の処理を登録しました。起動して、まだボタンを押していないときの表示はどれですか。 <code>button.setOnClickListener(v -&gt; { text.setText(&quot;Hello, Android!&quot;); });</code>",
+      "translation": "XML дээр харуулах бичвэр нь <code>Hello World!</code>. <code>onCreate</code>-д дараах үйлдлийг бүртгэсэн. Аппыг эхлүүлээд товчийг хараахан дараагүй үед юу харагдах вэ? <code>button.setOnClickListener(v -&gt; { text.setText(&quot;Hello, Android!&quot;); });</code>"
+    },
+    {
+      "source": "何も表示されない",
+      "translation": "Юу ч харагдахгүй"
+    },
+    {
+      "source": "正答：<strong><code>Hello World!</code></strong>",
+      "translation": "Зөв хариулт: <strong><code>Hello World!</code></strong>"
+    },
+    {
+      "source": "<code>setOnClickListener</code>は、押されたときの処理を登録します。<code>setText</code>はクリック処理の中にあるため、ボタンを押してから<code>Hello, Android!</code>に変わります。",
+      "translation": "<code>setOnClickListener</code> нь товч дарахад хийх үйлдлийг бүртгэнэ. <code>setText</code> нь тэр үйлдлийн дотор байгаа учраас товч дарсны дараа л <code>Hello, Android!</code> болж өөрчлөгдөнө."
+    },
+    {
+      "source": "A01-08 · 表示文字の取得",
+      "translation": "A01-08 · Харагдаж буй бичвэрийг авах"
+    },
+    {
+      "source": "<code>TextView</code>の<code>text</code>から、今表示されている文字を<code>String</code>として取り出す式はどれですか。",
+      "translation": "<code>TextView</code> болох <code>text</code>-оос одоо харагдаж буй бичвэрийг <code>String</code> хэлбэрээр авах илэрхийлэл аль нь вэ?"
+    },
+    {
+      "source": "正答：<strong><code>text.getText().toString()</code></strong>",
+      "translation": "Зөв хариулт: <strong><code>text.getText().toString()</code></strong>"
+    },
+    {
+      "source": "<code>getText()</code>で現在の表示文字を取り出し、<code>toString()</code>で<code>String</code>にします。<code>setText</code>は文字を取り出す処理ではなく、表示を変更する処理です。",
+      "translation": "<code>getText()</code>-оор харагдаж буй бичвэрийг аваад <code>toString()</code>-оор <code>String</code> болгоно. <code>setText</code> нь харагдах бичвэрийг өөрчлөхөд хэрэглэгддэг."
+    },
+    {
+      "source": "復習する場所：<code>hello-android/index.html#step-5</code>",
+      "translation": "Давтах хэсэг: <code>hello-android/index.html#step-5</code>"
+    },
+    {
+      "source": "<code>Log.d(&quot;MainActivity&quot;, string);</code> は何をする行ですか。",
+      "translation": "<code>Log.d(&quot;MainActivity&quot;, string);</code> мөр юу хийдэг вэ?"
+    },
+    {
+      "source": "<code>MainActivity</code>という目印で、<code>string</code>の内容をDebugログに出す",
+      "translation": "<code>MainActivity</code> гэсэн тэмдэглэгээгээр <code>string</code>-ийн агуулгыг Debug логт гаргана"
+    },
+    {
+      "source": "画面のタイトルを<code>string</code>に変える",
+      "translation": "Дэлгэцийн гарчгийг <code>string</code> болгож өөрчилнө"
+    },
+    {
+      "source": "<code>MainActivity</code>という文字を<code>Toast</code>に表示する",
+      "translation": "<code>MainActivity</code> гэсэн бичвэрийг <code>Toast</code> дээр харуулна"
+    },
+    {
+      "source": "<code>string</code>をXMLの<code>id</code>として登録する",
+      "translation": "<code>string</code>-ийг XML-ийн <code>id</code> болгон бүртгэнэ"
+    },
+    {
+      "source": "正答：<strong><code>MainActivity</code>という目印で、<code>string</code>の内容をDebugログに出す</strong>",
+      "translation": "Зөв хариулт: <strong><code>MainActivity</code> гэсэн тэмдэглэгээгээр <code>string</code>-ийн агуулгыг Debug логт гаргана</strong>"
+    },
+    {
+      "source": "<code>Log.d</code>の<code>d</code>はDebugです。開発者が動きを確認する記録を<code>Logcat</code>に出します。ログの文字とアプリ画面の表示は別なので、この行だけでは画面の文字は変わりません。",
+      "translation": "<code>Log.d</code> дэх <code>d</code> нь Debug гэсэн үг. Аппын ажиллагааг хөгжүүлэгч шалгахад зориулсан бичлэгийг <code>Logcat</code>-д гаргана. Логийн бичвэр, аппын дэлгэц дээрх бичвэр тусдаа тул энэ мөр дэлгэц дээрх бичвэрийг өөрчлөхгүй."
+    },
+    {
+      "source": "A01-10 · <code>Snackbar</code>と文字の取得",
+      "translation": "A01-10 · <code>Snackbar</code> ба бичвэр авах"
+    },
+    {
+      "source": "A01で<code>btn1</code>の<code>android:text</code>だけを「<code>1</code>」から「<code>できた</code>」に変えました。Javaは<code>btn1.getText().toString()</code>を<code>Snackbar</code>に表示するままです。<code>btn1</code>を押すと何が表示されますか。",
+      "translation": "A01-д <code>btn1</code>-ийн зөвхөн <code>android:text</code>-г «<code>1</code>»-ээс 「<code>できた</code>」 (чадлаа) болгон өөрчилсөн. Java код <code>btn1.getText().toString()</code>-ийг <code>Snackbar</code> дээр хэвээр харуулна. <code>btn1</code>-г дарахад юу харагдах вэ?"
+    },
+    {
+      "source": "正答：<strong><code>できた</code></strong>",
+      "translation": "Зөв хариулт: <strong><code>できた</code></strong>"
+    },
+    {
+      "source": "Javaがボタンに現在表示されている文字を取り出すため、<code>Snackbar</code>も「<code>できた</code>」になります。Javaに固定の「<code>1</code>」を書いているわけではありません。",
+      "translation": "Java код товч дээр одоо харагдаж буй бичвэрийг авдаг тул <code>Snackbar</code> дээр мөн 「<code>できた</code>」 (чадлаа) гэж гарна. Java кодод «<code>1</code>» гэж тогтмол бичээгүй."
+    },
+    {
+      "source": "復習する場所：<code>hello-android/index.html#step-8</code>",
+      "translation": "Давтах хэсэг: <code>hello-android/index.html#step-8</code>"
+    },
+    {
+      "source": "A01-11 · 短いメッセージの表示",
+      "translation": "A01-11 · Богино зурвас харуулах"
+    },
+    {
+      "source": "<code>Toast.makeText(this, btn2Str, Toast.LENGTH_SHORT);</code> まで書きました。作った<code>Toast</code>を実際に表示するため、末尾につなぐメソッドはどれですか。",
+      "translation": "<code>Toast.makeText(this, btn2Str, Toast.LENGTH_SHORT);</code> хүртэл бичсэн. Үүсгэсэн <code>Toast</code>-ийг дэлгэц дээр харуулахын тулд төгсгөлд нь аль методыг залгах вэ?"
+    },
+    {
+      "source": "正答：<strong><code>show()</code></strong>",
+      "translation": "Зөв хариулт: <strong><code>show()</code></strong>"
+    },
+    {
+      "source": "<code>Toast.makeText(...)</code>で作り、<code>.show()</code>で表示します。<code>Snackbar</code>も同じく<code>show()</code>が必要です。<code>LENGTH_SHORT</code>は短い表示時間の設定です。",
+      "translation": "<code>Toast.makeText(...)</code>-оор үүсгээд <code>.show()</code>-оор харуулна. <code>Snackbar</code>-д мөн <code>show()</code> хэрэгтэй. <code>LENGTH_SHORT</code> нь богино хугацаанд харуулах тохиргоо юм."
+    },
+    {
+      "source": "復習する場所：<code>hello-android/index.html#step-7</code>",
+      "translation": "Давтах хэсэг: <code>hello-android/index.html#step-7</code>"
+    },
+    {
+      "source": "A01-12 · 余白の変更",
+      "translation": "A01-12 · Зайг өөрчлөх"
+    },
+    {
+      "source": "変更ボタンの<code>android:layout_marginTop</code>を<code>12dp</code>から<code>24dp</code>へ変えると、直接変わるものはどれですか。",
+      "translation": "Өөрчлөх товчны <code>android:layout_marginTop</code>-ийг <code>12dp</code>-ээс <code>24dp</code> болговол аль нь шууд өөрчлөгдөх вэ?"
+    },
+    {
+      "source": "ボタンの上のすき間",
+      "translation": "Товчны дээрх зай"
+    },
+    {
+      "source": "ボタンに表示する文字",
+      "translation": "Товч дээр харуулах бичвэр"
+    },
+    {
+      "source": "ボタンを押したときの処理",
+      "translation": "Товч дарахад хийх үйлдэл"
+    },
+    {
+      "source": "ボタンを探すための<code>id</code>",
+      "translation": "Товчийг олоход ашиглах <code>id</code>"
+    },
+    {
+      "source": "正答：<strong>ボタンの上のすき間</strong>",
+      "translation": "Зөв хариулт: <strong>Товчны дээрх зай</strong>"
+    },
+    {
+      "source": "<code>layout_marginTop</code>は部品の上のすき間を指定します。<code>12dp</code>から<code>24dp</code>にすると、そのすき間が広がります。文字やクリック処理の指定とは別です。",
+      "translation": "<code>layout_marginTop</code> нь бүрэлдэхүүний дээрх зайг заана. <code>12dp</code>-ээс <code>24dp</code> болгоход тэр зай ихсэнэ. Бичвэр болон товч дарахад хийх үйлдлээс тусдаа тохиргоо юм."
+    },
+    {
+      "source": "A02-01 · プレビュー用の文字",
+      "translation": "A02-01 · Урьдчилан харах бичвэр"
+    },
+    {
+      "source": "A02の<code>TextView</code>に<code>tools:text=&quot;1問目: 10 - 3 =&quot;</code>だけを書いています。この文字の役割はどれですか。",
+      "translation": "A02-ын <code>TextView</code>-д зөвхөн <code>tools:text=&quot;1問目: 10 - 3 =&quot;</code> гэж бичжээ. Энэ бичвэр ямар үүрэгтэй вэ?"
+    },
+    {
+      "source": "Android Studioのプレビュー用で、これだけでは実行画面に出ない",
+      "translation": "Зөвхөн Android Studio-д урьдчилан харах зориулалттай учраас үүгээр дангаар ажиллаж буй аппын дэлгэцэд гарахгүй"
+    },
+    {
+      "source": "アプリ起動時に必ず出る問題文",
+      "translation": "Апп эхлэхэд үргэлж харагдах асуулт"
+    },
+    {
+      "source": "Javaで計算する答えを設定する",
+      "translation": "Java-гаар тооцох хариуг тохируулна"
+    },
+    {
+      "source": "ボタンを押すたびに次の問題を作る",
+      "translation": "Товч дарах бүрд дараагийн асуултыг үүсгэнэ"
+    },
+    {
+      "source": "正答：<strong>Android Studioのプレビュー用で、これだけでは実行画面に出ない</strong>",
+      "translation": "Зөв хариулт: <strong>Зөвхөн Android Studio-д урьдчилан харах зориулалттай учраас үүгээр дангаар ажиллаж буй аппын дэлгэцэд гарахгүй</strong>"
+    },
+    {
+      "source": "<code>tools:text</code>はプレビュー専用です。A02の実行画面の問題文は、<code>START</code>後にJavaの<code>setText</code>で表示します。",
+      "translation": "<code>tools:text</code> нь зөвхөн урьдчилан харахад хэрэглэгдэнэ. A02-ын ажиллаж буй дэлгэц дээр асуултыг <code>START</code> дарсны дараа Java-гийн <code>setText</code>-ээр харуулна."
+    },
+    {
+      "source": "復習する場所：<code>calc-game/index.html#step-2</code>",
+      "translation": "Давтах хэсэг: <code>calc-game/index.html#step-2</code>"
+    },
+    {
+      "source": "A02-02 · フィールドの型",
+      "translation": "A02-02 · Талбарын төрөл"
+    },
+    {
+      "source": "ゲーム中かどうかを<code>true</code>または<code>false</code>で覚える<code>isPlaying</code>に使う型はどれですか。",
+      "translation": "Тоглож байгаа эсэхийг <code>true</code> эсвэл <code>false</code> гэж хадгалдаг <code>isPlaying</code>-д ямар төрөл ашиглах вэ?"
+    },
+    {
+      "source": "正答：<strong><code>boolean</code></strong>",
+      "translation": "Зөв хариулт: <strong><code>boolean</code></strong>"
+    },
+    {
+      "source": "<code>boolean</code>は<code>true</code>か<code>false</code>を入れる型です。A02では<code>isPlaying</code>が<code>true</code>のときだけ回答を受け付けます。<code>int</code>は問題番号や正解数、<code>long</code>は経過時間に使っています。",
+      "translation": "<code>boolean</code> нь <code>true</code> эсвэл <code>false</code> утгыг хадгалах төрөл юм. A02-д <code>isPlaying</code> нь <code>true</code> үед л хариулт авна. Асуултын дугаар ба зөв хариултын тоонд <code>int</code>, өнгөрсөн хугацаанд <code>long</code> ашигладаг."
+    },
+    {
+      "source": "復習する場所：<code>calc-game/index.html#step-4</code>",
+      "translation": "Давтах хэсэг: <code>calc-game/index.html#step-4</code>"
+    },
+    {
+      "source": "A02-03 · フィールドとローカル変数",
+      "translation": "A02-03 · Талбар ба локал хувьсагч"
+    },
+    {
+      "source": "A02で<code>txtMessage</code>を<code>onCreate</code>の外のフィールドにしている理由はどれですか。",
+      "translation": "A02-д <code>txtMessage</code>-ийг яагаад <code>onCreate</code>-оос гадна талбар болгон зарладаг вэ?"
+    },
+    {
+      "source": "<code>onCreate</code>以外の<code>startQuestion</code>メソッドからも使うため",
+      "translation": "<code>onCreate</code>-оос гадна <code>startQuestion</code> методоос ашиглахын тулд"
+    },
+    {
+      "source": "<code>TextView</code>は必ずフィールドでなければならないため",
+      "translation": "<code>TextView</code> заавал талбар байх ёстой учраас"
+    },
+    {
+      "source": "<code>var</code>を付けると表示文字が毎回消えるため",
+      "translation": "<code>var</code> бичихэд харагдаж буй бичвэр бүрмөсөн арилдаг учраас"
+    },
+    {
+      "source": "フィールドにするとXMLを書かなくてよくなるため",
+      "translation": "Талбар болговол XML бичих хэрэггүй учраас"
+    },
+    {
+      "source": "正答：<strong><code>onCreate</code>以外の<code>startQuestion</code>メソッドからも使うため</strong>",
+      "translation": "Зөв хариулт: <strong><code>onCreate</code>-оос гадна <code>startQuestion</code> методоос ашиглахын тулд</strong>"
+    },
+    {
+      "source": "<code>txtMessage</code>は<code>onCreate</code>で取得し、別のメソッド<code>startQuestion</code>でも表示を変えます。そのためクラスのフィールドとして覚えます。<code>onCreate</code>の中だけで使う部品はローカル変数にしています。",
+      "translation": "<code>txtMessage</code>-ийг <code>onCreate</code>-д олж аваад өөр метод болох <code>startQuestion</code>-д дэлгэцийн бичвэрийг өөрчилнө. Тиймээс классын талбарт хадгална. Зөвхөн <code>onCreate</code> дотор ашиглах бүрэлдэхүүнийг локал хувьсагчид хадгална."
+    },
+    {
+      "source": "A02-04 · タイマーの再開",
+      "translation": "A02-04 · Цаг хэмжигчийг үргэлжлүүлэх"
+    },
+    {
+      "source": "<code>STOP</code>までに6,000ミリ秒を保存しました。再開時の<code>SystemClock.elapsedRealtime()</code>が120,000なら、<code>120,000 - elapsedTimeMillis</code>で設定する<code>Chronometer</code>の<code>base</code>はいくつですか。",
+      "translation": "<code>STOP</code> хүртэл 6,000 миллисекунд хадгалжээ. Үргэлжлүүлэх агшинд <code>SystemClock.elapsedRealtime()</code> нь 120,000 бол <code>120,000 - elapsedTimeMillis</code>-аар тохируулах <code>Chronometer</code>-ийн <code>base</code> хэд вэ?"
+    },
+    {
+      "source": "正答：<strong>114,000</strong>",
+      "translation": "Зөв хариулт: <strong>114,000</strong>"
+    },
+    {
+      "source": "<code>base</code>は現在の値から保存した経過時間を引くので、120,000 - 6,000 = 114,000です。これにより停止中の時間を足さず、6秒から再開できます。",
+      "translation": "<code>base</code> нь одоогийн утгаас хадгалсан өнгөрсөн хугацааг хасах тул 120,000 - 6,000 = 114,000 болно. Ингэснээр зогссон хугацааг нэмэлгүйгээр 6 секундээс үргэлжлүүлнэ."
+    },
+    {
+      "source": "復習する場所：<code>calc-game/index.html#step-5</code>",
+      "translation": "Давтах хэсэг: <code>calc-game/index.html#step-5</code>"
+    },
+    {
+      "source": "A02-05 · <code>STOP</code>と<code>START</code>",
+      "translation": "A02-05 · <code>STOP</code> ба <code>START</code>"
+    },
+    {
+      "source": "A02で未回答の問題を表示したまま<code>STOP</code>し、その後<code>START</code>しました。<code>answer</code>には現在の答えが残っています。<code>if (answer == 0) { startQuestion(); }</code> の結果はどれですか。",
+      "translation": "A02-д хариулаагүй асуулт харагдаж байхад <code>STOP</code>, дараа нь <code>START</code> даржээ. <code>answer</code>-д одоогийн хариу хадгалаастай байна. <code>if (answer == 0) { startQuestion(); }</code> ямар үр дүнтэй вэ?"
+    },
+    {
+      "source": "今の問題を残し、タイマーだけ再開する",
+      "translation": "Одоогийн асуултыг хэвээр үлдээж, зөвхөн цаг хэмжигчийг үргэлжлүүлнэ"
+    },
+    {
+      "source": "必ず別の問題を作ってから再開する",
+      "translation": "Заавал өөр асуулт үүсгээд үргэлжлүүлнэ"
+    },
+    {
+      "source": "問題番号と正解数を0に戻す",
+      "translation": "Асуултын дугаар болон зөв хариултын тоог 0 болгоно"
+    },
+    {
+      "source": "10問回答した結果を表示する",
+      "translation": "10 асуултад хариулсан дүнг харуулна"
+    },
+    {
+      "source": "正答：<strong>今の問題を残し、タイマーだけ再開する</strong>",
+      "translation": "Зөв хариулт: <strong>Одоогийн асуултыг хэвээр үлдээж, зөвхөн цаг хэмжигчийг үргэлжлүүлнэ</strong>"
+    },
+    {
+      "source": "作った問題の答えは1〜9で、0ではありません。条件が<code>false</code>になるため<code>startQuestion</code>は呼ばれず、同じ問題のまま再開します。",
+      "translation": "Үүсгэсэн асуултын хариу 1–9 байна, 0 байхгүй. Нөхцөл <code>false</code> болох тул <code>startQuestion</code> дуудагдахгүй, ижил асуултаас үргэлжилнэ."
+    },
+    {
+      "source": "復習する場所：<code>calc-game/index.html#step-6</code>",
+      "translation": "Давтах хэсэг: <code>calc-game/index.html#step-6</code>"
+    },
+    {
+      "source": "A02で<code>RESET</code>後に1問目から遊び直すための状態として、正しい組み合わせはどれですか。",
+      "translation": "A02-д <code>RESET</code> дарсны дараа эхний асуултаас дахин тоглоход тохирох төлөвийн хослол аль нь вэ?"
+    },
+    {
+      "source": "正答：<strong><code>nowNo = 1</code>、<code>correctNo = 0</code>、<code>answer = 0</code>、<code>isPlaying = false</code></strong>",
+      "translation": "Зөв хариулт: <strong><code>nowNo = 1</code>、<code>correctNo = 0</code>、<code>answer = 0</code>、<code>isPlaying = false</code></strong>"
+    },
+    {
+      "source": "<code>RESET</code>は問題番号を1、正解数と答えを0、ゲーム中のフラグを<code>false</code>に戻します。次の<code>START</code>では<code>answer == 0</code>となり、新しい問題を作ります。",
+      "translation": "<code>RESET</code> нь асуултын дугаарыг 1, зөв хариултын тоо болон хариуг 0, тоглож буйг илтгэх төлөвийг <code>false</code> болгоно. Дараагийн <code>START</code> дарахад <code>answer == 0</code> үнэн болж, шинэ асуулт үүсгэнэ."
+    },
+    {
+      "source": "A02-07 · 乱数の範囲",
+      "translation": "A02-07 · Санамсаргүй тооны муж"
+    },
+    {
+      "source": "<code>ThreadLocalRandom.current().nextInt(1, 10)</code>で選ばれる整数の範囲はどれですか。",
+      "translation": "<code>ThreadLocalRandom.current().nextInt(1, 10)</code> ямар мужийн бүхэл тоо сонгох вэ?"
+    },
+    {
+      "source": "1以上10未満（1〜9）",
+      "translation": "1-ийг оруулаад 10 хүртэл, 10 орохгүй (1–9)"
+    },
+    {
+      "source": "1以上10以下（1〜10）",
+      "translation": "1-ээс 10 хүртэл, 10 орно (1–10)"
+    },
+    {
+      "source": "0以上10未満（0〜9）",
+      "translation": "0-ээс 10 хүртэл, 10 орохгүй (0–9)"
+    },
+    {
+      "source": "0以上10以下（0〜10）",
+      "translation": "0-ээс 10 хүртэл, 10 орно (0–10)"
+    },
+    {
+      "source": "正答：<strong>1以上10未満（1〜9）</strong>",
+      "translation": "Зөв хариулт: <strong>1-ийг оруулаад 10 хүртэл, 10 орохгүй (1–9)</strong>"
+    },
+    {
+      "source": "先頭の1は含み、末尾の10は含みません。A02では<code>answer = 10 - randomNumber</code>とするため、答えも1〜9になります。同じ乱数が続くこともあります。",
+      "translation": "Эхний 1 орно, төгсгөлийн 10 орохгүй. A02-д <code>answer = 10 - randomNumber</code> гэж тооцдог тул хариу ч 1–9 байна. Ижил санамсаргүй тоо дараалан гарч болно."
+    },
+    {
+      "source": "A02-08 · 配列と拡張<code>for</code>文",
+      "translation": "A02-08 · Массив ба өргөтгөсөн <code>for</code> өгүүлбэр"
+    },
+    {
+      "source": "A02では、9個の<code>id</code>の配列を拡張<code>for</code>文で取り出し、各ボタンに<code>setOnClickListener</code>を付けます。この<code>for</code>文が行うことはどれですか。",
+      "translation": "A02-д 9 <code>id</code> бүхий массиваас өргөтгөсөн <code>for</code> өгүүлбэрээр нэг нэгээр нь авч, товч бүрд <code>setOnClickListener</code> холбодог. Энэ <code>for</code> өгүүлбэр юу хийдэг вэ?"
+    },
+    {
+      "source": "画面を作るときに9個のボタンへクリック処理を登録する",
+      "translation": "Дэлгэц үүсгэхдээ 9 товч дээр дарахад хийх үйлдлийг бүртгэнэ"
+    },
+    {
+      "source": "1個のボタンを押すたびに9回答を採点する",
+      "translation": "Нэг товч дарах бүрд 9 хариултын оноог тооцно"
+    },
+    {
+      "source": "<code>START</code>を押したときだけ9個のボタンを作る",
+      "translation": "Зөвхөн <code>START</code> дарахад 9 товч үүсгэнэ"
+    },
+    {
+      "source": "配列の先頭のボタンだけに処理を登録する",
+      "translation": "Зөвхөн массивын эхний товч дээр дарах үйлдлийг бүртгэнэ"
+    },
+    {
+      "source": "正答：<strong>画面を作るときに9個のボタンへクリック処理を登録する</strong>",
+      "translation": "Зөв хариулт: <strong>Дэлгэц үүсгэхдээ 9 товч дээр дарахад хийх үйлдлийг бүртгэнэ</strong>"
+    },
+    {
+      "source": "外側の<code>for</code>文は画面を作るときに動きます。登録したクリック処理が動くのは、それぞれのボタンを実際に押したときです。",
+      "translation": "Гаднах <code>for</code> өгүүлбэр дэлгэц үүсгэх үед ажиллана. Бүртгэсэн үйлдэл нь харгалзах товчийг дарах үед л ажиллана."
+    },
+    {
+      "source": "復習する場所：<code>calc-game/index.html#step-7</code>",
+      "translation": "Давтах хэсэг: <code>calc-game/index.html#step-7</code>"
+    },
+    {
+      "source": "A02-09 · 文字から整数への変換",
+      "translation": "A02-09 · Бичвэрийг бүхэл тоонд хувиргах"
+    },
+    {
+      "source": "数字ボタンに「<code>6</code>」と表示されています。<code>Integer.parseInt(btn.getText().toString())</code>が返すものはどれですか。",
+      "translation": "Тооны товч дээр «<code>6</code>» гэж харагдана. <code>Integer.parseInt(btn.getText().toString())</code> ямар утга буцаах вэ?"
+    },
+    {
+      "source": "整数の6",
+      "translation": "Бүхэл тоо 6"
+    },
+    {
+      "source": "文字列の<code>&quot;6&quot;</code>",
+      "translation": "Тэмдэгт мөр <code>&quot;6&quot;</code>"
+    },
+    {
+      "source": "ボタンの<code>id</code>",
+      "translation": "Товчны <code>id</code>"
+    },
+    {
+      "source": "<code>boolean</code>の<code>true</code>",
+      "translation": "<code>boolean</code> төрлийн <code>true</code>"
+    },
+    {
+      "source": "正答：<strong>整数の6</strong>",
+      "translation": "Зөв хариулт: <strong>Бүхэл тоо 6</strong>"
+    },
+    {
+      "source": "<code>getText().toString()</code>で取り出した文字列を、<code>Integer.parseInt</code>で整数に変換します。その整数を<code>answer</code>と比較して採点します。",
+      "translation": "<code>getText().toString()</code>-оор авсан тэмдэгт мөрийг <code>Integer.parseInt</code>-ээр бүхэл тоонд хувиргана. Тэр бүхэл тоог <code>answer</code>-тай харьцуулж оноог тооцно."
+    },
+    {
+      "source": "A02-10 · 条件分岐と<code>return</code>",
+      "translation": "A02-10 · Нөхцөлт салаалалт ба <code>return</code>"
+    },
+    {
+      "source": "数字ボタンの処理は<code>if (!isPlaying) { Snackbar.make(...).show(); return; }</code>から始まります。<code>STOP</code>後の<code>isPlaying</code>が<code>false</code>のとき、下にある採点処理はどうなりますか。",
+      "translation": "Тооны товч дарахад хийх үйлдэл <code>if (!isPlaying) { Snackbar.make(...).show(); return; }</code>-ээр эхэлнэ. <code>STOP</code> дарсны дараа <code>isPlaying</code> нь <code>false</code> байвал доорх оноо тооцох үйлдэл яах вэ?"
+    },
+    {
+      "source": "<code>return</code>でクリック処理を終えるため、採点しない",
+      "translation": "<code>return</code>-ээр товчны үйлдлийг дуусгах тул оноо тооцохгүй"
+    },
+    {
+      "source": "<code>false</code>なので<code>if</code>を飛ばして採点する",
+      "translation": "<code>false</code> тул <code>if</code>-ийг алгасаад оноо тооцно"
+    },
+    {
+      "source": "<code>Snackbar</code>を表示したあと必ず採点する",
+      "translation": "<code>Snackbar</code> харуулсны дараа заавал оноо тооцно"
+    },
+    {
+      "source": "正解した場合だけ<code>return</code>を無視して採点する",
+      "translation": "Зөв хариулсан тохиолдолд л <code>return</code>-ийг үл тоож, оноо тооцно"
+    },
+    {
+      "source": "正答：<strong><code>return</code>でクリック処理を終えるため、採点しない</strong>",
+      "translation": "Зөв хариулт: <strong><code>return</code>-ээр товчны үйлдлийг дуусгах тул оноо тооцохгүй</strong>"
+    },
+    {
+      "source": "<code>!false</code>は<code>true</code>です。案内を出したあと<code>return</code>でそのクリック処理を終えるので、下の採点処理には進みません。",
+      "translation": "<code>!false</code> нь <code>true</code>. Заавар харуулсны дараа <code>return</code>-ээр товч дарахад хийх үйлдлийг дуусгана. Тиймээс доорх оноо тооцох хэсэгт хүрэхгүй."
+    },
+    {
+      "source": "A02-11 · 正解数と問題番号",
+      "translation": "A02-11 · Зөв хариултын тоо ба асуултын дугаар"
+    },
+    {
+      "source": "A02で1問目を間違えました。採点前は<code>nowNo = 1</code>、<code>correctNo = 0</code>です。正解時だけ<code>correctNo++</code>し、その後2問目へ進むと、値はどうなりますか。",
+      "translation": "A02-ын эхний асуултад буруу хариулжээ. Оноо тооцохын өмнө <code>nowNo = 1</code>, <code>correctNo = 0</code> байв. Зөв үед л <code>correctNo++</code> хийж, дараа нь 2-р асуулт руу шилждэг бол утгууд яах вэ?"
+    },
+    {
+      "source": "<code>nowNo</code>は2、<code>correctNo</code>は0",
+      "translation": "<code>nowNo</code> нь 2, <code>correctNo</code> нь 0"
+    },
+    {
+      "source": "<code>nowNo</code>は1、<code>correctNo</code>は0",
+      "translation": "<code>nowNo</code> нь 1, <code>correctNo</code> нь 0"
+    },
+    {
+      "source": "<code>nowNo</code>は2、<code>correctNo</code>は1",
+      "translation": "<code>nowNo</code> нь 2, <code>correctNo</code> нь 1"
+    },
+    {
+      "source": "<code>nowNo</code>は1、<code>correctNo</code>は1",
+      "translation": "<code>nowNo</code> нь 1, <code>correctNo</code> нь 1"
+    },
+    {
+      "source": "正答：<strong><code>nowNo</code>は2、<code>correctNo</code>は0</strong>",
+      "translation": "Зөв хариулт: <strong><code>nowNo</code> нь 2, <code>correctNo</code> нь 0</strong>"
+    },
+    {
+      "source": "<code>correctNo</code>は<code>number == answer</code>のときだけ増えます。一方、次の問題へ進む処理は正誤の条件の外にあるので、不正解でも問題番号は進みます。",
+      "translation": "<code>correctNo</code> нь <code>number == answer</code> үед л нэмэгдэнэ. Дараагийн асуулт руу шилжих үйлдэл зөв, бурууг шалгах нөхцөлөөс гадуур учраас буруу хариулсан ч асуултын дугаар нэмэгдэнэ."
+    },
+    {
+      "source": "復習する場所：<code>calc-game/index.html#step-8</code>",
+      "translation": "Давтах хэсэг: <code>calc-game/index.html#step-8</code>"
+    },
+    {
+      "source": "A02-12 · 10問終了の境界",
+      "translation": "A02-12 · Арав дахь асуултын зааг"
+    },
+    {
+      "source": "A02では回答後に<code>if (nowNo &lt;= 9) { nowNo++; startQuestion(); } else { 結果表示 }</code>と判定します。<code>nowNo</code>が9の問題に回答した直後はどうなりますか。",
+      "translation": "A02 нь хариулсны дараа <code>if (nowNo &lt;= 9) { nowNo++; startQuestion(); } else { 結果表示 }</code> гэж шалгана. <code>nowNo</code> нь 9 байх асуултад хариулмагц юу болох вэ?"
+    },
+    {
+      "source": "<code>nowNo</code>が10になり、10問目を表示する",
+      "translation": "<code>nowNo</code> 10 болж, 10-р асуултыг харуулна"
+    },
+    {
+      "source": "その場で結果を表示して9問で終わる",
+      "translation": "Дүнг шууд харуулаад 9 асуултаар дуусна"
+    },
+    {
+      "source": "<code>nowNo</code>が1になり、1問目へ戻る",
+      "translation": "<code>nowNo</code> 1 болж, 1-р асуулт руу буцна"
+    },
+    {
+      "source": "同じ9問目をもう一度表示する",
+      "translation": "Мөнөөх 9-р асуултыг дахин харуулна"
+    },
+    {
+      "source": "正答：<strong><code>nowNo</code>が10になり、10問目を表示する</strong>",
+      "translation": "Зөв хариулт: <strong><code>nowNo</code> 10 болж, 10-р асуултыг харуулна</strong>"
+    },
+    {
+      "source": "<code>9 &lt;= 9</code>は<code>true</code>なので、番号を10にして次を出題します。10問目への回答後は<code>10 &lt;= 9</code>が<code>false</code>となり、結果表示へ進みます。",
+      "translation": "<code>9 &lt;= 9</code> нь <code>true</code> тул дугаарыг 10 болгож дараагийн асуултыг гаргана. 10-р асуултад хариулсны дараа <code>10 &lt;= 9</code> нь <code>false</code> болж, дүнг харуулна."
+    },
+    {
+      "source": "復習する場所：<code>calc-game/index.html#step-9</code>",
+      "translation": "Давтах хэсэг: <code>calc-game/index.html#step-9</code>"
+    },
+    {
+      "source": "A03-01 · 画像リソース",
+      "translation": "A03-01 · Зургийн нөөц"
+    },
+    {
+      "source": "<code>res/drawable</code>に置いた<code>rock.png</code>を、<code>ImageView</code>の<code>android:src</code>で指定する書き方はどれですか。",
+      "translation": "<code>res/drawable</code> дотор байрлуулсан <code>rock.png</code>-ийг <code>ImageView</code>-ийн <code>android:src</code>-ээр заахын тулд яаж бичих вэ?"
+    },
+    {
+      "source": "正答：<strong><code>@drawable/rock</code></strong>",
+      "translation": "Зөв хариулт: <strong><code>@drawable/rock</code></strong>"
+    },
+    {
+      "source": "画像は<code>@drawable/名前</code>で参照し、<code>.png</code>は書きません。<code>id</code>は部品の目印、<code>layout</code>はレイアウトの資源を表します。",
+      "translation": "Зургийг <code>@drawable/名前</code>-ээр заана. <code>.png</code>-ийг бичихгүй. <code>id</code> нь бүрэлдэхүүний таних тэмдэг, <code>layout</code> нь байрлалын нөөцийг заана."
+    },
+    {
+      "source": "復習する場所：<code>rock-paper-scissors-game/index.html#step-3</code>",
+      "translation": "Давтах хэсэг: <code>rock-paper-scissors-game/index.html#step-3</code>"
+    },
+    {
+      "source": "A03-02 · 幅を比率で分ける",
+      "translation": "A03-02 · Өргөнийг харьцаагаар хуваах"
+    },
+    {
+      "source": "A03の横向き<code>LinearLayout</code>にある3つの手は、すべて<code>layout_width=&quot;0dp&quot;</code>、<code>layout_weight=&quot;1&quot;</code>です。横幅はどう分かれますか。",
+      "translation": "A03-ын хэвтээ <code>LinearLayout</code> доторх гарын гурван зураг бүгд <code>layout_width=&quot;0dp&quot;</code>, <code>layout_weight=&quot;1&quot;</code> тохиргоотой. Өргөн яаж хуваагдах вэ?"
+    },
+    {
+      "source": "3つに等しく分かれる",
+      "translation": "Гурван тэнцүү хэсэгт хуваагдана"
+    },
+    {
+      "source": "最初の画像だけが横幅いっぱいになる",
+      "translation": "Зөвхөн эхний зураг бүх өргөнийг эзэлнэ"
+    },
+    {
+      "source": "すべて横幅0になり見えなくなる",
+      "translation": "Бүгдийн өргөн 0 болж, харагдахгүй"
+    },
+    {
+      "source": "画像を追加した順に1倍・2倍・3倍になる",
+      "translation": "Зураг нэмсэн дарааллаараа 1, 2, 3 дахин өргөн болно"
+    },
+    {
+      "source": "正答：<strong>3つに等しく分かれる</strong>",
+      "translation": "Зөв хариулт: <strong>Гурван тэнцүү хэсэгт хуваагдана</strong>"
+    },
+    {
+      "source": "<code>0dp</code>と<code>layout_weight</code>で横幅を比率配分しています。3つとも重みが1なので、横幅を3等分します。",
+      "translation": "<code>0dp</code> ба <code>layout_weight</code>-ээр өргөнийг харьцаагаар хуваана. Гурвуулын жин 1 тул өргөн гурван тэнцүү хэсэгт хуваагдана."
+    },
+    {
+      "source": "A03-03 · 配列の番号",
+      "translation": "A03-03 · Массивын индекс"
+    },
+    {
+      "source": "<code>imageViews</code>にはグー、チョキ、パーの順で画像を入れています。パーを押したとき、<code>selectedHand = i</code>で保存する番号はどれですか。",
+      "translation": "<code>imageViews</code>-д чулуу, хайч, цаас гэсэн дарааллаар зураг оруулсан. Цаасыг дарахад <code>selectedHand = i</code>-ээр ямар дугаар хадгалах вэ?"
+    },
+    {
+      "source": "正答：<strong>2</strong>",
+      "translation": "Зөв хариулт: <strong>2</strong>"
+    },
+    {
+      "source": "配列の番号は0からです。グーが0、チョキが1、パーが2になります。この並びをCPUの画像や勝敗の計算でも使います。",
+      "translation": "Массивын индекс 0-ээс эхэлнэ. Чулуу 0, хайч 1, цаас 2 болно. Энэ дарааллыг CPU-гийн зураг болон хожил, хожигдлыг тооцоход мөн ашиглана."
+    },
+    {
+      "source": "復習する場所：<code>rock-paper-scissors-game/index.html#step-5</code>",
+      "translation": "Давтах хэсэг: <code>rock-paper-scissors-game/index.html#step-5</code>"
+    },
+    {
+      "source": "A03-04 · 番号付き<code>for</code>文",
+      "translation": "A03-04 · Индекстэй <code>for</code> өгүүлбэр"
+    },
+    {
+      "source": "<code>imageViews.length</code>が3のとき、<code>for (var i = 0; i &lt; imageViews.length; i++)</code>の中で使われる<code>i</code>の値はどれですか。",
+      "translation": "<code>imageViews.length</code> нь 3 байхад <code>for (var i = 0; i &lt; imageViews.length; i++)</code> дотор ашиглах <code>i</code> ямар утгууд авах вэ?"
+    },
+    {
+      "source": "3だけ",
+      "translation": "Зөвхөн 3"
+    },
+    {
+      "source": "正答：<strong>0、1、2</strong>",
+      "translation": "Зөв хариулт: <strong>0、1、2</strong>"
+    },
+    {
+      "source": "0から始め、1ずつ増やし、<code>i &lt; 3</code>の間実行します。<code>i</code>が3になると条件が<code>false</code>になり、繰り返しを終えます。",
+      "translation": "0-ээс эхлээд 1-ээр нэмнэ. <code>i &lt; 3</code> байх хугацаанд давталт ажиллана. <code>i</code> нь 3 болоход нөхцөл <code>false</code> болж давталт дуусна."
+    },
+    {
+      "source": "A03-05 · 選択状態",
+      "translation": "A03-05 · Сонгосон төлөв"
+    },
+    {
+      "source": "グーを選んだあと、勝負する前にパーを押しました。A03の選択処理では、押した画像を赤くし、ほかの画像には<code>setBackground(null)</code>を実行します。結果はどれですか。",
+      "translation": "Чулууг сонгоод тоглолтоо шийдэхээс өмнө цаасыг даржээ. A03-ын сонгох үйлдэл дарсан зургийг улаан болгож, бусад зурагт <code>setBackground(null)</code> ажиллуулна. Үр дүн нь аль вэ?"
+    },
+    {
+      "source": "パーだけが赤くなり、選択番号は2になる",
+      "translation": "Зөвхөн цаас улаан болж, сонголтын дугаар 2 болно"
+    },
+    {
+      "source": "グーとパーの両方が赤くなり、選択番号は0のまま",
+      "translation": "Чулуу, цаас хоёулаа улаан болж, сонголтын дугаар 0 хэвээр үлдэнэ"
+    },
+    {
+      "source": "どの画像も赤くならず、選択番号は-1になる",
+      "translation": "Ямар ч зураг улаан болохгүй, сонголтын дугаар -1 болно"
+    },
+    {
+      "source": "CPUの画像が赤くなり、選択番号は3になる",
+      "translation": "CPU-гийн зураг улаан болж, сонголтын дугаар 3 болно"
+    },
+    {
+      "source": "正答：<strong>パーだけが赤くなり、選択番号は2になる</strong>",
+      "translation": "Зөв хариулт: <strong>Зөвхөн цаас улаан болж, сонголтын дугаар 2 болно</strong>"
+    },
+    {
+      "source": "押した画像の番号を<code>selectedHand</code>に保存し、それ以外の背景を消します。赤い背景は常に1つで、初期値-1はまだ選んでいない状態です。",
+      "translation": "Дарсан зургийн дугаарыг <code>selectedHand</code>-д хадгалж, бусад зургийн дэвсгэрийг арилгана. Улаан дэвсгэр үргэлж ганц байна. Анхны утга -1 гэдэг нь хараахан сонгоогүй төлөв."
+    },
+    {
+      "source": "A03-06 · 勝負後の操作制限",
+      "translation": "A03-06 · Тоглосны дараах үйлдлийн хязгаарлалт"
+    },
+    {
+      "source": "A03で「<code>勝負！</code>」のあとに手を選び直せないようにする処理はどれですか。",
+      "translation": "A03-д 「<code>勝負！</code>」 (Тоглоё!) дарсны дараа гараа дахин сонгох боломжгүй болгох үйлдэл аль нь вэ?"
+    },
+    {
+      "source": "3つの手の画像に<code>setClickable(false)</code>を実行する",
+      "translation": "Гарын гурван зурагт <code>setClickable(false)</code> ажиллуулна"
+    },
+    {
+      "source": "CPUの画像に<code>setVisibility(View.VISIBLE)</code>を実行する",
+      "translation": "CPU-гийн зурагт <code>setVisibility(View.VISIBLE)</code> ажиллуулна"
+    },
+    {
+      "source": "<code>winCount</code>を1増やす",
+      "translation": "<code>winCount</code>-ийг 1-ээр нэмнэ"
+    },
+    {
+      "source": "選んだ手を<code>Log.d</code>で出力する",
+      "translation": "Сонгосон гарыг <code>Log.d</code>-ээр гаргана"
+    },
+    {
+      "source": "正答：<strong>3つの手の画像に<code>setClickable(false)</code>を実行する</strong>",
+      "translation": "Зөв хариулт: <strong>Гарын гурван зурагт <code>setClickable(false)</code> ажиллуулна</strong>"
+    },
+    {
+      "source": "<code>setClickable(false)</code>で手の画像をクリックできなくします。「<code>次の戦いへ</code>」では<code>setClickable(true)</code>で選べる状態に戻します。",
+      "translation": "<code>setClickable(false)</code> нь гарын зургуудад дарах боломжгүй болгоно. 「<code>次の戦いへ</code>」 (Дараагийн тоглолт руу) үед <code>setClickable(true)</code>-аар дахин сонгох боломжтой болгоно."
+    },
+    {
+      "source": "復習する場所：<code>rock-paper-scissors-game/index.html#step-6</code>",
+      "translation": "Давтах хэсэг: <code>rock-paper-scissors-game/index.html#step-6</code>"
+    },
+    {
+      "source": "A03-07 · CPUの乱数",
+      "translation": "A03-07 · CPU-гийн санамсаргүй тоо"
+    },
+    {
+      "source": "CPUの手を決める<code>ThreadLocalRandom.current().nextInt(3)</code>で出る値はどれですか。",
+      "translation": "CPU-гийн гарыг тогтоох <code>ThreadLocalRandom.current().nextInt(3)</code> ямар утга гаргаж болох вэ?"
+    },
+    {
+      "source": "<code>nextInt(3)</code>は0以上3未満の整数を選びます。0〜2なので、3個の画像を入れた配列の番号としてそのまま使えます。",
+      "translation": "<code>nextInt(3)</code> нь 0-ээс 3 хүртэлх бүхэл тоог сонгоно, 3 орохгүй. 0–2 тул гурван зурагтай массивын индексээр шууд ашиглаж болно."
+    },
+    {
+      "source": "A03-08 · 配列から画像を選ぶ",
+      "translation": "A03-08 · Массиваас зураг сонгох"
+    },
+    {
+      "source": "<code>item</code>が<code>{R.drawable.rock, R.drawable.scissors, R.drawable.paper}</code>で、<code>cpu</code>が1です。<code>imgCpu.setImageResource(item[cpu]);</code>で表示する画像はどれですか。",
+      "translation": "<code>item</code> нь <code>{R.drawable.rock, R.drawable.scissors, R.drawable.paper}</code>, <code>cpu</code> нь 1 байна. <code>imgCpu.setImageResource(item[cpu]);</code> ямар зураг харуулах вэ?"
+    },
+    {
+      "source": "チョキ（<code>scissors</code>）",
+      "translation": "Хайч (<code>scissors</code>)"
+    },
+    {
+      "source": "グー（<code>rock</code>）",
+      "translation": "Чулуу (<code>rock</code>)"
+    },
+    {
+      "source": "パー（<code>paper</code>）",
+      "translation": "Цаас (<code>paper</code>)"
+    },
+    {
+      "source": "3つ全部",
+      "translation": "Гурвуулаа"
+    },
+    {
+      "source": "正答：<strong>チョキ（<code>scissors</code>）</strong>",
+      "translation": "Зөв хариулт: <strong>Хайч (<code>scissors</code>)</strong>"
+    },
+    {
+      "source": "<code>item[1]</code>は2番目の値<code>R.drawable.scissors</code>です。<code>setImageResource</code>で、その画像を<code>ImageView</code>に表示します。",
+      "translation": "<code>item[1]</code> нь хоёр дахь утга <code>R.drawable.scissors</code> байна. <code>setImageResource</code>-ээр тэр зургийг <code>ImageView</code> дээр харуулна."
+    },
+    {
+      "source": "「<code>次の戦いへ</code>」で<code>imgCpu.setVisibility(View.INVISIBLE);</code>を実行すると、CPUの画像とその場所はどうなりますか。",
+      "translation": "「<code>次の戦いへ</code>」 (Дараагийн тоглолт руу) үед <code>imgCpu.setVisibility(View.INVISIBLE);</code> ажиллуулахад CPU-гийн зураг болон түүний байр яах вэ?"
+    },
+    {
+      "source": "画像は見えなくなるが、表示する場所は残る",
+      "translation": "Зураг харагдахгүй болж, зургийн байр хэвээр үлдэнэ"
+    },
+    {
+      "source": "画像も表示する場所もなくなり、下の部品が詰まる",
+      "translation": "Зураг, байр хоёулаа арилж, доорх бүрэлдэхүүнүүд дээшилнэ"
+    },
+    {
+      "source": "画像は見えたままで、クリックだけできなくなる",
+      "translation": "Зураг хэвээр харагдаж, зөвхөн дарах боломжгүй болно"
+    },
+    {
+      "source": "画像がグーへ変更される",
+      "translation": "Зураг чулуу болж өөрчлөгдөнө"
+    },
+    {
+      "source": "正答：<strong>画像は見えなくなるが、表示する場所は残る</strong>",
+      "translation": "Зөв хариулт: <strong>Зураг харагдахгүй болж, зургийн байр хэвээр үлдэнэ</strong>"
+    },
+    {
+      "source": "<code>INVISIBLE</code>は見えない状態にする指定です。場所は残るため、再び<code>VISIBLE</code>にすると同じ場所に表示できます。",
+      "translation": "<code>INVISIBLE</code> нь харагдахгүй болгох тохиргоо. Байр нь үлдэх тул буцаад <code>VISIBLE</code> болгоход өмнөх байрандаа харагдана."
+    },
+    {
+      "source": "復習する場所：<code>rock-paper-scissors-game/index.html#step-7</code>",
+      "translation": "Давтах хэсэг: <code>rock-paper-scissors-game/index.html#step-7</code>"
+    },
+    {
+      "source": "A03-10 · 勝敗の計算",
+      "translation": "A03-10 · Хожсон, хожигдсоныг тооцох"
+    },
+    {
+      "source": "グー=0、チョキ=1、パー=2です。自分がグー、CPUがチョキのとき、<code>(selectedHand - cpu + 3) % 3</code>の結果と勝敗はどれですか。結果0は引き分け、1は負け、2は勝ちです。",
+      "translation": "Чулуу=0, хайч=1, цаас=2. Та чулуу, CPU хайч сонговол <code>(selectedHand - cpu + 3) % 3</code> ямар утгатай, тоглолт ямар үр дүнтэй вэ? 0 бол тэнцээ, 1 бол хожигдол, 2 бол хожил."
+    },
+    {
+      "source": "2で勝ち",
+      "translation": "2, хожно"
+    },
+    {
+      "source": "0で引き分け",
+      "translation": "0, тэнцэнэ"
+    },
+    {
+      "source": "1で負け",
+      "translation": "1, хожигдоно"
+    },
+    {
+      "source": "-1で負け",
+      "translation": "-1, хожигдоно"
+    },
+    {
+      "source": "正答：<strong>2で勝ち</strong>",
+      "translation": "Зөв хариулт: <strong>2, хожно</strong>"
+    },
+    {
+      "source": "(0 - 1 + 3) % 3 = 2 % 3 = 2です。%は割り算の余りを求めます。3を足してから余りを求めることで、結果が0〜2になります。",
+      "translation": "(0 - 1 + 3) % 3 = 2 % 3 = 2. % нь хуваалтын үлдэгдлийг олно. Үлдэгдлийг олохын өмнө 3 нэмдэг тул үр дүн 0–2 байна."
+    },
+    {
+      "source": "復習する場所：<code>rock-paper-scissors-game/index.html#step-8</code>",
+      "translation": "Давтах хэсэг: <code>rock-paper-scissors-game/index.html#step-8</code>"
+    },
+    {
+      "source": "A03-11 · <code>switch</code>と<code>break</code>",
+      "translation": "A03-11 · <code>switch</code> ба <code>break</code>"
+    },
+    {
+      "source": "A03の<code>switch</code>文で、<code>case</code>の処理の最後にある<code>break;</code>の役割はどれですか。",
+      "translation": "A03-ын <code>switch</code> өгүүлбэр дэх <code>case</code> үйлдлийн төгсгөлийн <code>break;</code> ямар үүрэгтэй вэ?"
+    },
+    {
+      "source": "その<code>case</code>の処理を終え、<code>switch</code>文を抜ける",
+      "translation": "Тухайн <code>case</code>-ийн үйлдлийг дуусгаад <code>switch</code> өгүүлбэрээс гарна"
+    },
+    {
+      "source": "次の<code>case</code>も必ず続けて実行する",
+      "translation": "Дараагийн <code>case</code>-ийг ч заавал үргэлжлүүлэн ажиллуулна"
+    },
+    {
       "source": "アプリを終了する",
       "translation": "Аппыг хаах"
     },
     {
+      "source": "CPUの手を再抽選する",
+      "translation": "CPU-гийн гарыг санамсаргүйгээр дахин сонгоно"
+    },
+    {
+      "source": "正答：<strong>その<code>case</code>の処理を終え、<code>switch</code>文を抜ける</strong>",
+      "translation": "Зөв хариулт: <strong>Тухайн <code>case</code>-ийн үйлдлийг дуусгаад <code>switch</code> өгүүлбэрээс гарна</strong>"
+    },
+    {
+      "source": "<code>break</code>があるので、選ばれた<code>case</code>の処理のあとに<code>switch</code>文を抜けます。この書き方で<code>break</code>を忘れると、下の<code>case</code>の処理も続けて実行されます。",
+      "translation": "<code>break</code> байгаа тул сонгосон <code>case</code>-ийн үйлдлийн дараа <code>switch</code> өгүүлбэрээс гарна. Ийм бичлэгт <code>break</code>-ийг мартвал доорх <code>case</code>-ийн үйлдэл ч үргэлжлэн ажиллана."
+    },
+    {
+      "source": "A03-12 · 連勝数",
+      "translation": "A03-12 · Дараалсан хожлын тоо"
+    },
+    {
+      "source": "起動直後から「勝ち→<code>次の戦いへ</code>→勝ち→<code>次の戦いへ</code>→引き分け→<code>次の戦いへ</code>→勝ち」と進めました。最後の勝ちで表示する連勝数はいくつですか。",
+      "translation": "Аппыг нээснээс хойш «хожил → 「<code>次の戦いへ</code>」 (Дараагийн тоглолт руу) → хожил → 「<code>次の戦いへ</code>」 (Дараагийн тоглолт руу) → тэнцээ → 「<code>次の戦いへ</code>」 (Дараагийн тоглолт руу) → хожил» гэж тогложээ. Сүүлийн хожил дээр дараалсан хожлын тоо хэд гэж харагдах вэ?"
+    },
+    {
+      "source": "1連勝",
+      "translation": "1 дараалсан хожил"
+    },
+    {
+      "source": "2連勝",
+      "translation": "2 дараалсан хожил"
+    },
+    {
+      "source": "3連勝",
+      "translation": "3 дараалсан хожил"
+    },
+    {
+      "source": "4連勝",
+      "translation": "4 дараалсан хожил"
+    },
+    {
+      "source": "正答：<strong>1連勝</strong>",
+      "translation": "Зөв хариулт: <strong>1 дараалсан хожил</strong>"
+    },
+    {
+      "source": "<code>次の戦いへ</code>では連勝数を残しますが、引き分けや負けでは<code>winCount = 0</code>に戻します。引き分けの次の勝ちは、0を1増やして1連勝です。",
+      "translation": "「<code>次の戦いへ</code>」 (Дараагийн тоглолт руу) үед дараалсан хожлын тоог хадгална. Тэнцвэл эсвэл хожигдвол <code>winCount = 0</code> болгоно. Тэнцээний дараах хожилд 0 дээр 1 нэмэгдэж, дараалсан хожлын тоо 1 болно."
+    },
+    {
+      "source": "A04-01 · インターネットの許可",
+      "translation": "A04-01 · Интернетэд хандах зөвшөөрөл"
+    },
+    {
+      "source": "<code>WebView</code>でインターネットのページを読むための<code>uses-permission</code>（<code>android.permission.INTERNET</code>）は、どこに追加しますか。",
+      "translation": "<code>WebView</code>-ээр интернетийн хуудас унших <code>uses-permission</code> (<code>android.permission.INTERNET</code>) зөвшөөрлийг хаана нэмэх вэ?"
+    },
+    {
+      "source": "<code>AndroidManifest.xml</code>の<code>manifest</code>の中、<code>application</code>の外",
+      "translation": "<code>AndroidManifest.xml</code> дэх <code>manifest</code> дотор, <code>application</code>-ийн гадна"
+    },
+    {
+      "source": "<code>AndroidManifest.xml</code>の<code>application</code>の中",
+      "translation": "<code>AndroidManifest.xml</code> дэх <code>application</code> дотор"
+    },
+    {
+      "source": "<code>activity_main.xml</code>の<code>WebView</code>の中",
+      "translation": "<code>activity_main.xml</code> дэх <code>WebView</code> дотор"
+    },
+    {
+      "source": "<code>AppMenuItem.java</code>の<code>enum</code>の値の間",
+      "translation": "<code>AppMenuItem.java</code> дэх <code>enum</code>-ийн утгуудын хооронд"
+    },
+    {
+      "source": "正答：<strong><code>AndroidManifest.xml</code>の<code>manifest</code>の中、<code>application</code>の外</strong>",
+      "translation": "Зөв хариулт: <strong><code>AndroidManifest.xml</code> дэх <code>manifest</code> дотор, <code>application</code>-ийн гадна</strong>"
+    },
+    {
+      "source": "<code>manifest</code>の開始タグの下、<code>application</code>の上に宣言します。<code>application</code>の中に入れるとビルド時のエラーになります。この許可では確認の画面は出ません。",
+      "translation": "<code>manifest</code>-ийн нээх тагийн доор, <code>application</code>-ийн дээр зарлана. <code>application</code> дотор оруулбал бүтээлтийн алдаа гарна. Энэ зөвшөөрөлд баталгаажуулах дэлгэц гарахгүй."
+    },
+    {
+      "source": "復習する場所：<code>webview-app/index.html#step-2</code>",
+      "translation": "Давтах хэсэг: <code>webview-app/index.html#step-2</code>"
+    },
+    {
+      "source": "A04-02 · <code>ActionBar</code>とメニュー",
+      "translation": "A04-02 · <code>ActionBar</code> ба цэс"
+    },
+    {
+      "source": "A04で2つの<code>themes.xml</code>のテーマ名から<code>.NoActionBar</code>を外す目的はどれですか。",
+      "translation": "A04-д хоёр <code>themes.xml</code> файлын загварын нэрээс <code>.NoActionBar</code>-ийг авах зорилго юу вэ?"
+    },
+    {
+      "source": "メニュー（⋮）を置く<code>ActionBar</code>を表示する",
+      "translation": "Цэс (⋮) байрлах <code>ActionBar</code>-ийг харуулна"
+    },
+    {
+      "source": "インターネット接続を許可する",
+      "translation": "Интернет холболтыг зөвшөөрнө"
+    },
+    {
+      "source": "JavaScriptを有効にする",
+      "translation": "JavaScript-ийг идэвхжүүлнэ"
+    },
+    {
+      "source": "<code>WebView</code>の閲覧履歴を消す",
+      "translation": "<code>WebView</code>-ийн үзсэн хуудасны түүхийг устгана"
+    },
+    {
+      "source": "正答：<strong>メニュー（⋮）を置く<code>ActionBar</code>を表示する</strong>",
+      "translation": "Зөв хариулт: <strong>Цэс (⋮) байрлах <code>ActionBar</code>-ийг харуулна</strong>"
+    },
+    {
+      "source": "この教材ではオプションメニューを<code>ActionBar</code>に表示します。<code>values</code>と<code>values-night</code>の2つの<code>themes.xml</code>から<code>.NoActionBar</code>を外します。",
+      "translation": "Энэ материалаар нэмэлт цэсийг <code>ActionBar</code> дээр харуулна. <code>values</code> ба <code>values-night</code> доторх хоёр <code>themes.xml</code> файлаас <code>.NoActionBar</code>-ийг авна."
+    },
+    {
+      "source": "<code>WebView</code>に<code>setWebViewClient(new WebViewClient())</code>を設定する目的はどれですか。",
+      "translation": "<code>WebView</code>-д <code>setWebViewClient(new WebViewClient())</code> тохируулах зорилго юу вэ?"
+    },
+    {
+      "source": "ページ内のリンクを、この<code>WebView</code>の中で開くようにする",
+      "translation": "Хуудасны холбоосыг энэ <code>WebView</code> дотор нээх"
+    },
+    {
+      "source": "すべてのページでJavaScriptを有効にする",
+      "translation": "Бүх хуудсанд JavaScript-ийг идэвхжүүлэх"
+    },
+    {
+      "source": "<code>INTERNET</code>の許可を自動で追加する",
+      "translation": "<code>INTERNET</code> зөвшөөрлийг автоматаар нэмэх"
+    },
+    {
+      "source": "メニューの表示名を自動で翻訳する",
+      "translation": "Цэсэнд харагдах нэрсийг автоматаар орчуулах"
+    },
+    {
+      "source": "正答：<strong>ページ内のリンクを、この<code>WebView</code>の中で開くようにする</strong>",
+      "translation": "Зөв хариулт: <strong>Хуудасны холбоосыг энэ <code>WebView</code> дотор нээх</strong>"
+    },
+    {
+      "source": "<code>WebViewClient</code>を設定すると、ページ内のリンクもアプリの<code>WebView</code>の中で開きます。指定URLを最初に読み込む処理は<code>loadUrl</code>です。",
+      "translation": "<code>WebViewClient</code>-ийг тохируулбал хуудасны холбоос ч аппын <code>WebView</code> дотор нээгдэнэ. Заасан URL-ийг анх ачаалах үйлдэл нь <code>loadUrl</code> юм."
+    },
+    {
+      "source": "復習する場所：<code>webview-app/index.html#step-4</code>",
+      "translation": "Давтах хэсэг: <code>webview-app/index.html#step-4</code>"
+    },
+    {
+      "source": "A04-04 · <code>enum</code>にまとめる理由",
+      "translation": "A04-04 · <code>enum</code>-д нэгтгэх шалтгаан"
+    },
+    {
+      "source": "A04でURLと表示名を別々の配列にせず、<code>enum AppMenuItem</code>の1つの値にまとめる利点はどれですか。",
+      "translation": "A04-д URL ба харагдах нэрийг тусдаа массивд хадгалахын оронд <code>enum AppMenuItem</code>-ийн нэг утгад нэгтгэхийн давуу тал юу вэ?"
+    },
+    {
+      "source": "URLと表示名の組を1か所に書けるので、追加位置のずれを避けやすい",
+      "translation": "URL ба харагдах нэрийг нэг дор бичих тул нэмэх байр нь зөрөхөөс зайлсхийхэд хялбар"
+    },
+    {
+      "source": "URLのつづりが間違っていても必ず自動修正される",
+      "translation": "URL буруу бичигдсэн ч заавал автоматаар засагдана"
+    },
+    {
+      "source": "インターネット接続がなくても全サイトを表示できる",
+      "translation": "Интернет холболтгүй ч бүх сайтыг харуулна"
+    },
+    {
+      "source": "サイトのページ内容が更新されなくなる",
+      "translation": "Сайтын хуудасны агуулга шинэчлэгдэхээ болино"
+    },
+    {
+      "source": "正答：<strong>URLと表示名の組を1か所に書けるので、追加位置のずれを避けやすい</strong>",
+      "translation": "Зөв хариулт: <strong>URL ба харагдах нэрийг нэг дор бичих тул нэмэх байр нь зөрөхөөс зайлсхийхэд хялбар</strong>"
+    },
+    {
+      "source": "配列を2つ使うと、追加位置や片方の追加忘れで対応がずれることがあります。<code>enum</code>では1つの値にURLと表示名をまとめます。ただし、URL文字列のつづりまでは自動で検査しません。",
+      "translation": "Хоёр массивд өөр байрлалд нэмэх эсвэл аль нэгэнд нэмэхээ мартвал хослол зөрж болно. <code>enum</code>-д URL ба харагдах нэрийг нэг утгад нэгтгэнэ. URL тэмдэгт мөрийг зөв бичсэн эсэхийг автоматаар шалгахгүй."
+    },
+    {
+      "source": "復習する場所：<code>webview-app/index.html#enum-merits</code>",
+      "translation": "Давтах хэсэг: <code>webview-app/index.html#enum-merits</code>"
+    },
+    {
+      "source": "A04-05 · <code>ordinal</code>と<code>values</code>",
+      "translation": "A04-05 · <code>ordinal</code> ба <code>values</code>"
+    },
+    {
+      "source": "<code>AppMenuItem</code>を<code>YAHOO</code>、<code>GITHUB_COPILOT</code>、<code>SLAM_DUNK_MOVIE</code>、<code>CHAT_GPT</code>の順に定義しました。<code>AppMenuItem.values()[2]</code>で取り出す値はどれですか。",
+      "translation": "<code>AppMenuItem</code>-ийг <code>YAHOO</code>, <code>GITHUB_COPILOT</code>, <code>SLAM_DUNK_MOVIE</code>, <code>CHAT_GPT</code> гэсэн дарааллаар тодорхойлжээ. <code>AppMenuItem.values()[2]</code> ямар утга авах вэ?"
+    },
+    {
+      "source": "正答：<strong><code>SLAM_DUNK_MOVIE</code></strong>",
+      "translation": "Зөв хариулт: <strong><code>SLAM_DUNK_MOVIE</code></strong>"
+    },
+    {
+      "source": "<code>values()</code>は定義した順の配列を返し、番号は0からです。<code>SLAM_DUNK_MOVIE</code>は3番目なので番号2で、<code>ordinal()</code>も2です。",
+      "translation": "<code>values()</code> нь тодорхойлсон дарааллаар массив буцаана. Индекс 0-ээс эхэлнэ. <code>SLAM_DUNK_MOVIE</code> гурав дахь утга тул индекс 2, <code>ordinal()</code> ч 2 байна."
+    },
+    {
+      "source": "復習する場所：<code>webview-app/index.html#enum-usage</code>",
+      "translation": "Давтах хэсэг: <code>webview-app/index.html#enum-usage</code>"
+    },
+    {
+      "source": "A04-06 · コンストラクタとフィールド",
+      "translation": "A04-06 · Байгуулагч ба талбар"
+    },
+    {
+      "source": "<code>AppMenuItem(String url, String title)</code>の中の<code>this.url = url;</code>で、左の<code>this.url</code>と右の<code>url</code>の関係はどれですか。",
+      "translation": "<code>AppMenuItem(String url, String title)</code> доторх <code>this.url = url;</code> мөрийн зүүн талын <code>this.url</code> ба баруун талын <code>url</code> ямар холбоотой вэ?"
+    },
+    {
+      "source": "左はフィールド、右はコンストラクタが受け取った値",
+      "translation": "Зүүн талд талбар, баруун талд байгуулагчийн хүлээн авсан утга"
+    },
+    {
+      "source": "左は受け取った値、右はフィールド",
+      "translation": "Зүүн талд хүлээн авсан утга, баруун талд талбар"
+    },
+    {
+      "source": "左右とも<code>WebView</code>の部品<code>id</code>",
+      "translation": "Хоёулаа <code>WebView</code> бүрэлдэхүүний <code>id</code>"
+    },
+    {
+      "source": "左右ともメニュー項目の番号",
+      "translation": "Хоёулаа цэсийн зүйлийн дугаар"
+    },
+    {
+      "source": "正答：<strong>左はフィールド、右はコンストラクタが受け取った値</strong>",
+      "translation": "Зөв хариулт: <strong>Зүүн талд талбар, баруун талд байгуулагчийн хүлээн авсан утга</strong>"
+    },
+    {
+      "source": "<code>this.url</code>で、その値が持つフィールドを指します。右側の<code>url</code>は引数です。<code>private final String url</code>の<code>final</code>は、一度入れた値を変えない指定です。",
+      "translation": "<code>this.url</code> нь тухайн утгын талбарыг заана. Баруун талын <code>url</code> нь параметр. <code>private final String url</code> дахь <code>final</code> нь оноосон утгыг дахин өөрчлөхгүй гэсэн заалт юм."
+    },
+    {
+      "source": "復習する場所：<code>webview-app/index.html#step-5</code>",
+      "translation": "Давтах хэсэг: <code>webview-app/index.html#step-5</code>"
+    },
+    {
+      "source": "A04-07 · メニューのクリック処理",
+      "translation": "A04-07 · Цэсийн зүйл дарах үйлдэл"
+    },
+    {
+      "source": "A04でメニューの項目を押したときに呼ばれ、項目<code>id</code>から<code>enum</code>の値を取り出して<code>loadUrl</code>するメソッドはどれですか。",
+      "translation": "A04-д цэсийн зүйл дарахад дуудагддаг, зүйлийн <code>id</code>-аас <code>enum</code>-ийн утга авч <code>loadUrl</code> хийдэг метод аль нь вэ?"
+    },
+    {
+      "source": "正答：<strong><code>onOptionsItemSelected</code></strong>",
+      "translation": "Зөв хариулт: <strong><code>onOptionsItemSelected</code></strong>"
+    },
+    {
+      "source": "<code>onCreateOptionsMenu</code>はメニューを用意するときの処理です。項目を押すと<code>onOptionsItemSelected</code>が呼ばれ、<code>AppMenuItem.values()[item.getItemId()]</code>で選択した値を取り出します。",
+      "translation": "<code>onCreateOptionsMenu</code> нь цэсийг бэлтгэх үйлдэл юм. Зүйл дарахад <code>onOptionsItemSelected</code> дуудагдаж, <code>AppMenuItem.values()[item.getItemId()]</code>-ээр сонгосон утгыг авна."
+    },
+    {
+      "source": "復習する場所：<code>webview-app/index.html#step-6</code>",
+      "translation": "Давтах хэсэг: <code>webview-app/index.html#step-6</code>"
+    },
+    {
+      "source": "A04-08 · <code>enum</code>の項目追加",
+      "translation": "A04-08 · <code>enum</code>-д зүйл нэмэх"
+    },
+    {
+      "source": "メニューを<code>AppMenuItem.values()</code>の<code>for</code>文で作っています。4項目の<code>enum</code>の末尾に<code>JEC</code>を追加し、直前の値の末尾を<code>;</code>から<code>,</code>へ変えました。<code>MainActivity</code>を変えなくても起きることはどれですか。",
+      "translation": "Цэсийг <code>AppMenuItem.values()</code> ашигласан <code>for</code> өгүүлбэрээр үүсгэнэ. Дөрвөн зүйлтэй <code>enum</code>-ийн төгсгөлд <code>JEC</code> нэмээд өмнөх утгын төгсгөлийг <code>;</code>-ээс <code>,</code> болгожээ. <code>MainActivity</code>-г өөрчлөхгүй бол юу болох вэ?"
+    },
+    {
+      "source": "5つ目に<code>JEC</code>の表示名が追加され、その項目<code>id</code>は4になる",
+      "translation": "Тавд <code>JEC</code>-ийн харагдах нэр нэмэгдэж, тэр зүйлийн <code>id</code> нь 4 болно"
+    },
+    {
+      "source": "<code>JEC</code>は追加されるが、項目<code>id</code>は5になる",
+      "translation": "<code>JEC</code> нэмэгдэх боловч тухайн зүйлийн <code>id</code> нь 5 болно"
+    },
+    {
+      "source": "既存の4項目が消えて<code>JEC</code>だけになる",
+      "translation": "Одоо байгаа дөрвөн зүйл арилж, зөвхөн <code>JEC</code> үлдэнэ"
+    },
+    {
+      "source": "<code>MainActivity</code>に<code>menu.add</code>を足すまで<code>JEC</code>は出ない",
+      "translation": "<code>MainActivity</code>-д <code>menu.add</code> нэмтэл <code>JEC</code> харагдахгүй"
+    },
+    {
+      "source": "正答：<strong>5つ目に<code>JEC</code>の表示名が追加され、その項目<code>id</code>は4になる</strong>",
+      "translation": "Зөв хариулт: <strong>Тавд <code>JEC</code>-ийн харагдах нэр нэмэгдэж, тэр зүйлийн <code>id</code> нь 4 болно</strong>"
+    },
+    {
+      "source": "<code>values()</code>で追加した値も取り出し、<code>ordinal()</code>を<code>id</code>に使います。番号は0からなので5つ目の<code>id</code>は4です。URLと表示名を<code>enum</code>に追加するだけで対応します。",
+      "translation": "<code>values()</code>-ээр нэмсэн утгыг ч авч, <code>ordinal()</code>-ийг <code>id</code> болгон ашиглана. Дугаар 0-ээс эхэлдэг тул тав дахь зүйлийн <code>id</code> нь 4 байна. URL ба харагдах нэрийг <code>enum</code>-д нэмэхэд хангалттай."
+    },
+    {
+      "source": "復習する場所：<code>webview-app/index.html#step-9</code>",
+      "translation": "Давтах хэсэг: <code>webview-app/index.html#step-9</code>"
+    },
+    {
+      "source": "A04-09 · JavaScriptの切り替え",
+      "translation": "A04-09 · JavaScript-ийг асаах, унтраах"
+    },
+    {
+      "source": "A04で<code>JavaScript ON</code>のチェックを切り替えたとき、<code>setJavaScriptEnabled(isChecked)</code>のあとに<code>webView.reload()</code>を呼ぶ目的はどれですか。",
+      "translation": "A04-д <code>JavaScript ON</code> чагтыг солиход <code>setJavaScriptEnabled(isChecked)</code>-ийн дараа <code>webView.reload()</code>-ийг дуудах зорилго юу вэ?"
+    },
+    {
+      "source": "今のページを読み込み直して、変更した設定を反映する",
+      "translation": "Одоогийн хуудсыг дахин ачаалж, өөрчилсөн тохиргоог хэрэгжүүлэх"
+    },
+    {
+      "source": "メニューの項目数を数え直す",
+      "translation": "Цэсийн зүйлсийг дахин тоолох"
+    },
+    {
+      "source": "アプリをアンインストールする",
+      "translation": "Аппыг устгах"
+    },
+    {
+      "source": "チェックボックスの<code>id</code>を変更する",
+      "translation": "Чагтлах нүдний <code>id</code>-г солих"
+    },
+    {
+      "source": "正答：<strong>今のページを読み込み直して、変更した設定を反映する</strong>",
+      "translation": "Зөв хариулт: <strong>Одоогийн хуудсыг дахин ачаалж, өөрчилсөн тохиргоог хэрэгжүүлэх</strong>"
+    },
+    {
+      "source": "<code>isChecked</code>は切り替えた後のチェック状態です。JavaScriptの有効・無効を設定し、<code>reload</code>で今のページを読み込み直します。JavaScriptはWebページの中で動く言語です。",
+      "translation": "<code>isChecked</code> нь өөрчилсний дараах чагтын төлөв. JavaScript-ийг идэвхжүүлэх эсэхийг тохируулаад <code>reload</code>-оор одоогийн хуудсыг дахин ачаална. JavaScript нь веб хуудсан дотор ажилладаг хэл юм."
+    },
+    {
+      "source": "復習する場所：<code>webview-app/index.html#step-7</code>",
+      "translation": "Давтах хэсэг: <code>webview-app/index.html#step-7</code>"
+    },
+    {
+      "source": "A04-10 · ズーム",
+      "translation": "A04-10 · Томруулж харах"
+    },
+    {
+      "source": "<code>webView.getSettings().setBuiltInZoomControls(true);</code>で有効にする操作はどれですか。",
+      "translation": "<code>webView.getSettings().setBuiltInZoomControls(true);</code> нь ямар үйлдлийг идэвхжүүлдэг вэ?"
+    },
+    {
+      "source": "2本指で広げたりつまんだりする拡大・縮小",
+      "translation": "Хоёр хурууг салгаж томруулах, нийлүүлж жижигрүүлэх"
+    },
+    {
+      "source": "チェックを付けてJavaScriptを切り替える操作",
+      "translation": "Чагтлах нүдээр JavaScript-ийг асаах, унтраах"
+    },
+    {
+      "source": "戻る操作で前のページへ戻る処理",
+      "translation": "Буцах үйлдлээр өмнөх хуудас руу буцах"
+    },
+    {
+      "source": "メニューにサイトを追加する操作",
+      "translation": "Цэсэнд сайт нэмэх"
+    },
+    {
+      "source": "正答：<strong>2本指で広げたりつまんだりする拡大・縮小</strong>",
+      "translation": "Зөв хариулт: <strong>Хоёр хурууг салгаж томруулах, нийлүүлж жижигрүүлэх</strong>"
+    },
+    {
+      "source": "組み込みのズーム操作を有効にします。ただし、サイト側が拡大を制限している場合は、拡大できないこともあります。",
+      "translation": "Суулгасан томруулах, жижигрүүлэх үйлдлийг идэвхжүүлнэ. Сайт томруулахыг хязгаарласан бол томруулж чадахгүй байж болно."
+    },
+    {
+      "source": "A04-11 · 戻る履歴の有無",
+      "translation": "A04-11 · Буцах хуудас байгаа эсэх"
+    },
+    {
+      "source": "<code>backCallback.setEnabled(view.canGoBack());</code>で、前のページがないため<code>canGoBack()</code>が<code>false</code>になりました。A04で次に戻る操作をするとどうなりますか。",
+      "translation": "<code>backCallback.setEnabled(view.canGoBack());</code> мөрд өмнөх хуудас байхгүй тул <code>canGoBack()</code> нь <code>false</code> болжээ. A04-д дахин буцах үйлдэл хийхэд юу болох вэ?"
+    },
+    {
+      "source": "独自の戻る処理が無効になり、Androidの通常の戻る操作でホームへ戻る",
+      "translation": "Аппын тусгай буцах үйлдэл идэвхгүй болж, Android-ийн ердийн буцах үйлдлээр нүүр дэлгэц рүү буцна"
+    },
+    {
+      "source": "必ず<code>WebView</code>内の前のページに戻る",
+      "translation": "Заавал <code>WebView</code> доторх өмнөх хуудас руу буцна"
+    },
+    {
+      "source": "最初のページを繰り返し読み込む",
+      "translation": "Эхний хуудсыг дахин дахин ачаална"
+    },
+    {
+      "source": "アプリの設定から<code>INTERNET</code>の許可を消す",
+      "translation": "Аппын тохиргооноос <code>INTERNET</code> зөвшөөрлийг устгана"
+    },
+    {
+      "source": "正答：<strong>独自の戻る処理が無効になり、Androidの通常の戻る操作でホームへ戻る</strong>",
+      "translation": "Зөв хариулт: <strong>Аппын тусгай буцах үйлдэл идэвхгүй болж, Android-ийн ердийн буцах үйлдлээр нүүр дэлгэц рүү буцна</strong>"
+    },
+    {
+      "source": "前のページがある間だけ<code>backCallback</code>を有効にします。最初のページまで戻ると無効になり、通常の戻る操作に任せます。",
+      "translation": "Өмнөх хуудас байгаа үед л <code>backCallback</code>-ийг идэвхжүүлнэ. Эхний хуудас руу буцмагц идэвхгүй болж, ердийн буцах үйлдэл ажиллана."
+    },
+    {
+      "source": "復習する場所：<code>webview-app/index.html#step-8</code>",
+      "translation": "Давтах хэсэг: <code>webview-app/index.html#step-8</code>"
+    },
+    {
+      "source": "A04-12 · 戻る処理の登録",
+      "translation": "A04-12 · Буцах үйлдлийг бүртгэх"
+    },
+    {
+      "source": "A04では<code>OnBackPressedCallback</code>を登録しています。このコールバックが有効なとき、<code>handleOnBackPressed</code>の中の<code>webView.goBack()</code>は何をしますか。",
+      "translation": "A04-д <code>OnBackPressedCallback</code>-ийг бүртгэсэн. Энэ эргэн дуудах үйлдэл идэвхтэй үед <code>handleOnBackPressed</code> доторх <code>webView.goBack()</code> юу хийх вэ?"
+    },
+    {
+      "source": "<code>WebView</code>の履歴にある前のページに戻る",
+      "translation": "<code>WebView</code>-ийн түүх дэх өмнөх хуудас руу буцна"
+    },
+    {
+      "source": "メニューの先頭のサイトを必ず開く",
+      "translation": "Цэсийн эхний сайтыг заавал нээнэ"
+    },
+    {
+      "source": "JavaScriptの設定を初期値に戻す",
+      "translation": "JavaScript-ийн тохиргоог анхны утгад буцаана"
+    },
+    {
+      "source": "<code>WebView</code>の表示を消して最初から起動し直す",
+      "translation": "<code>WebView</code>-ийн дэлгэцийг цэвэрлээд эхнээс нь ажиллуулна"
+    },
+    {
+      "source": "正答：<strong><code>WebView</code>の履歴にある前のページに戻る</strong>",
+      "translation": "Зөв хариулт: <strong><code>WebView</code>-ийн түүх дэх өмнөх хуудас руу буцна</strong>"
+    },
+    {
+      "source": "<code>goBack()</code>は閲覧履歴の前のページへ戻る処理です。この教材では、履歴が変わるたびに<code>canGoBack()</code>を調べ、前のページがあるときだけコールバックを有効にします。",
+      "translation": "<code>goBack()</code> нь зочилсон түүх дэх өмнөх хуудас руу буцаана. Энэ материалд түүх өөрчлөгдөх бүрд <code>canGoBack()</code>-ийг шалгаж, өмнөх хуудас байгаа үед л эргэн дуудах үйлдлийг идэвхжүүлнэ."
+    },
+    {
+      "source": "A05-01 · 画像の切り替え",
+      "translation": "A05-01 · Зураг солих"
+    },
+    {
+      "source": "A05で爆弾の<code>ImageView</code>を着火した画像に変える行はどれですか。",
+      "translation": "A05-д тэсрэх бөмбөгийн <code>ImageView</code>-ийг ассан зургаар солих мөр аль нь вэ?"
+    },
+    {
+      "source": "正答：<strong><code>imgBomb.setImageResource(R.drawable.bomb_ignited);</code></strong>",
+      "translation": "Зөв хариулт: <strong><code>imgBomb.setImageResource(R.drawable.bomb_ignited);</code></strong>"
+    },
+    {
+      "source": "<code>setImageResource</code>で<code>ImageView</code>に表示する画像を変えます。<code>bomb_initial</code>は着火前、<code>bomb_ignited</code>は着火、<code>bomb_exploded</code>は爆発の画像です。",
+      "translation": "<code>setImageResource</code>-ээр <code>ImageView</code>-д харагдах зургийг солино. <code>bomb_initial</code> нь асаагүй үеийн, <code>bomb_ignited</code> нь ассан үеийн, <code>bomb_exploded</code> нь дэлбэрсэн үеийн зураг."
+    },
+    {
+      "source": "復習する場所：<code>bomb-game/index.html#step-7</code>",
+      "translation": "Давтах хэсэг: <code>bomb-game/index.html#step-7</code>"
+    },
+    {
+      "source": "A05-02 · 乱数の配列",
+      "translation": "A05-02 · Санамсаргүй тооны массив"
+    },
+    {
+      "source": "<code>ThreadLocalRandom.current().ints(2, 1, 10).toArray()</code>が作る配列の説明はどれですか。",
+      "translation": "<code>ThreadLocalRandom.current().ints(2, 1, 10).toArray()</code> ямар массив үүсгэх вэ?"
+    },
+    {
+      "source": "1〜9の整数を2個入れた配列。2個が同じ値になる場合もある",
+      "translation": "1–9-ийн хоёр бүхэл тоотой массив. Хоёр утга ижил байж болно"
+    },
+    {
+      "source": "1〜10の整数を2個入れた配列。重複は自動で除かれる",
+      "translation": "1–10-ын хоёр бүхэл тоотой массив. Давхардлыг автоматаар хасна"
+    },
+    {
+      "source": "2〜9の整数をすべて1回ずつ入れた配列",
+      "translation": "2–9-ийн бүх бүхэл тоог тус бүр нэг удаа оруулсан массив"
+    },
+    {
+      "source": "1と10だけを入れた配列",
+      "translation": "Зөвхөн 1 ба 10-ыг оруулсан массив"
+    },
+    {
+      "source": "正答：<strong>1〜9の整数を2個入れた配列。2個が同じ値になる場合もある</strong>",
+      "translation": "Зөв хариулт: <strong>1–9-ийн хоёр бүхэл тоотой массив. Хоёр утга ижил байж болно</strong>"
+    },
+    {
+      "source": "最初の2は個数、1は範囲の始まり、10は含まない上限です。この行だけでは重複を防げないため、後で<code>distinct().count()</code>で確かめます。",
+      "translation": "Эхний 2 нь тоо ширхэг, 1 нь мужийн эхлэл, 10 нь орохгүй дээд хязгаар. Энэ мөр дангаараа давхардлаас сэргийлэхгүй тул дараа нь <code>distinct().count()</code>-ээр шалгана."
+    },
+    {
+      "source": "復習する場所：<code>bomb-game/index.html#step-5</code>",
+      "translation": "Давтах хэсэг: <code>bomb-game/index.html#step-5</code>"
+    },
+    {
+      "source": "A05-03 · <code>do-while</code>文",
+      "translation": "A05-03 · <code>do-while</code> өгүүлбэр"
+    },
+    {
+      "source": "<code>do { 乱数を作る処理 } while (条件);</code> は、どの順で動きますか。",
+      "translation": "<code>do { 乱数を作る処理 } while (条件);</code> ямар дарааллаар ажиллах вэ?"
+    },
+    {
+      "source": "中を必ず1回実行してから条件を調べ、<code>true</code>なら繰り返す",
+      "translation": "Доторх үйлдлийг заавал нэг удаа ажиллуулаад нөхцөлийг шалгана. <code>true</code> бол давтана"
+    },
+    {
+      "source": "先に条件を調べ、<code>false</code>でも必ず2回実行する",
+      "translation": "Эхлээд нөхцөлийг шалгаж, <code>false</code> байсан ч заавал хоёр удаа ажиллуулна"
+    },
+    {
+      "source": "条件が<code>false</code>の間だけ繰り返す",
+      "translation": "Нөхцөл <code>false</code> үед л давтана"
+    },
+    {
+      "source": "中は1回も実行せず、条件だけを調べる",
+      "translation": "Доторх үйлдлийг огт ажиллуулахгүй, зөвхөн нөхцөлийг шалгана"
+    },
+    {
+      "source": "正答：<strong>中を必ず1回実行してから条件を調べ、<code>true</code>なら繰り返す</strong>",
+      "translation": "Зөв хариулт: <strong>Доторх үйлдлийг заавал нэг удаа ажиллуулаад нөхцөлийг шалгана. <code>true</code> бол давтана</strong>"
+    },
+    {
+      "source": "<code>do-while</code>は後から条件を調べるため、中を少なくとも1回実行します。A05では、乱数を作ってから重複があるかを確かめる流れに使っています。",
+      "translation": "<code>do-while</code> нь нөхцөлийг дараа шалгадаг тул доторх үйлдлийг дор хаяж нэг удаа хийнэ. A05-д санамсаргүй тоонууд үүсгэсний дараа давхардал байгаа эсэхийг шалгахад хэрэглэнэ."
+    },
+    {
+      "source": "A05-04 · <code>distinct</code>と<code>count</code>",
+      "translation": "A05-04 · <code>distinct</code> ба <code>count</code>"
+    },
+    {
+      "source": "スイッチ候補の配列が<code>{5, 5}</code>です。<code>Arrays.stream(randomIgnitionNumbers).distinct().count() != 2</code>はどうなりますか。",
+      "translation": "Унтраалга болох тоонуудын массив <code>{5, 5}</code>. <code>Arrays.stream(randomIgnitionNumbers).distinct().count() != 2</code> ямар үр дүнтэй вэ?"
+    },
+    {
+      "source": "重複を除いた個数は1なので<code>true</code>になり、作り直す",
+      "translation": "Давхардлыг хасахад нэг утга үлдэх тул <code>true</code> болж, дахин үүсгэнэ"
+    },
+    {
+      "source": "配列の長さは2なので<code>false</code>になり、そのまま採用する",
+      "translation": "Массивын урт 2 тул <code>false</code> болж, байгаагаар нь ашиглана"
+    },
+    {
+      "source": "合計は10なので<code>true</code>になり、数字10を追加する",
+      "translation": "Нийлбэр 10 тул <code>true</code> болж, 10-ыг нэмнэ"
+    },
+    {
+      "source": "重複を除いた個数は0なので、アプリを終了する",
+      "translation": "Давхардлыг хасахад 0 утга үлдэх тул аппыг хаана"
+    },
+    {
+      "source": "正答：<strong>重複を除いた個数は1なので<code>true</code>になり、作り直す</strong>",
+      "translation": "Зөв хариулт: <strong>Давхардлыг хасахад нэг утга үлдэх тул <code>true</code> болж, дахин үүсгэнэ</strong>"
+    },
+    {
+      "source": "<code>distinct</code>は重複する値を除き、<code>count</code>はその個数を数えます。<code>{5, 5}</code>は5の1種類なので<code>1 != 2</code>が<code>true</code>です。違う2つの値なら個数2で繰り返しを終えます。",
+      "translation": "<code>distinct</code> нь давхардсан утгыг хасаж, <code>count</code> нь үлдсэн утгуудыг тоолно. <code>{5, 5}</code>-д зөвхөн 5 гэсэн нэг төрлийн утга байгаа тул <code>1 != 2</code> нь <code>true</code>. Хоёр өөр утгатай бол тоо нь 2 болж, давталт дуусна."
+    },
+    {
+      "source": "A05-05 · メソッドとフィールド",
+      "translation": "A05-05 · Метод ба талбар"
+    },
+    {
+      "source": "A05で<code>private int[] randomIgnitionNumbers;</code>をフィールドにする理由はどれですか。",
+      "translation": "A05-д <code>private int[] randomIgnitionNumbers;</code>-ийг яагаад талбар болгосон бэ?"
+    },
+    {
+      "source": "メソッドで作ったスイッチの数字を、あとでクリック処理から読むため",
+      "translation": "Методод үүсгэсэн унтраалгын тоонуудыг дараа нь товч дарах үйлдлээс уншихын тулд"
+    },
+    {
+      "source": "配列はすべて必ずフィールドにしなければならないため",
+      "translation": "Бүх массив заавал талбар байх ёстой учраас"
+    },
+    {
+      "source": "フィールドにすると乱数が重複しなくなるため",
+      "translation": "Талбар болговол санамсаргүй тоо давхцахгүй учраас"
+    },
+    {
+      "source": "<code>int[]</code>を使うと画像が自動で切り替わるため",
+      "translation": "<code>int[]</code> ашиглахад зураг автоматаар солигдох учраас"
+    },
+    {
+      "source": "正答：<strong>メソッドで作ったスイッチの数字を、あとでクリック処理から読むため</strong>",
+      "translation": "Зөв хариулт: <strong>Методод үүсгэсэн унтраалгын тоонуудыг дараа нь товч дарах үйлдлээс уншихын тулд</strong>"
+    },
+    {
+      "source": "<code>generateIgnitionNumbers</code>で作った配列をフィールドに入れ、数字ボタンを押したときに参照します。乱数の重複はフィールドではなく、<code>do-while</code>の判定で防ぎます。",
+      "translation": "<code>generateIgnitionNumbers</code>-ээр үүсгэсэн массивыг талбарт хадгалж, тооны товч дарахад ашиглана. <code>do-while</code>-ийн нөхцөл санамсаргүй тоог давхцуулахгүй. Талбар үүнд нөлөөлөхгүй."
+    },
+    {
+      "source": "A05-06 · 同じボタンを押せなくする",
+      "translation": "A05-06 · Ижил товчийг дахин дарахаас сэргийлэх"
+    },
+    {
+      "source": "数字ボタンのクリック処理の最初で<code>button.setEnabled(false);</code>を実行します。このゲームで防げることはどれですか。",
+      "translation": "Тооны товч дарах үйлдлийн эхэнд <code>button.setEnabled(false);</code> ажиллуулна. Ингэснээр энэ тоглоомд юунаас сэргийлэх вэ?"
+    },
+    {
+      "source": "同じ数字を2回押すこと",
+      "translation": "Ижил тоог хоёр удаа дарахаас"
+    },
+    {
+      "source": "違う数字を続けて押すこと",
+      "translation": "Өөр тоонуудыг дараалан дарахаас"
+    },
+    {
+      "source": "乱数が同じ組み合わせになること",
+      "translation": "Санамсаргүй тооны хослол ижил гарахаас"
+    },
+    {
+      "source": "再挑戦ボタンを表示すること",
+      "translation": "Дахин оролдох товч харагдахаас"
+    },
+    {
+      "source": "正答：<strong>同じ数字を2回押すこと</strong>",
+      "translation": "Зөв хариулт: <strong>Ижил тоог хоёр удаа дарахаас</strong>"
+    },
+    {
+      "source": "押したボタンだけを無効にします。そのため、同じ導火線スイッチを2回押して状態を2段階進めることもできません。",
+      "translation": "Зөвхөн дарсан товчийг идэвхгүй болгоно. Тиймээс гал дамжуулах утасны ижил унтраалгыг хоёр удаа дарж төлөвийг хоёр шатаар ахиулах боломжгүй."
+    },
+    {
+      "source": "復習する場所：<code>bomb-game/index.html#step-6</code>",
+      "translation": "Давтах хэсэг: <code>bomb-game/index.html#step-6</code>"
+    },
+    {
+      "source": "スイッチが<code>{3, 7}</code>で、押した数字<code>number</code>が7です。<code>anyMatch(num -&gt; num == number)</code>の結果はどれですか。",
+      "translation": "Унтраалгын тоонууд <code>{3, 7}</code> бөгөөд дарсан тоо <code>number</code> нь 7 байна. <code>anyMatch(num -&gt; num == number)</code> ямар үр дүнтэй вэ?"
+    },
+    {
+      "source": "同じ値が1つあるので<code>true</code>",
+      "translation": "Нэг утга таарч байгаа тул <code>true</code>"
+    },
+    {
+      "source": "両方とも7ではないので<code>false</code>",
+      "translation": "Хоёр утга хоёулаа 7 биш тул <code>false</code>"
+    },
+    {
+      "source": "配列の要素数である2",
+      "translation": "Массивын элементийн тоо 2"
+    },
+    {
+      "source": "一致した数字である7",
+      "translation": "Таарсан тоо болох 7"
+    },
+    {
+      "source": "正答：<strong>同じ値が1つあるので<code>true</code></strong>",
+      "translation": "Зөв хариулт: <strong>Нэг утга таарч байгаа тул <code>true</code></strong>"
+    },
+    {
+      "source": "<code>anyMatch</code>は条件を満たす値が1つでもあれば<code>true</code>を返します。3は一致しなくても7が一致するので、スイッチと判定します。",
+      "translation": "<code>anyMatch</code> нь нөхцөл хангах ганц ч болов утга байвал <code>true</code> буцаана. 3 таарахгүй ч 7 таарч байгаа тул унтраалга гэж үзнэ."
+    },
+    {
+      "source": "A05-08 · 状態遷移",
+      "translation": "A05-08 · Төлөв шилжих"
+    },
+    {
+      "source": "<code>STATE_INITIAL = 1</code>、<code>STATE_IGNITED = 2</code>、<code>STATE_EXPLODED = 3</code>です。起動直後から2つの異なるスイッチを続けて押し、各回<code>if (match) nowState++;</code>を実行すると、最後の状態はどれですか。",
+      "translation": "<code>STATE_INITIAL = 1</code>, <code>STATE_IGNITED = 2</code>, <code>STATE_EXPLODED = 3</code> гэж өгөгдсөн. Аппыг нээсэн даруй хоёр өөр унтраалгыг дараалан дараад, дарах бүрд <code>if (match) nowState++;</code> ажиллуулбал эцсийн төлөв аль нь вэ?"
+    },
+    {
+      "source": "3（爆発）",
+      "translation": "3 (дэлбэрсэн)"
+    },
+    {
+      "source": "1（着火前）",
+      "translation": "1 (асаагүй)"
+    },
+    {
+      "source": "2（着火）",
+      "translation": "2 (ассан)"
+    },
+    {
+      "source": "0（未選択）",
+      "translation": "0 (сонгоогүй)"
+    },
+    {
+      "source": "正答：<strong>3（爆発）</strong>",
+      "translation": "Зөв хариулт: <strong>3 (дэлбэрсэн)</strong>"
+    },
+    {
+      "source": "起動時の<code>nowState</code>は1です。1つ目のスイッチで2になり着火、2つ目で3になり爆発します。定数が1・2・3の連番なので<code>++</code>で次の状態へ進めます。",
+      "translation": "Апп эхлэхэд <code>nowState</code> нь 1. Эхний унтраалгаар 2 болж асна, хоёр дахь унтраалгаар 3 болж дэлбэрнэ. Тогтмолууд 1, 2, 3 гэсэн дараалалтай тул <code>++</code>-ээр дараагийн төлөвт шилжинэ."
+    },
+    {
+      "source": "A05-09 · 定数と変化する値",
+      "translation": "A05-09 · Тогтмол ба өөрчлөгдөх утга"
+    },
+    {
+      "source": "<code>private static final int STATE_INITIAL = 1;</code>と<code>private int nowState = STATE_INITIAL;</code>があります。ゲームで<code>nowState++</code>を実行したときの説明はどれですか。",
+      "translation": "<code>private static final int STATE_INITIAL = 1;</code> ба <code>private int nowState = STATE_INITIAL;</code> гэж өгөгдсөн. Тоглоомд <code>nowState++</code> ажиллуулахад аль тайлбар зөв вэ?"
+    },
+    {
+      "source": "<code>nowState</code>は変わるが、定数<code>STATE_INITIAL</code>は1のまま",
+      "translation": "<code>nowState</code> өөрчлөгдөж, тогтмол <code>STATE_INITIAL</code> нь 1 хэвээр үлдэнэ"
+    },
+    {
+      "source": "<code>nowState</code>と<code>STATE_INITIAL</code>が両方2になる",
+      "translation": "<code>nowState</code> ба <code>STATE_INITIAL</code> хоёулаа 2 болно"
+    },
+    {
+      "source": "<code>STATE_INITIAL</code>だけが2になり、<code>nowState</code>は1のまま",
+      "translation": "Зөвхөн <code>STATE_INITIAL</code> нь 2 болж, <code>nowState</code> нь 1 хэвээр үлдэнэ"
+    },
+    {
+      "source": "<code>final</code>があるので<code>nowState</code>も絶対に変更できない",
+      "translation": "<code>final</code> байгаа тул <code>nowState</code>-ийг ч огт өөрчилж болохгүй"
+    },
+    {
+      "source": "正答：<strong><code>nowState</code>は変わるが、定数<code>STATE_INITIAL</code>は1のまま</strong>",
+      "translation": "Зөв хариулт: <strong><code>nowState</code> өөрчлөгдөж, тогтмол <code>STATE_INITIAL</code> нь 1 хэвээр үлдэнэ</strong>"
+    },
+    {
+      "source": "<code>STATE_INITIAL</code>は<code>final</code>の定数です。<code>nowState</code>はその値を最初に受け取り、その後の現在状態を覚える別のフィールドなので変更できます。",
+      "translation": "<code>STATE_INITIAL</code> нь <code>final</code> тогтмол юм. <code>nowState</code> нь анх тэр утгыг аваад одоогийн төлөвийг хадгалах тусдаа талбар учраас өөрчлөгдөж болно."
+    },
+    {
+      "source": "A05-10 · <code>filter</code>と<code>count</code>",
+      "translation": "A05-10 · <code>filter</code> ба <code>count</code>"
+    },
+    {
+      "source": "<code>Arrays.stream(numberButtons).filter(b -&gt; !b.isEnabled()).count()</code>で数えるものはどれですか。",
+      "translation": "<code>Arrays.stream(numberButtons).filter(b -&gt; !b.isEnabled()).count()</code> юуг тоолох вэ?"
+    },
+    {
+      "source": "押せない状態の数字ボタンの数",
+      "translation": "Дарах боломжгүй тооны товчийн тоо"
+    },
+    {
+      "source": "まだ押せる数字ボタンの数",
+      "translation": "Дарах боломжтой хэвээр байгаа тооны товчийн тоо"
+    },
+    {
+      "source": "ボタンに書かれた数字の合計",
+      "translation": "Товч дээр бичсэн тоонуудын нийлбэр"
+    },
+    {
+      "source": "スイッチの数字の最大値",
+      "translation": "Унтраалгын тоонуудын хамгийн их утга"
+    },
+    {
+      "source": "正答：<strong>押せない状態の数字ボタンの数</strong>",
+      "translation": "Зөв хариулт: <strong>Дарах боломжгүй тооны товчийн тоо</strong>"
+    },
+    {
+      "source": "<code>isEnabled()</code>は押せる状態かを返し、<code>!</code>で反対にしています。<code>filter</code>で押せないボタンだけを残し、<code>count</code>で数えます。押した直後に無効にしたボタンも数に入ります。",
+      "translation": "<code>isEnabled()</code> нь товч дарах боломжтой эсэхийг буцаана. <code>!</code>-оор үүнийг эсрэг утгатай болгоно. <code>filter</code>-ээр дарах боломжгүй товчийг л үлдээж, <code>count</code>-өөр тоолно. Дөнгөж дарж идэвхгүй болгосон товч ч тоонд орно."
+    },
+    {
+      "source": "復習する場所：<code>bomb-game/index.html#step-9</code>",
+      "translation": "Давтах хэсэг: <code>bomb-game/index.html#step-9</code>"
+    },
+    {
+      "source": "A05-11 · クリア条件",
+      "translation": "A05-11 · Хожих нөхцөл"
+    },
+    {
+      "source": "A05でスイッチを1つ押して着火した後、スイッチ以外の7個を全部押してクリアしました。クリア判定の時点で押せないボタンを8個と数える理由はどれですか。",
+      "translation": "A05-д нэг унтраалга дарж асаагаад, унтраалга биш 7 товчийг бүгдийг нь дарж хожжээ. Хожсон эсэхийг шалгах үед дарах боломжгүй 8 товч тоологдох шалтгаан аль нь вэ?"
+    },
+    {
+      "source": "スイッチ以外の7個に、先に押したスイッチ1個も含まれるため",
+      "translation": "Унтраалга биш 7 товч дээр өмнө дарсан нэг унтраалга нэмэгдэж тоологдох учраас"
+    },
+    {
+      "source": "再挑戦ボタンも数字ボタンとして数えるため",
+      "translation": "Дахин оролдох товчийг тооны товч гэж тоолдог учраас"
+    },
+    {
+      "source": "着火するとボタンが1個増えるため",
+      "translation": "Асахад нэг товч нэмэгддэг учраас"
+    },
+    {
+      "source": "スイッチ以外のボタンが最初から8個あるため",
+      "translation": "Унтраалга биш товч анхнаасаа 8 байдаг учраас"
+    },
+    {
+      "source": "正答：<strong>スイッチ以外の7個に、先に押したスイッチ1個も含まれるため</strong>",
+      "translation": "Зөв хариулт: <strong>Унтраалга биш 7 товч дээр өмнө дарсан нэг унтраалга нэмэгдэж тоологдох учраас</strong>"
+    },
+    {
+      "source": "9個中2個がスイッチなので、それ以外は7個です。着火前なら7個、着火後なら押したスイッチも足して8個でクリアになります。着火後のクリアでは画像は火の付いたままです。",
+      "translation": "9 товчны хоёр нь унтраалга тул бусад нь 7 байна. Асаагүй бол 7 товч дарахад хожно. Ассан бол өмнө дарсан унтраалгатай нийлээд 8 товч дарахад хожно. Ассаны дараа хожиход зураг ассан хэвээр үлдэнэ."
+    },
+    {
+      "source": "A05-12 · 再挑戦",
+      "translation": "A05-12 · Дахин оролдох"
+    },
+    {
+      "source": "A05の再挑戦では<code>generateIgnitionNumbers()</code>を呼び、9個の数字ボタンを<code>setEnabled(true)</code>にします。再挑戦後の説明として正しいものはどれですか。",
+      "translation": "A05-д дахин оролдохдоо <code>generateIgnitionNumbers()</code>-ийг дуудаж, 9 тооны товчийг <code>setEnabled(true)</code> болгоно. Дахин оролдсоны дараах зөв тайлбар аль нь вэ?"
+    },
+    {
+      "source": "数字をすべて押せるように戻し、スイッチを選び直す。同じ組み合わせになることもある",
+      "translation": "Бүх тоог дахин дарах боломжтой болж, унтраалгуудыг дахин сонгоно. Ижил хослол гарч болно"
+    },
+    {
+      "source": "数字をすべて押せるように戻すが、スイッチは必ず前のまま",
+      "translation": "Бүх тоог дахин дарах боломжтой болно, гэхдээ унтраалгууд үргэлж хэвээр байна"
+    },
+    {
+      "source": "押した数字だけ無効のまま残し、スイッチを選び直す",
+      "translation": "Дарсан тоонуудыг идэвхгүй хэвээр үлдээж, унтраалгуудыг дахин сонгоно"
+    },
+    {
+      "source": "数字はすべて押せるように戻るが、前と同じスイッチになることは絶対にない",
+      "translation": "Бүх тоог дахин дарах боломжтой болно, гэхдээ өмнөхтэй ижил унтраалга огт гарахгүй"
+    },
+    {
+      "source": "正答：<strong>数字をすべて押せるように戻し、スイッチを選び直す。同じ組み合わせになることもある</strong>",
+      "translation": "Зөв хариулт: <strong>Бүх тоог дахин дарах боломжтой болж, унтраалгуудыг дахин сонгоно. Ижил хослол гарч болно</strong>"
+    },
+    {
+      "source": "再挑戦は状態・画像・メッセージも最初に戻し、乱数のメソッドを呼び直します。2つのスイッチは互いに異なりますが、前の回と同じ組み合わせになる可能性はあります。",
+      "translation": "Дахин оролдоход төлөв, зураг, зурвасыг анхны байдалд оруулаад санамсаргүй тооны методыг дахин дуудна. Хоёр унтраалга хоорондоо ялгаатай байна. Өмнөх оролдлоготой ижил хослол гарч болно."
+    },
+    {
+      "source": "復習する場所：<code>bomb-game/index.html#step-8</code>",
+      "translation": "Давтах хэсэг: <code>bomb-game/index.html#step-8</code>"
+    },
+    {
+      "source": "A06-01 · <code>Activity</code>の追加",
+      "translation": "A06-01 · <code>Activity</code> нэмэх"
+    },
+    {
+      "source": "A06で2つ目の画面<code>TestActivity</code>を追加するとき、教科書で選ぶ操作はどれですか。",
+      "translation": "A06-д хоёр дахь дэлгэц <code>TestActivity</code>-ийг нэмэхдээ сурах бичгийн дагуу ямар үйлдлийг сонгох вэ?"
+    },
+    {
+      "source": "正答：<strong><code>New → Activity → Empty Views Activity</code></strong>",
+      "translation": "Зөв хариулт: <strong><code>New → Activity → Empty Views Activity</code></strong>"
+    },
+    {
+      "source": "<code>Activity</code>として作ると、<code>Java</code>とレイアウト<code>XML</code>に加えて<code>AndroidManifest.xml</code>への登録も用意されます。<code>Java Class</code>だけでは画面の登録ができません。",
+      "translation": "<code>Activity</code> болгон үүсгэхэд <code>Java</code> ба байрлалын <code>XML</code>-ээс гадна <code>AndroidManifest.xml</code> дахь бүртгэл ч бэлэн болно. Зөвхөн <code>Java Class</code>-аар дэлгэц бүртгэх боломжгүй."
+    },
+    {
+      "source": "復習する場所：<code>screen-transition-sample/index.html#step-3</code>",
+      "translation": "Давтах хэсэг: <code>screen-transition-sample/index.html#step-3</code>"
+    },
+    {
+      "source": "A06-02 · <code>Intent</code>による画面遷移",
+      "translation": "A06-02 · <code>Intent</code>-ээр дэлгэц шилжүүлэх"
+    },
+    {
+      "source": "<code>new Intent(this, TestActivity.class)</code>で作った<code>intent</code>をAndroidへ渡し、<code>TestActivity</code>を開く処理はどれですか。",
+      "translation": "<code>new Intent(this, TestActivity.class)</code>-ээр үүсгэсэн <code>intent</code>-ийг Android-д өгч <code>TestActivity</code>-ийг нээх үйлдэл аль нь вэ?"
+    },
+    {
+      "source": "正答：<strong><code>startActivity(intent);</code></strong>",
+      "translation": "Зөв хариулт: <strong><code>startActivity(intent);</code></strong>"
+    },
+    {
+      "source": "<code>Intent</code>は開きたい画面を伝える指示です。作るだけでは画面は開かず、<code>startActivity</code>に渡すと画面が開きます。",
+      "translation": "<code>Intent</code> нь аль дэлгэцийг нээхийг заах заавар юм. Үүсгэхэд дэлгэц нээгдэхгүй. <code>startActivity</code>-д өгөхөд дэлгэц нээгдэнэ."
+    },
+    {
+      "source": "復習する場所：<code>screen-transition-sample/index.html#step-4</code>",
+      "translation": "Давтах хэсэг: <code>screen-transition-sample/index.html#step-4</code>"
+    },
+    {
+      "source": "A06-03 · 戻る操作",
+      "translation": "A06-03 · Буцах үйлдэл"
+    },
+    {
+      "source": "A06で<code>TestActivity</code>を開いたあと、戻るためのコードを書かなくてもAndroidの戻る操作で<code>MainActivity</code>が見える理由はどれですか。",
+      "translation": "A06-д <code>TestActivity</code>-ийг нээсний дараа буцах код бичээгүй байхад Android-ийн буцах үйлдлээр <code>MainActivity</code> харагддаг шалтгаан юу вэ?"
+    },
+    {
+      "source": "上に開いた<code>TestActivity</code>が閉じ、下の<code>MainActivity</code>が見えるため",
+      "translation": "Дээр нээгдсэн <code>TestActivity</code> хаагдаж, доорх <code>MainActivity</code> харагдах учраас"
+    },
+    {
+      "source": "戻る操作が<code>MainActivity.java</code>をもう一度コンパイルするため",
+      "translation": "Буцах үйлдэл <code>MainActivity.java</code>-ийг дахин хөрвүүлдэг учраас"
+    },
+    {
+      "source": "<code>putExtra</code>が自動で<code>MainActivity</code>を開き直すため",
+      "translation": "<code>putExtra</code> нь <code>MainActivity</code>-ийг автоматаар дахин нээдэг учраас"
+    },
+    {
+      "source": "<code>Logcat</code>が前の画面を保存しているため",
+      "translation": "<code>Logcat</code> өмнөх дэлгэцийг хадгалдаг учраас"
+    },
+    {
+      "source": "正答：<strong>上に開いた<code>TestActivity</code>が閉じ、下の<code>MainActivity</code>が見えるため</strong>",
+      "translation": "Зөв хариулт: <strong>Дээр нээгдсэн <code>TestActivity</code> хаагдаж, доорх <code>MainActivity</code> харагдах учраас</strong>"
+    },
+    {
+      "source": "開いた画面は前の画面の上に重なります。戻る操作で上の画面が閉じるので、前の画面を開くコードを追加しなくても戻れます。",
+      "translation": "Нээсэн дэлгэц өмнөх дэлгэцийн дээр давхарлана. Буцах үйлдлээр дээрх дэлгэц хаагдана. Өмнөх дэлгэцийг нээх код нэмэхгүйгээр буцаж болно."
+    },
+    {
+      "source": "A06-04 · <code>int</code>の既定値",
+      "translation": "A06-04 · <code>int</code>-ийн өгөгдмөл утга"
+    },
+    {
+      "source": "<code>Intent</code>にキー<code>&quot;score&quot;</code>の値を入れていないとき、<code>getIntent().getIntExtra(&quot;score&quot;, -1)</code>が返す値はどれですか。",
+      "translation": "<code>Intent</code>-д <code>&quot;score&quot;</code> түлхүүртэй утга оруулаагүй үед <code>getIntent().getIntExtra(&quot;score&quot;, -1)</code> юу буцаах вэ?"
+    },
+    {
+      "source": "正答：<strong>-1</strong>",
+      "translation": "Зөв хариулт: <strong>-1</strong>"
+    },
+    {
+      "source": "<code>getIntExtra</code>の第2引数は、指定したキーの値がないときに返す既定値です。ここでは-1を渡しています。",
+      "translation": "<code>getIntExtra</code>-ийн хоёр дахь аргумент нь заасан түлхүүртэй утга байхгүй үед буцаах өгөгдмөл утга юм. Энд -1 өгсөн."
+    },
+    {
+      "source": "復習する場所：<code>screen-transition-sample/index.html#step-5</code>",
+      "translation": "Давтах хэсэг: <code>screen-transition-sample/index.html#step-5</code>"
+    },
+    {
+      "source": "A06-05 · <code>String</code>の受け取り",
+      "translation": "A06-05 · <code>String</code> хүлээн авах"
+    },
+    {
+      "source": "A06の<code>Test 1</code>は値を入れずに画面を開きます。このとき<code>getStringExtra(EXTRA_KEY_STRING_VALUE)</code>の結果はどれですか。",
+      "translation": "A06-ын <code>Test 1</code> утга өгөхгүйгээр дэлгэц нээнэ. Энэ үед <code>getStringExtra(EXTRA_KEY_STRING_VALUE)</code> ямар үр дүнтэй вэ?"
+    },
+    {
+      "source": "<code>&quot;0&quot;</code>という文字列",
+      "translation": "<code>&quot;0&quot;</code> гэсэн тэмдэгт мөр"
+    },
+    {
+      "source": "&quot;<code>Hello</code>&quot;という文字列",
+      "translation": "&quot;<code>Hello</code>&quot; гэсэн тэмдэгт мөр"
+    },
+    {
+      "source": "正答：<strong><code>null</code></strong>",
+      "translation": "Зөв хариулт: <strong><code>null</code></strong>"
+    },
+    {
+      "source": "指定したキーの文字列が<code>Intent</code>にないとき、<code>getStringExtra</code>は<code>null</code>を返します。<code>int</code>のように第2引数で既定値を指定する形ではありません。",
+      "translation": "Заасан түлхүүрийн тэмдэгт мөр <code>Intent</code>-д байхгүй бол <code>getStringExtra</code> нь <code>null</code> буцаана. <code>int</code>-ийн адил хоёр дахь аргументаар өгөгдмөл утга өгөх хэлбэргүй."
+    },
+    {
+      "source": "A06-06 · キーの一致",
+      "translation": "A06-06 · Түлхүүр таарах эсэх"
+    },
+    {
+      "source": "<code>intent.putExtra(&quot;intValue&quot;, 7)</code>で送った値を、受け取り側が<code>getIntExtra(&quot;intvalue&quot;, 0)</code>で読むと、どの値になりますか。",
+      "translation": "<code>intent.putExtra(&quot;intValue&quot;, 7)</code>-ээр илгээсэн утгыг хүлээн авах тал <code>getIntExtra(&quot;intvalue&quot;, 0)</code>-оор уншвал ямар утга гарах вэ?"
+    },
+    {
+      "source": "正答：<strong>0</strong>",
+      "translation": "Зөв хариулт: <strong>0</strong>"
+    },
+    {
+      "source": "キーは大文字・小文字を含めて一致する必要があります。<code>intValue</code>と<code>intvalue</code>は別のキーなので値が見つからず、既定値の0が返ります。",
+      "translation": "Түлхүүр том, жижиг үсгээрээ ч яг таарах ёстой. <code>intValue</code> ба <code>intvalue</code> нь өөр түлхүүр тул утга олдохгүй, өгөгдмөл 0-ийг буцаана."
+    },
+    {
+      "source": "復習する場所：<code>screen-transition-sample/index.html#step-8</code>",
+      "translation": "Давтах хэсэг: <code>screen-transition-sample/index.html#step-8</code>"
+    },
+    {
+      "source": "A06-07 · キーの定数",
+      "translation": "A06-07 · Түлхүүрийн тогтмол"
+    },
+    {
+      "source": "A06で<code>EXTRA</code>キーの定数を<code>TestActivity</code>に置く理由として、教材の構成に合うものはどれですか。",
+      "translation": "A06-д <code>EXTRA</code> түлхүүрийн тогтмолыг <code>TestActivity</code>-д байрлуулах сургалтын материалтай нийцэх шалтгаан аль нь вэ?"
+    },
+    {
+      "source": "値を入れる<code>start</code>と取り出す<code>onCreate</code>が両方とも<code>TestActivity</code>にあるため",
+      "translation": "Утга оруулах <code>start</code> ба утга авах <code>onCreate</code> хоёулаа <code>TestActivity</code> дотор байгаа учраас"
+    },
+    {
+      "source": "定数は必ず<code>MainActivity</code>以外に置く決まりがあるため",
+      "translation": "Тогтмолыг <code>MainActivity</code>-ээс өөр газар заавал байрлуулах дүрэмтэй учраас"
+    },
+    {
+      "source": "キーを画面に表示する<code>TextView</code>が<code>TestActivity</code>にあるため",
+      "translation": "Түлхүүрийг дэлгэцэд харуулах <code>TextView</code> нь <code>TestActivity</code>-д байгаа учраас"
+    },
+    {
+      "source": "<code>MainActivity</code>では<code>String</code>型を使えないため",
+      "translation": "<code>MainActivity</code>-д <code>String</code> төрөл ашиглах боломжгүй учраас"
+    },
+    {
+      "source": "正答：<strong>値を入れる<code>start</code>と取り出す<code>onCreate</code>が両方とも<code>TestActivity</code>にあるため</strong>",
+      "translation": "Зөв хариулт: <strong>Утга оруулах <code>start</code> ба утга авах <code>onCreate</code> хоёулаа <code>TestActivity</code> дотор байгаа учраас</strong>"
+    },
+    {
+      "source": "<code>putExtra</code>と<code>getXxxExtra</code>が同じ定数を使えます。呼び出す<code>MainActivity</code>は<code>start</code>に値を渡すだけなので、キーの文字を知る必要がありません。",
+      "translation": "<code>putExtra</code> ба <code>getXxxExtra</code> ижил тогтмолыг ашиглаж чадна. Дуудаж буй <code>MainActivity</code> нь <code>start</code>-д зөвхөн утга өгөх тул түлхүүрийн бичвэрийг мэдэх хэрэггүй."
+    },
+    {
+      "source": "復習する場所：<code>screen-transition-sample/index.html#step-6</code>",
+      "translation": "Давтах хэсэг: <code>screen-transition-sample/index.html#step-6</code>"
+    },
+    {
+      "source": "A06-08 · オーバーロード",
+      "translation": "A06-08 · Методыг давхар тодорхойлох"
+    },
+    {
+      "source": "A06で<code>start(Context)</code>、<code>start(Context, int, String)</code>、<code>start(Context, String[])</code>を同じクラスに書ける理由はどれですか。",
+      "translation": "A06-д <code>start(Context)</code>, <code>start(Context, int, String)</code>, <code>start(Context, String[])</code>-ийг нэг класст бичиж болдог шалтгаан аль нь вэ?"
+    },
+    {
+      "source": "引数の型や数が違うため",
+      "translation": "Параметрийн төрөл эсвэл тоо ялгаатай учраас"
+    },
+    {
+      "source": "戻り値がすべて<code>void</code>だから、引数が同じでも書けるため",
+      "translation": "Буцаах төрөл бүгд <code>void</code> тул параметр ижил байсан ч бичиж болдог учраас"
+    },
+    {
+      "source": "メソッド名に<code>start</code>が含まれると重複が許されるため",
+      "translation": "Методын нэрд <code>start</code> орвол ижил нэр зөвшөөрөгддөг учраас"
+    },
+    {
+      "source": "Androidが同じ名前のメソッドを順番に全部実行するため",
+      "translation": "Android ижил нэртэй бүх методыг дарааллаар ажиллуулдаг учраас"
+    },
+    {
+      "source": "正答：<strong>引数の型や数が違うため</strong>",
+      "translation": "Зөв хариулт: <strong>Параметрийн төрөл эсвэл тоо ялгаатай учраас</strong>"
+    },
+    {
+      "source": "同じ名前で引数の型や数が違うメソッドを用意することをオーバーロードといいます。渡した値に合う<code>start</code>が選ばれます。",
+      "translation": "Ижил нэртэй, өөр төрөл эсвэл тооны параметртэй метод бэлдэхийг методыг давхар тодорхойлох гэдэг. Өгсөн аргументуудад тохирох <code>start</code> сонгогдоно."
+    },
+    {
+      "source": "A06-09 · 配列の受け渡し",
+      "translation": "A06-09 · Массив дамжуулах"
+    },
+    {
+      "source": "<code>putExtra</code>で渡した<code>String[]</code>を受け取るメソッドはどれですか。",
+      "translation": "<code>putExtra</code>-ээр дамжуулсан <code>String[]</code>-ийг хүлээн авах метод аль нь вэ?"
+    },
+    {
+      "source": "正答：<strong><code>getStringArrayExtra</code></strong>",
+      "translation": "Зөв хариулт: <strong><code>getStringArrayExtra</code></strong>"
+    },
+    {
+      "source": "<code>String[]</code>は文字列の配列です。受け取りにも配列用の<code>getStringArrayExtra</code>を使い、送る側と同じキーを渡します。",
+      "translation": "<code>String[]</code> нь тэмдэгт мөрийн массив. Хүлээн авахдаа массивд зориулсан <code>getStringArrayExtra</code>-ийг ашиглан илгээх талтай ижил түлхүүр өгнө."
+    },
+    {
+      "source": "復習する場所：<code>screen-transition-sample/index.html#step-7</code>",
+      "translation": "Давтах хэсэг: <code>screen-transition-sample/index.html#step-7</code>"
+    },
+    {
+      "source": "A06-10 · 配列の表示",
+      "translation": "A06-10 · Массивыг харуулах"
+    },
+    {
+      "source": "<code>String[] values = {&quot;3&quot;, &quot;4&quot;, &quot;5&quot;};</code>のとき、<code>Arrays.toString(values)</code>の結果はどれですか。",
+      "translation": "<code>String[] values = {&quot;3&quot;, &quot;4&quot;, &quot;5&quot;};</code> үед <code>Arrays.toString(values)</code> ямар үр дүнтэй вэ?"
+    },
+    {
+      "source": "正答：<strong><code>[3, 4, 5]</code></strong>",
+      "translation": "Зөв хариулт: <strong><code>[3, 4, 5]</code></strong>"
+    },
+    {
+      "source": "<code>Arrays.toString</code>は配列の中身を角かっことカンマを使った文字列にします。A06では受け取った配列を<code>Logcat</code>で読むために使います。",
+      "translation": "<code>Arrays.toString</code> нь массивын агуулгыг дөрвөлжин хаалт, таслал бүхий тэмдэгт мөр болгоно. A06-д хүлээн авсан массивыг <code>Logcat</code>-д уншихын тулд ашигладаг."
+    },
+    {
+      "source": "A06-11 · <code>Logcat</code>のタグ",
+      "translation": "A06-11 · <code>Logcat</code>-ийн таг"
+    },
+    {
+      "source": "<code>Log.d(&quot;TestActivity&quot;, &quot;intValue: &quot; + intValue);</code>の出力を<code>Logcat</code>で探すとき、教材で指定するタグの条件はどれですか。",
+      "translation": "<code>Log.d(&quot;TestActivity&quot;, &quot;intValue: &quot; + intValue);</code>-ийн гаралтыг <code>Logcat</code>-оос хайхдаа сургалтын материалд ямар тагийн нөхцөл заадаг вэ?"
+    },
+    {
+      "source": "正答：<strong><code>tag:TestActivity</code></strong>",
+      "translation": "Зөв хариулт: <strong><code>tag:TestActivity</code></strong>"
+    },
+    {
+      "source": "<code>Log.d</code>の第1引数がタグです。値を受け取った<code>TestActivity</code>でログを出すので、前の単元の<code>tag:MainActivity</code>のままでは目的の行を探せません。",
+      "translation": "<code>Log.d</code>-ийн эхний аргумент нь таг юм. Утга хүлээн авсан <code>TestActivity</code> лог гаргах тул өмнөх бүлгийн <code>tag:MainActivity</code>-ийг хэвээр ашиглавал хэрэгтэй мөр олдохгүй."
+    },
+    {
+      "source": "A06-12 · 渡す値の選び方",
+      "translation": "A06-12 · Дамжуулах утгыг сонгох"
+    },
+    {
+      "source": "A06の解説で、実際によく使う渡し方として示しているものはどれですか。",
+      "translation": "A06-ын тайлбарт практикт түгээмэл хэрэглэдэг ямар дамжуулах аргыг үзүүлсэн бэ?"
+    },
+    {
+      "source": "IDなど小さな値を渡し、開いた画面で必要なデータを用意する",
+      "translation": "ID зэрэг жижиг утга дамжуулаад, нээсэн дэлгэц дээр хэрэгтэй өгөгдлийг бэлдэх"
+    },
+    {
+      "source": "写真や動画の全データを毎回<code>Intent</code>に入れる",
+      "translation": "Зураг, видеоны бүх өгөгдлийг удаа бүр <code>Intent</code>-д хийх"
+    },
+    {
+      "source": "キーを使わず、変数名だけで値を取り出す",
+      "translation": "Түлхүүр ашиглалгүй, зөвхөн хувьсагчийн нэрээр утгыг авах"
+    },
+    {
+      "source": "どの画面を開くときも空の<code>String</code>配列だけを渡す",
+      "translation": "Аль ч дэлгэцийг нээхдээ зөвхөн хоосон <code>String</code> массив дамжуулах"
+    },
+    {
+      "source": "正答：<strong>IDなど小さな値を渡し、開いた画面で必要なデータを用意する</strong>",
+      "translation": "Зөв хариулт: <strong>ID зэрэг жижиг утга дамжуулаад, нээсэн дэлгэц дээр хэрэгтэй өгөгдлийг бэлдэх</strong>"
+    },
+    {
+      "source": "A06では<code>Test 2</code>の形を例に、見分けるための番号など、小さな値を1つずつ渡す方法を紹介しています。",
+      "translation": "A06-д <code>Test 2</code>-ыг жишээ болгон, ялгах дугаар зэрэг жижиг утгыг нэг нэгээр нь дамжуулах аргыг танилцуулдаг."
+    },
+    {
+      "source": "復習する場所：<code>screen-transition-sample/index.html#step-9</code>",
+      "translation": "Давтах хэсэг: <code>screen-transition-sample/index.html#step-9</code>"
+    },
+    {
+      "source": "A07-01 · 参加者の管理",
+      "translation": "A07-01 · Оролцогчдыг удирдах"
+    },
+    {
+      "source": "A07で参加者名を<code>TextView</code>だけでなく<code>ArrayList&lt;String&gt;</code>にもためる主な理由はどれですか。",
+      "translation": "A07-д оролцогчдын нэрийг <code>TextView</code>-ээр харуулахаас гадна <code>ArrayList&lt;String&gt;</code>-д хадгалах гол шалтгаан аль нь вэ?"
+    },
+    {
+      "source": "重複を調べたり、人数を数えたりするため",
+      "translation": "Давхардлыг шалгаж, оролцогчдын тоог тоолохын тулд"
+    },
+    {
+      "source": "<code>TextView</code>には文字列を表示できないため",
+      "translation": "<code>TextView</code> тэмдэгт мөр харуулж чадахгүй учраас"
+    },
+    {
+      "source": "<code>ArrayList</code>に入れると端末のファイルへ自動保存されるため",
+      "translation": "<code>ArrayList</code>-д оруулбал төхөөрөмжийн файлд автоматаар хадгалагддаг учраас"
+    },
+    {
+      "source": "<code>ArrayList</code>に入れないと画像を表示できないため",
+      "translation": "<code>ArrayList</code>-д оруулахгүй бол зураг харуулж чадахгүй учраас"
+    },
+    {
+      "source": "正答：<strong>重複を調べたり、人数を数えたりするため</strong>",
+      "translation": "Зөв хариулт: <strong>Давхардлыг шалгаж, оролцогчдын тоог тоолохын тулд</strong>"
+    },
+    {
+      "source": "<code>ArrayList</code>は参加者のデータを持ちます。<code>contains</code>で同じ名前があるかを調べ、<code>size</code>で人数を数えます。<code>TextView</code>は一覧の表示に使います。",
+      "translation": "<code>ArrayList</code> нь оролцогчдын өгөгдлийг агуулна. <code>contains</code>-оор ижил нэр байгаа эсэхийг шалгаж, <code>size</code>-аар хүний тоог тоолно. <code>TextView</code>-ийг жагсаалт харуулахад ашиглана."
+    },
+    {
+      "source": "復習する場所：<code>bill-splitter/index.html#step-4</code>",
+      "translation": "Давтах хэсэг: <code>bill-splitter/index.html#step-4</code>"
+    },
+    {
+      "source": "A07-02 · 重複チェック",
+      "translation": "A07-02 · Давхардлыг шалгах"
+    },
+    {
+      "source": "参加者にすでに<code>Sato</code>がいるとき、もう一度<code>Sato</code>を登録して一覧が増えないようにする判定はどれですか。",
+      "translation": "Оролцогчдын дунд <code>Sato</code> аль хэдийн байвал <code>Sato</code>-ийг дахин бүртгэхэд жагсаалт нэмэгдэхээс сэргийлэх нөхцөл аль нь вэ?"
+    },
+    {
+      "source": "正答：<strong><code>participants.contains(participantName)</code></strong>",
+      "translation": "Зөв хариулт: <strong><code>participants.contains(participantName)</code></strong>"
+    },
+    {
+      "source": "<code>contains</code>は指定した名前がリストにあるかを調べます。見つかったときはメッセージを出し、<code>return</code>で追加処理を止めます。",
+      "translation": "<code>contains</code> заасан нэр жагсаалтад байгаа эсэхийг шалгана. Олдвол зурвас харуулж, <code>return</code>-ээр нэмэх үйлдлийг зогсооно."
+    },
+    {
+      "source": "A07-03 · 入力チェックと<code>return</code>",
+      "translation": "A07-03 · Оролтыг шалгах ба <code>return</code>"
+    },
+    {
+      "source": "参加者名が空のとき、<code>Snackbar</code>を表示した直後の<code>return;</code>にはどの役割がありますか。",
+      "translation": "Оролцогчийн нэр хоосон үед <code>Snackbar</code> харуулсны дараах <code>return;</code> ямар үүрэгтэй вэ?"
+    },
+    {
+      "source": "そのクリック処理を終え、空の名前の追加を防ぐ",
+      "translation": "Товч дарах үйлдлийг дуусгаж, хоосон нэр нэмэхээс сэргийлнэ"
+    },
+    {
+      "source": "空の名前を自動で<code>Sato</code>に変える",
+      "translation": "Хоосон нэрийг автоматаар <code>Sato</code> болгоно"
+    },
+    {
+      "source": "前の<code>Activity</code>へ戻る",
+      "translation": "Өмнөх <code>Activity</code> руу буцна"
+    },
+    {
+      "source": "登録ずみの参加者を全部消す",
+      "translation": "Бүртгэлтэй бүх оролцогчийг устгана"
+    },
+    {
+      "source": "正答：<strong>そのクリック処理を終え、空の名前の追加を防ぐ</strong>",
+      "translation": "Зөв хариулт: <strong>Товч дарах үйлдлийг дуусгаж, хоосон нэр нэмэхээс сэргийлнэ</strong>"
+    },
+    {
+      "source": "<code>Snackbar</code>を表示するだけでは後ろの処理も続きます。<code>return</code>を入れると<code>participants.add</code>などを実行せず、そのクリック処理が終わります。",
+      "translation": "Зөвхөн <code>Snackbar</code> харуулбал арын үйлдлүүд үргэлжилнэ. <code>return</code> оруулбал <code>participants.add</code> зэрэг үйлдлийг ажиллуулахгүйгээр товч дарах үйлдэл дуусна."
+    },
+    {
+      "source": "A07-04 · 人数チェック",
+      "translation": "A07-04 · Оролцогчдын тоог шалгах"
+    },
+    {
+      "source": "A07で<code>participants.size()</code>が1の状態で「<code>ワリカン画面へ</code>」を押すとどうなりますか。",
+      "translation": "A07-д <code>participants.size()</code> нь 1 байхад 「<code>ワリカン画面へ</code>」 (Төлбөр хуваах дэлгэц рүү) дарвал юу болох вэ?"
+    },
+    {
+      "source": "2人以上追加するよう表示され、画面は切り替わらない",
+      "translation": "Хоёроос доошгүй хүн нэмэхийг харуулж, дэлгэц солигдохгүй"
+    },
+    {
+      "source": "参加者は1人と表示してワリカン画面が開く",
+      "translation": "Нэг оролцогч байна гэж харуулаад төлбөр хуваах дэлгэцийг нээнэ"
+    },
+    {
+      "source": "空の参加者が1人自動で追加される",
+      "translation": "Хоосон нэртэй нэг оролцогчийг автоматаар нэмнэ"
+    },
+    {
+      "source": "登録ずみの名前が消える",
+      "translation": "Бүртгэсэн нэрс арилна"
+    },
+    {
+      "source": "正答：<strong>2人以上追加するよう表示され、画面は切り替わらない</strong>",
+      "translation": "Зөв хариулт: <strong>Хоёроос доошгүй хүн нэмэхийг харуулж, дэлгэц солигдохгүй</strong>"
+    },
+    {
+      "source": "<code>participants.size() &lt; 2</code>で人数を確認します。1人ならメッセージを表示して<code>return</code>するので、<code>BillSplitActivity.start</code>は呼びません。",
+      "translation": "<code>participants.size() &lt; 2</code>-ээр хүний тоог шалгана. Нэг хүн байвал зурвас харуулаад <code>return</code> хийх тул <code>BillSplitActivity.start</code> дуудагдахгүй."
+    },
+    {
+      "source": "復習する場所：<code>bill-splitter/index.html#step-6</code>",
+      "translation": "Давтах хэсэг: <code>bill-splitter/index.html#step-6</code>"
+    },
+    {
+      "source": "A07-05 · リストから配列へ",
+      "translation": "A07-05 · Жагсаалтаас массив руу"
+    },
+    {
+      "source": "<code>BillSplitActivity.start</code>に渡す<code>participants.toArray(new String[0])</code>は、何をしていますか。",
+      "translation": "<code>BillSplitActivity.start</code>-д дамжуулах <code>participants.toArray(new String[0])</code> юу хийдэг вэ?"
+    },
+    {
+      "source": "参加者の<code>ArrayList</code>を<code>String[]</code>に変える",
+      "translation": "Оролцогчдын <code>ArrayList</code>-ийг <code>String[]</code> болгон хувиргана"
+    },
+    {
+      "source": "参加者を0人に減らす",
+      "translation": "Оролцогчдын тоог 0 болгож цөөрүүлнэ"
+    },
+    {
+      "source": "参加者の名前を1つの<code>int</code>に変える",
+      "translation": "Оролцогчдын нэрсийг нэг <code>int</code> болгоно"
+    },
+    {
+      "source": "参加者を端末の<code>XML</code>ファイルに保存する",
+      "translation": "Оролцогчдыг төхөөрөмжийн <code>XML</code> файлд хадгална"
+    },
+    {
+      "source": "正答：<strong>参加者の<code>ArrayList</code>を<code>String[]</code>に変える</strong>",
+      "translation": "Зөв хариулт: <strong>Оролцогчдын <code>ArrayList</code>-ийг <code>String[]</code> болгон хувиргана</strong>"
+    },
+    {
+      "source": "画面では参加者を<code>ArrayList</code>で管理し、<code>Intent</code>には<code>String[]</code>を渡します。<code>toArray</code>はその型の変換で、元のリストから名前を削除する処理ではありません。",
+      "translation": "Дэлгэц дээр оролцогчдыг <code>ArrayList</code>-ээр удирдаж, <code>Intent</code>-д <code>String[]</code> дамжуулна. <code>toArray</code> нь төрлийг хувиргана. Анхны жагсаалтаас нэр хасахгүй."
+    },
+    {
+      "source": "A07-06 · 配列の要素数",
+      "translation": "A07-06 · Массивын элементийн тоо"
+    },
+    {
+      "source": "受け取った<code>participants</code>が<code>{&quot;Sato&quot;, &quot;Suzuki&quot;, &quot;Tanaka&quot;}</code>のとき、<code>&quot;参加者は&quot; + participants.length + &quot;人&quot;</code>の表示はどれですか。",
+      "translation": "Хүлээн авсан <code>participants</code> нь <code>{&quot;Sato&quot;, &quot;Suzuki&quot;, &quot;Tanaka&quot;}</code> бол <code>&quot;参加者は&quot; + participants.length + &quot;人&quot;</code> юу харуулах вэ?"
+    },
+    {
+      "source": "正答：<strong><code>参加者は3人</code></strong>",
+      "translation": "Зөв хариулт: <strong><code>参加者は3人</code></strong>"
+    },
+    {
+      "source": "配列の<code>length</code>は要素の数です。名前が3つ入っているため3となり、文字列とつなげて参加者は3人と表示します。",
+      "translation": "Массивын <code>length</code> нь элементийн тоо. Гурван нэр байгаа тул 3 болж, тэмдэгт мөртэй нийлээд 「参加者は3人」 (3 оролцогчтой) гэж харагдана."
+    },
+    {
+      "source": "A07-07 · 計算クラスの使い方",
+      "translation": "A07-07 · Тооцоолох классыг ашиглах"
+    },
+    {
+      "source": "<code>BillSplitter.calculateAndFormat</code>に渡す2つの引数として正しい組み合わせはどれですか。",
+      "translation": "<code>BillSplitter.calculateAndFormat</code>-д өгөх хоёр аргументын зөв хослол аль нь вэ?"
+    },
+    {
+      "source": "合計金額の<code>int</code>、参加者名の<code>String[]</code>",
+      "translation": "Нийт дүнгийн <code>int</code>, оролцогчдын нэрийн <code>String[]</code>"
+    },
+    {
+      "source": "参加者名の<code>String[]</code>、合計金額の<code>int</code>",
+      "translation": "Оролцогчдын нэрийн <code>String[]</code>, нийт дүнгийн <code>int</code>"
+    },
+    {
+      "source": "金額の<code>EditText</code>、一覧の<code>TextView</code>",
+      "translation": "Мөнгөн дүнгийн <code>EditText</code>, жагсаалтын <code>TextView</code>"
+    },
+    {
+      "source": "画像のid、参加者数の<code>String</code>",
+      "translation": "Зургийн id, оролцогчдын тооны <code>String</code>"
+    },
+    {
+      "source": "正答：<strong>合計金額の<code>int</code>、参加者名の<code>String[]</code></strong>",
+      "translation": "Зөв хариулт: <strong>Нийт дүнгийн <code>int</code>, оролцогчдын нэрийн <code>String[]</code></strong>"
+    },
+    {
+      "source": "第1引数は合計金額、第2引数は参加者名の配列です。金額1以上・2人以上という条件を、呼び出す前に守る必要があります。",
+      "translation": "Эхний аргумент нь нийт мөнгөн дүн, хоёр дахь нь оролцогчдын нэрийн массив. Дуудахаас өмнө мөнгөн дүн 1-ээс багагүй, оролцогч хоёр ба түүнээс олон байх нөхцөлийг хангана."
+    },
+    {
+      "source": "復習する場所：<code>bill-splitter/index.html#step-7</code>",
+      "translation": "Давтах хэсэг: <code>bill-splitter/index.html#step-7</code>"
+    },
+    {
+      "source": "A07-08 · 計算結果の表示",
+      "translation": "A07-08 · Тооцооны үр дүнг харуулах"
+    },
+    {
+      "source": "<code>BillSplitter.calculateAndFormat</code>の戻り値<code>result</code>は、どのように表示できますか。",
+      "translation": "<code>BillSplitter.calculateAndFormat</code>-ийн буцаах утга <code>result</code>-ийг яаж харуулж болох вэ?"
+    },
+    {
+      "source": "<code>participants.add(result);</code>だけで画面にも出る",
+      "translation": "Зөвхөн <code>participants.add(result);</code> гэж бичихэд дэлгэцэд ч харагдана"
+    },
+    {
+      "source": "<code>Integer.parseInt(result);</code>だけで画面にも出る",
+      "translation": "Зөвхөн <code>Integer.parseInt(result);</code> гэж бичихэд дэлгэцэд ч харагдана"
+    },
+    {
+      "source": "正答：<strong><code>txtParticipantList.setText(result);</code></strong>",
+      "translation": "Зөв хариулт: <strong><code>txtParticipantList.setText(result);</code></strong>"
+    },
+    {
+      "source": "戻り値は改行を含む表示用の文字列です。<code>setText</code>に渡すと、各参加者の金額と合計を一覧に表示できます。",
+      "translation": "Буцаах утга нь мөр шилжүүлэх тэмдэгттэй, харуулах зориулалттай тэмдэгт мөр юм. <code>setText</code>-д өгвөл оролцогч бүрийн дүн болон нийт дүнг жагсаалтаар харуулна."
+    },
+    {
+      "source": "復習する場所：<code>bill-splitter/index.html#step-9</code>",
+      "translation": "Давтах хэсэг: <code>bill-splitter/index.html#step-9</code>"
+    },
+    {
+      "source": "A07-09 · 文字列から整数へ",
+      "translation": "A07-09 · Тэмдэгт мөрөөс бүхэл тоо руу"
+    },
+    {
+      "source": "金額欄から取り出した文字列<code>&quot;1234&quot;</code>を、計算に使う<code>int</code>に変える処理はどれですか。",
+      "translation": "Дүнгийн талбараас авсан <code>&quot;1234&quot;</code> тэмдэгт мөрийг тооцоонд ашиглах <code>int</code> болгон хувиргах үйлдэл аль нь вэ?"
+    },
+    {
+      "source": "正答：<strong><code>Integer.parseInt(edtTotalAmountStr)</code></strong>",
+      "translation": "Зөв хариулт: <strong><code>Integer.parseInt(edtTotalAmountStr)</code></strong>"
+    },
+    {
+      "source": "<code>parseInt</code>は数字を表す文字列を<code>int</code>に変えます。変換できない入力は<code>NumberFormatException</code>になるので、教材では<code>try</code>と<code>catch</code>で受け止めています。",
+      "translation": "<code>parseInt</code> нь тоог илэрхийлсэн тэмдэгт мөрийг <code>int</code> болгон хувиргана. Хувиргаж чадахгүй оролтод <code>NumberFormatException</code> гардаг тул сургалтын материалд <code>try</code> ба <code>catch</code>-ээр зохицуулна."
+    },
+    {
+      "source": "復習する場所：<code>bill-splitter/index.html#step-8</code>",
+      "translation": "Давтах хэсэг: <code>bill-splitter/index.html#step-8</code>"
+    },
+    {
+      "source": "A07-10 · 金額と人数のチェック",
+      "translation": "A07-10 · Мөнгөн дүн ба хүний тоог шалгах"
+    },
+    {
+      "source": "参加者が3人で、合計金額に2円を入れて「<code>計算実行</code>」を押したときの動作はどれですか。",
+      "translation": "Гурван оролцогчтой үед нийт дүнд 2 иен оруулаад 「<code>計算実行</code>」 (Тооцоолох) дарвал юу болох вэ?"
+    },
+    {
+      "source": "3円以上を入力するよう表示し、計算しない",
+      "translation": "3 ба түүнээс дээш иен оруулахыг харуулаад тооцохгүй"
+    },
+    {
+      "source": "全員に1円を割り当てて計算を終える",
+      "translation": "Хүн бүрд 1 иен оноогоод тооцоог дуусгана"
+    },
+    {
+      "source": "2円を自動で3円に書き換える",
+      "translation": "2 иенийг автоматаар 3 иен болгон өөрчилнө"
+    },
+    {
+      "source": "参加者を2人に減らして計算する",
+      "translation": "Оролцогчдыг хоёр болгон цөөрүүлээд тооцно"
+    },
+    {
+      "source": "正答：<strong>3円以上を入力するよう表示し、計算しない</strong>",
+      "translation": "Зөв хариулт: <strong>3 ба түүнээс дээш иен оруулахыг харуулаад тооцохгүй</strong>"
+    },
+    {
+      "source": "<code>totalAmount &lt; numberOfPeople</code>で止めます。金額が人数より少ないと0円の人が出るため、教材では1人あたり最低1円になる金額を求めます。",
+      "translation": "<code>totalAmount &lt; numberOfPeople</code> нөхцөлөөр тооцоог зогсооно. Дүн хүний тооноос бага бол зарим хүнд 0 иен ногдоно. Тиймээс энэ материалд нэг хүнд дор хаяж 1 иен ногдох дүн шаардлагатай."
+    },
+    {
+      "source": "A07-11 · 割り勘の結果",
+      "translation": "A07-11 · Төлбөр хуваасны үр дүн"
+    },
+    {
+      "source": "A07で1235円を3人で割り勘にしたとき、誰がいくら払うかの順序を問わず、金額の組み合わせはどれですか。",
+      "translation": "A07-д 1235 иенийг гурван хүн хувааж төлбөл хэнд хэд ногдох дарааллыг үл харгалзаад аль хослол зөв вэ?"
+    },
+    {
+      "source": "412円・412円・411円",
+      "translation": "412 иен, 412 иен, 411 иен"
+    },
+    {
+      "source": "411円・411円・411円",
+      "translation": "411 иен, 411 иен, 411 иен"
+    },
+    {
+      "source": "412円・412円・412円",
+      "translation": "412 иен, 412 иен, 412 иен"
+    },
+    {
+      "source": "413円・411円・410円",
+      "translation": "413 иен, 411 иен, 410 иен"
+    },
+    {
+      "source": "正答：<strong>412円・412円・411円</strong>",
+      "translation": "Зөв хариулт: <strong>412 иен, 412 иен, 411 иен</strong>"
+    },
+    {
+      "source": "1235÷3は411あまり2です。全員の411円に、2人へ1円ずつ足すので、合計1235円となり支払額の差は1円以内です。",
+      "translation": "1235÷3 нь 411, үлдэгдэл нь 2. Бүх хүнд 411 иен оноогоод хоёр хүнд тус бүр 1 иен нэмнэ. Нийлбэр 1235 иен, төлөх дүнгийн зөрүү 1 иенээс хэтрэхгүй."
+    },
+    {
+      "source": "復習する場所：<code>bill-splitter/index.html#step-10</code>",
+      "translation": "Давтах хэсэг: <code>bill-splitter/index.html#step-10</code>"
+    },
+    {
+      "source": "A07-12 · 画像リソース",
+      "translation": "A07-12 · Зургийн нөөц"
+    },
+    {
+      "source": "A07のタイトル画像<code>title_img.png</code>をアプリの画像リソースとして置くフォルダはどれですか。",
+      "translation": "A07-ын гарчгийн зураг <code>title_img.png</code>-ийг аппын зургийн нөөц болгон аль хавтаст байрлуулах вэ?"
+    },
+    {
+      "source": "正答：<strong><code>app/src/main/res/drawable</code></strong>",
+      "translation": "Зөв хариулт: <strong><code>app/src/main/res/drawable</code></strong>"
+    },
+    {
+      "source": "画像ファイルは<code>res/drawable</code>に置き、レイアウトの<code>ImageView</code>から<code>@drawable/title_img</code>として参照します。<code>layout</code>は画面の<code>XML</code>を置く場所です。",
+      "translation": "Зургийн файлыг <code>res/drawable</code>-д байрлуулж, байрлалын <code>ImageView</code>-оос <code>@drawable/title_img</code> гэж заана. <code>layout</code> нь дэлгэцийн <code>XML</code> байрлах газар юм."
+    },
+    {
+      "source": "復習する場所：<code>bill-splitter/index.html#step-2</code>",
+      "translation": "Давтах хэсэг: <code>bill-splitter/index.html#step-2</code>"
+    },
+    {
+      "source": "A08-01 · 保存先",
+      "translation": "A08-01 · Хадгалах байршил"
+    },
+    {
+      "source": "<code>getSharedPreferences(&quot;app&quot;, MODE_PRIVATE)</code>で使う保存先のファイル名はどれですか。",
+      "translation": "<code>getSharedPreferences(&quot;app&quot;, MODE_PRIVATE)</code> ямар нэртэй файлд хадгалах вэ?"
+    },
+    {
+      "source": "正答：<strong><code>app.xml</code></strong>",
+      "translation": "Зөв хариулт: <strong><code>app.xml</code></strong>"
+    },
+    {
+      "source": "<code>SharedPreferences</code>は指定した名前に対応する<code>XML</code>ファイルへ保存します。教材ではアプリ専用の<code>shared_prefs</code>内にある<code>app.xml</code>を表示して確かめます。",
+      "translation": "<code>SharedPreferences</code> нь заасан нэрд харгалзах <code>XML</code> файлд хадгална. Сургалтын материалд зөвхөн аппын ашигладаг <code>shared_prefs</code> доторх <code>app.xml</code>-ийг харуулж шалгана."
+    },
+    {
+      "source": "復習する場所：<code>shared-preferences-sample/index.html#step-3</code>",
+      "translation": "Давтах хэсэг: <code>shared-preferences-sample/index.html#step-3</code>"
+    },
+    {
+      "source": "A08-02 · キーの一致",
+      "translation": "A08-02 · Түлхүүр таарах эсэх"
+    },
+    {
+      "source": "<code>&quot;int_value&quot;</code>というキーで1を保存しました。他のキーには保存していません。<code>prefs.getInt(&quot;intvalue&quot;, 0)</code>の結果はどれですか。",
+      "translation": "<code>&quot;int_value&quot;</code> түлхүүрээр 1-ийг хадгалжээ. Өөр түлхүүрээр хадгалаагүй. <code>prefs.getInt(&quot;intvalue&quot;, 0)</code> ямар үр дүнтэй вэ?"
+    },
+    {
+      "source": "<code>int_value</code>と<code>intvalue</code>は別のキーです。探したキーがないので、第2引数の初期値0が返ります。キーの文字を直書きすると、この誤りはコンパイルで見つかりません。",
+      "translation": "<code>int_value</code> ба <code>intvalue</code> нь өөр түлхүүр. Хайсан түлхүүр байхгүй тул хоёр дахь аргументын анхны утга 0-ийг буцаана. Түлхүүрийг шууд бичсэн бол энэ алдаа хөрвүүлэх үед илрэхгүй."
+    },
+    {
+      "source": "復習する場所：<code>shared-preferences-sample/index.html#step-9</code>",
+      "translation": "Давтах хэсэг: <code>shared-preferences-sample/index.html#step-9</code>"
+    },
+    {
+      "source": "A08-03 · 保存値と初期値",
+      "translation": "A08-03 · Хадгалсан утга ба анхны утга"
+    },
+    {
+      "source": "キー<code>INT_VALUE</code>に1を保存ずみです。<code>prefs.getInt(INT_VALUE, -1)</code>が返す値はどれですか。",
+      "translation": "<code>INT_VALUE</code> түлхүүрт 1 хадгалсан. <code>prefs.getInt(INT_VALUE, -1)</code> ямар утга буцаах вэ?"
+    },
+    {
+      "source": "正答：<strong>1</strong>",
+      "translation": "Зөв хариулт: <strong>1</strong>"
+    },
+    {
+      "source": "初期値は保存された値がないときだけ使います。ここでは1が保存されているため、第2引数を変えても1が返ります。",
+      "translation": "Анхны утгыг хадгалсан утга байхгүй үед л ашиглана. Энд 1 хадгалсан тул хоёр дахь аргументыг өөрчилсөн ч 1 буцаана."
+    },
+    {
+      "source": "復習する場所：<code>shared-preferences-sample/index.html#step-4</code>",
+      "translation": "Давтах хэсэг: <code>shared-preferences-sample/index.html#step-4</code>"
+    },
+    {
+      "source": "A08-04 · 保存の順序",
+      "translation": "A08-04 · Хадгалах дараалал"
+    },
+    {
+      "source": "<code>SharedPreferences</code>へ文字列を保存するとき、教材で使う順序はどれですか。",
+      "translation": "<code>SharedPreferences</code>-д тэмдэгт мөр хадгалахдаа сургалтын материалд ямар дараалал ашигладаг вэ?"
+    },
+    {
+      "source": "<code>edit</code>で<code>Editor</code>を取得 → <code>putString</code>で値を指定 → <code>apply</code>で確定",
+      "translation": "<code>edit</code>-ээр <code>Editor</code> авах → <code>putString</code>-ээр утга заах → <code>apply</code>-өөр баталгаажуулах"
+    },
+    {
+      "source": "<code>apply</code>で確定 → <code>getString</code>で値を指定 → <code>edit</code>で終了",
+      "translation": "<code>apply</code>-ээр баталгаажуулах → <code>getString</code>-оор утга заах → <code>edit</code>-ээр дуусгах"
+    },
+    {
+      "source": "<code>getString</code>で読み出し → <code>clear</code>で文字を追加 → <code>apply</code>で表示",
+      "translation": "<code>getString</code>-ээр унших → <code>clear</code>-ээр бичвэр нэмэх → <code>apply</code>-ээр харуулах"
+    },
+    {
+      "source": "<code>putString</code>で表示 → <code>setText</code>で保存 → <code>getInt</code>で確定",
+      "translation": "<code>putString</code>-ээр харуулах → <code>setText</code>-ээр хадгалах → <code>getInt</code>-аар баталгаажуулах"
+    },
+    {
+      "source": "正答：<strong><code>edit</code>で<code>Editor</code>を取得 → <code>putString</code>で値を指定 → <code>apply</code>で確定</strong>",
+      "translation": "Зөв хариулт: <strong><code>edit</code>-ээр <code>Editor</code> авах → <code>putString</code>-ээр утга заах → <code>apply</code>-өөр баталгаажуулах</strong>"
+    },
+    {
+      "source": "書き込みには<code>Editor</code>を使います。<code>putString</code>でキーと値を指定しただけでは確定していないので、最後に<code>apply</code>を呼びます。",
+      "translation": "Бичихэд <code>Editor</code> ашиглана. <code>putString</code>-оор түлхүүр, утга заахад хараахан баталгаажаагүй тул эцэст нь <code>apply</code> дуудна."
+    },
+    {
+      "source": "復習する場所：<code>shared-preferences-sample/index.html#step-5</code>",
+      "translation": "Давтах хэсэг: <code>shared-preferences-sample/index.html#step-5</code>"
+    },
+    {
+      "source": "A08-05 · <code>apply</code>の性質",
+      "translation": "A08-05 · <code>apply</code>-ийн шинж"
+    },
+    {
+      "source": "教材の<code>apply()</code>と<code>commit()</code>の比較で、<code>apply()</code>の説明として正しいものはどれですか。",
+      "translation": "Сургалтын материал дахь <code>apply()</code> ба <code>commit()</code>-ийн харьцуулалтаар <code>apply()</code>-ын зөв тайлбар аль нь вэ?"
+    },
+    {
+      "source": "戻り値はなく、ファイルへの書き込みは別の処理にまかせる",
+      "translation": "Утга буцаахгүй, файлд бичихийг тусдаа үйлдэлд даатгана"
+    },
+    {
+      "source": "<code>boolean</code>を返し、ファイルへの書き込み完了まで待つ",
+      "translation": "<code>boolean</code> буцааж, файлд бичиж дуусахыг хүлээнэ"
+    },
+    {
+      "source": "呼び出すたびに保存先ファイルを削除する",
+      "translation": "Дуудах бүрд хадгалах файлыг устгана"
+    },
+    {
+      "source": "値を画面に表示するだけで、保存は行わない",
+      "translation": "Утгыг зөвхөн дэлгэцэд харуулна, хадгалахгүй"
+    },
+    {
+      "source": "正答：<strong>戻り値はなく、ファイルへの書き込みは別の処理にまかせる</strong>",
+      "translation": "Зөв хариулт: <strong>Утга буцаахгүй, файлд бичихийг тусдаа үйлдэлд даатгана</strong>"
+    },
+    {
+      "source": "<code>apply</code>は保存を確定しますが、成功したかを戻り値では受け取りません。教材の保存・削除は<code>apply</code>に統一しています。",
+      "translation": "<code>apply</code> хадгалалтыг баталгаажуулдаг ч амжилтыг буцаах утгаар мэдэхгүй. Сургалтын материалд хадгалах, устгах аль алинд <code>apply</code> хэрэглэнэ."
+    },
+    {
+      "source": "A08-06 · 読み出し",
+      "translation": "A08-06 · Унших"
+    },
+    {
+      "source": "<code>SharedPreferences</code>から保存ずみの文字列を読み出すだけのとき、正しい説明はどれですか。",
+      "translation": "<code>SharedPreferences</code>-ээс хадгалсан тэмдэгт мөрийг зөвхөн унших үед аль тайлбар зөв вэ?"
+    },
+    {
+      "source": "<code>prefs.getString</code>を使い、<code>edit</code>は呼ばなくてよい",
+      "translation": "<code>prefs.getString</code> ашиглана, <code>edit</code> дуудах хэрэггүй"
+    },
+    {
+      "source": "先に<code>edit.clear</code>を呼ばないと読めない",
+      "translation": "Эхлээд <code>edit.clear</code> дуудахгүй бол уншиж чадахгүй"
+    },
+    {
+      "source": "先に<code>putString</code>で同じ値を保存し直す必要がある",
+      "translation": "Эхлээд <code>putString</code>-ээр ижил утгыг дахин хадгалах хэрэгтэй"
+    },
+    {
+      "source": "読み出すたびに新しいキーを作る必要がある",
+      "translation": "Унших бүрд шинэ түлхүүр үүсгэх хэрэгтэй"
+    },
+    {
+      "source": "正答：<strong><code>prefs.getString</code>を使い、<code>edit</code>は呼ばなくてよい</strong>",
+      "translation": "Зөв хариулт: <strong><code>prefs.getString</code> ашиглана, <code>edit</code> дуудах хэрэггүй</strong>"
+    },
+    {
+      "source": "<code>Editor</code>は書き込みや削除に使います。読み出しは<code>prefs</code>の<code>getString</code>などを直接呼び、値がないときの初期値も指定します。",
+      "translation": "<code>Editor</code>-ийг бичих, устгахад хэрэглэнэ. Уншихдаа <code>prefs</code>-ийн <code>getString</code> зэрэг методыг шууд дуудаж, утга байхгүй үеийн анхны утгыг заана."
+    },
+    {
+      "source": "復習する場所：<code>shared-preferences-sample/index.html#step-6</code>",
+      "translation": "Давтах хэсэг: <code>shared-preferences-sample/index.html#step-6</code>"
+    },
+    {
+      "source": "A08-07 · 全データの削除",
+      "translation": "A08-07 · Бүх өгөгдлийг устгах"
+    },
+    {
+      "source": "<code>prefs</code>の保存データをすべて消すために<code>editor.clear()</code>を書きました。教材の手順で、削除を確定する呼び出しはどれですか。",
+      "translation": "<code>prefs</code>-ийн хадгалсан бүх өгөгдлийг устгахын тулд <code>editor.clear()</code> бичжээ. Сургалтын материалын дарааллаар устгалтыг баталгаажуулах дуудлага аль нь вэ?"
+    },
+    {
+      "source": "正答：<strong><code>editor.apply();</code></strong>",
+      "translation": "Зөв хариулт: <strong><code>editor.apply();</code></strong>"
+    },
+    {
+      "source": "削除も<code>edit</code>で<code>Editor</code>を取得し、<code>clear</code>で削除を指定して、<code>apply</code>で確定する順序です。<code>clear</code>を呼ぶだけでは確定しません。",
+      "translation": "Устгахдаа ч <code>edit</code>-ээр <code>Editor</code> аваад, <code>clear</code>-ээр устгахыг зааж, <code>apply</code>-өөр баталгаажуулна. Зөвхөн <code>clear</code> дуудахад баталгаажихгүй."
+    },
+    {
+      "source": "復習する場所：<code>shared-preferences-sample/index.html#step-7</code>",
+      "translation": "Давтах хэсэг: <code>shared-preferences-sample/index.html#step-7</code>"
+    },
+    {
+      "source": "A08-08 · <code>XML</code>と初期値",
+      "translation": "A08-08 · <code>XML</code> ба анхны утга"
+    },
+    {
+      "source": "A08で<code>clear</code>による削除が完了したあとの<code>app.xml</code>の内容と、<code>getInt(INT_VALUE, 0)</code>の結果の組み合わせはどれですか。",
+      "translation": "A08-д <code>clear</code>-ээр устгаж дууссаны дараах <code>app.xml</code>-ийн агуулга ба <code>getInt(INT_VALUE, 0)</code>-ийн үр дүнгийн хослол аль нь вэ?"
+    },
+    {
+      "source": "<code>XML</code>の中身は空の<code>map</code>になり、読み出しは初期値0を返す",
+      "translation": "<code>XML</code> дотор хоосон <code>map</code> үлдэж, уншихад анхны утга 0-ийг буцаана"
+    },
+    {
+      "source": "<code>XML</code>に0が自動保存され、読み出しはその0を返す",
+      "translation": "<code>XML</code>-д 0 автоматаар хадгалагдаж, уншихад тэр 0-ийг буцаана"
+    },
+    {
+      "source": "<code>XML</code>は<code>Java</code>ファイルに変わり、読み出しは1を返す",
+      "translation": "<code>XML</code> нь <code>Java</code> файл болж, уншихад 1 буцаана"
+    },
+    {
+      "source": "<code>XML</code>に以前の値が残り、読み出しだけが必ず<code>null</code>になる",
+      "translation": "<code>XML</code>-д өмнөх утга үлдэж, уншихад үргэлж <code>null</code> буцаана"
+    },
+    {
+      "source": "正答：<strong><code>XML</code>の中身は空の<code>map</code>になり、読み出しは初期値0を返す</strong>",
+      "translation": "Зөв хариулт: <strong><code>XML</code> дотор хоосон <code>map</code> үлдэж, уншихад анхны утга 0-ийг буцаана</strong>"
+    },
+    {
+      "source": "<code>clear</code>のあともファイルは残り、中身は<code>&lt;map /&gt;</code>になります。画面の0は、0を保存した結果ではなく、データがないため返った初期値です。",
+      "translation": "<code>clear</code>-ийн дараа файл үлдэж, агуулга нь <code>&lt;map /&gt;</code> болно. Дэлгэц дээрх 0 нь хадгалсан утга биш. Өгөгдөл байхгүй тул буцаасан анхны утга юм."
+    },
+    {
+      "source": "復習する場所：<code>shared-preferences-sample/index.html#step-8</code>",
+      "translation": "Давтах хэсэг: <code>shared-preferences-sample/index.html#step-8</code>"
+    },
+    {
+      "source": "A08-09 · <code>Set</code>の順序",
+      "translation": "A08-09 · <code>Set</code>-ийн дараалал"
+    },
+    {
+      "source": "<code>Set.of(&quot;Hello&quot;, &quot;World&quot;)</code>を保存して読み出したら、表示が<code>[World, Hello]</code>になりました。教材に合う説明はどれですか。",
+      "translation": "<code>Set.of(&quot;Hello&quot;, &quot;World&quot;)</code>-ийг хадгалж уншихад <code>[World, Hello]</code> гэж харагдав. Сургалтын материалтай нийцэх тайлбар аль нь вэ?"
+    },
+    {
+      "source": "<code>Set</code>は順番を約束しないので、この並びでも正しい",
+      "translation": "<code>Set</code> дарааллыг баталгаажуулдаггүй тул энэ дараалал зөв"
+    },
+    {
+      "source": "文字列が2つとも壊れたことを示している",
+      "translation": "Хоёр тэмдэгт мөр хоёулаа эвдэрснийг харуулж байна"
+    },
+    {
+      "source": "必ず<code>Hello</code>を先頭にする修正が必要である",
+      "translation": "<code>Hello</code>-ийг заавал эхэнд оруулж засах шаардлагатай"
+    },
+    {
+      "source": "<code>putStringSet</code>では文字列を1つしか保存できない",
+      "translation": "<code>putStringSet</code>-ээр зөвхөн нэг тэмдэгт мөр хадгалж болно"
+    },
+    {
+      "source": "正答：<strong><code>Set</code>は順番を約束しないので、この並びでも正しい</strong>",
+      "translation": "Зөв хариулт: <strong><code>Set</code> дарааллыг баталгаажуулдаггүй тул энэ дараалал зөв</strong>"
+    },
+    {
+      "source": "<code>Set</code>は順番を保つことを約束しません。<code>Hello</code>と<code>World</code>が含まれている点を確認し、表示順が逆でも保存失敗とは考えません。",
+      "translation": "<code>Set</code> нь дараалал хадгалах баталгаа өгдөггүй. <code>Hello</code> ба <code>World</code> хоёулаа байгааг шалгана уу. Харагдах дараалал эсрэг байсан ч хадгалалт бүтэлгүйтсэн гэсэн үг биш."
+    },
+    {
+      "source": "A08-10 · データの永続化",
+      "translation": "A08-10 · Өгөгдлийг тогтвортой хадгалах"
+    },
+    {
+      "source": "A08で保存した値が、アプリを完全に終了して開き直しても残る理由はどれですか。",
+      "translation": "A08-д хадгалсан утга аппыг бүрэн хааж дахин нээсэн ч яагаад үлддэг вэ?"
+    },
+    {
+      "source": "値を端末のファイルに保存し、起動時に読み出しているため",
+      "translation": "Утгыг төхөөрөмжийн файлд хадгалж, апп эхлэхэд уншдаг учраас"
+    },
+    {
+      "source": "<code>TextView</code>が前回の画面を永久に記憶するため",
+      "translation": "<code>TextView</code> өмнөх дэлгэцийг үүрд санах учраас"
+    },
+    {
+      "source": "<code>var</code>で宣言した変数がアプリ終了後も必ず残るため",
+      "translation": "<code>var</code>-аар зарласан хувьсагч апп хаагдсан ч заавал үлддэг учраас"
+    },
+    {
+      "source": "<code>Logcat</code>が値を復元するため",
+      "translation": "<code>Logcat</code> утгыг сэргээдэг учраас"
+    },
+    {
+      "source": "正答：<strong>値を端末のファイルに保存し、起動時に読み出しているため</strong>",
+      "translation": "Зөв хариулт: <strong>Утгыг төхөөрөмжийн файлд хадгалж, апп эхлэхэд уншдаг учраас</strong>"
+    },
+    {
+      "source": "メモリだけに置いた値と違い、ファイルに保存した値はアプリを終了しても残ります。次の起動時に<code>getInt</code>などで読み出して表示しています。",
+      "translation": "Зөвхөн санах ойд байсан утгаас ялгаатай нь файлд хадгалсан утга апп хаагдсан ч үлдэнэ. Дараагийн удаа эхлэхэд <code>getInt</code> зэрэг методоор уншиж харуулна."
+    },
+    {
+      "source": "A08-11 · 保存に向くデータ",
+      "translation": "A08-11 · Хадгалахад тохирох өгөгдөл"
+    },
+    {
+      "source": "A08の解説で<code>SharedPreferences</code>の保存対象に向いているものはどれですか。",
+      "translation": "A08-ын тайлбараар <code>SharedPreferences</code>-д ямар өгөгдөл хадгалахад тохиромжтой вэ?"
+    },
+    {
       "source": "ゲームのハイスコア",
       "translation": "Тоглоомын хамгийн өндөр оноо"
+    },
+    {
+      "source": "写真や動画の全データ",
+      "translation": "Зураг, видеоны бүх өгөгдөл"
+    },
+    {
+      "source": "パスワードの文字列",
+      "translation": "Нууц үгийн тэмдэгт мөр"
+    },
+    {
+      "source": "クレジットカード番号",
+      "translation": "Зээлийн картын дугаар"
+    },
+    {
+      "source": "正答：<strong>ゲームのハイスコア</strong>",
+      "translation": "Зөв хариулт: <strong>Тоглоомын хамгийн өндөр оноо</strong>"
+    },
+    {
+      "source": "<code>SharedPreferences</code>は小さく単純な設定や値に向きます。教材で表示した<code>XML</code>は暗号化されていないので、パスワードなど大事な情報を置く場所にはしません。",
+      "translation": "<code>SharedPreferences</code> нь жижиг, энгийн тохиргоо болон утгад тохиромжтой. Сургалтын материалд үзүүлсэн <code>XML</code> шифрлэгдээгүй тул нууц үг зэрэг чухал мэдээлэл хадгалахгүй."
+    },
+    {
+      "source": "A08-12 · 表示欄の高さ",
+      "translation": "A08-12 · Харуулах хэсгийн өндөр"
+    },
+    {
+      "source": "A08の表示欄に<code>layout_height=&quot;0dp&quot;</code>と<code>layout_weight=&quot;1&quot;</code>を付ける主な目的はどれですか。",
+      "translation": "A08-ын харуулах хэсэгт <code>layout_height=&quot;0dp&quot;</code> ба <code>layout_weight=&quot;1&quot;</code> тохируулах гол зорилго юу вэ?"
+    },
+    {
+      "source": "表示欄が残りの高さを使い、表示内容でボタンの位置がずれるのを防ぐ",
+      "translation": "Харуулах хэсэг үлдсэн өндрийг эзэлж, агуулгаас болж товчны байрлал шилжихээс сэргийлнэ"
+    },
+    {
+      "source": "表示欄の文字を必ず1文字にする",
+      "translation": "Харуулах хэсгийн бичвэрийг заавал нэг тэмдэгт болгоно"
+    },
+    {
+      "source": "表示内容を<code>SharedPreferences</code>へ自動保存する",
+      "translation": "Харагдаж буй агуулгыг <code>SharedPreferences</code>-д автоматаар хадгална"
+    },
+    {
+      "source": "表示欄を画面から完全に消す",
+      "translation": "Харуулах хэсгийг дэлгэцээс бүрэн арилгана"
+    },
+    {
+      "source": "正答：<strong>表示欄が残りの高さを使い、表示内容でボタンの位置がずれるのを防ぐ</strong>",
+      "translation": "Зөв хариулт: <strong>Харуулах хэсэг үлдсэн өндрийг эзэлж, агуулгаас болж товчны байрлал шилжихээс сэргийлнэ</strong>"
+    },
+    {
+      "source": "<code>0dp</code>と<code>weight</code>を組み合わせ、残った高さを表示欄に割り当てます。文字の長さで部品の位置が変わりにくくなります。",
+      "translation": "<code>0dp</code> ба <code>weight</code>-ыг хамтад нь ашиглаж, үлдсэн өндрийг харуулах хэсэгт онооно. Бичвэрийн уртаас болж бүрэлдэхүүний байрлал өөрчлөгдөх нь багасна."
+    },
+    {
+      "source": "復習する場所：<code>shared-preferences-sample/index.html#step-2</code>",
+      "translation": "Давтах хэсэг: <code>shared-preferences-sample/index.html#step-2</code>"
+    },
+    {
+      "source": "<code>txtMemoList</code>にすでにメモが表示されています。<code>txtMemoList.append(edtMemoStr + &quot;\\n&quot;);</code>を呼ぶとどうなりますか。",
+      "translation": "<code>txtMemoList</code>-д тэмдэглэл аль хэдийн харагдаж байна. <code>txtMemoList.append(edtMemoStr + &quot;\\n&quot;);</code>-ийг дуудвал юу болох вэ?"
+    },
+    {
+      "source": "今の表示の後ろに、新しいメモと改行を足す",
+      "translation": "Одоо харагдаж буй бичвэрийн ард шинэ тэмдэглэл ба мөр шилжүүлэх тэмдэгт нэмнэ"
+    },
+    {
+      "source": "今の表示を消して、新しいメモだけにする",
+      "translation": "Одоо харагдаж буй бичвэрийг устгаж, шинэ тэмдэглэлийг л үлдээнэ"
+    },
+    {
+      "source": "新しいメモを先頭に挿入する",
+      "translation": "Шинэ тэмдэглэлийг жагсаалтын эхэнд оруулна"
+    },
+    {
+      "source": "入力欄の文字を読み出すだけで表示は変わらない",
+      "translation": "Оруулах талбарын бичвэрийг уншаад, харагдах бичвэр өөрчлөгдөхгүй"
+    },
+    {
+      "source": "正答：<strong>今の表示の後ろに、新しいメモと改行を足す</strong>",
+      "translation": "Зөв хариулт: <strong>Одоо харагдаж буй бичвэрийн ард шинэ тэмдэглэл ба мөр шилжүүлэх тэмдэгт нэмнэ</strong>"
+    },
+    {
+      "source": "<code>append</code>は今の文字列の後ろに足す処理です。A09では追加した順に一覧へメモを増やすために使います。",
+      "translation": "<code>append</code> нь одоогийн тэмдэгт мөрийн ард залгана. A09-д нэмсэн дарааллаар тэмдэглэлийг жагсаалтад оруулахад ашигладаг."
+    },
+    {
+      "source": "復習する場所：<code>memo-app/index.html#step-4</code>",
+      "translation": "Давтах хэсэг: <code>memo-app/index.html#step-4</code>"
+    },
+    {
+      "source": "A09-02 · <code>setText</code>との違い",
+      "translation": "A09-02 · <code>setText</code>-ээс ялгаатай нь"
+    },
+    {
+      "source": "A09の追加処理で<code>append</code>を<code>setText</code>に変え、メモを3件続けて追加すると、一覧には何が残りますか。",
+      "translation": "A09-д нэмэх үйлдлийн <code>append</code>-ийг <code>setText</code> болгон сольж, гурван тэмдэглэл дараалан нэмбэл жагсаалтад юу үлдэх вэ?"
+    },
+    {
+      "source": "最後に追加した1件だけ",
+      "translation": "Зөвхөн сүүлд нэмсэн нэг тэмдэглэл"
+    },
+    {
+      "source": "最初に追加した1件だけ",
+      "translation": "Зөвхөн эхэлж нэмсэн нэг тэмдэглэл"
+    },
+    {
+      "source": "3件とも追加した順に残る",
+      "translation": "Гурвуулаа нэмсэн дарааллаараа үлдэнэ"
+    },
+    {
+      "source": "3件とも逆順に残る",
+      "translation": "Гурвуулаа урвуу дарааллаар үлдэнэ"
+    },
+    {
+      "source": "正答：<strong>最後に追加した1件だけ</strong>",
+      "translation": "Зөв хариулт: <strong>Зөвхөн сүүлд нэмсэн нэг тэмдэглэл</strong>"
+    },
+    {
+      "source": "<code>setText</code>は表示を置き換えます。追加するたびに前の一覧が消え、その時点の表示を保存するので、保存内容も最後の1件だけになります。",
+      "translation": "<code>setText</code> нь харагдаж буй бичвэрийг солино. Нэмэх бүрд өмнөх жагсаалт арилж, тухайн агшинд харагдаж буй бичвэр хадгалагдана. Тиймээс сүүлчийн нэг тэмдэглэл л хадгалагдана."
+    },
+    {
+      "source": "復習する場所：<code>memo-app/index.html#step-7</code>",
+      "translation": "Давтах хэсэг: <code>memo-app/index.html#step-7</code>"
+    },
+    {
+      "source": "A09-03 · 改行",
+      "translation": "A09-03 · Мөр шилжүүлэх"
+    },
+    {
+      "source": "メモを追加するコードの<code>+ &quot;\\n&quot;</code>を消し、<code>&quot;牛乳を買う&quot;</code>と<code>&quot;レポートを出す&quot;</code>を追加すると、文字列はどうなりますか。",
+      "translation": "Тэмдэглэл нэмэх кодоос <code>+ &quot;\\n&quot;</code>-ийг аваад 「<code>&quot;牛乳を買う&quot;</code>」 (Сүү авах) ба 「<code>&quot;レポートを出す&quot;</code>」 (Тайлан өгөх) нэмбэл тэмдэгт мөр яах вэ?"
+    },
+    {
+      "source": "<code>牛乳を買うレポートを出す</code>と改行なしでつながる",
+      "translation": "Мөр шилжүүлэхгүйгээр 「<code>牛乳を買うレポートを出す</code>」 (Сүү авахТайлан өгөх) гэж залгана"
+    },
+    {
+      "source": "2件の間に自動で空行が1行入る",
+      "translation": "Хоёр тэмдэглэлийн хооронд автоматаар нэг хоосон мөр орно"
+    },
+    {
+      "source": "2件の間に自動でカンマが入る",
+      "translation": "Хоёр тэмдэглэлийн хооронд автоматаар таслал орно"
+    },
+    {
+      "source": "最初のメモが自動で削除される",
+      "translation": "Эхний тэмдэглэл автоматаар устна"
+    },
+    {
+      "source": "正答：<strong><code>牛乳を買うレポートを出す</code>と改行なしでつながる</strong>",
+      "translation": "Зөв хариулт: <strong>Мөр шилжүүлэхгүйгээр 「<code>牛乳を買うレポートを出す</code>」 (Сүү авахТайлан өгөх) гэж залгана</strong>"
+    },
+    {
+      "source": "メモごとの改行は、コードで足している<code>\\n</code>によるものです。<code>append</code>は自動で改行を入れるわけではありません。",
+      "translation": "Тэмдэглэл бүрийн дараа кодоор <code>\\n</code> нэмж мөр шилжүүлнэ. <code>append</code> нь автоматаар мөр шилжүүлэхгүй."
+    },
+    {
+      "source": "A09-04 · 空入力の分岐",
+      "translation": "A09-04 · Хоосон оролтын нөхцөл"
+    },
+    {
+      "source": "メモが空のときに<code>Snackbar</code>を出す<code>if</code>文から<code>return;</code>だけを消すと、何が起こりますか。",
+      "translation": "Тэмдэглэл хоосон үед <code>Snackbar</code> харуулдаг <code>if</code> өгүүлбэрээс зөвхөн <code>return;</code>-ийг авбал юу болох вэ?"
+    },
+    {
+      "source": "メッセージのあとも処理が続き、改行だけが一覧に足される",
+      "translation": "Зурвас гарсны дараа үйлдэл үргэлжилж, жагсаалтад зөвхөн мөр шилжүүлэх тэмдэгт нэмэгдэнэ"
+    },
+    {
+      "source": "メッセージは出なくなり、処理も止まる",
+      "translation": "Зурвас гарахаа больж, үйлдэл ч зогсоно"
+    },
+    {
+      "source": "アプリが必ず前の画面に戻る",
+      "translation": "Апп заавал өмнөх дэлгэц рүү буцна"
+    },
+    {
+      "source": "空文字が自動で&quot;メモ&quot;に変わる",
+      "translation": "Хоосон тэмдэгт мөр автоматаар &quot;メモ&quot; (тэмдэглэл) болно"
+    },
+    {
+      "source": "正答：<strong>メッセージのあとも処理が続き、改行だけが一覧に足される</strong>",
+      "translation": "Зөв хариулт: <strong>Зурвас гарсны дараа үйлдэл үргэлжилж, жагсаалтад зөвхөн мөр шилжүүлэх тэмдэгт нэмэгдэнэ</strong>"
+    },
+    {
+      "source": "<code>return</code>がなければ<code>if</code>文の後ろの<code>append</code>まで進みます。空の入力に<code>\\n</code>を足したものが追加されるので、空入力を止める<code>return</code>が必要です。",
+      "translation": "<code>return</code> байхгүй бол <code>if</code> өгүүлбэрийн дараах <code>append</code> хүртэл үргэлжилнэ. Хоосон оролтод <code>\\n</code> нэмээд жагсаалтад оруулах тул хоосон оролтыг зогсоох <code>return</code> хэрэгтэй."
+    },
+    {
+      "source": "A09-05 · 入力欄を空にする",
+      "translation": "A09-05 · Оруулах талбарыг хоослох"
+    },
+    {
+      "source": "A09で追加が成功したあと、次のメモを入力しやすくする<code>edtMemo.setText(&quot;&quot;);</code>の役割はどれですか。",
+      "translation": "A09-д амжилттай нэмсний дараа дараагийн тэмдэглэлийг оруулахад хялбар болгодог <code>edtMemo.setText(&quot;&quot;);</code> ямар үүрэгтэй вэ?"
+    },
+    {
+      "source": "入力欄を空にする",
+      "translation": "Оруулах талбарыг хоосолно"
+    },
+    {
+      "source": "一覧の全メモを削除する",
+      "translation": "Жагсаалтын бүх тэмдэглэлийг устгана"
+    },
+    {
+      "source": "保存ファイルを削除する",
+      "translation": "Хадгалсан файлыг устгана"
+    },
+    {
+      "source": "キーボードの種類を数字へ変える",
+      "translation": "Гарыг тоон товчлууртай болгоно"
+    },
+    {
+      "source": "正答：<strong>入力欄を空にする</strong>",
+      "translation": "Зөв хариулт: <strong>Оруулах талбарыг хоосолно</strong>"
+    },
+    {
+      "source": "<code>edtMemo</code>は入力欄です。ここを空文字に変えても、一覧の<code>txtMemoList</code>や<code>SharedPreferences</code>に保存した文字列は消えません。",
+      "translation": "<code>edtMemo</code> нь оруулах талбар. Үүнийг хоосон тэмдэгт мөр болгосон ч жагсаалтын <code>txtMemoList</code> болон <code>SharedPreferences</code>-д хадгалсан тэмдэгт мөр арилахгүй."
+    },
+    {
+      "source": "A09-06 · 保存する値",
+      "translation": "A09-06 · Хадгалах утга"
+    },
+    {
+      "source": "A09の<code>edit.putString(MEMO, txtMemoList.getText().toString());</code>で保存しているものはどれですか。",
+      "translation": "A09-ын <code>edit.putString(MEMO, txtMemoList.getText().toString());</code> юуг хадгалдаг вэ?"
+    },
+    {
+      "source": "改行を含むメモ一覧全体を1つにした文字列",
+      "translation": "Мөр шилжүүлэх тэмдэгтүүдийг агуулсан бүх тэмдэглэлийн жагсаалтыг нэг тэмдэгт мөр болгон хадгална"
+    },
+    {
+      "source": "最後のメモの文字数だけ",
+      "translation": "Зөвхөн сүүлийн тэмдэглэлийн тэмдэгтийн тоо"
+    },
+    {
+      "source": "メモ1件ずつを別々のデータベースの行にしたもの",
+      "translation": "Тэмдэглэл бүрийг өгөгдлийн сангийн тусдаа мөр болгосон өгөгдөл"
+    },
+    {
+      "source": "入力欄のidだけ",
+      "translation": "Зөвхөн оруулах талбарын id"
+    },
+    {
+      "source": "正答：<strong>改行を含むメモ一覧全体を1つにした文字列</strong>",
+      "translation": "Зөв хариулт: <strong>Мөр шилжүүлэх тэмдэгтүүдийг агуулсан бүх тэмдэглэлийн жагсаалтыг нэг тэмдэгт мөр болгон хадгална</strong>"
+    },
+    {
+      "source": "<code>txtMemoList</code>に表示中の内容を取り出し、1つの文字列として<code>MEMO</code>というキーで保存します。1件ずつ別のキーに分けているわけではありません。",
+      "translation": "<code>txtMemoList</code>-д харагдаж буй агуулгыг авч, нэг тэмдэгт мөр болгон <code>MEMO</code> түлхүүрээр хадгална. Тэмдэглэл бүрийг тусдаа түлхүүрт хуваахгүй."
+    },
+    {
+      "source": "復習する場所：<code>memo-app/index.html#step-5</code>",
+      "translation": "Давтах хэсэг: <code>memo-app/index.html#step-5</code>"
+    },
+    {
+      "source": "A09-07 · 起動時の復元",
+      "translation": "A09-07 · Эхлүүлэхэд сэргээх"
+    },
+    {
+      "source": "A09を初めて起動し、<code>MEMO</code>の保存値がまだないとき、<code>txtMemoList.setText(prefs.getString(MEMO, &quot;&quot;));</code>の表示はどうなりますか。",
+      "translation": "A09-ийг анх нээхэд <code>MEMO</code> түлхүүрийн хадгалсан утга хараахан байхгүй бол <code>txtMemoList.setText(prefs.getString(MEMO, &quot;&quot;));</code> юу харуулах вэ?"
+    },
+    {
+      "source": "空の一覧になる",
+      "translation": "Хоосон жагсаалт гарна"
+    },
+    {
+      "source": "<code>null</code>という4文字が出る",
+      "translation": "<code>null</code> гэсэн дөрвөн тэмдэгт гарна"
+    },
+    {
+      "source": "0という文字が出る",
+      "translation": "0 гэсэн бичвэр гарна"
+    },
+    {
+      "source": "最後の入力内容が自動生成される",
+      "translation": "Сүүлд оруулсан агуулгыг автоматаар үүсгэнэ"
+    },
+    {
+      "source": "正答：<strong>空の一覧になる</strong>",
+      "translation": "Зөв хариулт: <strong>Хоосон жагсаалт гарна</strong>"
+    },
+    {
+      "source": "<code>getString</code>の第2引数が空文字なので、保存値がなければ空文字を返します。<code>setText</code>がそれを一覧へ表示します。",
+      "translation": "<code>getString</code>-ийн хоёр дахь аргумент хоосон тэмдэгт мөр тул хадгалсан утга байхгүй бол хоосон тэмдэгт мөр буцаана. <code>setText</code> үүнийг жагсаалтад харуулна."
+    },
+    {
+      "source": "A09-08 · データの持ち方",
+      "translation": "A09-08 · Өгөгдлийг хадгалах хэлбэр"
+    },
+    {
+      "source": "A09でメモ一覧のために<code>ArrayList</code>を別に作っていない理由はどれですか。",
+      "translation": "A09-д тэмдэглэлийн жагсаалтад зориулж тусдаа <code>ArrayList</code> үүсгээгүй шалтгаан аль нь вэ?"
+    },
+    {
+      "source": "A07のような重複チェックや人数チェックがなく、表示文字列を保存すれば足りるため",
+      "translation": "A07 шиг давхардал эсвэл хүний тоо шалгах шаардлагагүй, харагдах тэмдэгт мөрийг хадгалахад хангалттай учраас"
+    },
+    {
+      "source": "<code>SharedPreferences</code>では<code>String</code>を保存できないため",
+      "translation": "<code>SharedPreferences</code>-д <code>String</code> хадгалах боломжгүй учраас"
+    },
+    {
+      "source": "<code>ArrayList</code>は1つのアプリに1回しか使えないため",
+      "translation": "<code>ArrayList</code>-ийг нэг аппад ганцхан удаа ашиглаж болдог учраас"
+    },
+    {
+      "source": "<code>TextView</code>はメモを1件しか表示できないため",
+      "translation": "<code>TextView</code> зөвхөн нэг тэмдэглэл харуулж чаддаг учраас"
+    },
+    {
+      "source": "正答：<strong>A07のような重複チェックや人数チェックがなく、表示文字列を保存すれば足りるため</strong>",
+      "translation": "Зөв хариулт: <strong>A07 шиг давхардал эсвэл хүний тоо шалгах шаардлагагүй, харагдах тэмдэгт мөрийг хадгалахад хангалттай учраас</strong>"
+    },
+    {
+      "source": "この単元ではメモを判定せず、一覧をまとめて保存します。別のリストを持つと保存や復元の変換が増えるので、必要な表示文字列だけを使います。",
+      "translation": "Энэ бүлэгт тэмдэглэл бүрийг шалгах шаардлагагүй, жагсаалтыг бүхлээр нь хадгална. Тусдаа жагсаалттай бол хадгалах, сэргээх үед илүү олон хувиргалт шаардлагатай. Иймээс зөвхөн харуулах тэмдэгт мөрийг ашигладаг."
+    },
+    {
+      "source": "A09-09 · 保存と表示を消す",
+      "translation": "A09-09 · Хадгалсан ба харагдах өгөгдлийг арилгах"
+    },
+    {
+      "source": "A09の「<code>データ削除</code>」で、保存と画面の両方を空にする処理の組み合わせはどれですか。",
+      "translation": "A09-ын 「<code>データ削除</code>」 (Өгөгдөл устгах) үйлдлээр хадгалсан өгөгдөл, дэлгэцийн бичвэр хоёуланг хоослох үйлдлийн хослол аль нь вэ?"
+    },
+    {
+      "source": "<code>txtMemoList.setText(&quot;&quot;);</code>だけ",
+      "translation": "Зөвхөн <code>txtMemoList.setText(&quot;&quot;);</code>"
+    },
+    {
+      "source": "<code>edit.clear();</code>だけ",
+      "translation": "Зөвхөн <code>edit.clear();</code>"
+    },
+    {
+      "source": "<code>edtMemo.setText(&quot;&quot;);</code>だけ",
+      "translation": "Зөвхөн <code>edtMemo.setText(&quot;&quot;);</code>"
+    },
+    {
+      "source": "正答：<strong><code>edit.clear(); edit.apply(); txtMemoList.setText(&quot;&quot;);</code></strong>",
+      "translation": "Зөв хариулт: <strong><code>edit.clear(); edit.apply(); txtMemoList.setText(&quot;&quot;);</code></strong>"
+    },
+    {
+      "source": "<code>clear</code>と<code>apply</code>で保存したデータを消し、<code>setText</code>で表示も消します。保存されている値と、いま画面に出ている文字は別のものです。",
+      "translation": "<code>clear</code> ба <code>apply</code>-оор хадгалсан өгөгдлийг устгаж, <code>setText</code>-ээр дэлгэцийн бичвэрийг арилгана. Хадгалсан утга ба одоо дэлгэцэд харагдах бичвэр тусдаа зүйл юм."
+    },
+    {
+      "source": "復習する場所：<code>memo-app/index.html#step-6</code>",
+      "translation": "Давтах хэсэг: <code>memo-app/index.html#step-6</code>"
+    },
+    {
+      "source": "A09-10 · 保存と表示の違い",
+      "translation": "A09-10 · Хадгалах ба харуулахын ялгаа"
+    },
+    {
+      "source": "「<code>データ削除</code>」から<code>txtMemoList.setText(&quot;&quot;);</code>だけを消しました。メモを追加して削除を押し、そのまま終了して開き直すとどうなりますか。",
+      "translation": "「<code>データ削除</code>」 (Өгөгдөл устгах) үйлдлээс зөвхөн <code>txtMemoList.setText(&quot;&quot;);</code>-ийг авчээ. Тэмдэглэл нэмээд устгах товч дарж, дараа нь аппыг хааж дахин нээхэд юу болох вэ?"
+    },
+    {
+      "source": "削除直後は表示が残るが、開き直すと空になる",
+      "translation": "Устгасны дараа бичвэр харагдсан хэвээр байна, дахин нээхэд хоосорно"
+    },
+    {
+      "source": "削除直後に表示が消え、開き直すと復活する",
+      "translation": "Устгасны дараа бичвэр арилж, дахин нээхэд сэргэнэ"
+    },
+    {
+      "source": "削除直後も開き直したあとも、必ずメモが残る",
+      "translation": "Устгасны дараа ч, дахин нээсний дараа ч тэмдэглэл заавал үлдэнэ"
+    },
+    {
+      "source": "削除を押すと必ずアプリが終了する",
+      "translation": "Устгах товч дарахад апп заавал хаагдана"
+    },
+    {
+      "source": "正答：<strong>削除直後は表示が残るが、開き直すと空になる</strong>",
+      "translation": "Зөв хариулт: <strong>Устгасны дараа бичвэр харагдсан хэвээр байна, дахин нээхэд хоосорно</strong>"
+    },
+    {
+      "source": "<code>clear</code>と<code>apply</code>による保存データの削除は実行されています。画面だけ更新していないので直後は文字が残り、次の起動時の読み出しでは空になります。",
+      "translation": "Хадгалсан өгөгдлийг <code>clear</code> ба <code>apply</code>-оор устгасан. Дэлгэцийг шинэчлээгүй тул тэр даруй бичвэр хэвээр харагдана. Дараа эхлэхэд уншихад хоосон байна."
+    },
+    {
+      "source": "A09でメモ一覧を<code>ScrollView</code>に入れる主な目的はどれですか。",
+      "translation": "A09-д тэмдэглэлийн жагсаалтыг <code>ScrollView</code>-д байрлуулах гол зорилго юу вэ?"
+    },
+    {
+      "source": "メモが増えて画面に入りきらなくても、スクロールで続きを読めるようにする",
+      "translation": "Олон тэмдэглэл дэлгэцэд багтахгүй байсан ч гүйлгэж цааш уншихын тулд"
+    },
+    {
+      "source": "一覧のメモを自動でアルファベット順にする",
+      "translation": "Жагсаалтын тэмдэглэлийг цагаан толгойн дарааллаар автоматаар эрэмбэлэхийн тулд"
+    },
+    {
+      "source": "メモを保存するタイミングを自動で決める",
+      "translation": "Тэмдэглэл хадгалах мөчийг автоматаар тогтоохын тулд"
+    },
+    {
+      "source": "入力欄で数字だけを入力できるようにする",
+      "translation": "Оруулах талбарт зөвхөн тоо оруулахын тулд"
+    },
+    {
+      "source": "正答：<strong>メモが増えて画面に入りきらなくても、スクロールで続きを読めるようにする</strong>",
+      "translation": "Зөв хариулт: <strong>Олон тэмдэглэл дэлгэцэд багтахгүй байсан ч гүйлгэж цааш уншихын тулд</strong>"
+    },
+    {
+      "source": "<code>ScrollView</code>は中身が表示範囲を超えたときにスクロールできる入れ物です。並べ替えや保存をする部品ではありません。",
+      "translation": "<code>ScrollView</code> нь агуулга харагдах хязгаараас хэтрэхэд гүйлгэж болох агуулах бүрэлдэхүүн. Эрэмбэлэх, хадгалах үйлдэл хийхгүй."
+    },
+    {
+      "source": "復習する場所：<code>memo-app/index.html#step-3</code>",
+      "translation": "Давтах хэсэг: <code>memo-app/index.html#step-3</code>"
+    },
+    {
+      "source": "A09-12 · 入力の案内",
+      "translation": "A09-12 · Оруулах заавар"
+    },
+    {
+      "source": "A09の入力欄に指定する<code>android:hint</code>の役割はどれですか。",
+      "translation": "A09-ын оруулах талбарт тохируулсан <code>android:hint</code> ямар үүрэгтэй вэ?"
+    },
+    {
+      "source": "何も入力していないときに案内を薄く表示し、入力すると消す",
+      "translation": "Юу ч оруулаагүй үед зааврыг бүдэг харуулж, бичихэд арилгана"
+    },
+    {
+      "source": "入力されたメモをファイルへ保存する",
+      "translation": "Оруулсан тэмдэглэлийг файлд хадгална"
+    },
+    {
+      "source": "メモ一覧の背景色を変える",
+      "translation": "Тэмдэглэлийн жагсаалтын дэвсгэр өнгийг солино"
+    },
+    {
+      "source": "ボタンを押した回数を表示する",
+      "translation": "Товч дарсан тоог харуулна"
+    },
+    {
+      "source": "正答：<strong>何も入力していないときに案内を薄く表示し、入力すると消す</strong>",
+      "translation": "Зөв хариулт: <strong>Юу ч оруулаагүй үед зааврыг бүдэг харуулж, бичихэд арилгана</strong>"
+    },
+    {
+      "source": "<code>hint</code>は入力内容の案内です。実際に入力されたメモとは別なので、案内が見えていても入力欄に文字を入れたことにはなりません。",
+      "translation": "<code>hint</code> нь юу оруулахыг заана. Бодитоор оруулсан тэмдэглэлээс тусдаа тул заавар харагдаж байгаа нь талбарт бичвэр оруулсан гэсэн үг биш."
+    },
+    {
+      "source": "A10-01 · <code>Room</code>の設定",
+      "translation": "A10-01 · <code>Room</code>-ийн тохиргоо"
+    },
+    {
+      "source": "<code>libs.versions.toml</code>で<code>room-runtime</code>と<code>room-compiler</code>のライブラリ定義を書く見出しはどれですか。",
+      "translation": "<code>libs.versions.toml</code>-д <code>room-runtime</code> болон <code>room-compiler</code> сангийн тодорхойлолтыг аль гарчгийн доор бичих вэ?"
+    },
+    {
+      "source": "正答：<strong><code>[libraries]</code></strong>",
+      "translation": "Зөв хариулт: <strong><code>[libraries]</code></strong>"
+    },
+    {
+      "source": "<code>[versions]</code>はバージョン番号、<code>[libraries]</code>はライブラリの定義です。<code>room-runtime</code>と<code>room-compiler</code>を<code>[plugins]</code>へ書くと、設定の種類が違うためビルドが止まります。",
+      "translation": "<code>[versions]</code> нь хувилбарын дугаар, <code>[libraries]</code> нь сангийн тодорхойлолтод зориулагдана. <code>room-runtime</code> ба <code>room-compiler</code>-ийг <code>[plugins]</code>-д бичвэл тохиргооны төрөл зөрж, бүтээлт зогсоно."
+    },
+    {
+      "source": "復習する場所：<code>room-sample/index.html#step-2</code>",
+      "translation": "Давтах хэсэг: <code>room-sample/index.html#step-2</code>"
+    },
+    {
+      "source": "A10の<code>Item</code>クラスに付ける<code>@Entity</code>は何を表しますか。",
+      "translation": "A10-ын <code>Item</code> класст тавьсан <code>@Entity</code> юуг илэрхийлдэг вэ?"
+    },
+    {
+      "source": "このクラスでデータベースの表の形を定めること",
+      "translation": "Энэ класс өгөгдлийн сангийн хүснэгтийн бүтцийг тодорхойлдог"
+    },
+    {
+      "source": "このクラスが起動時に開く画面であること",
+      "translation": "Энэ класс нь апп эхлэхэд нээгдэх дэлгэц"
+    },
+    {
+      "source": "このクラスが<code>XML</code>の画像を作ること",
+      "translation": "Энэ класс <code>XML</code>-ийн зургийг үүсгэдэг"
+    },
+    {
+      "source": "このクラスが保存した全データを消すこと",
+      "translation": "Энэ класс хадгалсан бүх өгөгдлийг устгадаг"
+    },
+    {
+      "source": "正答：<strong>このクラスでデータベースの表の形を定めること</strong>",
+      "translation": "Зөв хариулт: <strong>Энэ класс өгөгдлийн сангийн хүснэгтийн бүтцийг тодорхойлдог</strong>"
+    },
+    {
+      "source": "<code>Item</code>では<code>internalId</code>と<code>title</code>を表の項目として定めます。<code>Entity</code>は表の形、<code>Dao</code>は読み書きの窓口、<code>Database</code>はデータベース本体を担当します。",
+      "translation": "<code>Item</code> нь <code>internalId</code> ба <code>title</code>-ийг хүснэгтийн талбар болгож тодорхойлно. <code>Entity</code> нь хүснэгтийн бүтэц, <code>Dao</code> нь унших, бичих хандалтын гарц, <code>Database</code> нь өгөгдлийн санг хариуцна."
+    },
+    {
+      "source": "復習する場所：<code>room-sample/index.html#step-4</code>",
+      "translation": "Давтах хэсэг: <code>room-sample/index.html#step-4</code>"
+    },
+    {
+      "source": "A10-03 · 主キー",
+      "translation": "A10-03 · Үндсэн түлхүүр"
+    },
+    {
+      "source": "<code>internalId</code>に付いた<code>@PrimaryKey(autoGenerate = true)</code>の役割として正しいものはどれですか。",
+      "translation": "<code>internalId</code> дээрх <code>@PrimaryKey(autoGenerate = true)</code>-ийн зөв үүрэг юу вэ?"
+    },
+    {
+      "source": "行を見分ける番号にし、新規追加で番号を自動生成できるようにする",
+      "translation": "Мөрүүдийг ялгах дугаар болгож, шинээр нэмэхэд автоматаар дугаар үүсгэх боломж олгоно"
+    },
+    {
+      "source": "<code>title</code>の文字数を毎回<code>internalId</code>に保存する",
+      "translation": "<code>title</code>-ийн тэмдэгтийн тоог удаа бүр <code>internalId</code>-д хадгална"
+    },
+    {
+      "source": "保存するたびに表全体を削除する",
+      "translation": "Хадгалах бүрд хүснэгтийг бүхэлд нь устгана"
+    },
+    {
+      "source": "すべての行の番号を必ず同じ1にする",
+      "translation": "Бүх мөрийн дугаарыг заавал 1 болгоно"
+    },
+    {
+      "source": "正答：<strong>行を見分ける番号にし、新規追加で番号を自動生成できるようにする</strong>",
+      "translation": "Зөв хариулт: <strong>Мөрүүдийг ялгах дугаар болгож, шинээр нэмэхэд автоматаар дугаар үүсгэх боломж олгоно</strong>"
+    },
+    {
+      "source": "主キーは行を見分けるために使います。A10ではid欄を空にして保存すると、<code>Room</code>が新しい行の番号を自動で付けます。",
+      "translation": "Үндсэн түлхүүрийг мөрүүдийг ялгахад ашиглана. A10-д id талбарыг хоосон үлдээгээд хадгалахад <code>Room</code> шинэ мөрийн дугаарыг автоматаар өгнө."
+    },
+    {
+      "source": "A10-04 · DAOの実装",
+      "translation": "A10-04 · DAO-ийн хэрэгжүүлэлт"
+    },
+    {
+      "source": "<code>ItemDao</code>のメソッドに処理の<code>{ }</code>を書いていないのに読み書きできる理由はどれですか。",
+      "translation": "<code>ItemDao</code>-ийн методод үйлдлийн <code>{ }</code> бичээгүй атлаа уншиж, бичиж болох шалтгаан юу вэ?"
+    },
+    {
+      "source": "<code>room-compiler</code>がビルド時に処理を自動で作るため",
+      "translation": "<code>room-compiler</code> бүтээх үед үйлдлийг автоматаар үүсгэдэг учраас"
+    },
+    {
+      "source": "メソッド名に<code>Dao</code>があれば<code>Java</code>が何でも実行するため",
+      "translation": "Методын нэрд <code>Dao</code> байвал <code>Java</code> бүхнийг ажиллуулдаг учраас"
+    },
+    {
+      "source": "画面の<code>TextView</code>が<code>SQL</code>を実行するため",
+      "translation": "Дэлгэцийн <code>TextView</code> нь <code>SQL</code> ажиллуулдаг учраас"
+    },
+    {
+      "source": "<code>AndroidManifest.xml</code>がすべての処理を持つため",
+      "translation": "<code>AndroidManifest.xml</code> бүх үйлдлийг агуулдаг учраас"
+    },
+    {
+      "source": "正答：<strong><code>room-compiler</code>がビルド時に処理を自動で作るため</strong>",
+      "translation": "Зөв хариулт: <strong><code>room-compiler</code> бүтээх үед үйлдлийг автоматаар үүсгэдэг учраас</strong>"
+    },
+    {
+      "source": "<code>ItemDao</code>は<code>interface</code>で作り、<code>@Query</code>などで何をするかを書きます。<code>Room</code>がその指定を読み、ビルド時に実際の処理を生成します。",
+      "translation": "<code>ItemDao</code>-ийг <code>interface</code>-ээр үүсгэж, <code>@Query</code> зэрэг тэмдэглэгээгээр юу хийхийг бичнэ. <code>Room</code> энэ заалтыг уншаад бүтээх үед жинхэнэ үйлдлийг үүсгэнэ."
+    },
+    {
+      "source": "復習する場所：<code>room-sample/index.html#step-5</code>",
+      "translation": "Давтах хэсэг: <code>room-sample/index.html#step-5</code>"
+    },
+    {
+      "source": "A10-05 · 検索の条件",
+      "translation": "A10-05 · Хайлтын нөхцөл"
+    },
+    {
+      "source": "<code>@Query(&quot;SELECT * FROM item WHERE internalId = :internalId&quot;)</code>の<code>:internalId</code>は何を表しますか。",
+      "translation": "<code>@Query(&quot;SELECT * FROM item WHERE internalId = :internalId&quot;)</code> доторх <code>:internalId</code> юуг илэрхийлдэг вэ?"
+    },
+    {
+      "source": "<code>findByInternalId</code>メソッドに渡された引数の値",
+      "translation": "<code>findByInternalId</code> методод дамжуулсан аргументын утга"
+    },
+    {
+      "source": "すべての行に共通して使う固定文字列",
+      "translation": "Бүх мөрд ижил ашиглах тогтмол тэмдэгт мөр"
+    },
+    {
+      "source": "自動で付く最新の番号だけ",
+      "translation": "Автоматаар олгосон хамгийн сүүлийн дугаар л"
+    },
+    {
+      "source": "<code>title</code>の文字列の長さ",
+      "translation": "<code>title</code> тэмдэгт мөрийн урт"
+    },
+    {
+      "source": "正答：<strong><code>findByInternalId</code>メソッドに渡された引数の値</strong>",
+      "translation": "Зөв хариулт: <strong><code>findByInternalId</code> методод дамжуулсан аргументын утга</strong>"
+    },
+    {
+      "source": "<code>:internalId</code>にはメソッドの引数が入ります。<code>WHERE</code>でその番号と一致する行に絞るので、指定した1件を取り出せます。",
+      "translation": "<code>:internalId</code>-д методын аргументын утга орно. <code>WHERE</code> нь тэр дугаартай таарах мөрийг шүүж, заасан нэг бичлэгийг авах боломж олгоно."
+    },
+    {
+      "source": "A10でidが2、<code>title</code>が<code>BIKE</code>の行が保存ずみです。id欄に2、タイトル欄に<code>BICYCLE</code>を入れて保存するとどうなりますか。",
+      "translation": "A10-д id нь 2, <code>title</code> нь <code>BIKE</code> байх мөр хадгалаастай. id талбарт 2, гарчгийн талбарт <code>BICYCLE</code> оруулаад хадгалбал юу болох вэ?"
+    },
+    {
+      "source": "idが2の行の<code>title</code>が<code>BICYCLE</code>に変わり、行数は増えない",
+      "translation": "id нь 2 байх мөрийн <code>title</code> нь <code>BICYCLE</code> болж, мөрийн тоо нэмэгдэхгүй"
+    },
+    {
+      "source": "<code>BIKE</code>の行を残したまま、必ず新しい番号の行が増える",
+      "translation": "<code>BIKE</code> мөр хэвээр үлдэж, шинэ дугаартай мөр заавал нэмэгдэнэ"
+    },
+    {
+      "source": "idが2の行が削除されるだけで、<code>BICYCLE</code>は保存されない",
+      "translation": "Зөвхөн id нь 2 байх мөр устаж, <code>BICYCLE</code> хадгалагдахгүй"
+    },
+    {
+      "source": "すべての行の<code>title</code>が<code>BICYCLE</code>になる",
+      "translation": "Бүх мөрийн <code>title</code> нь <code>BICYCLE</code> болно"
+    },
+    {
+      "source": "正答：<strong>idが2の行の<code>title</code>が<code>BICYCLE</code>に変わり、行数は増えない</strong>",
+      "translation": "Зөв хариулт: <strong>id нь 2 байх мөрийн <code>title</code> нь <code>BICYCLE</code> болж, мөрийн тоо нэмэгдэхгүй</strong>"
+    },
+    {
+      "source": "<code>@Upsert</code>は同じ主キーの行があれば書き換え、なければ追加します。この問題ではidが2の行が存在するので、その行を更新します。",
+      "translation": "<code>@Upsert</code> нь ижил үндсэн түлхүүртэй мөр байвал шинэчилж, байхгүй бол нэмж өгнө. Энэ асуултад id нь 2 байх мөр байгаа тул тухайн мөрийг шинэчилнэ."
+    },
+    {
+      "source": "復習する場所：<code>room-sample/index.html#step-7</code>",
+      "translation": "Давтах хэсэг: <code>room-sample/index.html#step-7</code>"
+    },
+    {
+      "source": "A10-07 · 見つからないデータ",
+      "translation": "A10-07 · Олдохгүй өгөгдөл"
+    },
+    {
+      "source": "A10で存在しないidを指定して削除します。<code>findByInternalId</code>が<code>null</code>を返したとき、教材の処理はどうなりますか。",
+      "translation": "A10-д байхгүй id зааж устгана. <code>findByInternalId</code> нь <code>null</code> буцаавал сургалтын материал дахь үйлдэл яах вэ?"
+    },
+    {
+      "source": "そのidのデータはないと表示し、<code>delete</code>を呼ばずに止める",
+      "translation": "Тэр id-тай өгөгдөл байхгүйг харуулаад <code>delete</code> дуудахгүй зогсоно"
+    },
+    {
+      "source": "先頭の行を代わりに削除する",
+      "translation": "Оронд нь эхний мөрийг устгана"
+    },
+    {
+      "source": "すべての行を削除する",
+      "translation": "Бүх мөрийг устгана"
+    },
+    {
+      "source": "指定したidの空の行を自動で追加する",
+      "translation": "Заасан id-тай хоосон мөрийг автоматаар нэмнэ"
+    },
+    {
+      "source": "正答：<strong>そのidのデータはないと表示し、<code>delete</code>を呼ばずに止める</strong>",
+      "translation": "Зөв хариулт: <strong>Тэр id-тай өгөгдөл байхгүйг харуулаад <code>delete</code> дуудахгүй зогсоно</strong>"
+    },
+    {
+      "source": "検索結果がない場合は<code>item == null</code>になります。教材はメッセージを出して<code>return</code>するので、ほかの行を消すことはありません。",
+      "translation": "Хайлтаар олдохгүй бол <code>item == null</code> болно. Сургалтын материалд зурвас харуулаад <code>return</code> хийх тул өөр мөр устахгүй."
+    },
+    {
+      "source": "A10-08 · <code>Database</code>の宣言",
+      "translation": "A10-08 · <code>Database</code>-ийг зарлах"
+    },
+    {
+      "source": "<code>@Database(entities = {Item.class}, version = 1, exportSchema = false)</code>の<code>entities = {Item.class}</code>は何を宣言していますか。",
+      "translation": "<code>@Database(entities = {Item.class}, version = 1, exportSchema = false)</code> доторх <code>entities = {Item.class}</code> юуг зарлаж байна вэ?"
+    },
+    {
+      "source": "このデータベースが<code>Item</code>の表を持つこと",
+      "translation": "Энэ өгөгдлийн сан <code>Item</code>-ийн хүснэгттэй"
+    },
+    {
+      "source": "画面に<code>Item</code>というボタンを置くこと",
+      "translation": "Дэлгэц дээр <code>Item</code> гэсэн товч байрлуулна"
+    },
+    {
+      "source": "保存する行数を必ず1行に制限すること",
+      "translation": "Хадгалах мөрийн тоог заавал нэгээр хязгаарлана"
+    },
+    {
+      "source": "<code>Item</code>を<code>Intent</code>で次の画面へ渡すこと",
+      "translation": "<code>Item</code>-ийг <code>Intent</code>-ээр дараагийн дэлгэц рүү дамжуулна"
+    },
+    {
+      "source": "正答：<strong>このデータベースが<code>Item</code>の表を持つこと</strong>",
+      "translation": "Зөв хариулт: <strong>Энэ өгөгдлийн сан <code>Item</code>-ийн хүснэгттэй</strong>"
+    },
+    {
+      "source": "<code>entities</code>はデータベースに含める表の定義を指定します。<code>version</code>は表の形を変えたときに増やす番号で、保存する行数ではありません。",
+      "translation": "<code>entities</code> нь өгөгдлийн санд оруулах хүснэгтийн тодорхойлолтыг заана. <code>version</code> нь хүснэгтийн бүтэц өөрчлөгдөхөд нэмэх дугаар юм. Энэ нь хадгалах мөрийн тоо биш."
+    },
+    {
+      "source": "復習する場所：<code>room-sample/index.html#step-6</code>",
+      "translation": "Давтах хэсэг: <code>room-sample/index.html#step-6</code>"
+    },
+    {
+      "source": "A10-09 · データベースの使い回し",
+      "translation": "A10-09 · Өгөгдлийн санг дахин ашиглах"
+    },
+    {
+      "source": "<code>AppDatabase.getInstance</code>で<code>instance</code>が<code>null</code>のときだけデータベースを作る主な理由はどれですか。",
+      "translation": "<code>AppDatabase.getInstance</code> нь <code>instance</code> нь <code>null</code> байхад л өгөгдлийн сан үүсгэдэг гол шалтгаан юу вэ?"
+    },
+    {
+      "source": "準備に時間がかかるデータベースを1つ作って使い回すため",
+      "translation": "Бэлтгэхэд хугацаа шаарддаг өгөгдлийн санг нэг удаа үүсгэж дахин ашиглахын тулд"
+    },
+    {
+      "source": "保存できるデータを1件だけにするため",
+      "translation": "Зөвхөн нэг бичлэг хадгалах боломжтой болгохын тулд"
+    },
+    {
+      "source": "ボタンを2回以上押せないようにするため",
+      "translation": "Товчийг нэгээс олон удаа дарах боломжгүй болгохын тулд"
+    },
+    {
+      "source": "毎回保存データを空にするため",
+      "translation": "Хадгалсан өгөгдлийг удаа бүр хоослохын тулд"
+    },
+    {
+      "source": "正答：<strong>準備に時間がかかるデータベースを1つ作って使い回すため</strong>",
+      "translation": "Зөв хариулт: <strong>Бэлтгэхэд хугацаа шаарддаг өгөгдлийн санг нэг удаа үүсгэж дахин ашиглахын тулд</strong>"
+    },
+    {
+      "source": "最初の呼び出しで作り、次から同じ<code>instance</code>を返します。このように1つだけ作って使い回す書き方をシングルトンといいます。",
+      "translation": "Эхний дуудлагаар үүсгээд, дараагийн удаануудад ижил <code>instance</code> буцаана. Ийнхүү нэгийг үүсгээд дахин ашиглах аргыг синглтон гэдэг."
+    },
+    {
+      "source": "<code>Room.databaseBuilder</code>の第1引数に<code>context.getApplicationContext()</code>を渡す理由はどれですか。",
+      "translation": "<code>Room.databaseBuilder</code>-ийн эхний аргументад <code>context.getApplicationContext()</code> өгөх шалтгаан юу вэ?"
+    },
+    {
+      "source": "長く使い回すデータベースへ、特定の画面ではなくアプリ全体を渡すため",
+      "translation": "Удаан ашиглах өгөгдлийн санд нэг дэлгэцийн оронд аппыг бүхэлд нь өгөхийн тулд"
+    },
+    {
+      "source": "データベースを次の<code>Activity</code>へ送信するため",
+      "translation": "Өгөгдлийн санг дараагийн <code>Activity</code> руу илгээхийн тулд"
+    },
+    {
+      "source": "データベースの全行を文字列にするため",
+      "translation": "Өгөгдлийн сангийн бүх мөрийг тэмдэгт мөр болгохын тулд"
+    },
+    {
+      "source": "インターネットへの接続を許可するため",
+      "translation": "Интернэтэд холбогдохыг зөвшөөрөхийн тулд"
+    },
+    {
+      "source": "正答：<strong>長く使い回すデータベースへ、特定の画面ではなくアプリ全体を渡すため</strong>",
+      "translation": "Зөв хариулт: <strong>Удаан ашиглах өгөгдлийн санд нэг дэлгэцийн оронд аппыг бүхэлд нь өгөхийн тулд</strong>"
+    },
+    {
+      "source": "データベースは画面より長く使い回します。特定の<code>Activity</code>を持ち続けないよう、アプリ全体の<code>Context</code>を渡します。",
+      "translation": "Өгөгдлийн санг дэлгэцээс удаан ашиглана. Тодорхой нэг <code>Activity</code>-ийг хадгалсаар байхаас сэргийлж аппыг бүхэлд нь төлөөлөх <code>Context</code>-ийг өгнө."
+    },
+    {
+      "source": "A10-11 · 保存後の再表示",
+      "translation": "A10-11 · Хадгалсны дараа дахин харуулах"
+    },
+    {
+      "source": "保存ボタンの処理から<code>txtItemList.setText(itemList(itemDao));</code>だけを消しました。新しいデータを保存するとどうなりますか。",
+      "translation": "Хадгалах товчны үйлдлээс зөвхөн <code>txtItemList.setText(itemList(itemDao));</code>-ийг авчээ. Шинэ өгөгдөл хадгалахад юу болох вэ?"
+    },
+    {
+      "source": "データは保存されるが、その場の一覧は更新されない",
+      "translation": "Өгөгдөл хадгалагдах боловч жагсаалт тэр даруй шинэчлэгдэхгүй"
+    },
+    {
+      "source": "データベースへの保存も必ず中止される",
+      "translation": "Өгөгдлийн санд хадгалах үйлдэл ч заавал цуцлагдана"
+    },
+    {
+      "source": "保存したデータがすべて削除される",
+      "translation": "Бүх хадгалсан өгөгдөл устна"
+    },
+    {
+      "source": "一覧が自動で更新され、変更前と同じになる",
+      "translation": "Жагсаалт автоматаар шинэчлэгдэж, өөрчлөхийн өмнөхтэй ижил болно"
+    },
+    {
+      "source": "正答：<strong>データは保存されるが、その場の一覧は更新されない</strong>",
+      "translation": "Зөв хариулт: <strong>Өгөгдөл хадгалагдах боловч жагсаалт тэр даруй шинэчлэгдэхгүй</strong>"
+    },
+    {
+      "source": "<code>upsert</code>で保存する仕事と<code>setText</code>で表示する仕事は別です。起動時の再表示は残っているので、アプリを開き直すと保存された内容を確認できます。",
+      "translation": "<code>upsert</code>-ээр хадгалах ба <code>setText</code>-ээр харуулах нь тусдаа үйлдэл. Апп эхлэхэд дахин харуулах үйлдэл хэвээр тул дахин нээхэд хадгалсан агуулгыг шалгаж болно."
+    },
+    {
+      "source": "A10-12 · <code>Entity</code>のNonNull",
+      "translation": "A10-12 · <code>Entity</code>-ийн NonNull"
+    },
+    {
+      "source": "A10の<code>@Entity</code>にある<code>title</code>フィールドへ付けた<code>@NonNull</code>は、表の定義として何を意味しますか。",
+      "translation": "A10-ын <code>@Entity</code> дэх <code>title</code> талбарт тавьсан <code>@NonNull</code> нь хүснэгтийн тодорхойлолтод юу гэсэн үг вэ?"
+    },
+    {
+      "source": "その列に<code>null</code>を保存できない",
+      "translation": "Тухайн баганад <code>null</code> хадгалах боломжгүй"
+    },
+    {
+      "source": "空文字列も自動で必ず拒否する",
+      "translation": "Хоосон тэмдэгт мөрийг ч автоматаар заавал хүлээж авахгүй"
+    },
+    {
+      "source": "すべての<code>title</code>を同じ文字列にする",
+      "translation": "Бүх <code>title</code>-ийг ижил тэмдэгт мөр болгоно"
+    },
+    {
+      "source": "<code>title</code>を数値だけに制限する",
+      "translation": "<code>title</code>-ийг зөвхөн тоон утгаар хязгаарлана"
+    },
+    {
+      "source": "正答：<strong>その列に<code>null</code>を保存できない</strong>",
+      "translation": "Зөв хариулт: <strong>Тухайн баганад <code>null</code> хадгалах боломжгүй</strong>"
+    },
+    {
+      "source": "<code>Entity</code>のフィールドの<code>@NonNull</code>は列を<code>NOT NULL</code>にする指定です。<code>null</code>と空文字列は別なので、入力が空かどうかは画面側の<code>isEmpty</code>でも確認します。",
+      "translation": "<code>Entity</code>-ийн талбарын <code>@NonNull</code> нь баганыг <code>NOT NULL</code> болгох тохиргоо. <code>null</code> ба хоосон тэмдэгт мөр нь ялгаатай тул оролт хоосон эсэхийг дэлгэцийн хэсэгт <code>isEmpty</code>-ээр бас шалгана."
+    },
+    {
+      "source": "正解",
+      "translation": "Зөв"
+    },
+    {
+      "source": "不正解",
+      "translation": "Буруу"
+    },
+    {
+      "source": "未回答",
+      "translation": "Хариулаагүй"
+    },
+    {
+      "source": "あなたの回答：",
+      "translation": "Таны хариулт:&nbsp;"
+    },
+    {
+      "source": "正答：",
+      "translation": "Зөв хариулт:&nbsp;"
     }
   ]
 }

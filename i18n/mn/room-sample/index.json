@@ -407,6 +407,18 @@
       "translation": "<code>gradle/libs.versions.toml</code>-ийг нээнэ үү. Энэ нь <strong>аль бүрэлдэхүүнийг ямар хувилбараар ашиглахыг</strong> жагсаасан файл. Android Studio загвар болгон бэлтгэсэн байдаг."
     },
     {
+      "source": "追加するのは、<code>[versions]</code> の中の1行と、<code>[libraries]</code> の中の2行です。すでにある見出しの中に追記します。<strong>同じ見出しをもう1つ作らないでください。</strong>",
+      "translation": "<code>[versions]</code> хэсэгт нэг мөр, <code>[libraries]</code> хэсэгт хоёр мөр нэмнэ үү. Байгаа гарчгуудын доор нэмнэ үү. <strong>Ижил гарчиг дахин бүү үүсгээрэй.</strong>"
+    },
+    {
+      "source": "<strong>緑色で、左に「＋」が付いた行だけを追加します。</strong>「＋」は目印なので入力しません。それ以外は追記する位置を確かめるための既存行です。手元のバージョン番号が例と違っていても、Room以外の行はそのまま残します。",
+      "translation": "<strong>Зүүн талдаа «＋» тэмдэгтэй ногоон мөрүүдийг л нэмнэ үү.</strong> «＋» нь тэмдэглэгээ тул бичих шаардлагагүй. Бусад мөр нь хаана нэмэхийг заахын тулд харуулсан одоо байгаа мөрүүд юм. Таны хувилбарын дугаар жишээнээс өөр байсан ч Room-оос бусад мөрийг хэвээр үлдээнэ үү."
+    },
+    {
+      "source": "<code>libs.versions.toml</code>（追加後の全体を確認する）",
+      "translation": "<code>libs.versions.toml</code> (нэмсний дараах файлыг бүтнээр нь шалгах)"
+    },
+    {
       "source": "追記する場所",
       "translation": "Нэмж бичих газар"
     },
@@ -449,6 +461,18 @@
     {
       "source": "② 使うと宣言する場所",
       "translation": "② Ашиглахаа зарлах газар"
+    },
+    {
+      "source": "<strong>appフォルダの中</strong>の <code>app/build.gradle.kts</code> を開きます。プロジェクト直下にも同じ名前のファイルがありますが、今回は <code>app</code> 側を編集します。",
+      "translation": "<strong>app хавтас доторх</strong> <code>app/build.gradle.kts</code> файлыг нээнэ үү. Төслийн үндсэн хавтаст ижил нэртэй файл бий. Энэ удаа <code>app</code> доторх файлыг засна уу."
+    },
+    {
+      "source": "すでにある <code>dependencies { }</code> を探し、<strong>閉じる <code>}</code> の直前に、緑色で「＋」が付いた2行を追加</strong>します。既存の行は残します。<code>dependencies { }</code> 自体は新しく作りません。「＋」は入力しません。",
+      "translation": "Байгаа <code>dependencies { }</code> хэсгийг олоод, <strong>хаалтын <code>}</code> тэмдгийн яг өмнө «＋» тэмдэгтэй хоёр ногоон мөрийг нэмнэ үү.</strong> Байгаа мөрүүдийг хэвээр үлдээнэ үү. Шинээр <code>dependencies { }</code> хэсэг үүсгэхгүй. «＋» тэмдгийг бичихгүй."
+    },
+    {
+      "source": "追加する2行だけを確認する",
+      "translation": "Нэмэх хоёр мөрийг л шалгах"
     },
     {
       "source": "<code>libs.room.runtime</code> の <code>libs.</code> は、①で書いた <code>libs.versions.toml</code> のことです。<code>room-runtime</code> のハイフンは、ここでは <strong>ドット</strong>（<code>room.runtime</code>）に変わります。",
@@ -625,6 +649,54 @@
     {
       "source": "この授業では <code>@NonNull</code> を自分で書きません。ただし <code>@Entity</code> のフィールドに付けた <code>@NonNull</code> は、Javaの注意書きではなく<strong>「この列は空にできない」という表の決まりそのもの</strong>です。外すと表の形が変わってしまうので、ここだけは書きます。",
       "translation": "Энэ хичээлд <code>@NonNull</code>-ийг өөрсдөө бичдэггүй. Гэхдээ <code>@Entity</code>-ийн талбарт нэмсэн <code>@NonNull</code> нь Java-ийн анхааруулга биш, <strong>«энэ баганыг хоосон байлгаж болохгүй» гэсэн хүснэгтийн дүрэм өөрөө</strong> юм. Авбал хүснэгтийн хэлбэр өөрчлөгдөх тул зөвхөн энд бичнэ."
+    },
+    {
+      "source": "よくあるトラブル：<code>Cannot resolve symbol 'NonNull'</code>",
+      "translation": "Түгээмэл гардаг асуудал: <code>Cannot resolve symbol 'NonNull'</code>"
+    },
+    {
+      "source": "<code>@NonNull</code> に赤い波線が出たら、まず <code>Item.java</code> の上部に <code>import androidx.annotation.NonNull;</code> があるかを見ます。<code>import</code> は、同じ名前のクラスがある中から、どれを使うかを指定する行です。上のコードは、この行も含めて入力します。<strong>エラーを消すために <code>@NonNull</code> を削除しないでください。</strong>",
+      "translation": "<code>@NonNull</code> доогуур улаан долгионтой зураас гарвал эхлээд <code>Item.java</code> файлын дээд хэсэгт <code>import androidx.annotation.NonNull;</code> байгаа эсэхийг шалгана уу. <code>import</code> мөр нь ижил нэртэй классуудаас алийг ашиглахыг заана. Дээрх кодыг бичихдээ энэ мөрийг оруулна уу. <strong>Алдааг арилгахын тулд <code>@NonNull</code>-ийг бүү устгаарай.</strong>"
+    },
+    {
+      "source": "赤い波線が付いた <code>NonNull</code> の文字にカーソルを置き、<kbd>⌥ option</kbd> ＋ <kbd>return</kbd> を押します。候補の <strong>Import class</strong> を選びます。画面に出ている <strong>Import class</strong> のリンクをクリックしても進められます。",
+      "translation": "Курсорыг улаан долгионтой зураас бүхий <code>NonNull</code> дээр байрлуулаад <kbd>⌥ option</kbd> + <kbd>return</kbd> дарна уу. Санал болгосон сонголтуудаас <strong>Import class</strong>-ыг сонгоно уу. Дэлгэцийн <strong>Import class</strong> холбоос дээр дарж мөн үргэлжлүүлж болно."
+    },
+    {
+      "source": "Item.javaのNonNullに赤い波線が出て、Cannot resolve symbol 'NonNull' とImport classが表示されている",
+      "translation": "Item.java дахь NonNull доогуур улаан долгионтой зураас гарч, Cannot resolve symbol 'NonNull' болон Import class харагдаж байна"
+    },
+    {
+      "source": "赤い <code>NonNull</code> から <strong>Import class</strong> を開きます。 <a1>画像を大きく開く</a1>",
+      "translation": "Улаанаар тэмдэглэсэн <code>NonNull</code> дээрээс <strong>Import class</strong>-ыг нээнэ үү. <a1>Зургийг томоор нээх</a1>"
+    },
+    {
+      "source": "<strong>Class to Import</strong> が出たら、<strong><code>NonNull (androidx.annotation)</code></strong> を選んで <kbd>return</kbd> を押します。似た名前の <code>NonNull (of org.jspecify.annotations)</code> ではなく、教科書のコードと同じ <code>androidx.annotation</code> を選びます。候補が1つだけで、この一覧が出ないこともあります。",
+      "translation": "<strong>Class to Import</strong> гарвал <strong><code>NonNull (androidx.annotation)</code></strong>-ыг сонгоод <kbd>return</kbd> дарна уу. Ижил төстэй нэртэй <code>NonNull (of org.jspecify.annotations)</code>-ыг алгасаж, сурах бичгийн кодтой адил <code>androidx.annotation</code>-ыг сонгоно уу. Ганц сонголттой бол энэ жагсаалт гарахгүй байж болно."
+    },
+    {
+      "source": "Class to Importに2つのNonNullが並び、NonNull (androidx.annotation) が選択されている",
+      "translation": "Class to Import жагсаалтад хоёр NonNull харагдаж, NonNull (androidx.annotation)-ыг сонгосон байна"
+    },
+    {
+      "source": "選ぶのは <code>androidx.annotation</code> の <code>NonNull</code> です。右側のバージョン番号は手元の環境で異なることがあります。 <a1>画像を大きく開く</a1>",
+      "translation": "<code>androidx.annotation</code>-ийн <code>NonNull</code>-ыг сонгоно уу. Баруун талын хувилбарын дугаар таны орчинд өөр байж болно. <a1>Зургийг томоор нээх</a1>"
+    },
+    {
+      "source": "ファイルの上部、<code>package jp.ac.jec.a10roomsample;</code> より下、<code>@Entity</code> より上に <code>import androidx.annotation.NonNull;</code> が1行入り、<code>NonNull</code> の赤い波線が消えたことを確認します。",
+      "translation": "Файлын дээд хэсэгт <code>package jp.ac.jec.a10roomsample;</code> мөрийн доор, <code>@Entity</code>-ийн дээр <code>import androidx.annotation.NonNull;</code> мөр нэмэгдсэн эсэхийг шалгана уу. <code>NonNull</code> доорх улаан долгионтой зураас арилсан байна."
+    },
+    {
+      "source": "候補が出ないとき・別の <code>NonNull</code> を選んだとき",
+      "translation": "Сонголт гарахгүй эсвэл өөр <code>NonNull</code> сонгосон бол"
+    },
+    {
+      "source": "候補が出ないときは、ファイル上部のほかの <code>import</code> と並べて、次の1行を入力します。すでに同じ行があれば重ねて書きません。<code>import org.jspecify.annotations.NonNull;</code> がある場合は、その行を次の行に置き換えます。",
+      "translation": "Сонголт гарахгүй бол файлын дээд талын бусад <code>import</code> мөрийн хажууд доорх мөрийг бичнэ үү. Ижил мөр байгаа бол давтаж бичих хэрэггүй. <code>import org.jspecify.annotations.NonNull;</code> байвал тэр мөрийг доорх мөрөөр солино уу."
+    },
+    {
+      "source": "この <code>import</code> の行にも赤い波線が残る場合は、<a1>STEP 02</a1>の設定を確認し、<strong>Sync Now</strong> を押してエラーなく終わるまで待ちます。それでも解決しなければ、<code>Item.java</code> の上部とエラーの表示を先生に見せましょう。",
+      "translation": "Энэ <code>import</code> мөрийн доор улаан долгионтой зураас үлдвэл <a1>STEP 02</a1>-ын тохиргоог шалгана уу. <strong>Sync Now</strong>-г дараад алдаагүй дуусахыг хүлээнэ үү. Асуудал хэвээр байвал <code>Item.java</code> файлын дээд хэсэг болон дэлгэц дээрх алдааг багшид үзүүлнэ үү."
     },
     {
       "source": "<code>toString()</code> は表示のために使います",
@@ -1021,6 +1093,14 @@
     {
       "source": "STEP 02①。<code>room-runtime</code> と <code>room-compiler</code> を <code>[plugins]</code> ではなく <code>[libraries]</code> に書いているか",
       "translation": "STEP 02①. <code>room-runtime</code> ба <code>room-compiler</code>-ийг <code>[plugins]</code> биш, <code>[libraries]</code>-д бичсэн эсэх"
+    },
+    {
+      "source": "<code>Cannot resolve symbol 'NonNull'</code> が出る",
+      "translation": "<code>Cannot resolve symbol 'NonNull'</code> гарч байна"
+    },
+    {
+      "source": "<a1>STEP 04：NonNullのimport手順</a1>。<code>androidx.annotation.NonNull</code> を選び、ファイル上部のimport行を確認する",
+      "translation": "<a1>STEP 04: NonNull импортлох алхмууд</a1>. <code>androidx.annotation.NonNull</code>-ыг сонгоод файлын дээд талын import мөрийг шалгана уу."
     },
     {
       "source": "<code>Cannot resolve symbol 'Room'</code> などの赤い波線",
