@@ -1,0 +1,1050 @@
+[
+  {
+    "id": "B01",
+    "unit": "A01",
+    "kind": "blank",
+    "group": "layout",
+    "topic": "画面のレイアウト",
+    "prompt": "`MainActivity`で、`activity_main.xml`を画面に使います。 【①】に入るコードはどれですか。",
+    "code": "【①】(R.layout.activity_main);",
+    "choices": [
+      "`setContentView`",
+      "`findViewById`",
+      "`setText`",
+      "`getText`"
+    ],
+    "answer": "`setContentView`",
+    "explanation": "`setContentView`で、画面に使うレイアウトを指定します。`R.layout.activity_main`は`activity_main.xml`を表します。",
+    "source": "hello-android/index.html#step-9",
+    "sources": [
+      "hello-android/index.html#step-9",
+      "room-sample/index.html#step-7"
+    ],
+    "source_files": [
+      "A01HelloAndroid/app/src/main/java/jp/ac/jec/a01helloandroid/MainActivity.java",
+      "A10RoomSample/app/src/main/java/jp/ac/jec/a10roomsample/MainActivity.java"
+    ]
+  },
+  {
+    "id": "B02",
+    "unit": "A01",
+    "kind": "blank",
+    "group": "layout",
+    "topic": "レイアウトの指定",
+    "prompt": "`MainActivity`で、`activity_main.xml`を画面に使います。 【①】に入るコードはどれですか。",
+    "code": "setContentView(R.【①】.activity_main);",
+    "choices": [
+      "`id`",
+      "`drawable`",
+      "`layout`",
+      "`string`"
+    ],
+    "answer": "`layout`",
+    "explanation": "レイアウトは`R.layout`で指定します。部品のIDは`R.id`です。",
+    "source": "hello-android/index.html#step-9",
+    "sources": [
+      "hello-android/index.html#step-9",
+      "room-sample/index.html#step-7"
+    ],
+    "source_files": [
+      "A01HelloAndroid/app/src/main/java/jp/ac/jec/a01helloandroid/MainActivity.java",
+      "A10RoomSample/app/src/main/java/jp/ac/jec/a10roomsample/MainActivity.java"
+    ]
+  },
+  {
+    "id": "B03",
+    "unit": "A01",
+    "kind": "blank",
+    "group": "view",
+    "topic": "IDでボタンを探す",
+    "prompt": "画面を用意したあと、IDが`btn_start`のボタンを使います。 【①】に入るコードはどれですか。",
+    "code": "var btnStart = (Button) 【①】(R.id.btn_start);",
+    "choices": [
+      "`setContentView`",
+      "`findViewById`",
+      "`setOnClickListener`",
+      "`setText`"
+    ],
+    "answer": "`findViewById`",
+    "explanation": "`findViewById`はIDを使って画面の部品を探します。`(Button)`は、見つけた部品をボタンとして扱う指定です。",
+    "source": "hello-android/index.html#step-4",
+    "sources": [
+      "hello-android/index.html#step-4",
+      "bill-splitter/index.html#step-4"
+    ],
+    "source_files": [
+      "A01HelloAndroid/app/src/main/java/jp/ac/jec/a01helloandroid/MainActivity.java",
+      "A07BillSplitter/app/src/main/java/jp/ac/jec/a07billsplitter/MainActivity.java"
+    ]
+  },
+  {
+    "id": "B04",
+    "unit": "A01",
+    "kind": "blank",
+    "group": "view",
+    "topic": "部品のID",
+    "prompt": "画面を用意したあと、IDが`txt_message`の文字表示用の部品を探します。 【①】に入るコードはどれですか。",
+    "code": "var txtMessage = (TextView)\n        findViewById(R.【①】.txt_message);",
+    "choices": [
+      "`layout`",
+      "`string`",
+      "`drawable`",
+      "`id`"
+    ],
+    "answer": "`id`",
+    "explanation": "部品のIDは`R.id`で指定します。`R.layout`は画面のレイアウトを指定するときに使います。",
+    "source": "hello-android/index.html#step-4",
+    "sources": [
+      "hello-android/index.html#step-4",
+      "bill-splitter/index.html#step-4"
+    ],
+    "source_files": [
+      "A01HelloAndroid/app/src/main/java/jp/ac/jec/a01helloandroid/MainActivity.java",
+      "A07BillSplitter/app/src/main/java/jp/ac/jec/a07billsplitter/MainActivity.java"
+    ]
+  },
+  {
+    "id": "B05",
+    "unit": "A01",
+    "kind": "blank",
+    "group": "click",
+    "topic": "押したときの処理",
+    "prompt": "`btnStart`はボタン、`txtMessage`は文字を表示する部品です。ボタンを押すと`開始`を表示します。 【①】に入るコードはどれですか。",
+    "code": "btnStart.【①】(v -> {\n    txtMessage.setText(\"開始\");\n});",
+    "choices": [
+      "`setText`",
+      "`getText`",
+      "`setOnClickListener`",
+      "`findViewById`"
+    ],
+    "answer": "`setOnClickListener`",
+    "explanation": "`setOnClickListener`で、押したときに行う処理を登録（とうろく）します。中の`setText`は、ボタンを押したときに実行します。",
+    "source": "hello-android/index.html#step-4",
+    "sources": [
+      "hello-android/index.html#step-4",
+      "calc-game/index.html#step-7"
+    ],
+    "source_files": [
+      "A01HelloAndroid/app/src/main/java/jp/ac/jec/a01helloandroid/MainActivity.java",
+      "A02CalcGame/app/src/main/java/jp/ac/jec/a02calcgame/MainActivity.java"
+    ]
+  },
+  {
+    "id": "B06",
+    "unit": "A01",
+    "kind": "blank",
+    "group": "click",
+    "topic": "処理を付けるボタン",
+    "prompt": "`btnStart`と`btnClear`はボタンです。`txtMessage`は文字を表示する部品です。`btnStart`を押すと`開始`を表示します。 【①】に入るコードはどれですか。",
+    "code": "【①】.setOnClickListener(v -> {\n    txtMessage.setText(\"開始\");\n});",
+    "choices": [
+      "`btnStart`",
+      "`btnClear`",
+      "`txtMessage`",
+      "`R.id.btn_start`"
+    ],
+    "answer": "`btnStart`",
+    "explanation": "`btnStart.setOnClickListener`と書くと、`btnStart`を押したときの処理を登録します。",
+    "source": "hello-android/index.html#step-4",
+    "sources": [
+      "hello-android/index.html#step-4",
+      "calc-game/index.html#step-7"
+    ],
+    "source_files": [
+      "A01HelloAndroid/app/src/main/java/jp/ac/jec/a01helloandroid/MainActivity.java",
+      "A02CalcGame/app/src/main/java/jp/ac/jec/a02calcgame/MainActivity.java"
+    ]
+  },
+  {
+    "id": "B07",
+    "unit": "A01",
+    "kind": "blank",
+    "group": "read",
+    "topic": "入力した文字を読む",
+    "prompt": "`edtName`は文字を入力する部品です。入力した文字を`name`に入れます。 【①】に入るコードはどれですか。",
+    "code": "var name = edtName.【①】().toString();",
+    "choices": [
+      "`setText`",
+      "`isEmpty`",
+      "`parseInt`",
+      "`getText`"
+    ],
+    "answer": "`getText`",
+    "explanation": "`getText()`で今の文字を取り出します。続けて`toString()`を使うと、`String`（文字列）の形になります。",
+    "source": "hello-android/index.html#step-5",
+    "sources": [
+      "hello-android/index.html#step-5",
+      "memo-app/index.html#step-4"
+    ],
+    "source_files": [
+      "A01HelloAndroid/app/src/main/java/jp/ac/jec/a01helloandroid/MainActivity.java",
+      "A09MemoApp/app/src/main/java/jp/ac/jec/a09memoapp/MainActivity.java"
+    ]
+  },
+  {
+    "id": "B08",
+    "unit": "A01",
+    "kind": "blank",
+    "group": "read",
+    "topic": "文字列の形にする",
+    "prompt": "`edtName`は文字を入力する部品です。取り出した値を`String`（文字列）の形にします。 【①】に入るコードはどれですか。",
+    "code": "var name = edtName.getText().【①】();",
+    "choices": [
+      "`isEmpty`",
+      "`toString`",
+      "`show`",
+      "`getText`"
+    ],
+    "answer": "`toString`",
+    "explanation": "`toString()`は、取り出した値を`String`（文字列）の形にします。整数に変える処理ではありません。",
+    "source": "hello-android/index.html#step-5",
+    "sources": [
+      "hello-android/index.html#step-5",
+      "memo-app/index.html#step-4"
+    ],
+    "source_files": [
+      "A01HelloAndroid/app/src/main/java/jp/ac/jec/a01helloandroid/MainActivity.java",
+      "A09MemoApp/app/src/main/java/jp/ac/jec/a09memoapp/MainActivity.java"
+    ]
+  },
+  {
+    "id": "B09",
+    "unit": "A01",
+    "kind": "blank",
+    "group": "write",
+    "topic": "文字を表示する",
+    "prompt": "`txtMessage`は文字を表示する部品です。`できた`と表示します。 【①】に入るコードはどれですか。",
+    "code": "txtMessage.【①】(\"できた\");",
+    "choices": [
+      "`getText`",
+      "`findViewById`",
+      "`setText`",
+      "`isEmpty`"
+    ],
+    "answer": "`setText`",
+    "explanation": "`setText`は、部品に表示する文字を変えます。`getText`は今の文字を読むときに使います。",
+    "source": "hello-android/index.html#step-4",
+    "sources": [
+      "hello-android/index.html#step-4",
+      "memo-app/index.html#step-4"
+    ],
+    "source_files": [
+      "A01HelloAndroid/app/src/main/java/jp/ac/jec/a01helloandroid/MainActivity.java",
+      "A09MemoApp/app/src/main/java/jp/ac/jec/a09memoapp/MainActivity.java"
+    ]
+  },
+  {
+    "id": "B10",
+    "unit": "A09",
+    "kind": "blank",
+    "group": "write",
+    "topic": "入力欄を空にする",
+    "prompt": "`edtName`は文字を入力する部品です。中の文字を消して、空に戻します。 【①】に入るコードはどれですか。",
+    "code": "edtName.setText(【①】);",
+    "choices": [
+      "`\"\"`",
+      "`\"名前\"`",
+      "`\"0\"`",
+      "`\" \"`"
+    ],
+    "answer": "`\"\"`",
+    "explanation": "`\"\"`は、文字が1つもない文字列です。`setText(\"\")`で入力欄を空にできます。",
+    "source": "memo-app/index.html#step-4",
+    "sources": [
+      "hello-android/index.html#step-4",
+      "memo-app/index.html#step-4"
+    ],
+    "source_files": [
+      "A01HelloAndroid/app/src/main/java/jp/ac/jec/a01helloandroid/MainActivity.java",
+      "A09MemoApp/app/src/main/java/jp/ac/jec/a09memoapp/MainActivity.java"
+    ]
+  },
+  {
+    "id": "B11",
+    "unit": "A02",
+    "kind": "blank",
+    "group": "parse",
+    "topic": "文字を整数に変える",
+    "prompt": "文字列`\"12\"`を、計算に使える整数の`12`に変えます。 【①】に入るコードはどれですか。",
+    "code": "var number = 【①】(\"12\");",
+    "choices": [
+      "`Snackbar.make`",
+      "`findViewById`",
+      "`setContentView`",
+      "`Integer.parseInt`"
+    ],
+    "answer": "`Integer.parseInt`",
+    "explanation": "`Integer.parseInt`は、整数を表す文字列を`int`（整数）に変えます。",
+    "source": "calc-game/index.html#step-7",
+    "sources": [
+      "calc-game/index.html#step-7",
+      "bill-splitter/index.html#step-8"
+    ],
+    "source_files": [
+      "A02CalcGame/app/src/main/java/jp/ac/jec/a02calcgame/MainActivity.java",
+      "A07BillSplitter/app/src/main/java/jp/ac/jec/a07billsplitter/BillSplitActivity.java"
+    ]
+  },
+  {
+    "id": "B12",
+    "unit": "A02",
+    "kind": "blank",
+    "group": "parse",
+    "topic": "変える文字を選ぶ",
+    "prompt": "`edtAmount`は入力欄です。`12`が入っています。読み取った文字列を整数に変えます。 【①】に入るコードはどれですか。",
+    "code": "var amountStr = edtAmount.getText().toString();\nvar amount = Integer.parseInt(【①】);",
+    "choices": [
+      "`edtAmount`",
+      "`amountStr`",
+      "`R.id.edt_amount`",
+      "`amount`"
+    ],
+    "answer": "`amountStr`",
+    "explanation": "`amountStr`に入力した文字列が入っています。`Integer.parseInt(amountStr)`で、その文字列を整数に変えます。",
+    "source": "calc-game/index.html#step-7",
+    "sources": [
+      "calc-game/index.html#step-7",
+      "bill-splitter/index.html#step-8"
+    ],
+    "source_files": [
+      "A02CalcGame/app/src/main/java/jp/ac/jec/a02calcgame/MainActivity.java",
+      "A07BillSplitter/app/src/main/java/jp/ac/jec/a07billsplitter/BillSplitActivity.java"
+    ]
+  },
+  {
+    "id": "B13",
+    "unit": "A01",
+    "kind": "blank",
+    "group": "snackbar",
+    "topic": "短いメッセージ",
+    "prompt": "ボタンを押したときの処理です。`v`は押した部品です。Snackbar（スナックバー）で`入力してください`と表示します。 【①】に入るコードはどれですか。",
+    "code": "【①】.make(v, \"入力してください\",\n        Snackbar.LENGTH_SHORT).show();",
+    "choices": [
+      "`Integer`",
+      "`TextView`",
+      "`Snackbar`",
+      "`Button`"
+    ],
+    "answer": "`Snackbar`",
+    "explanation": "`Snackbar.make`で表示するメッセージを作り、`show()`で画面に出します。",
+    "source": "hello-android/index.html#step-7",
+    "sources": [
+      "hello-android/index.html#step-7",
+      "bill-splitter/index.html#step-4"
+    ],
+    "source_files": [
+      "A01HelloAndroid/app/src/main/java/jp/ac/jec/a01helloandroid/MainActivity.java",
+      "A07BillSplitter/app/src/main/java/jp/ac/jec/a07billsplitter/MainActivity.java"
+    ]
+  },
+  {
+    "id": "B14",
+    "unit": "A01",
+    "kind": "blank",
+    "group": "snackbar",
+    "topic": "メッセージを出す",
+    "prompt": "ボタンを押したときの処理です。`v`は押した部品です。作ったSnackbar（スナックバー）を画面に出します。 【①】に入るコードはどれですか。",
+    "code": "Snackbar.make(v, \"できた\",\n        Snackbar.LENGTH_SHORT).【①】();",
+    "choices": [
+      "`show`",
+      "`getText`",
+      "`toString`",
+      "`isEmpty`"
+    ],
+    "answer": "`show`",
+    "explanation": "`make`で作ったSnackbarは、最後に`show()`を呼ぶと画面に出ます。",
+    "source": "hello-android/index.html#step-7",
+    "sources": [
+      "hello-android/index.html#step-7",
+      "bill-splitter/index.html#step-4"
+    ],
+    "source_files": [
+      "A01HelloAndroid/app/src/main/java/jp/ac/jec/a01helloandroid/MainActivity.java",
+      "A07BillSplitter/app/src/main/java/jp/ac/jec/a07billsplitter/MainActivity.java"
+    ]
+  },
+  {
+    "id": "B15",
+    "unit": "A07",
+    "kind": "blank",
+    "group": "empty",
+    "topic": "入力が空か調べる",
+    "prompt": "`name`には入力した文字列が入っています。`txtMessage`は文字を表示する部品です。空のときだけ案内を出します。 【①】に入るコードはどれですか。",
+    "code": "if (name.【①】()) {\n    txtMessage.setText(\"名前を入力してください\");\n}",
+    "choices": [
+      "`toString`",
+      "`getText`",
+      "`setText`",
+      "`isEmpty`"
+    ],
+    "answer": "`isEmpty`",
+    "explanation": "`isEmpty()`は、文字が1つもないときに`true`になります。`if`の中の処理は、条件が`true`のときに行います。",
+    "source": "bill-splitter/index.html#step-4",
+    "sources": [
+      "bill-splitter/index.html#step-4",
+      "memo-app/index.html#step-4",
+      "room-sample/index.html#step-7"
+    ],
+    "source_files": [
+      "A07BillSplitter/app/src/main/java/jp/ac/jec/a07billsplitter/MainActivity.java",
+      "A09MemoApp/app/src/main/java/jp/ac/jec/a09memoapp/MainActivity.java",
+      "A10RoomSample/app/src/main/java/jp/ac/jec/a10roomsample/MainActivity.java"
+    ]
+  },
+  {
+    "id": "B16",
+    "unit": "A10",
+    "kind": "blank",
+    "group": "empty",
+    "topic": "空でないとき",
+    "prompt": "`name`は文字列、`txtMessage`は文字を表示する部品です。`name`が空でないときだけ`入力あり`と表示します。 【①】に入るコードはどれですか。",
+    "code": "if (【①】name.isEmpty()) {\n    txtMessage.setText(\"入力あり\");\n}",
+    "choices": [
+      "`+`",
+      "`!`",
+      "`-`",
+      "`=`"
+    ],
+    "answer": "`!`",
+    "explanation": "`!`は、`true`と`false`を反対にします。`!name.isEmpty()`は、文字列が空でないときに`true`です。",
+    "source": "room-sample/index.html#step-7",
+    "sources": [
+      "bill-splitter/index.html#step-4",
+      "memo-app/index.html#step-4",
+      "room-sample/index.html#step-7"
+    ],
+    "source_files": [
+      "A07BillSplitter/app/src/main/java/jp/ac/jec/a07billsplitter/MainActivity.java",
+      "A09MemoApp/app/src/main/java/jp/ac/jec/a09memoapp/MainActivity.java",
+      "A10RoomSample/app/src/main/java/jp/ac/jec/a10roomsample/MainActivity.java"
+    ]
+  },
+  {
+    "id": "B17",
+    "unit": "A02",
+    "kind": "blank",
+    "group": "condition",
+    "topic": "条件で処理を分ける",
+    "prompt": "`number`、`answer`、`correct`は整数です。`number`と`answer`が同じときだけ、`correct`を1増やします。 【①】に入るコードはどれですか。",
+    "code": "【①】(number == answer) {\n    correct++;\n}",
+    "choices": [
+      "`for`",
+      "`return`",
+      "`if`",
+      "`else`"
+    ],
+    "answer": "`if`",
+    "explanation": "`if`は、条件が`true`のときだけ中の処理を行います。`==`は、ここでは2つの整数が同じか調べます。",
+    "source": "calc-game/index.html#step-8",
+    "sources": [
+      "calc-game/index.html#step-8",
+      "memo-app/index.html#step-4"
+    ],
+    "source_files": [
+      "A02CalcGame/app/src/main/java/jp/ac/jec/a02calcgame/MainActivity.java",
+      "A09MemoApp/app/src/main/java/jp/ac/jec/a09memoapp/MainActivity.java"
+    ]
+  },
+  {
+    "id": "B18",
+    "unit": "A02",
+    "kind": "blank",
+    "group": "condition",
+    "topic": "途中で処理を終える",
+    "prompt": "`btnAdd`はボタン、`edtName`は入力欄、`txtMessage`は文字の表示欄です。空なら、このクリック処理を終えます。 【①】に入るコードはどれですか。",
+    "code": "btnAdd.setOnClickListener(v -> {\n    var name = edtName.getText().toString();\n    if (name.isEmpty()) {\n        【①】;\n    }\n    txtMessage.setText(name);\n});",
+    "choices": [
+      "`return`",
+      "`show()`",
+      "`else`",
+      "`if`"
+    ],
+    "answer": "`return`",
+    "explanation": "`return;`で、このクリック処理をここで終えます。空のときは、下の`setText`を実行しません。アプリ全体を終える意味ではありません。",
+    "source": "calc-game/index.html#step-7",
+    "sources": [
+      "calc-game/index.html#step-7",
+      "memo-app/index.html#step-4"
+    ],
+    "source_files": [
+      "A02CalcGame/app/src/main/java/jp/ac/jec/a02calcgame/MainActivity.java",
+      "A09MemoApp/app/src/main/java/jp/ac/jec/a09memoapp/MainActivity.java"
+    ]
+  },
+  {
+    "id": "B19",
+    "unit": "A02",
+    "kind": "blank",
+    "group": "loop",
+    "topic": "1つずつ繰り返す",
+    "prompt": "配列（複数の値を並べたもの）の値を1つずつ取り出し、`total`に足します。 【①】に入るコードはどれですか。",
+    "code": "var numbers = new int[]{2, 4, 6};\nvar total = 0;\n【①】(var number : numbers) {\n    total = total + number;\n}",
+    "choices": [
+      "`if`",
+      "`return`",
+      "`else`",
+      "`for`"
+    ],
+    "answer": "`for`",
+    "explanation": "拡張（かくちょう）`for`文は、配列から値を1つずつ取り出して同じ処理を繰り返します。",
+    "source": "calc-game/index.html#step-7",
+    "sources": [
+      "calc-game/index.html#step-7",
+      "rock-paper-scissors-game/index.html#step-5"
+    ],
+    "source_files": [
+      "A02CalcGame/app/src/main/java/jp/ac/jec/a02calcgame/MainActivity.java",
+      "A03RockPaperScissorsGame/app/src/main/java/jp/ac/jec/a03rockpaperscissorsgame/MainActivity.java"
+    ]
+  },
+  {
+    "id": "B20",
+    "unit": "A02",
+    "kind": "blank",
+    "group": "loop",
+    "topic": "繰り返す配列",
+    "prompt": "`numbers`の3つの値を1つずつ取り出し、`count`を1ずつ増やします。 【①】に入るコードはどれですか。",
+    "code": "var numbers = new int[]{2, 4, 6};\nvar count = 0;\nfor (var number : 【①】) {\n    count++;\n}",
+    "choices": [
+      "`number`",
+      "`numbers`",
+      "`count`",
+      "`Integer`"
+    ],
+    "answer": "`numbers`",
+    "explanation": "`:`の右に、取り出す元の配列を書きます。`numbers`から`2`、`4`、`6`を順に取り出します。",
+    "source": "calc-game/index.html#step-7",
+    "sources": [
+      "calc-game/index.html#step-7",
+      "rock-paper-scissors-game/index.html#step-5"
+    ],
+    "source_files": [
+      "A02CalcGame/app/src/main/java/jp/ac/jec/a02calcgame/MainActivity.java",
+      "A03RockPaperScissorsGame/app/src/main/java/jp/ac/jec/a03rockpaperscissorsgame/MainActivity.java"
+    ]
+  },
+  {
+    "id": "E01",
+    "unit": "A01",
+    "kind": "explain",
+    "group": "layout",
+    "topic": "画面を用意する",
+    "prompt": "`MainActivity`の中にある、次のコードの説明はどれですか。",
+    "code": "setContentView(R.layout.activity_main);",
+    "choices": [
+      "ボタンの文字を読む",
+      "入力した文字を消す",
+      "`activity_main.xml`を画面に使う",
+      "ボタンを押したときの処理を登録する"
+    ],
+    "answer": "`activity_main.xml`を画面に使う",
+    "explanation": "`setContentView`は、画面に使うレイアウトを指定します。`R.layout.activity_main`は`activity_main.xml`を表します。",
+    "source": "hello-android/index.html#step-9",
+    "sources": [
+      "hello-android/index.html#step-9",
+      "room-sample/index.html#step-7"
+    ],
+    "source_files": [
+      "A01HelloAndroid/app/src/main/java/jp/ac/jec/a01helloandroid/MainActivity.java",
+      "A10RoomSample/app/src/main/java/jp/ac/jec/a10roomsample/MainActivity.java"
+    ]
+  },
+  {
+    "id": "E02",
+    "unit": "A01",
+    "kind": "explain",
+    "group": "layout",
+    "topic": "部品を探す順番",
+    "prompt": "`activity_main.xml`にはIDが`btn_start`のボタンがあります。この順番にする理由はどれですか。",
+    "code": "setContentView(R.layout.activity_main);\nvar btnStart = (Button) findViewById(R.id.btn_start);",
+    "choices": [
+      "画面を用意してから、その中の部品を探すため",
+      "ボタンを2つ作るため",
+      "ボタンを自動で押すため",
+      "入力した文字を整数に変えるため"
+    ],
+    "answer": "画面を用意してから、その中の部品を探すため",
+    "explanation": "`setContentView`で画面を用意し、そのあとで`findViewById`を使って部品を探します。",
+    "source": "hello-android/index.html#step-9",
+    "sources": [
+      "hello-android/index.html#step-9",
+      "room-sample/index.html#step-7"
+    ],
+    "source_files": [
+      "A01HelloAndroid/app/src/main/java/jp/ac/jec/a01helloandroid/MainActivity.java",
+      "A10RoomSample/app/src/main/java/jp/ac/jec/a10roomsample/MainActivity.java"
+    ]
+  },
+  {
+    "id": "E03",
+    "unit": "A01",
+    "kind": "explain",
+    "group": "view",
+    "topic": "IDの役割",
+    "prompt": "画面を用意したあとに、次のコードを実行します。何をしますか。",
+    "code": "var btnStart = (Button) findViewById(R.id.btn_start);",
+    "choices": [
+      "ボタンに`btn_start`と表示する",
+      "IDが`btn_start`の部品を探す",
+      "新しいXMLファイルを作る",
+      "入力欄の文字を消す"
+    ],
+    "answer": "IDが`btn_start`の部品を探す",
+    "explanation": "`R.id.btn_start`は部品を探すための目印です。画面に表示する文字とは別です。",
+    "source": "hello-android/index.html#step-4",
+    "sources": [
+      "hello-android/index.html#step-4",
+      "bill-splitter/index.html#step-4"
+    ],
+    "source_files": [
+      "A01HelloAndroid/app/src/main/java/jp/ac/jec/a01helloandroid/MainActivity.java",
+      "A07BillSplitter/app/src/main/java/jp/ac/jec/a07billsplitter/MainActivity.java"
+    ]
+  },
+  {
+    "id": "E04",
+    "unit": "A01",
+    "kind": "explain",
+    "group": "view",
+    "topic": "部品をButtonとして扱う",
+    "prompt": "画面のIDが`btn_start`の部品はボタンです。`(Button)`の説明はどれですか。",
+    "code": "var btnStart = (Button) findViewById(R.id.btn_start);",
+    "choices": [
+      "ボタンに`Button`と表示する",
+      "ボタンを押す",
+      "ボタンを画面から消す",
+      "見つけた部品を`Button`として扱う"
+    ],
+    "answer": "見つけた部品を`Button`として扱う",
+    "explanation": "`(Button)`はキャストといい、見つけた部品を`Button`として扱う指定です。文字を表示したり、ボタンを押したりする処理ではありません。",
+    "source": "hello-android/index.html#step-4",
+    "sources": [
+      "hello-android/index.html#step-4",
+      "bill-splitter/index.html#step-4"
+    ],
+    "source_files": [
+      "A01HelloAndroid/app/src/main/java/jp/ac/jec/a01helloandroid/MainActivity.java",
+      "A07BillSplitter/app/src/main/java/jp/ac/jec/a07billsplitter/MainActivity.java"
+    ]
+  },
+  {
+    "id": "E05",
+    "unit": "A01",
+    "kind": "explain",
+    "group": "click",
+    "topic": "文字が変わるとき",
+    "prompt": "`btnStart`はボタン、`txtMessage`は文字の表示欄です。中の`setText`は、いつ実行されますか。",
+    "code": "btnStart.setOnClickListener(v -> {\n    txtMessage.setText(\"開始\");\n});",
+    "choices": [
+      "`btnStart`を押したとき",
+      "Javaのファイルを開いたとき",
+      "このコードを入力したとき",
+      "`txtMessage`の文字を読んだとき"
+    ],
+    "answer": "`btnStart`を押したとき",
+    "explanation": "`setOnClickListener`の中には、押したときに行う処理を書きます。登録しただけでは、中の`setText`は実行しません。",
+    "source": "hello-android/index.html#step-4",
+    "sources": [
+      "hello-android/index.html#step-4",
+      "calc-game/index.html#step-7"
+    ],
+    "source_files": [
+      "A01HelloAndroid/app/src/main/java/jp/ac/jec/a01helloandroid/MainActivity.java",
+      "A02CalcGame/app/src/main/java/jp/ac/jec/a02calcgame/MainActivity.java"
+    ]
+  },
+  {
+    "id": "E06",
+    "unit": "A01",
+    "kind": "explain",
+    "group": "click",
+    "topic": "押したボタンと処理",
+    "prompt": "`btnStart`と`btnClear`はボタン、`txtMessage`は文字の表示欄です。`btnClear`を1回押すと、何を表示しますか。",
+    "code": "btnStart.setOnClickListener(v -> {\n    txtMessage.setText(\"開始\");\n});\nbtnClear.setOnClickListener(v -> {\n    txtMessage.setText(\"消去\");\n});",
+    "choices": [
+      "`開始`",
+      "`開始消去`",
+      "`消去`",
+      "`btnClear`"
+    ],
+    "answer": "`消去`",
+    "explanation": "`btnClear`を押すと、`btnClear.setOnClickListener`の中を実行します。ここでは`消去`と表示します。",
+    "source": "hello-android/index.html#step-4",
+    "sources": [
+      "hello-android/index.html#step-4",
+      "calc-game/index.html#step-7"
+    ],
+    "source_files": [
+      "A01HelloAndroid/app/src/main/java/jp/ac/jec/a01helloandroid/MainActivity.java",
+      "A02CalcGame/app/src/main/java/jp/ac/jec/a02calcgame/MainActivity.java"
+    ]
+  },
+  {
+    "id": "E07",
+    "unit": "A01",
+    "kind": "explain",
+    "group": "read",
+    "topic": "入力した文字列",
+    "prompt": "`edtName`は入力欄です。`東京`と入っています。次のコードで、`name`に入る値はどれですか。",
+    "code": "var name = edtName.getText().toString();",
+    "choices": [
+      "文字列`\"edtName\"`",
+      "文字列`\"東京\"`",
+      "空の文字列`\"\"`",
+      "整数の`0`"
+    ],
+    "answer": "文字列`\"東京\"`",
+    "explanation": "`getText().toString()`で、入力欄にある今の文字を文字列として取り出します。ここでは`\"東京\"`です。",
+    "source": "hello-android/index.html#step-5",
+    "sources": [
+      "hello-android/index.html#step-5",
+      "memo-app/index.html#step-4"
+    ],
+    "source_files": [
+      "A01HelloAndroid/app/src/main/java/jp/ac/jec/a01helloandroid/MainActivity.java",
+      "A09MemoApp/app/src/main/java/jp/ac/jec/a09memoapp/MainActivity.java"
+    ]
+  },
+  {
+    "id": "E08",
+    "unit": "A01",
+    "kind": "explain",
+    "group": "read",
+    "topic": "ボタンの文字を読む",
+    "prompt": "`btnNumber`はボタンです。ボタンには`7`と表示されています。`text`に入る値はどれですか。",
+    "code": "var text = btnNumber.getText().toString();",
+    "choices": [
+      "整数の`7`",
+      "文字列`\"btnNumber\"`",
+      "空の文字列`\"\"`",
+      "文字列`\"7\"`"
+    ],
+    "answer": "文字列`\"7\"`",
+    "explanation": "`getText().toString()`で得られるのは文字列です。計算に使う整数に変えるときは、別に`Integer.parseInt`を使います。",
+    "source": "hello-android/index.html#step-5",
+    "sources": [
+      "hello-android/index.html#step-5",
+      "memo-app/index.html#step-4"
+    ],
+    "source_files": [
+      "A01HelloAndroid/app/src/main/java/jp/ac/jec/a01helloandroid/MainActivity.java",
+      "A09MemoApp/app/src/main/java/jp/ac/jec/a09memoapp/MainActivity.java"
+    ]
+  },
+  {
+    "id": "E09",
+    "unit": "A01",
+    "kind": "explain",
+    "group": "write",
+    "topic": "表示を置き換える",
+    "prompt": "`txtMessage`は文字の表示欄です。上から順に実行したあと、何を表示しますか。",
+    "code": "txtMessage.setText(\"前\");\ntxtMessage.setText(\"後\");",
+    "choices": [
+      "`後`",
+      "`前`",
+      "`前後`",
+      "何も表示しない"
+    ],
+    "answer": "`後`",
+    "explanation": "`setText`は、前の表示を新しい文字に置き換えます。最後に指定した`後`を表示します。",
+    "source": "hello-android/index.html#step-4",
+    "sources": [
+      "hello-android/index.html#step-4",
+      "memo-app/index.html#step-4"
+    ],
+    "source_files": [
+      "A01HelloAndroid/app/src/main/java/jp/ac/jec/a01helloandroid/MainActivity.java",
+      "A09MemoApp/app/src/main/java/jp/ac/jec/a09memoapp/MainActivity.java"
+    ]
+  },
+  {
+    "id": "E10",
+    "unit": "A09",
+    "kind": "explain",
+    "group": "write",
+    "topic": "入力欄の文字を消す",
+    "prompt": "`edtName`は入力欄です。`山田`と入っています。次のコードを実行すると、どうなりますか。",
+    "code": "edtName.setText(\"\");",
+    "choices": [
+      "入力欄そのものがなくなる",
+      "`山田`の後ろに文字が増える",
+      "入力欄の文字が消えて空になる",
+      "`0`が入力される"
+    ],
+    "answer": "入力欄の文字が消えて空になる",
+    "explanation": "`\"\"`は空の文字列です。入力欄はそのままで、中に表示する文字だけを空にします。",
+    "source": "memo-app/index.html#step-4",
+    "sources": [
+      "hello-android/index.html#step-4",
+      "memo-app/index.html#step-4"
+    ],
+    "source_files": [
+      "A01HelloAndroid/app/src/main/java/jp/ac/jec/a01helloandroid/MainActivity.java",
+      "A09MemoApp/app/src/main/java/jp/ac/jec/a09memoapp/MainActivity.java"
+    ]
+  },
+  {
+    "id": "E11",
+    "unit": "A02",
+    "kind": "explain",
+    "group": "parse",
+    "topic": "整数に変えた値",
+    "prompt": "次のコードで、`number`に入る値はどれですか。",
+    "code": "var number = Integer.parseInt(\"12\");",
+    "choices": [
+      "文字列`\"12\"`",
+      "整数の`12`",
+      "文字列`\"number\"`",
+      "整数の`0`"
+    ],
+    "answer": "整数の`12`",
+    "explanation": "`Integer.parseInt`で、文字列`\"12\"`を計算に使える整数の`12`に変えます。",
+    "source": "calc-game/index.html#step-7",
+    "sources": [
+      "calc-game/index.html#step-7",
+      "bill-splitter/index.html#step-8"
+    ],
+    "source_files": [
+      "A02CalcGame/app/src/main/java/jp/ac/jec/a02calcgame/MainActivity.java",
+      "A07BillSplitter/app/src/main/java/jp/ac/jec/a07billsplitter/BillSplitActivity.java"
+    ]
+  },
+  {
+    "id": "E12",
+    "unit": "A02",
+    "kind": "explain",
+    "group": "parse",
+    "topic": "変えた整数で計算する",
+    "prompt": "`txtMessage`は文字の表示欄です。次のコードは、何を表示しますか。",
+    "code": "var number = Integer.parseInt(\"8\");\ntxtMessage.setText(\"答え:\" + (number + 2));",
+    "choices": [
+      "`答え:82`",
+      "`答え:8`",
+      "`答え:number`",
+      "`答え:10`"
+    ],
+    "answer": "`答え:10`",
+    "explanation": "`number`は整数の`8`です。かっこの中で`8 + 2`を計算するので、`答え:10`と表示します。",
+    "source": "calc-game/index.html#step-7",
+    "sources": [
+      "calc-game/index.html#step-7",
+      "bill-splitter/index.html#step-8"
+    ],
+    "source_files": [
+      "A02CalcGame/app/src/main/java/jp/ac/jec/a02calcgame/MainActivity.java",
+      "A07BillSplitter/app/src/main/java/jp/ac/jec/a07billsplitter/BillSplitActivity.java"
+    ]
+  },
+  {
+    "id": "E13",
+    "unit": "A01",
+    "kind": "explain",
+    "group": "snackbar",
+    "topic": "Snackbarの役割",
+    "prompt": "ボタンを押したときの処理です。`v`は押した部品です。次のコードは、何をしますか。",
+    "code": "Snackbar.make(v, \"入力してください\",\n        Snackbar.LENGTH_SHORT).show();",
+    "choices": [
+      "入力欄の文字を整数に変える",
+      "新しい画面を開く",
+      "画面に短いメッセージを出す",
+      "ボタンの文字を読む"
+    ],
+    "answer": "画面に短いメッセージを出す",
+    "explanation": "Snackbar（スナックバー）は、画面に短いメッセージを出します。`show()`を呼ぶと表示します。",
+    "source": "hello-android/index.html#step-7",
+    "sources": [
+      "hello-android/index.html#step-7",
+      "bill-splitter/index.html#step-4"
+    ],
+    "source_files": [
+      "A01HelloAndroid/app/src/main/java/jp/ac/jec/a01helloandroid/MainActivity.java",
+      "A07BillSplitter/app/src/main/java/jp/ac/jec/a07billsplitter/MainActivity.java"
+    ]
+  },
+  {
+    "id": "E14",
+    "unit": "A01",
+    "kind": "explain",
+    "group": "snackbar",
+    "topic": "表示するメッセージ",
+    "prompt": "ボタンを押したときの処理です。`v`は押した部品です。Snackbar（スナックバー）に何を表示しますか。",
+    "code": "var message = \"できた\";\nSnackbar.make(v, message,\n        Snackbar.LENGTH_SHORT).show();",
+    "choices": [
+      "`できた`",
+      "`message`",
+      "`LENGTH_SHORT`",
+      "何も表示しない"
+    ],
+    "answer": "`できた`",
+    "explanation": "`make`の2つ目に、表示する文字を渡します。`message`には`できた`が入っています。",
+    "source": "hello-android/index.html#step-7",
+    "sources": [
+      "hello-android/index.html#step-7",
+      "bill-splitter/index.html#step-4"
+    ],
+    "source_files": [
+      "A01HelloAndroid/app/src/main/java/jp/ac/jec/a01helloandroid/MainActivity.java",
+      "A07BillSplitter/app/src/main/java/jp/ac/jec/a07billsplitter/MainActivity.java"
+    ]
+  },
+  {
+    "id": "E15",
+    "unit": "A07",
+    "kind": "explain",
+    "group": "empty",
+    "topic": "空の文字列",
+    "prompt": "次のコードで、`empty`に入る値はどれですか。",
+    "code": "var name = \"\";\nvar empty = name.isEmpty();",
+    "choices": [
+      "`false`",
+      "`true`",
+      "`0`",
+      "`null`"
+    ],
+    "answer": "`true`",
+    "explanation": "`\"\"`は文字が1つもない文字列です。空の文字列で`isEmpty()`を呼ぶと`true`になります。",
+    "source": "bill-splitter/index.html#step-4",
+    "sources": [
+      "bill-splitter/index.html#step-4",
+      "memo-app/index.html#step-4",
+      "room-sample/index.html#step-7"
+    ],
+    "source_files": [
+      "A07BillSplitter/app/src/main/java/jp/ac/jec/a07billsplitter/MainActivity.java",
+      "A09MemoApp/app/src/main/java/jp/ac/jec/a09memoapp/MainActivity.java",
+      "A10RoomSample/app/src/main/java/jp/ac/jec/a10roomsample/MainActivity.java"
+    ]
+  },
+  {
+    "id": "E16",
+    "unit": "A07",
+    "kind": "explain",
+    "group": "empty",
+    "topic": "空でない入力",
+    "prompt": "`txtMessage`は文字の表示欄です。次のコードは、何を表示しますか。",
+    "code": "var name = \"山田\";\nif (name.isEmpty()) {\n    txtMessage.setText(\"入力なし\");\n} else {\n    txtMessage.setText(\"入力あり\");\n}",
+    "choices": [
+      "`入力なし`",
+      "`山田`",
+      "何も表示しない",
+      "`入力あり`"
+    ],
+    "answer": "`入力あり`",
+    "explanation": "`name`には文字があるので、`isEmpty()`は`false`です。`else`の中を実行し、`入力あり`と表示します。",
+    "source": "bill-splitter/index.html#step-4",
+    "sources": [
+      "bill-splitter/index.html#step-4",
+      "memo-app/index.html#step-4",
+      "room-sample/index.html#step-7"
+    ],
+    "source_files": [
+      "A07BillSplitter/app/src/main/java/jp/ac/jec/a07billsplitter/MainActivity.java",
+      "A09MemoApp/app/src/main/java/jp/ac/jec/a09memoapp/MainActivity.java",
+      "A10RoomSample/app/src/main/java/jp/ac/jec/a10roomsample/MainActivity.java"
+    ]
+  },
+  {
+    "id": "E17",
+    "unit": "A02",
+    "kind": "explain",
+    "group": "condition",
+    "topic": "同じ値のとき",
+    "prompt": "上から順に実行したあと、`correct`の値はどれですか。",
+    "code": "var number = 3;\nvar answer = 3;\nvar correct = 0;\nif (number == answer) {\n    correct++;\n}",
+    "choices": [
+      "`1`",
+      "`0`",
+      "`3`",
+      "`6`"
+    ],
+    "answer": "`1`",
+    "explanation": "`number`と`answer`は同じなので、`if`の中を実行します。`correct++`で`0`から`1`に増えます。",
+    "source": "calc-game/index.html#step-8",
+    "sources": [
+      "calc-game/index.html#step-8",
+      "memo-app/index.html#step-4"
+    ],
+    "source_files": [
+      "A02CalcGame/app/src/main/java/jp/ac/jec/a02calcgame/MainActivity.java",
+      "A09MemoApp/app/src/main/java/jp/ac/jec/a09memoapp/MainActivity.java"
+    ]
+  },
+  {
+    "id": "E18",
+    "unit": "A02",
+    "kind": "explain",
+    "group": "condition",
+    "topic": "returnより下の処理",
+    "prompt": "`btnAdd`はボタン、`edtName`は入力欄、`txtMessage`は文字の表示欄です。入力欄は空です。ボタンを押したときの説明はどれですか。",
+    "code": "btnAdd.setOnClickListener(v -> {\n    var name = edtName.getText().toString();\n    if (name.isEmpty()) {\n        return;\n    }\n    txtMessage.setText(\"登録しました\");\n});",
+    "choices": [
+      "必ず`登録しました`と表示する",
+      "アプリ全体を終了する",
+      "このクリック処理を終え、表示を変えない",
+      "入力欄に`登録しました`と入れる"
+    ],
+    "answer": "このクリック処理を終え、表示を変えない",
+    "explanation": "入力欄が空なので、`return;`でこのクリック処理を終えます。下の`setText`は実行しません。",
+    "source": "calc-game/index.html#step-7",
+    "sources": [
+      "calc-game/index.html#step-7",
+      "memo-app/index.html#step-4"
+    ],
+    "source_files": [
+      "A02CalcGame/app/src/main/java/jp/ac/jec/a02calcgame/MainActivity.java",
+      "A09MemoApp/app/src/main/java/jp/ac/jec/a09memoapp/MainActivity.java"
+    ]
+  },
+  {
+    "id": "E19",
+    "unit": "A02",
+    "kind": "explain",
+    "group": "loop",
+    "topic": "繰り返す回数",
+    "prompt": "配列（複数の値を並べたもの）から値を1つずつ取り出します。最後の`count`はどれですか。",
+    "code": "var numbers = new int[]{2, 4, 6};\nvar count = 0;\nfor (var number : numbers) {\n    count++;\n}",
+    "choices": [
+      "`0`",
+      "`3`",
+      "`6`",
+      "`12`"
+    ],
+    "answer": "`3`",
+    "explanation": "配列には値が3つあります。`count++`を3回行うので、`count`は`3`になります。値の合計を求める処理ではありません。",
+    "source": "calc-game/index.html#step-7",
+    "sources": [
+      "calc-game/index.html#step-7",
+      "rock-paper-scissors-game/index.html#step-5"
+    ],
+    "source_files": [
+      "A02CalcGame/app/src/main/java/jp/ac/jec/a02calcgame/MainActivity.java",
+      "A03RockPaperScissorsGame/app/src/main/java/jp/ac/jec/a03rockpaperscissorsgame/MainActivity.java"
+    ]
+  },
+  {
+    "id": "E20",
+    "unit": "A02",
+    "kind": "explain",
+    "group": "loop",
+    "topic": "同じ処理を登録する",
+    "prompt": "`buttons`は3つのボタンを入れた配列です。`txtMessage`は文字の表示欄です。画面を開いて次のコードを実行しました。まだボタンは押していません。正しい説明はどれですか。",
+    "code": "for (var button : buttons) {\n    button.setOnClickListener(v -> {\n        txtMessage.setText(\"押しました\");\n    });\n}",
+    "choices": [
+      "すぐに`押しました`と3回表示する",
+      "最初のボタンにだけ処理を登録する",
+      "3つのボタンを自動で押す",
+      "3つのボタンに処理を登録し、表示はまだ変えない"
+    ],
+    "answer": "3つのボタンに処理を登録し、表示はまだ変えない",
+    "explanation": "拡張（かくちょう）`for`文で3つのボタンに処理を登録します。中の`setText`は、実際にボタンを押したときに実行します。",
+    "source": "calc-game/index.html#step-7",
+    "sources": [
+      "calc-game/index.html#step-7",
+      "rock-paper-scissors-game/index.html#step-5"
+    ],
+    "source_files": [
+      "A02CalcGame/app/src/main/java/jp/ac/jec/a02calcgame/MainActivity.java",
+      "A03RockPaperScissorsGame/app/src/main/java/jp/ac/jec/a03rockpaperscissorsgame/MainActivity.java"
+    ]
+  }
+]

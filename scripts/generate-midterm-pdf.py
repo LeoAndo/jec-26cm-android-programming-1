@@ -1,4 +1,4 @@
-"""日本語の模擬問題・正答解説を、B4縦2段組のPDFとして別々に生成する。
+"""日本語の模擬問題をB4縦2段組で生成する。正答PDFは教員用の明示指定時だけ作る。
 
 依存: reportlab、検査時はpypdf。--fontで日本語を含むTrueTypeフォントを指定する。
 既定はmacOSのArial Unicode。フォントをPDFへ埋め込んで出力する。
@@ -18,24 +18,21 @@ LETTERS = "アイウエ"
 
 def load_paper():
     config = json.loads((ROOT / "config/midterm-mock.json").read_text())
-    bank = {q["id"]: q for path in sorted((ROOT / "config/midterm-questions").glob("*.json"))
-            for q in json.loads(path.read_text())}
-    overrides = json.loads((ROOT / "config/midterm-plain-ja.json").read_text())
-    for qid, fields in overrides.items():
-        if qid not in bank or not set(fields) <= {"prompt", "choices", "explanation"}:
-            raise ValueError(f"{qid}: 日本語の書き換えに不正な項目があります。")
-        q = bank[qid]
-        correct_index = q["choices"].index(q["answer"])
-        q.update(fields)
-        if len(q["choices"]) != 4 or len(set(q["choices"])) != 4:
-            raise ValueError(f"{qid}: 書き換え後の選択肢が四択ではありません。")
-        q["answer"] = q["choices"][correct_index]
-    for key, count in (("question_ids", 4), ("paper_ids", 2)):
+    questions = [q for path in sorted((ROOT / "config/midterm-questions").glob("*.json"))
+                 for q in json.loads(path.read_text())]
+    bank = {q["id"]: q for q in questions}
+    if len(bank) != len(questions):
+        raise ValueError("問題の原本に重複したIDがあります。")
+    groups = {"layout", "view", "click", "read", "write", "parse", "snackbar", "empty", "condition", "loop"}
+    for key, count in (("question_ids", 2), ("paper_ids", 1)):
         ids = config[key]
         if len(ids) != len(set(ids)) or any(i not in bank for i in ids):
             raise ValueError(f"{key}: 重複または存在しない問題IDです。")
-        if Counter(bank[i]["unit"] for i in ids) != Counter({f"A{n:02}": count for n in range(1, 11)}):
-            raise ValueError(f"{key}: 各単元{count}問が必要です。")
+        expected = Counter({(group, kind): count for group in groups for kind in ("blank", "explain")})
+        if Counter((bank[i]["group"], bank[i]["kind"]) for i in ids) != expected:
+            raise ValueError(f"{key}: 10基本項目それぞれに空欄・説明を{count}問ずつ指定してください。")
+    if set(config["question_ids"]) != set(bank):
+        raise ValueError("問題の原本と模擬試験の40問を一致させてください。")
     if not set(config["paper_ids"]).issubset(config["question_ids"]):
         raise ValueError("印刷用の問題は模擬試験の問題から選びます。")
     rng = random.Random(config["paper_seed"])
@@ -66,7 +63,16 @@ def markup(text):
     return "".join(font_markup(part, i % 2 == 1) for i, part in enumerate(text.split("`")))
 
 
-def generate(output, font_path):
+def generate(output, font_path, answers_output=None):
+    output = output.resolve()
+    if (output / "midterm-mock-answers.pdf").exists():
+        raise ValueError("学生用の出力先に旧版の正答PDFがあります。教員用フォルダへ移してから生成してください。")
+    if answers_output is not None:
+        answers_output = answers_output.resolve()
+        if answers_output.is_relative_to(ROOT) or answers_output.is_relative_to(output):
+            raise ValueError("正答PDFはリポジトリ外かつ学生用の出力先の外へ保存してください。")
+        if answers_output.suffix.lower() != ".pdf":
+            raise ValueError("--answers-output には教員用PDFファイルの保存先を指定してください。")
     from reportlab import rl_config
     from reportlab.lib import colors
     from reportlab.lib.styles import ParagraphStyle
@@ -90,25 +96,93 @@ def generate(output, font_path):
     margin, gap = 15 * mm, 9 * mm
     column_width = (width - 2 * margin - gap) / 2
     styles = {
-        "prompt": ParagraphStyle("prompt", fontName="Japanese", fontSize=10.8, leading=15,
+        "prompt": ParagraphStyle("prompt", fontName="Japanese", fontSize=11, leading=15.2,
                                  wordWrap="CJK", splitLongWords=True),
-        "choice": ParagraphStyle("choice", fontName="Japanese", fontSize=10.3, leading=14,
+        "choice": ParagraphStyle("choice", fontName="Japanese", fontSize=10.5, leading=14.2,
                                  wordWrap="CJK", splitLongWords=True, leftIndent=15, firstLineIndent=-15),
         "explanation": ParagraphStyle("explanation", fontName="Japanese", fontSize=10.5, leading=16,
                                       wordWrap="CJK", splitLongWords=True),
     }
 
-    def paragraph(text, style, canvas, x, top):
+    def paragraph(text, style, canvas, x, top, width=column_width):
         item = Paragraph(text, styles[style])
-        _, needed = item.wrap(column_width, 2000)
+        _, needed = item.wrap(width, 2000)
         if canvas:
             item.drawOn(canvas, x, top - needed)
         return top - needed
 
+    def code_block(text, canvas, x, top):
+        # 行頭の字下げを保ち、幅に入らない行だけを折り返す。文字の省略や画像化はしない。
+        size, leading, padding = 10.2, 13.5, 6
+        available = column_width - padding * 2
+        lines = []
+        for original in text.split("\n"):
+            rest = original
+            while rest:
+                used = 0
+                limit = 0
+                for char in rest:
+                    char_width = pdfmetrics.stringWidth(char, "Code" if char.isascii() else "Japanese", size)
+                    if used + char_width > available:
+                        break
+                    used += char_width
+                    limit += 1
+                if limit == len(rest):
+                    lines.append(rest)
+                    break
+                if not limit:
+                    raise ValueError("コードの1文字が段幅を超えています。")
+                # 空白または区切りの後で折り返し、識別子の分断をできるだけ避ける。
+                candidates = [i + 1 for i, c in enumerate(rest[:limit]) if c in " ,.("]
+                cut = max((i for i in candidates if i > len(rest) - len(rest.lstrip()) + 2), default=limit)
+                lines.append(rest[:cut].rstrip())
+                rest = "  " + rest[cut:].lstrip()
+            if not original:
+                lines.append("")
+        needed = len(lines) * leading + 8
+        if canvas:
+            canvas.setStrokeColor(colors.HexColor("#777777"))
+            canvas.setLineWidth(.5)
+            canvas.line(x, top, x, top - needed)
+            y = top - 4 - size
+            for line in lines:
+                cursor = x + padding
+                for part in re.findall(r"[\x00-\x7f]+|[^\x00-\x7f]+", line):
+                    font = "Code" if part.isascii() else "Japanese"
+                    canvas.setFont(font, size)
+                    canvas.drawString(cursor, y, part)
+                    cursor += pdfmetrics.stringWidth(part, font, size)
+                y -= leading
+        return top - needed
+
+    def columns_for(questions, answers, top, bottom):
+        # 問題を途中で割らず、順番を保ったまま4段へ均等に分ける。
+        heights = [top - block(q, None, 0, top, answers) for q in questions]
+        prefix = [0]
+        for value in heights:
+            prefix.append(prefix[-1] + value)
+        states = {(0, 0): (0, [])}
+        for count in range(1, 5):
+            for end in range(count, len(questions) + 1):
+                candidates = []
+                for start in range(count - 1, end):
+                    previous = states.get((count - 1, start))
+                    if previous is None:
+                        continue
+                    used = prefix[end] - prefix[start] + 10 * (end - start - 1)
+                    if used <= top - bottom:
+                        candidates.append((max(previous[0], used), previous[1] + [(start, end)]))
+                if candidates:
+                    states[count, end] = min(candidates, key=lambda value: value[0])
+        result = states.get((4, len(questions)))
+        if result is None:
+            raise ValueError("20問がB4の2ページに入りません。文字を縮めずコードと配置を見直してください。")
+        return [questions[start:end] for start, end in result[1]]
+
     def block(q, canvas, x, top, answers):
         if canvas:
             canvas.setFont("Japanese", 11.5)
-            canvas.drawString(x, top - 11.5, f'問{q["number"]:02}  ' + (f'正答：{q["answer_letter"]}' if answers else "（5点）"))
+            canvas.drawString(x, top - 11.5, f'問{q["number"]:02}  ' + (f'正答：{q["answer_letter"]}' if answers else ("空欄補充" if q["kind"] == "blank" else "コードの説明") + "（5点）"))
         top -= 20
         if answers:
             top = paragraph(markup(q["answer"]), "prompt", canvas, x, top)
@@ -124,15 +198,33 @@ def generate(output, font_path):
         else:
             top = paragraph(markup(q["prompt"]), "prompt", canvas, x, top)
             top -= 6
-            for letter, choice in zip(LETTERS, q["choices"]):
-                top = paragraph(letter + "． " + markup(choice), "choice", canvas, x, top)
-                top -= 2
+            top = code_block(q["code"], canvas, x, top)
+            top -= 6
+            option_texts = [letter + "． " + markup(choice) for letter, choice in zip(LETTERS, q["choices"])]
+            half = (column_width - 10) / 2
+            # 短いAPI名や数値の選択肢は2列にする。長い説明は1列で読む。
+            fits = all(paragraph(text, "choice", None, 0, 0, half) >= -styles["choice"].leading - .01
+                       for text in option_texts)
+            if fits:
+                for row in range(2):
+                    bottoms = [paragraph(option_texts[row * 2 + col], "choice", canvas,
+                                         x + col * (half + 10), top, half) for col in range(2)]
+                    top = min(bottoms) - 4
+            else:
+                for text in option_texts:
+                    top = paragraph(text, "choice", canvas, x, top)
+                    top -= 2
         return top
 
     files = []
-    for answers, name in ((False, "midterm-mock-b4.pdf"), (True, "midterm-mock-answers.pdf")):
-        path = output / name
-        title = config["title"] + (" 正答・解説" if answers else "")
+    targets = [(False, output / "midterm-mock-b4.pdf")]
+    if answers_output is not None:
+        targets.append((True, answers_output))
+    for answers, path in targets:
+        path.parent.mkdir(parents=True, exist_ok=True)
+        title = config["title"] + (" 教員用 正答・解説" if answers else "")
+        top, bottom = height - 49 * mm, 23 * mm
+        columns = columns_for(paper, answers, top, bottom)
         canvas = Canvas(str(path), pagesize=(width, height), pageCompression=1, invariant=1)
         canvas.setTitle(title)
         canvas.setAuthor("Androidプログラミング1")
@@ -144,15 +236,15 @@ def generate(output, font_path):
             canvas.setFont("Japanese", 10)
             canvas.drawString(margin, height - 26 * mm, "Androidプログラミング1  /  A01〜A10  /  60分  /  20問・各5点（100点）")
             if answers:
-                lines = ["問題用PDFと同じ番号・選択肢順です。解き終わってから確認してください。",
-                         "分からなかった内容は、復習用HTMLの問題IDから解説を読み直しましょう。"]
+                lines = ["教員用です。この正答PDFは、学生へ配布・公開しません。",
+                         "問題用PDFと同じ番号・選択肢順です。HTMLの採点後には正答・解説を表示します。"]
             else:
-                lines = ["各問題の答えを1つ選び、別のマークシートの同じ番号にマークしてください。",
+                lines = ["空欄10問と説明10問です。答えを1つ選んでください。本番は別のマークシートに記入します。",
                          "日本語だけで解きます。教科書・自作プログラムを見たり、検索したりしません。"]
             for i, line in enumerate(lines):
                 canvas.drawString(margin, height - (31 + i * 5.5) * mm, line)
             canvas.setFont("Japanese", 9)
-            canvas.drawString(margin, height - 41 * mm, "練習用です。本番とは、問題や各単元の問題数が変わることがあります。")
+            canvas.drawString(margin, height - 41 * mm, "練習用です。空欄の【①】に入るコードや、コードの意味を選びます。本試験の問題ではありません。")
             canvas.setStrokeColor(colors.HexColor("#888888"))
             canvas.line(margin, height - 44 * mm, width - margin, height - 44 * mm)
             canvas.setStrokeColor(colors.HexColor("#CCCCCC"))
@@ -160,12 +252,12 @@ def generate(output, font_path):
             top, bottom = height - 49 * mm, 23 * mm
             for column in range(2):
                 x = margin + column * (column_width + gap)
-                questions = paper[page * 10 + column * 5:page * 10 + column * 5 + 5]
+                questions = columns[page * 2 + column]
                 heights = [top - block(q, None, x, top, answers) for q in questions]
                 needed = sum(heights)
-                separation = (top - bottom - needed) / 4
+                separation = (top - bottom - needed) / max(1, len(questions) - 1)
                 if separation < 8:
-                    raise ValueError(f"{name} {page + 1}ページ {column + 1}段: 必要な高さ{needed:.1f}pt / 使用可能{top-bottom:.1f}pt。文字を縮めず配置を見直してください。")
+                    raise ValueError(f"{path.name} {page + 1}ページ {column + 1}段: 必要な高さ{needed:.1f}pt / 使用可能{top-bottom:.1f}pt。文字を縮めず配置を見直してください。")
                 y = top
                 for q in questions:
                     y = block(q, canvas, x, y, answers) - separation
@@ -179,7 +271,7 @@ def generate(output, font_path):
     return files
 
 
-def verify(files):
+def verify(files, answers_output=None):
     from pypdf import PdfReader
     _, paper = load_paper()
 
@@ -197,10 +289,10 @@ def verify(files):
         sections = re.split(r"問\d{2}\b", text)[1:]
         for q, section in zip(paper, sections):
             section = plain(section)
-            if path.name == "midterm-mock-answers.pdf":
+            if answers_output is not None and path.resolve() == answers_output.resolve():
                 expected = [f'正答：{q["answer_letter"]}', q["answer"], q["explanation"]]
             else:
-                expected = [q["prompt"]] + [letter + "．" + choice for letter, choice in zip(LETTERS, q["choices"])]
+                expected = [q["prompt"], q["code"]] + [letter + "．" + choice for letter, choice in zip(LETTERS, q["choices"])]
             if any(plain(item) not in section for item in expected):
                 raise ValueError(f'{path}: 問{q["number"]:02}の本文・選択肢または正答が一致しません。')
         for page in reader.pages:
@@ -209,21 +301,24 @@ def verify(files):
                 raise ValueError(f"{path}: B4縦ではありません。")
             if page.get("/Annots"):
                 raise ValueError(f"{path}: 不要なフォームがあります。")
-        if path.name == "midterm-mock-b4.pdf" and ("正答：" in text or "解答欄" in text):
+        is_answer = answers_output is not None and path.resolve() == answers_output.resolve()
+        if not is_answer and ("正答：" in text or "解答欄" in text):
             raise ValueError("問題用PDFに解答が混在しています。")
 
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--output", type=Path, default=ROOT / "dist/midterm")
+    parser.add_argument("--answers-output", type=Path,
+                        help="教員用正答PDFの保存先。リポジトリ外・学生用出力先の外を明示したときだけ生成")
     parser.add_argument("--font", type=Path, default=Path("/System/Library/Fonts/Supplemental/Arial Unicode.ttf"))
     parser.add_argument("--check", action="store_true", help="生成後に寸法・問数・解答分離を検査する")
     args = parser.parse_args()
     if not args.font.is_file():
         parser.error("日本語TrueTypeフォントを --font で指定してください。")
-    files = generate(args.output, args.font)
+    files = generate(args.output, args.font, args.answers_output)
     if args.check:
-        verify(files)
+        verify(files, args.answers_output)
     for path in files:
         print(path)
 

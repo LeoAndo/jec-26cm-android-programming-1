@@ -34,6 +34,7 @@ input[type="radio"] { margin: 4px 10px 0 0; }
 .option { display: flex; align-items: flex-start; padding: 12px; margin-top: 10px; border: 1px solid #c9d8e7; border-radius: 8px; white-space: pre-wrap; overflow-wrap: anywhere; }
 .option:has(input:checked) { background: #e5eff9; border-color: #14579b; }
 .option-letter { font-weight: 700; margin-right: 12px; }
+pre.question-code { white-space:pre; overflow-x:auto; padding:14px; background:#f3f7fb; border:1px solid #c9d8e7; border-radius:8px; line-height:1.65; font-size:16px; }
 code { font-family: ui-monospace, monospace; font-size: .9em; overflow-wrap: anywhere; }
 .source { font-size: .8rem; color: #486176; }
 .score { font-size: 2.8rem; font-weight: 750; margin: 0; }
@@ -57,7 +58,7 @@ code { font-family: ui-monospace, monospace; font-size: .9em; overflow-wrap: any
 <h2 id="setup-title">A01〜A10の復習</h2>
 <ul class="facts"><li>4択（ア〜エ）</li><li>20問 × 5点</li><li>何度でも挑戦</li></ul>
 <p>試験予定：<strong>2026年12月2日（水）2限</strong>。対面・60分で行います。範囲はA01〜A10 RoomSampleまでの全内容です。</p>
-<p>この問題集は各単元12問、合計120問から、毎回各単元2問ずつ出します。問題と選択肢の順番も変わります。同じ問題が再び出ることもあります。</p>
+<p>基本コードの40問です。コードの空欄をうめる20問と、コードの説明を選ぶ20問があります。1回は空欄10問・説明10問です。10の基本項目から2問ずつ出し、問題と選択肢の順番を変えます。</p>
 <p>授業内容を復習するための練習問題です。本番と同じ問題・単元配分になるとは限りません。1回の20問だけで全内容を確認できるわけではありません。</p>
 <fieldset class="mode"><legend>練習の進め方</legend>
 <label><input type="radio" name="mode" value="untimed" checked="checked">時間制限なし — 調べながら復習する</label>
@@ -83,7 +84,7 @@ code { font-family: ui-monospace, monospace; font-size: .9em; overflow-wrap: any
 <div class="actions"><button type="button" id="retry">新しい20問に挑戦する</button><button type="button" class="secondary" id="choose-mode">練習方法を選び直す</button></div></div>
 <div id="review"></div>
 </section>
-<details id="catalog"><summary>全120問の正答・解説を見る</summary>
+<details id="catalog"><summary>全40問の正答・解説を見る</summary>
 <p>出題されなかった問題も復習できます。教員が問題の内容を確認するときにも使えます。選択肢の表示順は、練習画面では毎回変わります。</p>
 <p>「復習する場所」は教材ZIPのdocsフォルダからの場所と見出しIDです。このHTMLだけで解答と解説を読めます。</p>
 <div id="question-bank">
@@ -98,13 +99,13 @@ code { font-family: ui-monospace, monospace; font-size: .9em; overflow-wrap: any
   const labels = Object.fromEntries(Array.from($('review-labels').content.querySelectorAll('[data-label]'), el => [el.dataset.label, el.textContent]));
   const letters = ['ア', 'イ', 'ウ', 'エ'];
   const bank = Array.from($('question-bank').querySelectorAll('article')).map(article => ({
-    id: article.dataset.id, unit: article.dataset.unit, heading: article.querySelector('h3').innerHTML,
+    id: article.dataset.id, unit: article.dataset.unit, group: article.dataset.group, kind: article.dataset.kind, code: article.querySelector('.question-code').innerHTML, heading: article.querySelector('h3').innerHTML,
     prompt: article.querySelector('.prompt').innerHTML,
     choices: Array.from(article.querySelectorAll('.options li')).map((li, id) => ({ id, html: li.innerHTML, correct: li.dataset.correct === 'true' })),
     explanation: article.querySelector('.explanation').innerHTML,
     source: article.querySelector('.source').innerHTML
   }));
-  let current = [], active = false, deadline = null, interval = null;
+  let current = [], active = false, deadline = null, interval = null, answers = {};
   function shuffle(items) {
     const result = [...items];
     for (let i = result.length - 1; i > 0; i--) {
@@ -113,8 +114,12 @@ code { font-family: ui-monospace, monospace; font-size: .9em; overflow-wrap: any
     }
     return result;
   }
-  function selected(q) { return document.querySelector('input[name="' + q.id + '"]:checked'); }
-  function answersCount() { return current.filter(q => selected(q)).length; }
+  function selected(q) { return answers[q.id]; }
+  function answersCount() { return Object.keys(answers).length; }
+  function checkDeadline() {
+    if (active && deadline !== null && Date.now() >= deadline) { grade(true); return true; }
+    return false;
+  }
   function tick() {
     if (!active || deadline === null) return;
     const seconds = Math.max(0, Math.ceil((deadline - Date.now()) / 1000));
@@ -123,8 +128,9 @@ code { font-family: ui-monospace, monospace; font-size: .9em; overflow-wrap: any
   }
   function start() {
     clearInterval(interval);
-    const units = [...new Set(bank.map(q => q.unit))];
-    current = shuffle(units.flatMap(unit => shuffle(bank.filter(q => q.unit === unit)).slice(0, 2)))
+    const groups = [...new Set(bank.map(q => q.group))];
+    answers = {};
+    current = shuffle(groups.flatMap(group => ['blank', 'explain'].flatMap(kind => shuffle(bank.filter(q => q.group === group && q.kind === kind)).slice(0, 1))))
       .map(q => ({ ...q, choices: shuffle(q.choices) }));
     $('questions').replaceChildren();
     $('review').replaceChildren();
@@ -134,12 +140,13 @@ code { font-family: ui-monospace, monospace; font-size: .9em; overflow-wrap: any
       fieldset.dataset.questionId = q.id;
       const legend = document.createElement('legend');
       legend.id = q.id + '-number';
-      legend.textContent = (index + 1) + ' / 20 · ' + q.unit;
+      legend.textContent = (index + 1) + ' / 20';
       fieldset.append(legend);
       const prompt = document.createElement('p'); prompt.className = 'prompt'; prompt.innerHTML = q.prompt;
       prompt.id = q.id + '-prompt';
       fieldset.setAttribute('aria-labelledby', legend.id + ' ' + prompt.id);
-      fieldset.append(prompt);
+      const code = document.createElement('pre'); code.className = 'question-code'; code.innerHTML = q.code;
+      fieldset.append(prompt, code);
       q.choices.forEach((choice, i) => {
         const label = document.createElement('label'); label.className = 'option';
         const radio = document.createElement('input'); radio.type = 'radio'; radio.name = q.id; radio.value = String(choice.id);
@@ -164,7 +171,7 @@ code { font-family: ui-monospace, monospace; font-size: .9em; overflow-wrap: any
     $('review').replaceChildren();
     current.forEach((q, index) => {
       const chosen = selected(q);
-      const choice = chosen ? q.choices.find(c => String(c.id) === chosen.value) : null;
+      const choice = chosen === undefined ? null : q.choices.find(c => c.id === chosen);
       const right = q.choices.find(c => c.correct);
       if (choice && choice.correct) correct++;
       if (!choice) blank++;
@@ -180,7 +187,8 @@ code { font-family: ui-monospace, monospace; font-size: .9em; overflow-wrap: any
       const answer = document.createElement('p'); answer.textContent = labels.answer + letters[q.choices.indexOf(right)];
       const explanation = document.createElement('div'); explanation.className = 'explanation'; explanation.innerHTML = q.explanation;
       const source = document.createElement('p'); source.className = 'source'; source.innerHTML = q.source;
-      article.append(heading, badge, prompt, options, yours, answer, explanation, source); $('review').append(article);
+      const code = document.createElement('pre'); code.className = 'question-code'; code.innerHTML = q.code;
+      article.append(heading, badge, prompt, code, options, yours, answer, explanation, source); $('review').append(article);
     });
     $('score').textContent = String(correct * 5); $('correct-count').textContent = String(correct); $('blank-count').textContent = String(blank);
     $('expired').hidden = !expired; $('quiz').hidden = true; $('results').hidden = false; $('catalog').hidden = false;
@@ -190,7 +198,11 @@ code { font-family: ui-monospace, monospace; font-size: .9em; overflow-wrap: any
   $('start').addEventListener('click', start);
   $('retry').addEventListener('click', start);
   $('choose-mode').addEventListener('click', () => { $('results').hidden = true; $('setup').hidden = false; $('start').focus(); });
-  $('quiz-form').addEventListener('change', () => { tick(); $('answered').textContent = String(answersCount()); $('confirm-unanswered').hidden = true; });
+  $('quiz-form').addEventListener('change', event => {
+    if (!active || checkDeadline()) return;
+    const input = event.target;
+    if (input.matches('input[type=radio]')) { answers[input.name] = Number(input.value); $('answered').textContent = String(answersCount()); $('confirm-unanswered').hidden = true; }
+  });
   $('quiz-form').addEventListener('submit', event => {
     event.preventDefault(); tick(); if (!active) return;
     const unanswered = 20 - answersCount();
@@ -198,7 +210,7 @@ code { font-family: ui-monospace, monospace; font-size: .9em; overflow-wrap: any
     else grade();
   });
   $('confirm-grade').addEventListener('click', () => { tick(); grade(); });
-  $('keep-answering').addEventListener('click', () => { $('confirm-unanswered').hidden = true; const q = current.find(q => !selected(q)); if (q) document.querySelector('input[name="' + q.id + '"]').focus(); });
+  $('keep-answering').addEventListener('click', () => { if (checkDeadline()) return; $('confirm-unanswered').hidden = true; const q = current.find(q => selected(q) === undefined); if (q) document.querySelector('input[name="' + q.id + '"]').focus(); });
   document.addEventListener('visibilitychange', tick);
   window.addEventListener('pageshow', tick);
   window.addEventListener('beforeunload', event => { if (active) { event.preventDefault(); event.returnValue = ''; } });

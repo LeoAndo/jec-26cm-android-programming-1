@@ -39,8 +39,8 @@
       "translation": "考试安排：<strong>2026年12月2日（周三）第2节</strong>。现场考试，时长60分钟。范围是A01至A10 RoomSample的全部内容。"
     },
     {
-      "source": "この問題集は各単元12問、合計120問から、毎回各単元2問ずつ出します。問題と選択肢の順番も変わります。同じ問題が再び出ることもあります。",
-      "translation": "题库每个单元有12道题，共120道。每次从每个单元抽取2道题。题目和选项的顺序也会变化，可能再次抽到同一道题。"
+      "source": "基本コードの40問です。コードの空欄をうめる20問と、コードの説明を選ぶ20問があります。1回は空欄10問・説明10問です。10の基本項目から2問ずつ出し、問題と選択肢の順番を変えます。",
+      "translation": "共有40道基础代码题，其中20道是代码填空题，20道是选择代码解释的题目。每轮有10道填空题和10道解释题。10个基础主题各出2道题，题目和选项的顺序会变化。"
     },
     {
       "source": "授業内容を復習するための練習問題です。本番と同じ問題・単元配分になるとは限りません。1回の20問だけで全内容を確認できるわけではありません。",
@@ -143,8 +143,8 @@
       "translation": "重新选择练习方式"
     },
     {
-      "source": "全120問の正答・解説を見る",
-      "translation": "查看全部120道题的正确答案和解析"
+      "source": "全40問の正答・解説を見る",
+      "translation": "查看全部40道题的正确答案和解析"
     },
     {
       "source": "出題されなかった問題も復習できます。教員が問題の内容を確認するときにも使えます。選択肢の表示順は、練習画面では毎回変わります。",
@@ -155,3536 +155,856 @@
       "translation": "“复习位置”标出了相对于学习资料ZIP中的docs文件夹的路径和标题ID。只打开这个HTML就能查看答案和解析。"
     },
     {
-      "source": "A01-01 · XMLとJavaの役割",
-      "translation": "A01-01 · XML与Java的作用"
+      "source": "B01 · 画面のレイアウト",
+      "translation": "B01 · 界面布局"
     },
     {
-      "source": "A01で、文字やボタンの配置を書くファイルと、ボタンを押したときの動きを書くファイルの組み合わせはどれですか。",
-      "translation": "在A01中，分别用哪个文件编写文字、按钮的布局和按下按钮后的操作？"
+      "source": "<code>MainActivity</code>で、<code>activity_main.xml</code>を画面に使います。 【①】に入るコードはどれですか。",
+      "translation": "在<code>MainActivity</code>中使用<code>activity_main.xml</code>作为界面布局。哪段代码应填入【①】？"
     },
     {
-      "source": "配置は<code>activity_main.xml</code>、動きは<code>MainActivity.java</code>",
-      "translation": "布局用<code>activity_main.xml</code>，操作用<code>MainActivity.java</code>"
+      "source": "正答：<strong><code>setContentView</code></strong>",
+      "translation": "正确答案：<strong><code>setContentView</code></strong>"
     },
     {
-      "source": "配置は<code>MainActivity.java</code>、動きは<code>activity_main.xml</code>",
-      "translation": "布局用<code>MainActivity.java</code>，操作用<code>activity_main.xml</code>"
+      "source": "<code>setContentView</code>で、画面に使うレイアウトを指定します。<code>R.layout.activity_main</code>は<code>activity_main.xml</code>を表します。",
+      "translation": "用<code>setContentView</code>指定界面的布局。<code>R.layout.activity_main</code>代表<code>activity_main.xml</code>。"
     },
     {
-      "source": "配置は<code>AndroidManifest.xml</code>、動きは<code>themes.xml</code>",
-      "translation": "布局用<code>AndroidManifest.xml</code>，操作用<code>themes.xml</code>"
+      "source": "復習する場所：<code>hello-android/index.html#step-9</code>",
+      "translation": "复习位置：<code>hello-android/index.html#step-9</code>"
     },
     {
-      "source": "配置も動きも<code>gradle-wrapper.properties</code>",
-      "translation": "布局和操作都用<code>gradle-wrapper.properties</code>"
+      "source": "B02 · レイアウトの指定",
+      "translation": "B02 · 指定布局"
     },
     {
-      "source": "正答：<strong>配置は<code>activity_main.xml</code>、動きは<code>MainActivity.java</code></strong>",
-      "translation": "正确答案：<strong>布局用<code>activity_main.xml</code>，操作用<code>MainActivity.java</code></strong>"
+      "source": "正答：<strong><code>layout</code></strong>",
+      "translation": "正确答案：<strong><code>layout</code></strong>"
     },
     {
-      "source": "<code>activity_main.xml</code>には画面の部品や配置を書き、<code>MainActivity.java</code>にはクリックしたときの処理などを書きます。どちらも<code>app/src/main</code>の中にあります。",
-      "translation": "在<code>activity_main.xml</code>中编写界面上的控件和布局，在<code>MainActivity.java</code>中编写点击时的处理等逻辑。两个文件都在<code>app/src/main</code>中。"
+      "source": "レイアウトは<code>R.layout</code>で指定します。部品のIDは<code>R.id</code>です。",
+      "translation": "用<code>R.layout</code>指定布局。用<code>R.id</code>指定控件的ID。"
     },
     {
-      "source": "復習する場所：<code>hello-android/index.html#step-2</code>",
-      "translation": "复习位置：<code>hello-android/index.html#step-2</code>"
+      "source": "B03 · IDでボタンを探す",
+      "translation": "B03 · 根据ID查找按钮"
     },
     {
-      "source": "A01-02 · プロジェクト作成",
-      "translation": "A01-02 · 创建项目"
+      "source": "画面を用意したあと、IDが<code>btn_start</code>のボタンを使います。 【①】に入るコードはどれですか。",
+      "translation": "准备好界面后，要使用ID为<code>btn_start</code>的按钮。哪段代码应填入【①】？"
     },
     {
-      "source": "授業と同じJavaとXMLのプロジェクトを新しく作るとき、ひな形と<code>Language</code>の組み合わせはどれですか。",
-      "translation": "要创建与课堂相同的Java和XML项目，应选择哪个模板和<code>Language</code>组合？"
+      "source": "正答：<strong><code>findViewById</code></strong>",
+      "translation": "正确答案：<strong><code>findViewById</code></strong>"
     },
     {
-      "source": "<code>Empty Views Activity</code>と<code>Java</code>",
-      "translation": "<code>Empty Views Activity</code>和<code>Java</code>"
-    },
-    {
-      "source": "<code>Empty Views Activity</code>と<code>Kotlin</code>",
-      "translation": "<code>Empty Views Activity</code>和<code>Kotlin</code>"
-    },
-    {
-      "source": "<code>Empty Activity</code>と<code>Kotlin</code>",
-      "translation": "<code>Empty Activity</code>和<code>Kotlin</code>"
-    },
-    {
-      "source": "<code>No Activity</code>と<code>Java</code>",
-      "translation": "<code>No Activity</code>和<code>Java</code>"
-    },
-    {
-      "source": "正答：<strong><code>Empty Views Activity</code>と<code>Java</code></strong>",
-      "translation": "正确答案：<strong><code>Empty Views Activity</code>和<code>Java</code></strong>"
-    },
-    {
-      "source": "ひな形の名前に<code>Views</code>があることを確かめ、<code>Language</code>はJavaを選びます。<code>Build configuration language</code>の<code>Kotlin DSL</code>は、アプリを書く言語とは別の設定です。",
-      "translation": "确认模板名称包含<code>Views</code>，并将<code>Language</code>设为Java。<code>Build configuration language</code>下的<code>Kotlin DSL</code>与编写应用的语言是两项不同的设置。"
-    },
-    {
-      "source": "復習する場所：<code>hello-android/index.html#step-1</code>",
-      "translation": "复习位置：<code>hello-android/index.html#step-1</code>"
-    },
-    {
-      "source": "A01-03 · <code>LinearLayout</code>の方向",
-      "translation": "A01-03 · <code>LinearLayout</code>的方向"
-    },
-    {
-      "source": "<code>LinearLayout</code>の中の3つのボタンを、左から右へ一列に並べる指定はどれですか。",
-      "translation": "要将<code>LinearLayout</code>中的三个按钮从左到右排成一行，应使用哪项设置？"
-    },
-    {
-      "source": "正答：<strong><code>android:orientation=&quot;horizontal&quot;</code></strong>",
-      "translation": "正确答案：<strong><code>android:orientation=&quot;horizontal&quot;</code></strong>"
-    },
-    {
-      "source": "<code>orientation</code>は並べる方向です。<code>horizontal</code>は横、<code>vertical</code>は縦に並べます。<code>gravity</code>は入れ物の中で部品をどこに寄せるかの指定です。",
-      "translation": "<code>orientation</code>指定排列方向。<code>horizontal</code>表示横向排列，<code>vertical</code>表示纵向排列。<code>gravity</code>指定控件在容器中的对齐位置。"
-    },
-    {
-      "source": "復習する場所：<code>hello-android/index.html#step-6</code>",
-      "translation": "复习位置：<code>hello-android/index.html#step-6</code>"
-    },
-    {
-      "source": "A01-04 · <code>id</code>と<code>findViewById</code>",
-      "translation": "A01-04 · <code>id</code>与<code>findViewById</code>"
-    },
-    {
-      "source": "XMLに<code>android:id=&quot;@+id/text&quot;</code>を付けた<code>TextView</code>を、Javaから探す式はどれですか。",
-      "translation": "要在Java中找到XML里带有<code>android:id=&quot;@+id/text&quot;</code>的<code>TextView</code>，应使用哪个表达式？"
-    },
-    {
-      "source": "正答：<strong><code>findViewById(R.id.text)</code></strong>",
-      "translation": "正确答案：<strong><code>findViewById(R.id.text)</code></strong>"
-    },
-    {
-      "source": "XMLの<code>@+id/text</code>とJavaの<code>R.id.text</code>が対応します。<code>id</code>は部品を見つける目印で、画面に表示する<code>android:text</code>とは別です。",
-      "translation": "XML中的<code>@+id/text</code>对应Java中的<code>R.id.text</code>。<code>id</code>用于查找控件，与指定界面显示文字的<code>android:text</code>不同。"
+      "source": "<code>findViewById</code>はIDを使って画面の部品を探します。<code>(Button)</code>は、見つけた部品をボタンとして扱う指定です。",
+      "translation": "<code>findViewById</code>根据ID查找界面上的控件。<code>(Button)</code>表示把找到的控件当作按钮来用。"
     },
     {
       "source": "復習する場所：<code>hello-android/index.html#step-4</code>",
       "translation": "复习位置：<code>hello-android/index.html#step-4</code>"
     },
     {
-      "source": "A01-05 · 部品の大きさ",
-      "translation": "A01-05 · 控件的大小"
+      "source": "B04 · 部品のID",
+      "translation": "B04 · 控件的ID"
     },
     {
-      "source": "ボタンの<code>android:layout_width=&quot;wrap_content&quot;</code>は、横幅をどう決める指定ですか。",
-      "translation": "按钮的<code>android:layout_width=&quot;wrap_content&quot;</code>如何决定宽度？"
+      "source": "画面を用意したあと、IDが<code>txt_message</code>の文字表示用の部品を探します。 【①】に入るコードはどれですか。",
+      "translation": "准备好界面后，要查找ID为<code>txt_message</code>的文本显示控件。哪段代码应填入【①】？"
     },
     {
-      "source": "中身に必要な大きさにする",
-      "translation": "设为容纳内容所需的宽度"
+      "source": "正答：<strong><code>id</code></strong>",
+      "translation": "正确答案：<strong><code>id</code></strong>"
     },
     {
-      "source": "親の入れ物の横幅いっぱいにする",
-      "translation": "占满父容器的宽度"
+      "source": "部品のIDは<code>R.id</code>で指定します。<code>R.layout</code>は画面のレイアウトを指定するときに使います。",
+      "translation": "用<code>R.id</code>指定控件的ID。用<code>R.layout</code>指定界面的布局。"
     },
     {
-      "source": "必ず画面の半分にする",
-      "translation": "始终设为屏幕宽度的一半"
+      "source": "B05 · 押したときの処理",
+      "translation": "B05 · 按下按钮时的处理"
     },
     {
-      "source": "横幅を0にして見えなくする",
-      "translation": "将宽度设为0，使按钮不可见"
+      "source": "<code>btnStart</code>はボタン、<code>txtMessage</code>は文字を表示する部品です。ボタンを押すと<code>開始</code>を表示します。 【①】に入るコードはどれですか。",
+      "translation": "<code>btnStart</code>是按钮，<code>txtMessage</code>是显示文字的控件。按下按钮后显示<code>開始</code>（开始）。哪段代码应填入【①】？"
     },
     {
-      "source": "正答：<strong>中身に必要な大きさにする</strong>",
-      "translation": "正确答案：<strong>设为容纳内容所需的宽度</strong>"
+      "source": "正答：<strong><code>setOnClickListener</code></strong>",
+      "translation": "正确答案：<strong><code>setOnClickListener</code></strong>"
     },
     {
-      "source": "<code>wrap_content</code>は中身に必要な大きさにします。親の入れ物の大きさに合わせる指定は<code>match_parent</code>です。",
-      "translation": "<code>wrap_content</code>将控件设为容纳内容所需的大小。要跟随父容器的大小，使用<code>match_parent</code>。"
+      "source": "<code>setOnClickListener</code>で、押したときに行う処理を登録（とうろく）します。中の<code>setText</code>は、ボタンを押したときに実行します。",
+      "translation": "用<code>setOnClickListener</code>注册按下按钮时要执行的操作。按下按钮时，才会运行其中的<code>setText</code>。"
     },
     {
-      "source": "復習する場所：<code>hello-android/index.html#step-3</code>",
-      "translation": "复习位置：<code>hello-android/index.html#step-3</code>"
+      "source": "B06 · 処理を付けるボタン",
+      "translation": "B06 · 为哪个按钮注册操作"
     },
     {
-      "source": "A01-06 · <code>var</code>とキャスト",
-      "translation": "A01-06 · <code>var</code>与类型转换"
+      "source": "<code>btnStart</code>と<code>btnClear</code>はボタンです。<code>txtMessage</code>は文字を表示する部品です。<code>btnStart</code>を押すと<code>開始</code>を表示します。 【①】に入るコードはどれですか。",
+      "translation": "<code>btnStart</code>和<code>btnClear</code>是按钮。<code>txtMessage</code>是显示文字的控件。按下<code>btnStart</code>后显示<code>開始</code>（开始）。哪段代码应填入【①】？"
     },
     {
-      "source": "<code>var text = (TextView) findViewById(R.id.text);</code> の<code>(TextView)</code>の役割はどれですか。",
-      "translation": "在<code>var text = (TextView) findViewById(R.id.text);</code>中，<code>(TextView)</code>有什么作用？"
+      "source": "正答：<strong><code>btnStart</code></strong>",
+      "translation": "正确答案：<strong><code>btnStart</code></strong>"
     },
     {
-      "source": "見つけた部品を<code>TextView</code>として扱う",
-      "translation": "将找到的控件作为<code>TextView</code>使用"
+      "source": "<code>btnStart.setOnClickListener</code>と書くと、<code>btnStart</code>を押したときの処理を登録します。",
+      "translation": "写下<code>btnStart.setOnClickListener</code>，就能注册按下<code>btnStart</code>时要执行的操作。"
     },
     {
-      "source": "部品に<code>TextView</code>という文字を表示する",
-      "translation": "在控件中显示<code>TextView</code>这段文字"
+      "source": "B07 · 入力した文字を読む",
+      "translation": "B07 · 读取输入的文字"
     },
     {
-      "source": "XMLに新しい<code>TextView</code>を追加する",
-      "translation": "在XML中添加新的<code>TextView</code>"
+      "source": "<code>edtName</code>は文字を入力する部品です。入力した文字を<code>name</code>に入れます。 【①】に入るコードはどれですか。",
+      "translation": "<code>edtName</code>是输入文字的控件。将输入的文字存入<code>name</code>。哪段代码应填入【①】？"
     },
     {
-      "source": "クリック処理を実行する",
-      "translation": "执行点击时的处理"
+      "source": "正答：<strong><code>getText</code></strong>",
+      "translation": "正确答案：<strong><code>getText</code></strong>"
     },
     {
-      "source": "正答：<strong>見つけた部品を<code>TextView</code>として扱う</strong>",
-      "translation": "正确答案：<strong>将找到的控件作为<code>TextView</code>使用</strong>"
-    },
-    {
-      "source": "<code>(TextView)</code>はキャストで、見つけた部品を文字表示用の<code>TextView</code>として扱う指定です。<code>var</code>は右側の式から変数の型を決めます。",
-      "translation": "<code>(TextView)</code>是类型转换，将找到的控件作为显示文字用的<code>TextView</code>使用。<code>var</code>根据右侧的表达式决定变量类型。"
-    },
-    {
-      "source": "A01-07 · クリック処理の実行時点",
-      "translation": "A01-07 · 何时执行点击时的处理"
-    },
-    {
-      "source": "XMLの表示文字は<code>Hello World!</code>です。<code>onCreate</code>で次の処理を登録しました。起動して、まだボタンを押していないときの表示はどれですか。 <code>button.setOnClickListener(v -&gt; { text.setText(&quot;Hello, Android!&quot;); });</code>",
-      "translation": "XML中的显示文字是<code>Hello World!</code>。在<code>onCreate</code>中注册了下面的处理。启动应用后、还未按按钮时，会显示什么？<code>button.setOnClickListener(v -&gt; { text.setText(&quot;Hello, Android!&quot;); });</code>"
-    },
-    {
-      "source": "何も表示されない",
-      "translation": "没有任何显示"
-    },
-    {
-      "source": "正答：<strong><code>Hello World!</code></strong>",
-      "translation": "正确答案：<strong><code>Hello World!</code></strong>"
-    },
-    {
-      "source": "<code>setOnClickListener</code>は、押されたときの処理を登録します。<code>setText</code>はクリック処理の中にあるため、ボタンを押してから<code>Hello, Android!</code>に変わります。",
-      "translation": "<code>setOnClickListener</code>注册按下按钮时的处理。<code>setText</code>写在点击处理里，因此按下按钮后才会变成<code>Hello, Android!</code>。"
-    },
-    {
-      "source": "A01-08 · 表示文字の取得",
-      "translation": "A01-08 · 获取显示文字"
-    },
-    {
-      "source": "<code>TextView</code>の<code>text</code>から、今表示されている文字を<code>String</code>として取り出す式はどれですか。",
-      "translation": "要从<code>TextView</code>类型的<code>text</code>获取当前显示的文字，并得到一个<code>String</code>，应使用哪个表达式？"
-    },
-    {
-      "source": "正答：<strong><code>text.getText().toString()</code></strong>",
-      "translation": "正确答案：<strong><code>text.getText().toString()</code></strong>"
-    },
-    {
-      "source": "<code>getText()</code>で現在の表示文字を取り出し、<code>toString()</code>で<code>String</code>にします。<code>setText</code>は文字を取り出す処理ではなく、表示を変更する処理です。",
-      "translation": "用<code>getText()</code>获取当前显示的文字，再用<code>toString()</code>转为<code>String</code>。<code>setText</code>不用于获取文字，而是用于更改显示内容。"
+      "source": "<code>getText()</code>で今の文字を取り出します。続けて<code>toString()</code>を使うと、<code>String</code>（文字列）の形になります。",
+      "translation": "用<code>getText()</code>获取当前的文字，再用<code>toString()</code>将它转换成<code>String</code>（字符串）。"
     },
     {
       "source": "復習する場所：<code>hello-android/index.html#step-5</code>",
       "translation": "复习位置：<code>hello-android/index.html#step-5</code>"
     },
     {
-      "source": "<code>Log.d(&quot;MainActivity&quot;, string);</code> は何をする行ですか。",
-      "translation": "<code>Log.d(&quot;MainActivity&quot;, string);</code>这行代码做什么？"
+      "source": "B08 · 文字列の形にする",
+      "translation": "B08 · 转换成字符串"
     },
     {
-      "source": "<code>MainActivity</code>という目印で、<code>string</code>の内容をDebugログに出す",
-      "translation": "以<code>MainActivity</code>为标记，将<code>string</code>的内容输出到Debug日志"
+      "source": "<code>edtName</code>は文字を入力する部品です。取り出した値を<code>String</code>（文字列）の形にします。 【①】に入るコードはどれですか。",
+      "translation": "<code>edtName</code>是输入文字的控件。将获取的值转换成<code>String</code>（字符串）。哪段代码应填入【①】？"
     },
     {
-      "source": "画面のタイトルを<code>string</code>に変える",
-      "translation": "把界面标题改成<code>string</code>"
+      "source": "正答：<strong><code>toString</code></strong>",
+      "translation": "正确答案：<strong><code>toString</code></strong>"
     },
     {
-      "source": "<code>MainActivity</code>という文字を<code>Toast</code>に表示する",
-      "translation": "在<code>Toast</code>中显示<code>MainActivity</code>这段文字"
+      "source": "<code>toString()</code>は、取り出した値を<code>String</code>（文字列）の形にします。整数に変える処理ではありません。",
+      "translation": "<code>toString()</code>将获取的值转换成<code>String</code>（字符串）。它不会将值转换成整数。"
     },
     {
-      "source": "<code>string</code>をXMLの<code>id</code>として登録する",
-      "translation": "将<code>string</code>注册为XML的<code>id</code>"
+      "source": "B09 · 文字を表示する",
+      "translation": "B09 · 显示文字"
     },
     {
-      "source": "正答：<strong><code>MainActivity</code>という目印で、<code>string</code>の内容をDebugログに出す</strong>",
-      "translation": "正确答案：<strong>以<code>MainActivity</code>为标记，将<code>string</code>的内容输出到Debug日志</strong>"
+      "source": "<code>txtMessage</code>は文字を表示する部品です。<code>できた</code>と表示します。 【①】に入るコードはどれですか。",
+      "translation": "<code>txtMessage</code>是显示文字的控件。让它显示<code>できた</code>（完成了）。哪段代码应填入【①】？"
     },
     {
-      "source": "<code>Log.d</code>の<code>d</code>はDebugです。開発者が動きを確認する記録を<code>Logcat</code>に出します。ログの文字とアプリ画面の表示は別なので、この行だけでは画面の文字は変わりません。",
-      "translation": "<code>Log.d</code>中的<code>d</code>表示Debug。它将供开发者检查运行情况的记录输出到<code>Logcat</code>。日志和应用界面的显示是分开的，单独执行这一行不会改变界面上的文字。"
+      "source": "正答：<strong><code>setText</code></strong>",
+      "translation": "正确答案：<strong><code>setText</code></strong>"
     },
     {
-      "source": "A01-10 · <code>Snackbar</code>と文字の取得",
-      "translation": "A01-10 · <code>Snackbar</code>与文字获取"
+      "source": "<code>setText</code>は、部品に表示する文字を変えます。<code>getText</code>は今の文字を読むときに使います。",
+      "translation": "<code>setText</code>更改控件显示的文字。<code>getText</code>用于读取当前的文字。"
     },
     {
-      "source": "A01で<code>btn1</code>の<code>android:text</code>だけを「<code>1</code>」から「<code>できた</code>」に変えました。Javaは<code>btn1.getText().toString()</code>を<code>Snackbar</code>に表示するままです。<code>btn1</code>を押すと何が表示されますか。",
-      "translation": "在A01中，只把<code>btn1</code>的<code>android:text</code>从<code>1</code>改为「<code>できた</code>」（完成了）。Java代码依然在<code>Snackbar</code>上显示<code>btn1.getText().toString()</code>的结果。按下<code>btn1</code>时会显示什么？"
+      "source": "B10 · 入力欄を空にする",
+      "translation": "B10 · 清空输入框"
     },
     {
-      "source": "正答：<strong><code>できた</code></strong>",
-      "translation": "正确答案：<strong><code>できた</code></strong>（完成了）"
+      "source": "<code>edtName</code>は文字を入力する部品です。中の文字を消して、空に戻します。 【①】に入るコードはどれですか。",
+      "translation": "<code>edtName</code>是输入文字的控件。删除里面的文字，使它恢复为空。哪段代码应填入【①】？"
     },
     {
-      "source": "Javaがボタンに現在表示されている文字を取り出すため、<code>Snackbar</code>も「<code>できた</code>」になります。Javaに固定の「<code>1</code>」を書いているわけではありません。",
-      "translation": "Java获取的是按钮当前显示的文字，所以<code>Snackbar</code>也会显示「<code>できた</code>」（完成了）。Java代码中没有写死<code>1</code>。"
+      "source": "正答：<strong><code>&quot;&quot;</code></strong>",
+      "translation": "正确答案：<strong><code>&quot;&quot;</code></strong>"
     },
     {
-      "source": "復習する場所：<code>hello-android/index.html#step-8</code>",
-      "translation": "复习位置：<code>hello-android/index.html#step-8</code>"
-    },
-    {
-      "source": "A01-11 · 短いメッセージの表示",
-      "translation": "A01-11 · 显示短消息"
-    },
-    {
-      "source": "<code>Toast.makeText(this, btn2Str, Toast.LENGTH_SHORT);</code> まで書きました。作った<code>Toast</code>を実際に表示するため、末尾につなぐメソッドはどれですか。",
-      "translation": "已写好<code>Toast.makeText(this, btn2Str, Toast.LENGTH_SHORT);</code>。要实际显示创建的<code>Toast</code>，应在末尾接上哪个方法？"
-    },
-    {
-      "source": "正答：<strong><code>show()</code></strong>",
-      "translation": "正确答案：<strong><code>show()</code></strong>"
-    },
-    {
-      "source": "<code>Toast.makeText(...)</code>で作り、<code>.show()</code>で表示します。<code>Snackbar</code>も同じく<code>show()</code>が必要です。<code>LENGTH_SHORT</code>は短い表示時間の設定です。",
-      "translation": "用<code>Toast.makeText(...)</code>创建，再用<code>.show()</code>显示。<code>Snackbar</code>同样需要<code>show()</code>。<code>LENGTH_SHORT</code>将显示时间设为较短。"
-    },
-    {
-      "source": "復習する場所：<code>hello-android/index.html#step-7</code>",
-      "translation": "复习位置：<code>hello-android/index.html#step-7</code>"
-    },
-    {
-      "source": "A01-12 · 余白の変更",
-      "translation": "A01-12 · 更改间距"
-    },
-    {
-      "source": "変更ボタンの<code>android:layout_marginTop</code>を<code>12dp</code>から<code>24dp</code>へ変えると、直接変わるものはどれですか。",
-      "translation": "将用于更改文字的按钮的<code>android:layout_marginTop</code>从<code>12dp</code>改为<code>24dp</code>，会直接改变什么？"
-    },
-    {
-      "source": "ボタンの上のすき間",
-      "translation": "按钮上方的间距"
-    },
-    {
-      "source": "ボタンに表示する文字",
-      "translation": "按钮上显示的文字"
-    },
-    {
-      "source": "ボタンを押したときの処理",
-      "translation": "按下按钮时的处理"
-    },
-    {
-      "source": "ボタンを探すための<code>id</code>",
-      "translation": "用来查找按钮的<code>id</code>"
-    },
-    {
-      "source": "正答：<strong>ボタンの上のすき間</strong>",
-      "translation": "正确答案：<strong>按钮上方的间距</strong>"
-    },
-    {
-      "source": "<code>layout_marginTop</code>は部品の上のすき間を指定します。<code>12dp</code>から<code>24dp</code>にすると、そのすき間が広がります。文字やクリック処理の指定とは別です。",
-      "translation": "<code>layout_marginTop</code>指定控件上方的间距。从<code>12dp</code>改为<code>24dp</code>后，间距会变大。文字和点击处理由其他地方指定。"
-    },
-    {
-      "source": "A02-01 · プレビュー用の文字",
-      "translation": "A02-01 · 预览用的文字"
-    },
-    {
-      "source": "A02の<code>TextView</code>に<code>tools:text=&quot;1問目: 10 - 3 =&quot;</code>だけを書いています。この文字の役割はどれですか。",
-      "translation": "A02的<code>TextView</code>里只写了<code>tools:text=&quot;1問目: 10 - 3 =&quot;</code>。这段文字有什么作用？"
-    },
-    {
-      "source": "Android Studioのプレビュー用で、これだけでは実行画面に出ない",
-      "translation": "用于Android Studio的预览，仅凭这项设置不会出现在运行时的界面上"
-    },
-    {
-      "source": "アプリ起動時に必ず出る問題文",
-      "translation": "应用启动时一定显示的题目"
-    },
-    {
-      "source": "Javaで計算する答えを設定する",
-      "translation": "设置Java计算用的答案"
-    },
-    {
-      "source": "ボタンを押すたびに次の問題を作る",
-      "translation": "每次按按钮时生成下一道题"
-    },
-    {
-      "source": "正答：<strong>Android Studioのプレビュー用で、これだけでは実行画面に出ない</strong>",
-      "translation": "正确答案：<strong>用于Android Studio的预览，仅凭这项设置不会出现在运行时的界面上</strong>"
-    },
-    {
-      "source": "<code>tools:text</code>はプレビュー専用です。A02の実行画面の問題文は、<code>START</code>後にJavaの<code>setText</code>で表示します。",
-      "translation": "<code>tools:text</code>仅用于预览。A02运行时的题目是在按下<code>START</code>后，由Java中的<code>setText</code>显示的。"
-    },
-    {
-      "source": "復習する場所：<code>calc-game/index.html#step-2</code>",
-      "translation": "复习位置：<code>calc-game/index.html#step-2</code>"
-    },
-    {
-      "source": "A02-02 · フィールドの型",
-      "translation": "A02-02 · 字段的类型"
-    },
-    {
-      "source": "ゲーム中かどうかを<code>true</code>または<code>false</code>で覚える<code>isPlaying</code>に使う型はどれですか。",
-      "translation": "<code>isPlaying</code>用<code>true</code>或<code>false</code>记录游戏是否正在进行。应使用哪种类型？"
-    },
-    {
-      "source": "正答：<strong><code>boolean</code></strong>",
-      "translation": "正确答案：<strong><code>boolean</code></strong>"
-    },
-    {
-      "source": "<code>boolean</code>は<code>true</code>か<code>false</code>を入れる型です。A02では<code>isPlaying</code>が<code>true</code>のときだけ回答を受け付けます。<code>int</code>は問題番号や正解数、<code>long</code>は経過時間に使っています。",
-      "translation": "<code>boolean</code>可存放<code>true</code>或<code>false</code>。在A02中，仅当<code>isPlaying</code>为<code>true</code>时才接受答案。题号和答对的题数用<code>int</code>，经过的时间用<code>long</code>。"
-    },
-    {
-      "source": "復習する場所：<code>calc-game/index.html#step-4</code>",
-      "translation": "复习位置：<code>calc-game/index.html#step-4</code>"
-    },
-    {
-      "source": "A02-03 · フィールドとローカル変数",
-      "translation": "A02-03 · 字段与局部变量"
-    },
-    {
-      "source": "A02で<code>txtMessage</code>を<code>onCreate</code>の外のフィールドにしている理由はどれですか。",
-      "translation": "在A02中，为什么把<code>txtMessage</code>写成<code>onCreate</code>外的字段？"
-    },
-    {
-      "source": "<code>onCreate</code>以外の<code>startQuestion</code>メソッドからも使うため",
-      "translation": "因为<code>onCreate</code>以外的<code>startQuestion</code>方法也要用它"
-    },
-    {
-      "source": "<code>TextView</code>は必ずフィールドでなければならないため",
-      "translation": "因为<code>TextView</code>必须是字段"
-    },
-    {
-      "source": "<code>var</code>を付けると表示文字が毎回消えるため",
-      "translation": "因为加上<code>var</code>后，显示的文字每次都会消失"
-    },
-    {
-      "source": "フィールドにするとXMLを書かなくてよくなるため",
-      "translation": "因为写成字段后就不用写XML了"
-    },
-    {
-      "source": "正答：<strong><code>onCreate</code>以外の<code>startQuestion</code>メソッドからも使うため</strong>",
-      "translation": "正确答案：<strong>因为<code>onCreate</code>以外的<code>startQuestion</code>方法也要用它</strong>"
-    },
-    {
-      "source": "<code>txtMessage</code>は<code>onCreate</code>で取得し、別のメソッド<code>startQuestion</code>でも表示を変えます。そのためクラスのフィールドとして覚えます。<code>onCreate</code>の中だけで使う部品はローカル変数にしています。",
-      "translation": "在<code>onCreate</code>中获取<code>txtMessage</code>后，还要在另一个方法<code>startQuestion</code>中更改它的显示内容，所以将它保存在类的字段中。仅在<code>onCreate</code>内部使用的控件则存入局部变量。"
-    },
-    {
-      "source": "A02-04 · タイマーの再開",
-      "translation": "A02-04 · 恢复计时"
-    },
-    {
-      "source": "<code>STOP</code>までに6,000ミリ秒を保存しました。再開時の<code>SystemClock.elapsedRealtime()</code>が120,000なら、<code>120,000 - elapsedTimeMillis</code>で設定する<code>Chronometer</code>の<code>base</code>はいくつですか。",
-      "translation": "按下<code>STOP</code>时保存了6,000毫秒。恢复时，<code>SystemClock.elapsedRealtime()</code>为120,000。用<code>120,000 - elapsedTimeMillis</code>设置的<code>Chronometer</code>的<code>base</code>是多少？"
-    },
-    {
-      "source": "正答：<strong>114,000</strong>",
-      "translation": "正确答案：<strong>114,000</strong>"
-    },
-    {
-      "source": "<code>base</code>は現在の値から保存した経過時間を引くので、120,000 - 6,000 = 114,000です。これにより停止中の時間を足さず、6秒から再開できます。",
-      "translation": "<code>base</code>等于当前值减去已保存的经过时间，所以是120,000 - 6,000 = 114,000。这样可以从6秒继续计时，暂停期间的时间不会计入。"
-    },
-    {
-      "source": "復習する場所：<code>calc-game/index.html#step-5</code>",
-      "translation": "复习位置：<code>calc-game/index.html#step-5</code>"
-    },
-    {
-      "source": "A02-05 · <code>STOP</code>と<code>START</code>",
-      "translation": "A02-05 · <code>STOP</code>与<code>START</code>"
-    },
-    {
-      "source": "A02で未回答の問題を表示したまま<code>STOP</code>し、その後<code>START</code>しました。<code>answer</code>には現在の答えが残っています。<code>if (answer == 0) { startQuestion(); }</code> の結果はどれですか。",
-      "translation": "在A02中，界面上还显示着未答的题目时按下<code>STOP</code>，随后又按下<code>START</code>。<code>answer</code>仍保存着当前题目的答案。<code>if (answer == 0) { startQuestion(); }</code>的结果是什么？"
-    },
-    {
-      "source": "今の問題を残し、タイマーだけ再開する",
-      "translation": "保留当前题目，只恢复计时"
-    },
-    {
-      "source": "必ず別の問題を作ってから再開する",
-      "translation": "一定会生成另一道题再恢复"
-    },
-    {
-      "source": "問題番号と正解数を0に戻す",
-      "translation": "将题号和答对的题数重置为0"
-    },
-    {
-      "source": "10問回答した結果を表示する",
-      "translation": "显示答完10道题的结果"
-    },
-    {
-      "source": "正答：<strong>今の問題を残し、タイマーだけ再開する</strong>",
-      "translation": "正确答案：<strong>保留当前题目，只恢复计时</strong>"
-    },
-    {
-      "source": "作った問題の答えは1〜9で、0ではありません。条件が<code>false</code>になるため<code>startQuestion</code>は呼ばれず、同じ問題のまま再開します。",
-      "translation": "生成的题目的答案在1至9之间，不是0，所以条件为<code>false</code>。因此不会调用<code>startQuestion</code>，会继续做原来的那道题。"
-    },
-    {
-      "source": "復習する場所：<code>calc-game/index.html#step-6</code>",
-      "translation": "复习位置：<code>calc-game/index.html#step-6</code>"
-    },
-    {
-      "source": "A02で<code>RESET</code>後に1問目から遊び直すための状態として、正しい組み合わせはどれですか。",
-      "translation": "在A02中，按下<code>RESET</code>后要从第1题重玩，哪组状态是正确的？"
-    },
-    {
-      "source": "正答：<strong><code>nowNo = 1</code>、<code>correctNo = 0</code>、<code>answer = 0</code>、<code>isPlaying = false</code></strong>",
-      "translation": "正确答案：<strong><code>nowNo = 1</code>、<code>correctNo = 0</code>、<code>answer = 0</code>、<code>isPlaying = false</code></strong>"
-    },
-    {
-      "source": "<code>RESET</code>は問題番号を1、正解数と答えを0、ゲーム中のフラグを<code>false</code>に戻します。次の<code>START</code>では<code>answer == 0</code>となり、新しい問題を作ります。",
-      "translation": "<code>RESET</code>将题号重置为1，将答对的题数和答案重置为0，并将表示游戏进行中的标记重置为<code>false</code>。下次按下<code>START</code>时，<code>answer == 0</code>成立，就会生成新题。"
-    },
-    {
-      "source": "A02-07 · 乱数の範囲",
-      "translation": "A02-07 · 随机数的范围"
-    },
-    {
-      "source": "<code>ThreadLocalRandom.current().nextInt(1, 10)</code>で選ばれる整数の範囲はどれですか。",
-      "translation": "<code>ThreadLocalRandom.current().nextInt(1, 10)</code>会选出哪个范围内的整数？"
-    },
-    {
-      "source": "1以上10未満（1〜9）",
-      "translation": "大于等于1且小于10（1至9）"
-    },
-    {
-      "source": "1以上10以下（1〜10）",
-      "translation": "大于等于1且小于等于10（1至10）"
-    },
-    {
-      "source": "0以上10未満（0〜9）",
-      "translation": "大于等于0且小于10（0至9）"
-    },
-    {
-      "source": "0以上10以下（0〜10）",
-      "translation": "大于等于0且小于等于10（0至10）"
-    },
-    {
-      "source": "正答：<strong>1以上10未満（1〜9）</strong>",
-      "translation": "正确答案：<strong>大于等于1且小于10（1至9）</strong>"
-    },
-    {
-      "source": "先頭の1は含み、末尾の10は含みません。A02では<code>answer = 10 - randomNumber</code>とするため、答えも1〜9になります。同じ乱数が続くこともあります。",
-      "translation": "包含开头的1，但不包含末尾的10。A02中使用<code>answer = 10 - randomNumber</code>，所以答案也在1至9之间。可能连续生成相同的随机数。"
-    },
-    {
-      "source": "A02-08 · 配列と拡張<code>for</code>文",
-      "translation": "A02-08 · 数组与增强<code>for</code>循环"
-    },
-    {
-      "source": "A02では、9個の<code>id</code>の配列を拡張<code>for</code>文で取り出し、各ボタンに<code>setOnClickListener</code>を付けます。この<code>for</code>文が行うことはどれですか。",
-      "translation": "在A02中，用增强<code>for</code>循环逐个取出数组中的9个<code>id</code>，再用<code>setOnClickListener</code>为各按钮注册点击监听器。这个<code>for</code>循环做什么？"
-    },
-    {
-      "source": "画面を作るときに9個のボタンへクリック処理を登録する",
-      "translation": "创建界面时，为9个按钮注册点击处理"
-    },
-    {
-      "source": "1個のボタンを押すたびに9回答を採点する",
-      "translation": "每按一次按钮，就为9个答案评分"
-    },
-    {
-      "source": "<code>START</code>を押したときだけ9個のボタンを作る",
-      "translation": "仅在按下<code>START</code>时才创建9个按钮"
-    },
-    {
-      "source": "配列の先頭のボタンだけに処理を登録する",
-      "translation": "只为数组中的第一个按钮注册处理"
-    },
-    {
-      "source": "正答：<strong>画面を作るときに9個のボタンへクリック処理を登録する</strong>",
-      "translation": "正确答案：<strong>创建界面时，为9个按钮注册点击处理</strong>"
-    },
-    {
-      "source": "外側の<code>for</code>文は画面を作るときに動きます。登録したクリック処理が動くのは、それぞれのボタンを実際に押したときです。",
-      "translation": "外层的<code>for</code>循环在创建界面时运行。注册的点击处理要等到实际按下相应按钮时才会执行。"
-    },
-    {
-      "source": "復習する場所：<code>calc-game/index.html#step-7</code>",
-      "translation": "复习位置：<code>calc-game/index.html#step-7</code>"
-    },
-    {
-      "source": "A02-09 · 文字から整数への変換",
-      "translation": "A02-09 · 将文字转为整数"
-    },
-    {
-      "source": "数字ボタンに「<code>6</code>」と表示されています。<code>Integer.parseInt(btn.getText().toString())</code>が返すものはどれですか。",
-      "translation": "数字按钮上显示<code>6</code>。<code>Integer.parseInt(btn.getText().toString())</code>会返回什么？"
-    },
-    {
-      "source": "整数の6",
-      "translation": "整数6"
-    },
-    {
-      "source": "文字列の<code>&quot;6&quot;</code>",
-      "translation": "字符串<code>&quot;6&quot;</code>"
-    },
-    {
-      "source": "ボタンの<code>id</code>",
-      "translation": "按钮的<code>id</code>"
-    },
-    {
-      "source": "<code>boolean</code>の<code>true</code>",
-      "translation": "<code>boolean</code>类型的<code>true</code>"
-    },
-    {
-      "source": "正答：<strong>整数の6</strong>",
-      "translation": "正确答案：<strong>整数6</strong>"
-    },
-    {
-      "source": "<code>getText().toString()</code>で取り出した文字列を、<code>Integer.parseInt</code>で整数に変換します。その整数を<code>answer</code>と比較して採点します。",
-      "translation": "用<code>getText().toString()</code>获取字符串，再用<code>Integer.parseInt</code>把它转为整数。将这个整数与<code>answer</code>比较来评分。"
-    },
-    {
-      "source": "A02-10 · 条件分岐と<code>return</code>",
-      "translation": "A02-10 · 条件分支与<code>return</code>"
-    },
-    {
-      "source": "数字ボタンの処理は<code>if (!isPlaying) { Snackbar.make(...).show(); return; }</code>から始まります。<code>STOP</code>後の<code>isPlaying</code>が<code>false</code>のとき、下にある採点処理はどうなりますか。",
-      "translation": "数字按钮的处理以<code>if (!isPlaying) { Snackbar.make(...).show(); return; }</code>开头。按下<code>STOP</code>后，<code>isPlaying</code>为<code>false</code>。下面的评分处理会怎样？"
-    },
-    {
-      "source": "<code>return</code>でクリック処理を終えるため、採点しない",
-      "translation": "<code>return</code>结束点击处理，所以不会评分"
-    },
-    {
-      "source": "<code>false</code>なので<code>if</code>を飛ばして採点する",
-      "translation": "由于是<code>false</code>，所以跳过<code>if</code>并评分"
-    },
-    {
-      "source": "<code>Snackbar</code>を表示したあと必ず採点する",
-      "translation": "显示<code>Snackbar</code>后总会评分"
-    },
-    {
-      "source": "正解した場合だけ<code>return</code>を無視して採点する",
-      "translation": "仅在答对时忽略<code>return</code>并评分"
-    },
-    {
-      "source": "正答：<strong><code>return</code>でクリック処理を終えるため、採点しない</strong>",
-      "translation": "正确答案：<strong><code>return</code>结束点击处理，所以不会评分</strong>"
-    },
-    {
-      "source": "<code>!false</code>は<code>true</code>です。案内を出したあと<code>return</code>でそのクリック処理を終えるので、下の採点処理には進みません。",
-      "translation": "<code>!false</code>为<code>true</code>。显示提示后，<code>return</code>结束这次点击处理，因此不会执行下面的评分处理。"
-    },
-    {
-      "source": "A02-11 · 正解数と問題番号",
-      "translation": "A02-11 · 答对的题数与题号"
-    },
-    {
-      "source": "A02で1問目を間違えました。採点前は<code>nowNo = 1</code>、<code>correctNo = 0</code>です。正解時だけ<code>correctNo++</code>し、その後2問目へ進むと、値はどうなりますか。",
-      "translation": "在A02中答错了第1题。评分前，<code>nowNo = 1</code>，<code>correctNo = 0</code>。只有答对时才执行<code>correctNo++</code>。接着进入第2题后，值会怎样变化？"
-    },
-    {
-      "source": "<code>nowNo</code>は2、<code>correctNo</code>は0",
-      "translation": "<code>nowNo</code>为2，<code>correctNo</code>为0"
-    },
-    {
-      "source": "<code>nowNo</code>は1、<code>correctNo</code>は0",
-      "translation": "<code>nowNo</code>为1，<code>correctNo</code>为0"
-    },
-    {
-      "source": "<code>nowNo</code>は2、<code>correctNo</code>は1",
-      "translation": "<code>nowNo</code>为2，<code>correctNo</code>为1"
-    },
-    {
-      "source": "<code>nowNo</code>は1、<code>correctNo</code>は1",
-      "translation": "<code>nowNo</code>为1，<code>correctNo</code>为1"
-    },
-    {
-      "source": "正答：<strong><code>nowNo</code>は2、<code>correctNo</code>は0</strong>",
-      "translation": "正确答案：<strong><code>nowNo</code>为2，<code>correctNo</code>为0</strong>"
-    },
-    {
-      "source": "<code>correctNo</code>は<code>number == answer</code>のときだけ増えます。一方、次の問題へ進む処理は正誤の条件の外にあるので、不正解でも問題番号は進みます。",
-      "translation": "只有当<code>number == answer</code>时，<code>correctNo</code>才会增加。进入下一题的处理在判断正误的条件之外，所以答错时题号也会增加。"
-    },
-    {
-      "source": "復習する場所：<code>calc-game/index.html#step-8</code>",
-      "translation": "复习位置：<code>calc-game/index.html#step-8</code>"
-    },
-    {
-      "source": "A02-12 · 10問終了の境界",
-      "translation": "A02-12 · 做完10道题的判断条件"
-    },
-    {
-      "source": "A02では回答後に<code>if (nowNo &lt;= 9) { nowNo++; startQuestion(); } else { 結果表示 }</code>と判定します。<code>nowNo</code>が9の問題に回答した直後はどうなりますか。",
-      "translation": "在A02中，答题后用<code>if (nowNo &lt;= 9) { nowNo++; startQuestion(); } else { 結果表示 }</code>判断下一步。当<code>nowNo</code>为9时，刚答完该题会发生什么？"
-    },
-    {
-      "source": "<code>nowNo</code>が10になり、10問目を表示する",
-      "translation": "<code>nowNo</code>变为10，显示第10题"
-    },
-    {
-      "source": "その場で結果を表示して9問で終わる",
-      "translation": "立即显示结果，做完9道题就结束"
-    },
-    {
-      "source": "<code>nowNo</code>が1になり、1問目へ戻る",
-      "translation": "<code>nowNo</code>变为1，回到第1题"
-    },
-    {
-      "source": "同じ9問目をもう一度表示する",
-      "translation": "再次显示同一道第9题"
-    },
-    {
-      "source": "正答：<strong><code>nowNo</code>が10になり、10問目を表示する</strong>",
-      "translation": "正确答案：<strong><code>nowNo</code>变为10，显示第10题</strong>"
-    },
-    {
-      "source": "<code>9 &lt;= 9</code>は<code>true</code>なので、番号を10にして次を出題します。10問目への回答後は<code>10 &lt;= 9</code>が<code>false</code>となり、結果表示へ進みます。",
-      "translation": "<code>9 &lt;= 9</code>为<code>true</code>，所以把题号改为10并显示下一题。答完第10题后，<code>10 &lt;= 9</code>为<code>false</code>，于是显示结果。"
-    },
-    {
-      "source": "復習する場所：<code>calc-game/index.html#step-9</code>",
-      "translation": "复习位置：<code>calc-game/index.html#step-9</code>"
-    },
-    {
-      "source": "A03-01 · 画像リソース",
-      "translation": "A03-01 · 图片资源"
-    },
-    {
-      "source": "<code>res/drawable</code>に置いた<code>rock.png</code>を、<code>ImageView</code>の<code>android:src</code>で指定する書き方はどれですか。",
-      "translation": "要在<code>ImageView</code>的<code>android:src</code>中指定放在<code>res/drawable</code>中的<code>rock.png</code>，应该怎么写？"
-    },
-    {
-      "source": "正答：<strong><code>@drawable/rock</code></strong>",
-      "translation": "正确答案：<strong><code>@drawable/rock</code></strong>"
-    },
-    {
-      "source": "画像は<code>@drawable/名前</code>で参照し、<code>.png</code>は書きません。<code>id</code>は部品の目印、<code>layout</code>はレイアウトの資源を表します。",
-      "translation": "用<code>@drawable/名前</code>（名前表示名称）引用图片，不写<code>.png</code>。<code>id</code>是控件的标识，<code>layout</code>表示布局资源。"
-    },
-    {
-      "source": "復習する場所：<code>rock-paper-scissors-game/index.html#step-3</code>",
-      "translation": "复习位置：<code>rock-paper-scissors-game/index.html#step-3</code>"
-    },
-    {
-      "source": "A03-02 · 幅を比率で分ける",
-      "translation": "A03-02 · 按比例分配宽度"
-    },
-    {
-      "source": "A03の横向き<code>LinearLayout</code>にある3つの手は、すべて<code>layout_width=&quot;0dp&quot;</code>、<code>layout_weight=&quot;1&quot;</code>です。横幅はどう分かれますか。",
-      "translation": "A03的横向<code>LinearLayout</code>中的三种手势，均设为<code>layout_width=&quot;0dp&quot;</code>和<code>layout_weight=&quot;1&quot;</code>。宽度如何分配？"
-    },
-    {
-      "source": "3つに等しく分かれる",
-      "translation": "平均分成三份"
-    },
-    {
-      "source": "最初の画像だけが横幅いっぱいになる",
-      "translation": "只有第一张图片占满整个宽度"
-    },
-    {
-      "source": "すべて横幅0になり見えなくなる",
-      "translation": "所有图片的宽度均为0，因此都不可见"
-    },
-    {
-      "source": "画像を追加した順に1倍・2倍・3倍になる",
-      "translation": "按添加顺序，宽度分别为1倍、2倍、3倍"
-    },
-    {
-      "source": "正答：<strong>3つに等しく分かれる</strong>",
-      "translation": "正确答案：<strong>平均分成三份</strong>"
-    },
-    {
-      "source": "<code>0dp</code>と<code>layout_weight</code>で横幅を比率配分しています。3つとも重みが1なので、横幅を3等分します。",
-      "translation": "用<code>0dp</code>和<code>layout_weight</code>按比例分配宽度。三个权重都是1，因此宽度三等分。"
-    },
-    {
-      "source": "A03-03 · 配列の番号",
-      "translation": "A03-03 · 数组下标"
-    },
-    {
-      "source": "<code>imageViews</code>にはグー、チョキ、パーの順で画像を入れています。パーを押したとき、<code>selectedHand = i</code>で保存する番号はどれですか。",
-      "translation": "<code>imageViews</code>中的图片按石头、剪刀、布排列。按下布时，<code>selectedHand = i</code>保存的是哪个编号？"
-    },
-    {
-      "source": "正答：<strong>2</strong>",
-      "translation": "正确答案：<strong>2</strong>"
-    },
-    {
-      "source": "配列の番号は0からです。グーが0、チョキが1、パーが2になります。この並びをCPUの画像や勝敗の計算でも使います。",
-      "translation": "数组下标从0开始。石头是0，剪刀是1，布是2。CPU的图片和胜负计算也使用这个顺序。"
-    },
-    {
-      "source": "復習する場所：<code>rock-paper-scissors-game/index.html#step-5</code>",
-      "translation": "复习位置：<code>rock-paper-scissors-game/index.html#step-5</code>"
-    },
-    {
-      "source": "A03-04 · 番号付き<code>for</code>文",
-      "translation": "A03-04 · 带下标的<code>for</code>循环"
-    },
-    {
-      "source": "<code>imageViews.length</code>が3のとき、<code>for (var i = 0; i &lt; imageViews.length; i++)</code>の中で使われる<code>i</code>の値はどれですか。",
-      "translation": "当<code>imageViews.length</code>为3时，在<code>for (var i = 0; i &lt; imageViews.length; i++)</code>中使用的<code>i</code>的值有哪些？"
-    },
-    {
-      "source": "3だけ",
-      "translation": "只有3"
-    },
-    {
-      "source": "正答：<strong>0、1、2</strong>",
-      "translation": "正确答案：<strong>0、1、2</strong>"
-    },
-    {
-      "source": "0から始め、1ずつ増やし、<code>i &lt; 3</code>の間実行します。<code>i</code>が3になると条件が<code>false</code>になり、繰り返しを終えます。",
-      "translation": "从0开始，每次加1，在<code>i &lt; 3</code>成立时执行。当<code>i</code>变为3，条件为<code>false</code>，循环结束。"
-    },
-    {
-      "source": "A03-05 · 選択状態",
-      "translation": "A03-05 · 选中状态"
-    },
-    {
-      "source": "グーを選んだあと、勝負する前にパーを押しました。A03の選択処理では、押した画像を赤くし、ほかの画像には<code>setBackground(null)</code>を実行します。結果はどれですか。",
-      "translation": "先选了石头，又在对战前按了布。在A03的选择处理中，按下的图片变红，其他图片执行<code>setBackground(null)</code>。结果是什么？"
-    },
-    {
-      "source": "パーだけが赤くなり、選択番号は2になる",
-      "translation": "只有布变红，所选编号变为2"
-    },
-    {
-      "source": "グーとパーの両方が赤くなり、選択番号は0のまま",
-      "translation": "石头和布都变红，所选编号仍为0"
-    },
-    {
-      "source": "どの画像も赤くならず、選択番号は-1になる",
-      "translation": "没有图片变红，所选编号变为-1"
-    },
-    {
-      "source": "CPUの画像が赤くなり、選択番号は3になる",
-      "translation": "CPU的图片变红，所选编号变为3"
-    },
-    {
-      "source": "正答：<strong>パーだけが赤くなり、選択番号は2になる</strong>",
-      "translation": "正确答案：<strong>只有布变红，所选编号变为2</strong>"
-    },
-    {
-      "source": "押した画像の番号を<code>selectedHand</code>に保存し、それ以外の背景を消します。赤い背景は常に1つで、初期値-1はまだ選んでいない状態です。",
-      "translation": "将按下的图片编号保存到<code>selectedHand</code>，并清除其他图片的背景。始终只有一张图片的背景为红色。初始值-1表示尚未选择。"
-    },
-    {
-      "source": "A03-06 · 勝負後の操作制限",
-      "translation": "A03-06 · 对战后的操作限制"
-    },
-    {
-      "source": "A03で「<code>勝負！</code>」のあとに手を選び直せないようにする処理はどれですか。",
-      "translation": "在A03中，使用哪个处理让玩家在按下「<code>勝負！</code>」（对战！）后无法重新选手势？"
-    },
-    {
-      "source": "3つの手の画像に<code>setClickable(false)</code>を実行する",
-      "translation": "对三种手势的图片执行<code>setClickable(false)</code>"
-    },
-    {
-      "source": "CPUの画像に<code>setVisibility(View.VISIBLE)</code>を実行する",
-      "translation": "对CPU的图片执行<code>setVisibility(View.VISIBLE)</code>"
-    },
-    {
-      "source": "<code>winCount</code>を1増やす",
-      "translation": "将<code>winCount</code>增加1"
-    },
-    {
-      "source": "選んだ手を<code>Log.d</code>で出力する",
-      "translation": "用<code>Log.d</code>输出所选手势"
-    },
-    {
-      "source": "正答：<strong>3つの手の画像に<code>setClickable(false)</code>を実行する</strong>",
-      "translation": "正确答案：<strong>对三种手势的图片执行<code>setClickable(false)</code></strong>"
-    },
-    {
-      "source": "<code>setClickable(false)</code>で手の画像をクリックできなくします。「<code>次の戦いへ</code>」では<code>setClickable(true)</code>で選べる状態に戻します。",
-      "translation": "用<code>setClickable(false)</code>禁用手势图片的点击。按下「<code>次の戦いへ</code>」（下一场对战）时，用<code>setClickable(true)</code>恢复可选状态。"
-    },
-    {
-      "source": "復習する場所：<code>rock-paper-scissors-game/index.html#step-6</code>",
-      "translation": "复习位置：<code>rock-paper-scissors-game/index.html#step-6</code>"
-    },
-    {
-      "source": "A03-07 · CPUの乱数",
-      "translation": "A03-07 · CPU的随机数"
-    },
-    {
-      "source": "CPUの手を決める<code>ThreadLocalRandom.current().nextInt(3)</code>で出る値はどれですか。",
-      "translation": "用来决定CPU手势的<code>ThreadLocalRandom.current().nextInt(3)</code>会产生哪些值？"
-    },
-    {
-      "source": "<code>nextInt(3)</code>は0以上3未満の整数を選びます。0〜2なので、3個の画像を入れた配列の番号としてそのまま使えます。",
-      "translation": "<code>nextInt(3)</code>选出大于等于0且小于3的整数。因为范围是0至2，可以直接用作存放三张图片的数组下标。"
-    },
-    {
-      "source": "A03-08 · 配列から画像を選ぶ",
-      "translation": "A03-08 · 从数组中选择图片"
-    },
-    {
-      "source": "<code>item</code>が<code>{R.drawable.rock, R.drawable.scissors, R.drawable.paper}</code>で、<code>cpu</code>が1です。<code>imgCpu.setImageResource(item[cpu]);</code>で表示する画像はどれですか。",
-      "translation": "<code>item</code>为<code>{R.drawable.rock, R.drawable.scissors, R.drawable.paper}</code>，<code>cpu</code>为1。<code>imgCpu.setImageResource(item[cpu]);</code>显示的是哪张图片？"
-    },
-    {
-      "source": "チョキ（<code>scissors</code>）",
-      "translation": "剪刀（<code>scissors</code>）"
-    },
-    {
-      "source": "グー（<code>rock</code>）",
-      "translation": "石头（<code>rock</code>）"
-    },
-    {
-      "source": "パー（<code>paper</code>）",
-      "translation": "布（<code>paper</code>）"
-    },
-    {
-      "source": "3つ全部",
-      "translation": "三张都显示"
-    },
-    {
-      "source": "正答：<strong>チョキ（<code>scissors</code>）</strong>",
-      "translation": "正确答案：<strong>剪刀（<code>scissors</code>）</strong>"
-    },
-    {
-      "source": "<code>item[1]</code>は2番目の値<code>R.drawable.scissors</code>です。<code>setImageResource</code>で、その画像を<code>ImageView</code>に表示します。",
-      "translation": "<code>item[1]</code>是第二个值<code>R.drawable.scissors</code>。用<code>setImageResource</code>在<code>ImageView</code>中显示这张图片。"
-    },
-    {
-      "source": "「<code>次の戦いへ</code>」で<code>imgCpu.setVisibility(View.INVISIBLE);</code>を実行すると、CPUの画像とその場所はどうなりますか。",
-      "translation": "按下「<code>次の戦いへ</code>」（下一场对战）后执行<code>imgCpu.setVisibility(View.INVISIBLE);</code>，CPU的图片及其位置会怎样？"
-    },
-    {
-      "source": "画像は見えなくなるが、表示する場所は残る",
-      "translation": "图片不可见，但保留显示位置"
-    },
-    {
-      "source": "画像も表示する場所もなくなり、下の部品が詰まる",
-      "translation": "图片和显示位置都消失，下方控件向上移"
-    },
-    {
-      "source": "画像は見えたままで、クリックだけできなくなる",
-      "translation": "图片仍然可见，只是不能点击"
-    },
-    {
-      "source": "画像がグーへ変更される",
-      "translation": "图片变为石头"
-    },
-    {
-      "source": "正答：<strong>画像は見えなくなるが、表示する場所は残る</strong>",
-      "translation": "正确答案：<strong>图片不可见，但保留显示位置</strong>"
-    },
-    {
-      "source": "<code>INVISIBLE</code>は見えない状態にする指定です。場所は残るため、再び<code>VISIBLE</code>にすると同じ場所に表示できます。",
-      "translation": "<code>INVISIBLE</code>将控件设为不可见。位置会保留，所以再次设为<code>VISIBLE</code>时，可以在原处显示。"
-    },
-    {
-      "source": "復習する場所：<code>rock-paper-scissors-game/index.html#step-7</code>",
-      "translation": "复习位置：<code>rock-paper-scissors-game/index.html#step-7</code>"
-    },
-    {
-      "source": "A03-10 · 勝敗の計算",
-      "translation": "A03-10 · 计算胜负"
-    },
-    {
-      "source": "グー=0、チョキ=1、パー=2です。自分がグー、CPUがチョキのとき、<code>(selectedHand - cpu + 3) % 3</code>の結果と勝敗はどれですか。結果0は引き分け、1は負け、2は勝ちです。",
-      "translation": "石头=0、剪刀=1、布=2。自己出石头、CPU出剪刀时，<code>(selectedHand - cpu + 3) % 3</code>的结果和胜负是什么？结果为0表示平局，为1表示输，为2表示赢。"
-    },
-    {
-      "source": "2で勝ち",
-      "translation": "2，赢"
-    },
-    {
-      "source": "0で引き分け",
-      "translation": "0，平局"
-    },
-    {
-      "source": "1で負け",
-      "translation": "1，输"
-    },
-    {
-      "source": "-1で負け",
-      "translation": "-1，输"
-    },
-    {
-      "source": "正答：<strong>2で勝ち</strong>",
-      "translation": "正确答案：<strong>2，赢</strong>"
-    },
-    {
-      "source": "(0 - 1 + 3) % 3 = 2 % 3 = 2です。%は割り算の余りを求めます。3を足してから余りを求めることで、結果が0〜2になります。",
-      "translation": "(0 - 1 + 3) % 3 = 2 % 3 = 2。%用于求除法的余数。先加3再求余数，结果就会在0至2之间。"
-    },
-    {
-      "source": "復習する場所：<code>rock-paper-scissors-game/index.html#step-8</code>",
-      "translation": "复习位置：<code>rock-paper-scissors-game/index.html#step-8</code>"
-    },
-    {
-      "source": "A03-11 · <code>switch</code>と<code>break</code>",
-      "translation": "A03-11 · <code>switch</code>与<code>break</code>"
-    },
-    {
-      "source": "A03の<code>switch</code>文で、<code>case</code>の処理の最後にある<code>break;</code>の役割はどれですか。",
-      "translation": "在A03的<code>switch</code>语句中，<code>case</code>处理末尾的<code>break;</code>有什么作用？"
-    },
-    {
-      "source": "その<code>case</code>の処理を終え、<code>switch</code>文を抜ける",
-      "translation": "结束该<code>case</code>的处理，退出<code>switch</code>语句"
-    },
-    {
-      "source": "次の<code>case</code>も必ず続けて実行する",
-      "translation": "一定会继续执行下一个<code>case</code>"
-    },
-    {
-      "source": "アプリを終了する",
-      "translation": "关闭应用"
-    },
-    {
-      "source": "CPUの手を再抽選する",
-      "translation": "重新随机选择CPU的手势"
-    },
-    {
-      "source": "正答：<strong>その<code>case</code>の処理を終え、<code>switch</code>文を抜ける</strong>",
-      "translation": "正确答案：<strong>结束该<code>case</code>的处理，退出<code>switch</code>语句</strong>"
-    },
-    {
-      "source": "<code>break</code>があるので、選ばれた<code>case</code>の処理のあとに<code>switch</code>文を抜けます。この書き方で<code>break</code>を忘れると、下の<code>case</code>の処理も続けて実行されます。",
-      "translation": "有了<code>break</code>，所选<code>case</code>的处理完成后就会退出<code>switch</code>语句。按这种写法，如果忘了写<code>break</code>，下面的<code>case</code>也会继续执行。"
-    },
-    {
-      "source": "A03-12 · 連勝数",
-      "translation": "A03-12 · 连胜次数"
-    },
-    {
-      "source": "起動直後から「勝ち→<code>次の戦いへ</code>→勝ち→<code>次の戦いへ</code>→引き分け→<code>次の戦いへ</code>→勝ち」と進めました。最後の勝ちで表示する連勝数はいくつですか。",
-      "translation": "应用刚启动时，按“赢 → 「<code>次の戦いへ</code>」（下一场对战）→ 赢 → 「<code>次の戦いへ</code>」（下一场对战）→ 平局 → 「<code>次の戦いへ</code>」（下一场对战）→ 赢”的顺序进行游戏。最后一次赢时，显示的连胜次数是多少？"
-    },
-    {
-      "source": "1連勝",
-      "translation": "连胜1次"
-    },
-    {
-      "source": "2連勝",
-      "translation": "连胜2次"
-    },
-    {
-      "source": "3連勝",
-      "translation": "连胜3次"
-    },
-    {
-      "source": "4連勝",
-      "translation": "连胜4次"
-    },
-    {
-      "source": "正答：<strong>1連勝</strong>",
-      "translation": "正确答案：<strong>连胜1次</strong>"
-    },
-    {
-      "source": "<code>次の戦いへ</code>では連勝数を残しますが、引き分けや負けでは<code>winCount = 0</code>に戻します。引き分けの次の勝ちは、0を1増やして1連勝です。",
-      "translation": "按下「<code>次の戦いへ</code>」（下一场对战）时会保留连胜次数，但打平或输掉时会重置为<code>winCount = 0</code>。平局后的第一次赢会将次数从0加到1，即连胜1次。"
-    },
-    {
-      "source": "A04-01 · インターネットの許可",
-      "translation": "A04-01 · 互联网访问权限"
-    },
-    {
-      "source": "<code>WebView</code>でインターネットのページを読むための<code>uses-permission</code>（<code>android.permission.INTERNET</code>）は、どこに追加しますか。",
-      "translation": "要用<code>WebView</code>读取网页，应将<code>uses-permission</code>（<code>android.permission.INTERNET</code>）添加到哪里？"
-    },
-    {
-      "source": "<code>AndroidManifest.xml</code>の<code>manifest</code>の中、<code>application</code>の外",
-      "translation": "在<code>AndroidManifest.xml</code>的<code>manifest</code>内、<code>application</code>外"
-    },
-    {
-      "source": "<code>AndroidManifest.xml</code>の<code>application</code>の中",
-      "translation": "在<code>AndroidManifest.xml</code>的<code>application</code>内"
-    },
-    {
-      "source": "<code>activity_main.xml</code>の<code>WebView</code>の中",
-      "translation": "在<code>activity_main.xml</code>的<code>WebView</code>内"
-    },
-    {
-      "source": "<code>AppMenuItem.java</code>の<code>enum</code>の値の間",
-      "translation": "在<code>AppMenuItem.java</code>的<code>enum</code>值之间"
-    },
-    {
-      "source": "正答：<strong><code>AndroidManifest.xml</code>の<code>manifest</code>の中、<code>application</code>の外</strong>",
-      "translation": "正确答案：<strong>在<code>AndroidManifest.xml</code>的<code>manifest</code>内、<code>application</code>外</strong>"
-    },
-    {
-      "source": "<code>manifest</code>の開始タグの下、<code>application</code>の上に宣言します。<code>application</code>の中に入れるとビルド時のエラーになります。この許可では確認の画面は出ません。",
-      "translation": "在<code>manifest</code>的开始标签下方、<code>application</code>上方声明。放在<code>application</code>内部会导致构建错误。此权限不会显示确认界面。"
-    },
-    {
-      "source": "復習する場所：<code>webview-app/index.html#step-2</code>",
-      "translation": "复习位置：<code>webview-app/index.html#step-2</code>"
-    },
-    {
-      "source": "A04-02 · <code>ActionBar</code>とメニュー",
-      "translation": "A04-02 · <code>ActionBar</code>与菜单"
-    },
-    {
-      "source": "A04で2つの<code>themes.xml</code>のテーマ名から<code>.NoActionBar</code>を外す目的はどれですか。",
-      "translation": "在A04中，为什么要从两个<code>themes.xml</code>的主题名称中去掉<code>.NoActionBar</code>？"
-    },
-    {
-      "source": "メニュー（⋮）を置く<code>ActionBar</code>を表示する",
-      "translation": "显示放置菜单（⋮）的<code>ActionBar</code>"
-    },
-    {
-      "source": "インターネット接続を許可する",
-      "translation": "允许连接互联网"
-    },
-    {
-      "source": "JavaScriptを有効にする",
-      "translation": "启用JavaScript"
-    },
-    {
-      "source": "<code>WebView</code>の閲覧履歴を消す",
-      "translation": "清除<code>WebView</code>的浏览记录"
-    },
-    {
-      "source": "正答：<strong>メニュー（⋮）を置く<code>ActionBar</code>を表示する</strong>",
-      "translation": "正确答案：<strong>显示放置菜单（⋮）的<code>ActionBar</code></strong>"
-    },
-    {
-      "source": "この教材ではオプションメニューを<code>ActionBar</code>に表示します。<code>values</code>と<code>values-night</code>の2つの<code>themes.xml</code>から<code>.NoActionBar</code>を外します。",
-      "translation": "本教材在<code>ActionBar</code>中显示选项菜单。请从<code>values</code>和<code>values-night</code>这两个目录的<code>themes.xml</code>中去掉<code>.NoActionBar</code>。"
-    },
-    {
-      "source": "<code>WebView</code>に<code>setWebViewClient(new WebViewClient())</code>を設定する目的はどれですか。",
-      "translation": "为<code>WebView</code>设置<code>setWebViewClient(new WebViewClient())</code>有什么目的？"
-    },
-    {
-      "source": "ページ内のリンクを、この<code>WebView</code>の中で開くようにする",
-      "translation": "在这个<code>WebView</code>内打开页面中的链接"
-    },
-    {
-      "source": "すべてのページでJavaScriptを有効にする",
-      "translation": "对所有页面启用JavaScript"
-    },
-    {
-      "source": "<code>INTERNET</code>の許可を自動で追加する",
-      "translation": "自动添加<code>INTERNET</code>权限"
-    },
-    {
-      "source": "メニューの表示名を自動で翻訳する",
-      "translation": "自动翻译菜单的显示名称"
-    },
-    {
-      "source": "正答：<strong>ページ内のリンクを、この<code>WebView</code>の中で開くようにする</strong>",
-      "translation": "正确答案：<strong>在这个<code>WebView</code>内打开页面中的链接</strong>"
-    },
-    {
-      "source": "<code>WebViewClient</code>を設定すると、ページ内のリンクもアプリの<code>WebView</code>の中で開きます。指定URLを最初に読み込む処理は<code>loadUrl</code>です。",
-      "translation": "设置<code>WebViewClient</code>后，页面内的链接也会在应用的<code>WebView</code>中打开。第一次加载指定URL的处理是<code>loadUrl</code>。"
-    },
-    {
-      "source": "復習する場所：<code>webview-app/index.html#step-4</code>",
-      "translation": "复习位置：<code>webview-app/index.html#step-4</code>"
-    },
-    {
-      "source": "A04-04 · <code>enum</code>にまとめる理由",
-      "translation": "A04-04 · 使用<code>enum</code>集中管理的原因"
-    },
-    {
-      "source": "A04でURLと表示名を別々の配列にせず、<code>enum AppMenuItem</code>の1つの値にまとめる利点はどれですか。",
-      "translation": "A04将URL和显示名称放在<code>enum AppMenuItem</code>的同一个值中。和使用两个数组相比，这么做有什么好处？"
-    },
-    {
-      "source": "URLと表示名の組を1か所に書けるので、追加位置のずれを避けやすい",
-      "translation": "可以在一处写下URL和显示名称的对应关系，添加新项时更容易避免位置错开"
-    },
-    {
-      "source": "URLのつづりが間違っていても必ず自動修正される",
-      "translation": "即使URL拼写有误，也一定会自动修正"
-    },
-    {
-      "source": "インターネット接続がなくても全サイトを表示できる",
-      "translation": "即使没有互联网连接，也可以显示所有网站"
-    },
-    {
-      "source": "サイトのページ内容が更新されなくなる",
-      "translation": "网站的页面内容将停止更新"
-    },
-    {
-      "source": "正答：<strong>URLと表示名の組を1か所に書けるので、追加位置のずれを避けやすい</strong>",
-      "translation": "正确答案：<strong>可以在一处写下URL和显示名称的对应关系，添加新项时更容易避免位置错开</strong>"
-    },
-    {
-      "source": "配列を2つ使うと、追加位置や片方の追加忘れで対応がずれることがあります。<code>enum</code>では1つの値にURLと表示名をまとめます。ただし、URL文字列のつづりまでは自動で検査しません。",
-      "translation": "使用两个数组时，添加的位置不同，或漏掉其中一个数组，就可能打乱对应关系。<code>enum</code>将URL和显示名称写在同一个值里，但不会自动检查URL字符串的拼写。"
-    },
-    {
-      "source": "復習する場所：<code>webview-app/index.html#enum-merits</code>",
-      "translation": "复习位置：<code>webview-app/index.html#enum-merits</code>"
-    },
-    {
-      "source": "A04-05 · <code>ordinal</code>と<code>values</code>",
-      "translation": "A04-05 · <code>ordinal</code>与<code>values</code>"
-    },
-    {
-      "source": "<code>AppMenuItem</code>を<code>YAHOO</code>、<code>GITHUB_COPILOT</code>、<code>SLAM_DUNK_MOVIE</code>、<code>CHAT_GPT</code>の順に定義しました。<code>AppMenuItem.values()[2]</code>で取り出す値はどれですか。",
-      "translation": "<code>AppMenuItem</code>按<code>YAHOO</code>、<code>GITHUB_COPILOT</code>、<code>SLAM_DUNK_MOVIE</code>、<code>CHAT_GPT</code>的顺序定义。<code>AppMenuItem.values()[2]</code>会取出哪个值？"
-    },
-    {
-      "source": "正答：<strong><code>SLAM_DUNK_MOVIE</code></strong>",
-      "translation": "正确答案：<strong><code>SLAM_DUNK_MOVIE</code></strong>"
-    },
-    {
-      "source": "<code>values()</code>は定義した順の配列を返し、番号は0からです。<code>SLAM_DUNK_MOVIE</code>は3番目なので番号2で、<code>ordinal()</code>も2です。",
-      "translation": "<code>values()</code>按定义顺序返回数组，编号从0开始。<code>SLAM_DUNK_MOVIE</code>是第三个值，所以编号为2，<code>ordinal()</code>也为2。"
-    },
-    {
-      "source": "復習する場所：<code>webview-app/index.html#enum-usage</code>",
-      "translation": "复习位置：<code>webview-app/index.html#enum-usage</code>"
-    },
-    {
-      "source": "A04-06 · コンストラクタとフィールド",
-      "translation": "A04-06 · 构造方法与字段"
-    },
-    {
-      "source": "<code>AppMenuItem(String url, String title)</code>の中の<code>this.url = url;</code>で、左の<code>this.url</code>と右の<code>url</code>の関係はどれですか。",
-      "translation": "在<code>AppMenuItem(String url, String title)</code>中的<code>this.url = url;</code>里，左侧的<code>this.url</code>与右侧的<code>url</code>有什么关系？"
-    },
-    {
-      "source": "左はフィールド、右はコンストラクタが受け取った値",
-      "translation": "左侧是字段，右侧是构造方法收到的值"
-    },
-    {
-      "source": "左は受け取った値、右はフィールド",
-      "translation": "左侧是收到的值，右侧是字段"
-    },
-    {
-      "source": "左右とも<code>WebView</code>の部品<code>id</code>",
-      "translation": "两侧都是<code>WebView</code>控件的<code>id</code>"
-    },
-    {
-      "source": "左右ともメニュー項目の番号",
-      "translation": "两侧都是菜单项的编号"
-    },
-    {
-      "source": "正答：<strong>左はフィールド、右はコンストラクタが受け取った値</strong>",
-      "translation": "正确答案：<strong>左侧是字段，右侧是构造方法收到的值</strong>"
-    },
-    {
-      "source": "<code>this.url</code>で、その値が持つフィールドを指します。右側の<code>url</code>は引数です。<code>private final String url</code>の<code>final</code>は、一度入れた値を変えない指定です。",
-      "translation": "<code>this.url</code>指该枚举值自身的字段。右侧的<code>url</code>是参数。<code>private final String url</code>中的<code>final</code>表示赋值后不可更改。"
-    },
-    {
-      "source": "復習する場所：<code>webview-app/index.html#step-5</code>",
-      "translation": "复习位置：<code>webview-app/index.html#step-5</code>"
-    },
-    {
-      "source": "A04-07 · メニューのクリック処理",
-      "translation": "A04-07 · 菜单的点击处理"
-    },
-    {
-      "source": "A04でメニューの項目を押したときに呼ばれ、項目<code>id</code>から<code>enum</code>の値を取り出して<code>loadUrl</code>するメソッドはどれですか。",
-      "translation": "在A04中，点击菜单项后，哪个被调用的方法会根据该项的<code>id</code>取出<code>enum</code>值并执行<code>loadUrl</code>？"
-    },
-    {
-      "source": "正答：<strong><code>onOptionsItemSelected</code></strong>",
-      "translation": "正确答案：<strong><code>onOptionsItemSelected</code></strong>"
-    },
-    {
-      "source": "<code>onCreateOptionsMenu</code>はメニューを用意するときの処理です。項目を押すと<code>onOptionsItemSelected</code>が呼ばれ、<code>AppMenuItem.values()[item.getItemId()]</code>で選択した値を取り出します。",
-      "translation": "<code>onCreateOptionsMenu</code>用于准备菜单。点击菜单项时会调用<code>onOptionsItemSelected</code>，再用<code>AppMenuItem.values()[item.getItemId()]</code>取出所选值。"
-    },
-    {
-      "source": "復習する場所：<code>webview-app/index.html#step-6</code>",
-      "translation": "复习位置：<code>webview-app/index.html#step-6</code>"
-    },
-    {
-      "source": "A04-08 · <code>enum</code>の項目追加",
-      "translation": "A04-08 · 添加<code>enum</code>值"
-    },
-    {
-      "source": "メニューを<code>AppMenuItem.values()</code>の<code>for</code>文で作っています。4項目の<code>enum</code>の末尾に<code>JEC</code>を追加し、直前の値の末尾を<code>;</code>から<code>,</code>へ変えました。<code>MainActivity</code>を変えなくても起きることはどれですか。",
-      "translation": "菜单由遍历<code>AppMenuItem.values()</code>的<code>for</code>循环生成。在有4个值的<code>enum</code>末尾添加<code>JEC</code>，把上一个值末尾的<code>;</code>改为<code>,</code>。即使不改<code>MainActivity</code>，也会发生什么？"
-    },
-    {
-      "source": "5つ目に<code>JEC</code>の表示名が追加され、その項目<code>id</code>は4になる",
-      "translation": "<code>JEC</code>的显示名称成为第5个菜单项，该项的<code>id</code>为4"
-    },
-    {
-      "source": "<code>JEC</code>は追加されるが、項目<code>id</code>は5になる",
-      "translation": "<code>JEC</code>会被添加，但该项的<code>id</code>为5"
-    },
-    {
-      "source": "既存の4項目が消えて<code>JEC</code>だけになる",
-      "translation": "之前的4项消失，只剩<code>JEC</code>"
-    },
-    {
-      "source": "<code>MainActivity</code>に<code>menu.add</code>を足すまで<code>JEC</code>は出ない",
-      "translation": "在<code>MainActivity</code>中添加<code>menu.add</code>前，不会显示<code>JEC</code>"
-    },
-    {
-      "source": "正答：<strong>5つ目に<code>JEC</code>の表示名が追加され、その項目<code>id</code>は4になる</strong>",
-      "translation": "正确答案：<strong><code>JEC</code>的显示名称成为第5个菜单项，该项的<code>id</code>为4</strong>"
-    },
-    {
-      "source": "<code>values()</code>で追加した値も取り出し、<code>ordinal()</code>を<code>id</code>に使います。番号は0からなので5つ目の<code>id</code>は4です。URLと表示名を<code>enum</code>に追加するだけで対応します。",
-      "translation": "<code>values()</code>也会取出新加的值，并用<code>ordinal()</code>作为<code>id</code>。编号从0开始，所以第5项的<code>id</code>为4。只需将URL和显示名称添加到<code>enum</code>中。"
-    },
-    {
-      "source": "復習する場所：<code>webview-app/index.html#step-9</code>",
-      "translation": "复习位置：<code>webview-app/index.html#step-9</code>"
-    },
-    {
-      "source": "A04-09 · JavaScriptの切り替え",
-      "translation": "A04-09 · 切换JavaScript"
-    },
-    {
-      "source": "A04で<code>JavaScript ON</code>のチェックを切り替えたとき、<code>setJavaScriptEnabled(isChecked)</code>のあとに<code>webView.reload()</code>を呼ぶ目的はどれですか。",
-      "translation": "在A04中，切换<code>JavaScript ON</code>的勾选状态时，为什么在<code>setJavaScriptEnabled(isChecked)</code>之后还要调用<code>webView.reload()</code>？"
-    },
-    {
-      "source": "今のページを読み込み直して、変更した設定を反映する",
-      "translation": "重新加载当前页面，使更改后的设置生效"
-    },
-    {
-      "source": "メニューの項目数を数え直す",
-      "translation": "重新统计菜单项的数量"
-    },
-    {
-      "source": "アプリをアンインストールする",
-      "translation": "卸载应用"
-    },
-    {
-      "source": "チェックボックスの<code>id</code>を変更する",
-      "translation": "更改复选框的<code>id</code>"
-    },
-    {
-      "source": "正答：<strong>今のページを読み込み直して、変更した設定を反映する</strong>",
-      "translation": "正确答案：<strong>重新加载当前页面，使更改后的设置生效</strong>"
-    },
-    {
-      "source": "<code>isChecked</code>は切り替えた後のチェック状態です。JavaScriptの有効・無効を設定し、<code>reload</code>で今のページを読み込み直します。JavaScriptはWebページの中で動く言語です。",
-      "translation": "<code>isChecked</code>是切换后的勾选状态。设置是否启用JavaScript后，使用<code>reload</code>重新加载当前页面。JavaScript是在网页中运行的语言。"
-    },
-    {
-      "source": "復習する場所：<code>webview-app/index.html#step-7</code>",
-      "translation": "复习位置：<code>webview-app/index.html#step-7</code>"
-    },
-    {
-      "source": "A04-10 · ズーム",
-      "translation": "A04-10 · 缩放"
-    },
-    {
-      "source": "<code>webView.getSettings().setBuiltInZoomControls(true);</code>で有効にする操作はどれですか。",
-      "translation": "<code>webView.getSettings().setBuiltInZoomControls(true);</code>会启用哪种操作？"
-    },
-    {
-      "source": "2本指で広げたりつまんだりする拡大・縮小",
-      "translation": "用两根手指张开或捏合来放大或缩小"
-    },
-    {
-      "source": "チェックを付けてJavaScriptを切り替える操作",
-      "translation": "通过勾选切换JavaScript"
-    },
-    {
-      "source": "戻る操作で前のページへ戻る処理",
-      "translation": "执行返回操作时返回上一页"
-    },
-    {
-      "source": "メニューにサイトを追加する操作",
-      "translation": "向菜单添加网站"
-    },
-    {
-      "source": "正答：<strong>2本指で広げたりつまんだりする拡大・縮小</strong>",
-      "translation": "正确答案：<strong>用两根手指张开或捏合来放大或缩小</strong>"
-    },
-    {
-      "source": "組み込みのズーム操作を有効にします。ただし、サイト側が拡大を制限している場合は、拡大できないこともあります。",
-      "translation": "启用内置的缩放操作。如果网站限制放大，有时仍无法放大。"
-    },
-    {
-      "source": "A04-11 · 戻る履歴の有無",
-      "translation": "A04-11 · 能否返回上一页"
-    },
-    {
-      "source": "<code>backCallback.setEnabled(view.canGoBack());</code>で、前のページがないため<code>canGoBack()</code>が<code>false</code>になりました。A04で次に戻る操作をするとどうなりますか。",
-      "translation": "执行<code>backCallback.setEnabled(view.canGoBack());</code>时，由于没有上一页，<code>canGoBack()</code>为<code>false</code>。在A04中，下次执行返回操作会怎样？"
-    },
-    {
-      "source": "独自の戻る処理が無効になり、Androidの通常の戻る操作でホームへ戻る",
-      "translation": "自定义返回处理被禁用，Android按常规方式返回主屏幕"
-    },
-    {
-      "source": "必ず<code>WebView</code>内の前のページに戻る",
-      "translation": "一定会返回<code>WebView</code>中的上一页"
-    },
-    {
-      "source": "最初のページを繰り返し読み込む",
-      "translation": "反复加载第一页"
-    },
-    {
-      "source": "アプリの設定から<code>INTERNET</code>の許可を消す",
-      "translation": "从应用设置中删除<code>INTERNET</code>权限"
-    },
-    {
-      "source": "正答：<strong>独自の戻る処理が無効になり、Androidの通常の戻る操作でホームへ戻る</strong>",
-      "translation": "正确答案：<strong>自定义返回处理被禁用，Android按常规方式返回主屏幕</strong>"
-    },
-    {
-      "source": "前のページがある間だけ<code>backCallback</code>を有効にします。最初のページまで戻ると無効になり、通常の戻る操作に任せます。",
-      "translation": "仅在有上一页时启用<code>backCallback</code>。返回第一页时将其禁用，交给系统按常规方式处理返回操作。"
-    },
-    {
-      "source": "復習する場所：<code>webview-app/index.html#step-8</code>",
-      "translation": "复习位置：<code>webview-app/index.html#step-8</code>"
-    },
-    {
-      "source": "A04-12 · 戻る処理の登録",
-      "translation": "A04-12 · 注册返回处理"
-    },
-    {
-      "source": "A04では<code>OnBackPressedCallback</code>を登録しています。このコールバックが有効なとき、<code>handleOnBackPressed</code>の中の<code>webView.goBack()</code>は何をしますか。",
-      "translation": "A04注册了<code>OnBackPressedCallback</code>。启用这个回调时，<code>handleOnBackPressed</code>中的<code>webView.goBack()</code>会做什么？"
-    },
-    {
-      "source": "<code>WebView</code>の履歴にある前のページに戻る",
-      "translation": "返回<code>WebView</code>浏览记录中的上一页"
-    },
-    {
-      "source": "メニューの先頭のサイトを必ず開く",
-      "translation": "一定会打开菜单中排在第一位的网站"
-    },
-    {
-      "source": "JavaScriptの設定を初期値に戻す",
-      "translation": "将JavaScript的设置恢复为初始值"
-    },
-    {
-      "source": "<code>WebView</code>の表示を消して最初から起動し直す",
-      "translation": "清除<code>WebView</code>的显示并从头启动"
-    },
-    {
-      "source": "正答：<strong><code>WebView</code>の履歴にある前のページに戻る</strong>",
-      "translation": "正确答案：<strong>返回<code>WebView</code>浏览记录中的上一页</strong>"
-    },
-    {
-      "source": "<code>goBack()</code>は閲覧履歴の前のページへ戻る処理です。この教材では、履歴が変わるたびに<code>canGoBack()</code>を調べ、前のページがあるときだけコールバックを有効にします。",
-      "translation": "<code>goBack()</code>返回浏览记录中的上一页。本教材在每次浏览记录变化时检查<code>canGoBack()</code>，仅在有上一页时启用回调。"
-    },
-    {
-      "source": "A05-01 · 画像の切り替え",
-      "translation": "A05-01 · 切换图片"
-    },
-    {
-      "source": "A05で爆弾の<code>ImageView</code>を着火した画像に変える行はどれですか。",
-      "translation": "在A05中，哪一行把炸弹的<code>ImageView</code>切换为点燃后的图片？"
-    },
-    {
-      "source": "正答：<strong><code>imgBomb.setImageResource(R.drawable.bomb_ignited);</code></strong>",
-      "translation": "正确答案：<strong><code>imgBomb.setImageResource(R.drawable.bomb_ignited);</code></strong>"
-    },
-    {
-      "source": "<code>setImageResource</code>で<code>ImageView</code>に表示する画像を変えます。<code>bomb_initial</code>は着火前、<code>bomb_ignited</code>は着火、<code>bomb_exploded</code>は爆発の画像です。",
-      "translation": "用<code>setImageResource</code>更改<code>ImageView</code>显示的图片。<code>bomb_initial</code>是点燃前的图片，<code>bomb_ignited</code>是点燃后的图片，<code>bomb_exploded</code>是爆炸的图片。"
-    },
-    {
-      "source": "復習する場所：<code>bomb-game/index.html#step-7</code>",
-      "translation": "复习位置：<code>bomb-game/index.html#step-7</code>"
-    },
-    {
-      "source": "A05-02 · 乱数の配列",
-      "translation": "A05-02 · 随机数数组"
-    },
-    {
-      "source": "<code>ThreadLocalRandom.current().ints(2, 1, 10).toArray()</code>が作る配列の説明はどれですか。",
-      "translation": "哪项描述符合<code>ThreadLocalRandom.current().ints(2, 1, 10).toArray()</code>生成的数组？"
-    },
-    {
-      "source": "1〜9の整数を2個入れた配列。2個が同じ値になる場合もある",
-      "translation": "包含两个1至9之间的整数。这两个值可能相同"
-    },
-    {
-      "source": "1〜10の整数を2個入れた配列。重複は自動で除かれる",
-      "translation": "包含两个1至10之间的整数。自动排除重复值"
-    },
-    {
-      "source": "2〜9の整数をすべて1回ずつ入れた配列",
-      "translation": "包含2至9之间的每个整数，各出现一次"
-    },
-    {
-      "source": "1と10だけを入れた配列",
-      "translation": "只包含1和10"
-    },
-    {
-      "source": "正答：<strong>1〜9の整数を2個入れた配列。2個が同じ値になる場合もある</strong>",
-      "translation": "正确答案：<strong>包含两个1至9之间的整数。这两个值可能相同</strong>"
-    },
-    {
-      "source": "最初の2は個数、1は範囲の始まり、10は含まない上限です。この行だけでは重複を防げないため、後で<code>distinct().count()</code>で確かめます。",
-      "translation": "第一个数2是个数，1是范围起点，10是范围上限且不包含在内。单靠这一行无法防止重复，所以之后用<code>distinct().count()</code>检查。"
-    },
-    {
-      "source": "復習する場所：<code>bomb-game/index.html#step-5</code>",
-      "translation": "复习位置：<code>bomb-game/index.html#step-5</code>"
-    },
-    {
-      "source": "A05-03 · <code>do-while</code>文",
-      "translation": "A05-03 · <code>do-while</code>语句"
-    },
-    {
-      "source": "<code>do { 乱数を作る処理 } while (条件);</code> は、どの順で動きますか。",
-      "translation": "<code>do { 乱数を作る処理 } while (条件);</code>按什么顺序运行？"
-    },
-    {
-      "source": "中を必ず1回実行してから条件を調べ、<code>true</code>なら繰り返す",
-      "translation": "先执行一次循环体，再检查条件。如果为<code>true</code>，就重复执行"
-    },
-    {
-      "source": "先に条件を調べ、<code>false</code>でも必ず2回実行する",
-      "translation": "先检查条件，即使为<code>false</code>也必定执行两次"
-    },
-    {
-      "source": "条件が<code>false</code>の間だけ繰り返す",
-      "translation": "只在条件为<code>false</code>时重复执行"
-    },
-    {
-      "source": "中は1回も実行せず、条件だけを調べる",
-      "translation": "只检查条件，不执行循环体"
-    },
-    {
-      "source": "正答：<strong>中を必ず1回実行してから条件を調べ、<code>true</code>なら繰り返す</strong>",
-      "translation": "正确答案：<strong>先执行一次循环体，再检查条件。如果为<code>true</code>，就重复执行</strong>"
-    },
-    {
-      "source": "<code>do-while</code>は後から条件を調べるため、中を少なくとも1回実行します。A05では、乱数を作ってから重複があるかを確かめる流れに使っています。",
-      "translation": "<code>do-while</code>在执行后检查条件，因此循环体至少执行一次。A05用它先生成随机数，再检查是否有重复值。"
-    },
-    {
-      "source": "A05-04 · <code>distinct</code>と<code>count</code>",
-      "translation": "A05-04 · <code>distinct</code>与<code>count</code>"
-    },
-    {
-      "source": "スイッチ候補の配列が<code>{5, 5}</code>です。<code>Arrays.stream(randomIgnitionNumbers).distinct().count() != 2</code>はどうなりますか。",
-      "translation": "开关候选值的数组为<code>{5, 5}</code>。<code>Arrays.stream(randomIgnitionNumbers).distinct().count() != 2</code>的结果是什么？"
-    },
-    {
-      "source": "重複を除いた個数は1なので<code>true</code>になり、作り直す",
-      "translation": "去重后只有一个值，所以结果为<code>true</code>，重新生成"
-    },
-    {
-      "source": "配列の長さは2なので<code>false</code>になり、そのまま採用する",
-      "translation": "数组长度为2，所以结果为<code>false</code>，直接使用"
-    },
-    {
-      "source": "合計は10なので<code>true</code>になり、数字10を追加する",
-      "translation": "总和为10，所以结果为<code>true</code>，添加数字10"
-    },
-    {
-      "source": "重複を除いた個数は0なので、アプリを終了する",
-      "translation": "去重后没有值，所以退出应用"
-    },
-    {
-      "source": "正答：<strong>重複を除いた個数は1なので<code>true</code>になり、作り直す</strong>",
-      "translation": "正确答案：<strong>去重后只有一个值，所以结果为<code>true</code>，重新生成</strong>"
-    },
-    {
-      "source": "<code>distinct</code>は重複する値を除き、<code>count</code>はその個数を数えます。<code>{5, 5}</code>は5の1種類なので<code>1 != 2</code>が<code>true</code>です。違う2つの値なら個数2で繰り返しを終えます。",
-      "translation": "<code>distinct</code>去除重复值，<code>count</code>统计去重后的个数。<code>{5, 5}</code>只有5这一种值，所以<code>1 != 2</code>为<code>true</code>。如果两个值不同，个数就是2，循环结束。"
-    },
-    {
-      "source": "A05-05 · メソッドとフィールド",
-      "translation": "A05-05 · 方法与字段"
-    },
-    {
-      "source": "A05で<code>private int[] randomIgnitionNumbers;</code>をフィールドにする理由はどれですか。",
-      "translation": "在A05中，为什么将<code>private int[] randomIgnitionNumbers;</code>设为字段？"
-    },
-    {
-      "source": "メソッドで作ったスイッチの数字を、あとでクリック処理から読むため",
-      "translation": "为了稍后在点击处理中读取由方法生成的开关数字"
-    },
-    {
-      "source": "配列はすべて必ずフィールドにしなければならないため",
-      "translation": "因为所有数组都必须设为字段"
-    },
-    {
-      "source": "フィールドにすると乱数が重複しなくなるため",
-      "translation": "因为设为字段后随机数就不会重复"
-    },
-    {
-      "source": "<code>int[]</code>を使うと画像が自動で切り替わるため",
-      "translation": "因为使用<code>int[]</code>会自动切换图片"
-    },
-    {
-      "source": "正答：<strong>メソッドで作ったスイッチの数字を、あとでクリック処理から読むため</strong>",
-      "translation": "正确答案：<strong>为了稍后在点击处理中读取由方法生成的开关数字</strong>"
-    },
-    {
-      "source": "<code>generateIgnitionNumbers</code>で作った配列をフィールドに入れ、数字ボタンを押したときに参照します。乱数の重複はフィールドではなく、<code>do-while</code>の判定で防ぎます。",
-      "translation": "将<code>generateIgnitionNumbers</code>生成的数组存入字段，在按下数字按钮时读取。防止随机数重复靠的是<code>do-while</code>中的判断，与字段本身无关。"
-    },
-    {
-      "source": "A05-06 · 同じボタンを押せなくする",
-      "translation": "A05-06 · 禁止重复按同一个按钮"
-    },
-    {
-      "source": "数字ボタンのクリック処理の最初で<code>button.setEnabled(false);</code>を実行します。このゲームで防げることはどれですか。",
-      "translation": "在数字按钮的点击处理开头执行<code>button.setEnabled(false);</code>。在这个游戏中，它能防止什么？"
-    },
-    {
-      "source": "同じ数字を2回押すこと",
-      "translation": "按两次同一个数字"
-    },
-    {
-      "source": "違う数字を続けて押すこと",
-      "translation": "连续按不同的数字"
-    },
-    {
-      "source": "乱数が同じ組み合わせになること",
-      "translation": "生成相同的随机数组合"
-    },
-    {
-      "source": "再挑戦ボタンを表示すること",
-      "translation": "显示「再挑戦」（重试）按钮"
-    },
-    {
-      "source": "正答：<strong>同じ数字を2回押すこと</strong>",
-      "translation": "正确答案：<strong>按两次同一个数字</strong>"
-    },
-    {
-      "source": "押したボタンだけを無効にします。そのため、同じ導火線スイッチを2回押して状態を2段階進めることもできません。",
-      "translation": "只禁用刚按下的按钮。这样也无法按两次同一个引线开关，使状态前进两级。"
-    },
-    {
-      "source": "復習する場所：<code>bomb-game/index.html#step-6</code>",
-      "translation": "复习位置：<code>bomb-game/index.html#step-6</code>"
-    },
-    {
-      "source": "スイッチが<code>{3, 7}</code>で、押した数字<code>number</code>が7です。<code>anyMatch(num -&gt; num == number)</code>の結果はどれですか。",
-      "translation": "开关是<code>{3, 7}</code>，按下的数字<code>number</code>是7。<code>anyMatch(num -&gt; num == number)</code>的结果是什么？"
-    },
-    {
-      "source": "同じ値が1つあるので<code>true</code>",
-      "translation": "有一个相同的值，所以是<code>true</code>"
-    },
-    {
-      "source": "両方とも7ではないので<code>false</code>",
-      "translation": "两个值并非都是7，所以是<code>false</code>"
-    },
-    {
-      "source": "配列の要素数である2",
-      "translation": "数组的元素个数2"
-    },
-    {
-      "source": "一致した数字である7",
-      "translation": "匹配的数字7"
-    },
-    {
-      "source": "正答：<strong>同じ値が1つあるので<code>true</code></strong>",
-      "translation": "正确答案：<strong>有一个相同的值，所以是<code>true</code></strong>"
-    },
-    {
-      "source": "<code>anyMatch</code>は条件を満たす値が1つでもあれば<code>true</code>を返します。3は一致しなくても7が一致するので、スイッチと判定します。",
-      "translation": "只要有一个值满足条件，<code>anyMatch</code>就返回<code>true</code>。虽然3不匹配，但7匹配，所以判定为开关。"
-    },
-    {
-      "source": "A05-08 · 状態遷移",
-      "translation": "A05-08 · 状态转换"
-    },
-    {
-      "source": "<code>STATE_INITIAL = 1</code>、<code>STATE_IGNITED = 2</code>、<code>STATE_EXPLODED = 3</code>です。起動直後から2つの異なるスイッチを続けて押し、各回<code>if (match) nowState++;</code>を実行すると、最後の状態はどれですか。",
-      "translation": "<code>STATE_INITIAL = 1</code>、<code>STATE_IGNITED = 2</code>、<code>STATE_EXPLODED = 3</code>。启动后连续按下两个不同的开关，每次都执行<code>if (match) nowState++;</code>。最终是什么状态？"
-    },
-    {
-      "source": "3（爆発）",
-      "translation": "3（爆炸）"
-    },
-    {
-      "source": "1（着火前）",
-      "translation": "1（点燃前）"
-    },
-    {
-      "source": "2（着火）",
-      "translation": "2（点燃）"
-    },
-    {
-      "source": "0（未選択）",
-      "translation": "0（未选择）"
-    },
-    {
-      "source": "正答：<strong>3（爆発）</strong>",
-      "translation": "正确答案：<strong>3（爆炸）</strong>"
-    },
-    {
-      "source": "起動時の<code>nowState</code>は1です。1つ目のスイッチで2になり着火、2つ目で3になり爆発します。定数が1・2・3の連番なので<code>++</code>で次の状態へ進めます。",
-      "translation": "启动时<code>nowState</code>为1。按下第一个开关后变为2，进入点燃状态。按下第二个开关后变为3，进入爆炸状态。常量是连续的1、2、3，所以用<code>++</code>就能进入下一个状态。"
-    },
-    {
-      "source": "A05-09 · 定数と変化する値",
-      "translation": "A05-09 · 常量与变化的值"
-    },
-    {
-      "source": "<code>private static final int STATE_INITIAL = 1;</code>と<code>private int nowState = STATE_INITIAL;</code>があります。ゲームで<code>nowState++</code>を実行したときの説明はどれですか。",
-      "translation": "有<code>private static final int STATE_INITIAL = 1;</code>和<code>private int nowState = STATE_INITIAL;</code>。游戏中执行<code>nowState++</code>时，哪项描述正确？"
-    },
-    {
-      "source": "<code>nowState</code>は変わるが、定数<code>STATE_INITIAL</code>は1のまま",
-      "translation": "<code>nowState</code>改变，常量<code>STATE_INITIAL</code>仍为1"
-    },
-    {
-      "source": "<code>nowState</code>と<code>STATE_INITIAL</code>が両方2になる",
-      "translation": "<code>nowState</code>和<code>STATE_INITIAL</code>都变为2"
-    },
-    {
-      "source": "<code>STATE_INITIAL</code>だけが2になり、<code>nowState</code>は1のまま",
-      "translation": "只有<code>STATE_INITIAL</code>变为2，<code>nowState</code>仍为1"
-    },
-    {
-      "source": "<code>final</code>があるので<code>nowState</code>も絶対に変更できない",
-      "translation": "因为有<code>final</code>，<code>nowState</code>也绝对不能更改"
-    },
-    {
-      "source": "正答：<strong><code>nowState</code>は変わるが、定数<code>STATE_INITIAL</code>は1のまま</strong>",
-      "translation": "正确答案：<strong><code>nowState</code>改变，常量<code>STATE_INITIAL</code>仍为1</strong>"
-    },
-    {
-      "source": "<code>STATE_INITIAL</code>は<code>final</code>の定数です。<code>nowState</code>はその値を最初に受け取り、その後の現在状態を覚える別のフィールドなので変更できます。",
-      "translation": "<code>STATE_INITIAL</code>是<code>final</code>常量。<code>nowState</code>只在初始化时接收这个值，之后作为另一个字段记录当前状态，所以可以更改。"
-    },
-    {
-      "source": "A05-10 · <code>filter</code>と<code>count</code>",
-      "translation": "A05-10 · <code>filter</code>与<code>count</code>"
-    },
-    {
-      "source": "<code>Arrays.stream(numberButtons).filter(b -&gt; !b.isEnabled()).count()</code>で数えるものはどれですか。",
-      "translation": "<code>Arrays.stream(numberButtons).filter(b -&gt; !b.isEnabled()).count()</code>统计的是什么？"
-    },
-    {
-      "source": "押せない状態の数字ボタンの数",
-      "translation": "不可按下的数字按钮的个数"
-    },
-    {
-      "source": "まだ押せる数字ボタンの数",
-      "translation": "仍然可按下的数字按钮的个数"
-    },
-    {
-      "source": "ボタンに書かれた数字の合計",
-      "translation": "按钮上所写数字的总和"
-    },
-    {
-      "source": "スイッチの数字の最大値",
-      "translation": "开关数字中的最大值"
-    },
-    {
-      "source": "正答：<strong>押せない状態の数字ボタンの数</strong>",
-      "translation": "正确答案：<strong>不可按下的数字按钮的个数</strong>"
-    },
-    {
-      "source": "<code>isEnabled()</code>は押せる状態かを返し、<code>!</code>で反対にしています。<code>filter</code>で押せないボタンだけを残し、<code>count</code>で数えます。押した直後に無効にしたボタンも数に入ります。",
-      "translation": "<code>isEnabled()</code>返回按钮是否可以按下，<code>!</code>将结果取反。<code>filter</code>只保留不可按下的按钮，再用<code>count</code>统计个数。刚按下就被禁用的按钮也会计入。"
-    },
-    {
-      "source": "復習する場所：<code>bomb-game/index.html#step-9</code>",
-      "translation": "复习位置：<code>bomb-game/index.html#step-9</code>"
-    },
-    {
-      "source": "A05-11 · クリア条件",
-      "translation": "A05-11 · 通关条件"
-    },
-    {
-      "source": "A05でスイッチを1つ押して着火した後、スイッチ以外の7個を全部押してクリアしました。クリア判定の時点で押せないボタンを8個と数える理由はどれですか。",
-      "translation": "在A05中，按下一个开关点燃后，再按下其余7个非开关按钮，游戏通关。为什么判定通关时，不可按下的按钮有8个？"
-    },
-    {
-      "source": "スイッチ以外の7個に、先に押したスイッチ1個も含まれるため",
-      "translation": "因为除了7个非开关按钮，还算上先按下的1个开关"
-    },
-    {
-      "source": "再挑戦ボタンも数字ボタンとして数えるため",
-      "translation": "因为「再挑戦」（重试）按钮也算数字按钮"
-    },
-    {
-      "source": "着火するとボタンが1個増えるため",
-      "translation": "因为点燃后会多出1个按钮"
-    },
-    {
-      "source": "スイッチ以外のボタンが最初から8個あるため",
-      "translation": "因为非开关按钮一开始就有8个"
-    },
-    {
-      "source": "正答：<strong>スイッチ以外の7個に、先に押したスイッチ1個も含まれるため</strong>",
-      "translation": "正确答案：<strong>因为除了7个非开关按钮，还算上先按下的1个开关</strong>"
-    },
-    {
-      "source": "9個中2個がスイッチなので、それ以外は7個です。着火前なら7個、着火後なら押したスイッチも足して8個でクリアになります。着火後のクリアでは画像は火の付いたままです。",
-      "translation": "9个按钮中有2个开关，所以非开关按钮有7个。点燃前，按下这7个就能通关。点燃后，加上已按下的开关，共按下8个才通关。点燃后通关时，图片仍显示火焰。"
-    },
-    {
-      "source": "A05-12 · 再挑戦",
-      "translation": "A05-12 · 重试"
-    },
-    {
-      "source": "A05の再挑戦では<code>generateIgnitionNumbers()</code>を呼び、9個の数字ボタンを<code>setEnabled(true)</code>にします。再挑戦後の説明として正しいものはどれですか。",
-      "translation": "在A05中，重试时调用<code>generateIgnitionNumbers()</code>，并把9个数字按钮设为<code>setEnabled(true)</code>。哪项描述符合重试后的状态？"
-    },
-    {
-      "source": "数字をすべて押せるように戻し、スイッチを選び直す。同じ組み合わせになることもある",
-      "translation": "恢复所有数字按钮的可按状态，并重新选择开关。也可能选到相同的组合"
-    },
-    {
-      "source": "数字をすべて押せるように戻すが、スイッチは必ず前のまま",
-      "translation": "恢复所有数字按钮的可按状态，但开关一定保持原样"
-    },
-    {
-      "source": "押した数字だけ無効のまま残し、スイッチを選び直す",
-      "translation": "只让已按过的数字按钮保持禁用，并重新选择开关"
-    },
-    {
-      "source": "数字はすべて押せるように戻るが、前と同じスイッチになることは絶対にない",
-      "translation": "所有数字按钮都恢复可按，但开关绝不可能与之前相同"
-    },
-    {
-      "source": "正答：<strong>数字をすべて押せるように戻し、スイッチを選び直す。同じ組み合わせになることもある</strong>",
-      "translation": "正确答案：<strong>恢复所有数字按钮的可按状态，并重新选择开关。也可能选到相同的组合</strong>"
-    },
-    {
-      "source": "再挑戦は状態・画像・メッセージも最初に戻し、乱数のメソッドを呼び直します。2つのスイッチは互いに異なりますが、前の回と同じ組み合わせになる可能性はあります。",
-      "translation": "重试也会重置状态、图片和消息，并再次调用生成随机数的方法。两个开关互不相同，但可能和上一轮是同一个组合。"
-    },
-    {
-      "source": "復習する場所：<code>bomb-game/index.html#step-8</code>",
-      "translation": "复习位置：<code>bomb-game/index.html#step-8</code>"
-    },
-    {
-      "source": "A06-01 · <code>Activity</code>の追加",
-      "translation": "A06-01 · 添加<code>Activity</code>"
-    },
-    {
-      "source": "A06で2つ目の画面<code>TestActivity</code>を追加するとき、教科書で選ぶ操作はどれですか。",
-      "translation": "在A06中添加第二个界面<code>TestActivity</code>时，按教材应选择哪项操作？"
-    },
-    {
-      "source": "正答：<strong><code>New → Activity → Empty Views Activity</code></strong>",
-      "translation": "正确答案：<strong><code>New → Activity → Empty Views Activity</code></strong>"
-    },
-    {
-      "source": "<code>Activity</code>として作ると、<code>Java</code>とレイアウト<code>XML</code>に加えて<code>AndroidManifest.xml</code>への登録も用意されます。<code>Java Class</code>だけでは画面の登録ができません。",
-      "translation": "创建<code>Activity</code>时，除生成<code>Java</code>和布局<code>XML</code>外，还会准备好在<code>AndroidManifest.xml</code>中的注册。只选<code>Java Class</code>不会注册该界面。"
-    },
-    {
-      "source": "復習する場所：<code>screen-transition-sample/index.html#step-3</code>",
-      "translation": "复习位置：<code>screen-transition-sample/index.html#step-3</code>"
-    },
-    {
-      "source": "A06-02 · <code>Intent</code>による画面遷移",
-      "translation": "A06-02 · 用<code>Intent</code>切换界面"
-    },
-    {
-      "source": "<code>new Intent(this, TestActivity.class)</code>で作った<code>intent</code>をAndroidへ渡し、<code>TestActivity</code>を開く処理はどれですか。",
-      "translation": "哪个处理会将通过<code>new Intent(this, TestActivity.class)</code>创建的<code>intent</code>交给Android，并打开<code>TestActivity</code>？"
-    },
-    {
-      "source": "正答：<strong><code>startActivity(intent);</code></strong>",
-      "translation": "正确答案：<strong><code>startActivity(intent);</code></strong>"
-    },
-    {
-      "source": "<code>Intent</code>は開きたい画面を伝える指示です。作るだけでは画面は開かず、<code>startActivity</code>に渡すと画面が開きます。",
-      "translation": "<code>Intent</code>是告诉系统要打开哪个界面的指令。只创建它并不会打开界面，要把它传给<code>startActivity</code>才能打开。"
-    },
-    {
-      "source": "復習する場所：<code>screen-transition-sample/index.html#step-4</code>",
-      "translation": "复习位置：<code>screen-transition-sample/index.html#step-4</code>"
-    },
-    {
-      "source": "A06-03 · 戻る操作",
-      "translation": "A06-03 · 返回操作"
-    },
-    {
-      "source": "A06で<code>TestActivity</code>を開いたあと、戻るためのコードを書かなくてもAndroidの戻る操作で<code>MainActivity</code>が見える理由はどれですか。",
-      "translation": "在A06中打开<code>TestActivity</code>后，即使没有编写返回代码，执行Android的返回操作也能看到<code>MainActivity</code>。这是为什么？"
-    },
-    {
-      "source": "上に開いた<code>TestActivity</code>が閉じ、下の<code>MainActivity</code>が見えるため",
-      "translation": "因为上层打开的<code>TestActivity</code>关闭，露出下层的<code>MainActivity</code>"
-    },
-    {
-      "source": "戻る操作が<code>MainActivity.java</code>をもう一度コンパイルするため",
-      "translation": "因为返回操作会重新编译<code>MainActivity.java</code>"
-    },
-    {
-      "source": "<code>putExtra</code>が自動で<code>MainActivity</code>を開き直すため",
-      "translation": "因为<code>putExtra</code>会自动重新打开<code>MainActivity</code>"
-    },
-    {
-      "source": "<code>Logcat</code>が前の画面を保存しているため",
-      "translation": "因为<code>Logcat</code>保存了上一个界面"
-    },
-    {
-      "source": "正答：<strong>上に開いた<code>TestActivity</code>が閉じ、下の<code>MainActivity</code>が見えるため</strong>",
-      "translation": "正确答案：<strong>因为上层打开的<code>TestActivity</code>关闭，露出下层的<code>MainActivity</code></strong>"
-    },
-    {
-      "source": "開いた画面は前の画面の上に重なります。戻る操作で上の画面が閉じるので、前の画面を開くコードを追加しなくても戻れます。",
-      "translation": "新打开的界面在上一个界面之上。返回操作会关闭上层界面，因此不用添加打开上一个界面的代码也能返回。"
-    },
-    {
-      "source": "A06-04 · <code>int</code>の既定値",
-      "translation": "A06-04 · <code>int</code>的默认值"
-    },
-    {
-      "source": "<code>Intent</code>にキー<code>&quot;score&quot;</code>の値を入れていないとき、<code>getIntent().getIntExtra(&quot;score&quot;, -1)</code>が返す値はどれですか。",
-      "translation": "<code>Intent</code>中没有放入键<code>&quot;score&quot;</code>对应的值时，<code>getIntent().getIntExtra(&quot;score&quot;, -1)</code>会返回哪个值？"
-    },
-    {
-      "source": "正答：<strong>-1</strong>",
-      "translation": "正确答案：<strong>-1</strong>"
-    },
-    {
-      "source": "<code>getIntExtra</code>の第2引数は、指定したキーの値がないときに返す既定値です。ここでは-1を渡しています。",
-      "translation": "<code>getIntExtra</code>的第二个参数是在找不到指定键对应的值时返回的默认值。这里传入的是-1。"
-    },
-    {
-      "source": "復習する場所：<code>screen-transition-sample/index.html#step-5</code>",
-      "translation": "复习位置：<code>screen-transition-sample/index.html#step-5</code>"
-    },
-    {
-      "source": "A06-05 · <code>String</code>の受け取り",
-      "translation": "A06-05 · 接收<code>String</code>"
-    },
-    {
-      "source": "A06の<code>Test 1</code>は値を入れずに画面を開きます。このとき<code>getStringExtra(EXTRA_KEY_STRING_VALUE)</code>の結果はどれですか。",
-      "translation": "A06的<code>Test 1</code>在打开界面时没有传值。此时<code>getStringExtra(EXTRA_KEY_STRING_VALUE)</code>的结果是什么？"
-    },
-    {
-      "source": "<code>&quot;0&quot;</code>という文字列",
-      "translation": "字符串<code>&quot;0&quot;</code>"
-    },
-    {
-      "source": "&quot;<code>Hello</code>&quot;という文字列",
-      "translation": "字符串&quot;<code>Hello</code>&quot;"
-    },
-    {
-      "source": "正答：<strong><code>null</code></strong>",
-      "translation": "正确答案：<strong><code>null</code></strong>"
-    },
-    {
-      "source": "指定したキーの文字列が<code>Intent</code>にないとき、<code>getStringExtra</code>は<code>null</code>を返します。<code>int</code>のように第2引数で既定値を指定する形ではありません。",
-      "translation": "如果<code>Intent</code>中没有指定键对应的字符串，<code>getStringExtra</code>会返回<code>null</code>。这种写法与<code>int</code>不同，不能用第二个参数指定默认值。"
-    },
-    {
-      "source": "A06-06 · キーの一致",
-      "translation": "A06-06 · 匹配键"
-    },
-    {
-      "source": "<code>intent.putExtra(&quot;intValue&quot;, 7)</code>で送った値を、受け取り側が<code>getIntExtra(&quot;intvalue&quot;, 0)</code>で読むと、どの値になりますか。",
-      "translation": "用<code>intent.putExtra(&quot;intValue&quot;, 7)</code>发送的值，接收方用<code>getIntExtra(&quot;intvalue&quot;, 0)</code>读取时，得到哪个值？"
-    },
-    {
-      "source": "正答：<strong>0</strong>",
-      "translation": "正确答案：<strong>0</strong>"
-    },
-    {
-      "source": "キーは大文字・小文字を含めて一致する必要があります。<code>intValue</code>と<code>intvalue</code>は別のキーなので値が見つからず、既定値の0が返ります。",
-      "translation": "键必须完全匹配，包括大小写。<code>intValue</code>和<code>intvalue</code>是不同的键，所以找不到该值，返回默认值0。"
-    },
-    {
-      "source": "復習する場所：<code>screen-transition-sample/index.html#step-8</code>",
-      "translation": "复习位置：<code>screen-transition-sample/index.html#step-8</code>"
-    },
-    {
-      "source": "A06-07 · キーの定数",
-      "translation": "A06-07 · 用常量表示键"
-    },
-    {
-      "source": "A06で<code>EXTRA</code>キーの定数を<code>TestActivity</code>に置く理由として、教材の構成に合うものはどれですか。",
-      "translation": "在A06中，按教材的代码结构，为什么把<code>EXTRA</code>键的常量放在<code>TestActivity</code>中？"
-    },
-    {
-      "source": "値を入れる<code>start</code>と取り出す<code>onCreate</code>が両方とも<code>TestActivity</code>にあるため",
-      "translation": "因为放入值的<code>start</code>和取出值的<code>onCreate</code>都在<code>TestActivity</code>中"
-    },
-    {
-      "source": "定数は必ず<code>MainActivity</code>以外に置く決まりがあるため",
-      "translation": "因为常量必须放在<code>MainActivity</code>以外"
-    },
-    {
-      "source": "キーを画面に表示する<code>TextView</code>が<code>TestActivity</code>にあるため",
-      "translation": "因为在界面上显示键的<code>TextView</code>位于<code>TestActivity</code>中"
-    },
-    {
-      "source": "<code>MainActivity</code>では<code>String</code>型を使えないため",
-      "translation": "因为<code>MainActivity</code>不能使用<code>String</code>类型"
-    },
-    {
-      "source": "正答：<strong>値を入れる<code>start</code>と取り出す<code>onCreate</code>が両方とも<code>TestActivity</code>にあるため</strong>",
-      "translation": "正确答案：<strong>因为放入值的<code>start</code>和取出值的<code>onCreate</code>都在<code>TestActivity</code>中</strong>"
-    },
-    {
-      "source": "<code>putExtra</code>と<code>getXxxExtra</code>が同じ定数を使えます。呼び出す<code>MainActivity</code>は<code>start</code>に値を渡すだけなので、キーの文字を知る必要がありません。",
-      "translation": "<code>putExtra</code>和<code>getXxxExtra</code>可以共用同一个常量。调用方<code>MainActivity</code>只需把值传给<code>start</code>，因此不必知道键的文字。"
-    },
-    {
-      "source": "復習する場所：<code>screen-transition-sample/index.html#step-6</code>",
-      "translation": "复习位置：<code>screen-transition-sample/index.html#step-6</code>"
-    },
-    {
-      "source": "A06-08 · オーバーロード",
-      "translation": "A06-08 · 重载"
-    },
-    {
-      "source": "A06で<code>start(Context)</code>、<code>start(Context, int, String)</code>、<code>start(Context, String[])</code>を同じクラスに書ける理由はどれですか。",
-      "translation": "为什么在A06中，可以把<code>start(Context)</code>、<code>start(Context, int, String)</code>、<code>start(Context, String[])</code>写在同一个类中？"
-    },
-    {
-      "source": "引数の型や数が違うため",
-      "translation": "因为参数的类型或数量不同"
-    },
-    {
-      "source": "戻り値がすべて<code>void</code>だから、引数が同じでも書けるため",
-      "translation": "因为返回值都是<code>void</code>，所以参数相同也可以这样写"
-    },
-    {
-      "source": "メソッド名に<code>start</code>が含まれると重複が許されるため",
-      "translation": "因为方法名包含<code>start</code>就可以重复"
-    },
-    {
-      "source": "Androidが同じ名前のメソッドを順番に全部実行するため",
-      "translation": "因为Android会按顺序执行所有同名方法"
-    },
-    {
-      "source": "正答：<strong>引数の型や数が違うため</strong>",
-      "translation": "正确答案：<strong>因为参数的类型或数量不同</strong>"
-    },
-    {
-      "source": "同じ名前で引数の型や数が違うメソッドを用意することをオーバーロードといいます。渡した値に合う<code>start</code>が選ばれます。",
-      "translation": "定义名称相同、参数的类型或数量不同的方法，叫作重载（オーバーロード）。会选用与传入值匹配的<code>start</code>。"
-    },
-    {
-      "source": "A06-09 · 配列の受け渡し",
-      "translation": "A06-09 · 传递数组"
-    },
-    {
-      "source": "<code>putExtra</code>で渡した<code>String[]</code>を受け取るメソッドはどれですか。",
-      "translation": "用哪个方法接收通过<code>putExtra</code>传来的<code>String[]</code>？"
-    },
-    {
-      "source": "正答：<strong><code>getStringArrayExtra</code></strong>",
-      "translation": "正确答案：<strong><code>getStringArrayExtra</code></strong>"
-    },
-    {
-      "source": "<code>String[]</code>は文字列の配列です。受け取りにも配列用の<code>getStringArrayExtra</code>を使い、送る側と同じキーを渡します。",
-      "translation": "<code>String[]</code>是字符串数组。接收时也要用数组对应的<code>getStringArrayExtra</code>，并传入与发送方相同的键。"
-    },
-    {
-      "source": "復習する場所：<code>screen-transition-sample/index.html#step-7</code>",
-      "translation": "复习位置：<code>screen-transition-sample/index.html#step-7</code>"
-    },
-    {
-      "source": "A06-10 · 配列の表示",
-      "translation": "A06-10 · 显示数组"
-    },
-    {
-      "source": "<code>String[] values = {&quot;3&quot;, &quot;4&quot;, &quot;5&quot;};</code>のとき、<code>Arrays.toString(values)</code>の結果はどれですか。",
-      "translation": "当<code>String[] values = {&quot;3&quot;, &quot;4&quot;, &quot;5&quot;};</code>时，<code>Arrays.toString(values)</code>的结果是什么？"
-    },
-    {
-      "source": "正答：<strong><code>[3, 4, 5]</code></strong>",
-      "translation": "正确答案：<strong><code>[3, 4, 5]</code></strong>"
-    },
-    {
-      "source": "<code>Arrays.toString</code>は配列の中身を角かっことカンマを使った文字列にします。A06では受け取った配列を<code>Logcat</code>で読むために使います。",
-      "translation": "<code>Arrays.toString</code>将数组内容转为用方括号和逗号表示的字符串。A06使用它在<code>Logcat</code>中查看收到的数组。"
-    },
-    {
-      "source": "A06-11 · <code>Logcat</code>のタグ",
-      "translation": "A06-11 · <code>Logcat</code>的标签"
-    },
-    {
-      "source": "<code>Log.d(&quot;TestActivity&quot;, &quot;intValue: &quot; + intValue);</code>の出力を<code>Logcat</code>で探すとき、教材で指定するタグの条件はどれですか。",
-      "translation": "要在<code>Logcat</code>中查找<code>Log.d(&quot;TestActivity&quot;, &quot;intValue: &quot; + intValue);</code>的输出，教材指定的标签过滤条件是哪一项？"
-    },
-    {
-      "source": "正答：<strong><code>tag:TestActivity</code></strong>",
-      "translation": "正确答案：<strong><code>tag:TestActivity</code></strong>"
-    },
-    {
-      "source": "<code>Log.d</code>の第1引数がタグです。値を受け取った<code>TestActivity</code>でログを出すので、前の単元の<code>tag:MainActivity</code>のままでは目的の行を探せません。",
-      "translation": "<code>Log.d</code>的第一个参数是标签。日志由收到值的<code>TestActivity</code>输出，所以继续用上一个单元的<code>tag:MainActivity</code>找不到目标行。"
-    },
-    {
-      "source": "A06-12 · 渡す値の選び方",
-      "translation": "A06-12 · 选择要传递的值"
-    },
-    {
-      "source": "A06の解説で、実際によく使う渡し方として示しているものはどれですか。",
-      "translation": "A06的解析中介绍了哪种实际常用的传值方式？"
-    },
-    {
-      "source": "IDなど小さな値を渡し、開いた画面で必要なデータを用意する",
-      "translation": "传递ID等小型数据，在打开的界面中准备所需数据"
-    },
-    {
-      "source": "写真や動画の全データを毎回<code>Intent</code>に入れる",
-      "translation": "每次都把照片或视频的全部数据放进<code>Intent</code>"
-    },
-    {
-      "source": "キーを使わず、変数名だけで値を取り出す",
-      "translation": "不用键，仅通过变量名取出值"
-    },
-    {
-      "source": "どの画面を開くときも空の<code>String</code>配列だけを渡す",
-      "translation": "打开任何界面时都只传递空的<code>String</code>数组"
-    },
-    {
-      "source": "正答：<strong>IDなど小さな値を渡し、開いた画面で必要なデータを用意する</strong>",
-      "translation": "正确答案：<strong>传递ID等小型数据，在打开的界面中准备所需数据</strong>"
-    },
-    {
-      "source": "A06では<code>Test 2</code>の形を例に、見分けるための番号など、小さな値を1つずつ渡す方法を紹介しています。",
-      "translation": "A06以<code>Test 2</code>的写法为例，介绍如何逐个传递标识编号等小型数据。"
-    },
-    {
-      "source": "復習する場所：<code>screen-transition-sample/index.html#step-9</code>",
-      "translation": "复习位置：<code>screen-transition-sample/index.html#step-9</code>"
-    },
-    {
-      "source": "A07-01 · 参加者の管理",
-      "translation": "A07-01 · 管理参与者"
-    },
-    {
-      "source": "A07で参加者名を<code>TextView</code>だけでなく<code>ArrayList&lt;String&gt;</code>にもためる主な理由はどれですか。",
-      "translation": "在A07中，除了用<code>TextView</code>显示参与者姓名，还要将姓名存到<code>ArrayList&lt;String&gt;</code>中的主要原因是什么？"
-    },
-    {
-      "source": "重複を調べたり、人数を数えたりするため",
-      "translation": "为了检查重复姓名、统计人数"
-    },
-    {
-      "source": "<code>TextView</code>には文字列を表示できないため",
-      "translation": "因为<code>TextView</code>无法显示字符串"
-    },
-    {
-      "source": "<code>ArrayList</code>に入れると端末のファイルへ自動保存されるため",
-      "translation": "因为放进<code>ArrayList</code>就会自动保存到设备的文件中"
-    },
-    {
-      "source": "<code>ArrayList</code>に入れないと画像を表示できないため",
-      "translation": "因为不放进<code>ArrayList</code>就不能显示图片"
-    },
-    {
-      "source": "正答：<strong>重複を調べたり、人数を数えたりするため</strong>",
-      "translation": "正确答案：<strong>为了检查重复姓名、统计人数</strong>"
-    },
-    {
-      "source": "<code>ArrayList</code>は参加者のデータを持ちます。<code>contains</code>で同じ名前があるかを調べ、<code>size</code>で人数を数えます。<code>TextView</code>は一覧の表示に使います。",
-      "translation": "<code>ArrayList</code>保存参与者数据。用<code>contains</code>检查是否有相同的姓名，用<code>size</code>统计人数。<code>TextView</code>用来显示列表。"
-    },
-    {
-      "source": "復習する場所：<code>bill-splitter/index.html#step-4</code>",
-      "translation": "复习位置：<code>bill-splitter/index.html#step-4</code>"
-    },
-    {
-      "source": "A07-02 · 重複チェック",
-      "translation": "A07-02 · 检查重复姓名"
-    },
-    {
-      "source": "参加者にすでに<code>Sato</code>がいるとき、もう一度<code>Sato</code>を登録して一覧が増えないようにする判定はどれですか。",
-      "translation": "参与者中已有<code>Sato</code>时，用哪个判断防止再次添加<code>Sato</code>，使列表不重复增加？"
-    },
-    {
-      "source": "正答：<strong><code>participants.contains(participantName)</code></strong>",
-      "translation": "正确答案：<strong><code>participants.contains(participantName)</code></strong>"
-    },
-    {
-      "source": "<code>contains</code>は指定した名前がリストにあるかを調べます。見つかったときはメッセージを出し、<code>return</code>で追加処理を止めます。",
-      "translation": "<code>contains</code>检查指定姓名是否在列表中。找到相同姓名时，显示消息并用<code>return</code>结束添加处理。"
-    },
-    {
-      "source": "A07-03 · 入力チェックと<code>return</code>",
-      "translation": "A07-03 · 检查输入与<code>return</code>"
-    },
-    {
-      "source": "参加者名が空のとき、<code>Snackbar</code>を表示した直後の<code>return;</code>にはどの役割がありますか。",
-      "translation": "参与者姓名为空时，显示<code>Snackbar</code>后紧跟的<code>return;</code>有什么作用？"
-    },
-    {
-      "source": "そのクリック処理を終え、空の名前の追加を防ぐ",
-      "translation": "结束这次点击处理，防止添加空姓名"
-    },
-    {
-      "source": "空の名前を自動で<code>Sato</code>に変える",
-      "translation": "将空姓名自动改为<code>Sato</code>"
-    },
-    {
-      "source": "前の<code>Activity</code>へ戻る",
-      "translation": "返回上一个<code>Activity</code>"
-    },
-    {
-      "source": "登録ずみの参加者を全部消す",
-      "translation": "清除所有已登记的参与者"
-    },
-    {
-      "source": "正答：<strong>そのクリック処理を終え、空の名前の追加を防ぐ</strong>",
-      "translation": "正确答案：<strong>结束这次点击处理，防止添加空姓名</strong>"
-    },
-    {
-      "source": "<code>Snackbar</code>を表示するだけでは後ろの処理も続きます。<code>return</code>を入れると<code>participants.add</code>などを実行せず、そのクリック処理が終わります。",
-      "translation": "仅显示<code>Snackbar</code>时，后续处理仍会执行。加入<code>return</code>后，不会执行<code>participants.add</code>等操作，这次点击处理就结束了。"
-    },
-    {
-      "source": "A07-04 · 人数チェック",
-      "translation": "A07-04 · 检查人数"
-    },
-    {
-      "source": "A07で<code>participants.size()</code>が1の状態で「<code>ワリカン画面へ</code>」を押すとどうなりますか。",
-      "translation": "在A07中，当<code>participants.size()</code>为1时，按下「<code>ワリカン画面へ</code>」（进入费用分摊界面）会怎样？"
-    },
-    {
-      "source": "2人以上追加するよう表示され、画面は切り替わらない",
-      "translation": "显示提示，要求至少添加两人，界面不会切换"
-    },
-    {
-      "source": "参加者は1人と表示してワリカン画面が開く",
-      "translation": "显示参与者为1人，并打开费用分摊界面"
-    },
-    {
-      "source": "空の参加者が1人自動で追加される",
-      "translation": "自动添加一名空白参与者"
-    },
-    {
-      "source": "登録ずみの名前が消える",
-      "translation": "已登记的姓名消失"
-    },
-    {
-      "source": "正答：<strong>2人以上追加するよう表示され、画面は切り替わらない</strong>",
-      "translation": "正确答案：<strong>显示提示，要求至少添加两人，界面不会切换</strong>"
-    },
-    {
-      "source": "<code>participants.size() &lt; 2</code>で人数を確認します。1人ならメッセージを表示して<code>return</code>するので、<code>BillSplitActivity.start</code>は呼びません。",
-      "translation": "用<code>participants.size() &lt; 2</code>检查人数。如果只有1人，显示消息后执行<code>return</code>，所以不会调用<code>BillSplitActivity.start</code>。"
-    },
-    {
-      "source": "復習する場所：<code>bill-splitter/index.html#step-6</code>",
-      "translation": "复习位置：<code>bill-splitter/index.html#step-6</code>"
-    },
-    {
-      "source": "A07-05 · リストから配列へ",
-      "translation": "A07-05 · 从列表转为数组"
-    },
-    {
-      "source": "<code>BillSplitActivity.start</code>に渡す<code>participants.toArray(new String[0])</code>は、何をしていますか。",
-      "translation": "传给<code>BillSplitActivity.start</code>的<code>participants.toArray(new String[0])</code>起什么作用？"
-    },
-    {
-      "source": "参加者の<code>ArrayList</code>を<code>String[]</code>に変える",
-      "translation": "将保存参与者的<code>ArrayList</code>转为<code>String[]</code>"
-    },
-    {
-      "source": "参加者を0人に減らす",
-      "translation": "将参与者减少到0人"
-    },
-    {
-      "source": "参加者の名前を1つの<code>int</code>に変える",
-      "translation": "将参与者的姓名转为一个<code>int</code>"
-    },
-    {
-      "source": "参加者を端末の<code>XML</code>ファイルに保存する",
-      "translation": "将参与者保存到设备的<code>XML</code>文件"
-    },
-    {
-      "source": "正答：<strong>参加者の<code>ArrayList</code>を<code>String[]</code>に変える</strong>",
-      "translation": "正确答案：<strong>将保存参与者的<code>ArrayList</code>转为<code>String[]</code></strong>"
-    },
-    {
-      "source": "画面では参加者を<code>ArrayList</code>で管理し、<code>Intent</code>には<code>String[]</code>を渡します。<code>toArray</code>はその型の変換で、元のリストから名前を削除する処理ではありません。",
-      "translation": "界面中用<code>ArrayList</code>管理参与者，并将<code>String[]</code>传给<code>Intent</code>。<code>toArray</code>完成这一类型转换，原列表中的姓名不会被删除。"
-    },
-    {
-      "source": "A07-06 · 配列の要素数",
-      "translation": "A07-06 · 数组的元素个数"
-    },
-    {
-      "source": "受け取った<code>participants</code>が<code>{&quot;Sato&quot;, &quot;Suzuki&quot;, &quot;Tanaka&quot;}</code>のとき、<code>&quot;参加者は&quot; + participants.length + &quot;人&quot;</code>の表示はどれですか。",
-      "translation": "收到的<code>participants</code>为<code>{&quot;Sato&quot;, &quot;Suzuki&quot;, &quot;Tanaka&quot;}</code>时，<code>&quot;参加者は&quot; + participants.length + &quot;人&quot;</code>会显示什么？"
-    },
-    {
-      "source": "正答：<strong><code>参加者は3人</code></strong>",
-      "translation": "正确答案：<strong><code>参加者は3人</code></strong>（参与者有3人）"
-    },
-    {
-      "source": "配列の<code>length</code>は要素の数です。名前が3つ入っているため3となり、文字列とつなげて参加者は3人と表示します。",
-      "translation": "数组的<code>length</code>是元素个数。因为有三个姓名，所以是3。将它与字符串拼接后显示「参加者は3人」（参与者有3人）。"
-    },
-    {
-      "source": "A07-07 · 計算クラスの使い方",
-      "translation": "A07-07 · 使用计算类"
-    },
-    {
-      "source": "<code>BillSplitter.calculateAndFormat</code>に渡す2つの引数として正しい組み合わせはどれですか。",
-      "translation": "传给<code>BillSplitter.calculateAndFormat</code>的两个参数，正确的组合是哪一项？"
-    },
-    {
-      "source": "合計金額の<code>int</code>、参加者名の<code>String[]</code>",
-      "translation": "总金额<code>int</code>、参与者姓名<code>String[]</code>"
-    },
-    {
-      "source": "参加者名の<code>String[]</code>、合計金額の<code>int</code>",
-      "translation": "参与者姓名<code>String[]</code>、总金额<code>int</code>"
-    },
-    {
-      "source": "金額の<code>EditText</code>、一覧の<code>TextView</code>",
-      "translation": "金额输入框<code>EditText</code>、列表<code>TextView</code>"
-    },
-    {
-      "source": "画像のid、参加者数の<code>String</code>",
-      "translation": "图片id、参与者人数<code>String</code>"
-    },
-    {
-      "source": "正答：<strong>合計金額の<code>int</code>、参加者名の<code>String[]</code></strong>",
-      "translation": "正确答案：<strong>总金额<code>int</code>、参与者姓名<code>String[]</code></strong>"
-    },
-    {
-      "source": "第1引数は合計金額、第2引数は参加者名の配列です。金額1以上・2人以上という条件を、呼び出す前に守る必要があります。",
-      "translation": "第一个参数是总金额，第二个参数是参与者姓名数组。调用前需满足金额至少为1且至少有2位参与者的条件。"
-    },
-    {
-      "source": "復習する場所：<code>bill-splitter/index.html#step-7</code>",
-      "translation": "复习位置：<code>bill-splitter/index.html#step-7</code>"
-    },
-    {
-      "source": "A07-08 · 計算結果の表示",
-      "translation": "A07-08 · 显示计算结果"
-    },
-    {
-      "source": "<code>BillSplitter.calculateAndFormat</code>の戻り値<code>result</code>は、どのように表示できますか。",
-      "translation": "如何显示<code>BillSplitter.calculateAndFormat</code>的返回值<code>result</code>？"
-    },
-    {
-      "source": "<code>participants.add(result);</code>だけで画面にも出る",
-      "translation": "只需执行<code>participants.add(result);</code>就会在界面上显示"
-    },
-    {
-      "source": "<code>Integer.parseInt(result);</code>だけで画面にも出る",
-      "translation": "只需执行<code>Integer.parseInt(result);</code>就会在界面上显示"
-    },
-    {
-      "source": "正答：<strong><code>txtParticipantList.setText(result);</code></strong>",
-      "translation": "正确答案：<strong><code>txtParticipantList.setText(result);</code></strong>"
-    },
-    {
-      "source": "戻り値は改行を含む表示用の文字列です。<code>setText</code>に渡すと、各参加者の金額と合計を一覧に表示できます。",
-      "translation": "返回值是带换行的显示用字符串。传给<code>setText</code>后，就能在列表中显示每位参与者的金额和总金额。"
-    },
-    {
-      "source": "復習する場所：<code>bill-splitter/index.html#step-9</code>",
-      "translation": "复习位置：<code>bill-splitter/index.html#step-9</code>"
-    },
-    {
-      "source": "A07-09 · 文字列から整数へ",
-      "translation": "A07-09 · 将字符串转为整数"
-    },
-    {
-      "source": "金額欄から取り出した文字列<code>&quot;1234&quot;</code>を、計算に使う<code>int</code>に変える処理はどれですか。",
-      "translation": "要将从金额输入框取出的字符串<code>&quot;1234&quot;</code>转为用于计算的<code>int</code>，应使用哪个处理？"
-    },
-    {
-      "source": "正答：<strong><code>Integer.parseInt(edtTotalAmountStr)</code></strong>",
-      "translation": "正确答案：<strong><code>Integer.parseInt(edtTotalAmountStr)</code></strong>"
-    },
-    {
-      "source": "<code>parseInt</code>は数字を表す文字列を<code>int</code>に変えます。変換できない入力は<code>NumberFormatException</code>になるので、教材では<code>try</code>と<code>catch</code>で受け止めています。",
-      "translation": "<code>parseInt</code>将表示数字的字符串转为<code>int</code>。遇到无法转换的输入时会抛出<code>NumberFormatException</code>，因此教材用<code>try</code>和<code>catch</code>处理。"
-    },
-    {
-      "source": "復習する場所：<code>bill-splitter/index.html#step-8</code>",
-      "translation": "复习位置：<code>bill-splitter/index.html#step-8</code>"
-    },
-    {
-      "source": "A07-10 · 金額と人数のチェック",
-      "translation": "A07-10 · 检查金额和人数"
-    },
-    {
-      "source": "参加者が3人で、合計金額に2円を入れて「<code>計算実行</code>」を押したときの動作はどれですか。",
-      "translation": "有3名参与者，总金额输入2日元，再按下「<code>計算実行</code>」（开始计算）时会怎样？"
-    },
-    {
-      "source": "3円以上を入力するよう表示し、計算しない",
-      "translation": "提示输入至少3日元，不进行计算"
-    },
-    {
-      "source": "全員に1円を割り当てて計算を終える",
-      "translation": "给每人分配1日元，然后结束计算"
-    },
-    {
-      "source": "2円を自動で3円に書き換える",
-      "translation": "将2日元自动改写为3日元"
-    },
-    {
-      "source": "参加者を2人に減らして計算する",
-      "translation": "将参与者减少到2人后进行计算"
-    },
-    {
-      "source": "正答：<strong>3円以上を入力するよう表示し、計算しない</strong>",
-      "translation": "正确答案：<strong>提示输入至少3日元，不进行计算</strong>"
-    },
-    {
-      "source": "<code>totalAmount &lt; numberOfPeople</code>で止めます。金額が人数より少ないと0円の人が出るため、教材では1人あたり最低1円になる金額を求めます。",
-      "translation": "在<code>totalAmount &lt; numberOfPeople</code>时停止计算。金额小于人数会导致有人分到0日元，所以教材要求总金额至少能分给每人1日元。"
-    },
-    {
-      "source": "A07-11 · 割り勘の結果",
-      "translation": "A07-11 · 费用分摊结果"
-    },
-    {
-      "source": "A07で1235円を3人で割り勘にしたとき、誰がいくら払うかの順序を問わず、金額の組み合わせはどれですか。",
-      "translation": "在A07中，3人分摊1235日元。不考虑每笔金额由谁支付，以下哪组金额正确？"
-    },
-    {
-      "source": "412円・412円・411円",
-      "translation": "412日元、412日元、411日元"
-    },
-    {
-      "source": "411円・411円・411円",
-      "translation": "411日元、411日元、411日元"
-    },
-    {
-      "source": "412円・412円・412円",
-      "translation": "412日元、412日元、412日元"
-    },
-    {
-      "source": "413円・411円・410円",
-      "translation": "413日元、411日元、410日元"
-    },
-    {
-      "source": "正答：<strong>412円・412円・411円</strong>",
-      "translation": "正确答案：<strong>412日元、412日元、411日元</strong>"
-    },
-    {
-      "source": "1235÷3は411あまり2です。全員の411円に、2人へ1円ずつ足すので、合計1235円となり支払額の差は1円以内です。",
-      "translation": "1235÷3得411，余数为2。每人先分摊411日元，其中两人各加1日元。总额为1235日元，付款金额相差不超过1日元。"
-    },
-    {
-      "source": "復習する場所：<code>bill-splitter/index.html#step-10</code>",
-      "translation": "复习位置：<code>bill-splitter/index.html#step-10</code>"
-    },
-    {
-      "source": "A07-12 · 画像リソース",
-      "translation": "A07-12 · 图片资源"
-    },
-    {
-      "source": "A07のタイトル画像<code>title_img.png</code>をアプリの画像リソースとして置くフォルダはどれですか。",
-      "translation": "要将A07的标题图片<code>title_img.png</code>作为应用的图片资源，应放到哪个文件夹？"
-    },
-    {
-      "source": "正答：<strong><code>app/src/main/res/drawable</code></strong>",
-      "translation": "正确答案：<strong><code>app/src/main/res/drawable</code></strong>"
-    },
-    {
-      "source": "画像ファイルは<code>res/drawable</code>に置き、レイアウトの<code>ImageView</code>から<code>@drawable/title_img</code>として参照します。<code>layout</code>は画面の<code>XML</code>を置く場所です。",
-      "translation": "将图片文件放在<code>res/drawable</code>，再在布局的<code>ImageView</code>中用<code>@drawable/title_img</code>引用。<code>layout</code>用于存放界面的<code>XML</code>。"
-    },
-    {
-      "source": "復習する場所：<code>bill-splitter/index.html#step-2</code>",
-      "translation": "复习位置：<code>bill-splitter/index.html#step-2</code>"
-    },
-    {
-      "source": "A08-01 · 保存先",
-      "translation": "A08-01 · 保存位置"
-    },
-    {
-      "source": "<code>getSharedPreferences(&quot;app&quot;, MODE_PRIVATE)</code>で使う保存先のファイル名はどれですか。",
-      "translation": "<code>getSharedPreferences(&quot;app&quot;, MODE_PRIVATE)</code>使用的保存文件名是什么？"
-    },
-    {
-      "source": "正答：<strong><code>app.xml</code></strong>",
-      "translation": "正确答案：<strong><code>app.xml</code></strong>"
-    },
-    {
-      "source": "<code>SharedPreferences</code>は指定した名前に対応する<code>XML</code>ファイルへ保存します。教材ではアプリ専用の<code>shared_prefs</code>内にある<code>app.xml</code>を表示して確かめます。",
-      "translation": "<code>SharedPreferences</code>将数据保存到与指定名称对应的<code>XML</code>文件中。教材通过显示应用专用的<code>shared_prefs</code>内的<code>app.xml</code>来确认。"
-    },
-    {
-      "source": "復習する場所：<code>shared-preferences-sample/index.html#step-3</code>",
-      "translation": "复习位置：<code>shared-preferences-sample/index.html#step-3</code>"
-    },
-    {
-      "source": "A08-02 · キーの一致",
-      "translation": "A08-02 · 匹配键"
-    },
-    {
-      "source": "<code>&quot;int_value&quot;</code>というキーで1を保存しました。他のキーには保存していません。<code>prefs.getInt(&quot;intvalue&quot;, 0)</code>の結果はどれですか。",
-      "translation": "用键<code>&quot;int_value&quot;</code>保存了1，未使用其他键保存。<code>prefs.getInt(&quot;intvalue&quot;, 0)</code>的结果是什么？"
-    },
-    {
-      "source": "<code>int_value</code>と<code>intvalue</code>は別のキーです。探したキーがないので、第2引数の初期値0が返ります。キーの文字を直書きすると、この誤りはコンパイルで見つかりません。",
-      "translation": "<code>int_value</code>和<code>intvalue</code>是不同的键。找不到要查找的键时，会返回第二个参数指定的初始值0。如果直接写键的文字，编译时无法发现这种错误。"
-    },
-    {
-      "source": "復習する場所：<code>shared-preferences-sample/index.html#step-9</code>",
-      "translation": "复习位置：<code>shared-preferences-sample/index.html#step-9</code>"
-    },
-    {
-      "source": "A08-03 · 保存値と初期値",
-      "translation": "A08-03 · 保存的值与初始值"
-    },
-    {
-      "source": "キー<code>INT_VALUE</code>に1を保存ずみです。<code>prefs.getInt(INT_VALUE, -1)</code>が返す値はどれですか。",
-      "translation": "已用键<code>INT_VALUE</code>保存了1。<code>prefs.getInt(INT_VALUE, -1)</code>会返回哪个值？"
-    },
-    {
-      "source": "正答：<strong>1</strong>",
-      "translation": "正确答案：<strong>1</strong>"
-    },
-    {
-      "source": "初期値は保存された値がないときだけ使います。ここでは1が保存されているため、第2引数を変えても1が返ります。",
-      "translation": "只有在没有已保存的值时，才会使用初始值。这里已保存1，因此即使更改第二个参数，仍会返回1。"
-    },
-    {
-      "source": "復習する場所：<code>shared-preferences-sample/index.html#step-4</code>",
-      "translation": "复习位置：<code>shared-preferences-sample/index.html#step-4</code>"
-    },
-    {
-      "source": "A08-04 · 保存の順序",
-      "translation": "A08-04 · 保存顺序"
-    },
-    {
-      "source": "<code>SharedPreferences</code>へ文字列を保存するとき、教材で使う順序はどれですか。",
-      "translation": "将字符串保存到<code>SharedPreferences</code>时，教材使用的顺序是哪一项？"
-    },
-    {
-      "source": "<code>edit</code>で<code>Editor</code>を取得 → <code>putString</code>で値を指定 → <code>apply</code>で確定",
-      "translation": "用<code>edit</code>获取<code>Editor</code> → 用<code>putString</code>指定值 → 用<code>apply</code>确认更改"
-    },
-    {
-      "source": "<code>apply</code>で確定 → <code>getString</code>で値を指定 → <code>edit</code>で終了",
-      "translation": "用<code>apply</code>确认更改 → 用<code>getString</code>指定值 → 用<code>edit</code>结束"
-    },
-    {
-      "source": "<code>getString</code>で読み出し → <code>clear</code>で文字を追加 → <code>apply</code>で表示",
-      "translation": "用<code>getString</code>读取 → 用<code>clear</code>添加文字 → 用<code>apply</code>显示"
-    },
-    {
-      "source": "<code>putString</code>で表示 → <code>setText</code>で保存 → <code>getInt</code>で確定",
-      "translation": "用<code>putString</code>显示 → 用<code>setText</code>保存 → 用<code>getInt</code>确认更改"
-    },
-    {
-      "source": "正答：<strong><code>edit</code>で<code>Editor</code>を取得 → <code>putString</code>で値を指定 → <code>apply</code>で確定</strong>",
-      "translation": "正确答案：<strong>用<code>edit</code>获取<code>Editor</code> → 用<code>putString</code>指定值 → 用<code>apply</code>确认更改</strong>"
-    },
-    {
-      "source": "書き込みには<code>Editor</code>を使います。<code>putString</code>でキーと値を指定しただけでは確定していないので、最後に<code>apply</code>を呼びます。",
-      "translation": "写入时使用<code>Editor</code>。用<code>putString</code>指定键和值后，还没有确认更改，所以最后要调用<code>apply</code>。"
-    },
-    {
-      "source": "復習する場所：<code>shared-preferences-sample/index.html#step-5</code>",
-      "translation": "复习位置：<code>shared-preferences-sample/index.html#step-5</code>"
-    },
-    {
-      "source": "A08-05 · <code>apply</code>の性質",
-      "translation": "A08-05 · <code>apply</code>的特点"
-    },
-    {
-      "source": "教材の<code>apply()</code>と<code>commit()</code>の比較で、<code>apply()</code>の説明として正しいものはどれですか。",
-      "translation": "教材比较了<code>apply()</code>和<code>commit()</code>。哪项描述符合<code>apply()</code>？"
-    },
-    {
-      "source": "戻り値はなく、ファイルへの書き込みは別の処理にまかせる",
-      "translation": "没有返回值，将写入文件交给其他处理"
-    },
-    {
-      "source": "<code>boolean</code>を返し、ファイルへの書き込み完了まで待つ",
-      "translation": "返回<code>boolean</code>，并等待文件写入完成"
-    },
-    {
-      "source": "呼び出すたびに保存先ファイルを削除する",
-      "translation": "每次调用都删除保存文件"
-    },
-    {
-      "source": "値を画面に表示するだけで、保存は行わない",
-      "translation": "只在界面上显示值，不保存"
-    },
-    {
-      "source": "正答：<strong>戻り値はなく、ファイルへの書き込みは別の処理にまかせる</strong>",
-      "translation": "正确答案：<strong>没有返回值，将写入文件交给其他处理</strong>"
-    },
-    {
-      "source": "<code>apply</code>は保存を確定しますが、成功したかを戻り値では受け取りません。教材の保存・削除は<code>apply</code>に統一しています。",
-      "translation": "<code>apply</code>确认保存，但不通过返回值报告是否成功。教材中统一用<code>apply</code>保存和删除。"
-    },
-    {
-      "source": "A08-06 · 読み出し",
-      "translation": "A08-06 · 读取"
-    },
-    {
-      "source": "<code>SharedPreferences</code>から保存ずみの文字列を読み出すだけのとき、正しい説明はどれですか。",
-      "translation": "只从<code>SharedPreferences</code>读取已保存的字符串时，哪项描述正确？"
-    },
-    {
-      "source": "<code>prefs.getString</code>を使い、<code>edit</code>は呼ばなくてよい",
-      "translation": "使用<code>prefs.getString</code>，不用调用<code>edit</code>"
-    },
-    {
-      "source": "先に<code>edit.clear</code>を呼ばないと読めない",
-      "translation": "必须先调用<code>edit.clear</code>才能读取"
-    },
-    {
-      "source": "先に<code>putString</code>で同じ値を保存し直す必要がある",
-      "translation": "必须先用<code>putString</code>重新保存同一个值"
-    },
-    {
-      "source": "読み出すたびに新しいキーを作る必要がある",
-      "translation": "每次读取都要创建新键"
-    },
-    {
-      "source": "正答：<strong><code>prefs.getString</code>を使い、<code>edit</code>は呼ばなくてよい</strong>",
-      "translation": "正确答案：<strong>使用<code>prefs.getString</code>，不用调用<code>edit</code></strong>"
-    },
-    {
-      "source": "<code>Editor</code>は書き込みや削除に使います。読み出しは<code>prefs</code>の<code>getString</code>などを直接呼び、値がないときの初期値も指定します。",
-      "translation": "<code>Editor</code>用于写入或删除。读取时直接调用<code>prefs</code>的<code>getString</code>等方法，并指定找不到值时用的初始值。"
-    },
-    {
-      "source": "復習する場所：<code>shared-preferences-sample/index.html#step-6</code>",
-      "translation": "复习位置：<code>shared-preferences-sample/index.html#step-6</code>"
-    },
-    {
-      "source": "A08-07 · 全データの削除",
-      "translation": "A08-07 · 删除全部数据"
-    },
-    {
-      "source": "<code>prefs</code>の保存データをすべて消すために<code>editor.clear()</code>を書きました。教材の手順で、削除を確定する呼び出しはどれですか。",
-      "translation": "要删除<code>prefs</code>中保存的全部数据，已写好<code>editor.clear()</code>。按教材步骤，哪一项调用确认删除？"
-    },
-    {
-      "source": "正答：<strong><code>editor.apply();</code></strong>",
-      "translation": "正确答案：<strong><code>editor.apply();</code></strong>"
-    },
-    {
-      "source": "削除も<code>edit</code>で<code>Editor</code>を取得し、<code>clear</code>で削除を指定して、<code>apply</code>で確定する順序です。<code>clear</code>を呼ぶだけでは確定しません。",
-      "translation": "删除时也是先用<code>edit</code>获取<code>Editor</code>，再用<code>clear</code>指定删除，最后用<code>apply</code>确认。只调用<code>clear</code>不会确认删除。"
-    },
-    {
-      "source": "復習する場所：<code>shared-preferences-sample/index.html#step-7</code>",
-      "translation": "复习位置：<code>shared-preferences-sample/index.html#step-7</code>"
-    },
-    {
-      "source": "A08-08 · <code>XML</code>と初期値",
-      "translation": "A08-08 · <code>XML</code>与初始值"
-    },
-    {
-      "source": "A08で<code>clear</code>による削除が完了したあとの<code>app.xml</code>の内容と、<code>getInt(INT_VALUE, 0)</code>の結果の組み合わせはどれですか。",
-      "translation": "在A08中，用<code>clear</code>完成删除后，<code>app.xml</code>的内容和<code>getInt(INT_VALUE, 0)</code>的结果是哪种组合？"
-    },
-    {
-      "source": "<code>XML</code>の中身は空の<code>map</code>になり、読み出しは初期値0を返す",
-      "translation": "<code>XML</code>的内容变为空的<code>map</code>，读取时返回初始值0"
-    },
-    {
-      "source": "<code>XML</code>に0が自動保存され、読み出しはその0を返す",
-      "translation": "<code>XML</code>中自动保存0，读取时返回这个0"
-    },
-    {
-      "source": "<code>XML</code>は<code>Java</code>ファイルに変わり、読み出しは1を返す",
-      "translation": "<code>XML</code>变为<code>Java</code>文件，读取时返回1"
-    },
-    {
-      "source": "<code>XML</code>に以前の値が残り、読み出しだけが必ず<code>null</code>になる",
-      "translation": "<code>XML</code>中保留之前的值，读取时一定得到<code>null</code>"
-    },
-    {
-      "source": "正答：<strong><code>XML</code>の中身は空の<code>map</code>になり、読み出しは初期値0を返す</strong>",
-      "translation": "正确答案：<strong><code>XML</code>的内容变为空的<code>map</code>，读取时返回初始值0</strong>"
-    },
-    {
-      "source": "<code>clear</code>のあともファイルは残り、中身は<code>&lt;map /&gt;</code>になります。画面の0は、0を保存した結果ではなく、データがないため返った初期値です。",
-      "translation": "执行<code>clear</code>后文件仍在，内容变为<code>&lt;map /&gt;</code>。界面上的0是无数据时返回的初始值，并非之前保存了0。"
-    },
-    {
-      "source": "復習する場所：<code>shared-preferences-sample/index.html#step-8</code>",
-      "translation": "复习位置：<code>shared-preferences-sample/index.html#step-8</code>"
-    },
-    {
-      "source": "A08-09 · <code>Set</code>の順序",
-      "translation": "A08-09 · <code>Set</code>的顺序"
-    },
-    {
-      "source": "<code>Set.of(&quot;Hello&quot;, &quot;World&quot;)</code>を保存して読み出したら、表示が<code>[World, Hello]</code>になりました。教材に合う説明はどれですか。",
-      "translation": "保存并读取<code>Set.of(&quot;Hello&quot;, &quot;World&quot;)</code>后，显示<code>[World, Hello]</code>。哪项解释符合教材？"
-    },
-    {
-      "source": "<code>Set</code>は順番を約束しないので、この並びでも正しい",
-      "translation": "<code>Set</code>不保证顺序，所以这种排列也正确"
-    },
-    {
-      "source": "文字列が2つとも壊れたことを示している",
-      "translation": "这说明两个字符串都损坏了"
-    },
-    {
-      "source": "必ず<code>Hello</code>を先頭にする修正が必要である",
-      "translation": "必须修改代码，保证<code>Hello</code>排在第一位"
-    },
-    {
-      "source": "<code>putStringSet</code>では文字列を1つしか保存できない",
-      "translation": "使用<code>putStringSet</code>只能保存一个字符串"
-    },
-    {
-      "source": "正答：<strong><code>Set</code>は順番を約束しないので、この並びでも正しい</strong>",
-      "translation": "正确答案：<strong><code>Set</code>不保证顺序，所以这种排列也正确</strong>"
-    },
-    {
-      "source": "<code>Set</code>は順番を保つことを約束しません。<code>Hello</code>と<code>World</code>が含まれている点を確認し、表示順が逆でも保存失敗とは考えません。",
-      "translation": "<code>Set</code>不保证保留顺序。确认其中有<code>Hello</code>和<code>World</code>即可。显示顺序相反并不代表保存失败。"
-    },
-    {
-      "source": "A08-10 · データの永続化",
-      "translation": "A08-10 · 数据持久化"
-    },
-    {
-      "source": "A08で保存した値が、アプリを完全に終了して開き直しても残る理由はどれですか。",
-      "translation": "为什么在A08中保存的值，在应用完全退出后重新打开时仍然存在？"
-    },
-    {
-      "source": "値を端末のファイルに保存し、起動時に読み出しているため",
-      "translation": "因为值保存在设备的文件中，并在启动时读取"
-    },
-    {
-      "source": "<code>TextView</code>が前回の画面を永久に記憶するため",
-      "translation": "因为<code>TextView</code>会永久记住上次的界面"
-    },
-    {
-      "source": "<code>var</code>で宣言した変数がアプリ終了後も必ず残るため",
-      "translation": "因为用<code>var</code>声明的变量在应用退出后一定会保留"
-    },
-    {
-      "source": "<code>Logcat</code>が値を復元するため",
-      "translation": "因为<code>Logcat</code>会恢复该值"
-    },
-    {
-      "source": "正答：<strong>値を端末のファイルに保存し、起動時に読み出しているため</strong>",
-      "translation": "正确答案：<strong>因为值保存在设备的文件中，并在启动时读取</strong>"
-    },
-    {
-      "source": "メモリだけに置いた値と違い、ファイルに保存した値はアプリを終了しても残ります。次の起動時に<code>getInt</code>などで読み出して表示しています。",
-      "translation": "只存在内存中的值会消失，而保存在文件中的值在应用退出后仍会保留。下次启动时，用<code>getInt</code>等方法读取并显示。"
-    },
-    {
-      "source": "A08-11 · 保存に向くデータ",
-      "translation": "A08-11 · 适合保存的数据"
-    },
-    {
-      "source": "A08の解説で<code>SharedPreferences</code>の保存対象に向いているものはどれですか。",
-      "translation": "根据A08的解析，哪项适合保存在<code>SharedPreferences</code>中？"
-    },
-    {
-      "source": "ゲームのハイスコア",
-      "translation": "游戏最高分"
-    },
-    {
-      "source": "写真や動画の全データ",
-      "translation": "照片或视频的全部数据"
-    },
-    {
-      "source": "パスワードの文字列",
-      "translation": "密码字符串"
-    },
-    {
-      "source": "クレジットカード番号",
-      "translation": "信用卡号"
-    },
-    {
-      "source": "正答：<strong>ゲームのハイスコア</strong>",
-      "translation": "正确答案：<strong>游戏最高分</strong>"
-    },
-    {
-      "source": "<code>SharedPreferences</code>は小さく単純な設定や値に向きます。教材で表示した<code>XML</code>は暗号化されていないので、パスワードなど大事な情報を置く場所にはしません。",
-      "translation": "<code>SharedPreferences</code>适合保存小型、简单的设置或值。教材展示的<code>XML</code>未加密，因此不用它保存密码等重要信息。"
-    },
-    {
-      "source": "A08-12 · 表示欄の高さ",
-      "translation": "A08-12 · 显示区域的高度"
-    },
-    {
-      "source": "A08の表示欄に<code>layout_height=&quot;0dp&quot;</code>と<code>layout_weight=&quot;1&quot;</code>を付ける主な目的はどれですか。",
-      "translation": "在A08的显示区域设置<code>layout_height=&quot;0dp&quot;</code>和<code>layout_weight=&quot;1&quot;</code>，主要目的是什么？"
-    },
-    {
-      "source": "表示欄が残りの高さを使い、表示内容でボタンの位置がずれるのを防ぐ",
-      "translation": "让显示区域占用剩余高度，避免显示内容改变按钮的位置"
-    },
-    {
-      "source": "表示欄の文字を必ず1文字にする",
-      "translation": "让显示区域中的文字始终只有一个字符"
-    },
-    {
-      "source": "表示内容を<code>SharedPreferences</code>へ自動保存する",
-      "translation": "将显示内容自动保存到<code>SharedPreferences</code>"
-    },
-    {
-      "source": "表示欄を画面から完全に消す",
-      "translation": "从界面中完全移除显示区域"
-    },
-    {
-      "source": "正答：<strong>表示欄が残りの高さを使い、表示内容でボタンの位置がずれるのを防ぐ</strong>",
-      "translation": "正确答案：<strong>让显示区域占用剩余高度，避免显示内容改变按钮的位置</strong>"
-    },
-    {
-      "source": "<code>0dp</code>と<code>weight</code>を組み合わせ、残った高さを表示欄に割り当てます。文字の長さで部品の位置が変わりにくくなります。",
-      "translation": "结合<code>0dp</code>和<code>weight</code>，将剩余高度分配给显示区域。这样控件位置不易随文字长度而改变。"
-    },
-    {
-      "source": "復習する場所：<code>shared-preferences-sample/index.html#step-2</code>",
-      "translation": "复习位置：<code>shared-preferences-sample/index.html#step-2</code>"
-    },
-    {
-      "source": "<code>txtMemoList</code>にすでにメモが表示されています。<code>txtMemoList.append(edtMemoStr + &quot;\\n&quot;);</code>を呼ぶとどうなりますか。",
-      "translation": "<code>txtMemoList</code>中已显示备忘录。调用<code>txtMemoList.append(edtMemoStr + &quot;\\n&quot;);</code>会怎样？"
-    },
-    {
-      "source": "今の表示の後ろに、新しいメモと改行を足す",
-      "translation": "在当前显示内容之后追加新备忘录和换行"
-    },
-    {
-      "source": "今の表示を消して、新しいメモだけにする",
-      "translation": "清除当前显示内容，只显示新备忘录"
-    },
-    {
-      "source": "新しいメモを先頭に挿入する",
-      "translation": "在开头插入新备忘录"
-    },
-    {
-      "source": "入力欄の文字を読み出すだけで表示は変わらない",
-      "translation": "只读取输入框中的文字，显示内容不变"
-    },
-    {
-      "source": "正答：<strong>今の表示の後ろに、新しいメモと改行を足す</strong>",
-      "translation": "正确答案：<strong>在当前显示内容之后追加新备忘录和换行</strong>"
-    },
-    {
-      "source": "<code>append</code>は今の文字列の後ろに足す処理です。A09では追加した順に一覧へメモを増やすために使います。",
-      "translation": "<code>append</code>把内容追加到当前字符串的末尾。A09用它按添加顺序将备忘录加入列表。"
+      "source": "<code>&quot;&quot;</code>は、文字が1つもない文字列です。<code>setText(&quot;&quot;)</code>で入力欄を空にできます。",
+      "translation": "<code>&quot;&quot;</code>是没有任何字符的字符串。用<code>setText(&quot;&quot;)</code>可以清空输入框。"
     },
     {
       "source": "復習する場所：<code>memo-app/index.html#step-4</code>",
       "translation": "复习位置：<code>memo-app/index.html#step-4</code>"
     },
     {
-      "source": "A09-02 · <code>setText</code>との違い",
-      "translation": "A09-02 · 与<code>setText</code>的不同"
+      "source": "B11 · 文字を整数に変える",
+      "translation": "B11 · 将文字转换成整数"
     },
     {
-      "source": "A09の追加処理で<code>append</code>を<code>setText</code>に変え、メモを3件続けて追加すると、一覧には何が残りますか。",
-      "translation": "在A09的添加处理中，将<code>append</code>改为<code>setText</code>，然后连续添加3条备忘录，列表中会留下什么？"
+      "source": "文字列<code>&quot;12&quot;</code>を、計算に使える整数の<code>12</code>に変えます。 【①】に入るコードはどれですか。",
+      "translation": "将字符串<code>&quot;12&quot;</code>转换成可用于计算的整数<code>12</code>。哪段代码应填入【①】？"
     },
     {
-      "source": "最後に追加した1件だけ",
-      "translation": "只留下最后添加的一条"
+      "source": "正答：<strong><code>Integer.parseInt</code></strong>",
+      "translation": "正确答案：<strong><code>Integer.parseInt</code></strong>"
     },
     {
-      "source": "最初に追加した1件だけ",
-      "translation": "只留下最先添加的一条"
+      "source": "<code>Integer.parseInt</code>は、整数を表す文字列を<code>int</code>（整数）に変えます。",
+      "translation": "<code>Integer.parseInt</code>将表示整数的字符串转换为<code>int</code>（整数）。"
     },
     {
-      "source": "3件とも追加した順に残る",
-      "translation": "三条都留下，按添加顺序排列"
+      "source": "復習する場所：<code>calc-game/index.html#step-7</code>",
+      "translation": "复习位置：<code>calc-game/index.html#step-7</code>"
     },
     {
-      "source": "3件とも逆順に残る",
-      "translation": "三条都留下，按相反顺序排列"
+      "source": "B12 · 変える文字を選ぶ",
+      "translation": "B12 · 选择要转换的文字"
     },
     {
-      "source": "正答：<strong>最後に追加した1件だけ</strong>",
-      "translation": "正确答案：<strong>只留下最后添加的一条</strong>"
+      "source": "<code>edtAmount</code>は入力欄です。<code>12</code>が入っています。読み取った文字列を整数に変えます。 【①】に入るコードはどれですか。",
+      "translation": "<code>edtAmount</code>是输入框。里面输入了<code>12</code>。将读取到的字符串转换为整数。哪段代码应填入【①】？"
     },
     {
-      "source": "<code>setText</code>は表示を置き換えます。追加するたびに前の一覧が消え、その時点の表示を保存するので、保存内容も最後の1件だけになります。",
-      "translation": "<code>setText</code>会替换显示内容。每次添加时，旧列表会消失，而保存的是当时的显示内容，所以也只保存了最后一条。"
+      "source": "正答：<strong><code>amountStr</code></strong>",
+      "translation": "正确答案：<strong><code>amountStr</code></strong>"
     },
     {
-      "source": "復習する場所：<code>memo-app/index.html#step-7</code>",
-      "translation": "复习位置：<code>memo-app/index.html#step-7</code>"
+      "source": "<code>amountStr</code>に入力した文字列が入っています。<code>Integer.parseInt(amountStr)</code>で、その文字列を整数に変えます。",
+      "translation": "<code>amountStr</code>存有输入的字符串。用<code>Integer.parseInt(amountStr)</code>将这个字符串转换为整数。"
     },
     {
-      "source": "A09-03 · 改行",
-      "translation": "A09-03 · 换行"
+      "source": "B13 · 短いメッセージ",
+      "translation": "B13 · 简短消息"
     },
     {
-      "source": "メモを追加するコードの<code>+ &quot;\\n&quot;</code>を消し、<code>&quot;牛乳を買う&quot;</code>と<code>&quot;レポートを出す&quot;</code>を追加すると、文字列はどうなりますか。",
-      "translation": "从添加备忘录的代码中去掉<code>+ &quot;\\n&quot;</code>，然后添加<code>&quot;牛乳を買う&quot;</code>（买牛奶）和<code>&quot;レポートを出す&quot;</code>（交报告），字符串会变成什么样？"
+      "source": "ボタンを押したときの処理です。<code>v</code>は押した部品です。Snackbar（スナックバー）で<code>入力してください</code>と表示します。 【①】に入るコードはどれですか。",
+      "translation": "这段代码在按下按钮时执行。<code>v</code>是被按下的控件。用Snackbar显示<code>入力してください</code>（请输入）。哪段代码应填入【①】？"
     },
     {
-      "source": "<code>牛乳を買うレポートを出す</code>と改行なしでつながる",
-      "translation": "拼成<code>牛乳を買うレポートを出す</code>（买牛奶交报告），中间没有换行"
+      "source": "正答：<strong><code>Snackbar</code></strong>",
+      "translation": "正确答案：<strong><code>Snackbar</code></strong>"
     },
     {
-      "source": "2件の間に自動で空行が1行入る",
-      "translation": "两条之间自动插入一个空行"
+      "source": "<code>Snackbar.make</code>で表示するメッセージを作り、<code>show()</code>で画面に出します。",
+      "translation": "用<code>Snackbar.make</code>创建要显示的消息，再用<code>show()</code>把它显示在屏幕上。"
     },
     {
-      "source": "2件の間に自動でカンマが入る",
-      "translation": "两条之间自动插入逗号"
+      "source": "復習する場所：<code>hello-android/index.html#step-7</code>",
+      "translation": "复习位置：<code>hello-android/index.html#step-7</code>"
     },
     {
-      "source": "最初のメモが自動で削除される",
-      "translation": "第一条备忘录被自动删除"
+      "source": "B14 · メッセージを出す",
+      "translation": "B14 · 显示消息"
     },
     {
-      "source": "正答：<strong><code>牛乳を買うレポートを出す</code>と改行なしでつながる</strong>",
-      "translation": "正确答案：<strong>拼成<code>牛乳を買うレポートを出す</code>（买牛奶交报告），中间没有换行</strong>"
+      "source": "ボタンを押したときの処理です。<code>v</code>は押した部品です。作ったSnackbar（スナックバー）を画面に出します。 【①】に入るコードはどれですか。",
+      "translation": "这段代码在按下按钮时执行。<code>v</code>是被按下的控件。让创建好的Snackbar显示在屏幕上。哪段代码应填入【①】？"
     },
     {
-      "source": "メモごとの改行は、コードで足している<code>\\n</code>によるものです。<code>append</code>は自動で改行を入れるわけではありません。",
-      "translation": "每条备忘录的换行来自代码中加上的<code>\\n</code>。<code>append</code>不会自动换行。"
+      "source": "正答：<strong><code>show</code></strong>",
+      "translation": "正确答案：<strong><code>show</code></strong>"
     },
     {
-      "source": "A09-04 · 空入力の分岐",
-      "translation": "A09-04 · 输入为空时的分支"
+      "source": "<code>make</code>で作ったSnackbarは、最後に<code>show()</code>を呼ぶと画面に出ます。",
+      "translation": "用<code>make</code>创建Snackbar后，最后调用<code>show()</code>，它就会显示在屏幕上。"
     },
     {
-      "source": "メモが空のときに<code>Snackbar</code>を出す<code>if</code>文から<code>return;</code>だけを消すと、何が起こりますか。",
-      "translation": "备忘录为空时会在<code>if</code>语句中显示<code>Snackbar</code>。如果从这段代码中只删除<code>return;</code>，会发生什么？"
+      "source": "B15 · 入力が空か調べる",
+      "translation": "B15 · 检查输入是否为空"
     },
     {
-      "source": "メッセージのあとも処理が続き、改行だけが一覧に足される",
-      "translation": "显示消息后继续处理，只向列表追加一个换行"
+      "source": "<code>name</code>には入力した文字列が入っています。<code>txtMessage</code>は文字を表示する部品です。空のときだけ案内を出します。 【①】に入るコードはどれですか。",
+      "translation": "<code>name</code>存有输入的字符串。<code>txtMessage</code>是显示文字的控件。只有输入为空时才显示提示。哪段代码应填入【①】？"
     },
     {
-      "source": "メッセージは出なくなり、処理も止まる",
-      "translation": "消息不再显示，处理也停止"
+      "source": "正答：<strong><code>isEmpty</code></strong>",
+      "translation": "正确答案：<strong><code>isEmpty</code></strong>"
     },
     {
-      "source": "アプリが必ず前の画面に戻る",
-      "translation": "应用一定会返回上一个界面"
+      "source": "<code>isEmpty()</code>は、文字が1つもないときに<code>true</code>になります。<code>if</code>の中の処理は、条件が<code>true</code>のときに行います。",
+      "translation": "没有任何字符时，<code>isEmpty()</code>返回<code>true</code>。<code>if</code>中的代码会在条件为<code>true</code>时执行。"
     },
     {
-      "source": "空文字が自動で&quot;メモ&quot;に変わる",
-      "translation": "空字符串自动变为「メモ」（备忘录）"
+      "source": "復習する場所：<code>bill-splitter/index.html#step-4</code>",
+      "translation": "复习位置：<code>bill-splitter/index.html#step-4</code>"
     },
     {
-      "source": "正答：<strong>メッセージのあとも処理が続き、改行だけが一覧に足される</strong>",
-      "translation": "正确答案：<strong>显示消息后继续处理，只向列表追加一个换行</strong>"
+      "source": "B16 · 空でないとき",
+      "translation": "B16 · 输入不为空时"
     },
     {
-      "source": "<code>return</code>がなければ<code>if</code>文の後ろの<code>append</code>まで進みます。空の入力に<code>\\n</code>を足したものが追加されるので、空入力を止める<code>return</code>が必要です。",
-      "translation": "如果没有<code>return</code>，程序会继续执行<code>if</code>语句后面的<code>append</code>。空输入加上<code>\\n</code>后会被追加到列表中，因此需要用<code>return</code>在输入为空时停止处理。"
+      "source": "<code>name</code>は文字列、<code>txtMessage</code>は文字を表示する部品です。<code>name</code>が空でないときだけ<code>入力あり</code>と表示します。 【①】に入るコードはどれですか。",
+      "translation": "<code>name</code>是字符串，<code>txtMessage</code>是显示文字的控件。只有<code>name</code>不为空时，才显示<code>入力あり</code>（已有输入）。哪段代码应填入【①】？"
     },
     {
-      "source": "A09-05 · 入力欄を空にする",
-      "translation": "A09-05 · 清空输入框"
+      "source": "正答：<strong><code>!</code></strong>",
+      "translation": "正确答案：<strong><code>!</code></strong>"
     },
     {
-      "source": "A09で追加が成功したあと、次のメモを入力しやすくする<code>edtMemo.setText(&quot;&quot;);</code>の役割はどれですか。",
-      "translation": "在A09中，添加成功后会执行<code>edtMemo.setText(&quot;&quot;);</code>，方便输入下一条备忘录。这行代码有什么作用？"
-    },
-    {
-      "source": "入力欄を空にする",
-      "translation": "清空输入框"
-    },
-    {
-      "source": "一覧の全メモを削除する",
-      "translation": "删除列表中的全部备忘录"
-    },
-    {
-      "source": "保存ファイルを削除する",
-      "translation": "删除保存文件"
-    },
-    {
-      "source": "キーボードの種類を数字へ変える",
-      "translation": "将键盘切换为数字键盘"
-    },
-    {
-      "source": "正答：<strong>入力欄を空にする</strong>",
-      "translation": "正确答案：<strong>清空输入框</strong>"
-    },
-    {
-      "source": "<code>edtMemo</code>は入力欄です。ここを空文字に変えても、一覧の<code>txtMemoList</code>や<code>SharedPreferences</code>に保存した文字列は消えません。",
-      "translation": "<code>edtMemo</code>是输入框。把这里的内容设为空字符串，不会删除列表<code>txtMemoList</code>中的内容或保存在<code>SharedPreferences</code>中的字符串。"
-    },
-    {
-      "source": "A09-06 · 保存する値",
-      "translation": "A09-06 · 保存的值"
-    },
-    {
-      "source": "A09の<code>edit.putString(MEMO, txtMemoList.getText().toString());</code>で保存しているものはどれですか。",
-      "translation": "A09的<code>edit.putString(MEMO, txtMemoList.getText().toString());</code>保存的是什么？"
-    },
-    {
-      "source": "改行を含むメモ一覧全体を1つにした文字列",
-      "translation": "将包含换行的整个备忘录列表合成的一个字符串"
-    },
-    {
-      "source": "最後のメモの文字数だけ",
-      "translation": "只有最后一条备忘录的字数"
-    },
-    {
-      "source": "メモ1件ずつを別々のデータベースの行にしたもの",
-      "translation": "将每条备忘录分别存成数据库中的一行"
-    },
-    {
-      "source": "入力欄のidだけ",
-      "translation": "只有输入框的id"
-    },
-    {
-      "source": "正答：<strong>改行を含むメモ一覧全体を1つにした文字列</strong>",
-      "translation": "正确答案：<strong>将包含换行的整个备忘录列表合成的一个字符串</strong>"
-    },
-    {
-      "source": "<code>txtMemoList</code>に表示中の内容を取り出し、1つの文字列として<code>MEMO</code>というキーで保存します。1件ずつ別のキーに分けているわけではありません。",
-      "translation": "取出<code>txtMemoList</code>中当前显示的内容，将它作为一个字符串用键<code>MEMO</code>保存。各条备忘录没有分配不同的键。"
-    },
-    {
-      "source": "復習する場所：<code>memo-app/index.html#step-5</code>",
-      "translation": "复习位置：<code>memo-app/index.html#step-5</code>"
-    },
-    {
-      "source": "A09-07 · 起動時の復元",
-      "translation": "A09-07 · 启动时恢复"
-    },
-    {
-      "source": "A09を初めて起動し、<code>MEMO</code>の保存値がまだないとき、<code>txtMemoList.setText(prefs.getString(MEMO, &quot;&quot;));</code>の表示はどうなりますか。",
-      "translation": "首次启动A09，还没有保存<code>MEMO</code>的值时，<code>txtMemoList.setText(prefs.getString(MEMO, &quot;&quot;));</code>会显示什么？"
-    },
-    {
-      "source": "空の一覧になる",
-      "translation": "列表为空"
-    },
-    {
-      "source": "<code>null</code>という4文字が出る",
-      "translation": "显示<code>null</code>这四个字符"
-    },
-    {
-      "source": "0という文字が出る",
-      "translation": "显示字符0"
-    },
-    {
-      "source": "最後の入力内容が自動生成される",
-      "translation": "自动生成最后一次输入的内容"
-    },
-    {
-      "source": "正答：<strong>空の一覧になる</strong>",
-      "translation": "正确答案：<strong>列表为空</strong>"
-    },
-    {
-      "source": "<code>getString</code>の第2引数が空文字なので、保存値がなければ空文字を返します。<code>setText</code>がそれを一覧へ表示します。",
-      "translation": "<code>getString</code>的第二个参数是空字符串，因此没有保存值时会返回空字符串。<code>setText</code>将它显示到列表中。"
-    },
-    {
-      "source": "A09-08 · データの持ち方",
-      "translation": "A09-08 · 数据的保存与管理方式"
-    },
-    {
-      "source": "A09でメモ一覧のために<code>ArrayList</code>を別に作っていない理由はどれですか。",
-      "translation": "A09为什么不另外为备忘录列表创建一个<code>ArrayList</code>？"
-    },
-    {
-      "source": "A07のような重複チェックや人数チェックがなく、表示文字列を保存すれば足りるため",
-      "translation": "因为没有像A07那样的重复检查或人数检查，只保存显示的字符串就够了"
-    },
-    {
-      "source": "<code>SharedPreferences</code>では<code>String</code>を保存できないため",
-      "translation": "因为<code>SharedPreferences</code>无法保存<code>String</code>"
-    },
-    {
-      "source": "<code>ArrayList</code>は1つのアプリに1回しか使えないため",
-      "translation": "因为一个应用中只能使用一次<code>ArrayList</code>"
-    },
-    {
-      "source": "<code>TextView</code>はメモを1件しか表示できないため",
-      "translation": "因为<code>TextView</code>只能显示一条备忘录"
-    },
-    {
-      "source": "正答：<strong>A07のような重複チェックや人数チェックがなく、表示文字列を保存すれば足りるため</strong>",
-      "translation": "正确答案：<strong>因为没有像A07那样的重复检查或人数检查，只保存显示的字符串就够了</strong>"
-    },
-    {
-      "source": "この単元ではメモを判定せず、一覧をまとめて保存します。別のリストを持つと保存や復元の変換が増えるので、必要な表示文字列だけを使います。",
-      "translation": "此单元不对备忘录做判断，而是将列表整体保存。另外维护列表会增加保存和恢复时的转换步骤，所以只使用所需的显示字符串。"
-    },
-    {
-      "source": "A09-09 · 保存と表示を消す",
-      "translation": "A09-09 · 清除保存和显示的内容"
-    },
-    {
-      "source": "A09の「<code>データ削除</code>」で、保存と画面の両方を空にする処理の組み合わせはどれですか。",
-      "translation": "按下A09的「<code>データ削除</code>」（删除数据）时，哪个处理组合能同时清空保存的内容和界面上的内容？"
-    },
-    {
-      "source": "<code>txtMemoList.setText(&quot;&quot;);</code>だけ",
-      "translation": "只有<code>txtMemoList.setText(&quot;&quot;);</code>"
-    },
-    {
-      "source": "<code>edit.clear();</code>だけ",
-      "translation": "只有<code>edit.clear();</code>"
-    },
-    {
-      "source": "<code>edtMemo.setText(&quot;&quot;);</code>だけ",
-      "translation": "只有<code>edtMemo.setText(&quot;&quot;);</code>"
-    },
-    {
-      "source": "正答：<strong><code>edit.clear(); edit.apply(); txtMemoList.setText(&quot;&quot;);</code></strong>",
-      "translation": "正确答案：<strong><code>edit.clear(); edit.apply(); txtMemoList.setText(&quot;&quot;);</code></strong>"
-    },
-    {
-      "source": "<code>clear</code>と<code>apply</code>で保存したデータを消し、<code>setText</code>で表示も消します。保存されている値と、いま画面に出ている文字は別のものです。",
-      "translation": "用<code>clear</code>和<code>apply</code>删除保存的数据，再用<code>setText</code>清除显示内容。保存的值和当前界面上显示的文字是分开的。"
-    },
-    {
-      "source": "復習する場所：<code>memo-app/index.html#step-6</code>",
-      "translation": "复习位置：<code>memo-app/index.html#step-6</code>"
-    },
-    {
-      "source": "A09-10 · 保存と表示の違い",
-      "translation": "A09-10 · 保存与显示的不同"
-    },
-    {
-      "source": "「<code>データ削除</code>」から<code>txtMemoList.setText(&quot;&quot;);</code>だけを消しました。メモを追加して削除を押し、そのまま終了して開き直すとどうなりますか。",
-      "translation": "从「<code>データ削除</code>」（删除数据）的处理中只删掉<code>txtMemoList.setText(&quot;&quot;);</code>。添加备忘录后按下删除，接着退出并重新打开应用。会发生什么？"
-    },
-    {
-      "source": "削除直後は表示が残るが、開き直すと空になる",
-      "translation": "刚删除时仍有显示，重新打开时变为空"
-    },
-    {
-      "source": "削除直後に表示が消え、開き直すと復活する",
-      "translation": "刚删除时显示消失，重新打开时又恢复"
-    },
-    {
-      "source": "削除直後も開き直したあとも、必ずメモが残る",
-      "translation": "刚删除时和重新打开后都一定保留备忘录"
-    },
-    {
-      "source": "削除を押すと必ずアプリが終了する",
-      "translation": "按下删除后应用一定会退出"
-    },
-    {
-      "source": "正答：<strong>削除直後は表示が残るが、開き直すと空になる</strong>",
-      "translation": "正确答案：<strong>刚删除时仍有显示，重新打开时变为空</strong>"
-    },
-    {
-      "source": "<code>clear</code>と<code>apply</code>による保存データの削除は実行されています。画面だけ更新していないので直後は文字が残り、次の起動時の読み出しでは空になります。",
-      "translation": "用于删除已保存数据的<code>clear</code>和<code>apply</code>已经执行。界面没有更新，所以刚删除时仍能看到文字。下次启动时，读取到的内容为空。"
-    },
-    {
-      "source": "A09でメモ一覧を<code>ScrollView</code>に入れる主な目的はどれですか。",
-      "translation": "在A09中，将备忘录列表放入<code>ScrollView</code>的主要目的是什么？"
-    },
-    {
-      "source": "メモが増えて画面に入りきらなくても、スクロールで続きを読めるようにする",
-      "translation": "即使备忘录太多，屏幕放不下，也能滚动查看后面的内容"
-    },
-    {
-      "source": "一覧のメモを自動でアルファベット順にする",
-      "translation": "自动按字母顺序排列列表中的备忘录"
-    },
-    {
-      "source": "メモを保存するタイミングを自動で決める",
-      "translation": "自动决定保存备忘录的时间"
-    },
-    {
-      "source": "入力欄で数字だけを入力できるようにする",
-      "translation": "让输入框只能输入数字"
-    },
-    {
-      "source": "正答：<strong>メモが増えて画面に入りきらなくても、スクロールで続きを読めるようにする</strong>",
-      "translation": "正确答案：<strong>即使备忘录太多，屏幕放不下，也能滚动查看后面的内容</strong>"
-    },
-    {
-      "source": "<code>ScrollView</code>は中身が表示範囲を超えたときにスクロールできる入れ物です。並べ替えや保存をする部品ではありません。",
-      "translation": "<code>ScrollView</code>是内容超出显示范围时可以滚动的容器，不负责排序或保存。"
-    },
-    {
-      "source": "復習する場所：<code>memo-app/index.html#step-3</code>",
-      "translation": "复习位置：<code>memo-app/index.html#step-3</code>"
-    },
-    {
-      "source": "A09-12 · 入力の案内",
-      "translation": "A09-12 · 输入提示"
-    },
-    {
-      "source": "A09の入力欄に指定する<code>android:hint</code>の役割はどれですか。",
-      "translation": "A09的输入框中设置的<code>android:hint</code>有什么作用？"
-    },
-    {
-      "source": "何も入力していないときに案内を薄く表示し、入力すると消す",
-      "translation": "未输入时以浅色显示提示，输入后隐藏提示"
-    },
-    {
-      "source": "入力されたメモをファイルへ保存する",
-      "translation": "将输入的备忘录保存到文件中"
-    },
-    {
-      "source": "メモ一覧の背景色を変える",
-      "translation": "改变备忘录列表的背景颜色"
-    },
-    {
-      "source": "ボタンを押した回数を表示する",
-      "translation": "显示按钮被按下的次数"
-    },
-    {
-      "source": "正答：<strong>何も入力していないときに案内を薄く表示し、入力すると消す</strong>",
-      "translation": "正确答案：<strong>未输入时以浅色显示提示，输入后隐藏提示</strong>"
-    },
-    {
-      "source": "<code>hint</code>は入力内容の案内です。実際に入力されたメモとは別なので、案内が見えていても入力欄に文字を入れたことにはなりません。",
-      "translation": "<code>hint</code>是输入内容的提示。它与实际输入的备忘录不同，所以看到提示并不代表输入框里已经填入文字。"
-    },
-    {
-      "source": "A10-01 · <code>Room</code>の設定",
-      "translation": "A10-01 · <code>Room</code>设置"
-    },
-    {
-      "source": "<code>libs.versions.toml</code>で<code>room-runtime</code>と<code>room-compiler</code>のライブラリ定義を書く見出しはどれですか。",
-      "translation": "在<code>libs.versions.toml</code>的哪个标题下编写<code>room-runtime</code>和<code>room-compiler</code>的库定义？"
-    },
-    {
-      "source": "正答：<strong><code>[libraries]</code></strong>",
-      "translation": "正确答案：<strong><code>[libraries]</code></strong>"
-    },
-    {
-      "source": "<code>[versions]</code>はバージョン番号、<code>[libraries]</code>はライブラリの定義です。<code>room-runtime</code>と<code>room-compiler</code>を<code>[plugins]</code>へ書くと、設定の種類が違うためビルドが止まります。",
-      "translation": "<code>[versions]</code>用于写版本号，<code>[libraries]</code>用于定义库。将<code>room-runtime</code>和<code>room-compiler</code>写到<code>[plugins]</code>下时，设置类型不符，构建会停止。"
-    },
-    {
-      "source": "復習する場所：<code>room-sample/index.html#step-2</code>",
-      "translation": "复习位置：<code>room-sample/index.html#step-2</code>"
-    },
-    {
-      "source": "A10の<code>Item</code>クラスに付ける<code>@Entity</code>は何を表しますか。",
-      "translation": "A10的<code>Item</code>类上的<code>@Entity</code>表示什么？"
-    },
-    {
-      "source": "このクラスでデータベースの表の形を定めること",
-      "translation": "用这个类来定义数据库表的结构"
-    },
-    {
-      "source": "このクラスが起動時に開く画面であること",
-      "translation": "这个类是启动时打开的界面"
-    },
-    {
-      "source": "このクラスが<code>XML</code>の画像を作ること",
-      "translation": "这个类创建<code>XML</code>中的图片"
-    },
-    {
-      "source": "このクラスが保存した全データを消すこと",
-      "translation": "这个类删除保存的全部数据"
-    },
-    {
-      "source": "正答：<strong>このクラスでデータベースの表の形を定めること</strong>",
-      "translation": "正确答案：<strong>用这个类来定义数据库表的结构</strong>"
-    },
-    {
-      "source": "<code>Item</code>では<code>internalId</code>と<code>title</code>を表の項目として定めます。<code>Entity</code>は表の形、<code>Dao</code>は読み書きの窓口、<code>Database</code>はデータベース本体を担当します。",
-      "translation": "在<code>Item</code>中，<code>internalId</code>和<code>title</code>定义为表中的列。<code>Entity</code>负责定义表结构，<code>Dao</code>是读写的访问入口，<code>Database</code>负责数据库本体。"
-    },
-    {
-      "source": "復習する場所：<code>room-sample/index.html#step-4</code>",
-      "translation": "复习位置：<code>room-sample/index.html#step-4</code>"
-    },
-    {
-      "source": "A10-03 · 主キー",
-      "translation": "A10-03 · 主键"
-    },
-    {
-      "source": "<code>internalId</code>に付いた<code>@PrimaryKey(autoGenerate = true)</code>の役割として正しいものはどれですか。",
-      "translation": "<code>internalId</code>上的<code>@PrimaryKey(autoGenerate = true)</code>有什么作用？"
-    },
-    {
-      "source": "行を見分ける番号にし、新規追加で番号を自動生成できるようにする",
-      "translation": "将其设为区分各行的编号，并允许在新增行时自动生成编号"
-    },
-    {
-      "source": "<code>title</code>の文字数を毎回<code>internalId</code>に保存する",
-      "translation": "每次都将<code>title</code>的字数保存到<code>internalId</code>"
-    },
-    {
-      "source": "保存するたびに表全体を削除する",
-      "translation": "每次保存时删除整张表"
-    },
-    {
-      "source": "すべての行の番号を必ず同じ1にする",
-      "translation": "将所有行的编号都设为1"
-    },
-    {
-      "source": "正答：<strong>行を見分ける番号にし、新規追加で番号を自動生成できるようにする</strong>",
-      "translation": "正确答案：<strong>将其设为区分各行的编号，并允许在新增行时自动生成编号</strong>"
-    },
-    {
-      "source": "主キーは行を見分けるために使います。A10ではid欄を空にして保存すると、<code>Room</code>が新しい行の番号を自動で付けます。",
-      "translation": "主键（主キー，しゅキー）用于区分各行。在A10中，将id输入框留空后保存，<code>Room</code>会为新增行自动分配编号。"
-    },
-    {
-      "source": "A10-04 · DAOの実装",
-      "translation": "A10-04 · DAO的实现"
-    },
-    {
-      "source": "<code>ItemDao</code>のメソッドに処理の<code>{ }</code>を書いていないのに読み書きできる理由はどれですか。",
-      "translation": "为什么<code>ItemDao</code>的方法没有编写处理的<code>{ }</code>，却可以读写数据？"
-    },
-    {
-      "source": "<code>room-compiler</code>がビルド時に処理を自動で作るため",
-      "translation": "因为<code>room-compiler</code>在构建时自动生成处理代码"
-    },
-    {
-      "source": "メソッド名に<code>Dao</code>があれば<code>Java</code>が何でも実行するため",
-      "translation": "因为方法名包含<code>Dao</code>时，<code>Java</code>就能执行任何处理"
-    },
-    {
-      "source": "画面の<code>TextView</code>が<code>SQL</code>を実行するため",
-      "translation": "因为界面的<code>TextView</code>会执行<code>SQL</code>"
-    },
-    {
-      "source": "<code>AndroidManifest.xml</code>がすべての処理を持つため",
-      "translation": "因为<code>AndroidManifest.xml</code>包含所有处理"
-    },
-    {
-      "source": "正答：<strong><code>room-compiler</code>がビルド時に処理を自動で作るため</strong>",
-      "translation": "正确答案：<strong>因为<code>room-compiler</code>在构建时自动生成处理代码</strong>"
-    },
-    {
-      "source": "<code>ItemDao</code>は<code>interface</code>で作り、<code>@Query</code>などで何をするかを書きます。<code>Room</code>がその指定を読み、ビルド時に実際の処理を生成します。",
-      "translation": "用<code>interface</code>创建<code>ItemDao</code>，通过<code>@Query</code>等指定要做的处理。<code>Room</code>读取这些设置，并在构建时生成实际的处理代码。"
-    },
-    {
-      "source": "復習する場所：<code>room-sample/index.html#step-5</code>",
-      "translation": "复习位置：<code>room-sample/index.html#step-5</code>"
-    },
-    {
-      "source": "A10-05 · 検索の条件",
-      "translation": "A10-05 · 查询条件"
-    },
-    {
-      "source": "<code>@Query(&quot;SELECT * FROM item WHERE internalId = :internalId&quot;)</code>の<code>:internalId</code>は何を表しますか。",
-      "translation": "<code>@Query(&quot;SELECT * FROM item WHERE internalId = :internalId&quot;)</code>中的<code>:internalId</code>表示什么？"
-    },
-    {
-      "source": "<code>findByInternalId</code>メソッドに渡された引数の値",
-      "translation": "传给<code>findByInternalId</code>方法的参数值"
-    },
-    {
-      "source": "すべての行に共通して使う固定文字列",
-      "translation": "所有行共用的固定字符串"
-    },
-    {
-      "source": "自動で付く最新の番号だけ",
-      "translation": "仅指自动分配的最新编号"
-    },
-    {
-      "source": "<code>title</code>の文字列の長さ",
-      "translation": "<code>title</code>字符串的长度"
-    },
-    {
-      "source": "正答：<strong><code>findByInternalId</code>メソッドに渡された引数の値</strong>",
-      "translation": "正确答案：<strong>传给<code>findByInternalId</code>方法的参数值</strong>"
-    },
-    {
-      "source": "<code>:internalId</code>にはメソッドの引数が入ります。<code>WHERE</code>でその番号と一致する行に絞るので、指定した1件を取り出せます。",
-      "translation": "<code>:internalId</code>填入方法的参数值。用<code>WHERE</code>筛选出与该编号匹配的行，就可以取出指定的那一条。"
-    },
-    {
-      "source": "A10でidが2、<code>title</code>が<code>BIKE</code>の行が保存ずみです。id欄に2、タイトル欄に<code>BICYCLE</code>を入れて保存するとどうなりますか。",
-      "translation": "在A10中，已保存一行id为2、<code>title</code>为<code>BIKE</code>的数据。在id输入框填入2、在标题输入框填入<code>BICYCLE</code>后保存，会发生什么？"
-    },
-    {
-      "source": "idが2の行の<code>title</code>が<code>BICYCLE</code>に変わり、行数は増えない",
-      "translation": "id为2的行的<code>title</code>变为<code>BICYCLE</code>，行数不增加"
-    },
-    {
-      "source": "<code>BIKE</code>の行を残したまま、必ず新しい番号の行が増える",
-      "translation": "保留<code>BIKE</code>所在行，且一定会增加一行新编号的数据"
-    },
-    {
-      "source": "idが2の行が削除されるだけで、<code>BICYCLE</code>は保存されない",
-      "translation": "只删除id为2的行，不保存<code>BICYCLE</code>"
-    },
-    {
-      "source": "すべての行の<code>title</code>が<code>BICYCLE</code>になる",
-      "translation": "所有行的<code>title</code>都变为<code>BICYCLE</code>"
-    },
-    {
-      "source": "正答：<strong>idが2の行の<code>title</code>が<code>BICYCLE</code>に変わり、行数は増えない</strong>",
-      "translation": "正确答案：<strong>id为2的行的<code>title</code>变为<code>BICYCLE</code>，行数不增加</strong>"
-    },
-    {
-      "source": "<code>@Upsert</code>は同じ主キーの行があれば書き換え、なければ追加します。この問題ではidが2の行が存在するので、その行を更新します。",
-      "translation": "<code>@Upsert</code>会更新主键相同的行，找不到这样的行时则会新增。本题中id为2的行已存在，因此更新这一行。"
+      "source": "<code>!</code>は、<code>true</code>と<code>false</code>を反対にします。<code>!name.isEmpty()</code>は、文字列が空でないときに<code>true</code>です。",
+      "translation": "<code>!</code>将<code>true</code>和<code>false</code>变成相反的值。字符串不为空时，<code>!name.isEmpty()</code>的结果是<code>true</code>。"
     },
     {
       "source": "復習する場所：<code>room-sample/index.html#step-7</code>",
       "translation": "复习位置：<code>room-sample/index.html#step-7</code>"
     },
     {
-      "source": "A10-07 · 見つからないデータ",
-      "translation": "A10-07 · 查不到的数据"
+      "source": "B17 · 条件で処理を分ける",
+      "translation": "B17 · 根据条件决定执行哪些代码"
     },
     {
-      "source": "A10で存在しないidを指定して削除します。<code>findByInternalId</code>が<code>null</code>を返したとき、教材の処理はどうなりますか。",
-      "translation": "在A10中，指定一个不存在的id进行删除。<code>findByInternalId</code>返回<code>null</code>时，教材的处理会怎样？"
+      "source": "<code>number</code>、<code>answer</code>、<code>correct</code>は整数です。<code>number</code>と<code>answer</code>が同じときだけ、<code>correct</code>を1増やします。 【①】に入るコードはどれですか。",
+      "translation": "<code>number</code>、<code>answer</code>和<code>correct</code>都是整数。只有<code>number</code>和<code>answer</code>相等时，才让<code>correct</code>加1。哪段代码应填入【①】？"
     },
     {
-      "source": "そのidのデータはないと表示し、<code>delete</code>を呼ばずに止める",
-      "translation": "提示该id的数据不存在，不调用<code>delete</code>就停止"
+      "source": "正答：<strong><code>if</code></strong>",
+      "translation": "正确答案：<strong><code>if</code></strong>"
     },
     {
-      "source": "先頭の行を代わりに削除する",
-      "translation": "改为删除第一行"
+      "source": "<code>if</code>は、条件が<code>true</code>のときだけ中の処理を行います。<code>==</code>は、ここでは2つの整数が同じか調べます。",
+      "translation": "<code>if</code>只在条件为<code>true</code>时执行其中的代码。这里用<code>==</code>检查两个整数是否相等。"
     },
     {
-      "source": "すべての行を削除する",
-      "translation": "删除所有行"
+      "source": "復習する場所：<code>calc-game/index.html#step-8</code>",
+      "translation": "复习位置：<code>calc-game/index.html#step-8</code>"
     },
     {
-      "source": "指定したidの空の行を自動で追加する",
-      "translation": "为指定id自动添加一个空行"
+      "source": "B18 · 途中で処理を終える",
+      "translation": "B18 · 提前结束处理"
     },
     {
-      "source": "正答：<strong>そのidのデータはないと表示し、<code>delete</code>を呼ばずに止める</strong>",
-      "translation": "正确答案：<strong>提示该id的数据不存在，不调用<code>delete</code>就停止</strong>"
+      "source": "<code>btnAdd</code>はボタン、<code>edtName</code>は入力欄、<code>txtMessage</code>は文字の表示欄です。空なら、このクリック処理を終えます。 【①】に入るコードはどれですか。",
+      "translation": "<code>btnAdd</code>是按钮，<code>edtName</code>是输入框，<code>txtMessage</code>用来显示文字。如果输入框为空，就结束这次点击的处理。哪段代码应填入【①】？"
     },
     {
-      "source": "検索結果がない場合は<code>item == null</code>になります。教材はメッセージを出して<code>return</code>するので、ほかの行を消すことはありません。",
-      "translation": "没有查询结果时，<code>item == null</code>成立。教材的代码显示消息后执行<code>return</code>，因此不会删除其他行。"
+      "source": "正答：<strong><code>return</code></strong>",
+      "translation": "正确答案：<strong><code>return</code></strong>"
     },
     {
-      "source": "A10-08 · <code>Database</code>の宣言",
-      "translation": "A10-08 · <code>Database</code>声明"
+      "source": "<code>return;</code>で、このクリック処理をここで終えます。空のときは、下の<code>setText</code>を実行しません。アプリ全体を終える意味ではありません。",
+      "translation": "用<code>return;</code>在这里结束这次点击的处理。输入为空时，不会执行下面的<code>setText</code>。整个应用不会因此退出。"
     },
     {
-      "source": "<code>@Database(entities = {Item.class}, version = 1, exportSchema = false)</code>の<code>entities = {Item.class}</code>は何を宣言していますか。",
-      "translation": "<code>@Database(entities = {Item.class}, version = 1, exportSchema = false)</code>中的<code>entities = {Item.class}</code>声明了什么？"
+      "source": "B19 · 1つずつ繰り返す",
+      "translation": "B19 · 逐个取值并重复处理"
     },
     {
-      "source": "このデータベースが<code>Item</code>の表を持つこと",
-      "translation": "这个数据库包含<code>Item</code>对应的表"
+      "source": "配列（複数の値を並べたもの）の値を1つずつ取り出し、<code>total</code>に足します。 【①】に入るコードはどれですか。",
+      "translation": "从数组（一组按顺序排列的值）中逐个取值，并加到<code>total</code>中。哪段代码应填入【①】？"
     },
     {
-      "source": "画面に<code>Item</code>というボタンを置くこと",
-      "translation": "在界面上放置名为<code>Item</code>的按钮"
+      "source": "正答：<strong><code>for</code></strong>",
+      "translation": "正确答案：<strong><code>for</code></strong>"
     },
     {
-      "source": "保存する行数を必ず1行に制限すること",
-      "translation": "将保存的行数限制为一行"
+      "source": "拡張（かくちょう）<code>for</code>文は、配列から値を1つずつ取り出して同じ処理を繰り返します。",
+      "translation": "增强型<code>for</code>循环从数组中逐个取值，并重复执行相同的操作。"
     },
     {
-      "source": "<code>Item</code>を<code>Intent</code>で次の画面へ渡すこと",
-      "translation": "通过<code>Intent</code>将<code>Item</code>传给下一个界面"
+      "source": "B20 · 繰り返す配列",
+      "translation": "B20 · 要遍历的数组"
     },
     {
-      "source": "正答：<strong>このデータベースが<code>Item</code>の表を持つこと</strong>",
-      "translation": "正确答案：<strong>这个数据库包含<code>Item</code>对应的表</strong>"
+      "source": "<code>numbers</code>の3つの値を1つずつ取り出し、<code>count</code>を1ずつ増やします。 【①】に入るコードはどれですか。",
+      "translation": "从<code>numbers</code>中逐个取出3个值，每取一个就让<code>count</code>加1。哪段代码应填入【①】？"
     },
     {
-      "source": "<code>entities</code>はデータベースに含める表の定義を指定します。<code>version</code>は表の形を変えたときに増やす番号で、保存する行数ではありません。",
-      "translation": "<code>entities</code>指定数据库中所含各表的定义。<code>version</code>是表结构更改时递增的编号，与保存的行数无关。"
+      "source": "正答：<strong><code>numbers</code></strong>",
+      "translation": "正确答案：<strong><code>numbers</code></strong>"
     },
     {
-      "source": "復習する場所：<code>room-sample/index.html#step-6</code>",
-      "translation": "复习位置：<code>room-sample/index.html#step-6</code>"
+      "source": "<code>:</code>の右に、取り出す元の配列を書きます。<code>numbers</code>から<code>2</code>、<code>4</code>、<code>6</code>を順に取り出します。",
+      "translation": "在<code>:</code>右边写出要从中取值的数组。这里从<code>numbers</code>中依次取出<code>2</code>、<code>4</code>、<code>6</code>。"
     },
     {
-      "source": "A10-09 · データベースの使い回し",
-      "translation": "A10-09 · 复用数据库"
+      "source": "E01 · 画面を用意する",
+      "translation": "E01 · 准备界面"
     },
     {
-      "source": "<code>AppDatabase.getInstance</code>で<code>instance</code>が<code>null</code>のときだけデータベースを作る主な理由はどれですか。",
-      "translation": "<code>AppDatabase.getInstance</code>只在<code>instance</code>为<code>null</code>时创建数据库，主要原因是什么？"
+      "source": "<code>MainActivity</code>の中にある、次のコードの説明はどれですか。",
+      "translation": "哪一项正确解释了<code>MainActivity</code>中的以下代码？"
     },
     {
-      "source": "準備に時間がかかるデータベースを1つ作って使い回すため",
-      "translation": "因为准备数据库需要时间，所以只创建一个并重复使用"
+      "source": "ボタンの文字を読む",
+      "translation": "读取按钮上的文字"
     },
     {
-      "source": "保存できるデータを1件だけにするため",
-      "translation": "为了只允许保存一条数据"
+      "source": "入力した文字を消す",
+      "translation": "清除输入的文字"
     },
     {
-      "source": "ボタンを2回以上押せないようにするため",
-      "translation": "为了让按钮无法按两次或更多次"
+      "source": "<code>activity_main.xml</code>を画面に使う",
+      "translation": "使用<code>activity_main.xml</code>作为界面布局"
     },
     {
-      "source": "毎回保存データを空にするため",
-      "translation": "为了每次都清空已保存的数据"
+      "source": "ボタンを押したときの処理を登録する",
+      "translation": "注册按下按钮时要执行的操作"
     },
     {
-      "source": "正答：<strong>準備に時間がかかるデータベースを1つ作って使い回すため</strong>",
-      "translation": "正确答案：<strong>因为准备数据库需要时间，所以只创建一个并重复使用</strong>"
+      "source": "正答：<strong><code>activity_main.xml</code>を画面に使う</strong>",
+      "translation": "正确答案：<strong>使用<code>activity_main.xml</code>作为界面布局</strong>"
     },
     {
-      "source": "最初の呼び出しで作り、次から同じ<code>instance</code>を返します。このように1つだけ作って使い回す書き方をシングルトンといいます。",
-      "translation": "首次调用时创建，后续调用返回同一个<code>instance</code>。这种只创建一个实例并重复使用的写法叫作单例（シングルトン）。"
+      "source": "<code>setContentView</code>は、画面に使うレイアウトを指定します。<code>R.layout.activity_main</code>は<code>activity_main.xml</code>を表します。",
+      "translation": "<code>setContentView</code>用于指定界面的布局。<code>R.layout.activity_main</code>代表<code>activity_main.xml</code>。"
     },
     {
-      "source": "<code>Room.databaseBuilder</code>の第1引数に<code>context.getApplicationContext()</code>を渡す理由はどれですか。",
-      "translation": "为什么把<code>context.getApplicationContext()</code>作为<code>Room.databaseBuilder</code>的第一个参数？"
+      "source": "E02 · 部品を探す順番",
+      "translation": "E02 · 查找控件的顺序"
     },
     {
-      "source": "長く使い回すデータベースへ、特定の画面ではなくアプリ全体を渡すため",
-      "translation": "为了让长期复用的数据库使用整个应用的上下文，而不是某个界面的上下文"
+      "source": "<code>activity_main.xml</code>にはIDが<code>btn_start</code>のボタンがあります。この順番にする理由はどれですか。",
+      "translation": "<code>activity_main.xml</code>中有一个ID为<code>btn_start</code>的按钮。为什么要按这个顺序执行？"
     },
     {
-      "source": "データベースを次の<code>Activity</code>へ送信するため",
-      "translation": "为了将数据库发给下一个<code>Activity</code>"
+      "source": "画面を用意してから、その中の部品を探すため",
+      "translation": "为了先准备好界面，再查找其中的控件"
     },
     {
-      "source": "データベースの全行を文字列にするため",
-      "translation": "为了将数据库的每一行转为字符串"
+      "source": "ボタンを2つ作るため",
+      "translation": "为了创建两个按钮"
     },
     {
-      "source": "インターネットへの接続を許可するため",
-      "translation": "为了允许连接互联网"
+      "source": "ボタンを自動で押すため",
+      "translation": "为了自动按下按钮"
     },
     {
-      "source": "正答：<strong>長く使い回すデータベースへ、特定の画面ではなくアプリ全体を渡すため</strong>",
-      "translation": "正确答案：<strong>为了让长期复用的数据库使用整个应用的上下文，而不是某个界面的上下文</strong>"
+      "source": "入力した文字を整数に変えるため",
+      "translation": "为了将输入的文字转换成整数"
     },
     {
-      "source": "データベースは画面より長く使い回します。特定の<code>Activity</code>を持ち続けないよう、アプリ全体の<code>Context</code>を渡します。",
-      "translation": "数据库的使用时间长于界面。为了避免一直持有某个<code>Activity</code>，传入整个应用的<code>Context</code>。"
+      "source": "正答：<strong>画面を用意してから、その中の部品を探すため</strong>",
+      "translation": "正确答案：<strong>为了先准备好界面，再查找其中的控件</strong>"
     },
     {
-      "source": "A10-11 · 保存後の再表示",
-      "translation": "A10-11 · 保存后刷新显示"
+      "source": "<code>setContentView</code>で画面を用意し、そのあとで<code>findViewById</code>を使って部品を探します。",
+      "translation": "先用<code>setContentView</code>准备好界面，再用<code>findViewById</code>查找控件。"
     },
     {
-      "source": "保存ボタンの処理から<code>txtItemList.setText(itemList(itemDao));</code>だけを消しました。新しいデータを保存するとどうなりますか。",
-      "translation": "从保存按钮的处理中只删掉<code>txtItemList.setText(itemList(itemDao));</code>。保存新数据时会发生什么？"
+      "source": "E03 · IDの役割",
+      "translation": "E03 · ID的作用"
     },
     {
-      "source": "データは保存されるが、その場の一覧は更新されない",
-      "translation": "数据会保存，但列表不会立即更新"
+      "source": "画面を用意したあとに、次のコードを実行します。何をしますか。",
+      "translation": "准备好界面后执行下面的代码。这段代码会做什么？"
     },
     {
-      "source": "データベースへの保存も必ず中止される",
-      "translation": "数据库的保存也一定会中止"
+      "source": "ボタンに<code>btn_start</code>と表示する",
+      "translation": "在按钮上显示<code>btn_start</code>"
     },
     {
-      "source": "保存したデータがすべて削除される",
-      "translation": "所有已保存的数据都会被删除"
+      "source": "IDが<code>btn_start</code>の部品を探す",
+      "translation": "查找ID为<code>btn_start</code>的控件"
     },
     {
-      "source": "一覧が自動で更新され、変更前と同じになる",
-      "translation": "列表会自动更新，结果与修改前相同"
+      "source": "新しいXMLファイルを作る",
+      "translation": "新建一个XML文件"
     },
     {
-      "source": "正答：<strong>データは保存されるが、その場の一覧は更新されない</strong>",
-      "translation": "正确答案：<strong>数据会保存，但列表不会立即更新</strong>"
+      "source": "入力欄の文字を消す",
+      "translation": "清除输入框中的文字"
     },
     {
-      "source": "<code>upsert</code>で保存する仕事と<code>setText</code>で表示する仕事は別です。起動時の再表示は残っているので、アプリを開き直すと保存された内容を確認できます。",
-      "translation": "<code>upsert</code>负责保存，<code>setText</code>负责显示。启动时刷新显示的处理仍在，因此重新打开应用后可以确认保存的内容。"
+      "source": "正答：<strong>IDが<code>btn_start</code>の部品を探す</strong>",
+      "translation": "正确答案：<strong>查找ID为<code>btn_start</code>的控件</strong>"
     },
     {
-      "source": "A10-12 · <code>Entity</code>のNonNull",
-      "translation": "A10-12 · <code>Entity</code>中的NonNull"
+      "source": "<code>R.id.btn_start</code>は部品を探すための目印です。画面に表示する文字とは別です。",
+      "translation": "<code>R.id.btn_start</code>是查找控件时用的标识，与界面上显示的文字是两回事。"
     },
     {
-      "source": "A10の<code>@Entity</code>にある<code>title</code>フィールドへ付けた<code>@NonNull</code>は、表の定義として何を意味しますか。",
-      "translation": "A10的<code>@Entity</code>中的<code>title</code>字段加了<code>@NonNull</code>。在表的定义中，这表示什么？"
+      "source": "E04 · 部品をButtonとして扱う",
+      "translation": "E04 · 将控件当作Button来用"
     },
     {
-      "source": "その列に<code>null</code>を保存できない",
-      "translation": "该列不能保存<code>null</code>"
+      "source": "画面のIDが<code>btn_start</code>の部品はボタンです。<code>(Button)</code>の説明はどれですか。",
+      "translation": "界面上ID为<code>btn_start</code>的控件是一个按钮。哪一项正确解释了<code>(Button)</code>？"
     },
     {
-      "source": "空文字列も自動で必ず拒否する",
-      "translation": "也一定会自动拒绝空字符串"
+      "source": "ボタンに<code>Button</code>と表示する",
+      "translation": "在按钮上显示<code>Button</code>"
     },
     {
-      "source": "すべての<code>title</code>を同じ文字列にする",
-      "translation": "让所有<code>title</code>都变为同一个字符串"
+      "source": "ボタンを押す",
+      "translation": "按下按钮"
     },
     {
-      "source": "<code>title</code>を数値だけに制限する",
-      "translation": "将<code>title</code>限制为数字"
+      "source": "ボタンを画面から消す",
+      "translation": "从界面上移除按钮"
     },
     {
-      "source": "正答：<strong>その列に<code>null</code>を保存できない</strong>",
-      "translation": "正确答案：<strong>该列不能保存<code>null</code></strong>"
+      "source": "見つけた部品を<code>Button</code>として扱う",
+      "translation": "将找到的控件当作<code>Button</code>来用"
     },
     {
-      "source": "<code>Entity</code>のフィールドの<code>@NonNull</code>は列を<code>NOT NULL</code>にする指定です。<code>null</code>と空文字列は別なので、入力が空かどうかは画面側の<code>isEmpty</code>でも確認します。",
-      "translation": "<code>Entity</code>字段上的<code>@NonNull</code>将该列设为<code>NOT NULL</code>。<code>null</code>和空字符串不同，所以还要在界面端用<code>isEmpty</code>检查输入是否为空。"
+      "source": "正答：<strong>見つけた部品を<code>Button</code>として扱う</strong>",
+      "translation": "正确答案：<strong>将找到的控件当作<code>Button</code>来用</strong>"
+    },
+    {
+      "source": "<code>(Button)</code>はキャストといい、見つけた部品を<code>Button</code>として扱う指定です。文字を表示したり、ボタンを押したりする処理ではありません。",
+      "translation": "<code>(Button)</code>叫作类型转换，表示将找到的控件当作<code>Button</code>来用。它不会显示文字，也不会按下按钮。"
+    },
+    {
+      "source": "E05 · 文字が変わるとき",
+      "translation": "E05 · 文字何时改变"
+    },
+    {
+      "source": "<code>btnStart</code>はボタン、<code>txtMessage</code>は文字の表示欄です。中の<code>setText</code>は、いつ実行されますか。",
+      "translation": "<code>btnStart</code>是按钮，<code>txtMessage</code>用来显示文字。其中的<code>setText</code>会在何时执行？"
+    },
+    {
+      "source": "<code>btnStart</code>を押したとき",
+      "translation": "按下<code>btnStart</code>时"
+    },
+    {
+      "source": "Javaのファイルを開いたとき",
+      "translation": "打开Java文件时"
+    },
+    {
+      "source": "このコードを入力したとき",
+      "translation": "输入这段代码时"
+    },
+    {
+      "source": "<code>txtMessage</code>の文字を読んだとき",
+      "translation": "读取<code>txtMessage</code>中的文字时"
+    },
+    {
+      "source": "正答：<strong><code>btnStart</code>を押したとき</strong>",
+      "translation": "正确答案：<strong>按下<code>btnStart</code>时</strong>"
+    },
+    {
+      "source": "<code>setOnClickListener</code>の中には、押したときに行う処理を書きます。登録しただけでは、中の<code>setText</code>は実行しません。",
+      "translation": "在<code>setOnClickListener</code>中写入按下按钮时要执行的代码。仅注册这段代码时，其中的<code>setText</code>还不会执行。"
+    },
+    {
+      "source": "E06 · 押したボタンと処理",
+      "translation": "E06 · 按下的按钮与对应操作"
+    },
+    {
+      "source": "<code>btnStart</code>と<code>btnClear</code>はボタン、<code>txtMessage</code>は文字の表示欄です。<code>btnClear</code>を1回押すと、何を表示しますか。",
+      "translation": "<code>btnStart</code>和<code>btnClear</code>是按钮，<code>txtMessage</code>用来显示文字。按一下<code>btnClear</code>后会显示什么？"
+    },
+    {
+      "source": "正答：<strong><code>消去</code></strong>",
+      "translation": "正确答案：<strong><code>消去</code></strong>（清除）"
+    },
+    {
+      "source": "<code>btnClear</code>を押すと、<code>btnClear.setOnClickListener</code>の中を実行します。ここでは<code>消去</code>と表示します。",
+      "translation": "按下<code>btnClear</code>时，会执行<code>btnClear.setOnClickListener</code>中的代码。这里会显示<code>消去</code>（清除）。"
+    },
+    {
+      "source": "E07 · 入力した文字列",
+      "translation": "E07 · 输入的字符串"
+    },
+    {
+      "source": "<code>edtName</code>は入力欄です。<code>東京</code>と入っています。次のコードで、<code>name</code>に入る値はどれですか。",
+      "translation": "<code>edtName</code>是输入框，里面输入了<code>東京</code>（东京）。执行下面的代码后，<code>name</code>中存入了哪个值？"
+    },
+    {
+      "source": "文字列<code>&quot;edtName&quot;</code>",
+      "translation": "字符串<code>&quot;edtName&quot;</code>"
+    },
+    {
+      "source": "文字列<code>&quot;東京&quot;</code>",
+      "translation": "字符串<code>&quot;東京&quot;</code>（东京）"
+    },
+    {
+      "source": "空の文字列<code>&quot;&quot;</code>",
+      "translation": "空字符串<code>&quot;&quot;</code>"
+    },
+    {
+      "source": "整数の<code>0</code>",
+      "translation": "整数<code>0</code>"
+    },
+    {
+      "source": "正答：<strong>文字列<code>&quot;東京&quot;</code></strong>",
+      "translation": "正确答案：<strong>字符串<code>&quot;東京&quot;</code>（东京）</strong>"
+    },
+    {
+      "source": "<code>getText().toString()</code>で、入力欄にある今の文字を文字列として取り出します。ここでは<code>&quot;東京&quot;</code>です。",
+      "translation": "用<code>getText().toString()</code>读取输入框中的当前文字，得到一个字符串。这里得到的是<code>&quot;東京&quot;</code>（东京）。"
+    },
+    {
+      "source": "E08 · ボタンの文字を読む",
+      "translation": "E08 · 读取按钮上的文字"
+    },
+    {
+      "source": "<code>btnNumber</code>はボタンです。ボタンには<code>7</code>と表示されています。<code>text</code>に入る値はどれですか。",
+      "translation": "<code>btnNumber</code>是一个按钮，按钮上显示<code>7</code>。<code>text</code>中存入了哪个值？"
+    },
+    {
+      "source": "整数の<code>7</code>",
+      "translation": "整数<code>7</code>"
+    },
+    {
+      "source": "文字列<code>&quot;btnNumber&quot;</code>",
+      "translation": "字符串<code>&quot;btnNumber&quot;</code>"
+    },
+    {
+      "source": "文字列<code>&quot;7&quot;</code>",
+      "translation": "字符串<code>&quot;7&quot;</code>"
+    },
+    {
+      "source": "正答：<strong>文字列<code>&quot;7&quot;</code></strong>",
+      "translation": "正确答案：<strong>字符串<code>&quot;7&quot;</code></strong>"
+    },
+    {
+      "source": "<code>getText().toString()</code>で得られるのは文字列です。計算に使う整数に変えるときは、別に<code>Integer.parseInt</code>を使います。",
+      "translation": "用<code>getText().toString()</code>得到的是字符串。要转换成可用于计算的整数，还要用<code>Integer.parseInt</code>。"
+    },
+    {
+      "source": "E09 · 表示を置き換える",
+      "translation": "E09 · 替换显示的文字"
+    },
+    {
+      "source": "<code>txtMessage</code>は文字の表示欄です。上から順に実行したあと、何を表示しますか。",
+      "translation": "<code>txtMessage</code>用来显示文字。从上到下依次执行代码后，会显示什么？"
+    },
+    {
+      "source": "何も表示しない",
+      "translation": "不显示任何内容"
+    },
+    {
+      "source": "正答：<strong><code>後</code></strong>",
+      "translation": "正确答案：<strong><code>後</code></strong>（后）"
+    },
+    {
+      "source": "<code>setText</code>は、前の表示を新しい文字に置き換えます。最後に指定した<code>後</code>を表示します。",
+      "translation": "<code>setText</code>用新文字替换原来显示的文字。因此会显示最后指定的<code>後</code>（后）。"
+    },
+    {
+      "source": "E10 · 入力欄の文字を消す",
+      "translation": "E10 · 清除输入框中的文字"
+    },
+    {
+      "source": "<code>edtName</code>は入力欄です。<code>山田</code>と入っています。次のコードを実行すると、どうなりますか。",
+      "translation": "<code>edtName</code>是输入框，里面输入了<code>山田</code>（姓氏）。执行下面的代码后会怎样？"
+    },
+    {
+      "source": "入力欄そのものがなくなる",
+      "translation": "输入框消失"
+    },
+    {
+      "source": "<code>山田</code>の後ろに文字が増える",
+      "translation": "在<code>山田</code>（姓氏）后面加上文字"
+    },
+    {
+      "source": "入力欄の文字が消えて空になる",
+      "translation": "输入框中的文字被清除，输入框变空"
+    },
+    {
+      "source": "<code>0</code>が入力される",
+      "translation": "输入框中出现<code>0</code>"
+    },
+    {
+      "source": "正答：<strong>入力欄の文字が消えて空になる</strong>",
+      "translation": "正确答案：<strong>输入框中的文字被清除，输入框变空</strong>"
+    },
+    {
+      "source": "<code>&quot;&quot;</code>は空の文字列です。入力欄はそのままで、中に表示する文字だけを空にします。",
+      "translation": "<code>&quot;&quot;</code>是空字符串。输入框保持不变，只清空里面显示的文字。"
+    },
+    {
+      "source": "E11 · 整数に変えた値",
+      "translation": "E11 · 转换后得到的整数"
+    },
+    {
+      "source": "次のコードで、<code>number</code>に入る値はどれですか。",
+      "translation": "执行下面的代码后，<code>number</code>中存入了哪个值？"
+    },
+    {
+      "source": "文字列<code>&quot;12&quot;</code>",
+      "translation": "字符串<code>&quot;12&quot;</code>"
+    },
+    {
+      "source": "整数の<code>12</code>",
+      "translation": "整数<code>12</code>"
+    },
+    {
+      "source": "文字列<code>&quot;number&quot;</code>",
+      "translation": "字符串<code>&quot;number&quot;</code>"
+    },
+    {
+      "source": "正答：<strong>整数の<code>12</code></strong>",
+      "translation": "正确答案：<strong>整数<code>12</code></strong>"
+    },
+    {
+      "source": "<code>Integer.parseInt</code>で、文字列<code>&quot;12&quot;</code>を計算に使える整数の<code>12</code>に変えます。",
+      "translation": "用<code>Integer.parseInt</code>将字符串<code>&quot;12&quot;</code>转换成可用于计算的整数<code>12</code>。"
+    },
+    {
+      "source": "E12 · 変えた整数で計算する",
+      "translation": "E12 · 用转换后的整数计算"
+    },
+    {
+      "source": "<code>txtMessage</code>は文字の表示欄です。次のコードは、何を表示しますか。",
+      "translation": "<code>txtMessage</code>用来显示文字。下面的代码会显示什么？"
+    },
+    {
+      "source": "正答：<strong><code>答え:10</code></strong>",
+      "translation": "正确答案：<strong><code>答え:10</code></strong>（答案：10）"
+    },
+    {
+      "source": "<code>number</code>は整数の<code>8</code>です。かっこの中で<code>8 + 2</code>を計算するので、<code>答え:10</code>と表示します。",
+      "translation": "<code>number</code>是整数<code>8</code>。由于括号内会计算<code>8 + 2</code>，所以显示<code>答え:10</code>（答案：10）。"
+    },
+    {
+      "source": "E13 · Snackbarの役割",
+      "translation": "E13 · Snackbar的作用"
+    },
+    {
+      "source": "ボタンを押したときの処理です。<code>v</code>は押した部品です。次のコードは、何をしますか。",
+      "translation": "这段代码在按下按钮时执行。<code>v</code>是被按下的控件。下面的代码会做什么？"
+    },
+    {
+      "source": "入力欄の文字を整数に変える",
+      "translation": "将输入框中的文字转换成整数"
+    },
+    {
+      "source": "新しい画面を開く",
+      "translation": "打开一个新界面"
+    },
+    {
+      "source": "画面に短いメッセージを出す",
+      "translation": "在屏幕上显示一条简短消息"
+    },
+    {
+      "source": "正答：<strong>画面に短いメッセージを出す</strong>",
+      "translation": "正确答案：<strong>在屏幕上显示一条简短消息</strong>"
+    },
+    {
+      "source": "Snackbar（スナックバー）は、画面に短いメッセージを出します。<code>show()</code>を呼ぶと表示します。",
+      "translation": "Snackbar用于在屏幕上显示简短消息。调用<code>show()</code>就会显示消息。"
+    },
+    {
+      "source": "E14 · 表示するメッセージ",
+      "translation": "E14 · 显示的消息"
+    },
+    {
+      "source": "ボタンを押したときの処理です。<code>v</code>は押した部品です。Snackbar（スナックバー）に何を表示しますか。",
+      "translation": "这段代码在按下按钮时执行。<code>v</code>是被按下的控件。Snackbar中会显示什么？"
+    },
+    {
+      "source": "正答：<strong><code>できた</code></strong>",
+      "translation": "正确答案：<strong><code>できた</code></strong>（完成了）"
+    },
+    {
+      "source": "<code>make</code>の2つ目に、表示する文字を渡します。<code>message</code>には<code>できた</code>が入っています。",
+      "translation": "将要显示的文字作为<code>make</code>的第二个参数传入。<code>message</code>中存有<code>できた</code>（完成了）。"
+    },
+    {
+      "source": "E15 · 空の文字列",
+      "translation": "E15 · 空字符串"
+    },
+    {
+      "source": "次のコードで、<code>empty</code>に入る値はどれですか。",
+      "translation": "执行下面的代码后，<code>empty</code>中存入了哪个值？"
+    },
+    {
+      "source": "正答：<strong><code>true</code></strong>",
+      "translation": "正确答案：<strong><code>true</code></strong>"
+    },
+    {
+      "source": "<code>&quot;&quot;</code>は文字が1つもない文字列です。空の文字列で<code>isEmpty()</code>を呼ぶと<code>true</code>になります。",
+      "translation": "<code>&quot;&quot;</code>是没有任何字符的字符串。对空字符串调用<code>isEmpty()</code>会返回<code>true</code>。"
+    },
+    {
+      "source": "E16 · 空でない入力",
+      "translation": "E16 · 输入不为空"
+    },
+    {
+      "source": "正答：<strong><code>入力あり</code></strong>",
+      "translation": "正确答案：<strong><code>入力あり</code></strong>（已有输入）"
+    },
+    {
+      "source": "<code>name</code>には文字があるので、<code>isEmpty()</code>は<code>false</code>です。<code>else</code>の中を実行し、<code>入力あり</code>と表示します。",
+      "translation": "<code>name</code>中有文字，所以<code>isEmpty()</code>返回<code>false</code>。接下来会执行<code>else</code>中的代码，显示<code>入力あり</code>（已有输入）。"
+    },
+    {
+      "source": "E17 · 同じ値のとき",
+      "translation": "E17 · 值相等时"
+    },
+    {
+      "source": "上から順に実行したあと、<code>correct</code>の値はどれですか。",
+      "translation": "从上到下依次执行代码后，<code>correct</code>的值是什么？"
+    },
+    {
+      "source": "正答：<strong><code>1</code></strong>",
+      "translation": "正确答案：<strong><code>1</code></strong>"
+    },
+    {
+      "source": "<code>number</code>と<code>answer</code>は同じなので、<code>if</code>の中を実行します。<code>correct++</code>で<code>0</code>から<code>1</code>に増えます。",
+      "translation": "<code>number</code>和<code>answer</code>相等，所以会执行<code>if</code>中的代码。<code>correct++</code>使它的值从<code>0</code>增加到<code>1</code>。"
+    },
+    {
+      "source": "E18 · returnより下の処理",
+      "translation": "E18 · return下方的代码"
+    },
+    {
+      "source": "<code>btnAdd</code>はボタン、<code>edtName</code>は入力欄、<code>txtMessage</code>は文字の表示欄です。入力欄は空です。ボタンを押したときの説明はどれですか。",
+      "translation": "<code>btnAdd</code>是按钮，<code>edtName</code>是输入框，<code>txtMessage</code>用来显示文字。输入框是空的。哪一项描述了按下按钮时的情况？"
+    },
+    {
+      "source": "必ず<code>登録しました</code>と表示する",
+      "translation": "一定会显示<code>登録しました</code>（已登记）"
+    },
+    {
+      "source": "アプリ全体を終了する",
+      "translation": "退出整个应用"
+    },
+    {
+      "source": "このクリック処理を終え、表示を変えない",
+      "translation": "结束这次点击的处理，显示内容保持不变"
+    },
+    {
+      "source": "入力欄に<code>登録しました</code>と入れる",
+      "translation": "在输入框中填入<code>登録しました</code>（已登记）"
+    },
+    {
+      "source": "正答：<strong>このクリック処理を終え、表示を変えない</strong>",
+      "translation": "正确答案：<strong>结束这次点击的处理，显示内容保持不变</strong>"
+    },
+    {
+      "source": "入力欄が空なので、<code>return;</code>でこのクリック処理を終えます。下の<code>setText</code>は実行しません。",
+      "translation": "由于输入框为空，会用<code>return;</code>结束这次点击的处理。下面的<code>setText</code>不会执行。"
+    },
+    {
+      "source": "E19 · 繰り返す回数",
+      "translation": "E19 · 循环次数"
+    },
+    {
+      "source": "配列（複数の値を並べたもの）から値を1つずつ取り出します。最後の<code>count</code>はどれですか。",
+      "translation": "从数组（一组按顺序排列的值）中逐个取值。最后<code>count</code>的值是什么？"
+    },
+    {
+      "source": "正答：<strong><code>3</code></strong>",
+      "translation": "正确答案：<strong><code>3</code></strong>"
+    },
+    {
+      "source": "配列には値が3つあります。<code>count++</code>を3回行うので、<code>count</code>は<code>3</code>になります。値の合計を求める処理ではありません。",
+      "translation": "数组中有3个值。<code>count++</code>执行3次，因此<code>count</code>变为<code>3</code>。这段代码不会计算这些值的和。"
+    },
+    {
+      "source": "E20 · 同じ処理を登録する",
+      "translation": "E20 · 注册相同的操作"
+    },
+    {
+      "source": "<code>buttons</code>は3つのボタンを入れた配列です。<code>txtMessage</code>は文字の表示欄です。画面を開いて次のコードを実行しました。まだボタンは押していません。正しい説明はどれですか。",
+      "translation": "<code>buttons</code>是存有3个按钮的数组，<code>txtMessage</code>用来显示文字。打开界面后执行了下面的代码，此时还没按下任何按钮。哪一项说法正确？"
+    },
+    {
+      "source": "すぐに<code>押しました</code>と3回表示する",
+      "translation": "立即显示<code>押しました</code>（已按下）3次"
+    },
+    {
+      "source": "最初のボタンにだけ処理を登録する",
+      "translation": "只为第一个按钮注册操作"
+    },
+    {
+      "source": "3つのボタンを自動で押す",
+      "translation": "自动按下3个按钮"
+    },
+    {
+      "source": "3つのボタンに処理を登録し、表示はまだ変えない",
+      "translation": "为3个按钮注册操作，显示内容暂时不变"
+    },
+    {
+      "source": "正答：<strong>3つのボタンに処理を登録し、表示はまだ変えない</strong>",
+      "translation": "正确答案：<strong>为3个按钮注册操作，显示内容暂时不变</strong>"
+    },
+    {
+      "source": "拡張（かくちょう）<code>for</code>文で3つのボタンに処理を登録します。中の<code>setText</code>は、実際にボタンを押したときに実行します。",
+      "translation": "用增强型<code>for</code>循环为3个按钮注册操作。实际按下按钮时，才会执行其中的<code>setText</code>。"
     },
     {
       "source": "正解",

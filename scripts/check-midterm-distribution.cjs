@@ -1,4 +1,4 @@
-// npm install --prefix /tmp/midterm-check jsdom
+// npm install --prefix /tmp/midterm-check jsdom@26
 // NODE_PATH=/tmp/midterm-check/node_modules node scripts/check-midterm-distribution.cjs [HTML]
 // 実際の配布HTMLをDOM上で動かし、時計だけを制御する。普段のブラウザは操作しない。
 const fs = require('node:fs');
@@ -29,8 +29,15 @@ const snapshot = () => fields().map(q => [q.dataset.questionId, [...q.querySelec
 function checkSet(mock=false) {
   const qs=fields(), counts={};
   assert.equal(qs.length,20); assert.equal(new Set(qs.map(q=>q.dataset.questionId)).size,20);
-  for(const q of qs) { const id=q.dataset.questionId; counts[id.slice(0,3)]=(counts[id.slice(0,3)]||0)+1; if(mock)assert(data.mockIds.includes(id)); }
-  assert.equal(Object.keys(counts).length,10); assert(Object.values(counts).every(n=>n===2));
+  for(const q of qs) {
+    const id=q.dataset.questionId, item=data.banks.ja[id], group=item.group+':'+item.kind;
+    counts[group]=(counts[group]||0)+1;
+    if(mock)assert(data.mockIds.includes(id));
+    const expectedCode=document.createElement('code'); expectedCode.innerHTML=item.code;
+    assert.equal(q.querySelector('pre.question-code code').textContent,expectedCode.textContent);
+  }
+  assert.equal(Object.keys(counts).length,20); assert(Object.values(counts).every(n=>n===1));
+  assert.equal(qs.filter(q=>data.banks.ja[q.dataset.questionId].kind==='blank').length,10);
 }
 function answer(count=20, correct=true) {
   for(const q of fields().slice(0,count)) {
@@ -74,8 +81,31 @@ assert.equal($('timer').textContent,'60:00'); answer(10); clock+=60*60000; docum
 assert.equal($('score').textContent,'50'); assert.equal($('blank-count').textContent,'10'); assert.equal($('expired').hidden,false);
 changeLanguage('mn'); assert.equal($('score').textContent,'50'); assert.equal(document.documentElement.lang,'mn');
 $('retry').click(); checkSet(true); assert.equal(document.documentElement.lang,'ja'); assert.equal($('timer').textContent,'60:00'); assert.equal($('answered').textContent,'0'); assert.notDeepEqual(snapshot(),mockBefore); finishBlank(); setup();
-$('catalog').open=true; $('catalog').dispatchEvent(new Event('toggle')); assert.equal($('question-bank').querySelectorAll('article').length,120);
+$('catalog').open=true; $('catalog').dispatchEvent(new Event('toggle')); assert.equal($('question-bank').querySelectorAll('article').length,40);
 assert.deepEqual(errors,[]);
 assert.equal(document.querySelectorAll('script[src], link[rel=stylesheet], iframe').length,0);
 dom.window.close();
-console.log(JSON.stringify({languages:7,practicePool:120,mockPool:40,questions:20,balanced:true,languageState:true,grading:true,unanswered:true,deadline:true,lateAnswerRejected:true,retry:true,externalDependencies:0}));
+// 教材ZIP内のページも同じ40問・配分と期限判定で動くことを確かめる。
+const practiceDom = new JSDOM(fs.readFileSync(path.join(__dirname,'../docs/practice/midterm.html'),'utf8'), {
+  runScripts:'dangerously', virtualConsole,
+  beforeParse(window) { window.Date.now=()=>clock; window.setInterval=()=>1; window.clearInterval=()=>{}; }
+});
+const practiceDoc = practiceDom.window.document, PracticeEvent = practiceDom.window.Event;
+const p = id => practiceDoc.getElementById(id);
+const practiceFields = () => [...p('questions').querySelectorAll('fieldset')];
+const practiceSnapshot = () => practiceFields().map(q=>[q.dataset.questionId,[...q.querySelectorAll('input')].map(x=>x.value).join('')]);
+const practiceAnswer = count => { for(const q of practiceFields().slice(0,count)) q.querySelector(`input[value="${data.banks.ja[q.dataset.questionId].answer}"]`).click(); };
+const practiceSubmit = () => p('quiz-form').dispatchEvent(new PracticeEvent('submit',{bubbles:true,cancelable:true}));
+assert.equal(p('question-bank').querySelectorAll('article').length,40);
+practiceDoc.querySelector('[name=mode][value=timed]').click(); p('start').click();
+const practiceOrder = practiceSnapshot(), practiceCounts = {};
+for(const q of practiceFields()) { const item=data.banks.ja[q.dataset.questionId], key=item.group+':'+item.kind; practiceCounts[key]=(practiceCounts[key]||0)+1; }
+assert.equal(Object.keys(practiceCounts).length,20); assert(Object.values(practiceCounts).every(n=>n===1));
+practiceAnswer(1); clock+=60*60000; practiceAnswer(2);
+assert.equal(p('results').hidden,false); assert.equal(p('expired').hidden,false); assert.equal(p('score').textContent,'5'); assert.equal(p('blank-count').textContent,'19');
+p('retry').click(); assert.equal(p('timer').textContent,'60:00'); assert.equal(p('answered').textContent,'0'); assert.notDeepEqual(practiceSnapshot(),practiceOrder);
+practiceAnswer(20); practiceSubmit(); assert.equal(p('score').textContent,'100');
+p('retry').click(); practiceSubmit(); assert.equal(p('confirm-unanswered').hidden,false); p('keep-answering').click(); assert.equal(p('confirm-unanswered').hidden,true);
+practiceSubmit(); p('confirm-grade').click(); assert.equal(p('blank-count').textContent,'20'); assert.equal(p('score').textContent,'0');
+assert.deepEqual(errors,[]); practiceDom.window.close();
+console.log(JSON.stringify({languages:7,practicePool:40,mockPool:40,questions:20,balanced:true,textbookPage:true,languageState:true,grading:true,unanswered:true,deadline:true,lateAnswerRejected:true,retry:true,externalDependencies:0}));
