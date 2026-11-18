@@ -97,8 +97,15 @@ def render_teacher(questions):
 <p><a href="../../docs/practice/midterm.html#catalog">学生用HTMLの「全120問の正答・解説」</a>を開くと、問題ID順に問題・四択・正答・解説・出典を確認できます。回答集は学生にも公開し、復習に利用できます。下表から出典の教科書へ移動できます。</p>
 <p>配布前に、問題の範囲、正答の一意性、説明と授業内容の一致を確認してください。問題データは <code>config/midterm-questions/*.json</code>、画面の原本は <code>scripts/templates/midterm-practice.html</code> です。変更後に <code>python3 scripts/generate-midterm-practice.py</code> を実行します。生成HTMLを直接編集しません。問題・選択肢・解説内のAPI名、コード、アプリに表示する文字列はバッククォートで囲み、翻訳時に維持します。</p>
 <p>更新漏れと問題データは <code>python3 scripts/generate-midterm-practice.py --check</code>、動作はmacOSのChromeとNode.js 22以降で <code>node scripts/check-midterm-browser.mjs</code> を実行して確認できます。ブラウザ検査は専用の一時プロファイルを作り、通信をオフにして、抽選・採点・時間切れ・再挑戦を操作します。</p>
+<h2>7言語の復習と日本語の模擬試験</h2>
+<p>単体配布用は <code>python3 scripts/build-midterm-distribution.py</code> で生成します。既存120問と6言語カタログを共用します。復習では教科書・自作プログラムを参照でき、時間制限なし／60分を選べます。言語切替や日本語併記でも回答・出題順・残り時間を維持します。</p>
+<p>本番形式の模擬試験は日本語のみ、60分・20問・各5点です。参照せずに解き、終了後は各言語の解説で復習できます。<code>config/midterm-mock.json</code> にある、問題文だけで判断できる40問から各単元2問ずつ抽選します。問題文にない教材固有の状態を暗記させる設問を外します。公開するのは模擬問題であり、未公開の本試験問題は含めません。</p>
+<p>印刷用は <code>python3 scripts/generate-midterm-pdf.py</code> で生成します（ReportLabが必要）。JIS B4縦（257×364 mm）・2段組、解答欄なしで、解答は別配布のマークシートに記入する形式です。問題PDFと正答・解説PDFを分けます。問題と選択肢のまとまり、用紙サイズ、文字切れを配布前に確認してください。</p>
+<p>出力先は <code>dist/midterm/</code> です。学生用の配布ファイルは、学校アカウントの <a href="https://drive.google.com/drive/folders/1eyf3rPX_R5ldeS2q7s_lITMGd_u0Qd0C">materialsフォルダ直下</a>に置きます。Classroomの「中間テスト」の既存資料へHTML・問題PDF・正答解説PDFを添付し、HTMLはダウンロードしてブラウザで開くよう案内します。配布時は既存ファイルを更新し、添付リンクを維持します。</p>
 <h2>学生へ渡す</h2>
-<p><code>docs/practice/midterm.html</code> はCSS・JavaScript・問題を含む1ファイルです。このファイルだけをClassroomに添付できます。学生にはダウンロードしてChromeなどのブラウザで開くよう案内します。Classroomのプレビューでの実行は前提にしません。投稿は教員が行います。通信・サーバー・外部CDNは不要です。</p>
+<p><code>docs/practice/midterm.html</code> は教材ZIPに含める従来の復習ページです。今回の7言語・模擬試験付き単体配布は <code>dist/midterm/midterm-practice.html</code> を使います。Classroomのプレビューでの実行は前提にせず、ダウンロードしてChromeなどで開くよう案内します。通信・サーバー・外部CDNは不要です。</p>
+<p>留学生が読みやすいように、問題文・選択肢・解説は短い文とやさしい日本語にします。必要な専門用語は残し、読みや説明を添えます。平易化は <code>config/midterm-plain-ja.json</code>、補足した条件・変数の説明の対訳は <code>config/midterm-question-translations.json</code> に記録し、言語間で必要な情報と正答をそろえます。</p>
+<p>動作検査は <code>scripts/check-midterm-distribution.cjs</code> で行います（jsdom 26が必要。ファイル先頭に準備・実行コマンドがあります）。PDFは <code>python3 scripts/generate-midterm-pdf.py --check</code> で寸法・問題数・正答の整合を検査します（ReportLab、pypdfが必要）。生成後は全ページを画像で見て、文字や選択肢が切れていないことも確認します。</p>
 <p>同じ問題集は学生用ZIPにも収録され、準備ページの末尾から開けます。日本語版の開発後、配布前の別工程で差分翻訳と公開を行います。</p>
 <h2>出題項目と出典</h2><table><thead><tr><th>問題ID</th><th>項目</th><th>出典</th></tr></thead><tbody>
 ''' + rows + '\n</tbody></table></main></body></html>\n'

@@ -1,0 +1,159 @@
+{
+  "A01-01": {
+    "prompt": "A01では、画面に文字やボタンを置くファイルと、ボタンを押したときの動きを書くファイルを使います。正しい組み合わせはどれですか。"
+  },
+  "A01-03": {
+    "prompt": "`LinearLayout`の中にある3つのボタンを、左から右へ並べたいです。どの設定を使いますか。"
+  },
+  "A01-04": {
+    "prompt": "XMLで、`TextView`に`android:id=\"@+id/text\"`を付けました。Javaからこの部品を見つけるコードはどれですか。"
+  },
+  "A01-06": {
+    "prompt": "次のコードの`(TextView)`は、何のために書きますか。\n`var text = (TextView) findViewById(R.id.text);`"
+  },
+  "A01-07": {
+    "prompt": "XMLで、画面の文字を`Hello World!`にしました。`onCreate`に次のコードを書きました。アプリを開いて、まだボタンを押していません。画面の文字はどれですか。\n`button.setOnClickListener(v -> {\n    text.setText(\"Hello, Android!\");\n});`",
+    "explanation": "`setOnClickListener`の中の処理は、ボタンを押したときに動きます。まだ押していないので、XMLに書いた`Hello World!`のままです。"
+  },
+  "A01-10": {
+    "prompt": "ボタン`btn1`の文字を`1`から`できた`に変えました。Javaでは、`btn1.getText().toString()`を`Snackbar`に出します。`btn1`を押すと、何が出ますか。"
+  },
+  "A02-04": {
+    "prompt": "タイマーを止めるまでに6,000ミリ秒がたちました。`elapsedTimeMillis`は6,000です。再開するときの`SystemClock.elapsedRealtime()`は120,000です。`Chronometer`の`base`を`120,000 - elapsedTimeMillis`にすると、値はいくつですか。",
+    "explanation": "`120,000 - 6,000 = 114,000`です。今の時刻から、すでにたった時間を引いて`base`にすると、6秒の続きから動きます。"
+  },
+  "A02-09": {
+    "prompt": "数字ボタンの文字は`6`です。`Integer.parseInt(btn.getText().toString())`の結果はどれですか。"
+  },
+  "A02-10": {
+    "prompt": "数字ボタンを押すと、はじめに次のコードが動きます。`STOP`の後なので、`isPlaying`は`false`です。このコードの後にある採点処理はどうなりますか。\n`if (!isPlaying) { Snackbar.make(...).show(); return; }`",
+    "explanation": "`!false`は`true`なので、`if`の中に入ります。メッセージを出した後、`return`でクリック処理を終えます。その後の採点処理は動きません。"
+  },
+  "A02-12": {
+    "prompt": "回答した後、次のように処理します。9問目に答えたとき、`nowNo`は9です。この後、どうなりますか。\n`if (nowNo <= 9) { nowNo++; startQuestion(); } else { 結果表示 }`"
+  },
+  "A03-02": {
+    "prompt": "横向きの`LinearLayout`に、3つの手の画像があります。すべて`layout_width=\"0dp\"`、`layout_weight=\"1\"`です。横幅はどう分かれますか。"
+  },
+  "A03-04": {
+    "prompt": "`imageViews.length`は3です。次の`for`文の中で、`i`はどの値になりますか。\n`for (var i = 0; i < imageViews.length; i++)`"
+  },
+  "A03-08": {
+    "prompt": "`item`には、次の順で画像が入っています。`cpu`は1です。どの画像が出ますか。\n`{R.drawable.rock, R.drawable.scissors, R.drawable.paper}`\n`imgCpu.setImageResource(item[cpu]);`"
+  },
+  "A03-10": {
+    "prompt": "グーは0、チョキは1、パーは2です。自分の手`selectedHand`はグー、CPUの手`cpu`はチョキです。`(selectedHand - cpu + 3) % 3`の値と、勝ち負けはどれですか。値が0なら引き分け、1なら負け、2なら勝ちです。"
+  },
+  "A04-03": {
+    "prompt": "`WebView`に`setWebViewClient(new WebViewClient())`を設定します。何のための設定ですか。"
+  },
+  "A04-05": {
+    "prompt": "`AppMenuItem`を、`YAHOO`、`GITHUB_COPILOT`、`SLAM_DUNK_MOVIE`、`CHAT_GPT`の順に書きました。`AppMenuItem.values()[2]`で取り出す値はどれですか。"
+  },
+  "A04-06": {
+    "prompt": "コンストラクタ`AppMenuItem(String url, String title)`の中に、`this.url = url;`があります。左の`this.url`と右の`url`は、それぞれ何ですか。",
+    "explanation": "左の`this.url`は、その値が持つフィールドです。右の`url`は、受け取った引数（ひきすう）です。`private final String url`の`final`は、一度入れた値を変えない設定です。"
+  },
+  "A04-12": {
+    "prompt": "戻る操作のための`OnBackPressedCallback`が使える状態です。`handleOnBackPressed`の中の`webView.goBack()`は、何をしますか。",
+    "explanation": "`goBack()`は、前に見たページへ戻る処理です。教材では、ページの履歴（りれき）が変わるたびに`canGoBack()`を調べます。前のページがあるときだけ、コールバックを使える状態にします。"
+  },
+  "A05-03": {
+    "prompt": "次の`do-while`文は、どの順に動きますか。\n`do { 乱数を作る処理 } while (条件);`"
+  },
+  "A05-06": {
+    "prompt": "数字ボタンを押すと、はじめに`button.setEnabled(false);`が動きます。これで何を防げますか。"
+  },
+  "A05-07": {
+    "prompt": "スイッチの数字は`{3, 7}`です。押した数字`number`は7です。`anyMatch(num -> num == number)`の結果はどれですか。",
+    "explanation": "`anyMatch`は、条件に合う値が1つでもあれば`true`を返します。3は合いませんが、7が合うので`true`です。"
+  },
+  "A05-09": {
+    "prompt": "次の2つのフィールドがあります。`nowState++`を実行すると、どうなりますか。\n`private static final int STATE_INITIAL = 1;`\n`private int nowState = STATE_INITIAL;`",
+    "explanation": "`STATE_INITIAL`は、`final`が付いた定数（ていすう）です。値は変わりません。`nowState`は別のフィールドなので、1から2へ変わります。"
+  },
+  "A06-02": {
+    "prompt": "`new Intent(this, TestActivity.class)`で`intent`を作りました。`TestActivity`の画面を開くには、どのコードを使いますか。"
+  },
+  "A06-04": {
+    "prompt": "`Intent`に、キー`\"score\"`の値は入っていません。`getIntent().getIntExtra(\"score\", -1)`の結果はどれですか。",
+    "explanation": "`getIntExtra`の2つ目の引数（ひきすう）は、キーの値がないときに使う値です。ここでは-1です。"
+  },
+  "A06-06": {
+    "prompt": "送り手は`intent.putExtra(\"intValue\", 7)`で値を入れました。受け手は`getIntExtra(\"intvalue\", 0)`で読みます。結果はどれですか。",
+    "explanation": "キーは、大文字と小文字も同じにします。`intValue`と`intvalue`は別のキーです。値が見つからないので、2つ目の引数（ひきすう）の0を使います。"
+  },
+  "A06-08": {
+    "prompt": "同じクラスに`start(Context)`、`start(Context, int, String)`、`start(Context, String[])`を書けます。なぜですか。",
+    "choices": ["引数（ひきすう）の型や数が違うため", "戻り値がすべて`void`なら、引数が同じでも書けるため", "メソッド名に`start`があると、同じものを何個でも書けるため", "Androidが同じ名前のメソッドを順に全部実行するため"]
+  },
+  "A06-10": {
+    "prompt": "`String[] values = {\"3\", \"4\", \"5\"};`があります。`Arrays.toString(values)`の結果はどれですか。"
+  },
+  "A07-02": {
+    "prompt": "参加者のリスト`participants`に、すでに`Sato`がいます。追加したい名前`participantName`も`Sato`です。同じ名前があるか調べるコードはどれですか。",
+    "explanation": "`contains`は、リストに同じ名前があるか調べます。すでに`Sato`があれば`true`です。教材では、見つかったときにメッセージを出し、`return`で追加を止めます。"
+  },
+  "A07-03": {
+    "prompt": "参加者の名前が空です。`Snackbar`でメッセージを出した後、すぐに`return;`を書きます。この`return;`は、何のためですか。"
+  },
+  "A07-06": {
+    "prompt": "受け取った`participants`には`{\"Sato\", \"Suzuki\", \"Tanaka\"}`が入っています。`\"参加者は\" + participants.length + \"人\"`で、どの文字が出ますか。"
+  },
+  "A07-09": {
+    "prompt": "金額の文字列`edtTotalAmountStr`には`\"1234\"`が入っています。計算に使う`int`に変えるコードはどれですか。"
+  },
+  "A08-02": {
+    "prompt": "キー`\"int_value\"`に1を保存しました。他のキーには保存していません。`prefs.getInt(\"intvalue\", 0)`の結果はどれですか。"
+  },
+  "A08-03": {
+    "prompt": "キー`INT_VALUE`には、1が保存されています。`prefs.getInt(INT_VALUE, -1)`の結果はどれですか。",
+    "explanation": "キーに値があれば、その値を使います。保存されている値は1なので、結果は1です。-1は、そのキーに値がないときにだけ使います。"
+  },
+  "A08-06": {
+    "prompt": "`SharedPreferences`から、保存した文字列を読むだけです。正しい説明はどれですか。"
+  },
+  "A08-09": {
+    "prompt": "`Set.of(\"Hello\", \"World\")`を保存して読みました。画面には`[World, Hello]`と出ました。正しい説明はどれですか。"
+  },
+  "A08-10": {
+    "prompt": "A08で保存した値は、アプリを完全に閉じてから開き直しても残ります。なぜですか。"
+  },
+  "A09-01": {
+    "prompt": "`txtMemoList`には、すでにメモが出ています。`txtMemoList.append(edtMemoStr + \"\\n\");`を実行すると、どうなりますか。"
+  },
+  "A09-05": {
+    "prompt": "メモを追加した後、入力欄`edtMemo`に`edtMemo.setText(\"\");`を実行します。何が変わりますか。"
+  },
+  "A09-07": {
+    "prompt": "アプリを初めて開きました。キー`MEMO`には、まだ値がありません。次のコードで、一覧はどうなりますか。\n`txtMemoList.setText(prefs.getString(MEMO, \"\"));`"
+  },
+  "A09-09": {
+    "prompt": "保存したメモと、画面の一覧を、両方とも空にしたいです。`edit`は保存先の`Editor`、`txtMemoList`は一覧、`edtMemo`は入力欄です。どのコードを使いますか。"
+  },
+  "A09-11": {
+    "prompt": "メモの一覧を`ScrollView`に入れます。主な目的はどれですか。"
+  },
+  "A10-02": {
+    "prompt": "`Item`クラスに`@Entity`を付けます。何を表しますか。"
+  },
+  "A10-03": {
+    "prompt": "`internalId`に`@PrimaryKey(autoGenerate = true)`を付けました。何のための設定ですか。",
+    "choices": ["行を見分ける番号にする。新しい行を入れるとき、番号を自動で作れる", "保存するたびに、`title`の文字数を`internalId`に入れる", "保存するたびに、表全体を消す", "すべての行の番号を、必ず同じ1にする"],
+    "explanation": "主キー（しゅキー）は、行を見分けるための値です。A10でid欄を空にして保存すると、`Room`が新しい行の番号を自動で付けます。"
+  },
+  "A10-05": {
+    "prompt": "次のコードの`:internalId`は、何を表しますか。\n`@Query(\"SELECT * FROM item WHERE internalId = :internalId\")`\n`Item findByInternalId(int internalId);`",
+    "choices": ["`findByInternalId`に渡した引数（ひきすう）の値", "すべての行に使う、いつも同じ文字列", "自動で付く、一番新しい番号だけ", "`title`の文字数"]
+  },
+  "A10-08": {
+    "prompt": "次のコードの`entities = {Item.class}`は、何を決めていますか。\n`@Database(entities = {Item.class}, version = 1, exportSchema = false)`",
+    "choices": ["このデータベースで`Item`の表を使う", "画面に`Item`というボタンを置く", "保存できる行数を、必ず1行にする", "`Item`を`Intent`で次の画面へ渡す"]
+  },
+  "A10-09": {
+    "prompt": "`AppDatabase.getInstance`では、`instance`が`null`のときだけデータベースを作ります。主な理由はどれですか。"
+  },
+  "A10-10": {
+    "prompt": "`Room.databaseBuilder`の1つ目の引数（ひきすう）に、`context.getApplicationContext()`を渡します。なぜですか。"
+  }
+}
