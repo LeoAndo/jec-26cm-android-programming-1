@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>教員用：中間テスト対策問題集</title><link rel="stylesheet" href="../../docs/assets/textbook.css"></head>
+<body class="plain"><main><h1>中間テスト対策問題集の確認・配布</h1>
+<p>試験予定：2026年12月2日（水）2限、対面・60分。範囲はA01〜A10 RoomSampleまでの全内容。4択（ア〜エ）、20問・各5点。</p>
+<h2>この問題集の教材方針</h2>
+<p>各単元12問、合計120問から各2問を抽選し、問題順と選択肢順を並べ替えます。1回で全内容を網羅するものではなく、繰り返して復習するための問題です。本番と同一の問題・単元配分であるとは保証しません。授業で扱っていないAPIや、教員用コードの内部実装の暗記は求めません。</p>
+<p>時間制限なしを既定とし、60分練習も選べます。制限時間は開始時刻から数え、別タブへ切り替えても進みます。時間切れになると自動採点します。回答は保存・送信せず、ページを閉じる／再読み込みすると消えます。</p>
+<h2>全問題の内容を確認する</h2>
+<p><a href="../../docs/practice/midterm.html#catalog">学生用HTMLの「全120問の正答・解説」</a>を開くと、問題ID順に問題・四択・正答・解説・出典を確認できます。回答集は学生にも公開し、復習に利用できます。下表から出典の教科書へ移動できます。</p>
+<p>配布前に、問題の範囲、正答の一意性、説明と授業内容の一致を確認してください。問題データは <code>config/midterm-questions/*.json</code>、画面の原本は <code>scripts/templates/midterm-practice.html</code> です。変更後に <code>python3 scripts/generate-midterm-practice.py</code> を実行します。生成HTMLを直接編集しません。問題・選択肢・解説内のAPI名、コード、アプリに表示する文字列はバッククォートで囲み、翻訳時に維持します。</p>
+<p>更新漏れと問題データは <code>python3 scripts/generate-midterm-practice.py --check</code>、動作はmacOSのChromeとNode.js 22以降で <code>node scripts/check-midterm-browser.mjs</code> を実行して確認できます。ブラウザ検査は専用の一時プロファイルを作り、通信をオフにして、抽選・採点・時間切れ・再挑戦を操作します。</p>
+<h2>学生へ渡す</h2>
+<p><code>docs/practice/midterm.html</code> はCSS・JavaScript・問題を含む1ファイルです。このファイルだけをClassroomに添付できます。学生にはダウンロードしてChromeなどのブラウザで開くよう案内します。Classroomのプレビューでの実行は前提にしません。投稿は教員が行います。通信・サーバー・外部CDNは不要です。</p>
+<p>同じ問題集は学生用ZIPにも収録され、準備ページの末尾から開けます。日本語版の開発後、配布前の別工程で差分翻訳と公開を行います。</p>
+<h2>出題項目と出典</h2><table><thead><tr><th>問題ID</th><th>項目</th><th>出典</th></tr></thead><tbody>
+<tr><td>A01-01</td><td>XMLとJavaの役割</td><td><a href="../../docs/hello-android/index.html#step-2">教科書の該当箇所</a></td></tr>
+<tr><td>A01-02</td><td>プロジェクト作成</td><td><a href="../../docs/hello-android/index.html#step-1">教科書の該当箇所</a></td></tr>
+<tr><td>A01-03</td><td><code>LinearLayout</code>の方向</td><td><a href="../../docs/hello-android/index.html#step-6">教科書の該当箇所</a></td></tr>
+<tr><td>A01-04</td><td><code>id</code>と<code>findViewById</code></td><td><a href="../../docs/hello-android/index.html#step-4">教科書の該当箇所</a></td></tr>
+<tr><td>A01-05</td><td>部品の大きさ</td><td><a href="../../docs/hello-android/index.html#step-3">教科書の該当箇所</a></td></tr>
+<tr><td>A01-06</td><td><code>var</code>とキャスト</td><td><a href="../../docs/hello-android/index.html#step-4">教科書の該当箇所</a></td></tr>
+<tr><td>A01-07</td><td>クリック処理の実行時点</td><td><a href="../../docs/hello-android/index.html#step-4">教科書の該当箇所</a></td></tr>
+<tr><td>A01-08</td><td>表示文字の取得</td><td><a href="../../docs/hello-android/index.html#step-5">教科書の該当箇所</a></td></tr>
+<tr><td>A01-09</td><td><code>Logcat</code></td><td><a href="../../docs/hello-android/index.html#step-5">教科書の該当箇所</a></td></tr>
+<tr><td>A01-10</td><td><code>Snackbar</code>と文字の取得</td><td><a href="../../docs/hello-android/index.html#step-8">教科書の該当箇所</a></td></tr>
+<tr><td>A01-11</td><td>短いメッセージの表示</td><td><a href="../../docs/hello-android/index.html#step-7">教科書の該当箇所</a></td></tr>
+<tr><td>A01-12</td><td>余白の変更</td><td><a href="../../docs/hello-android/index.html#step-8">教科書の該当箇所</a></td></tr>
+<tr><td>A02-01</td><td>プレビュー用の文字</td><td><a href="../../docs/calc-game/index.html#step-2">教科書の該当箇所</a></td></tr>
+<tr><td>A02-02</td><td>フィールドの型</td><td><a href="../../docs/calc-game/index.html#step-4">教科書の該当箇所</a></td></tr>
+<tr><td>A02-03</td><td>フィールドとローカル変数</td><td><a href="../../docs/calc-game/index.html#step-4">教科書の該当箇所</a></td></tr>
+<tr><td>A02-04</td><td>タイマーの再開</td><td><a href="../../docs/calc-game/index.html#step-5">教科書の該当箇所</a></td></tr>
+<tr><td>A02-05</td><td><code>STOP</code>と<code>START</code></td><td><a href="../../docs/calc-game/index.html#step-6">教科書の該当箇所</a></td></tr>
+<tr><td>A02-06</td><td><code>RESET</code></td><td><a href="../../docs/calc-game/index.html#step-5">教科書の該当箇所</a></td></tr>
+<tr><td>A02-07</td><td>乱数の範囲</td><td><a href="../../docs/calc-game/index.html#step-6">教科書の該当箇所</a></td></tr>
+<tr><td>A02-08</td><td>配列と拡張<code>for</code>文</td><td><a href="../../docs/calc-game/index.html#step-7">教科書の該当箇所</a></td></tr>
+<tr><td>A02-09</td><td>文字から整数への変換</td><td><a href="../../docs/calc-game/index.html#step-7">教科書の該当箇所</a></td></tr>
+<tr><td>A02-10</td><td>条件分岐と<code>return</code></td><td><a href="../../docs/calc-game/index.html#step-7">教科書の該当箇所</a></td></tr>
+<tr><td>A02-11</td><td>正解数と問題番号</td><td><a href="../../docs/calc-game/index.html#step-8">教科書の該当箇所</a></td></tr>
+<tr><td>A02-12</td><td>10問終了の境界</td><td><a href="../../docs/calc-game/index.html#step-9">教科書の該当箇所</a></td></tr>
+<tr><td>A03-01</td><td>画像リソース</td><td><a href="../../docs/rock-paper-scissors-game/index.html#step-3">教科書の該当箇所</a></td></tr>
+<tr><td>A03-02</td><td>幅を比率で分ける</td><td><a href="../../docs/rock-paper-scissors-game/index.html#step-3">教科書の該当箇所</a></td></tr>
+<tr><td>A03-03</td><td>配列の番号</td><td><a href="../../docs/rock-paper-scissors-game/index.html#step-5">教科書の該当箇所</a></td></tr>
+<tr><td>A03-04</td><td>番号付き<code>for</code>文</td><td><a href="../../docs/rock-paper-scissors-game/index.html#step-5">教科書の該当箇所</a></td></tr>
+<tr><td>A03-05</td><td>選択状態</td><td><a href="../../docs/rock-paper-scissors-game/index.html#step-5">教科書の該当箇所</a></td></tr>
+<tr><td>A03-06</td><td>勝負後の操作制限</td><td><a href="../../docs/rock-paper-scissors-game/index.html#step-6">教科書の該当箇所</a></td></tr>
+<tr><td>A03-07</td><td>CPUの乱数</td><td><a href="../../docs/rock-paper-scissors-game/index.html#step-6">教科書の該当箇所</a></td></tr>
+<tr><td>A03-08</td><td>配列から画像を選ぶ</td><td><a href="../../docs/rock-paper-scissors-game/index.html#step-6">教科書の該当箇所</a></td></tr>
+<tr><td>A03-09</td><td><code>INVISIBLE</code></td><td><a href="../../docs/rock-paper-scissors-game/index.html#step-7">教科書の該当箇所</a></td></tr>
+<tr><td>A03-10</td><td>勝敗の計算</td><td><a href="../../docs/rock-paper-scissors-game/index.html#step-8">教科書の該当箇所</a></td></tr>
+<tr><td>A03-11</td><td><code>switch</code>と<code>break</code></td><td><a href="../../docs/rock-paper-scissors-game/index.html#step-8">教科書の該当箇所</a></td></tr>
+<tr><td>A03-12</td><td>連勝数</td><td><a href="../../docs/rock-paper-scissors-game/index.html#step-8">教科書の該当箇所</a></td></tr>
+<tr><td>A04-01</td><td>インターネットの許可</td><td><a href="../../docs/webview-app/index.html#step-2">教科書の該当箇所</a></td></tr>
+<tr><td>A04-02</td><td><code>ActionBar</code>とメニュー</td><td><a href="../../docs/webview-app/index.html#step-2">教科書の該当箇所</a></td></tr>
+<tr><td>A04-03</td><td><code>WebViewClient</code></td><td><a href="../../docs/webview-app/index.html#step-4">教科書の該当箇所</a></td></tr>
+<tr><td>A04-04</td><td><code>enum</code>にまとめる理由</td><td><a href="../../docs/webview-app/index.html#enum-merits">教科書の該当箇所</a></td></tr>
+<tr><td>A04-05</td><td><code>ordinal</code>と<code>values</code></td><td><a href="../../docs/webview-app/index.html#enum-usage">教科書の該当箇所</a></td></tr>
+<tr><td>A04-06</td><td>コンストラクタとフィールド</td><td><a href="../../docs/webview-app/index.html#step-5">教科書の該当箇所</a></td></tr>
+<tr><td>A04-07</td><td>メニューのクリック処理</td><td><a href="../../docs/webview-app/index.html#step-6">教科書の該当箇所</a></td></tr>
+<tr><td>A04-08</td><td><code>enum</code>の項目追加</td><td><a href="../../docs/webview-app/index.html#step-9">教科書の該当箇所</a></td></tr>
+<tr><td>A04-09</td><td>JavaScriptの切り替え</td><td><a href="../../docs/webview-app/index.html#step-7">教科書の該当箇所</a></td></tr>
+<tr><td>A04-10</td><td>ズーム</td><td><a href="../../docs/webview-app/index.html#step-7">教科書の該当箇所</a></td></tr>
+<tr><td>A04-11</td><td>戻る履歴の有無</td><td><a href="../../docs/webview-app/index.html#step-8">教科書の該当箇所</a></td></tr>
+<tr><td>A04-12</td><td>戻る処理の登録</td><td><a href="../../docs/webview-app/index.html#step-8">教科書の該当箇所</a></td></tr>
+<tr><td>A05-01</td><td>画像の切り替え</td><td><a href="../../docs/bomb-game/index.html#step-7">教科書の該当箇所</a></td></tr>
+<tr><td>A05-02</td><td>乱数の配列</td><td><a href="../../docs/bomb-game/index.html#step-5">教科書の該当箇所</a></td></tr>
+<tr><td>A05-03</td><td><code>do-while</code>文</td><td><a href="../../docs/bomb-game/index.html#step-5">教科書の該当箇所</a></td></tr>
+<tr><td>A05-04</td><td><code>distinct</code>と<code>count</code></td><td><a href="../../docs/bomb-game/index.html#step-5">教科書の該当箇所</a></td></tr>
+<tr><td>A05-05</td><td>メソッドとフィールド</td><td><a href="../../docs/bomb-game/index.html#step-5">教科書の該当箇所</a></td></tr>
+<tr><td>A05-06</td><td>同じボタンを押せなくする</td><td><a href="../../docs/bomb-game/index.html#step-6">教科書の該当箇所</a></td></tr>
+<tr><td>A05-07</td><td><code>anyMatch</code></td><td><a href="../../docs/bomb-game/index.html#step-7">教科書の該当箇所</a></td></tr>
+<tr><td>A05-08</td><td>状態遷移</td><td><a href="../../docs/bomb-game/index.html#step-7">教科書の該当箇所</a></td></tr>
+<tr><td>A05-09</td><td>定数と変化する値</td><td><a href="../../docs/bomb-game/index.html#step-7">教科書の該当箇所</a></td></tr>
+<tr><td>A05-10</td><td><code>filter</code>と<code>count</code></td><td><a href="../../docs/bomb-game/index.html#step-9">教科書の該当箇所</a></td></tr>
+<tr><td>A05-11</td><td>クリア条件</td><td><a href="../../docs/bomb-game/index.html#step-9">教科書の該当箇所</a></td></tr>
+<tr><td>A05-12</td><td>再挑戦</td><td><a href="../../docs/bomb-game/index.html#step-8">教科書の該当箇所</a></td></tr>
+<tr><td>A06-01</td><td><code>Activity</code>の追加</td><td><a href="../../docs/screen-transition-sample/index.html#step-3">教科書の該当箇所</a></td></tr>
+<tr><td>A06-02</td><td><code>Intent</code>による画面遷移</td><td><a href="../../docs/screen-transition-sample/index.html#step-4">教科書の該当箇所</a></td></tr>
+<tr><td>A06-03</td><td>戻る操作</td><td><a href="../../docs/screen-transition-sample/index.html#step-4">教科書の該当箇所</a></td></tr>
+<tr><td>A06-04</td><td><code>int</code>の既定値</td><td><a href="../../docs/screen-transition-sample/index.html#step-5">教科書の該当箇所</a></td></tr>
+<tr><td>A06-05</td><td><code>String</code>の受け取り</td><td><a href="../../docs/screen-transition-sample/index.html#step-5">教科書の該当箇所</a></td></tr>
+<tr><td>A06-06</td><td>キーの一致</td><td><a href="../../docs/screen-transition-sample/index.html#step-8">教科書の該当箇所</a></td></tr>
+<tr><td>A06-07</td><td>キーの定数</td><td><a href="../../docs/screen-transition-sample/index.html#step-6">教科書の該当箇所</a></td></tr>
+<tr><td>A06-08</td><td>オーバーロード</td><td><a href="../../docs/screen-transition-sample/index.html#step-6">教科書の該当箇所</a></td></tr>
+<tr><td>A06-09</td><td>配列の受け渡し</td><td><a href="../../docs/screen-transition-sample/index.html#step-7">教科書の該当箇所</a></td></tr>
+<tr><td>A06-10</td><td>配列の表示</td><td><a href="../../docs/screen-transition-sample/index.html#step-7">教科書の該当箇所</a></td></tr>
+<tr><td>A06-11</td><td><code>Logcat</code>のタグ</td><td><a href="../../docs/screen-transition-sample/index.html#step-5">教科書の該当箇所</a></td></tr>
+<tr><td>A06-12</td><td>渡す値の選び方</td><td><a href="../../docs/screen-transition-sample/index.html#step-9">教科書の該当箇所</a></td></tr>
+<tr><td>A07-01</td><td>参加者の管理</td><td><a href="../../docs/bill-splitter/index.html#step-4">教科書の該当箇所</a></td></tr>
+<tr><td>A07-02</td><td>重複チェック</td><td><a href="../../docs/bill-splitter/index.html#step-4">教科書の該当箇所</a></td></tr>
+<tr><td>A07-03</td><td>入力チェックと<code>return</code></td><td><a href="../../docs/bill-splitter/index.html#step-4">教科書の該当箇所</a></td></tr>
+<tr><td>A07-04</td><td>人数チェック</td><td><a href="../../docs/bill-splitter/index.html#step-6">教科書の該当箇所</a></td></tr>
+<tr><td>A07-05</td><td>リストから配列へ</td><td><a href="../../docs/bill-splitter/index.html#step-6">教科書の該当箇所</a></td></tr>
+<tr><td>A07-06</td><td>配列の要素数</td><td><a href="../../docs/bill-splitter/index.html#step-6">教科書の該当箇所</a></td></tr>
+<tr><td>A07-07</td><td>計算クラスの使い方</td><td><a href="../../docs/bill-splitter/index.html#step-7">教科書の該当箇所</a></td></tr>
+<tr><td>A07-08</td><td>計算結果の表示</td><td><a href="../../docs/bill-splitter/index.html#step-9">教科書の該当箇所</a></td></tr>
+<tr><td>A07-09</td><td>文字列から整数へ</td><td><a href="../../docs/bill-splitter/index.html#step-8">教科書の該当箇所</a></td></tr>
+<tr><td>A07-10</td><td>金額と人数のチェック</td><td><a href="../../docs/bill-splitter/index.html#step-8">教科書の該当箇所</a></td></tr>
+<tr><td>A07-11</td><td>割り勘の結果</td><td><a href="../../docs/bill-splitter/index.html#step-10">教科書の該当箇所</a></td></tr>
+<tr><td>A07-12</td><td>画像リソース</td><td><a href="../../docs/bill-splitter/index.html#step-2">教科書の該当箇所</a></td></tr>
+<tr><td>A08-01</td><td>保存先</td><td><a href="../../docs/shared-preferences-sample/index.html#step-3">教科書の該当箇所</a></td></tr>
+<tr><td>A08-02</td><td>キーの一致</td><td><a href="../../docs/shared-preferences-sample/index.html#step-9">教科書の該当箇所</a></td></tr>
+<tr><td>A08-03</td><td>保存値と初期値</td><td><a href="../../docs/shared-preferences-sample/index.html#step-4">教科書の該当箇所</a></td></tr>
+<tr><td>A08-04</td><td>保存の順序</td><td><a href="../../docs/shared-preferences-sample/index.html#step-5">教科書の該当箇所</a></td></tr>
+<tr><td>A08-05</td><td><code>apply</code>の性質</td><td><a href="../../docs/shared-preferences-sample/index.html#step-5">教科書の該当箇所</a></td></tr>
+<tr><td>A08-06</td><td>読み出し</td><td><a href="../../docs/shared-preferences-sample/index.html#step-6">教科書の該当箇所</a></td></tr>
+<tr><td>A08-07</td><td>全データの削除</td><td><a href="../../docs/shared-preferences-sample/index.html#step-7">教科書の該当箇所</a></td></tr>
+<tr><td>A08-08</td><td><code>XML</code>と初期値</td><td><a href="../../docs/shared-preferences-sample/index.html#step-8">教科書の該当箇所</a></td></tr>
+<tr><td>A08-09</td><td><code>Set</code>の順序</td><td><a href="../../docs/shared-preferences-sample/index.html#step-5">教科書の該当箇所</a></td></tr>
+<tr><td>A08-10</td><td>データの永続化</td><td><a href="../../docs/shared-preferences-sample/index.html#step-6">教科書の該当箇所</a></td></tr>
+<tr><td>A08-11</td><td>保存に向くデータ</td><td><a href="../../docs/shared-preferences-sample/index.html#step-8">教科書の該当箇所</a></td></tr>
+<tr><td>A08-12</td><td>表示欄の高さ</td><td><a href="../../docs/shared-preferences-sample/index.html#step-2">教科書の該当箇所</a></td></tr>
+<tr><td>A09-01</td><td><code>append</code></td><td><a href="../../docs/memo-app/index.html#step-4">教科書の該当箇所</a></td></tr>
+<tr><td>A09-02</td><td><code>setText</code>との違い</td><td><a href="../../docs/memo-app/index.html#step-7">教科書の該当箇所</a></td></tr>
+<tr><td>A09-03</td><td>改行</td><td><a href="../../docs/memo-app/index.html#step-7">教科書の該当箇所</a></td></tr>
+<tr><td>A09-04</td><td>空入力の分岐</td><td><a href="../../docs/memo-app/index.html#step-4">教科書の該当箇所</a></td></tr>
+<tr><td>A09-05</td><td>入力欄を空にする</td><td><a href="../../docs/memo-app/index.html#step-4">教科書の該当箇所</a></td></tr>
+<tr><td>A09-06</td><td>保存する値</td><td><a href="../../docs/memo-app/index.html#step-5">教科書の該当箇所</a></td></tr>
+<tr><td>A09-07</td><td>起動時の復元</td><td><a href="../../docs/memo-app/index.html#step-5">教科書の該当箇所</a></td></tr>
+<tr><td>A09-08</td><td>データの持ち方</td><td><a href="../../docs/memo-app/index.html#step-5">教科書の該当箇所</a></td></tr>
+<tr><td>A09-09</td><td>保存と表示を消す</td><td><a href="../../docs/memo-app/index.html#step-6">教科書の該当箇所</a></td></tr>
+<tr><td>A09-10</td><td>保存と表示の違い</td><td><a href="../../docs/memo-app/index.html#step-7">教科書の該当箇所</a></td></tr>
+<tr><td>A09-11</td><td><code>ScrollView</code></td><td><a href="../../docs/memo-app/index.html#step-3">教科書の該当箇所</a></td></tr>
+<tr><td>A09-12</td><td>入力の案内</td><td><a href="../../docs/memo-app/index.html#step-3">教科書の該当箇所</a></td></tr>
+<tr><td>A10-01</td><td><code>Room</code>の設定</td><td><a href="../../docs/room-sample/index.html#step-2">教科書の該当箇所</a></td></tr>
+<tr><td>A10-02</td><td><code>Entity</code></td><td><a href="../../docs/room-sample/index.html#step-4">教科書の該当箇所</a></td></tr>
+<tr><td>A10-03</td><td>主キー</td><td><a href="../../docs/room-sample/index.html#step-4">教科書の該当箇所</a></td></tr>
+<tr><td>A10-04</td><td>DAOの実装</td><td><a href="../../docs/room-sample/index.html#step-5">教科書の該当箇所</a></td></tr>
+<tr><td>A10-05</td><td>検索の条件</td><td><a href="../../docs/room-sample/index.html#step-5">教科書の該当箇所</a></td></tr>
+<tr><td>A10-06</td><td>Upsert</td><td><a href="../../docs/room-sample/index.html#step-7">教科書の該当箇所</a></td></tr>
+<tr><td>A10-07</td><td>見つからないデータ</td><td><a href="../../docs/room-sample/index.html#step-7">教科書の該当箇所</a></td></tr>
+<tr><td>A10-08</td><td><code>Database</code>の宣言</td><td><a href="../../docs/room-sample/index.html#step-6">教科書の該当箇所</a></td></tr>
+<tr><td>A10-09</td><td>データベースの使い回し</td><td><a href="../../docs/room-sample/index.html#step-6">教科書の該当箇所</a></td></tr>
+<tr><td>A10-10</td><td>Application <code>Context</code></td><td><a href="../../docs/room-sample/index.html#step-6">教科書の該当箇所</a></td></tr>
+<tr><td>A10-11</td><td>保存後の再表示</td><td><a href="../../docs/room-sample/index.html#step-7">教科書の該当箇所</a></td></tr>
+<tr><td>A10-12</td><td><code>Entity</code>のNonNull</td><td><a href="../../docs/room-sample/index.html#step-4">教科書の該当箇所</a></td></tr>
+</tbody></table></main></body></html>
