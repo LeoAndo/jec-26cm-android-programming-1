@@ -235,7 +235,7 @@
   },
   {
     "id": "B10",
-    "unit": "A01",
+    "unit": "A09",
     "kind": "blank",
     "group": "write",
     "topic": "入力欄を空にする",
@@ -249,7 +249,7 @@
     ],
     "answer": "`\"\"`",
     "explanation": "`\"\"`は、文字が1つもない文字列です。`setText(\"\")`で入力欄を空にできます。",
-    "source": "hello-android/index.html#step-4",
+    "source": "memo-app/index.html#step-4",
     "sources": [
       "hello-android/index.html#step-4",
       "memo-app/index.html#step-4"
@@ -393,7 +393,7 @@
   },
   {
     "id": "B16",
-    "unit": "A07",
+    "unit": "A10",
     "kind": "blank",
     "group": "empty",
     "topic": "空でないとき",
@@ -407,7 +407,7 @@
     ],
     "answer": "`!`",
     "explanation": "`!`は、`true`と`false`を反対にします。`!name.isEmpty()`は、文字列が空でないときに`true`です。",
-    "source": "bill-splitter/index.html#step-4",
+    "source": "room-sample/index.html#step-7",
     "sources": [
       "bill-splitter/index.html#step-4",
       "memo-app/index.html#step-4",
@@ -435,9 +435,9 @@
     ],
     "answer": "`if`",
     "explanation": "`if`は、条件が`true`のときだけ中の処理を行います。`==`は、ここでは2つの整数が同じか調べます。",
-    "source": "calc-game/index.html#step-7",
+    "source": "calc-game/index.html#step-8",
     "sources": [
-      "calc-game/index.html#step-7",
+      "calc-game/index.html#step-8",
       "memo-app/index.html#step-4"
     ],
     "source_files": [
@@ -759,7 +759,7 @@
   },
   {
     "id": "E10",
-    "unit": "A01",
+    "unit": "A09",
     "kind": "explain",
     "group": "write",
     "topic": "入力欄の文字を消す",
@@ -773,7 +773,7 @@
     ],
     "answer": "入力欄の文字が消えて空になる",
     "explanation": "`\"\"`は空の文字列です。入力欄はそのままで、中に表示する文字だけを空にします。",
-    "source": "hello-android/index.html#step-4",
+    "source": "memo-app/index.html#step-4",
     "sources": [
       "hello-android/index.html#step-4",
       "memo-app/index.html#step-4"
@@ -959,9 +959,9 @@
     ],
     "answer": "`1`",
     "explanation": "`number`と`answer`は同じなので、`if`の中を実行します。`correct++`で`0`から`1`に増えます。",
-    "source": "calc-game/index.html#step-7",
+    "source": "calc-game/index.html#step-8",
     "sources": [
-      "calc-game/index.html#step-7",
+      "calc-game/index.html#step-8",
       "memo-app/index.html#step-4"
     ],
     "source_files": [

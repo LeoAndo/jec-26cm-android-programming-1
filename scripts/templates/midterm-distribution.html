@@ -22,6 +22,7 @@ fieldset { border:0; padding:0; margin:0; min-width:0; } legend { font-weight:70
 input { accent-color:#14579b; width:20px; height:20px; vertical-align:middle; flex-shrink:0; } input[type=radio] { margin:4px 10px 0 0; }
 .status { position:sticky; top:0; z-index:2; justify-content:space-between; background:#e5eff9; padding:8px 20px; border:1px solid #c9d8e7; border-radius:9px; }
 .status p { margin:4px 0; } #timer { font-variant-numeric:tabular-nums; } .notice { border-left:4px solid #ad5600; padding-left:14px; color:#713800; }
+.question-code { white-space:pre; overflow-x:auto; padding:14px; background:#f3f7fb; border:1px solid #c9d8e7; border-radius:8px; line-height:1.65; font-size:16px; }
 .prompt,.option-copy { white-space:pre-wrap; overflow-wrap:anywhere; } code { font-family:ui-monospace,"SFMono-Regular",Consolas,monospace; font-size:.9em; overflow-wrap:anywhere; }
 .option { display:flex; gap:6px; align-items:flex-start; padding:12px; margin:10px 0; border:1px solid #c9d8e7; border-radius:8px; }
 .option:has(input:checked) { border-color:#14579b; background:#e5eff9; } .letter { font-weight:750; min-width:1.3em; } .option-copy { min-width:0; }
@@ -97,8 +98,9 @@ input { accent-color:#14579b; width:20px; height:20px; vertical-align:middle; fl
       const seconds = Math.ceil((state.deadline-Date.now())/1000);
       $('timer').textContent = String(Math.floor(seconds/60)).padStart(2,'0')+':'+String(seconds%60).padStart(2,'0');
     }
+    const questionCode = id => `<pre class="question-code"><code>${data.banks.ja[id].code}</code></pre>`;
     function renderQuestions() {
-      $('questions').innerHTML = state.questions.map((q,i) => `<fieldset class="question" data-question-id="${q.id}" aria-describedby="prompt-${q.id}"><legend>${i+1} / 20 · ${data.banks.ja[q.id].unit}</legend><div class="prompt" id="prompt-${q.id}">${content(q.id,'prompt')}</div>${q.order.map((choice,j) => `<label class="option"><input type="radio" name="${q.id}" value="${choice}"${state.answers[q.id]===choice?' checked':''}><span class="letter">${letters[j]}</span><span class="option-copy">${content(q.id,'choices',choice)}</span></label>`).join('')}</fieldset>`).join('');
+      $('questions').innerHTML = state.questions.map((q,i) => `<fieldset class="question" data-question-id="${q.id}" aria-describedby="prompt-${q.id}"><legend>${i+1} / 20</legend><div class="prompt" id="prompt-${q.id}">${content(q.id,'prompt')}</div>${questionCode(q.id)}${q.order.map((choice,j) => `<label class="option"><input type="radio" name="${q.id}" value="${choice}"${state.answers[q.id]===choice?' checked':''}><span class="letter">${letters[j]}</span><span class="option-copy">${content(q.id,'choices',choice)}</span></label>`).join('')}</fieldset>`).join('');
       $('answered').textContent = Object.keys(state.answers).length;
     }
     function renderReview() {
@@ -107,13 +109,13 @@ input { accent-color:#14579b; width:20px; height:20px; vertical-align:middle; fl
         const answer = data.banks.ja[q.id].answer, chosen = state.answers[q.id], empty = chosen === undefined, right = chosen === answer;
         if (right) correct++; if (empty) blank++;
         const yours = empty ? ui('blank') : `${letters[q.order.indexOf(chosen)]} · ${content(q.id,'choices',chosen)}`;
-        return `<article class="${right?'correct':'incorrect'}"><h3>${i+1} / 20 · ${content(q.id,'heading')}</h3><p class="badge">${ui(empty?'blank':right?'correct':'incorrect')}</p><div class="prompt">${content(q.id,'prompt')}</div><ul class="answer-list">${q.order.map((choice,j)=>`<li><strong>${letters[j]}</strong> · ${content(q.id,'choices',choice)}</li>`).join('')}</ul><p>${ui('yours')}${yours}</p><p>${ui('answer')}<strong>${letters[q.order.indexOf(answer)]}</strong></p><div class="explanation">${content(q.id,'explanation')}</div><p class="source">${content(q.id,'source')}</p></article>`;
+        return `<article class="${right?'correct':'incorrect'}"><h3>${i+1} / 20 · ${content(q.id,'heading')}</h3><p class="badge">${ui(empty?'blank':right?'correct':'incorrect')}</p><div class="prompt">${content(q.id,'prompt')}</div>${questionCode(q.id)}<ul class="answer-list">${q.order.map((choice,j)=>`<li><strong>${letters[j]}</strong> · ${content(q.id,'choices',choice)}</li>`).join('')}</ul><p>${ui('yours')}${yours}</p><p>${ui('answer')}<strong>${letters[q.order.indexOf(answer)]}</strong></p><div class="explanation">${content(q.id,'explanation')}</div><p class="source">${content(q.id,'source')}</p></article>`;
       }).join('');
       $('score').textContent = correct*5; $('correct-count').textContent = correct; $('blank-count').textContent = blank;
     }
     function renderCatalog() {
       if (!$('catalog').open || state.phase === 'active') { $('question-bank').replaceChildren(); return; }
-      $('question-bank').innerHTML = Object.keys(data.banks.ja).map(id => `<article data-id="${id}"><h3>${content(id,'heading')}</h3><div class="prompt">${content(id,'prompt')}</div><ul class="answer-list">${[0,1,2,3].map((choice,i)=>`<li><strong>${letters[i]}</strong> · ${content(id,'choices',choice)}</li>`).join('')}</ul><div class="explanation">${content(id,'explanation')}</div><p class="source">${content(id,'source')}</p></article>`).join('');
+      $('question-bank').innerHTML = Object.keys(data.banks.ja).map(id => `<article data-id="${id}"><h3>${content(id,'heading')}</h3><div class="prompt">${content(id,'prompt')}</div>${questionCode(id)}<ul class="answer-list">${[0,1,2,3].map((choice,i)=>`<li><strong>${letters[i]}</strong> · ${content(id,'choices',choice)}</li>`).join('')}</ul><div class="explanation">${content(id,'explanation')}</div><p class="source">${content(id,'source')}</p></article>`).join('');
     }
     function render() {
       const lang = language(), locked = state.phase === 'active' && state.kind === 'mock';
@@ -133,7 +135,7 @@ input { accent-color:#14579b; width:20px; height:20px; vertical-align:middle; fl
       state.kind = kind;
       if (!retry) state.timing = kind === 'mock' ? 'timed' : document.querySelector('[name=timing]:checked').value;
       const pool = kind === 'mock' ? data.mockIds : Object.keys(data.banks.ja);
-      state.questions = shuffle(Array.from({length:10},(_,i)=>`A${String(i+1).padStart(2,'0')}`).flatMap(unit => shuffle(pool.filter(id=>data.banks.ja[id].unit===unit)).slice(0,2))).map(id=>({id,order:shuffle([0,1,2,3])}));
+      state.questions = shuffle(data.groups.flatMap(group => ['blank','explain'].flatMap(kind => shuffle(pool.filter(id=>data.banks.ja[id].group===group && data.banks.ja[id].kind===kind)).slice(0,1)))).map(id=>({id,order:shuffle([0,1,2,3])}));
       state.answers = {}; state.phase = 'active'; state.expired = false; state.deadline = state.timing === 'timed' ? Date.now()+60*60*1000 : null;
       $('confirm-unanswered').hidden = true; $('catalog').open = false; $('review').replaceChildren(); $('timer').textContent = '60:00';
       render(); interval = state.deadline === null ? null : setInterval(tick,500); $('quiz-title').focus(); window.scrollTo(0,0);

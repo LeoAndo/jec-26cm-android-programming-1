@@ -12,7 +12,7 @@ import sys
 ROOT = Path(__file__).resolve().parents[1]
 PAGE = "docs/practice/midterm.html"
 LANGUAGES = ("ja", "en", "zh-Hans", "zh-Hant-HK", "my", "mn", "fr")
-UPDATED_PROMPTS = {"A03-10", "A07-02", "A07-09", "A09-05", "A09-09", "A10-05"}
+GROUPS = ("layout", "view", "click", "read", "write", "parse", "snackbar", "empty", "condition", "loop")
 
 
 def module(name, filename):
@@ -56,6 +56,9 @@ def parse_bank(text):
             raise ValueError(f"問題IDが重複しています：{key}")
         result[key] = {
             "unit": article.attribute("data-unit"),
+            "group": article.attribute("data-group"),
+            "kind": article.attribute("data-kind"),
+            "code": inner(one(one(article, lambda el: el.attribute("class") == "question-code"), lambda el: el.tag == "code")),
             "heading": inner(one(article, lambda el: el.tag == "h3")),
             "prompt": inner(one(article, lambda el: el.attribute("class") == "prompt")),
             "choices": [inner(el) for el in options],
@@ -63,8 +66,9 @@ def parse_bank(text):
             "explanation": inner(one(article, lambda el: el.attribute("class") == "explanation")),
             "source": inner(one(article, lambda el: el.attribute("class") == "source")),
         }
-    if len(result) != 120:
-        raise ValueError("復習問題は120問必要です。")
+    expected = Counter({(group, kind): 2 for group in GROUPS for kind in ("blank", "explain")})
+    if Counter((q["group"], q["kind"]) for q in result.values()) != expected:
+        raise ValueError("復習問題は10項目に空欄2問・説明2問、計40問が必要です。")
     return result
 
 
@@ -109,7 +113,7 @@ EXISTING_UI = {
     "questionSuffix": "問",
     "retry": "新しい20問に挑戦する",
     "chooseMode": "練習方法を選び直す",
-    "catalog": "全120問の正答・解説を見る",
+    "catalog": "全40問の正答・解説を見る",
     "sourceHelp": "「復習する場所」は教材ZIPのdocsフォルダからの場所と見出しIDです。このHTMLだけで解答と解説を読めます。",
     "correct": "正解",
     "incorrect": "不正解",
@@ -120,36 +124,17 @@ EXISTING_UI = {
 
 
 def validate_mock(mock, bank):
-    for field, count in (("question_ids", 4), ("paper_ids", 2)):
+    for field, count in (("question_ids", 2), ("paper_ids", 1)):
         ids = mock[field]
-        if len(set(ids)) != 10 * count or any(key not in bank for key in ids):
+        if len(ids) != 20 * count or len(set(ids)) != len(ids) or any(key not in bank for key in ids):
             raise ValueError(f"{field} に重複・未知の問題、または件数の誤りがあります。")
-        if Counter(bank[key]["unit"] for key in ids) != Counter({f"A{i:02}": count for i in range(1, 11)}):
-            raise ValueError(f"{field} の単元配分が正しくありません。")
+        expected = Counter({(group, kind): count for group in GROUPS for kind in ("blank", "explain")})
+        if Counter((bank[key]["group"], bank[key]["kind"]) for key in ids) != expected:
+            raise ValueError(f"{field} の基本項目・形式の配分が正しくありません。")
+    if set(mock["question_ids"]) != set(bank):
+        raise ValueError("模擬試験と復習は同じ40問を使ってください。")
     if not set(mock["paper_ids"]).issubset(mock["question_ids"]):
         raise ValueError("印刷用の問題は模擬試験の問題から選んでください。")
-
-
-def apply_question_translations(data, translations, plain):
-    """日本語に説明を足した6問は、補足も訳した問題文で置き換える。"""
-    languages = set(LANGUAGES) - {"ja"}
-    if not isinstance(translations, dict) or set(translations) != languages:
-        raise ValueError("補足した問題文の対訳には、6言語すべてが必要です。")
-    if any(key not in plain or not isinstance(plain[key].get("prompt"), str) or not plain[key]["prompt"].strip() for key in UPDATED_PROMPTS):
-        raise ValueError("補足した6問の日本語の問題文が不足しています。")
-    generator = module("midterm_distribution_generator", "generate-midterm-practice.py")
-    protected = lambda value: Counter(localizer.normalize(part) for part in re.findall(r"<code>(.*?)</code>", value, re.S))
-    for language in languages:
-        entries = translations[language]
-        if not isinstance(entries, dict) or set(entries) != UPDATED_PROMPTS:
-            raise ValueError(f"{language}: 補足した問題文の対訳は指定した6問が必要です。")
-        for key, fields in entries.items():
-            if not isinstance(fields, dict) or set(fields) != {"prompt"} or not isinstance(fields["prompt"], str) or not fields["prompt"].strip():
-                raise ValueError(f"{language}/{key}: 問題文の対訳が空、または形式が不正です。")
-            prompt = generator.inline(fields["prompt"])
-            if protected(prompt) != protected(data["banks"]["ja"][key]["prompt"]):
-                raise ValueError(f"{language}/{key}: 補足した問題文のコードが日本語版と一致しません。")
-            data["banks"][language][key]["prompt"] = prompt
 
 
 def build_data(root=ROOT):
@@ -157,7 +142,7 @@ def build_data(root=ROOT):
     page = localizer.read_page(root, PAGE)
     added = json.loads((root / "config/midterm-ui-source.json").read_text())
     translations = json.loads((root / "config/midterm-ui.json").read_text())
-    data = {"languages": [], "banks": {}, "ui": {}}
+    data = {"languages": [], "banks": {}, "ui": {}, "groups": list(GROUPS)}
     for code in LANGUAGES:
         catalog = None if code == "ja" else localizer.read_catalog(settings.catalog_path(code, PAGE))
         if catalog is not None:
@@ -191,8 +176,8 @@ def build_data(root=ROOT):
         if set(bank) != set(ja):
             raise ValueError(f"{code}: 言語間の問題IDが一致しません。")
         for key, q in bank.items():
-            if q["answer"] != ja[key]["answer"] or q["unit"] != ja[key]["unit"]:
-                raise ValueError(f"{code}/{key}: 正答または単元が日本語版と一致しません。")
+            if any(q[field] != ja[key][field] for field in ("answer", "unit", "group", "kind", "code")):
+                raise ValueError(f"{code}/{key}: 正答・出題項目・形式・コードが日本語版と一致しません。")
             for field in ("prompt", "choices", "explanation"):
                 code_parts = lambda value: re.findall(r"<code>(.*?)</code>", " ".join(value) if isinstance(value, list) else value, re.S)
                 protected = lambda value: Counter(localizer.normalize(part) for part in code_parts(value))
@@ -204,34 +189,6 @@ def build_data(root=ROOT):
                 q[field] = [restore(value) for value in q[field]] if isinstance(q[field], list) else restore(q[field])
     mock = json.loads((root / "config/midterm-mock.json").read_text())
     validate_mock(mock, ja)
-    plain_path = root / "config/midterm-plain-ja.json"
-    plain = {}
-    if plain_path.exists():
-        generator = module("midterm_distribution_generator", "generate-midterm-practice.py")
-        plain = json.loads(plain_path.read_text())
-        for key, overrides in plain.items():
-            if key not in ja or not isinstance(overrides, dict) or set(overrides) - {"prompt", "choices", "explanation"}:
-                raise ValueError(f"やさしい日本語の指定が不正です：{key}")
-            # JSONのキーの並びにかかわらず、解説の正答表示には置換後の選択肢を使う。
-            for field in ("choices", "prompt", "explanation"):
-                if field not in overrides:
-                    continue
-                value = overrides[field]
-                if field == "choices":
-                    if not isinstance(value, list) or len(value) != 4 or any(not isinstance(item, str) or not item.strip() for item in value) or len(set(value)) != 4:
-                        raise ValueError(f"{key}: 選択肢は異なる4つの文にしてください。")
-                    ja[key][field] = [generator.inline(item) for item in value]
-                elif not isinstance(value, str) or not value.strip():
-                    raise ValueError(f"{key}/{field}: 文が空です。")
-                elif field == "explanation":
-                    ja[key][field] = '<p>正答：<strong>' + ja[key]["choices"][ja[key]["answer"]] + '</strong></p><p>' + generator.inline(value) + '</p>'
-                else:
-                    ja[key][field] = generator.inline(value)
-            if "choices" in overrides and "explanation" not in overrides:
-                answer = '<p>正答：<strong>' + ja[key]["choices"][ja[key]["answer"]] + '</strong></p>'
-                ja[key]["explanation"] = re.sub(r"^<p>正答：<strong>.*?</strong></p>", lambda match: answer, ja[key]["explanation"], count=1, flags=re.S)
-    question_translations = json.loads((root / "config/midterm-question-translations.json").read_text())
-    apply_question_translations(data, question_translations, plain)
     data["mockIds"] = mock["question_ids"]
     data["paperIds"] = mock["paper_ids"]
     return data
@@ -253,7 +210,7 @@ def main():
     output = render()
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(output, encoding="utf-8")
-    print(f"7言語・各120問、日本語模擬40問の配布HTMLを生成しました：{args.output}")
+    print(f"7言語・各40問（空欄20・説明20）の配布HTMLを生成しました：{args.output}")
 
 
 if __name__ == "__main__":

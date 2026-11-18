@@ -20,7 +20,7 @@ class MidtermPracticeTest(unittest.TestCase):
             with self.subTest(name=name):
                 self.assertEqual((midterm.ROOT / name).read_text(), expected)
 
-    def test_missing_unit_question_is_rejected(self):
+    def test_missing_question_is_rejected(self):
         with self.assertRaises(ValueError):
             midterm.validate(self.questions[:-1])
 
@@ -36,6 +36,13 @@ class MidtermPracticeTest(unittest.TestCase):
 
     def test_duplicate_id_and_broken_source_are_rejected(self):
         for key, value in (("id", self.questions[1]["id"]), ("source", "hello-android/index.html#missing-heading")):
+            questions = copy.deepcopy(self.questions)
+            questions[0][key] = value
+            with self.subTest(key=key), self.assertRaises(ValueError):
+                midterm.validate(questions)
+
+    def test_unbalanced_format_or_missing_blank_is_rejected(self):
+        for key, value in (("kind", "explain"), ("group", "view"), ("code", "setContentView(R.layout.activity_main);")):
             questions = copy.deepcopy(self.questions)
             questions[0][key] = value
             with self.subTest(key=key), self.assertRaises(ValueError):

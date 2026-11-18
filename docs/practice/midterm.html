@@ -34,6 +34,7 @@ input[type="radio"] { margin: 4px 10px 0 0; }
 .option { display: flex; align-items: flex-start; padding: 12px; margin-top: 10px; border: 1px solid #c9d8e7; border-radius: 8px; white-space: pre-wrap; overflow-wrap: anywhere; }
 .option:has(input:checked) { background: #e5eff9; border-color: #14579b; }
 .option-letter { font-weight: 700; margin-right: 12px; }
+pre.question-code { white-space:pre; overflow-x:auto; padding:14px; background:#f3f7fb; border:1px solid #c9d8e7; border-radius:8px; line-height:1.65; font-size:16px; }
 code { font-family: ui-monospace, monospace; font-size: .9em; overflow-wrap: anywhere; }
 .source { font-size: .8rem; color: #486176; }
 .score { font-size: 2.8rem; font-weight: 750; margin: 0; }
@@ -57,7 +58,7 @@ code { font-family: ui-monospace, monospace; font-size: .9em; overflow-wrap: any
 <h2 id="setup-title">A01〜A10の復習</h2>
 <ul class="facts"><li>4択（ア〜エ）</li><li>20問 × 5点</li><li>何度でも挑戦</li></ul>
 <p>試験予定：<strong>2026年12月2日（水）2限</strong>。対面・60分で行います。範囲はA01〜A10 RoomSampleまでの全内容です。</p>
-<p>この問題集は各単元12問、合計120問から、毎回各単元2問ずつ出します。問題と選択肢の順番も変わります。同じ問題が再び出ることもあります。</p>
+<p>基本コードの40問です。コードの空欄をうめる20問と、コードの説明を選ぶ20問があります。1回は空欄10問・説明10問です。10の基本項目から2問ずつ出し、問題と選択肢の順番を変えます。</p>
 <p>授業内容を復習するための練習問題です。本番と同じ問題・単元配分になるとは限りません。1回の20問だけで全内容を確認できるわけではありません。</p>
 <fieldset class="mode"><legend>練習の進め方</legend>
 <label><input type="radio" name="mode" value="untimed" checked="checked">時間制限なし — 調べながら復習する</label>
@@ -83,1212 +84,515 @@ code { font-family: ui-monospace, monospace; font-size: .9em; overflow-wrap: any
 <div class="actions"><button type="button" id="retry">新しい20問に挑戦する</button><button type="button" class="secondary" id="choose-mode">練習方法を選び直す</button></div></div>
 <div id="review"></div>
 </section>
-<details id="catalog"><summary>全120問の正答・解説を見る</summary>
+<details id="catalog"><summary>全40問の正答・解説を見る</summary>
 <p>出題されなかった問題も復習できます。教員が問題の内容を確認するときにも使えます。選択肢の表示順は、練習画面では毎回変わります。</p>
 <p>「復習する場所」は教材ZIPのdocsフォルダからの場所と見出しIDです。このHTMLだけで解答と解説を読めます。</p>
 <div id="question-bank">
-<article data-unit="A01" data-id="A01-01">
-<h3>A01-01 · XMLとJavaの役割</h3>
-<p class="prompt">A01で、文字やボタンの配置を書くファイルと、ボタンを押したときの動きを書くファイルの組み合わせはどれですか。</p>
-<ol class="options"><li data-correct="true">配置は<code>activity_main.xml</code>、動きは<code>MainActivity.java</code></li>
-<li>配置は<code>MainActivity.java</code>、動きは<code>activity_main.xml</code></li>
-<li>配置は<code>AndroidManifest.xml</code>、動きは<code>themes.xml</code></li>
-<li>配置も動きも<code>gradle-wrapper.properties</code></li></ol>
-<div class="explanation"><p>正答：<strong>配置は<code>activity_main.xml</code>、動きは<code>MainActivity.java</code></strong></p><p><code>activity_main.xml</code>には画面の部品や配置を書き、<code>MainActivity.java</code>にはクリックしたときの処理などを書きます。どちらも<code>app/src/main</code>の中にあります。</p></div>
-<p class="source">復習する場所：<code>hello-android/index.html#step-2</code></p>
+<article data-unit="A01" data-id="B01" data-group="layout" data-kind="blank">
+<h3>B01 · 画面のレイアウト</h3>
+<p class="prompt"><code>MainActivity</code>で、<code>activity_main.xml</code>を画面に使います。 【①】に入るコードはどれですか。</p>
+<pre class="question-code"><code>【①】(R.layout.activity_main);</code></pre>
+<ol class="options"><li data-correct="true"><code>setContentView</code></li>
+<li><code>findViewById</code></li>
+<li><code>setText</code></li>
+<li><code>getText</code></li></ol>
+<div class="explanation"><p>正答：<strong><code>setContentView</code></strong></p><p><code>setContentView</code>で、画面に使うレイアウトを指定します。<code>R.layout.activity_main</code>は<code>activity_main.xml</code>を表します。</p></div>
+<p class="source">復習する場所：<code>hello-android/index.html#step-9</code></p>
 </article>
-<article data-unit="A01" data-id="A01-02">
-<h3>A01-02 · プロジェクト作成</h3>
-<p class="prompt">授業と同じJavaとXMLのプロジェクトを新しく作るとき、ひな形と<code>Language</code>の組み合わせはどれですか。</p>
-<ol class="options"><li data-correct="true"><code>Empty Views Activity</code>と<code>Java</code></li>
-<li><code>Empty Views Activity</code>と<code>Kotlin</code></li>
-<li><code>Empty Activity</code>と<code>Kotlin</code></li>
-<li><code>No Activity</code>と<code>Java</code></li></ol>
-<div class="explanation"><p>正答：<strong><code>Empty Views Activity</code>と<code>Java</code></strong></p><p>ひな形の名前に<code>Views</code>があることを確かめ、<code>Language</code>はJavaを選びます。<code>Build configuration language</code>の<code>Kotlin DSL</code>は、アプリを書く言語とは別の設定です。</p></div>
-<p class="source">復習する場所：<code>hello-android/index.html#step-1</code></p>
+<article data-unit="A01" data-id="B02" data-group="layout" data-kind="blank">
+<h3>B02 · レイアウトの指定</h3>
+<p class="prompt"><code>MainActivity</code>で、<code>activity_main.xml</code>を画面に使います。 【①】に入るコードはどれですか。</p>
+<pre class="question-code"><code>setContentView(R.【①】.activity_main);</code></pre>
+<ol class="options"><li><code>id</code></li>
+<li><code>drawable</code></li>
+<li data-correct="true"><code>layout</code></li>
+<li><code>string</code></li></ol>
+<div class="explanation"><p>正答：<strong><code>layout</code></strong></p><p>レイアウトは<code>R.layout</code>で指定します。部品のIDは<code>R.id</code>です。</p></div>
+<p class="source">復習する場所：<code>hello-android/index.html#step-9</code></p>
 </article>
-<article data-unit="A01" data-id="A01-03">
-<h3>A01-03 · <code>LinearLayout</code>の方向</h3>
-<p class="prompt"><code>LinearLayout</code>の中の3つのボタンを、左から右へ一列に並べる指定はどれですか。</p>
-<ol class="options"><li data-correct="true"><code>android:orientation=&quot;horizontal&quot;</code></li>
-<li><code>android:orientation=&quot;vertical&quot;</code></li>
-<li><code>android:gravity=&quot;center&quot;</code></li>
-<li><code>android:text=&quot;horizontal&quot;</code></li></ol>
-<div class="explanation"><p>正答：<strong><code>android:orientation=&quot;horizontal&quot;</code></strong></p><p><code>orientation</code>は並べる方向です。<code>horizontal</code>は横、<code>vertical</code>は縦に並べます。<code>gravity</code>は入れ物の中で部品をどこに寄せるかの指定です。</p></div>
-<p class="source">復習する場所：<code>hello-android/index.html#step-6</code></p>
-</article>
-<article data-unit="A01" data-id="A01-04">
-<h3>A01-04 · <code>id</code>と<code>findViewById</code></h3>
-<p class="prompt">XMLに<code>android:id=&quot;@+id/text&quot;</code>を付けた<code>TextView</code>を、Javaから探す式はどれですか。</p>
-<ol class="options"><li data-correct="true"><code>findViewById(R.id.text)</code></li>
-<li><code>findViewById(R.id.button)</code></li>
-<li><code>text.getText()</code></li>
-<li><code>text.setText(&quot;text&quot;)</code></li></ol>
-<div class="explanation"><p>正答：<strong><code>findViewById(R.id.text)</code></strong></p><p>XMLの<code>@+id/text</code>とJavaの<code>R.id.text</code>が対応します。<code>id</code>は部品を見つける目印で、画面に表示する<code>android:text</code>とは別です。</p></div>
+<article data-unit="A01" data-id="B03" data-group="view" data-kind="blank">
+<h3>B03 · IDでボタンを探す</h3>
+<p class="prompt">画面を用意したあと、IDが<code>btn_start</code>のボタンを使います。 【①】に入るコードはどれですか。</p>
+<pre class="question-code"><code>var btnStart = (Button) 【①】(R.id.btn_start);</code></pre>
+<ol class="options"><li><code>setContentView</code></li>
+<li data-correct="true"><code>findViewById</code></li>
+<li><code>setOnClickListener</code></li>
+<li><code>setText</code></li></ol>
+<div class="explanation"><p>正答：<strong><code>findViewById</code></strong></p><p><code>findViewById</code>はIDを使って画面の部品を探します。<code>(Button)</code>は、見つけた部品をボタンとして扱う指定です。</p></div>
 <p class="source">復習する場所：<code>hello-android/index.html#step-4</code></p>
 </article>
-<article data-unit="A01" data-id="A01-05">
-<h3>A01-05 · 部品の大きさ</h3>
-<p class="prompt">ボタンの<code>android:layout_width=&quot;wrap_content&quot;</code>は、横幅をどう決める指定ですか。</p>
-<ol class="options"><li data-correct="true">中身に必要な大きさにする</li>
-<li>親の入れ物の横幅いっぱいにする</li>
-<li>必ず画面の半分にする</li>
-<li>横幅を0にして見えなくする</li></ol>
-<div class="explanation"><p>正答：<strong>中身に必要な大きさにする</strong></p><p><code>wrap_content</code>は中身に必要な大きさにします。親の入れ物の大きさに合わせる指定は<code>match_parent</code>です。</p></div>
-<p class="source">復習する場所：<code>hello-android/index.html#step-3</code></p>
-</article>
-<article data-unit="A01" data-id="A01-06">
-<h3>A01-06 · <code>var</code>とキャスト</h3>
-<p class="prompt"><code>var text = (TextView) findViewById(R.id.text);</code> の<code>(TextView)</code>の役割はどれですか。</p>
-<ol class="options"><li data-correct="true">見つけた部品を<code>TextView</code>として扱う</li>
-<li>部品に<code>TextView</code>という文字を表示する</li>
-<li>XMLに新しい<code>TextView</code>を追加する</li>
-<li>クリック処理を実行する</li></ol>
-<div class="explanation"><p>正答：<strong>見つけた部品を<code>TextView</code>として扱う</strong></p><p><code>(TextView)</code>はキャストで、見つけた部品を文字表示用の<code>TextView</code>として扱う指定です。<code>var</code>は右側の式から変数の型を決めます。</p></div>
+<article data-unit="A01" data-id="B04" data-group="view" data-kind="blank">
+<h3>B04 · 部品のID</h3>
+<p class="prompt">画面を用意したあと、IDが<code>txt_message</code>の文字表示用の部品を探します。 【①】に入るコードはどれですか。</p>
+<pre class="question-code"><code>var txtMessage = (TextView)
+        findViewById(R.【①】.txt_message);</code></pre>
+<ol class="options"><li><code>layout</code></li>
+<li><code>string</code></li>
+<li><code>drawable</code></li>
+<li data-correct="true"><code>id</code></li></ol>
+<div class="explanation"><p>正答：<strong><code>id</code></strong></p><p>部品のIDは<code>R.id</code>で指定します。<code>R.layout</code>は画面のレイアウトを指定するときに使います。</p></div>
 <p class="source">復習する場所：<code>hello-android/index.html#step-4</code></p>
 </article>
-<article data-unit="A01" data-id="A01-07">
-<h3>A01-07 · クリック処理の実行時点</h3>
-<p class="prompt">XMLの表示文字は<code>Hello World!</code>です。<code>onCreate</code>で次の処理を登録しました。起動して、まだボタンを押していないときの表示はどれですか。
-<code>button.setOnClickListener(v -&gt; {
-    text.setText(&quot;Hello, Android!&quot;);
-});</code></p>
-<ol class="options"><li data-correct="true"><code>Hello World!</code></li>
-<li><code>Hello, Android!</code></li>
-<li><code>button</code></li>
-<li>何も表示されない</li></ol>
-<div class="explanation"><p>正答：<strong><code>Hello World!</code></strong></p><p><code>setOnClickListener</code>は、押されたときの処理を登録します。<code>setText</code>はクリック処理の中にあるため、ボタンを押してから<code>Hello, Android!</code>に変わります。</p></div>
+<article data-unit="A01" data-id="B05" data-group="click" data-kind="blank">
+<h3>B05 · 押したときの処理</h3>
+<p class="prompt"><code>btnStart</code>はボタン、<code>txtMessage</code>は文字を表示する部品です。ボタンを押すと<code>開始</code>を表示します。 【①】に入るコードはどれですか。</p>
+<pre class="question-code"><code>btnStart.【①】(v -&gt; {
+    txtMessage.setText(&quot;開始&quot;);
+});</code></pre>
+<ol class="options"><li><code>setText</code></li>
+<li><code>getText</code></li>
+<li data-correct="true"><code>setOnClickListener</code></li>
+<li><code>findViewById</code></li></ol>
+<div class="explanation"><p>正答：<strong><code>setOnClickListener</code></strong></p><p><code>setOnClickListener</code>で、押したときに行う処理を登録（とうろく）します。中の<code>setText</code>は、ボタンを押したときに実行します。</p></div>
 <p class="source">復習する場所：<code>hello-android/index.html#step-4</code></p>
 </article>
-<article data-unit="A01" data-id="A01-08">
-<h3>A01-08 · 表示文字の取得</h3>
-<p class="prompt"><code>TextView</code>の<code>text</code>から、今表示されている文字を<code>String</code>として取り出す式はどれですか。</p>
-<ol class="options"><li data-correct="true"><code>text.getText().toString()</code></li>
-<li><code>text.setText(&quot;String&quot;)</code></li>
-<li><code>text.setOnClickListener(null)</code></li>
-<li><code>findViewById(R.id.button)</code></li></ol>
-<div class="explanation"><p>正答：<strong><code>text.getText().toString()</code></strong></p><p><code>getText()</code>で現在の表示文字を取り出し、<code>toString()</code>で<code>String</code>にします。<code>setText</code>は文字を取り出す処理ではなく、表示を変更する処理です。</p></div>
+<article data-unit="A01" data-id="B06" data-group="click" data-kind="blank">
+<h3>B06 · 処理を付けるボタン</h3>
+<p class="prompt"><code>btnStart</code>と<code>btnClear</code>はボタンです。<code>txtMessage</code>は文字を表示する部品です。<code>btnStart</code>を押すと<code>開始</code>を表示します。 【①】に入るコードはどれですか。</p>
+<pre class="question-code"><code>【①】.setOnClickListener(v -&gt; {
+    txtMessage.setText(&quot;開始&quot;);
+});</code></pre>
+<ol class="options"><li data-correct="true"><code>btnStart</code></li>
+<li><code>btnClear</code></li>
+<li><code>txtMessage</code></li>
+<li><code>R.id.btn_start</code></li></ol>
+<div class="explanation"><p>正答：<strong><code>btnStart</code></strong></p><p><code>btnStart.setOnClickListener</code>と書くと、<code>btnStart</code>を押したときの処理を登録します。</p></div>
+<p class="source">復習する場所：<code>hello-android/index.html#step-4</code></p>
+</article>
+<article data-unit="A01" data-id="B07" data-group="read" data-kind="blank">
+<h3>B07 · 入力した文字を読む</h3>
+<p class="prompt"><code>edtName</code>は文字を入力する部品です。入力した文字を<code>name</code>に入れます。 【①】に入るコードはどれですか。</p>
+<pre class="question-code"><code>var name = edtName.【①】().toString();</code></pre>
+<ol class="options"><li><code>setText</code></li>
+<li><code>isEmpty</code></li>
+<li><code>parseInt</code></li>
+<li data-correct="true"><code>getText</code></li></ol>
+<div class="explanation"><p>正答：<strong><code>getText</code></strong></p><p><code>getText()</code>で今の文字を取り出します。続けて<code>toString()</code>を使うと、<code>String</code>（文字列）の形になります。</p></div>
 <p class="source">復習する場所：<code>hello-android/index.html#step-5</code></p>
 </article>
-<article data-unit="A01" data-id="A01-09">
-<h3>A01-09 · <code>Logcat</code></h3>
-<p class="prompt"><code>Log.d(&quot;MainActivity&quot;, string);</code> は何をする行ですか。</p>
-<ol class="options"><li data-correct="true"><code>MainActivity</code>という目印で、<code>string</code>の内容をDebugログに出す</li>
-<li>画面のタイトルを<code>string</code>に変える</li>
-<li><code>MainActivity</code>という文字を<code>Toast</code>に表示する</li>
-<li><code>string</code>をXMLの<code>id</code>として登録する</li></ol>
-<div class="explanation"><p>正答：<strong><code>MainActivity</code>という目印で、<code>string</code>の内容をDebugログに出す</strong></p><p><code>Log.d</code>の<code>d</code>はDebugです。開発者が動きを確認する記録を<code>Logcat</code>に出します。ログの文字とアプリ画面の表示は別なので、この行だけでは画面の文字は変わりません。</p></div>
+<article data-unit="A01" data-id="B08" data-group="read" data-kind="blank">
+<h3>B08 · 文字列の形にする</h3>
+<p class="prompt"><code>edtName</code>は文字を入力する部品です。取り出した値を<code>String</code>（文字列）の形にします。 【①】に入るコードはどれですか。</p>
+<pre class="question-code"><code>var name = edtName.getText().【①】();</code></pre>
+<ol class="options"><li><code>isEmpty</code></li>
+<li data-correct="true"><code>toString</code></li>
+<li><code>show</code></li>
+<li><code>getText</code></li></ol>
+<div class="explanation"><p>正答：<strong><code>toString</code></strong></p><p><code>toString()</code>は、取り出した値を<code>String</code>（文字列）の形にします。整数に変える処理ではありません。</p></div>
 <p class="source">復習する場所：<code>hello-android/index.html#step-5</code></p>
 </article>
-<article data-unit="A01" data-id="A01-10">
-<h3>A01-10 · <code>Snackbar</code>と文字の取得</h3>
-<p class="prompt">A01で<code>btn1</code>の<code>android:text</code>だけを「<code>1</code>」から「<code>できた</code>」に変えました。Javaは<code>btn1.getText().toString()</code>を<code>Snackbar</code>に表示するままです。<code>btn1</code>を押すと何が表示されますか。</p>
-<ol class="options"><li data-correct="true"><code>できた</code></li>
-<li><code>1</code></li>
-<li><code>btn1</code></li>
-<li><code>Hello World!</code></li></ol>
-<div class="explanation"><p>正答：<strong><code>できた</code></strong></p><p>Javaがボタンに現在表示されている文字を取り出すため、<code>Snackbar</code>も「<code>できた</code>」になります。Javaに固定の「<code>1</code>」を書いているわけではありません。</p></div>
-<p class="source">復習する場所：<code>hello-android/index.html#step-8</code></p>
+<article data-unit="A01" data-id="B09" data-group="write" data-kind="blank">
+<h3>B09 · 文字を表示する</h3>
+<p class="prompt"><code>txtMessage</code>は文字を表示する部品です。<code>できた</code>と表示します。 【①】に入るコードはどれですか。</p>
+<pre class="question-code"><code>txtMessage.【①】(&quot;できた&quot;);</code></pre>
+<ol class="options"><li><code>getText</code></li>
+<li><code>findViewById</code></li>
+<li data-correct="true"><code>setText</code></li>
+<li><code>isEmpty</code></li></ol>
+<div class="explanation"><p>正答：<strong><code>setText</code></strong></p><p><code>setText</code>は、部品に表示する文字を変えます。<code>getText</code>は今の文字を読むときに使います。</p></div>
+<p class="source">復習する場所：<code>hello-android/index.html#step-4</code></p>
 </article>
-<article data-unit="A01" data-id="A01-11">
-<h3>A01-11 · 短いメッセージの表示</h3>
-<p class="prompt"><code>Toast.makeText(this, btn2Str, Toast.LENGTH_SHORT);</code> まで書きました。作った<code>Toast</code>を実際に表示するため、末尾につなぐメソッドはどれですか。</p>
-<ol class="options"><li data-correct="true"><code>show()</code></li>
-<li><code>getText()</code></li>
-<li><code>toString()</code></li>
-<li><code>setText()</code></li></ol>
-<div class="explanation"><p>正答：<strong><code>show()</code></strong></p><p><code>Toast.makeText(...)</code>で作り、<code>.show()</code>で表示します。<code>Snackbar</code>も同じく<code>show()</code>が必要です。<code>LENGTH_SHORT</code>は短い表示時間の設定です。</p></div>
+<article data-unit="A09" data-id="B10" data-group="write" data-kind="blank">
+<h3>B10 · 入力欄を空にする</h3>
+<p class="prompt"><code>edtName</code>は文字を入力する部品です。中の文字を消して、空に戻します。 【①】に入るコードはどれですか。</p>
+<pre class="question-code"><code>edtName.setText(【①】);</code></pre>
+<ol class="options"><li data-correct="true"><code>&quot;&quot;</code></li>
+<li><code>&quot;名前&quot;</code></li>
+<li><code>&quot;0&quot;</code></li>
+<li><code>&quot; &quot;</code></li></ol>
+<div class="explanation"><p>正答：<strong><code>&quot;&quot;</code></strong></p><p><code>&quot;&quot;</code>は、文字が1つもない文字列です。<code>setText(&quot;&quot;)</code>で入力欄を空にできます。</p></div>
+<p class="source">復習する場所：<code>memo-app/index.html#step-4</code></p>
+</article>
+<article data-unit="A02" data-id="B11" data-group="parse" data-kind="blank">
+<h3>B11 · 文字を整数に変える</h3>
+<p class="prompt">文字列<code>&quot;12&quot;</code>を、計算に使える整数の<code>12</code>に変えます。 【①】に入るコードはどれですか。</p>
+<pre class="question-code"><code>var number = 【①】(&quot;12&quot;);</code></pre>
+<ol class="options"><li><code>Snackbar.make</code></li>
+<li><code>findViewById</code></li>
+<li><code>setContentView</code></li>
+<li data-correct="true"><code>Integer.parseInt</code></li></ol>
+<div class="explanation"><p>正答：<strong><code>Integer.parseInt</code></strong></p><p><code>Integer.parseInt</code>は、整数を表す文字列を<code>int</code>（整数）に変えます。</p></div>
+<p class="source">復習する場所：<code>calc-game/index.html#step-7</code></p>
+</article>
+<article data-unit="A02" data-id="B12" data-group="parse" data-kind="blank">
+<h3>B12 · 変える文字を選ぶ</h3>
+<p class="prompt"><code>edtAmount</code>は入力欄です。<code>12</code>が入っています。読み取った文字列を整数に変えます。 【①】に入るコードはどれですか。</p>
+<pre class="question-code"><code>var amountStr = edtAmount.getText().toString();
+var amount = Integer.parseInt(【①】);</code></pre>
+<ol class="options"><li><code>edtAmount</code></li>
+<li data-correct="true"><code>amountStr</code></li>
+<li><code>R.id.edt_amount</code></li>
+<li><code>amount</code></li></ol>
+<div class="explanation"><p>正答：<strong><code>amountStr</code></strong></p><p><code>amountStr</code>に入力した文字列が入っています。<code>Integer.parseInt(amountStr)</code>で、その文字列を整数に変えます。</p></div>
+<p class="source">復習する場所：<code>calc-game/index.html#step-7</code></p>
+</article>
+<article data-unit="A01" data-id="B13" data-group="snackbar" data-kind="blank">
+<h3>B13 · 短いメッセージ</h3>
+<p class="prompt">ボタンを押したときの処理です。<code>v</code>は押した部品です。Snackbar（スナックバー）で<code>入力してください</code>と表示します。 【①】に入るコードはどれですか。</p>
+<pre class="question-code"><code>【①】.make(v, &quot;入力してください&quot;,
+        Snackbar.LENGTH_SHORT).show();</code></pre>
+<ol class="options"><li><code>Integer</code></li>
+<li><code>TextView</code></li>
+<li data-correct="true"><code>Snackbar</code></li>
+<li><code>Button</code></li></ol>
+<div class="explanation"><p>正答：<strong><code>Snackbar</code></strong></p><p><code>Snackbar.make</code>で表示するメッセージを作り、<code>show()</code>で画面に出します。</p></div>
 <p class="source">復習する場所：<code>hello-android/index.html#step-7</code></p>
 </article>
-<article data-unit="A01" data-id="A01-12">
-<h3>A01-12 · 余白の変更</h3>
-<p class="prompt">変更ボタンの<code>android:layout_marginTop</code>を<code>12dp</code>から<code>24dp</code>へ変えると、直接変わるものはどれですか。</p>
-<ol class="options"><li data-correct="true">ボタンの上のすき間</li>
-<li>ボタンに表示する文字</li>
-<li>ボタンを押したときの処理</li>
-<li>ボタンを探すための<code>id</code></li></ol>
-<div class="explanation"><p>正答：<strong>ボタンの上のすき間</strong></p><p><code>layout_marginTop</code>は部品の上のすき間を指定します。<code>12dp</code>から<code>24dp</code>にすると、そのすき間が広がります。文字やクリック処理の指定とは別です。</p></div>
-<p class="source">復習する場所：<code>hello-android/index.html#step-8</code></p>
+<article data-unit="A01" data-id="B14" data-group="snackbar" data-kind="blank">
+<h3>B14 · メッセージを出す</h3>
+<p class="prompt">ボタンを押したときの処理です。<code>v</code>は押した部品です。作ったSnackbar（スナックバー）を画面に出します。 【①】に入るコードはどれですか。</p>
+<pre class="question-code"><code>Snackbar.make(v, &quot;できた&quot;,
+        Snackbar.LENGTH_SHORT).【①】();</code></pre>
+<ol class="options"><li data-correct="true"><code>show</code></li>
+<li><code>getText</code></li>
+<li><code>toString</code></li>
+<li><code>isEmpty</code></li></ol>
+<div class="explanation"><p>正答：<strong><code>show</code></strong></p><p><code>make</code>で作ったSnackbarは、最後に<code>show()</code>を呼ぶと画面に出ます。</p></div>
+<p class="source">復習する場所：<code>hello-android/index.html#step-7</code></p>
 </article>
-<article data-unit="A02" data-id="A02-01">
-<h3>A02-01 · プレビュー用の文字</h3>
-<p class="prompt">A02の<code>TextView</code>に<code>tools:text=&quot;1問目: 10 - 3 =&quot;</code>だけを書いています。この文字の役割はどれですか。</p>
-<ol class="options"><li data-correct="true">Android Studioのプレビュー用で、これだけでは実行画面に出ない</li>
-<li>アプリ起動時に必ず出る問題文</li>
-<li>Javaで計算する答えを設定する</li>
-<li>ボタンを押すたびに次の問題を作る</li></ol>
-<div class="explanation"><p>正答：<strong>Android Studioのプレビュー用で、これだけでは実行画面に出ない</strong></p><p><code>tools:text</code>はプレビュー専用です。A02の実行画面の問題文は、<code>START</code>後にJavaの<code>setText</code>で表示します。</p></div>
-<p class="source">復習する場所：<code>calc-game/index.html#step-2</code></p>
+<article data-unit="A07" data-id="B15" data-group="empty" data-kind="blank">
+<h3>B15 · 入力が空か調べる</h3>
+<p class="prompt"><code>name</code>には入力した文字列が入っています。<code>txtMessage</code>は文字を表示する部品です。空のときだけ案内を出します。 【①】に入るコードはどれですか。</p>
+<pre class="question-code"><code>if (name.【①】()) {
+    txtMessage.setText(&quot;名前を入力してください&quot;);
+}</code></pre>
+<ol class="options"><li><code>toString</code></li>
+<li><code>getText</code></li>
+<li><code>setText</code></li>
+<li data-correct="true"><code>isEmpty</code></li></ol>
+<div class="explanation"><p>正答：<strong><code>isEmpty</code></strong></p><p><code>isEmpty()</code>は、文字が1つもないときに<code>true</code>になります。<code>if</code>の中の処理は、条件が<code>true</code>のときに行います。</p></div>
+<p class="source">復習する場所：<code>bill-splitter/index.html#step-4</code></p>
 </article>
-<article data-unit="A02" data-id="A02-02">
-<h3>A02-02 · フィールドの型</h3>
-<p class="prompt">ゲーム中かどうかを<code>true</code>または<code>false</code>で覚える<code>isPlaying</code>に使う型はどれですか。</p>
-<ol class="options"><li data-correct="true"><code>boolean</code></li>
-<li><code>int</code></li>
-<li><code>long</code></li>
-<li><code>TextView</code></li></ol>
-<div class="explanation"><p>正答：<strong><code>boolean</code></strong></p><p><code>boolean</code>は<code>true</code>か<code>false</code>を入れる型です。A02では<code>isPlaying</code>が<code>true</code>のときだけ回答を受け付けます。<code>int</code>は問題番号や正解数、<code>long</code>は経過時間に使っています。</p></div>
-<p class="source">復習する場所：<code>calc-game/index.html#step-4</code></p>
+<article data-unit="A10" data-id="B16" data-group="empty" data-kind="blank">
+<h3>B16 · 空でないとき</h3>
+<p class="prompt"><code>name</code>は文字列、<code>txtMessage</code>は文字を表示する部品です。<code>name</code>が空でないときだけ<code>入力あり</code>と表示します。 【①】に入るコードはどれですか。</p>
+<pre class="question-code"><code>if (【①】name.isEmpty()) {
+    txtMessage.setText(&quot;入力あり&quot;);
+}</code></pre>
+<ol class="options"><li><code>+</code></li>
+<li data-correct="true"><code>!</code></li>
+<li><code>-</code></li>
+<li><code>=</code></li></ol>
+<div class="explanation"><p>正答：<strong><code>!</code></strong></p><p><code>!</code>は、<code>true</code>と<code>false</code>を反対にします。<code>!name.isEmpty()</code>は、文字列が空でないときに<code>true</code>です。</p></div>
+<p class="source">復習する場所：<code>room-sample/index.html#step-7</code></p>
 </article>
-<article data-unit="A02" data-id="A02-03">
-<h3>A02-03 · フィールドとローカル変数</h3>
-<p class="prompt">A02で<code>txtMessage</code>を<code>onCreate</code>の外のフィールドにしている理由はどれですか。</p>
-<ol class="options"><li data-correct="true"><code>onCreate</code>以外の<code>startQuestion</code>メソッドからも使うため</li>
-<li><code>TextView</code>は必ずフィールドでなければならないため</li>
-<li><code>var</code>を付けると表示文字が毎回消えるため</li>
-<li>フィールドにするとXMLを書かなくてよくなるため</li></ol>
-<div class="explanation"><p>正答：<strong><code>onCreate</code>以外の<code>startQuestion</code>メソッドからも使うため</strong></p><p><code>txtMessage</code>は<code>onCreate</code>で取得し、別のメソッド<code>startQuestion</code>でも表示を変えます。そのためクラスのフィールドとして覚えます。<code>onCreate</code>の中だけで使う部品はローカル変数にしています。</p></div>
-<p class="source">復習する場所：<code>calc-game/index.html#step-4</code></p>
-</article>
-<article data-unit="A02" data-id="A02-04">
-<h3>A02-04 · タイマーの再開</h3>
-<p class="prompt"><code>STOP</code>までに6,000ミリ秒を保存しました。再開時の<code>SystemClock.elapsedRealtime()</code>が120,000なら、<code>120,000 - elapsedTimeMillis</code>で設定する<code>Chronometer</code>の<code>base</code>はいくつですか。</p>
-<ol class="options"><li data-correct="true">114,000</li>
-<li>126,000</li>
-<li>120,000</li>
-<li>6,000</li></ol>
-<div class="explanation"><p>正答：<strong>114,000</strong></p><p><code>base</code>は現在の値から保存した経過時間を引くので、120,000 - 6,000 = 114,000です。これにより停止中の時間を足さず、6秒から再開できます。</p></div>
-<p class="source">復習する場所：<code>calc-game/index.html#step-5</code></p>
-</article>
-<article data-unit="A02" data-id="A02-05">
-<h3>A02-05 · <code>STOP</code>と<code>START</code></h3>
-<p class="prompt">A02で未回答の問題を表示したまま<code>STOP</code>し、その後<code>START</code>しました。<code>answer</code>には現在の答えが残っています。<code>if (answer == 0) { startQuestion(); }</code> の結果はどれですか。</p>
-<ol class="options"><li data-correct="true">今の問題を残し、タイマーだけ再開する</li>
-<li>必ず別の問題を作ってから再開する</li>
-<li>問題番号と正解数を0に戻す</li>
-<li>10問回答した結果を表示する</li></ol>
-<div class="explanation"><p>正答：<strong>今の問題を残し、タイマーだけ再開する</strong></p><p>作った問題の答えは1〜9で、0ではありません。条件が<code>false</code>になるため<code>startQuestion</code>は呼ばれず、同じ問題のまま再開します。</p></div>
-<p class="source">復習する場所：<code>calc-game/index.html#step-6</code></p>
-</article>
-<article data-unit="A02" data-id="A02-06">
-<h3>A02-06 · <code>RESET</code></h3>
-<p class="prompt">A02で<code>RESET</code>後に1問目から遊び直すための状態として、正しい組み合わせはどれですか。</p>
-<ol class="options"><li data-correct="true"><code>nowNo = 1</code>、<code>correctNo = 0</code>、<code>answer = 0</code>、<code>isPlaying = false</code></li>
-<li><code>nowNo = 0</code>、<code>correctNo = 1</code>、<code>answer = 0</code>、<code>isPlaying = true</code></li>
-<li><code>nowNo = 10</code>、<code>correctNo = 0</code>、<code>answer = 1</code>、<code>isPlaying = false</code></li>
-<li><code>nowNo = 1</code>、<code>correctNo = 10</code>、<code>answer = 9</code>、<code>isPlaying = true</code></li></ol>
-<div class="explanation"><p>正答：<strong><code>nowNo = 1</code>、<code>correctNo = 0</code>、<code>answer = 0</code>、<code>isPlaying = false</code></strong></p><p><code>RESET</code>は問題番号を1、正解数と答えを0、ゲーム中のフラグを<code>false</code>に戻します。次の<code>START</code>では<code>answer == 0</code>となり、新しい問題を作ります。</p></div>
-<p class="source">復習する場所：<code>calc-game/index.html#step-5</code></p>
-</article>
-<article data-unit="A02" data-id="A02-07">
-<h3>A02-07 · 乱数の範囲</h3>
-<p class="prompt"><code>ThreadLocalRandom.current().nextInt(1, 10)</code>で選ばれる整数の範囲はどれですか。</p>
-<ol class="options"><li data-correct="true">1以上10未満（1〜9）</li>
-<li>1以上10以下（1〜10）</li>
-<li>0以上10未満（0〜9）</li>
-<li>0以上10以下（0〜10）</li></ol>
-<div class="explanation"><p>正答：<strong>1以上10未満（1〜9）</strong></p><p>先頭の1は含み、末尾の10は含みません。A02では<code>answer = 10 - randomNumber</code>とするため、答えも1〜9になります。同じ乱数が続くこともあります。</p></div>
-<p class="source">復習する場所：<code>calc-game/index.html#step-6</code></p>
-</article>
-<article data-unit="A02" data-id="A02-08">
-<h3>A02-08 · 配列と拡張<code>for</code>文</h3>
-<p class="prompt">A02では、9個の<code>id</code>の配列を拡張<code>for</code>文で取り出し、各ボタンに<code>setOnClickListener</code>を付けます。この<code>for</code>文が行うことはどれですか。</p>
-<ol class="options"><li data-correct="true">画面を作るときに9個のボタンへクリック処理を登録する</li>
-<li>1個のボタンを押すたびに9回答を採点する</li>
-<li><code>START</code>を押したときだけ9個のボタンを作る</li>
-<li>配列の先頭のボタンだけに処理を登録する</li></ol>
-<div class="explanation"><p>正答：<strong>画面を作るときに9個のボタンへクリック処理を登録する</strong></p><p>外側の<code>for</code>文は画面を作るときに動きます。登録したクリック処理が動くのは、それぞれのボタンを実際に押したときです。</p></div>
-<p class="source">復習する場所：<code>calc-game/index.html#step-7</code></p>
-</article>
-<article data-unit="A02" data-id="A02-09">
-<h3>A02-09 · 文字から整数への変換</h3>
-<p class="prompt">数字ボタンに「<code>6</code>」と表示されています。<code>Integer.parseInt(btn.getText().toString())</code>が返すものはどれですか。</p>
-<ol class="options"><li data-correct="true">整数の6</li>
-<li>文字列の<code>&quot;6&quot;</code></li>
-<li>ボタンの<code>id</code></li>
-<li><code>boolean</code>の<code>true</code></li></ol>
-<div class="explanation"><p>正答：<strong>整数の6</strong></p><p><code>getText().toString()</code>で取り出した文字列を、<code>Integer.parseInt</code>で整数に変換します。その整数を<code>answer</code>と比較して採点します。</p></div>
-<p class="source">復習する場所：<code>calc-game/index.html#step-7</code></p>
-</article>
-<article data-unit="A02" data-id="A02-10">
-<h3>A02-10 · 条件分岐と<code>return</code></h3>
-<p class="prompt">数字ボタンの処理は<code>if (!isPlaying) { Snackbar.make(...).show(); return; }</code>から始まります。<code>STOP</code>後の<code>isPlaying</code>が<code>false</code>のとき、下にある採点処理はどうなりますか。</p>
-<ol class="options"><li data-correct="true"><code>return</code>でクリック処理を終えるため、採点しない</li>
-<li><code>false</code>なので<code>if</code>を飛ばして採点する</li>
-<li><code>Snackbar</code>を表示したあと必ず採点する</li>
-<li>正解した場合だけ<code>return</code>を無視して採点する</li></ol>
-<div class="explanation"><p>正答：<strong><code>return</code>でクリック処理を終えるため、採点しない</strong></p><p><code>!false</code>は<code>true</code>です。案内を出したあと<code>return</code>でそのクリック処理を終えるので、下の採点処理には進みません。</p></div>
-<p class="source">復習する場所：<code>calc-game/index.html#step-7</code></p>
-</article>
-<article data-unit="A02" data-id="A02-11">
-<h3>A02-11 · 正解数と問題番号</h3>
-<p class="prompt">A02で1問目を間違えました。採点前は<code>nowNo = 1</code>、<code>correctNo = 0</code>です。正解時だけ<code>correctNo++</code>し、その後2問目へ進むと、値はどうなりますか。</p>
-<ol class="options"><li data-correct="true"><code>nowNo</code>は2、<code>correctNo</code>は0</li>
-<li><code>nowNo</code>は1、<code>correctNo</code>は0</li>
-<li><code>nowNo</code>は2、<code>correctNo</code>は1</li>
-<li><code>nowNo</code>は1、<code>correctNo</code>は1</li></ol>
-<div class="explanation"><p>正答：<strong><code>nowNo</code>は2、<code>correctNo</code>は0</strong></p><p><code>correctNo</code>は<code>number == answer</code>のときだけ増えます。一方、次の問題へ進む処理は正誤の条件の外にあるので、不正解でも問題番号は進みます。</p></div>
+<article data-unit="A02" data-id="B17" data-group="condition" data-kind="blank">
+<h3>B17 · 条件で処理を分ける</h3>
+<p class="prompt"><code>number</code>、<code>answer</code>、<code>correct</code>は整数です。<code>number</code>と<code>answer</code>が同じときだけ、<code>correct</code>を1増やします。 【①】に入るコードはどれですか。</p>
+<pre class="question-code"><code>【①】(number == answer) {
+    correct++;
+}</code></pre>
+<ol class="options"><li><code>for</code></li>
+<li><code>return</code></li>
+<li data-correct="true"><code>if</code></li>
+<li><code>else</code></li></ol>
+<div class="explanation"><p>正答：<strong><code>if</code></strong></p><p><code>if</code>は、条件が<code>true</code>のときだけ中の処理を行います。<code>==</code>は、ここでは2つの整数が同じか調べます。</p></div>
 <p class="source">復習する場所：<code>calc-game/index.html#step-8</code></p>
 </article>
-<article data-unit="A02" data-id="A02-12">
-<h3>A02-12 · 10問終了の境界</h3>
-<p class="prompt">A02では回答後に<code>if (nowNo &lt;= 9) { nowNo++; startQuestion(); } else { 結果表示 }</code>と判定します。<code>nowNo</code>が9の問題に回答した直後はどうなりますか。</p>
-<ol class="options"><li data-correct="true"><code>nowNo</code>が10になり、10問目を表示する</li>
-<li>その場で結果を表示して9問で終わる</li>
-<li><code>nowNo</code>が1になり、1問目へ戻る</li>
-<li>同じ9問目をもう一度表示する</li></ol>
-<div class="explanation"><p>正答：<strong><code>nowNo</code>が10になり、10問目を表示する</strong></p><p><code>9 &lt;= 9</code>は<code>true</code>なので、番号を10にして次を出題します。10問目への回答後は<code>10 &lt;= 9</code>が<code>false</code>となり、結果表示へ進みます。</p></div>
-<p class="source">復習する場所：<code>calc-game/index.html#step-9</code></p>
+<article data-unit="A02" data-id="B18" data-group="condition" data-kind="blank">
+<h3>B18 · 途中で処理を終える</h3>
+<p class="prompt"><code>btnAdd</code>はボタン、<code>edtName</code>は入力欄、<code>txtMessage</code>は文字の表示欄です。空なら、このクリック処理を終えます。 【①】に入るコードはどれですか。</p>
+<pre class="question-code"><code>btnAdd.setOnClickListener(v -&gt; {
+    var name = edtName.getText().toString();
+    if (name.isEmpty()) {
+        【①】;
+    }
+    txtMessage.setText(name);
+});</code></pre>
+<ol class="options"><li data-correct="true"><code>return</code></li>
+<li><code>show()</code></li>
+<li><code>else</code></li>
+<li><code>if</code></li></ol>
+<div class="explanation"><p>正答：<strong><code>return</code></strong></p><p><code>return;</code>で、このクリック処理をここで終えます。空のときは、下の<code>setText</code>を実行しません。アプリ全体を終える意味ではありません。</p></div>
+<p class="source">復習する場所：<code>calc-game/index.html#step-7</code></p>
 </article>
-<article data-unit="A03" data-id="A03-01">
-<h3>A03-01 · 画像リソース</h3>
-<p class="prompt"><code>res/drawable</code>に置いた<code>rock.png</code>を、<code>ImageView</code>の<code>android:src</code>で指定する書き方はどれですか。</p>
-<ol class="options"><li data-correct="true"><code>@drawable/rock</code></li>
-<li><code>@drawable/rock.png</code></li>
-<li><code>@id/rock</code></li>
-<li><code>@layout/rock</code></li></ol>
-<div class="explanation"><p>正答：<strong><code>@drawable/rock</code></strong></p><p>画像は<code>@drawable/名前</code>で参照し、<code>.png</code>は書きません。<code>id</code>は部品の目印、<code>layout</code>はレイアウトの資源を表します。</p></div>
-<p class="source">復習する場所：<code>rock-paper-scissors-game/index.html#step-3</code></p>
+<article data-unit="A02" data-id="B19" data-group="loop" data-kind="blank">
+<h3>B19 · 1つずつ繰り返す</h3>
+<p class="prompt">配列（複数の値を並べたもの）の値を1つずつ取り出し、<code>total</code>に足します。 【①】に入るコードはどれですか。</p>
+<pre class="question-code"><code>var numbers = new int[]{2, 4, 6};
+var total = 0;
+【①】(var number : numbers) {
+    total = total + number;
+}</code></pre>
+<ol class="options"><li><code>if</code></li>
+<li><code>return</code></li>
+<li><code>else</code></li>
+<li data-correct="true"><code>for</code></li></ol>
+<div class="explanation"><p>正答：<strong><code>for</code></strong></p><p>拡張（かくちょう）<code>for</code>文は、配列から値を1つずつ取り出して同じ処理を繰り返します。</p></div>
+<p class="source">復習する場所：<code>calc-game/index.html#step-7</code></p>
 </article>
-<article data-unit="A03" data-id="A03-02">
-<h3>A03-02 · 幅を比率で分ける</h3>
-<p class="prompt">A03の横向き<code>LinearLayout</code>にある3つの手は、すべて<code>layout_width=&quot;0dp&quot;</code>、<code>layout_weight=&quot;1&quot;</code>です。横幅はどう分かれますか。</p>
-<ol class="options"><li data-correct="true">3つに等しく分かれる</li>
-<li>最初の画像だけが横幅いっぱいになる</li>
-<li>すべて横幅0になり見えなくなる</li>
-<li>画像を追加した順に1倍・2倍・3倍になる</li></ol>
-<div class="explanation"><p>正答：<strong>3つに等しく分かれる</strong></p><p><code>0dp</code>と<code>layout_weight</code>で横幅を比率配分しています。3つとも重みが1なので、横幅を3等分します。</p></div>
-<p class="source">復習する場所：<code>rock-paper-scissors-game/index.html#step-3</code></p>
+<article data-unit="A02" data-id="B20" data-group="loop" data-kind="blank">
+<h3>B20 · 繰り返す配列</h3>
+<p class="prompt"><code>numbers</code>の3つの値を1つずつ取り出し、<code>count</code>を1ずつ増やします。 【①】に入るコードはどれですか。</p>
+<pre class="question-code"><code>var numbers = new int[]{2, 4, 6};
+var count = 0;
+for (var number : 【①】) {
+    count++;
+}</code></pre>
+<ol class="options"><li><code>number</code></li>
+<li data-correct="true"><code>numbers</code></li>
+<li><code>count</code></li>
+<li><code>Integer</code></li></ol>
+<div class="explanation"><p>正答：<strong><code>numbers</code></strong></p><p><code>:</code>の右に、取り出す元の配列を書きます。<code>numbers</code>から<code>2</code>、<code>4</code>、<code>6</code>を順に取り出します。</p></div>
+<p class="source">復習する場所：<code>calc-game/index.html#step-7</code></p>
 </article>
-<article data-unit="A03" data-id="A03-03">
-<h3>A03-03 · 配列の番号</h3>
-<p class="prompt"><code>imageViews</code>にはグー、チョキ、パーの順で画像を入れています。パーを押したとき、<code>selectedHand = i</code>で保存する番号はどれですか。</p>
-<ol class="options"><li data-correct="true">2</li>
-<li>0</li>
-<li>1</li>
-<li>3</li></ol>
-<div class="explanation"><p>正答：<strong>2</strong></p><p>配列の番号は0からです。グーが0、チョキが1、パーが2になります。この並びをCPUの画像や勝敗の計算でも使います。</p></div>
-<p class="source">復習する場所：<code>rock-paper-scissors-game/index.html#step-5</code></p>
+<article data-unit="A01" data-id="E01" data-group="layout" data-kind="explain">
+<h3>E01 · 画面を用意する</h3>
+<p class="prompt"><code>MainActivity</code>の中にある、次のコードの説明はどれですか。</p>
+<pre class="question-code"><code>setContentView(R.layout.activity_main);</code></pre>
+<ol class="options"><li>ボタンの文字を読む</li>
+<li>入力した文字を消す</li>
+<li data-correct="true"><code>activity_main.xml</code>を画面に使う</li>
+<li>ボタンを押したときの処理を登録する</li></ol>
+<div class="explanation"><p>正答：<strong><code>activity_main.xml</code>を画面に使う</strong></p><p><code>setContentView</code>は、画面に使うレイアウトを指定します。<code>R.layout.activity_main</code>は<code>activity_main.xml</code>を表します。</p></div>
+<p class="source">復習する場所：<code>hello-android/index.html#step-9</code></p>
 </article>
-<article data-unit="A03" data-id="A03-04">
-<h3>A03-04 · 番号付き<code>for</code>文</h3>
-<p class="prompt"><code>imageViews.length</code>が3のとき、<code>for (var i = 0; i &lt; imageViews.length; i++)</code>の中で使われる<code>i</code>の値はどれですか。</p>
-<ol class="options"><li data-correct="true">0、1、2</li>
-<li>1、2、3</li>
-<li>0、1、2、3</li>
-<li>3だけ</li></ol>
-<div class="explanation"><p>正答：<strong>0、1、2</strong></p><p>0から始め、1ずつ増やし、<code>i &lt; 3</code>の間実行します。<code>i</code>が3になると条件が<code>false</code>になり、繰り返しを終えます。</p></div>
-<p class="source">復習する場所：<code>rock-paper-scissors-game/index.html#step-5</code></p>
+<article data-unit="A01" data-id="E02" data-group="layout" data-kind="explain">
+<h3>E02 · 部品を探す順番</h3>
+<p class="prompt"><code>activity_main.xml</code>にはIDが<code>btn_start</code>のボタンがあります。この順番にする理由はどれですか。</p>
+<pre class="question-code"><code>setContentView(R.layout.activity_main);
+var btnStart = (Button) findViewById(R.id.btn_start);</code></pre>
+<ol class="options"><li data-correct="true">画面を用意してから、その中の部品を探すため</li>
+<li>ボタンを2つ作るため</li>
+<li>ボタンを自動で押すため</li>
+<li>入力した文字を整数に変えるため</li></ol>
+<div class="explanation"><p>正答：<strong>画面を用意してから、その中の部品を探すため</strong></p><p><code>setContentView</code>で画面を用意し、そのあとで<code>findViewById</code>を使って部品を探します。</p></div>
+<p class="source">復習する場所：<code>hello-android/index.html#step-9</code></p>
 </article>
-<article data-unit="A03" data-id="A03-05">
-<h3>A03-05 · 選択状態</h3>
-<p class="prompt">グーを選んだあと、勝負する前にパーを押しました。A03の選択処理では、押した画像を赤くし、ほかの画像には<code>setBackground(null)</code>を実行します。結果はどれですか。</p>
-<ol class="options"><li data-correct="true">パーだけが赤くなり、選択番号は2になる</li>
-<li>グーとパーの両方が赤くなり、選択番号は0のまま</li>
-<li>どの画像も赤くならず、選択番号は-1になる</li>
-<li>CPUの画像が赤くなり、選択番号は3になる</li></ol>
-<div class="explanation"><p>正答：<strong>パーだけが赤くなり、選択番号は2になる</strong></p><p>押した画像の番号を<code>selectedHand</code>に保存し、それ以外の背景を消します。赤い背景は常に1つで、初期値-1はまだ選んでいない状態です。</p></div>
-<p class="source">復習する場所：<code>rock-paper-scissors-game/index.html#step-5</code></p>
+<article data-unit="A01" data-id="E03" data-group="view" data-kind="explain">
+<h3>E03 · IDの役割</h3>
+<p class="prompt">画面を用意したあとに、次のコードを実行します。何をしますか。</p>
+<pre class="question-code"><code>var btnStart = (Button) findViewById(R.id.btn_start);</code></pre>
+<ol class="options"><li>ボタンに<code>btn_start</code>と表示する</li>
+<li data-correct="true">IDが<code>btn_start</code>の部品を探す</li>
+<li>新しいXMLファイルを作る</li>
+<li>入力欄の文字を消す</li></ol>
+<div class="explanation"><p>正答：<strong>IDが<code>btn_start</code>の部品を探す</strong></p><p><code>R.id.btn_start</code>は部品を探すための目印です。画面に表示する文字とは別です。</p></div>
+<p class="source">復習する場所：<code>hello-android/index.html#step-4</code></p>
 </article>
-<article data-unit="A03" data-id="A03-06">
-<h3>A03-06 · 勝負後の操作制限</h3>
-<p class="prompt">A03で「<code>勝負！</code>」のあとに手を選び直せないようにする処理はどれですか。</p>
-<ol class="options"><li data-correct="true">3つの手の画像に<code>setClickable(false)</code>を実行する</li>
-<li>CPUの画像に<code>setVisibility(View.VISIBLE)</code>を実行する</li>
-<li><code>winCount</code>を1増やす</li>
-<li>選んだ手を<code>Log.d</code>で出力する</li></ol>
-<div class="explanation"><p>正答：<strong>3つの手の画像に<code>setClickable(false)</code>を実行する</strong></p><p><code>setClickable(false)</code>で手の画像をクリックできなくします。「<code>次の戦いへ</code>」では<code>setClickable(true)</code>で選べる状態に戻します。</p></div>
-<p class="source">復習する場所：<code>rock-paper-scissors-game/index.html#step-6</code></p>
+<article data-unit="A01" data-id="E04" data-group="view" data-kind="explain">
+<h3>E04 · 部品をButtonとして扱う</h3>
+<p class="prompt">画面のIDが<code>btn_start</code>の部品はボタンです。<code>(Button)</code>の説明はどれですか。</p>
+<pre class="question-code"><code>var btnStart = (Button) findViewById(R.id.btn_start);</code></pre>
+<ol class="options"><li>ボタンに<code>Button</code>と表示する</li>
+<li>ボタンを押す</li>
+<li>ボタンを画面から消す</li>
+<li data-correct="true">見つけた部品を<code>Button</code>として扱う</li></ol>
+<div class="explanation"><p>正答：<strong>見つけた部品を<code>Button</code>として扱う</strong></p><p><code>(Button)</code>はキャストといい、見つけた部品を<code>Button</code>として扱う指定です。文字を表示したり、ボタンを押したりする処理ではありません。</p></div>
+<p class="source">復習する場所：<code>hello-android/index.html#step-4</code></p>
 </article>
-<article data-unit="A03" data-id="A03-07">
-<h3>A03-07 · CPUの乱数</h3>
-<p class="prompt">CPUの手を決める<code>ThreadLocalRandom.current().nextInt(3)</code>で出る値はどれですか。</p>
-<ol class="options"><li data-correct="true">0、1、2</li>
-<li>1、2、3</li>
-<li>0、1、2、3</li>
-<li>3だけ</li></ol>
-<div class="explanation"><p>正答：<strong>0、1、2</strong></p><p><code>nextInt(3)</code>は0以上3未満の整数を選びます。0〜2なので、3個の画像を入れた配列の番号としてそのまま使えます。</p></div>
-<p class="source">復習する場所：<code>rock-paper-scissors-game/index.html#step-6</code></p>
+<article data-unit="A01" data-id="E05" data-group="click" data-kind="explain">
+<h3>E05 · 文字が変わるとき</h3>
+<p class="prompt"><code>btnStart</code>はボタン、<code>txtMessage</code>は文字の表示欄です。中の<code>setText</code>は、いつ実行されますか。</p>
+<pre class="question-code"><code>btnStart.setOnClickListener(v -&gt; {
+    txtMessage.setText(&quot;開始&quot;);
+});</code></pre>
+<ol class="options"><li data-correct="true"><code>btnStart</code>を押したとき</li>
+<li>Javaのファイルを開いたとき</li>
+<li>このコードを入力したとき</li>
+<li><code>txtMessage</code>の文字を読んだとき</li></ol>
+<div class="explanation"><p>正答：<strong><code>btnStart</code>を押したとき</strong></p><p><code>setOnClickListener</code>の中には、押したときに行う処理を書きます。登録しただけでは、中の<code>setText</code>は実行しません。</p></div>
+<p class="source">復習する場所：<code>hello-android/index.html#step-4</code></p>
 </article>
-<article data-unit="A03" data-id="A03-08">
-<h3>A03-08 · 配列から画像を選ぶ</h3>
-<p class="prompt"><code>item</code>が<code>{R.drawable.rock, R.drawable.scissors, R.drawable.paper}</code>で、<code>cpu</code>が1です。<code>imgCpu.setImageResource(item[cpu]);</code>で表示する画像はどれですか。</p>
-<ol class="options"><li data-correct="true">チョキ（<code>scissors</code>）</li>
-<li>グー（<code>rock</code>）</li>
-<li>パー（<code>paper</code>）</li>
-<li>3つ全部</li></ol>
-<div class="explanation"><p>正答：<strong>チョキ（<code>scissors</code>）</strong></p><p><code>item[1]</code>は2番目の値<code>R.drawable.scissors</code>です。<code>setImageResource</code>で、その画像を<code>ImageView</code>に表示します。</p></div>
-<p class="source">復習する場所：<code>rock-paper-scissors-game/index.html#step-6</code></p>
+<article data-unit="A01" data-id="E06" data-group="click" data-kind="explain">
+<h3>E06 · 押したボタンと処理</h3>
+<p class="prompt"><code>btnStart</code>と<code>btnClear</code>はボタン、<code>txtMessage</code>は文字の表示欄です。<code>btnClear</code>を1回押すと、何を表示しますか。</p>
+<pre class="question-code"><code>btnStart.setOnClickListener(v -&gt; {
+    txtMessage.setText(&quot;開始&quot;);
+});
+btnClear.setOnClickListener(v -&gt; {
+    txtMessage.setText(&quot;消去&quot;);
+});</code></pre>
+<ol class="options"><li><code>開始</code></li>
+<li><code>開始消去</code></li>
+<li data-correct="true"><code>消去</code></li>
+<li><code>btnClear</code></li></ol>
+<div class="explanation"><p>正答：<strong><code>消去</code></strong></p><p><code>btnClear</code>を押すと、<code>btnClear.setOnClickListener</code>の中を実行します。ここでは<code>消去</code>と表示します。</p></div>
+<p class="source">復習する場所：<code>hello-android/index.html#step-4</code></p>
 </article>
-<article data-unit="A03" data-id="A03-09">
-<h3>A03-09 · <code>INVISIBLE</code></h3>
-<p class="prompt">「<code>次の戦いへ</code>」で<code>imgCpu.setVisibility(View.INVISIBLE);</code>を実行すると、CPUの画像とその場所はどうなりますか。</p>
-<ol class="options"><li data-correct="true">画像は見えなくなるが、表示する場所は残る</li>
-<li>画像も表示する場所もなくなり、下の部品が詰まる</li>
-<li>画像は見えたままで、クリックだけできなくなる</li>
-<li>画像がグーへ変更される</li></ol>
-<div class="explanation"><p>正答：<strong>画像は見えなくなるが、表示する場所は残る</strong></p><p><code>INVISIBLE</code>は見えない状態にする指定です。場所は残るため、再び<code>VISIBLE</code>にすると同じ場所に表示できます。</p></div>
-<p class="source">復習する場所：<code>rock-paper-scissors-game/index.html#step-7</code></p>
+<article data-unit="A01" data-id="E07" data-group="read" data-kind="explain">
+<h3>E07 · 入力した文字列</h3>
+<p class="prompt"><code>edtName</code>は入力欄です。<code>東京</code>と入っています。次のコードで、<code>name</code>に入る値はどれですか。</p>
+<pre class="question-code"><code>var name = edtName.getText().toString();</code></pre>
+<ol class="options"><li>文字列<code>&quot;edtName&quot;</code></li>
+<li data-correct="true">文字列<code>&quot;東京&quot;</code></li>
+<li>空の文字列<code>&quot;&quot;</code></li>
+<li>整数の<code>0</code></li></ol>
+<div class="explanation"><p>正答：<strong>文字列<code>&quot;東京&quot;</code></strong></p><p><code>getText().toString()</code>で、入力欄にある今の文字を文字列として取り出します。ここでは<code>&quot;東京&quot;</code>です。</p></div>
+<p class="source">復習する場所：<code>hello-android/index.html#step-5</code></p>
 </article>
-<article data-unit="A03" data-id="A03-10">
-<h3>A03-10 · 勝敗の計算</h3>
-<p class="prompt">グー=0、チョキ=1、パー=2です。自分がグー、CPUがチョキのとき、<code>(selectedHand - cpu + 3) % 3</code>の結果と勝敗はどれですか。結果0は引き分け、1は負け、2は勝ちです。</p>
-<ol class="options"><li data-correct="true">2で勝ち</li>
-<li>0で引き分け</li>
-<li>1で負け</li>
-<li>-1で負け</li></ol>
-<div class="explanation"><p>正答：<strong>2で勝ち</strong></p><p>(0 - 1 + 3) % 3 = 2 % 3 = 2です。%は割り算の余りを求めます。3を足してから余りを求めることで、結果が0〜2になります。</p></div>
-<p class="source">復習する場所：<code>rock-paper-scissors-game/index.html#step-8</code></p>
+<article data-unit="A01" data-id="E08" data-group="read" data-kind="explain">
+<h3>E08 · ボタンの文字を読む</h3>
+<p class="prompt"><code>btnNumber</code>はボタンです。ボタンには<code>7</code>と表示されています。<code>text</code>に入る値はどれですか。</p>
+<pre class="question-code"><code>var text = btnNumber.getText().toString();</code></pre>
+<ol class="options"><li>整数の<code>7</code></li>
+<li>文字列<code>&quot;btnNumber&quot;</code></li>
+<li>空の文字列<code>&quot;&quot;</code></li>
+<li data-correct="true">文字列<code>&quot;7&quot;</code></li></ol>
+<div class="explanation"><p>正答：<strong>文字列<code>&quot;7&quot;</code></strong></p><p><code>getText().toString()</code>で得られるのは文字列です。計算に使う整数に変えるときは、別に<code>Integer.parseInt</code>を使います。</p></div>
+<p class="source">復習する場所：<code>hello-android/index.html#step-5</code></p>
 </article>
-<article data-unit="A03" data-id="A03-11">
-<h3>A03-11 · <code>switch</code>と<code>break</code></h3>
-<p class="prompt">A03の<code>switch</code>文で、<code>case</code>の処理の最後にある<code>break;</code>の役割はどれですか。</p>
-<ol class="options"><li data-correct="true">その<code>case</code>の処理を終え、<code>switch</code>文を抜ける</li>
-<li>次の<code>case</code>も必ず続けて実行する</li>
-<li>アプリを終了する</li>
-<li>CPUの手を再抽選する</li></ol>
-<div class="explanation"><p>正答：<strong>その<code>case</code>の処理を終え、<code>switch</code>文を抜ける</strong></p><p><code>break</code>があるので、選ばれた<code>case</code>の処理のあとに<code>switch</code>文を抜けます。この書き方で<code>break</code>を忘れると、下の<code>case</code>の処理も続けて実行されます。</p></div>
-<p class="source">復習する場所：<code>rock-paper-scissors-game/index.html#step-8</code></p>
+<article data-unit="A01" data-id="E09" data-group="write" data-kind="explain">
+<h3>E09 · 表示を置き換える</h3>
+<p class="prompt"><code>txtMessage</code>は文字の表示欄です。上から順に実行したあと、何を表示しますか。</p>
+<pre class="question-code"><code>txtMessage.setText(&quot;前&quot;);
+txtMessage.setText(&quot;後&quot;);</code></pre>
+<ol class="options"><li data-correct="true"><code>後</code></li>
+<li><code>前</code></li>
+<li><code>前後</code></li>
+<li>何も表示しない</li></ol>
+<div class="explanation"><p>正答：<strong><code>後</code></strong></p><p><code>setText</code>は、前の表示を新しい文字に置き換えます。最後に指定した<code>後</code>を表示します。</p></div>
+<p class="source">復習する場所：<code>hello-android/index.html#step-4</code></p>
 </article>
-<article data-unit="A03" data-id="A03-12">
-<h3>A03-12 · 連勝数</h3>
-<p class="prompt">起動直後から「勝ち→<code>次の戦いへ</code>→勝ち→<code>次の戦いへ</code>→引き分け→<code>次の戦いへ</code>→勝ち」と進めました。最後の勝ちで表示する連勝数はいくつですか。</p>
-<ol class="options"><li data-correct="true">1連勝</li>
-<li>2連勝</li>
-<li>3連勝</li>
-<li>4連勝</li></ol>
-<div class="explanation"><p>正答：<strong>1連勝</strong></p><p><code>次の戦いへ</code>では連勝数を残しますが、引き分けや負けでは<code>winCount = 0</code>に戻します。引き分けの次の勝ちは、0を1増やして1連勝です。</p></div>
-<p class="source">復習する場所：<code>rock-paper-scissors-game/index.html#step-8</code></p>
+<article data-unit="A09" data-id="E10" data-group="write" data-kind="explain">
+<h3>E10 · 入力欄の文字を消す</h3>
+<p class="prompt"><code>edtName</code>は入力欄です。<code>山田</code>と入っています。次のコードを実行すると、どうなりますか。</p>
+<pre class="question-code"><code>edtName.setText(&quot;&quot;);</code></pre>
+<ol class="options"><li>入力欄そのものがなくなる</li>
+<li><code>山田</code>の後ろに文字が増える</li>
+<li data-correct="true">入力欄の文字が消えて空になる</li>
+<li><code>0</code>が入力される</li></ol>
+<div class="explanation"><p>正答：<strong>入力欄の文字が消えて空になる</strong></p><p><code>&quot;&quot;</code>は空の文字列です。入力欄はそのままで、中に表示する文字だけを空にします。</p></div>
+<p class="source">復習する場所：<code>memo-app/index.html#step-4</code></p>
 </article>
-<article data-unit="A04" data-id="A04-01">
-<h3>A04-01 · インターネットの許可</h3>
-<p class="prompt"><code>WebView</code>でインターネットのページを読むための<code>uses-permission</code>（<code>android.permission.INTERNET</code>）は、どこに追加しますか。</p>
-<ol class="options"><li data-correct="true"><code>AndroidManifest.xml</code>の<code>manifest</code>の中、<code>application</code>の外</li>
-<li><code>AndroidManifest.xml</code>の<code>application</code>の中</li>
-<li><code>activity_main.xml</code>の<code>WebView</code>の中</li>
-<li><code>AppMenuItem.java</code>の<code>enum</code>の値の間</li></ol>
-<div class="explanation"><p>正答：<strong><code>AndroidManifest.xml</code>の<code>manifest</code>の中、<code>application</code>の外</strong></p><p><code>manifest</code>の開始タグの下、<code>application</code>の上に宣言します。<code>application</code>の中に入れるとビルド時のエラーになります。この許可では確認の画面は出ません。</p></div>
-<p class="source">復習する場所：<code>webview-app/index.html#step-2</code></p>
+<article data-unit="A02" data-id="E11" data-group="parse" data-kind="explain">
+<h3>E11 · 整数に変えた値</h3>
+<p class="prompt">次のコードで、<code>number</code>に入る値はどれですか。</p>
+<pre class="question-code"><code>var number = Integer.parseInt(&quot;12&quot;);</code></pre>
+<ol class="options"><li>文字列<code>&quot;12&quot;</code></li>
+<li data-correct="true">整数の<code>12</code></li>
+<li>文字列<code>&quot;number&quot;</code></li>
+<li>整数の<code>0</code></li></ol>
+<div class="explanation"><p>正答：<strong>整数の<code>12</code></strong></p><p><code>Integer.parseInt</code>で、文字列<code>&quot;12&quot;</code>を計算に使える整数の<code>12</code>に変えます。</p></div>
+<p class="source">復習する場所：<code>calc-game/index.html#step-7</code></p>
 </article>
-<article data-unit="A04" data-id="A04-02">
-<h3>A04-02 · <code>ActionBar</code>とメニュー</h3>
-<p class="prompt">A04で2つの<code>themes.xml</code>のテーマ名から<code>.NoActionBar</code>を外す目的はどれですか。</p>
-<ol class="options"><li data-correct="true">メニュー（⋮）を置く<code>ActionBar</code>を表示する</li>
-<li>インターネット接続を許可する</li>
-<li>JavaScriptを有効にする</li>
-<li><code>WebView</code>の閲覧履歴を消す</li></ol>
-<div class="explanation"><p>正答：<strong>メニュー（⋮）を置く<code>ActionBar</code>を表示する</strong></p><p>この教材ではオプションメニューを<code>ActionBar</code>に表示します。<code>values</code>と<code>values-night</code>の2つの<code>themes.xml</code>から<code>.NoActionBar</code>を外します。</p></div>
-<p class="source">復習する場所：<code>webview-app/index.html#step-2</code></p>
+<article data-unit="A02" data-id="E12" data-group="parse" data-kind="explain">
+<h3>E12 · 変えた整数で計算する</h3>
+<p class="prompt"><code>txtMessage</code>は文字の表示欄です。次のコードは、何を表示しますか。</p>
+<pre class="question-code"><code>var number = Integer.parseInt(&quot;8&quot;);
+txtMessage.setText(&quot;答え:&quot; + (number + 2));</code></pre>
+<ol class="options"><li><code>答え:82</code></li>
+<li><code>答え:8</code></li>
+<li><code>答え:number</code></li>
+<li data-correct="true"><code>答え:10</code></li></ol>
+<div class="explanation"><p>正答：<strong><code>答え:10</code></strong></p><p><code>number</code>は整数の<code>8</code>です。かっこの中で<code>8 + 2</code>を計算するので、<code>答え:10</code>と表示します。</p></div>
+<p class="source">復習する場所：<code>calc-game/index.html#step-7</code></p>
 </article>
-<article data-unit="A04" data-id="A04-03">
-<h3>A04-03 · <code>WebViewClient</code></h3>
-<p class="prompt"><code>WebView</code>に<code>setWebViewClient(new WebViewClient())</code>を設定する目的はどれですか。</p>
-<ol class="options"><li data-correct="true">ページ内のリンクを、この<code>WebView</code>の中で開くようにする</li>
-<li>すべてのページでJavaScriptを有効にする</li>
-<li><code>INTERNET</code>の許可を自動で追加する</li>
-<li>メニューの表示名を自動で翻訳する</li></ol>
-<div class="explanation"><p>正答：<strong>ページ内のリンクを、この<code>WebView</code>の中で開くようにする</strong></p><p><code>WebViewClient</code>を設定すると、ページ内のリンクもアプリの<code>WebView</code>の中で開きます。指定URLを最初に読み込む処理は<code>loadUrl</code>です。</p></div>
-<p class="source">復習する場所：<code>webview-app/index.html#step-4</code></p>
+<article data-unit="A01" data-id="E13" data-group="snackbar" data-kind="explain">
+<h3>E13 · Snackbarの役割</h3>
+<p class="prompt">ボタンを押したときの処理です。<code>v</code>は押した部品です。次のコードは、何をしますか。</p>
+<pre class="question-code"><code>Snackbar.make(v, &quot;入力してください&quot;,
+        Snackbar.LENGTH_SHORT).show();</code></pre>
+<ol class="options"><li>入力欄の文字を整数に変える</li>
+<li>新しい画面を開く</li>
+<li data-correct="true">画面に短いメッセージを出す</li>
+<li>ボタンの文字を読む</li></ol>
+<div class="explanation"><p>正答：<strong>画面に短いメッセージを出す</strong></p><p>Snackbar（スナックバー）は、画面に短いメッセージを出します。<code>show()</code>を呼ぶと表示します。</p></div>
+<p class="source">復習する場所：<code>hello-android/index.html#step-7</code></p>
 </article>
-<article data-unit="A04" data-id="A04-04">
-<h3>A04-04 · <code>enum</code>にまとめる理由</h3>
-<p class="prompt">A04でURLと表示名を別々の配列にせず、<code>enum AppMenuItem</code>の1つの値にまとめる利点はどれですか。</p>
-<ol class="options"><li data-correct="true">URLと表示名の組を1か所に書けるので、追加位置のずれを避けやすい</li>
-<li>URLのつづりが間違っていても必ず自動修正される</li>
-<li>インターネット接続がなくても全サイトを表示できる</li>
-<li>サイトのページ内容が更新されなくなる</li></ol>
-<div class="explanation"><p>正答：<strong>URLと表示名の組を1か所に書けるので、追加位置のずれを避けやすい</strong></p><p>配列を2つ使うと、追加位置や片方の追加忘れで対応がずれることがあります。<code>enum</code>では1つの値にURLと表示名をまとめます。ただし、URL文字列のつづりまでは自動で検査しません。</p></div>
-<p class="source">復習する場所：<code>webview-app/index.html#enum-merits</code></p>
+<article data-unit="A01" data-id="E14" data-group="snackbar" data-kind="explain">
+<h3>E14 · 表示するメッセージ</h3>
+<p class="prompt">ボタンを押したときの処理です。<code>v</code>は押した部品です。Snackbar（スナックバー）に何を表示しますか。</p>
+<pre class="question-code"><code>var message = &quot;できた&quot;;
+Snackbar.make(v, message,
+        Snackbar.LENGTH_SHORT).show();</code></pre>
+<ol class="options"><li data-correct="true"><code>できた</code></li>
+<li><code>message</code></li>
+<li><code>LENGTH_SHORT</code></li>
+<li>何も表示しない</li></ol>
+<div class="explanation"><p>正答：<strong><code>できた</code></strong></p><p><code>make</code>の2つ目に、表示する文字を渡します。<code>message</code>には<code>できた</code>が入っています。</p></div>
+<p class="source">復習する場所：<code>hello-android/index.html#step-7</code></p>
 </article>
-<article data-unit="A04" data-id="A04-05">
-<h3>A04-05 · <code>ordinal</code>と<code>values</code></h3>
-<p class="prompt"><code>AppMenuItem</code>を<code>YAHOO</code>、<code>GITHUB_COPILOT</code>、<code>SLAM_DUNK_MOVIE</code>、<code>CHAT_GPT</code>の順に定義しました。<code>AppMenuItem.values()[2]</code>で取り出す値はどれですか。</p>
-<ol class="options"><li data-correct="true"><code>SLAM_DUNK_MOVIE</code></li>
-<li><code>YAHOO</code></li>
-<li><code>GITHUB_COPILOT</code></li>
-<li><code>CHAT_GPT</code></li></ol>
-<div class="explanation"><p>正答：<strong><code>SLAM_DUNK_MOVIE</code></strong></p><p><code>values()</code>は定義した順の配列を返し、番号は0からです。<code>SLAM_DUNK_MOVIE</code>は3番目なので番号2で、<code>ordinal()</code>も2です。</p></div>
-<p class="source">復習する場所：<code>webview-app/index.html#enum-usage</code></p>
-</article>
-<article data-unit="A04" data-id="A04-06">
-<h3>A04-06 · コンストラクタとフィールド</h3>
-<p class="prompt"><code>AppMenuItem(String url, String title)</code>の中の<code>this.url = url;</code>で、左の<code>this.url</code>と右の<code>url</code>の関係はどれですか。</p>
-<ol class="options"><li data-correct="true">左はフィールド、右はコンストラクタが受け取った値</li>
-<li>左は受け取った値、右はフィールド</li>
-<li>左右とも<code>WebView</code>の部品<code>id</code></li>
-<li>左右ともメニュー項目の番号</li></ol>
-<div class="explanation"><p>正答：<strong>左はフィールド、右はコンストラクタが受け取った値</strong></p><p><code>this.url</code>で、その値が持つフィールドを指します。右側の<code>url</code>は引数です。<code>private final String url</code>の<code>final</code>は、一度入れた値を変えない指定です。</p></div>
-<p class="source">復習する場所：<code>webview-app/index.html#step-5</code></p>
-</article>
-<article data-unit="A04" data-id="A04-07">
-<h3>A04-07 · メニューのクリック処理</h3>
-<p class="prompt">A04でメニューの項目を押したときに呼ばれ、項目<code>id</code>から<code>enum</code>の値を取り出して<code>loadUrl</code>するメソッドはどれですか。</p>
-<ol class="options"><li data-correct="true"><code>onOptionsItemSelected</code></li>
-<li><code>onCreateOptionsMenu</code></li>
-<li><code>getTitle</code></li>
-<li><code>ordinal</code></li></ol>
-<div class="explanation"><p>正答：<strong><code>onOptionsItemSelected</code></strong></p><p><code>onCreateOptionsMenu</code>はメニューを用意するときの処理です。項目を押すと<code>onOptionsItemSelected</code>が呼ばれ、<code>AppMenuItem.values()[item.getItemId()]</code>で選択した値を取り出します。</p></div>
-<p class="source">復習する場所：<code>webview-app/index.html#step-6</code></p>
-</article>
-<article data-unit="A04" data-id="A04-08">
-<h3>A04-08 · <code>enum</code>の項目追加</h3>
-<p class="prompt">メニューを<code>AppMenuItem.values()</code>の<code>for</code>文で作っています。4項目の<code>enum</code>の末尾に<code>JEC</code>を追加し、直前の値の末尾を<code>;</code>から<code>,</code>へ変えました。<code>MainActivity</code>を変えなくても起きることはどれですか。</p>
-<ol class="options"><li data-correct="true">5つ目に<code>JEC</code>の表示名が追加され、その項目<code>id</code>は4になる</li>
-<li><code>JEC</code>は追加されるが、項目<code>id</code>は5になる</li>
-<li>既存の4項目が消えて<code>JEC</code>だけになる</li>
-<li><code>MainActivity</code>に<code>menu.add</code>を足すまで<code>JEC</code>は出ない</li></ol>
-<div class="explanation"><p>正答：<strong>5つ目に<code>JEC</code>の表示名が追加され、その項目<code>id</code>は4になる</strong></p><p><code>values()</code>で追加した値も取り出し、<code>ordinal()</code>を<code>id</code>に使います。番号は0からなので5つ目の<code>id</code>は4です。URLと表示名を<code>enum</code>に追加するだけで対応します。</p></div>
-<p class="source">復習する場所：<code>webview-app/index.html#step-9</code></p>
-</article>
-<article data-unit="A04" data-id="A04-09">
-<h3>A04-09 · JavaScriptの切り替え</h3>
-<p class="prompt">A04で<code>JavaScript ON</code>のチェックを切り替えたとき、<code>setJavaScriptEnabled(isChecked)</code>のあとに<code>webView.reload()</code>を呼ぶ目的はどれですか。</p>
-<ol class="options"><li data-correct="true">今のページを読み込み直して、変更した設定を反映する</li>
-<li>メニューの項目数を数え直す</li>
-<li>アプリをアンインストールする</li>
-<li>チェックボックスの<code>id</code>を変更する</li></ol>
-<div class="explanation"><p>正答：<strong>今のページを読み込み直して、変更した設定を反映する</strong></p><p><code>isChecked</code>は切り替えた後のチェック状態です。JavaScriptの有効・無効を設定し、<code>reload</code>で今のページを読み込み直します。JavaScriptはWebページの中で動く言語です。</p></div>
-<p class="source">復習する場所：<code>webview-app/index.html#step-7</code></p>
-</article>
-<article data-unit="A04" data-id="A04-10">
-<h3>A04-10 · ズーム</h3>
-<p class="prompt"><code>webView.getSettings().setBuiltInZoomControls(true);</code>で有効にする操作はどれですか。</p>
-<ol class="options"><li data-correct="true">2本指で広げたりつまんだりする拡大・縮小</li>
-<li>チェックを付けてJavaScriptを切り替える操作</li>
-<li>戻る操作で前のページへ戻る処理</li>
-<li>メニューにサイトを追加する操作</li></ol>
-<div class="explanation"><p>正答：<strong>2本指で広げたりつまんだりする拡大・縮小</strong></p><p>組み込みのズーム操作を有効にします。ただし、サイト側が拡大を制限している場合は、拡大できないこともあります。</p></div>
-<p class="source">復習する場所：<code>webview-app/index.html#step-7</code></p>
-</article>
-<article data-unit="A04" data-id="A04-11">
-<h3>A04-11 · 戻る履歴の有無</h3>
-<p class="prompt"><code>backCallback.setEnabled(view.canGoBack());</code>で、前のページがないため<code>canGoBack()</code>が<code>false</code>になりました。A04で次に戻る操作をするとどうなりますか。</p>
-<ol class="options"><li data-correct="true">独自の戻る処理が無効になり、Androidの通常の戻る操作でホームへ戻る</li>
-<li>必ず<code>WebView</code>内の前のページに戻る</li>
-<li>最初のページを繰り返し読み込む</li>
-<li>アプリの設定から<code>INTERNET</code>の許可を消す</li></ol>
-<div class="explanation"><p>正答：<strong>独自の戻る処理が無効になり、Androidの通常の戻る操作でホームへ戻る</strong></p><p>前のページがある間だけ<code>backCallback</code>を有効にします。最初のページまで戻ると無効になり、通常の戻る操作に任せます。</p></div>
-<p class="source">復習する場所：<code>webview-app/index.html#step-8</code></p>
-</article>
-<article data-unit="A04" data-id="A04-12">
-<h3>A04-12 · 戻る処理の登録</h3>
-<p class="prompt">A04では<code>OnBackPressedCallback</code>を登録しています。このコールバックが有効なとき、<code>handleOnBackPressed</code>の中の<code>webView.goBack()</code>は何をしますか。</p>
-<ol class="options"><li data-correct="true"><code>WebView</code>の履歴にある前のページに戻る</li>
-<li>メニューの先頭のサイトを必ず開く</li>
-<li>JavaScriptの設定を初期値に戻す</li>
-<li><code>WebView</code>の表示を消して最初から起動し直す</li></ol>
-<div class="explanation"><p>正答：<strong><code>WebView</code>の履歴にある前のページに戻る</strong></p><p><code>goBack()</code>は閲覧履歴の前のページへ戻る処理です。この教材では、履歴が変わるたびに<code>canGoBack()</code>を調べ、前のページがあるときだけコールバックを有効にします。</p></div>
-<p class="source">復習する場所：<code>webview-app/index.html#step-8</code></p>
-</article>
-<article data-unit="A05" data-id="A05-01">
-<h3>A05-01 · 画像の切り替え</h3>
-<p class="prompt">A05で爆弾の<code>ImageView</code>を着火した画像に変える行はどれですか。</p>
-<ol class="options"><li data-correct="true"><code>imgBomb.setImageResource(R.drawable.bomb_ignited);</code></li>
-<li><code>imgBomb.setImageResource(R.drawable.bomb_initial);</code></li>
-<li><code>imgBomb.setImageResource(R.drawable.bomb_exploded);</code></li>
-<li><code>imgBomb.setVisibility(View.INVISIBLE);</code></li></ol>
-<div class="explanation"><p>正答：<strong><code>imgBomb.setImageResource(R.drawable.bomb_ignited);</code></strong></p><p><code>setImageResource</code>で<code>ImageView</code>に表示する画像を変えます。<code>bomb_initial</code>は着火前、<code>bomb_ignited</code>は着火、<code>bomb_exploded</code>は爆発の画像です。</p></div>
-<p class="source">復習する場所：<code>bomb-game/index.html#step-7</code></p>
-</article>
-<article data-unit="A05" data-id="A05-02">
-<h3>A05-02 · 乱数の配列</h3>
-<p class="prompt"><code>ThreadLocalRandom.current().ints(2, 1, 10).toArray()</code>が作る配列の説明はどれですか。</p>
-<ol class="options"><li data-correct="true">1〜9の整数を2個入れた配列。2個が同じ値になる場合もある</li>
-<li>1〜10の整数を2個入れた配列。重複は自動で除かれる</li>
-<li>2〜9の整数をすべて1回ずつ入れた配列</li>
-<li>1と10だけを入れた配列</li></ol>
-<div class="explanation"><p>正答：<strong>1〜9の整数を2個入れた配列。2個が同じ値になる場合もある</strong></p><p>最初の2は個数、1は範囲の始まり、10は含まない上限です。この行だけでは重複を防げないため、後で<code>distinct().count()</code>で確かめます。</p></div>
-<p class="source">復習する場所：<code>bomb-game/index.html#step-5</code></p>
-</article>
-<article data-unit="A05" data-id="A05-03">
-<h3>A05-03 · <code>do-while</code>文</h3>
-<p class="prompt"><code>do { 乱数を作る処理 } while (条件);</code> は、どの順で動きますか。</p>
-<ol class="options"><li data-correct="true">中を必ず1回実行してから条件を調べ、<code>true</code>なら繰り返す</li>
-<li>先に条件を調べ、<code>false</code>でも必ず2回実行する</li>
-<li>条件が<code>false</code>の間だけ繰り返す</li>
-<li>中は1回も実行せず、条件だけを調べる</li></ol>
-<div class="explanation"><p>正答：<strong>中を必ず1回実行してから条件を調べ、<code>true</code>なら繰り返す</strong></p><p><code>do-while</code>は後から条件を調べるため、中を少なくとも1回実行します。A05では、乱数を作ってから重複があるかを確かめる流れに使っています。</p></div>
-<p class="source">復習する場所：<code>bomb-game/index.html#step-5</code></p>
-</article>
-<article data-unit="A05" data-id="A05-04">
-<h3>A05-04 · <code>distinct</code>と<code>count</code></h3>
-<p class="prompt">スイッチ候補の配列が<code>{5, 5}</code>です。<code>Arrays.stream(randomIgnitionNumbers).distinct().count() != 2</code>はどうなりますか。</p>
-<ol class="options"><li data-correct="true">重複を除いた個数は1なので<code>true</code>になり、作り直す</li>
-<li>配列の長さは2なので<code>false</code>になり、そのまま採用する</li>
-<li>合計は10なので<code>true</code>になり、数字10を追加する</li>
-<li>重複を除いた個数は0なので、アプリを終了する</li></ol>
-<div class="explanation"><p>正答：<strong>重複を除いた個数は1なので<code>true</code>になり、作り直す</strong></p><p><code>distinct</code>は重複する値を除き、<code>count</code>はその個数を数えます。<code>{5, 5}</code>は5の1種類なので<code>1 != 2</code>が<code>true</code>です。違う2つの値なら個数2で繰り返しを終えます。</p></div>
-<p class="source">復習する場所：<code>bomb-game/index.html#step-5</code></p>
-</article>
-<article data-unit="A05" data-id="A05-05">
-<h3>A05-05 · メソッドとフィールド</h3>
-<p class="prompt">A05で<code>private int[] randomIgnitionNumbers;</code>をフィールドにする理由はどれですか。</p>
-<ol class="options"><li data-correct="true">メソッドで作ったスイッチの数字を、あとでクリック処理から読むため</li>
-<li>配列はすべて必ずフィールドにしなければならないため</li>
-<li>フィールドにすると乱数が重複しなくなるため</li>
-<li><code>int[]</code>を使うと画像が自動で切り替わるため</li></ol>
-<div class="explanation"><p>正答：<strong>メソッドで作ったスイッチの数字を、あとでクリック処理から読むため</strong></p><p><code>generateIgnitionNumbers</code>で作った配列をフィールドに入れ、数字ボタンを押したときに参照します。乱数の重複はフィールドではなく、<code>do-while</code>の判定で防ぎます。</p></div>
-<p class="source">復習する場所：<code>bomb-game/index.html#step-5</code></p>
-</article>
-<article data-unit="A05" data-id="A05-06">
-<h3>A05-06 · 同じボタンを押せなくする</h3>
-<p class="prompt">数字ボタンのクリック処理の最初で<code>button.setEnabled(false);</code>を実行します。このゲームで防げることはどれですか。</p>
-<ol class="options"><li data-correct="true">同じ数字を2回押すこと</li>
-<li>違う数字を続けて押すこと</li>
-<li>乱数が同じ組み合わせになること</li>
-<li>再挑戦ボタンを表示すること</li></ol>
-<div class="explanation"><p>正答：<strong>同じ数字を2回押すこと</strong></p><p>押したボタンだけを無効にします。そのため、同じ導火線スイッチを2回押して状態を2段階進めることもできません。</p></div>
-<p class="source">復習する場所：<code>bomb-game/index.html#step-6</code></p>
-</article>
-<article data-unit="A05" data-id="A05-07">
-<h3>A05-07 · <code>anyMatch</code></h3>
-<p class="prompt">スイッチが<code>{3, 7}</code>で、押した数字<code>number</code>が7です。<code>anyMatch(num -&gt; num == number)</code>の結果はどれですか。</p>
-<ol class="options"><li data-correct="true">同じ値が1つあるので<code>true</code></li>
-<li>両方とも7ではないので<code>false</code></li>
-<li>配列の要素数である2</li>
-<li>一致した数字である7</li></ol>
-<div class="explanation"><p>正答：<strong>同じ値が1つあるので<code>true</code></strong></p><p><code>anyMatch</code>は条件を満たす値が1つでもあれば<code>true</code>を返します。3は一致しなくても7が一致するので、スイッチと判定します。</p></div>
-<p class="source">復習する場所：<code>bomb-game/index.html#step-7</code></p>
-</article>
-<article data-unit="A05" data-id="A05-08">
-<h3>A05-08 · 状態遷移</h3>
-<p class="prompt"><code>STATE_INITIAL = 1</code>、<code>STATE_IGNITED = 2</code>、<code>STATE_EXPLODED = 3</code>です。起動直後から2つの異なるスイッチを続けて押し、各回<code>if (match) nowState++;</code>を実行すると、最後の状態はどれですか。</p>
-<ol class="options"><li data-correct="true">3（爆発）</li>
-<li>1（着火前）</li>
-<li>2（着火）</li>
-<li>0（未選択）</li></ol>
-<div class="explanation"><p>正答：<strong>3（爆発）</strong></p><p>起動時の<code>nowState</code>は1です。1つ目のスイッチで2になり着火、2つ目で3になり爆発します。定数が1・2・3の連番なので<code>++</code>で次の状態へ進めます。</p></div>
-<p class="source">復習する場所：<code>bomb-game/index.html#step-7</code></p>
-</article>
-<article data-unit="A05" data-id="A05-09">
-<h3>A05-09 · 定数と変化する値</h3>
-<p class="prompt"><code>private static final int STATE_INITIAL = 1;</code>と<code>private int nowState = STATE_INITIAL;</code>があります。ゲームで<code>nowState++</code>を実行したときの説明はどれですか。</p>
-<ol class="options"><li data-correct="true"><code>nowState</code>は変わるが、定数<code>STATE_INITIAL</code>は1のまま</li>
-<li><code>nowState</code>と<code>STATE_INITIAL</code>が両方2になる</li>
-<li><code>STATE_INITIAL</code>だけが2になり、<code>nowState</code>は1のまま</li>
-<li><code>final</code>があるので<code>nowState</code>も絶対に変更できない</li></ol>
-<div class="explanation"><p>正答：<strong><code>nowState</code>は変わるが、定数<code>STATE_INITIAL</code>は1のまま</strong></p><p><code>STATE_INITIAL</code>は<code>final</code>の定数です。<code>nowState</code>はその値を最初に受け取り、その後の現在状態を覚える別のフィールドなので変更できます。</p></div>
-<p class="source">復習する場所：<code>bomb-game/index.html#step-7</code></p>
-</article>
-<article data-unit="A05" data-id="A05-10">
-<h3>A05-10 · <code>filter</code>と<code>count</code></h3>
-<p class="prompt"><code>Arrays.stream(numberButtons).filter(b -&gt; !b.isEnabled()).count()</code>で数えるものはどれですか。</p>
-<ol class="options"><li data-correct="true">押せない状態の数字ボタンの数</li>
-<li>まだ押せる数字ボタンの数</li>
-<li>ボタンに書かれた数字の合計</li>
-<li>スイッチの数字の最大値</li></ol>
-<div class="explanation"><p>正答：<strong>押せない状態の数字ボタンの数</strong></p><p><code>isEnabled()</code>は押せる状態かを返し、<code>!</code>で反対にしています。<code>filter</code>で押せないボタンだけを残し、<code>count</code>で数えます。押した直後に無効にしたボタンも数に入ります。</p></div>
-<p class="source">復習する場所：<code>bomb-game/index.html#step-9</code></p>
-</article>
-<article data-unit="A05" data-id="A05-11">
-<h3>A05-11 · クリア条件</h3>
-<p class="prompt">A05でスイッチを1つ押して着火した後、スイッチ以外の7個を全部押してクリアしました。クリア判定の時点で押せないボタンを8個と数える理由はどれですか。</p>
-<ol class="options"><li data-correct="true">スイッチ以外の7個に、先に押したスイッチ1個も含まれるため</li>
-<li>再挑戦ボタンも数字ボタンとして数えるため</li>
-<li>着火するとボタンが1個増えるため</li>
-<li>スイッチ以外のボタンが最初から8個あるため</li></ol>
-<div class="explanation"><p>正答：<strong>スイッチ以外の7個に、先に押したスイッチ1個も含まれるため</strong></p><p>9個中2個がスイッチなので、それ以外は7個です。着火前なら7個、着火後なら押したスイッチも足して8個でクリアになります。着火後のクリアでは画像は火の付いたままです。</p></div>
-<p class="source">復習する場所：<code>bomb-game/index.html#step-9</code></p>
-</article>
-<article data-unit="A05" data-id="A05-12">
-<h3>A05-12 · 再挑戦</h3>
-<p class="prompt">A05の再挑戦では<code>generateIgnitionNumbers()</code>を呼び、9個の数字ボタンを<code>setEnabled(true)</code>にします。再挑戦後の説明として正しいものはどれですか。</p>
-<ol class="options"><li data-correct="true">数字をすべて押せるように戻し、スイッチを選び直す。同じ組み合わせになることもある</li>
-<li>数字をすべて押せるように戻すが、スイッチは必ず前のまま</li>
-<li>押した数字だけ無効のまま残し、スイッチを選び直す</li>
-<li>数字はすべて押せるように戻るが、前と同じスイッチになることは絶対にない</li></ol>
-<div class="explanation"><p>正答：<strong>数字をすべて押せるように戻し、スイッチを選び直す。同じ組み合わせになることもある</strong></p><p>再挑戦は状態・画像・メッセージも最初に戻し、乱数のメソッドを呼び直します。2つのスイッチは互いに異なりますが、前の回と同じ組み合わせになる可能性はあります。</p></div>
-<p class="source">復習する場所：<code>bomb-game/index.html#step-8</code></p>
-</article>
-<article data-unit="A06" data-id="A06-01">
-<h3>A06-01 · <code>Activity</code>の追加</h3>
-<p class="prompt">A06で2つ目の画面<code>TestActivity</code>を追加するとき、教科書で選ぶ操作はどれですか。</p>
-<ol class="options"><li data-correct="true"><code>New → Activity → Empty Views Activity</code></li>
-<li><code>New → Java Class → Interface</code></li>
-<li><code>New → Directory</code></li>
-<li><code>New → Image Asset</code></li></ol>
-<div class="explanation"><p>正答：<strong><code>New → Activity → Empty Views Activity</code></strong></p><p><code>Activity</code>として作ると、<code>Java</code>とレイアウト<code>XML</code>に加えて<code>AndroidManifest.xml</code>への登録も用意されます。<code>Java Class</code>だけでは画面の登録ができません。</p></div>
-<p class="source">復習する場所：<code>screen-transition-sample/index.html#step-3</code></p>
-</article>
-<article data-unit="A06" data-id="A06-02">
-<h3>A06-02 · <code>Intent</code>による画面遷移</h3>
-<p class="prompt"><code>new Intent(this, TestActivity.class)</code>で作った<code>intent</code>をAndroidへ渡し、<code>TestActivity</code>を開く処理はどれですか。</p>
-<ol class="options"><li data-correct="true"><code>startActivity(intent);</code></li>
-<li><code>setContentView(intent);</code></li>
-<li><code>intent.getStringExtra(&quot;TestActivity&quot;);</code></li>
-<li><code>Log.d(&quot;TestActivity&quot;, &quot;start&quot;);</code></li></ol>
-<div class="explanation"><p>正答：<strong><code>startActivity(intent);</code></strong></p><p><code>Intent</code>は開きたい画面を伝える指示です。作るだけでは画面は開かず、<code>startActivity</code>に渡すと画面が開きます。</p></div>
-<p class="source">復習する場所：<code>screen-transition-sample/index.html#step-4</code></p>
-</article>
-<article data-unit="A06" data-id="A06-03">
-<h3>A06-03 · 戻る操作</h3>
-<p class="prompt">A06で<code>TestActivity</code>を開いたあと、戻るためのコードを書かなくてもAndroidの戻る操作で<code>MainActivity</code>が見える理由はどれですか。</p>
-<ol class="options"><li data-correct="true">上に開いた<code>TestActivity</code>が閉じ、下の<code>MainActivity</code>が見えるため</li>
-<li>戻る操作が<code>MainActivity.java</code>をもう一度コンパイルするため</li>
-<li><code>putExtra</code>が自動で<code>MainActivity</code>を開き直すため</li>
-<li><code>Logcat</code>が前の画面を保存しているため</li></ol>
-<div class="explanation"><p>正答：<strong>上に開いた<code>TestActivity</code>が閉じ、下の<code>MainActivity</code>が見えるため</strong></p><p>開いた画面は前の画面の上に重なります。戻る操作で上の画面が閉じるので、前の画面を開くコードを追加しなくても戻れます。</p></div>
-<p class="source">復習する場所：<code>screen-transition-sample/index.html#step-4</code></p>
-</article>
-<article data-unit="A06" data-id="A06-04">
-<h3>A06-04 · <code>int</code>の既定値</h3>
-<p class="prompt"><code>Intent</code>にキー<code>&quot;score&quot;</code>の値を入れていないとき、<code>getIntent().getIntExtra(&quot;score&quot;, -1)</code>が返す値はどれですか。</p>
-<ol class="options"><li data-correct="true">-1</li>
-<li>0</li>
-<li>1</li>
+<article data-unit="A07" data-id="E15" data-group="empty" data-kind="explain">
+<h3>E15 · 空の文字列</h3>
+<p class="prompt">次のコードで、<code>empty</code>に入る値はどれですか。</p>
+<pre class="question-code"><code>var name = &quot;&quot;;
+var empty = name.isEmpty();</code></pre>
+<ol class="options"><li><code>false</code></li>
+<li data-correct="true"><code>true</code></li>
+<li><code>0</code></li>
 <li><code>null</code></li></ol>
-<div class="explanation"><p>正答：<strong>-1</strong></p><p><code>getIntExtra</code>の第2引数は、指定したキーの値がないときに返す既定値です。ここでは-1を渡しています。</p></div>
-<p class="source">復習する場所：<code>screen-transition-sample/index.html#step-5</code></p>
+<div class="explanation"><p>正答：<strong><code>true</code></strong></p><p><code>&quot;&quot;</code>は文字が1つもない文字列です。空の文字列で<code>isEmpty()</code>を呼ぶと<code>true</code>になります。</p></div>
+<p class="source">復習する場所：<code>bill-splitter/index.html#step-4</code></p>
 </article>
-<article data-unit="A06" data-id="A06-05">
-<h3>A06-05 · <code>String</code>の受け取り</h3>
-<p class="prompt">A06の<code>Test 1</code>は値を入れずに画面を開きます。このとき<code>getStringExtra(EXTRA_KEY_STRING_VALUE)</code>の結果はどれですか。</p>
-<ol class="options"><li data-correct="true"><code>null</code></li>
-<li>0</li>
-<li><code>&quot;0&quot;</code>という文字列</li>
-<li>&quot;<code>Hello</code>&quot;という文字列</li></ol>
-<div class="explanation"><p>正答：<strong><code>null</code></strong></p><p>指定したキーの文字列が<code>Intent</code>にないとき、<code>getStringExtra</code>は<code>null</code>を返します。<code>int</code>のように第2引数で既定値を指定する形ではありません。</p></div>
-<p class="source">復習する場所：<code>screen-transition-sample/index.html#step-5</code></p>
+<article data-unit="A07" data-id="E16" data-group="empty" data-kind="explain">
+<h3>E16 · 空でない入力</h3>
+<p class="prompt"><code>txtMessage</code>は文字の表示欄です。次のコードは、何を表示しますか。</p>
+<pre class="question-code"><code>var name = &quot;山田&quot;;
+if (name.isEmpty()) {
+    txtMessage.setText(&quot;入力なし&quot;);
+} else {
+    txtMessage.setText(&quot;入力あり&quot;);
+}</code></pre>
+<ol class="options"><li><code>入力なし</code></li>
+<li><code>山田</code></li>
+<li>何も表示しない</li>
+<li data-correct="true"><code>入力あり</code></li></ol>
+<div class="explanation"><p>正答：<strong><code>入力あり</code></strong></p><p><code>name</code>には文字があるので、<code>isEmpty()</code>は<code>false</code>です。<code>else</code>の中を実行し、<code>入力あり</code>と表示します。</p></div>
+<p class="source">復習する場所：<code>bill-splitter/index.html#step-4</code></p>
 </article>
-<article data-unit="A06" data-id="A06-06">
-<h3>A06-06 · キーの一致</h3>
-<p class="prompt"><code>intent.putExtra(&quot;intValue&quot;, 7)</code>で送った値を、受け取り側が<code>getIntExtra(&quot;intvalue&quot;, 0)</code>で読むと、どの値になりますか。</p>
-<ol class="options"><li data-correct="true">0</li>
-<li>7</li>
-<li>1</li>
-<li>-1</li></ol>
-<div class="explanation"><p>正答：<strong>0</strong></p><p>キーは大文字・小文字を含めて一致する必要があります。<code>intValue</code>と<code>intvalue</code>は別のキーなので値が見つからず、既定値の0が返ります。</p></div>
-<p class="source">復習する場所：<code>screen-transition-sample/index.html#step-8</code></p>
-</article>
-<article data-unit="A06" data-id="A06-07">
-<h3>A06-07 · キーの定数</h3>
-<p class="prompt">A06で<code>EXTRA</code>キーの定数を<code>TestActivity</code>に置く理由として、教材の構成に合うものはどれですか。</p>
-<ol class="options"><li data-correct="true">値を入れる<code>start</code>と取り出す<code>onCreate</code>が両方とも<code>TestActivity</code>にあるため</li>
-<li>定数は必ず<code>MainActivity</code>以外に置く決まりがあるため</li>
-<li>キーを画面に表示する<code>TextView</code>が<code>TestActivity</code>にあるため</li>
-<li><code>MainActivity</code>では<code>String</code>型を使えないため</li></ol>
-<div class="explanation"><p>正答：<strong>値を入れる<code>start</code>と取り出す<code>onCreate</code>が両方とも<code>TestActivity</code>にあるため</strong></p><p><code>putExtra</code>と<code>getXxxExtra</code>が同じ定数を使えます。呼び出す<code>MainActivity</code>は<code>start</code>に値を渡すだけなので、キーの文字を知る必要がありません。</p></div>
-<p class="source">復習する場所：<code>screen-transition-sample/index.html#step-6</code></p>
-</article>
-<article data-unit="A06" data-id="A06-08">
-<h3>A06-08 · オーバーロード</h3>
-<p class="prompt">A06で<code>start(Context)</code>、<code>start(Context, int, String)</code>、<code>start(Context, String[])</code>を同じクラスに書ける理由はどれですか。</p>
-<ol class="options"><li data-correct="true">引数の型や数が違うため</li>
-<li>戻り値がすべて<code>void</code>だから、引数が同じでも書けるため</li>
-<li>メソッド名に<code>start</code>が含まれると重複が許されるため</li>
-<li>Androidが同じ名前のメソッドを順番に全部実行するため</li></ol>
-<div class="explanation"><p>正答：<strong>引数の型や数が違うため</strong></p><p>同じ名前で引数の型や数が違うメソッドを用意することをオーバーロードといいます。渡した値に合う<code>start</code>が選ばれます。</p></div>
-<p class="source">復習する場所：<code>screen-transition-sample/index.html#step-6</code></p>
-</article>
-<article data-unit="A06" data-id="A06-09">
-<h3>A06-09 · 配列の受け渡し</h3>
-<p class="prompt"><code>putExtra</code>で渡した<code>String[]</code>を受け取るメソッドはどれですか。</p>
-<ol class="options"><li data-correct="true"><code>getStringArrayExtra</code></li>
-<li><code>getStringExtra</code></li>
-<li><code>getIntExtra</code></li>
-<li><code>getSharedPreferences</code></li></ol>
-<div class="explanation"><p>正答：<strong><code>getStringArrayExtra</code></strong></p><p><code>String[]</code>は文字列の配列です。受け取りにも配列用の<code>getStringArrayExtra</code>を使い、送る側と同じキーを渡します。</p></div>
-<p class="source">復習する場所：<code>screen-transition-sample/index.html#step-7</code></p>
-</article>
-<article data-unit="A06" data-id="A06-10">
-<h3>A06-10 · 配列の表示</h3>
-<p class="prompt"><code>String[] values = {&quot;3&quot;, &quot;4&quot;, &quot;5&quot;};</code>のとき、<code>Arrays.toString(values)</code>の結果はどれですか。</p>
-<ol class="options"><li data-correct="true"><code>[3, 4, 5]</code></li>
-<li><code>345</code></li>
+<article data-unit="A02" data-id="E17" data-group="condition" data-kind="explain">
+<h3>E17 · 同じ値のとき</h3>
+<p class="prompt">上から順に実行したあと、<code>correct</code>の値はどれですか。</p>
+<pre class="question-code"><code>var number = 3;
+var answer = 3;
+var correct = 0;
+if (number == answer) {
+    correct++;
+}</code></pre>
+<ol class="options"><li data-correct="true"><code>1</code></li>
+<li><code>0</code></li>
 <li><code>3</code></li>
-<li><code>null</code></li></ol>
-<div class="explanation"><p>正答：<strong><code>[3, 4, 5]</code></strong></p><p><code>Arrays.toString</code>は配列の中身を角かっことカンマを使った文字列にします。A06では受け取った配列を<code>Logcat</code>で読むために使います。</p></div>
-<p class="source">復習する場所：<code>screen-transition-sample/index.html#step-7</code></p>
+<li><code>6</code></li></ol>
+<div class="explanation"><p>正答：<strong><code>1</code></strong></p><p><code>number</code>と<code>answer</code>は同じなので、<code>if</code>の中を実行します。<code>correct++</code>で<code>0</code>から<code>1</code>に増えます。</p></div>
+<p class="source">復習する場所：<code>calc-game/index.html#step-8</code></p>
 </article>
-<article data-unit="A06" data-id="A06-11">
-<h3>A06-11 · <code>Logcat</code>のタグ</h3>
-<p class="prompt"><code>Log.d(&quot;TestActivity&quot;, &quot;intValue: &quot; + intValue);</code>の出力を<code>Logcat</code>で探すとき、教材で指定するタグの条件はどれですか。</p>
-<ol class="options"><li data-correct="true"><code>tag:TestActivity</code></li>
-<li><code>tag:MainActivity</code></li>
-<li><code>tag:intValue</code></li>
-<li><code>tag:Intent</code></li></ol>
-<div class="explanation"><p>正答：<strong><code>tag:TestActivity</code></strong></p><p><code>Log.d</code>の第1引数がタグです。値を受け取った<code>TestActivity</code>でログを出すので、前の単元の<code>tag:MainActivity</code>のままでは目的の行を探せません。</p></div>
-<p class="source">復習する場所：<code>screen-transition-sample/index.html#step-5</code></p>
+<article data-unit="A02" data-id="E18" data-group="condition" data-kind="explain">
+<h3>E18 · returnより下の処理</h3>
+<p class="prompt"><code>btnAdd</code>はボタン、<code>edtName</code>は入力欄、<code>txtMessage</code>は文字の表示欄です。入力欄は空です。ボタンを押したときの説明はどれですか。</p>
+<pre class="question-code"><code>btnAdd.setOnClickListener(v -&gt; {
+    var name = edtName.getText().toString();
+    if (name.isEmpty()) {
+        return;
+    }
+    txtMessage.setText(&quot;登録しました&quot;);
+});</code></pre>
+<ol class="options"><li>必ず<code>登録しました</code>と表示する</li>
+<li>アプリ全体を終了する</li>
+<li data-correct="true">このクリック処理を終え、表示を変えない</li>
+<li>入力欄に<code>登録しました</code>と入れる</li></ol>
+<div class="explanation"><p>正答：<strong>このクリック処理を終え、表示を変えない</strong></p><p>入力欄が空なので、<code>return;</code>でこのクリック処理を終えます。下の<code>setText</code>は実行しません。</p></div>
+<p class="source">復習する場所：<code>calc-game/index.html#step-7</code></p>
 </article>
-<article data-unit="A06" data-id="A06-12">
-<h3>A06-12 · 渡す値の選び方</h3>
-<p class="prompt">A06の解説で、実際によく使う渡し方として示しているものはどれですか。</p>
-<ol class="options"><li data-correct="true">IDなど小さな値を渡し、開いた画面で必要なデータを用意する</li>
-<li>写真や動画の全データを毎回<code>Intent</code>に入れる</li>
-<li>キーを使わず、変数名だけで値を取り出す</li>
-<li>どの画面を開くときも空の<code>String</code>配列だけを渡す</li></ol>
-<div class="explanation"><p>正答：<strong>IDなど小さな値を渡し、開いた画面で必要なデータを用意する</strong></p><p>A06では<code>Test 2</code>の形を例に、見分けるための番号など、小さな値を1つずつ渡す方法を紹介しています。</p></div>
-<p class="source">復習する場所：<code>screen-transition-sample/index.html#step-9</code></p>
+<article data-unit="A02" data-id="E19" data-group="loop" data-kind="explain">
+<h3>E19 · 繰り返す回数</h3>
+<p class="prompt">配列（複数の値を並べたもの）から値を1つずつ取り出します。最後の<code>count</code>はどれですか。</p>
+<pre class="question-code"><code>var numbers = new int[]{2, 4, 6};
+var count = 0;
+for (var number : numbers) {
+    count++;
+}</code></pre>
+<ol class="options"><li><code>0</code></li>
+<li data-correct="true"><code>3</code></li>
+<li><code>6</code></li>
+<li><code>12</code></li></ol>
+<div class="explanation"><p>正答：<strong><code>3</code></strong></p><p>配列には値が3つあります。<code>count++</code>を3回行うので、<code>count</code>は<code>3</code>になります。値の合計を求める処理ではありません。</p></div>
+<p class="source">復習する場所：<code>calc-game/index.html#step-7</code></p>
 </article>
-<article data-unit="A07" data-id="A07-01">
-<h3>A07-01 · 参加者の管理</h3>
-<p class="prompt">A07で参加者名を<code>TextView</code>だけでなく<code>ArrayList&lt;String&gt;</code>にもためる主な理由はどれですか。</p>
-<ol class="options"><li data-correct="true">重複を調べたり、人数を数えたりするため</li>
-<li><code>TextView</code>には文字列を表示できないため</li>
-<li><code>ArrayList</code>に入れると端末のファイルへ自動保存されるため</li>
-<li><code>ArrayList</code>に入れないと画像を表示できないため</li></ol>
-<div class="explanation"><p>正答：<strong>重複を調べたり、人数を数えたりするため</strong></p><p><code>ArrayList</code>は参加者のデータを持ちます。<code>contains</code>で同じ名前があるかを調べ、<code>size</code>で人数を数えます。<code>TextView</code>は一覧の表示に使います。</p></div>
-<p class="source">復習する場所：<code>bill-splitter/index.html#step-4</code></p>
-</article>
-<article data-unit="A07" data-id="A07-02">
-<h3>A07-02 · 重複チェック</h3>
-<p class="prompt">参加者にすでに<code>Sato</code>がいるとき、もう一度<code>Sato</code>を登録して一覧が増えないようにする判定はどれですか。</p>
-<ol class="options"><li data-correct="true"><code>participants.contains(participantName)</code></li>
-<li><code>participants.size() &lt; 2</code></li>
-<li><code>participantName.isEmpty()</code></li>
-<li><code>participants.isEmpty()</code></li></ol>
-<div class="explanation"><p>正答：<strong><code>participants.contains(participantName)</code></strong></p><p><code>contains</code>は指定した名前がリストにあるかを調べます。見つかったときはメッセージを出し、<code>return</code>で追加処理を止めます。</p></div>
-<p class="source">復習する場所：<code>bill-splitter/index.html#step-4</code></p>
-</article>
-<article data-unit="A07" data-id="A07-03">
-<h3>A07-03 · 入力チェックと<code>return</code></h3>
-<p class="prompt">参加者名が空のとき、<code>Snackbar</code>を表示した直後の<code>return;</code>にはどの役割がありますか。</p>
-<ol class="options"><li data-correct="true">そのクリック処理を終え、空の名前の追加を防ぐ</li>
-<li>空の名前を自動で<code>Sato</code>に変える</li>
-<li>前の<code>Activity</code>へ戻る</li>
-<li>登録ずみの参加者を全部消す</li></ol>
-<div class="explanation"><p>正答：<strong>そのクリック処理を終え、空の名前の追加を防ぐ</strong></p><p><code>Snackbar</code>を表示するだけでは後ろの処理も続きます。<code>return</code>を入れると<code>participants.add</code>などを実行せず、そのクリック処理が終わります。</p></div>
-<p class="source">復習する場所：<code>bill-splitter/index.html#step-4</code></p>
-</article>
-<article data-unit="A07" data-id="A07-04">
-<h3>A07-04 · 人数チェック</h3>
-<p class="prompt">A07で<code>participants.size()</code>が1の状態で「<code>ワリカン画面へ</code>」を押すとどうなりますか。</p>
-<ol class="options"><li data-correct="true">2人以上追加するよう表示され、画面は切り替わらない</li>
-<li>参加者は1人と表示してワリカン画面が開く</li>
-<li>空の参加者が1人自動で追加される</li>
-<li>登録ずみの名前が消える</li></ol>
-<div class="explanation"><p>正答：<strong>2人以上追加するよう表示され、画面は切り替わらない</strong></p><p><code>participants.size() &lt; 2</code>で人数を確認します。1人ならメッセージを表示して<code>return</code>するので、<code>BillSplitActivity.start</code>は呼びません。</p></div>
-<p class="source">復習する場所：<code>bill-splitter/index.html#step-6</code></p>
-</article>
-<article data-unit="A07" data-id="A07-05">
-<h3>A07-05 · リストから配列へ</h3>
-<p class="prompt"><code>BillSplitActivity.start</code>に渡す<code>participants.toArray(new String[0])</code>は、何をしていますか。</p>
-<ol class="options"><li data-correct="true">参加者の<code>ArrayList</code>を<code>String[]</code>に変える</li>
-<li>参加者を0人に減らす</li>
-<li>参加者の名前を1つの<code>int</code>に変える</li>
-<li>参加者を端末の<code>XML</code>ファイルに保存する</li></ol>
-<div class="explanation"><p>正答：<strong>参加者の<code>ArrayList</code>を<code>String[]</code>に変える</strong></p><p>画面では参加者を<code>ArrayList</code>で管理し、<code>Intent</code>には<code>String[]</code>を渡します。<code>toArray</code>はその型の変換で、元のリストから名前を削除する処理ではありません。</p></div>
-<p class="source">復習する場所：<code>bill-splitter/index.html#step-6</code></p>
-</article>
-<article data-unit="A07" data-id="A07-06">
-<h3>A07-06 · 配列の要素数</h3>
-<p class="prompt">受け取った<code>participants</code>が<code>{&quot;Sato&quot;, &quot;Suzuki&quot;, &quot;Tanaka&quot;}</code>のとき、<code>&quot;参加者は&quot; + participants.length + &quot;人&quot;</code>の表示はどれですか。</p>
-<ol class="options"><li data-correct="true"><code>参加者は3人</code></li>
-<li><code>参加者は2人</code></li>
-<li><code>参加者は1人</code></li>
-<li><code>参加者は0人</code></li></ol>
-<div class="explanation"><p>正答：<strong><code>参加者は3人</code></strong></p><p>配列の<code>length</code>は要素の数です。名前が3つ入っているため3となり、文字列とつなげて参加者は3人と表示します。</p></div>
-<p class="source">復習する場所：<code>bill-splitter/index.html#step-6</code></p>
-</article>
-<article data-unit="A07" data-id="A07-07">
-<h3>A07-07 · 計算クラスの使い方</h3>
-<p class="prompt"><code>BillSplitter.calculateAndFormat</code>に渡す2つの引数として正しい組み合わせはどれですか。</p>
-<ol class="options"><li data-correct="true">合計金額の<code>int</code>、参加者名の<code>String[]</code></li>
-<li>参加者名の<code>String[]</code>、合計金額の<code>int</code></li>
-<li>金額の<code>EditText</code>、一覧の<code>TextView</code></li>
-<li>画像のid、参加者数の<code>String</code></li></ol>
-<div class="explanation"><p>正答：<strong>合計金額の<code>int</code>、参加者名の<code>String[]</code></strong></p><p>第1引数は合計金額、第2引数は参加者名の配列です。金額1以上・2人以上という条件を、呼び出す前に守る必要があります。</p></div>
-<p class="source">復習する場所：<code>bill-splitter/index.html#step-7</code></p>
-</article>
-<article data-unit="A07" data-id="A07-08">
-<h3>A07-08 · 計算結果の表示</h3>
-<p class="prompt"><code>BillSplitter.calculateAndFormat</code>の戻り値<code>result</code>は、どのように表示できますか。</p>
-<ol class="options"><li data-correct="true"><code>txtParticipantList.setText(result);</code></li>
-<li><code>txtParticipantList.getText(result);</code></li>
-<li><code>participants.add(result);</code>だけで画面にも出る</li>
-<li><code>Integer.parseInt(result);</code>だけで画面にも出る</li></ol>
-<div class="explanation"><p>正答：<strong><code>txtParticipantList.setText(result);</code></strong></p><p>戻り値は改行を含む表示用の文字列です。<code>setText</code>に渡すと、各参加者の金額と合計を一覧に表示できます。</p></div>
-<p class="source">復習する場所：<code>bill-splitter/index.html#step-9</code></p>
-</article>
-<article data-unit="A07" data-id="A07-09">
-<h3>A07-09 · 文字列から整数へ</h3>
-<p class="prompt">金額欄から取り出した文字列<code>&quot;1234&quot;</code>を、計算に使う<code>int</code>に変える処理はどれですか。</p>
-<ol class="options"><li data-correct="true"><code>Integer.parseInt(edtTotalAmountStr)</code></li>
-<li><code>edtTotalAmountStr.length()</code></li>
-<li><code>edtTotalAmountStr.isEmpty()</code></li>
-<li><code>edtTotalAmountStr + 1</code></li></ol>
-<div class="explanation"><p>正答：<strong><code>Integer.parseInt(edtTotalAmountStr)</code></strong></p><p><code>parseInt</code>は数字を表す文字列を<code>int</code>に変えます。変換できない入力は<code>NumberFormatException</code>になるので、教材では<code>try</code>と<code>catch</code>で受け止めています。</p></div>
-<p class="source">復習する場所：<code>bill-splitter/index.html#step-8</code></p>
-</article>
-<article data-unit="A07" data-id="A07-10">
-<h3>A07-10 · 金額と人数のチェック</h3>
-<p class="prompt">参加者が3人で、合計金額に2円を入れて「<code>計算実行</code>」を押したときの動作はどれですか。</p>
-<ol class="options"><li data-correct="true">3円以上を入力するよう表示し、計算しない</li>
-<li>全員に1円を割り当てて計算を終える</li>
-<li>2円を自動で3円に書き換える</li>
-<li>参加者を2人に減らして計算する</li></ol>
-<div class="explanation"><p>正答：<strong>3円以上を入力するよう表示し、計算しない</strong></p><p><code>totalAmount &lt; numberOfPeople</code>で止めます。金額が人数より少ないと0円の人が出るため、教材では1人あたり最低1円になる金額を求めます。</p></div>
-<p class="source">復習する場所：<code>bill-splitter/index.html#step-8</code></p>
-</article>
-<article data-unit="A07" data-id="A07-11">
-<h3>A07-11 · 割り勘の結果</h3>
-<p class="prompt">A07で1235円を3人で割り勘にしたとき、誰がいくら払うかの順序を問わず、金額の組み合わせはどれですか。</p>
-<ol class="options"><li data-correct="true">412円・412円・411円</li>
-<li>411円・411円・411円</li>
-<li>412円・412円・412円</li>
-<li>413円・411円・410円</li></ol>
-<div class="explanation"><p>正答：<strong>412円・412円・411円</strong></p><p>1235÷3は411あまり2です。全員の411円に、2人へ1円ずつ足すので、合計1235円となり支払額の差は1円以内です。</p></div>
-<p class="source">復習する場所：<code>bill-splitter/index.html#step-10</code></p>
-</article>
-<article data-unit="A07" data-id="A07-12">
-<h3>A07-12 · 画像リソース</h3>
-<p class="prompt">A07のタイトル画像<code>title_img.png</code>をアプリの画像リソースとして置くフォルダはどれですか。</p>
-<ol class="options"><li data-correct="true"><code>app/src/main/res/drawable</code></li>
-<li><code>app/src/main/res/layout</code></li>
-<li><code>app/src/main/java</code></li>
-<li><code>app/src/test/java</code></li></ol>
-<div class="explanation"><p>正答：<strong><code>app/src/main/res/drawable</code></strong></p><p>画像ファイルは<code>res/drawable</code>に置き、レイアウトの<code>ImageView</code>から<code>@drawable/title_img</code>として参照します。<code>layout</code>は画面の<code>XML</code>を置く場所です。</p></div>
-<p class="source">復習する場所：<code>bill-splitter/index.html#step-2</code></p>
-</article>
-<article data-unit="A08" data-id="A08-01">
-<h3>A08-01 · 保存先</h3>
-<p class="prompt"><code>getSharedPreferences(&quot;app&quot;, MODE_PRIVATE)</code>で使う保存先のファイル名はどれですか。</p>
-<ol class="options"><li data-correct="true"><code>app.xml</code></li>
-<li><code>app.java</code></li>
-<li><code>app.db</code></li>
-<li><code>app.png</code></li></ol>
-<div class="explanation"><p>正答：<strong><code>app.xml</code></strong></p><p><code>SharedPreferences</code>は指定した名前に対応する<code>XML</code>ファイルへ保存します。教材ではアプリ専用の<code>shared_prefs</code>内にある<code>app.xml</code>を表示して確かめます。</p></div>
-<p class="source">復習する場所：<code>shared-preferences-sample/index.html#step-3</code></p>
-</article>
-<article data-unit="A08" data-id="A08-02">
-<h3>A08-02 · キーの一致</h3>
-<p class="prompt"><code>&quot;int_value&quot;</code>というキーで1を保存しました。他のキーには保存していません。<code>prefs.getInt(&quot;intvalue&quot;, 0)</code>の結果はどれですか。</p>
-<ol class="options"><li data-correct="true">0</li>
-<li>1</li>
-<li>-1</li>
-<li><code>null</code></li></ol>
-<div class="explanation"><p>正答：<strong>0</strong></p><p><code>int_value</code>と<code>intvalue</code>は別のキーです。探したキーがないので、第2引数の初期値0が返ります。キーの文字を直書きすると、この誤りはコンパイルで見つかりません。</p></div>
-<p class="source">復習する場所：<code>shared-preferences-sample/index.html#step-9</code></p>
-</article>
-<article data-unit="A08" data-id="A08-03">
-<h3>A08-03 · 保存値と初期値</h3>
-<p class="prompt">キー<code>INT_VALUE</code>に1を保存ずみです。<code>prefs.getInt(INT_VALUE, -1)</code>が返す値はどれですか。</p>
-<ol class="options"><li data-correct="true">1</li>
-<li>-1</li>
-<li>0</li>
-<li>2</li></ol>
-<div class="explanation"><p>正答：<strong>1</strong></p><p>初期値は保存された値がないときだけ使います。ここでは1が保存されているため、第2引数を変えても1が返ります。</p></div>
-<p class="source">復習する場所：<code>shared-preferences-sample/index.html#step-4</code></p>
-</article>
-<article data-unit="A08" data-id="A08-04">
-<h3>A08-04 · 保存の順序</h3>
-<p class="prompt"><code>SharedPreferences</code>へ文字列を保存するとき、教材で使う順序はどれですか。</p>
-<ol class="options"><li data-correct="true"><code>edit</code>で<code>Editor</code>を取得 → <code>putString</code>で値を指定 → <code>apply</code>で確定</li>
-<li><code>apply</code>で確定 → <code>getString</code>で値を指定 → <code>edit</code>で終了</li>
-<li><code>getString</code>で読み出し → <code>clear</code>で文字を追加 → <code>apply</code>で表示</li>
-<li><code>putString</code>で表示 → <code>setText</code>で保存 → <code>getInt</code>で確定</li></ol>
-<div class="explanation"><p>正答：<strong><code>edit</code>で<code>Editor</code>を取得 → <code>putString</code>で値を指定 → <code>apply</code>で確定</strong></p><p>書き込みには<code>Editor</code>を使います。<code>putString</code>でキーと値を指定しただけでは確定していないので、最後に<code>apply</code>を呼びます。</p></div>
-<p class="source">復習する場所：<code>shared-preferences-sample/index.html#step-5</code></p>
-</article>
-<article data-unit="A08" data-id="A08-05">
-<h3>A08-05 · <code>apply</code>の性質</h3>
-<p class="prompt">教材の<code>apply()</code>と<code>commit()</code>の比較で、<code>apply()</code>の説明として正しいものはどれですか。</p>
-<ol class="options"><li data-correct="true">戻り値はなく、ファイルへの書き込みは別の処理にまかせる</li>
-<li><code>boolean</code>を返し、ファイルへの書き込み完了まで待つ</li>
-<li>呼び出すたびに保存先ファイルを削除する</li>
-<li>値を画面に表示するだけで、保存は行わない</li></ol>
-<div class="explanation"><p>正答：<strong>戻り値はなく、ファイルへの書き込みは別の処理にまかせる</strong></p><p><code>apply</code>は保存を確定しますが、成功したかを戻り値では受け取りません。教材の保存・削除は<code>apply</code>に統一しています。</p></div>
-<p class="source">復習する場所：<code>shared-preferences-sample/index.html#step-5</code></p>
-</article>
-<article data-unit="A08" data-id="A08-06">
-<h3>A08-06 · 読み出し</h3>
-<p class="prompt"><code>SharedPreferences</code>から保存ずみの文字列を読み出すだけのとき、正しい説明はどれですか。</p>
-<ol class="options"><li data-correct="true"><code>prefs.getString</code>を使い、<code>edit</code>は呼ばなくてよい</li>
-<li>先に<code>edit.clear</code>を呼ばないと読めない</li>
-<li>先に<code>putString</code>で同じ値を保存し直す必要がある</li>
-<li>読み出すたびに新しいキーを作る必要がある</li></ol>
-<div class="explanation"><p>正答：<strong><code>prefs.getString</code>を使い、<code>edit</code>は呼ばなくてよい</strong></p><p><code>Editor</code>は書き込みや削除に使います。読み出しは<code>prefs</code>の<code>getString</code>などを直接呼び、値がないときの初期値も指定します。</p></div>
-<p class="source">復習する場所：<code>shared-preferences-sample/index.html#step-6</code></p>
-</article>
-<article data-unit="A08" data-id="A08-07">
-<h3>A08-07 · 全データの削除</h3>
-<p class="prompt"><code>prefs</code>の保存データをすべて消すために<code>editor.clear()</code>を書きました。教材の手順で、削除を確定する呼び出しはどれですか。</p>
-<ol class="options"><li data-correct="true"><code>editor.apply();</code></li>
-<li><code>prefs.getString(&quot;memo&quot;, &quot;&quot;);</code></li>
-<li><code>editor.putInt(&quot;count&quot;, 0);</code></li>
-<li><code>txtOutput.getText();</code></li></ol>
-<div class="explanation"><p>正答：<strong><code>editor.apply();</code></strong></p><p>削除も<code>edit</code>で<code>Editor</code>を取得し、<code>clear</code>で削除を指定して、<code>apply</code>で確定する順序です。<code>clear</code>を呼ぶだけでは確定しません。</p></div>
-<p class="source">復習する場所：<code>shared-preferences-sample/index.html#step-7</code></p>
-</article>
-<article data-unit="A08" data-id="A08-08">
-<h3>A08-08 · <code>XML</code>と初期値</h3>
-<p class="prompt">A08で<code>clear</code>による削除が完了したあとの<code>app.xml</code>の内容と、<code>getInt(INT_VALUE, 0)</code>の結果の組み合わせはどれですか。</p>
-<ol class="options"><li data-correct="true"><code>XML</code>の中身は空の<code>map</code>になり、読み出しは初期値0を返す</li>
-<li><code>XML</code>に0が自動保存され、読み出しはその0を返す</li>
-<li><code>XML</code>は<code>Java</code>ファイルに変わり、読み出しは1を返す</li>
-<li><code>XML</code>に以前の値が残り、読み出しだけが必ず<code>null</code>になる</li></ol>
-<div class="explanation"><p>正答：<strong><code>XML</code>の中身は空の<code>map</code>になり、読み出しは初期値0を返す</strong></p><p><code>clear</code>のあともファイルは残り、中身は<code>&lt;map /&gt;</code>になります。画面の0は、0を保存した結果ではなく、データがないため返った初期値です。</p></div>
-<p class="source">復習する場所：<code>shared-preferences-sample/index.html#step-8</code></p>
-</article>
-<article data-unit="A08" data-id="A08-09">
-<h3>A08-09 · <code>Set</code>の順序</h3>
-<p class="prompt"><code>Set.of(&quot;Hello&quot;, &quot;World&quot;)</code>を保存して読み出したら、表示が<code>[World, Hello]</code>になりました。教材に合う説明はどれですか。</p>
-<ol class="options"><li data-correct="true"><code>Set</code>は順番を約束しないので、この並びでも正しい</li>
-<li>文字列が2つとも壊れたことを示している</li>
-<li>必ず<code>Hello</code>を先頭にする修正が必要である</li>
-<li><code>putStringSet</code>では文字列を1つしか保存できない</li></ol>
-<div class="explanation"><p>正答：<strong><code>Set</code>は順番を約束しないので、この並びでも正しい</strong></p><p><code>Set</code>は順番を保つことを約束しません。<code>Hello</code>と<code>World</code>が含まれている点を確認し、表示順が逆でも保存失敗とは考えません。</p></div>
-<p class="source">復習する場所：<code>shared-preferences-sample/index.html#step-5</code></p>
-</article>
-<article data-unit="A08" data-id="A08-10">
-<h3>A08-10 · データの永続化</h3>
-<p class="prompt">A08で保存した値が、アプリを完全に終了して開き直しても残る理由はどれですか。</p>
-<ol class="options"><li data-correct="true">値を端末のファイルに保存し、起動時に読み出しているため</li>
-<li><code>TextView</code>が前回の画面を永久に記憶するため</li>
-<li><code>var</code>で宣言した変数がアプリ終了後も必ず残るため</li>
-<li><code>Logcat</code>が値を復元するため</li></ol>
-<div class="explanation"><p>正答：<strong>値を端末のファイルに保存し、起動時に読み出しているため</strong></p><p>メモリだけに置いた値と違い、ファイルに保存した値はアプリを終了しても残ります。次の起動時に<code>getInt</code>などで読み出して表示しています。</p></div>
-<p class="source">復習する場所：<code>shared-preferences-sample/index.html#step-6</code></p>
-</article>
-<article data-unit="A08" data-id="A08-11">
-<h3>A08-11 · 保存に向くデータ</h3>
-<p class="prompt">A08の解説で<code>SharedPreferences</code>の保存対象に向いているものはどれですか。</p>
-<ol class="options"><li data-correct="true">ゲームのハイスコア</li>
-<li>写真や動画の全データ</li>
-<li>パスワードの文字列</li>
-<li>クレジットカード番号</li></ol>
-<div class="explanation"><p>正答：<strong>ゲームのハイスコア</strong></p><p><code>SharedPreferences</code>は小さく単純な設定や値に向きます。教材で表示した<code>XML</code>は暗号化されていないので、パスワードなど大事な情報を置く場所にはしません。</p></div>
-<p class="source">復習する場所：<code>shared-preferences-sample/index.html#step-8</code></p>
-</article>
-<article data-unit="A08" data-id="A08-12">
-<h3>A08-12 · 表示欄の高さ</h3>
-<p class="prompt">A08の表示欄に<code>layout_height=&quot;0dp&quot;</code>と<code>layout_weight=&quot;1&quot;</code>を付ける主な目的はどれですか。</p>
-<ol class="options"><li data-correct="true">表示欄が残りの高さを使い、表示内容でボタンの位置がずれるのを防ぐ</li>
-<li>表示欄の文字を必ず1文字にする</li>
-<li>表示内容を<code>SharedPreferences</code>へ自動保存する</li>
-<li>表示欄を画面から完全に消す</li></ol>
-<div class="explanation"><p>正答：<strong>表示欄が残りの高さを使い、表示内容でボタンの位置がずれるのを防ぐ</strong></p><p><code>0dp</code>と<code>weight</code>を組み合わせ、残った高さを表示欄に割り当てます。文字の長さで部品の位置が変わりにくくなります。</p></div>
-<p class="source">復習する場所：<code>shared-preferences-sample/index.html#step-2</code></p>
-</article>
-<article data-unit="A09" data-id="A09-01">
-<h3>A09-01 · <code>append</code></h3>
-<p class="prompt"><code>txtMemoList</code>にすでにメモが表示されています。<code>txtMemoList.append(edtMemoStr + &quot;\n&quot;);</code>を呼ぶとどうなりますか。</p>
-<ol class="options"><li data-correct="true">今の表示の後ろに、新しいメモと改行を足す</li>
-<li>今の表示を消して、新しいメモだけにする</li>
-<li>新しいメモを先頭に挿入する</li>
-<li>入力欄の文字を読み出すだけで表示は変わらない</li></ol>
-<div class="explanation"><p>正答：<strong>今の表示の後ろに、新しいメモと改行を足す</strong></p><p><code>append</code>は今の文字列の後ろに足す処理です。A09では追加した順に一覧へメモを増やすために使います。</p></div>
-<p class="source">復習する場所：<code>memo-app/index.html#step-4</code></p>
-</article>
-<article data-unit="A09" data-id="A09-02">
-<h3>A09-02 · <code>setText</code>との違い</h3>
-<p class="prompt">A09の追加処理で<code>append</code>を<code>setText</code>に変え、メモを3件続けて追加すると、一覧には何が残りますか。</p>
-<ol class="options"><li data-correct="true">最後に追加した1件だけ</li>
-<li>最初に追加した1件だけ</li>
-<li>3件とも追加した順に残る</li>
-<li>3件とも逆順に残る</li></ol>
-<div class="explanation"><p>正答：<strong>最後に追加した1件だけ</strong></p><p><code>setText</code>は表示を置き換えます。追加するたびに前の一覧が消え、その時点の表示を保存するので、保存内容も最後の1件だけになります。</p></div>
-<p class="source">復習する場所：<code>memo-app/index.html#step-7</code></p>
-</article>
-<article data-unit="A09" data-id="A09-03">
-<h3>A09-03 · 改行</h3>
-<p class="prompt">メモを追加するコードの<code>+ &quot;\n&quot;</code>を消し、<code>&quot;牛乳を買う&quot;</code>と<code>&quot;レポートを出す&quot;</code>を追加すると、文字列はどうなりますか。</p>
-<ol class="options"><li data-correct="true"><code>牛乳を買うレポートを出す</code>と改行なしでつながる</li>
-<li>2件の間に自動で空行が1行入る</li>
-<li>2件の間に自動でカンマが入る</li>
-<li>最初のメモが自動で削除される</li></ol>
-<div class="explanation"><p>正答：<strong><code>牛乳を買うレポートを出す</code>と改行なしでつながる</strong></p><p>メモごとの改行は、コードで足している<code>\n</code>によるものです。<code>append</code>は自動で改行を入れるわけではありません。</p></div>
-<p class="source">復習する場所：<code>memo-app/index.html#step-7</code></p>
-</article>
-<article data-unit="A09" data-id="A09-04">
-<h3>A09-04 · 空入力の分岐</h3>
-<p class="prompt">メモが空のときに<code>Snackbar</code>を出す<code>if</code>文から<code>return;</code>だけを消すと、何が起こりますか。</p>
-<ol class="options"><li data-correct="true">メッセージのあとも処理が続き、改行だけが一覧に足される</li>
-<li>メッセージは出なくなり、処理も止まる</li>
-<li>アプリが必ず前の画面に戻る</li>
-<li>空文字が自動で&quot;メモ&quot;に変わる</li></ol>
-<div class="explanation"><p>正答：<strong>メッセージのあとも処理が続き、改行だけが一覧に足される</strong></p><p><code>return</code>がなければ<code>if</code>文の後ろの<code>append</code>まで進みます。空の入力に<code>\n</code>を足したものが追加されるので、空入力を止める<code>return</code>が必要です。</p></div>
-<p class="source">復習する場所：<code>memo-app/index.html#step-4</code></p>
-</article>
-<article data-unit="A09" data-id="A09-05">
-<h3>A09-05 · 入力欄を空にする</h3>
-<p class="prompt">A09で追加が成功したあと、次のメモを入力しやすくする<code>edtMemo.setText(&quot;&quot;);</code>の役割はどれですか。</p>
-<ol class="options"><li data-correct="true">入力欄を空にする</li>
-<li>一覧の全メモを削除する</li>
-<li>保存ファイルを削除する</li>
-<li>キーボードの種類を数字へ変える</li></ol>
-<div class="explanation"><p>正答：<strong>入力欄を空にする</strong></p><p><code>edtMemo</code>は入力欄です。ここを空文字に変えても、一覧の<code>txtMemoList</code>や<code>SharedPreferences</code>に保存した文字列は消えません。</p></div>
-<p class="source">復習する場所：<code>memo-app/index.html#step-4</code></p>
-</article>
-<article data-unit="A09" data-id="A09-06">
-<h3>A09-06 · 保存する値</h3>
-<p class="prompt">A09の<code>edit.putString(MEMO, txtMemoList.getText().toString());</code>で保存しているものはどれですか。</p>
-<ol class="options"><li data-correct="true">改行を含むメモ一覧全体を1つにした文字列</li>
-<li>最後のメモの文字数だけ</li>
-<li>メモ1件ずつを別々のデータベースの行にしたもの</li>
-<li>入力欄のidだけ</li></ol>
-<div class="explanation"><p>正答：<strong>改行を含むメモ一覧全体を1つにした文字列</strong></p><p><code>txtMemoList</code>に表示中の内容を取り出し、1つの文字列として<code>MEMO</code>というキーで保存します。1件ずつ別のキーに分けているわけではありません。</p></div>
-<p class="source">復習する場所：<code>memo-app/index.html#step-5</code></p>
-</article>
-<article data-unit="A09" data-id="A09-07">
-<h3>A09-07 · 起動時の復元</h3>
-<p class="prompt">A09を初めて起動し、<code>MEMO</code>の保存値がまだないとき、<code>txtMemoList.setText(prefs.getString(MEMO, &quot;&quot;));</code>の表示はどうなりますか。</p>
-<ol class="options"><li data-correct="true">空の一覧になる</li>
-<li><code>null</code>という4文字が出る</li>
-<li>0という文字が出る</li>
-<li>最後の入力内容が自動生成される</li></ol>
-<div class="explanation"><p>正答：<strong>空の一覧になる</strong></p><p><code>getString</code>の第2引数が空文字なので、保存値がなければ空文字を返します。<code>setText</code>がそれを一覧へ表示します。</p></div>
-<p class="source">復習する場所：<code>memo-app/index.html#step-5</code></p>
-</article>
-<article data-unit="A09" data-id="A09-08">
-<h3>A09-08 · データの持ち方</h3>
-<p class="prompt">A09でメモ一覧のために<code>ArrayList</code>を別に作っていない理由はどれですか。</p>
-<ol class="options"><li data-correct="true">A07のような重複チェックや人数チェックがなく、表示文字列を保存すれば足りるため</li>
-<li><code>SharedPreferences</code>では<code>String</code>を保存できないため</li>
-<li><code>ArrayList</code>は1つのアプリに1回しか使えないため</li>
-<li><code>TextView</code>はメモを1件しか表示できないため</li></ol>
-<div class="explanation"><p>正答：<strong>A07のような重複チェックや人数チェックがなく、表示文字列を保存すれば足りるため</strong></p><p>この単元ではメモを判定せず、一覧をまとめて保存します。別のリストを持つと保存や復元の変換が増えるので、必要な表示文字列だけを使います。</p></div>
-<p class="source">復習する場所：<code>memo-app/index.html#step-5</code></p>
-</article>
-<article data-unit="A09" data-id="A09-09">
-<h3>A09-09 · 保存と表示を消す</h3>
-<p class="prompt">A09の「<code>データ削除</code>」で、保存と画面の両方を空にする処理の組み合わせはどれですか。</p>
-<ol class="options"><li data-correct="true"><code>edit.clear(); edit.apply(); txtMemoList.setText(&quot;&quot;);</code></li>
-<li><code>txtMemoList.setText(&quot;&quot;);</code>だけ</li>
-<li><code>edit.clear();</code>だけ</li>
-<li><code>edtMemo.setText(&quot;&quot;);</code>だけ</li></ol>
-<div class="explanation"><p>正答：<strong><code>edit.clear(); edit.apply(); txtMemoList.setText(&quot;&quot;);</code></strong></p><p><code>clear</code>と<code>apply</code>で保存したデータを消し、<code>setText</code>で表示も消します。保存されている値と、いま画面に出ている文字は別のものです。</p></div>
-<p class="source">復習する場所：<code>memo-app/index.html#step-6</code></p>
-</article>
-<article data-unit="A09" data-id="A09-10">
-<h3>A09-10 · 保存と表示の違い</h3>
-<p class="prompt">「<code>データ削除</code>」から<code>txtMemoList.setText(&quot;&quot;);</code>だけを消しました。メモを追加して削除を押し、そのまま終了して開き直すとどうなりますか。</p>
-<ol class="options"><li data-correct="true">削除直後は表示が残るが、開き直すと空になる</li>
-<li>削除直後に表示が消え、開き直すと復活する</li>
-<li>削除直後も開き直したあとも、必ずメモが残る</li>
-<li>削除を押すと必ずアプリが終了する</li></ol>
-<div class="explanation"><p>正答：<strong>削除直後は表示が残るが、開き直すと空になる</strong></p><p><code>clear</code>と<code>apply</code>による保存データの削除は実行されています。画面だけ更新していないので直後は文字が残り、次の起動時の読み出しでは空になります。</p></div>
-<p class="source">復習する場所：<code>memo-app/index.html#step-7</code></p>
-</article>
-<article data-unit="A09" data-id="A09-11">
-<h3>A09-11 · <code>ScrollView</code></h3>
-<p class="prompt">A09でメモ一覧を<code>ScrollView</code>に入れる主な目的はどれですか。</p>
-<ol class="options"><li data-correct="true">メモが増えて画面に入りきらなくても、スクロールで続きを読めるようにする</li>
-<li>一覧のメモを自動でアルファベット順にする</li>
-<li>メモを保存するタイミングを自動で決める</li>
-<li>入力欄で数字だけを入力できるようにする</li></ol>
-<div class="explanation"><p>正答：<strong>メモが増えて画面に入りきらなくても、スクロールで続きを読めるようにする</strong></p><p><code>ScrollView</code>は中身が表示範囲を超えたときにスクロールできる入れ物です。並べ替えや保存をする部品ではありません。</p></div>
-<p class="source">復習する場所：<code>memo-app/index.html#step-3</code></p>
-</article>
-<article data-unit="A09" data-id="A09-12">
-<h3>A09-12 · 入力の案内</h3>
-<p class="prompt">A09の入力欄に指定する<code>android:hint</code>の役割はどれですか。</p>
-<ol class="options"><li data-correct="true">何も入力していないときに案内を薄く表示し、入力すると消す</li>
-<li>入力されたメモをファイルへ保存する</li>
-<li>メモ一覧の背景色を変える</li>
-<li>ボタンを押した回数を表示する</li></ol>
-<div class="explanation"><p>正答：<strong>何も入力していないときに案内を薄く表示し、入力すると消す</strong></p><p><code>hint</code>は入力内容の案内です。実際に入力されたメモとは別なので、案内が見えていても入力欄に文字を入れたことにはなりません。</p></div>
-<p class="source">復習する場所：<code>memo-app/index.html#step-3</code></p>
-</article>
-<article data-unit="A10" data-id="A10-01">
-<h3>A10-01 · <code>Room</code>の設定</h3>
-<p class="prompt"><code>libs.versions.toml</code>で<code>room-runtime</code>と<code>room-compiler</code>のライブラリ定義を書く見出しはどれですか。</p>
-<ol class="options"><li data-correct="true"><code>[libraries]</code></li>
-<li><code>[plugins]</code></li>
-<li><code>[versions]</code></li>
-<li><code>[android]</code></li></ol>
-<div class="explanation"><p>正答：<strong><code>[libraries]</code></strong></p><p><code>[versions]</code>はバージョン番号、<code>[libraries]</code>はライブラリの定義です。<code>room-runtime</code>と<code>room-compiler</code>を<code>[plugins]</code>へ書くと、設定の種類が違うためビルドが止まります。</p></div>
-<p class="source">復習する場所：<code>room-sample/index.html#step-2</code></p>
-</article>
-<article data-unit="A10" data-id="A10-02">
-<h3>A10-02 · <code>Entity</code></h3>
-<p class="prompt">A10の<code>Item</code>クラスに付ける<code>@Entity</code>は何を表しますか。</p>
-<ol class="options"><li data-correct="true">このクラスでデータベースの表の形を定めること</li>
-<li>このクラスが起動時に開く画面であること</li>
-<li>このクラスが<code>XML</code>の画像を作ること</li>
-<li>このクラスが保存した全データを消すこと</li></ol>
-<div class="explanation"><p>正答：<strong>このクラスでデータベースの表の形を定めること</strong></p><p><code>Item</code>では<code>internalId</code>と<code>title</code>を表の項目として定めます。<code>Entity</code>は表の形、<code>Dao</code>は読み書きの窓口、<code>Database</code>はデータベース本体を担当します。</p></div>
-<p class="source">復習する場所：<code>room-sample/index.html#step-4</code></p>
-</article>
-<article data-unit="A10" data-id="A10-03">
-<h3>A10-03 · 主キー</h3>
-<p class="prompt"><code>internalId</code>に付いた<code>@PrimaryKey(autoGenerate = true)</code>の役割として正しいものはどれですか。</p>
-<ol class="options"><li data-correct="true">行を見分ける番号にし、新規追加で番号を自動生成できるようにする</li>
-<li><code>title</code>の文字数を毎回<code>internalId</code>に保存する</li>
-<li>保存するたびに表全体を削除する</li>
-<li>すべての行の番号を必ず同じ1にする</li></ol>
-<div class="explanation"><p>正答：<strong>行を見分ける番号にし、新規追加で番号を自動生成できるようにする</strong></p><p>主キーは行を見分けるために使います。A10ではid欄を空にして保存すると、<code>Room</code>が新しい行の番号を自動で付けます。</p></div>
-<p class="source">復習する場所：<code>room-sample/index.html#step-4</code></p>
-</article>
-<article data-unit="A10" data-id="A10-04">
-<h3>A10-04 · DAOの実装</h3>
-<p class="prompt"><code>ItemDao</code>のメソッドに処理の<code>{ }</code>を書いていないのに読み書きできる理由はどれですか。</p>
-<ol class="options"><li data-correct="true"><code>room-compiler</code>がビルド時に処理を自動で作るため</li>
-<li>メソッド名に<code>Dao</code>があれば<code>Java</code>が何でも実行するため</li>
-<li>画面の<code>TextView</code>が<code>SQL</code>を実行するため</li>
-<li><code>AndroidManifest.xml</code>がすべての処理を持つため</li></ol>
-<div class="explanation"><p>正答：<strong><code>room-compiler</code>がビルド時に処理を自動で作るため</strong></p><p><code>ItemDao</code>は<code>interface</code>で作り、<code>@Query</code>などで何をするかを書きます。<code>Room</code>がその指定を読み、ビルド時に実際の処理を生成します。</p></div>
-<p class="source">復習する場所：<code>room-sample/index.html#step-5</code></p>
-</article>
-<article data-unit="A10" data-id="A10-05">
-<h3>A10-05 · 検索の条件</h3>
-<p class="prompt"><code>@Query(&quot;SELECT * FROM item WHERE internalId = :internalId&quot;)</code>の<code>:internalId</code>は何を表しますか。</p>
-<ol class="options"><li data-correct="true"><code>findByInternalId</code>メソッドに渡された引数の値</li>
-<li>すべての行に共通して使う固定文字列</li>
-<li>自動で付く最新の番号だけ</li>
-<li><code>title</code>の文字列の長さ</li></ol>
-<div class="explanation"><p>正答：<strong><code>findByInternalId</code>メソッドに渡された引数の値</strong></p><p><code>:internalId</code>にはメソッドの引数が入ります。<code>WHERE</code>でその番号と一致する行に絞るので、指定した1件を取り出せます。</p></div>
-<p class="source">復習する場所：<code>room-sample/index.html#step-5</code></p>
-</article>
-<article data-unit="A10" data-id="A10-06">
-<h3>A10-06 · Upsert</h3>
-<p class="prompt">A10でidが2、<code>title</code>が<code>BIKE</code>の行が保存ずみです。id欄に2、タイトル欄に<code>BICYCLE</code>を入れて保存するとどうなりますか。</p>
-<ol class="options"><li data-correct="true">idが2の行の<code>title</code>が<code>BICYCLE</code>に変わり、行数は増えない</li>
-<li><code>BIKE</code>の行を残したまま、必ず新しい番号の行が増える</li>
-<li>idが2の行が削除されるだけで、<code>BICYCLE</code>は保存されない</li>
-<li>すべての行の<code>title</code>が<code>BICYCLE</code>になる</li></ol>
-<div class="explanation"><p>正答：<strong>idが2の行の<code>title</code>が<code>BICYCLE</code>に変わり、行数は増えない</strong></p><p><code>@Upsert</code>は同じ主キーの行があれば書き換え、なければ追加します。この問題ではidが2の行が存在するので、その行を更新します。</p></div>
-<p class="source">復習する場所：<code>room-sample/index.html#step-7</code></p>
-</article>
-<article data-unit="A10" data-id="A10-07">
-<h3>A10-07 · 見つからないデータ</h3>
-<p class="prompt">A10で存在しないidを指定して削除します。<code>findByInternalId</code>が<code>null</code>を返したとき、教材の処理はどうなりますか。</p>
-<ol class="options"><li data-correct="true">そのidのデータはないと表示し、<code>delete</code>を呼ばずに止める</li>
-<li>先頭の行を代わりに削除する</li>
-<li>すべての行を削除する</li>
-<li>指定したidの空の行を自動で追加する</li></ol>
-<div class="explanation"><p>正答：<strong>そのidのデータはないと表示し、<code>delete</code>を呼ばずに止める</strong></p><p>検索結果がない場合は<code>item == null</code>になります。教材はメッセージを出して<code>return</code>するので、ほかの行を消すことはありません。</p></div>
-<p class="source">復習する場所：<code>room-sample/index.html#step-7</code></p>
-</article>
-<article data-unit="A10" data-id="A10-08">
-<h3>A10-08 · <code>Database</code>の宣言</h3>
-<p class="prompt"><code>@Database(entities = {Item.class}, version = 1, exportSchema = false)</code>の<code>entities = {Item.class}</code>は何を宣言していますか。</p>
-<ol class="options"><li data-correct="true">このデータベースが<code>Item</code>の表を持つこと</li>
-<li>画面に<code>Item</code>というボタンを置くこと</li>
-<li>保存する行数を必ず1行に制限すること</li>
-<li><code>Item</code>を<code>Intent</code>で次の画面へ渡すこと</li></ol>
-<div class="explanation"><p>正答：<strong>このデータベースが<code>Item</code>の表を持つこと</strong></p><p><code>entities</code>はデータベースに含める表の定義を指定します。<code>version</code>は表の形を変えたときに増やす番号で、保存する行数ではありません。</p></div>
-<p class="source">復習する場所：<code>room-sample/index.html#step-6</code></p>
-</article>
-<article data-unit="A10" data-id="A10-09">
-<h3>A10-09 · データベースの使い回し</h3>
-<p class="prompt"><code>AppDatabase.getInstance</code>で<code>instance</code>が<code>null</code>のときだけデータベースを作る主な理由はどれですか。</p>
-<ol class="options"><li data-correct="true">準備に時間がかかるデータベースを1つ作って使い回すため</li>
-<li>保存できるデータを1件だけにするため</li>
-<li>ボタンを2回以上押せないようにするため</li>
-<li>毎回保存データを空にするため</li></ol>
-<div class="explanation"><p>正答：<strong>準備に時間がかかるデータベースを1つ作って使い回すため</strong></p><p>最初の呼び出しで作り、次から同じ<code>instance</code>を返します。このように1つだけ作って使い回す書き方をシングルトンといいます。</p></div>
-<p class="source">復習する場所：<code>room-sample/index.html#step-6</code></p>
-</article>
-<article data-unit="A10" data-id="A10-10">
-<h3>A10-10 · Application <code>Context</code></h3>
-<p class="prompt"><code>Room.databaseBuilder</code>の第1引数に<code>context.getApplicationContext()</code>を渡す理由はどれですか。</p>
-<ol class="options"><li data-correct="true">長く使い回すデータベースへ、特定の画面ではなくアプリ全体を渡すため</li>
-<li>データベースを次の<code>Activity</code>へ送信するため</li>
-<li>データベースの全行を文字列にするため</li>
-<li>インターネットへの接続を許可するため</li></ol>
-<div class="explanation"><p>正答：<strong>長く使い回すデータベースへ、特定の画面ではなくアプリ全体を渡すため</strong></p><p>データベースは画面より長く使い回します。特定の<code>Activity</code>を持ち続けないよう、アプリ全体の<code>Context</code>を渡します。</p></div>
-<p class="source">復習する場所：<code>room-sample/index.html#step-6</code></p>
-</article>
-<article data-unit="A10" data-id="A10-11">
-<h3>A10-11 · 保存後の再表示</h3>
-<p class="prompt">保存ボタンの処理から<code>txtItemList.setText(itemList(itemDao));</code>だけを消しました。新しいデータを保存するとどうなりますか。</p>
-<ol class="options"><li data-correct="true">データは保存されるが、その場の一覧は更新されない</li>
-<li>データベースへの保存も必ず中止される</li>
-<li>保存したデータがすべて削除される</li>
-<li>一覧が自動で更新され、変更前と同じになる</li></ol>
-<div class="explanation"><p>正答：<strong>データは保存されるが、その場の一覧は更新されない</strong></p><p><code>upsert</code>で保存する仕事と<code>setText</code>で表示する仕事は別です。起動時の再表示は残っているので、アプリを開き直すと保存された内容を確認できます。</p></div>
-<p class="source">復習する場所：<code>room-sample/index.html#step-7</code></p>
-</article>
-<article data-unit="A10" data-id="A10-12">
-<h3>A10-12 · <code>Entity</code>のNonNull</h3>
-<p class="prompt">A10の<code>@Entity</code>にある<code>title</code>フィールドへ付けた<code>@NonNull</code>は、表の定義として何を意味しますか。</p>
-<ol class="options"><li data-correct="true">その列に<code>null</code>を保存できない</li>
-<li>空文字列も自動で必ず拒否する</li>
-<li>すべての<code>title</code>を同じ文字列にする</li>
-<li><code>title</code>を数値だけに制限する</li></ol>
-<div class="explanation"><p>正答：<strong>その列に<code>null</code>を保存できない</strong></p><p><code>Entity</code>のフィールドの<code>@NonNull</code>は列を<code>NOT NULL</code>にする指定です。<code>null</code>と空文字列は別なので、入力が空かどうかは画面側の<code>isEmpty</code>でも確認します。</p></div>
-<p class="source">復習する場所：<code>room-sample/index.html#step-4</code></p>
+<article data-unit="A02" data-id="E20" data-group="loop" data-kind="explain">
+<h3>E20 · 同じ処理を登録する</h3>
+<p class="prompt"><code>buttons</code>は3つのボタンを入れた配列です。<code>txtMessage</code>は文字の表示欄です。画面を開いて次のコードを実行しました。まだボタンは押していません。正しい説明はどれですか。</p>
+<pre class="question-code"><code>for (var button : buttons) {
+    button.setOnClickListener(v -&gt; {
+        txtMessage.setText(&quot;押しました&quot;);
+    });
+}</code></pre>
+<ol class="options"><li>すぐに<code>押しました</code>と3回表示する</li>
+<li>最初のボタンにだけ処理を登録する</li>
+<li>3つのボタンを自動で押す</li>
+<li data-correct="true">3つのボタンに処理を登録し、表示はまだ変えない</li></ol>
+<div class="explanation"><p>正答：<strong>3つのボタンに処理を登録し、表示はまだ変えない</strong></p><p>拡張（かくちょう）<code>for</code>文で3つのボタンに処理を登録します。中の<code>setText</code>は、実際にボタンを押したときに実行します。</p></div>
+<p class="source">復習する場所：<code>calc-game/index.html#step-7</code></p>
 </article>
 </div></details>
 <template id="review-labels"><p data-label="correct">正解</p><p data-label="incorrect">不正解</p><p data-label="blank">未回答</p><p data-label="yours">あなたの回答：</p><p data-label="answer">正答：</p></template>
@@ -1300,13 +604,13 @@ code { font-family: ui-monospace, monospace; font-size: .9em; overflow-wrap: any
   const labels = Object.fromEntries(Array.from($('review-labels').content.querySelectorAll('[data-label]'), el => [el.dataset.label, el.textContent]));
   const letters = ['ア', 'イ', 'ウ', 'エ'];
   const bank = Array.from($('question-bank').querySelectorAll('article')).map(article => ({
-    id: article.dataset.id, unit: article.dataset.unit, heading: article.querySelector('h3').innerHTML,
+    id: article.dataset.id, unit: article.dataset.unit, group: article.dataset.group, kind: article.dataset.kind, code: article.querySelector('.question-code').innerHTML, heading: article.querySelector('h3').innerHTML,
     prompt: article.querySelector('.prompt').innerHTML,
     choices: Array.from(article.querySelectorAll('.options li')).map((li, id) => ({ id, html: li.innerHTML, correct: li.dataset.correct === 'true' })),
     explanation: article.querySelector('.explanation').innerHTML,
     source: article.querySelector('.source').innerHTML
   }));
-  let current = [], active = false, deadline = null, interval = null;
+  let current = [], active = false, deadline = null, interval = null, answers = {};
   function shuffle(items) {
     const result = [...items];
     for (let i = result.length - 1; i > 0; i--) {
@@ -1315,8 +619,12 @@ code { font-family: ui-monospace, monospace; font-size: .9em; overflow-wrap: any
     }
     return result;
   }
-  function selected(q) { return document.querySelector('input[name="' + q.id + '"]:checked'); }
-  function answersCount() { return current.filter(q => selected(q)).length; }
+  function selected(q) { return answers[q.id]; }
+  function answersCount() { return Object.keys(answers).length; }
+  function checkDeadline() {
+    if (active && deadline !== null && Date.now() >= deadline) { grade(true); return true; }
+    return false;
+  }
   function tick() {
     if (!active || deadline === null) return;
     const seconds = Math.max(0, Math.ceil((deadline - Date.now()) / 1000));
@@ -1325,8 +633,9 @@ code { font-family: ui-monospace, monospace; font-size: .9em; overflow-wrap: any
   }
   function start() {
     clearInterval(interval);
-    const units = [...new Set(bank.map(q => q.unit))];
-    current = shuffle(units.flatMap(unit => shuffle(bank.filter(q => q.unit === unit)).slice(0, 2)))
+    const groups = [...new Set(bank.map(q => q.group))];
+    answers = {};
+    current = shuffle(groups.flatMap(group => ['blank', 'explain'].flatMap(kind => shuffle(bank.filter(q => q.group === group && q.kind === kind)).slice(0, 1))))
       .map(q => ({ ...q, choices: shuffle(q.choices) }));
     $('questions').replaceChildren();
     $('review').replaceChildren();
@@ -1336,12 +645,13 @@ code { font-family: ui-monospace, monospace; font-size: .9em; overflow-wrap: any
       fieldset.dataset.questionId = q.id;
       const legend = document.createElement('legend');
       legend.id = q.id + '-number';
-      legend.textContent = (index + 1) + ' / 20 · ' + q.unit;
+      legend.textContent = (index + 1) + ' / 20';
       fieldset.append(legend);
       const prompt = document.createElement('p'); prompt.className = 'prompt'; prompt.innerHTML = q.prompt;
       prompt.id = q.id + '-prompt';
       fieldset.setAttribute('aria-labelledby', legend.id + ' ' + prompt.id);
-      fieldset.append(prompt);
+      const code = document.createElement('pre'); code.className = 'question-code'; code.innerHTML = q.code;
+      fieldset.append(prompt, code);
       q.choices.forEach((choice, i) => {
         const label = document.createElement('label'); label.className = 'option';
         const radio = document.createElement('input'); radio.type = 'radio'; radio.name = q.id; radio.value = String(choice.id);
@@ -1366,7 +676,7 @@ code { font-family: ui-monospace, monospace; font-size: .9em; overflow-wrap: any
     $('review').replaceChildren();
     current.forEach((q, index) => {
       const chosen = selected(q);
-      const choice = chosen ? q.choices.find(c => String(c.id) === chosen.value) : null;
+      const choice = chosen === undefined ? null : q.choices.find(c => c.id === chosen);
       const right = q.choices.find(c => c.correct);
       if (choice && choice.correct) correct++;
       if (!choice) blank++;
@@ -1382,7 +692,8 @@ code { font-family: ui-monospace, monospace; font-size: .9em; overflow-wrap: any
       const answer = document.createElement('p'); answer.textContent = labels.answer + letters[q.choices.indexOf(right)];
       const explanation = document.createElement('div'); explanation.className = 'explanation'; explanation.innerHTML = q.explanation;
       const source = document.createElement('p'); source.className = 'source'; source.innerHTML = q.source;
-      article.append(heading, badge, prompt, options, yours, answer, explanation, source); $('review').append(article);
+      const code = document.createElement('pre'); code.className = 'question-code'; code.innerHTML = q.code;
+      article.append(heading, badge, prompt, code, options, yours, answer, explanation, source); $('review').append(article);
     });
     $('score').textContent = String(correct * 5); $('correct-count').textContent = String(correct); $('blank-count').textContent = String(blank);
     $('expired').hidden = !expired; $('quiz').hidden = true; $('results').hidden = false; $('catalog').hidden = false;
@@ -1392,7 +703,11 @@ code { font-family: ui-monospace, monospace; font-size: .9em; overflow-wrap: any
   $('start').addEventListener('click', start);
   $('retry').addEventListener('click', start);
   $('choose-mode').addEventListener('click', () => { $('results').hidden = true; $('setup').hidden = false; $('start').focus(); });
-  $('quiz-form').addEventListener('change', () => { tick(); $('answered').textContent = String(answersCount()); $('confirm-unanswered').hidden = true; });
+  $('quiz-form').addEventListener('change', event => {
+    if (!active || checkDeadline()) return;
+    const input = event.target;
+    if (input.matches('input[type=radio]')) { answers[input.name] = Number(input.value); $('answered').textContent = String(answersCount()); $('confirm-unanswered').hidden = true; }
+  });
   $('quiz-form').addEventListener('submit', event => {
     event.preventDefault(); tick(); if (!active) return;
     const unanswered = 20 - answersCount();
@@ -1400,7 +715,7 @@ code { font-family: ui-monospace, monospace; font-size: .9em; overflow-wrap: any
     else grade();
   });
   $('confirm-grade').addEventListener('click', () => { tick(); grade(); });
-  $('keep-answering').addEventListener('click', () => { $('confirm-unanswered').hidden = true; const q = current.find(q => !selected(q)); if (q) document.querySelector('input[name="' + q.id + '"]').focus(); });
+  $('keep-answering').addEventListener('click', () => { if (checkDeadline()) return; $('confirm-unanswered').hidden = true; const q = current.find(q => selected(q) === undefined); if (q) document.querySelector('input[name="' + q.id + '"]').focus(); });
   document.addEventListener('visibilitychange', tick);
   window.addEventListener('pageshow', tick);
   window.addEventListener('beforeunload', event => { if (active) { event.preventDefault(); event.returnValue = ''; } });
