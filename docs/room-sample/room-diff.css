@@ -1,0 +1,34 @@
+/* A10 STEP 02: preserve static additions outside the shared code highlighter.
+   The plus signs are display markers and are not part of the code text. */
+.textbook pre.room-diff .room-diff-lines {
+  display: block;
+  width: max-content;
+  min-width: 100%;
+  padding-inline-start: 1.5em;
+  box-sizing: border-box;
+}
+.textbook pre.room-diff ins {
+  display: inline-block;
+  position: relative;
+  min-width: 100%;
+  background: #dcfce7;
+  color: #14532d;
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: -3px 0 #15803d;
+}
+.textbook pre.room-diff ins::before {
+  content: "+";
+  position: absolute;
+  inset-inline-start: -1.3em;
+  color: #14532d;
+}
+@media print {
+  .textbook pre.room-diff .room-diff-lines { width: auto; }
+  .textbook pre.room-diff ins {
+    min-width: 0;
+    color: black;
+    box-shadow: -3px 0 black;
+  }
+  .textbook pre.room-diff ins::before { color: black; }
+}

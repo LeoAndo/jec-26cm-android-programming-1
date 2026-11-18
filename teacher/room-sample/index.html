@@ -45,6 +45,8 @@
 <tr><td>STEP 00：5分、STEP 01：10分、STEP 02：10分、STEP 03：10分、STEP 04：15分、STEP 05：15分、STEP 06：10分、STEP 07：25分</td><td>保存・書き換え・削除ができ、アプリを終了して開き直してもデータが残る。</td></tr>
 </tbody></table>
 <p><strong>STEP 02が最初の関門です。</strong><code>libs.versions.toml</code> の <code>[libraries]</code> と <code>[plugins]</code> を取り違える間違いが必ず出ます。<code>[plugins]</code> 側に書くと <code>expected to find any of 'id' or 'version'</code> でビルドが止まります。教科書に注意書きを入れていますが、机間指導では<strong>追記した行のすぐ上の見出し</strong>を指差して確認させてください。</p>
+<p>STEP 02は緑色と「＋」で追加行を示しています。「＋」は入力せず、既存の見出しや <code>dependencies { }</code> の中に足します。閉じた全体コードは照合用です。</p>
+<p><strong>STEP 04では、NonNullのimport先も確認します。</strong>学生用教科書の<a href="../../docs/room-sample/index.html#nonnull-import">画像付きのimport手順</a>で、<code>NonNull (androidx.annotation)</code> を選ばせます。<code>org.jspecify.annotations</code> の同名クラスと取り違えないようにします。</p>
 <p><strong>STEP 05でInterfaceを選び間違える学生が出ます。</strong><code>ItemDao</code> だけ <code>Interface</code>、<code>Item</code> と <code>AppDatabase</code> は <code>Class</code> です。Classで作ってしまうと、中身を貼り付けた瞬間に赤いエラーが並びます。作り直させるのがいちばん早いです。</p>
 <p>STEP 04〜06は「書いて、Syncして、まだ画面は変わらない」が3回続きます。<strong>学生の手応えが途切れる区間</strong>です。STEP 03の終わりで「ここから3つ部品を作る。画面が動くのはSTEP 07」と先に伝えておくと、迷子になりません。</p>
 <p>時間が余ったら、STEP 07の練習1〜3と、「6. 理解確認と支援」の問いを回します。練習3（<code>setText</code> を消す）は「データベースには書けているが画面に出ていない」という状態を作れるので、A09の「保存と表示は別物」の再確認になります。</p>
@@ -65,6 +67,7 @@
 <section><h2>5. つまずきやすいエラーと対応</h2>
 <table><thead><tr><th>エラー・症状</th><th>原因</th><th>対応</th></tr></thead><tbody>
 <tr><td><code>expected to find any of 'id' or 'version'</code></td><td><code>room-runtime</code> / <code>room-compiler</code> を <code>[plugins]</code> に書いた</td><td><code>[libraries]</code> へ移す（STEP 02①）</td></tr>
+<tr><td><code>Cannot resolve symbol 'NonNull'</code></td><td><code>androidx.annotation.NonNull</code> のimportがない</td><td>STEP 04の画像に沿って <strong>Import class</strong> → <code>NonNull (androidx.annotation)</code> を選び、import行と赤い波線の解消を確認する。候補が出なければ、ほかのimportと並べて <code>import androidx.annotation.NonNull;</code> を1行だけ書く。アノテーションは削除しない。</td></tr>
 <tr><td><code>Cannot resolve symbol 'Room'</code></td><td>Syncしていない</td><td><code>Sync Now</code> を押す（STEP 02）</td></tr>
 <tr><td><code>Entities and Pojos must have a usable public constructor</code></td><td><code>Item</code> のコンストラクタが <code>public</code> でない、またはセッターがない</td><td>04-Item.javaと見比べさせる</td></tr>
 <tr><td><code>ItemDao</code> の全行が赤い</td><td><code>Interface</code> ではなく <code>Class</code> で作った</td><td>ファイルを削除して作り直す（STEP 05①）</td></tr>
@@ -84,7 +87,7 @@
 <tr><td><code>getApplicationContext()</code> を渡すのはなぜか</td><td>作ったデータベースはアプリが終わるまで残るため、画面ではなくアプリ全体を渡す、と答える。</td></tr>
 </tbody></table>
 <p>エラー時は「STEP番号・ファイル・最初の赤い行・操作順」を聞きます。この単元のパッケージは <code>jp.ac.jec.a10roomsample</code> です。アプリが終了してしまうときだけ <a href="../../docs/common/logcat.html">共通資料：Logcat</a> を開き、<code>package:jp.ac.jec.a10roomsample level:ERROR</code> で確認します。</p>
-<p>よくある原因は、①<code>room-runtime</code> / <code>room-compiler</code> を <code>[plugins]</code> に書いた、②Syncしていない、③<code>ItemDao</code> を <code>Class</code> で作った、④<code>Item</code> のセッターがない、⑤<code>setText(itemList(itemDao))</code> をリスナに書いていない、の5つです。</p>
+<p>よくある原因は、①<code>room-runtime</code> / <code>room-compiler</code> を <code>[plugins]</code> に書いた、②Syncしていない、③<code>ItemDao</code> を <code>Class</code> で作った、④<code>Item</code> のセッターがない、⑤<code>setText(itemList(itemDao))</code> をリスナに書いていない、⑥<code>androidx.annotation.NonNull</code> をimportしていない、の6つです。</p>
 <p>①と③は<strong>エラーの文面から原因にたどり着きにくい</strong>のが特徴です。①は <code>expected to find any of 'id' or 'version'</code>、③は中身を貼り付けた瞬間に全行が赤くなります。どちらも「どこに書いたか」「どの種類で作ったか」を先に確認させてください。</p>
 <p>入力中にキーボードがボタンに重なって押せないことがあります。キーボードを閉じてから押すよう伝えます。理由と対処は<a href="../../docs/common/dev-tips.html">共通資料：開発Tips</a>のB章にあります。</p>
 </section>
@@ -94,7 +97,7 @@
 </section>
 
 <section><h2>8. 教材の保守と確認</h2>
-<ul><li>完成コードを変更したら、教科書の部分コード、照合用の全体コード、画像をまとめて確認し、<code>python3 scripts/package-hello-android.py --project A10RoomSample --output docs/room-sample/downloads/A10RoomSample.zip</code> で配布用ZIPを再作成します。教科書のコードと完成プロジェクトの一致は <code>python3 scripts/check-teaching-materials.py</code> で確かめます。</li><li>アプリ画面の5枚（app-initial、app-saved、app-updated、app-deleted、app-error-empty）は <code>jec_26cm_android1_Pixel 9a</code>（Android 17 / API 37）で完成版を操作して撮影しました（2026年9月17日）。<strong>表示しているデータ（CAR / BIKE / TRAIN、id 2 を BICYCLE に変更、id 3 を削除）は教科書STEP 07の手順と同じ順番</strong>です。撮り直すときも同じ順番で操作してください。</li><li>IDE操作の画像6枚（テンプレート選択、プロジェクト設定、New → Java Class、Item・AppDatabase・ItemDaoのダイアログ）は <code>A10RoomSample</code> / <code>jp.ac.jec.a10roomsample</code> で撮影したものです。差し替えるときはimgの <code>width</code> / <code>height</code> を実際のサイズに合わせます。</li><li>各STEPの照合コードは、完成プロジェクトのコピーにそのSTEPまでのファイルを入れてビルドが通ることを確認しています。STEP 02はビルド設定の追記のみのため照合コードがありません。</li><li>印刷時は補足・解答も展開されます。解答を配布したくない場合は、ブラウザで授業中に開く方式を使ってください。</li></ul>
+<ul><li>完成コードを変更したら、教科書の部分コード、照合用の全体コード、画像をまとめて確認し、<code>python3 scripts/package-hello-android.py --project A10RoomSample --output docs/room-sample/downloads/A10RoomSample.zip</code> で配布用ZIPを再作成します。教科書のコードと完成プロジェクトの一致は <code>python3 scripts/check-teaching-materials.py</code> で確かめます。</li><li>アプリ画面の5枚（app-initial、app-saved、app-updated、app-deleted、app-error-empty）は <code>jec_26cm_android1_Pixel 9a</code>（Android 17 / API 37）で完成版を操作して撮影しました（2026年9月17日）。<strong>表示しているデータ（CAR / BIKE / TRAIN、id 2 を BICYCLE に変更、id 3 を削除）は教科書STEP 07の手順と同じ順番</strong>です。撮り直すときも同じ順番で操作してください。</li><li>IDE操作の画像6枚（テンプレート選択、プロジェクト設定、New → Java Class、Item・AppDatabase・ItemDaoのダイアログ）は <code>A10RoomSample</code> / <code>jp.ac.jec.a10roomsample</code> で撮影したものです。差し替えるときはimgの <code>width</code> / <code>height</code> を実際のサイズに合わせます。</li><li>NonNullのimport画像2枚は、2026年11月18日にオーナーが提供したAndroid Studioの画面です。エラーと候補の選択を示すために掲載しています。</li><li>各STEPの照合コードは、完成プロジェクトのコピーにそのSTEPまでのファイルを入れてビルドが通ることを確認しています。STEP 02はビルド設定の追記のみのため照合コードがありません。</li><li>印刷時は補足・解答も展開されます。解答を配布したくない場合は、ブラウザで授業中に開く方式を使ってください。</li></ul>
 </section>
 
 <footer class="footer"><p>Androidプログラミング1 · 教員用ガイド A10RoomSample</p></footer>
