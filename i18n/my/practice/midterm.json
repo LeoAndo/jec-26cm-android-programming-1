@@ -1,0 +1,3710 @@
+{
+  "source": "docs/practice/midterm.html",
+  "language": "my",
+  "entries": [
+    {
+      "source": "中間テスト対策 — Androidプログラミング1",
+      "translation": "နှစ်ဝက်စာမေးပွဲအတွက် ပြင်ဆင်ခြင်း — Android ပရိုဂရမ်းမင်း 1"
+    },
+    {
+      "source": "中間テスト対策",
+      "translation": "နှစ်ဝက်စာမေးပွဲအတွက် ပြင်ဆင်ခြင်း"
+    },
+    {
+      "source": "学んだことを、20問ずつ確かめよう。",
+      "translation": "သင်ယူခဲ့သည်များကို မေးခွန်း 20 စီဖြေပြီး စစ်ဆေးကြည့်ပါ။"
+    },
+    {
+      "source": "問題を抽選・採点するには、ブラウザでJavaScriptを有効にしてください。全問題の正答と解説は、下の一覧でも読めます。",
+      "translation": "မေးခွန်းများကို ကျပန်းရွေးချယ်ပြီး အမှတ်ပေးနိုင်ရန် browser တွင် JavaScript ကို ဖွင့်ပါ။ မေးခွန်းအားလုံး၏ အဖြေမှန်နှင့် ရှင်းလင်းချက်များကို အောက်ပါစာရင်းတွင်လည်း ဖတ်နိုင်ပါသည်။"
+    },
+    {
+      "source": "A01〜A10の復習",
+      "translation": "A01–A10 ပြန်လည်လေ့လာခြင်း"
+    },
+    {
+      "source": "4択（ア〜エ）",
+      "translation": "ရွေးချယ်စရာ 4 ခု (ア–エ)"
+    },
+    {
+      "source": "20問 × 5点",
+      "translation": "မေးခွန်း 20 × 5 မှတ်"
+    },
+    {
+      "source": "何度でも挑戦",
+      "translation": "လိုသလောက် ပြန်လေ့ကျင့်နိုင်သည်"
+    },
+    {
+      "source": "試験予定：<strong>2026年12月2日（水）2限</strong>。対面・60分で行います。範囲はA01〜A10 RoomSampleまでの全内容です。",
+      "translation": "စာမေးပွဲအစီအစဉ်: <strong>2026 ခုနှစ် ဒီဇင်ဘာ 2 ရက် (ဗုဒ္ဓဟူးနေ့) ဒုတိယအတန်းချိန်</strong>။ လူကိုယ်တိုင် လာရောက်ဖြေဆိုရမည်ဖြစ်ပြီး ကြာချိန် 60 မိနစ် ဖြစ်သည်။ A01 မှ A10 RoomSample အထိ အကြောင်းအရာအားလုံး ပါဝင်သည်။"
+    },
+    {
+      "source": "この問題集は各単元12問、合計120問から、毎回各単元2問ずつ出します。問題と選択肢の順番も変わります。同じ問題が再び出ることもあります。",
+      "translation": "သင်ခန်းစာတစ်ခုလျှင် 12 ပုဒ်စီ၊ စုစုပေါင်း မေးခွန်း 120 ရှိသည်။ တစ်ကြိမ်လျှင် သင်ခန်းစာတစ်ခုစီမှ 2 ပုဒ် ရွေးထုတ်သည်။ မေးခွန်းနှင့် ရွေးချယ်စရာအစီအစဉ်လည်း ပြောင်းလဲသည်။ မေးခွန်းတစ်ခု ထပ်ပေါ်နိုင်သည်။"
+    },
+    {
+      "source": "授業内容を復習するための練習問題です。本番と同じ問題・単元配分になるとは限りません。1回の20問だけで全内容を確認できるわけではありません。",
+      "translation": "ဤမေးခွန်းများသည် အတန်းတွင် သင်ခဲ့သမျှကို ပြန်လေ့လာရန် ဖြစ်သည်။ တကယ့်စာမေးပွဲတွင် မေးခွန်းများနှင့် သင်ခန်းစာအလိုက် မေးခွန်းအရေအတွက် တူချင်မှတူမည်။ တစ်ကြိမ်တွင် မေးခွန်း 20 သာဖြေ၍ အကြောင်းအရာအားလုံးကို မစစ်ဆေးနိုင်ပါ။"
+    },
+    {
+      "source": "練習の進め方",
+      "translation": "လေ့ကျင့်ပုံ"
+    },
+    {
+      "source": "時間制限なし — 調べながら復習する",
+      "translation": "အချိန်အကန့်အသတ်မရှိ — ရှာဖွေကြည့်ရှုရင်း ပြန်လေ့လာရန်"
+    },
+    {
+      "source": "60分練習 — 時間切れで自動採点する",
+      "translation": "60 မိနစ် လေ့ကျင့်မှု — အချိန်ကုန်လျှင် အလိုအလျောက် အမှတ်ပေးမည်"
+    },
+    {
+      "source": "回答はこの画面の中だけで扱います。送信・保存はしません。ページを閉じたり再読み込みしたりすると、回答は消えます。60分練習では、別のタブを見ている間も時間が進みます。",
+      "translation": "အဖြေများကို ဤမျက်နှာပြင်တွင်သာ ကိုင်တွယ်သည်။ ပေးပို့ခြင်း၊ သိမ်းဆည်းခြင်း မပြုပါ။ စာမျက်နှာကို ပိတ်လျှင် သို့မဟုတ် browser တွင် ထိုစာမျက်နှာကို ပြန်လည်တင် (reload) လုပ်လျှင် အဖြေများ ပျောက်သွားမည်။ 60 မိနစ် လေ့ကျင့်မှုတွင် အခြား tab ကို ကြည့်နေစဉ်လည်း အချိန် ဆက်ကုန်နေမည်။"
+    },
+    {
+      "source": "20問を始める",
+      "translation": "မေးခွန်း 20 စဖြေမည်"
+    },
+    {
+      "source": "問題を解く",
+      "translation": "မေးခွန်းများ ဖြေဆိုခြင်း"
+    },
+    {
+      "source": "<span>回答済み：</span><strong1>0</strong1> / 20",
+      "translation": "<span>ဖြေဆိုပြီး: </span><strong1>0</strong1> / 20"
+    },
+    {
+      "source": "時間制限なし",
+      "translation": "အချိန်အကန့်အသတ်မရှိ"
+    },
+    {
+      "source": "残り時間：",
+      "translation": "ကျန်ချိန်:&nbsp;"
+    },
+    {
+      "source": "答えを1つ選んでください。採点するまでは変更できます。未回答は0点です。",
+      "translation": "အဖြေတစ်ခု ရွေးပါ။ အမှတ်မပေးမီ ပြောင်းနိုင်သည်။ မဖြေထားသော မေးခွန်းများအတွက် 0 မှတ် ရမည်။"
+    },
+    {
+      "source": "採点する",
+      "translation": "အမှတ်ပေးရန်"
+    },
+    {
+      "source": "問が未回答です。未回答を0点として採点しますか？",
+      "translation": "&nbsp;ပုဒ် မဖြေရသေးပါ။ မဖြေထားသည့် မေးခွန်းများကို 0 မှတ်ဖြင့် အမှတ်ပေးမလား?"
+    },
+    {
+      "source": "このまま採点する",
+      "translation": "ယခု အမှတ်ပေးရန်"
+    },
+    {
+      "source": "回答を続ける",
+      "translation": "ဆက်ဖြေမည်"
+    },
+    {
+      "source": "採点結果",
+      "translation": "အမှတ်ရလဒ်"
+    },
+    {
+      "source": "60分が経過したため、自動で採点しました。",
+      "translation": "60 မိနစ် ပြည့်သွားသဖြင့် အလိုအလျောက် အမှတ်ပေးပြီးပြီ။"
+    },
+    {
+      "source": "/ 100点",
+      "translation": "/ 100 မှတ်"
+    },
+    {
+      "source": "正解：",
+      "translation": "မှန်ကန်သော အဖြေ:&nbsp;"
+    },
+    {
+      "source": "/ 20問",
+      "translation": "/ မေးခွန်း 20"
+    },
+    {
+      "source": "未回答：",
+      "translation": "မဖြေထားသော မေးခွန်း:&nbsp;"
+    },
+    {
+      "source": "問",
+      "translation": "&nbsp;ပုဒ်"
+    },
+    {
+      "source": "正答と解説を読み、分からなかったところを復習しましょう。点数は練習の目安です。",
+      "translation": "အဖြေမှန်နှင့် ရှင်းလင်းချက်ကို ဖတ်ပြီး နားမလည်သေးသည့် အပိုင်းများကို ပြန်လေ့လာပါ။ ရမှတ်သည် လေ့ကျင့်မှုအတွက် အညွှန်းတစ်ခုဖြစ်သည်။"
+    },
+    {
+      "source": "新しい20問に挑戦する",
+      "translation": "မေးခွန်း 20 အသစ်ကို စမ်းဖြေရန်"
+    },
+    {
+      "source": "練習方法を選び直す",
+      "translation": "လေ့ကျင့်ပုံ ပြန်ရွေးရန်"
+    },
+    {
+      "source": "全120問の正答・解説を見る",
+      "translation": "မေးခွန်း 120 လုံး၏ အဖြေမှန်နှင့် ရှင်းလင်းချက်များကို ကြည့်ရန်"
+    },
+    {
+      "source": "出題されなかった問題も復習できます。教員が問題の内容を確認するときにも使えます。選択肢の表示順は、練習画面では毎回変わります。",
+      "translation": "မပါလာခဲ့သည့် မေးခွန်းများကိုလည်း ပြန်လေ့လာနိုင်သည်။ ဆရာက မေးခွန်းအကြောင်းအရာကို စစ်ဆေးရန်လည်း သုံးနိုင်သည်။ လေ့ကျင့်မှုမျက်နှာပြင်တွင် ရွေးချယ်စရာများ၏ အစီအစဉ်သည် တစ်ကြိမ်စီ ပြောင်းလဲသည်။"
+    },
+    {
+      "source": "「復習する場所」は教材ZIPのdocsフォルダからの場所と見出しIDです。このHTMLだけで解答と解説を読めます。",
+      "translation": "“ပြန်လေ့လာရန်နေရာ” သည် သင်ထောက်ကူ ZIP ၏ docs ဖိုင်တွဲမှ စတွက်ထားသော နေရာနှင့် ခေါင်းစဉ် ID ဖြစ်သည်။ ဤ HTML ဖိုင်တစ်ခုတည်းဖြင့် အဖြေနှင့် ရှင်းလင်းချက်များကို ဖတ်နိုင်သည်။"
+    },
+    {
+      "source": "A01-01 · XMLとJavaの役割",
+      "translation": "A01-01 · XML နှင့် Java ၏ အခန်းကဏ္ဍ"
+    },
+    {
+      "source": "A01で、文字やボタンの配置を書くファイルと、ボタンを押したときの動きを書くファイルの組み合わせはどれですか。",
+      "translation": "A01 တွင် စာသားနှင့် ခလုတ်များကို နေရာချရန် ရေးသည့်ဖိုင်နှင့် ခလုတ်နှိပ်သည့်အခါ လုပ်ဆောင်ပုံ ရေးသည့်ဖိုင် မည်သည့်အတွဲဖြစ်သနည်း။"
+    },
+    {
+      "source": "配置は<code>activity_main.xml</code>、動きは<code>MainActivity.java</code>",
+      "translation": "နေရာချထားပုံမှာ <code>activity_main.xml</code>၊ လုပ်ဆောင်ပုံမှာ <code>MainActivity.java</code>"
+    },
+    {
+      "source": "配置は<code>MainActivity.java</code>、動きは<code>activity_main.xml</code>",
+      "translation": "နေရာချထားပုံမှာ <code>MainActivity.java</code>၊ လုပ်ဆောင်ပုံမှာ <code>activity_main.xml</code>"
+    },
+    {
+      "source": "配置は<code>AndroidManifest.xml</code>、動きは<code>themes.xml</code>",
+      "translation": "နေရာချထားပုံမှာ <code>AndroidManifest.xml</code>၊ လုပ်ဆောင်ပုံမှာ <code>themes.xml</code>"
+    },
+    {
+      "source": "配置も動きも<code>gradle-wrapper.properties</code>",
+      "translation": "နေရာချထားပုံနှင့် လုပ်ဆောင်ပုံ နှစ်ခုလုံးမှာ <code>gradle-wrapper.properties</code>"
+    },
+    {
+      "source": "正答：<strong>配置は<code>activity_main.xml</code>、動きは<code>MainActivity.java</code></strong>",
+      "translation": "အဖြေမှန်: <strong>နေရာချထားပုံမှာ <code>activity_main.xml</code>၊ လုပ်ဆောင်ပုံမှာ <code>MainActivity.java</code></strong>"
+    },
+    {
+      "source": "<code>activity_main.xml</code>には画面の部品や配置を書き、<code>MainActivity.java</code>にはクリックしたときの処理などを書きます。どちらも<code>app/src/main</code>の中にあります。",
+      "translation": "<code>activity_main.xml</code> တွင် မျက်နှာပြင်၏ အစိတ်အပိုင်းများနှင့် နေရာချထားပုံကို ရေးသည်။ <code>MainActivity.java</code> တွင် ကလစ်နှိပ်သည့်အခါ လုပ်ဆောင်မည့်အရာ စသည်တို့ကို ရေးသည်။ နှစ်ဖိုင်လုံး <code>app/src/main</code> ထဲတွင် ရှိသည်။"
+    },
+    {
+      "source": "復習する場所：<code>hello-android/index.html#step-2</code>",
+      "translation": "ပြန်လေ့လာရန်နေရာ: <code>hello-android/index.html#step-2</code>"
+    },
+    {
+      "source": "A01-02 · プロジェクト作成",
+      "translation": "A01-02 · Project ဖန်တီးခြင်း"
+    },
+    {
+      "source": "授業と同じJavaとXMLのプロジェクトを新しく作るとき、ひな形と<code>Language</code>の組み合わせはどれですか。",
+      "translation": "အတန်းတွင် သုံးသကဲ့သို့ Java နှင့် XML ပါသော project အသစ် ဖန်တီးရာတွင် ပုံစံနမူနာနှင့် <code>Language</code> အတွဲမှာ မည်သည်ဖြစ်သနည်း။"
+    },
+    {
+      "source": "<code>Empty Views Activity</code>と<code>Java</code>",
+      "translation": "<code>Empty Views Activity</code> နှင့် <code>Java</code>"
+    },
+    {
+      "source": "<code>Empty Views Activity</code>と<code>Kotlin</code>",
+      "translation": "<code>Empty Views Activity</code> နှင့် <code>Kotlin</code>"
+    },
+    {
+      "source": "<code>Empty Activity</code>と<code>Kotlin</code>",
+      "translation": "<code>Empty Activity</code> နှင့် <code>Kotlin</code>"
+    },
+    {
+      "source": "<code>No Activity</code>と<code>Java</code>",
+      "translation": "<code>No Activity</code> နှင့် <code>Java</code>"
+    },
+    {
+      "source": "正答：<strong><code>Empty Views Activity</code>と<code>Java</code></strong>",
+      "translation": "အဖြေမှန်: <strong><code>Empty Views Activity</code> နှင့် <code>Java</code></strong>"
+    },
+    {
+      "source": "ひな形の名前に<code>Views</code>があることを確かめ、<code>Language</code>はJavaを選びます。<code>Build configuration language</code>の<code>Kotlin DSL</code>は、アプリを書く言語とは別の設定です。",
+      "translation": "ပုံစံနမူနာ၏ နာမည်တွင် <code>Views</code> ပါကြောင်း စစ်ဆေးပြီး <code>Language</code> အတွက် Java ကို ရွေးပါ။ <code>Build configuration language</code> ရှိ <code>Kotlin DSL</code> သည် app ရေးရန်သုံးသော ဘာသာစကားနှင့် သီးခြားဖြစ်သည်။"
+    },
+    {
+      "source": "復習する場所：<code>hello-android/index.html#step-1</code>",
+      "translation": "ပြန်လေ့လာရန်နေရာ: <code>hello-android/index.html#step-1</code>"
+    },
+    {
+      "source": "A01-03 · <code>LinearLayout</code>の方向",
+      "translation": "A01-03 · <code>LinearLayout</code> ၏ ဦးတည်ရာ"
+    },
+    {
+      "source": "<code>LinearLayout</code>の中の3つのボタンを、左から右へ一列に並べる指定はどれですか。",
+      "translation": "<code>LinearLayout</code> ထဲရှိ ခလုတ် 3 ခုကို ဘယ်မှညာသို့ တစ်တန်းတည်း စီရန် ဘယ်သတ်မှတ်ချက်ကို သုံးမည်နည်း။"
+    },
+    {
+      "source": "正答：<strong><code>android:orientation=&quot;horizontal&quot;</code></strong>",
+      "translation": "အဖြေမှန်: <strong><code>android:orientation=&quot;horizontal&quot;</code></strong>"
+    },
+    {
+      "source": "<code>orientation</code>は並べる方向です。<code>horizontal</code>は横、<code>vertical</code>は縦に並べます。<code>gravity</code>は入れ物の中で部品をどこに寄せるかの指定です。",
+      "translation": "<code>orientation</code> သည် စီမည့် ဦးတည်ရာဖြစ်သည်။ <code>horizontal</code> ဖြင့် အလျားလိုက်၊ <code>vertical</code> ဖြင့် ဒေါင်လိုက် စီသည်။ <code>gravity</code> သည် container ထဲတွင် အစိတ်အပိုင်းများကို မည်သည့်နေရာတွင် ကပ်ထားမည်ကို သတ်မှတ်သည်။"
+    },
+    {
+      "source": "復習する場所：<code>hello-android/index.html#step-6</code>",
+      "translation": "ပြန်လေ့လာရန်နေရာ: <code>hello-android/index.html#step-6</code>"
+    },
+    {
+      "source": "A01-04 · <code>id</code>と<code>findViewById</code>",
+      "translation": "A01-04 · <code>id</code> နှင့် <code>findViewById</code>"
+    },
+    {
+      "source": "XMLに<code>android:id=&quot;@+id/text&quot;</code>を付けた<code>TextView</code>を、Javaから探す式はどれですか。",
+      "translation": "XML တွင် <code>TextView</code> ကို <code>android:id=&quot;@+id/text&quot;</code> ပေးထားသည်။ Java မှ ၎င်းကို ရှာသည့် expression မှာ မည်သည်နည်း။"
+    },
+    {
+      "source": "正答：<strong><code>findViewById(R.id.text)</code></strong>",
+      "translation": "အဖြေမှန်: <strong><code>findViewById(R.id.text)</code></strong>"
+    },
+    {
+      "source": "XMLの<code>@+id/text</code>とJavaの<code>R.id.text</code>が対応します。<code>id</code>は部品を見つける目印で、画面に表示する<code>android:text</code>とは別です。",
+      "translation": "XML ၏ <code>@+id/text</code> နှင့် Java ၏ <code>R.id.text</code> သည် တစ်ခုနှင့်တစ်ခု ကိုက်ညီသည်။ <code>id</code> သည် အစိတ်အပိုင်းကို ရှာဖွေရန် အမှတ်အသားဖြစ်သည်။ မျက်နှာပြင်တွင် ပြသမည့် <code>android:text</code> နှင့် သီးခြားဖြစ်သည်။"
+    },
+    {
+      "source": "復習する場所：<code>hello-android/index.html#step-4</code>",
+      "translation": "ပြန်လေ့လာရန်နေရာ: <code>hello-android/index.html#step-4</code>"
+    },
+    {
+      "source": "A01-05 · 部品の大きさ",
+      "translation": "A01-05 · အစိတ်အပိုင်း၏ အရွယ်အစား"
+    },
+    {
+      "source": "ボタンの<code>android:layout_width=&quot;wrap_content&quot;</code>は、横幅をどう決める指定ですか。",
+      "translation": "ခလုတ်၏ <code>android:layout_width=&quot;wrap_content&quot;</code> သည် အကျယ်ကို မည်သို့ သတ်မှတ်သနည်း။"
+    },
+    {
+      "source": "中身に必要な大きさにする",
+      "translation": "အတွင်းရှိ အကြောင်းအရာအတွက် လိုအပ်သလောက် အရွယ်အစား သတ်မှတ်သည်"
+    },
+    {
+      "source": "親の入れ物の横幅いっぱいにする",
+      "translation": "မိခင် container ၏ အကျယ်အပြည့် ထားသည်"
+    },
+    {
+      "source": "必ず画面の半分にする",
+      "translation": "မျက်နှာပြင်၏ တစ်ဝက် အမြဲထားသည်"
+    },
+    {
+      "source": "横幅を0にして見えなくする",
+      "translation": "အကျယ်ကို 0 ထားပြီး မမြင်ရအောင် လုပ်သည်"
+    },
+    {
+      "source": "正答：<strong>中身に必要な大きさにする</strong>",
+      "translation": "အဖြေမှန်: <strong>အတွင်းရှိ အကြောင်းအရာအတွက် လိုအပ်သလောက် အရွယ်အစား သတ်မှတ်သည်</strong>"
+    },
+    {
+      "source": "<code>wrap_content</code>は中身に必要な大きさにします。親の入れ物の大きさに合わせる指定は<code>match_parent</code>です。",
+      "translation": "<code>wrap_content</code> သည် အတွင်းရှိ အကြောင်းအရာ လိုအပ်သလောက် အရွယ်ကို သတ်မှတ်သည်။ မိခင် container ၏ အရွယ်နှင့် ကိုက်ညီစေရန် <code>match_parent</code> ကို သုံးသည်။"
+    },
+    {
+      "source": "復習する場所：<code>hello-android/index.html#step-3</code>",
+      "translation": "ပြန်လေ့လာရန်နေရာ: <code>hello-android/index.html#step-3</code>"
+    },
+    {
+      "source": "A01-06 · <code>var</code>とキャスト",
+      "translation": "A01-06 · <code>var</code> နှင့် cast"
+    },
+    {
+      "source": "<code>var text = (TextView) findViewById(R.id.text);</code> の<code>(TextView)</code>の役割はどれですか。",
+      "translation": "<code>var text = (TextView) findViewById(R.id.text);</code> ထဲရှိ <code>(TextView)</code> ၏ အခန်းကဏ္ဍက မည်သည်နည်း။"
+    },
+    {
+      "source": "見つけた部品を<code>TextView</code>として扱う",
+      "translation": "တွေ့ရှိသည့် အစိတ်အပိုင်းကို <code>TextView</code> အဖြစ် သုံးသည်"
+    },
+    {
+      "source": "部品に<code>TextView</code>という文字を表示する",
+      "translation": "အစိတ်အပိုင်းတွင် <code>TextView</code> ဟူသော စာသားကို ပြသည်"
+    },
+    {
+      "source": "XMLに新しい<code>TextView</code>を追加する",
+      "translation": "XML ထဲသို့ <code>TextView</code> အသစ် ထည့်သည်"
+    },
+    {
+      "source": "クリック処理を実行する",
+      "translation": "ကလစ်နှိပ်သည့် လုပ်ဆောင်ချက်ကို run လုပ်သည်"
+    },
+    {
+      "source": "正答：<strong>見つけた部品を<code>TextView</code>として扱う</strong>",
+      "translation": "အဖြေမှန်: <strong>တွေ့ရှိသည့် အစိတ်အပိုင်းကို <code>TextView</code> အဖြစ် သုံးသည်</strong>"
+    },
+    {
+      "source": "<code>(TextView)</code>はキャストで、見つけた部品を文字表示用の<code>TextView</code>として扱う指定です。<code>var</code>は右側の式から変数の型を決めます。",
+      "translation": "<code>(TextView)</code> သည် cast ဖြစ်သည်။ တွေ့ရှိသည့် အစိတ်အပိုင်းကို စာသားပြရန် သုံးသည့် <code>TextView</code> အဖြစ် သတ်မှတ်သည်။ <code>var</code> သည် ညာဘက် expression မှ variable အမျိုးအစားကို သတ်မှတ်သည်။"
+    },
+    {
+      "source": "A01-07 · クリック処理の実行時点",
+      "translation": "A01-07 · ကလစ်လုပ်ဆောင်ချက်ကို run သည့်အချိန်"
+    },
+    {
+      "source": "XMLの表示文字は<code>Hello World!</code>です。<code>onCreate</code>で次の処理を登録しました。起動して、まだボタンを押していないときの表示はどれですか。 <code>button.setOnClickListener(v -&gt; { text.setText(&quot;Hello, Android!&quot;); });</code>",
+      "translation": "XML တွင် ပြမည့်စာသားသည် <code>Hello World!</code> ဖြစ်သည်။ <code>onCreate</code> တွင် အောက်ပါ လုပ်ဆောင်ချက်ကို မှတ်ပုံတင်ထားသည်။ App ဖွင့်ပြီး ခလုတ်မနှိပ်သေးချိန်တွင် မည်သည်ကို ပြသမည်နည်း။ <code>button.setOnClickListener(v -&gt; { text.setText(&quot;Hello, Android!&quot;); });</code>"
+    },
+    {
+      "source": "何も表示されない",
+      "translation": "ဘာမှ မပြပါ"
+    },
+    {
+      "source": "正答：<strong><code>Hello World!</code></strong>",
+      "translation": "အဖြေမှန်: <strong><code>Hello World!</code></strong>"
+    },
+    {
+      "source": "<code>setOnClickListener</code>は、押されたときの処理を登録します。<code>setText</code>はクリック処理の中にあるため、ボタンを押してから<code>Hello, Android!</code>に変わります。",
+      "translation": "<code>setOnClickListener</code> သည် ခလုတ်နှိပ်သည့်အခါ လုပ်မည့်အရာကို မှတ်ပုံတင်သည်။ <code>setText</code> သည် ကလစ်လုပ်ဆောင်ချက်ထဲတွင် ရှိသောကြောင့် ခလုတ်နှိပ်ပြီးမှ <code>Hello, Android!</code> သို့ ပြောင်းသည်။"
+    },
+    {
+      "source": "A01-08 · 表示文字の取得",
+      "translation": "A01-08 · ပြထားသော စာသားကို ရယူခြင်း"
+    },
+    {
+      "source": "<code>TextView</code>の<code>text</code>から、今表示されている文字を<code>String</code>として取り出す式はどれですか。",
+      "translation": "<code>TextView</code> ဖြစ်သည့် <code>text</code> မှ ယခုပြထားသော စာသားကို <code>String</code> အဖြစ် ရယူမည့် expression မှာ မည်သည်နည်း။"
+    },
+    {
+      "source": "正答：<strong><code>text.getText().toString()</code></strong>",
+      "translation": "အဖြေမှန်: <strong><code>text.getText().toString()</code></strong>"
+    },
+    {
+      "source": "<code>getText()</code>で現在の表示文字を取り出し、<code>toString()</code>で<code>String</code>にします。<code>setText</code>は文字を取り出す処理ではなく、表示を変更する処理です。",
+      "translation": "<code>getText()</code> ဖြင့် ယခုပြထားသော စာသားကို ယူပြီး <code>toString()</code> ဖြင့် <code>String</code> သို့ ပြောင်းသည်။ <code>setText</code> သည် စာသားယူရန် မဟုတ်ဘဲ ပြထားသော စာသားကို ပြောင်းရန် ဖြစ်သည်။"
+    },
+    {
+      "source": "復習する場所：<code>hello-android/index.html#step-5</code>",
+      "translation": "ပြန်လေ့လာရန်နေရာ: <code>hello-android/index.html#step-5</code>"
+    },
+    {
+      "source": "<code>Log.d(&quot;MainActivity&quot;, string);</code> は何をする行ですか。",
+      "translation": "<code>Log.d(&quot;MainActivity&quot;, string);</code> သည် ဘာလုပ်သည့် စာကြောင်းဖြစ်သနည်း။"
+    },
+    {
+      "source": "<code>MainActivity</code>という目印で、<code>string</code>の内容をDebugログに出す",
+      "translation": "<code>MainActivity</code> ဟူသော အမှတ်အသားဖြင့် <code>string</code> ထဲရှိ အကြောင်းအရာကို Debug log တွင် ထုတ်သည်"
+    },
+    {
+      "source": "画面のタイトルを<code>string</code>に変える",
+      "translation": "မျက်နှာပြင်၏ ခေါင်းစဉ်ကို <code>string</code> သို့ ပြောင်းသည်"
+    },
+    {
+      "source": "<code>MainActivity</code>という文字を<code>Toast</code>に表示する",
+      "translation": "<code>MainActivity</code> ဟူသော စာသားကို <code>Toast</code> တွင် ပြသည်"
+    },
+    {
+      "source": "<code>string</code>をXMLの<code>id</code>として登録する",
+      "translation": "<code>string</code> ကို XML ၏ <code>id</code> အဖြစ် မှတ်ပုံတင်သည်"
+    },
+    {
+      "source": "正答：<strong><code>MainActivity</code>という目印で、<code>string</code>の内容をDebugログに出す</strong>",
+      "translation": "အဖြေမှန်: <strong><code>MainActivity</code> ဟူသော အမှတ်အသားဖြင့် <code>string</code> ထဲရှိ အကြောင်းအရာကို Debug log တွင် ထုတ်သည်</strong>"
+    },
+    {
+      "source": "<code>Log.d</code>の<code>d</code>はDebugです。開発者が動きを確認する記録を<code>Logcat</code>に出します。ログの文字とアプリ画面の表示は別なので、この行だけでは画面の文字は変わりません。",
+      "translation": "<code>Log.d</code> ၏ <code>d</code> သည် Debug ကို ဆိုလိုသည်။ Developer က app ၏ အလုပ်လုပ်ပုံကို စစ်ဆေးရန် မှတ်တမ်းကို <code>Logcat</code> တွင် ထုတ်သည်။ Log စာသားနှင့် app မျက်နှာပြင်ပေါ်ရှိ စာသားသည် သီးခြားဖြစ်သဖြင့် ဤစာကြောင်းဖြင့် မျက်နှာပြင်၏ စာသား မပြောင်းပါ။"
+    },
+    {
+      "source": "A01-10 · <code>Snackbar</code>と文字の取得",
+      "translation": "A01-10 · <code>Snackbar</code> နှင့် စာသားရယူခြင်း"
+    },
+    {
+      "source": "A01で<code>btn1</code>の<code>android:text</code>だけを「<code>1</code>」から「<code>できた</code>」に変えました。Javaは<code>btn1.getText().toString()</code>を<code>Snackbar</code>に表示するままです。<code>btn1</code>を押すと何が表示されますか。",
+      "translation": "A01 တွင် <code>btn1</code> ၏ <code>android:text</code> ကိုသာ “<code>1</code>” မှ 「<code>できた</code>」 (လုပ်နိုင်ပြီ) သို့ ပြောင်းခဲ့သည်။ Java code သည် <code>btn1.getText().toString()</code> ကို <code>Snackbar</code> တွင် ပြသည့်အတိုင်း ကျန်နေသည်။ <code>btn1</code> ကို နှိပ်လျှင် ဘာပေါ်မည်နည်း။"
+    },
+    {
+      "source": "正答：<strong><code>できた</code></strong>",
+      "translation": "အဖြေမှန်: <strong><code>できた</code></strong>"
+    },
+    {
+      "source": "Javaがボタンに現在表示されている文字を取り出すため、<code>Snackbar</code>も「<code>できた</code>」になります。Javaに固定の「<code>1</code>」を書いているわけではありません。",
+      "translation": "Java က ခလုတ်ပေါ်တွင် ယခုပြထားသော စာသားကို ရယူသောကြောင့် <code>Snackbar</code> တွင်လည်း 「<code>できた</code>」 (လုပ်နိုင်ပြီ) ဟု ပေါ်မည်။ Java ထဲတွင် “<code>1</code>” ကို အသေရေးထားခြင်း မဟုတ်ပါ။"
+    },
+    {
+      "source": "復習する場所：<code>hello-android/index.html#step-8</code>",
+      "translation": "ပြန်လေ့လာရန်နေရာ: <code>hello-android/index.html#step-8</code>"
+    },
+    {
+      "source": "A01-11 · 短いメッセージの表示",
+      "translation": "A01-11 · တိုတောင်းသော message ပြခြင်း"
+    },
+    {
+      "source": "<code>Toast.makeText(this, btn2Str, Toast.LENGTH_SHORT);</code> まで書きました。作った<code>Toast</code>を実際に表示するため、末尾につなぐメソッドはどれですか。",
+      "translation": "<code>Toast.makeText(this, btn2Str, Toast.LENGTH_SHORT);</code> အထိ ရေးပြီးပြီ။ ဖန်တီးထားသော <code>Toast</code> ကို ပြရန် အဆုံးတွင် မည်သည့် method ကို ဆက်ရေးမည်နည်း။"
+    },
+    {
+      "source": "正答：<strong><code>show()</code></strong>",
+      "translation": "အဖြေမှန်: <strong><code>show()</code></strong>"
+    },
+    {
+      "source": "<code>Toast.makeText(...)</code>で作り、<code>.show()</code>で表示します。<code>Snackbar</code>も同じく<code>show()</code>が必要です。<code>LENGTH_SHORT</code>は短い表示時間の設定です。",
+      "translation": "<code>Toast.makeText(...)</code> ဖြင့် ဖန်တီးပြီး <code>.show()</code> ဖြင့် ပြသည်။ <code>Snackbar</code> တွင်လည်း <code>show()</code> လိုအပ်သည်။ <code>LENGTH_SHORT</code> သည် ခဏတာ ပြသရန် သတ်မှတ်ချက် ဖြစ်သည်။"
+    },
+    {
+      "source": "復習する場所：<code>hello-android/index.html#step-7</code>",
+      "translation": "ပြန်လေ့လာရန်နေရာ: <code>hello-android/index.html#step-7</code>"
+    },
+    {
+      "source": "A01-12 · 余白の変更",
+      "translation": "A01-12 · နေရာလွတ် ပြောင်းခြင်း"
+    },
+    {
+      "source": "変更ボタンの<code>android:layout_marginTop</code>を<code>12dp</code>から<code>24dp</code>へ変えると、直接変わるものはどれですか。",
+      "translation": "ပြောင်းလဲရန် ခလုတ်၏ <code>android:layout_marginTop</code> ကို <code>12dp</code> မှ <code>24dp</code> သို့ ပြောင်းလျှင် မည်သည့်အရာ တိုက်ရိုက် ပြောင်းလဲမည်နည်း။"
+    },
+    {
+      "source": "ボタンの上のすき間",
+      "translation": "ခလုတ်အပေါ်ဘက်ရှိ နေရာလွတ်"
+    },
+    {
+      "source": "ボタンに表示する文字",
+      "translation": "ခလုတ်ပေါ်တွင် ပြမည့် စာသား"
+    },
+    {
+      "source": "ボタンを押したときの処理",
+      "translation": "ခလုတ်နှိပ်သည့်အခါ လုပ်မည့်အရာ"
+    },
+    {
+      "source": "ボタンを探すための<code>id</code>",
+      "translation": "ခလုတ်ကို ရှာရန် <code>id</code>"
+    },
+    {
+      "source": "正答：<strong>ボタンの上のすき間</strong>",
+      "translation": "အဖြေမှန်: <strong>ခလုတ်အပေါ်ဘက်ရှိ နေရာလွတ်</strong>"
+    },
+    {
+      "source": "<code>layout_marginTop</code>は部品の上のすき間を指定します。<code>12dp</code>から<code>24dp</code>にすると、そのすき間が広がります。文字やクリック処理の指定とは別です。",
+      "translation": "<code>layout_marginTop</code> သည် အစိတ်အပိုင်း၏ အပေါ်ဘက်ရှိ နေရာလွတ်ကို သတ်မှတ်သည်။ <code>12dp</code> မှ <code>24dp</code> သို့ ပြောင်းလျှင် ထိုနေရာလွတ် ပိုကျယ်လာသည်။ စာသားနှင့် ကလစ်လုပ်ဆောင်ချက်၏ သတ်မှတ်ချက်များနှင့် သီးခြားဖြစ်သည်။"
+    },
+    {
+      "source": "A02-01 · プレビュー用の文字",
+      "translation": "A02-01 · အစမ်းကြည့်ရန် စာသား"
+    },
+    {
+      "source": "A02の<code>TextView</code>に<code>tools:text=&quot;1問目: 10 - 3 =&quot;</code>だけを書いています。この文字の役割はどれですか。",
+      "translation": "A02 ရှိ <code>TextView</code> တွင် <code>tools:text=&quot;1問目: 10 - 3 =&quot;</code> သာ ရေးထားသည်။ ဤစာသား၏ အခန်းကဏ္ဍက မည်သည်နည်း။"
+    },
+    {
+      "source": "Android Studioのプレビュー用で、これだけでは実行画面に出ない",
+      "translation": "Android Studio ၏ အစမ်းကြည့်မြင်ကွင်းအတွက် ဖြစ်ပြီး ဤသတ်မှတ်ချက်တစ်ခုတည်းဖြင့် run သည့် မျက်နှာပြင်တွင် မပေါ်ပါ"
+    },
+    {
+      "source": "アプリ起動時に必ず出る問題文",
+      "translation": "App ဖွင့်ချိန်တွင် အမြဲပေါ်သော မေးခွန်း"
+    },
+    {
+      "source": "Javaで計算する答えを設定する",
+      "translation": "Java ဖြင့် တွက်မည့် အဖြေကို သတ်မှတ်သည်"
+    },
+    {
+      "source": "ボタンを押すたびに次の問題を作る",
+      "translation": "ခလုတ်နှိပ်တိုင်း နောက်မေးခွန်း ဖန်တီးသည်"
+    },
+    {
+      "source": "正答：<strong>Android Studioのプレビュー用で、これだけでは実行画面に出ない</strong>",
+      "translation": "အဖြေမှန်: <strong>Android Studio ၏ အစမ်းကြည့်မြင်ကွင်းအတွက် ဖြစ်ပြီး ဤသတ်မှတ်ချက်တစ်ခုတည်းဖြင့် run သည့် မျက်နှာပြင်တွင် မပေါ်ပါ</strong>"
+    },
+    {
+      "source": "<code>tools:text</code>はプレビュー専用です。A02の実行画面の問題文は、<code>START</code>後にJavaの<code>setText</code>で表示します。",
+      "translation": "<code>tools:text</code> သည် အစမ်းကြည့်မြင်ကွင်းအတွက်သာ ဖြစ်သည်။ A02 ကို run သည့် မျက်နှာပြင်တွင် မေးခွန်းကို <code>START</code> နောက်မှ Java ၏ <code>setText</code> ဖြင့် ပြသည်။"
+    },
+    {
+      "source": "復習する場所：<code>calc-game/index.html#step-2</code>",
+      "translation": "ပြန်လေ့လာရန်နေရာ: <code>calc-game/index.html#step-2</code>"
+    },
+    {
+      "source": "A02-02 · フィールドの型",
+      "translation": "A02-02 · field ၏ အမျိုးအစား"
+    },
+    {
+      "source": "ゲーム中かどうかを<code>true</code>または<code>false</code>で覚える<code>isPlaying</code>に使う型はどれですか。",
+      "translation": "ဂိမ်းကစားနေခြင်း ရှိမရှိကို <code>true</code> သို့မဟုတ် <code>false</code> ဖြင့် မှတ်ထားသည့် <code>isPlaying</code> အတွက် မည်သည့် အမျိုးအစားကို သုံးမည်နည်း။"
+    },
+    {
+      "source": "正答：<strong><code>boolean</code></strong>",
+      "translation": "အဖြေမှန်: <strong><code>boolean</code></strong>"
+    },
+    {
+      "source": "<code>boolean</code>は<code>true</code>か<code>false</code>を入れる型です。A02では<code>isPlaying</code>が<code>true</code>のときだけ回答を受け付けます。<code>int</code>は問題番号や正解数、<code>long</code>は経過時間に使っています。",
+      "translation": "<code>boolean</code> သည် <code>true</code> သို့မဟုတ် <code>false</code> ကို ထည့်သည့် အမျိုးအစားဖြစ်သည်။ A02 တွင် <code>isPlaying</code> က <code>true</code> ဖြစ်သည့်အခါမှ အဖြေလက်ခံသည်။ <code>int</code> ကို မေးခွန်းနံပါတ်နှင့် အဖြေမှန်အရေအတွက်အတွက်၊ <code>long</code> ကို ကုန်လွန်ချိန်အတွက် သုံးသည်။"
+    },
+    {
+      "source": "復習する場所：<code>calc-game/index.html#step-4</code>",
+      "translation": "ပြန်လေ့လာရန်နေရာ: <code>calc-game/index.html#step-4</code>"
+    },
+    {
+      "source": "A02-03 · フィールドとローカル変数",
+      "translation": "A02-03 · field နှင့် local variable"
+    },
+    {
+      "source": "A02で<code>txtMessage</code>を<code>onCreate</code>の外のフィールドにしている理由はどれですか。",
+      "translation": "A02 တွင် <code>txtMessage</code> ကို <code>onCreate</code> အပြင်ဘက်၌ field အဖြစ် ဘာကြောင့် ထားသနည်း။"
+    },
+    {
+      "source": "<code>onCreate</code>以外の<code>startQuestion</code>メソッドからも使うため",
+      "translation": "<code>onCreate</code> အပြင် <code>startQuestion</code> method မှလည်း သုံးသောကြောင့်"
+    },
+    {
+      "source": "<code>TextView</code>は必ずフィールドでなければならないため",
+      "translation": "<code>TextView</code> သည် field ဖြစ်ရမည်ဖြစ်သောကြောင့်"
+    },
+    {
+      "source": "<code>var</code>を付けると表示文字が毎回消えるため",
+      "translation": "<code>var</code> ထည့်လျှင် ပြထားသည့် စာသား အမြဲပျောက်သောကြောင့်"
+    },
+    {
+      "source": "フィールドにするとXMLを書かなくてよくなるため",
+      "translation": "field လုပ်လျှင် XML ရေးရန် မလိုတော့သောကြောင့်"
+    },
+    {
+      "source": "正答：<strong><code>onCreate</code>以外の<code>startQuestion</code>メソッドからも使うため</strong>",
+      "translation": "အဖြေမှန်: <strong><code>onCreate</code> အပြင် <code>startQuestion</code> method မှလည်း သုံးသောကြောင့်</strong>"
+    },
+    {
+      "source": "<code>txtMessage</code>は<code>onCreate</code>で取得し、別のメソッド<code>startQuestion</code>でも表示を変えます。そのためクラスのフィールドとして覚えます。<code>onCreate</code>の中だけで使う部品はローカル変数にしています。",
+      "translation": "<code>txtMessage</code> ကို <code>onCreate</code> ထဲတွင် ရယူပြီး အခြား method ဖြစ်သော <code>startQuestion</code> ထဲတွင်လည်း ပြထားသည့် စာသားကို ပြောင်းသည်။ ထို့ကြောင့် class ၏ field အဖြစ် မှတ်ထားသည်။ <code>onCreate</code> ထဲတွင်သာ သုံးသော အစိတ်အပိုင်းများကို local variable အဖြစ် ထားသည်။"
+    },
+    {
+      "source": "A02-04 · タイマーの再開",
+      "translation": "A02-04 · အချိန်ရေတွက်မှု ပြန်စခြင်း"
+    },
+    {
+      "source": "<code>STOP</code>までに6,000ミリ秒を保存しました。再開時の<code>SystemClock.elapsedRealtime()</code>が120,000なら、<code>120,000 - elapsedTimeMillis</code>で設定する<code>Chronometer</code>の<code>base</code>はいくつですか。",
+      "translation": "<code>STOP</code> အထိ 6,000 မီလီစက္ကန့်ကို သိမ်းထားသည်။ ပြန်စချိန်၌ <code>SystemClock.elapsedRealtime()</code> က 120,000 ဆိုလျှင် <code>120,000 - elapsedTimeMillis</code> ဖြင့် သတ်မှတ်သော <code>Chronometer</code> ၏ <code>base</code> သည် မည်မျှနည်း။"
+    },
+    {
+      "source": "正答：<strong>114,000</strong>",
+      "translation": "အဖြေမှန်: <strong>114,000</strong>"
+    },
+    {
+      "source": "<code>base</code>は現在の値から保存した経過時間を引くので、120,000 - 6,000 = 114,000です。これにより停止中の時間を足さず、6秒から再開できます。",
+      "translation": "<code>base</code> ကိုတွက်ရာတွင် လက်ရှိတန်ဖိုးမှ သိမ်းထားသော ကုန်လွန်ချိန်ကို နုတ်သောကြောင့် 120,000 - 6,000 = 114,000 ဖြစ်သည်။ ရပ်ထားသည့် အချိန် မပေါင်းဘဲ 6 စက္ကန့်မှ ပြန်စနိုင်သည်။"
+    },
+    {
+      "source": "復習する場所：<code>calc-game/index.html#step-5</code>",
+      "translation": "ပြန်လေ့လာရန်နေရာ: <code>calc-game/index.html#step-5</code>"
+    },
+    {
+      "source": "A02-05 · <code>STOP</code>と<code>START</code>",
+      "translation": "A02-05 · <code>STOP</code> နှင့် <code>START</code>"
+    },
+    {
+      "source": "A02で未回答の問題を表示したまま<code>STOP</code>し、その後<code>START</code>しました。<code>answer</code>には現在の答えが残っています。<code>if (answer == 0) { startQuestion(); }</code> の結果はどれですか。",
+      "translation": "A02 တွင် မဖြေရသေးသော မေးခွန်း ပေါ်နေစဉ် <code>STOP</code> လုပ်ပြီးနောက် <code>START</code> လုပ်ခဲ့သည်။ <code>answer</code> ထဲတွင် လက်ရှိအဖြေ ကျန်နေသည်။ <code>if (answer == 0) { startQuestion(); }</code> ၏ ရလဒ်မှာ မည်သည်နည်း။"
+    },
+    {
+      "source": "今の問題を残し、タイマーだけ再開する",
+      "translation": "လက်ရှိမေးခွန်း ကျန်နေပြီး အချိန်ရေတွက်မှုသာ ပြန်စသည်"
+    },
+    {
+      "source": "必ず別の問題を作ってから再開する",
+      "translation": "မေးခွန်းအသစ် ဖန်တီးပြီးမှ အမြဲပြန်စသည်"
+    },
+    {
+      "source": "問題番号と正解数を0に戻す",
+      "translation": "မေးခွန်းနံပါတ်နှင့် အဖြေမှန်အရေအတွက်ကို 0 သို့ ပြန်ထားသည်"
+    },
+    {
+      "source": "10問回答した結果を表示する",
+      "translation": "မေးခွန်း 10 ခု ဖြေထားသည့် ရလဒ်ကို ပြသည်"
+    },
+    {
+      "source": "正答：<strong>今の問題を残し、タイマーだけ再開する</strong>",
+      "translation": "အဖြေမှန်: <strong>လက်ရှိမေးခွန်း ကျန်နေပြီး အချိန်ရေတွက်မှုသာ ပြန်စသည်</strong>"
+    },
+    {
+      "source": "作った問題の答えは1〜9で、0ではありません。条件が<code>false</code>になるため<code>startQuestion</code>は呼ばれず、同じ問題のまま再開します。",
+      "translation": "ဖန်တီးထားသော မေးခွန်း၏ အဖြေသည် 1 မှ 9 အထိဖြစ်ပြီး 0 မဟုတ်ပါ။ အခြေအနေက <code>false</code> ဖြစ်သောကြောင့် <code>startQuestion</code> ကို မခေါ်ဘဲ မေးခွန်းအဟောင်းဖြင့် ပြန်စသည်။"
+    },
+    {
+      "source": "復習する場所：<code>calc-game/index.html#step-6</code>",
+      "translation": "ပြန်လေ့လာရန်နေရာ: <code>calc-game/index.html#step-6</code>"
+    },
+    {
+      "source": "A02で<code>RESET</code>後に1問目から遊び直すための状態として、正しい組み合わせはどれですか。",
+      "translation": "A02 တွင် <code>RESET</code> လုပ်ပြီး မေးခွန်း 1 မှ ပြန်ကစားနိုင်ရန် မှန်ကန်သော တန်ဖိုးအတွဲမှာ မည်သည်နည်း။"
+    },
+    {
+      "source": "正答：<strong><code>nowNo = 1</code>、<code>correctNo = 0</code>、<code>answer = 0</code>、<code>isPlaying = false</code></strong>",
+      "translation": "အဖြေမှန်: <strong><code>nowNo = 1</code>、<code>correctNo = 0</code>、<code>answer = 0</code>、<code>isPlaying = false</code></strong>"
+    },
+    {
+      "source": "<code>RESET</code>は問題番号を1、正解数と答えを0、ゲーム中のフラグを<code>false</code>に戻します。次の<code>START</code>では<code>answer == 0</code>となり、新しい問題を作ります。",
+      "translation": "<code>RESET</code> သည် မေးခွန်းနံပါတ်ကို 1၊ အဖြေမှန်အရေအတွက်နှင့် အဖြေကို 0၊ ကစားနေကြောင်းပြသည့် flag ကို <code>false</code> သို့ ပြန်ထားသည်။ နောက်တစ်ကြိမ် <code>START</code> လုပ်လျှင် <code>answer == 0</code> ဖြစ်၍ မေးခွန်းအသစ် ဖန်တီးသည်။"
+    },
+    {
+      "source": "A02-07 · 乱数の範囲",
+      "translation": "A02-07 · ကျပန်းကိန်း၏ အပိုင်းအခြား"
+    },
+    {
+      "source": "<code>ThreadLocalRandom.current().nextInt(1, 10)</code>で選ばれる整数の範囲はどれですか。",
+      "translation": "<code>ThreadLocalRandom.current().nextInt(1, 10)</code> က ရွေးမည့် ကိန်းပြည့်များ၏ အပိုင်းအခြားမှာ မည်သည်နည်း။"
+    },
+    {
+      "source": "1以上10未満（1〜9）",
+      "translation": "1 နှင့်အထက်၊ 10 မပါ (1 မှ 9)"
+    },
+    {
+      "source": "1以上10以下（1〜10）",
+      "translation": "1 မှ 10 အထိ နှစ်ခုလုံးပါ (1 မှ 10)"
+    },
+    {
+      "source": "0以上10未満（0〜9）",
+      "translation": "0 နှင့်အထက်၊ 10 မပါ (0 မှ 9)"
+    },
+    {
+      "source": "0以上10以下（0〜10）",
+      "translation": "0 မှ 10 အထိ နှစ်ခုလုံးပါ (0 မှ 10)"
+    },
+    {
+      "source": "正答：<strong>1以上10未満（1〜9）</strong>",
+      "translation": "အဖြေမှန်: <strong>1 နှင့်အထက်၊ 10 မပါ (1 မှ 9)</strong>"
+    },
+    {
+      "source": "先頭の1は含み、末尾の10は含みません。A02では<code>answer = 10 - randomNumber</code>とするため、答えも1〜9になります。同じ乱数が続くこともあります。",
+      "translation": "အစ 1 ပါပြီး အဆုံး 10 မပါပါ။ A02 တွင် <code>answer = 10 - randomNumber</code> ဖြစ်သောကြောင့် အဖြေသည်လည်း 1 မှ 9 အထိ ဖြစ်သည်။ ကျပန်းကိန်း တန်ဖိုးတူ ဆက်တိုက်ထွက်နိုင်သည်။"
+    },
+    {
+      "source": "A02-08 · 配列と拡張<code>for</code>文",
+      "translation": "A02-08 · array နှင့် enhanced <code>for</code> statement"
+    },
+    {
+      "source": "A02では、9個の<code>id</code>の配列を拡張<code>for</code>文で取り出し、各ボタンに<code>setOnClickListener</code>を付けます。この<code>for</code>文が行うことはどれですか。",
+      "translation": "A02 တွင် <code>id</code> 9 ခု ပါသော array မှ enhanced <code>for</code> statement ဖြင့် တစ်ခုစီ ထုတ်ယူပြီး ခလုတ်တိုင်းတွင် <code>setOnClickListener</code> တပ်သည်။ ဤ <code>for</code> statement သည် ဘာလုပ်သနည်း။"
+    },
+    {
+      "source": "画面を作るときに9個のボタンへクリック処理を登録する",
+      "translation": "မျက်နှာပြင် ဖန်တီးစဉ် ခလုတ် 9 ခုတွင် ကလစ်လုပ်ဆောင်ချက် မှတ်ပုံတင်သည်"
+    },
+    {
+      "source": "1個のボタンを押すたびに9回答を採点する",
+      "translation": "ခလုတ်တစ်ခုနှိပ်တိုင်း အဖြေ 9 ခုကို အမှတ်ပေးသည်"
+    },
+    {
+      "source": "<code>START</code>を押したときだけ9個のボタンを作る",
+      "translation": "<code>START</code> ကို နှိပ်သည့်အခါမှ ခလုတ် 9 ခု ဖန်တီးသည်"
+    },
+    {
+      "source": "配列の先頭のボタンだけに処理を登録する",
+      "translation": "Array ၏ ပထမဆုံးခလုတ်တွင်သာ လုပ်ဆောင်ချက် မှတ်ပုံတင်သည်"
+    },
+    {
+      "source": "正答：<strong>画面を作るときに9個のボタンへクリック処理を登録する</strong>",
+      "translation": "အဖြေမှန်: <strong>မျက်နှာပြင် ဖန်တီးစဉ် ခလုတ် 9 ခုတွင် ကလစ်လုပ်ဆောင်ချက် မှတ်ပုံတင်သည်</strong>"
+    },
+    {
+      "source": "外側の<code>for</code>文は画面を作るときに動きます。登録したクリック処理が動くのは、それぞれのボタンを実際に押したときです。",
+      "translation": "အပြင်ဘက် <code>for</code> statement သည် မျက်နှာပြင် ဖန်တီးချိန်၌ အလုပ်လုပ်သည်။ မှတ်ပုံတင်ထားသည့် ကလစ်လုပ်ဆောင်ချက်က သက်ဆိုင်ရာခလုတ်ကို နှိပ်မှ အလုပ်လုပ်သည်။"
+    },
+    {
+      "source": "復習する場所：<code>calc-game/index.html#step-7</code>",
+      "translation": "ပြန်လေ့လာရန်နေရာ: <code>calc-game/index.html#step-7</code>"
+    },
+    {
+      "source": "A02-09 · 文字から整数への変換",
+      "translation": "A02-09 · စာသားမှ ကိန်းပြည့်သို့ ပြောင်းခြင်း"
+    },
+    {
+      "source": "数字ボタンに「<code>6</code>」と表示されています。<code>Integer.parseInt(btn.getText().toString())</code>が返すものはどれですか。",
+      "translation": "ဂဏန်းခလုတ်ပေါ်တွင် “<code>6</code>” ဟု ပြထားသည်။ <code>Integer.parseInt(btn.getText().toString())</code> က မည်သည့်တန်ဖိုးကို ပြန်ပေးသနည်း။"
+    },
+    {
+      "source": "整数の6",
+      "translation": "ကိန်းပြည့် 6"
+    },
+    {
+      "source": "文字列の<code>&quot;6&quot;</code>",
+      "translation": "စာသား <code>&quot;6&quot;</code>"
+    },
+    {
+      "source": "ボタンの<code>id</code>",
+      "translation": "ခလုတ်၏ <code>id</code>"
+    },
+    {
+      "source": "<code>boolean</code>の<code>true</code>",
+      "translation": "<code>boolean</code> ၏ <code>true</code>"
+    },
+    {
+      "source": "正答：<strong>整数の6</strong>",
+      "translation": "အဖြေမှန်: <strong>ကိန်းပြည့် 6</strong>"
+    },
+    {
+      "source": "<code>getText().toString()</code>で取り出した文字列を、<code>Integer.parseInt</code>で整数に変換します。その整数を<code>answer</code>と比較して採点します。",
+      "translation": "<code>getText().toString()</code> မှ ရယူထားသော စာသားကို <code>Integer.parseInt</code> ဖြင့် ကိန်းပြည့်သို့ ပြောင်းသည်။ ထိုကိန်းပြည့်ကို <code>answer</code> နှင့် တိုက်ဆိုင်စစ်ဆေး၍ အမှတ်ပေးသည်။"
+    },
+    {
+      "source": "A02-10 · 条件分岐と<code>return</code>",
+      "translation": "A02-10 · အခြေအနေအလိုက် ခွဲခြင်းနှင့် <code>return</code>"
+    },
+    {
+      "source": "数字ボタンの処理は<code>if (!isPlaying) { Snackbar.make(...).show(); return; }</code>から始まります。<code>STOP</code>後の<code>isPlaying</code>が<code>false</code>のとき、下にある採点処理はどうなりますか。",
+      "translation": "ဂဏန်းခလုတ်၏ လုပ်ဆောင်ချက်သည် <code>if (!isPlaying) { Snackbar.make(...).show(); return; }</code> ဖြင့် စသည်။ <code>STOP</code> နောက်တွင် <code>isPlaying</code> သည် <code>false</code> ဖြစ်လျှင် အောက်ရှိ အမှတ်ပေးမှု ဘာဖြစ်မည်နည်း။"
+    },
+    {
+      "source": "<code>return</code>でクリック処理を終えるため、採点しない",
+      "translation": "<code>return</code> ဖြင့် ကလစ်လုပ်ဆောင်ချက်ကို အဆုံးသတ်၍ အမှတ်မပေးပါ"
+    },
+    {
+      "source": "<code>false</code>なので<code>if</code>を飛ばして採点する",
+      "translation": "<code>false</code> ဖြစ်သောကြောင့် <code>if</code> ကို ကျော်ပြီး အမှတ်ပေးသည်"
+    },
+    {
+      "source": "<code>Snackbar</code>を表示したあと必ず採点する",
+      "translation": "<code>Snackbar</code> ပြပြီးနောက် အမြဲ အမှတ်ပေးသည်"
+    },
+    {
+      "source": "正解した場合だけ<code>return</code>を無視して採点する",
+      "translation": "အဖြေမှန်မှသာ <code>return</code> ကို လျစ်လျူရှုပြီး အမှတ်ပေးသည်"
+    },
+    {
+      "source": "正答：<strong><code>return</code>でクリック処理を終えるため、採点しない</strong>",
+      "translation": "အဖြေမှန်: <strong><code>return</code> ဖြင့် ကလစ်လုပ်ဆောင်ချက်ကို အဆုံးသတ်၍ အမှတ်မပေးပါ</strong>"
+    },
+    {
+      "source": "<code>!false</code>は<code>true</code>です。案内を出したあと<code>return</code>でそのクリック処理を終えるので、下の採点処理には進みません。",
+      "translation": "<code>!false</code> သည် <code>true</code> ဖြစ်သည်။ လမ်းညွှန်ချက် ပြပြီးနောက် <code>return</code> ဖြင့် ထိုကလစ်လုပ်ဆောင်ချက်ကို အဆုံးသတ်သဖြင့် အောက်ရှိ အမှတ်ပေးမှုသို့ မရောက်ပါ။"
+    },
+    {
+      "source": "A02-11 · 正解数と問題番号",
+      "translation": "A02-11 · အဖြေမှန်အရေအတွက်နှင့် မေးခွန်းနံပါတ်"
+    },
+    {
+      "source": "A02で1問目を間違えました。採点前は<code>nowNo = 1</code>、<code>correctNo = 0</code>です。正解時だけ<code>correctNo++</code>し、その後2問目へ進むと、値はどうなりますか。",
+      "translation": "A02 တွင် ပထမမေးခွန်းကို မှားဖြေခဲ့သည်။ အမှတ်မပေးမီ <code>nowNo = 1</code> နှင့် <code>correctNo = 0</code> ဖြစ်သည်။ အဖြေမှန်မှ <code>correctNo++</code> လုပ်ပြီးနောက် ဒုတိယမေးခွန်းသို့ ဆက်လျှင် တန်ဖိုးများက မည်သို့ဖြစ်မည်နည်း။"
+    },
+    {
+      "source": "<code>nowNo</code>は2、<code>correctNo</code>は0",
+      "translation": "<code>nowNo</code> က 2၊ <code>correctNo</code> က 0"
+    },
+    {
+      "source": "<code>nowNo</code>は1、<code>correctNo</code>は0",
+      "translation": "<code>nowNo</code> က 1၊ <code>correctNo</code> က 0"
+    },
+    {
+      "source": "<code>nowNo</code>は2、<code>correctNo</code>は1",
+      "translation": "<code>nowNo</code> က 2၊ <code>correctNo</code> က 1"
+    },
+    {
+      "source": "<code>nowNo</code>は1、<code>correctNo</code>は1",
+      "translation": "<code>nowNo</code> က 1၊ <code>correctNo</code> က 1"
+    },
+    {
+      "source": "正答：<strong><code>nowNo</code>は2、<code>correctNo</code>は0</strong>",
+      "translation": "အဖြေမှန်: <strong><code>nowNo</code> က 2၊ <code>correctNo</code> က 0</strong>"
+    },
+    {
+      "source": "<code>correctNo</code>は<code>number == answer</code>のときだけ増えます。一方、次の問題へ進む処理は正誤の条件の外にあるので、不正解でも問題番号は進みます。",
+      "translation": "<code>correctNo</code> သည် <code>number == answer</code> ဖြစ်မှ တိုးသည်။ နောက်မေးခွန်းသို့ ဆက်သည့် လုပ်ဆောင်ချက်သည် အဖြေမှန်မမှန် စစ်သော အခြေအနေ၏ အပြင်ဘက်တွင်ရှိသဖြင့် မှားဖြေလျှင်လည်း မေးခွန်းနံပါတ် တိုးသည်။"
+    },
+    {
+      "source": "復習する場所：<code>calc-game/index.html#step-8</code>",
+      "translation": "ပြန်လေ့လာရန်နေရာ: <code>calc-game/index.html#step-8</code>"
+    },
+    {
+      "source": "A02-12 · 10問終了の境界",
+      "translation": "A02-12 · မေးခွန်း 10 ခု ပြည့်သည့် အခြေအနေ"
+    },
+    {
+      "source": "A02では回答後に<code>if (nowNo &lt;= 9) { nowNo++; startQuestion(); } else { 結果表示 }</code>と判定します。<code>nowNo</code>が9の問題に回答した直後はどうなりますか。",
+      "translation": "A02 က အဖြေရပြီးနောက် <code>if (nowNo &lt;= 9) { nowNo++; startQuestion(); } else { 結果表示 }</code> အတိုင်း ဆုံးဖြတ်သည်။ <code>nowNo</code> က 9 ဖြစ်သည့် မေးခွန်းကို ဖြေပြီးပြီးချင်း ဘာဖြစ်မည်နည်း။"
+    },
+    {
+      "source": "<code>nowNo</code>が10になり、10問目を表示する",
+      "translation": "<code>nowNo</code> က 10 ဖြစ်လာပြီး 10 ခုမြောက် မေးခွန်း ပေါ်မည်"
+    },
+    {
+      "source": "その場で結果を表示して9問で終わる",
+      "translation": "ရလဒ် ချက်ချင်းပေါ်ပြီး မေးခွန်း 9 ခုဖြင့် ပြီးဆုံးမည်"
+    },
+    {
+      "source": "<code>nowNo</code>が1になり、1問目へ戻る",
+      "translation": "<code>nowNo</code> က 1 ဖြစ်လာပြီး ပထမမေးခွန်းသို့ ပြန်မည်"
+    },
+    {
+      "source": "同じ9問目をもう一度表示する",
+      "translation": "9 ခုမြောက် မေးခွန်းကို ထပ်ပြမည်"
+    },
+    {
+      "source": "正答：<strong><code>nowNo</code>が10になり、10問目を表示する</strong>",
+      "translation": "အဖြေမှန်: <strong><code>nowNo</code> က 10 ဖြစ်လာပြီး 10 ခုမြောက် မေးခွန်း ပေါ်မည်</strong>"
+    },
+    {
+      "source": "<code>9 &lt;= 9</code>は<code>true</code>なので、番号を10にして次を出題します。10問目への回答後は<code>10 &lt;= 9</code>が<code>false</code>となり、結果表示へ進みます。",
+      "translation": "<code>9 &lt;= 9</code> သည် <code>true</code> ဖြစ်သဖြင့် နံပါတ်ကို 10 သို့ ပြောင်း၍ နောက်မေးခွန်း ပြသည်။ 10 ခုမြောက် မေးခွန်းကို ဖြေပြီးနောက် <code>10 &lt;= 9</code> က <code>false</code> ဖြစ်သဖြင့် ရလဒ်ကို ပြသည်။"
+    },
+    {
+      "source": "復習する場所：<code>calc-game/index.html#step-9</code>",
+      "translation": "ပြန်လေ့လာရန်နေရာ: <code>calc-game/index.html#step-9</code>"
+    },
+    {
+      "source": "A03-01 · 画像リソース",
+      "translation": "A03-01 · ရုပ်ပုံ resource"
+    },
+    {
+      "source": "<code>res/drawable</code>に置いた<code>rock.png</code>を、<code>ImageView</code>の<code>android:src</code>で指定する書き方はどれですか。",
+      "translation": "<code>res/drawable</code> တွင် ထားသော <code>rock.png</code> ကို <code>ImageView</code> ၏ <code>android:src</code> တွင် သတ်မှတ်ရန် မည်သို့ ရေးမည်နည်း။"
+    },
+    {
+      "source": "正答：<strong><code>@drawable/rock</code></strong>",
+      "translation": "အဖြေမှန်: <strong><code>@drawable/rock</code></strong>"
+    },
+    {
+      "source": "画像は<code>@drawable/名前</code>で参照し、<code>.png</code>は書きません。<code>id</code>は部品の目印、<code>layout</code>はレイアウトの資源を表します。",
+      "translation": "ရုပ်ပုံကို <code>@drawable/名前</code> ဖြင့် ညွှန်းပြီး <code>.png</code> ကို မရေးပါ။ <code>id</code> သည် အစိတ်အပိုင်း၏ အမှတ်အသား၊ <code>layout</code> သည် layout resource ကို ဆိုလိုသည်။"
+    },
+    {
+      "source": "復習する場所：<code>rock-paper-scissors-game/index.html#step-3</code>",
+      "translation": "ပြန်လေ့လာရန်နေရာ: <code>rock-paper-scissors-game/index.html#step-3</code>"
+    },
+    {
+      "source": "A03-02 · 幅を比率で分ける",
+      "translation": "A03-02 · အကျယ်ကို အချိုးဖြင့် ခွဲခြင်း"
+    },
+    {
+      "source": "A03の横向き<code>LinearLayout</code>にある3つの手は、すべて<code>layout_width=&quot;0dp&quot;</code>、<code>layout_weight=&quot;1&quot;</code>です。横幅はどう分かれますか。",
+      "translation": "A03 ၏ အလျားလိုက် <code>LinearLayout</code> ထဲရှိ လက်ပုံ 3 ပုံစလုံးတွင် <code>layout_width=&quot;0dp&quot;</code> နှင့် <code>layout_weight=&quot;1&quot;</code> သတ်မှတ်ထားသည်။ အကျယ်ကို မည်သို့ ခွဲဝေမည်နည်း။"
+    },
+    {
+      "source": "3つに等しく分かれる",
+      "translation": "3 ပိုင်း အညီအမျှ ခွဲမည်"
+    },
+    {
+      "source": "最初の画像だけが横幅いっぱいになる",
+      "translation": "ပထမပုံတစ်ပုံသာ အကျယ်အပြည့် ယူမည်"
+    },
+    {
+      "source": "すべて横幅0になり見えなくなる",
+      "translation": "အားလုံး အကျယ် 0 ဖြစ်ပြီး မမြင်ရပါ"
+    },
+    {
+      "source": "画像を追加した順に1倍・2倍・3倍になる",
+      "translation": "ပုံထည့်သည့်အစီအစဉ်အတိုင်း 1 ဆ၊ 2 ဆ၊ 3 ဆ ဖြစ်မည်"
+    },
+    {
+      "source": "正答：<strong>3つに等しく分かれる</strong>",
+      "translation": "အဖြေမှန်: <strong>3 ပိုင်း အညီအမျှ ခွဲမည်</strong>"
+    },
+    {
+      "source": "<code>0dp</code>と<code>layout_weight</code>で横幅を比率配分しています。3つとも重みが1なので、横幅を3等分します。",
+      "translation": "<code>0dp</code> နှင့် <code>layout_weight</code> ဖြင့် အကျယ်ကို အချိုးကျ ခွဲဝေသည်။ 3 ခုလုံး၏ weight သည် 1 ဖြစ်သဖြင့် အကျယ်ကို 3 ပိုင်း အညီအမျှ ခွဲသည်။"
+    },
+    {
+      "source": "A03-03 · 配列の番号",
+      "translation": "A03-03 · array ၏ index"
+    },
+    {
+      "source": "<code>imageViews</code>にはグー、チョキ、パーの順で画像を入れています。パーを押したとき、<code>selectedHand = i</code>で保存する番号はどれですか。",
+      "translation": "<code>imageViews</code> တွင် ကျောက်တုံး၊ ကတ်ကြေး၊ စက္ကူ အစီအစဉ်ဖြင့် ပုံများ ထည့်ထားသည်။ စက္ကူကို နှိပ်လျှင် <code>selectedHand = i</code> ဖြင့် ဘယ်နံပါတ်ကို သိမ်းမည်နည်း။"
+    },
+    {
+      "source": "正答：<strong>2</strong>",
+      "translation": "အဖြေမှန်: <strong>2</strong>"
+    },
+    {
+      "source": "配列の番号は0からです。グーが0、チョキが1、パーが2になります。この並びをCPUの画像や勝敗の計算でも使います。",
+      "translation": "Array ၏ index သည် 0 မှ စသည်။ ကျောက်တုံးက 0၊ ကတ်ကြေးက 1၊ စက္ကူက 2 ဖြစ်သည်။ CPU ပုံရွေးခြင်းနှင့် အနိုင်အရှုံး တွက်ခြင်းတို့တွင်လည်း ဤအစီအစဉ်ကို သုံးသည်။"
+    },
+    {
+      "source": "復習する場所：<code>rock-paper-scissors-game/index.html#step-5</code>",
+      "translation": "ပြန်လေ့လာရန်နေရာ: <code>rock-paper-scissors-game/index.html#step-5</code>"
+    },
+    {
+      "source": "A03-04 · 番号付き<code>for</code>文",
+      "translation": "A03-04 · index ပါသော <code>for</code> statement"
+    },
+    {
+      "source": "<code>imageViews.length</code>が3のとき、<code>for (var i = 0; i &lt; imageViews.length; i++)</code>の中で使われる<code>i</code>の値はどれですか。",
+      "translation": "<code>imageViews.length</code> က 3 ဖြစ်လျှင် <code>for (var i = 0; i &lt; imageViews.length; i++)</code> ထဲတွင် သုံးမည့် <code>i</code> တန်ဖိုးများမှာ မည်သည်တို့နည်း။"
+    },
+    {
+      "source": "3だけ",
+      "translation": "3 တစ်ခုတည်း"
+    },
+    {
+      "source": "正答：<strong>0、1、2</strong>",
+      "translation": "အဖြေမှန်: <strong>0、1、2</strong>"
+    },
+    {
+      "source": "0から始め、1ずつ増やし、<code>i &lt; 3</code>の間実行します。<code>i</code>が3になると条件が<code>false</code>になり、繰り返しを終えます。",
+      "translation": "0 မှစပြီး 1 စီတိုးကာ <code>i &lt; 3</code> ဖြစ်နေသမျှ run လုပ်သည်။ <code>i</code> က 3 ဖြစ်လာလျှင် အခြေအနေက <code>false</code> ဖြစ်ပြီး loop အဆုံးသတ်သည်။"
+    },
+    {
+      "source": "A03-05 · 選択状態",
+      "translation": "A03-05 · ရွေးထားသည့် အခြေအနေ"
+    },
+    {
+      "source": "グーを選んだあと、勝負する前にパーを押しました。A03の選択処理では、押した画像を赤くし、ほかの画像には<code>setBackground(null)</code>を実行します。結果はどれですか。",
+      "translation": "ကျောက်တုံးကို ရွေးပြီး မပြိုင်မီ စက္ကူကို နှိပ်ခဲ့သည်။ A03 ၏ ရွေးချယ်မှု လုပ်ဆောင်ချက်သည် နှိပ်သည့်ပုံကို အနီရောင်လုပ်ပြီး အခြားပုံများတွင် <code>setBackground(null)</code> ကို run သည်။ ရလဒ်မှာ မည်သည်နည်း။"
+    },
+    {
+      "source": "パーだけが赤くなり、選択番号は2になる",
+      "translation": "စက္ကူသာ အနီရောင်ဖြစ်ပြီး ရွေးထားသည့် နံပါတ်က 2 ဖြစ်မည်"
+    },
+    {
+      "source": "グーとパーの両方が赤くなり、選択番号は0のまま",
+      "translation": "ကျောက်တုံးနှင့် စက္ကူ နှစ်ခုလုံး အနီရောင်ဖြစ်ပြီး ရွေးထားသည့် နံပါတ်က 0 အတိုင်း ဖြစ်မည်"
+    },
+    {
+      "source": "どの画像も赤くならず、選択番号は-1になる",
+      "translation": "မည်သည့်ပုံမျှ အနီရောင်မဖြစ်ဘဲ ရွေးထားသည့် နံပါတ်က -1 ဖြစ်မည်"
+    },
+    {
+      "source": "CPUの画像が赤くなり、選択番号は3になる",
+      "translation": "CPU ၏ ပုံ အနီရောင်ဖြစ်ပြီး ရွေးထားသည့် နံပါတ်က 3 ဖြစ်မည်"
+    },
+    {
+      "source": "正答：<strong>パーだけが赤くなり、選択番号は2になる</strong>",
+      "translation": "အဖြေမှန်: <strong>စက္ကူသာ အနီရောင်ဖြစ်ပြီး ရွေးထားသည့် နံပါတ်က 2 ဖြစ်မည်</strong>"
+    },
+    {
+      "source": "押した画像の番号を<code>selectedHand</code>に保存し、それ以外の背景を消します。赤い背景は常に1つで、初期値-1はまだ選んでいない状態です。",
+      "translation": "နှိပ်ထားသော ပုံ၏ နံပါတ်ကို <code>selectedHand</code> တွင် သိမ်းပြီး အခြားပုံများ၏ နောက်ခံကို ဖယ်သည်။ အနီရောင် နောက်ခံ တစ်ခုသာ အမြဲရှိသည်။ မူလတန်ဖိုး -1 က မရွေးရသေးခြင်းကို ဆိုလိုသည်။"
+    },
+    {
+      "source": "A03-06 · 勝負後の操作制限",
+      "translation": "A03-06 · ပြိုင်ပြီးနောက် လုပ်ဆောင်မှု ကန့်သတ်ခြင်း"
+    },
+    {
+      "source": "A03で「<code>勝負！</code>」のあとに手を選び直せないようにする処理はどれですか。",
+      "translation": "A03 တွင် 「<code>勝負！</code>」 (ပြိုင်မည်!) နှိပ်ပြီးနောက် လက်ပုံကို ပြန်မရွေးနိုင်အောင် မည်သည့်လုပ်ဆောင်ချက်က လုပ်သနည်း။"
+    },
+    {
+      "source": "3つの手の画像に<code>setClickable(false)</code>を実行する",
+      "translation": "လက်ပုံ 3 ခုအတွက် <code>setClickable(false)</code> ကို run လုပ်သည်"
+    },
+    {
+      "source": "CPUの画像に<code>setVisibility(View.VISIBLE)</code>を実行する",
+      "translation": "CPU ၏ ပုံအတွက် <code>setVisibility(View.VISIBLE)</code> ကို run လုပ်သည်"
+    },
+    {
+      "source": "<code>winCount</code>を1増やす",
+      "translation": "<code>winCount</code> ကို 1 တိုးသည်"
+    },
+    {
+      "source": "選んだ手を<code>Log.d</code>で出力する",
+      "translation": "ရွေးထားသော လက်ဟန်ကို <code>Log.d</code> ဖြင့် ထုတ်ပြသည်"
+    },
+    {
+      "source": "正答：<strong>3つの手の画像に<code>setClickable(false)</code>を実行する</strong>",
+      "translation": "အဖြေမှန်: <strong>လက်ပုံ 3 ခုအတွက် <code>setClickable(false)</code> ကို run လုပ်သည်</strong>"
+    },
+    {
+      "source": "<code>setClickable(false)</code>で手の画像をクリックできなくします。「<code>次の戦いへ</code>」では<code>setClickable(true)</code>で選べる状態に戻します。",
+      "translation": "<code>setClickable(false)</code> ဖြင့် လက်ပုံများကို ကလစ်နှိပ်၍ မရအောင် လုပ်သည်။ 「<code>次の戦いへ</code>」 (နောက်တစ်ပွဲသို့) တွင် <code>setClickable(true)</code> ဖြင့် ပြန်ရွေးနိုင်အောင် လုပ်သည်။"
+    },
+    {
+      "source": "復習する場所：<code>rock-paper-scissors-game/index.html#step-6</code>",
+      "translation": "ပြန်လေ့လာရန်နေရာ: <code>rock-paper-scissors-game/index.html#step-6</code>"
+    },
+    {
+      "source": "A03-07 · CPUの乱数",
+      "translation": "A03-07 · CPU ၏ ကျပန်းကိန်း"
+    },
+    {
+      "source": "CPUの手を決める<code>ThreadLocalRandom.current().nextInt(3)</code>で出る値はどれですか。",
+      "translation": "CPU ၏ လက်ပုံကို ဆုံးဖြတ်သည့် <code>ThreadLocalRandom.current().nextInt(3)</code> မှ မည်သည့် တန်ဖိုးများ ထွက်နိုင်သနည်း။"
+    },
+    {
+      "source": "<code>nextInt(3)</code>は0以上3未満の整数を選びます。0〜2なので、3個の画像を入れた配列の番号としてそのまま使えます。",
+      "translation": "<code>nextInt(3)</code> သည် 0 နှင့်အထက်၊ 3 မပါသော ကိန်းပြည့်ကို ရွေးသည်။ 0 မှ 2 အထိဖြစ်သောကြောင့် ပုံ 3 ပုံ ထည့်ထားသော array ၏ index အဖြစ် တိုက်ရိုက် သုံးနိုင်သည်။"
+    },
+    {
+      "source": "A03-08 · 配列から画像を選ぶ",
+      "translation": "A03-08 · array မှ ရုပ်ပုံရွေးခြင်း"
+    },
+    {
+      "source": "<code>item</code>が<code>{R.drawable.rock, R.drawable.scissors, R.drawable.paper}</code>で、<code>cpu</code>が1です。<code>imgCpu.setImageResource(item[cpu]);</code>で表示する画像はどれですか。",
+      "translation": "<code>item</code> သည် <code>{R.drawable.rock, R.drawable.scissors, R.drawable.paper}</code> ဖြစ်ပြီး <code>cpu</code> က 1 ဖြစ်သည်။ <code>imgCpu.setImageResource(item[cpu]);</code> ဖြင့် မည်သည့်ပုံ ပြမည်နည်း။"
+    },
+    {
+      "source": "チョキ（<code>scissors</code>）",
+      "translation": "ကတ်ကြေး (<code>scissors</code>)"
+    },
+    {
+      "source": "グー（<code>rock</code>）",
+      "translation": "ကျောက်တုံး (<code>rock</code>)"
+    },
+    {
+      "source": "パー（<code>paper</code>）",
+      "translation": "စက္ကူ (<code>paper</code>)"
+    },
+    {
+      "source": "3つ全部",
+      "translation": "3 ပုံလုံး"
+    },
+    {
+      "source": "正答：<strong>チョキ（<code>scissors</code>）</strong>",
+      "translation": "အဖြေမှန်: <strong>ကတ်ကြေး (<code>scissors</code>)</strong>"
+    },
+    {
+      "source": "<code>item[1]</code>は2番目の値<code>R.drawable.scissors</code>です。<code>setImageResource</code>で、その画像を<code>ImageView</code>に表示します。",
+      "translation": "<code>item[1]</code> သည် ဒုတိယတန်ဖိုး <code>R.drawable.scissors</code> ဖြစ်သည်။ <code>setImageResource</code> ဖြင့် ထိုပုံကို <code>ImageView</code> တွင် ပြသည်။"
+    },
+    {
+      "source": "「<code>次の戦いへ</code>」で<code>imgCpu.setVisibility(View.INVISIBLE);</code>を実行すると、CPUの画像とその場所はどうなりますか。",
+      "translation": "「<code>次の戦いへ</code>」 (နောက်တစ်ပွဲသို့) တွင် <code>imgCpu.setVisibility(View.INVISIBLE);</code> ကို run လုပ်လျှင် CPU ၏ ပုံနှင့် ပုံပြသည့်နေရာ မည်သို့ ဖြစ်မည်နည်း။"
+    },
+    {
+      "source": "画像は見えなくなるが、表示する場所は残る",
+      "translation": "ပုံကို မမြင်ရတော့ဘဲ ပြသည့်နေရာ ကျန်မည်"
+    },
+    {
+      "source": "画像も表示する場所もなくなり、下の部品が詰まる",
+      "translation": "ပုံနှင့် ပြသည့်နေရာ နှစ်ခုလုံး ပျောက်ပြီး အောက်ရှိ အစိတ်အပိုင်းများ အပေါ်သို့ ရွေ့ကာ နေရာလွတ်ကို ဖြည့်မည်"
+    },
+    {
+      "source": "画像は見えたままで、クリックだけできなくなる",
+      "translation": "ပုံကို ဆက်မြင်ရပြီး ကလစ်နှိပ်၍သာ မရတော့ပါ"
+    },
+    {
+      "source": "画像がグーへ変更される",
+      "translation": "ပုံက ကျောက်တုံးသို့ ပြောင်းမည်"
+    },
+    {
+      "source": "正答：<strong>画像は見えなくなるが、表示する場所は残る</strong>",
+      "translation": "အဖြေမှန်: <strong>ပုံကို မမြင်ရတော့ဘဲ ပြသည့်နေရာ ကျန်မည်</strong>"
+    },
+    {
+      "source": "<code>INVISIBLE</code>は見えない状態にする指定です。場所は残るため、再び<code>VISIBLE</code>にすると同じ場所に表示できます。",
+      "translation": "<code>INVISIBLE</code> သည် မမြင်ရအောင် သတ်မှတ်ခြင်း ဖြစ်သည်။ နေရာကျန်သောကြောင့် <code>VISIBLE</code> သို့ ပြန်ပြောင်းလျှင် နေရာတူတွင် ပေါ်မည်။"
+    },
+    {
+      "source": "復習する場所：<code>rock-paper-scissors-game/index.html#step-7</code>",
+      "translation": "ပြန်လေ့လာရန်နေရာ: <code>rock-paper-scissors-game/index.html#step-7</code>"
+    },
+    {
+      "source": "A03-10 · 勝敗の計算",
+      "translation": "A03-10 · အနိုင်အရှုံး တွက်ချက်ခြင်း"
+    },
+    {
+      "source": "グー=0、チョキ=1、パー=2です。自分がグー、CPUがチョキのとき、<code>(selectedHand - cpu + 3) % 3</code>の結果と勝敗はどれですか。結果0は引き分け、1は負け、2は勝ちです。",
+      "translation": "ကျောက်တုံး=0၊ ကတ်ကြေး=1၊ စက္ကူ=2 ဖြစ်သည်။ မိမိက ကျောက်တုံး၊ CPU က ကတ်ကြေး ဖြစ်လျှင် <code>(selectedHand - cpu + 3) % 3</code> ၏ တန်ဖိုးနှင့် အနိုင်အရှုံးမှာ မည်သည်နည်း။ 0 ဆိုလျှင် သရေ၊ 1 ဆိုလျှင် ရှုံး၊ 2 ဆိုလျှင် နိုင်သည်။"
+    },
+    {
+      "source": "2で勝ち",
+      "translation": "2 ဖြစ်ပြီး နိုင်သည်"
+    },
+    {
+      "source": "0で引き分け",
+      "translation": "0 ဖြစ်ပြီး သရေကျသည်"
+    },
+    {
+      "source": "1で負け",
+      "translation": "1 ဖြစ်ပြီး ရှုံးသည်"
+    },
+    {
+      "source": "-1で負け",
+      "translation": "-1 ဖြစ်ပြီး ရှုံးသည်"
+    },
+    {
+      "source": "正答：<strong>2で勝ち</strong>",
+      "translation": "အဖြေမှန်: <strong>2 ဖြစ်ပြီး နိုင်သည်</strong>"
+    },
+    {
+      "source": "(0 - 1 + 3) % 3 = 2 % 3 = 2です。%は割り算の余りを求めます。3を足してから余りを求めることで、結果が0〜2になります。",
+      "translation": "(0 - 1 + 3) % 3 = 2 % 3 = 2 ဖြစ်သည်။ % က စားကြွင်းကို တွက်သည်။ စားကြွင်း မတွက်မီ 3 ပေါင်းသောကြောင့် ရလဒ်သည် 0 မှ 2 အထိ ဖြစ်သည်။"
+    },
+    {
+      "source": "復習する場所：<code>rock-paper-scissors-game/index.html#step-8</code>",
+      "translation": "ပြန်လေ့လာရန်နေရာ: <code>rock-paper-scissors-game/index.html#step-8</code>"
+    },
+    {
+      "source": "A03-11 · <code>switch</code>と<code>break</code>",
+      "translation": "A03-11 · <code>switch</code> နှင့် <code>break</code>"
+    },
+    {
+      "source": "A03の<code>switch</code>文で、<code>case</code>の処理の最後にある<code>break;</code>の役割はどれですか。",
+      "translation": "A03 ၏ <code>switch</code> statement တွင် <code>case</code> လုပ်ဆောင်ချက်အဆုံးရှိ <code>break;</code> ၏ အခန်းကဏ္ဍမှာ မည်သည်နည်း။"
+    },
+    {
+      "source": "その<code>case</code>の処理を終え、<code>switch</code>文を抜ける",
+      "translation": "ထို <code>case</code> ၏ လုပ်ဆောင်ချက်ကို အဆုံးသတ်ပြီး <code>switch</code> statement မှ ထွက်သည်"
+    },
+    {
+      "source": "次の<code>case</code>も必ず続けて実行する",
+      "translation": "နောက် <code>case</code> ကိုလည်း အမြဲဆက်၍ run လုပ်သည်"
+    },
+    {
+      "source": "アプリを終了する",
+      "translation": "app ကို ပိတ်ပါ"
+    },
+    {
+      "source": "CPUの手を再抽選する",
+      "translation": "CPU ၏ လက်ပုံကို ကျပန်းပြန်ရွေးသည်"
+    },
+    {
+      "source": "正答：<strong>その<code>case</code>の処理を終え、<code>switch</code>文を抜ける</strong>",
+      "translation": "အဖြေမှန်: <strong>ထို <code>case</code> ၏ လုပ်ဆောင်ချက်ကို အဆုံးသတ်ပြီး <code>switch</code> statement မှ ထွက်သည်</strong>"
+    },
+    {
+      "source": "<code>break</code>があるので、選ばれた<code>case</code>の処理のあとに<code>switch</code>文を抜けます。この書き方で<code>break</code>を忘れると、下の<code>case</code>の処理も続けて実行されます。",
+      "translation": "<code>break</code> ပါသောကြောင့် ရွေးထားသည့် <code>case</code> ၏ လုပ်ဆောင်ချက်ပြီးလျှင် <code>switch</code> statement မှ ထွက်သည်။ ဤရေးပုံတွင် <code>break</code> ရေးရန် မေ့လျှင် အောက်ရှိ <code>case</code> ၏ လုပ်ဆောင်ချက်ကိုပါ ဆက်၍ run သည်။"
+    },
+    {
+      "source": "A03-12 · 連勝数",
+      "translation": "A03-12 · ဆက်တိုက်နိုင်ပွဲ အရေအတွက်"
+    },
+    {
+      "source": "起動直後から「勝ち→<code>次の戦いへ</code>→勝ち→<code>次の戦いへ</code>→引き分け→<code>次の戦いへ</code>→勝ち」と進めました。最後の勝ちで表示する連勝数はいくつですか。",
+      "translation": "စဖွင့်ပြီး “နိုင် → 「<code>次の戦いへ</code>」 (နောက်တစ်ပွဲသို့) → နိုင် → 「<code>次の戦いへ</code>」 (နောက်တစ်ပွဲသို့) → သရေ → 「<code>次の戦いへ</code>」 (နောက်တစ်ပွဲသို့) → နိုင်” ဟု ကစားခဲ့သည်။ နောက်ဆုံးနိုင်ပွဲတွင် ဆက်တိုက်အနိုင် ဘယ်နှပွဲ ပြမည်နည်း။"
+    },
+    {
+      "source": "1連勝",
+      "translation": "ဆက်တိုက် 1 ပွဲနိုင်"
+    },
+    {
+      "source": "2連勝",
+      "translation": "ဆက်တိုက် 2 ပွဲနိုင်"
+    },
+    {
+      "source": "3連勝",
+      "translation": "ဆက်တိုက် 3 ပွဲနိုင်"
+    },
+    {
+      "source": "4連勝",
+      "translation": "ဆက်တိုက် 4 ပွဲနိုင်"
+    },
+    {
+      "source": "正答：<strong>1連勝</strong>",
+      "translation": "အဖြေမှန်: <strong>ဆက်တိုက် 1 ပွဲနိုင်</strong>"
+    },
+    {
+      "source": "<code>次の戦いへ</code>では連勝数を残しますが、引き分けや負けでは<code>winCount = 0</code>に戻します。引き分けの次の勝ちは、0を1増やして1連勝です。",
+      "translation": "「<code>次の戦いへ</code>」 (နောက်တစ်ပွဲသို့) တွင် ဆက်တိုက်နိုင်ပွဲအရေအတွက် ကျန်သည်။ သရေကျလျှင် သို့မဟုတ် ရှုံးလျှင် <code>winCount = 0</code> သို့ ပြန်ထားသည်။ သရေပြီးနောက် နိုင်လျှင် 0 မှ 1 တိုး၍ ဆက်တိုက် 1 ပွဲနိုင် ဖြစ်သည်။"
+    },
+    {
+      "source": "A04-01 · インターネットの許可",
+      "translation": "A04-01 · အင်တာနက်သုံးခွင့်"
+    },
+    {
+      "source": "<code>WebView</code>でインターネットのページを読むための<code>uses-permission</code>（<code>android.permission.INTERNET</code>）は、どこに追加しますか。",
+      "translation": "<code>WebView</code> ဖြင့် အင်တာနက် စာမျက်နှာ ဖတ်ရန် <code>uses-permission</code> (<code>android.permission.INTERNET</code>) ကို မည်သည့်နေရာတွင် ထည့်မည်နည်း။"
+    },
+    {
+      "source": "<code>AndroidManifest.xml</code>の<code>manifest</code>の中、<code>application</code>の外",
+      "translation": "<code>AndroidManifest.xml</code> ၏ <code>manifest</code> အတွင်း၊ <code>application</code> အပြင်"
+    },
+    {
+      "source": "<code>AndroidManifest.xml</code>の<code>application</code>の中",
+      "translation": "<code>AndroidManifest.xml</code> ၏ <code>application</code> အတွင်း"
+    },
+    {
+      "source": "<code>activity_main.xml</code>の<code>WebView</code>の中",
+      "translation": "<code>activity_main.xml</code> ၏ <code>WebView</code> အတွင်း"
+    },
+    {
+      "source": "<code>AppMenuItem.java</code>の<code>enum</code>の値の間",
+      "translation": "<code>AppMenuItem.java</code> ၏ <code>enum</code> တန်ဖိုးများကြား"
+    },
+    {
+      "source": "正答：<strong><code>AndroidManifest.xml</code>の<code>manifest</code>の中、<code>application</code>の外</strong>",
+      "translation": "အဖြေမှန်: <strong><code>AndroidManifest.xml</code> ၏ <code>manifest</code> အတွင်း၊ <code>application</code> အပြင်</strong>"
+    },
+    {
+      "source": "<code>manifest</code>の開始タグの下、<code>application</code>の上に宣言します。<code>application</code>の中に入れるとビルド時のエラーになります。この許可では確認の画面は出ません。",
+      "translation": "<code>manifest</code> ၏ အဖွင့် tag အောက်၊ <code>application</code> အပေါ်တွင် ကြေညာသည်။ <code>application</code> အတွင်း ထည့်လျှင် build အမှား ဖြစ်သည်။ ဤခွင့်ပြုချက်အတွက် အတည်ပြုရန် မျက်နှာပြင် မပေါ်ပါ။"
+    },
+    {
+      "source": "復習する場所：<code>webview-app/index.html#step-2</code>",
+      "translation": "ပြန်လေ့လာရန်နေရာ: <code>webview-app/index.html#step-2</code>"
+    },
+    {
+      "source": "A04-02 · <code>ActionBar</code>とメニュー",
+      "translation": "A04-02 · <code>ActionBar</code> နှင့် menu"
+    },
+    {
+      "source": "A04で2つの<code>themes.xml</code>のテーマ名から<code>.NoActionBar</code>を外す目的はどれですか。",
+      "translation": "A04 တွင် <code>themes.xml</code> ဖိုင် 2 ခု၏ theme နာမည်မှ <code>.NoActionBar</code> ကို ဘာကြောင့် ဖယ်သနည်း။"
+    },
+    {
+      "source": "メニュー（⋮）を置く<code>ActionBar</code>を表示する",
+      "translation": "Menu (⋮) ထားမည့် <code>ActionBar</code> ကို ပြသည်"
+    },
+    {
+      "source": "インターネット接続を許可する",
+      "translation": "အင်တာနက်ချိတ်ဆက်ခွင့် ပေးသည်"
+    },
+    {
+      "source": "JavaScriptを有効にする",
+      "translation": "JavaScript ကို ဖွင့်သည်"
+    },
+    {
+      "source": "<code>WebView</code>の閲覧履歴を消す",
+      "translation": "<code>WebView</code> ၏ ကြည့်ရှုမှုမှတ်တမ်းကို ဖျက်သည်"
+    },
+    {
+      "source": "正答：<strong>メニュー（⋮）を置く<code>ActionBar</code>を表示する</strong>",
+      "translation": "အဖြေမှန်: <strong>Menu (⋮) ထားမည့် <code>ActionBar</code> ကို ပြသည်</strong>"
+    },
+    {
+      "source": "この教材ではオプションメニューを<code>ActionBar</code>に表示します。<code>values</code>と<code>values-night</code>の2つの<code>themes.xml</code>から<code>.NoActionBar</code>を外します。",
+      "translation": "ဤသင်ခန်းစာတွင် options menu ကို <code>ActionBar</code> ပေါ်တွင် ပြသည်။ <code>values</code> နှင့် <code>values-night</code> ရှိ <code>themes.xml</code> ဖိုင် 2 ခုမှ <code>.NoActionBar</code> ကို ဖယ်သည်။"
+    },
+    {
+      "source": "<code>WebView</code>に<code>setWebViewClient(new WebViewClient())</code>を設定する目的はどれですか。",
+      "translation": "<code>WebView</code> တွင် <code>setWebViewClient(new WebViewClient())</code> ကို သတ်မှတ်ရခြင်း၏ ရည်ရွယ်ချက်မှာ မည်သည်နည်း။"
+    },
+    {
+      "source": "ページ内のリンクを、この<code>WebView</code>の中で開くようにする",
+      "translation": "စာမျက်နှာအတွင်းရှိ လင့်ခ်များကို ဤ <code>WebView</code> ထဲတွင် ဖွင့်ရန်"
+    },
+    {
+      "source": "すべてのページでJavaScriptを有効にする",
+      "translation": "စာမျက်နှာတိုင်းတွင် JavaScript ဖွင့်ရန်"
+    },
+    {
+      "source": "<code>INTERNET</code>の許可を自動で追加する",
+      "translation": "<code>INTERNET</code> ခွင့်ပြုချက်ကို အလိုအလျောက် ထည့်ရန်"
+    },
+    {
+      "source": "メニューの表示名を自動で翻訳する",
+      "translation": "Menu ပေါ်ရှိ နာမည်များကို အလိုအလျောက် ဘာသာပြန်ရန်"
+    },
+    {
+      "source": "正答：<strong>ページ内のリンクを、この<code>WebView</code>の中で開くようにする</strong>",
+      "translation": "အဖြေမှန်: <strong>စာမျက်နှာအတွင်းရှိ လင့်ခ်များကို ဤ <code>WebView</code> ထဲတွင် ဖွင့်ရန်</strong>"
+    },
+    {
+      "source": "<code>WebViewClient</code>を設定すると、ページ内のリンクもアプリの<code>WebView</code>の中で開きます。指定URLを最初に読み込む処理は<code>loadUrl</code>です。",
+      "translation": "<code>WebViewClient</code> သတ်မှတ်လျှင် စာမျက်နှာအတွင်း လင့်ခ်များကိုလည်း app ၏ <code>WebView</code> ထဲတွင် ဖွင့်သည်။ သတ်မှတ်ထားသော URL ကို အစတွင် ဖတ်ပေးသည်မှာ <code>loadUrl</code> ဖြစ်သည်။"
+    },
+    {
+      "source": "復習する場所：<code>webview-app/index.html#step-4</code>",
+      "translation": "ပြန်လေ့လာရန်နေရာ: <code>webview-app/index.html#step-4</code>"
+    },
+    {
+      "source": "A04-04 · <code>enum</code>にまとめる理由",
+      "translation": "A04-04 · <code>enum</code> ထဲတွင် စုထားရသည့်အကြောင်း"
+    },
+    {
+      "source": "A04でURLと表示名を別々の配列にせず、<code>enum AppMenuItem</code>の1つの値にまとめる利点はどれですか。",
+      "translation": "A04 တွင် URL နှင့် ပြမည့်နာမည်ကို သီးခြား array များအစား <code>enum AppMenuItem</code> ၏ တန်ဖိုးတစ်ခုထဲတွင် စုထားခြင်း၏ အားသာချက်မှာ မည်သည်နည်း။"
+    },
+    {
+      "source": "URLと表示名の組を1か所に書けるので、追加位置のずれを避けやすい",
+      "translation": "URL နှင့် ပြမည့်နာမည်အတွဲကို တစ်နေရာတည်းရေးနိုင်သဖြင့် ထည့်သည့်နေရာ လွဲမှားမှုကို ရှောင်ရလွယ်သည်"
+    },
+    {
+      "source": "URLのつづりが間違っていても必ず自動修正される",
+      "translation": "URL စာလုံးပေါင်း မှားလျှင်ပင် အမြဲ အလိုအလျောက် ပြင်ပေးသည်"
+    },
+    {
+      "source": "インターネット接続がなくても全サイトを表示できる",
+      "translation": "အင်တာနက်မချိတ်ထားလည်း site အားလုံးကို ပြနိုင်သည်"
+    },
+    {
+      "source": "サイトのページ内容が更新されなくなる",
+      "translation": "Site စာမျက်နှာ၏ အကြောင်းအရာ မွမ်းမံခြင်း ရပ်သွားသည်"
+    },
+    {
+      "source": "正答：<strong>URLと表示名の組を1か所に書けるので、追加位置のずれを避けやすい</strong>",
+      "translation": "အဖြေမှန်: <strong>URL နှင့် ပြမည့်နာမည်အတွဲကို တစ်နေရာတည်းရေးနိုင်သဖြင့် ထည့်သည့်နေရာ လွဲမှားမှုကို ရှောင်ရလွယ်သည်</strong>"
+    },
+    {
+      "source": "配列を2つ使うと、追加位置や片方の追加忘れで対応がずれることがあります。<code>enum</code>では1つの値にURLと表示名をまとめます。ただし、URL文字列のつづりまでは自動で検査しません。",
+      "translation": "Array 2 ခု သုံးလျှင် နေရာလွဲထည့်ခြင်း သို့မဟုတ် တစ်ဖက်တွင် ထည့်ရန် မေ့ခြင်းကြောင့် အတွဲမကိုက်နိုင်ပါ။ <code>enum</code> တွင် URL နှင့် ပြမည့်နာမည်ကို တန်ဖိုးတစ်ခုထဲတွင် တွဲထားသည်။ URL စာသား ရေးသားပုံ မှန်မမှန်ကိုမူ အလိုအလျောက် မစစ်ပါ။"
+    },
+    {
+      "source": "復習する場所：<code>webview-app/index.html#enum-merits</code>",
+      "translation": "ပြန်လေ့လာရန်နေရာ: <code>webview-app/index.html#enum-merits</code>"
+    },
+    {
+      "source": "A04-05 · <code>ordinal</code>と<code>values</code>",
+      "translation": "A04-05 · <code>ordinal</code> နှင့် <code>values</code>"
+    },
+    {
+      "source": "<code>AppMenuItem</code>を<code>YAHOO</code>、<code>GITHUB_COPILOT</code>、<code>SLAM_DUNK_MOVIE</code>、<code>CHAT_GPT</code>の順に定義しました。<code>AppMenuItem.values()[2]</code>で取り出す値はどれですか。",
+      "translation": "<code>AppMenuItem</code> ကို <code>YAHOO</code>၊ <code>GITHUB_COPILOT</code>၊ <code>SLAM_DUNK_MOVIE</code>၊ <code>CHAT_GPT</code> အစီအစဉ်ဖြင့် သတ်မှတ်ထားသည်။ <code>AppMenuItem.values()[2]</code> ဖြင့် မည်သည့်တန်ဖိုးကို ယူမည်နည်း။"
+    },
+    {
+      "source": "正答：<strong><code>SLAM_DUNK_MOVIE</code></strong>",
+      "translation": "အဖြေမှန်: <strong><code>SLAM_DUNK_MOVIE</code></strong>"
+    },
+    {
+      "source": "<code>values()</code>は定義した順の配列を返し、番号は0からです。<code>SLAM_DUNK_MOVIE</code>は3番目なので番号2で、<code>ordinal()</code>も2です。",
+      "translation": "<code>values()</code> သည် သတ်မှတ်ထားသော အစီအစဉ်အတိုင်း array ကို ပြန်ပေးပြီး index သည် 0 မှ စသည်။ <code>SLAM_DUNK_MOVIE</code> သည် တတိယတန်ဖိုး ဖြစ်သဖြင့် index က 2 ဖြစ်သည်။ <code>ordinal()</code> လည်း 2 ဖြစ်သည်။"
+    },
+    {
+      "source": "復習する場所：<code>webview-app/index.html#enum-usage</code>",
+      "translation": "ပြန်လေ့လာရန်နေရာ: <code>webview-app/index.html#enum-usage</code>"
+    },
+    {
+      "source": "A04-06 · コンストラクタとフィールド",
+      "translation": "A04-06 · constructor နှင့် field"
+    },
+    {
+      "source": "<code>AppMenuItem(String url, String title)</code>の中の<code>this.url = url;</code>で、左の<code>this.url</code>と右の<code>url</code>の関係はどれですか。",
+      "translation": "<code>AppMenuItem(String url, String title)</code> ထဲရှိ <code>this.url = url;</code> တွင် ဘယ်ဘက် <code>this.url</code> နှင့် ညာဘက် <code>url</code> သည် မည်သို့ ဆက်စပ်သနည်း။"
+    },
+    {
+      "source": "左はフィールド、右はコンストラクタが受け取った値",
+      "translation": "ဘယ်ဘက်က field၊ ညာဘက်က constructor လက်ခံရရှိသည့် တန်ဖိုး"
+    },
+    {
+      "source": "左は受け取った値、右はフィールド",
+      "translation": "ဘယ်ဘက်က လက်ခံရရှိသည့် တန်ဖိုး၊ ညာဘက်က field"
+    },
+    {
+      "source": "左右とも<code>WebView</code>の部品<code>id</code>",
+      "translation": "နှစ်ဘက်လုံး <code>WebView</code> အစိတ်အပိုင်း၏ <code>id</code>"
+    },
+    {
+      "source": "左右ともメニュー項目の番号",
+      "translation": "နှစ်ဘက်လုံး menu item ၏ နံပါတ်"
+    },
+    {
+      "source": "正答：<strong>左はフィールド、右はコンストラクタが受け取った値</strong>",
+      "translation": "အဖြေမှန်: <strong>ဘယ်ဘက်က field၊ ညာဘက်က constructor လက်ခံရရှိသည့် တန်ဖိုး</strong>"
+    },
+    {
+      "source": "<code>this.url</code>で、その値が持つフィールドを指します。右側の<code>url</code>は引数です。<code>private final String url</code>の<code>final</code>は、一度入れた値を変えない指定です。",
+      "translation": "<code>this.url</code> ဖြင့် ထိုတန်ဖိုး၏ field ကို ညွှန်းသည်။ ညာဘက်ရှိ <code>url</code> သည် parameter ဖြစ်သည်။ <code>private final String url</code> ရှိ <code>final</code> သည် ထည့်ပြီးသားတန်ဖိုးကို ပြန်မပြောင်းရန် သတ်မှတ်သည်။"
+    },
+    {
+      "source": "復習する場所：<code>webview-app/index.html#step-5</code>",
+      "translation": "ပြန်လေ့လာရန်နေရာ: <code>webview-app/index.html#step-5</code>"
+    },
+    {
+      "source": "A04-07 · メニューのクリック処理",
+      "translation": "A04-07 · Menu ကို ကလစ်နှိပ်သည့် လုပ်ဆောင်ချက်"
+    },
+    {
+      "source": "A04でメニューの項目を押したときに呼ばれ、項目<code>id</code>から<code>enum</code>の値を取り出して<code>loadUrl</code>するメソッドはどれですか。",
+      "translation": "A04 တွင် menu item ကို နှိပ်သည့်အခါ ခေါ်ပြီး item ၏ <code>id</code> မှ <code>enum</code> တန်ဖိုးကို ထုတ်ယူကာ <code>loadUrl</code> လုပ်သည့် method မှာ မည်သည်နည်း။"
+    },
+    {
+      "source": "正答：<strong><code>onOptionsItemSelected</code></strong>",
+      "translation": "အဖြေမှန်: <strong><code>onOptionsItemSelected</code></strong>"
+    },
+    {
+      "source": "<code>onCreateOptionsMenu</code>はメニューを用意するときの処理です。項目を押すと<code>onOptionsItemSelected</code>が呼ばれ、<code>AppMenuItem.values()[item.getItemId()]</code>で選択した値を取り出します。",
+      "translation": "<code>onCreateOptionsMenu</code> သည် menu ကို ပြင်ဆင်သည့် လုပ်ဆောင်ချက်ဖြစ်သည်။ Item ကို နှိပ်လျှင် <code>onOptionsItemSelected</code> ကို ခေါ်ပြီး <code>AppMenuItem.values()[item.getItemId()]</code> ဖြင့် ရွေးထားသော တန်ဖိုးကို ထုတ်ယူသည်။"
+    },
+    {
+      "source": "復習する場所：<code>webview-app/index.html#step-6</code>",
+      "translation": "ပြန်လေ့လာရန်နေရာ: <code>webview-app/index.html#step-6</code>"
+    },
+    {
+      "source": "A04-08 · <code>enum</code>の項目追加",
+      "translation": "A04-08 · <code>enum</code> တွင် item ထည့်ခြင်း"
+    },
+    {
+      "source": "メニューを<code>AppMenuItem.values()</code>の<code>for</code>文で作っています。4項目の<code>enum</code>の末尾に<code>JEC</code>を追加し、直前の値の末尾を<code>;</code>から<code>,</code>へ変えました。<code>MainActivity</code>を変えなくても起きることはどれですか。",
+      "translation": "Menu ကို <code>AppMenuItem.values()</code> သုံးသော <code>for</code> statement ဖြင့် ဖန်တီးသည်။ Item 4 ခုပါသည့် <code>enum</code> အဆုံး၌ <code>JEC</code> ကို ထည့်ပြီး ရှေ့တန်ဖိုးအဆုံးရှိ <code>;</code> ကို <code>,</code> သို့ ပြောင်းသည်။ <code>MainActivity</code> ကို မပြောင်းလဲဘဲ ဘာဖြစ်မည်နည်း။"
+    },
+    {
+      "source": "5つ目に<code>JEC</code>の表示名が追加され、その項目<code>id</code>は4になる",
+      "translation": "ပဉ္စမနေရာတွင် <code>JEC</code> ၏ ပြမည့်နာမည် ပေါ်ပြီး ထို item ၏ <code>id</code> က 4 ဖြစ်သည်"
+    },
+    {
+      "source": "<code>JEC</code>は追加されるが、項目<code>id</code>は5になる",
+      "translation": "<code>JEC</code> ကို ထည့်မည်၊ သို့သော် item ၏ <code>id</code> က 5 ဖြစ်မည်"
+    },
+    {
+      "source": "既存の4項目が消えて<code>JEC</code>だけになる",
+      "translation": "ရှိပြီးသား item 4 ခု ပျောက်ပြီး <code>JEC</code> သာ ကျန်မည်"
+    },
+    {
+      "source": "<code>MainActivity</code>に<code>menu.add</code>を足すまで<code>JEC</code>は出ない",
+      "translation": "<code>MainActivity</code> တွင် <code>menu.add</code> မထည့်မချင်း <code>JEC</code> မပေါ်ပါ"
+    },
+    {
+      "source": "正答：<strong>5つ目に<code>JEC</code>の表示名が追加され、その項目<code>id</code>は4になる</strong>",
+      "translation": "အဖြေမှန်: <strong>ပဉ္စမနေရာတွင် <code>JEC</code> ၏ ပြမည့်နာမည် ပေါ်ပြီး ထို item ၏ <code>id</code> က 4 ဖြစ်သည်</strong>"
+    },
+    {
+      "source": "<code>values()</code>で追加した値も取り出し、<code>ordinal()</code>を<code>id</code>に使います。番号は0からなので5つ目の<code>id</code>は4です。URLと表示名を<code>enum</code>に追加するだけで対応します。",
+      "translation": "<code>values()</code> ဖြင့် ထပ်ထည့်ထားသော တန်ဖိုးကိုပါ ရယူပြီး <code>ordinal()</code> ကို <code>id</code> အဖြစ် သုံးသည်။ နံပါတ်က 0 မှ စသဖြင့် ပဉ္စမ item ၏ <code>id</code> သည် 4 ဖြစ်သည်။ URL နှင့် ပြမည့်နာမည်ကို <code>enum</code> ထဲ ထည့်ရုံဖြင့် menu တွင် ပေါ်လာသည်။"
+    },
+    {
+      "source": "復習する場所：<code>webview-app/index.html#step-9</code>",
+      "translation": "ပြန်လေ့လာရန်နေရာ: <code>webview-app/index.html#step-9</code>"
+    },
+    {
+      "source": "A04-09 · JavaScriptの切り替え",
+      "translation": "A04-09 · JavaScript ဖွင့်ပိတ်ခြင်း"
+    },
+    {
+      "source": "A04で<code>JavaScript ON</code>のチェックを切り替えたとき、<code>setJavaScriptEnabled(isChecked)</code>のあとに<code>webView.reload()</code>を呼ぶ目的はどれですか。",
+      "translation": "A04 တွင် <code>JavaScript ON</code> ၏ အမှန်ခြစ်ကို ပြောင်းသည့်အခါ <code>setJavaScriptEnabled(isChecked)</code> ပြီးနောက် <code>webView.reload()</code> ကိုခေါ်ရခြင်း၏ ရည်ရွယ်ချက်မှာ မည်သည်နည်း။"
+    },
+    {
+      "source": "今のページを読み込み直して、変更した設定を反映する",
+      "translation": "ပြောင်းထားသော သတ်မှတ်ချက်ကို အသုံးချရန် လက်ရှိစာမျက်နှာကို ပြန်ဖတ်သည်"
+    },
+    {
+      "source": "メニューの項目数を数え直す",
+      "translation": "Menu item အရေအတွက်ကို ပြန်ရေတွက်သည်"
+    },
+    {
+      "source": "アプリをアンインストールする",
+      "translation": "App ကို uninstall လုပ်သည်"
+    },
+    {
+      "source": "チェックボックスの<code>id</code>を変更する",
+      "translation": "အမှန်ခြစ်ကွက်၏ <code>id</code> ကို ပြောင်းသည်"
+    },
+    {
+      "source": "正答：<strong>今のページを読み込み直して、変更した設定を反映する</strong>",
+      "translation": "အဖြေမှန်: <strong>ပြောင်းထားသော သတ်မှတ်ချက်ကို အသုံးချရန် လက်ရှိစာမျက်နှာကို ပြန်ဖတ်သည်</strong>"
+    },
+    {
+      "source": "<code>isChecked</code>は切り替えた後のチェック状態です。JavaScriptの有効・無効を設定し、<code>reload</code>で今のページを読み込み直します。JavaScriptはWebページの中で動く言語です。",
+      "translation": "<code>isChecked</code> သည် ပြောင်းပြီးနောက် အမှန်ခြစ်အခြေအနေဖြစ်သည်။ JavaScript ဖွင့်မဖွင့် သတ်မှတ်ပြီး <code>reload</code> ဖြင့် လက်ရှိစာမျက်နှာကို ပြန်ဖတ်သည်။ JavaScript သည် web စာမျက်နှာအတွင်း အလုပ်လုပ်သော ဘာသာစကားဖြစ်သည်။"
+    },
+    {
+      "source": "復習する場所：<code>webview-app/index.html#step-7</code>",
+      "translation": "ပြန်လေ့လာရန်နေရာ: <code>webview-app/index.html#step-7</code>"
+    },
+    {
+      "source": "A04-10 · ズーム",
+      "translation": "A04-10 · Zoom"
+    },
+    {
+      "source": "<code>webView.getSettings().setBuiltInZoomControls(true);</code>で有効にする操作はどれですか。",
+      "translation": "<code>webView.getSettings().setBuiltInZoomControls(true);</code> က မည်သည့်လုပ်ဆောင်ချက်ကို ဖွင့်ပေးသနည်း။"
+    },
+    {
+      "source": "2本指で広げたりつまんだりする拡大・縮小",
+      "translation": "လက်ချောင်း 2 ချောင်းဖြင့် ဖြန့်၍ အကြီးချဲ့ခြင်း၊ စု၍ ချုံ့ခြင်း"
+    },
+    {
+      "source": "チェックを付けてJavaScriptを切り替える操作",
+      "translation": "အမှန်ခြစ်ဖြင့် JavaScript ဖွင့်ပိတ်ခြင်း"
+    },
+    {
+      "source": "戻る操作で前のページへ戻る処理",
+      "translation": "နောက်သို့ ပြန်သည့်အခါ ယခင်စာမျက်နှာသို့ ပြန်ခြင်း"
+    },
+    {
+      "source": "メニューにサイトを追加する操作",
+      "translation": "Menu ထဲသို့ site ထည့်ခြင်း"
+    },
+    {
+      "source": "正答：<strong>2本指で広げたりつまんだりする拡大・縮小</strong>",
+      "translation": "အဖြေမှန်: <strong>လက်ချောင်း 2 ချောင်းဖြင့် ဖြန့်၍ အကြီးချဲ့ခြင်း၊ စု၍ ချုံ့ခြင်း</strong>"
+    },
+    {
+      "source": "組み込みのズーム操作を有効にします。ただし、サイト側が拡大を制限している場合は、拡大できないこともあります。",
+      "translation": "ပါပြီးသား zoom လုပ်ဆောင်ချက်ကို ဖွင့်ပေးသည်။ Site က အကြီးချဲ့မှု ကန့်သတ်ထားလျှင် ချဲ့၍ မရနိုင်ပါ။"
+    },
+    {
+      "source": "A04-11 · 戻る履歴の有無",
+      "translation": "A04-11 · ပြန်သွားနိုင်မည့် မှတ်တမ်း ရှိမရှိ"
+    },
+    {
+      "source": "<code>backCallback.setEnabled(view.canGoBack());</code>で、前のページがないため<code>canGoBack()</code>が<code>false</code>になりました。A04で次に戻る操作をするとどうなりますか。",
+      "translation": "<code>backCallback.setEnabled(view.canGoBack());</code> တွင် ပြန်သွားရန် ယခင်စာမျက်နှာ မရှိ၍ <code>canGoBack()</code> က <code>false</code> ဖြစ်သွားသည်။ A04 တွင် နောက်တစ်ကြိမ် နောက်သို့ ပြန်လျှင် ဘာဖြစ်မည်နည်း။"
+    },
+    {
+      "source": "独自の戻る処理が無効になり、Androidの通常の戻る操作でホームへ戻る",
+      "translation": "App ၏ သီးသန့် နောက်ပြန်လုပ်ဆောင်ချက် ပိတ်ပြီး Android ၏ ပုံမှန် နောက်ပြန်လုပ်ဆောင်ချက်ဖြင့် ပင်မမျက်နှာပြင်သို့ ပြန်မည်"
+    },
+    {
+      "source": "必ず<code>WebView</code>内の前のページに戻る",
+      "translation": "<code>WebView</code> ထဲရှိ ယခင်စာမျက်နှာသို့ အမြဲပြန်မည်"
+    },
+    {
+      "source": "最初のページを繰り返し読み込む",
+      "translation": "ပထမစာမျက်နှာကို ထပ်တလဲလဲ ဖတ်မည်"
+    },
+    {
+      "source": "アプリの設定から<code>INTERNET</code>の許可を消す",
+      "translation": "App သတ်မှတ်ချက်မှ <code>INTERNET</code> ခွင့်ပြုချက်ကို ဖယ်မည်"
+    },
+    {
+      "source": "正答：<strong>独自の戻る処理が無効になり、Androidの通常の戻る操作でホームへ戻る</strong>",
+      "translation": "အဖြေမှန်: <strong>App ၏ သီးသန့် နောက်ပြန်လုပ်ဆောင်ချက် ပိတ်ပြီး Android ၏ ပုံမှန် နောက်ပြန်လုပ်ဆောင်ချက်ဖြင့် ပင်မမျက်နှာပြင်သို့ ပြန်မည်</strong>"
+    },
+    {
+      "source": "前のページがある間だけ<code>backCallback</code>を有効にします。最初のページまで戻ると無効になり、通常の戻る操作に任せます。",
+      "translation": "ယခင်စာမျက်နှာ ရှိမှသာ <code>backCallback</code> ကို ဖွင့်ထားသည်။ ပထမစာမျက်နှာသို့ ပြန်ရောက်လျှင် ပိတ်ပြီး ပုံမှန် နောက်ပြန်လုပ်ဆောင်ချက်ကို သုံးသည်။"
+    },
+    {
+      "source": "復習する場所：<code>webview-app/index.html#step-8</code>",
+      "translation": "ပြန်လေ့လာရန်နေရာ: <code>webview-app/index.html#step-8</code>"
+    },
+    {
+      "source": "A04-12 · 戻る処理の登録",
+      "translation": "A04-12 · နောက်ပြန် လုပ်ဆောင်ချက် မှတ်ပုံတင်ခြင်း"
+    },
+    {
+      "source": "A04では<code>OnBackPressedCallback</code>を登録しています。このコールバックが有効なとき、<code>handleOnBackPressed</code>の中の<code>webView.goBack()</code>は何をしますか。",
+      "translation": "A04 တွင် <code>OnBackPressedCallback</code> ကို မှတ်ပုံတင်ထားသည်။ ဤ callback ဖွင့်ထားလျှင် <code>handleOnBackPressed</code> အတွင်းရှိ <code>webView.goBack()</code> က ဘာလုပ်သနည်း။"
+    },
+    {
+      "source": "<code>WebView</code>の履歴にある前のページに戻る",
+      "translation": "<code>WebView</code> ၏ မှတ်တမ်းရှိ ယခင်စာမျက်နှာသို့ ပြန်သည်"
+    },
+    {
+      "source": "メニューの先頭のサイトを必ず開く",
+      "translation": "Menu ၏ ပထမဆုံး site ကို အမြဲဖွင့်သည်"
+    },
+    {
+      "source": "JavaScriptの設定を初期値に戻す",
+      "translation": "JavaScript သတ်မှတ်ချက်ကို မူလတန်ဖိုးသို့ ပြန်ထားသည်"
+    },
+    {
+      "source": "<code>WebView</code>の表示を消して最初から起動し直す",
+      "translation": "<code>WebView</code> တွင် ပြသထားသည်ကို ဖယ်ပြီး အစမှ ပြန်စသည်"
+    },
+    {
+      "source": "正答：<strong><code>WebView</code>の履歴にある前のページに戻る</strong>",
+      "translation": "အဖြေမှန်: <strong><code>WebView</code> ၏ မှတ်တမ်းရှိ ယခင်စာမျက်နှာသို့ ပြန်သည်</strong>"
+    },
+    {
+      "source": "<code>goBack()</code>は閲覧履歴の前のページへ戻る処理です。この教材では、履歴が変わるたびに<code>canGoBack()</code>を調べ、前のページがあるときだけコールバックを有効にします。",
+      "translation": "<code>goBack()</code> သည် ကြည့်ရှုမှုမှတ်တမ်းရှိ ယခင်စာမျက်နှာသို့ ပြန်သည့် လုပ်ဆောင်ချက်ဖြစ်သည်။ ဤသင်ခန်းစာတွင် မှတ်တမ်းပြောင်းတိုင်း <code>canGoBack()</code> ကို စစ်ပြီး ယခင်စာမျက်နှာ ရှိမှသာ callback ကို ဖွင့်ထားသည်။"
+    },
+    {
+      "source": "A05-01 · 画像の切り替え",
+      "translation": "A05-01 · ရုပ်ပုံ ပြောင်းခြင်း"
+    },
+    {
+      "source": "A05で爆弾の<code>ImageView</code>を着火した画像に変える行はどれですか。",
+      "translation": "A05 တွင် ဗုံး၏ <code>ImageView</code> ကို မီးစွဲနေသည့်ပုံသို့ ပြောင်းသည့် စာကြောင်းမှာ မည်သည်နည်း။"
+    },
+    {
+      "source": "正答：<strong><code>imgBomb.setImageResource(R.drawable.bomb_ignited);</code></strong>",
+      "translation": "အဖြေမှန်: <strong><code>imgBomb.setImageResource(R.drawable.bomb_ignited);</code></strong>"
+    },
+    {
+      "source": "<code>setImageResource</code>で<code>ImageView</code>に表示する画像を変えます。<code>bomb_initial</code>は着火前、<code>bomb_ignited</code>は着火、<code>bomb_exploded</code>は爆発の画像です。",
+      "translation": "<code>setImageResource</code> ဖြင့် <code>ImageView</code> ပေါ်တွင် ပြမည့်ပုံကို ပြောင်းသည်။ <code>bomb_initial</code> သည် မီးမစွဲမီပုံ၊ <code>bomb_ignited</code> သည် မီးစွဲသည့်ပုံ၊ <code>bomb_exploded</code> သည် ပေါက်ကွဲသည့်ပုံ ဖြစ်သည်။"
+    },
+    {
+      "source": "復習する場所：<code>bomb-game/index.html#step-7</code>",
+      "translation": "ပြန်လေ့လာရန်နေရာ: <code>bomb-game/index.html#step-7</code>"
+    },
+    {
+      "source": "A05-02 · 乱数の配列",
+      "translation": "A05-02 · ကျပန်းကိန်း array"
+    },
+    {
+      "source": "<code>ThreadLocalRandom.current().ints(2, 1, 10).toArray()</code>が作る配列の説明はどれですか。",
+      "translation": "<code>ThreadLocalRandom.current().ints(2, 1, 10).toArray()</code> ဖန်တီးမည့် array ၏ မှန်ကန်သော ရှင်းလင်းချက်မှာ မည်သည်နည်း။"
+    },
+    {
+      "source": "1〜9の整数を2個入れた配列。2個が同じ値になる場合もある",
+      "translation": "1 မှ 9 အတွင်း ကိန်းပြည့် 2 လုံး ထည့်ထားသည့် array။ နှစ်လုံး တန်ဖိုးတူနိုင်သည်"
+    },
+    {
+      "source": "1〜10の整数を2個入れた配列。重複は自動で除かれる",
+      "translation": "1 မှ 10 အတွင်း ကိန်းပြည့် 2 လုံး ထည့်ထားသည့် array။ ထပ်နေသည်များ အလိုအလျောက် ဖယ်သည်"
+    },
+    {
+      "source": "2〜9の整数をすべて1回ずつ入れた配列",
+      "translation": "2 မှ 9 အတွင်း ကိန်းပြည့်အားလုံးကို တစ်ကြိမ်စီ ထည့်ထားသည့် array"
+    },
+    {
+      "source": "1と10だけを入れた配列",
+      "translation": "1 နှင့် 10 သာ ထည့်ထားသည့် array"
+    },
+    {
+      "source": "正答：<strong>1〜9の整数を2個入れた配列。2個が同じ値になる場合もある</strong>",
+      "translation": "အဖြေမှန်: <strong>1 မှ 9 အတွင်း ကိန်းပြည့် 2 လုံး ထည့်ထားသည့် array။ နှစ်လုံး တန်ဖိုးတူနိုင်သည်</strong>"
+    },
+    {
+      "source": "最初の2は個数、1は範囲の始まり、10は含まない上限です。この行だけでは重複を防げないため、後で<code>distinct().count()</code>で確かめます。",
+      "translation": "အစရှိ 2 သည် အရေအတွက်၊ 1 သည် အပိုင်းအခြား အစ၊ 10 သည် မပါဝင်သော အပေါ်ဆုံးအကန့်အသတ် ဖြစ်သည်။ ဤစာကြောင်း တစ်ကြောင်းတည်းဖြင့် တန်ဖိုးထပ်ခြင်းကို မတားနိုင်၍ နောက်မှ <code>distinct().count()</code> ဖြင့် စစ်သည်။"
+    },
+    {
+      "source": "復習する場所：<code>bomb-game/index.html#step-5</code>",
+      "translation": "ပြန်လေ့လာရန်နေရာ: <code>bomb-game/index.html#step-5</code>"
+    },
+    {
+      "source": "A05-03 · <code>do-while</code>文",
+      "translation": "A05-03 · <code>do-while</code> statement"
+    },
+    {
+      "source": "<code>do { 乱数を作る処理 } while (条件);</code> は、どの順で動きますか。",
+      "translation": "<code>do { 乱数を作る処理 } while (条件);</code> သည် မည်သည့် အစီအစဉ်ဖြင့် အလုပ်လုပ်သနည်း။"
+    },
+    {
+      "source": "中を必ず1回実行してから条件を調べ、<code>true</code>なら繰り返す",
+      "translation": "အတွင်းရှိ လုပ်ဆောင်ချက်ကို တစ်ကြိမ် မဖြစ်မနေ run ပြီး အခြေအနေကို စစ်သည်။ <code>true</code> ဖြစ်လျှင် ထပ်လုပ်သည်"
+    },
+    {
+      "source": "先に条件を調べ、<code>false</code>でも必ず2回実行する",
+      "translation": "အခြေအနေကို အရင်စစ်ပြီး <code>false</code> ဖြစ်လျှင်ပင် 2 ကြိမ် အမြဲ run သည်"
+    },
+    {
+      "source": "条件が<code>false</code>の間だけ繰り返す",
+      "translation": "အခြေအနေ <code>false</code> ဖြစ်နေသမျှသာ ထပ်လုပ်သည်"
+    },
+    {
+      "source": "中は1回も実行せず、条件だけを調べる",
+      "translation": "အတွင်းရှိ လုပ်ဆောင်ချက်ကို လုံးဝ မလုပ်ဘဲ အခြေအနေကိုသာ စစ်သည်"
+    },
+    {
+      "source": "正答：<strong>中を必ず1回実行してから条件を調べ、<code>true</code>なら繰り返す</strong>",
+      "translation": "အဖြေမှန်: <strong>အတွင်းရှိ လုပ်ဆောင်ချက်ကို တစ်ကြိမ် မဖြစ်မနေ run ပြီး အခြေအနေကို စစ်သည်။ <code>true</code> ဖြစ်လျှင် ထပ်လုပ်သည်</strong>"
+    },
+    {
+      "source": "<code>do-while</code>は後から条件を調べるため、中を少なくとも1回実行します。A05では、乱数を作ってから重複があるかを確かめる流れに使っています。",
+      "translation": "<code>do-while</code> သည် အခြေအနေကို နောက်မှစစ်သောကြောင့် အတွင်းရှိ လုပ်ဆောင်ချက်ကို အနည်းဆုံး တစ်ကြိမ် run သည်။ A05 တွင် ကျပန်းကိန်းများ ဖန်တီးပြီး ထပ်နေသလား စစ်သည့်အခါ သုံးသည်။"
+    },
+    {
+      "source": "A05-04 · <code>distinct</code>と<code>count</code>",
+      "translation": "A05-04 · <code>distinct</code> နှင့် <code>count</code>"
+    },
+    {
+      "source": "スイッチ候補の配列が<code>{5, 5}</code>です。<code>Arrays.stream(randomIgnitionNumbers).distinct().count() != 2</code>はどうなりますか。",
+      "translation": "Switch အတွက် ကျပန်းရွေးထားသော ဂဏန်းများ၏ array သည် <code>{5, 5}</code> ဖြစ်သည်။ <code>Arrays.stream(randomIgnitionNumbers).distinct().count() != 2</code> က ဘာဖြစ်မည်နည်း။"
+    },
+    {
+      "source": "重複を除いた個数は1なので<code>true</code>になり、作り直す",
+      "translation": "ထပ်နေသည်များ ဖယ်လျှင် အရေအတွက် 1 ဖြစ်၍ <code>true</code> ဖြစ်ပြီး ပြန်ဖန်တီးသည်"
+    },
+    {
+      "source": "配列の長さは2なので<code>false</code>になり、そのまま採用する",
+      "translation": "Array အရှည် 2 ဖြစ်၍ <code>false</code> ဖြစ်ပြီး ဤအတိုင်း သုံးသည်"
+    },
+    {
+      "source": "合計は10なので<code>true</code>になり、数字10を追加する",
+      "translation": "စုစုပေါင်း 10 ဖြစ်၍ <code>true</code> ဖြစ်ပြီး ဂဏန်း 10 ထည့်သည်"
+    },
+    {
+      "source": "重複を除いた個数は0なので、アプリを終了する",
+      "translation": "ထပ်နေသည်များ ဖယ်လျှင် အရေအတွက် 0 ဖြစ်၍ app ကို ပိတ်သည်"
+    },
+    {
+      "source": "正答：<strong>重複を除いた個数は1なので<code>true</code>になり、作り直す</strong>",
+      "translation": "အဖြေမှန်: <strong>ထပ်နေသည်များ ဖယ်လျှင် အရေအတွက် 1 ဖြစ်၍ <code>true</code> ဖြစ်ပြီး ပြန်ဖန်တီးသည်</strong>"
+    },
+    {
+      "source": "<code>distinct</code>は重複する値を除き、<code>count</code>はその個数を数えます。<code>{5, 5}</code>は5の1種類なので<code>1 != 2</code>が<code>true</code>です。違う2つの値なら個数2で繰り返しを終えます。",
+      "translation": "<code>distinct</code> က ထပ်နေသည့် တန်ဖိုးများကို ဖယ်သည်။ <code>count</code> က ကျန်သည့် တန်ဖိုးအရေအတွက်ကို ရေတွက်သည်။ <code>{5, 5}</code> တွင် တန်ဖိုး 5 တစ်မျိုးသာ ရှိသဖြင့် <code>1 != 2</code> က <code>true</code> ဖြစ်သည်။ မတူသည့် တန်ဖိုး 2 ခုရလျှင် အရေအတွက် 2 ဖြစ်ပြီး ထပ်လုပ်ခြင်းကို အဆုံးသတ်သည်။"
+    },
+    {
+      "source": "A05-05 · メソッドとフィールド",
+      "translation": "A05-05 · method နှင့် field"
+    },
+    {
+      "source": "A05で<code>private int[] randomIgnitionNumbers;</code>をフィールドにする理由はどれですか。",
+      "translation": "A05 တွင် <code>private int[] randomIgnitionNumbers;</code> ကို field အဖြစ် ထားရခြင်း၏ အကြောင်းရင်းမှာ မည်သည်နည်း။"
+    },
+    {
+      "source": "メソッドで作ったスイッチの数字を、あとでクリック処理から読むため",
+      "translation": "Method ဖြင့် ဖန်တီးထားသော switch နံပါတ်များကို နောက်ပိုင်း ကလစ်လုပ်ဆောင်ချက်မှ ဖတ်ရန်"
+    },
+    {
+      "source": "配列はすべて必ずフィールドにしなければならないため",
+      "translation": "Array တိုင်းကို field အဖြစ် မဖြစ်မနေ ထားရသောကြောင့်"
+    },
+    {
+      "source": "フィールドにすると乱数が重複しなくなるため",
+      "translation": "Field အဖြစ်ထားလျှင် ကျပန်းကိန်းများ မထပ်တော့သောကြောင့်"
+    },
+    {
+      "source": "<code>int[]</code>を使うと画像が自動で切り替わるため",
+      "translation": "<code>int[]</code> သုံးလျှင် ပုံများ အလိုအလျောက် ပြောင်းသောကြောင့်"
+    },
+    {
+      "source": "正答：<strong>メソッドで作ったスイッチの数字を、あとでクリック処理から読むため</strong>",
+      "translation": "အဖြေမှန်: <strong>Method ဖြင့် ဖန်တီးထားသော switch နံပါတ်များကို နောက်ပိုင်း ကလစ်လုပ်ဆောင်ချက်မှ ဖတ်ရန်</strong>"
+    },
+    {
+      "source": "<code>generateIgnitionNumbers</code>で作った配列をフィールドに入れ、数字ボタンを押したときに参照します。乱数の重複はフィールドではなく、<code>do-while</code>の判定で防ぎます。",
+      "translation": "<code>generateIgnitionNumbers</code> ဖြင့် ဖန်တီးထားသော array ကို field ထဲ ထည့်ပြီး ဂဏန်းခလုတ် နှိပ်သည့်အခါ ညွှန်းသုံးသည်။ ကျပန်းကိန်း ထပ်နေခြင်းကို field မဟုတ်ဘဲ <code>do-while</code> ထဲမှ စစ်ဆေးချက်ဖြင့် ကာကွယ်သည်။"
+    },
+    {
+      "source": "A05-06 · 同じボタンを押せなくする",
+      "translation": "A05-06 · တူညီသော ခလုတ်ကို ထပ်နှိပ်၍မရအောင် လုပ်ခြင်း"
+    },
+    {
+      "source": "数字ボタンのクリック処理の最初で<code>button.setEnabled(false);</code>を実行します。このゲームで防げることはどれですか。",
+      "translation": "ဂဏန်းခလုတ်၏ ကလစ်လုပ်ဆောင်ချက်အစတွင် <code>button.setEnabled(false);</code> ကို run သည်။ ဤဂိမ်းတွင် မည်သည့်အရာကို ကာကွယ်သနည်း။"
+    },
+    {
+      "source": "同じ数字を2回押すこと",
+      "translation": "တူညီသော ဂဏန်းကို 2 ကြိမ် နှိပ်ခြင်း"
+    },
+    {
+      "source": "違う数字を続けて押すこと",
+      "translation": "မတူညီသော ဂဏန်းများကို ဆက်တိုက် နှိပ်ခြင်း"
+    },
+    {
+      "source": "乱数が同じ組み合わせになること",
+      "translation": "တူညီသော ကျပန်းကိန်းအတွဲ ထပ်ပေါ်ခြင်း"
+    },
+    {
+      "source": "再挑戦ボタンを表示すること",
+      "translation": "ထပ်ကြိုးစားရန် ခလုတ်ကို ပြခြင်း"
+    },
+    {
+      "source": "正答：<strong>同じ数字を2回押すこと</strong>",
+      "translation": "အဖြေမှန်: <strong>တူညီသော ဂဏန်းကို 2 ကြိမ် နှိပ်ခြင်း</strong>"
+    },
+    {
+      "source": "押したボタンだけを無効にします。そのため、同じ導火線スイッチを2回押して状態を2段階進めることもできません。",
+      "translation": "နှိပ်ထားသော ခလုတ်ကိုသာ ပိတ်သည်။ ထို့ကြောင့် တူညီသော မီးစာ switch ကို 2 ကြိမ်နှိပ်၍ အခြေအနေကို 2 ဆင့် ရွှေ့၍ မရပါ။"
+    },
+    {
+      "source": "復習する場所：<code>bomb-game/index.html#step-6</code>",
+      "translation": "ပြန်လေ့လာရန်နေရာ: <code>bomb-game/index.html#step-6</code>"
+    },
+    {
+      "source": "スイッチが<code>{3, 7}</code>で、押した数字<code>number</code>が7です。<code>anyMatch(num -&gt; num == number)</code>の結果はどれですか。",
+      "translation": "Switch များက <code>{3, 7}</code> ဖြစ်ပြီး နှိပ်ထားသော ဂဏန်း <code>number</code> က 7 ဖြစ်သည်။ <code>anyMatch(num -&gt; num == number)</code> ၏ ရလဒ်မှာ မည်သည်နည်း။"
+    },
+    {
+      "source": "同じ値が1つあるので<code>true</code>",
+      "translation": "တူညီသည့် တန်ဖိုးတစ်ခု ရှိသဖြင့် <code>true</code>"
+    },
+    {
+      "source": "両方とも7ではないので<code>false</code>",
+      "translation": "နှစ်လုံးလုံး 7 မဟုတ်သောကြောင့် <code>false</code>"
+    },
+    {
+      "source": "配列の要素数である2",
+      "translation": "Array ထဲရှိ တန်ဖိုးအရေအတွက် 2"
+    },
+    {
+      "source": "一致した数字である7",
+      "translation": "တူညီသည့် ဂဏန်း 7"
+    },
+    {
+      "source": "正答：<strong>同じ値が1つあるので<code>true</code></strong>",
+      "translation": "အဖြေမှန်: <strong>တူညီသည့် တန်ဖိုးတစ်ခု ရှိသဖြင့် <code>true</code></strong>"
+    },
+    {
+      "source": "<code>anyMatch</code>は条件を満たす値が1つでもあれば<code>true</code>を返します。3は一致しなくても7が一致するので、スイッチと判定します。",
+      "translation": "<code>anyMatch</code> သည် အခြေအနေနှင့်ကိုက်သော တန်ဖိုး တစ်ခုရှိလျှင်ပင် <code>true</code> ပြန်ပေးသည်။ 3 မတူသော်လည်း 7 တူသောကြောင့် switch ဟု ဆုံးဖြတ်သည်။"
+    },
+    {
+      "source": "A05-08 · 状態遷移",
+      "translation": "A05-08 · အခြေအနေပြောင်းလဲမှု"
+    },
+    {
+      "source": "<code>STATE_INITIAL = 1</code>、<code>STATE_IGNITED = 2</code>、<code>STATE_EXPLODED = 3</code>です。起動直後から2つの異なるスイッチを続けて押し、各回<code>if (match) nowState++;</code>を実行すると、最後の状態はどれですか。",
+      "translation": "<code>STATE_INITIAL = 1</code>၊ <code>STATE_IGNITED = 2</code>၊ <code>STATE_EXPLODED = 3</code> ဖြစ်သည်။ App ဖွင့်ပြီး မတူသော switch 2 ခုကို ဆက်တိုက်နှိပ်၍ တစ်ကြိမ်စီ <code>if (match) nowState++;</code> ကို run လျှင် နောက်ဆုံး အခြေအနေက မည်သည်နည်း။"
+    },
+    {
+      "source": "3（爆発）",
+      "translation": "3 (ပေါက်ကွဲသည်)"
+    },
+    {
+      "source": "1（着火前）",
+      "translation": "1 (မီးမစွဲသေး)"
+    },
+    {
+      "source": "2（着火）",
+      "translation": "2 (မီးစွဲသည်)"
+    },
+    {
+      "source": "0（未選択）",
+      "translation": "0 (မရွေးရသေး)"
+    },
+    {
+      "source": "正答：<strong>3（爆発）</strong>",
+      "translation": "အဖြေမှန်: <strong>3 (ပေါက်ကွဲသည်)</strong>"
+    },
+    {
+      "source": "起動時の<code>nowState</code>は1です。1つ目のスイッチで2になり着火、2つ目で3になり爆発します。定数が1・2・3の連番なので<code>++</code>で次の状態へ進めます。",
+      "translation": "App စဖွင့်ချိန်တွင် <code>nowState</code> က 1 ဖြစ်သည်။ ပထမ switch နှိပ်လျှင် 2 ဖြစ်၍ မီးစွဲသည်။ ဒုတိယနှိပ်လျှင် 3 ဖြစ်၍ ပေါက်ကွဲသည်။ ကိန်းသေများ 1၊ 2၊ 3 ဆက်နေသောကြောင့် <code>++</code> ဖြင့် နောက်အခြေအနေသို့ သွားနိုင်သည်။"
+    },
+    {
+      "source": "A05-09 · 定数と変化する値",
+      "translation": "A05-09 · ကိန်းသေနှင့် ပြောင်းနိုင်သော တန်ဖိုး"
+    },
+    {
+      "source": "<code>private static final int STATE_INITIAL = 1;</code>と<code>private int nowState = STATE_INITIAL;</code>があります。ゲームで<code>nowState++</code>を実行したときの説明はどれですか。",
+      "translation": "<code>private static final int STATE_INITIAL = 1;</code> နှင့် <code>private int nowState = STATE_INITIAL;</code> ရှိသည်။ ဂိမ်းထဲတွင် <code>nowState++</code> ကို run လျှင် မည်သည့် ရှင်းလင်းချက် မှန်သနည်း။"
+    },
+    {
+      "source": "<code>nowState</code>は変わるが、定数<code>STATE_INITIAL</code>は1のまま",
+      "translation": "<code>nowState</code> ပြောင်းပြီး ကိန်းသေ <code>STATE_INITIAL</code> က 1 အတိုင်း ကျန်သည်"
+    },
+    {
+      "source": "<code>nowState</code>と<code>STATE_INITIAL</code>が両方2になる",
+      "translation": "<code>nowState</code> နှင့် <code>STATE_INITIAL</code> နှစ်ခုလုံး 2 ဖြစ်သည်"
+    },
+    {
+      "source": "<code>STATE_INITIAL</code>だけが2になり、<code>nowState</code>は1のまま",
+      "translation": "<code>STATE_INITIAL</code> သာ 2 ဖြစ်ပြီး <code>nowState</code> က 1 အတိုင်း ကျန်သည်"
+    },
+    {
+      "source": "<code>final</code>があるので<code>nowState</code>も絶対に変更できない",
+      "translation": "<code>final</code> ပါသဖြင့် <code>nowState</code> ကိုလည်း မည်သည့်အခါမျှ မပြောင်းနိုင်ပါ"
+    },
+    {
+      "source": "正答：<strong><code>nowState</code>は変わるが、定数<code>STATE_INITIAL</code>は1のまま</strong>",
+      "translation": "အဖြေမှန်: <strong><code>nowState</code> ပြောင်းပြီး ကိန်းသေ <code>STATE_INITIAL</code> က 1 အတိုင်း ကျန်သည်</strong>"
+    },
+    {
+      "source": "<code>STATE_INITIAL</code>は<code>final</code>の定数です。<code>nowState</code>はその値を最初に受け取り、その後の現在状態を覚える別のフィールドなので変更できます。",
+      "translation": "<code>STATE_INITIAL</code> သည် <code>final</code> ကိန်းသေ ဖြစ်သည်။ <code>nowState</code> သည် ထိုတန်ဖိုးကို အစတွင် ယူထားပြီး လက်ရှိအခြေအနေကို သီးခြား မှတ်ထားသည့် field ဖြစ်၍ ပြောင်းနိုင်သည်။"
+    },
+    {
+      "source": "A05-10 · <code>filter</code>と<code>count</code>",
+      "translation": "A05-10 · <code>filter</code> နှင့် <code>count</code>"
+    },
+    {
+      "source": "<code>Arrays.stream(numberButtons).filter(b -&gt; !b.isEnabled()).count()</code>で数えるものはどれですか。",
+      "translation": "<code>Arrays.stream(numberButtons).filter(b -&gt; !b.isEnabled()).count()</code> ဖြင့် မည်သည်ကို ရေတွက်သနည်း။"
+    },
+    {
+      "source": "押せない状態の数字ボタンの数",
+      "translation": "နှိပ်၍ မရသော ဂဏန်းခလုတ် အရေအတွက်"
+    },
+    {
+      "source": "まだ押せる数字ボタンの数",
+      "translation": "နှိပ်၍ ရသေးသော ဂဏန်းခလုတ် အရေအတွက်"
+    },
+    {
+      "source": "ボタンに書かれた数字の合計",
+      "translation": "ခလုတ်များပေါ် ရေးထားသည့် ဂဏန်းများ၏ စုစုပေါင်း"
+    },
+    {
+      "source": "スイッチの数字の最大値",
+      "translation": "Switch ဂဏန်းများထဲမှ အကြီးဆုံးတန်ဖိုး"
+    },
+    {
+      "source": "正答：<strong>押せない状態の数字ボタンの数</strong>",
+      "translation": "အဖြေမှန်: <strong>နှိပ်၍ မရသော ဂဏန်းခလုတ် အရေအတွက်</strong>"
+    },
+    {
+      "source": "<code>isEnabled()</code>は押せる状態かを返し、<code>!</code>で反対にしています。<code>filter</code>で押せないボタンだけを残し、<code>count</code>で数えます。押した直後に無効にしたボタンも数に入ります。",
+      "translation": "<code>isEnabled()</code> သည် ခလုတ်နှိပ်၍ ရမရ ပြန်ပေးသည်။ <code>!</code> ဖြင့် ထိုအဖြေကို ပြောင်းပြန်လုပ်သည်။ <code>filter</code> ဖြင့် နှိပ်၍မရသော ခလုတ်များကိုသာ ချန်ပြီး <code>count</code> ဖြင့် ရေတွက်သည်။ ယခုလေးတင် နှိပ်၍ ပိတ်သွားသောခလုတ်ကိုလည်း ထည့်ရေတွက်သည်။"
+    },
+    {
+      "source": "復習する場所：<code>bomb-game/index.html#step-9</code>",
+      "translation": "ပြန်လေ့လာရန်နေရာ: <code>bomb-game/index.html#step-9</code>"
+    },
+    {
+      "source": "A05-11 · クリア条件",
+      "translation": "A05-11 · ဂိမ်းနိုင်ရန် အခြေအနေ"
+    },
+    {
+      "source": "A05でスイッチを1つ押して着火した後、スイッチ以外の7個を全部押してクリアしました。クリア判定の時点で押せないボタンを8個と数える理由はどれですか。",
+      "translation": "A05 တွင် switch တစ်ခု နှိပ်၍ မီးစွဲပြီးနောက် switch မဟုတ်သော 7 ခုလုံးကို နှိပ်၍ နိုင်ခဲ့သည်။ အနိုင်ရမရ စစ်ချိန်၌ နှိပ်၍မရသောခလုတ် 8 ခု ရေတွက်ရခြင်းမှာ အဘယ်ကြောင့်နည်း။"
+    },
+    {
+      "source": "スイッチ以外の7個に、先に押したスイッチ1個も含まれるため",
+      "translation": "Switch မဟုတ်သော 7 ခုအပြင် အရင်နှိပ်ထားသည့် switch 1 ခုကိုပါ ထည့်၍ ရေတွက်သောကြောင့်"
+    },
+    {
+      "source": "再挑戦ボタンも数字ボタンとして数えるため",
+      "translation": "ထပ်ကြိုးစားရန် ခလုတ်ကိုလည်း ဂဏန်းခလုတ်အဖြစ် ရေတွက်သောကြောင့်"
+    },
+    {
+      "source": "着火するとボタンが1個増えるため",
+      "translation": "မီးစွဲလျှင် ခလုတ် 1 ခု ထပ်တိုးသောကြောင့်"
+    },
+    {
+      "source": "スイッチ以外のボタンが最初から8個あるため",
+      "translation": "အစကတည်းက switch မဟုတ်သော ခလုတ် 8 ခု ရှိသောကြောင့်"
+    },
+    {
+      "source": "正答：<strong>スイッチ以外の7個に、先に押したスイッチ1個も含まれるため</strong>",
+      "translation": "အဖြေမှန်: <strong>Switch မဟုတ်သော 7 ခုအပြင် အရင်နှိပ်ထားသည့် switch 1 ခုကိုပါ ထည့်၍ ရေတွက်သောကြောင့်</strong>"
+    },
+    {
+      "source": "9個中2個がスイッチなので、それ以外は7個です。着火前なら7個、着火後なら押したスイッチも足して8個でクリアになります。着火後のクリアでは画像は火の付いたままです。",
+      "translation": "ခလုတ် 9 ခုထဲမှ 2 ခုက switch ဖြစ်သဖြင့် ကျန်သည်မှာ 7 ခု ဖြစ်သည်။ မီးမစွဲမီ 7 ခု နှိပ်လျှင် နိုင်သည်။ မီးစွဲပြီးနောက်တွင် နှိပ်ခဲ့သော switch ကိုပါ ပေါင်း၍ 8 ခုဖြင့် နိုင်သည်။ မီးစွဲပြီးမှ နိုင်လျှင် မီးစွဲနေသောပုံအတိုင်း ကျန်သည်။"
+    },
+    {
+      "source": "A05-12 · 再挑戦",
+      "translation": "A05-12 · ထပ်ကြိုးစားခြင်း"
+    },
+    {
+      "source": "A05の再挑戦では<code>generateIgnitionNumbers()</code>を呼び、9個の数字ボタンを<code>setEnabled(true)</code>にします。再挑戦後の説明として正しいものはどれですか。",
+      "translation": "A05 တွင် ထပ်ကြိုးစားသည့်အခါ <code>generateIgnitionNumbers()</code> ကို ခေါ်ပြီး ဂဏန်းခလုတ် 9 ခုကို <code>setEnabled(true)</code> လုပ်သည်။ ထပ်ကြိုးစားပြီးနောက် အခြေအနေကို မည်သည့်အဖြေက မှန်ကန်စွာ ဖော်ပြသနည်း။"
+    },
+    {
+      "source": "数字をすべて押せるように戻し、スイッチを選び直す。同じ組み合わせになることもある",
+      "translation": "ဂဏန်းအားလုံး ပြန်နှိပ်နိုင်ပြီး switch များ ပြန်ရွေးသည်။ အတွဲတူ ထပ်ပေါ်နိုင်သည်"
+    },
+    {
+      "source": "数字をすべて押せるように戻すが、スイッチは必ず前のまま",
+      "translation": "ဂဏန်းအားလုံး ပြန်နှိပ်နိုင်သော်လည်း switch များက အမြဲ အရင်အတိုင်းဖြစ်သည်"
+    },
+    {
+      "source": "押した数字だけ無効のまま残し、スイッチを選び直す",
+      "translation": "နှိပ်ခဲ့သည့် ဂဏန်းများကိုသာ ပိတ်ထားပြီး switch များ ပြန်ရွေးသည်"
+    },
+    {
+      "source": "数字はすべて押せるように戻るが、前と同じスイッチになることは絶対にない",
+      "translation": "ဂဏန်းအားလုံး ပြန်နှိပ်နိုင်သော်လည်း အရင်အတွဲအတိုင်း လုံးဝ ပြန်မဖြစ်နိုင်ပါ"
+    },
+    {
+      "source": "正答：<strong>数字をすべて押せるように戻し、スイッチを選び直す。同じ組み合わせになることもある</strong>",
+      "translation": "အဖြေမှန်: <strong>ဂဏန်းအားလုံး ပြန်နှိပ်နိုင်ပြီး switch များ ပြန်ရွေးသည်။ အတွဲတူ ထပ်ပေါ်နိုင်သည်</strong>"
+    },
+    {
+      "source": "再挑戦は状態・画像・メッセージも最初に戻し、乱数のメソッドを呼び直します。2つのスイッチは互いに異なりますが、前の回と同じ組み合わせになる可能性はあります。",
+      "translation": "ထပ်ကြိုးစားသည့်အခါ အခြေအနေ၊ ပုံနှင့် message ကိုပါ မူလအတိုင်း ပြန်ထားပြီး ကျပန်းကိန်း method ကို ပြန်ခေါ်သည်။ Switch 2 ခုသည် အချင်းချင်းမတူရပါ။ သို့သော် ယခင်အတွဲအတိုင်း ပြန်ဖြစ်နိုင်သည်။"
+    },
+    {
+      "source": "復習する場所：<code>bomb-game/index.html#step-8</code>",
+      "translation": "ပြန်လေ့လာရန်နေရာ: <code>bomb-game/index.html#step-8</code>"
+    },
+    {
+      "source": "A06-01 · <code>Activity</code>の追加",
+      "translation": "A06-01 · <code>Activity</code> ထည့်ခြင်း"
+    },
+    {
+      "source": "A06で2つ目の画面<code>TestActivity</code>を追加するとき、教科書で選ぶ操作はどれですか。",
+      "translation": "A06 တွင် ဒုတိယမျက်နှာပြင် <code>TestActivity</code> ကို ထည့်ရန် သင်ရိုးစာအုပ်က မည်သည့် လုပ်ဆောင်ချက်ကို ရွေးခိုင်းသနည်း။"
+    },
+    {
+      "source": "正答：<strong><code>New → Activity → Empty Views Activity</code></strong>",
+      "translation": "အဖြေမှန်: <strong><code>New → Activity → Empty Views Activity</code></strong>"
+    },
+    {
+      "source": "<code>Activity</code>として作ると、<code>Java</code>とレイアウト<code>XML</code>に加えて<code>AndroidManifest.xml</code>への登録も用意されます。<code>Java Class</code>だけでは画面の登録ができません。",
+      "translation": "<code>Activity</code> အဖြစ် ဖန်တီးလျှင် <code>Java</code> နှင့် layout <code>XML</code> အပြင် <code>AndroidManifest.xml</code> ထဲတွင်လည်း မှတ်ပုံတင်ပေးသည်။ <code>Java Class</code> တစ်ခုတည်းဖြင့် မျက်နှာပြင်ကို မှတ်ပုံမတင်နိုင်ပါ။"
+    },
+    {
+      "source": "復習する場所：<code>screen-transition-sample/index.html#step-3</code>",
+      "translation": "ပြန်လေ့လာရန်နေရာ: <code>screen-transition-sample/index.html#step-3</code>"
+    },
+    {
+      "source": "A06-02 · <code>Intent</code>による画面遷移",
+      "translation": "A06-02 · <code>Intent</code> ဖြင့် မျက်နှာပြင်ပြောင်းခြင်း"
+    },
+    {
+      "source": "<code>new Intent(this, TestActivity.class)</code>で作った<code>intent</code>をAndroidへ渡し、<code>TestActivity</code>を開く処理はどれですか。",
+      "translation": "<code>new Intent(this, TestActivity.class)</code> ဖြင့် ဖန်တီးထားသော <code>intent</code> ကို Android သို့ ပေးပြီး <code>TestActivity</code> ကို ဖွင့်သည့် လုပ်ဆောင်ချက်မှာ မည်သည်နည်း။"
+    },
+    {
+      "source": "正答：<strong><code>startActivity(intent);</code></strong>",
+      "translation": "အဖြေမှန်: <strong><code>startActivity(intent);</code></strong>"
+    },
+    {
+      "source": "<code>Intent</code>は開きたい画面を伝える指示です。作るだけでは画面は開かず、<code>startActivity</code>に渡すと画面が開きます。",
+      "translation": "<code>Intent</code> သည် မည်သည့်မျက်နှာပြင် ဖွင့်ရမည်ကို ပြောပေးသည့် ညွှန်ကြားချက်ဖြစ်သည်။ ဖန်တီးရုံဖြင့် မျက်နှာပြင် မပွင့်ပါ။ <code>startActivity</code> သို့ ပေးမှ မျက်နှာပြင် ပွင့်သည်။"
+    },
+    {
+      "source": "復習する場所：<code>screen-transition-sample/index.html#step-4</code>",
+      "translation": "ပြန်လေ့လာရန်နေရာ: <code>screen-transition-sample/index.html#step-4</code>"
+    },
+    {
+      "source": "A06-03 · 戻る操作",
+      "translation": "A06-03 · နောက်သို့ ပြန်ခြင်း"
+    },
+    {
+      "source": "A06で<code>TestActivity</code>を開いたあと、戻るためのコードを書かなくてもAndroidの戻る操作で<code>MainActivity</code>が見える理由はどれですか。",
+      "translation": "A06 တွင် <code>TestActivity</code> ဖွင့်ပြီးနောက် ပြန်ရန် code မရေးဘဲ Android ၏ နောက်ပြန်လုပ်ဆောင်ချက်ဖြင့် <code>MainActivity</code> ကို မြင်ရခြင်းမှာ အဘယ်ကြောင့်နည်း။"
+    },
+    {
+      "source": "上に開いた<code>TestActivity</code>が閉じ、下の<code>MainActivity</code>が見えるため",
+      "translation": "အပေါ်တွင် ဖွင့်ထားသော <code>TestActivity</code> ပိတ်ပြီး အောက်ရှိ <code>MainActivity</code> ကို မြင်ရသောကြောင့်"
+    },
+    {
+      "source": "戻る操作が<code>MainActivity.java</code>をもう一度コンパイルするため",
+      "translation": "နောက်ပြန်လုပ်ဆောင်ချက်က <code>MainActivity.java</code> ကို compile ထပ်လုပ်သောကြောင့်"
+    },
+    {
+      "source": "<code>putExtra</code>が自動で<code>MainActivity</code>を開き直すため",
+      "translation": "<code>putExtra</code> က <code>MainActivity</code> ကို အလိုအလျောက် ပြန်ဖွင့်သောကြောင့်"
+    },
+    {
+      "source": "<code>Logcat</code>が前の画面を保存しているため",
+      "translation": "<code>Logcat</code> က ယခင်မျက်နှာပြင်ကို သိမ်းထားသောကြောင့်"
+    },
+    {
+      "source": "正答：<strong>上に開いた<code>TestActivity</code>が閉じ、下の<code>MainActivity</code>が見えるため</strong>",
+      "translation": "အဖြေမှန်: <strong>အပေါ်တွင် ဖွင့်ထားသော <code>TestActivity</code> ပိတ်ပြီး အောက်ရှိ <code>MainActivity</code> ကို မြင်ရသောကြောင့်</strong>"
+    },
+    {
+      "source": "開いた画面は前の画面の上に重なります。戻る操作で上の画面が閉じるので、前の画面を開くコードを追加しなくても戻れます。",
+      "translation": "ဖွင့်သည့် မျက်နှာပြင်သည် ယခင်မျက်နှာပြင်၏ အပေါ်တွင် ထပ်နေသည်။ နောက်သို့ ပြန်သည့်အခါ အပေါ်မျက်နှာပြင် ပိတ်သည်။ ထို့ကြောင့် ယခင်မျက်နှာပြင်ကို ဖွင့်မည့် code ထပ်မရေးဘဲ ပြန်နိုင်သည်။"
+    },
+    {
+      "source": "A06-04 · <code>int</code>の既定値",
+      "translation": "A06-04 · <code>int</code> ၏ မူလတန်ဖိုး"
+    },
+    {
+      "source": "<code>Intent</code>にキー<code>&quot;score&quot;</code>の値を入れていないとき、<code>getIntent().getIntExtra(&quot;score&quot;, -1)</code>が返す値はどれですか。",
+      "translation": "<code>Intent</code> တွင် key <code>&quot;score&quot;</code> အတွက် တန်ဖိုး မထည့်ထားလျှင် <code>getIntent().getIntExtra(&quot;score&quot;, -1)</code> က မည်သည့် တန်ဖိုး ပြန်ပေးမည်နည်း။"
+    },
+    {
+      "source": "正答：<strong>-1</strong>",
+      "translation": "အဖြေမှန်: <strong>-1</strong>"
+    },
+    {
+      "source": "<code>getIntExtra</code>の第2引数は、指定したキーの値がないときに返す既定値です。ここでは-1を渡しています。",
+      "translation": "<code>getIntExtra</code> ၏ ဒုတိယ argument သည် သတ်မှတ်ထားသော key အတွက် တန်ဖိုးမရှိချိန်တွင် ပြန်ပေးမည့် မူလတန်ဖိုး ဖြစ်သည်။ ဤနေရာတွင် -1 ပေးထားသည်။"
+    },
+    {
+      "source": "復習する場所：<code>screen-transition-sample/index.html#step-5</code>",
+      "translation": "ပြန်လေ့လာရန်နေရာ: <code>screen-transition-sample/index.html#step-5</code>"
+    },
+    {
+      "source": "A06-05 · <code>String</code>の受け取り",
+      "translation": "A06-05 · <code>String</code> လက်ခံခြင်း"
+    },
+    {
+      "source": "A06の<code>Test 1</code>は値を入れずに画面を開きます。このとき<code>getStringExtra(EXTRA_KEY_STRING_VALUE)</code>の結果はどれですか。",
+      "translation": "A06 ၏ <code>Test 1</code> သည် တန်ဖိုးမထည့်ဘဲ မျက်နှာပြင် ဖွင့်သည်။ ဤအခါ <code>getStringExtra(EXTRA_KEY_STRING_VALUE)</code> ၏ ရလဒ်မှာ မည်သည်နည်း။"
+    },
+    {
+      "source": "<code>&quot;0&quot;</code>という文字列",
+      "translation": "<code>&quot;0&quot;</code> ဟူသော စာသား"
+    },
+    {
+      "source": "&quot;<code>Hello</code>&quot;という文字列",
+      "translation": "&quot;<code>Hello</code>&quot; ဟူသော စာသား"
+    },
+    {
+      "source": "正答：<strong><code>null</code></strong>",
+      "translation": "အဖြေမှန်: <strong><code>null</code></strong>"
+    },
+    {
+      "source": "指定したキーの文字列が<code>Intent</code>にないとき、<code>getStringExtra</code>は<code>null</code>を返します。<code>int</code>のように第2引数で既定値を指定する形ではありません。",
+      "translation": "သတ်မှတ်ထားသော key အတွက် စာသား <code>Intent</code> တွင် မရှိလျှင် <code>getStringExtra</code> သည် <code>null</code> ပြန်ပေးသည်။ <code>int</code> ကဲ့သို့ ဒုတိယ argument တွင် မူလတန်ဖိုး သတ်မှတ်ပေးသည့်ပုံစံ မဟုတ်ပါ။"
+    },
+    {
+      "source": "A06-06 · キーの一致",
+      "translation": "A06-06 · Key တူညီမှု"
+    },
+    {
+      "source": "<code>intent.putExtra(&quot;intValue&quot;, 7)</code>で送った値を、受け取り側が<code>getIntExtra(&quot;intvalue&quot;, 0)</code>で読むと、どの値になりますか。",
+      "translation": "<code>intent.putExtra(&quot;intValue&quot;, 7)</code> ဖြင့် ပို့ထားသည့် တန်ဖိုးကို လက်ခံသူက <code>getIntExtra(&quot;intvalue&quot;, 0)</code> ဖြင့် ဖတ်လျှင် မည်သည့်တန်ဖိုး ရမည်နည်း။"
+    },
+    {
+      "source": "正答：<strong>0</strong>",
+      "translation": "အဖြေမှန်: <strong>0</strong>"
+    },
+    {
+      "source": "キーは大文字・小文字を含めて一致する必要があります。<code>intValue</code>と<code>intvalue</code>は別のキーなので値が見つからず、既定値の0が返ります。",
+      "translation": "Key များသည် စာလုံးအကြီးအသေးပါ တူရမည်။ <code>intValue</code> နှင့် <code>intvalue</code> တို့သည် key မတူသဖြင့် တန်ဖိုးကို မတွေ့ဘဲ မူလတန်ဖိုး 0 ကို ပြန်ပေးသည်။"
+    },
+    {
+      "source": "復習する場所：<code>screen-transition-sample/index.html#step-8</code>",
+      "translation": "ပြန်လေ့လာရန်နေရာ: <code>screen-transition-sample/index.html#step-8</code>"
+    },
+    {
+      "source": "A06-07 · キーの定数",
+      "translation": "A06-07 · Key အတွက် ကိန်းသေ"
+    },
+    {
+      "source": "A06で<code>EXTRA</code>キーの定数を<code>TestActivity</code>に置く理由として、教材の構成に合うものはどれですか。",
+      "translation": "A06 တွင် <code>EXTRA</code> key ကိန်းသေကို <code>TestActivity</code> ထဲ ထားရခြင်းအတွက် သင်ခန်းစာ၏ ဖွဲ့စည်းပုံနှင့် ကိုက်ညီသော အကြောင်းရင်းက မည်သည်နည်း။"
+    },
+    {
+      "source": "値を入れる<code>start</code>と取り出す<code>onCreate</code>が両方とも<code>TestActivity</code>にあるため",
+      "translation": "တန်ဖိုးထည့်သည့် <code>start</code> နှင့် ထုတ်ယူသည့် <code>onCreate</code> နှစ်ခုလုံး <code>TestActivity</code> ထဲတွင် ရှိသောကြောင့်"
+    },
+    {
+      "source": "定数は必ず<code>MainActivity</code>以外に置く決まりがあるため",
+      "translation": "ကိန်းသေများကို <code>MainActivity</code> မှလွဲ၍ အခြားနေရာတွင် ထားရမည့် စည်းကမ်းရှိသောကြောင့်"
+    },
+    {
+      "source": "キーを画面に表示する<code>TextView</code>が<code>TestActivity</code>にあるため",
+      "translation": "Key ကို မျက်နှာပြင်ပေါ် ပြသည့် <code>TextView</code> သည် <code>TestActivity</code> တွင် ရှိသောကြောင့်"
+    },
+    {
+      "source": "<code>MainActivity</code>では<code>String</code>型を使えないため",
+      "translation": "<code>MainActivity</code> တွင် <code>String</code> အမျိုးအစားကို မသုံးနိုင်သောကြောင့်"
+    },
+    {
+      "source": "正答：<strong>値を入れる<code>start</code>と取り出す<code>onCreate</code>が両方とも<code>TestActivity</code>にあるため</strong>",
+      "translation": "အဖြေမှန်: <strong>တန်ဖိုးထည့်သည့် <code>start</code> နှင့် ထုတ်ယူသည့် <code>onCreate</code> နှစ်ခုလုံး <code>TestActivity</code> ထဲတွင် ရှိသောကြောင့်</strong>"
+    },
+    {
+      "source": "<code>putExtra</code>と<code>getXxxExtra</code>が同じ定数を使えます。呼び出す<code>MainActivity</code>は<code>start</code>に値を渡すだけなので、キーの文字を知る必要がありません。",
+      "translation": "<code>putExtra</code> နှင့် <code>getXxxExtra</code> သည် တူညီသော ကိန်းသေကို သုံးနိုင်သည်။ ခေါ်သည့် <code>MainActivity</code> သည် <code>start</code> သို့ တန်ဖိုးပေးရုံဖြစ်၍ key ၏ စာသားကို သိရန် မလိုပါ။"
+    },
+    {
+      "source": "復習する場所：<code>screen-transition-sample/index.html#step-6</code>",
+      "translation": "ပြန်လေ့လာရန်နေရာ: <code>screen-transition-sample/index.html#step-6</code>"
+    },
+    {
+      "source": "A06-08 · オーバーロード",
+      "translation": "A06-08 · Overload"
+    },
+    {
+      "source": "A06で<code>start(Context)</code>、<code>start(Context, int, String)</code>、<code>start(Context, String[])</code>を同じクラスに書ける理由はどれですか。",
+      "translation": "A06 တွင် <code>start(Context)</code>၊ <code>start(Context, int, String)</code> နှင့် <code>start(Context, String[])</code> ကို class တစ်ခုတည်း၌ ရေးနိုင်သည့် အကြောင်းရင်းမှာ မည်သည်နည်း။"
+    },
+    {
+      "source": "引数の型や数が違うため",
+      "translation": "Parameter များ၏ အမျိုးအစား သို့မဟုတ် အရေအတွက် မတူသောကြောင့်"
+    },
+    {
+      "source": "戻り値がすべて<code>void</code>だから、引数が同じでも書けるため",
+      "translation": "ပြန်ပေးသည့် အမျိုးအစား အားလုံး <code>void</code> ဖြစ်သဖြင့် parameter တူလျှင်ပင် ရေးနိုင်သောကြောင့်"
+    },
+    {
+      "source": "メソッド名に<code>start</code>が含まれると重複が許されるため",
+      "translation": "Method နာမည်တွင် <code>start</code> ပါလျှင် နာမည်တူ ခွင့်ပြုသောကြောင့်"
+    },
+    {
+      "source": "Androidが同じ名前のメソッドを順番に全部実行するため",
+      "translation": "Android က နာမည်တူ method အားလုံးကို အစီအစဉ်အတိုင်း run သောကြောင့်"
+    },
+    {
+      "source": "正答：<strong>引数の型や数が違うため</strong>",
+      "translation": "အဖြေမှန်: <strong>Parameter များ၏ အမျိုးအစား သို့မဟုတ် အရေအတွက် မတူသောကြောင့်</strong>"
+    },
+    {
+      "source": "同じ名前で引数の型や数が違うメソッドを用意することをオーバーロードといいます。渡した値に合う<code>start</code>が選ばれます。",
+      "translation": "နာမည်တူပြီး parameter အမျိုးအစား သို့မဟုတ် အရေအတွက် မတူသော method များ ဖန်တီးခြင်းကို overload ဟု ခေါ်သည်။ ပေးလိုက်သော တန်ဖိုးများနှင့် ကိုက်ညီသည့် <code>start</code> ကို ရွေးသည်။"
+    },
+    {
+      "source": "A06-09 · 配列の受け渡し",
+      "translation": "A06-09 · Array ပေးပို့လက်ခံခြင်း"
+    },
+    {
+      "source": "<code>putExtra</code>で渡した<code>String[]</code>を受け取るメソッドはどれですか。",
+      "translation": "<code>putExtra</code> ဖြင့် ပေးလိုက်သော <code>String[]</code> ကို လက်ခံသည့် method မှာ မည်သည်နည်း။"
+    },
+    {
+      "source": "正答：<strong><code>getStringArrayExtra</code></strong>",
+      "translation": "အဖြေမှန်: <strong><code>getStringArrayExtra</code></strong>"
+    },
+    {
+      "source": "<code>String[]</code>は文字列の配列です。受け取りにも配列用の<code>getStringArrayExtra</code>を使い、送る側と同じキーを渡します。",
+      "translation": "<code>String[]</code> သည် စာသား array ဖြစ်သည်။ လက်ခံရာတွင်လည်း array အတွက် <code>getStringArrayExtra</code> ကို သုံးပြီး ပို့သူနှင့် တူညီသော key ကို ပေးသည်။"
+    },
+    {
+      "source": "復習する場所：<code>screen-transition-sample/index.html#step-7</code>",
+      "translation": "ပြန်လေ့လာရန်နေရာ: <code>screen-transition-sample/index.html#step-7</code>"
+    },
+    {
+      "source": "A06-10 · 配列の表示",
+      "translation": "A06-10 · Array ကို ပြခြင်း"
+    },
+    {
+      "source": "<code>String[] values = {&quot;3&quot;, &quot;4&quot;, &quot;5&quot;};</code>のとき、<code>Arrays.toString(values)</code>の結果はどれですか。",
+      "translation": "<code>String[] values = {&quot;3&quot;, &quot;4&quot;, &quot;5&quot;};</code> ဖြစ်လျှင် <code>Arrays.toString(values)</code> ၏ ရလဒ်မှာ မည်သည်နည်း။"
+    },
+    {
+      "source": "正答：<strong><code>[3, 4, 5]</code></strong>",
+      "translation": "အဖြေမှန်: <strong><code>[3, 4, 5]</code></strong>"
+    },
+    {
+      "source": "<code>Arrays.toString</code>は配列の中身を角かっことカンマを使った文字列にします。A06では受け取った配列を<code>Logcat</code>で読むために使います。",
+      "translation": "<code>Arrays.toString</code> သည် array ထဲရှိ တန်ဖိုးများကို လေးထောင့်ကွင်းနှင့် ကော်မာ ပါသော စာသားသို့ ပြောင်းသည်။ A06 တွင် လက်ခံရရှိသော array ကို <code>Logcat</code> တွင် ဖတ်ရန် သုံးသည်။"
+    },
+    {
+      "source": "A06-11 · <code>Logcat</code>のタグ",
+      "translation": "A06-11 · <code>Logcat</code> ၏ tag"
+    },
+    {
+      "source": "<code>Log.d(&quot;TestActivity&quot;, &quot;intValue: &quot; + intValue);</code>の出力を<code>Logcat</code>で探すとき、教材で指定するタグの条件はどれですか。",
+      "translation": "<code>Log.d(&quot;TestActivity&quot;, &quot;intValue: &quot; + intValue);</code> မှ output ကို <code>Logcat</code> တွင် ရှာရာ၌ သင်ခန်းစာက မည်သည့် tag စစ်ထုတ်ချက်ကို သတ်မှတ်သနည်း။"
+    },
+    {
+      "source": "正答：<strong><code>tag:TestActivity</code></strong>",
+      "translation": "အဖြေမှန်: <strong><code>tag:TestActivity</code></strong>"
+    },
+    {
+      "source": "<code>Log.d</code>の第1引数がタグです。値を受け取った<code>TestActivity</code>でログを出すので、前の単元の<code>tag:MainActivity</code>のままでは目的の行を探せません。",
+      "translation": "<code>Log.d</code> ၏ ပထမ argument သည် tag ဖြစ်သည်။ တန်ဖိုးလက်ခံသော <code>TestActivity</code> တွင် log ထုတ်သဖြင့် ရှေ့သင်ခန်းစာ၏ <code>tag:MainActivity</code> ကို မပြောင်းဘဲထားလျှင် လိုချင်သည့် စာကြောင်းကို ရှာမတွေ့ပါ။"
+    },
+    {
+      "source": "A06-12 · 渡す値の選び方",
+      "translation": "A06-12 · ပေးပို့မည့် တန်ဖိုး ရွေးပုံ"
+    },
+    {
+      "source": "A06の解説で、実際によく使う渡し方として示しているものはどれですか。",
+      "translation": "A06 ရှင်းလင်းချက်တွင် လက်တွေ့ မကြာခဏသုံးသည့် တန်ဖိုးပို့နည်းအဖြစ် ဘယ်နည်းကို ပြထားသနည်း။"
+    },
+    {
+      "source": "IDなど小さな値を渡し、開いた画面で必要なデータを用意する",
+      "translation": "ID ကဲ့သို့ တန်ဖိုးအသေးများ ပေးပြီး ဖွင့်လိုက်သော မျက်နှာပြင်တွင် လိုအပ်သည့် data ကို ပြင်ဆင်သည်"
+    },
+    {
+      "source": "写真や動画の全データを毎回<code>Intent</code>に入れる",
+      "translation": "ဓာတ်ပုံနှင့် ဗီဒီယို data အားလုံးကို အကြိမ်တိုင်း <code>Intent</code> ထဲ ထည့်သည်"
+    },
+    {
+      "source": "キーを使わず、変数名だけで値を取り出す",
+      "translation": "Key မသုံးဘဲ variable နာမည်ဖြင့်သာ တန်ဖိုးကို ယူသည်"
+    },
+    {
+      "source": "どの画面を開くときも空の<code>String</code>配列だけを渡す",
+      "translation": "မည်သည့် မျက်နှာပြင်ဖွင့်ဖွင့် အလွတ် <code>String</code> array ကိုသာ ပေးသည်"
+    },
+    {
+      "source": "正答：<strong>IDなど小さな値を渡し、開いた画面で必要なデータを用意する</strong>",
+      "translation": "အဖြေမှန်: <strong>ID ကဲ့သို့ တန်ဖိုးအသေးများ ပေးပြီး ဖွင့်လိုက်သော မျက်နှာပြင်တွင် လိုအပ်သည့် data ကို ပြင်ဆင်သည်</strong>"
+    },
+    {
+      "source": "A06では<code>Test 2</code>の形を例に、見分けるための番号など、小さな値を1つずつ渡す方法を紹介しています。",
+      "translation": "A06 တွင် <code>Test 2</code> ပုံစံကို ဥပမာယူ၍ ခွဲခြားသိနိုင်မည့် နံပါတ်ကဲ့သို့ တန်ဖိုးအသေးများ တစ်ခုစီ ပေးပို့နည်းကို မိတ်ဆက်သည်။"
+    },
+    {
+      "source": "復習する場所：<code>screen-transition-sample/index.html#step-9</code>",
+      "translation": "ပြန်လေ့လာရန်နေရာ: <code>screen-transition-sample/index.html#step-9</code>"
+    },
+    {
+      "source": "A07-01 · 参加者の管理",
+      "translation": "A07-01 · ပါဝင်သူများကို စီမံခြင်း"
+    },
+    {
+      "source": "A07で参加者名を<code>TextView</code>だけでなく<code>ArrayList&lt;String&gt;</code>にもためる主な理由はどれですか。",
+      "translation": "A07 တွင် ပါဝင်သူနာမည်များကို <code>TextView</code> အပြင် <code>ArrayList&lt;String&gt;</code> တွင်ပါ ထည့်ထားရခြင်း၏ အဓိက အကြောင်းရင်းမှာ မည်သည်နည်း။"
+    },
+    {
+      "source": "重複を調べたり、人数を数えたりするため",
+      "translation": "နာမည်ထပ်ခြင်းကို စစ်ရန်၊ လူအရေအတွက်ကို ရေတွက်ရန်"
+    },
+    {
+      "source": "<code>TextView</code>には文字列を表示できないため",
+      "translation": "<code>TextView</code> တွင် စာသား မပြနိုင်သောကြောင့်"
+    },
+    {
+      "source": "<code>ArrayList</code>に入れると端末のファイルへ自動保存されるため",
+      "translation": "<code>ArrayList</code> ထဲ ထည့်လျှင် စက်၏ ဖိုင်တွင် အလိုအလျောက် သိမ်းသောကြောင့်"
+    },
+    {
+      "source": "<code>ArrayList</code>に入れないと画像を表示できないため",
+      "translation": "<code>ArrayList</code> ထဲ မထည့်လျှင် ပုံကို မပြနိုင်သောကြောင့်"
+    },
+    {
+      "source": "正答：<strong>重複を調べたり、人数を数えたりするため</strong>",
+      "translation": "အဖြေမှန်: <strong>နာမည်ထပ်ခြင်းကို စစ်ရန်၊ လူအရေအတွက်ကို ရေတွက်ရန်</strong>"
+    },
+    {
+      "source": "<code>ArrayList</code>は参加者のデータを持ちます。<code>contains</code>で同じ名前があるかを調べ、<code>size</code>で人数を数えます。<code>TextView</code>は一覧の表示に使います。",
+      "translation": "<code>ArrayList</code> တွင် ပါဝင်သူ data ရှိသည်။ <code>contains</code> ဖြင့် နာမည်တူ ရှိမရှိ စစ်ပြီး <code>size</code> ဖြင့် လူအရေအတွက် ရေတွက်သည်။ <code>TextView</code> ကို စာရင်းပြသရန် သုံးသည်။"
+    },
+    {
+      "source": "復習する場所：<code>bill-splitter/index.html#step-4</code>",
+      "translation": "ပြန်လေ့လာရန်နေရာ: <code>bill-splitter/index.html#step-4</code>"
+    },
+    {
+      "source": "A07-02 · 重複チェック",
+      "translation": "A07-02 · ထပ်နေခြင်း စစ်ဆေးခြင်း"
+    },
+    {
+      "source": "参加者にすでに<code>Sato</code>がいるとき、もう一度<code>Sato</code>を登録して一覧が増えないようにする判定はどれですか。",
+      "translation": "ပါဝင်သူများထဲတွင် <code>Sato</code> ရှိပြီးသားဖြစ်လျှင် <code>Sato</code> ကို ထပ်မှတ်ပုံတင်၍ စာရင်းမတိုးစေရန် မည်သည့်အခြေအနေကို စစ်ဆေးမည်နည်း။"
+    },
+    {
+      "source": "正答：<strong><code>participants.contains(participantName)</code></strong>",
+      "translation": "အဖြေမှန်: <strong><code>participants.contains(participantName)</code></strong>"
+    },
+    {
+      "source": "<code>contains</code>は指定した名前がリストにあるかを調べます。見つかったときはメッセージを出し、<code>return</code>で追加処理を止めます。",
+      "translation": "<code>contains</code> က သတ်မှတ်ထားသော နာမည် စာရင်းထဲတွင် ရှိမရှိ စစ်သည်။ တွေ့လျှင် message ပြပြီး <code>return</code> ဖြင့် ထပ်ထည့်မည့် လုပ်ဆောင်ချက်ကို ရပ်သည်။"
+    },
+    {
+      "source": "A07-03 · 入力チェックと<code>return</code>",
+      "translation": "A07-03 · ရိုက်ထည့်ထားသည်ကို စစ်ခြင်းနှင့် <code>return</code>"
+    },
+    {
+      "source": "参加者名が空のとき、<code>Snackbar</code>を表示した直後の<code>return;</code>にはどの役割がありますか。",
+      "translation": "ပါဝင်သူနာမည် အလွတ်ဖြစ်လျှင် <code>Snackbar</code> ပြပြီးပြီးချင်း ပါသော <code>return;</code> ၏ အခန်းကဏ္ဍက မည်သည်နည်း။"
+    },
+    {
+      "source": "そのクリック処理を終え、空の名前の追加を防ぐ",
+      "translation": "ထိုကလစ်လုပ်ဆောင်ချက်ကို အဆုံးသတ်ပြီး နာမည်အလွတ် မထည့်မိအောင် လုပ်သည်"
+    },
+    {
+      "source": "空の名前を自動で<code>Sato</code>に変える",
+      "translation": "နာမည်အလွတ်ကို <code>Sato</code> သို့ အလိုအလျောက် ပြောင်းသည်"
+    },
+    {
+      "source": "前の<code>Activity</code>へ戻る",
+      "translation": "ယခင် <code>Activity</code> သို့ ပြန်သည်"
+    },
+    {
+      "source": "登録ずみの参加者を全部消す",
+      "translation": "မှတ်ပုံတင်ထားသော ပါဝင်သူအားလုံးကို ဖယ်သည်"
+    },
+    {
+      "source": "正答：<strong>そのクリック処理を終え、空の名前の追加を防ぐ</strong>",
+      "translation": "အဖြေမှန်: <strong>ထိုကလစ်လုပ်ဆောင်ချက်ကို အဆုံးသတ်ပြီး နာမည်အလွတ် မထည့်မိအောင် လုပ်သည်</strong>"
+    },
+    {
+      "source": "<code>Snackbar</code>を表示するだけでは後ろの処理も続きます。<code>return</code>を入れると<code>participants.add</code>などを実行せず、そのクリック処理が終わります。",
+      "translation": "<code>Snackbar</code> ပြရုံဖြင့် နောက်ရှိ လုပ်ဆောင်ချက်လည်း ဆက်လုပ်သည်။ <code>return</code> ထည့်လျှင် <code>participants.add</code> ကဲ့သို့ လုပ်ဆောင်ချက်များ မလုပ်ဘဲ ထိုကလစ်လုပ်ဆောင်ချက် အဆုံးသတ်သည်။"
+    },
+    {
+      "source": "A07-04 · 人数チェック",
+      "translation": "A07-04 · လူအရေအတွက် စစ်ခြင်း"
+    },
+    {
+      "source": "A07で<code>participants.size()</code>が1の状態で「<code>ワリカン画面へ</code>」を押すとどうなりますか。",
+      "translation": "A07 တွင် <code>participants.size()</code> က 1 ဖြစ်စဉ် 「<code>ワリカン画面へ</code>」 (ငွေခွဲဝေ မျက်နှာပြင်သို့) ကို နှိပ်လျှင် ဘာဖြစ်မည်နည်း။"
+    },
+    {
+      "source": "2人以上追加するよう表示され、画面は切り替わらない",
+      "translation": "အနည်းဆုံး 2 ယောက် ထည့်ရန် ပြပြီး မျက်နှာပြင် မပြောင်းပါ"
+    },
+    {
+      "source": "参加者は1人と表示してワリカン画面が開く",
+      "translation": "ပါဝင်သူ 1 ယောက် ဟုပြပြီး ငွေခွဲဝေ မျက်နှာပြင် ပွင့်သည်"
+    },
+    {
+      "source": "空の参加者が1人自動で追加される",
+      "translation": "နာမည်အလွတ် ပါဝင်သူ 1 ယောက်ကို အလိုအလျောက် ထည့်သည်"
+    },
+    {
+      "source": "登録ずみの名前が消える",
+      "translation": "မှတ်ပုံတင်ထားသော နာမည်များ ပျောက်သည်"
+    },
+    {
+      "source": "正答：<strong>2人以上追加するよう表示され、画面は切り替わらない</strong>",
+      "translation": "အဖြေမှန်: <strong>အနည်းဆုံး 2 ယောက် ထည့်ရန် ပြပြီး မျက်နှာပြင် မပြောင်းပါ</strong>"
+    },
+    {
+      "source": "<code>participants.size() &lt; 2</code>で人数を確認します。1人ならメッセージを表示して<code>return</code>するので、<code>BillSplitActivity.start</code>は呼びません。",
+      "translation": "<code>participants.size() &lt; 2</code> ဖြင့် လူအရေအတွက် စစ်သည်။ 1 ယောက်သာ ရှိလျှင် message ပြပြီး <code>return</code> လုပ်သဖြင့် <code>BillSplitActivity.start</code> ကို မခေါ်ပါ။"
+    },
+    {
+      "source": "復習する場所：<code>bill-splitter/index.html#step-6</code>",
+      "translation": "ပြန်လေ့လာရန်နေရာ: <code>bill-splitter/index.html#step-6</code>"
+    },
+    {
+      "source": "A07-05 · リストから配列へ",
+      "translation": "A07-05 · List မှ array သို့"
+    },
+    {
+      "source": "<code>BillSplitActivity.start</code>に渡す<code>participants.toArray(new String[0])</code>は、何をしていますか。",
+      "translation": "<code>BillSplitActivity.start</code> သို့ ပေးသော <code>participants.toArray(new String[0])</code> သည် ဘာလုပ်သနည်း။"
+    },
+    {
+      "source": "参加者の<code>ArrayList</code>を<code>String[]</code>に変える",
+      "translation": "ပါဝင်သူများ၏ <code>ArrayList</code> ကို <code>String[]</code> သို့ ပြောင်းသည်"
+    },
+    {
+      "source": "参加者を0人に減らす",
+      "translation": "ပါဝင်သူအရေအတွက်ကို 0 သို့ လျှော့သည်"
+    },
+    {
+      "source": "参加者の名前を1つの<code>int</code>に変える",
+      "translation": "ပါဝင်သူနာမည်များကို <code>int</code> တစ်ခုအဖြစ် ပြောင်းသည်"
+    },
+    {
+      "source": "参加者を端末の<code>XML</code>ファイルに保存する",
+      "translation": "ပါဝင်သူများကို စက်၏ <code>XML</code> ဖိုင်တွင် သိမ်းသည်"
+    },
+    {
+      "source": "正答：<strong>参加者の<code>ArrayList</code>を<code>String[]</code>に変える</strong>",
+      "translation": "အဖြေမှန်: <strong>ပါဝင်သူများ၏ <code>ArrayList</code> ကို <code>String[]</code> သို့ ပြောင်းသည်</strong>"
+    },
+    {
+      "source": "画面では参加者を<code>ArrayList</code>で管理し、<code>Intent</code>には<code>String[]</code>を渡します。<code>toArray</code>はその型の変換で、元のリストから名前を削除する処理ではありません。",
+      "translation": "မျက်နှာပြင်တွင် ပါဝင်သူများကို <code>ArrayList</code> ဖြင့် စီမံပြီး <code>Intent</code> သို့ <code>String[]</code> ပေးသည်။ <code>toArray</code> သည် အမျိုးအစားကို ပြောင်းခြင်း ဖြစ်သည်။ မူလစာရင်းမှ နာမည်များကို မဖျက်ပါ။"
+    },
+    {
+      "source": "A07-06 · 配列の要素数",
+      "translation": "A07-06 · Array ထဲရှိ တန်ဖိုးအရေအတွက်"
+    },
+    {
+      "source": "受け取った<code>participants</code>が<code>{&quot;Sato&quot;, &quot;Suzuki&quot;, &quot;Tanaka&quot;}</code>のとき、<code>&quot;参加者は&quot; + participants.length + &quot;人&quot;</code>の表示はどれですか。",
+      "translation": "လက်ခံရရှိသော <code>participants</code> က <code>{&quot;Sato&quot;, &quot;Suzuki&quot;, &quot;Tanaka&quot;}</code> ဖြစ်လျှင် <code>&quot;参加者は&quot; + participants.length + &quot;人&quot;</code> က ဘာပြမည်နည်း။"
+    },
+    {
+      "source": "正答：<strong><code>参加者は3人</code></strong>",
+      "translation": "အဖြေမှန်: <strong><code>参加者は3人</code></strong>"
+    },
+    {
+      "source": "配列の<code>length</code>は要素の数です。名前が3つ入っているため3となり、文字列とつなげて参加者は3人と表示します。",
+      "translation": "Array ၏ <code>length</code> သည် တန်ဖိုးအရေအတွက်ဖြစ်သည်။ နာမည် 3 ခု ရှိသောကြောင့် 3 ဖြစ်ပြီး စာသားနှင့် ဆက်၍ 「参加者は3人」 (ပါဝင်သူ 3 ယောက်) ဟု ပြသည်။"
+    },
+    {
+      "source": "A07-07 · 計算クラスの使い方",
+      "translation": "A07-07 · တွက်ချက်သည့် class အသုံးပြုပုံ"
+    },
+    {
+      "source": "<code>BillSplitter.calculateAndFormat</code>に渡す2つの引数として正しい組み合わせはどれですか。",
+      "translation": "<code>BillSplitter.calculateAndFormat</code> သို့ ပေးရမည့် argument 2 ခု၏ မှန်ကန်သော အတွဲမှာ မည်သည်နည်း။"
+    },
+    {
+      "source": "合計金額の<code>int</code>、参加者名の<code>String[]</code>",
+      "translation": "စုစုပေါင်းငွေ၏ <code>int</code>၊ ပါဝင်သူနာမည်များ၏ <code>String[]</code>"
+    },
+    {
+      "source": "参加者名の<code>String[]</code>、合計金額の<code>int</code>",
+      "translation": "ပါဝင်သူနာမည်များ၏ <code>String[]</code>၊ စုစုပေါင်းငွေ၏ <code>int</code>"
+    },
+    {
+      "source": "金額の<code>EditText</code>、一覧の<code>TextView</code>",
+      "translation": "ငွေပမာဏ၏ <code>EditText</code>၊ စာရင်း၏ <code>TextView</code>"
+    },
+    {
+      "source": "画像のid、参加者数の<code>String</code>",
+      "translation": "ရုပ်ပုံ id၊ ပါဝင်သူအရေအတွက်၏ <code>String</code>"
+    },
+    {
+      "source": "正答：<strong>合計金額の<code>int</code>、参加者名の<code>String[]</code></strong>",
+      "translation": "အဖြေမှန်: <strong>စုစုပေါင်းငွေ၏ <code>int</code>၊ ပါဝင်သူနာမည်များ၏ <code>String[]</code></strong>"
+    },
+    {
+      "source": "第1引数は合計金額、第2引数は参加者名の配列です。金額1以上・2人以上という条件を、呼び出す前に守る必要があります。",
+      "translation": "ပထမ argument သည် စုစုပေါင်းငွေဖြစ်ပြီး ဒုတိယ argument သည် ပါဝင်သူနာမည် array ဖြစ်သည်။ မခေါ်မီ ငွေ အနည်းဆုံး 1 နှင့် ပါဝင်သူ အနည်းဆုံး 2 ယောက် ရှိရမည်။"
+    },
+    {
+      "source": "復習する場所：<code>bill-splitter/index.html#step-7</code>",
+      "translation": "ပြန်လေ့လာရန်နေရာ: <code>bill-splitter/index.html#step-7</code>"
+    },
+    {
+      "source": "A07-08 · 計算結果の表示",
+      "translation": "A07-08 · တွက်ချက်မှုရလဒ် ပြခြင်း"
+    },
+    {
+      "source": "<code>BillSplitter.calculateAndFormat</code>の戻り値<code>result</code>は、どのように表示できますか。",
+      "translation": "<code>BillSplitter.calculateAndFormat</code> ၏ ပြန်တန်ဖိုး <code>result</code> ကို မည်သို့ ပြနိုင်သနည်း။"
+    },
+    {
+      "source": "<code>participants.add(result);</code>だけで画面にも出る",
+      "translation": "<code>participants.add(result);</code> တစ်ခုတည်းဖြင့် မျက်နှာပြင်တွင်လည်း ပေါ်သည်"
+    },
+    {
+      "source": "<code>Integer.parseInt(result);</code>だけで画面にも出る",
+      "translation": "<code>Integer.parseInt(result);</code> တစ်ခုတည်းဖြင့် မျက်နှာပြင်တွင်လည်း ပေါ်သည်"
+    },
+    {
+      "source": "正答：<strong><code>txtParticipantList.setText(result);</code></strong>",
+      "translation": "အဖြေမှန်: <strong><code>txtParticipantList.setText(result);</code></strong>"
+    },
+    {
+      "source": "戻り値は改行を含む表示用の文字列です。<code>setText</code>に渡すと、各参加者の金額と合計を一覧に表示できます。",
+      "translation": "ပြန်တန်ဖိုးသည် စာကြောင်းခွဲ ပါသော ပြသရန် စာသား ဖြစ်သည်။ <code>setText</code> သို့ ပေးလျှင် ပါဝင်သူတစ်ဦးစီ၏ ငွေပမာဏနှင့် စုစုပေါင်းကို စာရင်းတွင် ပြနိုင်သည်။"
+    },
+    {
+      "source": "復習する場所：<code>bill-splitter/index.html#step-9</code>",
+      "translation": "ပြန်လေ့လာရန်နေရာ: <code>bill-splitter/index.html#step-9</code>"
+    },
+    {
+      "source": "A07-09 · 文字列から整数へ",
+      "translation": "A07-09 · စာသားမှ ကိန်းပြည့်သို့"
+    },
+    {
+      "source": "金額欄から取り出した文字列<code>&quot;1234&quot;</code>を、計算に使う<code>int</code>に変える処理はどれですか。",
+      "translation": "ငွေပမာဏ ထည့်သည့်ကွက်မှ ယူထားသော စာသား <code>&quot;1234&quot;</code> ကို တွက်ချက်ရာတွင် သုံးမည့် <code>int</code> သို့ ပြောင်းသည့် လုပ်ဆောင်ချက်က မည်သည်နည်း။"
+    },
+    {
+      "source": "正答：<strong><code>Integer.parseInt(edtTotalAmountStr)</code></strong>",
+      "translation": "အဖြေမှန်: <strong><code>Integer.parseInt(edtTotalAmountStr)</code></strong>"
+    },
+    {
+      "source": "<code>parseInt</code>は数字を表す文字列を<code>int</code>に変えます。変換できない入力は<code>NumberFormatException</code>になるので、教材では<code>try</code>と<code>catch</code>で受け止めています。",
+      "translation": "<code>parseInt</code> သည် ဂဏန်းကို ဖော်ပြသော စာသားကို <code>int</code> သို့ ပြောင်းသည်။ ပြောင်း၍မရသော input က <code>NumberFormatException</code> ဖြစ်စေသောကြောင့် ဤသင်ခန်းစာတွင် <code>try</code> နှင့် <code>catch</code> ဖြင့် ကိုင်တွယ်သည်။"
+    },
+    {
+      "source": "復習する場所：<code>bill-splitter/index.html#step-8</code>",
+      "translation": "ပြန်လေ့လာရန်နေရာ: <code>bill-splitter/index.html#step-8</code>"
+    },
+    {
+      "source": "A07-10 · 金額と人数のチェック",
+      "translation": "A07-10 · ငွေပမာဏနှင့် လူအရေအတွက် စစ်ဆေးခြင်း"
+    },
+    {
+      "source": "参加者が3人で、合計金額に2円を入れて「<code>計算実行</code>」を押したときの動作はどれですか。",
+      "translation": "ပါဝင်သူ 3 ယောက်ရှိပြီး စုစုပေါင်းငွေ 2 ယန်း ထည့်ကာ 「<code>計算実行</code>」 (တွက်ချက်ရန်) နှိပ်လျှင် ဘာဖြစ်မည်နည်း။"
+    },
+    {
+      "source": "3円以上を入力するよう表示し、計算しない",
+      "translation": "အနည်းဆုံး 3 ယန်း ထည့်ရန် ပြပြီး မတွက်ပါ"
+    },
+    {
+      "source": "全員に1円を割り当てて計算を終える",
+      "translation": "လူတိုင်းကို 1 ယန်းစီ ခွဲပေးကာ တွက်ချက်မှု ပြီးဆုံးသည်"
+    },
+    {
+      "source": "2円を自動で3円に書き換える",
+      "translation": "2 ယန်းမှ 3 ယန်းသို့ အလိုအလျောက် ပြောင်းသည်"
+    },
+    {
+      "source": "参加者を2人に減らして計算する",
+      "translation": "ပါဝင်သူကို 2 ယောက်သို့ လျှော့ပြီး တွက်သည်"
+    },
+    {
+      "source": "正答：<strong>3円以上を入力するよう表示し、計算しない</strong>",
+      "translation": "အဖြေမှန်: <strong>အနည်းဆုံး 3 ယန်း ထည့်ရန် ပြပြီး မတွက်ပါ</strong>"
+    },
+    {
+      "source": "<code>totalAmount &lt; numberOfPeople</code>で止めます。金額が人数より少ないと0円の人が出るため、教材では1人あたり最低1円になる金額を求めます。",
+      "translation": "<code>totalAmount &lt; numberOfPeople</code> ဖြင့် တွက်ချက်မှု ရပ်သည်။ ငွေပမာဏက လူအရေအတွက်ထက် နည်းလျှင် 0 ယန်း ကျမည့်သူ ရှိသဖြင့် ဤသင်ခန်းစာတွင် လူတစ်ဦးလျှင် အနည်းဆုံး 1 ယန်း ကျနိုင်မည့် ပမာဏ လိုအပ်သည်။"
+    },
+    {
+      "source": "A07-11 · 割り勘の結果",
+      "translation": "A07-11 · ငွေခွဲဝေ ရလဒ်"
+    },
+    {
+      "source": "A07で1235円を3人で割り勘にしたとき、誰がいくら払うかの順序を問わず、金額の組み合わせはどれですか。",
+      "translation": "A07 တွင် 1235 ယန်းကို 3 ယောက် ခွဲပေးလျှင် မည်သူက မည်မျှပေးရသည်ဟူသော အစီအစဉ်ကို ထည့်မတွက်ဘဲ မည်သည့် ပမာဏအတွဲ မှန်သနည်း။"
+    },
+    {
+      "source": "412円・412円・411円",
+      "translation": "412 ယန်း၊ 412 ယန်း၊ 411 ယန်း"
+    },
+    {
+      "source": "411円・411円・411円",
+      "translation": "411 ယန်း၊ 411 ယန်း၊ 411 ယန်း"
+    },
+    {
+      "source": "412円・412円・412円",
+      "translation": "412 ယန်း၊ 412 ယန်း၊ 412 ယန်း"
+    },
+    {
+      "source": "413円・411円・410円",
+      "translation": "413 ယန်း၊ 411 ယန်း၊ 410 ယန်း"
+    },
+    {
+      "source": "正答：<strong>412円・412円・411円</strong>",
+      "translation": "အဖြေမှန်: <strong>412 ယန်း၊ 412 ယန်း၊ 411 ယန်း</strong>"
+    },
+    {
+      "source": "1235÷3は411あまり2です。全員の411円に、2人へ1円ずつ足すので、合計1235円となり支払額の差は1円以内です。",
+      "translation": "1235÷3 သည် 411 ဖြစ်ပြီး 2 ကြွင်းသည်။ လူတိုင်း၏ 411 ယန်းအပေါ် လူ 2 ယောက်သို့ 1 ယန်းစီ ထည့်သည်။ စုစုပေါင်း 1235 ယန်းဖြစ်ပြီး ပေးရသည့် ငွေကွာခြားချက်က 1 ယန်းထက် မပိုပါ။"
+    },
+    {
+      "source": "復習する場所：<code>bill-splitter/index.html#step-10</code>",
+      "translation": "ပြန်လေ့လာရန်နေရာ: <code>bill-splitter/index.html#step-10</code>"
+    },
+    {
+      "source": "A07-12 · 画像リソース",
+      "translation": "A07-12 · ရုပ်ပုံ resource"
+    },
+    {
+      "source": "A07のタイトル画像<code>title_img.png</code>をアプリの画像リソースとして置くフォルダはどれですか。",
+      "translation": "A07 ၏ ခေါင်းစဉ်ပုံ <code>title_img.png</code> ကို app ၏ ရုပ်ပုံ resource အဖြစ် မည်သည့်ဖိုင်တွဲတွင် ထားမည်နည်း။"
+    },
+    {
+      "source": "正答：<strong><code>app/src/main/res/drawable</code></strong>",
+      "translation": "အဖြေမှန်: <strong><code>app/src/main/res/drawable</code></strong>"
+    },
+    {
+      "source": "画像ファイルは<code>res/drawable</code>に置き、レイアウトの<code>ImageView</code>から<code>@drawable/title_img</code>として参照します。<code>layout</code>は画面の<code>XML</code>を置く場所です。",
+      "translation": "ရုပ်ပုံဖိုင်ကို <code>res/drawable</code> တွင် ထားပြီး layout ၏ <code>ImageView</code> မှ <code>@drawable/title_img</code> အဖြစ် ညွှန်းသည်။ <code>layout</code> သည် မျက်နှာပြင်၏ <code>XML</code> ဖိုင်များ ထားရာနေရာဖြစ်သည်။"
+    },
+    {
+      "source": "復習する場所：<code>bill-splitter/index.html#step-2</code>",
+      "translation": "ပြန်လေ့လာရန်နေရာ: <code>bill-splitter/index.html#step-2</code>"
+    },
+    {
+      "source": "A08-01 · 保存先",
+      "translation": "A08-01 · သိမ်းဆည်းရာ နေရာ"
+    },
+    {
+      "source": "<code>getSharedPreferences(&quot;app&quot;, MODE_PRIVATE)</code>で使う保存先のファイル名はどれですか。",
+      "translation": "<code>getSharedPreferences(&quot;app&quot;, MODE_PRIVATE)</code> ဖြင့် သိမ်းသည့် ဖိုင်နာမည်မှာ မည်သည်နည်း။"
+    },
+    {
+      "source": "正答：<strong><code>app.xml</code></strong>",
+      "translation": "အဖြေမှန်: <strong><code>app.xml</code></strong>"
+    },
+    {
+      "source": "<code>SharedPreferences</code>は指定した名前に対応する<code>XML</code>ファイルへ保存します。教材ではアプリ専用の<code>shared_prefs</code>内にある<code>app.xml</code>を表示して確かめます。",
+      "translation": "<code>SharedPreferences</code> သည် သတ်မှတ်ထားသည့် နာမည်နှင့် ကိုက်ညီသော <code>XML</code> ဖိုင်တွင် သိမ်းသည်။ ဤသင်ခန်းစာတွင် app သီးသန့် <code>shared_prefs</code> ထဲရှိ <code>app.xml</code> ကို ဖွင့်ကြည့်ပြီး စစ်သည်။"
+    },
+    {
+      "source": "復習する場所：<code>shared-preferences-sample/index.html#step-3</code>",
+      "translation": "ပြန်လေ့လာရန်နေရာ: <code>shared-preferences-sample/index.html#step-3</code>"
+    },
+    {
+      "source": "A08-02 · キーの一致",
+      "translation": "A08-02 · Key တူညီမှု"
+    },
+    {
+      "source": "<code>&quot;int_value&quot;</code>というキーで1を保存しました。他のキーには保存していません。<code>prefs.getInt(&quot;intvalue&quot;, 0)</code>の結果はどれですか。",
+      "translation": "<code>&quot;int_value&quot;</code> ဟူသော key ဖြင့် 1 ကို သိမ်းထားသည်။ အခြား key ဖြင့် မသိမ်းထားပါ။ <code>prefs.getInt(&quot;intvalue&quot;, 0)</code> ၏ ရလဒ်မှာ မည်သည်နည်း။"
+    },
+    {
+      "source": "<code>int_value</code>と<code>intvalue</code>は別のキーです。探したキーがないので、第2引数の初期値0が返ります。キーの文字を直書きすると、この誤りはコンパイルで見つかりません。",
+      "translation": "<code>int_value</code> နှင့် <code>intvalue</code> က မတူသော key များဖြစ်သည်။ ရှာသည့် key မရှိသောကြောင့် ဒုတိယ argument ဖြစ်သည့် မူလတန်ဖိုး 0 ကို ပြန်ပေးသည်။ Key စာသားကို တိုက်ရိုက် ရေးထားလျှင် compile လုပ်စဉ် ဤအမှားကို မသိနိုင်ပါ။"
+    },
+    {
+      "source": "復習する場所：<code>shared-preferences-sample/index.html#step-9</code>",
+      "translation": "ပြန်လေ့လာရန်နေရာ: <code>shared-preferences-sample/index.html#step-9</code>"
+    },
+    {
+      "source": "A08-03 · 保存値と初期値",
+      "translation": "A08-03 · သိမ်းထားသော တန်ဖိုးနှင့် မူလတန်ဖိုး"
+    },
+    {
+      "source": "キー<code>INT_VALUE</code>に1を保存ずみです。<code>prefs.getInt(INT_VALUE, -1)</code>が返す値はどれですか。",
+      "translation": "Key <code>INT_VALUE</code> တွင် 1 သိမ်းထားပြီး ဖြစ်သည်။ <code>prefs.getInt(INT_VALUE, -1)</code> က မည်သည့်တန်ဖိုး ပြန်ပေးသနည်း။"
+    },
+    {
+      "source": "正答：<strong>1</strong>",
+      "translation": "အဖြေမှန်: <strong>1</strong>"
+    },
+    {
+      "source": "初期値は保存された値がないときだけ使います。ここでは1が保存されているため、第2引数を変えても1が返ります。",
+      "translation": "မူလတန်ဖိုးကို သိမ်းထားသောတန်ဖိုး မရှိမှ သုံးသည်။ ဤနေရာတွင် 1 သိမ်းထားသဖြင့် ဒုတိယ argument ပြောင်းလျှင်ပင် 1 ပြန်ပေးသည်။"
+    },
+    {
+      "source": "復習する場所：<code>shared-preferences-sample/index.html#step-4</code>",
+      "translation": "ပြန်လေ့လာရန်နေရာ: <code>shared-preferences-sample/index.html#step-4</code>"
+    },
+    {
+      "source": "A08-04 · 保存の順序",
+      "translation": "A08-04 · သိမ်းဆည်းမှု အစီအစဉ်"
+    },
+    {
+      "source": "<code>SharedPreferences</code>へ文字列を保存するとき、教材で使う順序はどれですか。",
+      "translation": "<code>SharedPreferences</code> တွင် စာသားသိမ်းသည့်အခါ ဤသင်ခန်းစာ၌ မည်သည့်အစီအစဉ်ကို သုံးသနည်း။"
+    },
+    {
+      "source": "<code>edit</code>で<code>Editor</code>を取得 → <code>putString</code>で値を指定 → <code>apply</code>で確定",
+      "translation": "<code>edit</code> ဖြင့် <code>Editor</code> ကို ယူ → <code>putString</code> ဖြင့် တန်ဖိုး သတ်မှတ် → <code>apply</code> ဖြင့် အတည်ပြု"
+    },
+    {
+      "source": "<code>apply</code>で確定 → <code>getString</code>で値を指定 → <code>edit</code>で終了",
+      "translation": "<code>apply</code> ဖြင့် အတည်ပြု → <code>getString</code> ဖြင့် တန်ဖိုး သတ်မှတ် → <code>edit</code> ဖြင့် အဆုံးသတ်"
+    },
+    {
+      "source": "<code>getString</code>で読み出し → <code>clear</code>で文字を追加 → <code>apply</code>で表示",
+      "translation": "<code>getString</code> ဖြင့် ဖတ် → <code>clear</code> ဖြင့် စာသား ထည့် → <code>apply</code> ဖြင့် ပြ"
+    },
+    {
+      "source": "<code>putString</code>で表示 → <code>setText</code>で保存 → <code>getInt</code>で確定",
+      "translation": "<code>putString</code> ဖြင့် ပြ → <code>setText</code> ဖြင့် သိမ်း → <code>getInt</code> ဖြင့် အတည်ပြု"
+    },
+    {
+      "source": "正答：<strong><code>edit</code>で<code>Editor</code>を取得 → <code>putString</code>で値を指定 → <code>apply</code>で確定</strong>",
+      "translation": "အဖြေမှန်: <strong><code>edit</code> ဖြင့် <code>Editor</code> ကို ယူ → <code>putString</code> ဖြင့် တန်ဖိုး သတ်မှတ် → <code>apply</code> ဖြင့် အတည်ပြု</strong>"
+    },
+    {
+      "source": "書き込みには<code>Editor</code>を使います。<code>putString</code>でキーと値を指定しただけでは確定していないので、最後に<code>apply</code>を呼びます。",
+      "translation": "ရေးသွင်းရန် <code>Editor</code> ကို သုံးသည်။ <code>putString</code> ဖြင့် key နှင့် တန်ဖိုးကို သတ်မှတ်ရုံဖြင့် အတည်မဖြစ်သေးသဖြင့် နောက်ဆုံးတွင် <code>apply</code> ကို ခေါ်သည်။"
+    },
+    {
+      "source": "復習する場所：<code>shared-preferences-sample/index.html#step-5</code>",
+      "translation": "ပြန်လေ့လာရန်နေရာ: <code>shared-preferences-sample/index.html#step-5</code>"
+    },
+    {
+      "source": "A08-05 · <code>apply</code>の性質",
+      "translation": "A08-05 · <code>apply</code> ၏ လုပ်ဆောင်ပုံ"
+    },
+    {
+      "source": "教材の<code>apply()</code>と<code>commit()</code>の比較で、<code>apply()</code>の説明として正しいものはどれですか。",
+      "translation": "သင်ခန်းစာတွင် <code>apply()</code> နှင့် <code>commit()</code> ကို နှိုင်းယှဉ်ထားသည်။ <code>apply()</code> ၏ မှန်ကန်သော ရှင်းလင်းချက်မှာ မည်သည်နည်း။"
+    },
+    {
+      "source": "戻り値はなく、ファイルへの書き込みは別の処理にまかせる",
+      "translation": "ပြန်တန်ဖိုးမရှိဘဲ ဖိုင်ထဲ ရေးသွင်းမှုကို သီးခြား လုပ်ဆောင်ချက်က တာဝန်ယူသည်"
+    },
+    {
+      "source": "<code>boolean</code>を返し、ファイルへの書き込み完了まで待つ",
+      "translation": "<code>boolean</code> ကို ပြန်ပေးပြီး ဖိုင်ထဲ ရေးသွင်းပြီးသည်အထိ စောင့်သည်"
+    },
+    {
+      "source": "呼び出すたびに保存先ファイルを削除する",
+      "translation": "ခေါ်တိုင်း သိမ်းဆည်းရာဖိုင်ကို ဖျက်သည်"
+    },
+    {
+      "source": "値を画面に表示するだけで、保存は行わない",
+      "translation": "တန်ဖိုးကို မျက်နှာပြင်ပေါ် ပြရုံဖြစ်ပြီး မသိမ်းပါ"
+    },
+    {
+      "source": "正答：<strong>戻り値はなく、ファイルへの書き込みは別の処理にまかせる</strong>",
+      "translation": "အဖြေမှန်: <strong>ပြန်တန်ဖိုးမရှိဘဲ ဖိုင်ထဲ ရေးသွင်းမှုကို သီးခြား လုပ်ဆောင်ချက်က တာဝန်ယူသည်</strong>"
+    },
+    {
+      "source": "<code>apply</code>は保存を確定しますが、成功したかを戻り値では受け取りません。教材の保存・削除は<code>apply</code>に統一しています。",
+      "translation": "<code>apply</code> သည် သိမ်းဆည်းမှုကို အတည်ပြုသော်လည်း အောင်မြင်မမြင်ကို ပြန်တန်ဖိုးမှ မသိရပါ။ ဤသင်ခန်းစာရှိ သိမ်းခြင်းနှင့် ဖျက်ခြင်း နှစ်ခုလုံးအတွက် <code>apply</code> သုံးသည်။"
+    },
+    {
+      "source": "A08-06 · 読み出し",
+      "translation": "A08-06 · ပြန်ဖတ်ခြင်း"
+    },
+    {
+      "source": "<code>SharedPreferences</code>から保存ずみの文字列を読み出すだけのとき、正しい説明はどれですか。",
+      "translation": "<code>SharedPreferences</code> မှ သိမ်းထားသော စာသားကို ဖတ်ရုံသာဆိုလျှင် မည်သည့်ရှင်းလင်းချက် မှန်သနည်း။"
+    },
+    {
+      "source": "<code>prefs.getString</code>を使い、<code>edit</code>は呼ばなくてよい",
+      "translation": "<code>prefs.getString</code> ကို သုံးပြီး <code>edit</code> ခေါ်ရန် မလိုပါ"
+    },
+    {
+      "source": "先に<code>edit.clear</code>を呼ばないと読めない",
+      "translation": "<code>edit.clear</code> အရင် မခေါ်လျှင် ဖတ်၍ မရပါ"
+    },
+    {
+      "source": "先に<code>putString</code>で同じ値を保存し直す必要がある",
+      "translation": "<code>putString</code> ဖြင့် တူညီသော တန်ဖိုးကို အရင် ပြန်သိမ်းရန် လိုသည်"
+    },
+    {
+      "source": "読み出すたびに新しいキーを作る必要がある",
+      "translation": "ဖတ်တိုင်း key အသစ် ဖန်တီးရန် လိုသည်"
+    },
+    {
+      "source": "正答：<strong><code>prefs.getString</code>を使い、<code>edit</code>は呼ばなくてよい</strong>",
+      "translation": "အဖြေမှန်: <strong><code>prefs.getString</code> ကို သုံးပြီး <code>edit</code> ခေါ်ရန် မလိုပါ</strong>"
+    },
+    {
+      "source": "<code>Editor</code>は書き込みや削除に使います。読み出しは<code>prefs</code>の<code>getString</code>などを直接呼び、値がないときの初期値も指定します。",
+      "translation": "<code>Editor</code> ကို ရေးသွင်းရန်နှင့် ဖျက်ရန် သုံးသည်။ ဖတ်ရန် <code>prefs</code> ၏ <code>getString</code> ကဲ့သို့ method ကို တိုက်ရိုက် ခေါ်ပြီး တန်ဖိုးမရှိလျှင် သုံးမည့် မူလတန်ဖိုးကိုပါ သတ်မှတ်သည်။"
+    },
+    {
+      "source": "復習する場所：<code>shared-preferences-sample/index.html#step-6</code>",
+      "translation": "ပြန်လေ့လာရန်နေရာ: <code>shared-preferences-sample/index.html#step-6</code>"
+    },
+    {
+      "source": "A08-07 · 全データの削除",
+      "translation": "A08-07 · Data အားလုံးကို ဖျက်ခြင်း"
+    },
+    {
+      "source": "<code>prefs</code>の保存データをすべて消すために<code>editor.clear()</code>を書きました。教材の手順で、削除を確定する呼び出しはどれですか。",
+      "translation": "<code>prefs</code> တွင် သိမ်းထားသမျှကို ဖျက်ရန် <code>editor.clear()</code> ရေးထားသည်။ သင်ခန်းစာ၏ အဆင့်များအတိုင်း ဖျက်ခြင်းကို အတည်ပြုရန် ဘာကို ခေါ်မည်နည်း။"
+    },
+    {
+      "source": "正答：<strong><code>editor.apply();</code></strong>",
+      "translation": "အဖြေမှန်: <strong><code>editor.apply();</code></strong>"
+    },
+    {
+      "source": "削除も<code>edit</code>で<code>Editor</code>を取得し、<code>clear</code>で削除を指定して、<code>apply</code>で確定する順序です。<code>clear</code>を呼ぶだけでは確定しません。",
+      "translation": "ဖျက်ရာတွင်လည်း <code>edit</code> ဖြင့် <code>Editor</code> ယူပြီး <code>clear</code> ဖြင့် ဖျက်မည်ဟု သတ်မှတ်ကာ <code>apply</code> ဖြင့် အတည်ပြုသည်။ <code>clear</code> ကို ခေါ်ရုံဖြင့် အတည်မဖြစ်ပါ။"
+    },
+    {
+      "source": "復習する場所：<code>shared-preferences-sample/index.html#step-7</code>",
+      "translation": "ပြန်လေ့လာရန်နေရာ: <code>shared-preferences-sample/index.html#step-7</code>"
+    },
+    {
+      "source": "A08-08 · <code>XML</code>と初期値",
+      "translation": "A08-08 · <code>XML</code> နှင့် မူလတန်ဖိုး"
+    },
+    {
+      "source": "A08で<code>clear</code>による削除が完了したあとの<code>app.xml</code>の内容と、<code>getInt(INT_VALUE, 0)</code>の結果の組み合わせはどれですか。",
+      "translation": "A08 တွင် <code>clear</code> ဖြင့် ဖျက်ပြီးနောက် <code>app.xml</code> ၏ အကြောင်းအရာနှင့် <code>getInt(INT_VALUE, 0)</code> ၏ ရလဒ်အတွဲက မည်သည်နည်း။"
+    },
+    {
+      "source": "<code>XML</code>の中身は空の<code>map</code>になり、読み出しは初期値0を返す",
+      "translation": "<code>XML</code> ထဲတွင် အလွတ် <code>map</code> ဖြစ်ပြီး ဖတ်သည့်အခါ မူလတန်ဖိုး 0 ပြန်ပေးသည်"
+    },
+    {
+      "source": "<code>XML</code>に0が自動保存され、読み出しはその0を返す",
+      "translation": "<code>XML</code> တွင် 0 အလိုအလျောက် သိမ်းပြီး ဖတ်သည့်အခါ ထို 0 ကို ပြန်ပေးသည်"
+    },
+    {
+      "source": "<code>XML</code>は<code>Java</code>ファイルに変わり、読み出しは1を返す",
+      "translation": "<code>XML</code> က <code>Java</code> ဖိုင်သို့ ပြောင်းပြီး ဖတ်သည့်အခါ 1 ပြန်ပေးသည်"
+    },
+    {
+      "source": "<code>XML</code>に以前の値が残り、読み出しだけが必ず<code>null</code>になる",
+      "translation": "<code>XML</code> ထဲတွင် ယခင် တန်ဖိုးကျန်ပြီး ဖတ်သည့်ရလဒ်က အမြဲ <code>null</code> ဖြစ်သည်"
+    },
+    {
+      "source": "正答：<strong><code>XML</code>の中身は空の<code>map</code>になり、読み出しは初期値0を返す</strong>",
+      "translation": "အဖြေမှန်: <strong><code>XML</code> ထဲတွင် အလွတ် <code>map</code> ဖြစ်ပြီး ဖတ်သည့်အခါ မူလတန်ဖိုး 0 ပြန်ပေးသည်</strong>"
+    },
+    {
+      "source": "<code>clear</code>のあともファイルは残り、中身は<code>&lt;map /&gt;</code>になります。画面の0は、0を保存した結果ではなく、データがないため返った初期値です。",
+      "translation": "<code>clear</code> နောက်တွင် ဖိုင်ကျန်ပြီး အထဲတွင် <code>&lt;map /&gt;</code> ဖြစ်သွားသည်။ မျက်နှာပြင်ရှိ 0 သည် 0 ကို သိမ်းထားခြင်းကြောင့် မဟုတ်ပါ။ Data မရှိ၍ ပြန်ပေးသည့် မူလတန်ဖိုး ဖြစ်သည်။"
+    },
+    {
+      "source": "復習する場所：<code>shared-preferences-sample/index.html#step-8</code>",
+      "translation": "ပြန်လေ့လာရန်နေရာ: <code>shared-preferences-sample/index.html#step-8</code>"
+    },
+    {
+      "source": "A08-09 · <code>Set</code>の順序",
+      "translation": "A08-09 · <code>Set</code> ၏ အစီအစဉ်"
+    },
+    {
+      "source": "<code>Set.of(&quot;Hello&quot;, &quot;World&quot;)</code>を保存して読み出したら、表示が<code>[World, Hello]</code>になりました。教材に合う説明はどれですか。",
+      "translation": "<code>Set.of(&quot;Hello&quot;, &quot;World&quot;)</code> ကို သိမ်းပြီး ပြန်ဖတ်သည့်အခါ <code>[World, Hello]</code> ဟု ပေါ်သည်။ ဤသင်ခန်းစာအရ မည်သည့် ရှင်းလင်းချက် မှန်သနည်း။"
+    },
+    {
+      "source": "<code>Set</code>は順番を約束しないので、この並びでも正しい",
+      "translation": "<code>Set</code> သည် အစီအစဉ် မသတ်မှတ်ထားသောကြောင့် ဤအစီအစဉ်လည်း မှန်သည်"
+    },
+    {
+      "source": "文字列が2つとも壊れたことを示している",
+      "translation": "စာသား နှစ်ခုလုံး ပျက်သွားသည်ဟု ဆိုလိုသည်"
+    },
+    {
+      "source": "必ず<code>Hello</code>を先頭にする修正が必要である",
+      "translation": "<code>Hello</code> အမြဲ ရှေ့ဆုံးရောက်အောင် ပြင်ရန် လိုသည်"
+    },
+    {
+      "source": "<code>putStringSet</code>では文字列を1つしか保存できない",
+      "translation": "<code>putStringSet</code> ဖြင့် စာသား တစ်ခုတည်းသာ သိမ်းနိုင်သည်"
+    },
+    {
+      "source": "正答：<strong><code>Set</code>は順番を約束しないので、この並びでも正しい</strong>",
+      "translation": "အဖြေမှန်: <strong><code>Set</code> သည် အစီအစဉ် မသတ်မှတ်ထားသောကြောင့် ဤအစီအစဉ်လည်း မှန်သည်</strong>"
+    },
+    {
+      "source": "<code>Set</code>は順番を保つことを約束しません。<code>Hello</code>と<code>World</code>が含まれている点を確認し、表示順が逆でも保存失敗とは考えません。",
+      "translation": "<code>Set</code> သည် အစီအစဉ်ကို ထိန်းထားမည်ဟု အာမမခံပါ။ <code>Hello</code> နှင့် <code>World</code> နှစ်ခုလုံး ပါကြောင်း စစ်ပါ။ ပြသည့် အစီအစဉ် ပြောင်းပြန်ဖြစ်လည်း သိမ်းဆည်းမှု မအောင်မြင်ဟု မယူဆပါနှင့်။"
+    },
+    {
+      "source": "A08-10 · データの永続化",
+      "translation": "A08-10 · Data ကို ဆက်လက် သိမ်းထားခြင်း"
+    },
+    {
+      "source": "A08で保存した値が、アプリを完全に終了して開き直しても残る理由はどれですか。",
+      "translation": "A08 တွင် သိမ်းထားသော တန်ဖိုးသည် app ကို လုံးဝပိတ်ပြီး ပြန်ဖွင့်လျှင်ပင် ကျန်ရစ်သည်။ အဘယ်ကြောင့်နည်း။"
+    },
+    {
+      "source": "値を端末のファイルに保存し、起動時に読み出しているため",
+      "translation": "တန်ဖိုးကို စက်ရှိ ဖိုင်တွင် သိမ်းပြီး app စဖွင့်ချိန်၌ ဖတ်သောကြောင့်"
+    },
+    {
+      "source": "<code>TextView</code>が前回の画面を永久に記憶するため",
+      "translation": "<code>TextView</code> က ယခင်မျက်နှာပြင်ကို ထာဝရ မှတ်ထားသောကြောင့်"
+    },
+    {
+      "source": "<code>var</code>で宣言した変数がアプリ終了後も必ず残るため",
+      "translation": "<code>var</code> ဖြင့် ကြေညာသော variable များ app ပိတ်ပြီးနောက်လည်း အမြဲကျန်သောကြောင့်"
+    },
+    {
+      "source": "<code>Logcat</code>が値を復元するため",
+      "translation": "<code>Logcat</code> က တန်ဖိုးကို ပြန်ယူပေးသောကြောင့်"
+    },
+    {
+      "source": "正答：<strong>値を端末のファイルに保存し、起動時に読み出しているため</strong>",
+      "translation": "အဖြေမှန်: <strong>တန်ဖိုးကို စက်ရှိ ဖိုင်တွင် သိမ်းပြီး app စဖွင့်ချိန်၌ ဖတ်သောကြောင့်</strong>"
+    },
+    {
+      "source": "メモリだけに置いた値と違い、ファイルに保存した値はアプリを終了しても残ります。次の起動時に<code>getInt</code>などで読み出して表示しています。",
+      "translation": "Memory တွင်သာ ထားသော တန်ဖိုးနှင့် မတူဘဲ ဖိုင်တွင် သိမ်းထားသော တန်ဖိုးသည် app ပိတ်လျှင်ပင် ကျန်သည်။ နောက်တစ်ကြိမ် ဖွင့်ချိန်တွင် <code>getInt</code> စသည်တို့ဖြင့် ဖတ်ယူပြီး ပြသည်။"
+    },
+    {
+      "source": "A08-11 · 保存に向くデータ",
+      "translation": "A08-11 · သိမ်းရန် သင့်တော်သည့် data"
+    },
+    {
+      "source": "A08の解説で<code>SharedPreferences</code>の保存対象に向いているものはどれですか。",
+      "translation": "A08 ၏ ရှင်းလင်းချက်အရ <code>SharedPreferences</code> တွင် သိမ်းရန် မည်သည့် data က သင့်တော်သနည်း။"
+    },
+    {
+      "source": "ゲームのハイスコア",
+      "translation": "game ၏ အမှတ်အမြင့်ဆုံး စံချိန်"
+    },
+    {
+      "source": "写真や動画の全データ",
+      "translation": "ဓာတ်ပုံနှင့် ဗီဒီယို data အားလုံး"
+    },
+    {
+      "source": "パスワードの文字列",
+      "translation": "စကားဝှက် စာသား"
+    },
+    {
+      "source": "クレジットカード番号",
+      "translation": "အကြွေးဝယ်ကတ် နံပါတ်"
+    },
+    {
+      "source": "正答：<strong>ゲームのハイスコア</strong>",
+      "translation": "အဖြေမှန်: <strong>game ၏ အမှတ်အမြင့်ဆုံး စံချိန်</strong>"
+    },
+    {
+      "source": "<code>SharedPreferences</code>は小さく単純な設定や値に向きます。教材で表示した<code>XML</code>は暗号化されていないので、パスワードなど大事な情報を置く場所にはしません。",
+      "translation": "<code>SharedPreferences</code> သည် သေးငယ်ပြီး ရိုးရှင်းသော သတ်မှတ်ချက်များနှင့် တန်ဖိုးများအတွက် သင့်တော်သည်။ သင်ခန်းစာတွင် ပြထားသော <code>XML</code> ကို encrypt မလုပ်ထားသဖြင့် စကားဝှက်ကဲ့သို့ အရေးကြီးသော အချက်အလက် မသိမ်းပါ။"
+    },
+    {
+      "source": "A08-12 · 表示欄の高さ",
+      "translation": "A08-12 · ပြသည့်နေရာ၏ အမြင့်"
+    },
+    {
+      "source": "A08の表示欄に<code>layout_height=&quot;0dp&quot;</code>と<code>layout_weight=&quot;1&quot;</code>を付ける主な目的はどれですか。",
+      "translation": "A08 ၏ ပြသည့်နေရာတွင် <code>layout_height=&quot;0dp&quot;</code> နှင့် <code>layout_weight=&quot;1&quot;</code> ကို သတ်မှတ်ရခြင်း၏ အဓိက ရည်ရွယ်ချက်က မည်သည်နည်း။"
+    },
+    {
+      "source": "表示欄が残りの高さを使い、表示内容でボタンの位置がずれるのを防ぐ",
+      "translation": "ပြသည့်နေရာက ကျန်သည့်အမြင့်ကို ယူ၍ ပြထားသည့်အရာကြောင့် ခလုတ်များ နေရာမရွေ့အောင် လုပ်သည်"
+    },
+    {
+      "source": "表示欄の文字を必ず1文字にする",
+      "translation": "ပြသည့်နေရာ၏ စာသားကို 1 လုံးတည်း ဖြစ်စေသည်"
+    },
+    {
+      "source": "表示内容を<code>SharedPreferences</code>へ自動保存する",
+      "translation": "ပြသည့်အကြောင်းအရာကို <code>SharedPreferences</code> တွင် အလိုအလျောက် သိမ်းသည်"
+    },
+    {
+      "source": "表示欄を画面から完全に消す",
+      "translation": "ပြသည့်နေရာကို မျက်နှာပြင်မှ လုံးဝ ဖယ်သည်"
+    },
+    {
+      "source": "正答：<strong>表示欄が残りの高さを使い、表示内容でボタンの位置がずれるのを防ぐ</strong>",
+      "translation": "အဖြေမှန်: <strong>ပြသည့်နေရာက ကျန်သည့်အမြင့်ကို ယူ၍ ပြထားသည့်အရာကြောင့် ခလုတ်များ နေရာမရွေ့အောင် လုပ်သည်</strong>"
+    },
+    {
+      "source": "<code>0dp</code>と<code>weight</code>を組み合わせ、残った高さを表示欄に割り当てます。文字の長さで部品の位置が変わりにくくなります。",
+      "translation": "<code>0dp</code> နှင့် <code>weight</code> ကို ပေါင်းသုံးပြီး ကျန်သည့် အမြင့်ကို ပြသည့်နေရာသို့ ခွဲပေးသည်။ စာသားအရှည် ပြောင်းသော်လည်း အစိတ်အပိုင်းများ နေရာရွေ့နိုင်ခြေ နည်းသည်။"
+    },
+    {
+      "source": "復習する場所：<code>shared-preferences-sample/index.html#step-2</code>",
+      "translation": "ပြန်လေ့လာရန်နေရာ: <code>shared-preferences-sample/index.html#step-2</code>"
+    },
+    {
+      "source": "<code>txtMemoList</code>にすでにメモが表示されています。<code>txtMemoList.append(edtMemoStr + &quot;\\n&quot;);</code>を呼ぶとどうなりますか。",
+      "translation": "<code>txtMemoList</code> တွင် မှတ်စု ပြထားပြီး ဖြစ်သည်။ <code>txtMemoList.append(edtMemoStr + &quot;\\n&quot;);</code> ကို ခေါ်လျှင် ဘာဖြစ်မည်နည်း။"
+    },
+    {
+      "source": "今の表示の後ろに、新しいメモと改行を足す",
+      "translation": "ယခုပြထားသည့် စာသား၏ အဆုံးတွင် မှတ်စုအသစ်နှင့် စာကြောင်းခွဲ ထပ်ထည့်သည်"
+    },
+    {
+      "source": "今の表示を消して、新しいメモだけにする",
+      "translation": "ယခုပြထားသည့် စာသားကို ဖျက်၍ မှတ်စုအသစ်သာ ထားသည်"
+    },
+    {
+      "source": "新しいメモを先頭に挿入する",
+      "translation": "မှတ်စုအသစ်ကို စာရင်းအစတွင် ထည့်သည်"
+    },
+    {
+      "source": "入力欄の文字を読み出すだけで表示は変わらない",
+      "translation": "ရိုက်ထည့်သည့်ကွက်ရှိ စာသားကို ဖတ်ရုံဖြစ်ပြီး ပြထားသောအရာ မပြောင်းပါ"
+    },
+    {
+      "source": "正答：<strong>今の表示の後ろに、新しいメモと改行を足す</strong>",
+      "translation": "အဖြေမှန်: <strong>ယခုပြထားသည့် စာသား၏ အဆုံးတွင် မှတ်စုအသစ်နှင့် စာကြောင်းခွဲ ထပ်ထည့်သည်</strong>"
+    },
+    {
+      "source": "<code>append</code>は今の文字列の後ろに足す処理です。A09では追加した順に一覧へメモを増やすために使います。",
+      "translation": "<code>append</code> သည် လက်ရှိ စာသားအဆုံးတွင် စာသားဆက်ထည့်သည်။ A09 တွင် ထည့်သည့်အစီအစဉ်အတိုင်း မှတ်စုများကို စာရင်းထဲ ထည့်ရန် သုံးသည်။"
+    },
+    {
+      "source": "復習する場所：<code>memo-app/index.html#step-4</code>",
+      "translation": "ပြန်လေ့လာရန်နေရာ: <code>memo-app/index.html#step-4</code>"
+    },
+    {
+      "source": "A09-02 · <code>setText</code>との違い",
+      "translation": "A09-02 · <code>setText</code> နှင့် ကွာခြားချက်"
+    },
+    {
+      "source": "A09の追加処理で<code>append</code>を<code>setText</code>に変え、メモを3件続けて追加すると、一覧には何が残りますか。",
+      "translation": "A09 ၏ မှတ်စုထည့်သည့် လုပ်ဆောင်ချက်တွင် <code>append</code> ကို <code>setText</code> သို့ ပြောင်းပြီး မှတ်စု 3 ခု ဆက်တိုက် ထည့်လျှင် စာရင်းတွင် ဘာကျန်မည်နည်း။"
+    },
+    {
+      "source": "最後に追加した1件だけ",
+      "translation": "နောက်ဆုံး ထည့်ခဲ့သည့် တစ်ခုသာ"
+    },
+    {
+      "source": "最初に追加した1件だけ",
+      "translation": "အရင်ဆုံး ထည့်ခဲ့သည့် တစ်ခုသာ"
+    },
+    {
+      "source": "3件とも追加した順に残る",
+      "translation": "သုံးခုလုံး ထည့်သည့် အစီအစဉ်အတိုင်း ကျန်မည်"
+    },
+    {
+      "source": "3件とも逆順に残る",
+      "translation": "သုံးခုလုံး ပြောင်းပြန် အစီအစဉ်ဖြင့် ကျန်မည်"
+    },
+    {
+      "source": "正答：<strong>最後に追加した1件だけ</strong>",
+      "translation": "အဖြေမှန်: <strong>နောက်ဆုံး ထည့်ခဲ့သည့် တစ်ခုသာ</strong>"
+    },
+    {
+      "source": "<code>setText</code>は表示を置き換えます。追加するたびに前の一覧が消え、その時点の表示を保存するので、保存内容も最後の1件だけになります。",
+      "translation": "<code>setText</code> က ပြထားသော စာသားကို အစားထိုးသည်။ မှတ်စုထည့်တိုင်း ယခင်စာရင်း ပျောက်ပြီး ထိုအချိန် ပြထားသည်ကို သိမ်းသောကြောင့် သိမ်းထားသည်မှာလည်း နောက်ဆုံးတစ်ခုသာ ဖြစ်သည်။"
+    },
+    {
+      "source": "復習する場所：<code>memo-app/index.html#step-7</code>",
+      "translation": "ပြန်လေ့လာရန်နေရာ: <code>memo-app/index.html#step-7</code>"
+    },
+    {
+      "source": "A09-03 · 改行",
+      "translation": "A09-03 · စာကြောင်းခွဲခြင်း"
+    },
+    {
+      "source": "メモを追加するコードの<code>+ &quot;\\n&quot;</code>を消し、<code>&quot;牛乳を買う&quot;</code>と<code>&quot;レポートを出す&quot;</code>を追加すると、文字列はどうなりますか。",
+      "translation": "မှတ်စုထည့်သည့် code မှ <code>+ &quot;\\n&quot;</code> ကို ဖယ်ပြီး 「<code>&quot;牛乳を買う&quot;</code>」 (နို့ဝယ်ရန်) နှင့် 「<code>&quot;レポートを出す&quot;</code>」 (အစီရင်ခံစာ တင်ရန်) ကို ထည့်လျှင် စာသား မည်သို့ ဖြစ်မည်နည်း။"
+    },
+    {
+      "source": "<code>牛乳を買うレポートを出す</code>と改行なしでつながる",
+      "translation": "စာကြောင်းမခွဲဘဲ 「<code>牛乳を買うレポートを出す</code>」 (နို့ဝယ်ရန်အစီရင်ခံစာ တင်ရန်) ဟု ဆက်မည်"
+    },
+    {
+      "source": "2件の間に自動で空行が1行入る",
+      "translation": "မှတ်စု 2 ခုကြား အလွတ်စာကြောင်း 1 ကြောင်း အလိုအလျောက် ထည့်မည်"
+    },
+    {
+      "source": "2件の間に自動でカンマが入る",
+      "translation": "မှတ်စု 2 ခုကြား ကော်မာ အလိုအလျောက် ထည့်မည်"
+    },
+    {
+      "source": "最初のメモが自動で削除される",
+      "translation": "ပထမမှတ်စု အလိုအလျောက် ဖျက်မည်"
+    },
+    {
+      "source": "正答：<strong><code>牛乳を買うレポートを出す</code>と改行なしでつながる</strong>",
+      "translation": "အဖြေမှန်: <strong>စာကြောင်းမခွဲဘဲ 「<code>牛乳を買うレポートを出す</code>」 (နို့ဝယ်ရန်အစီရင်ခံစာ တင်ရန်) ဟု ဆက်မည်</strong>"
+    },
+    {
+      "source": "メモごとの改行は、コードで足している<code>\\n</code>によるものです。<code>append</code>は自動で改行を入れるわけではありません。",
+      "translation": "မှတ်စုတိုင်း စာကြောင်းခွဲခြင်းသည် code တွင် ထည့်ထားသော <code>\\n</code> ကြောင့် ဖြစ်သည်။ <code>append</code> က စာကြောင်းခွဲကို အလိုအလျောက် မထည့်ပါ။"
+    },
+    {
+      "source": "A09-04 · 空入力の分岐",
+      "translation": "A09-04 · အလွတ် input အတွက် လမ်းခွဲခြင်း"
+    },
+    {
+      "source": "メモが空のときに<code>Snackbar</code>を出す<code>if</code>文から<code>return;</code>だけを消すと、何が起こりますか。",
+      "translation": "မှတ်စု အလွတ်ဖြစ်လျှင် <code>Snackbar</code> ပြသော <code>if</code> statement မှ <code>return;</code> ကိုသာ ဖယ်လျှင် ဘာဖြစ်မည်နည်း။"
+    },
+    {
+      "source": "メッセージのあとも処理が続き、改行だけが一覧に足される",
+      "translation": "Message ပြပြီးနောက် လုပ်ဆောင်ချက် ဆက်သွားပြီး စာကြောင်းခွဲတစ်ခုသာ စာရင်းတွင် ထပ်ထည့်သည်"
+    },
+    {
+      "source": "メッセージは出なくなり、処理も止まる",
+      "translation": "Message မပေါ်ဘဲ လုပ်ဆောင်ချက်လည်း ရပ်သည်"
+    },
+    {
+      "source": "アプリが必ず前の画面に戻る",
+      "translation": "App က ယခင်မျက်နှာပြင်သို့ အမြဲ ပြန်သည်"
+    },
+    {
+      "source": "空文字が自動で&quot;メモ&quot;に変わる",
+      "translation": "စာသားအလွတ်သည် &quot;メモ&quot; (မှတ်စု) သို့ အလိုအလျောက် ပြောင်းသည်"
+    },
+    {
+      "source": "正答：<strong>メッセージのあとも処理が続き、改行だけが一覧に足される</strong>",
+      "translation": "အဖြေမှန်: <strong>Message ပြပြီးနောက် လုပ်ဆောင်ချက် ဆက်သွားပြီး စာကြောင်းခွဲတစ်ခုသာ စာရင်းတွင် ထပ်ထည့်သည်</strong>"
+    },
+    {
+      "source": "<code>return</code>がなければ<code>if</code>文の後ろの<code>append</code>まで進みます。空の入力に<code>\\n</code>を足したものが追加されるので、空入力を止める<code>return</code>が必要です。",
+      "translation": "<code>return</code> မရှိလျှင် <code>if</code> statement နောက်ရှိ <code>append</code> အထိ ဆက်လုပ်သည်။ အလွတ် input တွင် <code>\\n</code> ထည့်ထားသည်ကို စာရင်းထဲ ထည့်မည်ဖြစ်၍ အလွတ် input ကို တားရန် <code>return</code> လိုသည်။"
+    },
+    {
+      "source": "A09-05 · 入力欄を空にする",
+      "translation": "A09-05 · ရိုက်ထည့်သည့်ကွက်ကို ရှင်းခြင်း"
+    },
+    {
+      "source": "A09で追加が成功したあと、次のメモを入力しやすくする<code>edtMemo.setText(&quot;&quot;);</code>の役割はどれですか。",
+      "translation": "A09 တွင် မှတ်စုထည့်ပြီးနောက် နောက်မှတ်စု ရိုက်ထည့်ရန် လွယ်ကူစေသော <code>edtMemo.setText(&quot;&quot;);</code> ၏ အခန်းကဏ္ဍမှာ မည်သည်နည်း။"
+    },
+    {
+      "source": "入力欄を空にする",
+      "translation": "ရိုက်ထည့်သည့်ကွက်ကို အလွတ်ထားသည်"
+    },
+    {
+      "source": "一覧の全メモを削除する",
+      "translation": "စာရင်းထဲရှိ မှတ်စုအားလုံးကို ဖျက်သည်"
+    },
+    {
+      "source": "保存ファイルを削除する",
+      "translation": "သိမ်းထားသော ဖိုင်ကို ဖျက်သည်"
+    },
+    {
+      "source": "キーボードの種類を数字へ変える",
+      "translation": "ကီးဘုတ်ကို ဂဏန်းကီးဘုတ်သို့ ပြောင်းသည်"
+    },
+    {
+      "source": "正答：<strong>入力欄を空にする</strong>",
+      "translation": "အဖြေမှန်: <strong>ရိုက်ထည့်သည့်ကွက်ကို အလွတ်ထားသည်</strong>"
+    },
+    {
+      "source": "<code>edtMemo</code>は入力欄です。ここを空文字に変えても、一覧の<code>txtMemoList</code>や<code>SharedPreferences</code>に保存した文字列は消えません。",
+      "translation": "<code>edtMemo</code> သည် ရိုက်ထည့်သည့်ကွက် ဖြစ်သည်။ ဤနေရာကို စာသားအလွတ်သို့ ပြောင်းလည်း စာရင်း၏ <code>txtMemoList</code> နှင့် <code>SharedPreferences</code> တွင် သိမ်းထားသော စာသား မပျောက်ပါ။"
+    },
+    {
+      "source": "A09-06 · 保存する値",
+      "translation": "A09-06 · သိမ်းဆည်းသည့် တန်ဖိုး"
+    },
+    {
+      "source": "A09の<code>edit.putString(MEMO, txtMemoList.getText().toString());</code>で保存しているものはどれですか。",
+      "translation": "A09 ၏ <code>edit.putString(MEMO, txtMemoList.getText().toString());</code> ဖြင့် မည်သည်ကို သိမ်းသနည်း။"
+    },
+    {
+      "source": "改行を含むメモ一覧全体を1つにした文字列",
+      "translation": "စာကြောင်းခွဲများပါသော မှတ်စုစာရင်း တစ်ခုလုံးကို ပေါင်းထားသည့် စာသားတစ်ခု"
+    },
+    {
+      "source": "最後のメモの文字数だけ",
+      "translation": "နောက်ဆုံး မှတ်စု၏ စာလုံးရေ တစ်ခုတည်း"
+    },
+    {
+      "source": "メモ1件ずつを別々のデータベースの行にしたもの",
+      "translation": "Database တွင် မှတ်စုတစ်ခုစီအတွက် သီးခြားအတန်းများ"
+    },
+    {
+      "source": "入力欄のidだけ",
+      "translation": "ရိုက်ထည့်သည့်ကွက်၏ id သာ"
+    },
+    {
+      "source": "正答：<strong>改行を含むメモ一覧全体を1つにした文字列</strong>",
+      "translation": "အဖြေမှန်: <strong>စာကြောင်းခွဲများပါသော မှတ်စုစာရင်း တစ်ခုလုံးကို ပေါင်းထားသည့် စာသားတစ်ခု</strong>"
+    },
+    {
+      "source": "<code>txtMemoList</code>に表示中の内容を取り出し、1つの文字列として<code>MEMO</code>というキーで保存します。1件ずつ別のキーに分けているわけではありません。",
+      "translation": "<code>txtMemoList</code> တွင် ပြနေသော စာသားကို ယူပြီး စာသားတစ်ခုအဖြစ် <code>MEMO</code> ဟူသော key ဖြင့် သိမ်းသည်။ မှတ်စုတစ်ခုစီကို သီးခြား key ဖြင့် မခွဲထားပါ။"
+    },
+    {
+      "source": "復習する場所：<code>memo-app/index.html#step-5</code>",
+      "translation": "ပြန်လေ့လာရန်နေရာ: <code>memo-app/index.html#step-5</code>"
+    },
+    {
+      "source": "A09-07 · 起動時の復元",
+      "translation": "A09-07 · App စဖွင့်ချိန်တွင် ပြန်ယူခြင်း"
+    },
+    {
+      "source": "A09を初めて起動し、<code>MEMO</code>の保存値がまだないとき、<code>txtMemoList.setText(prefs.getString(MEMO, &quot;&quot;));</code>の表示はどうなりますか。",
+      "translation": "A09 ကို ပထမဆုံး ဖွင့်ပြီး <code>MEMO</code> အတွက် သိမ်းထားသည့် တန်ဖိုး မရှိသေးလျှင် <code>txtMemoList.setText(prefs.getString(MEMO, &quot;&quot;));</code> က ဘာပြမည်နည်း။"
+    },
+    {
+      "source": "空の一覧になる",
+      "translation": "စာရင်းအလွတ် ဖြစ်သည်"
+    },
+    {
+      "source": "<code>null</code>という4文字が出る",
+      "translation": "<code>null</code> ဟူသော စာလုံး 4 လုံး ပေါ်သည်"
+    },
+    {
+      "source": "0という文字が出る",
+      "translation": "0 ဟူသော စာသား ပေါ်သည်"
+    },
+    {
+      "source": "最後の入力内容が自動生成される",
+      "translation": "နောက်ဆုံး ရိုက်ထည့်ခဲ့သည့်အရာကို အလိုအလျောက် ဖန်တီးသည်"
+    },
+    {
+      "source": "正答：<strong>空の一覧になる</strong>",
+      "translation": "အဖြေမှန်: <strong>စာရင်းအလွတ် ဖြစ်သည်</strong>"
+    },
+    {
+      "source": "<code>getString</code>の第2引数が空文字なので、保存値がなければ空文字を返します。<code>setText</code>がそれを一覧へ表示します。",
+      "translation": "<code>getString</code> ၏ ဒုတိယ argument က စာသားအလွတ် ဖြစ်သဖြင့် သိမ်းထားသည့် တန်ဖိုးမရှိလျှင် စာသားအလွတ် ပြန်ပေးသည်။ <code>setText</code> က ၎င်းကို စာရင်းတွင် ပြသည်။"
+    },
+    {
+      "source": "A09-08 · データの持ち方",
+      "translation": "A09-08 · Data ထားပုံ"
+    },
+    {
+      "source": "A09でメモ一覧のために<code>ArrayList</code>を別に作っていない理由はどれですか。",
+      "translation": "A09 တွင် မှတ်စုစာရင်းအတွက် <code>ArrayList</code> ကို သီးခြား မဖန်တီးသည့် အကြောင်းရင်းက မည်သည်နည်း။"
+    },
+    {
+      "source": "A07のような重複チェックや人数チェックがなく、表示文字列を保存すれば足りるため",
+      "translation": "A07 ကဲ့သို့ နာမည်ထပ်ခြင်းနှင့် လူအရေအတွက် စစ်ရန် မလိုဘဲ ပြထားသော စာသားကို သိမ်းရုံဖြင့် လုံလောက်သောကြောင့်"
+    },
+    {
+      "source": "<code>SharedPreferences</code>では<code>String</code>を保存できないため",
+      "translation": "<code>SharedPreferences</code> ဖြင့် <code>String</code> ကို မသိမ်းနိုင်သောကြောင့်"
+    },
+    {
+      "source": "<code>ArrayList</code>は1つのアプリに1回しか使えないため",
+      "translation": "<code>ArrayList</code> ကို app တစ်ခုတွင် တစ်ကြိမ်သာ သုံးနိုင်သောကြောင့်"
+    },
+    {
+      "source": "<code>TextView</code>はメモを1件しか表示できないため",
+      "translation": "<code>TextView</code> က မှတ်စုတစ်ခုသာ ပြနိုင်သောကြောင့်"
+    },
+    {
+      "source": "正答：<strong>A07のような重複チェックや人数チェックがなく、表示文字列を保存すれば足りるため</strong>",
+      "translation": "အဖြေမှန်: <strong>A07 ကဲ့သို့ နာမည်ထပ်ခြင်းနှင့် လူအရေအတွက် စစ်ရန် မလိုဘဲ ပြထားသော စာသားကို သိမ်းရုံဖြင့် လုံလောက်သောကြောင့်</strong>"
+    },
+    {
+      "source": "この単元ではメモを判定せず、一覧をまとめて保存します。別のリストを持つと保存や復元の変換が増えるので、必要な表示文字列だけを使います。",
+      "translation": "ဤသင်ခန်းစာတွင် မှတ်စုများကို စစ်ဆေးမခွဲခြားဘဲ စာရင်းကို စုပေါင်းသိမ်းသည်။ သီးခြားစာရင်း ထားလျှင် သိမ်းချိန်နှင့် ပြန်ယူချိန်၌ အမျိုးအစား ပိုပြောင်းရမည်ဖြစ်၍ လိုအပ်သော ပြသမည့်စာသားကိုသာ သုံးသည်။"
+    },
+    {
+      "source": "A09-09 · 保存と表示を消す",
+      "translation": "A09-09 · သိမ်းထားသော data နှင့် ပြထားသော စာသားကို ဖျက်ခြင်း"
+    },
+    {
+      "source": "A09の「<code>データ削除</code>」で、保存と画面の両方を空にする処理の組み合わせはどれですか。",
+      "translation": "A09 ၏ 「<code>データ削除</code>」 (Data ဖျက်ရန်) တွင် သိမ်းထားသော data နှင့် မျက်နှာပြင် နှစ်ခုလုံးကို ရှင်းရန် လုပ်ဆောင်ချက်အတွဲမှာ မည်သည်နည်း။"
+    },
+    {
+      "source": "<code>txtMemoList.setText(&quot;&quot;);</code>だけ",
+      "translation": "<code>txtMemoList.setText(&quot;&quot;);</code> သာ"
+    },
+    {
+      "source": "<code>edit.clear();</code>だけ",
+      "translation": "<code>edit.clear();</code> သာ"
+    },
+    {
+      "source": "<code>edtMemo.setText(&quot;&quot;);</code>だけ",
+      "translation": "<code>edtMemo.setText(&quot;&quot;);</code> သာ"
+    },
+    {
+      "source": "正答：<strong><code>edit.clear(); edit.apply(); txtMemoList.setText(&quot;&quot;);</code></strong>",
+      "translation": "အဖြေမှန်: <strong><code>edit.clear(); edit.apply(); txtMemoList.setText(&quot;&quot;);</code></strong>"
+    },
+    {
+      "source": "<code>clear</code>と<code>apply</code>で保存したデータを消し、<code>setText</code>で表示も消します。保存されている値と、いま画面に出ている文字は別のものです。",
+      "translation": "<code>clear</code> နှင့် <code>apply</code> ဖြင့် သိမ်းထားသော data ကို ဖျက်ပြီး <code>setText</code> ဖြင့် ပြထားသည့် စာသားကိုပါ ဖျက်သည်။ သိမ်းထားသော တန်ဖိုးနှင့် ယခု မျက်နှာပြင်ပေါ်ရှိ စာသားသည် သီးခြား ဖြစ်သည်။"
+    },
+    {
+      "source": "復習する場所：<code>memo-app/index.html#step-6</code>",
+      "translation": "ပြန်လေ့လာရန်နေရာ: <code>memo-app/index.html#step-6</code>"
+    },
+    {
+      "source": "A09-10 · 保存と表示の違い",
+      "translation": "A09-10 · သိမ်းဆည်းခြင်းနှင့် ပြသခြင်း ကွာခြားချက်"
+    },
+    {
+      "source": "「<code>データ削除</code>」から<code>txtMemoList.setText(&quot;&quot;);</code>だけを消しました。メモを追加して削除を押し、そのまま終了して開き直すとどうなりますか。",
+      "translation": "「<code>データ削除</code>」 (Data ဖျက်ရန်) ၏ လုပ်ဆောင်ချက်မှ <code>txtMemoList.setText(&quot;&quot;);</code> ကိုသာ ဖယ်ခဲ့သည်။ မှတ်စုထည့်၍ ဖျက်ရန် ခလုတ်နှိပ်ပြီး app ကို ပိတ်ကာ ပြန်ဖွင့်လျှင် ဘာဖြစ်မည်နည်း။"
+    },
+    {
+      "source": "削除直後は表示が残るが、開き直すと空になる",
+      "translation": "ဖျက်ပြီးချင်း စာသားကျန်သော်လည်း ပြန်ဖွင့်လျှင် အလွတ်ဖြစ်မည်"
+    },
+    {
+      "source": "削除直後に表示が消え、開き直すと復活する",
+      "translation": "ဖျက်ပြီးချင်း စာသားပျောက်ပြီး ပြန်ဖွင့်လျှင် ပြန်ပေါ်မည်"
+    },
+    {
+      "source": "削除直後も開き直したあとも、必ずメモが残る",
+      "translation": "ဖျက်ပြီးချင်းနှင့် ပြန်ဖွင့်ပြီးနောက် နှစ်ချိန်လုံး မှတ်စု အမြဲကျန်မည်"
+    },
+    {
+      "source": "削除を押すと必ずアプリが終了する",
+      "translation": "ဖျက်ရန် ခလုတ်နှိပ်လျှင် app အမြဲ ပိတ်မည်"
+    },
+    {
+      "source": "正答：<strong>削除直後は表示が残るが、開き直すと空になる</strong>",
+      "translation": "အဖြေမှန်: <strong>ဖျက်ပြီးချင်း စာသားကျန်သော်လည်း ပြန်ဖွင့်လျှင် အလွတ်ဖြစ်မည်</strong>"
+    },
+    {
+      "source": "<code>clear</code>と<code>apply</code>による保存データの削除は実行されています。画面だけ更新していないので直後は文字が残り、次の起動時の読み出しでは空になります。",
+      "translation": "သိမ်းထားသည့် data ကို <code>clear</code> နှင့် <code>apply</code> ဖြင့် ဖျက်ပြီးဖြစ်သည်။ မျက်နှာပြင်ကိုသာ မပြောင်းရသေး၍ ချက်ချင်း စာသားကျန်နေသည်။ နောက်တစ်ကြိမ် ဖွင့်ချိန်တွင် ပြန်ဖတ်လျှင် အလွတ်ဖြစ်မည်။"
+    },
+    {
+      "source": "A09でメモ一覧を<code>ScrollView</code>に入れる主な目的はどれですか。",
+      "translation": "A09 တွင် မှတ်စုစာရင်းကို <code>ScrollView</code> ထဲ ထည့်ရခြင်း၏ အဓိက ရည်ရွယ်ချက်က မည်သည်နည်း။"
+    },
+    {
+      "source": "メモが増えて画面に入りきらなくても、スクロールで続きを読めるようにする",
+      "translation": "မှတ်စုများ၍ မျက်နှာပြင်တွင် မဆံ့လျှင် scroll လုပ်ပြီး အောက်ရှိမှတ်စုများကို ဆက်ဖတ်နိုင်ရန်"
+    },
+    {
+      "source": "一覧のメモを自動でアルファベット順にする",
+      "translation": "စာရင်းရှိ မှတ်စုများကို အက္ခရာစဉ်အတိုင်း အလိုအလျောက် စီရန်"
+    },
+    {
+      "source": "メモを保存するタイミングを自動で決める",
+      "translation": "မှတ်စုသိမ်းမည့် အချိန်ကို အလိုအလျောက် သတ်မှတ်ရန်"
+    },
+    {
+      "source": "入力欄で数字だけを入力できるようにする",
+      "translation": "ရိုက်ထည့်သည့်ကွက်တွင် ဂဏန်းများသာ ရိုက်ထည့်နိုင်ရန်"
+    },
+    {
+      "source": "正答：<strong>メモが増えて画面に入りきらなくても、スクロールで続きを読めるようにする</strong>",
+      "translation": "အဖြေမှန်: <strong>မှတ်စုများ၍ မျက်နှာပြင်တွင် မဆံ့လျှင် scroll လုပ်ပြီး အောက်ရှိမှတ်စုများကို ဆက်ဖတ်နိုင်ရန်</strong>"
+    },
+    {
+      "source": "<code>ScrollView</code>は中身が表示範囲を超えたときにスクロールできる入れ物です。並べ替えや保存をする部品ではありません。",
+      "translation": "<code>ScrollView</code> သည် အတွင်းရှိ အကြောင်းအရာက ပြသနိုင်သည့်နေရာထက် များလျှင် scroll လုပ်နိုင်သော container ဖြစ်သည်။ အစီအစဉ်ပြောင်းခြင်းနှင့် သိမ်းဆည်းခြင်းတို့ကို မလုပ်ပါ။"
+    },
+    {
+      "source": "復習する場所：<code>memo-app/index.html#step-3</code>",
+      "translation": "ပြန်လေ့လာရန်နေရာ: <code>memo-app/index.html#step-3</code>"
+    },
+    {
+      "source": "A09-12 · 入力の案内",
+      "translation": "A09-12 · ရိုက်ထည့်ရန် လမ်းညွှန်"
+    },
+    {
+      "source": "A09の入力欄に指定する<code>android:hint</code>の役割はどれですか。",
+      "translation": "A09 ၏ ရိုက်ထည့်သည့်ကွက်တွင် သတ်မှတ်ထားသော <code>android:hint</code> ၏ အခန်းကဏ္ဍက မည်သည်နည်း။"
+    },
+    {
+      "source": "何も入力していないときに案内を薄く表示し、入力すると消す",
+      "translation": "ဘာမှ မရိုက်သေးချိန် လမ်းညွှန်စာသားကို အရောင်ဖျော့ဖြင့် ပြပြီး ရိုက်ထည့်လျှင် ဖျောက်သည်"
+    },
+    {
+      "source": "入力されたメモをファイルへ保存する",
+      "translation": "ရိုက်ထည့်ထားသည့် မှတ်စုကို ဖိုင်ထဲ သိမ်းသည်"
+    },
+    {
+      "source": "メモ一覧の背景色を変える",
+      "translation": "မှတ်စုစာရင်း၏ နောက်ခံအရောင်ကို ပြောင်းသည်"
+    },
+    {
+      "source": "ボタンを押した回数を表示する",
+      "translation": "ခလုတ်နှိပ်ခဲ့သော အကြိမ်အရေအတွက်ကို ပြသည်"
+    },
+    {
+      "source": "正答：<strong>何も入力していないときに案内を薄く表示し、入力すると消す</strong>",
+      "translation": "အဖြေမှန်: <strong>ဘာမှ မရိုက်သေးချိန် လမ်းညွှန်စာသားကို အရောင်ဖျော့ဖြင့် ပြပြီး ရိုက်ထည့်လျှင် ဖျောက်သည်</strong>"
+    },
+    {
+      "source": "<code>hint</code>は入力内容の案内です。実際に入力されたメモとは別なので、案内が見えていても入力欄に文字を入れたことにはなりません。",
+      "translation": "<code>hint</code> သည် ဘာရိုက်ထည့်ရမည်ကို လမ်းညွှန်သည်။ အမှန်တကယ် ရိုက်ထည့်ထားသည့် မှတ်စုနှင့် သီးခြားဖြစ်၍ လမ်းညွှန်ကို မြင်ရရုံဖြင့် စာသား ရိုက်ထည့်ထားပြီးဟု မဆိုနိုင်ပါ။"
+    },
+    {
+      "source": "A10-01 · <code>Room</code>の設定",
+      "translation": "A10-01 · <code>Room</code> သတ်မှတ်ခြင်း"
+    },
+    {
+      "source": "<code>libs.versions.toml</code>で<code>room-runtime</code>と<code>room-compiler</code>のライブラリ定義を書く見出しはどれですか。",
+      "translation": "<code>libs.versions.toml</code> တွင် <code>room-runtime</code> နှင့် <code>room-compiler</code> အတွက် library သတ်မှတ်ချက်ကို မည်သည့် ခေါင်းစဉ်အောက်တွင် ရေးသနည်း။"
+    },
+    {
+      "source": "正答：<strong><code>[libraries]</code></strong>",
+      "translation": "အဖြေမှန်: <strong><code>[libraries]</code></strong>"
+    },
+    {
+      "source": "<code>[versions]</code>はバージョン番号、<code>[libraries]</code>はライブラリの定義です。<code>room-runtime</code>と<code>room-compiler</code>を<code>[plugins]</code>へ書くと、設定の種類が違うためビルドが止まります。",
+      "translation": "<code>[versions]</code> က version နံပါတ်များအတွက်၊ <code>[libraries]</code> က library သတ်မှတ်ချက်များအတွက် ဖြစ်သည်။ <code>room-runtime</code> နှင့် <code>room-compiler</code> ကို <code>[plugins]</code> အောက် ရေးလျှင် သတ်မှတ်ချက်အမျိုးအစား မှားသဖြင့် build ရပ်သွားမည်။"
+    },
+    {
+      "source": "復習する場所：<code>room-sample/index.html#step-2</code>",
+      "translation": "ပြန်လေ့လာရန်နေရာ: <code>room-sample/index.html#step-2</code>"
+    },
+    {
+      "source": "A10の<code>Item</code>クラスに付ける<code>@Entity</code>は何を表しますか。",
+      "translation": "A10 ၏ <code>Item</code> class တွင် ထည့်ထားသော <code>@Entity</code> သည် မည်သည်ကို ဖော်ပြသနည်း။"
+    },
+    {
+      "source": "このクラスでデータベースの表の形を定めること",
+      "translation": "ဤ class က database ၏ ဇယားပုံစံကို သတ်မှတ်ကြောင်း"
+    },
+    {
+      "source": "このクラスが起動時に開く画面であること",
+      "translation": "ဤ class က app စဖွင့်ချိန်တွင် ပွင့်သော မျက်နှာပြင်ဖြစ်ကြောင်း"
+    },
+    {
+      "source": "このクラスが<code>XML</code>の画像を作ること",
+      "translation": "ဤ class က <code>XML</code> ၏ ပုံကို ဖန်တီးကြောင်း"
+    },
+    {
+      "source": "このクラスが保存した全データを消すこと",
+      "translation": "ဤ class က သိမ်းထားသည့် data အားလုံးကို ဖျက်ကြောင်း"
+    },
+    {
+      "source": "正答：<strong>このクラスでデータベースの表の形を定めること</strong>",
+      "translation": "အဖြေမှန်: <strong>ဤ class က database ၏ ဇယားပုံစံကို သတ်မှတ်ကြောင်း</strong>"
+    },
+    {
+      "source": "<code>Item</code>では<code>internalId</code>と<code>title</code>を表の項目として定めます。<code>Entity</code>は表の形、<code>Dao</code>は読み書きの窓口、<code>Database</code>はデータベース本体を担当します。",
+      "translation": "<code>Item</code> တွင် <code>internalId</code> နှင့် <code>title</code> ကို ဇယား၏ အကွက်များအဖြစ် သတ်မှတ်သည်။ <code>Entity</code> သည် ဇယားပုံစံ၊ <code>Dao</code> သည် ဖတ်ရေးလုပ်ဆောင်ချက်များကို သုံးနိုင်သည့် ကြားခံ၊ <code>Database</code> သည် database ကိုယ်တိုင်အတွက် တာဝန်ယူသည်။"
+    },
+    {
+      "source": "復習する場所：<code>room-sample/index.html#step-4</code>",
+      "translation": "ပြန်လေ့လာရန်နေရာ: <code>room-sample/index.html#step-4</code>"
+    },
+    {
+      "source": "A10-03 · 主キー",
+      "translation": "A10-03 · Primary key"
+    },
+    {
+      "source": "<code>internalId</code>に付いた<code>@PrimaryKey(autoGenerate = true)</code>の役割として正しいものはどれですか。",
+      "translation": "<code>internalId</code> တွင် ထည့်ထားသော <code>@PrimaryKey(autoGenerate = true)</code> ၏ မှန်ကန်သော အခန်းကဏ္ဍက မည်သည်နည်း။"
+    },
+    {
+      "source": "行を見分ける番号にし、新規追加で番号を自動生成できるようにする",
+      "translation": "အတန်းများကို နံပါတ်ဖြင့် ခွဲခြားပြီး အသစ်ထည့်လျှင် နံပါတ်ကို အလိုအလျောက် ဖန်တီးပေးသည်"
+    },
+    {
+      "source": "<code>title</code>の文字数を毎回<code>internalId</code>に保存する",
+      "translation": "<code>title</code> ၏ စာလုံးရေကို <code>internalId</code> တွင် အကြိမ်တိုင်း သိမ်းသည်"
+    },
+    {
+      "source": "保存するたびに表全体を削除する",
+      "translation": "သိမ်းတိုင်း ဇယားတစ်ခုလုံး ဖျက်သည်"
+    },
+    {
+      "source": "すべての行の番号を必ず同じ1にする",
+      "translation": "အတန်းအားလုံး၏ နံပါတ်ကို 1 တစ်မျိုးတည်း ထားသည်"
+    },
+    {
+      "source": "正答：<strong>行を見分ける番号にし、新規追加で番号を自動生成できるようにする</strong>",
+      "translation": "အဖြေမှန်: <strong>အတန်းများကို နံပါတ်ဖြင့် ခွဲခြားပြီး အသစ်ထည့်လျှင် နံပါတ်ကို အလိုအလျောက် ဖန်တီးပေးသည်</strong>"
+    },
+    {
+      "source": "主キーは行を見分けるために使います。A10ではid欄を空にして保存すると、<code>Room</code>が新しい行の番号を自動で付けます。",
+      "translation": "Primary key ကို အတန်းများ ခွဲခြားရန် သုံးသည်။ A10 တွင် id ကွက်ကို အလွတ်ထား၍ သိမ်းလျှင် <code>Room</code> က အတန်းအသစ်၏ နံပါတ်ကို အလိုအလျောက် သတ်မှတ်သည်။"
+    },
+    {
+      "source": "A10-04 · DAOの実装",
+      "translation": "A10-04 · DAO ၏ လုပ်ဆောင်ချက် ဖန်တီးခြင်း"
+    },
+    {
+      "source": "<code>ItemDao</code>のメソッドに処理の<code>{ }</code>を書いていないのに読み書きできる理由はどれですか。",
+      "translation": "<code>ItemDao</code> ၏ method များအတွက် လုပ်ဆောင်ချက် <code>{ }</code> ကို မရေးထားသော်လည်း ဖတ်ရေးနိုင်သည့် အကြောင်းရင်းမှာ မည်သည်နည်း။"
+    },
+    {
+      "source": "<code>room-compiler</code>がビルド時に処理を自動で作るため",
+      "translation": "<code>room-compiler</code> က build လုပ်စဉ် လုပ်ဆောင်ချက်ကို အလိုအလျောက် ဖန်တီးသောကြောင့်"
+    },
+    {
+      "source": "メソッド名に<code>Dao</code>があれば<code>Java</code>が何でも実行するため",
+      "translation": "Method နာမည်တွင် <code>Dao</code> ပါလျှင် <code>Java</code> က အရာအားလုံးကို run သောကြောင့်"
+    },
+    {
+      "source": "画面の<code>TextView</code>が<code>SQL</code>を実行するため",
+      "translation": "မျက်နှာပြင်၏ <code>TextView</code> က <code>SQL</code> ကို run သောကြောင့်"
+    },
+    {
+      "source": "<code>AndroidManifest.xml</code>がすべての処理を持つため",
+      "translation": "<code>AndroidManifest.xml</code> ထဲတွင် လုပ်ဆောင်ချက်အားလုံး ရှိသောကြောင့်"
+    },
+    {
+      "source": "正答：<strong><code>room-compiler</code>がビルド時に処理を自動で作るため</strong>",
+      "translation": "အဖြေမှန်: <strong><code>room-compiler</code> က build လုပ်စဉ် လုပ်ဆောင်ချက်ကို အလိုအလျောက် ဖန်တီးသောကြောင့်</strong>"
+    },
+    {
+      "source": "<code>ItemDao</code>は<code>interface</code>で作り、<code>@Query</code>などで何をするかを書きます。<code>Room</code>がその指定を読み、ビルド時に実際の処理を生成します。",
+      "translation": "<code>ItemDao</code> ကို <code>interface</code> ဖြင့် ဖန်တီးပြီး <code>@Query</code> ကဲ့သို့ သတ်မှတ်ချက်များဖြင့် ဘာလုပ်မည်ကို ရေးသည်။ <code>Room</code> သည် ထိုသတ်မှတ်ချက်များကို ဖတ်ပြီး build လုပ်စဉ် လုပ်ဆောင်ချက်အစစ်ကို ဖန်တီးသည်။"
+    },
+    {
+      "source": "復習する場所：<code>room-sample/index.html#step-5</code>",
+      "translation": "ပြန်လေ့လာရန်နေရာ: <code>room-sample/index.html#step-5</code>"
+    },
+    {
+      "source": "A10-05 · 検索の条件",
+      "translation": "A10-05 · ရှာဖွေမှု အခြေအနေ"
+    },
+    {
+      "source": "<code>@Query(&quot;SELECT * FROM item WHERE internalId = :internalId&quot;)</code>の<code>:internalId</code>は何を表しますか。",
+      "translation": "<code>@Query(&quot;SELECT * FROM item WHERE internalId = :internalId&quot;)</code> ထဲရှိ <code>:internalId</code> သည် မည်သည်ကို ဆိုလိုသနည်း။"
+    },
+    {
+      "source": "<code>findByInternalId</code>メソッドに渡された引数の値",
+      "translation": "<code>findByInternalId</code> method သို့ ပေးထားသည့် argument တန်ဖိုး"
+    },
+    {
+      "source": "すべての行に共通して使う固定文字列",
+      "translation": "အတန်းအားလုံးအတွက် တူညီစွာ သုံးသော မပြောင်းလဲသည့် စာသား"
+    },
+    {
+      "source": "自動で付く最新の番号だけ",
+      "translation": "အလိုအလျောက် သတ်မှတ်ပေးသော နောက်ဆုံးနံပါတ်သာ"
+    },
+    {
+      "source": "<code>title</code>の文字列の長さ",
+      "translation": "<code>title</code> စာသား၏ အရှည်"
+    },
+    {
+      "source": "正答：<strong><code>findByInternalId</code>メソッドに渡された引数の値</strong>",
+      "translation": "အဖြေမှန်: <strong><code>findByInternalId</code> method သို့ ပေးထားသည့် argument တန်ဖိုး</strong>"
+    },
+    {
+      "source": "<code>:internalId</code>にはメソッドの引数が入ります。<code>WHERE</code>でその番号と一致する行に絞るので、指定した1件を取り出せます。",
+      "translation": "<code>:internalId</code> တွင် method argument တန်ဖိုး ဝင်လာသည်။ <code>WHERE</code> ဖြင့် ထိုနံပါတ်တူသည့် အတန်းကိုသာ ရွေး၍ သတ်မှတ်ထားသော အတန်းတစ်ခုကို ယူနိုင်သည်။"
+    },
+    {
+      "source": "A10でidが2、<code>title</code>が<code>BIKE</code>の行が保存ずみです。id欄に2、タイトル欄に<code>BICYCLE</code>を入れて保存するとどうなりますか。",
+      "translation": "A10 တွင် id 2၊ <code>title</code> က <code>BIKE</code> ဖြစ်သော အတန်းကို သိမ်းထားပြီးဖြစ်သည်။ id ကွက်တွင် 2၊ ခေါင်းစဉ်ကွက်တွင် <code>BICYCLE</code> ထည့်၍ သိမ်းလျှင် ဘာဖြစ်မည်နည်း။"
+    },
+    {
+      "source": "idが2の行の<code>title</code>が<code>BICYCLE</code>に変わり、行数は増えない",
+      "translation": "id 2 ရှိသော အတန်း၏ <code>title</code> သည် <code>BICYCLE</code> သို့ ပြောင်းပြီး အတန်းအရေအတွက် မတိုးပါ"
+    },
+    {
+      "source": "<code>BIKE</code>の行を残したまま、必ず新しい番号の行が増える",
+      "translation": "<code>BIKE</code> အတန်းကို ထားခဲ့ပြီး နံပါတ်အသစ်ပါသော အတန်း အမြဲထပ်တိုးမည်"
+    },
+    {
+      "source": "idが2の行が削除されるだけで、<code>BICYCLE</code>は保存されない",
+      "translation": "id 2 ရှိသော အတန်းကိုသာ ဖျက်ပြီး <code>BICYCLE</code> ကို မသိမ်းပါ"
+    },
+    {
+      "source": "すべての行の<code>title</code>が<code>BICYCLE</code>になる",
+      "translation": "အတန်းအားလုံး၏ <code>title</code> သည် <code>BICYCLE</code> ဖြစ်သွားမည်"
+    },
+    {
+      "source": "正答：<strong>idが2の行の<code>title</code>が<code>BICYCLE</code>に変わり、行数は増えない</strong>",
+      "translation": "အဖြေမှန်: <strong>id 2 ရှိသော အတန်း၏ <code>title</code> သည် <code>BICYCLE</code> သို့ ပြောင်းပြီး အတန်းအရေအတွက် မတိုးပါ</strong>"
+    },
+    {
+      "source": "<code>@Upsert</code>は同じ主キーの行があれば書き換え、なければ追加します。この問題ではidが2の行が存在するので、その行を更新します。",
+      "translation": "<code>@Upsert</code> သည် တူညီသော primary key ရှိသည့် အတန်းရှိလျှင် ထိုအတန်းကို ပြင်ပြီး မရှိလျှင် အတန်းအသစ် ထည့်သည်။ ဤမေးခွန်းတွင် id 2 ရှိသော အတန်းရှိ၍ ထိုအတန်းကို ပြင်သည်။"
+    },
+    {
+      "source": "復習する場所：<code>room-sample/index.html#step-7</code>",
+      "translation": "ပြန်လေ့လာရန်နေရာ: <code>room-sample/index.html#step-7</code>"
+    },
+    {
+      "source": "A10-07 · 見つからないデータ",
+      "translation": "A10-07 · ရှာမတွေ့သော data"
+    },
+    {
+      "source": "A10で存在しないidを指定して削除します。<code>findByInternalId</code>が<code>null</code>を返したとき、教材の処理はどうなりますか。",
+      "translation": "A10 တွင် မရှိသည့် id ကို သတ်မှတ်၍ ဖျက်ရန် လုပ်သည်။ <code>findByInternalId</code> က <code>null</code> ပြန်ပေးလျှင် သင်ခန်းစာ၏ လုပ်ဆောင်ချက်က မည်သို့ ဖြစ်မည်နည်း။"
+    },
+    {
+      "source": "そのidのデータはないと表示し、<code>delete</code>を呼ばずに止める",
+      "translation": "ထို id အတွက် data မရှိကြောင်း ပြပြီး <code>delete</code> ကို မခေါ်ဘဲ ရပ်မည်"
+    },
+    {
+      "source": "先頭の行を代わりに削除する",
+      "translation": "ပထမအတန်းကို အစားထိုး ဖျက်မည်"
+    },
+    {
+      "source": "すべての行を削除する",
+      "translation": "အတန်းအားလုံး ဖျက်မည်"
+    },
+    {
+      "source": "指定したidの空の行を自動で追加する",
+      "translation": "သတ်မှတ်ထားသော id ဖြင့် အတန်းအလွတ် အလိုအလျောက် ထည့်မည်"
+    },
+    {
+      "source": "正答：<strong>そのidのデータはないと表示し、<code>delete</code>を呼ばずに止める</strong>",
+      "translation": "အဖြေမှန်: <strong>ထို id အတွက် data မရှိကြောင်း ပြပြီး <code>delete</code> ကို မခေါ်ဘဲ ရပ်မည်</strong>"
+    },
+    {
+      "source": "検索結果がない場合は<code>item == null</code>になります。教材はメッセージを出して<code>return</code>するので、ほかの行を消すことはありません。",
+      "translation": "ရှာမတွေ့လျှင် <code>item == null</code> ဖြစ်သည်။ သင်ခန်းစာတွင် message ပြပြီး <code>return</code> လုပ်သဖြင့် အခြားအတန်း မပျောက်ပါ။"
+    },
+    {
+      "source": "A10-08 · <code>Database</code>の宣言",
+      "translation": "A10-08 · <code>Database</code> ကြေညာခြင်း"
+    },
+    {
+      "source": "<code>@Database(entities = {Item.class}, version = 1, exportSchema = false)</code>の<code>entities = {Item.class}</code>は何を宣言していますか。",
+      "translation": "<code>@Database(entities = {Item.class}, version = 1, exportSchema = false)</code> ထဲရှိ <code>entities = {Item.class}</code> က မည်သည်ကို ကြေညာသနည်း။"
+    },
+    {
+      "source": "このデータベースが<code>Item</code>の表を持つこと",
+      "translation": "ဤ database တွင် <code>Item</code> ၏ ဇယား ပါဝင်ကြောင်း"
+    },
+    {
+      "source": "画面に<code>Item</code>というボタンを置くこと",
+      "translation": "မျက်နှာပြင်ပေါ်တွင် <code>Item</code> ဟူသော ခလုတ် ထားကြောင်း"
+    },
+    {
+      "source": "保存する行数を必ず1行に制限すること",
+      "translation": "သိမ်းမည့် အတန်းအရေအတွက်ကို 1 တန်းသာ ကန့်သတ်ကြောင်း"
+    },
+    {
+      "source": "<code>Item</code>を<code>Intent</code>で次の画面へ渡すこと",
+      "translation": "<code>Item</code> ကို <code>Intent</code> ဖြင့် နောက်မျက်နှာပြင်သို့ ပို့ကြောင်း"
+    },
+    {
+      "source": "正答：<strong>このデータベースが<code>Item</code>の表を持つこと</strong>",
+      "translation": "အဖြေမှန်: <strong>ဤ database တွင် <code>Item</code> ၏ ဇယား ပါဝင်ကြောင်း</strong>"
+    },
+    {
+      "source": "<code>entities</code>はデータベースに含める表の定義を指定します。<code>version</code>は表の形を変えたときに増やす番号で、保存する行数ではありません。",
+      "translation": "<code>entities</code> က database ထဲ ပါဝင်မည့် ဇယားများ၏ သတ်မှတ်ချက်ကို ညွှန်းသည်။ <code>version</code> သည် ဇယားပုံစံပြောင်းသည့်အခါ တိုးသည့် နံပါတ်ဖြစ်သည်။ သိမ်းမည့် အတန်းအရေအတွက် မဟုတ်ပါ။"
+    },
+    {
+      "source": "復習する場所：<code>room-sample/index.html#step-6</code>",
+      "translation": "ပြန်လေ့လာရန်နေရာ: <code>room-sample/index.html#step-6</code>"
+    },
+    {
+      "source": "A10-09 · データベースの使い回し",
+      "translation": "A10-09 · Database ကို ပြန်သုံးခြင်း"
+    },
+    {
+      "source": "<code>AppDatabase.getInstance</code>で<code>instance</code>が<code>null</code>のときだけデータベースを作る主な理由はどれですか。",
+      "translation": "<code>AppDatabase.getInstance</code> တွင် <code>instance</code> က <code>null</code> ဖြစ်မှသာ database ဖန်တီးရသည့် အဓိကအကြောင်းရင်းက မည်သည်နည်း။"
+    },
+    {
+      "source": "準備に時間がかかるデータベースを1つ作って使い回すため",
+      "translation": "ပြင်ဆင်ရန် ကြာသော database ကို တစ်ခုသာ ဖန်တီးပြီး ထပ်သုံးရန်"
+    },
+    {
+      "source": "保存できるデータを1件だけにするため",
+      "translation": "သိမ်းနိုင်သည့် data ကို တစ်ခုတည်း ကန့်သတ်ရန်"
+    },
+    {
+      "source": "ボタンを2回以上押せないようにするため",
+      "translation": "ခလုတ်ကို 2 ကြိမ်နှင့်အထက် နှိပ်၍ မရအောင် လုပ်ရန်"
+    },
+    {
+      "source": "毎回保存データを空にするため",
+      "translation": "သိမ်းထားသည့် data ကို အကြိမ်တိုင်း ရှင်းရန်"
+    },
+    {
+      "source": "正答：<strong>準備に時間がかかるデータベースを1つ作って使い回すため</strong>",
+      "translation": "အဖြေမှန်: <strong>ပြင်ဆင်ရန် ကြာသော database ကို တစ်ခုသာ ဖန်တီးပြီး ထပ်သုံးရန်</strong>"
+    },
+    {
+      "source": "最初の呼び出しで作り、次から同じ<code>instance</code>を返します。このように1つだけ作って使い回す書き方をシングルトンといいます。",
+      "translation": "ပထမဆုံး ခေါ်သည့်အခါ ဖန်တီးပြီး နောက်အကြိမ်များတွင် တူညီသော <code>instance</code> ကို ပြန်ပေးသည်။ ဤသို့ တစ်ခုတည်း ဖန်တီး၍ ထပ်သုံးသည့်ပုံစံကို singleton ဟု ခေါ်သည်။"
+    },
+    {
+      "source": "<code>Room.databaseBuilder</code>の第1引数に<code>context.getApplicationContext()</code>を渡す理由はどれですか。",
+      "translation": "<code>Room.databaseBuilder</code> ၏ ပထမ argument အဖြစ် <code>context.getApplicationContext()</code> ကို ပေးရသည့် အကြောင်းရင်းက မည်သည်နည်း။"
+    },
+    {
+      "source": "長く使い回すデータベースへ、特定の画面ではなくアプリ全体を渡すため",
+      "translation": "ကြာရှည် ပြန်သုံးမည့် database သို့ မျက်နှာပြင်တစ်ခုအစား app တစ်ခုလုံးကို ပေးရန်"
+    },
+    {
+      "source": "データベースを次の<code>Activity</code>へ送信するため",
+      "translation": "Database ကို နောက် <code>Activity</code> ထံ ပို့ရန်"
+    },
+    {
+      "source": "データベースの全行を文字列にするため",
+      "translation": "Database ၏ အတန်းအားလုံးကို စာသားအဖြစ် ပြောင်းရန်"
+    },
+    {
+      "source": "インターネットへの接続を許可するため",
+      "translation": "အင်တာနက် ချိတ်ဆက်ခွင့်ပြုရန်"
+    },
+    {
+      "source": "正答：<strong>長く使い回すデータベースへ、特定の画面ではなくアプリ全体を渡すため</strong>",
+      "translation": "အဖြေမှန်: <strong>ကြာရှည် ပြန်သုံးမည့် database သို့ မျက်နှာပြင်တစ်ခုအစား app တစ်ခုလုံးကို ပေးရန်</strong>"
+    },
+    {
+      "source": "データベースは画面より長く使い回します。特定の<code>Activity</code>を持ち続けないよう、アプリ全体の<code>Context</code>を渡します。",
+      "translation": "Database ကို မျက်နှာပြင်ထက် ပိုကြာကြာ ဆက်သုံးသည်။ သီးခြား <code>Activity</code> တစ်ခုကို ဆက်မကိုင်ထားစေရန် app တစ်ခုလုံး၏ <code>Context</code> ကို ပေးသည်။"
+    },
+    {
+      "source": "A10-11 · 保存後の再表示",
+      "translation": "A10-11 · သိမ်းပြီးနောက် ပြန်ပြခြင်း"
+    },
+    {
+      "source": "保存ボタンの処理から<code>txtItemList.setText(itemList(itemDao));</code>だけを消しました。新しいデータを保存するとどうなりますか。",
+      "translation": "သိမ်းရန် ခလုတ်၏ လုပ်ဆောင်ချက်မှ <code>txtItemList.setText(itemList(itemDao));</code> ကိုသာ ဖယ်သည်။ Data အသစ် သိမ်းလျှင် ဘာဖြစ်မည်နည်း။"
+    },
+    {
+      "source": "データは保存されるが、その場の一覧は更新されない",
+      "translation": "Data ကို သိမ်းသော်လည်း ထိုအချိန်တွင် စာရင်းကို မပြင်ပါ"
+    },
+    {
+      "source": "データベースへの保存も必ず中止される",
+      "translation": "Database တွင် သိမ်းခြင်းကိုပါ အမြဲ ရပ်မည်"
+    },
+    {
+      "source": "保存したデータがすべて削除される",
+      "translation": "သိမ်းထားသည့် data အားလုံး ဖျက်မည်"
+    },
+    {
+      "source": "一覧が自動で更新され、変更前と同じになる",
+      "translation": "စာရင်း အလိုအလျောက် ပြောင်းပြီး ပြင်ဆင်မှုမတိုင်မီကအတိုင်း ဖြစ်မည်"
+    },
+    {
+      "source": "正答：<strong>データは保存されるが、その場の一覧は更新されない</strong>",
+      "translation": "အဖြေမှန်: <strong>Data ကို သိမ်းသော်လည်း ထိုအချိန်တွင် စာရင်းကို မပြင်ပါ</strong>"
+    },
+    {
+      "source": "<code>upsert</code>で保存する仕事と<code>setText</code>で表示する仕事は別です。起動時の再表示は残っているので、アプリを開き直すと保存された内容を確認できます。",
+      "translation": "<code>upsert</code> ဖြင့် သိမ်းခြင်းနှင့် <code>setText</code> ဖြင့် ပြခြင်းတို့သည် သီးခြား လုပ်ဆောင်ချက်များ ဖြစ်သည်။ App စဖွင့်ချိန်တွင် ပြန်ပြသည့် လုပ်ဆောင်ချက် ကျန်နေသဖြင့် app ကို ပြန်ဖွင့်လျှင် သိမ်းထားသည့် အကြောင်းအရာကို စစ်နိုင်သည်။"
+    },
+    {
+      "source": "A10-12 · <code>Entity</code>のNonNull",
+      "translation": "A10-12 · <code>Entity</code> ၏ NonNull"
+    },
+    {
+      "source": "A10の<code>@Entity</code>にある<code>title</code>フィールドへ付けた<code>@NonNull</code>は、表の定義として何を意味しますか。",
+      "translation": "A10 ၏ <code>@Entity</code> ထဲရှိ <code>title</code> field တွင် ထည့်ထားသော <code>@NonNull</code> သည် ဇယားသတ်မှတ်ချက်အနေဖြင့် မည်သည်ကို ဆိုလိုသနည်း။"
+    },
+    {
+      "source": "その列に<code>null</code>を保存できない",
+      "translation": "ထို column တွင် <code>null</code> ကို သိမ်း၍မရပါ"
+    },
+    {
+      "source": "空文字列も自動で必ず拒否する",
+      "translation": "စာသားအလွတ်ကိုပါ အလိုအလျောက် အမြဲ ငြင်းပယ်သည်"
+    },
+    {
+      "source": "すべての<code>title</code>を同じ文字列にする",
+      "translation": "<code>title</code> အားလုံးကို တူညီသော စာသားဖြစ်စေသည်"
+    },
+    {
+      "source": "<code>title</code>を数値だけに制限する",
+      "translation": "<code>title</code> ကို ဂဏန်းတန်ဖိုးများသာ လက်ခံရန် ကန့်သတ်သည်"
+    },
+    {
+      "source": "正答：<strong>その列に<code>null</code>を保存できない</strong>",
+      "translation": "အဖြေမှန်: <strong>ထို column တွင် <code>null</code> ကို သိမ်း၍မရပါ</strong>"
+    },
+    {
+      "source": "<code>Entity</code>のフィールドの<code>@NonNull</code>は列を<code>NOT NULL</code>にする指定です。<code>null</code>と空文字列は別なので、入力が空かどうかは画面側の<code>isEmpty</code>でも確認します。",
+      "translation": "<code>Entity</code> ၏ field တွင် <code>@NonNull</code> ထည့်ခြင်းသည် column ကို <code>NOT NULL</code> ဟု သတ်မှတ်ခြင်းဖြစ်သည်။ <code>null</code> နှင့် စာသားအလွတ် မတူသဖြင့် မျက်နှာပြင်ဘက်တွင် <code>isEmpty</code> ဖြင့်လည်း input အလွတ် ဖြစ်မဖြစ် စစ်သည်။"
+    },
+    {
+      "source": "正解",
+      "translation": "မှန်"
+    },
+    {
+      "source": "不正解",
+      "translation": "မှား"
+    },
+    {
+      "source": "未回答",
+      "translation": "မဖြေရသေး"
+    },
+    {
+      "source": "あなたの回答：",
+      "translation": "သင့်အဖြေ:&nbsp;"
+    },
+    {
+      "source": "正答：",
+      "translation": "အဖြေမှန်:&nbsp;"
+    }
+  ]
+}
