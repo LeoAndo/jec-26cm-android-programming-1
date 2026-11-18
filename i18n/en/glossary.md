@@ -136,3 +136,11 @@
 | 提出課題とAPKの作り方 | Assignment and how to create an APK | 原文の改行タグは保持する |
 | 課題とAPKの作り方 | Assignment and how to create an APK | 原文の改行タグは保持する |
 | ちがうAndroid Studioのバージョンで進めるとき | Using a different version of Android Studio | 原文の改行タグは保持する |
+
+## 中間テスト対策の追加用語
+
+| 日本語 | 訳 |
+| --- | --- |
+| 中間テスト対策 | Midterm practice |
+| 主キー | primary key |
+| データの永続化 | data persistence |

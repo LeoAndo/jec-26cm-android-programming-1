@@ -134,3 +134,11 @@
 | 赤い枠 | cadre rouge | 「赤い枠で囲まれている」は encadré en rouge |
 | 警告（Android Studio がコードに出すもの） | avertissement | |
 | null（何も入っていないことを表す値） | null (une valeur qui représente l'absence de contenu) | A06・A07 |
+
+## 中間テスト対策の追加用語
+
+| 日本語 | 訳 |
+| --- | --- |
+| 中間テスト対策 | Préparation à l'examen de mi-semestre |
+| 主キー | clé primaire |
+| データの永続化 | persistance des données |
