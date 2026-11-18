@@ -407,14 +407,6 @@
       "translation": "Open <code>gradle/libs.versions.toml</code>. This file lists <strong>which parts to use and which versions of them</strong>. Android Studio provides it as part of the template."
     },
     {
-      "source": "3か所に追記します。<strong>行を足す場所を間違えないように</strong>、見出し（<code>[versions]</code> など）をよく見てください。",
-      "translation": "Add lines in three places. Look carefully at the headings, such as <code>[versions]</code>, <strong>so you add each line in the right place</strong>."
-    },
-    {
-      "source": "<code>libs.versions.toml</code>（全体）",
-      "translation": "<code>libs.versions.toml</code> (entire file)"
-    },
-    {
       "source": "追記する場所",
       "translation": "Where to add it"
     },
@@ -457,10 +449,6 @@
     {
       "source": "② 使うと宣言する場所",
       "translation": "② Where to declare that you will use it"
-    },
-    {
-      "source": "<code>app/build.gradle.kts</code> を開き、<code>dependencies { }</code> の中に2行を追加します。",
-      "translation": "Open <code>app/build.gradle.kts</code> and add two lines inside <code>dependencies { }</code>."
     },
     {
       "source": "<code>libs.room.runtime</code> の <code>libs.</code> は、①で書いた <code>libs.versions.toml</code> のことです。<code>room-runtime</code> のハイフンは、ここでは <strong>ドット</strong>（<code>room.runtime</code>）に変わります。",

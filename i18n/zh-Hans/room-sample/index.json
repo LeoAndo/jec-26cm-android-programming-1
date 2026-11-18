@@ -407,14 +407,6 @@
       "translation": "打开<code>gradle/libs.versions.toml</code>。这个文件用于列出<strong>使用哪些组件以及对应的版本</strong>。Android Studio已将它作为模板准备好。"
     },
     {
-      "source": "3か所に追記します。<strong>行を足す場所を間違えないように</strong>、見出し（<code>[versions]</code> など）をよく見てください。",
-      "translation": "在3处添加内容。请仔细查看标题（如<code>[versions]</code>），<strong>避免加错位置</strong>。"
-    },
-    {
-      "source": "<code>libs.versions.toml</code>（全体）",
-      "translation": "<code>libs.versions.toml</code>（完整内容）"
-    },
-    {
       "source": "追記する場所",
       "translation": "添加位置"
     },
@@ -457,10 +449,6 @@
     {
       "source": "② 使うと宣言する場所",
       "translation": "② 声明使用的位置"
-    },
-    {
-      "source": "<code>app/build.gradle.kts</code> を開き、<code>dependencies { }</code> の中に2行を追加します。",
-      "translation": "打开<code>app/build.gradle.kts</code>，在<code>dependencies { }</code>中添加两行。"
     },
     {
       "source": "<code>libs.room.runtime</code> の <code>libs.</code> は、①で書いた <code>libs.versions.toml</code> のことです。<code>room-runtime</code> のハイフンは、ここでは <strong>ドット</strong>（<code>room.runtime</code>）に変わります。",

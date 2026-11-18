@@ -407,14 +407,6 @@
       "translation": "<code>gradle/libs.versions.toml</code> ကို ဖွင့်ပါ။ ဤဖိုင်သည် <strong>မည်သည့် အစိတ်အပိုင်းကို မည်သည့် version ဖြင့် သုံးမည်ကို</strong> စာရင်းပြုစုထားသော ဖိုင် ဖြစ်သည်။ Android Studio က ပုံစံနမူနာအဖြစ် ပြင်ဆင်ပေးထားသည်။"
     },
     {
-      "source": "3か所に追記します。<strong>行を足す場所を間違えないように</strong>、見出し（<code>[versions]</code> など）をよく見てください。",
-      "translation": "နေရာ 3 ခုတွင် ထပ်ရေးပါ။ <strong>စာကြောင်း ထည့်မည့်နေရာ မမှားစေရန်</strong> ခေါင်းစဉ် (<code>[versions]</code> စသည်) ကို သေချာ ကြည့်ပါ။"
-    },
-    {
-      "source": "<code>libs.versions.toml</code>（全体）",
-      "translation": "<code>libs.versions.toml</code> (တစ်ဖိုင်လုံး)"
-    },
-    {
       "source": "追記する場所",
       "translation": "ထပ်ရေးမည့်နေရာ"
     },
@@ -457,10 +449,6 @@
     {
       "source": "② 使うと宣言する場所",
       "translation": "② သုံးမည်ဟု ကြေညာမည့်နေရာ"
-    },
-    {
-      "source": "<code>app/build.gradle.kts</code> を開き、<code>dependencies { }</code> の中に2行を追加します。",
-      "translation": "<code>app/build.gradle.kts</code> ကို ဖွင့်ပြီး <code>dependencies { }</code> ထဲတွင် စာကြောင်း 2 ကြောင်း ထည့်ပါ။"
     },
     {
       "source": "<code>libs.room.runtime</code> の <code>libs.</code> は、①で書いた <code>libs.versions.toml</code> のことです。<code>room-runtime</code> のハイフンは、ここでは <strong>ドット</strong>（<code>room.runtime</code>）に変わります。",
