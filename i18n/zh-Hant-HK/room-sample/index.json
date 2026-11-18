@@ -468,7 +468,7 @@
     },
     {
       "source": "すでにある <code>dependencies { }</code> を探し、<strong>閉じる <code>}</code> の直前に、緑色で「＋」が付いた2行を追加</strong>します。既存の行は残します。<code>dependencies { }</code> 自体は新しく作りません。「＋」は入力しません。",
-      "translation": "找出現有的 <code>dependencies { }</code>，<strong>在結束的大括號 <code>}</code> 正前方加入兩行標有「＋」的綠色內容</strong>。保留原有的行。毋須另建 <code>dependencies { }</code>，也不要輸入「＋」。"
+      "translation": "找出現有的 <code>dependencies { }</code>，<strong>在結束的大括號 <code>}</code> 正前方加入兩行標有「＋」的綠色內容</strong>。保留原有的行。不要另建 <code>dependencies { }</code>，也不要輸入「＋」。"
     },
     {
       "source": "追加する2行だけを確認する",
@@ -672,7 +672,7 @@
     },
     {
       "source": "<strong>Class to Import</strong> が出たら、<strong><code>NonNull (androidx.annotation)</code></strong> を選んで <kbd>return</kbd> を押します。似た名前の <code>NonNull (of org.jspecify.annotations)</code> ではなく、教科書のコードと同じ <code>androidx.annotation</code> を選びます。候補が1つだけで、この一覧が出ないこともあります。",
-      "translation": "出現 <strong>Class to Import</strong> 時，選取 <strong><code>NonNull (androidx.annotation)</code></strong>，然後按 <kbd>return</kbd>。選取與教科書程式碼相同的 <code>androidx.annotation</code>。名稱相似的 <code>NonNull (of org.jspecify.annotations)</code> 屬於另一個套件。如果只有一個候選項目，這個列表可能不會出現。"
+      "translation": "出現 <strong>Class to Import</strong> 時，選取 <strong><code>NonNull (androidx.annotation)</code></strong>，然後按 <kbd>return</kbd>。不要選取名稱相似的 <code>NonNull (of org.jspecify.annotations)</code>，應選取與教科書程式碼相同的 <code>androidx.annotation</code>。如果只有一個候選項目，這個列表可能不會出現。"
     },
     {
       "source": "Class to Importに2つのNonNullが並び、NonNull (androidx.annotation) が選択されている",

@@ -368,7 +368,7 @@
     },
     {
       "source": "<code>getText()</code>で現在の表示文字を取り出し、<code>toString()</code>で<code>String</code>にします。<code>setText</code>は文字を取り出す処理ではなく、表示を変更する処理です。",
-      "translation": "用 <code>getText()</code> 取得目前顯示的文字，再用 <code>toString()</code> 轉為 <code>String</code>。<code>setText</code> 用於更改顯示文字。"
+      "translation": "用 <code>getText()</code> 取得目前顯示的文字，再用 <code>toString()</code> 轉為 <code>String</code>。<code>setText</code> 並非用來取得文字，而是用來更改顯示內容。"
     },
     {
       "source": "復習する場所：<code>hello-android/index.html#step-5</code>",
@@ -668,7 +668,7 @@
     },
     {
       "source": "A02では、9個の<code>id</code>の配列を拡張<code>for</code>文で取り出し、各ボタンに<code>setOnClickListener</code>を付けます。この<code>for</code>文が行うことはどれですか。",
-      "translation": "在 A02 中，用增強型 <code>for</code> 迴圈逐個取出陣列中的 9個 <code>id</code>，為各按鈕設定 <code>setOnClickListener</code>。這個 <code>for</code> 迴圈做甚麼？"
+      "translation": "在 A02 中，用增強型 <code>for</code> 迴圈逐個取出陣列中的 9 個 <code>id</code>，再用 <code>setOnClickListener</code> 為各按鈕登記點擊監聽器。這個 <code>for</code> 迴圈做甚麼？"
     },
     {
       "source": "画面を作るときに9個のボタンへクリック処理を登録する",
@@ -2140,7 +2140,7 @@
     },
     {
       "source": "同じ名前で引数の型や数が違うメソッドを用意することをオーバーロードといいます。渡した値に合う<code>start</code>が選ばれます。",
-      "translation": "定義名稱相同、參數的類型或數量不同的方法，叫作多載（オーバーロード）。系統會選用與傳入值相符的 <code>start</code>。"
+      "translation": "定義名稱相同、參數的類型或數量不同的方法，叫作多載（オーバーロード）。會選用與傳入值相符的 <code>start</code>。"
     },
     {
       "source": "A06-09 · 配列の受け渡し",
@@ -2236,7 +2236,7 @@
     },
     {
       "source": "A07で参加者名を<code>TextView</code>だけでなく<code>ArrayList&lt;String&gt;</code>にもためる主な理由はどれですか。",
-      "translation": "在 A07 中，除了用 <code>TextView</code> 顯示參加者姓名，為甚麼還要將姓名存到 <code>ArrayList&lt;String&gt;</code> 中？"
+      "translation": "在 A07 中，除了用 <code>TextView</code> 顯示參加者姓名，還要將姓名存到 <code>ArrayList&lt;String&gt;</code> 中的主要原因是甚麼？"
     },
     {
       "source": "重複を調べたり、人数を数えたりするため",
@@ -2672,7 +2672,7 @@
     },
     {
       "source": "戻り値はなく、ファイルへの書き込みは別の処理にまかせる",
-      "translation": "沒有回傳值，寫入檔案由另一個處理程序負責"
+      "translation": "沒有回傳值，寫入檔案交由另一項處理工作負責"
     },
     {
       "source": "<code>boolean</code>を返し、ファイルへの書き込み完了まで待つ",
@@ -2688,7 +2688,7 @@
     },
     {
       "source": "正答：<strong>戻り値はなく、ファイルへの書き込みは別の処理にまかせる</strong>",
-      "translation": "正確答案：<strong>沒有回傳值，寫入檔案由另一個處理程序負責</strong>"
+      "translation": "正確答案：<strong>沒有回傳值，寫入檔案交由另一項處理工作負責</strong>"
     },
     {
       "source": "<code>apply</code>は保存を確定しますが、成功したかを戻り値では受け取りません。教材の保存・削除は<code>apply</code>に統一しています。",
@@ -2880,7 +2880,7 @@
     },
     {
       "source": "<code>SharedPreferences</code>は小さく単純な設定や値に向きます。教材で表示した<code>XML</code>は暗号化されていないので、パスワードなど大事な情報を置く場所にはしません。",
-      "translation": "<code>SharedPreferences</code> 適合儲存少量簡單設定或數值。教科書顯示的 <code>XML</code> 並未加密，因此不應用它儲存密碼等重要資料。"
+      "translation": "<code>SharedPreferences</code> 適合儲存少量簡單設定或值。教科書顯示的 <code>XML</code> 並未加密，因此不應用它儲存密碼等重要資料。"
     },
     {
       "source": "A08-12 · 表示欄の高さ",
@@ -3152,7 +3152,7 @@
     },
     {
       "source": "A09-08 · データの持ち方",
-      "translation": "A09-08 · 儲存資料的方式"
+      "translation": "A09-08 · 資料的儲存與管理方式"
     },
     {
       "source": "A09でメモ一覧のために<code>ArrayList</code>を別に作っていない理由はどれですか。",
@@ -3372,7 +3372,7 @@
     },
     {
       "source": "行を見分ける番号にし、新規追加で番号を自動生成できるようにする",
-      "translation": "將其設為區分各行的編號，並在新增資料行時自動產生編號"
+      "translation": "將其設為區分各行的編號，並可於新增資料行時自動產生編號"
     },
     {
       "source": "<code>title</code>の文字数を毎回<code>internalId</code>に保存する",
@@ -3388,11 +3388,11 @@
     },
     {
       "source": "正答：<strong>行を見分ける番号にし、新規追加で番号を自動生成できるようにする</strong>",
-      "translation": "正確答案：<strong>將其設為區分各行的編號，並在新增資料行時自動產生編號</strong>"
+      "translation": "正確答案：<strong>將其設為區分各行的編號，並可於新增資料行時自動產生編號</strong>"
     },
     {
       "source": "主キーは行を見分けるために使います。A10ではid欄を空にして保存すると、<code>Room</code>が新しい行の番号を自動で付けます。",
-      "translation": "主鍵（主キー）用於識別資料表中各行。在 A10 中，如果將 id 輸入欄留空後儲存，<code>Room</code> 會自動為新增的一行編號。"
+      "translation": "主鍵（主キー，しゅキー）用於識別資料表中各行。在 A10 中，如果將 id 輸入欄留空後儲存，<code>Room</code> 會自動為新增的一行編號。"
     },
     {
       "source": "A10-04 · DAOの実装",
@@ -3568,7 +3568,7 @@
     },
     {
       "source": "<code>AppDatabase.getInstance</code>で<code>instance</code>が<code>null</code>のときだけデータベースを作る主な理由はどれですか。",
-      "translation": "為甚麼 <code>AppDatabase.getInstance</code> 只在 <code>instance</code> 為 <code>null</code> 時建立資料庫？"
+      "translation": "<code>AppDatabase.getInstance</code> 只在 <code>instance</code> 為 <code>null</code> 時建立資料庫，主要原因是甚麼？"
     },
     {
       "source": "準備に時間がかかるデータベースを1つ作って使い回すため",
@@ -3600,7 +3600,7 @@
     },
     {
       "source": "長く使い回すデータベースへ、特定の画面ではなくアプリ全体を渡すため",
-      "translation": "讓會長期重用的資料庫取得整個應用程式的使用情境，而非個別畫面的使用情境"
+      "translation": "讓長期重用的資料庫使用整個應用程式的 Context，而非個別畫面的 Context"
     },
     {
       "source": "データベースを次の<code>Activity</code>へ送信するため",
@@ -3616,7 +3616,7 @@
     },
     {
       "source": "正答：<strong>長く使い回すデータベースへ、特定の画面ではなくアプリ全体を渡すため</strong>",
-      "translation": "正確答案：<strong>讓會長期重用的資料庫取得整個應用程式的使用情境，而非個別畫面的使用情境</strong>"
+      "translation": "正確答案：<strong>讓長期重用的資料庫使用整個應用程式的 Context，而非個別畫面的 Context</strong>"
     },
     {
       "source": "データベースは画面より長く使い回します。特定の<code>Activity</code>を持ち続けないよう、アプリ全体の<code>Context</code>を渡します。",
