@@ -34,6 +34,7 @@
 - [共通資料：開発Tips（画面の余白・キーボード・画面回転）](docs/common/dev-tips.html)
 - [共通資料：ちがうAndroid Studioのバージョンで進めるとき（サポート範囲と読み替え）](docs/common/other-versions.html)
 - [共通資料：困ったとき（エラーの調べ方）](docs/common/help.html)
+- [中間テスト対策：A01〜A10の復習問題集](docs/practice/midterm.html)
 - [教員用：HelloAndroidの授業の進め方・確認項目](teacher/hello-android/index.html)
 - [教員用：CalcGameの授業の進め方・確認項目](teacher/calc-game/index.html)
 - [教員用：RockPaperScissorsGameの授業の進め方・確認項目](teacher/rock-paper-scissors-game/index.html)
@@ -45,6 +46,7 @@
 - [教員用：MemoAppの授業の進め方・確認項目](teacher/memo-app/index.html)
 - [教員用：RoomSampleの授業の進め方・確認項目](teacher/room-sample/index.html)
 - [教員用：VocabularyBookの授業の進め方・確認項目](teacher/vocabulary-book/index.html)
+- [教員用：中間テスト対策問題集の内容確認と配布](teacher/midterm-practice/index.html)
 
 ### 開き方
 
@@ -61,6 +63,16 @@
 授業中は教員が指定した版を使います。授業ごとの案内には、内容が固定された個別リリースのURLを使ってください。更新版は別フォルダに展開し、学生自身のAndroid Studioプロジェクトは上書きしません。
 
 各単元で、学生自身が毎回Android Studioからプロジェクトを新規作成します。完成版は動作確認とコード比較の参考資料として使います。作成先は `/Users/ユーザ名/Documents/Android1/プロジェクト名` です。HelloAndroidは `A01HelloAndroid`、CalcGameは `A02CalcGame`、RockPaperScissorsGameは `A03RockPaperScissorsGame`、WebViewAppは `A04WebViewApp`、BombGameは `A05BombGame`、ScreenTransitionSampleは `A06ScreenTransitionSample`、BillSplitterは `A07BillSplitter`、SharedPreferencesSampleは `A08SharedPreferencesSample`、MemoAppは `A09MemoApp`、RoomSampleは `A10RoomSample`、VocabularyBookは `A11VocabularyBook` として保存します。
+
+### 中間テスト対策問題集
+
+[A01〜A10の復習問題集](docs/practice/midterm.html)は、授業で学んだ内容を解き直すための教材です。2026年12月2日（水）2限の中間テストは、対面・60分、A01〜A10 RoomSampleまでの全内容、4択（ア〜エ）、20問・各5点です。問題集は練習用で、本番の出題を示すものではありません。
+
+各単元12問、合計120問から、毎回各単元2問ずつ計20問を抽選します。問題と選択肢の順序も変わります。採点後は正答と解説を読み、何度でも再挑戦できます。時間制限なしと60分の練習モードを選べます。教員は[内容確認と配布のガイド](teacher/midterm-practice/index.html)で、全問題の出典・正答・解説と確認方法を参照できます。
+
+問題集は学生用ZIPの `docs/practice/midterm.html` に同梱され、準備ページの末尾からも開けます。単独で共有するときは、このリポジトリの原本 `docs/practice/midterm.html` 1個をClassroomに添付します。学生はHTMLをダウンロードしてブラウザで開きます。表示・出題・採点に必要なものをHTMLに含み、サーバーや外部CDNを使わずオフラインで動きます。Classroomへの投稿は教員が行います。
+
+問題集の日本語を更新する日常の教材PRでは、対訳カタログを変更しません。配布前に、ほかの日本語教材の変更と合わせて、別工程で差分翻訳と公開を行います。
 
 ### 教員が確認に使うプロジェクト
 

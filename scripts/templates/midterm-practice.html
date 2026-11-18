@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>中間テスト対策 — Androidプログラミング1</title>
+<style>
+:root { color-scheme: light; font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Yu Gothic", sans-serif; color: #17324f; background: #f3f7fb; line-height: 1.8; font-size: 18px; }
+* { box-sizing: border-box; }
+body { margin: 0; }
+main { max-width: 960px; margin: auto; padding: 40px 24px 80px; }
+h1 { font-size: clamp(1.7rem, 5vw, 2.4rem); line-height: 1.4; margin: 12px 0; }
+h2 { font-size: 1.4rem; } h3 { font-size: 1rem; }
+p { margin: 12px 0; }
+.eyebrow { color: #28618d; font-size: .85rem; font-weight: 700; letter-spacing: .1em; }
+.lead { color: #486176; }
+.panel, #catalog, .question, #review article { background: white; border: 1px solid #c9d8e7; border-radius: 16px; padding: 26px; margin: 24px 0; }
+.facts { display: flex; gap: 12px; flex-wrap: wrap; padding: 0; list-style: none; }
+.facts li { background: #e5eff9; border-radius: 8px; padding: 8px 16px; font-weight: 700; }
+button { font: inherit; line-height: 1.5; padding: 12px 22px; border: 1px solid #14579b; border-radius: 9px; color: white; background: #14579b; cursor: pointer; }
+button.secondary { background: white; color: #14579b; }
+button:hover { filter: brightness(.94); }
+button:focus-visible, input:focus-visible, summary:focus-visible { outline: 3px solid #db6c00; outline-offset: 4px; }
+.actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 20px; }
+fieldset { border: 0; padding: 0; margin: 0; min-width: 0; }
+legend { font-weight: 700; margin-bottom: 12px; }
+label { cursor: pointer; }
+.mode label { display: block; padding: 9px 0; }
+input { accent-color: #14579b; width: 20px; height: 20px; flex-shrink: 0; }
+input[type="radio"] { margin: 4px 10px 0 0; }
+.status { display: flex; gap: 16px; justify-content: space-between; flex-wrap: wrap; background: #e5eff9; padding: 14px 20px; border-radius: 10px; }
+.question { margin: 18px 0; }
+.prompt { white-space: pre-wrap; overflow-wrap: anywhere; }
+.option { display: flex; align-items: flex-start; padding: 12px; margin-top: 10px; border: 1px solid #c9d8e7; border-radius: 8px; white-space: pre-wrap; overflow-wrap: anywhere; }
+.option:has(input:checked) { background: #e5eff9; border-color: #14579b; }
+.option-letter { font-weight: 700; margin-right: 12px; }
+code { font-family: ui-monospace, monospace; font-size: .9em; overflow-wrap: anywhere; }
+.source { font-size: .8rem; color: #486176; }
+.score { font-size: 2.8rem; font-weight: 750; margin: 0; }
+.badge { font-weight: 700; color: #126342; }
+.incorrect .badge { color: #a12a26; }
+.explanation { border-left: 4px solid #14579b; padding-left: 16px; margin-top: 16px; }
+#catalog summary { cursor: pointer; font-weight: 700; }
+#question-bank article { padding: 20px 0; border-top: 1px solid #c9d8e7; }
+#question-bank li { white-space: pre-wrap; overflow-wrap: anywhere; }
+.notice { color: #8b3c00; font-weight: 700; }
+[hidden] { display: none !important; }
+@media (max-width: 600px) { main { padding: 24px 14px 48px; } .panel, #catalog, .question, #review article { padding: 18px; } .facts li { padding: 6px 10px; } }
+@media print { body { background: white; } button, .actions, #setup, #quiz { display: none; } main { padding: 0; } article { break-inside: avoid; } }
+</style>
+</head>
+<body>
+<main>
+<header><p class="eyebrow">ANDROID PROGRAMMING 1</p><h1>中間テスト対策</h1><p class="lead">学んだことを、20問ずつ確かめよう。</p></header>
+<noscript><p class="notice">問題を抽選・採点するには、ブラウザでJavaScriptを有効にしてください。全問題の正答と解説は、下の一覧でも読めます。</p></noscript>
+<section id="setup" class="panel" aria-labelledby="setup-title">
+<h2 id="setup-title">A01〜A10の復習</h2>
+<ul class="facts"><li>4択（ア〜エ）</li><li>20問 × 5点</li><li>何度でも挑戦</li></ul>
+<p>試験予定：<strong>2026年12月2日（水）2限</strong>。対面・60分で行います。範囲はA01〜A10 RoomSampleまでの全内容です。</p>
+<p>この問題集は各単元12問、合計120問から、毎回各単元2問ずつ出します。問題と選択肢の順番も変わります。同じ問題が再び出ることもあります。</p>
+<p>授業内容を復習するための練習問題です。本番と同じ問題・単元配分になるとは限りません。1回の20問だけで全内容を確認できるわけではありません。</p>
+<fieldset class="mode"><legend>練習の進め方</legend>
+<label><input type="radio" name="mode" value="untimed" checked="checked">時間制限なし — 調べながら復習する</label>
+<label><input type="radio" name="mode" value="timed">60分練習 — 時間切れで自動採点する</label>
+</fieldset>
+<p>回答はこの画面の中だけで扱います。送信・保存はしません。ページを閉じたり再読み込みしたりすると、回答は消えます。60分練習では、別のタブを見ている間も時間が進みます。</p>
+<button id="start" type="button" disabled="disabled">20問を始める</button>
+</section>
+<section id="quiz" hidden="hidden" aria-labelledby="quiz-title">
+<h2 id="quiz-title" tabindex="-1">問題を解く</h2>
+<div class="status"><p><span>回答済み：</span><strong id="answered">0</strong> / 20</p><p id="untimed-label">時間制限なし</p><p id="timer-box" hidden="hidden"><span>残り時間：</span><strong id="timer" role="timer">60:00</strong></p></div>
+<p>答えを1つ選んでください。採点するまでは変更できます。未回答は0点です。</p>
+<form id="quiz-form"><div id="questions"></div><div class="actions"><button type="submit">採点する</button></div></form>
+<div id="confirm-unanswered" class="panel" hidden="hidden" role="alert">
+<p><strong id="unanswered-count"></strong><span>問が未回答です。未回答を0点として採点しますか？</span></p>
+<div class="actions"><button type="button" id="confirm-grade">このまま採点する</button><button type="button" id="keep-answering" class="secondary">回答を続ける</button></div></div>
+</section>
+<section id="results" hidden="hidden" aria-labelledby="results-title">
+<div class="panel"><h2 id="results-title" tabindex="-1">採点結果</h2><p id="expired" class="notice" hidden="hidden">60分が経過したため、自動で採点しました。</p>
+<p class="score"><span id="score">0</span><span> / 100点</span></p>
+<p><span>正解：</span><strong id="correct-count">0</strong><span> / 20問</span><span>　未回答：</span><strong id="blank-count">0</strong><span>問</span></p>
+<p>正答と解説を読み、分からなかったところを復習しましょう。点数は練習の目安です。</p>
+<div class="actions"><button type="button" id="retry">新しい20問に挑戦する</button><button type="button" class="secondary" id="choose-mode">練習方法を選び直す</button></div></div>
+<div id="review"></div>
+</section>
+<details id="catalog"><summary>全120問の正答・解説を見る</summary>
+<p>出題されなかった問題も復習できます。教員が問題の内容を確認するときにも使えます。選択肢の表示順は、練習画面では毎回変わります。</p>
+<p>「復習する場所」は教材ZIPのdocsフォルダからの場所と見出しIDです。このHTMLだけで解答と解説を読めます。</p>
+<div id="question-bank">
+<!-- QUESTION_BANK -->
+</div></details>
+<template id="review-labels"><p data-label="correct">正解</p><p data-label="incorrect">不正解</p><p data-label="blank">未回答</p><p data-label="yours">あなたの回答：</p><p data-label="answer">正答：</p></template>
+</main>
+<script>
+(() => {
+  'use strict';
+  const $ = (id) => document.getElementById(id);
+  const labels = Object.fromEntries(Array.from($('review-labels').content.querySelectorAll('[data-label]'), el => [el.dataset.label, el.textContent]));
+  const letters = ['ア', 'イ', 'ウ', 'エ'];
+  const bank = Array.from($('question-bank').querySelectorAll('article')).map(article => ({
+    id: article.dataset.id, unit: article.dataset.unit, heading: article.querySelector('h3').innerHTML,
+    prompt: article.querySelector('.prompt').innerHTML,
+    choices: Array.from(article.querySelectorAll('.options li')).map((li, id) => ({ id, html: li.innerHTML, correct: li.dataset.correct === 'true' })),
+    explanation: article.querySelector('.explanation').innerHTML,
+    source: article.querySelector('.source').innerHTML
+  }));
+  let current = [], active = false, deadline = null, interval = null;
+  function shuffle(items) {
+    const result = [...items];
+    for (let i = result.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [result[i], result[j]] = [result[j], result[i]];
+    }
+    return result;
+  }
+  function selected(q) { return document.querySelector('input[name="' + q.id + '"]:checked'); }
+  function answersCount() { return current.filter(q => selected(q)).length; }
+  function tick() {
+    if (!active || deadline === null) return;
+    const seconds = Math.max(0, Math.ceil((deadline - Date.now()) / 1000));
+    $('timer').textContent = String(Math.floor(seconds / 60)).padStart(2, '0') + ':' + String(seconds % 60).padStart(2, '0');
+    if (!seconds) grade(true);
+  }
+  function start() {
+    clearInterval(interval);
+    const units = [...new Set(bank.map(q => q.unit))];
+    current = shuffle(units.flatMap(unit => shuffle(bank.filter(q => q.unit === unit)).slice(0, 2)))
+      .map(q => ({ ...q, choices: shuffle(q.choices) }));
+    $('questions').replaceChildren();
+    $('review').replaceChildren();
+    current.forEach((q, index) => {
+      const fieldset = document.createElement('fieldset');
+      fieldset.className = 'question';
+      fieldset.dataset.questionId = q.id;
+      const legend = document.createElement('legend');
+      legend.id = q.id + '-number';
+      legend.textContent = (index + 1) + ' / 20 · ' + q.unit;
+      fieldset.append(legend);
+      const prompt = document.createElement('p'); prompt.className = 'prompt'; prompt.innerHTML = q.prompt;
+      prompt.id = q.id + '-prompt';
+      fieldset.setAttribute('aria-labelledby', legend.id + ' ' + prompt.id);
+      fieldset.append(prompt);
+      q.choices.forEach((choice, i) => {
+        const label = document.createElement('label'); label.className = 'option';
+        const radio = document.createElement('input'); radio.type = 'radio'; radio.name = q.id; radio.value = String(choice.id);
+        const letter = document.createElement('span'); letter.className = 'option-letter'; letter.textContent = letters[i];
+        const text = document.createElement('span'); text.innerHTML = choice.html;
+        label.append(radio, letter, text); fieldset.append(label);
+      });
+      $('questions').append(fieldset);
+    });
+    $('setup').hidden = true; $('results').hidden = true; $('catalog').hidden = true; $('catalog').open = false;
+    $('quiz').hidden = false; $('confirm-unanswered').hidden = true; $('answered').textContent = '0';
+    active = true;
+    deadline = document.querySelector('input[name="mode"]:checked').value === 'timed' ? Date.now() + 60 * 60 * 1000 : null;
+    $('timer-box').hidden = deadline === null; $('untimed-label').hidden = deadline !== null;
+    tick(); interval = deadline === null ? null : setInterval(tick, 500);
+    $('quiz-title').focus();
+  }
+  function grade(expired = false) {
+    if (!active) return;
+    active = false; clearInterval(interval);
+    let correct = 0, blank = 0;
+    $('review').replaceChildren();
+    current.forEach((q, index) => {
+      const chosen = selected(q);
+      const choice = chosen ? q.choices.find(c => String(c.id) === chosen.value) : null;
+      const right = q.choices.find(c => c.correct);
+      if (choice && choice.correct) correct++;
+      if (!choice) blank++;
+      const article = document.createElement('article'); article.className = choice && choice.correct ? 'correct' : 'incorrect';
+      const heading = document.createElement('h3'); heading.innerHTML = (index + 1) + ' / 20 · ' + q.heading;
+      const badge = document.createElement('p'); badge.className = 'badge'; badge.textContent = !choice ? labels.blank : choice.correct ? labels.correct : labels.incorrect;
+      const prompt = document.createElement('p'); prompt.className = 'prompt'; prompt.innerHTML = q.prompt;
+      const options = document.createElement('ol');
+      q.choices.forEach((c, i) => { const li = document.createElement('li'); li.innerHTML = letters[i] + ' · ' + c.html; options.append(li); });
+      const yours = document.createElement('p'); yours.textContent = labels.yours;
+      if (choice) { const span = document.createElement('span'); span.innerHTML = letters[q.choices.indexOf(choice)] + ' · ' + choice.html; yours.append(span); }
+      else yours.append(document.createTextNode(labels.blank));
+      const answer = document.createElement('p'); answer.textContent = labels.answer + letters[q.choices.indexOf(right)];
+      const explanation = document.createElement('div'); explanation.className = 'explanation'; explanation.innerHTML = q.explanation;
+      const source = document.createElement('p'); source.className = 'source'; source.innerHTML = q.source;
+      article.append(heading, badge, prompt, options, yours, answer, explanation, source); $('review').append(article);
+    });
+    $('score').textContent = String(correct * 5); $('correct-count').textContent = String(correct); $('blank-count').textContent = String(blank);
+    $('expired').hidden = !expired; $('quiz').hidden = true; $('results').hidden = false; $('catalog').hidden = false;
+    $('results-title').focus();
+  }
+  $('start').disabled = false;
+  $('start').addEventListener('click', start);
+  $('retry').addEventListener('click', start);
+  $('choose-mode').addEventListener('click', () => { $('results').hidden = true; $('setup').hidden = false; $('start').focus(); });
+  $('quiz-form').addEventListener('change', () => { tick(); $('answered').textContent = String(answersCount()); $('confirm-unanswered').hidden = true; });
+  $('quiz-form').addEventListener('submit', event => {
+    event.preventDefault(); tick(); if (!active) return;
+    const unanswered = 20 - answersCount();
+    if (unanswered) { $('unanswered-count').textContent = String(unanswered); $('confirm-unanswered').hidden = false; $('confirm-grade').focus(); }
+    else grade();
+  });
+  $('confirm-grade').addEventListener('click', () => { tick(); grade(); });
+  $('keep-answering').addEventListener('click', () => { $('confirm-unanswered').hidden = true; const q = current.find(q => !selected(q)); if (q) document.querySelector('input[name="' + q.id + '"]').focus(); });
+  document.addEventListener('visibilitychange', tick);
+  window.addEventListener('pageshow', tick);
+  window.addEventListener('beforeunload', event => { if (active) { event.preventDefault(); event.returnValue = ''; } });
+  if (location.hash === '#catalog') $('catalog').open = true;
+})();
+</script>
+</body>
+</html>
