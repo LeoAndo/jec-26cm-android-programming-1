@@ -54,7 +54,7 @@ input { accent-color:#14579b; width:20px; height:20px; vertical-align:middle; fl
 </section>
 <section id="quiz" aria-labelledby="quiz-title" hidden>
 <h2 id="quiz-title" tabindex="-1" data-ui="quizTitle"></h2>
-<div class="status"><p><span data-ui="answered"></span><strong id="answered">0</strong> / 20</p><p id="untimed" data-ui="noLimit"></p><p id="timer-box" hidden><span data-ui="remaining"></span><strong id="timer" role="timer">60:00</strong></p></div>
+<div class="status"><p><span data-ui="answered"></span><strong id="answered">0</strong> / <span id="draw-total">20</span></p><p id="untimed" data-ui="noLimit"></p><p id="timer-box" hidden><span data-ui="remaining"></span><strong id="timer" role="timer">60:00</strong></p></div>
 <p data-ui="answerInstructions"></p><form id="quiz-form"><div id="questions"></div><div class="actions"><button type="submit" data-ui="grade"></button></div></form>
 <div id="confirm-unanswered" class="panel" role="alert" hidden><p><strong id="unanswered-count"></strong><span data-ui="unansweredConfirm"></span></p><div class="actions"><button id="confirm-grade" data-ui="confirmGrade"></button><button id="keep-answering" class="secondary" data-ui="keepAnswering"></button></div></div>
 </section>
@@ -69,7 +69,9 @@ input { accent-color:#14579b; width:20px; height:20px; vertical-align:middle; fl
   try {
     const data = JSON.parse(document.getElementById('midterm-data').textContent);
     const $ = id => document.getElementById(id), letters = ['ア','イ','ウ','エ'];
-    const state = {phase:'setup', timing:'untimed', language:'ja', bilingual:true, questions:[], answers:{}, deadline:null, expired:false};
+    const settings = data.settings || {drawCount:20, durationMinutes:60, pointsPerQuestion:5};
+    const points = settings.pointsPerQuestion === null ? 1 : settings.pointsPerQuestion;
+    const state = {phase:'setup', timing:'untimed', language:'ja', bilingual:true, questions:[], answers:Object.create(null), deadline:null, expired:false};
     let interval = null;
     const language = () => state.language;
     const ui = key => data.ui[language()][key];
@@ -96,7 +98,7 @@ input { accent-color:#14579b; width:20px; height:20px; vertical-align:middle; fl
     }
     const questionCode = id => `<pre class="question-code"><code>${data.banks.ja[id].code}</code></pre>`;
     function renderQuestions() {
-      $('questions').innerHTML = state.questions.map((q,i) => `<fieldset class="question" data-question-id="${q.id}" aria-describedby="prompt-${q.id}"><legend>${i+1} / 20</legend><div class="prompt" id="prompt-${q.id}">${content(q.id,'prompt')}</div>${questionCode(q.id)}${q.order.map((choice,j) => `<label class="option"><input type="radio" name="${q.id}" value="${choice}"${state.answers[q.id]===choice?' checked':''}><span class="letter">${letters[j]}</span><span class="option-copy">${content(q.id,'choices',choice)}</span></label>`).join('')}</fieldset>`).join('');
+      $('questions').innerHTML = state.questions.map((q,i) => `<fieldset class="question" data-question-id="${q.id}" aria-describedby="prompt-${q.id}"><legend>${i+1} / ${settings.drawCount}</legend><div class="prompt" id="prompt-${q.id}">${content(q.id,'prompt')}</div>${questionCode(q.id)}${q.order.map((choice,j) => `<label class="option"><input type="radio" name="${q.id}" value="${choice}"${state.answers[q.id]===choice?' checked':''}><span class="letter">${letters[j]}</span><span class="option-copy">${content(q.id,'choices',choice)}</span></label>`).join('')}</fieldset>`).join('');
       $('answered').textContent = Object.keys(state.answers).length;
     }
     function renderReview() {
@@ -105,9 +107,9 @@ input { accent-color:#14579b; width:20px; height:20px; vertical-align:middle; fl
         const answer = data.banks.ja[q.id].answer, chosen = state.answers[q.id], empty = chosen === undefined, right = chosen === answer;
         if (right) correct++; if (empty) blank++;
         const yours = empty ? ui('blank') : `${letters[q.order.indexOf(chosen)]} · ${content(q.id,'choices',chosen)}`;
-        return `<article class="${right?'correct':'incorrect'}"><h3>${i+1} / 20 · ${content(q.id,'heading')}</h3><p class="badge">${ui(empty?'blank':right?'correct':'incorrect')}</p><div class="prompt">${content(q.id,'prompt')}</div>${questionCode(q.id)}<ul class="answer-list">${q.order.map((choice,j)=>`<li><strong>${letters[j]}</strong> · ${content(q.id,'choices',choice)}</li>`).join('')}</ul><p>${ui('yours')}${yours}</p><p>${ui('answer')}<strong>${letters[q.order.indexOf(answer)]}</strong></p><div class="explanation">${content(q.id,'explanation')}</div><p class="source">${content(q.id,'source')}</p></article>`;
+        return `<article class="${right?'correct':'incorrect'}"><h3>${i+1} / ${settings.drawCount} · ${content(q.id,'heading')}</h3><p class="badge">${ui(empty?'blank':right?'correct':'incorrect')}</p><div class="prompt">${content(q.id,'prompt')}</div>${questionCode(q.id)}<ul class="answer-list">${q.order.map((choice,j)=>`<li><strong>${letters[j]}</strong> · ${content(q.id,'choices',choice)}</li>`).join('')}</ul><p>${ui('yours')}${yours}</p><p>${ui('answer')}<strong>${letters[q.order.indexOf(answer)]}</strong></p><div class="explanation">${content(q.id,'explanation')}</div><p class="source">${content(q.id,'source')}</p></article>`;
       }).join('');
-      $('score').textContent = correct*5; $('correct-count').textContent = correct; $('blank-count').textContent = blank;
+      $('score').textContent = Number((correct*points).toPrecision(15)); $('correct-count').textContent = correct; $('blank-count').textContent = blank;
     }
     function renderCatalog() {
       if (!$('catalog').open || state.phase === 'active') { $('question-bank').replaceChildren(); return; }
@@ -115,8 +117,9 @@ input { accent-color:#14579b; width:20px; height:20px; vertical-align:middle; fl
     }
     function render() {
       const lang = language();
-      document.documentElement.lang = lang; document.title = data.ui[lang].title + ' — Android Programming 1';
+      document.documentElement.lang = lang; document.title = data.ui[lang].title + (data.settings ? '' : ' — Android Programming 1');
       document.querySelectorAll('[data-ui]').forEach(el => { el.innerHTML = ui(el.dataset.ui); });
+      $('draw-total').textContent = settings.drawCount;
       $('language').value = lang; $('bilingual').disabled = lang === 'ja'; $('bilingual').checked = state.bilingual;
       $('translation-note').hidden = lang === 'ja';
       $('setup').hidden = state.phase !== 'setup'; $('quiz').hidden = state.phase !== 'active'; $('results').hidden = state.phase !== 'result';
@@ -130,10 +133,16 @@ input { accent-color:#14579b; width:20px; height:20px; vertical-align:middle; fl
       clearInterval(interval);
       if (!retry) state.timing = document.querySelector('[name=timing]:checked').value;
       const pool = Object.keys(data.banks.ja);
-      const blankGroups = new Set(shuffle(data.groups).slice(0,10));
-      state.questions = shuffle(data.groups.map(group => pool.find(id => data.banks.ja[id].group === group && data.banks.ja[id].kind === (blankGroups.has(group) ? 'blank' : 'explain')))).map(id=>({id,order:shuffle([0,1,2,3])}));
-      state.answers = {}; state.phase = 'active'; state.expired = false; state.deadline = state.timing === 'timed' ? Date.now()+60*60*1000 : null;
-      $('confirm-unanswered').hidden = true; $('catalog').open = false; $('review').replaceChildren(); $('timer').textContent = '60:00';
+      let selected;
+      if (data.settings) {
+        selected = shuffle(pool).slice(0,settings.drawCount);
+      } else {
+        const blankGroups = new Set(shuffle(data.groups).slice(0,10));
+        selected = shuffle(data.groups.map(group => pool.find(id => data.banks.ja[id].group === group && data.banks.ja[id].kind === (blankGroups.has(group) ? 'blank' : 'explain'))));
+      }
+      state.questions = selected.map(id=>({id,order:shuffle([0,1,2,3])}));
+      state.answers = Object.create(null); state.phase = 'active'; state.expired = false; state.deadline = state.timing === 'timed' ? Date.now()+settings.durationMinutes*60*1000 : null;
+      $('confirm-unanswered').hidden = true; $('catalog').open = false; $('review').replaceChildren(); $('timer').textContent = String(settings.durationMinutes)+':00';
       render(); interval = state.deadline === null ? null : setInterval(tick,500); $('quiz-title').focus(); window.scrollTo(0,0);
     }
     function grade(expired=false) {
@@ -143,7 +152,7 @@ input { accent-color:#14579b; width:20px; height:20px; vertical-align:middle; fl
     }
     function submit() {
       if (state.phase !== 'active' || checkDeadline()) return;
-      const blank = 20-Object.keys(state.answers).length;
+      const blank = settings.drawCount-Object.keys(state.answers).length;
       if (blank) { $('unanswered-count').textContent = blank; $('confirm-unanswered').hidden = false; $('confirm-grade').focus(); }
       else grade();
     }
