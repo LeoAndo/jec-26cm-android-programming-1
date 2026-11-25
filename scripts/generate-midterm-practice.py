@@ -10,7 +10,7 @@ import sys
 
 ROOT = Path(__file__).resolve().parents[1]
 UNITS = [f"A{i:02}" for i in range(1, 11)]
-GROUPS = ("layout", "view", "click", "read", "write", "parse", "snackbar", "empty", "condition", "loop")
+GROUPS = ('layout', 'view', 'click', 'read', 'write', 'parse', 'snackbar', 'empty', 'condition', 'loop', 'create', 'import', 'enabled', 'orientation', 'width', 'margin', 'private', 'concat', 'increment', 'return')
 KINDS = ("blank", "explain")
 
 
@@ -33,9 +33,9 @@ class Anchors(HTMLParser):
 
 
 def validate(questions):
-    expected = Counter({(group, kind): 2 for group in GROUPS for kind in KINDS})
+    expected = Counter({(group, kind): 1 for group in GROUPS for kind in KINDS})
     if Counter((q["group"], q["kind"]) for q in questions) != expected:
-        raise ValueError("10の基本項目ごとに空欄2問・説明2問、合計40問にしてください。")
+        raise ValueError("20の基本事項ごとに空欄1問・説明1問、合計40問にしてください。")
     ids = set()
     for q in questions:
         if q["id"] in ids or q["id"] not in {f"{prefix}{i:02}" for prefix in ("B", "E") for i in range(1, 21)}:
@@ -114,24 +114,24 @@ def render_teacher(questions):
 <body class="plain"><main><h1>中間テスト対策問題集の確認・配布</h1>
 <p>試験予定：2026年12月2日（水）2限、対面・60分。範囲はA01〜A10 RoomSampleまでの全内容。日本語のみ、4択（ア〜エ）、20問・各5点。資料の持ち込み・参照、Android Studio、インターネット検索は禁止です。</p>
 <h2>この問題集の教材方針</h2>
-<p>複数の単元で使う基本コードを中心に、空欄補充20問と短いコードの説明を選ぶ20問、計40問を用意します。画面設定、部品取得、クリック、文字取得、文字表示、整数変換、Snackbar、空入力、if・return、繰り返しの10項目に分け、各項目に空欄2問・説明2問を置きます。</p>
-<p>1回は各項目から空欄1問・説明1問、合計20問です。問題と選択肢を並べ替え、何度でも解き直せます。単元ごとの抽選はしません。必要な条件とコードを問題内に載せ、特定アプリの手順を覚えていることを求めません。Room固有のアノテーションやDAO、WebView、Chronometer、anyMatch、do-whileなどの単元固有技術は外します。繰り返しは複数単元で使う拡張forを中心にします。</p>
-<p>コードは教材と実Javaの使い方を短くした練習用の例です。アプリの実装全文をそのまま引用したものではありません。問題文・選択肢・解説は短い文とやさしい日本語にし、API名と表示する文字は翻訳でも保ちます。本番の試験問題そのものは作成・公開しません。</p>
+<p>複数の単元で使う基本コードを中心に、空欄補充20問と短いコードの説明を選ぶ20問、計40問を用意します。20の基本事項に分け、各事項に空欄1問・説明1問を置きます。画面設定、部品取得、クリック、文字取得・表示、整数変換、Snackbarの表示、空文字、if、for、onCreate、import、setEnabled、orientation、layout_width、layout_marginTop、private、文字列の+、++、returnを扱います。</p>
+<p>1回は20事項から各1問、合計20問です。ランダムに選んだ10事項を空欄、残り10事項を説明にします。同じ事項の2問は同時に出しません。問題と選択肢を並べ替え、何度でも解き直せます。単元ごとの抽選はしません。必要な条件とコードを問題内に載せ、特定アプリの手順を覚えていることを求めません。Room固有のアノテーションやDAO、WebView、Chronometer、anyMatch、do-whileなどの単元固有技術は外します。繰り返しは初期値・条件・増加を指定する基本のforを扱います。</p>
+<p>コードは教材と実コードの使い方を短くした練習用の例です。アプリの実装全文をそのまま引用したものではありません。問題文・選択肢・解説は短い文とやさしい日本語にし、API名と表示する文字は翻訳でも保ちます。本番とは場面・コード例・問う向き・選択肢を変えます。本試験の文章・選択肢・正答・対応表は公開しません。</p>
 <h2>全問題の内容を確認する</h2>
 <p><a href="../../docs/practice/midterm.html#catalog">学生用HTMLの「全40問の正答・解説」</a>で、問題・四択・正答・解説を確認できます。HTMLの採点後の正答・解説と全問題の一覧は学生にも公開し、復習に使います。正答PDFは学生に公開しません。</p>
 <p>問題の原本は <code>config/midterm-questions/*.json</code>、教材内ページの原本は <code>scripts/templates/midterm-practice.html</code> です。<code>python3 scripts/generate-midterm-practice.py</code> で日本語HTMLとこのガイドを生成します。生成HTMLを直接編集しません。問題文などのコードはバッククォート、ブロックコードは <code>code</code> フィールドで管理します。</p>
-<h2>7言語の復習と日本語の模擬試験</h2>
+<h2>7言語の復習</h2>
 <p>単体配布用は <code>python3 scripts/build-midterm-distribution.py</code> で生成します。教材内の復習ページと同じ40問と6言語の対訳カタログを使います。復習は教科書・自作プログラムを参照でき、時間制限なし／60分を選べます。言語切替や日本語併記でも回答・出題順・残り時間を維持します。</p>
-<p>模擬試験は日本語のみ、60分・20問・各5点です。参照せずに解き、終了後は各言語の解説で復習できます。両モードとも同じ40問から空欄10問・説明10問を出します。時間は開始時刻から数え、別タブでも進みます。期限後の回答は採点に入れません。回答は送信・保存せず、ページを閉じる／再読み込みすると消えます。</p>
+<p>復習は20問・各5点です。時間制限なし／60分のどちらでも資料を参照でき、終了後は各言語の解説を読めます。模擬試験HTMLは作成せず、復習に一本化します。時間は開始時刻から数え、別タブでも進みます。期限後の回答は採点に入れません。回答は送信・保存せず、ページを閉じる／再読み込みすると消えます。</p>
 <h2>印刷用PDFと学生への配布</h2>
-<p><code>python3 scripts/generate-midterm-pdf.py</code> で問題PDFを生成します（ReportLabが必要）。<code>config/midterm-mock.json</code> の <code>paper_ids</code> は各項目の空欄1問・説明1問、計20問です。JIS B4縦（257×364 mm）・2段組、解答欄なしです。本番は別配布のマークシートを使います。印刷用の問題は公開練習用であり、本試験と同じ内容ではありません。</p>
+<p><code>python3 scripts/generate-midterm-pdf.py</code> で問題PDFを生成します（ReportLabが必要）。<code>config/midterm-mock.json</code> の <code>paper_ids</code> は20事項から各1問、空欄10問・説明10問の計20問です。JIS B4縦（257×364 mm）・2段組、解答欄なしです。本番は別配布のマークシートを使います。印刷用の問題は公開練習用であり、本試験と同じ内容ではありません。</p>
 <p>学生用HTMLと問題PDFは <code>dist/midterm/</code> に生成します。教員用の正答PDFを作る場合だけ、<code>--answers-output /絶対パス/teacher/midterm-mock-answers.pdf</code> を指定します。リポジトリ内と学生向け出力先は拒否します。正答PDFは学生向けのフォルダ・教材ZIP・Classroomへ入れません。学生向け出力先に旧版の正答PDFが残る場合も生成を止めます。</p>
 <p>学校アカウントの <a href="https://drive.google.com/drive/folders/1eyf3rPX_R5ldeS2q7s_lITMGd_u0Qd0C">materialsフォルダ直下</a>に、HTMLと問題PDFだけを置きます。Classroomの「中間テスト」の既存資料は同じ添付リンクを更新し、既存コメントを保持します。正答PDFの添付・リンク・案内は載せません。HTMLはダウンロードしてChromeなどのブラウザで開くよう案内します。通信・サーバー・外部CDNは不要です。</p>
-<p>教材ZIP内の <code>docs/practice/midterm.html</code> も同じ40問と抽選条件で生成します。教材内ページは日本語と6言語のページから読めます。7言語を1画面で切り替える復習と日本語模擬試験には、単体の <code>midterm-practice.html</code> を使います。</p>
+<p>教材ZIP内の <code>docs/practice/midterm.html</code> も同じ40問と抽選条件で生成します。教材内ページは日本語と6言語のページから読めます。7言語を1画面で切り替える復習には、単体の <code>midterm-practice.html</code> を使います。</p>
 <h2>検証</h2>
 <p><code>python3 scripts/generate-midterm-practice.py --check</code> で問題の形式・出典・生成漏れを検査します。配布前に対訳の差分翻訳と独立照合を終え、<code>localize-student-materials.py check</code> と <code>status --require-complete</code>、教材検査・スクリプトテスト・教材ZIP生成を通します。</p>
 <p><code>scripts/check-midterm-distribution.cjs</code> はjsdom 26で、40問の抽選配分、採点、言語切替時の状態保持、時間切れ後の回答排除、再挑戦を検査します。実ブラウザはCUAで表示・操作を確認します。<code>python3 scripts/generate-midterm-pdf.py --check</code> で寸法・問題数・正答の整合を検査し、PDFの全ページを画像で見て、文字切れと選択肢の収まりを確認します。</p>
-<h2>出題項目と出典</h2><table><thead><tr><th>問題ID</th><th>形式</th><th>項目</th><th>教科書</th><th>実Java</th></tr></thead><tbody>
+<h2>出題項目と出典</h2><table><thead><tr><th>問題ID</th><th>形式</th><th>項目</th><th>教科書</th><th>実コード</th></tr></thead><tbody>
 ''' + rows + '\n</tbody></table></main></body></html>\n'
 
 

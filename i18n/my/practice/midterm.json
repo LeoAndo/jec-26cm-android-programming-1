@@ -39,8 +39,8 @@
       "translation": "စာမေးပွဲအစီအစဉ်: <strong>2026 ခုနှစ် ဒီဇင်ဘာ 2 ရက် (ဗုဒ္ဓဟူးနေ့) ဒုတိယအတန်းချိန်</strong>။ လူကိုယ်တိုင် လာရောက်ဖြေဆိုရမည်ဖြစ်ပြီး ကြာချိန် 60 မိနစ် ဖြစ်သည်။ A01 မှ A10 RoomSample အထိ အကြောင်းအရာအားလုံး ပါဝင်သည်။"
     },
     {
-      "source": "基本コードの40問です。コードの空欄をうめる20問と、コードの説明を選ぶ20問があります。1回は空欄10問・説明10問です。10の基本項目から2問ずつ出し、問題と選択肢の順番を変えます。",
-      "translation": "အခြေခံ code မေးခွန်း 40 ခု ရှိသည်။ code ထဲရှိ ကွက်လပ်ဖြည့်ရန် 20 ခုနှင့် code ၏ ရှင်းလင်းချက်ကို ရွေးရန် 20 ခု ရှိသည်။ တစ်ကြိမ်တွင် ကွက်လပ်ဖြည့် 10 ခုနှင့် ရှင်းလင်းချက်ရွေး 10 ခု ပါသည်။ အခြေခံအကြောင်းအရာ 10 ခုမှ မေးခွန်း 2 ခုစီ ထုတ်ပြီး မေးခွန်းနှင့် ရွေးချယ်စရာများ၏ အစီအစဉ်ကို ပြောင်းပေးသည်။"
+      "source": "基本コードの40問です。コードの空欄をうめる20問と、コードの説明を選ぶ20問があります。1回は空欄10問・説明10問です。20の基本事項から1問ずつ出し、問題と選択肢の順番を変えます。",
+      "translation": "အခြေခံ code မေးခွန်း 40 ခု ရှိသည်။ code ထဲရှိ ကွက်လပ်ဖြည့်ရန် 20 ခုနှင့် code ၏ ရှင်းလင်းချက်ကို ရွေးရန် 20 ခု ရှိသည်။ တစ်ကြိမ်တွင် ကွက်လပ်ဖြည့် 10 ခုနှင့် ရှင်းလင်းချက်ရွေး 10 ခု ပါသည်။ အခြေခံအကြောင်းအရာ 20 ခုမှ မေးခွန်း 1 ခုစီ ထုတ်ပြီး မေးခွန်းနှင့် ရွေးချယ်စရာများ၏ အစီအစဉ်ကို ပြောင်းပေးသည်။"
     },
     {
       "source": "授業内容を復習するための練習問題です。本番と同じ問題・単元配分になるとは限りません。1回の20問だけで全内容を確認できるわけではありません。",
@@ -155,856 +155,920 @@
       "translation": "“ပြန်လေ့လာရန်နေရာ” သည် သင်ထောက်ကူ ZIP ၏ docs ဖိုင်တွဲမှ စတွက်ထားသော နေရာနှင့် ခေါင်းစဉ် ID ဖြစ်သည်။ ဤ HTML ဖိုင်တစ်ခုတည်းဖြင့် အဖြေနှင့် ရှင်းလင်းချက်များကို ဖတ်နိုင်သည်။"
     },
     {
-      "source": "B01 · 画面のレイアウト",
-      "translation": "B01 · မျက်နှာပြင်၏ layout"
+      "source": "B01 · 画面に使うXML",
+      "translation": "B01 · မျက်နှာပြင်အတွက် သုံးမည့် XML"
     },
     {
-      "source": "<code>MainActivity</code>で、<code>activity_main.xml</code>を画面に使います。 【①】に入るコードはどれですか。",
-      "translation": "<code>MainActivity</code> တွင် <code>activity_main.xml</code> ကို မျက်နှာပြင်အတွက် သုံးသည်။ 【①】 တွင် မည်သည့် code ကို ထည့်ရမည်နည်း။"
+      "source": "画面の形を<code>activity_menu.xml</code>に書きました。このXMLを使うため、【①】に何を入れますか。",
+      "translation": "မျက်နှာပြင်၏ ပုံစံကို <code>activity_menu.xml</code> တွင် ရေးထားသည်။ ဤ XML ကို သုံးရန် 【①】 ထဲတွင် ဘာထည့်မလဲ။"
     },
     {
-      "source": "正答：<strong><code>setContentView</code></strong>",
-      "translation": "အဖြေမှန်: <strong><code>setContentView</code></strong>"
+      "source": "正答：<strong><code>R.layout.activity_menu</code></strong>",
+      "translation": "အဖြေမှန်: <strong><code>R.layout.activity_menu</code></strong>"
     },
     {
-      "source": "<code>setContentView</code>で、画面に使うレイアウトを指定します。<code>R.layout.activity_main</code>は<code>activity_main.xml</code>を表します。",
-      "translation": "မျက်နှာပြင်အတွက် သုံးမည့် layout ကို <code>setContentView</code> ဖြင့် သတ်မှတ်သည်။ <code>R.layout.activity_main</code> သည် <code>activity_main.xml</code> ကို ကိုယ်စားပြုသည်။"
+      "source": "<code>setContentView</code>には、使うレイアウトのIDを渡します。<code>R.layout.activity_menu</code>が<code>activity_menu.xml</code>を指します。",
+      "translation": "<code>setContentView</code> သို့ သုံးမည့် layout ၏ ID ကို ပေးသည်။ <code>R.layout.activity_menu</code> က <code>activity_menu.xml</code> ကို ညွှန်းသည်။"
     },
     {
       "source": "復習する場所：<code>hello-android/index.html#step-9</code>",
       "translation": "ပြန်လေ့လာရန်နေရာ: <code>hello-android/index.html#step-9</code>"
     },
     {
-      "source": "B02 · レイアウトの指定",
-      "translation": "B02 · Layout သတ်မှတ်ခြင်း"
+      "source": "B02 · IDと部品の取得",
+      "translation": "B02 · ID ဖြင့် အစိတ်အပိုင်းကို ရယူခြင်း"
     },
     {
-      "source": "正答：<strong><code>layout</code></strong>",
-      "translation": "အဖြေမှန်: <strong><code>layout</code></strong>"
+      "source": "表示欄のIDは<code>txt_total</code>です。対応する部品を取得するため、【①】に何を入れますか。",
+      "translation": "စာပြသည့် အကွက်၏ ID သည် <code>txt_total</code> ဖြစ်သည်။ သက်ဆိုင်ရာ အစိတ်အပိုင်းကို ရယူရန် 【①】 ထဲတွင် ဘာထည့်မလဲ။"
     },
     {
-      "source": "レイアウトは<code>R.layout</code>で指定します。部品のIDは<code>R.id</code>です。",
-      "translation": "Layout ကို <code>R.layout</code> ဖြင့် သတ်မှတ်သည်။ အစိတ်အပိုင်း၏ ID အတွက် <code>R.id</code> ကို သုံးသည်။"
+      "source": "正答：<strong><code>R.id.txt_total</code></strong>",
+      "translation": "အဖြေမှန်: <strong><code>R.id.txt_total</code></strong>"
     },
     {
-      "source": "B03 · IDでボタンを探す",
-      "translation": "B03 · ID ဖြင့် ခလုတ်ရှာခြင်း"
-    },
-    {
-      "source": "画面を用意したあと、IDが<code>btn_start</code>のボタンを使います。 【①】に入るコードはどれですか。",
-      "translation": "မျက်နှာပြင်ကို ပြင်ဆင်ပြီးနောက် ID က <code>btn_start</code> ဖြစ်သည့် ခလုတ်ကို သုံးသည်။ 【①】 တွင် မည်သည့် code ကို ထည့်ရမည်နည်း။"
-    },
-    {
-      "source": "正答：<strong><code>findViewById</code></strong>",
-      "translation": "အဖြေမှန်: <strong><code>findViewById</code></strong>"
-    },
-    {
-      "source": "<code>findViewById</code>はIDを使って画面の部品を探します。<code>(Button)</code>は、見つけた部品をボタンとして扱う指定です。",
-      "translation": "<code>findViewById</code> သည် ID ကို သုံးပြီး မျက်နှာပြင်ရှိ အစိတ်အပိုင်းကို ရှာသည်။ ရှာတွေ့ထားသော အစိတ်အပိုင်းကို ခလုတ်အဖြစ် အသုံးပြုရန် <code>(Button)</code> ကို ရေးသည်။"
+      "source": "<code>findViewById</code>には部品のIDを渡します。XMLのIDが<code>txt_total</code>なら、Javaでは<code>R.id.txt_total</code>です。",
+      "translation": "<code>findViewById</code> သို့ အစိတ်အပိုင်း၏ ID ကို ပေးသည်။ XML ထဲရှိ ID သည် <code>txt_total</code> ဖြစ်လျှင် Java တွင် <code>R.id.txt_total</code> ဖြစ်သည်။"
     },
     {
       "source": "復習する場所：<code>hello-android/index.html#step-4</code>",
       "translation": "ပြန်လေ့လာရန်နေရာ: <code>hello-android/index.html#step-4</code>"
     },
     {
-      "source": "B04 · 部品のID",
-      "translation": "B04 · အစိတ်အပိုင်း၏ ID"
+      "source": "B03 · 押す部品と処理",
+      "translation": "B03 · နှိပ်မည့် အစိတ်အပိုင်းနှင့် လုပ်ဆောင်ချက်"
     },
     {
-      "source": "画面を用意したあと、IDが<code>txt_message</code>の文字表示用の部品を探します。 【①】に入るコードはどれですか。",
-      "translation": "မျက်နှာပြင်ကို ပြင်ဆင်ပြီးနောက် ID က <code>txt_message</code> ဖြစ်သည့် စာသားပြရန် အစိတ်အပိုင်းကို ရှာသည်။ 【①】 တွင် မည်သည့် code ကို ထည့်ရမည်နည်း။"
+      "source": "<code>btnOpen</code>と<code>btnClose</code>は別のボタンです。<code>btnClose</code>を押したときに表示を変えます。【①】に何を入れますか。",
+      "translation": "<code>btnOpen</code> နှင့် <code>btnClose</code> သည် မတူသော ခလုတ်များ ဖြစ်သည်။ <code>btnClose</code> ကို နှိပ်သောအခါ ပြသထားသည်ကို ပြောင်းမည်။ 【①】 ထဲတွင် ဘာထည့်မလဲ။"
     },
     {
-      "source": "正答：<strong><code>id</code></strong>",
-      "translation": "အဖြေမှန်: <strong><code>id</code></strong>"
+      "source": "正答：<strong><code>btnClose</code></strong>",
+      "translation": "အဖြေမှန်: <strong><code>btnClose</code></strong>"
     },
     {
-      "source": "部品のIDは<code>R.id</code>で指定します。<code>R.layout</code>は画面のレイアウトを指定するときに使います。",
-      "translation": "အစိတ်အပိုင်း၏ ID ကို <code>R.id</code> ဖြင့် သတ်မှတ်သည်။ မျက်နှာပြင်၏ layout သတ်မှတ်ရန် <code>R.layout</code> ကို သုံးသည်။"
+      "source": "<code>setOnClickListener</code>の前に書いた部品に、押したときの処理を登録します。ここでは<code>btnClose</code>です。",
+      "translation": "<code>setOnClickListener</code> ၏ ရှေ့တွင် ရေးထားသော အစိတ်အပိုင်းအတွက် နှိပ်သောအခါ လုပ်ဆောင်မည့်အရာကို သတ်မှတ်သည်။ ဤနေရာတွင် <code>btnClose</code> ဖြစ်သည်။"
     },
     {
-      "source": "B05 · 押したときの処理",
-      "translation": "B05 · နှိပ်သောအခါ လုပ်ဆောင်မည့်အရာ"
+      "source": "B04 · 文字を読む部品",
+      "translation": "B04 · စာကို ဖတ်ယူမည့် အစိတ်အပိုင်း"
     },
     {
-      "source": "<code>btnStart</code>はボタン、<code>txtMessage</code>は文字を表示する部品です。ボタンを押すと<code>開始</code>を表示します。 【①】に入るコードはどれですか。",
-      "translation": "<code>btnStart</code> သည် ခလုတ်ဖြစ်ပြီး <code>txtMessage</code> သည် စာသားပြသည့် အစိတ်အပိုင်း ဖြစ်သည်။ ခလုတ်ကို နှိပ်လျှင် <code>開始</code> (စတင်ခြင်း) ဟု ပြသည်။ 【①】 တွင် မည်သည့် code ကို ထည့်ရမည်နည်း။"
+      "source": "<code>edtTitle</code>と<code>edtNote</code>は入力欄です。メモの入力欄<code>edtNote</code>から文字を読みます。【①】に何を入れますか。",
+      "translation": "<code>edtTitle</code> နှင့် <code>edtNote</code> သည် စာရိုက်ထည့်သည့် အကွက်များ ဖြစ်သည်။ မှတ်စု ရိုက်ထည့်သည့် အကွက် <code>edtNote</code> မှ စာကို ဖတ်ယူမည်။ 【①】 ထဲတွင် ဘာထည့်မလဲ။"
     },
     {
-      "source": "正答：<strong><code>setOnClickListener</code></strong>",
-      "translation": "အဖြေမှန်: <strong><code>setOnClickListener</code></strong>"
+      "source": "正答：<strong><code>edtNote</code></strong>",
+      "translation": "အဖြေမှန်: <strong><code>edtNote</code></strong>"
     },
     {
-      "source": "<code>setOnClickListener</code>で、押したときに行う処理を登録（とうろく）します。中の<code>setText</code>は、ボタンを押したときに実行します。",
-      "translation": "ခလုတ်နှိပ်သောအခါ လုပ်ဆောင်မည့်အရာကို <code>setOnClickListener</code> ဖြင့် သတ်မှတ်သည်။ အထဲရှိ <code>setText</code> ကို ခလုတ်နှိပ်သောအခါမှ run လုပ်သည်။"
-    },
-    {
-      "source": "B06 · 処理を付けるボタン",
-      "translation": "B06 · လုပ်ဆောင်ချက် သတ်မှတ်မည့်ခလုတ်"
-    },
-    {
-      "source": "<code>btnStart</code>と<code>btnClear</code>はボタンです。<code>txtMessage</code>は文字を表示する部品です。<code>btnStart</code>を押すと<code>開始</code>を表示します。 【①】に入るコードはどれですか。",
-      "translation": "<code>btnStart</code> နှင့် <code>btnClear</code> သည် ခလုတ်များ ဖြစ်သည်။ <code>txtMessage</code> သည် စာသားပြသည့် အစိတ်အပိုင်း ဖြစ်သည်။ <code>btnStart</code> ကို နှိပ်လျှင် <code>開始</code> (စတင်ခြင်း) ဟု ပြသည်။ 【①】 တွင် မည်သည့် code ကို ထည့်ရမည်နည်း။"
-    },
-    {
-      "source": "正答：<strong><code>btnStart</code></strong>",
-      "translation": "အဖြေမှန်: <strong><code>btnStart</code></strong>"
-    },
-    {
-      "source": "<code>btnStart.setOnClickListener</code>と書くと、<code>btnStart</code>を押したときの処理を登録します。",
-      "translation": "<code>btnStart.setOnClickListener</code> ဟု ရေးလျှင် <code>btnStart</code> ကို နှိပ်သောအခါ လုပ်ဆောင်မည့်အရာကို သတ်မှတ်သည်။"
-    },
-    {
-      "source": "B07 · 入力した文字を読む",
-      "translation": "B07 · ရိုက်ထည့်ထားသော စာသားကို ဖတ်ခြင်း"
-    },
-    {
-      "source": "<code>edtName</code>は文字を入力する部品です。入力した文字を<code>name</code>に入れます。 【①】に入るコードはどれですか。",
-      "translation": "<code>edtName</code> သည် စာရိုက်ထည့်ရန် အစိတ်အပိုင်း ဖြစ်သည်။ ရိုက်ထည့်ထားသော စာသားကို <code>name</code> ထဲ ထည့်သည်။ 【①】 တွင် မည်သည့် code ကို ထည့်ရမည်နည်း။"
-    },
-    {
-      "source": "正答：<strong><code>getText</code></strong>",
-      "translation": "အဖြေမှန်: <strong><code>getText</code></strong>"
-    },
-    {
-      "source": "<code>getText()</code>で今の文字を取り出します。続けて<code>toString()</code>を使うと、<code>String</code>（文字列）の形になります。",
-      "translation": "လက်ရှိစာသားကို <code>getText()</code> ဖြင့် ထုတ်ယူသည်။ ထို့နောက် <code>toString()</code> ကို သုံးလျှင် <code>String</code> (စာသား) ပုံစံ ဖြစ်လာသည်။"
+      "source": "<code>getText</code>の前に、文字を読みたい部品を書きます。<code>toString</code>で文字列として受け取ります。",
+      "translation": "စာဖတ်ယူလိုသော အစိတ်အပိုင်းကို <code>getText</code> ၏ ရှေ့တွင် ရေးသည်။ <code>toString</code> ဖြင့် စာသားအဖြစ် ရယူသည်။"
     },
     {
       "source": "復習する場所：<code>hello-android/index.html#step-5</code>",
       "translation": "ပြန်လေ့လာရန်နေရာ: <code>hello-android/index.html#step-5</code>"
     },
     {
-      "source": "B08 · 文字列の形にする",
-      "translation": "B08 · စာသားပုံစံသို့ ပြောင်းခြင်း"
+      "source": "B05 · 表示する文字を渡す",
+      "translation": "B05 · ပြသမည့် စာကို ပေးခြင်း"
     },
     {
-      "source": "<code>edtName</code>は文字を入力する部品です。取り出した値を<code>String</code>（文字列）の形にします。 【①】に入るコードはどれですか。",
-      "translation": "<code>edtName</code> သည် စာရိုက်ထည့်ရန် အစိတ်အပိုင်း ဖြစ်သည်။ ထုတ်ယူထားသော တန်ဖိုးကို <code>String</code> (စာသား) ပုံစံသို့ ပြောင်းသည်။ 【①】 တွင် မည်သည့် code ကို ထည့်ရမည်နည်း။"
+      "source": "<code>message</code>に入っている文字を表示したいです。【①】に何を入れますか。",
+      "translation": "<code>message</code> ထဲရှိ စာကို ပြသလိုသည်။ 【①】 ထဲတွင် ဘာထည့်မလဲ။"
     },
     {
-      "source": "正答：<strong><code>toString</code></strong>",
-      "translation": "အဖြေမှန်: <strong><code>toString</code></strong>"
+      "source": "正答：<strong><code>message</code></strong>",
+      "translation": "အဖြေမှန်: <strong><code>message</code></strong>"
     },
     {
-      "source": "<code>toString()</code>は、取り出した値を<code>String</code>（文字列）の形にします。整数に変える処理ではありません。",
-      "translation": "<code>toString()</code> သည် ထုတ်ယူထားသော တန်ဖိုးကို <code>String</code> (စာသား) ပုံစံသို့ ပြောင်းသည်။ ကိန်းပြည့်သို့ ပြောင်းပေးသည့် လုပ်ဆောင်ချက် မဟုတ်ပါ။"
+      "source": "変数<code>message</code>を渡すと、中の文字列<code>準備中</code>を表示します。<code>&quot;message&quot;</code>では、変数名そのものを表示します。",
+      "translation": "variable <code>message</code> ကို ပေးသောအခါ အထဲရှိ စာသား <code>準備中</code> (ပြင်ဆင်နေသည်) ကို ပြသသည်။ <code>&quot;message&quot;</code> ကို ပေးလျှင် variable ၏ အမည်ကိုပင် ပြသသည်။"
     },
     {
-      "source": "B09 · 文字を表示する",
-      "translation": "B09 · စာသား ပြခြင်း"
+      "source": "B06 · 整数に変えて使う",
+      "translation": "B06 · ကိန်းပြည့်သို့ ပြောင်းပြီး သုံးခြင်း"
     },
     {
-      "source": "<code>txtMessage</code>は文字を表示する部品です。<code>できた</code>と表示します。 【①】に入るコードはどれですか。",
-      "translation": "<code>txtMessage</code> သည် စာသားပြသည့် အစိတ်အပိုင်း ဖြစ်သည်။ <code>できた</code> (လုပ်ပြီးပြီ) ဟု ပြသည်။ 【①】 တွင် မည်သည့် code ကို ထည့်ရမည်နည်း။"
+      "source": "入力した個数は文字列<code>input</code>に入っています。整数に変えるため、【①】に何を入れますか。",
+      "translation": "ရိုက်ထည့်ခဲ့သော အရေအတွက်သည် စာသား <code>input</code> ထဲတွင် ရှိသည်။ ကိန်းပြည့်သို့ ပြောင်းရန် 【①】 ထဲတွင် ဘာထည့်မလဲ။"
     },
     {
-      "source": "正答：<strong><code>setText</code></strong>",
-      "translation": "အဖြေမှန်: <strong><code>setText</code></strong>"
+      "source": "正答：<strong><code>input</code></strong>",
+      "translation": "အဖြေမှန်: <strong><code>input</code></strong>"
     },
     {
-      "source": "<code>setText</code>は、部品に表示する文字を変えます。<code>getText</code>は今の文字を読むときに使います。",
-      "translation": "<code>setText</code> သည် အစိတ်အပိုင်းတွင် ပြသမည့် စာသားကို ပြောင်းပေးသည်။ လက်ရှိစာသားကို ဖတ်ရန် <code>getText</code> ကို သုံးသည်။"
-    },
-    {
-      "source": "B10 · 入力欄を空にする",
-      "translation": "B10 · စာရိုက်ထည့်သည့် အကွက်ကို ရှင်းခြင်း"
-    },
-    {
-      "source": "<code>edtName</code>は文字を入力する部品です。中の文字を消して、空に戻します。 【①】に入るコードはどれですか。",
-      "translation": "<code>edtName</code> သည် စာရိုက်ထည့်ရန် အစိတ်အပိုင်း ဖြစ်သည်။ အထဲရှိ စာသားကို ဖျက်ပြီး အကွက်ကို ပြန်ရှင်းသည်။ 【①】 တွင် မည်သည့် code ကို ထည့်ရမည်နည်း။"
-    },
-    {
-      "source": "正答：<strong><code>&quot;&quot;</code></strong>",
-      "translation": "အဖြေမှန်: <strong><code>&quot;&quot;</code></strong>"
-    },
-    {
-      "source": "<code>&quot;&quot;</code>は、文字が1つもない文字列です。<code>setText(&quot;&quot;)</code>で入力欄を空にできます。",
-      "translation": "<code>&quot;&quot;</code> သည် စာလုံးတစ်လုံးမျှ မပါသော စာသား ဖြစ်သည်။ <code>setText(&quot;&quot;)</code> ဖြင့် စာရိုက်ထည့်သည့် အကွက်ကို ရှင်းနိုင်သည်။"
-    },
-    {
-      "source": "復習する場所：<code>memo-app/index.html#step-4</code>",
-      "translation": "ပြန်လေ့လာရန်နေရာ: <code>memo-app/index.html#step-4</code>"
-    },
-    {
-      "source": "B11 · 文字を整数に変える",
-      "translation": "B11 · စာသားကို ကိန်းပြည့်သို့ ပြောင်းခြင်း"
-    },
-    {
-      "source": "文字列<code>&quot;12&quot;</code>を、計算に使える整数の<code>12</code>に変えます。 【①】に入るコードはどれですか。",
-      "translation": "စာသား <code>&quot;12&quot;</code> ကို တွက်ချက်ရာတွင် သုံးနိုင်သည့် ကိန်းပြည့် <code>12</code> သို့ ပြောင်းသည်။ 【①】 တွင် မည်သည့် code ကို ထည့်ရမည်နည်း။"
-    },
-    {
-      "source": "正答：<strong><code>Integer.parseInt</code></strong>",
-      "translation": "အဖြေမှန်: <strong><code>Integer.parseInt</code></strong>"
-    },
-    {
-      "source": "<code>Integer.parseInt</code>は、整数を表す文字列を<code>int</code>（整数）に変えます。",
-      "translation": "<code>Integer.parseInt</code> သည် ကိန်းပြည့်ကို ဖော်ပြသော စာသားကို <code>int</code> (ကိန်းပြည့်) သို့ ပြောင်းပေးသည်။"
+      "source": "<code>Integer.parseInt</code>には、数字を表す文字列を渡します。ここでは<code>input</code>に入っている<code>&quot;6&quot;</code>です。",
+      "translation": "<code>Integer.parseInt</code> သို့ ကိန်းဂဏန်းကို ကိုယ်စားပြုသည့် စာသားကို ပေးသည်။ ဤနေရာတွင် <code>input</code> ထဲရှိ <code>&quot;6&quot;</code> ဖြစ်သည်။"
     },
     {
       "source": "復習する場所：<code>calc-game/index.html#step-7</code>",
       "translation": "ပြန်လေ့လာရန်နေရာ: <code>calc-game/index.html#step-7</code>"
     },
     {
-      "source": "B12 · 変える文字を選ぶ",
-      "translation": "B12 · ပြောင်းမည့် စာသားကို ရွေးခြင်း"
+      "source": "B07 · 作ったメッセージを表示",
+      "translation": "B07 · ဖန်တီးထားသော message ကို ပြသခြင်း"
     },
     {
-      "source": "<code>edtAmount</code>は入力欄です。<code>12</code>が入っています。読み取った文字列を整数に変えます。 【①】に入るコードはどれですか。",
-      "translation": "<code>edtAmount</code> သည် စာရိုက်ထည့်သည့် အကွက် ဖြစ်သည်။ အထဲတွင် <code>12</code> ထည့်ထားသည်။ ဖတ်ယူထားသော စာသားကို ကိန်းပြည့်သို့ ပြောင်းသည်။ 【①】 တွင် မည်သည့် code ကို ထည့်ရမည်နည်း။"
+      "source": "<code>notice</code>は作成済みのSnackbarです。これを表示するため、【①】に何を入れますか。",
+      "translation": "<code>notice</code> သည် ဖန်တီးထားပြီးသား Snackbar ဖြစ်သည်။ ၎င်းကို ပြသရန် 【①】 ထဲတွင် ဘာထည့်မလဲ။"
     },
     {
-      "source": "正答：<strong><code>amountStr</code></strong>",
-      "translation": "အဖြေမှန်: <strong><code>amountStr</code></strong>"
+      "source": "正答：<strong><code>notice</code></strong>",
+      "translation": "အဖြေမှန်: <strong><code>notice</code></strong>"
     },
     {
-      "source": "<code>amountStr</code>に入力した文字列が入っています。<code>Integer.parseInt(amountStr)</code>で、その文字列を整数に変えます。",
-      "translation": "<code>amountStr</code> ထဲတွင် ရိုက်ထည့်ထားသော စာသား ရှိသည်။ ထိုစာသားကို <code>Integer.parseInt(amountStr)</code> ဖြင့် ကိန်းပြည့်သို့ ပြောင်းသည်။"
-    },
-    {
-      "source": "B13 · 短いメッセージ",
-      "translation": "B13 · တိုတောင်းသော message"
-    },
-    {
-      "source": "ボタンを押したときの処理です。<code>v</code>は押した部品です。Snackbar（スナックバー）で<code>入力してください</code>と表示します。 【①】に入るコードはどれですか。",
-      "translation": "ခလုတ်နှိပ်သောအခါ လုပ်ဆောင်မည့် code ဖြစ်သည်။ <code>v</code> သည် နှိပ်လိုက်သည့် အစိတ်အပိုင်း ဖြစ်သည်။ Snackbar တွင် <code>入力してください</code> (ရိုက်ထည့်ပါ) ဟု ပြသည်။ 【①】 တွင် မည်သည့် code ကို ထည့်ရမည်နည်း။"
-    },
-    {
-      "source": "正答：<strong><code>Snackbar</code></strong>",
-      "translation": "အဖြေမှန်: <strong><code>Snackbar</code></strong>"
-    },
-    {
-      "source": "<code>Snackbar.make</code>で表示するメッセージを作り、<code>show()</code>で画面に出します。",
-      "translation": "ပြသမည့် message ကို <code>Snackbar.make</code> ဖြင့် ဖန်တီးပြီး <code>show()</code> ဖြင့် မျက်နှာပြင်ပေါ်တွင် ပြသည်။"
+      "source": "作成したSnackbarを入れた変数<code>notice</code>で<code>show</code>を呼ぶと、メッセージが表示されます。",
+      "translation": "ဖန်တီးထားသော Snackbar ကို ထည့်ထားသည့် variable <code>notice</code> တွင် <code>show</code> ကို ခေါ်လိုက်လျှင် message ပေါ်လာသည်။"
     },
     {
       "source": "復習する場所：<code>hello-android/index.html#step-7</code>",
       "translation": "ပြန်လေ့လာရန်နေရာ: <code>hello-android/index.html#step-7</code>"
     },
     {
-      "source": "B14 · メッセージを出す",
-      "translation": "B14 · Message ပြခြင်း"
+      "source": "B08 · 文字がないことを確認",
+      "translation": "B08 · စာလုံး မရှိကြောင်း စစ်ဆေးခြင်း"
     },
     {
-      "source": "ボタンを押したときの処理です。<code>v</code>は押した部品です。作ったSnackbar（スナックバー）を画面に出します。 【①】に入るコードはどれですか。",
-      "translation": "ခလုတ်နှိပ်သောအခါ လုပ်ဆောင်မည့် code ဖြစ်သည်။ <code>v</code> သည် နှိပ်လိုက်သည့် အစိတ်အပိုင်း ဖြစ်သည်။ ဖန်တီးထားသော Snackbar ကို မျက်နှာပြင်ပေါ်တွင် ပြသည်။ 【①】 တွင် မည်သည့် code ကို ထည့်ရမည်နည်း။"
+      "source": "<code>isEmpty()</code>の結果を<code>true</code>にしたいです。【①】に入れる文字列はどれですか。",
+      "translation": "<code>isEmpty()</code> ၏ ရလဒ်ကို <code>true</code> ဖြစ်စေလိုသည်။ 【①】 ထဲတွင် မည်သည့် စာသားကို ထည့်မလဲ။"
     },
     {
-      "source": "正答：<strong><code>show</code></strong>",
-      "translation": "အဖြေမှန်: <strong><code>show</code></strong>"
+      "source": "正答：<strong><code>&quot;&quot;</code></strong>",
+      "translation": "အဖြေမှန်: <strong><code>&quot;&quot;</code></strong>"
     },
     {
-      "source": "<code>make</code>で作ったSnackbarは、最後に<code>show()</code>を呼ぶと画面に出ます。",
-      "translation": "<code>make</code> ဖြင့် ဖန်တီးထားသော Snackbar သည် နောက်ဆုံးတွင် <code>show()</code> ကို ခေါ်လိုက်သောအခါ မျက်နှာပြင်ပေါ်၌ ပေါ်လာသည်။"
-    },
-    {
-      "source": "B15 · 入力が空か調べる",
-      "translation": "B15 · ရိုက်ထည့်ထားသော စာသားတွင် စာလုံး ပါမပါ စစ်ဆေးခြင်း"
-    },
-    {
-      "source": "<code>name</code>には入力した文字列が入っています。<code>txtMessage</code>は文字を表示する部品です。空のときだけ案内を出します。 【①】に入るコードはどれですか。",
-      "translation": "ရိုက်ထည့်ထားသော စာသားကို <code>name</code> ထဲတွင် သိမ်းထားသည်။ <code>txtMessage</code> သည် စာသားပြသည့် အစိတ်အပိုင်း ဖြစ်သည်။ စာသားမပါမှသာ လမ်းညွှန်စာကို ပြသည်။ 【①】 တွင် မည်သည့် code ကို ထည့်ရမည်နည်း။"
-    },
-    {
-      "source": "正答：<strong><code>isEmpty</code></strong>",
-      "translation": "အဖြေမှန်: <strong><code>isEmpty</code></strong>"
-    },
-    {
-      "source": "<code>isEmpty()</code>は、文字が1つもないときに<code>true</code>になります。<code>if</code>の中の処理は、条件が<code>true</code>のときに行います。",
-      "translation": "စာလုံးတစ်လုံးမျှ မပါလျှင် <code>isEmpty()</code> ၏ ရလဒ်သည် <code>true</code> ဖြစ်သည်။ <code>if</code> အတွင်းရှိ code ကို အခြေအနေက <code>true</code> ဖြစ်မှသာ run လုပ်သည်။"
+      "source": "<code>&quot;&quot;</code>には文字が1つもありません。半角スペースだけの<code>&quot; &quot;</code>にも文字が1つあるので、<code>isEmpty()</code>は<code>false</code>です。",
+      "translation": "<code>&quot;&quot;</code> ထဲတွင် စာလုံးတစ်လုံးမျှ မရှိပါ။ အကျယ်တစ်ဝက် space သာ ပါသော <code>&quot; &quot;</code> တွင်ပင် စာလုံးတစ်လုံး ရှိသောကြောင့် <code>isEmpty()</code> ၏ ရလဒ်သည် <code>false</code> ဖြစ်သည်။"
     },
     {
       "source": "復習する場所：<code>bill-splitter/index.html#step-4</code>",
       "translation": "ပြန်လေ့လာရန်နေရာ: <code>bill-splitter/index.html#step-4</code>"
     },
     {
-      "source": "B16 · 空でないとき",
-      "translation": "B16 · စာသားပါသည့်အခါ"
+      "source": "B09 · ifの条件",
+      "translation": "B09 · if ၏ အခြေအနေ"
     },
     {
-      "source": "<code>name</code>は文字列、<code>txtMessage</code>は文字を表示する部品です。<code>name</code>が空でないときだけ<code>入力あり</code>と表示します。 【①】に入るコードはどれですか。",
-      "translation": "<code>name</code> သည် စာသားဖြစ်ပြီး <code>txtMessage</code> သည် စာသားပြသည့် အစိတ်အပိုင်း ဖြစ်သည်။ <code>name</code> ထဲတွင် စာသားပါမှသာ <code>入力あり</code> (ရိုက်ထည့်ထားသည်) ဟု ပြသည်။ 【①】 တွင် မည်သည့် code ကို ထည့်ရမည်နည်း။"
+      "source": "残りの数<code>rest</code>が0のときだけ表示を変えます。【①】に何を入れますか。",
+      "translation": "ကျန်သည့် အရေအတွက် <code>rest</code> သည် 0 ဖြစ်သောအခါမှသာ ပြသထားသည်ကို ပြောင်းမည်။ 【①】 ထဲတွင် ဘာထည့်မလဲ။"
     },
     {
-      "source": "正答：<strong><code>!</code></strong>",
-      "translation": "အဖြေမှန်: <strong><code>!</code></strong>"
+      "source": "正答：<strong><code>rest == 0</code></strong>",
+      "translation": "အဖြေမှန်: <strong><code>rest == 0</code></strong>"
     },
     {
-      "source": "<code>!</code>は、<code>true</code>と<code>false</code>を反対にします。<code>!name.isEmpty()</code>は、文字列が空でないときに<code>true</code>です。",
-      "translation": "<code>!</code> သည် <code>true</code> ကို <code>false</code> သို့ ပြောင်းပြီး အပြန်အလှန်လည်း ပြောင်းပေးသည်။ စာသားပါလျှင် <code>!name.isEmpty()</code> သည် <code>true</code> ဖြစ်သည်။"
+      "source": "<code>if</code>の中は、条件が<code>true</code>のときだけ動きます。<code>rest == 0</code>は、残りの数が0かどうかを調べます。",
+      "translation": "အခြေအနေသည် <code>true</code> ဖြစ်သောအခါမှသာ <code>if</code> အတွင်းရှိ code အလုပ်လုပ်သည်။ <code>rest == 0</code> က ကျန်သည့် အရေအတွက် 0 ဟုတ်မဟုတ် စစ်ဆေးသည်။"
     },
     {
-      "source": "復習する場所：<code>room-sample/index.html#step-7</code>",
-      "translation": "ပြန်လေ့လာရန်နေရာ: <code>room-sample/index.html#step-7</code>"
+      "source": "B10 · 回数を決めて繰り返す",
+      "translation": "B10 · အကြိမ်ရေ သတ်မှတ်၍ ထပ်လုပ်ခြင်း"
     },
     {
-      "source": "B17 · 条件で処理を分ける",
-      "translation": "B17 · အခြေအနေအရ လုပ်ဆောင်ချက်ကို လုပ်မလုပ် ဆုံးဖြတ်ခြင်း"
+      "source": "<code>i</code>が0、1、2の3回だけ、中の処理を実行します。【①】に入る条件はどれですか。",
+      "translation": "<code>i</code> သည် 0၊ 1၊ 2 ဖြစ်သည့် 3 ကြိမ်တွင်သာ အထဲရှိ လုပ်ဆောင်ချက်ကို run လုပ်သည်။ 【①】 ထဲတွင် မည်သည့် အခြေအနေကို ထည့်မလဲ။"
     },
     {
-      "source": "<code>number</code>、<code>answer</code>、<code>correct</code>は整数です。<code>number</code>と<code>answer</code>が同じときだけ、<code>correct</code>を1増やします。 【①】に入るコードはどれですか。",
-      "translation": "<code>number</code>၊ <code>answer</code> နှင့် <code>correct</code> တို့သည် ကိန်းပြည့်များ ဖြစ်သည်။ <code>number</code> နှင့် <code>answer</code> တူမှသာ <code>correct</code> ကို 1 တိုးသည်။ 【①】 တွင် မည်သည့် code ကို ထည့်ရမည်နည်း။"
+      "source": "正答：<strong><code>i &lt; 3</code></strong>",
+      "translation": "အဖြေမှန်: <strong><code>i &lt; 3</code></strong>"
     },
     {
-      "source": "正答：<strong><code>if</code></strong>",
-      "translation": "အဖြေမှန်: <strong><code>if</code></strong>"
+      "source": "最初は0です。<code>i &lt; 3</code>の間は繰り返し、<code>i++</code>で1ずつ増えます。0、1、2の3回です。",
+      "translation": "အစတွင် 0 ဖြစ်သည်။ <code>i &lt; 3</code> မှန်နေသရွေ့ ထပ်လုပ်ပြီး <code>i++</code> ဖြင့် 1 စီ တိုးသည်။ 0၊ 1၊ 2 ဟူ၍ 3 ကြိမ် ဖြစ်သည်။"
     },
     {
-      "source": "<code>if</code>は、条件が<code>true</code>のときだけ中の処理を行います。<code>==</code>は、ここでは2つの整数が同じか調べます。",
-      "translation": "အခြေအနေက <code>true</code> ဖြစ်မှသာ <code>if</code> အတွင်းရှိ code ကို run လုပ်သည်။ ဤနေရာတွင် ကိန်းပြည့်နှစ်ခု တူမတူကို <code>==</code> ဖြင့် စစ်ဆေးသည်။"
+      "source": "復習する場所：<code>rock-paper-scissors-game/index.html#step-5</code>",
+      "translation": "ပြန်လေ့လာရန် နေရာ: <code>rock-paper-scissors-game/index.html#step-5</code>"
     },
     {
-      "source": "復習する場所：<code>calc-game/index.html#step-8</code>",
-      "translation": "ပြန်လေ့လာရန်နေရာ: <code>calc-game/index.html#step-8</code>"
+      "source": "B11 · 画面を作るときの準備",
+      "translation": "B11 · မျက်နှာပြင်ကို ဖန်တီးသောအခါ ပြင်ဆင်ခြင်း"
     },
     {
-      "source": "B18 · 途中で処理を終える",
-      "translation": "B18 · လုပ်ဆောင်ချက်ကို လမ်းတစ်ဝက်တွင် အဆုံးသတ်ခြင်း"
+      "source": "Activityが作られるときのメソッドです。【①】にメソッド名を入れてください。",
+      "translation": "Activity ကို ဖန်တီးသောအခါ သုံးသည့် method ဖြစ်သည်။ 【①】 ထဲတွင် method ၏ အမည်ကို ထည့်ပါ။"
     },
     {
-      "source": "<code>btnAdd</code>はボタン、<code>edtName</code>は入力欄、<code>txtMessage</code>は文字の表示欄です。空なら、このクリック処理を終えます。 【①】に入るコードはどれですか。",
-      "translation": "<code>btnAdd</code> သည် ခလုတ်၊ <code>edtName</code> သည် စာရိုက်ထည့်သည့် အကွက်၊ <code>txtMessage</code> သည် စာသားပြသည့် နေရာ ဖြစ်သည်။ အကွက်ထဲတွင် ဘာမှ မရှိလျှင် ဤနှိပ်ခြင်းအတွက် လုပ်ဆောင်ချက်ကို အဆုံးသတ်သည်။ 【①】 တွင် မည်သည့် code ကို ထည့်ရမည်နည်း။"
+      "source": "正答：<strong><code>onCreate</code></strong>",
+      "translation": "အဖြေမှန်: <strong><code>onCreate</code></strong>"
     },
     {
-      "source": "正答：<strong><code>return</code></strong>",
-      "translation": "အဖြေမှန်: <strong><code>return</code></strong>"
+      "source": "<code>onCreate</code>はActivityが作られるときに呼ばれます。画面のレイアウトや部品の準備をここで行います。",
+      "translation": "Activity ကို ဖန်တီးသောအခါ <code>onCreate</code> ကို ခေါ်သည်။ မျက်နှာပြင်၏ layout နှင့် အစိတ်အပိုင်းများကို ဤနေရာတွင် ပြင်ဆင်သည်။"
     },
     {
-      "source": "<code>return;</code>で、このクリック処理をここで終えます。空のときは、下の<code>setText</code>を実行しません。アプリ全体を終える意味ではありません。",
-      "translation": "<code>return;</code> ဖြင့် ဤနှိပ်ခြင်းအတွက် လုပ်ဆောင်ချက်ကို ဤနေရာတွင် အဆုံးသတ်သည်။ အကွက်ထဲတွင် ဘာမှ မရှိလျှင် အောက်ရှိ <code>setText</code> ကို run မလုပ်ပါ။ App တစ်ခုလုံးကို ပိတ်လိုက်ခြင်း မဟုတ်ပါ။"
+      "source": "B12 · クラス名の指定",
+      "translation": "B12 · class အမည်ကို သတ်မှတ်ခြင်း"
     },
     {
-      "source": "B19 · 1つずつ繰り返す",
-      "translation": "B19 · တစ်ခုစီအတွက် ထပ်လုပ်ခြင်း"
+      "source": "このJavaファイルで<code>android.widget.TextView</code>を短い名前<code>TextView</code>で使います。【①】に何を入れますか。",
+      "translation": "ဤ Java ဖိုင်တွင် <code>android.widget.TextView</code> ကို အမည်တို <code>TextView</code> ဖြင့် သုံးမည်။ 【①】 ထဲတွင် ဘာထည့်မလဲ။"
     },
     {
-      "source": "配列（複数の値を並べたもの）の値を1つずつ取り出し、<code>total</code>に足します。 【①】に入るコードはどれですか。",
-      "translation": "Array (တန်ဖိုးများကို အစဉ်လိုက် စုထားသည့်အရာ) မှ တန်ဖိုးများကို တစ်ခုစီ ထုတ်ယူပြီး <code>total</code> ထဲ ပေါင်းထည့်သည်။ 【①】 တွင် မည်သည့် code ကို ထည့်ရမည်နည်း။"
+      "source": "正答：<strong><code>import</code></strong>",
+      "translation": "အဖြေမှန်: <strong><code>import</code></strong>"
     },
     {
-      "source": "正答：<strong><code>for</code></strong>",
-      "translation": "အဖြေမှန်: <strong><code>for</code></strong>"
+      "source": "<code>import</code>で、使うクラスを指定します。この行があると、コード内では<code>TextView</code>という短い名前を使えます。",
+      "translation": "<code>import</code> ဖြင့် သုံးမည့် class ကို သတ်မှတ်သည်။ ဤတစ်ကြောင်း ရှိလျှင် code ထဲတွင် <code>TextView</code> ဟူသော အမည်တိုကို သုံးနိုင်သည်။"
     },
     {
-      "source": "拡張（かくちょう）<code>for</code>文は、配列から値を1つずつ取り出して同じ処理を繰り返します。",
-      "translation": "တိုးချဲ့ <code>for</code> statement သည် array မှ တန်ဖိုးများကို တစ်ခုစီ ထုတ်ယူပြီး တူညီသော လုပ်ဆောင်ချက်ကို ထပ်လုပ်သည်။"
+      "source": "B13 · ボタンを使える状態にする",
+      "translation": "B13 · ခလုတ်ကို သုံးနိုင်အောင် လုပ်ခြင်း"
     },
     {
-      "source": "B20 · 繰り返す配列",
-      "translation": "B20 · ထပ်လုပ်ရာတွင် သုံးမည့် array"
-    },
-    {
-      "source": "<code>numbers</code>の3つの値を1つずつ取り出し、<code>count</code>を1ずつ増やします。 【①】に入るコードはどれですか。",
-      "translation": "<code>numbers</code> ၏ တန်ဖိုး 3 ခုကို တစ်ခုစီ ထုတ်ယူပြီး <code>count</code> ကို 1 စီ တိုးသည်။ 【①】 တွင် မည်သည့် code ကို ထည့်ရမည်နည်း။"
-    },
-    {
-      "source": "正答：<strong><code>numbers</code></strong>",
-      "translation": "အဖြေမှန်: <strong><code>numbers</code></strong>"
-    },
-    {
-      "source": "<code>:</code>の右に、取り出す元の配列を書きます。<code>numbers</code>から<code>2</code>、<code>4</code>、<code>6</code>を順に取り出します。",
-      "translation": "<code>:</code> ၏ ညာဘက်တွင် တန်ဖိုးထုတ်ယူမည့် array ကို ရေးသည်။ <code>numbers</code> မှ <code>2</code>၊ <code>4</code> နှင့် <code>6</code> ကို အစဉ်လိုက် ထုတ်ယူသည်။"
-    },
-    {
-      "source": "E01 · 画面を用意する",
-      "translation": "E01 · မျက်နှာပြင် ပြင်ဆင်ခြင်း"
-    },
-    {
-      "source": "<code>MainActivity</code>の中にある、次のコードの説明はどれですか。",
-      "translation": "<code>MainActivity</code> ထဲရှိ အောက်ပါ code ကို မည်သည့်အဖြေက ရှင်းပြထားသနည်း။"
-    },
-    {
-      "source": "ボタンの文字を読む",
-      "translation": "ခလုတ်ပေါ်ရှိ စာသားကို ဖတ်သည်"
-    },
-    {
-      "source": "入力した文字を消す",
-      "translation": "ရိုက်ထည့်ထားသော စာသားကို ဖျက်သည်"
-    },
-    {
-      "source": "<code>activity_main.xml</code>を画面に使う",
-      "translation": "မျက်နှာပြင်အတွက် <code>activity_main.xml</code> ကို သုံးသည်"
-    },
-    {
-      "source": "ボタンを押したときの処理を登録する",
-      "translation": "ခလုတ်နှိပ်သောအခါ လုပ်ဆောင်မည့်အရာကို သတ်မှတ်သည်"
-    },
-    {
-      "source": "正答：<strong><code>activity_main.xml</code>を画面に使う</strong>",
-      "translation": "အဖြေမှန်: <strong>မျက်နှာပြင်အတွက် <code>activity_main.xml</code> ကို သုံးသည်</strong>"
-    },
-    {
-      "source": "<code>setContentView</code>は、画面に使うレイアウトを指定します。<code>R.layout.activity_main</code>は<code>activity_main.xml</code>を表します。",
-      "translation": "<code>setContentView</code> သည် မျက်နှာပြင်အတွက် သုံးမည့် layout ကို သတ်မှတ်ပေးသည်။ <code>R.layout.activity_main</code> သည် <code>activity_main.xml</code> ကို ကိုယ်စားပြုသည်။"
-    },
-    {
-      "source": "E02 · 部品を探す順番",
-      "translation": "E02 · အစိတ်အပိုင်းရှာရန် အစီအစဉ်"
-    },
-    {
-      "source": "<code>activity_main.xml</code>にはIDが<code>btn_start</code>のボタンがあります。この順番にする理由はどれですか。",
-      "translation": "<code>activity_main.xml</code> ထဲတွင် ID က <code>btn_start</code> ဖြစ်သည့် ခလုတ် ရှိသည်။ ဤအစီအစဉ်အတိုင်း ရေးရသည့် အကြောင်းရင်းမှာ အဘယ်နည်း။"
-    },
-    {
-      "source": "画面を用意してから、その中の部品を探すため",
-      "translation": "မျက်နှာပြင်ကို ပြင်ဆင်ပြီးမှ အထဲရှိ အစိတ်အပိုင်းကို ရှာရန်"
-    },
-    {
-      "source": "ボタンを2つ作るため",
-      "translation": "ခလုတ်နှစ်ခု ဖန်တီးရန်"
-    },
-    {
-      "source": "ボタンを自動で押すため",
-      "translation": "ခလုတ်ကို အလိုအလျောက် နှိပ်ရန်"
-    },
-    {
-      "source": "入力した文字を整数に変えるため",
-      "translation": "ရိုက်ထည့်ထားသော စာသားကို ကိန်းပြည့်သို့ ပြောင်းရန်"
-    },
-    {
-      "source": "正答：<strong>画面を用意してから、その中の部品を探すため</strong>",
-      "translation": "အဖြေမှန်: <strong>မျက်နှာပြင်ကို ပြင်ဆင်ပြီးမှ အထဲရှိ အစိတ်အပိုင်းကို ရှာရန်</strong>"
-    },
-    {
-      "source": "<code>setContentView</code>で画面を用意し、そのあとで<code>findViewById</code>を使って部品を探します。",
-      "translation": "<code>setContentView</code> ဖြင့် မျက်နှာပြင်ကို ပြင်ဆင်ပြီးနောက် <code>findViewById</code> ဖြင့် အစိတ်အပိုင်းကို ရှာသည်။"
-    },
-    {
-      "source": "E03 · IDの役割",
-      "translation": "E03 · ID ၏ အခန်းကဏ္ဍ"
-    },
-    {
-      "source": "画面を用意したあとに、次のコードを実行します。何をしますか。",
-      "translation": "မျက်နှာပြင်ကို ပြင်ဆင်ပြီးနောက် အောက်ပါ code ကို run လုပ်သည်။ မည်သို့ လုပ်ဆောင်သနည်း။"
-    },
-    {
-      "source": "ボタンに<code>btn_start</code>と表示する",
-      "translation": "ခလုတ်ပေါ်တွင် <code>btn_start</code> ဟု ပြသည်"
-    },
-    {
-      "source": "IDが<code>btn_start</code>の部品を探す",
-      "translation": "ID က <code>btn_start</code> ဖြစ်သည့် အစိတ်အပိုင်းကို ရှာသည်"
-    },
-    {
-      "source": "新しいXMLファイルを作る",
-      "translation": "XML ဖိုင်အသစ် ဖန်တီးသည်"
-    },
-    {
-      "source": "入力欄の文字を消す",
-      "translation": "စာရိုက်ထည့်သည့် အကွက်ထဲရှိ စာသားကို ဖျက်သည်"
-    },
-    {
-      "source": "正答：<strong>IDが<code>btn_start</code>の部品を探す</strong>",
-      "translation": "အဖြေမှန်: <strong>ID က <code>btn_start</code> ဖြစ်သည့် အစိတ်အပိုင်းကို ရှာသည်</strong>"
-    },
-    {
-      "source": "<code>R.id.btn_start</code>は部品を探すための目印です。画面に表示する文字とは別です。",
-      "translation": "<code>R.id.btn_start</code> သည် အစိတ်အပိုင်းကို ရှာရန် သုံးသည့် အမှတ်အသား ဖြစ်သည်။ မျက်နှာပြင်ပေါ်တွင် ပြသည့် စာသားနှင့် သီးခြား ဖြစ်သည်။"
-    },
-    {
-      "source": "E04 · 部品をButtonとして扱う",
-      "translation": "E04 · အစိတ်အပိုင်းကို Button အဖြစ် သုံးခြင်း"
-    },
-    {
-      "source": "画面のIDが<code>btn_start</code>の部品はボタンです。<code>(Button)</code>の説明はどれですか。",
-      "translation": "မျက်နှာပြင်တွင် ID က <code>btn_start</code> ဖြစ်သည့် အစိတ်အပိုင်းသည် ခလုတ် ဖြစ်သည်။ <code>(Button)</code> ကို မည်သည့်အဖြေက ရှင်းပြထားသနည်း။"
-    },
-    {
-      "source": "ボタンに<code>Button</code>と表示する",
-      "translation": "ခလုတ်ပေါ်တွင် <code>Button</code> ဟု ပြသည်"
-    },
-    {
-      "source": "ボタンを押す",
-      "translation": "ခလုတ်ကို နှိပ်သည်"
-    },
-    {
-      "source": "ボタンを画面から消す",
-      "translation": "ခလုတ်ကို မျက်နှာပြင်မှ ဖယ်ရှားသည်"
-    },
-    {
-      "source": "見つけた部品を<code>Button</code>として扱う",
-      "translation": "တွေ့ထားသော အစိတ်အပိုင်းကို <code>Button</code> အဖြစ် သုံးသည်"
-    },
-    {
-      "source": "正答：<strong>見つけた部品を<code>Button</code>として扱う</strong>",
-      "translation": "အဖြေမှန်: <strong>တွေ့ထားသော အစိတ်အပိုင်းကို <code>Button</code> အဖြစ် သုံးသည်</strong>"
-    },
-    {
-      "source": "<code>(Button)</code>はキャストといい、見つけた部品を<code>Button</code>として扱う指定です。文字を表示したり、ボタンを押したりする処理ではありません。",
-      "translation": "<code>(Button)</code> ကို cast ဟု ခေါ်သည်။ တွေ့ထားသော အစိတ်အပိုင်းကို <code>Button</code> အဖြစ် သုံးရန် သတ်မှတ်ပေးသည်။ စာသားပြခြင်း သို့မဟုတ် ခလုတ်နှိပ်ခြင်း မဟုတ်ပါ။"
-    },
-    {
-      "source": "E05 · 文字が変わるとき",
-      "translation": "E05 · စာသားပြောင်းသည့်အချိန်"
-    },
-    {
-      "source": "<code>btnStart</code>はボタン、<code>txtMessage</code>は文字の表示欄です。中の<code>setText</code>は、いつ実行されますか。",
-      "translation": "<code>btnStart</code> သည် ခလုတ်ဖြစ်ပြီး <code>txtMessage</code> သည် စာသားပြသည့် နေရာ ဖြစ်သည်။ အထဲရှိ <code>setText</code> ကို မည်သည့်အချိန်တွင် run လုပ်သနည်း။"
-    },
-    {
-      "source": "<code>btnStart</code>を押したとき",
-      "translation": "<code>btnStart</code> ကို နှိပ်သည့်အခါ"
-    },
-    {
-      "source": "Javaのファイルを開いたとき",
-      "translation": "Java ဖိုင်ကို ဖွင့်သည့်အခါ"
-    },
-    {
-      "source": "このコードを入力したとき",
-      "translation": "ဤ code ကို ရိုက်ထည့်သည့်အခါ"
-    },
-    {
-      "source": "<code>txtMessage</code>の文字を読んだとき",
-      "translation": "<code>txtMessage</code> ၏ စာသားကို ဖတ်သည့်အခါ"
-    },
-    {
-      "source": "正答：<strong><code>btnStart</code>を押したとき</strong>",
-      "translation": "အဖြေမှန်: <strong><code>btnStart</code> ကို နှိပ်သည့်အခါ</strong>"
-    },
-    {
-      "source": "<code>setOnClickListener</code>の中には、押したときに行う処理を書きます。登録しただけでは、中の<code>setText</code>は実行しません。",
-      "translation": "ခလုတ်နှိပ်သောအခါ လုပ်ဆောင်မည့်အရာကို <code>setOnClickListener</code> အတွင်း ရေးသည်။ သတ်မှတ်ရုံဖြင့် အထဲရှိ <code>setText</code> ကို run မလုပ်ပါ။"
-    },
-    {
-      "source": "E06 · 押したボタンと処理",
-      "translation": "E06 · နှိပ်လိုက်သည့် ခလုတ်နှင့် ၎င်း၏ လုပ်ဆောင်ချက်"
-    },
-    {
-      "source": "<code>btnStart</code>と<code>btnClear</code>はボタン、<code>txtMessage</code>は文字の表示欄です。<code>btnClear</code>を1回押すと、何を表示しますか。",
-      "translation": "<code>btnStart</code> နှင့် <code>btnClear</code> သည် ခလုတ်များ ဖြစ်ပြီး <code>txtMessage</code> သည် စာသားပြသည့် နေရာ ဖြစ်သည်။ <code>btnClear</code> ကို တစ်ကြိမ် နှိပ်လျှင် မည်သည့်စာသားကို ပြမည်နည်း။"
-    },
-    {
-      "source": "正答：<strong><code>消去</code></strong>",
-      "translation": "အဖြေမှန်: <strong><code>消去</code></strong> (ဖျက်ခြင်း)"
-    },
-    {
-      "source": "<code>btnClear</code>を押すと、<code>btnClear.setOnClickListener</code>の中を実行します。ここでは<code>消去</code>と表示します。",
-      "translation": "<code>btnClear</code> ကို နှိပ်လျှင် <code>btnClear.setOnClickListener</code> အတွင်းရှိ code ကို run လုပ်သည်။ ဤနေရာတွင် <code>消去</code> (ဖျက်ခြင်း) ဟု ပြသည်။"
-    },
-    {
-      "source": "E07 · 入力した文字列",
-      "translation": "E07 · ရိုက်ထည့်ထားသော စာသား"
-    },
-    {
-      "source": "<code>edtName</code>は入力欄です。<code>東京</code>と入っています。次のコードで、<code>name</code>に入る値はどれですか。",
-      "translation": "<code>edtName</code> သည် စာရိုက်ထည့်သည့် အကွက် ဖြစ်သည်။ အထဲတွင် <code>東京</code> (တိုကျို) ဟု ရိုက်ထားသည်။ အောက်ပါ code တွင် <code>name</code> ထဲ ဝင်မည့် တန်ဖိုးသည် မည်သည့်တန်ဖိုးနည်း။"
-    },
-    {
-      "source": "文字列<code>&quot;edtName&quot;</code>",
-      "translation": "စာသား <code>&quot;edtName&quot;</code>"
-    },
-    {
-      "source": "文字列<code>&quot;東京&quot;</code>",
-      "translation": "စာသား <code>&quot;東京&quot;</code> (တိုကျို)"
-    },
-    {
-      "source": "空の文字列<code>&quot;&quot;</code>",
-      "translation": "စာလုံးမပါသော စာသား <code>&quot;&quot;</code>"
-    },
-    {
-      "source": "整数の<code>0</code>",
-      "translation": "ကိန်းပြည့် <code>0</code>"
-    },
-    {
-      "source": "正答：<strong>文字列<code>&quot;東京&quot;</code></strong>",
-      "translation": "အဖြေမှန်: <strong>စာသား <code>&quot;東京&quot;</code> (တိုကျို)</strong>"
-    },
-    {
-      "source": "<code>getText().toString()</code>で、入力欄にある今の文字を文字列として取り出します。ここでは<code>&quot;東京&quot;</code>です。",
-      "translation": "<code>getText().toString()</code> ဖြင့် အကွက်ထဲရှိ လက်ရှိစာသားကို စာသားတန်ဖိုးအဖြစ် ထုတ်ယူသည်။ ဤနေရာတွင် <code>&quot;東京&quot;</code> (တိုကျို) ဖြစ်သည်။"
-    },
-    {
-      "source": "E08 · ボタンの文字を読む",
-      "translation": "E08 · ခလုတ်ပေါ်ရှိ စာသားကို ဖတ်ခြင်း"
-    },
-    {
-      "source": "<code>btnNumber</code>はボタンです。ボタンには<code>7</code>と表示されています。<code>text</code>に入る値はどれですか。",
-      "translation": "<code>btnNumber</code> သည် ခလုတ် ဖြစ်သည်။ ခလုတ်ပေါ်တွင် <code>7</code> ဟု ပြထားသည်။ <code>text</code> ထဲ ဝင်မည့် တန်ဖိုးသည် မည်သည့်တန်ဖိုးနည်း။"
-    },
-    {
-      "source": "整数の<code>7</code>",
-      "translation": "ကိန်းပြည့် <code>7</code>"
-    },
-    {
-      "source": "文字列<code>&quot;btnNumber&quot;</code>",
-      "translation": "စာသား <code>&quot;btnNumber&quot;</code>"
-    },
-    {
-      "source": "文字列<code>&quot;7&quot;</code>",
-      "translation": "စာသား <code>&quot;7&quot;</code>"
-    },
-    {
-      "source": "正答：<strong>文字列<code>&quot;7&quot;</code></strong>",
-      "translation": "အဖြေမှန်: <strong>စာသား <code>&quot;7&quot;</code></strong>"
-    },
-    {
-      "source": "<code>getText().toString()</code>で得られるのは文字列です。計算に使う整数に変えるときは、別に<code>Integer.parseInt</code>を使います。",
-      "translation": "<code>getText().toString()</code> ဖြင့် ရရှိသော တန်ဖိုးသည် စာသား ဖြစ်သည်။ တွက်ချက်ရာတွင် သုံးနိုင်သည့် ကိန်းပြည့်သို့ ပြောင်းလိုပါက <code>Integer.parseInt</code> ကို သီးခြား သုံးသည်။"
-    },
-    {
-      "source": "E09 · 表示を置き換える",
-      "translation": "E09 · ပြထားသော စာသားကို အစားထိုးခြင်း"
-    },
-    {
-      "source": "<code>txtMessage</code>は文字の表示欄です。上から順に実行したあと、何を表示しますか。",
-      "translation": "<code>txtMessage</code> သည် စာသားပြသည့် နေရာ ဖြစ်သည်။ အပေါ်မှ အောက်သို့ အစဉ်လိုက် run လုပ်ပြီးနောက် မည်သည့်စာသားကို ပြမည်နည်း။"
-    },
-    {
-      "source": "何も表示しない",
-      "translation": "ဘာမှ မပြပါ"
-    },
-    {
-      "source": "正答：<strong><code>後</code></strong>",
-      "translation": "အဖြေမှန်: <strong><code>後</code></strong> (နောက်)"
-    },
-    {
-      "source": "<code>setText</code>は、前の表示を新しい文字に置き換えます。最後に指定した<code>後</code>を表示します。",
-      "translation": "<code>setText</code> သည် ယခင်ပြထားသော စာသားကို စာသားအသစ်ဖြင့် အစားထိုးသည်။ နောက်ဆုံး သတ်မှတ်ထားသော <code>後</code> (နောက်) ကို ပြသည်။"
-    },
-    {
-      "source": "E10 · 入力欄の文字を消す",
-      "translation": "E10 · အကွက်ထဲရှိ စာသားကို ဖျက်ခြင်း"
-    },
-    {
-      "source": "<code>edtName</code>は入力欄です。<code>山田</code>と入っています。次のコードを実行すると、どうなりますか。",
-      "translation": "<code>edtName</code> သည် စာရိုက်ထည့်သည့် အကွက် ဖြစ်သည်။ အထဲတွင် <code>山田</code> (ယာမဒါ) ဟု ရိုက်ထားသည်။ အောက်ပါ code ကို run လုပ်လျှင် ဘာဖြစ်မည်နည်း။"
-    },
-    {
-      "source": "入力欄そのものがなくなる",
-      "translation": "စာရိုက်ထည့်သည့် အကွက်ကိုယ်တိုင် ပျောက်သွားသည်"
-    },
-    {
-      "source": "<code>山田</code>の後ろに文字が増える",
-      "translation": "<code>山田</code> (ယာမဒါ) ၏ နောက်တွင် စာလုံးများ ထပ်တိုးလာသည်"
-    },
-    {
-      "source": "入力欄の文字が消えて空になる",
-      "translation": "အကွက်ထဲရှိ စာသား ပျောက်သွားပြီး အကွက်လွတ်သွားသည်"
-    },
-    {
-      "source": "<code>0</code>が入力される",
-      "translation": "<code>0</code> ကို ဖြည့်သွင်းလိုက်သည်"
-    },
-    {
-      "source": "正答：<strong>入力欄の文字が消えて空になる</strong>",
-      "translation": "အဖြေမှန်: <strong>အကွက်ထဲရှိ စာသား ပျောက်သွားပြီး အကွက်လွတ်သွားသည်</strong>"
-    },
-    {
-      "source": "<code>&quot;&quot;</code>は空の文字列です。入力欄はそのままで、中に表示する文字だけを空にします。",
-      "translation": "<code>&quot;&quot;</code> သည် စာလုံးမပါသော စာသား ဖြစ်သည်။ အကွက်ကို မပြောင်းဘဲ အထဲတွင် ပြသည့် စာသားကိုသာ ရှင်းသည်။"
-    },
-    {
-      "source": "E11 · 整数に変えた値",
-      "translation": "E11 · ကိန်းပြည့်သို့ ပြောင်းထားသော တန်ဖိုး"
-    },
-    {
-      "source": "次のコードで、<code>number</code>に入る値はどれですか。",
-      "translation": "အောက်ပါ code တွင် <code>number</code> ထဲ ဝင်မည့် တန်ဖိုးသည် မည်သည့်တန်ဖိုးနည်း။"
-    },
-    {
-      "source": "文字列<code>&quot;12&quot;</code>",
-      "translation": "စာသား <code>&quot;12&quot;</code>"
-    },
-    {
-      "source": "整数の<code>12</code>",
-      "translation": "ကိန်းပြည့် <code>12</code>"
-    },
-    {
-      "source": "文字列<code>&quot;number&quot;</code>",
-      "translation": "စာသား <code>&quot;number&quot;</code>"
-    },
-    {
-      "source": "正答：<strong>整数の<code>12</code></strong>",
-      "translation": "အဖြေမှန်: <strong>ကိန်းပြည့် <code>12</code></strong>"
-    },
-    {
-      "source": "<code>Integer.parseInt</code>で、文字列<code>&quot;12&quot;</code>を計算に使える整数の<code>12</code>に変えます。",
-      "translation": "<code>Integer.parseInt</code> ဖြင့် စာသား <code>&quot;12&quot;</code> ကို တွက်ချက်ရာတွင် သုံးနိုင်သည့် ကိန်းပြည့် <code>12</code> သို့ ပြောင်းသည်။"
-    },
-    {
-      "source": "E12 · 変えた整数で計算する",
-      "translation": "E12 · ပြောင်းထားသော ကိန်းပြည့်ဖြင့် တွက်ခြင်း"
-    },
-    {
-      "source": "<code>txtMessage</code>は文字の表示欄です。次のコードは、何を表示しますか。",
-      "translation": "<code>txtMessage</code> သည် စာသားပြသည့် နေရာ ဖြစ်သည်။ အောက်ပါ code သည် မည်သည့်စာသားကို ပြမည်နည်း။"
-    },
-    {
-      "source": "正答：<strong><code>答え:10</code></strong>",
-      "translation": "အဖြေမှန်: <strong><code>答え:10</code></strong> (အဖြေ:10)"
-    },
-    {
-      "source": "<code>number</code>は整数の<code>8</code>です。かっこの中で<code>8 + 2</code>を計算するので、<code>答え:10</code>と表示します。",
-      "translation": "<code>number</code> သည် ကိန်းပြည့် <code>8</code> ဖြစ်သည်။ ကွင်းအတွင်းရှိ <code>8 + 2</code> ကို တွက်သဖြင့် <code>答え:10</code> (အဖြေ:10) ဟု ပြသည်။"
-    },
-    {
-      "source": "E13 · Snackbarの役割",
-      "translation": "E13 · Snackbar ၏ အခန်းကဏ္ဍ"
-    },
-    {
-      "source": "ボタンを押したときの処理です。<code>v</code>は押した部品です。次のコードは、何をしますか。",
-      "translation": "ခလုတ်နှိပ်သောအခါ လုပ်ဆောင်မည့် code ဖြစ်သည်။ <code>v</code> သည် နှိပ်လိုက်သည့် အစိတ်အပိုင်း ဖြစ်သည်။ အောက်ပါ code သည် မည်သို့ လုပ်ဆောင်သနည်း။"
-    },
-    {
-      "source": "入力欄の文字を整数に変える",
-      "translation": "အကွက်ထဲရှိ စာသားကို ကိန်းပြည့်သို့ ပြောင်းသည်"
-    },
-    {
-      "source": "新しい画面を開く",
-      "translation": "မျက်နှာပြင်အသစ်ကို ဖွင့်သည်"
-    },
-    {
-      "source": "画面に短いメッセージを出す",
-      "translation": "မျက်နှာပြင်ပေါ်တွင် message အတိုတစ်ခု ပြသည်"
-    },
-    {
-      "source": "正答：<strong>画面に短いメッセージを出す</strong>",
-      "translation": "အဖြေမှန်: <strong>မျက်နှာပြင်ပေါ်တွင် message အတိုတစ်ခု ပြသည်</strong>"
-    },
-    {
-      "source": "Snackbar（スナックバー）は、画面に短いメッセージを出します。<code>show()</code>を呼ぶと表示します。",
-      "translation": "Snackbar သည် မျက်နှာပြင်ပေါ်တွင် message အတိုတစ်ခု ပြသည်။ <code>show()</code> ကို ခေါ်လျှင် message ပေါ်လာသည်။"
-    },
-    {
-      "source": "E14 · 表示するメッセージ",
-      "translation": "E14 · ပြသမည့် message"
-    },
-    {
-      "source": "ボタンを押したときの処理です。<code>v</code>は押した部品です。Snackbar（スナックバー）に何を表示しますか。",
-      "translation": "ခလုတ်နှိပ်သောအခါ လုပ်ဆောင်မည့် code ဖြစ်သည်။ <code>v</code> သည် နှိပ်လိုက်သည့် အစိတ်အပိုင်း ဖြစ်သည်။ Snackbar တွင် မည်သည့်စာသားကို ပြမည်နည်း။"
-    },
-    {
-      "source": "正答：<strong><code>できた</code></strong>",
-      "translation": "အဖြေမှန်: <strong><code>できた</code></strong>"
-    },
-    {
-      "source": "<code>make</code>の2つ目に、表示する文字を渡します。<code>message</code>には<code>できた</code>が入っています。",
-      "translation": "ပြသမည့် စာသားကို <code>make</code> ၏ ဒုတိယ argument အဖြစ် ပေးသည်။ <code>message</code> ထဲတွင် <code>できた</code> (လုပ်ပြီးပြီ) ရှိသည်။"
-    },
-    {
-      "source": "E15 · 空の文字列",
-      "translation": "E15 · စာလုံးမပါသော စာသား"
-    },
-    {
-      "source": "次のコードで、<code>empty</code>に入る値はどれですか。",
-      "translation": "အောက်ပါ code တွင် <code>empty</code> ထဲ ဝင်မည့် တန်ဖိုးသည် မည်သည့်တန်ဖိုးနည်း။"
+      "source": "使えなくしていたボタン<code>btnSend</code>を、また押せる状態に戻します。【①】に何を入れますか。",
+      "translation": "သုံး၍ မရအောင် လုပ်ထားသည့် <code>btnSend</code> ခလုတ်ကို ပြန်နှိပ်နိုင်အောင် လုပ်မည်။ 【①】 ထဲတွင် ဘာထည့်မလဲ။"
     },
     {
       "source": "正答：<strong><code>true</code></strong>",
       "translation": "အဖြေမှန်: <strong><code>true</code></strong>"
     },
     {
-      "source": "<code>&quot;&quot;</code>は文字が1つもない文字列です。空の文字列で<code>isEmpty()</code>を呼ぶと<code>true</code>になります。",
-      "translation": "<code>&quot;&quot;</code> သည် စာလုံးတစ်လုံးမျှ မပါသော စာသား ဖြစ်သည်။ စာလုံးမပါသော စာသားအတွက် <code>isEmpty()</code> ကို ခေါ်လျှင် <code>true</code> ရသည်။"
+      "source": "<code>setEnabled(true)</code>で使える状態にします。<code>false</code>は使えない状態です。",
+      "translation": "<code>setEnabled(true)</code> ဖြင့် သုံးနိုင်အောင် လုပ်သည်။ <code>false</code> ဆိုလျှင် သုံး၍ မရပါ။"
     },
     {
-      "source": "E16 · 空でない入力",
-      "translation": "E16 · စာသား ရိုက်ထည့်ထားခြင်း"
+      "source": "復習する場所：<code>calc-game/index.html#step-5</code>",
+      "translation": "ပြန်လေ့လာရန် နေရာ: <code>calc-game/index.html#step-5</code>"
     },
     {
-      "source": "正答：<strong><code>入力あり</code></strong>",
-      "translation": "အဖြေမှန်: <strong><code>入力あり</code></strong> (ရိုက်ထည့်ထားသည်)"
+      "source": "B14 · LinearLayoutの並べ方",
+      "translation": "B14 · LinearLayout ထဲတွင် စီပုံ"
     },
     {
-      "source": "<code>name</code>には文字があるので、<code>isEmpty()</code>は<code>false</code>です。<code>else</code>の中を実行し、<code>入力あり</code>と表示します。",
-      "translation": "<code>name</code> ထဲတွင် စာသားပါသောကြောင့် <code>isEmpty()</code> သည် <code>false</code> ဖြစ်သည်။ <code>else</code> အတွင်းရှိ code ကို run လုပ်ပြီး <code>入力あり</code> (ရိုက်ထည့်ထားသည်) ဟု ပြသည်။"
+      "source": "LinearLayoutの中の2つのボタンを横に並べます。【①】に何を入れますか。",
+      "translation": "LinearLayout ထဲရှိ ခလုတ်နှစ်ခုကို ဘေးချင်းယှဉ် စီမည်။ 【①】 ထဲတွင် ဘာထည့်မလဲ။"
     },
     {
-      "source": "E17 · 同じ値のとき",
-      "translation": "E17 · တန်ဖိုးများ တူသည့်အခါ"
+      "source": "正答：<strong><code>horizontal</code></strong>",
+      "translation": "အဖြေမှန်: <strong><code>horizontal</code></strong>"
     },
     {
-      "source": "上から順に実行したあと、<code>correct</code>の値はどれですか。",
-      "translation": "အပေါ်မှ အောက်သို့ အစဉ်လိုက် run လုပ်ပြီးနောက် <code>correct</code> ၏ တန်ဖိုးမှာ မည်သည့်တန်ဖိုးနည်း။"
+      "source": "<code>orientation</code>は中の部品を並べる向きです。<code>horizontal</code>なら横、<code>vertical</code>なら縦に並びます。",
+      "translation": "<code>orientation</code> သည် အတွင်းရှိ အစိတ်အပိုင်းများကို စီမည့် ဦးတည်ချက် ဖြစ်သည်။ <code>horizontal</code> ဆိုလျှင် အလျားလိုက်၊ <code>vertical</code> ဆိုလျှင် ဒေါင်လိုက် စီသည်။"
     },
     {
-      "source": "正答：<strong><code>1</code></strong>",
-      "translation": "အဖြေမှန်: <strong><code>1</code></strong>"
+      "source": "復習する場所：<code>rock-paper-scissors-game/index.html#step-2</code>",
+      "translation": "ပြန်လေ့လာရန် နေရာ: <code>rock-paper-scissors-game/index.html#step-2</code>"
     },
     {
-      "source": "<code>number</code>と<code>answer</code>は同じなので、<code>if</code>の中を実行します。<code>correct++</code>で<code>0</code>から<code>1</code>に増えます。",
-      "translation": "<code>number</code> နှင့် <code>answer</code> တူသောကြောင့် <code>if</code> အတွင်းရှိ code ကို run လုပ်သည်။ <code>correct++</code> ဖြင့် တန်ဖိုးသည် <code>0</code> မှ <code>1</code> သို့ တိုးလာသည်။"
+      "source": "B15 · 部品の横幅",
+      "translation": "B15 · အစိတ်အပိုင်း၏ အကျယ်"
     },
     {
-      "source": "E18 · returnより下の処理",
-      "translation": "E18 · return အောက်ရှိ လုပ်ဆောင်ချက်"
+      "source": "TextViewの横幅を、親の使える幅いっぱいにします。【①】に何を入れますか。",
+      "translation": "TextView ၏ အကျယ်ကို မိခင်အစိတ်အပိုင်းတွင် သုံးနိုင်သမျှ အကျယ်အပြည့် ဖြစ်စေမည်။ 【①】 ထဲတွင် ဘာထည့်မလဲ။"
     },
     {
-      "source": "<code>btnAdd</code>はボタン、<code>edtName</code>は入力欄、<code>txtMessage</code>は文字の表示欄です。入力欄は空です。ボタンを押したときの説明はどれですか。",
-      "translation": "<code>btnAdd</code> သည် ခလုတ်၊ <code>edtName</code> သည် စာရိုက်ထည့်သည့် အကွက်၊ <code>txtMessage</code> သည် စာသားပြသည့် နေရာ ဖြစ်သည်။ အကွက်ထဲတွင် ဘာမှမရှိပါ။ ခလုတ်ကို နှိပ်လျှင် ဖြစ်လာမည့်အရာကို မည်သည့်အဖြေက ရှင်းပြထားသနည်း။"
+      "source": "正答：<strong><code>match_parent</code></strong>",
+      "translation": "အဖြေမှန်: <strong><code>match_parent</code></strong>"
     },
     {
-      "source": "必ず<code>登録しました</code>と表示する",
-      "translation": "<code>登録しました</code> (စာရင်းသွင်းပြီးပြီ) ဟု အမြဲ ပြသည်"
+      "source": "横幅の<code>match_parent</code>は、親の使える幅に合わせる指定です。<code>wrap_content</code>は、内容を表示するための幅にします。",
+      "translation": "အကျယ်အတွက် <code>match_parent</code> သည် မိခင်အစိတ်အပိုင်း၏ သုံးနိုင်သော အကျယ်နှင့် ကိုက်ညီအောင် သတ်မှတ်သည်။ <code>wrap_content</code> သည် အထဲမှ အကြောင်းအရာကို ပြသရန် လိုသည့် အကျယ်ကို သတ်မှတ်သည်။"
     },
     {
-      "source": "アプリ全体を終了する",
-      "translation": "App တစ်ခုလုံး ပိတ်သွားသည်"
+      "source": "復習する場所：<code>hello-android/index.html#step-3</code>",
+      "translation": "ပြန်လေ့လာရန် နေရာ: <code>hello-android/index.html#step-3</code>"
     },
     {
-      "source": "このクリック処理を終え、表示を変えない",
-      "translation": "ဤနှိပ်ခြင်းအတွက် လုပ်ဆောင်ချက် အဆုံးသတ်ပြီး ပြသထားသည့် စာသား မပြောင်းပါ"
+      "source": "B16 · 部品の外側のすき間",
+      "translation": "B16 · အစိတ်အပိုင်း၏ အပြင်ဘက် နေရာလွတ်"
     },
     {
-      "source": "入力欄に<code>登録しました</code>と入れる",
-      "translation": "စာရိုက်ထည့်သည့် အကွက်ထဲ <code>登録しました</code> (စာရင်းသွင်းပြီးပြီ) ကို ထည့်သည်"
+      "source": "ボタンの外側の上にすき間を付けます。【①】に属性名を入れてください。",
+      "translation": "ခလုတ်၏ အပြင်ဘက် အပေါ်တွင် နေရာလွတ် ထားမည်။ 【①】 ထဲတွင် attribute အမည်ကို ထည့်ပါ။"
     },
     {
-      "source": "正答：<strong>このクリック処理を終え、表示を変えない</strong>",
-      "translation": "အဖြေမှန်: <strong>ဤနှိပ်ခြင်းအတွက် လုပ်ဆောင်ချက် အဆုံးသတ်ပြီး ပြသထားသည့် စာသား မပြောင်းပါ</strong>"
+      "source": "正答：<strong><code>layout_marginTop</code></strong>",
+      "translation": "အဖြေမှန်: <strong><code>layout_marginTop</code></strong>"
     },
     {
-      "source": "入力欄が空なので、<code>return;</code>でこのクリック処理を終えます。下の<code>setText</code>は実行しません。",
-      "translation": "အကွက်ထဲတွင် ဘာမှ မရှိသဖြင့် <code>return;</code> ဖြင့် ဤနှိပ်ခြင်းအတွက် လုပ်ဆောင်ချက်ကို အဆုံးသတ်သည်။ အောက်ရှိ <code>setText</code> ကို run မလုပ်ပါ။"
+      "source": "<code>layout_marginTop</code>は、部品の外側の上に付けるすき間です。幅や高さを指定する属性とは別です。",
+      "translation": "<code>layout_marginTop</code> သည် အစိတ်အပိုင်း၏ အပြင်ဘက် အပေါ်၌ ထားသော နေရာလွတ် ဖြစ်သည်။ အကျယ် သို့မဟုတ် အမြင့်ကို သတ်မှတ်သည့် attribute နှင့် သီးခြား ဖြစ်သည်။"
     },
     {
-      "source": "E19 · 繰り返す回数",
-      "translation": "E19 · ထပ်လုပ်သည့် အကြိမ်ရေ"
+      "source": "復習する場所：<code>calc-game/index.html#step-2</code>",
+      "translation": "ပြန်လေ့လာရန် နေရာ: <code>calc-game/index.html#step-2</code>"
     },
     {
-      "source": "配列（複数の値を並べたもの）から値を1つずつ取り出します。最後の<code>count</code>はどれですか。",
-      "translation": "Array (တန်ဖိုးများကို အစဉ်လိုက် စုထားသည့်အရာ) မှ တန်ဖိုးများကို တစ်ခုစီ ထုတ်ယူသည်။ နောက်ဆုံးတွင် <code>count</code> ၏ တန်ဖိုးမှာ မည်သည့်တန်ဖိုးနည်း။"
+      "source": "B17 · クラス内で使う指定",
+      "translation": "B17 · class အတွင်း သုံးရန် သတ်မှတ်ခြင်း"
     },
     {
-      "source": "正答：<strong><code>3</code></strong>",
-      "translation": "အဖြေမှန်: <strong><code>3</code></strong>"
+      "source": "このクラスの中だけで使うフィールドを用意します。【①】に何を入れますか。",
+      "translation": "ဤ class အတွင်းမှာသာ သုံးမည့် field ကို ပြင်ဆင်မည်။ 【①】 ထဲတွင် ဘာထည့်မလဲ။"
     },
     {
-      "source": "配列には値が3つあります。<code>count++</code>を3回行うので、<code>count</code>は<code>3</code>になります。値の合計を求める処理ではありません。",
-      "translation": "Array တွင် တန်ဖိုး 3 ခု ရှိသည်။ <code>count++</code> ကို 3 ကြိမ် လုပ်သောကြောင့် <code>count</code> သည် <code>3</code> ဖြစ်လာသည်။ တန်ဖိုးများ၏ ပေါင်းလဒ်ကို ရှာသည့် လုပ်ဆောင်ချက် မဟုတ်ပါ။"
+      "source": "正答：<strong><code>private</code></strong>",
+      "translation": "အဖြေမှန်: <strong><code>private</code></strong>"
     },
     {
-      "source": "E20 · 同じ処理を登録する",
-      "translation": "E20 · တူညီသော လုပ်ဆောင်ချက်ကို သတ်မှတ်ခြင်း"
+      "source": "<code>private</code>は、このクラスの中で使う指定です。フィールドの値を固定する指定ではありません。",
+      "translation": "<code>private</code> သည် ဤ class အတွင်း သုံးရန် သတ်မှတ်ပေးသည်။ field ၏ တန်ဖိုးကို မပြောင်းနိုင်အောင် သတ်မှတ်ခြင်း မဟုတ်ပါ။"
     },
     {
-      "source": "<code>buttons</code>は3つのボタンを入れた配列です。<code>txtMessage</code>は文字の表示欄です。画面を開いて次のコードを実行しました。まだボタンは押していません。正しい説明はどれですか。",
-      "translation": "<code>buttons</code> သည် ခလုတ် 3 ခု ထည့်ထားသည့် array ဖြစ်သည်။ <code>txtMessage</code> သည် စာသားပြသည့် နေရာ ဖြစ်သည်။ မျက်နှာပြင်ကို ဖွင့်ပြီး အောက်ပါ code ကို run လုပ်ထားသည်။ ခလုတ်ကို မနှိပ်ရသေးပါ။ မည်သည့် ရှင်းလင်းချက်က မှန်သနည်း။"
+      "source": "復習する場所：<code>calc-game/index.html#step-4</code>",
+      "translation": "ပြန်လေ့လာရန် နေရာ: <code>calc-game/index.html#step-4</code>"
     },
     {
-      "source": "すぐに<code>押しました</code>と3回表示する",
-      "translation": "<code>押しました</code> (နှိပ်ပြီးပြီ) ဟု ချက်ချင်း 3 ကြိမ် ပြသည်"
+      "source": "B18 · 文字列をつなぐ",
+      "translation": "B18 · စာသားများကို ဆက်ခြင်း"
     },
     {
-      "source": "最初のボタンにだけ処理を登録する",
-      "translation": "ပထမခလုတ်အတွက်သာ လုပ်ဆောင်ချက် သတ်မှတ်သည်"
+      "source": "<code>前半後半</code>という1つの文字列を作ります。【①】に記号を入れてください。",
+      "translation": "<code>前半後半</code> (ရှေ့ပိုင်းနောက်ပိုင်း) ဟူသော စာသားတစ်ခုကို ဖန်တီးမည်။ 【①】 ထဲတွင် သင်္ကေတကို ထည့်ပါ။"
     },
     {
-      "source": "3つのボタンを自動で押す",
-      "translation": "ခလုတ် 3 ခုကို အလိုအလျောက် နှိပ်သည်"
+      "source": "正答：<strong><code>+</code></strong>",
+      "translation": "အဖြေမှန်: <strong><code>+</code></strong>"
     },
     {
-      "source": "3つのボタンに処理を登録し、表示はまだ変えない",
-      "translation": "ခလုတ် 3 ခုအတွက် လုပ်ဆောင်ချက် သတ်မှတ်ပြီး ပြသထားသည့် စာသား မပြောင်းသေးပါ"
+      "source": "文字列どうしを<code>+</code>でつなぐと、左の文字列の後ろに右の文字列が続きます。",
+      "translation": "စာသားများကို <code>+</code> ဖြင့် ဆက်လိုက်လျှင် ဘယ်ဘက်စာသား၏ နောက်တွင် ညာဘက်စာသား ဆက်လာသည်။"
     },
     {
-      "source": "正答：<strong>3つのボタンに処理を登録し、表示はまだ変えない</strong>",
-      "translation": "အဖြေမှန်: <strong>ခလုတ် 3 ခုအတွက် လုပ်ဆောင်ချက် သတ်မှတ်ပြီး ပြသထားသည့် စာသား မပြောင်းသေးပါ</strong>"
+      "source": "B19 · 値を1ずつ増やす",
+      "translation": "B19 · တန်ဖိုးကို 1 စီ တိုးခြင်း"
     },
     {
-      "source": "拡張（かくちょう）<code>for</code>文で3つのボタンに処理を登録します。中の<code>setText</code>は、実際にボタンを押したときに実行します。",
-      "translation": "တိုးချဲ့ <code>for</code> statement ဖြင့် ခလုတ် 3 ခုအတွက် လုပ်ဆောင်ချက် သတ်မှတ်သည်။ အထဲရှိ <code>setText</code> ကို ခလုတ်ကို အမှန်တကယ် နှိပ်သောအခါမှ run လုပ်သည်။"
+      "source": "整数<code>visits</code>を1だけ増やします。【①】に記号を入れてください。",
+      "translation": "ကိန်းပြည့် <code>visits</code> ကို 1 သာ တိုးမည်။ 【①】 ထဲတွင် သင်္ကေတကို ထည့်ပါ။"
+    },
+    {
+      "source": "正答：<strong><code>++</code></strong>",
+      "translation": "အဖြေမှန်: <strong><code>++</code></strong>"
+    },
+    {
+      "source": "変数の後ろに<code>++</code>を書くと、その値を1増やします。<code>--</code>は1減らす記号です。",
+      "translation": "variable ၏ နောက်တွင် <code>++</code> ရေးလျှင် ၎င်း၏တန်ဖိုး 1 တိုးသည်။ <code>--</code> သည် 1 လျှော့သည့် သင်္ကေတ ဖြစ်သည်။"
+    },
+    {
+      "source": "復習する場所：<code>calc-game/index.html#step-8</code>",
+      "translation": "ပြန်လေ့လာရန်နေရာ: <code>calc-game/index.html#step-8</code>"
+    },
+    {
+      "source": "B20 · 途中で処理を終える",
+      "translation": "B20 · လုပ်ဆောင်ချက်ကို လမ်းတစ်ဝက်တွင် ရပ်ခြင်း"
+    },
+    {
+      "source": "値を返さないメソッドの一部です。入力が空なら、下の表示処理へ進まずに終えます。【①】に何を入れますか。",
+      "translation": "တန်ဖိုး ပြန်မပေးသော method ၏ အစိတ်အပိုင်းတစ်ခု ဖြစ်သည်။ ရိုက်ထည့်ထားသည်မှာ အလွတ် ဖြစ်လျှင် အောက်ရှိ ပြသသည့် လုပ်ဆောင်ချက်ကို မလုပ်ဘဲ ရပ်သည်။ 【①】 ထဲတွင် ဘာထည့်မလဲ။"
+    },
+    {
+      "source": "正答：<strong><code>return</code></strong>",
+      "translation": "အဖြေမှန်: <strong><code>return</code></strong>"
+    },
+    {
+      "source": "<code>return</code>で、そのメソッドの処理を終えます。入力が空のときは、下の<code>setText</code>を実行しません。",
+      "translation": "<code>return</code> က ထို method ၏ လုပ်ဆောင်ချက်ကို အဆုံးသတ်သည်။ ရိုက်ထည့်ထားသည်မှာ အလွတ် ဖြစ်လျှင် အောက်ရှိ <code>setText</code> ကို run မလုပ်ပါ။"
+    },
+    {
+      "source": "E01 · 画面に使うXML",
+      "translation": "E01 · မျက်နှာပြင်အတွက် သုံးမည့် XML"
+    },
+    {
+      "source": "この2行では、先に<code>setContentView</code>を実行します。その理由はどれですか。",
+      "translation": "ဤ code နှစ်ကြောင်းတွင် <code>setContentView</code> ကို အရင် run လုပ်သည်။ ဘာကြောင့်လဲ။"
+    },
+    {
+      "source": "レイアウトを画面に用意してから、その中の部品を探すため",
+      "translation": "မျက်နှာပြင်အတွက် layout ကို ပြင်ဆင်ပြီးမှ အတွင်းရှိ အစိတ်အပိုင်းကို ရှာရန်"
+    },
+    {
+      "source": "ボタンを押す処理を2回行うため",
+      "translation": "ခလုတ်နှိပ်သည့် လုပ်ဆောင်ချက်ကို နှစ်ကြိမ် လုပ်ရန်"
+    },
+    {
+      "source": "XMLファイルの名前を書き換えるため",
+      "translation": "XML ဖိုင်၏ အမည်ကို ပြင်ရေးရန်"
+    },
+    {
+      "source": "ボタンの文字を整数に変えるため",
+      "translation": "ခလုတ်ပေါ်ရှိ စာကို ကိန်းပြည့်သို့ ပြောင်းရန်"
+    },
+    {
+      "source": "正答：<strong>レイアウトを画面に用意してから、その中の部品を探すため</strong>",
+      "translation": "အဖြေမှန်: <strong>မျက်နှာပြင်အတွက် layout ကို ပြင်ဆင်ပြီးမှ အတွင်းရှိ အစိတ်အပိုင်းကို ရှာရန်</strong>"
+    },
+    {
+      "source": "<code>setContentView</code>で画面のレイアウトを用意します。そのあと、<code>findViewById</code>でレイアウト内の部品を探します。",
+      "translation": "<code>setContentView</code> ဖြင့် မျက်နှာပြင်၏ layout ကို ပြင်ဆင်သည်။ ထို့နောက် <code>findViewById</code> ဖြင့် layout ထဲရှိ အစိတ်အပိုင်းကို ရှာသည်။"
+    },
+    {
+      "source": "E02 · IDと部品の取得",
+      "translation": "E02 · ID ဖြင့် အစိတ်အပိုင်းကို ရယူခြင်း"
+    },
+    {
+      "source": "XMLでボタンのIDを<code>btn_old</code>から<code>btn_help</code>へ変えました。この行も合わせて直すには、どこを変えますか。",
+      "translation": "XML တွင် ခလုတ်၏ ID ကို <code>btn_old</code> မှ <code>btn_help</code> သို့ ပြောင်းထားသည်။ ကိုက်ညီစေရန် ဤ code တစ်ကြောင်း၏ မည်သည့်နေရာကို ပြင်မလဲ။"
+    },
+    {
+      "source": "<code>R.id.btn_old</code>を<code>R.id.btn_help</code>にする",
+      "translation": "<code>R.id.btn_old</code> ကို <code>R.id.btn_help</code> သို့ ပြောင်းသည်"
+    },
+    {
+      "source": "<code>findViewById</code>を<code>setContentView</code>にする",
+      "translation": "<code>findViewById</code> ကို <code>setContentView</code> သို့ ပြောင်းသည်"
+    },
+    {
+      "source": "<code>var</code>を<code>return</code>にする",
+      "translation": "<code>var</code> ကို <code>return</code> သို့ ပြောင်းသည်"
+    },
+    {
+      "source": "<code>btnHelp</code>を文字列で囲む",
+      "translation": "<code>btnHelp</code> ကို ကိုးကားအမှတ်ဖြင့် ဝိုင်းပြီး စာသားအဖြစ် ရေးသည်"
+    },
+    {
+      "source": "正答：<strong><code>R.id.btn_old</code>を<code>R.id.btn_help</code>にする</strong>",
+      "translation": "အဖြေမှန်: <strong><code>R.id.btn_old</code> ကို <code>R.id.btn_help</code> သို့ ပြောင်းသည်</strong>"
+    },
+    {
+      "source": "部品を探すときは、<code>R.id</code>の後の名前をXMLのIDに合わせます。左側の変数名だけを変えても、探すIDは変わりません。",
+      "translation": "အစိတ်အပိုင်းကို ရှာသောအခါ <code>R.id</code> ၏ နောက်ရှိ အမည်ကို XML ၏ ID နှင့် ကိုက်ညီအောင် ရေးသည်။ ဘယ်ဘက်ရှိ variable ၏ အမည်တစ်ခုတည်းကို ပြောင်းလျှင် ရှာမည့် ID မပြောင်းပါ။"
+    },
+    {
+      "source": "E03 · 押す部品と処理",
+      "translation": "E03 · နှိပ်မည့် အစိတ်အပိုင်းနှင့် လုပ်ဆောင်ချက်"
+    },
+    {
+      "source": "この行を実行してから、<code>btnCheck</code>を1回押します。表示が変わるのはいつですか。",
+      "translation": "ဤ code တစ်ကြောင်းကို run လုပ်ပြီးမှ <code>btnCheck</code> ကို တစ်ကြိမ် နှိပ်မည်။ ပြသထားသည်မှာ ဘယ်အချိန်တွင် ပြောင်းမလဲ။"
+    },
+    {
+      "source": "ボタンを押して、登録した処理が動いたとき",
+      "translation": "ခလုတ်ကို နှိပ်၍ သတ်မှတ်ထားသော လုပ်ဆောင်ချက် အလုပ်လုပ်သောအခါ"
+    },
+    {
+      "source": "処理を登録する行を読んだだけのとき",
+      "translation": "လုပ်ဆောင်ချက်ကို သတ်မှတ်သည့် code တစ်ကြောင်းကို ဖတ်ရုံသာ ဖတ်သောအခါ"
+    },
+    {
+      "source": "文字列を整数に変えたとき",
+      "translation": "စာသားကို ကိန်းပြည့်သို့ ပြောင်းသောအခါ"
+    },
+    {
+      "source": "XMLファイルを保存したとき",
+      "translation": "XML ဖိုင်ကို သိမ်းဆည်းသောအခါ"
+    },
+    {
+      "source": "正答：<strong>ボタンを押して、登録した処理が動いたとき</strong>",
+      "translation": "အဖြေမှန်: <strong>ခလုတ်ကို နှိပ်၍ သတ်မှတ်ထားသော လုပ်ဆောင်ချက် အလုပ်လုပ်သောအခါ</strong>"
+    },
+    {
+      "source": "<code>setOnClickListener</code>は処理を登録します。中の<code>setText</code>が動くのは、そのボタンを押したときです。",
+      "translation": "<code>setOnClickListener</code> က လုပ်ဆောင်ချက်ကို သတ်မှတ်သည်။ အထဲရှိ <code>setText</code> က ထိုခလုတ်ကို နှိပ်သောအခါမှ အလုပ်လုပ်သည်။"
+    },
+    {
+      "source": "E04 · 文字を読む部品",
+      "translation": "E04 · စာကို ဖတ်ယူမည့် အစိတ်အပိုင်း"
+    },
+    {
+      "source": "入力欄には<code>朝</code>と入っています。このコードを実行すると、入力欄の文字はどうなりますか。",
+      "translation": "စာရိုက်ထည့်သည့် အကွက်ထဲတွင် <code>朝</code> (မနက်) ဟု ထည့်ထားသည်။ ဤ code ကို run လုပ်လျှင် အကွက်ထဲရှိ စာက ဘာဖြစ်သွားမလဲ။"
+    },
+    {
+      "source": "<code>朝</code>のまま残る",
+      "translation": "<code>朝</code> (မနက်) အတိုင်း ရှိနေသည်"
+    },
+    {
+      "source": "空になる",
+      "translation": "အလွတ် ဖြစ်သွားသည်"
+    },
+    {
+      "source": "<code>text</code>という文字に変わる",
+      "translation": "<code>text</code> ဟူသော စာအဖြစ် ပြောင်းသွားသည်"
+    },
+    {
+      "source": "整数の0に変わる",
+      "translation": "ကိန်းပြည့် 0 သို့ ပြောင်းသွားသည်"
+    },
+    {
+      "source": "正答：<strong><code>朝</code>のまま残る</strong>",
+      "translation": "အဖြေမှန်: <strong><code>朝</code> (မနက်) အတိုင်း ရှိနေသည်</strong>"
+    },
+    {
+      "source": "<code>getText</code>は文字を読み取ります。読んだだけでは、入力欄の文字は変わりません。",
+      "translation": "<code>getText</code> က စာကို ဖတ်ယူသည်။ ဖတ်ယူရုံဖြင့် အကွက်ထဲရှိ စာ မပြောင်းပါ။"
+    },
+    {
+      "source": "E05 · 表示する文字を渡す",
+      "translation": "E05 · ပြသမည့် စာကို ပေးခြင်း"
+    },
+    {
+      "source": "最初に<code>受付中</code>と表示されています。この2行を実行したあとの表示はどれですか。",
+      "translation": "အစတွင် <code>受付中</code> (လက်ခံနေသည်) ဟု ပြထားသည်။ ဤ code နှစ်ကြောင်းကို run လုပ်ပြီးလျှင် ဘာကို ပြသမလဲ။"
+    },
+    {
+      "source": "正答：<strong><code>完了</code></strong>",
+      "translation": "အဖြေမှန်: <strong><code>完了</code> (ပြီးပါပြီ)</strong>"
+    },
+    {
+      "source": "<code>setText</code>は、表示する文字を置き換えます。最後の行で<code>完了</code>に置き換わります。",
+      "translation": "<code>setText</code> က ပြသမည့် စာကို အစားထိုးသည်။ နောက်ဆုံး code တစ်ကြောင်းတွင် <code>完了</code> (ပြီးပါပြီ) ဖြင့် အစားထိုးသည်။"
+    },
+    {
+      "source": "E06 · 整数に変えて使う",
+      "translation": "E06 · ကိန်းပြည့်သို့ ပြောင်းပြီး သုံးခြင်း"
+    },
+    {
+      "source": "値段の文字列を整数に変え、2個分を計算します。<code>total</code>の値はどれですか。",
+      "translation": "ဈေးနှုန်းကို ဖော်ပြသည့် စာသားကို ကိန်းပြည့်သို့ ပြောင်းပြီး ပစ္စည်းနှစ်ခုစာ တွက်သည်။ <code>total</code> ၏ တန်ဖိုးက ဘာလဲ။"
+    },
+    {
+      "source": "正答：<strong><code>160</code></strong>",
+      "translation": "အဖြေမှန်: <strong><code>160</code></strong>"
+    },
+    {
+      "source": "<code>Integer.parseInt</code>で整数の80になります。整数どうしの掛け算なので、80×2で160です。",
+      "translation": "<code>Integer.parseInt</code> ဖြင့် ကိန်းပြည့် 80 ဖြစ်သွားသည်။ ကိန်းပြည့်များကို မြှောက်သဖြင့် 80×2 = 160 ဖြစ်သည်။"
+    },
+    {
+      "source": "E07 · 作ったメッセージを表示",
+      "translation": "E07 · ဖန်တီးထားသော message ကို ပြသခြင်း"
+    },
+    {
+      "source": "Snackbarを作りましたが、表示されません。次に行うことはどれですか。",
+      "translation": "Snackbar ဖန်တီးထားသော်လည်း မပေါ်သေးပါ။ နောက် ဘာလုပ်မလဲ။"
+    },
+    {
+      "source": "<code>notice.show();</code>を実行する",
+      "translation": "<code>notice.show();</code> ကို run လုပ်သည်"
+    },
+    {
+      "source": "もう一度同じ<code>make</code>だけを実行する",
+      "translation": "အရင် <code>make</code> ကိုသာ ထပ် run လုပ်သည်"
+    },
+    {
+      "source": "文字列を整数に変える",
+      "translation": "စာသားကို ကိန်းပြည့်သို့ ပြောင်းသည်"
+    },
+    {
+      "source": "ボタンのIDを消す",
+      "translation": "ခလုတ်၏ ID ကို ဖျက်သည်"
+    },
+    {
+      "source": "正答：<strong><code>notice.show();</code>を実行する</strong>",
+      "translation": "အဖြေမှန်: <strong><code>notice.show();</code> ကို run လုပ်သည်</strong>"
+    },
+    {
+      "source": "<code>Snackbar.make</code>はメッセージを作ります。画面へ表示するには、作ったSnackbarで<code>show</code>を呼びます。",
+      "translation": "<code>Snackbar.make</code> က message ကို ဖန်တီးသည်။ မျက်နှာပြင်တွင် ပြသရန် ဖန်တီးထားသော Snackbar တွင် <code>show</code> ကို ခေါ်သည်။"
+    },
+    {
+      "source": "E08 · 文字がないことを確認",
+      "translation": "E08 · စာလုံး မရှိကြောင်း စစ်ဆေးခြင်း"
+    },
+    {
+      "source": "<code>left</code>は空、<code>right</code>には文字があります。<code>true</code>になるのはどちらですか。",
+      "translation": "<code>left</code> က အလွတ် ဖြစ်ပြီး <code>right</code> ထဲတွင် စာရှိသည်။ ဘယ်တစ်ခုက <code>true</code> ဖြစ်မလဲ။"
+    },
+    {
+      "source": "<code>left.isEmpty()</code>だけ",
+      "translation": "<code>left.isEmpty()</code> တစ်ခုတည်း"
+    },
+    {
+      "source": "<code>right.isEmpty()</code>だけ",
+      "translation": "<code>right.isEmpty()</code> တစ်ခုတည်း"
+    },
+    {
+      "source": "両方",
+      "translation": "နှစ်ခုစလုံး"
+    },
+    {
+      "source": "どちらもならない",
+      "translation": "နှစ်ခုစလုံး မဖြစ်ပါ"
+    },
+    {
+      "source": "正答：<strong><code>left.isEmpty()</code>だけ</strong>",
+      "translation": "အဖြေမှန်: <strong><code>left.isEmpty()</code> တစ်ခုတည်း</strong>"
+    },
+    {
+      "source": "<code>isEmpty()</code>は文字が1つもないときに<code>true</code>です。<code>left</code>だけが空の文字列です。",
+      "translation": "စာလုံးတစ်လုံးမျှ မရှိလျှင် <code>isEmpty()</code> ၏ ရလဒ်သည် <code>true</code> ဖြစ်သည်။ <code>left</code> တစ်ခုတည်းက စာသားအလွတ် ဖြစ်သည်။"
+    },
+    {
+      "source": "E09 · ifの条件",
+      "translation": "E09 · if ၏ အခြေအနေ"
+    },
+    {
+      "source": "<code>ready</code>は<code>false</code>です。このコードを実行したあと、表示はどれですか。",
+      "translation": "<code>ready</code> သည် <code>false</code> ဖြစ်သည်။ ဤ code ကို run လုပ်ပြီးနောက် ဘာကို ပြသမလဲ။"
+    },
+    {
+      "source": "文字は何も表示されない",
+      "translation": "စာ ဘာမျှ မပေါ်ပါ"
+    },
+    {
+      "source": "正答：<strong><code>待機</code></strong>",
+      "translation": "အဖြေမှန်: <strong><code>待機</code> (စောင့်နေသည်)</strong>"
+    },
+    {
+      "source": "条件が<code>false</code>なので、<code>if</code>の中は実行しません。最初に表示した<code>待機</code>が残ります。",
+      "translation": "အခြေအနေသည် <code>false</code> ဖြစ်သောကြောင့် <code>if</code> အတွင်းရှိ code ကို run မလုပ်ပါ။ အစတွင် ပြထားသည့် <code>待機</code> (စောင့်နေသည်) က ဆက်ရှိနေသည်။"
+    },
+    {
+      "source": "E10 · 回数を決めて繰り返す",
+      "translation": "E10 · အကြိမ်ရေ သတ်မှတ်၍ ထပ်လုပ်ခြင်း"
+    },
+    {
+      "source": "この繰り返しで、<code>i</code>が最初に3になるとどうなりますか。",
+      "translation": "ဤထပ်လုပ်မှုတွင် <code>i</code> သည် 3 သို့ ပထမဆုံး ရောက်သောအခါ ဘာဖြစ်မလဲ။"
+    },
+    {
+      "source": "条件が<code>false</code>になり、繰り返しを終える",
+      "translation": "အခြေအနေသည် <code>false</code> ဖြစ်ပြီး ထပ်လုပ်ခြင်း အဆုံးသတ်သည်"
+    },
+    {
+      "source": "<code>i</code>が0に戻り、もう一度繰り返す",
+      "translation": "<code>i</code> သည် 0 သို့ ပြန်သွားပြီး ပြန်ထပ်လုပ်သည်"
+    },
+    {
+      "source": "中の処理を必ずあと3回行う",
+      "translation": "အထဲရှိ လုပ်ဆောင်ချက်ကို နောက်ထပ် 3 ကြိမ် မဖြစ်မနေ လုပ်သည်"
+    },
+    {
+      "source": "条件を見ずに、ずっと繰り返す",
+      "translation": "အခြေအနေကို မစစ်ဘဲ အဆက်မပြတ် ထပ်လုပ်သည်"
+    },
+    {
+      "source": "正答：<strong>条件が<code>false</code>になり、繰り返しを終える</strong>",
+      "translation": "အဖြေမှန်: <strong>အခြေအနေသည် <code>false</code> ဖြစ်ပြီး ထပ်လုပ်ခြင်း အဆုံးသတ်သည်</strong>"
+    },
+    {
+      "source": "<code>i</code>が3になると、<code>i &lt; 3</code>は<code>false</code>です。中の処理を行わず、繰り返しの後へ進みます。",
+      "translation": "<code>i</code> သည် 3 ဖြစ်လာသောအခါ <code>i &lt; 3</code> သည် <code>false</code> ဖြစ်သည်။ အထဲရှိ လုပ်ဆောင်ချက်ကို မလုပ်ဘဲ ထပ်လုပ်သည့် code ၏ နောက်သို့ ဆက်သွားသည်။"
+    },
+    {
+      "source": "E11 · 画面を作るときの準備",
+      "translation": "E11 · မျက်နှာပြင်ကို ဖန်တီးသောအခါ ပြင်ဆင်ခြင်း"
+    },
+    {
+      "source": "<code>onCreate</code>の中の一部です。この画面を初めて開き、まだボタンを押していません。表示はどれですか。",
+      "translation": "ဤသည်မှာ <code>onCreate</code> ထဲမှ အပိုင်းတစ်ခု ဖြစ်သည်။ ဤမျက်နှာပြင်ကို ပထမဆုံး ဖွင့်ပြီး ခလုတ်ကို မနှိပ်ရသေးပါ။ ဘာကို ပြသမလဲ။"
+    },
+    {
+      "source": "ボタンを押すまで、この行は動かない",
+      "translation": "ခလုတ်ကို မနှိပ်မချင်း ဤ code တစ်ကြောင်း အလုပ်မလုပ်ပါ"
+    },
+    {
+      "source": "正答：<strong><code>ようこそ</code></strong>",
+      "translation": "အဖြေမှန်: <strong><code>ようこそ</code> (ကြိုဆိုပါသည်)</strong>"
+    },
+    {
+      "source": "<code>onCreate</code>は画面を作るときに呼ばれます。ボタンを押さなくても、この中の表示の準備は実行されます。",
+      "translation": "မျက်နှာပြင်ကို ဖန်တီးသောအခါ <code>onCreate</code> ကို ခေါ်သည်။ ခလုတ်ကို မနှိပ်လည်း ဤအထဲရှိ ပြသရန် ပြင်ဆင်သည့် လုပ်ဆောင်ချက် အလုပ်လုပ်သည်။"
+    },
+    {
+      "source": "E12 · クラス名の指定",
+      "translation": "E12 · class အမည်ကို သတ်မှတ်ခြင်း"
+    },
+    {
+      "source": "このimportがあるファイルです。<code>android.widget.TextView</code>の短い書き方はどれですか。",
+      "translation": "ဤ import ပါသော ဖိုင် ဖြစ်သည်။ <code>android.widget.TextView</code> ကို ဘယ်လို အတိုချုံး ရေးနိုင်မလဲ။"
+    },
+    {
+      "source": "正答：<strong><code>TextView</code></strong>",
+      "translation": "အဖြေမှန်: <strong><code>TextView</code></strong>"
+    },
+    {
+      "source": "最後の<code>TextView</code>がクラス名です。importすると、このファイルではその短い名前で使えます。",
+      "translation": "နောက်ဆုံးရှိ <code>TextView</code> သည် class အမည် ဖြစ်သည်။ import လုပ်လျှင် ဤဖိုင်တွင် ထိုအမည်တိုဖြင့် သုံးနိုင်သည်။"
+    },
+    {
+      "source": "E13 · ボタンを使える状態にする",
+      "translation": "E13 · ခလုတ်ကို သုံးနိုင်အောင် လုပ်ခြင်း"
+    },
+    {
+      "source": "2つのボタンに、次の設定をしました。押せる状態なのはどれですか。",
+      "translation": "ခလုတ်နှစ်ခုကို အောက်ပါအတိုင်း သတ်မှတ်ခဲ့သည်။ ဘယ်ခလုတ်ကို နှိပ်နိုင်မလဲ။"
+    },
+    {
+      "source": "<code>btnBack</code>だけ",
+      "translation": "<code>btnBack</code> တစ်ခုတည်း"
+    },
+    {
+      "source": "<code>btnNext</code>だけ",
+      "translation": "<code>btnNext</code> တစ်ခုတည်း"
+    },
+    {
+      "source": "どちらも押せない",
+      "translation": "နှစ်ခုစလုံးကို နှိပ်၍ မရပါ"
+    },
+    {
+      "source": "正答：<strong><code>btnBack</code>だけ</strong>",
+      "translation": "အဖြေမှန်: <strong><code>btnBack</code> တစ်ခုတည်း</strong>"
+    },
+    {
+      "source": "<code>true</code>を渡した<code>btnBack</code>は使えます。<code>false</code>を渡した<code>btnNext</code>は使えません。",
+      "translation": "<code>true</code> ကို ပေးထားသော <code>btnBack</code> ကို သုံးနိုင်သည်။ <code>false</code> ကို ပေးထားသော <code>btnNext</code> ကို သုံး၍ မရပါ။"
+    },
+    {
+      "source": "E14 · LinearLayoutの並べ方",
+      "translation": "E14 · LinearLayout ထဲတွင် စီပုံ"
+    },
+    {
+      "source": "LinearLayoutの中の部品が横に並んでいます。縦に並べるには、どの値を変えますか。",
+      "translation": "LinearLayout ထဲရှိ အစိတ်အပိုင်းများကို ဘေးချင်းယှဉ် စီထားသည်။ ဒေါင်လိုက် စီရန် ဘယ်တန်ဖိုးကို ပြောင်းမလဲ။"
+    },
+    {
+      "source": "<code>horizontal</code>を<code>vertical</code>にする",
+      "translation": "<code>horizontal</code> ကို <code>vertical</code> သို့ ပြောင်းသည်"
+    },
+    {
+      "source": "<code>match_parent</code>を<code>wrap_content</code>にする",
+      "translation": "<code>match_parent</code> ကို <code>wrap_content</code> သို့ ပြောင်းသည်"
+    },
+    {
+      "source": "<code>wrap_content</code>を<code>match_parent</code>にする",
+      "translation": "<code>wrap_content</code> ကို <code>match_parent</code> သို့ ပြောင်းသည်"
+    },
+    {
+      "source": "幅と高さの値を入れ替える",
+      "translation": "အကျယ်နှင့် အမြင့်၏ တန်ဖိုးများကို အပြန်အလှန် လဲသည်"
+    },
+    {
+      "source": "正答：<strong><code>horizontal</code>を<code>vertical</code>にする</strong>",
+      "translation": "အဖြေမှန်: <strong><code>horizontal</code> ကို <code>vertical</code> သို့ ပြောင်းသည်</strong>"
+    },
+    {
+      "source": "並ぶ向きは<code>orientation</code>で決まります。<code>vertical</code>に変えると、中の部品が縦に並びます。",
+      "translation": "စီမည့် ဦးတည်ချက်ကို <code>orientation</code> ဖြင့် သတ်မှတ်သည်။ <code>vertical</code> သို့ ပြောင်းလျှင် အထဲရှိ အစိတ်အပိုင်းများကို ဒေါင်လိုက် စီသည်။"
+    },
+    {
+      "source": "E15 · 部品の横幅",
+      "translation": "E15 · အစိတ်အပိုင်း၏ အကျယ်"
+    },
+    {
+      "source": "同じ親の中に、短い文字を表示するTextViewが2つあります。横幅を親に合わせる指定はどちらですか。",
+      "translation": "မိခင်အစိတ်အပိုင်းတစ်ခုတည်းထဲတွင် စာတိုကို ပြသသည့် TextView နှစ်ခု ရှိသည်။ အကျယ်ကို မိခင်အစိတ်အပိုင်းနှင့် ကိုက်ညီအောင် သတ်မှတ်ထားသည်မှာ ဘယ်တစ်ခုလဲ။"
+    },
+    {
+      "source": "Bだけ",
+      "translation": "B တစ်ခုတည်း"
+    },
+    {
+      "source": "Aだけ",
+      "translation": "A တစ်ခုတည်း"
+    },
+    {
+      "source": "どちらでもない",
+      "translation": "နှစ်ခုစလုံး မဟုတ်ပါ"
+    },
+    {
+      "source": "正答：<strong>Bだけ</strong>",
+      "translation": "အဖြေမှန်: <strong>B တစ်ခုတည်း</strong>"
+    },
+    {
+      "source": "Bの<code>match_parent</code>が親の使える幅に合わせます。Aの<code>wrap_content</code>は、文字などの内容を表示するための幅にします。",
+      "translation": "B ၏ <code>match_parent</code> သည် မိခင်အစိတ်အပိုင်း၏ သုံးနိုင်သော အကျယ်နှင့် ကိုက်ညီအောင် လုပ်သည်။ A ၏ <code>wrap_content</code> သည် စာ စသည့် အကြောင်းအရာကို ပြသရန် လိုသည့် အကျယ်ကို သတ်မှတ်သည်။"
+    },
+    {
+      "source": "E16 · 部品の外側のすき間",
+      "translation": "E16 · အစိတ်အပိုင်း၏ အပြင်ဘက် နေရာလွတ်"
+    },
+    {
+      "source": "ボタンの高さを変えず、上の部品とのすき間を広げたいです。どのように直しますか。",
+      "translation": "ခလုတ်၏ အမြင့်ကို မပြောင်းဘဲ အပေါ်ဘက် အစိတ်အပိုင်းနှင့် ကြားရှိ နေရာလွတ်ကို ချဲ့လိုသည်။ ဘယ်လို ပြင်မလဲ။"
+    },
+    {
+      "source": "<code>layout_marginTop</code>の8dpを16dpにする",
+      "translation": "<code>layout_marginTop</code> ၏ 8dp ကို 16dp သို့ ပြောင်းသည်"
+    },
+    {
+      "source": "<code>layout_height</code>の48dpを96dpにする",
+      "translation": "<code>layout_height</code> ၏ 48dp ကို 96dp သို့ ပြောင်းသည်"
+    },
+    {
+      "source": "<code>layout_marginTop</code>の8dpを0dpにする",
+      "translation": "<code>layout_marginTop</code> ၏ 8dp ကို 0dp သို့ ပြောင်းသည်"
+    },
+    {
+      "source": "2つの行を両方消す",
+      "translation": "code နှစ်ကြောင်းစလုံးကို ဖျက်သည်"
+    },
+    {
+      "source": "正答：<strong><code>layout_marginTop</code>の8dpを16dpにする</strong>",
+      "translation": "အဖြေမှန်: <strong><code>layout_marginTop</code> ၏ 8dp ကို 16dp သို့ ပြောင်းသည်</strong>"
+    },
+    {
+      "source": "上側のすき間は<code>layout_marginTop</code>です。その値だけを増やせば、高さの指定を変えずにすき間を広げられます。",
+      "translation": "အပေါ်ဘက် နေရာလွတ်မှာ <code>layout_marginTop</code> ဖြစ်သည်။ ထိုတန်ဖိုးကိုသာ တိုးလျှင် အမြင့် သတ်မှတ်ချက်ကို မပြောင်းဘဲ နေရာလွတ်ကို ချဲ့နိုင်သည်။"
+    },
+    {
+      "source": "E17 · クラス内で使う指定",
+      "translation": "E17 · class အတွင်း သုံးရန် သတ်မှတ်ခြင်း"
+    },
+    {
+      "source": "同じクラスのメソッドで、<code>attempts</code>を1増やします。この書き方の説明はどれですか。",
+      "translation": "class တစ်ခုတည်းအတွင်းရှိ method တွင် <code>attempts</code> ကို 1 တိုးသည်။ ဤ code ကို ဘယ်ရှင်းလင်းချက်က ဖော်ပြသလဲ။"
+    },
+    {
+      "source": "同じクラスの中なので、値を変えられる",
+      "translation": "class တစ်ခုတည်းအတွင်း ဖြစ်သောကြောင့် တန်ဖိုးကို ပြောင်းနိုင်သည်"
+    },
+    {
+      "source": "<code>private</code>なので、一度も値を変えられない",
+      "translation": "<code>private</code> ဖြစ်သောကြောင့် တန်ဖိုးကို တစ်ကြိမ်မျှ မပြောင်းနိုင်ပါ"
+    },
+    {
+      "source": "<code>private</code>なので、必ず文字列になる",
+      "translation": "<code>private</code> ဖြစ်သောကြောင့် စာသား မဖြစ်မနေ ဖြစ်လာသည်"
+    },
+    {
+      "source": "<code>private</code>なので、必ずファイルへ保存される",
+      "translation": "<code>private</code> ဖြစ်သောကြောင့် ဖိုင်ထဲတွင် မဖြစ်မနေ သိမ်းဆည်းသည်"
+    },
+    {
+      "source": "正答：<strong>同じクラスの中なので、値を変えられる</strong>",
+      "translation": "အဖြေမှန်: <strong>class တစ်ခုတည်းအတွင်း ဖြစ်သောကြောင့် တန်ဖိုးကို ပြောင်းနိုင်သည်</strong>"
+    },
+    {
+      "source": "<code>private</code>は使える場所を決めます。同じクラスの中なら値を変えられ、ここでは1増やします。",
+      "translation": "<code>private</code> က သုံးနိုင်သည့် နေရာကို သတ်မှတ်သည်။ class တစ်ခုတည်းအတွင်းဆိုလျှင် တန်ဖိုးကို ပြောင်းနိုင်သည်။ ဤနေရာတွင် 1 တိုးသည်။"
+    },
+    {
+      "source": "E18 · 文字列をつなぐ",
+      "translation": "E18 · စာသားများကို ဆက်ခြင်း"
+    },
+    {
+      "source": "2つの文字列の間に半角スペースを入れたいです。コードをどう変えますか。",
+      "translation": "စာသားနှစ်ခုကြားတွင် အကျယ်တစ်ဝက် space တစ်ခု ထည့်လိုသည်။ code ကို ဘယ်လို ပြောင်းမလဲ။"
+    },
+    {
+      "source": "<code>first + &quot; &quot; + second</code>にする",
+      "translation": "<code>first + &quot; &quot; + second</code> ဟု ပြောင်းသည်"
+    },
+    {
+      "source": "<code>first + &quot;&quot; + second</code>にする",
+      "translation": "<code>first + &quot;&quot; + second</code> ဟု ပြောင်းသည်"
+    },
+    {
+      "source": "<code>second + first</code>にする",
+      "translation": "<code>second + first</code> ဟု ပြောင်းသည်"
+    },
+    {
+      "source": "<code>first + first</code>にする",
+      "translation": "<code>first + first</code> ဟု ပြောင်းသည်"
+    },
+    {
+      "source": "正答：<strong><code>first + &quot; &quot; + second</code>にする</strong>",
+      "translation": "အဖြေမှန်: <strong><code>first + &quot; &quot; + second</code> ဟု ပြောင်းသည်</strong>"
+    },
+    {
+      "source": "<code>&quot; &quot;</code>は半角スペース1つです。2つの文字列の間に<code>+</code>でつなぐと、間にスペースを入れられます。",
+      "translation": "<code>&quot; &quot;</code> သည် အကျယ်တစ်ဝက် space တစ်ခု ဖြစ်သည်။ စာသားနှစ်ခုကြားတွင် ၎င်းကို <code>+</code> ဖြင့် ဆက်လျှင် ကြား၌ space ထည့်နိုင်သည်။"
+    },
+    {
+      "source": "E19 · 値を1ずつ増やす",
+      "translation": "E19 · တန်ဖိုးကို 1 စီ တိုးခြင်း"
+    },
+    {
+      "source": "整数の変数を、次の1行と同じように1増やすコードはどれですか。",
+      "translation": "အောက်ပါ code တစ်ကြောင်းကဲ့သို့ ကိန်းပြည့် variable ကို 1 တိုးသည့် code က ဘယ်တစ်ခုလဲ။"
+    },
+    {
+      "source": "正答：<strong><code>visits = visits + 1;</code></strong>",
+      "translation": "အဖြေမှန်: <strong><code>visits = visits + 1;</code></strong>"
+    },
+    {
+      "source": "この1行の<code>++</code>は、今の値に1を足して、同じ変数へ入れる処理です。",
+      "translation": "ဤ code တစ်ကြောင်းရှိ <code>++</code> သည် လက်ရှိ တန်ဖိုးကို 1 ပေါင်းပြီး ထို variable ထဲသို့ ပြန်ထည့်သည့် လုပ်ဆောင်ချက် ဖြစ်သည်။"
+    },
+    {
+      "source": "E20 · 途中で処理を終える",
+      "translation": "E20 · လုပ်ဆောင်ချက်ကို လမ်းတစ်ဝက်တွင် ရပ်ခြင်း"
+    },
+    {
+      "source": "値を返さないメソッドの一部です。<code>text</code>は空の文字列です。この部分で実行される表示処理はどれですか。",
+      "translation": "တန်ဖိုး ပြန်မပေးသော method ၏ အစိတ်အပိုင်းတစ်ခု ဖြစ်သည်။ <code>text</code> သည် စာသားအလွတ် ဖြစ်သည်။ ဤအပိုင်းတွင် ပြသသည့် ဘယ်လုပ်ဆောင်ချက်ကို run လုပ်မလဲ။"
+    },
+    {
+      "source": "<code>入力待ち</code>の表示だけ",
+      "translation": "<code>入力待ち</code> (ရိုက်ထည့်ရန် စောင့်နေသည်) ကိုသာ ပြသသည်"
+    },
+    {
+      "source": "<code>受付済み</code>の表示だけ",
+      "translation": "<code>受付済み</code> (လက်ခံပြီးပြီ) ကိုသာ ပြသသည်"
+    },
+    {
+      "source": "2つとも順に表示する",
+      "translation": "နှစ်ခုစလုံးကို အစီအစဉ်အတိုင်း ပြသသည်"
+    },
+    {
+      "source": "どちらも表示しない",
+      "translation": "နှစ်ခုစလုံးကို မပြသပါ"
+    },
+    {
+      "source": "正答：<strong><code>入力待ち</code>の表示だけ</strong>",
+      "translation": "အဖြေမှန်: <strong><code>入力待ち</code> (ရိုက်ထည့်ရန် စောင့်နေသည်) ကိုသာ ပြသသည်</strong>"
+    },
+    {
+      "source": "空なので<code>if</code>の中へ進み、<code>入力待ち</code>と表示します。次の<code>return</code>で終えるため、<code>受付済み</code>は表示しません。",
+      "translation": "အလွတ် ဖြစ်သောကြောင့် <code>if</code> အထဲသို့ ဝင်ပြီး <code>入力待ち</code> (ရိုက်ထည့်ရန် စောင့်နေသည်) ဟု ပြသသည်။ နောက်ရှိ <code>return</code> ဖြင့် အဆုံးသတ်သဖြင့် <code>受付済み</code> (လက်ခံပြီးပြီ) ကို မပြသပါ။"
     },
     {
       "source": "正解",

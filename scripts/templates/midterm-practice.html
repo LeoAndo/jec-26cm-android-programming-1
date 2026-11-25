@@ -58,7 +58,7 @@ code { font-family: ui-monospace, monospace; font-size: .9em; overflow-wrap: any
 <h2 id="setup-title">A01〜A10の復習</h2>
 <ul class="facts"><li>4択（ア〜エ）</li><li>20問 × 5点</li><li>何度でも挑戦</li></ul>
 <p>試験予定：<strong>2026年12月2日（水）2限</strong>。対面・60分で行います。範囲はA01〜A10 RoomSampleまでの全内容です。</p>
-<p>基本コードの40問です。コードの空欄をうめる20問と、コードの説明を選ぶ20問があります。1回は空欄10問・説明10問です。10の基本項目から2問ずつ出し、問題と選択肢の順番を変えます。</p>
+<p>基本コードの40問です。コードの空欄をうめる20問と、コードの説明を選ぶ20問があります。1回は空欄10問・説明10問です。20の基本事項から1問ずつ出し、問題と選択肢の順番を変えます。</p>
 <p>授業内容を復習するための練習問題です。本番と同じ問題・単元配分になるとは限りません。1回の20問だけで全内容を確認できるわけではありません。</p>
 <fieldset class="mode"><legend>練習の進め方</legend>
 <label><input type="radio" name="mode" value="untimed" checked="checked">時間制限なし — 調べながら復習する</label>
@@ -130,7 +130,8 @@ code { font-family: ui-monospace, monospace; font-size: .9em; overflow-wrap: any
     clearInterval(interval);
     const groups = [...new Set(bank.map(q => q.group))];
     answers = {};
-    current = shuffle(groups.flatMap(group => ['blank', 'explain'].flatMap(kind => shuffle(bank.filter(q => q.group === group && q.kind === kind)).slice(0, 1))))
+    const blankGroups = new Set(shuffle(groups).slice(0, 10));
+    current = shuffle(groups.map(group => bank.find(q => q.group === group && q.kind === (blankGroups.has(group) ? 'blank' : 'explain'))))
       .map(q => ({ ...q, choices: shuffle(q.choices) }));
     $('questions').replaceChildren();
     $('review').replaceChildren();

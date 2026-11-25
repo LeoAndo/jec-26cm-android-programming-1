@@ -1,4 +1,4 @@
-"""日本語の模擬問題をB4縦2段組で生成する。正答PDFは教員用の明示指定時だけ作る。
+"""日本語の練習問題をB4縦2段組で生成する。正答PDFは教員用の明示指定時だけ作る。
 
 依存: reportlab、検査時はpypdf。--fontで日本語を含むTrueTypeフォントを指定する。
 既定はmacOSのArial Unicode。フォントをPDFへ埋め込んで出力する。
@@ -23,18 +23,14 @@ def load_paper():
     bank = {q["id"]: q for q in questions}
     if len(bank) != len(questions):
         raise ValueError("問題の原本に重複したIDがあります。")
-    groups = {"layout", "view", "click", "read", "write", "parse", "snackbar", "empty", "condition", "loop"}
-    for key, count in (("question_ids", 2), ("paper_ids", 1)):
-        ids = config[key]
-        if len(ids) != len(set(ids)) or any(i not in bank for i in ids):
-            raise ValueError(f"{key}: 重複または存在しない問題IDです。")
-        expected = Counter({(group, kind): count for group in groups for kind in ("blank", "explain")})
-        if Counter((bank[i]["group"], bank[i]["kind"]) for i in ids) != expected:
-            raise ValueError(f"{key}: 10基本項目それぞれに空欄・説明を{count}問ずつ指定してください。")
-    if set(config["question_ids"]) != set(bank):
-        raise ValueError("問題の原本と模擬試験の40問を一致させてください。")
-    if not set(config["paper_ids"]).issubset(config["question_ids"]):
-        raise ValueError("印刷用の問題は模擬試験の問題から選びます。")
+    groups = {'click', 'enabled', 'orientation', 'private', 'margin', 'empty', 'read', 'view', 'width', 'write', 'loop', 'condition', 'parse', 'concat', 'create', 'snackbar', 'import', 'layout', 'increment', 'return'}
+    ids = config["paper_ids"]
+    if len(ids) != 20 or len(set(ids)) != 20 or any(i not in bank for i in ids):
+        raise ValueError("印刷用は重複しない20問を指定してください。")
+    if Counter(bank[i]["group"] for i in ids) != Counter({group: 1 for group in groups}):
+        raise ValueError("印刷用は20の基本事項から各1問を選んでください。")
+    if Counter(bank[i]["kind"] for i in ids) != Counter(blank=10, explain=10):
+        raise ValueError("印刷用は空欄10問・説明10問にしてください。")
     rng = random.Random(config["paper_seed"])
     answer_slots = list(range(4)) * 5
     rng.shuffle(answer_slots)
@@ -196,7 +192,11 @@ def generate(output, font_path, answers_output=None):
                 canvas.setFillColor(colors.black)
             top -= 14
         else:
-            top = paragraph(markup(q["prompt"]), "prompt", canvas, x, top)
+            # 長いインラインコードの直前で改行し、識別子の分断を避ける。
+            prompt = re.sub(r"`([^`]*)`", lambda match:
+                            ("\n" if match.start() and len(match[1]) >= 20 else "") + match[0],
+                            q["prompt"])
+            top = paragraph(markup(prompt), "prompt", canvas, x, top)
             top -= 6
             top = code_block(q["code"], canvas, x, top)
             top -= 6
@@ -234,13 +234,13 @@ def generate(output, font_path, answers_output=None):
             canvas.setFont("Japanese", 17)
             canvas.drawString(margin, height - 19 * mm, title)
             canvas.setFont("Japanese", 10)
-            canvas.drawString(margin, height - 26 * mm, "Androidプログラミング1  /  A01〜A10  /  60分  /  20問・各5点（100点）")
+            canvas.drawString(margin, height - 26 * mm, "Androidプログラミング1  /  A01〜A10  /  印刷用練習  /  20問・各5点（100点）")
             if answers:
                 lines = ["教員用です。この正答PDFは、学生へ配布・公開しません。",
                          "問題用PDFと同じ番号・選択肢順です。HTMLの採点後には正答・解説を表示します。"]
             else:
-                lines = ["空欄10問と説明10問です。答えを1つ選んでください。本番は別のマークシートに記入します。",
-                         "日本語だけで解きます。教科書・自作プログラムを見たり、検索したりしません。"]
+                lines = ["空欄10問と説明10問です。答えを1つ選んでください。20の基本事項を1問ずつ練習します。",
+                         "教科書や自作プログラムを見て構いません。分からないところを調べて復習しましょう。"]
             for i, line in enumerate(lines):
                 canvas.drawString(margin, height - (31 + i * 5.5) * mm, line)
             canvas.setFont("Japanese", 9)
@@ -263,7 +263,7 @@ def generate(output, font_path, answers_output=None):
                     y = block(q, canvas, x, y, answers) - separation
             canvas.setFont("Japanese", 9)
             canvas.setFillColor(colors.HexColor("#555555"))
-            canvas.drawString(margin, 13 * mm, "中間テスト対策  /  日本語  /  模擬問題 01")
+            canvas.drawString(margin, 13 * mm, "中間テスト対策  /  日本語  /  練習問題")
             canvas.drawRightString(width - margin, 13 * mm, f"{page + 1} / 2")
             canvas.showPage()
         canvas.save()

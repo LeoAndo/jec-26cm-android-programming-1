@@ -14,7 +14,7 @@ h1 { font-size:clamp(1.8rem,5vw,2.5rem); line-height:1.35; margin:8px 0 16px; } 
 .language-fields,.facts,.actions,.status { display:flex; align-items:center; gap:12px; flex-wrap:wrap; }
 .language-fields label { display:flex; gap:8px; align-items:center; } select { font:inherit; max-width:100%; border:1px solid #6c8299; border-radius:6px; background:white; color:#17324f; padding:7px 10px; }
 .facts { list-style:none; padding:0; gap:10px; } .facts li { background:#e5eff9; border-radius:7px; padding:6px 14px; font-weight:700; }
-.mode-grid { display:grid; grid-template-columns:1fr 1fr; gap:20px; } .mode-grid .panel { margin:0; } .mock-card { border-top:5px solid #14579b; } .mode-grid h2 { margin-top:0; }
+
 button { font:inherit; line-height:1.5; padding:12px 20px; border:1px solid #14579b; border-radius:8px; color:white; background:#14579b; cursor:pointer; }
 button.secondary { background:white; color:#14579b; } button:hover { filter:brightness(.94); } button:disabled { opacity:.6; cursor:default; }
 button:focus-visible,input:focus-visible,select:focus-visible,summary:focus-visible { outline:3px solid #db6c00; outline-offset:3px; }
@@ -31,7 +31,7 @@ input { accent-color:#14579b; width:20px; height:20px; vertical-align:middle; fl
 .explanation { border-left:4px solid #14579b; padding-left:16px; } .answer-list { list-style:none; padding:0; } .answer-list li { margin:8px 0; }
 #catalog summary { font-weight:700; cursor:pointer; } #catalog article { border-top:1px solid #c9d8e7; padding:20px 0; } #catalog article:last-child { padding-bottom:0; }
 .actions { margin-top:20px; } [hidden] { display:none !important; } .small { font-size:.85rem; } footer { margin-top:28px; }
-@media(max-width:720px) { main { padding:24px 14px 50px; } .mode-grid { grid-template-columns:1fr; } .panel,.question,#review article,#catalog { padding:18px; } .languages { padding:16px; } .language-fields { align-items:flex-start; flex-direction:column; } .status { padding:8px 12px; font-size:.9rem; } }
+@media(max-width:720px) { main { padding:24px 14px 50px; } .panel,.question,#review article,#catalog { padding:18px; } .languages { padding:16px; } .language-fields { align-items:flex-start; flex-direction:column; } .status { padding:8px 12px; font-size:.9rem; } }
 @media print { body { background:white; color:black; } main { padding:0; max-width:none; } .languages,button,.actions,#setup,#quiz,#catalog,header,footer { display:none !important; } #review article { break-inside:avoid; border:0; border-bottom:1px solid #888; border-radius:0; } }
 </style>
 </head>
@@ -43,21 +43,17 @@ input { accent-color:#14579b; width:20px; height:20px; vertical-align:middle; fl
 <section class="languages" aria-label="Language">
 <div class="language-fields"><label for="language"><span data-ui="language">表示する言語</span><select id="language"></select></label>
 <label><input id="bilingual" type="checkbox" checked><span data-ui="showJapanese">日本語を併記する</span></label></div>
-<p id="translation-note" class="small" data-ui="translationNote"></p><p id="language-locked" class="small" data-ui="languageLocked" hidden></p>
+<p id="translation-note" class="small" data-ui="translationNote"></p>
 </section>
 <section id="setup">
 <ul class="facts"><li data-ui="facts"></li><li data-ui="points"></li><li data-ui="repeat"></li></ul>
-<div class="mode-grid">
 <section class="panel"><h2 data-ui="practiceTitle"></h2><p data-ui="practiceRules"></p><p class="small" data-ui="practiceCount"></p>
 <fieldset class="timing"><legend data-ui="practiceTitle"></legend><label><input type="radio" name="timing" value="untimed" checked><span data-ui="untimed"></span></label><label><input type="radio" name="timing" value="timed"><span data-ui="timed"></span></label></fieldset>
 <div class="actions"><button id="start-practice" data-ui="start" disabled></button></div></section>
-<section class="panel mock-card"><h2 data-ui="mockTitle"></h2><p data-ui="mockRules"></p><p class="small" data-ui="mockPool"></p>
-<div class="actions"><button id="start-mock" data-ui="mockStart" disabled></button></div></section>
-</div>
 <p class="small subtle" data-ui="privacy"></p><div class="panel"><p data-ui="examDate"></p><p data-ui="examRules"></p></div>
 </section>
 <section id="quiz" aria-labelledby="quiz-title" hidden>
-<h2 id="quiz-title" tabindex="-1" data-ui="quizTitle"></h2><p id="mock-active" class="notice" data-ui="mockActive" hidden></p>
+<h2 id="quiz-title" tabindex="-1" data-ui="quizTitle"></h2>
 <div class="status"><p><span data-ui="answered"></span><strong id="answered">0</strong> / 20</p><p id="untimed" data-ui="noLimit"></p><p id="timer-box" hidden><span data-ui="remaining"></span><strong id="timer" role="timer">60:00</strong></p></div>
 <p data-ui="answerInstructions"></p><form id="quiz-form"><div id="questions"></div><div class="actions"><button type="submit" data-ui="grade"></button></div></form>
 <div id="confirm-unanswered" class="panel" role="alert" hidden><p><strong id="unanswered-count"></strong><span data-ui="unansweredConfirm"></span></p><div class="actions"><button id="confirm-grade" data-ui="confirmGrade"></button><button id="keep-answering" class="secondary" data-ui="keepAnswering"></button></div></div>
@@ -73,9 +69,9 @@ input { accent-color:#14579b; width:20px; height:20px; vertical-align:middle; fl
   try {
     const data = JSON.parse(document.getElementById('midterm-data').textContent);
     const $ = id => document.getElementById(id), letters = ['ア','イ','ウ','エ'];
-    const state = {phase:'setup', kind:'practice', timing:'untimed', language:'ja', bilingual:true, questions:[], answers:{}, deadline:null, expired:false};
+    const state = {phase:'setup', timing:'untimed', language:'ja', bilingual:true, questions:[], answers:{}, deadline:null, expired:false};
     let interval = null;
-    const language = () => state.phase === 'active' && state.kind === 'mock' ? 'ja' : state.language;
+    const language = () => state.language;
     const ui = key => data.ui[language()][key];
     function content(id, field, choice) {
       const lang = language(), q = data.banks[lang][id], ja = data.banks.ja[id];
@@ -118,24 +114,24 @@ input { accent-color:#14579b; width:20px; height:20px; vertical-align:middle; fl
       $('question-bank').innerHTML = Object.keys(data.banks.ja).map(id => `<article data-id="${id}"><h3>${content(id,'heading')}</h3><div class="prompt">${content(id,'prompt')}</div>${questionCode(id)}<ul class="answer-list">${[0,1,2,3].map((choice,i)=>`<li><strong>${letters[i]}</strong> · ${content(id,'choices',choice)}</li>`).join('')}</ul><div class="explanation">${content(id,'explanation')}</div><p class="source">${content(id,'source')}</p></article>`).join('');
     }
     function render() {
-      const lang = language(), locked = state.phase === 'active' && state.kind === 'mock';
+      const lang = language();
       document.documentElement.lang = lang; document.title = data.ui[lang].title + ' — Android Programming 1';
       document.querySelectorAll('[data-ui]').forEach(el => { el.innerHTML = ui(el.dataset.ui); });
-      $('language').value = lang; $('language').disabled = locked; $('bilingual').disabled = locked || lang === 'ja'; $('bilingual').checked = state.bilingual;
-      $('translation-note').hidden = lang === 'ja'; $('language-locked').hidden = !locked;
+      $('language').value = lang; $('bilingual').disabled = lang === 'ja'; $('bilingual').checked = state.bilingual;
+      $('translation-note').hidden = lang === 'ja';
       $('setup').hidden = state.phase !== 'setup'; $('quiz').hidden = state.phase !== 'active'; $('results').hidden = state.phase !== 'result';
-      $('catalog').hidden = state.phase === 'active'; $('mock-active').hidden = !locked; $('expired').hidden = !state.expired;
+      $('catalog').hidden = state.phase === 'active'; $('expired').hidden = !state.expired;
       $('untimed').hidden = state.deadline !== null; $('timer-box').hidden = state.deadline === null;
       if (state.phase === 'active') { renderQuestions(); tick(); }
       if (state.phase === 'result') renderReview();
       renderCatalog();
     }
-    function start(kind, retry=false) {
+    function start(retry=false) {
       clearInterval(interval);
-      state.kind = kind;
-      if (!retry) state.timing = kind === 'mock' ? 'timed' : document.querySelector('[name=timing]:checked').value;
-      const pool = kind === 'mock' ? data.mockIds : Object.keys(data.banks.ja);
-      state.questions = shuffle(data.groups.flatMap(group => ['blank','explain'].flatMap(kind => shuffle(pool.filter(id=>data.banks.ja[id].group===group && data.banks.ja[id].kind===kind)).slice(0,1)))).map(id=>({id,order:shuffle([0,1,2,3])}));
+      if (!retry) state.timing = document.querySelector('[name=timing]:checked').value;
+      const pool = Object.keys(data.banks.ja);
+      const blankGroups = new Set(shuffle(data.groups).slice(0,10));
+      state.questions = shuffle(data.groups.map(group => pool.find(id => data.banks.ja[id].group === group && data.banks.ja[id].kind === (blankGroups.has(group) ? 'blank' : 'explain')))).map(id=>({id,order:shuffle([0,1,2,3])}));
       state.answers = {}; state.phase = 'active'; state.expired = false; state.deadline = state.timing === 'timed' ? Date.now()+60*60*1000 : null;
       $('confirm-unanswered').hidden = true; $('catalog').open = false; $('review').replaceChildren(); $('timer').textContent = '60:00';
       render(); interval = state.deadline === null ? null : setInterval(tick,500); $('quiz-title').focus(); window.scrollTo(0,0);
@@ -154,11 +150,10 @@ input { accent-color:#14579b; width:20px; height:20px; vertical-align:middle; fl
     data.languages.forEach(lang => { const option=document.createElement('option'); option.value=lang.code; option.textContent=lang.name; option.lang=lang.code; $('language').append(option); });
     $('language').addEventListener('change', event => {
       if (checkDeadline()) return;
-      if (state.phase === 'active' && state.kind === 'mock') return;
       state.language = event.target.value; render();
     });
     $('bilingual').addEventListener('change', event => { if (checkDeadline()) return; state.bilingual=event.target.checked; render(); });
-    $('start-practice').addEventListener('click', ()=>start('practice')); $('start-mock').addEventListener('click', ()=>start('mock'));
+    $('start-practice').addEventListener('click', ()=>start());
     // 採点はDOMのchecked状態ではなく、この時刻検査を通った回答だけを使う。
     $('quiz-form').addEventListener('change', event => {
       if (state.phase !== 'active' || checkDeadline()) return;
@@ -171,12 +166,12 @@ input { accent-color:#14579b; width:20px; height:20px; vertical-align:middle; fl
       if (checkDeadline()) return;
       $('confirm-unanswered').hidden=true; const q=state.questions.find(q=>state.answers[q.id]===undefined); if(q)document.querySelector(`input[name="${q.id}"]`).focus();
     });
-    $('retry').addEventListener('click', ()=>start(state.kind,true));
+    $('retry').addEventListener('click', ()=>start(true));
     $('choose-mode').addEventListener('click', ()=>{state.phase='setup';state.deadline=null;state.expired=false;render();$('start-practice').focus();window.scrollTo(0,0);});
     $('catalog').addEventListener('toggle',renderCatalog);
     document.addEventListener('visibilitychange',tick); window.addEventListener('pageshow',tick);
     window.addEventListener('beforeunload',event=>{if(state.phase==='active'){event.preventDefault();event.returnValue='';}});
-    $('start-practice').disabled=false; $('start-mock').disabled=false; render();
+    $('start-practice').disabled=false; render();
   } catch(error) { document.getElementById('load-error').hidden=false; console.error(error); }
 })();
 </script>
