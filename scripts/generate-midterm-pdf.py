@@ -192,7 +192,11 @@ def generate(output, font_path, answers_output=None):
                 canvas.setFillColor(colors.black)
             top -= 14
         else:
-            top = paragraph(markup(q["prompt"]), "prompt", canvas, x, top)
+            # 長いインラインコードの直前で改行し、識別子の分断を避ける。
+            prompt = re.sub(r"`([^`]*)`", lambda match:
+                            ("\n" if match.start() and len(match[1]) >= 20 else "") + match[0],
+                            q["prompt"])
+            top = paragraph(markup(prompt), "prompt", canvas, x, top)
             top -= 6
             top = code_block(q["code"], canvas, x, top)
             top -= 6

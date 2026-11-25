@@ -39,8 +39,8 @@
       "translation": "考试安排：<strong>2026年12月2日（周三）第2节</strong>。现场考试，时长60分钟。范围是A01至A10 RoomSample的全部内容。"
     },
     {
-      "source": "基本コードの40問です。コードの空欄をうめる20問と、コードの説明を選ぶ20問があります。1回は空欄10問・説明10問です。10の基本項目から2問ずつ出し、問題と選択肢の順番を変えます。",
-      "translation": "共有40道基础代码题，其中20道是代码填空题，20道是选择代码解释的题目。每轮有10道填空题和10道解释题。10个基础主题各出2道题，题目和选项的顺序会变化。"
+      "source": "基本コードの40問です。コードの空欄をうめる20問と、コードの説明を選ぶ20問があります。1回は空欄10問・説明10問です。20の基本事項から1問ずつ出し、問題と選択肢の順番を変えます。",
+      "translation": "共有40道基础代码题，其中20道是代码填空题，20道是选择代码解释的题目。每轮有10道填空题和10道解释题。20个基础知识点各出1道题，题目和选项的顺序会变化。"
     },
     {
       "source": "授業内容を復習するための練習問題です。本番と同じ問題・単元配分になるとは限りません。1回の20問だけで全内容を確認できるわけではありません。",
@@ -155,856 +155,920 @@
       "translation": "“复习位置”标出了相对于学习资料ZIP中的docs文件夹的路径和标题ID。只打开这个HTML就能查看答案和解析。"
     },
     {
-      "source": "B01 · 画面のレイアウト",
-      "translation": "B01 · 界面布局"
+      "source": "B01 · 画面に使うXML",
+      "translation": "B01 · 用于界面的 XML"
     },
     {
-      "source": "<code>MainActivity</code>で、<code>activity_main.xml</code>を画面に使います。 【①】に入るコードはどれですか。",
-      "translation": "在<code>MainActivity</code>中使用<code>activity_main.xml</code>作为界面布局。哪段代码应填入【①】？"
+      "source": "画面の形を<code>activity_menu.xml</code>に書きました。このXMLを使うため、【①】に何を入れますか。",
+      "translation": "界面布局写在<code>activity_menu.xml</code>中。要使用这个 XML，【①】处应填什么？"
     },
     {
-      "source": "正答：<strong><code>setContentView</code></strong>",
-      "translation": "正确答案：<strong><code>setContentView</code></strong>"
+      "source": "正答：<strong><code>R.layout.activity_menu</code></strong>",
+      "translation": "正确答案：<strong><code>R.layout.activity_menu</code></strong>"
     },
     {
-      "source": "<code>setContentView</code>で、画面に使うレイアウトを指定します。<code>R.layout.activity_main</code>は<code>activity_main.xml</code>を表します。",
-      "translation": "用<code>setContentView</code>指定界面的布局。<code>R.layout.activity_main</code>代表<code>activity_main.xml</code>。"
+      "source": "<code>setContentView</code>には、使うレイアウトのIDを渡します。<code>R.layout.activity_menu</code>が<code>activity_menu.xml</code>を指します。",
+      "translation": "将要使用的布局 ID 传给<code>setContentView</code>。<code>R.layout.activity_menu</code>指的是<code>activity_menu.xml</code>。"
     },
     {
       "source": "復習する場所：<code>hello-android/index.html#step-9</code>",
       "translation": "复习位置：<code>hello-android/index.html#step-9</code>"
     },
     {
-      "source": "B02 · レイアウトの指定",
-      "translation": "B02 · 指定布局"
+      "source": "B02 · IDと部品の取得",
+      "translation": "B02 · ID 与获取控件"
     },
     {
-      "source": "正答：<strong><code>layout</code></strong>",
-      "translation": "正确答案：<strong><code>layout</code></strong>"
+      "source": "表示欄のIDは<code>txt_total</code>です。対応する部品を取得するため、【①】に何を入れますか。",
+      "translation": "文字显示栏的 ID 是<code>txt_total</code>。要获取对应的控件，【①】处应填什么？"
     },
     {
-      "source": "レイアウトは<code>R.layout</code>で指定します。部品のIDは<code>R.id</code>です。",
-      "translation": "用<code>R.layout</code>指定布局。用<code>R.id</code>指定控件的ID。"
+      "source": "正答：<strong><code>R.id.txt_total</code></strong>",
+      "translation": "正确答案：<strong><code>R.id.txt_total</code></strong>"
     },
     {
-      "source": "B03 · IDでボタンを探す",
-      "translation": "B03 · 根据ID查找按钮"
-    },
-    {
-      "source": "画面を用意したあと、IDが<code>btn_start</code>のボタンを使います。 【①】に入るコードはどれですか。",
-      "translation": "准备好界面后，要使用ID为<code>btn_start</code>的按钮。哪段代码应填入【①】？"
-    },
-    {
-      "source": "正答：<strong><code>findViewById</code></strong>",
-      "translation": "正确答案：<strong><code>findViewById</code></strong>"
-    },
-    {
-      "source": "<code>findViewById</code>はIDを使って画面の部品を探します。<code>(Button)</code>は、見つけた部品をボタンとして扱う指定です。",
-      "translation": "<code>findViewById</code>根据ID查找界面上的控件。<code>(Button)</code>表示把找到的控件当作按钮来用。"
+      "source": "<code>findViewById</code>には部品のIDを渡します。XMLのIDが<code>txt_total</code>なら、Javaでは<code>R.id.txt_total</code>です。",
+      "translation": "将控件的 ID 传给<code>findViewById</code>。如果 XML 中的 ID 是<code>txt_total</code>，在 Java 中就写成<code>R.id.txt_total</code>。"
     },
     {
       "source": "復習する場所：<code>hello-android/index.html#step-4</code>",
       "translation": "复习位置：<code>hello-android/index.html#step-4</code>"
     },
     {
-      "source": "B04 · 部品のID",
-      "translation": "B04 · 控件的ID"
+      "source": "B03 · 押す部品と処理",
+      "translation": "B03 · 按下控件时的处理"
     },
     {
-      "source": "画面を用意したあと、IDが<code>txt_message</code>の文字表示用の部品を探します。 【①】に入るコードはどれですか。",
-      "translation": "准备好界面后，要查找ID为<code>txt_message</code>的文本显示控件。哪段代码应填入【①】？"
+      "source": "<code>btnOpen</code>と<code>btnClose</code>は別のボタンです。<code>btnClose</code>を押したときに表示を変えます。【①】に何を入れますか。",
+      "translation": "<code>btnOpen</code>和<code>btnClose</code>是两个不同的按钮。要在按下<code>btnClose</code>时改变显示内容，【①】处应填什么？"
     },
     {
-      "source": "正答：<strong><code>id</code></strong>",
-      "translation": "正确答案：<strong><code>id</code></strong>"
+      "source": "正答：<strong><code>btnClose</code></strong>",
+      "translation": "正确答案：<strong><code>btnClose</code></strong>"
     },
     {
-      "source": "部品のIDは<code>R.id</code>で指定します。<code>R.layout</code>は画面のレイアウトを指定するときに使います。",
-      "translation": "用<code>R.id</code>指定控件的ID。用<code>R.layout</code>指定界面的布局。"
+      "source": "<code>setOnClickListener</code>の前に書いた部品に、押したときの処理を登録します。ここでは<code>btnClose</code>です。",
+      "translation": "在<code>setOnClickListener</code>前面写哪个控件，就为哪个控件注册按下时要运行的代码。这里是<code>btnClose</code>。"
     },
     {
-      "source": "B05 · 押したときの処理",
-      "translation": "B05 · 按下按钮时的处理"
+      "source": "B04 · 文字を読む部品",
+      "translation": "B04 · 从控件读取文字"
     },
     {
-      "source": "<code>btnStart</code>はボタン、<code>txtMessage</code>は文字を表示する部品です。ボタンを押すと<code>開始</code>を表示します。 【①】に入るコードはどれですか。",
-      "translation": "<code>btnStart</code>是按钮，<code>txtMessage</code>是显示文字的控件。按下按钮后显示<code>開始</code>（开始）。哪段代码应填入【①】？"
+      "source": "<code>edtTitle</code>と<code>edtNote</code>は入力欄です。メモの入力欄<code>edtNote</code>から文字を読みます。【①】に何を入れますか。",
+      "translation": "<code>edtTitle</code>和<code>edtNote</code>都是输入框。要从备忘录输入框<code>edtNote</code>读取文字，【①】处应填什么？"
     },
     {
-      "source": "正答：<strong><code>setOnClickListener</code></strong>",
-      "translation": "正确答案：<strong><code>setOnClickListener</code></strong>"
+      "source": "正答：<strong><code>edtNote</code></strong>",
+      "translation": "正确答案：<strong><code>edtNote</code></strong>"
     },
     {
-      "source": "<code>setOnClickListener</code>で、押したときに行う処理を登録（とうろく）します。中の<code>setText</code>は、ボタンを押したときに実行します。",
-      "translation": "用<code>setOnClickListener</code>注册按下按钮时要执行的操作。按下按钮时，才会运行其中的<code>setText</code>。"
-    },
-    {
-      "source": "B06 · 処理を付けるボタン",
-      "translation": "B06 · 为哪个按钮注册操作"
-    },
-    {
-      "source": "<code>btnStart</code>と<code>btnClear</code>はボタンです。<code>txtMessage</code>は文字を表示する部品です。<code>btnStart</code>を押すと<code>開始</code>を表示します。 【①】に入るコードはどれですか。",
-      "translation": "<code>btnStart</code>和<code>btnClear</code>是按钮。<code>txtMessage</code>是显示文字的控件。按下<code>btnStart</code>后显示<code>開始</code>（开始）。哪段代码应填入【①】？"
-    },
-    {
-      "source": "正答：<strong><code>btnStart</code></strong>",
-      "translation": "正确答案：<strong><code>btnStart</code></strong>"
-    },
-    {
-      "source": "<code>btnStart.setOnClickListener</code>と書くと、<code>btnStart</code>を押したときの処理を登録します。",
-      "translation": "写下<code>btnStart.setOnClickListener</code>，就能注册按下<code>btnStart</code>时要执行的操作。"
-    },
-    {
-      "source": "B07 · 入力した文字を読む",
-      "translation": "B07 · 读取输入的文字"
-    },
-    {
-      "source": "<code>edtName</code>は文字を入力する部品です。入力した文字を<code>name</code>に入れます。 【①】に入るコードはどれですか。",
-      "translation": "<code>edtName</code>是输入文字的控件。将输入的文字存入<code>name</code>。哪段代码应填入【①】？"
-    },
-    {
-      "source": "正答：<strong><code>getText</code></strong>",
-      "translation": "正确答案：<strong><code>getText</code></strong>"
-    },
-    {
-      "source": "<code>getText()</code>で今の文字を取り出します。続けて<code>toString()</code>を使うと、<code>String</code>（文字列）の形になります。",
-      "translation": "用<code>getText()</code>获取当前的文字，再用<code>toString()</code>将它转换成<code>String</code>（字符串）。"
+      "source": "<code>getText</code>の前に、文字を読みたい部品を書きます。<code>toString</code>で文字列として受け取ります。",
+      "translation": "在<code>getText</code>前面写出要读取文字的控件，再用<code>toString</code>得到字符串。"
     },
     {
       "source": "復習する場所：<code>hello-android/index.html#step-5</code>",
       "translation": "复习位置：<code>hello-android/index.html#step-5</code>"
     },
     {
-      "source": "B08 · 文字列の形にする",
-      "translation": "B08 · 转换成字符串"
+      "source": "B05 · 表示する文字を渡す",
+      "translation": "B05 · 传入要显示的文字"
     },
     {
-      "source": "<code>edtName</code>は文字を入力する部品です。取り出した値を<code>String</code>（文字列）の形にします。 【①】に入るコードはどれですか。",
-      "translation": "<code>edtName</code>是输入文字的控件。将获取的值转换成<code>String</code>（字符串）。哪段代码应填入【①】？"
+      "source": "<code>message</code>に入っている文字を表示したいです。【①】に何を入れますか。",
+      "translation": "要显示<code>message</code>保存的文字，【①】处应填什么？"
     },
     {
-      "source": "正答：<strong><code>toString</code></strong>",
-      "translation": "正确答案：<strong><code>toString</code></strong>"
+      "source": "正答：<strong><code>message</code></strong>",
+      "translation": "正确答案：<strong><code>message</code></strong>"
     },
     {
-      "source": "<code>toString()</code>は、取り出した値を<code>String</code>（文字列）の形にします。整数に変える処理ではありません。",
-      "translation": "<code>toString()</code>将获取的值转换成<code>String</code>（字符串）。它不会将值转换成整数。"
+      "source": "変数<code>message</code>を渡すと、中の文字列<code>準備中</code>を表示します。<code>&quot;message&quot;</code>では、変数名そのものを表示します。",
+      "translation": "传入变量<code>message</code>会显示其中的字符串<code>準備中</code>（准备中）。写成<code>&quot;message&quot;</code>会直接显示变量名称本身。"
     },
     {
-      "source": "B09 · 文字を表示する",
-      "translation": "B09 · 显示文字"
+      "source": "B06 · 整数に変えて使う",
+      "translation": "B06 · 转成整数后使用"
     },
     {
-      "source": "<code>txtMessage</code>は文字を表示する部品です。<code>できた</code>と表示します。 【①】に入るコードはどれですか。",
-      "translation": "<code>txtMessage</code>是显示文字的控件。让它显示<code>できた</code>（完成了）。哪段代码应填入【①】？"
+      "source": "入力した個数は文字列<code>input</code>に入っています。整数に変えるため、【①】に何を入れますか。",
+      "translation": "输入的数量保存在字符串<code>input</code>中。要将它转成整数，【①】处应填什么？"
     },
     {
-      "source": "正答：<strong><code>setText</code></strong>",
-      "translation": "正确答案：<strong><code>setText</code></strong>"
+      "source": "正答：<strong><code>input</code></strong>",
+      "translation": "正确答案：<strong><code>input</code></strong>"
     },
     {
-      "source": "<code>setText</code>は、部品に表示する文字を変えます。<code>getText</code>は今の文字を読むときに使います。",
-      "translation": "<code>setText</code>更改控件显示的文字。<code>getText</code>用于读取当前的文字。"
-    },
-    {
-      "source": "B10 · 入力欄を空にする",
-      "translation": "B10 · 清空输入框"
-    },
-    {
-      "source": "<code>edtName</code>は文字を入力する部品です。中の文字を消して、空に戻します。 【①】に入るコードはどれですか。",
-      "translation": "<code>edtName</code>是输入文字的控件。删除里面的文字，使它恢复为空。哪段代码应填入【①】？"
-    },
-    {
-      "source": "正答：<strong><code>&quot;&quot;</code></strong>",
-      "translation": "正确答案：<strong><code>&quot;&quot;</code></strong>"
-    },
-    {
-      "source": "<code>&quot;&quot;</code>は、文字が1つもない文字列です。<code>setText(&quot;&quot;)</code>で入力欄を空にできます。",
-      "translation": "<code>&quot;&quot;</code>是没有任何字符的字符串。用<code>setText(&quot;&quot;)</code>可以清空输入框。"
-    },
-    {
-      "source": "復習する場所：<code>memo-app/index.html#step-4</code>",
-      "translation": "复习位置：<code>memo-app/index.html#step-4</code>"
-    },
-    {
-      "source": "B11 · 文字を整数に変える",
-      "translation": "B11 · 将文字转换成整数"
-    },
-    {
-      "source": "文字列<code>&quot;12&quot;</code>を、計算に使える整数の<code>12</code>に変えます。 【①】に入るコードはどれですか。",
-      "translation": "将字符串<code>&quot;12&quot;</code>转换成可用于计算的整数<code>12</code>。哪段代码应填入【①】？"
-    },
-    {
-      "source": "正答：<strong><code>Integer.parseInt</code></strong>",
-      "translation": "正确答案：<strong><code>Integer.parseInt</code></strong>"
-    },
-    {
-      "source": "<code>Integer.parseInt</code>は、整数を表す文字列を<code>int</code>（整数）に変えます。",
-      "translation": "<code>Integer.parseInt</code>将表示整数的字符串转换为<code>int</code>（整数）。"
+      "source": "<code>Integer.parseInt</code>には、数字を表す文字列を渡します。ここでは<code>input</code>に入っている<code>&quot;6&quot;</code>です。",
+      "translation": "将表示数字的字符串传给<code>Integer.parseInt</code>。这里传入的是<code>input</code>中的<code>&quot;6&quot;</code>。"
     },
     {
       "source": "復習する場所：<code>calc-game/index.html#step-7</code>",
       "translation": "复习位置：<code>calc-game/index.html#step-7</code>"
     },
     {
-      "source": "B12 · 変える文字を選ぶ",
-      "translation": "B12 · 选择要转换的文字"
+      "source": "B07 · 作ったメッセージを表示",
+      "translation": "B07 · 显示已创建的消息"
     },
     {
-      "source": "<code>edtAmount</code>は入力欄です。<code>12</code>が入っています。読み取った文字列を整数に変えます。 【①】に入るコードはどれですか。",
-      "translation": "<code>edtAmount</code>是输入框。里面输入了<code>12</code>。将读取到的字符串转换为整数。哪段代码应填入【①】？"
+      "source": "<code>notice</code>は作成済みのSnackbarです。これを表示するため、【①】に何を入れますか。",
+      "translation": "<code>notice</code>是已创建的 Snackbar。要显示它，【①】处应填什么？"
     },
     {
-      "source": "正答：<strong><code>amountStr</code></strong>",
-      "translation": "正确答案：<strong><code>amountStr</code></strong>"
+      "source": "正答：<strong><code>notice</code></strong>",
+      "translation": "正确答案：<strong><code>notice</code></strong>"
     },
     {
-      "source": "<code>amountStr</code>に入力した文字列が入っています。<code>Integer.parseInt(amountStr)</code>で、その文字列を整数に変えます。",
-      "translation": "<code>amountStr</code>存有输入的字符串。用<code>Integer.parseInt(amountStr)</code>将这个字符串转换为整数。"
-    },
-    {
-      "source": "B13 · 短いメッセージ",
-      "translation": "B13 · 简短消息"
-    },
-    {
-      "source": "ボタンを押したときの処理です。<code>v</code>は押した部品です。Snackbar（スナックバー）で<code>入力してください</code>と表示します。 【①】に入るコードはどれですか。",
-      "translation": "这段代码在按下按钮时执行。<code>v</code>是被按下的控件。用Snackbar显示<code>入力してください</code>（请输入）。哪段代码应填入【①】？"
-    },
-    {
-      "source": "正答：<strong><code>Snackbar</code></strong>",
-      "translation": "正确答案：<strong><code>Snackbar</code></strong>"
-    },
-    {
-      "source": "<code>Snackbar.make</code>で表示するメッセージを作り、<code>show()</code>で画面に出します。",
-      "translation": "用<code>Snackbar.make</code>创建要显示的消息，再用<code>show()</code>把它显示在屏幕上。"
+      "source": "作成したSnackbarを入れた変数<code>notice</code>で<code>show</code>を呼ぶと、メッセージが表示されます。",
+      "translation": "在存放已创建的 Snackbar 的变量<code>notice</code>上调用<code>show</code>，就会显示消息。"
     },
     {
       "source": "復習する場所：<code>hello-android/index.html#step-7</code>",
       "translation": "复习位置：<code>hello-android/index.html#step-7</code>"
     },
     {
-      "source": "B14 · メッセージを出す",
-      "translation": "B14 · 显示消息"
+      "source": "B08 · 文字がないことを確認",
+      "translation": "B08 · 检查是否没有字符"
     },
     {
-      "source": "ボタンを押したときの処理です。<code>v</code>は押した部品です。作ったSnackbar（スナックバー）を画面に出します。 【①】に入るコードはどれですか。",
-      "translation": "这段代码在按下按钮时执行。<code>v</code>是被按下的控件。让创建好的Snackbar显示在屏幕上。哪段代码应填入【①】？"
+      "source": "<code>isEmpty()</code>の結果を<code>true</code>にしたいです。【①】に入れる文字列はどれですか。",
+      "translation": "要让<code>isEmpty()</code>的结果为<code>true</code>，【①】处应该填哪个字符串？"
     },
     {
-      "source": "正答：<strong><code>show</code></strong>",
-      "translation": "正确答案：<strong><code>show</code></strong>"
+      "source": "正答：<strong><code>&quot;&quot;</code></strong>",
+      "translation": "正确答案：<strong><code>&quot;&quot;</code></strong>"
     },
     {
-      "source": "<code>make</code>で作ったSnackbarは、最後に<code>show()</code>を呼ぶと画面に出ます。",
-      "translation": "用<code>make</code>创建Snackbar后，最后调用<code>show()</code>，它就会显示在屏幕上。"
-    },
-    {
-      "source": "B15 · 入力が空か調べる",
-      "translation": "B15 · 检查输入是否为空"
-    },
-    {
-      "source": "<code>name</code>には入力した文字列が入っています。<code>txtMessage</code>は文字を表示する部品です。空のときだけ案内を出します。 【①】に入るコードはどれですか。",
-      "translation": "<code>name</code>存有输入的字符串。<code>txtMessage</code>是显示文字的控件。只有输入为空时才显示提示。哪段代码应填入【①】？"
-    },
-    {
-      "source": "正答：<strong><code>isEmpty</code></strong>",
-      "translation": "正确答案：<strong><code>isEmpty</code></strong>"
-    },
-    {
-      "source": "<code>isEmpty()</code>は、文字が1つもないときに<code>true</code>になります。<code>if</code>の中の処理は、条件が<code>true</code>のときに行います。",
-      "translation": "没有任何字符时，<code>isEmpty()</code>返回<code>true</code>。<code>if</code>中的代码会在条件为<code>true</code>时执行。"
+      "source": "<code>&quot;&quot;</code>には文字が1つもありません。半角スペースだけの<code>&quot; &quot;</code>にも文字が1つあるので、<code>isEmpty()</code>は<code>false</code>です。",
+      "translation": "<code>&quot;&quot;</code>中没有任何字符。只有一个半角空格的<code>&quot; &quot;</code>也有一个字符，所以<code>isEmpty()</code>的结果为<code>false</code>。"
     },
     {
       "source": "復習する場所：<code>bill-splitter/index.html#step-4</code>",
       "translation": "复习位置：<code>bill-splitter/index.html#step-4</code>"
     },
     {
-      "source": "B16 · 空でないとき",
-      "translation": "B16 · 输入不为空时"
+      "source": "B09 · ifの条件",
+      "translation": "B09 · if 的条件"
     },
     {
-      "source": "<code>name</code>は文字列、<code>txtMessage</code>は文字を表示する部品です。<code>name</code>が空でないときだけ<code>入力あり</code>と表示します。 【①】に入るコードはどれですか。",
-      "translation": "<code>name</code>是字符串，<code>txtMessage</code>是显示文字的控件。只有<code>name</code>不为空时，才显示<code>入力あり</code>（已有输入）。哪段代码应填入【①】？"
+      "source": "残りの数<code>rest</code>が0のときだけ表示を変えます。【①】に何を入れますか。",
+      "translation": "只在剩余数量<code>rest</code>为0时改变显示内容。【①】处应填什么？"
     },
     {
-      "source": "正答：<strong><code>!</code></strong>",
-      "translation": "正确答案：<strong><code>!</code></strong>"
+      "source": "正答：<strong><code>rest == 0</code></strong>",
+      "translation": "正确答案：<strong><code>rest == 0</code></strong>"
     },
     {
-      "source": "<code>!</code>は、<code>true</code>と<code>false</code>を反対にします。<code>!name.isEmpty()</code>は、文字列が空でないときに<code>true</code>です。",
-      "translation": "<code>!</code>将<code>true</code>和<code>false</code>变成相反的值。字符串不为空时，<code>!name.isEmpty()</code>的结果是<code>true</code>。"
+      "source": "<code>if</code>の中は、条件が<code>true</code>のときだけ動きます。<code>rest == 0</code>は、残りの数が0かどうかを調べます。",
+      "translation": "只有条件为<code>true</code>时，才会运行<code>if</code>中的代码。<code>rest == 0</code>检查剩余数量是否为0。"
     },
     {
-      "source": "復習する場所：<code>room-sample/index.html#step-7</code>",
-      "translation": "复习位置：<code>room-sample/index.html#step-7</code>"
+      "source": "B10 · 回数を決めて繰り返す",
+      "translation": "B10 · 按指定次数重复运行"
     },
     {
-      "source": "B17 · 条件で処理を分ける",
-      "translation": "B17 · 根据条件决定执行哪些代码"
+      "source": "<code>i</code>が0、1、2の3回だけ、中の処理を実行します。【①】に入る条件はどれですか。",
+      "translation": "只在<code>i</code>分别为0、1、2时运行循环体，总共3次。【①】处应填哪个条件？"
     },
     {
-      "source": "<code>number</code>、<code>answer</code>、<code>correct</code>は整数です。<code>number</code>と<code>answer</code>が同じときだけ、<code>correct</code>を1増やします。 【①】に入るコードはどれですか。",
-      "translation": "<code>number</code>、<code>answer</code>和<code>correct</code>都是整数。只有<code>number</code>和<code>answer</code>相等时，才让<code>correct</code>加1。哪段代码应填入【①】？"
+      "source": "正答：<strong><code>i &lt; 3</code></strong>",
+      "translation": "正确答案：<strong><code>i &lt; 3</code></strong>"
     },
     {
-      "source": "正答：<strong><code>if</code></strong>",
-      "translation": "正确答案：<strong><code>if</code></strong>"
+      "source": "最初は0です。<code>i &lt; 3</code>の間は繰り返し、<code>i++</code>で1ずつ増えます。0、1、2の3回です。",
+      "translation": "初始值是0。只要<code>i &lt; 3</code>成立，就继续循环，每次用<code>i++</code>加1。0、1、2一共3次。"
     },
     {
-      "source": "<code>if</code>は、条件が<code>true</code>のときだけ中の処理を行います。<code>==</code>は、ここでは2つの整数が同じか調べます。",
-      "translation": "<code>if</code>只在条件为<code>true</code>时执行其中的代码。这里用<code>==</code>检查两个整数是否相等。"
+      "source": "復習する場所：<code>rock-paper-scissors-game/index.html#step-5</code>",
+      "translation": "复习位置：<code>rock-paper-scissors-game/index.html#step-5</code>"
     },
     {
-      "source": "復習する場所：<code>calc-game/index.html#step-8</code>",
-      "translation": "复习位置：<code>calc-game/index.html#step-8</code>"
+      "source": "B11 · 画面を作るときの準備",
+      "translation": "B11 · 创建界面时的准备工作"
     },
     {
-      "source": "B18 · 途中で処理を終える",
-      "translation": "B18 · 提前结束处理"
+      "source": "Activityが作られるときのメソッドです。【①】にメソッド名を入れてください。",
+      "translation": "这是创建 Activity 时的方法。请在【①】处填入方法名。"
     },
     {
-      "source": "<code>btnAdd</code>はボタン、<code>edtName</code>は入力欄、<code>txtMessage</code>は文字の表示欄です。空なら、このクリック処理を終えます。 【①】に入るコードはどれですか。",
-      "translation": "<code>btnAdd</code>是按钮，<code>edtName</code>是输入框，<code>txtMessage</code>用来显示文字。如果输入框为空，就结束这次点击的处理。哪段代码应填入【①】？"
+      "source": "正答：<strong><code>onCreate</code></strong>",
+      "translation": "正确答案：<strong><code>onCreate</code></strong>"
     },
     {
-      "source": "正答：<strong><code>return</code></strong>",
-      "translation": "正确答案：<strong><code>return</code></strong>"
+      "source": "<code>onCreate</code>はActivityが作られるときに呼ばれます。画面のレイアウトや部品の準備をここで行います。",
+      "translation": "创建 Activity 时会调用<code>onCreate</code>。在这里准备界面布局和控件。"
     },
     {
-      "source": "<code>return;</code>で、このクリック処理をここで終えます。空のときは、下の<code>setText</code>を実行しません。アプリ全体を終える意味ではありません。",
-      "translation": "用<code>return;</code>在这里结束这次点击的处理。输入为空时，不会执行下面的<code>setText</code>。整个应用不会因此退出。"
+      "source": "B12 · クラス名の指定",
+      "translation": "B12 · 指定类名"
     },
     {
-      "source": "B19 · 1つずつ繰り返す",
-      "translation": "B19 · 逐个取值并重复处理"
+      "source": "このJavaファイルで<code>android.widget.TextView</code>を短い名前<code>TextView</code>で使います。【①】に何を入れますか。",
+      "translation": "要在这个 Java 文件中用短名称<code>TextView</code>来使用<code>android.widget.TextView</code>，【①】处应填什么？"
     },
     {
-      "source": "配列（複数の値を並べたもの）の値を1つずつ取り出し、<code>total</code>に足します。 【①】に入るコードはどれですか。",
-      "translation": "从数组（一组按顺序排列的值）中逐个取值，并加到<code>total</code>中。哪段代码应填入【①】？"
+      "source": "正答：<strong><code>import</code></strong>",
+      "translation": "正确答案：<strong><code>import</code></strong>"
     },
     {
-      "source": "正答：<strong><code>for</code></strong>",
-      "translation": "正确答案：<strong><code>for</code></strong>"
+      "source": "<code>import</code>で、使うクラスを指定します。この行があると、コード内では<code>TextView</code>という短い名前を使えます。",
+      "translation": "用<code>import</code>指定要使用的类。有了这一行，代码中就可以用<code>TextView</code>这个短名称。"
     },
     {
-      "source": "拡張（かくちょう）<code>for</code>文は、配列から値を1つずつ取り出して同じ処理を繰り返します。",
-      "translation": "增强型<code>for</code>循环从数组中逐个取值，并重复执行相同的操作。"
+      "source": "B13 · ボタンを使える状態にする",
+      "translation": "B13 · 让按钮恢复可用"
     },
     {
-      "source": "B20 · 繰り返す配列",
-      "translation": "B20 · 要遍历的数组"
-    },
-    {
-      "source": "<code>numbers</code>の3つの値を1つずつ取り出し、<code>count</code>を1ずつ増やします。 【①】に入るコードはどれですか。",
-      "translation": "从<code>numbers</code>中逐个取出3个值，每取一个就让<code>count</code>加1。哪段代码应填入【①】？"
-    },
-    {
-      "source": "正答：<strong><code>numbers</code></strong>",
-      "translation": "正确答案：<strong><code>numbers</code></strong>"
-    },
-    {
-      "source": "<code>:</code>の右に、取り出す元の配列を書きます。<code>numbers</code>から<code>2</code>、<code>4</code>、<code>6</code>を順に取り出します。",
-      "translation": "在<code>:</code>右边写出要从中取值的数组。这里从<code>numbers</code>中依次取出<code>2</code>、<code>4</code>、<code>6</code>。"
-    },
-    {
-      "source": "E01 · 画面を用意する",
-      "translation": "E01 · 准备界面"
-    },
-    {
-      "source": "<code>MainActivity</code>の中にある、次のコードの説明はどれですか。",
-      "translation": "哪一项正确解释了<code>MainActivity</code>中的以下代码？"
-    },
-    {
-      "source": "ボタンの文字を読む",
-      "translation": "读取按钮上的文字"
-    },
-    {
-      "source": "入力した文字を消す",
-      "translation": "清除输入的文字"
-    },
-    {
-      "source": "<code>activity_main.xml</code>を画面に使う",
-      "translation": "使用<code>activity_main.xml</code>作为界面布局"
-    },
-    {
-      "source": "ボタンを押したときの処理を登録する",
-      "translation": "注册按下按钮时要执行的操作"
-    },
-    {
-      "source": "正答：<strong><code>activity_main.xml</code>を画面に使う</strong>",
-      "translation": "正确答案：<strong>使用<code>activity_main.xml</code>作为界面布局</strong>"
-    },
-    {
-      "source": "<code>setContentView</code>は、画面に使うレイアウトを指定します。<code>R.layout.activity_main</code>は<code>activity_main.xml</code>を表します。",
-      "translation": "<code>setContentView</code>用于指定界面的布局。<code>R.layout.activity_main</code>代表<code>activity_main.xml</code>。"
-    },
-    {
-      "source": "E02 · 部品を探す順番",
-      "translation": "E02 · 查找控件的顺序"
-    },
-    {
-      "source": "<code>activity_main.xml</code>にはIDが<code>btn_start</code>のボタンがあります。この順番にする理由はどれですか。",
-      "translation": "<code>activity_main.xml</code>中有一个ID为<code>btn_start</code>的按钮。为什么要按这个顺序执行？"
-    },
-    {
-      "source": "画面を用意してから、その中の部品を探すため",
-      "translation": "为了先准备好界面，再查找其中的控件"
-    },
-    {
-      "source": "ボタンを2つ作るため",
-      "translation": "为了创建两个按钮"
-    },
-    {
-      "source": "ボタンを自動で押すため",
-      "translation": "为了自动按下按钮"
-    },
-    {
-      "source": "入力した文字を整数に変えるため",
-      "translation": "为了将输入的文字转换成整数"
-    },
-    {
-      "source": "正答：<strong>画面を用意してから、その中の部品を探すため</strong>",
-      "translation": "正确答案：<strong>为了先准备好界面，再查找其中的控件</strong>"
-    },
-    {
-      "source": "<code>setContentView</code>で画面を用意し、そのあとで<code>findViewById</code>を使って部品を探します。",
-      "translation": "先用<code>setContentView</code>准备好界面，再用<code>findViewById</code>查找控件。"
-    },
-    {
-      "source": "E03 · IDの役割",
-      "translation": "E03 · ID的作用"
-    },
-    {
-      "source": "画面を用意したあとに、次のコードを実行します。何をしますか。",
-      "translation": "准备好界面后执行下面的代码。这段代码会做什么？"
-    },
-    {
-      "source": "ボタンに<code>btn_start</code>と表示する",
-      "translation": "在按钮上显示<code>btn_start</code>"
-    },
-    {
-      "source": "IDが<code>btn_start</code>の部品を探す",
-      "translation": "查找ID为<code>btn_start</code>的控件"
-    },
-    {
-      "source": "新しいXMLファイルを作る",
-      "translation": "新建一个XML文件"
-    },
-    {
-      "source": "入力欄の文字を消す",
-      "translation": "清除输入框中的文字"
-    },
-    {
-      "source": "正答：<strong>IDが<code>btn_start</code>の部品を探す</strong>",
-      "translation": "正确答案：<strong>查找ID为<code>btn_start</code>的控件</strong>"
-    },
-    {
-      "source": "<code>R.id.btn_start</code>は部品を探すための目印です。画面に表示する文字とは別です。",
-      "translation": "<code>R.id.btn_start</code>是查找控件时用的标识，与界面上显示的文字是两回事。"
-    },
-    {
-      "source": "E04 · 部品をButtonとして扱う",
-      "translation": "E04 · 将控件当作Button来用"
-    },
-    {
-      "source": "画面のIDが<code>btn_start</code>の部品はボタンです。<code>(Button)</code>の説明はどれですか。",
-      "translation": "界面上ID为<code>btn_start</code>的控件是一个按钮。哪一项正确解释了<code>(Button)</code>？"
-    },
-    {
-      "source": "ボタンに<code>Button</code>と表示する",
-      "translation": "在按钮上显示<code>Button</code>"
-    },
-    {
-      "source": "ボタンを押す",
-      "translation": "按下按钮"
-    },
-    {
-      "source": "ボタンを画面から消す",
-      "translation": "从界面上移除按钮"
-    },
-    {
-      "source": "見つけた部品を<code>Button</code>として扱う",
-      "translation": "将找到的控件当作<code>Button</code>来用"
-    },
-    {
-      "source": "正答：<strong>見つけた部品を<code>Button</code>として扱う</strong>",
-      "translation": "正确答案：<strong>将找到的控件当作<code>Button</code>来用</strong>"
-    },
-    {
-      "source": "<code>(Button)</code>はキャストといい、見つけた部品を<code>Button</code>として扱う指定です。文字を表示したり、ボタンを押したりする処理ではありません。",
-      "translation": "<code>(Button)</code>叫作类型转换，表示将找到的控件当作<code>Button</code>来用。它不会显示文字，也不会按下按钮。"
-    },
-    {
-      "source": "E05 · 文字が変わるとき",
-      "translation": "E05 · 文字何时改变"
-    },
-    {
-      "source": "<code>btnStart</code>はボタン、<code>txtMessage</code>は文字の表示欄です。中の<code>setText</code>は、いつ実行されますか。",
-      "translation": "<code>btnStart</code>是按钮，<code>txtMessage</code>用来显示文字。其中的<code>setText</code>会在何时执行？"
-    },
-    {
-      "source": "<code>btnStart</code>を押したとき",
-      "translation": "按下<code>btnStart</code>时"
-    },
-    {
-      "source": "Javaのファイルを開いたとき",
-      "translation": "打开Java文件时"
-    },
-    {
-      "source": "このコードを入力したとき",
-      "translation": "输入这段代码时"
-    },
-    {
-      "source": "<code>txtMessage</code>の文字を読んだとき",
-      "translation": "读取<code>txtMessage</code>中的文字时"
-    },
-    {
-      "source": "正答：<strong><code>btnStart</code>を押したとき</strong>",
-      "translation": "正确答案：<strong>按下<code>btnStart</code>时</strong>"
-    },
-    {
-      "source": "<code>setOnClickListener</code>の中には、押したときに行う処理を書きます。登録しただけでは、中の<code>setText</code>は実行しません。",
-      "translation": "在<code>setOnClickListener</code>中写入按下按钮时要执行的代码。仅注册这段代码时，其中的<code>setText</code>还不会执行。"
-    },
-    {
-      "source": "E06 · 押したボタンと処理",
-      "translation": "E06 · 按下的按钮与对应操作"
-    },
-    {
-      "source": "<code>btnStart</code>と<code>btnClear</code>はボタン、<code>txtMessage</code>は文字の表示欄です。<code>btnClear</code>を1回押すと、何を表示しますか。",
-      "translation": "<code>btnStart</code>和<code>btnClear</code>是按钮，<code>txtMessage</code>用来显示文字。按一下<code>btnClear</code>后会显示什么？"
-    },
-    {
-      "source": "正答：<strong><code>消去</code></strong>",
-      "translation": "正确答案：<strong><code>消去</code></strong>（清除）"
-    },
-    {
-      "source": "<code>btnClear</code>を押すと、<code>btnClear.setOnClickListener</code>の中を実行します。ここでは<code>消去</code>と表示します。",
-      "translation": "按下<code>btnClear</code>时，会执行<code>btnClear.setOnClickListener</code>中的代码。这里会显示<code>消去</code>（清除）。"
-    },
-    {
-      "source": "E07 · 入力した文字列",
-      "translation": "E07 · 输入的字符串"
-    },
-    {
-      "source": "<code>edtName</code>は入力欄です。<code>東京</code>と入っています。次のコードで、<code>name</code>に入る値はどれですか。",
-      "translation": "<code>edtName</code>是输入框，里面输入了<code>東京</code>（东京）。执行下面的代码后，<code>name</code>中存入了哪个值？"
-    },
-    {
-      "source": "文字列<code>&quot;edtName&quot;</code>",
-      "translation": "字符串<code>&quot;edtName&quot;</code>"
-    },
-    {
-      "source": "文字列<code>&quot;東京&quot;</code>",
-      "translation": "字符串<code>&quot;東京&quot;</code>（东京）"
-    },
-    {
-      "source": "空の文字列<code>&quot;&quot;</code>",
-      "translation": "空字符串<code>&quot;&quot;</code>"
-    },
-    {
-      "source": "整数の<code>0</code>",
-      "translation": "整数<code>0</code>"
-    },
-    {
-      "source": "正答：<strong>文字列<code>&quot;東京&quot;</code></strong>",
-      "translation": "正确答案：<strong>字符串<code>&quot;東京&quot;</code>（东京）</strong>"
-    },
-    {
-      "source": "<code>getText().toString()</code>で、入力欄にある今の文字を文字列として取り出します。ここでは<code>&quot;東京&quot;</code>です。",
-      "translation": "用<code>getText().toString()</code>读取输入框中的当前文字，得到一个字符串。这里得到的是<code>&quot;東京&quot;</code>（东京）。"
-    },
-    {
-      "source": "E08 · ボタンの文字を読む",
-      "translation": "E08 · 读取按钮上的文字"
-    },
-    {
-      "source": "<code>btnNumber</code>はボタンです。ボタンには<code>7</code>と表示されています。<code>text</code>に入る値はどれですか。",
-      "translation": "<code>btnNumber</code>是一个按钮，按钮上显示<code>7</code>。<code>text</code>中存入了哪个值？"
-    },
-    {
-      "source": "整数の<code>7</code>",
-      "translation": "整数<code>7</code>"
-    },
-    {
-      "source": "文字列<code>&quot;btnNumber&quot;</code>",
-      "translation": "字符串<code>&quot;btnNumber&quot;</code>"
-    },
-    {
-      "source": "文字列<code>&quot;7&quot;</code>",
-      "translation": "字符串<code>&quot;7&quot;</code>"
-    },
-    {
-      "source": "正答：<strong>文字列<code>&quot;7&quot;</code></strong>",
-      "translation": "正确答案：<strong>字符串<code>&quot;7&quot;</code></strong>"
-    },
-    {
-      "source": "<code>getText().toString()</code>で得られるのは文字列です。計算に使う整数に変えるときは、別に<code>Integer.parseInt</code>を使います。",
-      "translation": "用<code>getText().toString()</code>得到的是字符串。要转换成可用于计算的整数，还要用<code>Integer.parseInt</code>。"
-    },
-    {
-      "source": "E09 · 表示を置き換える",
-      "translation": "E09 · 替换显示的文字"
-    },
-    {
-      "source": "<code>txtMessage</code>は文字の表示欄です。上から順に実行したあと、何を表示しますか。",
-      "translation": "<code>txtMessage</code>用来显示文字。从上到下依次执行代码后，会显示什么？"
-    },
-    {
-      "source": "何も表示しない",
-      "translation": "不显示任何内容"
-    },
-    {
-      "source": "正答：<strong><code>後</code></strong>",
-      "translation": "正确答案：<strong><code>後</code></strong>（后）"
-    },
-    {
-      "source": "<code>setText</code>は、前の表示を新しい文字に置き換えます。最後に指定した<code>後</code>を表示します。",
-      "translation": "<code>setText</code>用新文字替换原来显示的文字。因此会显示最后指定的<code>後</code>（后）。"
-    },
-    {
-      "source": "E10 · 入力欄の文字を消す",
-      "translation": "E10 · 清除输入框中的文字"
-    },
-    {
-      "source": "<code>edtName</code>は入力欄です。<code>山田</code>と入っています。次のコードを実行すると、どうなりますか。",
-      "translation": "<code>edtName</code>是输入框，里面输入了<code>山田</code>（姓氏）。执行下面的代码后会怎样？"
-    },
-    {
-      "source": "入力欄そのものがなくなる",
-      "translation": "输入框消失"
-    },
-    {
-      "source": "<code>山田</code>の後ろに文字が増える",
-      "translation": "在<code>山田</code>（姓氏）后面加上文字"
-    },
-    {
-      "source": "入力欄の文字が消えて空になる",
-      "translation": "输入框中的文字被清除，输入框变空"
-    },
-    {
-      "source": "<code>0</code>が入力される",
-      "translation": "输入框中出现<code>0</code>"
-    },
-    {
-      "source": "正答：<strong>入力欄の文字が消えて空になる</strong>",
-      "translation": "正确答案：<strong>输入框中的文字被清除，输入框变空</strong>"
-    },
-    {
-      "source": "<code>&quot;&quot;</code>は空の文字列です。入力欄はそのままで、中に表示する文字だけを空にします。",
-      "translation": "<code>&quot;&quot;</code>是空字符串。输入框保持不变，只清空里面显示的文字。"
-    },
-    {
-      "source": "E11 · 整数に変えた値",
-      "translation": "E11 · 转换后得到的整数"
-    },
-    {
-      "source": "次のコードで、<code>number</code>に入る値はどれですか。",
-      "translation": "执行下面的代码后，<code>number</code>中存入了哪个值？"
-    },
-    {
-      "source": "文字列<code>&quot;12&quot;</code>",
-      "translation": "字符串<code>&quot;12&quot;</code>"
-    },
-    {
-      "source": "整数の<code>12</code>",
-      "translation": "整数<code>12</code>"
-    },
-    {
-      "source": "文字列<code>&quot;number&quot;</code>",
-      "translation": "字符串<code>&quot;number&quot;</code>"
-    },
-    {
-      "source": "正答：<strong>整数の<code>12</code></strong>",
-      "translation": "正确答案：<strong>整数<code>12</code></strong>"
-    },
-    {
-      "source": "<code>Integer.parseInt</code>で、文字列<code>&quot;12&quot;</code>を計算に使える整数の<code>12</code>に変えます。",
-      "translation": "用<code>Integer.parseInt</code>将字符串<code>&quot;12&quot;</code>转换成可用于计算的整数<code>12</code>。"
-    },
-    {
-      "source": "E12 · 変えた整数で計算する",
-      "translation": "E12 · 用转换后的整数计算"
-    },
-    {
-      "source": "<code>txtMessage</code>は文字の表示欄です。次のコードは、何を表示しますか。",
-      "translation": "<code>txtMessage</code>用来显示文字。下面的代码会显示什么？"
-    },
-    {
-      "source": "正答：<strong><code>答え:10</code></strong>",
-      "translation": "正确答案：<strong><code>答え:10</code></strong>（答案：10）"
-    },
-    {
-      "source": "<code>number</code>は整数の<code>8</code>です。かっこの中で<code>8 + 2</code>を計算するので、<code>答え:10</code>と表示します。",
-      "translation": "<code>number</code>是整数<code>8</code>。由于括号内会计算<code>8 + 2</code>，所以显示<code>答え:10</code>（答案：10）。"
-    },
-    {
-      "source": "E13 · Snackbarの役割",
-      "translation": "E13 · Snackbar的作用"
-    },
-    {
-      "source": "ボタンを押したときの処理です。<code>v</code>は押した部品です。次のコードは、何をしますか。",
-      "translation": "这段代码在按下按钮时执行。<code>v</code>是被按下的控件。下面的代码会做什么？"
-    },
-    {
-      "source": "入力欄の文字を整数に変える",
-      "translation": "将输入框中的文字转换成整数"
-    },
-    {
-      "source": "新しい画面を開く",
-      "translation": "打开一个新界面"
-    },
-    {
-      "source": "画面に短いメッセージを出す",
-      "translation": "在屏幕上显示一条简短消息"
-    },
-    {
-      "source": "正答：<strong>画面に短いメッセージを出す</strong>",
-      "translation": "正确答案：<strong>在屏幕上显示一条简短消息</strong>"
-    },
-    {
-      "source": "Snackbar（スナックバー）は、画面に短いメッセージを出します。<code>show()</code>を呼ぶと表示します。",
-      "translation": "Snackbar用于在屏幕上显示简短消息。调用<code>show()</code>就会显示消息。"
-    },
-    {
-      "source": "E14 · 表示するメッセージ",
-      "translation": "E14 · 显示的消息"
-    },
-    {
-      "source": "ボタンを押したときの処理です。<code>v</code>は押した部品です。Snackbar（スナックバー）に何を表示しますか。",
-      "translation": "这段代码在按下按钮时执行。<code>v</code>是被按下的控件。Snackbar中会显示什么？"
-    },
-    {
-      "source": "正答：<strong><code>できた</code></strong>",
-      "translation": "正确答案：<strong><code>できた</code></strong>（完成了）"
-    },
-    {
-      "source": "<code>make</code>の2つ目に、表示する文字を渡します。<code>message</code>には<code>できた</code>が入っています。",
-      "translation": "将要显示的文字作为<code>make</code>的第二个参数传入。<code>message</code>中存有<code>できた</code>（完成了）。"
-    },
-    {
-      "source": "E15 · 空の文字列",
-      "translation": "E15 · 空字符串"
-    },
-    {
-      "source": "次のコードで、<code>empty</code>に入る値はどれですか。",
-      "translation": "执行下面的代码后，<code>empty</code>中存入了哪个值？"
+      "source": "使えなくしていたボタン<code>btnSend</code>を、また押せる状態に戻します。【①】に何を入れますか。",
+      "translation": "按钮<code>btnSend</code>之前被禁用了。要让它重新可以按下，【①】处应填什么？"
     },
     {
       "source": "正答：<strong><code>true</code></strong>",
       "translation": "正确答案：<strong><code>true</code></strong>"
     },
     {
-      "source": "<code>&quot;&quot;</code>は文字が1つもない文字列です。空の文字列で<code>isEmpty()</code>を呼ぶと<code>true</code>になります。",
-      "translation": "<code>&quot;&quot;</code>是没有任何字符的字符串。对空字符串调用<code>isEmpty()</code>会返回<code>true</code>。"
+      "source": "<code>setEnabled(true)</code>で使える状態にします。<code>false</code>は使えない状態です。",
+      "translation": "<code>setEnabled(true)</code>让控件可用。<code>false</code>表示控件不可用。"
     },
     {
-      "source": "E16 · 空でない入力",
-      "translation": "E16 · 输入不为空"
+      "source": "復習する場所：<code>calc-game/index.html#step-5</code>",
+      "translation": "复习位置：<code>calc-game/index.html#step-5</code>"
     },
     {
-      "source": "正答：<strong><code>入力あり</code></strong>",
-      "translation": "正确答案：<strong><code>入力あり</code></strong>（已有输入）"
+      "source": "B14 · LinearLayoutの並べ方",
+      "translation": "B14 · LinearLayout 的排列方向"
     },
     {
-      "source": "<code>name</code>には文字があるので、<code>isEmpty()</code>は<code>false</code>です。<code>else</code>の中を実行し、<code>入力あり</code>と表示します。",
-      "translation": "<code>name</code>中有文字，所以<code>isEmpty()</code>返回<code>false</code>。接下来会执行<code>else</code>中的代码，显示<code>入力あり</code>（已有输入）。"
+      "source": "LinearLayoutの中の2つのボタンを横に並べます。【①】に何を入れますか。",
+      "translation": "要把 LinearLayout 中的两个按钮横向排列，【①】处应填什么？"
     },
     {
-      "source": "E17 · 同じ値のとき",
-      "translation": "E17 · 值相等时"
+      "source": "正答：<strong><code>horizontal</code></strong>",
+      "translation": "正确答案：<strong><code>horizontal</code></strong>"
     },
     {
-      "source": "上から順に実行したあと、<code>correct</code>の値はどれですか。",
-      "translation": "从上到下依次执行代码后，<code>correct</code>的值是什么？"
+      "source": "<code>orientation</code>は中の部品を並べる向きです。<code>horizontal</code>なら横、<code>vertical</code>なら縦に並びます。",
+      "translation": "<code>orientation</code>指定内部控件的排列方向。<code>horizontal</code>表示横向排列，<code>vertical</code>表示纵向排列。"
     },
     {
-      "source": "正答：<strong><code>1</code></strong>",
-      "translation": "正确答案：<strong><code>1</code></strong>"
+      "source": "復習する場所：<code>rock-paper-scissors-game/index.html#step-2</code>",
+      "translation": "复习位置：<code>rock-paper-scissors-game/index.html#step-2</code>"
     },
     {
-      "source": "<code>number</code>と<code>answer</code>は同じなので、<code>if</code>の中を実行します。<code>correct++</code>で<code>0</code>から<code>1</code>に増えます。",
-      "translation": "<code>number</code>和<code>answer</code>相等，所以会执行<code>if</code>中的代码。<code>correct++</code>使它的值从<code>0</code>增加到<code>1</code>。"
+      "source": "B15 · 部品の横幅",
+      "translation": "B15 · 控件的宽度"
     },
     {
-      "source": "E18 · returnより下の処理",
-      "translation": "E18 · return下方的代码"
+      "source": "TextViewの横幅を、親の使える幅いっぱいにします。【①】に何を入れますか。",
+      "translation": "要让 TextView 占满父容器的可用宽度，【①】处应填什么？"
     },
     {
-      "source": "<code>btnAdd</code>はボタン、<code>edtName</code>は入力欄、<code>txtMessage</code>は文字の表示欄です。入力欄は空です。ボタンを押したときの説明はどれですか。",
-      "translation": "<code>btnAdd</code>是按钮，<code>edtName</code>是输入框，<code>txtMessage</code>用来显示文字。输入框是空的。哪一项描述了按下按钮时的情况？"
+      "source": "正答：<strong><code>match_parent</code></strong>",
+      "translation": "正确答案：<strong><code>match_parent</code></strong>"
     },
     {
-      "source": "必ず<code>登録しました</code>と表示する",
-      "translation": "一定会显示<code>登録しました</code>（已登记）"
+      "source": "横幅の<code>match_parent</code>は、親の使える幅に合わせる指定です。<code>wrap_content</code>は、内容を表示するための幅にします。",
+      "translation": "将宽度设为<code>match_parent</code>，会让控件的宽度与父容器的可用宽度一致。<code>wrap_content</code>会让控件的宽度刚好能显示其内容。"
     },
     {
-      "source": "アプリ全体を終了する",
-      "translation": "退出整个应用"
+      "source": "復習する場所：<code>hello-android/index.html#step-3</code>",
+      "translation": "复习位置：<code>hello-android/index.html#step-3</code>"
     },
     {
-      "source": "このクリック処理を終え、表示を変えない",
-      "translation": "结束这次点击的处理，显示内容保持不变"
+      "source": "B16 · 部品の外側のすき間",
+      "translation": "B16 · 控件外侧的间距"
     },
     {
-      "source": "入力欄に<code>登録しました</code>と入れる",
-      "translation": "在输入框中填入<code>登録しました</code>（已登记）"
+      "source": "ボタンの外側の上にすき間を付けます。【①】に属性名を入れてください。",
+      "translation": "要在按钮的上方外侧留出间距，请在【①】处填入属性名。"
     },
     {
-      "source": "正答：<strong>このクリック処理を終え、表示を変えない</strong>",
-      "translation": "正确答案：<strong>结束这次点击的处理，显示内容保持不变</strong>"
+      "source": "正答：<strong><code>layout_marginTop</code></strong>",
+      "translation": "正确答案：<strong><code>layout_marginTop</code></strong>"
     },
     {
-      "source": "入力欄が空なので、<code>return;</code>でこのクリック処理を終えます。下の<code>setText</code>は実行しません。",
-      "translation": "由于输入框为空，会用<code>return;</code>结束这次点击的处理。下面的<code>setText</code>不会执行。"
+      "source": "<code>layout_marginTop</code>は、部品の外側の上に付けるすき間です。幅や高さを指定する属性とは別です。",
+      "translation": "<code>layout_marginTop</code>设置控件的上外边距。它与指定宽度或高度的属性不同。"
     },
     {
-      "source": "E19 · 繰り返す回数",
-      "translation": "E19 · 循环次数"
+      "source": "復習する場所：<code>calc-game/index.html#step-2</code>",
+      "translation": "复习位置：<code>calc-game/index.html#step-2</code>"
     },
     {
-      "source": "配列（複数の値を並べたもの）から値を1つずつ取り出します。最後の<code>count</code>はどれですか。",
-      "translation": "从数组（一组按顺序排列的值）中逐个取值。最后<code>count</code>的值是什么？"
+      "source": "B17 · クラス内で使う指定",
+      "translation": "B17 · 限定在类内部使用"
     },
     {
-      "source": "正答：<strong><code>3</code></strong>",
-      "translation": "正确答案：<strong><code>3</code></strong>"
+      "source": "このクラスの中だけで使うフィールドを用意します。【①】に何を入れますか。",
+      "translation": "要定义一个只在当前类内部使用的字段，【①】处应填什么？"
     },
     {
-      "source": "配列には値が3つあります。<code>count++</code>を3回行うので、<code>count</code>は<code>3</code>になります。値の合計を求める処理ではありません。",
-      "translation": "数组中有3个值。<code>count++</code>执行3次，因此<code>count</code>变为<code>3</code>。这段代码不会计算这些值的和。"
+      "source": "正答：<strong><code>private</code></strong>",
+      "translation": "正确答案：<strong><code>private</code></strong>"
     },
     {
-      "source": "E20 · 同じ処理を登録する",
-      "translation": "E20 · 注册相同的操作"
+      "source": "<code>private</code>は、このクラスの中で使う指定です。フィールドの値を固定する指定ではありません。",
+      "translation": "<code>private</code>限定在当前类内部使用。它不会固定字段的值。"
     },
     {
-      "source": "<code>buttons</code>は3つのボタンを入れた配列です。<code>txtMessage</code>は文字の表示欄です。画面を開いて次のコードを実行しました。まだボタンは押していません。正しい説明はどれですか。",
-      "translation": "<code>buttons</code>是存有3个按钮的数组，<code>txtMessage</code>用来显示文字。打开界面后执行了下面的代码，此时还没按下任何按钮。哪一项说法正确？"
+      "source": "復習する場所：<code>calc-game/index.html#step-4</code>",
+      "translation": "复习位置：<code>calc-game/index.html#step-4</code>"
     },
     {
-      "source": "すぐに<code>押しました</code>と3回表示する",
-      "translation": "立即显示<code>押しました</code>（已按下）3次"
+      "source": "B18 · 文字列をつなぐ",
+      "translation": "B18 · 拼接字符串"
     },
     {
-      "source": "最初のボタンにだけ処理を登録する",
-      "translation": "只为第一个按钮注册操作"
+      "source": "<code>前半後半</code>という1つの文字列を作ります。【①】に記号を入れてください。",
+      "translation": "要生成<code>前半後半</code>这个字符串，请在【①】处填入符号。"
     },
     {
-      "source": "3つのボタンを自動で押す",
-      "translation": "自动按下3个按钮"
+      "source": "正答：<strong><code>+</code></strong>",
+      "translation": "正确答案：<strong><code>+</code></strong>"
     },
     {
-      "source": "3つのボタンに処理を登録し、表示はまだ変えない",
-      "translation": "为3个按钮注册操作，显示内容暂时不变"
+      "source": "文字列どうしを<code>+</code>でつなぐと、左の文字列の後ろに右の文字列が続きます。",
+      "translation": "用<code>+</code>拼接两个字符串时，右边的字符串接在左边的字符串后面。"
     },
     {
-      "source": "正答：<strong>3つのボタンに処理を登録し、表示はまだ変えない</strong>",
-      "translation": "正确答案：<strong>为3个按钮注册操作，显示内容暂时不变</strong>"
+      "source": "B19 · 値を1ずつ増やす",
+      "translation": "B19 · 将值加1"
     },
     {
-      "source": "拡張（かくちょう）<code>for</code>文で3つのボタンに処理を登録します。中の<code>setText</code>は、実際にボタンを押したときに実行します。",
-      "translation": "用增强型<code>for</code>循环为3个按钮注册操作。实际按下按钮时，才会执行其中的<code>setText</code>。"
+      "source": "整数<code>visits</code>を1だけ増やします。【①】に記号を入れてください。",
+      "translation": "要把整数<code>visits</code>加1，请在【①】处填入符号。"
+    },
+    {
+      "source": "正答：<strong><code>++</code></strong>",
+      "translation": "正确答案：<strong><code>++</code></strong>"
+    },
+    {
+      "source": "変数の後ろに<code>++</code>を書くと、その値を1増やします。<code>--</code>は1減らす記号です。",
+      "translation": "在变量后写<code>++</code>，会将它的值加1。<code>--</code>是减1的符号。"
+    },
+    {
+      "source": "復習する場所：<code>calc-game/index.html#step-8</code>",
+      "translation": "复习位置：<code>calc-game/index.html#step-8</code>"
+    },
+    {
+      "source": "B20 · 途中で処理を終える",
+      "translation": "B20 · 提前结束处理"
+    },
+    {
+      "source": "値を返さないメソッドの一部です。入力が空なら、下の表示処理へ進まずに終えます。【①】に何を入れますか。",
+      "translation": "这是一段不返回值的方法代码。如果输入为空，就结束方法，不运行下面显示文字的代码。【①】处应填什么？"
+    },
+    {
+      "source": "正答：<strong><code>return</code></strong>",
+      "translation": "正确答案：<strong><code>return</code></strong>"
+    },
+    {
+      "source": "<code>return</code>で、そのメソッドの処理を終えます。入力が空のときは、下の<code>setText</code>を実行しません。",
+      "translation": "用<code>return</code>结束这个方法的运行。如果输入为空，就不会执行下面的<code>setText</code>。"
+    },
+    {
+      "source": "E01 · 画面に使うXML",
+      "translation": "E01 · 用于界面的 XML"
+    },
+    {
+      "source": "この2行では、先に<code>setContentView</code>を実行します。その理由はどれですか。",
+      "translation": "这两行代码中，先执行<code>setContentView</code>。原因是什么？"
+    },
+    {
+      "source": "レイアウトを画面に用意してから、その中の部品を探すため",
+      "translation": "先准备好界面布局，再查找其中的控件"
+    },
+    {
+      "source": "ボタンを押す処理を2回行うため",
+      "translation": "把按按钮时的代码运行两次"
+    },
+    {
+      "source": "XMLファイルの名前を書き換えるため",
+      "translation": "修改 XML 文件的名称"
+    },
+    {
+      "source": "ボタンの文字を整数に変えるため",
+      "translation": "将按钮的文字转成整数"
+    },
+    {
+      "source": "正答：<strong>レイアウトを画面に用意してから、その中の部品を探すため</strong>",
+      "translation": "正确答案：<strong>先准备好界面布局，再查找其中的控件</strong>"
+    },
+    {
+      "source": "<code>setContentView</code>で画面のレイアウトを用意します。そのあと、<code>findViewById</code>でレイアウト内の部品を探します。",
+      "translation": "用<code>setContentView</code>准备界面布局，再用<code>findViewById</code>查找布局中的控件。"
+    },
+    {
+      "source": "E02 · IDと部品の取得",
+      "translation": "E02 · ID 与获取控件"
+    },
+    {
+      "source": "XMLでボタンのIDを<code>btn_old</code>から<code>btn_help</code>へ変えました。この行も合わせて直すには、どこを変えますか。",
+      "translation": "在 XML 中把按钮的 ID 从<code>btn_old</code>改成了<code>btn_help</code>。要同步修改这一行，应该改哪里？"
+    },
+    {
+      "source": "<code>R.id.btn_old</code>を<code>R.id.btn_help</code>にする",
+      "translation": "将<code>R.id.btn_old</code>改成<code>R.id.btn_help</code>"
+    },
+    {
+      "source": "<code>findViewById</code>を<code>setContentView</code>にする",
+      "translation": "将<code>findViewById</code>改成<code>setContentView</code>"
+    },
+    {
+      "source": "<code>var</code>を<code>return</code>にする",
+      "translation": "将<code>var</code>改成<code>return</code>"
+    },
+    {
+      "source": "<code>btnHelp</code>を文字列で囲む",
+      "translation": "用引号把<code>btnHelp</code>括起来，使它成为字符串"
+    },
+    {
+      "source": "正答：<strong><code>R.id.btn_old</code>を<code>R.id.btn_help</code>にする</strong>",
+      "translation": "正确答案：<strong>将<code>R.id.btn_old</code>改成<code>R.id.btn_help</code></strong>"
+    },
+    {
+      "source": "部品を探すときは、<code>R.id</code>の後の名前をXMLのIDに合わせます。左側の変数名だけを変えても、探すIDは変わりません。",
+      "translation": "查找控件时，<code>R.id</code>后面的名称要和 XML 中的 ID 一致。只改左边的变量名，不会改变要查找的 ID。"
+    },
+    {
+      "source": "E03 · 押す部品と処理",
+      "translation": "E03 · 按下控件时的处理"
+    },
+    {
+      "source": "この行を実行してから、<code>btnCheck</code>を1回押します。表示が変わるのはいつですか。",
+      "translation": "执行这行代码后，按一下<code>btnCheck</code>。显示内容会在什么时候变化？"
+    },
+    {
+      "source": "ボタンを押して、登録した処理が動いたとき",
+      "translation": "按下按钮并运行已注册的代码时"
+    },
+    {
+      "source": "処理を登録する行を読んだだけのとき",
+      "translation": "仅读到注册处理的代码时"
+    },
+    {
+      "source": "文字列を整数に変えたとき",
+      "translation": "将字符串转成整数时"
+    },
+    {
+      "source": "XMLファイルを保存したとき",
+      "translation": "保存 XML 文件时"
+    },
+    {
+      "source": "正答：<strong>ボタンを押して、登録した処理が動いたとき</strong>",
+      "translation": "正确答案：<strong>按下按钮并运行已注册的代码时</strong>"
+    },
+    {
+      "source": "<code>setOnClickListener</code>は処理を登録します。中の<code>setText</code>が動くのは、そのボタンを押したときです。",
+      "translation": "<code>setOnClickListener</code>用于注册处理代码。按下该按钮时，里面的<code>setText</code>才会运行。"
+    },
+    {
+      "source": "E04 · 文字を読む部品",
+      "translation": "E04 · 从控件读取文字"
+    },
+    {
+      "source": "入力欄には<code>朝</code>と入っています。このコードを実行すると、入力欄の文字はどうなりますか。",
+      "translation": "输入框中有<code>朝</code>（早晨）。运行这段代码后，输入框中的文字会怎样？"
+    },
+    {
+      "source": "<code>朝</code>のまま残る",
+      "translation": "仍然是<code>朝</code>（早晨）"
+    },
+    {
+      "source": "空になる",
+      "translation": "变为空"
+    },
+    {
+      "source": "<code>text</code>という文字に変わる",
+      "translation": "变成<code>text</code>这几个字母"
+    },
+    {
+      "source": "整数の0に変わる",
+      "translation": "变成整数0"
+    },
+    {
+      "source": "正答：<strong><code>朝</code>のまま残る</strong>",
+      "translation": "正确答案：<strong>仍然是<code>朝</code>（早晨）</strong>"
+    },
+    {
+      "source": "<code>getText</code>は文字を読み取ります。読んだだけでは、入力欄の文字は変わりません。",
+      "translation": "<code>getText</code>读取文字。只读取不会改动输入框中的文字。"
+    },
+    {
+      "source": "E05 · 表示する文字を渡す",
+      "translation": "E05 · 传入要显示的文字"
+    },
+    {
+      "source": "最初に<code>受付中</code>と表示されています。この2行を実行したあとの表示はどれですか。",
+      "translation": "最初显示的是<code>受付中</code>（受理中）。这两行代码运行后会显示什么？"
+    },
+    {
+      "source": "正答：<strong><code>完了</code></strong>",
+      "translation": "正确答案：<strong><code>完了</code></strong>"
+    },
+    {
+      "source": "<code>setText</code>は、表示する文字を置き換えます。最後の行で<code>完了</code>に置き換わります。",
+      "translation": "<code>setText</code>会替换显示的文字。最后一行将它换成<code>完了</code>（完成）。"
+    },
+    {
+      "source": "E06 · 整数に変えて使う",
+      "translation": "E06 · 转成整数后使用"
+    },
+    {
+      "source": "値段の文字列を整数に変え、2個分を計算します。<code>total</code>の値はどれですか。",
+      "translation": "把表示单价的字符串转成整数，再计算2件的总价。<code>total</code>的值是多少？"
+    },
+    {
+      "source": "正答：<strong><code>160</code></strong>",
+      "translation": "正确答案：<strong><code>160</code></strong>"
+    },
+    {
+      "source": "<code>Integer.parseInt</code>で整数の80になります。整数どうしの掛け算なので、80×2で160です。",
+      "translation": "用<code>Integer.parseInt</code>得到整数80。两个整数相乘，80×2等于160。"
+    },
+    {
+      "source": "E07 · 作ったメッセージを表示",
+      "translation": "E07 · 显示已创建的消息"
+    },
+    {
+      "source": "Snackbarを作りましたが、表示されません。次に行うことはどれですか。",
+      "translation": "已创建 Snackbar，但它还没有显示。接下来应该怎么做？"
+    },
+    {
+      "source": "<code>notice.show();</code>を実行する",
+      "translation": "执行<code>notice.show();</code>"
+    },
+    {
+      "source": "もう一度同じ<code>make</code>だけを実行する",
+      "translation": "只再执行一次同样的<code>make</code>"
+    },
+    {
+      "source": "文字列を整数に変える",
+      "translation": "将字符串转成整数"
+    },
+    {
+      "source": "ボタンのIDを消す",
+      "translation": "删除按钮的 ID"
+    },
+    {
+      "source": "正答：<strong><code>notice.show();</code>を実行する</strong>",
+      "translation": "正确答案：<strong>执行<code>notice.show();</code></strong>"
+    },
+    {
+      "source": "<code>Snackbar.make</code>はメッセージを作ります。画面へ表示するには、作ったSnackbarで<code>show</code>を呼びます。",
+      "translation": "<code>Snackbar.make</code>创建消息。要在屏幕上显示消息，需要在已创建的 Snackbar 上调用<code>show</code>。"
+    },
+    {
+      "source": "E08 · 文字がないことを確認",
+      "translation": "E08 · 检查是否没有字符"
+    },
+    {
+      "source": "<code>left</code>は空、<code>right</code>には文字があります。<code>true</code>になるのはどちらですか。",
+      "translation": "<code>left</code>是空的，<code>right</code>中有文字。哪个结果为<code>true</code>？"
+    },
+    {
+      "source": "<code>left.isEmpty()</code>だけ",
+      "translation": "仅<code>left.isEmpty()</code>"
+    },
+    {
+      "source": "<code>right.isEmpty()</code>だけ",
+      "translation": "仅<code>right.isEmpty()</code>"
+    },
+    {
+      "source": "両方",
+      "translation": "两者都是"
+    },
+    {
+      "source": "どちらもならない",
+      "translation": "两者都不会"
+    },
+    {
+      "source": "正答：<strong><code>left.isEmpty()</code>だけ</strong>",
+      "translation": "正确答案：<strong>仅<code>left.isEmpty()</code></strong>"
+    },
+    {
+      "source": "<code>isEmpty()</code>は文字が1つもないときに<code>true</code>です。<code>left</code>だけが空の文字列です。",
+      "translation": "没有任何字符时，<code>isEmpty()</code>的结果为<code>true</code>。只有<code>left</code>是空字符串。"
+    },
+    {
+      "source": "E09 · ifの条件",
+      "translation": "E09 · if 的条件"
+    },
+    {
+      "source": "<code>ready</code>は<code>false</code>です。このコードを実行したあと、表示はどれですか。",
+      "translation": "<code>ready</code>为<code>false</code>。运行这段代码后会显示什么？"
+    },
+    {
+      "source": "文字は何も表示されない",
+      "translation": "不显示任何文字"
+    },
+    {
+      "source": "正答：<strong><code>待機</code></strong>",
+      "translation": "正确答案：<strong><code>待機</code></strong>"
+    },
+    {
+      "source": "条件が<code>false</code>なので、<code>if</code>の中は実行しません。最初に表示した<code>待機</code>が残ります。",
+      "translation": "因为条件为<code>false</code>，所以不会运行<code>if</code>中的代码。最初显示的<code>待機</code>（待机）会保留。"
+    },
+    {
+      "source": "E10 · 回数を決めて繰り返す",
+      "translation": "E10 · 按指定次数重复运行"
+    },
+    {
+      "source": "この繰り返しで、<code>i</code>が最初に3になるとどうなりますか。",
+      "translation": "在这个循环中，<code>i</code>第一次达到3时会怎样？"
+    },
+    {
+      "source": "条件が<code>false</code>になり、繰り返しを終える",
+      "translation": "条件变成<code>false</code>，循环结束"
+    },
+    {
+      "source": "<code>i</code>が0に戻り、もう一度繰り返す",
+      "translation": "<code>i</code>回到0，再循环一次"
+    },
+    {
+      "source": "中の処理を必ずあと3回行う",
+      "translation": "循环体一定再运行3次"
+    },
+    {
+      "source": "条件を見ずに、ずっと繰り返す",
+      "translation": "不检查条件，一直循环"
+    },
+    {
+      "source": "正答：<strong>条件が<code>false</code>になり、繰り返しを終える</strong>",
+      "translation": "正确答案：<strong>条件变成<code>false</code>，循环结束</strong>"
+    },
+    {
+      "source": "<code>i</code>が3になると、<code>i &lt; 3</code>は<code>false</code>です。中の処理を行わず、繰り返しの後へ進みます。",
+      "translation": "<code>i</code>为3时，<code>i &lt; 3</code>的结果为<code>false</code>。这时不运行循环体，直接执行循环之后的代码。"
+    },
+    {
+      "source": "E11 · 画面を作るときの準備",
+      "translation": "E11 · 创建界面时的准备工作"
+    },
+    {
+      "source": "<code>onCreate</code>の中の一部です。この画面を初めて開き、まだボタンを押していません。表示はどれですか。",
+      "translation": "这是<code>onCreate</code>中的一段代码。首次打开这个界面，还没有按按钮。会显示什么？"
+    },
+    {
+      "source": "ボタンを押すまで、この行は動かない",
+      "translation": "按下按钮前，这行代码不会运行"
+    },
+    {
+      "source": "正答：<strong><code>ようこそ</code></strong>",
+      "translation": "正确答案：<strong><code>ようこそ</code></strong>"
+    },
+    {
+      "source": "<code>onCreate</code>は画面を作るときに呼ばれます。ボタンを押さなくても、この中の表示の準備は実行されます。",
+      "translation": "创建界面时会调用<code>onCreate</code>。即使没按按钮，这里的显示准备代码也会运行。"
+    },
+    {
+      "source": "E12 · クラス名の指定",
+      "translation": "E12 · 指定类名"
+    },
+    {
+      "source": "このimportがあるファイルです。<code>android.widget.TextView</code>の短い書き方はどれですか。",
+      "translation": "在有这条 import 语句的文件中，<code>android.widget.TextView</code>的简写是什么？"
+    },
+    {
+      "source": "正答：<strong><code>TextView</code></strong>",
+      "translation": "正确答案：<strong><code>TextView</code></strong>"
+    },
+    {
+      "source": "最後の<code>TextView</code>がクラス名です。importすると、このファイルではその短い名前で使えます。",
+      "translation": "最后的<code>TextView</code>是类名。用 import 导入后，在这个文件中就可以使用这个短名称。"
+    },
+    {
+      "source": "E13 · ボタンを使える状態にする",
+      "translation": "E13 · 让按钮恢复可用"
+    },
+    {
+      "source": "2つのボタンに、次の設定をしました。押せる状態なのはどれですか。",
+      "translation": "两个按钮的设置如下。哪个可以按下？"
+    },
+    {
+      "source": "<code>btnBack</code>だけ",
+      "translation": "仅<code>btnBack</code>"
+    },
+    {
+      "source": "<code>btnNext</code>だけ",
+      "translation": "仅<code>btnNext</code>"
+    },
+    {
+      "source": "どちらも押せない",
+      "translation": "两个都不能按下"
+    },
+    {
+      "source": "正答：<strong><code>btnBack</code>だけ</strong>",
+      "translation": "正确答案：<strong>仅<code>btnBack</code></strong>"
+    },
+    {
+      "source": "<code>true</code>を渡した<code>btnBack</code>は使えます。<code>false</code>を渡した<code>btnNext</code>は使えません。",
+      "translation": "传入<code>true</code>的<code>btnBack</code>可用。传入<code>false</code>的<code>btnNext</code>不可用。"
+    },
+    {
+      "source": "E14 · LinearLayoutの並べ方",
+      "translation": "E14 · LinearLayout 的排列方向"
+    },
+    {
+      "source": "LinearLayoutの中の部品が横に並んでいます。縦に並べるには、どの値を変えますか。",
+      "translation": "LinearLayout 中的控件横向排列着。要改成纵向排列，应该修改哪个值？"
+    },
+    {
+      "source": "<code>horizontal</code>を<code>vertical</code>にする",
+      "translation": "将<code>horizontal</code>改成<code>vertical</code>"
+    },
+    {
+      "source": "<code>match_parent</code>を<code>wrap_content</code>にする",
+      "translation": "将<code>match_parent</code>改成<code>wrap_content</code>"
+    },
+    {
+      "source": "<code>wrap_content</code>を<code>match_parent</code>にする",
+      "translation": "将<code>wrap_content</code>改成<code>match_parent</code>"
+    },
+    {
+      "source": "幅と高さの値を入れ替える",
+      "translation": "交换宽度和高度的值"
+    },
+    {
+      "source": "正答：<strong><code>horizontal</code>を<code>vertical</code>にする</strong>",
+      "translation": "正确答案：<strong>将<code>horizontal</code>改成<code>vertical</code></strong>"
+    },
+    {
+      "source": "並ぶ向きは<code>orientation</code>で決まります。<code>vertical</code>に変えると、中の部品が縦に並びます。",
+      "translation": "排列方向由<code>orientation</code>决定。改成<code>vertical</code>，内部控件就会纵向排列。"
+    },
+    {
+      "source": "E15 · 部品の横幅",
+      "translation": "E15 · 控件的宽度"
+    },
+    {
+      "source": "同じ親の中に、短い文字を表示するTextViewが2つあります。横幅を親に合わせる指定はどちらですか。",
+      "translation": "同一个父容器里有两个显示短文字的 TextView。哪个设置让控件的宽度与父容器一致？"
+    },
+    {
+      "source": "Bだけ",
+      "translation": "仅 B"
+    },
+    {
+      "source": "Aだけ",
+      "translation": "仅 A"
+    },
+    {
+      "source": "どちらでもない",
+      "translation": "两者都不是"
+    },
+    {
+      "source": "正答：<strong>Bだけ</strong>",
+      "translation": "正确答案：<strong>仅 B</strong>"
+    },
+    {
+      "source": "Bの<code>match_parent</code>が親の使える幅に合わせます。Aの<code>wrap_content</code>は、文字などの内容を表示するための幅にします。",
+      "translation": "B 的<code>match_parent</code>与父容器的可用宽度一致。A 的<code>wrap_content</code>让控件的宽度刚好能显示文字等内容。"
+    },
+    {
+      "source": "E16 · 部品の外側のすき間",
+      "translation": "E16 · 控件外侧的间距"
+    },
+    {
+      "source": "ボタンの高さを変えず、上の部品とのすき間を広げたいです。どのように直しますか。",
+      "translation": "要增大按钮与上方控件的间距，同时保持按钮高度不变，应该怎样修改？"
+    },
+    {
+      "source": "<code>layout_marginTop</code>の8dpを16dpにする",
+      "translation": "把<code>layout_marginTop</code>的 8dp 改成 16dp"
+    },
+    {
+      "source": "<code>layout_height</code>の48dpを96dpにする",
+      "translation": "把<code>layout_height</code>的 48dp 改成 96dp"
+    },
+    {
+      "source": "<code>layout_marginTop</code>の8dpを0dpにする",
+      "translation": "把<code>layout_marginTop</code>的 8dp 改成 0dp"
+    },
+    {
+      "source": "2つの行を両方消す",
+      "translation": "把两行都删掉"
+    },
+    {
+      "source": "正答：<strong><code>layout_marginTop</code>の8dpを16dpにする</strong>",
+      "translation": "正确答案：<strong>把<code>layout_marginTop</code>的 8dp 改成 16dp</strong>"
+    },
+    {
+      "source": "上側のすき間は<code>layout_marginTop</code>です。その値だけを増やせば、高さの指定を変えずにすき間を広げられます。",
+      "translation": "<code>layout_marginTop</code>表示上外边距。只增大这个值，就能在不改变高度设置的情况下增大间距。"
+    },
+    {
+      "source": "E17 · クラス内で使う指定",
+      "translation": "E17 · 限定在类内部使用"
+    },
+    {
+      "source": "同じクラスのメソッドで、<code>attempts</code>を1増やします。この書き方の説明はどれですか。",
+      "translation": "在同一个类的方法中，将<code>attempts</code>加1。哪项解释符合这段代码？"
+    },
+    {
+      "source": "同じクラスの中なので、値を変えられる",
+      "translation": "因为在同一个类中，可以修改值"
+    },
+    {
+      "source": "<code>private</code>なので、一度も値を変えられない",
+      "translation": "因为有<code>private</code>，所以值一次也不能修改"
+    },
+    {
+      "source": "<code>private</code>なので、必ず文字列になる",
+      "translation": "因为有<code>private</code>，所以值一定是字符串"
+    },
+    {
+      "source": "<code>private</code>なので、必ずファイルへ保存される",
+      "translation": "因为有<code>private</code>，所以值一定会保存到文件中"
+    },
+    {
+      "source": "正答：<strong>同じクラスの中なので、値を変えられる</strong>",
+      "translation": "正确答案：<strong>因为在同一个类中，可以修改值</strong>"
+    },
+    {
+      "source": "<code>private</code>は使える場所を決めます。同じクラスの中なら値を変えられ、ここでは1増やします。",
+      "translation": "<code>private</code>限制可以使用的位置。在同一个类中可以修改值，这里将值加1。"
+    },
+    {
+      "source": "E18 · 文字列をつなぐ",
+      "translation": "E18 · 拼接字符串"
+    },
+    {
+      "source": "2つの文字列の間に半角スペースを入れたいです。コードをどう変えますか。",
+      "translation": "要在两个字符串之间加一个半角空格，应该怎样修改代码？"
+    },
+    {
+      "source": "<code>first + &quot; &quot; + second</code>にする",
+      "translation": "改成<code>first + &quot; &quot; + second</code>"
+    },
+    {
+      "source": "<code>first + &quot;&quot; + second</code>にする",
+      "translation": "改成<code>first + &quot;&quot; + second</code>"
+    },
+    {
+      "source": "<code>second + first</code>にする",
+      "translation": "改成<code>second + first</code>"
+    },
+    {
+      "source": "<code>first + first</code>にする",
+      "translation": "改成<code>first + first</code>"
+    },
+    {
+      "source": "正答：<strong><code>first + &quot; &quot; + second</code>にする</strong>",
+      "translation": "正确答案：<strong>改成<code>first + &quot; &quot; + second</code></strong>"
+    },
+    {
+      "source": "<code>&quot; &quot;</code>は半角スペース1つです。2つの文字列の間に<code>+</code>でつなぐと、間にスペースを入れられます。",
+      "translation": "<code>&quot; &quot;</code>是一个半角空格。用<code>+</code>将它拼接在两个字符串之间，就能在中间加入空格。"
+    },
+    {
+      "source": "E19 · 値を1ずつ増やす",
+      "translation": "E19 · 将值加1"
+    },
+    {
+      "source": "整数の変数を、次の1行と同じように1増やすコードはどれですか。",
+      "translation": "下面一行将一个整数变量的值加1。哪段代码的效果相同？"
+    },
+    {
+      "source": "正答：<strong><code>visits = visits + 1;</code></strong>",
+      "translation": "正确答案：<strong><code>visits = visits + 1;</code></strong>"
+    },
+    {
+      "source": "この1行の<code>++</code>は、今の値に1を足して、同じ変数へ入れる処理です。",
+      "translation": "这一行里的<code>++</code>将当前值加1，再存回同一个变量。"
+    },
+    {
+      "source": "E20 · 途中で処理を終える",
+      "translation": "E20 · 提前结束处理"
+    },
+    {
+      "source": "値を返さないメソッドの一部です。<code>text</code>は空の文字列です。この部分で実行される表示処理はどれですか。",
+      "translation": "这是一段不返回值的方法代码。<code>text</code>是空字符串。这段代码会执行哪项显示操作？"
+    },
+    {
+      "source": "<code>入力待ち</code>の表示だけ",
+      "translation": "只显示<code>入力待ち</code>（等待输入）"
+    },
+    {
+      "source": "<code>受付済み</code>の表示だけ",
+      "translation": "只显示<code>受付済み</code>（已受理）"
+    },
+    {
+      "source": "2つとも順に表示する",
+      "translation": "依次显示这两段文字"
+    },
+    {
+      "source": "どちらも表示しない",
+      "translation": "两段文字都不显示"
+    },
+    {
+      "source": "正答：<strong><code>入力待ち</code>の表示だけ</strong>",
+      "translation": "正确答案：<strong>只显示<code>入力待ち</code>（等待输入）</strong>"
+    },
+    {
+      "source": "空なので<code>if</code>の中へ進み、<code>入力待ち</code>と表示します。次の<code>return</code>で終えるため、<code>受付済み</code>は表示しません。",
+      "translation": "因为字符串是空的，所以运行<code>if</code>中的代码并显示<code>入力待ち</code>（等待输入）。接着用<code>return</code>结束方法，因此不会显示<code>受付済み</code>（已受理）。"
     },
     {
       "source": "正解",

@@ -39,8 +39,8 @@
       "translation": "L'examen est prévu le <strong>mercredi 2 décembre 2026, au deuxième créneau de cours</strong>. Il se déroule en présentiel et dure 60 minutes. Il porte sur l'ensemble des unités, de A01 à A10 RoomSample."
     },
     {
-      "source": "基本コードの40問です。コードの空欄をうめる20問と、コードの説明を選ぶ20問があります。1回は空欄10問・説明10問です。10の基本項目から2問ずつ出し、問題と選択肢の順番を変えます。",
-      "translation": "La banque contient 40 questions sur les bases du code. Dans 20 questions, vous complétez un blanc. Dans les 20 autres, vous choisissez l'explication du code. Chaque série comprend 10 questions de chaque type, avec deux questions pour chacun des 10 sujets de base. L'ordre des questions et des choix change."
+      "source": "基本コードの40問です。コードの空欄をうめる20問と、コードの説明を選ぶ20問があります。1回は空欄10問・説明10問です。20の基本事項から1問ずつ出し、問題と選択肢の順番を変えます。",
+      "translation": "La banque contient 40 questions sur les bases du code. Il y a 20 questions à trous et 20 questions où vous choisissez l'explication du code. Chaque essai propose 10 questions de chaque type, avec une question pour chacun des 20 sujets de base. L'ordre des questions et des choix de réponse change à chaque essai."
     },
     {
       "source": "授業内容を復習するための練習問題です。本番と同じ問題・単元配分になるとは限りません。1回の20問だけで全内容を確認できるわけではありません。",
@@ -155,856 +155,920 @@
       "translation": "« À revoir » indique le chemin depuis le dossier docs du ZIP des supports de cours et l'identifiant du titre de section. Ce fichier HTML suffit pour lire les réponses et les explications."
     },
     {
-      "source": "B01 · 画面のレイアウト",
-      "translation": "B01 · Layout de l'écran"
+      "source": "B01 · 画面に使うXML",
+      "translation": "B01 · XML de l'écran"
     },
     {
-      "source": "<code>MainActivity</code>で、<code>activity_main.xml</code>を画面に使います。 【①】に入るコードはどれですか。",
-      "translation": "Dans <code>MainActivity</code>, utilisez <code>activity_main.xml</code> comme layout de l'écran. Quel code faut-il mettre à la place de 【①】 ?"
+      "source": "画面の形を<code>activity_menu.xml</code>に書きました。このXMLを使うため、【①】に何を入れますか。",
+      "translation": "Vous avez défini le layout de l'écran dans <code>activity_menu.xml</code>. Que faut-il mettre dans 【①】 pour utiliser ce fichier XML ?"
     },
     {
-      "source": "正答：<strong><code>setContentView</code></strong>",
-      "translation": "Bonne réponse : <strong><code>setContentView</code></strong>"
+      "source": "正答：<strong><code>R.layout.activity_menu</code></strong>",
+      "translation": "Bonne réponse : <strong><code>R.layout.activity_menu</code></strong>"
     },
     {
-      "source": "<code>setContentView</code>で、画面に使うレイアウトを指定します。<code>R.layout.activity_main</code>は<code>activity_main.xml</code>を表します。",
-      "translation": "Utilisez <code>setContentView</code> pour définir le layout de l'écran. <code>R.layout.activity_main</code> désigne <code>activity_main.xml</code>."
+      "source": "<code>setContentView</code>には、使うレイアウトのIDを渡します。<code>R.layout.activity_menu</code>が<code>activity_menu.xml</code>を指します。",
+      "translation": "Passez à <code>setContentView</code> l'ID du layout à utiliser. <code>R.layout.activity_menu</code> désigne <code>activity_menu.xml</code>."
     },
     {
       "source": "復習する場所：<code>hello-android/index.html#step-9</code>",
       "translation": "À revoir : <code>hello-android/index.html#step-9</code>"
     },
     {
-      "source": "B02 · レイアウトの指定",
-      "translation": "B02 · Définir le layout"
+      "source": "B02 · IDと部品の取得",
+      "translation": "B02 · Recherche d'un composant par ID"
     },
     {
-      "source": "正答：<strong><code>layout</code></strong>",
-      "translation": "Bonne réponse : <strong><code>layout</code></strong>"
+      "source": "表示欄のIDは<code>txt_total</code>です。対応する部品を取得するため、【①】に何を入れますか。",
+      "translation": "Le composant d'affichage a pour ID <code>txt_total</code>. Que faut-il mettre dans 【①】 pour récupérer ce composant ?"
     },
     {
-      "source": "レイアウトは<code>R.layout</code>で指定します。部品のIDは<code>R.id</code>です。",
-      "translation": "Utilisez <code>R.layout</code> pour désigner un layout. Utilisez <code>R.id</code> pour les ID des composants."
+      "source": "正答：<strong><code>R.id.txt_total</code></strong>",
+      "translation": "Bonne réponse : <strong><code>R.id.txt_total</code></strong>"
     },
     {
-      "source": "B03 · IDでボタンを探す",
-      "translation": "B03 · Trouver un bouton par son ID"
-    },
-    {
-      "source": "画面を用意したあと、IDが<code>btn_start</code>のボタンを使います。 【①】に入るコードはどれですか。",
-      "translation": "Après avoir préparé l'écran, utilisez le bouton dont l'ID est <code>btn_start</code>. Quel code faut-il mettre à la place de 【①】 ?"
-    },
-    {
-      "source": "正答：<strong><code>findViewById</code></strong>",
-      "translation": "Bonne réponse : <strong><code>findViewById</code></strong>"
-    },
-    {
-      "source": "<code>findViewById</code>はIDを使って画面の部品を探します。<code>(Button)</code>は、見つけた部品をボタンとして扱う指定です。",
-      "translation": "<code>findViewById</code> cherche un composant de l'écran par son ID. <code>(Button)</code> indique à Java de traiter le composant trouvé comme un bouton."
+      "source": "<code>findViewById</code>には部品のIDを渡します。XMLのIDが<code>txt_total</code>なら、Javaでは<code>R.id.txt_total</code>です。",
+      "translation": "Passez l'ID du composant à <code>findViewById</code>. Si son ID dans le XML est <code>txt_total</code>, écrivez <code>R.id.txt_total</code> en Java."
     },
     {
       "source": "復習する場所：<code>hello-android/index.html#step-4</code>",
       "translation": "À revoir : <code>hello-android/index.html#step-4</code>"
     },
     {
-      "source": "B04 · 部品のID",
-      "translation": "B04 · ID d'un composant"
+      "source": "B03 · 押す部品と処理",
+      "translation": "B03 · Bouton et action associée"
     },
     {
-      "source": "画面を用意したあと、IDが<code>txt_message</code>の文字表示用の部品を探します。 【①】に入るコードはどれですか。",
-      "translation": "Après avoir préparé l'écran, cherchez le composant d'affichage du texte dont l'ID est <code>txt_message</code>. Quel code faut-il mettre à la place de 【①】 ?"
+      "source": "<code>btnOpen</code>と<code>btnClose</code>は別のボタンです。<code>btnClose</code>を押したときに表示を変えます。【①】に何を入れますか。",
+      "translation": "<code>btnOpen</code> et <code>btnClose</code> sont deux boutons distincts. Vous voulez modifier le texte affiché quand vous appuyez sur <code>btnClose</code>. Que faut-il mettre dans 【①】 ?"
     },
     {
-      "source": "正答：<strong><code>id</code></strong>",
-      "translation": "Bonne réponse : <strong><code>id</code></strong>"
+      "source": "正答：<strong><code>btnClose</code></strong>",
+      "translation": "Bonne réponse : <strong><code>btnClose</code></strong>"
     },
     {
-      "source": "部品のIDは<code>R.id</code>で指定します。<code>R.layout</code>は画面のレイアウトを指定するときに使います。",
-      "translation": "Utilisez <code>R.id</code> pour désigner l'ID d'un composant. Utilisez <code>R.layout</code> pour désigner le layout de l'écran."
+      "source": "<code>setOnClickListener</code>の前に書いた部品に、押したときの処理を登録します。ここでは<code>btnClose</code>です。",
+      "translation": "<code>setOnClickListener</code> associe une action au composant écrit juste avant. Ici, l'action se lance quand vous appuyez sur <code>btnClose</code>."
     },
     {
-      "source": "B05 · 押したときの処理",
-      "translation": "B05 · Traitement exécuté quand vous appuyez sur le bouton"
+      "source": "B04 · 文字を読む部品",
+      "translation": "B04 · Choix du composant où lire le texte"
     },
     {
-      "source": "<code>btnStart</code>はボタン、<code>txtMessage</code>は文字を表示する部品です。ボタンを押すと<code>開始</code>を表示します。 【①】に入るコードはどれですか。",
-      "translation": "<code>btnStart</code> est un bouton. <code>txtMessage</code> affiche du texte. Quand vous appuyez sur le bouton, le texte <code>開始</code> (Démarrer) s'affiche. Quel code faut-il mettre à la place de 【①】 ?"
+      "source": "<code>edtTitle</code>と<code>edtNote</code>は入力欄です。メモの入力欄<code>edtNote</code>から文字を読みます。【①】に何を入れますか。",
+      "translation": "<code>edtTitle</code> et <code>edtNote</code> sont des champs de saisie. Vous voulez lire le texte du champ de note <code>edtNote</code>. Que faut-il mettre dans 【①】 ?"
     },
     {
-      "source": "正答：<strong><code>setOnClickListener</code></strong>",
-      "translation": "Bonne réponse : <strong><code>setOnClickListener</code></strong>"
+      "source": "正答：<strong><code>edtNote</code></strong>",
+      "translation": "Bonne réponse : <strong><code>edtNote</code></strong>"
     },
     {
-      "source": "<code>setOnClickListener</code>で、押したときに行う処理を登録（とうろく）します。中の<code>setText</code>は、ボタンを押したときに実行します。",
-      "translation": "<code>setOnClickListener</code> enregistre le traitement à exécuter quand vous appuyez sur le bouton. L'appel à <code>setText</code> à l'intérieur s'exécute à ce moment-là."
-    },
-    {
-      "source": "B06 · 処理を付けるボタン",
-      "translation": "B06 · Bouton auquel associer le traitement"
-    },
-    {
-      "source": "<code>btnStart</code>と<code>btnClear</code>はボタンです。<code>txtMessage</code>は文字を表示する部品です。<code>btnStart</code>を押すと<code>開始</code>を表示します。 【①】に入るコードはどれですか。",
-      "translation": "<code>btnStart</code> et <code>btnClear</code> sont des boutons. <code>txtMessage</code> affiche du texte. Quand vous appuyez sur <code>btnStart</code>, le texte <code>開始</code> (Démarrer) s'affiche. Quel code faut-il mettre à la place de 【①】 ?"
-    },
-    {
-      "source": "正答：<strong><code>btnStart</code></strong>",
-      "translation": "Bonne réponse : <strong><code>btnStart</code></strong>"
-    },
-    {
-      "source": "<code>btnStart.setOnClickListener</code>と書くと、<code>btnStart</code>を押したときの処理を登録します。",
-      "translation": "<code>btnStart.setOnClickListener</code> enregistre le traitement à exécuter quand vous appuyez sur <code>btnStart</code>."
-    },
-    {
-      "source": "B07 · 入力した文字を読む",
-      "translation": "B07 · Lire le texte saisi"
-    },
-    {
-      "source": "<code>edtName</code>は文字を入力する部品です。入力した文字を<code>name</code>に入れます。 【①】に入るコードはどれですか。",
-      "translation": "<code>edtName</code> est un champ de saisie de texte. Placez le texte saisi dans <code>name</code>. Quel code faut-il mettre à la place de 【①】 ?"
-    },
-    {
-      "source": "正答：<strong><code>getText</code></strong>",
-      "translation": "Bonne réponse : <strong><code>getText</code></strong>"
-    },
-    {
-      "source": "<code>getText()</code>で今の文字を取り出します。続けて<code>toString()</code>を使うと、<code>String</code>（文字列）の形になります。",
-      "translation": "Utilisez <code>getText()</code> pour récupérer le texte actuel. Utilisez ensuite <code>toString()</code> pour le convertir en <code>String</code> (chaîne de caractères)."
+      "source": "<code>getText</code>の前に、文字を読みたい部品を書きます。<code>toString</code>で文字列として受け取ります。",
+      "translation": "Écrivez le composant où vous voulez lire le texte avant <code>getText</code>. Utilisez <code>toString</code> pour obtenir ce texte sous forme de chaîne de caractères."
     },
     {
       "source": "復習する場所：<code>hello-android/index.html#step-5</code>",
       "translation": "À revoir : <code>hello-android/index.html#step-5</code>"
     },
     {
-      "source": "B08 · 文字列の形にする",
-      "translation": "B08 · Convertir en chaîne de caractères"
+      "source": "B05 · 表示する文字を渡す",
+      "translation": "B05 · Texte à afficher"
     },
     {
-      "source": "<code>edtName</code>は文字を入力する部品です。取り出した値を<code>String</code>（文字列）の形にします。 【①】に入るコードはどれですか。",
-      "translation": "<code>edtName</code> est un champ de saisie de texte. Convertissez la valeur récupérée en <code>String</code> (chaîne de caractères). Quel code faut-il mettre à la place de 【①】 ?"
+      "source": "<code>message</code>に入っている文字を表示したいです。【①】に何を入れますか。",
+      "translation": "Vous voulez afficher le texte contenu dans <code>message</code>. Que faut-il mettre dans 【①】 ?"
     },
     {
-      "source": "正答：<strong><code>toString</code></strong>",
-      "translation": "Bonne réponse : <strong><code>toString</code></strong>"
+      "source": "正答：<strong><code>message</code></strong>",
+      "translation": "Bonne réponse : <strong><code>message</code></strong>"
     },
     {
-      "source": "<code>toString()</code>は、取り出した値を<code>String</code>（文字列）の形にします。整数に変える処理ではありません。",
-      "translation": "<code>toString()</code> convertit la valeur récupérée en <code>String</code> (chaîne de caractères). Cette méthode ne la convertit pas en entier."
+      "source": "変数<code>message</code>を渡すと、中の文字列<code>準備中</code>を表示します。<code>&quot;message&quot;</code>では、変数名そのものを表示します。",
+      "translation": "Si vous passez la variable <code>message</code>, le texte qu'elle contient s'affiche, soit <code>準備中</code> (Préparation en cours). Avec <code>&quot;message&quot;</code>, c'est le nom de la variable lui-même qui s'affiche."
     },
     {
-      "source": "B09 · 文字を表示する",
-      "translation": "B09 · Afficher du texte"
+      "source": "B06 · 整数に変えて使う",
+      "translation": "B06 · Conversion d'une chaîne en entier"
     },
     {
-      "source": "<code>txtMessage</code>は文字を表示する部品です。<code>できた</code>と表示します。 【①】に入るコードはどれですか。",
-      "translation": "<code>txtMessage</code> affiche du texte. Faites-lui afficher <code>できた</code> (Réussi). Quel code faut-il mettre à la place de 【①】 ?"
+      "source": "入力した個数は文字列<code>input</code>に入っています。整数に変えるため、【①】に何を入れますか。",
+      "translation": "La quantité saisie est stockée dans la chaîne de caractères <code>input</code>. Que faut-il mettre dans 【①】 pour la convertir en entier ?"
     },
     {
-      "source": "正答：<strong><code>setText</code></strong>",
-      "translation": "Bonne réponse : <strong><code>setText</code></strong>"
+      "source": "正答：<strong><code>input</code></strong>",
+      "translation": "Bonne réponse : <strong><code>input</code></strong>"
     },
     {
-      "source": "<code>setText</code>は、部品に表示する文字を変えます。<code>getText</code>は今の文字を読むときに使います。",
-      "translation": "<code>setText</code> modifie le texte affiché par le composant. Utilisez <code>getText</code> pour lire le texte actuel."
-    },
-    {
-      "source": "B10 · 入力欄を空にする",
-      "translation": "B10 · Vider le champ de saisie"
-    },
-    {
-      "source": "<code>edtName</code>は文字を入力する部品です。中の文字を消して、空に戻します。 【①】に入るコードはどれですか。",
-      "translation": "<code>edtName</code> est un champ de saisie de texte. Effacez son contenu pour le vider. Quel code faut-il mettre à la place de 【①】 ?"
-    },
-    {
-      "source": "正答：<strong><code>&quot;&quot;</code></strong>",
-      "translation": "Bonne réponse : <strong><code>&quot;&quot;</code></strong>"
-    },
-    {
-      "source": "<code>&quot;&quot;</code>は、文字が1つもない文字列です。<code>setText(&quot;&quot;)</code>で入力欄を空にできます。",
-      "translation": "<code>&quot;&quot;</code> est une chaîne sans aucun caractère. Utilisez <code>setText(&quot;&quot;)</code> pour vider le champ de saisie."
-    },
-    {
-      "source": "復習する場所：<code>memo-app/index.html#step-4</code>",
-      "translation": "À revoir : <code>memo-app/index.html#step-4</code>"
-    },
-    {
-      "source": "B11 · 文字を整数に変える",
-      "translation": "B11 · Convertir du texte en entier"
-    },
-    {
-      "source": "文字列<code>&quot;12&quot;</code>を、計算に使える整数の<code>12</code>に変えます。 【①】に入るコードはどれですか。",
-      "translation": "Convertissez la chaîne <code>&quot;12&quot;</code> en entier <code>12</code> pour pouvoir l'utiliser dans des calculs. Quel code faut-il mettre à la place de 【①】 ?"
-    },
-    {
-      "source": "正答：<strong><code>Integer.parseInt</code></strong>",
-      "translation": "Bonne réponse : <strong><code>Integer.parseInt</code></strong>"
-    },
-    {
-      "source": "<code>Integer.parseInt</code>は、整数を表す文字列を<code>int</code>（整数）に変えます。",
-      "translation": "<code>Integer.parseInt</code> convertit une chaîne qui représente un entier en <code>int</code> (entier)."
+      "source": "<code>Integer.parseInt</code>には、数字を表す文字列を渡します。ここでは<code>input</code>に入っている<code>&quot;6&quot;</code>です。",
+      "translation": "Passez à <code>Integer.parseInt</code> une chaîne de caractères qui représente un nombre. Ici, <code>input</code> contient <code>&quot;6&quot;</code>."
     },
     {
       "source": "復習する場所：<code>calc-game/index.html#step-7</code>",
       "translation": "À revoir : <code>calc-game/index.html#step-7</code>"
     },
     {
-      "source": "B12 · 変える文字を選ぶ",
-      "translation": "B12 · Choisir le texte à convertir"
+      "source": "B07 · 作ったメッセージを表示",
+      "translation": "B07 · Affichage d'un message déjà créé"
     },
     {
-      "source": "<code>edtAmount</code>は入力欄です。<code>12</code>が入っています。読み取った文字列を整数に変えます。 【①】に入るコードはどれですか。",
-      "translation": "<code>edtAmount</code> est un champ de saisie. Il contient <code>12</code>. Convertissez la chaîne récupérée en entier. Quel code faut-il mettre à la place de 【①】 ?"
+      "source": "<code>notice</code>は作成済みのSnackbarです。これを表示するため、【①】に何を入れますか。",
+      "translation": "<code>notice</code> est une Snackbar déjà créée. Que faut-il mettre dans 【①】 pour l'afficher ?"
     },
     {
-      "source": "正答：<strong><code>amountStr</code></strong>",
-      "translation": "Bonne réponse : <strong><code>amountStr</code></strong>"
+      "source": "正答：<strong><code>notice</code></strong>",
+      "translation": "Bonne réponse : <strong><code>notice</code></strong>"
     },
     {
-      "source": "<code>amountStr</code>に入力した文字列が入っています。<code>Integer.parseInt(amountStr)</code>で、その文字列を整数に変えます。",
-      "translation": "<code>amountStr</code> contient la chaîne saisie. Utilisez <code>Integer.parseInt(amountStr)</code> pour convertir cette chaîne en entier."
-    },
-    {
-      "source": "B13 · 短いメッセージ",
-      "translation": "B13 · Un court message"
-    },
-    {
-      "source": "ボタンを押したときの処理です。<code>v</code>は押した部品です。Snackbar（スナックバー）で<code>入力してください</code>と表示します。 【①】に入るコードはどれですか。",
-      "translation": "Ce code s'exécute quand vous appuyez sur le bouton. <code>v</code> est le composant sur lequel vous avez appuyé. Affichez <code>入力してください</code> (Veuillez saisir du texte) dans un Snackbar. Quel code faut-il mettre à la place de 【①】 ?"
-    },
-    {
-      "source": "正答：<strong><code>Snackbar</code></strong>",
-      "translation": "Bonne réponse : <strong><code>Snackbar</code></strong>"
-    },
-    {
-      "source": "<code>Snackbar.make</code>で表示するメッセージを作り、<code>show()</code>で画面に出します。",
-      "translation": "Utilisez <code>Snackbar.make</code> pour créer le message, puis <code>show()</code> pour l'afficher à l'écran."
+      "source": "作成したSnackbarを入れた変数<code>notice</code>で<code>show</code>を呼ぶと、メッセージが表示されます。",
+      "translation": "Appelez <code>show</code> sur la variable <code>notice</code>, qui contient la Snackbar déjà créée. Le message s'affiche."
     },
     {
       "source": "復習する場所：<code>hello-android/index.html#step-7</code>",
       "translation": "À revoir : <code>hello-android/index.html#step-7</code>"
     },
     {
-      "source": "B14 · メッセージを出す",
-      "translation": "B14 · Afficher un message"
+      "source": "B08 · 文字がないことを確認",
+      "translation": "B08 · Vérification d'une chaîne vide"
     },
     {
-      "source": "ボタンを押したときの処理です。<code>v</code>は押した部品です。作ったSnackbar（スナックバー）を画面に出します。 【①】に入るコードはどれですか。",
-      "translation": "Ce code s'exécute quand vous appuyez sur le bouton. <code>v</code> est le composant sur lequel vous avez appuyé. Affichez à l'écran le Snackbar créé. Quel code faut-il mettre à la place de 【①】 ?"
+      "source": "<code>isEmpty()</code>の結果を<code>true</code>にしたいです。【①】に入れる文字列はどれですか。",
+      "translation": "Vous voulez que <code>isEmpty()</code> renvoie <code>true</code>. Quelle chaîne de caractères faut-il mettre dans 【①】 ?"
     },
     {
-      "source": "正答：<strong><code>show</code></strong>",
-      "translation": "Bonne réponse : <strong><code>show</code></strong>"
+      "source": "正答：<strong><code>&quot;&quot;</code></strong>",
+      "translation": "Bonne réponse : <strong><code>&quot;&quot;</code></strong>"
     },
     {
-      "source": "<code>make</code>で作ったSnackbarは、最後に<code>show()</code>を呼ぶと画面に出ます。",
-      "translation": "Pour afficher le Snackbar créé avec <code>make</code>, appelez <code>show()</code> à la fin."
-    },
-    {
-      "source": "B15 · 入力が空か調べる",
-      "translation": "B15 · Vérifier si la saisie est vide"
-    },
-    {
-      "source": "<code>name</code>には入力した文字列が入っています。<code>txtMessage</code>は文字を表示する部品です。空のときだけ案内を出します。 【①】に入るコードはどれですか。",
-      "translation": "<code>name</code> contient la chaîne saisie. <code>txtMessage</code> affiche du texte. Affichez un message uniquement si la chaîne est vide. Quel code faut-il mettre à la place de 【①】 ?"
-    },
-    {
-      "source": "正答：<strong><code>isEmpty</code></strong>",
-      "translation": "Bonne réponse : <strong><code>isEmpty</code></strong>"
-    },
-    {
-      "source": "<code>isEmpty()</code>は、文字が1つもないときに<code>true</code>になります。<code>if</code>の中の処理は、条件が<code>true</code>のときに行います。",
-      "translation": "<code>isEmpty()</code> renvoie <code>true</code> quand la chaîne ne contient aucun caractère. Le code dans le bloc <code>if</code> s'exécute quand la condition vaut <code>true</code>."
+      "source": "<code>&quot;&quot;</code>には文字が1つもありません。半角スペースだけの<code>&quot; &quot;</code>にも文字が1つあるので、<code>isEmpty()</code>は<code>false</code>です。",
+      "translation": "<code>&quot;&quot;</code> ne contient aucun caractère. <code>&quot; &quot;</code> contient une espace en demi-chasse. Il y a donc un caractère et <code>isEmpty()</code> renvoie <code>false</code>."
     },
     {
       "source": "復習する場所：<code>bill-splitter/index.html#step-4</code>",
       "translation": "À revoir : <code>bill-splitter/index.html#step-4</code>"
     },
     {
-      "source": "B16 · 空でないとき",
-      "translation": "B16 · Quand la chaîne contient du texte"
+      "source": "B09 · ifの条件",
+      "translation": "B09 · Condition d'un if"
     },
     {
-      "source": "<code>name</code>は文字列、<code>txtMessage</code>は文字を表示する部品です。<code>name</code>が空でないときだけ<code>入力あり</code>と表示します。 【①】に入るコードはどれですか。",
-      "translation": "<code>name</code> est une chaîne de caractères et <code>txtMessage</code> affiche du texte. Affichez <code>入力あり</code> (Texte saisi) uniquement si <code>name</code> n'est pas vide. Quel code faut-il mettre à la place de 【①】 ?"
+      "source": "残りの数<code>rest</code>が0のときだけ表示を変えます。【①】に何を入れますか。",
+      "translation": "Le texte affiché doit changer seulement si <code>rest</code>, le nombre restant, vaut 0. Que faut-il mettre dans 【①】 ?"
     },
     {
-      "source": "正答：<strong><code>!</code></strong>",
-      "translation": "Bonne réponse : <strong><code>!</code></strong>"
+      "source": "正答：<strong><code>rest == 0</code></strong>",
+      "translation": "Bonne réponse : <strong><code>rest == 0</code></strong>"
     },
     {
-      "source": "<code>!</code>は、<code>true</code>と<code>false</code>を反対にします。<code>!name.isEmpty()</code>は、文字列が空でないときに<code>true</code>です。",
-      "translation": "<code>!</code> inverse les valeurs <code>true</code> et <code>false</code>. <code>!name.isEmpty()</code> vaut <code>true</code> quand la chaîne n'est pas vide."
+      "source": "<code>if</code>の中は、条件が<code>true</code>のときだけ動きます。<code>rest == 0</code>は、残りの数が0かどうかを調べます。",
+      "translation": "Le code dans <code>if</code> s'exécute seulement si la condition vaut <code>true</code>. <code>rest == 0</code> vérifie si le nombre restant vaut 0."
     },
     {
-      "source": "復習する場所：<code>room-sample/index.html#step-7</code>",
-      "translation": "À revoir : <code>room-sample/index.html#step-7</code>"
+      "source": "B10 · 回数を決めて繰り返す",
+      "translation": "B10 · Répétition un nombre défini de fois"
     },
     {
-      "source": "B17 · 条件で処理を分ける",
-      "translation": "B17 · Exécuter du code selon une condition"
+      "source": "<code>i</code>が0、1、2の3回だけ、中の処理を実行します。【①】に入る条件はどれですか。",
+      "translation": "Le code dans la boucle doit s'exécuter exactement trois fois, quand <code>i</code> vaut 0, 1 et 2. Quelle condition faut-il mettre dans 【①】 ?"
     },
     {
-      "source": "<code>number</code>、<code>answer</code>、<code>correct</code>は整数です。<code>number</code>と<code>answer</code>が同じときだけ、<code>correct</code>を1増やします。 【①】に入るコードはどれですか。",
-      "translation": "<code>number</code>, <code>answer</code> et <code>correct</code> sont des entiers. Augmentez <code>correct</code> de 1 uniquement si <code>number</code> et <code>answer</code> sont égaux. Quel code faut-il mettre à la place de 【①】 ?"
+      "source": "正答：<strong><code>i &lt; 3</code></strong>",
+      "translation": "Bonne réponse : <strong><code>i &lt; 3</code></strong>"
     },
     {
-      "source": "正答：<strong><code>if</code></strong>",
-      "translation": "Bonne réponse : <strong><code>if</code></strong>"
+      "source": "最初は0です。<code>i &lt; 3</code>の間は繰り返し、<code>i++</code>で1ずつ増えます。0、1、2の3回です。",
+      "translation": "La valeur de départ est 0. Le code se répète tant que <code>i &lt; 3</code>. <code>i++</code> ajoute 1 à chaque tour. La boucle s'exécute trois fois, pour 0, 1 et 2."
     },
     {
-      "source": "<code>if</code>は、条件が<code>true</code>のときだけ中の処理を行います。<code>==</code>は、ここでは2つの整数が同じか調べます。",
-      "translation": "Le bloc <code>if</code> s'exécute uniquement si la condition vaut <code>true</code>. Ici, <code>==</code> vérifie si les deux entiers sont égaux."
+      "source": "復習する場所：<code>rock-paper-scissors-game/index.html#step-5</code>",
+      "translation": "À revoir : <code>rock-paper-scissors-game/index.html#step-5</code>"
     },
     {
-      "source": "復習する場所：<code>calc-game/index.html#step-8</code>",
-      "translation": "À revoir : <code>calc-game/index.html#step-8</code>"
+      "source": "B11 · 画面を作るときの準備",
+      "translation": "B11 · Préparation de l'écran"
     },
     {
-      "source": "B18 · 途中で処理を終える",
-      "translation": "B18 · Arrêter le traitement en cours"
+      "source": "Activityが作られるときのメソッドです。【①】にメソッド名を入れてください。",
+      "translation": "Cette méthode est appelée à la création d'une Activity. Écrivez son nom dans 【①】."
     },
     {
-      "source": "<code>btnAdd</code>はボタン、<code>edtName</code>は入力欄、<code>txtMessage</code>は文字の表示欄です。空なら、このクリック処理を終えます。 【①】に入るコードはどれですか。",
-      "translation": "<code>btnAdd</code> est un bouton, <code>edtName</code> est un champ de saisie et <code>txtMessage</code> affiche du texte. Arrêtez le traitement du clic si le champ est vide. Quel code faut-il mettre à la place de 【①】 ?"
+      "source": "正答：<strong><code>onCreate</code></strong>",
+      "translation": "Bonne réponse : <strong><code>onCreate</code></strong>"
     },
     {
-      "source": "正答：<strong><code>return</code></strong>",
-      "translation": "Bonne réponse : <strong><code>return</code></strong>"
+      "source": "<code>onCreate</code>はActivityが作られるときに呼ばれます。画面のレイアウトや部品の準備をここで行います。",
+      "translation": "<code>onCreate</code> est appelée à la création d'une Activity. Préparez ici le layout de l'écran et ses composants."
     },
     {
-      "source": "<code>return;</code>で、このクリック処理をここで終えます。空のときは、下の<code>setText</code>を実行しません。アプリ全体を終える意味ではありません。",
-      "translation": "<code>return;</code> arrête le traitement du clic à cet endroit. Si la saisie est vide, l'appel à <code>setText</code> plus bas ne s'exécute pas. L'application continue de fonctionner."
+      "source": "B12 · クラス名の指定",
+      "translation": "B12 · Choix d'une classe à utiliser"
     },
     {
-      "source": "B19 · 1つずつ繰り返す",
-      "translation": "B19 · Parcourir les valeurs une par une"
+      "source": "このJavaファイルで<code>android.widget.TextView</code>を短い名前<code>TextView</code>で使います。【①】に何を入れますか。",
+      "translation": "Dans ce fichier Java, vous voulez utiliser <code>android.widget.TextView</code> avec son nom court, <code>TextView</code>. Que faut-il mettre dans 【①】 ?"
     },
     {
-      "source": "配列（複数の値を並べたもの）の値を1つずつ取り出し、<code>total</code>に足します。 【①】に入るコードはどれですか。",
-      "translation": "Un tableau (配列, はいれつ) est une suite de valeurs. Récupérez ses valeurs une par une et ajoutez-les à <code>total</code>. Quel code faut-il mettre à la place de 【①】 ?"
+      "source": "正答：<strong><code>import</code></strong>",
+      "translation": "Bonne réponse : <strong><code>import</code></strong>"
     },
     {
-      "source": "正答：<strong><code>for</code></strong>",
-      "translation": "Bonne réponse : <strong><code>for</code></strong>"
+      "source": "<code>import</code>で、使うクラスを指定します。この行があると、コード内では<code>TextView</code>という短い名前を使えます。",
+      "translation": "Utilisez <code>import</code> pour indiquer la classe à utiliser. Avec cette ligne, vous pouvez écrire le nom court <code>TextView</code> dans le code."
     },
     {
-      "source": "拡張（かくちょう）<code>for</code>文は、配列から値を1つずつ取り出して同じ処理を繰り返します。",
-      "translation": "Une boucle <code>for</code> améliorée récupère les valeurs d'un tableau une par une et répète la même opération."
+      "source": "B13 · ボタンを使える状態にする",
+      "translation": "B13 · Activation d'un bouton"
     },
     {
-      "source": "B20 · 繰り返す配列",
-      "translation": "B20 · Choisir le tableau à parcourir"
-    },
-    {
-      "source": "<code>numbers</code>の3つの値を1つずつ取り出し、<code>count</code>を1ずつ増やします。 【①】に入るコードはどれですか。",
-      "translation": "Récupérez les trois valeurs de <code>numbers</code> une par une. Augmentez <code>count</code> de 1 à chaque fois. Quel code faut-il mettre à la place de 【①】 ?"
-    },
-    {
-      "source": "正答：<strong><code>numbers</code></strong>",
-      "translation": "Bonne réponse : <strong><code>numbers</code></strong>"
-    },
-    {
-      "source": "<code>:</code>の右に、取り出す元の配列を書きます。<code>numbers</code>から<code>2</code>、<code>4</code>、<code>6</code>を順に取り出します。",
-      "translation": "À droite de <code>:</code>, indiquez le tableau à parcourir. La boucle récupère <code>2</code>, <code>4</code> et <code>6</code> dans <code>numbers</code>, dans cet ordre."
-    },
-    {
-      "source": "E01 · 画面を用意する",
-      "translation": "E01 · Préparer l'écran"
-    },
-    {
-      "source": "<code>MainActivity</code>の中にある、次のコードの説明はどれですか。",
-      "translation": "Quelle proposition décrit le code suivant dans <code>MainActivity</code> ?"
-    },
-    {
-      "source": "ボタンの文字を読む",
-      "translation": "Lire le texte du bouton"
-    },
-    {
-      "source": "入力した文字を消す",
-      "translation": "Effacer le texte saisi"
-    },
-    {
-      "source": "<code>activity_main.xml</code>を画面に使う",
-      "translation": "Utiliser <code>activity_main.xml</code> comme layout de l'écran"
-    },
-    {
-      "source": "ボタンを押したときの処理を登録する",
-      "translation": "Enregistrer le traitement à exécuter quand vous appuyez sur le bouton"
-    },
-    {
-      "source": "正答：<strong><code>activity_main.xml</code>を画面に使う</strong>",
-      "translation": "Bonne réponse : <strong>Utiliser <code>activity_main.xml</code> comme layout de l'écran</strong>"
-    },
-    {
-      "source": "<code>setContentView</code>は、画面に使うレイアウトを指定します。<code>R.layout.activity_main</code>は<code>activity_main.xml</code>を表します。",
-      "translation": "<code>setContentView</code> définit le layout de l'écran. <code>R.layout.activity_main</code> désigne <code>activity_main.xml</code>."
-    },
-    {
-      "source": "E02 · 部品を探す順番",
-      "translation": "E02 · Quand chercher les composants"
-    },
-    {
-      "source": "<code>activity_main.xml</code>にはIDが<code>btn_start</code>のボタンがあります。この順番にする理由はどれですか。",
-      "translation": "<code>activity_main.xml</code> contient un bouton dont l'ID est <code>btn_start</code>. Pourquoi exécuter le code dans cet ordre ?"
-    },
-    {
-      "source": "画面を用意してから、その中の部品を探すため",
-      "translation": "Pour préparer l'écran avant d'y chercher un composant"
-    },
-    {
-      "source": "ボタンを2つ作るため",
-      "translation": "Pour créer deux boutons"
-    },
-    {
-      "source": "ボタンを自動で押すため",
-      "translation": "Pour appuyer sur le bouton automatiquement"
-    },
-    {
-      "source": "入力した文字を整数に変えるため",
-      "translation": "Pour convertir le texte saisi en entier"
-    },
-    {
-      "source": "正答：<strong>画面を用意してから、その中の部品を探すため</strong>",
-      "translation": "Bonne réponse : <strong>Pour préparer l'écran avant d'y chercher un composant</strong>"
-    },
-    {
-      "source": "<code>setContentView</code>で画面を用意し、そのあとで<code>findViewById</code>を使って部品を探します。",
-      "translation": "Utilisez <code>setContentView</code> pour préparer l'écran, puis <code>findViewById</code> pour trouver le composant."
-    },
-    {
-      "source": "E03 · IDの役割",
-      "translation": "E03 · Rôle d'un ID"
-    },
-    {
-      "source": "画面を用意したあとに、次のコードを実行します。何をしますか。",
-      "translation": "Le code suivant s'exécute après la préparation de l'écran. Que fait-il ?"
-    },
-    {
-      "source": "ボタンに<code>btn_start</code>と表示する",
-      "translation": "Afficher <code>btn_start</code> sur le bouton"
-    },
-    {
-      "source": "IDが<code>btn_start</code>の部品を探す",
-      "translation": "Chercher le composant dont l'ID est <code>btn_start</code>"
-    },
-    {
-      "source": "新しいXMLファイルを作る",
-      "translation": "Créer un nouveau fichier XML"
-    },
-    {
-      "source": "入力欄の文字を消す",
-      "translation": "Effacer le texte du champ de saisie"
-    },
-    {
-      "source": "正答：<strong>IDが<code>btn_start</code>の部品を探す</strong>",
-      "translation": "Bonne réponse : <strong>Chercher le composant dont l'ID est <code>btn_start</code></strong>"
-    },
-    {
-      "source": "<code>R.id.btn_start</code>は部品を探すための目印です。画面に表示する文字とは別です。",
-      "translation": "<code>R.id.btn_start</code> sert de repère pour trouver le composant. Il est distinct du texte affiché à l'écran."
-    },
-    {
-      "source": "E04 · 部品をButtonとして扱う",
-      "translation": "E04 · Traiter un composant comme un Button"
-    },
-    {
-      "source": "画面のIDが<code>btn_start</code>の部品はボタンです。<code>(Button)</code>の説明はどれですか。",
-      "translation": "Le composant à l'écran dont l'ID est <code>btn_start</code> est un bouton. Quelle proposition décrit <code>(Button)</code> ?"
-    },
-    {
-      "source": "ボタンに<code>Button</code>と表示する",
-      "translation": "Afficher <code>Button</code> sur le bouton"
-    },
-    {
-      "source": "ボタンを押す",
-      "translation": "Appuyer sur le bouton"
-    },
-    {
-      "source": "ボタンを画面から消す",
-      "translation": "Retirer le bouton de l'écran"
-    },
-    {
-      "source": "見つけた部品を<code>Button</code>として扱う",
-      "translation": "Traiter le composant trouvé comme un <code>Button</code>"
-    },
-    {
-      "source": "正答：<strong>見つけた部品を<code>Button</code>として扱う</strong>",
-      "translation": "Bonne réponse : <strong>Traiter le composant trouvé comme un <code>Button</code></strong>"
-    },
-    {
-      "source": "<code>(Button)</code>はキャストといい、見つけた部品を<code>Button</code>として扱う指定です。文字を表示したり、ボタンを押したりする処理ではありません。",
-      "translation": "<code>(Button)</code> est une conversion de type. Elle indique à Java de traiter le composant trouvé comme un <code>Button</code>. Elle n'affiche pas de texte et n'appuie pas sur le bouton."
-    },
-    {
-      "source": "E05 · 文字が変わるとき",
-      "translation": "E05 · Quand le texte change"
-    },
-    {
-      "source": "<code>btnStart</code>はボタン、<code>txtMessage</code>は文字の表示欄です。中の<code>setText</code>は、いつ実行されますか。",
-      "translation": "<code>btnStart</code> est un bouton et <code>txtMessage</code> affiche du texte. À quel moment l'appel à <code>setText</code> dans le traitement s'exécute-t-il ?"
-    },
-    {
-      "source": "<code>btnStart</code>を押したとき",
-      "translation": "Quand vous appuyez sur <code>btnStart</code>"
-    },
-    {
-      "source": "Javaのファイルを開いたとき",
-      "translation": "Quand vous ouvrez le fichier Java"
-    },
-    {
-      "source": "このコードを入力したとき",
-      "translation": "Quand vous saisissez ce code"
-    },
-    {
-      "source": "<code>txtMessage</code>の文字を読んだとき",
-      "translation": "Quand vous lisez le texte de <code>txtMessage</code>"
-    },
-    {
-      "source": "正答：<strong><code>btnStart</code>を押したとき</strong>",
-      "translation": "Bonne réponse : <strong>Quand vous appuyez sur <code>btnStart</code></strong>"
-    },
-    {
-      "source": "<code>setOnClickListener</code>の中には、押したときに行う処理を書きます。登録しただけでは、中の<code>setText</code>は実行しません。",
-      "translation": "Dans <code>setOnClickListener</code>, écrivez le code qui doit s'exécuter quand vous appuyez sur le bouton. Enregistrer le traitement ne suffit pas à exécuter l'appel à <code>setText</code> à l'intérieur."
-    },
-    {
-      "source": "E06 · 押したボタンと処理",
-      "translation": "E06 · Traitement selon le bouton utilisé"
-    },
-    {
-      "source": "<code>btnStart</code>と<code>btnClear</code>はボタン、<code>txtMessage</code>は文字の表示欄です。<code>btnClear</code>を1回押すと、何を表示しますか。",
-      "translation": "<code>btnStart</code> et <code>btnClear</code> sont des boutons et <code>txtMessage</code> affiche du texte. Quel texte s'affiche quand vous appuyez une fois sur <code>btnClear</code> ?"
-    },
-    {
-      "source": "正答：<strong><code>消去</code></strong>",
-      "translation": "Bonne réponse : <strong><code>消去</code></strong> (Effacer)"
-    },
-    {
-      "source": "<code>btnClear</code>を押すと、<code>btnClear.setOnClickListener</code>の中を実行します。ここでは<code>消去</code>と表示します。",
-      "translation": "Quand vous appuyez sur <code>btnClear</code>, le code dans <code>btnClear.setOnClickListener</code> s'exécute. Ici, il affiche <code>消去</code> (Effacer)."
-    },
-    {
-      "source": "E07 · 入力した文字列",
-      "translation": "E07 · Chaîne saisie"
-    },
-    {
-      "source": "<code>edtName</code>は入力欄です。<code>東京</code>と入っています。次のコードで、<code>name</code>に入る値はどれですか。",
-      "translation": "<code>edtName</code> est un champ de saisie. Il contient <code>東京</code> (Tokyo). Quelle valeur le code suivant place-t-il dans <code>name</code> ?"
-    },
-    {
-      "source": "文字列<code>&quot;edtName&quot;</code>",
-      "translation": "La chaîne <code>&quot;edtName&quot;</code>"
-    },
-    {
-      "source": "文字列<code>&quot;東京&quot;</code>",
-      "translation": "La chaîne <code>&quot;東京&quot;</code> (Tokyo)"
-    },
-    {
-      "source": "空の文字列<code>&quot;&quot;</code>",
-      "translation": "La chaîne vide <code>&quot;&quot;</code>"
-    },
-    {
-      "source": "整数の<code>0</code>",
-      "translation": "L'entier <code>0</code>"
-    },
-    {
-      "source": "正答：<strong>文字列<code>&quot;東京&quot;</code></strong>",
-      "translation": "Bonne réponse : <strong>La chaîne <code>&quot;東京&quot;</code> (Tokyo)</strong>"
-    },
-    {
-      "source": "<code>getText().toString()</code>で、入力欄にある今の文字を文字列として取り出します。ここでは<code>&quot;東京&quot;</code>です。",
-      "translation": "<code>getText().toString()</code> récupère le texte actuel du champ de saisie sous forme de chaîne de caractères. Ici, la valeur renvoyée est <code>&quot;東京&quot;</code> (Tokyo)."
-    },
-    {
-      "source": "E08 · ボタンの文字を読む",
-      "translation": "E08 · Lire le texte du bouton"
-    },
-    {
-      "source": "<code>btnNumber</code>はボタンです。ボタンには<code>7</code>と表示されています。<code>text</code>に入る値はどれですか。",
-      "translation": "<code>btnNumber</code> est un bouton. Il affiche <code>7</code>. Quelle valeur est placée dans <code>text</code> ?"
-    },
-    {
-      "source": "整数の<code>7</code>",
-      "translation": "L'entier <code>7</code>"
-    },
-    {
-      "source": "文字列<code>&quot;btnNumber&quot;</code>",
-      "translation": "La chaîne <code>&quot;btnNumber&quot;</code>"
-    },
-    {
-      "source": "文字列<code>&quot;7&quot;</code>",
-      "translation": "La chaîne <code>&quot;7&quot;</code>"
-    },
-    {
-      "source": "正答：<strong>文字列<code>&quot;7&quot;</code></strong>",
-      "translation": "Bonne réponse : <strong>La chaîne <code>&quot;7&quot;</code></strong>"
-    },
-    {
-      "source": "<code>getText().toString()</code>で得られるのは文字列です。計算に使う整数に変えるときは、別に<code>Integer.parseInt</code>を使います。",
-      "translation": "<code>getText().toString()</code> renvoie une chaîne de caractères. Pour la convertir en entier et l'utiliser dans des calculs, appelez <code>Integer.parseInt</code> séparément."
-    },
-    {
-      "source": "E09 · 表示を置き換える",
-      "translation": "E09 · Remplacer le texte affiché"
-    },
-    {
-      "source": "<code>txtMessage</code>は文字の表示欄です。上から順に実行したあと、何を表示しますか。",
-      "translation": "<code>txtMessage</code> affiche du texte. Qu'affiche-t-il après l'exécution des deux lignes de haut en bas ?"
-    },
-    {
-      "source": "何も表示しない",
-      "translation": "N'afficher aucun texte"
-    },
-    {
-      "source": "正答：<strong><code>後</code></strong>",
-      "translation": "Bonne réponse : <strong><code>後</code></strong> (Après)"
-    },
-    {
-      "source": "<code>setText</code>は、前の表示を新しい文字に置き換えます。最後に指定した<code>後</code>を表示します。",
-      "translation": "<code>setText</code> remplace le texte actuel par le nouveau texte. Le texte affiché est le dernier texte indiqué, <code>後</code> (Après)."
-    },
-    {
-      "source": "E10 · 入力欄の文字を消す",
-      "translation": "E10 · Effacer le texte du champ de saisie"
-    },
-    {
-      "source": "<code>edtName</code>は入力欄です。<code>山田</code>と入っています。次のコードを実行すると、どうなりますか。",
-      "translation": "<code>edtName</code> est un champ de saisie. Il contient <code>山田</code> (Yamada). Que se passe-t-il quand le code suivant s'exécute ?"
-    },
-    {
-      "source": "入力欄そのものがなくなる",
-      "translation": "Le champ de saisie disparaît"
-    },
-    {
-      "source": "<code>山田</code>の後ろに文字が増える",
-      "translation": "Du texte est ajouté après <code>山田</code> (Yamada)"
-    },
-    {
-      "source": "入力欄の文字が消えて空になる",
-      "translation": "Le texte est effacé et le champ de saisie devient vide"
-    },
-    {
-      "source": "<code>0</code>が入力される",
-      "translation": "La valeur <code>0</code> est saisie"
-    },
-    {
-      "source": "正答：<strong>入力欄の文字が消えて空になる</strong>",
-      "translation": "Bonne réponse : <strong>Le texte est effacé et le champ de saisie devient vide</strong>"
-    },
-    {
-      "source": "<code>&quot;&quot;</code>は空の文字列です。入力欄はそのままで、中に表示する文字だけを空にします。",
-      "translation": "<code>&quot;&quot;</code> est une chaîne vide. Le champ de saisie reste en place. Seul son texte est effacé."
-    },
-    {
-      "source": "E11 · 整数に変えた値",
-      "translation": "E11 · Valeur après conversion en entier"
-    },
-    {
-      "source": "次のコードで、<code>number</code>に入る値はどれですか。",
-      "translation": "Quelle valeur le code suivant place-t-il dans <code>number</code> ?"
-    },
-    {
-      "source": "文字列<code>&quot;12&quot;</code>",
-      "translation": "La chaîne <code>&quot;12&quot;</code>"
-    },
-    {
-      "source": "整数の<code>12</code>",
-      "translation": "L'entier <code>12</code>"
-    },
-    {
-      "source": "文字列<code>&quot;number&quot;</code>",
-      "translation": "La chaîne <code>&quot;number&quot;</code>"
-    },
-    {
-      "source": "正答：<strong>整数の<code>12</code></strong>",
-      "translation": "Bonne réponse : <strong>L'entier <code>12</code></strong>"
-    },
-    {
-      "source": "<code>Integer.parseInt</code>で、文字列<code>&quot;12&quot;</code>を計算に使える整数の<code>12</code>に変えます。",
-      "translation": "<code>Integer.parseInt</code> convertit la chaîne <code>&quot;12&quot;</code> en entier <code>12</code>, que vous pouvez utiliser dans des calculs."
-    },
-    {
-      "source": "E12 · 変えた整数で計算する",
-      "translation": "E12 · Calculer avec l'entier obtenu"
-    },
-    {
-      "source": "<code>txtMessage</code>は文字の表示欄です。次のコードは、何を表示しますか。",
-      "translation": "<code>txtMessage</code> affiche du texte. Qu'affiche le code suivant ?"
-    },
-    {
-      "source": "正答：<strong><code>答え:10</code></strong>",
-      "translation": "Bonne réponse : <strong><code>答え:10</code></strong> (Réponse : 10)"
-    },
-    {
-      "source": "<code>number</code>は整数の<code>8</code>です。かっこの中で<code>8 + 2</code>を計算するので、<code>答え:10</code>と表示します。",
-      "translation": "<code>number</code> est l'entier <code>8</code>. Le code calcule <code>8 + 2</code> entre parenthèses et affiche <code>答え:10</code> (Réponse : 10)."
-    },
-    {
-      "source": "E13 · Snackbarの役割",
-      "translation": "E13 · Rôle d'un Snackbar"
-    },
-    {
-      "source": "ボタンを押したときの処理です。<code>v</code>は押した部品です。次のコードは、何をしますか。",
-      "translation": "Ce code s'exécute quand vous appuyez sur le bouton. <code>v</code> est le composant sur lequel vous avez appuyé. Que fait le code suivant ?"
-    },
-    {
-      "source": "入力欄の文字を整数に変える",
-      "translation": "Convertir le texte du champ de saisie en entier"
-    },
-    {
-      "source": "新しい画面を開く",
-      "translation": "Ouvrir un nouvel écran"
-    },
-    {
-      "source": "画面に短いメッセージを出す",
-      "translation": "Afficher un court message à l'écran"
-    },
-    {
-      "source": "正答：<strong>画面に短いメッセージを出す</strong>",
-      "translation": "Bonne réponse : <strong>Afficher un court message à l'écran</strong>"
-    },
-    {
-      "source": "Snackbar（スナックバー）は、画面に短いメッセージを出します。<code>show()</code>を呼ぶと表示します。",
-      "translation": "Un Snackbar affiche un court message à l'écran. Appelez <code>show()</code> pour l'afficher."
-    },
-    {
-      "source": "E14 · 表示するメッセージ",
-      "translation": "E14 · Message à afficher"
-    },
-    {
-      "source": "ボタンを押したときの処理です。<code>v</code>は押した部品です。Snackbar（スナックバー）に何を表示しますか。",
-      "translation": "Ce code s'exécute quand vous appuyez sur le bouton. <code>v</code> est le composant sur lequel vous avez appuyé. Qu'affiche le Snackbar ?"
-    },
-    {
-      "source": "正答：<strong><code>できた</code></strong>",
-      "translation": "Bonne réponse : <strong><code>できた</code></strong>"
-    },
-    {
-      "source": "<code>make</code>の2つ目に、表示する文字を渡します。<code>message</code>には<code>できた</code>が入っています。",
-      "translation": "Passez le texte à afficher en deuxième argument de <code>make</code>. <code>message</code> contient <code>できた</code> (Réussi)."
-    },
-    {
-      "source": "E15 · 空の文字列",
-      "translation": "E15 · Une chaîne vide"
-    },
-    {
-      "source": "次のコードで、<code>empty</code>に入る値はどれですか。",
-      "translation": "Quelle valeur le code suivant place-t-il dans <code>empty</code> ?"
+      "source": "使えなくしていたボタン<code>btnSend</code>を、また押せる状態に戻します。【①】に何を入れますか。",
+      "translation": "Le bouton <code>btnSend</code> est désactivé. Vous voulez pouvoir appuyer de nouveau dessus. Que faut-il mettre dans 【①】 ?"
     },
     {
       "source": "正答：<strong><code>true</code></strong>",
       "translation": "Bonne réponse : <strong><code>true</code></strong>"
     },
     {
-      "source": "<code>&quot;&quot;</code>は文字が1つもない文字列です。空の文字列で<code>isEmpty()</code>を呼ぶと<code>true</code>になります。",
-      "translation": "<code>&quot;&quot;</code> est une chaîne sans aucun caractère. Appeler <code>isEmpty()</code> sur une chaîne vide renvoie <code>true</code>."
+      "source": "<code>setEnabled(true)</code>で使える状態にします。<code>false</code>は使えない状態です。",
+      "translation": "<code>setEnabled(true)</code> active le composant. Avec <code>false</code>, le composant est désactivé."
     },
     {
-      "source": "E16 · 空でない入力",
-      "translation": "E16 · Saisie non vide"
+      "source": "復習する場所：<code>calc-game/index.html#step-5</code>",
+      "translation": "À revoir : <code>calc-game/index.html#step-5</code>"
     },
     {
-      "source": "正答：<strong><code>入力あり</code></strong>",
-      "translation": "Bonne réponse : <strong><code>入力あり</code></strong> (Texte saisi)"
+      "source": "B14 · LinearLayoutの並べ方",
+      "translation": "B14 · Disposition des composants dans un LinearLayout"
     },
     {
-      "source": "<code>name</code>には文字があるので、<code>isEmpty()</code>は<code>false</code>です。<code>else</code>の中を実行し、<code>入力あり</code>と表示します。",
-      "translation": "<code>name</code> contient du texte, donc <code>isEmpty()</code> renvoie <code>false</code>. Le code du bloc <code>else</code> s'exécute et affiche <code>入力あり</code> (Texte saisi)."
+      "source": "LinearLayoutの中の2つのボタンを横に並べます。【①】に何を入れますか。",
+      "translation": "Placez les deux boutons du LinearLayout côte à côte. Que faut-il mettre dans 【①】 ?"
     },
     {
-      "source": "E17 · 同じ値のとき",
-      "translation": "E17 · Quand les valeurs sont égales"
+      "source": "正答：<strong><code>horizontal</code></strong>",
+      "translation": "Bonne réponse : <strong><code>horizontal</code></strong>"
     },
     {
-      "source": "上から順に実行したあと、<code>correct</code>の値はどれですか。",
-      "translation": "Quelle est la valeur de <code>correct</code> après l'exécution du code de haut en bas ?"
+      "source": "<code>orientation</code>は中の部品を並べる向きです。<code>horizontal</code>なら横、<code>vertical</code>なら縦に並びます。",
+      "translation": "<code>orientation</code> définit le sens dans lequel les composants s'alignent. Avec <code>horizontal</code>, ils s'alignent à l'horizontale. Avec <code>vertical</code>, ils s'alignent à la verticale."
     },
     {
-      "source": "正答：<strong><code>1</code></strong>",
-      "translation": "Bonne réponse : <strong><code>1</code></strong>"
+      "source": "復習する場所：<code>rock-paper-scissors-game/index.html#step-2</code>",
+      "translation": "À revoir : <code>rock-paper-scissors-game/index.html#step-2</code>"
     },
     {
-      "source": "<code>number</code>と<code>answer</code>は同じなので、<code>if</code>の中を実行します。<code>correct++</code>で<code>0</code>から<code>1</code>に増えます。",
-      "translation": "<code>number</code> et <code>answer</code> sont égaux, donc le code dans le bloc <code>if</code> s'exécute. <code>correct++</code> fait passer la valeur de <code>0</code> à <code>1</code>."
+      "source": "B15 · 部品の横幅",
+      "translation": "B15 · Largeur d'un composant"
     },
     {
-      "source": "E18 · returnより下の処理",
-      "translation": "E18 · Code après return"
+      "source": "TextViewの横幅を、親の使える幅いっぱいにします。【①】に何を入れますか。",
+      "translation": "Vous voulez que le TextView occupe toute la largeur disponible dans son parent. Que faut-il mettre dans 【①】 ?"
     },
     {
-      "source": "<code>btnAdd</code>はボタン、<code>edtName</code>は入力欄、<code>txtMessage</code>は文字の表示欄です。入力欄は空です。ボタンを押したときの説明はどれですか。",
-      "translation": "<code>btnAdd</code> est un bouton, <code>edtName</code> est un champ de saisie et <code>txtMessage</code> affiche du texte. Le champ est vide. Que se passe-t-il quand vous appuyez sur le bouton ?"
+      "source": "正答：<strong><code>match_parent</code></strong>",
+      "translation": "Bonne réponse : <strong><code>match_parent</code></strong>"
     },
     {
-      "source": "必ず<code>登録しました</code>と表示する",
-      "translation": "Toujours afficher <code>登録しました</code> (Enregistré)"
+      "source": "横幅の<code>match_parent</code>は、親の使える幅に合わせる指定です。<code>wrap_content</code>は、内容を表示するための幅にします。",
+      "translation": "Pour la largeur, <code>match_parent</code> utilise la largeur disponible dans le parent. <code>wrap_content</code> utilise la largeur nécessaire pour afficher le contenu."
     },
     {
-      "source": "アプリ全体を終了する",
-      "translation": "Quitter l'application"
+      "source": "復習する場所：<code>hello-android/index.html#step-3</code>",
+      "translation": "À revoir : <code>hello-android/index.html#step-3</code>"
     },
     {
-      "source": "このクリック処理を終え、表示を変えない",
-      "translation": "Terminer le traitement de ce clic et laisser le texte affiché tel quel"
+      "source": "B16 · 部品の外側のすき間",
+      "translation": "B16 · Espacement autour d'un composant"
     },
     {
-      "source": "入力欄に<code>登録しました</code>と入れる",
-      "translation": "Saisir <code>登録しました</code> (Enregistré) dans le champ de saisie"
+      "source": "ボタンの外側の上にすき間を付けます。【①】に属性名を入れてください。",
+      "translation": "Ajoutez un espace à l'extérieur du bouton, au-dessus de celui-ci. Écrivez le nom de l'attribut dans 【①】."
     },
     {
-      "source": "正答：<strong>このクリック処理を終え、表示を変えない</strong>",
-      "translation": "Bonne réponse : <strong>Terminer le traitement de ce clic et laisser le texte affiché tel quel</strong>"
+      "source": "正答：<strong><code>layout_marginTop</code></strong>",
+      "translation": "Bonne réponse : <strong><code>layout_marginTop</code></strong>"
     },
     {
-      "source": "入力欄が空なので、<code>return;</code>でこのクリック処理を終えます。下の<code>setText</code>は実行しません。",
-      "translation": "Le champ de saisie est vide, donc <code>return;</code> termine le traitement de ce clic. L'appel à <code>setText</code> plus bas ne s'exécute pas."
+      "source": "<code>layout_marginTop</code>は、部品の外側の上に付けるすき間です。幅や高さを指定する属性とは別です。",
+      "translation": "<code>layout_marginTop</code> ajoute un espace à l'extérieur du composant, au-dessus de celui-ci. La largeur et la hauteur utilisent d'autres attributs."
     },
     {
-      "source": "E19 · 繰り返す回数",
-      "translation": "E19 · Nombre de répétitions de la boucle"
+      "source": "復習する場所：<code>calc-game/index.html#step-2</code>",
+      "translation": "À revoir : <code>calc-game/index.html#step-2</code>"
     },
     {
-      "source": "配列（複数の値を並べたもの）から値を1つずつ取り出します。最後の<code>count</code>はどれですか。",
-      "translation": "Un tableau (配列, はいれつ) est une suite de valeurs. Le code récupère les valeurs une par une. Quelle est la valeur finale de <code>count</code> ?"
+      "source": "B17 · クラス内で使う指定",
+      "translation": "B17 · Utilisation limitée à la classe"
     },
     {
-      "source": "正答：<strong><code>3</code></strong>",
-      "translation": "Bonne réponse : <strong><code>3</code></strong>"
+      "source": "このクラスの中だけで使うフィールドを用意します。【①】に何を入れますか。",
+      "translation": "Vous voulez un champ utilisable seulement dans cette classe. Que faut-il mettre dans 【①】 ?"
     },
     {
-      "source": "配列には値が3つあります。<code>count++</code>を3回行うので、<code>count</code>は<code>3</code>になります。値の合計を求める処理ではありません。",
-      "translation": "Le tableau contient trois valeurs. <code>count++</code> s'exécute trois fois, donc <code>count</code> vaut <code>3</code>. Le code compte les valeurs sans les additionner."
+      "source": "正答：<strong><code>private</code></strong>",
+      "translation": "Bonne réponse : <strong><code>private</code></strong>"
     },
     {
-      "source": "E20 · 同じ処理を登録する",
-      "translation": "E20 · Enregistrer le même traitement"
+      "source": "<code>private</code>は、このクラスの中で使う指定です。フィールドの値を固定する指定ではありません。",
+      "translation": "<code>private</code> limite l'accès à cette classe. La valeur du champ peut toujours changer."
     },
     {
-      "source": "<code>buttons</code>は3つのボタンを入れた配列です。<code>txtMessage</code>は文字の表示欄です。画面を開いて次のコードを実行しました。まだボタンは押していません。正しい説明はどれですか。",
-      "translation": "<code>buttons</code> est un tableau contenant trois boutons. <code>txtMessage</code> affiche du texte. Vous avez ouvert l'écran et exécuté le code suivant. Vous n'avez encore appuyé sur aucun bouton. Quelle explication est correcte ?"
+      "source": "復習する場所：<code>calc-game/index.html#step-4</code>",
+      "translation": "À revoir : <code>calc-game/index.html#step-4</code>"
     },
     {
-      "source": "すぐに<code>押しました</code>と3回表示する",
-      "translation": "Afficher immédiatement <code>押しました</code> (Bouton pressé) trois fois"
+      "source": "B18 · 文字列をつなぐ",
+      "translation": "B18 · Assemblage de chaînes de caractères"
     },
     {
-      "source": "最初のボタンにだけ処理を登録する",
-      "translation": "Enregistrer le traitement seulement pour le premier bouton"
+      "source": "<code>前半後半</code>という1つの文字列を作ります。【①】に記号を入れてください。",
+      "translation": "Vous voulez créer une seule chaîne de caractères, <code>前半後半</code> (première moitié suivie directement de seconde moitié). Écrivez l'opérateur dans 【①】."
     },
     {
-      "source": "3つのボタンを自動で押す",
-      "translation": "Appuyer automatiquement sur les trois boutons"
+      "source": "正答：<strong><code>+</code></strong>",
+      "translation": "Bonne réponse : <strong><code>+</code></strong>"
     },
     {
-      "source": "3つのボタンに処理を登録し、表示はまだ変えない",
-      "translation": "Enregistrer le traitement pour les trois boutons et laisser le texte affiché tel quel pour l'instant"
+      "source": "文字列どうしを<code>+</code>でつなぐと、左の文字列の後ろに右の文字列が続きます。",
+      "translation": "Quand vous assemblez deux chaînes de caractères avec <code>+</code>, la chaîne de droite vient juste après celle de gauche."
     },
     {
-      "source": "正答：<strong>3つのボタンに処理を登録し、表示はまだ変えない</strong>",
-      "translation": "Bonne réponse : <strong>Enregistrer le traitement pour les trois boutons et laisser le texte affiché tel quel pour l'instant</strong>"
+      "source": "B19 · 値を1ずつ増やす",
+      "translation": "B19 · Augmentation d'une valeur de 1"
     },
     {
-      "source": "拡張（かくちょう）<code>for</code>文で3つのボタンに処理を登録します。中の<code>setText</code>は、実際にボタンを押したときに実行します。",
-      "translation": "La boucle <code>for</code> améliorée enregistre le traitement pour les trois boutons. L'appel à <code>setText</code> à l'intérieur s'exécute quand vous appuyez sur un bouton."
+      "source": "整数<code>visits</code>を1だけ増やします。【①】に記号を入れてください。",
+      "translation": "Augmentez l'entier <code>visits</code> de 1. Écrivez l'opérateur dans 【①】."
+    },
+    {
+      "source": "正答：<strong><code>++</code></strong>",
+      "translation": "Bonne réponse : <strong><code>++</code></strong>"
+    },
+    {
+      "source": "変数の後ろに<code>++</code>を書くと、その値を1増やします。<code>--</code>は1減らす記号です。",
+      "translation": "Écrire <code>++</code> après une variable augmente sa valeur de 1. Le symbole <code>--</code> la diminue de 1."
+    },
+    {
+      "source": "復習する場所：<code>calc-game/index.html#step-8</code>",
+      "translation": "À revoir : <code>calc-game/index.html#step-8</code>"
+    },
+    {
+      "source": "B20 · 途中で処理を終える",
+      "translation": "B20 · Fin anticipée d'une méthode"
+    },
+    {
+      "source": "値を返さないメソッドの一部です。入力が空なら、下の表示処理へ進まずに終えます。【①】に何を入れますか。",
+      "translation": "Ceci fait partie d'une méthode qui ne renvoie aucune valeur. Si la saisie est vide, terminez la méthode avant d'exécuter le code d'affichage ci-dessous. Que faut-il mettre dans 【①】 ?"
+    },
+    {
+      "source": "正答：<strong><code>return</code></strong>",
+      "translation": "Bonne réponse : <strong><code>return</code></strong>"
+    },
+    {
+      "source": "<code>return</code>で、そのメソッドの処理を終えます。入力が空のときは、下の<code>setText</code>を実行しません。",
+      "translation": "<code>return</code> termine la méthode. Si la saisie est vide, le <code>setText</code> ci-dessous ne s'exécute pas."
+    },
+    {
+      "source": "E01 · 画面に使うXML",
+      "translation": "E01 · XML de l'écran"
+    },
+    {
+      "source": "この2行では、先に<code>setContentView</code>を実行します。その理由はどれですか。",
+      "translation": "Dans ces deux lignes, <code>setContentView</code> s'exécute en premier. Pourquoi ?"
+    },
+    {
+      "source": "レイアウトを画面に用意してから、その中の部品を探すため",
+      "translation": "Pour préparer le layout de l'écran avant d'y chercher un composant"
+    },
+    {
+      "source": "ボタンを押す処理を2回行うため",
+      "translation": "Pour exécuter deux fois l'action associée au bouton"
+    },
+    {
+      "source": "XMLファイルの名前を書き換えるため",
+      "translation": "Pour renommer le fichier XML"
+    },
+    {
+      "source": "ボタンの文字を整数に変えるため",
+      "translation": "Pour convertir le texte du bouton en entier"
+    },
+    {
+      "source": "正答：<strong>レイアウトを画面に用意してから、その中の部品を探すため</strong>",
+      "translation": "Bonne réponse : <strong>Pour préparer le layout de l'écran avant d'y chercher un composant</strong>"
+    },
+    {
+      "source": "<code>setContentView</code>で画面のレイアウトを用意します。そのあと、<code>findViewById</code>でレイアウト内の部品を探します。",
+      "translation": "Utilisez <code>setContentView</code> pour préparer le layout de l'écran. Cherchez ensuite un composant dans ce layout avec <code>findViewById</code>."
+    },
+    {
+      "source": "E02 · IDと部品の取得",
+      "translation": "E02 · Recherche d'un composant par ID"
+    },
+    {
+      "source": "XMLでボタンのIDを<code>btn_old</code>から<code>btn_help</code>へ変えました。この行も合わせて直すには、どこを変えますか。",
+      "translation": "Vous avez changé l'ID du bouton dans le XML de <code>btn_old</code> à <code>btn_help</code>. Que faut-il modifier dans cette ligne pour utiliser le même ID ?"
+    },
+    {
+      "source": "<code>R.id.btn_old</code>を<code>R.id.btn_help</code>にする",
+      "translation": "Remplacer <code>R.id.btn_old</code> par <code>R.id.btn_help</code>"
+    },
+    {
+      "source": "<code>findViewById</code>を<code>setContentView</code>にする",
+      "translation": "Remplacer <code>findViewById</code> par <code>setContentView</code>"
+    },
+    {
+      "source": "<code>var</code>を<code>return</code>にする",
+      "translation": "Remplacer <code>var</code> par <code>return</code>"
+    },
+    {
+      "source": "<code>btnHelp</code>を文字列で囲む",
+      "translation": "Mettre <code>btnHelp</code> entre guillemets"
+    },
+    {
+      "source": "正答：<strong><code>R.id.btn_old</code>を<code>R.id.btn_help</code>にする</strong>",
+      "translation": "Bonne réponse : <strong>Remplacer <code>R.id.btn_old</code> par <code>R.id.btn_help</code></strong>"
+    },
+    {
+      "source": "部品を探すときは、<code>R.id</code>の後の名前をXMLのIDに合わせます。左側の変数名だけを変えても、探すIDは変わりません。",
+      "translation": "Pour rechercher un composant, utilisez le même nom après <code>R.id</code> que dans l'ID du XML. Si vous changez seulement le nom de la variable à gauche, l'ID recherché reste le même."
+    },
+    {
+      "source": "E03 · 押す部品と処理",
+      "translation": "E03 · Bouton et action associée"
+    },
+    {
+      "source": "この行を実行してから、<code>btnCheck</code>を1回押します。表示が変わるのはいつですか。",
+      "translation": "Exécutez cette ligne, puis appuyez une fois sur <code>btnCheck</code>. Quand le texte affiché change-t-il ?"
+    },
+    {
+      "source": "ボタンを押して、登録した処理が動いたとき",
+      "translation": "Quand vous appuyez sur le bouton et que l'action associée s'exécute"
+    },
+    {
+      "source": "処理を登録する行を読んだだけのとき",
+      "translation": "Quand vous lisez seulement la ligne qui associe l'action"
+    },
+    {
+      "source": "文字列を整数に変えたとき",
+      "translation": "Quand vous convertissez une chaîne de caractères en entier"
+    },
+    {
+      "source": "XMLファイルを保存したとき",
+      "translation": "Quand vous enregistrez le fichier XML"
+    },
+    {
+      "source": "正答：<strong>ボタンを押して、登録した処理が動いたとき</strong>",
+      "translation": "Bonne réponse : <strong>Quand vous appuyez sur le bouton et que l'action associée s'exécute</strong>"
+    },
+    {
+      "source": "<code>setOnClickListener</code>は処理を登録します。中の<code>setText</code>が動くのは、そのボタンを押したときです。",
+      "translation": "<code>setOnClickListener</code> associe une action au bouton. Le <code>setText</code> dans cette action s'exécute quand vous appuyez sur le bouton."
+    },
+    {
+      "source": "E04 · 文字を読む部品",
+      "translation": "E04 · Choix du composant où lire le texte"
+    },
+    {
+      "source": "入力欄には<code>朝</code>と入っています。このコードを実行すると、入力欄の文字はどうなりますか。",
+      "translation": "Le champ de saisie contient <code>朝</code> (matin). Que devient le texte du champ quand vous exécutez ce code ?"
+    },
+    {
+      "source": "<code>朝</code>のまま残る",
+      "translation": "Il contient toujours <code>朝</code> (matin)"
+    },
+    {
+      "source": "空になる",
+      "translation": "Il devient vide"
+    },
+    {
+      "source": "<code>text</code>という文字に変わる",
+      "translation": "Il affiche désormais le texte <code>text</code>"
+    },
+    {
+      "source": "整数の0に変わる",
+      "translation": "Il devient l'entier 0"
+    },
+    {
+      "source": "正答：<strong><code>朝</code>のまま残る</strong>",
+      "translation": "Bonne réponse : <strong>Il contient toujours <code>朝</code> (matin)</strong>"
+    },
+    {
+      "source": "<code>getText</code>は文字を読み取ります。読んだだけでは、入力欄の文字は変わりません。",
+      "translation": "<code>getText</code> lit le texte. La lecture laisse le texte du champ de saisie tel quel."
+    },
+    {
+      "source": "E05 · 表示する文字を渡す",
+      "translation": "E05 · Texte à afficher"
+    },
+    {
+      "source": "最初に<code>受付中</code>と表示されています。この2行を実行したあとの表示はどれですか。",
+      "translation": "Au départ, <code>受付中</code> (Demandes ouvertes) s'affiche. Quel texte s'affiche après l'exécution de ces deux lignes ?"
+    },
+    {
+      "source": "正答：<strong><code>完了</code></strong>",
+      "translation": "Bonne réponse : <strong><code>完了</code></strong> (Terminé)"
+    },
+    {
+      "source": "<code>setText</code>は、表示する文字を置き換えます。最後の行で<code>完了</code>に置き換わります。",
+      "translation": "<code>setText</code> remplace le texte affiché. La dernière ligne le remplace par <code>完了</code> (Terminé)."
+    },
+    {
+      "source": "E06 · 整数に変えて使う",
+      "translation": "E06 · Conversion d'une chaîne en entier"
+    },
+    {
+      "source": "値段の文字列を整数に変え、2個分を計算します。<code>total</code>の値はどれですか。",
+      "translation": "Convertissez le prix en entier à partir de la chaîne de caractères, puis calculez le prix de deux articles. Quelle est la valeur de <code>total</code> ?"
+    },
+    {
+      "source": "正答：<strong><code>160</code></strong>",
+      "translation": "Bonne réponse : <strong><code>160</code></strong>"
+    },
+    {
+      "source": "<code>Integer.parseInt</code>で整数の80になります。整数どうしの掛け算なので、80×2で160です。",
+      "translation": "<code>Integer.parseInt</code> donne l'entier 80. La multiplication des deux entiers donne 80 × 2 = 160."
+    },
+    {
+      "source": "E07 · 作ったメッセージを表示",
+      "translation": "E07 · Affichage d'un message déjà créé"
+    },
+    {
+      "source": "Snackbarを作りましたが、表示されません。次に行うことはどれですか。",
+      "translation": "Vous avez créé une Snackbar, mais elle ne s'affiche pas. Que faut-il faire ensuite ?"
+    },
+    {
+      "source": "<code>notice.show();</code>を実行する",
+      "translation": "Exécuter <code>notice.show();</code>"
+    },
+    {
+      "source": "もう一度同じ<code>make</code>だけを実行する",
+      "translation": "Relancer seulement le même appel à <code>make</code>"
+    },
+    {
+      "source": "文字列を整数に変える",
+      "translation": "Convertir une chaîne de caractères en entier"
+    },
+    {
+      "source": "ボタンのIDを消す",
+      "translation": "Supprimer l'ID du bouton"
+    },
+    {
+      "source": "正答：<strong><code>notice.show();</code>を実行する</strong>",
+      "translation": "Bonne réponse : <strong>Exécuter <code>notice.show();</code></strong>"
+    },
+    {
+      "source": "<code>Snackbar.make</code>はメッセージを作ります。画面へ表示するには、作ったSnackbarで<code>show</code>を呼びます。",
+      "translation": "<code>Snackbar.make</code> crée le message. Pour l'afficher à l'écran, appelez <code>show</code> sur la Snackbar que vous avez créée."
+    },
+    {
+      "source": "E08 · 文字がないことを確認",
+      "translation": "E08 · Vérification d'une chaîne vide"
+    },
+    {
+      "source": "<code>left</code>は空、<code>right</code>には文字があります。<code>true</code>になるのはどちらですか。",
+      "translation": "<code>left</code> est vide et <code>right</code> contient du texte. Quel test renvoie <code>true</code> ?"
+    },
+    {
+      "source": "<code>left.isEmpty()</code>だけ",
+      "translation": "Seulement <code>left.isEmpty()</code>"
+    },
+    {
+      "source": "<code>right.isEmpty()</code>だけ",
+      "translation": "Seulement <code>right.isEmpty()</code>"
+    },
+    {
+      "source": "両方",
+      "translation": "Les deux"
+    },
+    {
+      "source": "どちらもならない",
+      "translation": "Aucun des deux"
+    },
+    {
+      "source": "正答：<strong><code>left.isEmpty()</code>だけ</strong>",
+      "translation": "Bonne réponse : <strong>Seulement <code>left.isEmpty()</code></strong>"
+    },
+    {
+      "source": "<code>isEmpty()</code>は文字が1つもないときに<code>true</code>です。<code>left</code>だけが空の文字列です。",
+      "translation": "<code>isEmpty()</code> renvoie <code>true</code> si la chaîne ne contient aucun caractère. Seule la chaîne <code>left</code> est vide."
+    },
+    {
+      "source": "E09 · ifの条件",
+      "translation": "E09 · Condition d'un if"
+    },
+    {
+      "source": "<code>ready</code>は<code>false</code>です。このコードを実行したあと、表示はどれですか。",
+      "translation": "<code>ready</code> vaut <code>false</code>. Qu'est-ce qui s'affiche après l'exécution de ce code ?"
+    },
+    {
+      "source": "文字は何も表示されない",
+      "translation": "Aucun texte ne s'affiche"
+    },
+    {
+      "source": "正答：<strong><code>待機</code></strong>",
+      "translation": "Bonne réponse : <strong><code>待機</code></strong> (En attente)"
+    },
+    {
+      "source": "条件が<code>false</code>なので、<code>if</code>の中は実行しません。最初に表示した<code>待機</code>が残ります。",
+      "translation": "La condition vaut <code>false</code>, donc le code dans <code>if</code> ne s'exécute pas. Le premier texte affiché, <code>待機</code> (En attente), reste à l'écran."
+    },
+    {
+      "source": "E10 · 回数を決めて繰り返す",
+      "translation": "E10 · Répétition un nombre défini de fois"
+    },
+    {
+      "source": "この繰り返しで、<code>i</code>が最初に3になるとどうなりますか。",
+      "translation": "Que se passe-t-il la première fois que <code>i</code> atteint 3 dans cette boucle ?"
+    },
+    {
+      "source": "条件が<code>false</code>になり、繰り返しを終える",
+      "translation": "La condition devient <code>false</code> et la boucle se termine"
+    },
+    {
+      "source": "<code>i</code>が0に戻り、もう一度繰り返す",
+      "translation": "<code>i</code> revient à 0 et la boucle recommence"
+    },
+    {
+      "source": "中の処理を必ずあと3回行う",
+      "translation": "Le code dans la boucle s'exécute forcément trois fois de plus"
+    },
+    {
+      "source": "条件を見ずに、ずっと繰り返す",
+      "translation": "La boucle continue indéfiniment sans vérifier la condition"
+    },
+    {
+      "source": "正答：<strong>条件が<code>false</code>になり、繰り返しを終える</strong>",
+      "translation": "Bonne réponse : <strong>La condition devient <code>false</code> et la boucle se termine</strong>"
+    },
+    {
+      "source": "<code>i</code>が3になると、<code>i &lt; 3</code>は<code>false</code>です。中の処理を行わず、繰り返しの後へ進みます。",
+      "translation": "Quand <code>i</code> atteint 3, <code>i &lt; 3</code> vaut <code>false</code>. Le code dans la boucle est ignoré. L'exécution reprend après la boucle."
+    },
+    {
+      "source": "E11 · 画面を作るときの準備",
+      "translation": "E11 · Préparation de l'écran"
+    },
+    {
+      "source": "<code>onCreate</code>の中の一部です。この画面を初めて開き、まだボタンを押していません。表示はどれですか。",
+      "translation": "Ce code fait partie de <code>onCreate</code>. Vous ouvrez cet écran pour la première fois et vous n'avez pas encore appuyé sur le bouton. Qu'est-ce qui s'affiche ?"
+    },
+    {
+      "source": "ボタンを押すまで、この行は動かない",
+      "translation": "Cette ligne s'exécute seulement après avoir appuyé sur le bouton"
+    },
+    {
+      "source": "正答：<strong><code>ようこそ</code></strong>",
+      "translation": "Bonne réponse : <strong><code>ようこそ</code></strong> (Bienvenue)"
+    },
+    {
+      "source": "<code>onCreate</code>は画面を作るときに呼ばれます。ボタンを押さなくても、この中の表示の準備は実行されます。",
+      "translation": "<code>onCreate</code> est appelée à la création de l'écran. Le code qui prépare l'affichage s'exécute même si vous n'appuyez pas sur le bouton."
+    },
+    {
+      "source": "E12 · クラス名の指定",
+      "translation": "E12 · Choix d'une classe à utiliser"
+    },
+    {
+      "source": "このimportがあるファイルです。<code>android.widget.TextView</code>の短い書き方はどれですか。",
+      "translation": "Ce fichier contient l'import ci-dessous. Quel est le nom court de <code>android.widget.TextView</code> ?"
+    },
+    {
+      "source": "正答：<strong><code>TextView</code></strong>",
+      "translation": "Bonne réponse : <strong><code>TextView</code></strong>"
+    },
+    {
+      "source": "最後の<code>TextView</code>がクラス名です。importすると、このファイルではその短い名前で使えます。",
+      "translation": "La dernière partie, <code>TextView</code>, est le nom de la classe. L'import permet d'utiliser ce nom court dans le fichier."
+    },
+    {
+      "source": "E13 · ボタンを使える状態にする",
+      "translation": "E13 · Activation d'un bouton"
+    },
+    {
+      "source": "2つのボタンに、次の設定をしました。押せる状態なのはどれですか。",
+      "translation": "Les deux boutons sont réglés comme ci-dessous. Sur lequel pouvez-vous appuyer ?"
+    },
+    {
+      "source": "<code>btnBack</code>だけ",
+      "translation": "Seulement <code>btnBack</code>"
+    },
+    {
+      "source": "<code>btnNext</code>だけ",
+      "translation": "Seulement <code>btnNext</code>"
+    },
+    {
+      "source": "どちらも押せない",
+      "translation": "Il est impossible d'appuyer sur l'un ou l'autre des boutons"
+    },
+    {
+      "source": "正答：<strong><code>btnBack</code>だけ</strong>",
+      "translation": "Bonne réponse : <strong>Seulement <code>btnBack</code></strong>"
+    },
+    {
+      "source": "<code>true</code>を渡した<code>btnBack</code>は使えます。<code>false</code>を渡した<code>btnNext</code>は使えません。",
+      "translation": "En passant <code>true</code>, vous activez <code>btnBack</code>. En passant <code>false</code>, vous désactivez <code>btnNext</code>."
+    },
+    {
+      "source": "E14 · LinearLayoutの並べ方",
+      "translation": "E14 · Disposition des composants dans un LinearLayout"
+    },
+    {
+      "source": "LinearLayoutの中の部品が横に並んでいます。縦に並べるには、どの値を変えますか。",
+      "translation": "Les composants de ce LinearLayout sont alignés à l'horizontale. Quelle valeur faut-il modifier pour les aligner à la verticale ?"
+    },
+    {
+      "source": "<code>horizontal</code>を<code>vertical</code>にする",
+      "translation": "Remplacer <code>horizontal</code> par <code>vertical</code>"
+    },
+    {
+      "source": "<code>match_parent</code>を<code>wrap_content</code>にする",
+      "translation": "Remplacer <code>match_parent</code> par <code>wrap_content</code>"
+    },
+    {
+      "source": "<code>wrap_content</code>を<code>match_parent</code>にする",
+      "translation": "Remplacer <code>wrap_content</code> par <code>match_parent</code>"
+    },
+    {
+      "source": "幅と高さの値を入れ替える",
+      "translation": "Échanger les valeurs de largeur et de hauteur"
+    },
+    {
+      "source": "正答：<strong><code>horizontal</code>を<code>vertical</code>にする</strong>",
+      "translation": "Bonne réponse : <strong>Remplacer <code>horizontal</code> par <code>vertical</code></strong>"
+    },
+    {
+      "source": "並ぶ向きは<code>orientation</code>で決まります。<code>vertical</code>に変えると、中の部品が縦に並びます。",
+      "translation": "<code>orientation</code> définit le sens de l'alignement. Avec <code>vertical</code>, les composants s'alignent à la verticale."
+    },
+    {
+      "source": "E15 · 部品の横幅",
+      "translation": "E15 · Largeur d'un composant"
+    },
+    {
+      "source": "同じ親の中に、短い文字を表示するTextViewが2つあります。横幅を親に合わせる指定はどちらですか。",
+      "translation": "Deux TextView affichent un texte court dans le même parent. Lequel est configuré pour prendre la largeur du parent ?"
+    },
+    {
+      "source": "Bだけ",
+      "translation": "Seulement B"
+    },
+    {
+      "source": "Aだけ",
+      "translation": "Seulement A"
+    },
+    {
+      "source": "どちらでもない",
+      "translation": "Aucun des deux"
+    },
+    {
+      "source": "正答：<strong>Bだけ</strong>",
+      "translation": "Bonne réponse : <strong>Seulement B</strong>"
+    },
+    {
+      "source": "Bの<code>match_parent</code>が親の使える幅に合わせます。Aの<code>wrap_content</code>は、文字などの内容を表示するための幅にします。",
+      "translation": "Dans B, <code>match_parent</code> utilise la largeur disponible dans le parent. Dans A, <code>wrap_content</code> utilise la largeur nécessaire pour afficher le contenu, par exemple du texte."
+    },
+    {
+      "source": "E16 · 部品の外側のすき間",
+      "translation": "E16 · Espacement autour d'un composant"
+    },
+    {
+      "source": "ボタンの高さを変えず、上の部品とのすき間を広げたいです。どのように直しますか。",
+      "translation": "Vous voulez agrandir l'espace entre le bouton et le composant au-dessus. Le bouton doit garder la même hauteur. Que faut-il modifier ?"
+    },
+    {
+      "source": "<code>layout_marginTop</code>の8dpを16dpにする",
+      "translation": "Passer <code>layout_marginTop</code> de 8dp à 16dp"
+    },
+    {
+      "source": "<code>layout_height</code>の48dpを96dpにする",
+      "translation": "Passer <code>layout_height</code> de 48dp à 96dp"
+    },
+    {
+      "source": "<code>layout_marginTop</code>の8dpを0dpにする",
+      "translation": "Passer <code>layout_marginTop</code> de 8dp à 0dp"
+    },
+    {
+      "source": "2つの行を両方消す",
+      "translation": "Supprimer les deux lignes"
+    },
+    {
+      "source": "正答：<strong><code>layout_marginTop</code>の8dpを16dpにする</strong>",
+      "translation": "Bonne réponse : <strong>Passer <code>layout_marginTop</code> de 8dp à 16dp</strong>"
+    },
+    {
+      "source": "上側のすき間は<code>layout_marginTop</code>です。その値だけを増やせば、高さの指定を変えずにすき間を広げられます。",
+      "translation": "<code>layout_marginTop</code> règle la marge du haut. En augmentant seulement cette valeur, vous agrandissez l'espace et gardez le même réglage de hauteur."
+    },
+    {
+      "source": "E17 · クラス内で使う指定",
+      "translation": "E17 · Utilisation limitée à la classe"
+    },
+    {
+      "source": "同じクラスのメソッドで、<code>attempts</code>を1増やします。この書き方の説明はどれですか。",
+      "translation": "Une méthode de la même classe augmente <code>attempts</code> de 1. Quelle proposition explique ce code ?"
+    },
+    {
+      "source": "同じクラスの中なので、値を変えられる",
+      "translation": "La méthode peut modifier la valeur parce qu'elle est dans la même classe"
+    },
+    {
+      "source": "<code>private</code>なので、一度も値を変えられない",
+      "translation": "Avec <code>private</code>, la valeur ne peut jamais changer"
+    },
+    {
+      "source": "<code>private</code>なので、必ず文字列になる",
+      "translation": "Avec <code>private</code>, le champ est forcément une chaîne de caractères"
+    },
+    {
+      "source": "<code>private</code>なので、必ずファイルへ保存される",
+      "translation": "Avec <code>private</code>, la valeur est forcément enregistrée dans un fichier"
+    },
+    {
+      "source": "正答：<strong>同じクラスの中なので、値を変えられる</strong>",
+      "translation": "Bonne réponse : <strong>La méthode peut modifier la valeur parce qu'elle est dans la même classe</strong>"
+    },
+    {
+      "source": "<code>private</code>は使える場所を決めます。同じクラスの中なら値を変えられ、ここでは1増やします。",
+      "translation": "<code>private</code> définit où le champ est accessible. Sa valeur peut changer dans la même classe. Ici, elle augmente de 1."
+    },
+    {
+      "source": "E18 · 文字列をつなぐ",
+      "translation": "E18 · Assemblage de chaînes de caractères"
+    },
+    {
+      "source": "2つの文字列の間に半角スペースを入れたいです。コードをどう変えますか。",
+      "translation": "Vous voulez insérer une espace en demi-chasse entre les deux chaînes de caractères. Comment modifier le code ?"
+    },
+    {
+      "source": "<code>first + &quot; &quot; + second</code>にする",
+      "translation": "Remplacer le code par <code>first + &quot; &quot; + second</code>"
+    },
+    {
+      "source": "<code>first + &quot;&quot; + second</code>にする",
+      "translation": "Remplacer le code par <code>first + &quot;&quot; + second</code>"
+    },
+    {
+      "source": "<code>second + first</code>にする",
+      "translation": "Remplacer le code par <code>second + first</code>"
+    },
+    {
+      "source": "<code>first + first</code>にする",
+      "translation": "Remplacer le code par <code>first + first</code>"
+    },
+    {
+      "source": "正答：<strong><code>first + &quot; &quot; + second</code>にする</strong>",
+      "translation": "Bonne réponse : <strong>Remplacer le code par <code>first + &quot; &quot; + second</code></strong>"
+    },
+    {
+      "source": "<code>&quot; &quot;</code>は半角スペース1つです。2つの文字列の間に<code>+</code>でつなぐと、間にスペースを入れられます。",
+      "translation": "<code>&quot; &quot;</code> contient une espace en demi-chasse. Utilisez <code>+</code> pour l'insérer entre les deux chaînes de caractères."
+    },
+    {
+      "source": "E19 · 値を1ずつ増やす",
+      "translation": "E19 · Augmentation d'une valeur de 1"
+    },
+    {
+      "source": "整数の変数を、次の1行と同じように1増やすコードはどれですか。",
+      "translation": "Quel code augmente la variable entière de 1, comme la ligne ci-dessous ?"
+    },
+    {
+      "source": "正答：<strong><code>visits = visits + 1;</code></strong>",
+      "translation": "Bonne réponse : <strong><code>visits = visits + 1;</code></strong>"
+    },
+    {
+      "source": "この1行の<code>++</code>は、今の値に1を足して、同じ変数へ入れる処理です。",
+      "translation": "Dans cette ligne, <code>++</code> ajoute 1 à la valeur actuelle et stocke le résultat dans la même variable."
+    },
+    {
+      "source": "E20 · 途中で処理を終える",
+      "translation": "E20 · Fin anticipée d'une méthode"
+    },
+    {
+      "source": "値を返さないメソッドの一部です。<code>text</code>は空の文字列です。この部分で実行される表示処理はどれですか。",
+      "translation": "Ceci fait partie d'une méthode qui ne renvoie aucune valeur. <code>text</code> est une chaîne vide. Qu'est-ce que cette partie du code affiche ?"
+    },
+    {
+      "source": "<code>入力待ち</code>の表示だけ",
+      "translation": "Seulement <code>入力待ち</code> (En attente de saisie)"
+    },
+    {
+      "source": "<code>受付済み</code>の表示だけ",
+      "translation": "Seulement <code>受付済み</code> (Demande reçue)"
+    },
+    {
+      "source": "2つとも順に表示する",
+      "translation": "Les deux messages, dans l'ordre"
+    },
+    {
+      "source": "どちらも表示しない",
+      "translation": "Aucun des deux messages"
+    },
+    {
+      "source": "正答：<strong><code>入力待ち</code>の表示だけ</strong>",
+      "translation": "Bonne réponse : <strong>Seulement <code>入力待ち</code> (En attente de saisie)</strong>"
+    },
+    {
+      "source": "空なので<code>if</code>の中へ進み、<code>入力待ち</code>と表示します。次の<code>return</code>で終えるため、<code>受付済み</code>は表示しません。",
+      "translation": "La chaîne est vide, donc le code dans <code>if</code> s'exécute et affiche <code>入力待ち</code> (En attente de saisie). Le <code>return</code> suivant termine la méthode. <code>受付済み</code> (Demande reçue) ne s'affiche donc pas."
     },
     {
       "source": "正解",
