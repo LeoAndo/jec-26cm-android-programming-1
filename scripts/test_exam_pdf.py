@@ -79,6 +79,9 @@ class RenderTest(unittest.TestCase):
                 # PDFに実際に書かれた罫線の位置から、全ページの固定範囲を検算する。
                 if importlib.util.find_spec("pymupdf"):
                     import pymupdf
+                    rendered = pdf.render_and_verify(output, report, Path(temporary) / f"images-{count}")
+                    self.assertEqual(len(rendered), len(reader.pages))
+                    self.assertTrue(all(Path(item["image"]).is_file() for item in rendered))
                     document = pymupdf.open(output)
                     asset = json.loads(pdf.FOOTER.read_text())
                     x0, y0, x1, y1 = asset["target_bbox_pt"]

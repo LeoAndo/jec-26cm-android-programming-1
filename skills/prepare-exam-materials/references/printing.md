@@ -20,14 +20,15 @@ Python 3、ReportLab、pypdf、日本語TrueTypeフォントを使う。既定�
 python3 skills/prepare-exam-materials/scripts/build_exam_pdf.py \
   --exam "$EXAM_WORK/exam.json" \
   --questions "$EXAM_WORK/final.json" \
-  --output "$EXAM_WORK/final-v1.pdf"
+  --output "$EXAM_WORK/final-v1.pdf" \
+  --render-dir "$EXAM_WORK/final-v1-pages"
 ```
 
 入力形式は[出題手順](authoring.md)と共通だが`purpose`は`final`、問数は本番数、日本語だけでよい。PDFには正答・解説を出さない。本番正答は元JSONの問題番号・選択肢順で教員が参照する。生成器は本番の順序を変えない。順番を調整したら入力を改版し、正答表との対応を再確認する。
 
 問題を途中で分割せず、必要なページ数を求めてから全ページの枚数欄を埋める。1問が段に収まらない、コード行が長過ぎる、フッター欄に入らない、フォントに字がない場合は失敗する。字を小さくして無理に詰めず、問題文・コード・表記を見直す。
 
-PDFの横へ`.layout.json`も生成する。問題の位置とフッター領域・ページ数の記録であり、これも教員用の非公開領域に置く。生成器の成功を目視済みという意味にしない。
+PDFの横へ`.layout.json`も生成する。問題の位置とフッター領域・ページ数の記録であり、これも教員用の非公開領域に置く。任意の`--render-dir`には追加でPyMuPDFが必要で、全ページの画像と、PDFから読み取ったフッター罫線のbbox・枚数欄の検算結果を記録する。生成器の成功を目視済みという意味にしない。
 
 ## 全ページの確認
 

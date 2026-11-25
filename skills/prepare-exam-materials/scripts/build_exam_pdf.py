@@ -1,6 +1,7 @@
 """教員用の4択問題を、学校フッター付きJIS B4縦PDFへ組む。
 
-依存: reportlab, pypdf。入力と出力はリポジトリ外の非公開領域に置く。
+依存: reportlab, pypdf。--render-dir は pymupdf も使う。
+入力と出力はリポジトリ外の非公開領域に置く。
 問題・正答・配点の並びは入力どおり。PDFに正答・解説は載せない。
 """
 
@@ -268,6 +269,45 @@ def generate(exam, questions, output, font_path=DEFAULT_FONT, code_font=DEFAULT_
     return report
 
 
+def render_and_verify(output, report, render_dir):
+    """実PDFの罫線と枚数を検算し、目視用に全ページを画像へ描く。"""
+    import pymupdf
+
+    output = private_output(Path(output))
+    render_dir = private_output(Path(render_dir))
+    render_dir.mkdir(parents=True, exist_ok=True)
+    asset = json.loads(FOOTER.read_text())
+    x0, y0, x1, y1 = asset["target_bbox_pt"]
+    sw, sh = asset["size"]
+    sx, sy = (x1 - x0) / sw, (y1 - y0) / sh
+    observed = []
+    with pymupdf.open(output) as document:
+        for number, page in enumerate(document, 1):
+            drawings = [d["rect"] for d in page.get_drawings()
+                        if d["rect"].y0 >= page.rect.height - y1 - .01]
+            if not drawings:
+                raise ValueError(f"{number}ページの学校フッターを検出できません。")
+            bounds = pymupdf.Rect(drawings[0])
+            for rect in drawings[1:]:
+                bounds |= rect
+            actual = [bounds.x0, page.rect.height - bounds.y1, bounds.x1, page.rect.height - bounds.y0]
+            if any(abs(a - b) > .002 for a, b in zip(actual, asset["target_bbox_pt"])):
+                raise ValueError(f"{number}ページの学校フッターの実寸法が一致しません。")
+            for key, expected in (("page", number), ("pages", len(document))):
+                left, top, right, bottom = asset["fields"][key]
+                clip = pymupdf.Rect(x0 + left * sx, page.rect.height - y1 + top * sy,
+                                    x0 + right * sx, page.rect.height - y1 + bottom * sy)
+                if page.get_text(clip=clip).strip() != str(expected):
+                    raise ValueError(f"{number}ページの枚数欄が一致しません。")
+            image_path = private_output(render_dir / f"page-{number:03d}.png")
+            page.get_pixmap(matrix=pymupdf.Matrix(1.5, 1.5)).save(image_path)
+            observed.append({"page": number, "footer_bbox_pt": actual, "image": str(image_path)})
+    report["rendered_pages"] = observed
+    private_output(Path(output).with_suffix(".layout.json")).write_text(
+        json.dumps(report, ensure_ascii=False, indent=2) + "\n")
+    return observed
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--exam", required=True, type=Path)
@@ -275,11 +315,14 @@ def main():
     parser.add_argument("--output", required=True, type=Path)
     parser.add_argument("--font", type=Path, default=DEFAULT_FONT)
     parser.add_argument("--code-font", type=Path, default=DEFAULT_CODE_FONT)
+    parser.add_argument("--render-dir", type=Path, help="全ページの目視用画像を保存し、フッターの実寸法と枚数を検算する")
     args = parser.parse_args()
     try:
         exam = load_exam(args.exam)
         questions = load_questions(args.questions, exam, kind="final")
         report = generate(exam, questions, args.output, args.font, args.code_font)
+        if args.render_dir is not None:
+            render_and_verify(args.output, report, args.render_dir)
     except (ValueError, OSError) as error:
         parser.error(str(error))
     print(f"本番PDFを生成：{report['question_count']}問 / {report['pages']}ページ。全ページの目視は別途必要です。")
