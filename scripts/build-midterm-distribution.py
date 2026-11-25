@@ -1,4 +1,4 @@
-"""既存の問題・対訳を使い、7言語復習と日本語模擬試験を1つのHTMLにまとめる。"""
+"""既存の問題・対訳を使い、7言語の復習を1つのHTMLにまとめる。"""
 
 import argparse
 from collections import Counter
@@ -12,7 +12,7 @@ import sys
 ROOT = Path(__file__).resolve().parents[1]
 PAGE = "docs/practice/midterm.html"
 LANGUAGES = ("ja", "en", "zh-Hans", "zh-Hant-HK", "my", "mn", "fr")
-GROUPS = ("layout", "view", "click", "read", "write", "parse", "snackbar", "empty", "condition", "loop")
+GROUPS = ('layout', 'view', 'click', 'read', 'write', 'parse', 'snackbar', 'empty', 'condition', 'loop', 'create', 'import', 'enabled', 'orientation', 'width', 'margin', 'private', 'concat', 'increment', 'return')
 
 
 def module(name, filename):
@@ -66,9 +66,9 @@ def parse_bank(text):
             "explanation": inner(one(article, lambda el: el.attribute("class") == "explanation")),
             "source": inner(one(article, lambda el: el.attribute("class") == "source")),
         }
-    expected = Counter({(group, kind): 2 for group in GROUPS for kind in ("blank", "explain")})
+    expected = Counter({(group, kind): 1 for group in GROUPS for kind in ("blank", "explain")})
     if Counter((q["group"], q["kind"]) for q in result.values()) != expected:
-        raise ValueError("復習問題は10項目に空欄2問・説明2問、計40問が必要です。")
+        raise ValueError("復習問題は20事項に空欄1問・説明1問、計40問が必要です。")
     return result
 
 
@@ -123,18 +123,14 @@ EXISTING_UI = {
 }
 
 
-def validate_mock(mock, bank):
-    for field, count in (("question_ids", 2), ("paper_ids", 1)):
-        ids = mock[field]
-        if len(ids) != 20 * count or len(set(ids)) != len(ids) or any(key not in bank for key in ids):
-            raise ValueError(f"{field} に重複・未知の問題、または件数の誤りがあります。")
-        expected = Counter({(group, kind): count for group in GROUPS for kind in ("blank", "explain")})
-        if Counter((bank[key]["group"], bank[key]["kind"]) for key in ids) != expected:
-            raise ValueError(f"{field} の基本項目・形式の配分が正しくありません。")
-    if set(mock["question_ids"]) != set(bank):
-        raise ValueError("模擬試験と復習は同じ40問を使ってください。")
-    if not set(mock["paper_ids"]).issubset(mock["question_ids"]):
-        raise ValueError("印刷用の問題は模擬試験の問題から選んでください。")
+def validate_paper(config, bank):
+    ids = config["paper_ids"]
+    if len(ids) != 20 or len(set(ids)) != 20 or any(key not in bank for key in ids):
+        raise ValueError("paper_ids に重複・未知の問題、または件数の誤りがあります。")
+    if Counter(bank[key]["group"] for key in ids) != Counter({group: 1 for group in GROUPS}):
+        raise ValueError("印刷用は20の基本事項から各1問を選んでください。")
+    if Counter(bank[key]["kind"] for key in ids) != Counter(blank=10, explain=10):
+        raise ValueError("印刷用は空欄10問・説明10問にしてください。")
 
 
 def build_data(root=ROOT):
@@ -187,10 +183,9 @@ def build_data(root=ROOT):
                 originals = {localizer.normalize(part): part for part in code_parts(ja[key][field])}
                 restore = lambda value: re.sub(r"<code>(.*?)</code>", lambda match: '<code>' + originals[localizer.normalize(match[1])] + '</code>', value, flags=re.S)
                 q[field] = [restore(value) for value in q[field]] if isinstance(q[field], list) else restore(q[field])
-    mock = json.loads((root / "config/midterm-mock.json").read_text())
-    validate_mock(mock, ja)
-    data["mockIds"] = mock["question_ids"]
-    data["paperIds"] = mock["paper_ids"]
+    paper = json.loads((root / "config/midterm-mock.json").read_text())
+    validate_paper(paper, ja)
+    data["paperIds"] = paper["paper_ids"]
     return data
 
 

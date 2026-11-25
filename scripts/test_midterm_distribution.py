@@ -31,17 +31,17 @@ class MidtermDistributionTest(unittest.TestCase):
                         self.assertEqual(bank[key][field], japanese[key][field])
                     self.assertEqual(len(bank[key]["choices"]), 4)
 
-    def test_invalid_mock_selection_cannot_be_published(self):
-        valid = {"question_ids": self.data["mockIds"], "paper_ids": self.data["paperIds"]}
+    def test_invalid_paper_selection_cannot_be_published(self):
+        valid = {"paper_ids": self.data["paperIds"]}
         bank = self.data["banks"]["ja"]
         for mutation in ("duplicate", "unknown", "missing", "wrong_group", "wrong_kind"):
             value = copy.deepcopy(valid)
             if mutation == "duplicate":
-                value["question_ids"][0] = value["question_ids"][1]
+                value["paper_ids"][0] = value["paper_ids"][1]
             elif mutation == "unknown":
-                value["question_ids"][0] = "B99"
+                value["paper_ids"][0] = "B99"
             elif mutation == "missing":
-                value["question_ids"].pop()
+                value["paper_ids"].pop()
             else:
                 first = value["paper_ids"][0]
                 same_kind = mutation == "wrong_group"
@@ -51,7 +51,7 @@ class MidtermDistributionTest(unittest.TestCase):
                              and (question["group"] == bank[first]["group"]) != same_kind)
                 value["paper_ids"][0] = other
             with self.subTest(mutation=mutation), self.assertRaises(ValueError):
-                distribution.validate_mock(value, bank)
+                distribution.validate_paper(value, bank)
 
     def test_single_html_uses_same_japanese_bank_without_overrides(self):
         original = distribution.parse_bank((distribution.ROOT / distribution.PAGE).read_text())
@@ -75,6 +75,9 @@ class MidtermDistributionTest(unittest.TestCase):
         self.assertNotIn('src="http', rendered)
         self.assertNotIn('href="http', rendered)
         self.assertNotIn('<!-- MIDTERM_DATA -->', rendered)
+        self.assertNotIn('mockIds', data)
+        self.assertNotIn('start-mock', rendered)
+        self.assertFalse(any(key.startswith('mock') or key == 'languageLocked' for key in data['ui']['ja']))
 
 
 if __name__ == "__main__":
